@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 AnalysisRingItems.h
 
 header
-[[Go to the documentation of this file.|AnalysisRingItems_8h]]<a name="l00001"></a>    1 /*/.
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md]]<a name="l00001"></a>    1 /*/.
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,7 +67,7 @@ header
 
 <a name="l00025"></a>   25 #include <cstdint>
 
-<a name="l00026"></a>   26 namespace [[frib|namespacefrib]] {
+<a name="l00026"></a>   26 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00027"></a>   27     namespace analysis {
 
@@ -77,7 +77,7 @@ header
 
 <a name="l00030"></a>   30         static const unsigned MAX_IDENT(128);
 
-<a name="l00034"></a>[[34|structfrib_1_1analysis_1_1__RingItemHeader]]         typedef struct [[_RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]] {
+<a name="l00034"></a>[[34|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]]         typedef struct [[_RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]] {
 
 <a name="l00035"></a>   35             std::uint32_t s_size;
 
@@ -85,39 +85,39 @@ header
 
 <a name="l00037"></a>   37             std::uint32_t s_unused;    // must be sizeof(std::uint32_t).
 
-<a name="l00038"></a>   38         } [[RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]], *[[pRingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]];
+<a name="l00038"></a>   38         } [[RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]], *[[pRingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]];
 
 <a name="l00039"></a>   39
 
-<a name="l00044"></a>[[44|structfrib_1_1analysis_1_1__ParameterDefintion]]         typedef struct [[_ParameterDefintion|structfrib_1_1analysis_1_1__ParameterDefintion]] {
+<a name="l00044"></a>[[44|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]]         typedef struct [[_ParameterDefintion|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]] {
 
 <a name="l00045"></a>   45             std::uint32_t s_parameterNumber;
 
 <a name="l00046"></a>   46             char          s_parameterName[0];   // Actually a cz string.
 
-<a name="l00047"></a>   47         } [[ParameterDefinition|structfrib_1_1analysis_1_1__ParameterDefintion]], *[[pParameterDefinition|structfrib_1_1analysis_1_1__ParameterDefintion]];
+<a name="l00047"></a>   47         } [[ParameterDefinition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]], *[[pParameterDefinition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]];
 
 <a name="l00048"></a>   48
 
-<a name="l00053"></a>[[53|structfrib_1_1analysis_1_1__ParameterDefinitions]]         typedef struct  [[_ParameterDefinitions|structfrib_1_1analysis_1_1__ParameterDefinitions]] {
+<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefinitions.md]]         typedef struct  [[_ParameterDefinitions|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefinitions.md]] {
 
-<a name="l00054"></a>   54             [[RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]] s_header;
+<a name="l00054"></a>   54             [[RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]] s_header;
 
 <a name="l00055"></a>   55             std::uint32_t  s_numParameters;
 
-<a name="l00056"></a>   56             [[ParameterDefinition|structfrib_1_1analysis_1_1__ParameterDefintion]] s_parameters [0];
+<a name="l00056"></a>   56             [[ParameterDefinition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]] s_parameters [0];
 
-<a name="l00057"></a>   57         } [[ParameterDefinitions|structfrib_1_1analysis_1_1__ParameterDefinitions]], *[[pParameterDefinitions|structfrib_1_1analysis_1_1__ParameterDefinitions]];
+<a name="l00057"></a>   57         } [[ParameterDefinitions|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefinitions.md]], *[[pParameterDefinitions|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefinitions.md]];
 
 <a name="l00058"></a>   58
 
-<a name="l00062"></a>[[62|structfrib_1_1analysis_1_1__ParameterValue]]         typedef struct [[_ParameterValue|structfrib_1_1analysis_1_1__ParameterValue]] {
+<a name="l00062"></a>[[62|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterValue.md]]         typedef struct [[_ParameterValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterValue.md]] {
 
 <a name="l00063"></a>   63             std::uint32_t s_number;
 
 <a name="l00064"></a>   64             double        s_value;
 
-<a name="l00065"></a>   65         } [[ParameterValue|structfrib_1_1analysis_1_1__ParameterValue]], *[[pParameterValue|structfrib_1_1analysis_1_1__ParameterValue]];
+<a name="l00065"></a>   65         } [[ParameterValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterValue.md]], *[[pParameterValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterValue.md]];
 
 <a name="l00066"></a>   66
 
@@ -129,21 +129,21 @@ header
 
 <a name="l00070"></a>   70          */
 
-<a name="l00071"></a>[[71|structfrib_1_1analysis_1_1__ParameterItem]]         typedef struct [[_ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]] {
+<a name="l00071"></a>[[71|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]]         typedef struct [[_ParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]] {
 
-<a name="l00072"></a>   72             [[RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]] s_header;
+<a name="l00072"></a>   72             [[RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]] s_header;
 
 <a name="l00073"></a>   73             std::uint64_t  s_triggerCount;
 
 <a name="l00074"></a>   74             std::uint32_t  s_parameterCount;
 
-<a name="l00075"></a>   75             [[ParameterValue|structfrib_1_1analysis_1_1__ParameterValue]] s_parameters[0];
+<a name="l00075"></a>   75             [[ParameterValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterValue.md]] s_parameters[0];
 
-<a name="l00076"></a>   76         } [[ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]], *[[pParameterItem|structfrib_1_1analysis_1_1__ParameterItem]];
+<a name="l00076"></a>   76         } [[ParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]], *[[pParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]];
 
 <a name="l00077"></a>   77
 
-<a name="l00081"></a>[[81|structfrib_1_1analysis_1_1__Variable]]         typedef struct [[_Variable|structfrib_1_1analysis_1_1__Variable]] {
+<a name="l00081"></a>[[81|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__Variable.md]]         typedef struct [[_Variable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__Variable.md]] {
 
 <a name="l00082"></a>   82             double s_value;
 
@@ -151,21 +151,21 @@ header
 
 <a name="l00084"></a>   84             char   s_variableName[0];       // variable length
 
-<a name="l00085"></a>   85         } [[Variable|structfrib_1_1analysis_1_1__Variable]], *[[pVariable|structfrib_1_1analysis_1_1__Variable]];
+<a name="l00085"></a>   85         } [[Variable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__Variable.md]], *[[pVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__Variable.md]];
 
 <a name="l00086"></a>   86
 
-<a name="l00087"></a>[[87|structfrib_1_1analysis_1_1__VariableItem]]         typedef struct [[_VariableItem|structfrib_1_1analysis_1_1__VariableItem]] {
+<a name="l00087"></a>[[87|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__VariableItem.md]]         typedef struct [[_VariableItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__VariableItem.md]] {
 
-<a name="l00088"></a>   88             [[RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]] s_header;
+<a name="l00088"></a>   88             [[RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]] s_header;
 
 <a name="l00089"></a>   89             std::uint32_t  s_numVars;
 
-<a name="l00090"></a>   90             [[Variable|structfrib_1_1analysis_1_1__Variable]]       s_variables[0];
+<a name="l00090"></a>   90             [[Variable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__Variable.md]]       s_variables[0];
 
 <a name="l00091"></a>   91
 
-<a name="l00092"></a>   92         } [[VariableItem|structfrib_1_1analysis_1_1__VariableItem]], *[[pVariableItem|structfrib_1_1analysis_1_1__VariableItem]];
+<a name="l00092"></a>   92         } [[VariableItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__VariableItem.md]], *[[pVariableItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__VariableItem.md]];
 
 <a name="l00093"></a>   93
 
@@ -237,13 +237,13 @@ header
 
 <a name="l00127"></a>  127
 
-<a name="l00128"></a>[[128|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]]         typedef struct [[_FRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]] {
+<a name="l00128"></a>[[128|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data.md]]         typedef struct [[_FRIB_MPI_Request_Data|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data.md]] {
 
 <a name="l00129"></a>  129             int s_requestor;                  // Rank of requestor.
 
 <a name="l00130"></a>  130             int s_maxdata;                    // Max data I can get.
 
-<a name="l00131"></a>  131         } [[FRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]], *[[pFRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]];
+<a name="l00131"></a>  131         } [[FRIB_MPI_Request_Data|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data.md]], *[[pFRIB_MPI_Request_Data|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data.md]];
 
 <a name="l00132"></a>  132
 
@@ -253,7 +253,7 @@ header
 
 <a name="l00135"></a>  135
 
-<a name="l00136"></a>[[136|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]         typedef struct [[_FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]] {
+<a name="l00136"></a>[[136|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]]         typedef struct [[_FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]] {
 
 <a name="l00137"></a>  137             unsigned s_nBytes;                       // Size of subsequent msg.
 
@@ -263,7 +263,7 @@ header
 
 <a name="l00140"></a>  140
 
-<a name="l00141"></a>  141         } [[FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]], *[[pFRIB_MPI_MessageHeader|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]];
+<a name="l00141"></a>  141         } [[FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]], *[[pFRIB_MPI_MessageHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]];
 
 <a name="l00142"></a>  142
 
@@ -271,7 +271,7 @@ header
 
 <a name="l00144"></a>  144
 
-<a name="l00145"></a>[[145|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader]]         typedef struct [[_FRIB_MPI_Parameter_MessageHeader|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader]] {
+<a name="l00145"></a>[[145|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader.md]]         typedef struct [[_FRIB_MPI_Parameter_MessageHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader.md]] {
 
 <a name="l00146"></a>  146             std::uint64_t s_triggerNumber;
 
@@ -279,31 +279,31 @@ header
 
 <a name="l00148"></a>  148             bool          s_end;
 
-<a name="l00149"></a>  149         } [[FRIB_MPI_Parameter_MessageHeader|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader]], *[[pFRIB_MPI_Parameter_MessageHeader|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader]];
+<a name="l00149"></a>  149         } [[FRIB_MPI_Parameter_MessageHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader.md]], *[[pFRIB_MPI_Parameter_MessageHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader.md]];
 
 <a name="l00150"></a>  150
 
-<a name="l00151"></a>[[151|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]         typedef struct [[_FRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]] {
+<a name="l00151"></a>[[151|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]]         typedef struct [[_FRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]] {
 
 <a name="l00152"></a>  152             std::uint32_t s_number;
 
 <a name="l00153"></a>  153             double   s_value;
 
-<a name="l00154"></a>  154         } [[FRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]], *[[pFRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]];
+<a name="l00154"></a>  154         } [[FRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]], *[[pFRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]];
 
 <a name="l00155"></a>  155
 
-<a name="l00156"></a>[[156|structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef]]         typedef struct [[_FRIB_MPI_ParameterDef|structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef]] {
+<a name="l00156"></a>[[156|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef.md]]         typedef struct [[_FRIB_MPI_ParameterDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef.md]] {
 
 <a name="l00157"></a>  157             char     s_name[MAX_IDENT];
 
 <a name="l00158"></a>  158             long s_parameterId;
 
-<a name="l00159"></a>  159         } [[FRIB_MPI_ParameterDef|structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef]], *[[pFRIB_MPI_ParameterDef|structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef]];
+<a name="l00159"></a>  159         } [[FRIB_MPI_ParameterDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef.md]], *[[pFRIB_MPI_ParameterDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef.md]];
 
 <a name="l00160"></a>  160
 
-<a name="l00161"></a>[[161|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef]]         typedef struct [[_FRIB_MPI_VariableDef|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef]] {
+<a name="l00161"></a>[[161|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]]         typedef struct [[_FRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]] {
 
 <a name="l00162"></a>  162             char   s_name[MAX_IDENT];
 
@@ -311,7 +311,7 @@ header
 
 <a name="l00164"></a>  164             double s_value;
 
-<a name="l00165"></a>  165         } [[FRIB_MPI_VariableDef|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef]], *[[pFRIB_MPI_VariableDef|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef]];
+<a name="l00165"></a>  165         } [[FRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]], *[[pFRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]];
 
 <a name="l00166"></a>  166     }
 
@@ -323,72 +323,72 @@ header
 
 <a name="l00170"></a>  170 #endif
 
-[[frib::analysis::_FRIB_MPI_VariableDef|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef]]
+[[frib::analysis::_FRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]]
 
 **Definition:** AnalysisRingItems.h:161
 
 
-[[frib::analysis::_ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]]
+[[frib::analysis::_ParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]]
 
 **Definition:** AnalysisRingItems.h:71
 
 
-[[frib::analysis::_FRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]
+[[frib::analysis::_FRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]]
 
 **Definition:** AnalysisRingItems.h:151
 
 
-[[frib::analysis::_FRIB_MPI_ParameterDef|structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef]]
+[[frib::analysis::_FRIB_MPI_ParameterDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__ParameterDef.md]]
 
 **Definition:** AnalysisRingItems.h:156
 
 
-[[frib::analysis::_ParameterDefintion|structfrib_1_1analysis_1_1__ParameterDefintion]]
+[[frib::analysis::_ParameterDefintion|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]]
 
 **Definition:** AnalysisRingItems.h:44
 
 
-[[frib::analysis::_RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]]
+[[frib::analysis::_RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]]
 
 **Definition:** AnalysisRingItems.h:34
 
 
-[[frib::analysis::_VariableItem|structfrib_1_1analysis_1_1__VariableItem]]
+[[frib::analysis::_VariableItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__VariableItem.md]]
 
 **Definition:** AnalysisRingItems.h:87
 
 
-[[frib::analysis::_Variable|structfrib_1_1analysis_1_1__Variable]]
+[[frib::analysis::_Variable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__Variable.md]]
 
 **Definition:** AnalysisRingItems.h:81
 
 
-[[frib::analysis::_ParameterValue|structfrib_1_1analysis_1_1__ParameterValue]]
+[[frib::analysis::_ParameterValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterValue.md]]
 
 **Definition:** AnalysisRingItems.h:62
 
 
-[[frib::analysis::_FRIB_MPI_Parameter_MessageHeader|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader]]
+[[frib::analysis::_FRIB_MPI_Parameter_MessageHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__MessageHeader.md]]
 
 **Definition:** AnalysisRingItems.h:145
 
 
-[[frib::analysis::_FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]
+[[frib::analysis::_FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]]
 
 **Definition:** AnalysisRingItems.h:136
 
 
-[[frib::analysis::_ParameterDefinitions|structfrib_1_1analysis_1_1__ParameterDefinitions]]
+[[frib::analysis::_ParameterDefinitions|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefinitions.md]]
 
 **Definition:** AnalysisRingItems.h:53
 
 
-[[frib::analysis::_FRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]]
+[[frib::analysis::_FRIB_MPI_Request_Data|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data.md]]
 
 **Definition:** AnalysisRingItems.h:128
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 

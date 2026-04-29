@@ -21,12 +21,12 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CItemConfiguration|classCItemConfiguration]]
-- [[_isListParameter|structCItemConfiguration_1_1__isListParameter]]
+- [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
+- [[_isListParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__isListParameter.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structCItemConfiguration_1_1__isListParameter-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__isListParameter-members.md]]
 
 
 CItemConfiguration::_isListParameter Struct Reference
@@ -42,7 +42,7 @@ Collaboration diagram for CItemConfiguration::_isListParameter:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -57,7 +57,7 @@ Collaboration diagram for CItemConfiguration::_isListParameter:
 
 ---
 
-The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|CItemConfiguration_8h_source]]
+The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CItemConfiguration_8h_source.md]]
 
  contents 
  start footer part 

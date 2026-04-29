@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CItemConfiguration|classCItemConfiguration]]
-- [[limit|structCItemConfiguration_1_1limit]]
+- [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
+- [[limit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1limit.md]]
 
  top 
 CItemConfiguration::limit Member List
 
 header
-This is the complete list of members for [[CItemConfiguration::limit|structCItemConfiguration_1_1limit]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration::limit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1limit.md]], including all inherited members.
 
 
 |  |  |  |

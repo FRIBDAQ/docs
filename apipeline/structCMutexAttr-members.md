@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMutexAttr Member List
 
 header
-This is the complete list of members for [[CMutexAttr|structCMutexAttr]], including all inherited members.
+This is the complete list of members for [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]], including all inherited members.
 
 
 |  |  |  |

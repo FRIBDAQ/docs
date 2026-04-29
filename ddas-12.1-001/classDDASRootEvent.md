@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDDASRootEvent-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent-members.md]]
 
 
-DDASRootEvent Class Reference[[libddasrootformat.so|group__libddasrootformat]]
+DDASRootEvent Class Reference[[libddasrootformat.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__libddasrootformat.md]]
 
 header
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.  
- [[More...|classDDASRootEvent#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#details]]
 
 
 `#include <DDASRootEvent.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for DDASRootEvent:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for DDASRootEvent:
@@ -57,7 +57,7 @@ Collaboration diagram for DDASRootEvent:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -106,13 +106,13 @@ Collaboration diagram for DDASRootEvent:
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.
 
 
-Any data that was written to disk downstream of the NSCLDAQ event builder will have a "built" structure. What that means is that the body of the physics event item will contain data from more than one DDAS hit. The [[DDASRootEvent|classDDASRootEvent]] class represents this type of data. It provides access to the events that make it up through the [[DDASRootHit|classDDASRootHit]] objects it owns and then also provides some useful methods for getting data from the event as a whole.
+Any data that was written to disk downstream of the NSCLDAQ event builder will have a "built" structure. What that means is that the body of the physics event item will contain data from more than one DDAS hit. The [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] class represents this type of data. It provides access to the events that make it up through the [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] objects it owns and then also provides some useful methods for getting data from the event as a whole.
 
 
 The class is, as the name suggests, suitable for ROOT I/O. It inherits from ROOT's TObject and contains a `ClassDef()` macro which adds some reflection capability, allows for schema evolution and *in theory* offers some performance benefit.
 
 
-- **[[Todo:|todo#_todo000015]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000015]]**
   (ASC 4/2/24): Write tests for this class to validate its methods.
 
 ## Constructor & Destructor Documentation
@@ -288,7 +288,7 @@ Calculate and return the timestamp difference between the last and first element
 Assignment operator.
 
 
-Performs a deep copy of the data belonging to obj. This assignment operator is simple at the expense of some safety. The entirety of the data vector is deleted prior to assignment. If the initialization of the [[DDASRootHit|classDDASRootHit]] objects threw an exception or caused something else to happen that is bad, then it would be a big problem. The possibility does exist for this to happen. Coding up a safer version is just more complex, harder to understand, and will be slower.
+Performs a deep copy of the data belonging to obj. This assignment operator is simple at the expense of some safety. The entirety of the data vector is deleted prior to assignment. If the initialization of the [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] objects threw an exception or caused something else to happen that is bad, then it would be a big problem. The possibility does exist for this to happen. Coding up a safer version is just more complex, harder to understand, and will be slower.
 
 
 - Parameters
@@ -312,14 +312,14 @@ Performs a deep copy of the data belonging to obj. This assignment operator is s
 Clear data vector and reset the event.
 
 
-Deletes the [[DDASRootHit|classDDASRootHit]] data objects and resets the size of the extensible data array to zero.
+Deletes the [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] data objects and resets the size of the extensible data array to zero.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASRootEvent.h|DDASRootEvent_8h_source]]
-- [[DDASRootEvent.cpp|DDASRootEvent_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASRootEvent.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h_source.md]]
+- [[DDASRootEvent.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8cpp.md]]
 
  contents 
  start footer part 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_1ad96cec73befb7849da500ecefc5069.md]]
 
  top 
 ConfigurationParser.h
 
 header
-[[Go to the documentation of this file.|ConfigurationParser_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8h.md]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef CONFIGURATIONPARSER_H
@@ -52,7 +52,7 @@ header
 <a name="l00012"></a>   12
 
 
-<a name="l00014"></a>   14 namespace [[DAQ|namespaceDAQ]] {
+<a name="l00014"></a>   14 namespace [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] {
 
 
 <a name="l00016"></a>   16     namespace DDAS {
@@ -70,7 +70,7 @@ header
 <a name="l00020"></a>   20
 
 
-<a name="l00078"></a>[[78|classDAQ_1_1DDAS_1_1ConfigurationParser]]     class [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]]
+<a name="l00078"></a>[[78|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md]]     class [[ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md]]
 
 
 <a name="l00079"></a>   79     {
@@ -79,7 +79,7 @@ header
 <a name="l00080"></a>   80     public:
 
 
-<a name="l00091"></a>[[91|classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]]         typedef std::tuple<int, std::string, std::string> [[SlotSpecification|classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]];
+<a name="l00091"></a>[[91|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a8f7acc2482bd0280246daf7e0a4faa72]]         typedef std::tuple<int, std::string, std::string> [[SlotSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a8f7acc2482bd0280246daf7e0a4faa72]];
 
 
 <a name="l00092"></a>   92
@@ -88,10 +88,10 @@ header
 <a name="l00093"></a>   93     public:
 
 
-<a name="l00104"></a>  104         void [[parse|classDAQ_1_1DDAS_1_1ConfigurationParser#a080f00289c3b6c4c69210ae59ed6d628]](std::istream& input, [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]& config);
+<a name="l00104"></a>  104         void [[parse|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a080f00289c3b6c4c69210ae59ed6d628]](std::istream& input, [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]& config);
 
 
-<a name="l00114"></a>  114         [[SlotSpecification|classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]] [[parseSlotLine|classDAQ_1_1DDAS_1_1ConfigurationParser#ad74d0ddf27e33189cc39accf93a91864]](std::istream& input);
+<a name="l00114"></a>  114         [[SlotSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a8f7acc2482bd0280246daf7e0a4faa72]] [[parseSlotLine|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#ad74d0ddf27e33189cc39accf93a91864]](std::istream& input);
 
 
 <a name="l00115"></a>  115     };
@@ -112,14 +112,14 @@ header
 <a name="l00122"></a>  122 #endif // CONFIGURATIONPARSER_H
 
 
-[[DAQ::DDAS::ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]]
+[[DAQ::DDAS::ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md]]
 
 A class to parse the contents of the cfgPixie16.txt file.
 
 **Definition:** ConfigurationParser.h:79
 
 
-[[DAQ::DDAS::ConfigurationParser::parse|classDAQ_1_1DDAS_1_1ConfigurationParser#a080f00289c3b6c4c69210ae59ed6d628]]
+[[DAQ::DDAS::ConfigurationParser::parse|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a080f00289c3b6c4c69210ae59ed6d628]]
 
 void parse(std::istream &input, Configuration &config)
 
@@ -128,7 +128,7 @@ Parse the contents of the cfgPixie16.txt file.
 **Definition:** ConfigurationParser.cpp:52
 
 
-[[DAQ::DDAS::ConfigurationParser::SlotSpecification|classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]]
+[[DAQ::DDAS::ConfigurationParser::SlotSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a8f7acc2482bd0280246daf7e0a4faa72]]
 
 std::tuple< int, std::string, std::string > SlotSpecification
 
@@ -137,7 +137,7 @@ Data returned when parsing a slot.
 **Definition:** ConfigurationParser.h:91
 
 
-[[DAQ::DDAS::ConfigurationParser::parseSlotLine|classDAQ_1_1DDAS_1_1ConfigurationParser#ad74d0ddf27e33189cc39accf93a91864]]
+[[DAQ::DDAS::ConfigurationParser::parseSlotLine|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#ad74d0ddf27e33189cc39accf93a91864]]
 
 SlotSpecification parseSlotLine(std::istream &input)
 
@@ -146,14 +146,14 @@ Parses a slot line.
 **Definition:** ConfigurationParser.cpp:166
 
 
-[[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]]
+[[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[DAQ|namespaceDAQ]]
+[[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
 
  fragment
 

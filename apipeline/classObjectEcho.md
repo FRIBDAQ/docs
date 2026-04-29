@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classObjectEcho-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classObjectEcho-members.md]]
 
 
 ObjectEcho Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for ObjectEcho:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for ObjectEcho:
@@ -50,7 +50,7 @@ Collaboration diagram for ObjectEcho:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -132,7 +132,7 @@ Collaboration diagram for ObjectEcho:
 Called when the command is being unregistered. This is overridable, but not necessary. Our default action is to do nothing.
 
 
-Reimplemented from [[CTCLObjectProcessor|classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]].
+Reimplemented from [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a3bb43c6ecbdf32cb1187cb17de8d7923]].
 
 
 

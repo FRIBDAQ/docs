@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DDASReadout|namespaceDDASReadout]]
-- [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]
+- [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
+- [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDDASReadout_1_1ZeroCopyHit-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit-members.md]]
 
 
 DDASReadout::ZeroCopyHit Class Reference
 
 header
-This class extends [[RawChannel|structDDASReadout_1_1RawChannel]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.  
- [[More...|classDDASReadout_1_1ZeroCopyHit#details]]
+This class extends [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.  
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#details]]
 
 
 `#include <ZeroCopyHit.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for DDASReadout::ZeroCopyHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for DDASReadout::ZeroCopyHit:
@@ -62,7 +62,7 @@ Collaboration diagram for DDASReadout::ZeroCopyHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -167,10 +167,10 @@ Collaboration diagram for DDASReadout::ZeroCopyHit:
 <a name="details"></a>## Detailed Description
 
 
-This class extends [[RawChannel|structDDASReadout_1_1RawChannel]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.
+This class extends [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.
 
 
-This acts like a [[RawChannel|structDDASReadout_1_1RawChannel]], but on destruction, if it is the last reference to the buffer, returns it to the arena from whence it came.
+This acts like a [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]], but on destruction, if it is the last reference to the buffer, returns it to the arena from whence it came.
 
 
 Copy construction and assignment are supported with appropriate semantics to handle proper reference counting.
@@ -292,7 +292,7 @@ Assignment operator.
 
 
 - Returns
-  Reference to [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] object.
+  Reference to [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]] object.
 
 Dereference, copy in, reference.
 
@@ -327,8 +327,8 @@ If the hit is associated with a zero copy buffer, the reference is released firs
 
 ---
 
-The documentation for this class was generated from the following files:- [[ZeroCopyHit.h|ZeroCopyHit_8h_source]]
-- [[ZeroCopyHit.cpp|ZeroCopyHit_8cpp]]
+The documentation for this class was generated from the following files:- [[ZeroCopyHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ZeroCopyHit_8h_source.md]]
+- [[ZeroCopyHit.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ZeroCopyHit_8cpp.md]]
 
  contents 
  start footer part 

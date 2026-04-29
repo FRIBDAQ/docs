@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[DDASFitHit|classddastoys_1_1DDASFitHit]]
+- [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1DDASFitHit-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit-members.md]]
 
 
 ddastoys::DDASFitHit Class Reference
 
 header
 Encapsulates data for DDAS hits that may have fitted traces.  
- [[More...|classddastoys_1_1DDASFitHit#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#details]]
 
 
 `#include <DDASFitHit.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::DDASFitHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::DDASFitHit:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::DDASFitHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -186,7 +186,7 @@ Set the hit extension information for this hit.
 
 ---
 
-The documentation for this class was generated from the following file:- [[DDASFitHit.h|DDASFitHit_8h_source]]
+The documentation for this class was generated from the following file:- [[DDASFitHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASFitHit_8h_source.md]]
 
  contents 
  start footer part 

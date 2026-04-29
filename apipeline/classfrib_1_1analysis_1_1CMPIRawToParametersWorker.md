@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]
+- [[CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classfrib_1_1analysis_1_1CMPIRawToParametersWorker-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker-members.md]]
 
 
 frib::analysis::CMPIRawToParametersWorker Class Referenceabstract
@@ -46,7 +46,7 @@ Inheritance diagram for frib::analysis::CMPIRawToParametersWorker:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -145,8 +145,8 @@ operator() The entry point for the application object.
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIRawToParametersWorker.h|MPIRawToParametersWorker_8h_source]]
-- base/[[MPIRawToParametersWorker.cpp|MPIRawToParametersWorker_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIRawToParametersWorker.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8h_source.md]]
+- base/[[MPIRawToParametersWorker.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8cpp.md]]
 
  contents 
  start footer part 

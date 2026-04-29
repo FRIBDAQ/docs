@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
+- [[DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1DDASFitHitUnpacker-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker-members.md]]
 
 
-ddastoys::DDASFitHitUnpacker Class Reference[[libDDASFitHitUnpacker.so|group__unpacker]]
+ddastoys::DDASFitHitUnpacker Class Reference[[libDDASFitHitUnpacker.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__unpacker.md]]
 
 header
 Unpack raw hit data from DDAS event files.  
- [[More...|classddastoys_1_1DDASFitHitUnpacker#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md#details]]
 
 
 `#include <DDASFitHitUnpacker.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::DDASFitHitUnpacker:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::DDASFitHitUnpacker:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::DDASFitHitUnpacker:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -94,7 +94,7 @@ The DDASHitUnpacker is capable of unpacking raw hits from NSCLDAQ event data whi
 |  |  | DDASFitHit& | hit |
 |  | ) |  |  |
 
-Decode the current event and unpack it into a [[DDASFitHit|classddastoys_1_1DDASFitHit]].
+Decode the current event and unpack it into a [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]].
 
 
 - Parameters
@@ -124,14 +124,14 @@ The decode function:
 The first 32 bits of the body contain the number of 16-bit words in the hit data.
 
 - If this works out equivalent to bodySize - there's no extension.
-- If this is larger, to accommodate data from ringblockdealer or the editor fitting framework, we have the following cases: 1) The extra data is the size of [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]] - the extra data is an old-style hit extension e.g., from ringblockdealer. 2) The extra data is sizeof(uint32_t) - the extra data is a null extension from the editor fitting framework. 3) The extra data is sizeof(FitInfo) from [[fit_extensions.h|fit__extensions_8h]] - the extra data is a hit extension from the editor fitting framework. 4) Anything else - we don't know how to do with and fail with an error message.
+- If this is larger, to accommodate data from ringblockdealer or the editor fitting framework, we have the following cases: 1) The extra data is the size of [[HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]] - the extra data is an old-style hit extension e.g., from ringblockdealer. 2) The extra data is sizeof(uint32_t) - the extra data is a null extension from the editor fitting framework. 3) The extra data is sizeof(FitInfo) from [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]] - the extra data is a hit extension from the editor fitting framework. 4) Anything else - we don't know how to do with and fail with an error message.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASFitHitUnpacker.h|DDASFitHitUnpacker_8h_source]]
-- [[DDASFitHitUnpacker.cpp|DDASFitHitUnpacker_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASFitHitUnpacker.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASFitHitUnpacker_8h_source.md]]
+- [[DDASFitHitUnpacker.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASFitHitUnpacker_8cpp.md]]
 
  contents 
  start footer part 

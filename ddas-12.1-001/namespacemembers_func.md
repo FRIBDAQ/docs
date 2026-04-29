@@ -17,15 +17,15 @@ do not remove this div, it is closed by doxygen!
 
 
 - computeHardwareType()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc667cd1e6674cc33c99eb8103769454]]
 - configureHardwareType()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#a6777f823961ea38f084c1ee6276822d0]]
 - createHardwareType()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
 - getSpecification()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#a5da07c529204ba2a6c1b7e7073859ec6]]
 - resetToDefaults()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#a8c2b7192993080085fb2e14bd3d51850]]
 
  contents 
  start footer part 

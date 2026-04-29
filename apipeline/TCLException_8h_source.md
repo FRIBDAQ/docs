@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
 
  top 
 TCLException.h
 
 header
-[[Go to the documentation of this file.|TCLException_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLException_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -149,7 +149,7 @@ header
 
 <a name="l00064"></a>   64
 
-<a name="l00065"></a>[[65|classCTCLException]] class [[CTCLException|classCTCLException]]  : public [[CTCLInterpreterObject|classCTCLInterpreterObject]] ,public [[CException|classCException]]
+<a name="l00065"></a>[[65|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]] class [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]]  : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] ,public [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
 
 <a name="l00066"></a>   66 {
 
@@ -175,15 +175,15 @@ header
 
 <a name="l00077"></a>   77
 
-<a name="l00078"></a>   78   [[CTCLException|classCTCLException]] ([[CTCLInterpreter|classCTCLInterpreter]]& am_rInterpreter,
+<a name="l00078"></a>   78   [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]] ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& am_rInterpreter,
 
 <a name="l00079"></a>   79          TCLPLUS::Int_t am_nReason,
 
 <a name="l00080"></a>   80          const char* pString) :
 
-<a name="l00081"></a>   81     [[CTCLInterpreterObject|classCTCLInterpreterObject]](&am_rInterpreter),
+<a name="l00081"></a>   81     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](&am_rInterpreter),
 
-<a name="l00082"></a>   82     [[CException|classCException]](pString),
+<a name="l00082"></a>   82     [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]](pString),
 
 <a name="l00083"></a>   83     m_nReason(am_nReason)
 
@@ -193,15 +193,15 @@ header
 
 <a name="l00086"></a>   86   }
 
-<a name="l00087"></a>   87   [[CTCLException|classCTCLException]]([[CTCLInterpreter|classCTCLInterpreter]]& am_rInterpreter,
+<a name="l00087"></a>   87   [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& am_rInterpreter,
 
 <a name="l00088"></a>   88         TCLPLUS::Int_t am_nReason,
 
 <a name="l00089"></a>   89         const std::string& rString) :
 
-<a name="l00090"></a>   90     [[CTCLInterpreterObject|classCTCLInterpreterObject]](&am_rInterpreter),
+<a name="l00090"></a>   90     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](&am_rInterpreter),
 
-<a name="l00091"></a>   91     [[CException|classCException]](rString),
+<a name="l00091"></a>   91     [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]](rString),
 
 <a name="l00092"></a>   92     m_nReason(am_nReason)
 
@@ -211,7 +211,7 @@ header
 
 <a name="l00095"></a>   95   }
 
-<a name="l00096"></a>   96   virtual ~[[CTCLException|classCTCLException]] ( ) { }       //Destructor
+<a name="l00096"></a>   96   virtual ~[[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]] ( ) { }       //Destructor
 
 <a name="l00097"></a>   97
 
@@ -219,11 +219,11 @@ header
 
 <a name="l00099"></a>   99
 
-<a name="l00100"></a>  100   [[CTCLException|classCTCLException]] (const [[CTCLException|classCTCLException]]& aCTCLException )   :
+<a name="l00100"></a>  100   [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]] (const [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]]& aCTCLException )   :
 
-<a name="l00101"></a>  101     [[CTCLInterpreterObject|classCTCLInterpreterObject]] (aCTCLException),
+<a name="l00101"></a>  101     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] (aCTCLException),
 
-<a name="l00102"></a>  102     [[CException|classCException]] (aCTCLException)
+<a name="l00102"></a>  102     [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]] (aCTCLException)
 
 <a name="l00103"></a>  103   {
 
@@ -239,7 +239,7 @@ header
 
 <a name="l00109"></a>  109
 
-<a name="l00110"></a>  110   [[CTCLException|classCTCLException]] operator= (const [[CTCLException|classCTCLException]]& aCTCLException)
+<a name="l00110"></a>  110   [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]] operator= (const [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]]& aCTCLException)
 
 <a name="l00111"></a>  111   {
 
@@ -269,7 +269,7 @@ header
 
 <a name="l00124"></a>  124
 
-<a name="l00125"></a>  125   int operator== (const [[CTCLException|classCTCLException]]& aCTCLException)
+<a name="l00125"></a>  125   int operator== (const [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]]& aCTCLException)
 
 <a name="l00126"></a>  126   { return (
 
@@ -301,9 +301,9 @@ header
 
 <a name="l00140"></a>  140   }
 
-<a name="l00141"></a>  141   std::string [[getTraceback|classCTCLException#ae9596fec984c3731ff5938f3a1c2eca7]]();
+<a name="l00141"></a>  141   std::string [[getTraceback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md#ae9596fec984c3731ff5938f3a1c2eca7]]();
 
-<a name="l00142"></a>  142   static std::string [[getTraceback|classCTCLException#ae9596fec984c3731ff5938f3a1c2eca7]]([[CTCLInterpreter|classCTCLInterpreter]]& interp);
+<a name="l00142"></a>  142   static std::string [[getTraceback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md#ae9596fec984c3731ff5938f3a1c2eca7]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& interp);
 
 <a name="l00143"></a>  143   //
 
@@ -317,7 +317,7 @@ header
 
 <a name="l00148"></a>  148
 
-<a name="l00149"></a>  149   void setInterpreter ([[CTCLInterpreter|classCTCLInterpreter]]& am_rInterpreter)
+<a name="l00149"></a>  149   void setInterpreter ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& am_rInterpreter)
 
 <a name="l00150"></a>  150   {
 
@@ -347,7 +347,7 @@ header
 
 <a name="l00163"></a>  163   }
 
-<a name="l00164"></a>  164   void AddErrorInfo(const [[CTCLString|classCTCLString]]& rMessage) {
+<a name="l00164"></a>  164   void AddErrorInfo(const [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md]]& rMessage) {
 
 <a name="l00165"></a>  165     AddErrorInfo((const char*)(rMessage));
 
@@ -391,7 +391,7 @@ header
 
 <a name="l00185"></a>  185 private:
 
-<a name="l00186"></a>  186   [[CTCLResult|classCTCLResult]] GetResult ();
+<a name="l00186"></a>  186   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]] GetResult ();
 
 <a name="l00187"></a>  187
 
@@ -401,39 +401,39 @@ header
 
 <a name="l00190"></a>  190 #endif
 
-[[CTCLException|classCTCLException]]
+[[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]]
 
 **Definition:** TCLException.h:65
 
 
-[[CTCLException::getTraceback|classCTCLException#ae9596fec984c3731ff5938f3a1c2eca7]]
+[[CTCLException::getTraceback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md#ae9596fec984c3731ff5938f3a1c2eca7]]
 
 std::string getTraceback()
 
 **Definition:** TCLException.cpp:166
 
 
-[[CTCLString|classCTCLString]]
+[[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md]]
 
 **Definition:** TCLString.h:28
 
 
-[[CTCLInterpreterObject|classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|classCTCLInterpreter]]
+[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLResult|classCTCLResult]]
+[[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]
 
 **Definition:** TCLResult.h:55
 
 
-[[CException|classCException]]
+[[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
 
 **Definition:** Exception.h:41
 

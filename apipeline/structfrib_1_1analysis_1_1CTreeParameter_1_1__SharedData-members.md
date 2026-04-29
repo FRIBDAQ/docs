@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]
-- [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]
+- [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]
+- [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]
 
  top 
 frib::analysis::CTreeParameter::_SharedData Member List
 
 header
-This is the complete list of members for [[frib::analysis::CTreeParameter::_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CTreeParameter::_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]], including all inherited members.
 
 
 |  |  |  |

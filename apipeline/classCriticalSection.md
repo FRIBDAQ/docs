@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCriticalSection-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection-members.md]]
 
 
 CriticalSection Class Reference
@@ -40,12 +40,12 @@ header
 <a name="details"></a>## Detailed Description
 
 
-Safe lock/unlock of mutexes Declaring a [[CriticalSection|classCriticalSection]] object in a block will lock the mutex and gaurantee the mutex is unlocked when the block is exited. The scope of the block is the period the mutex is held.
+Safe lock/unlock of mutexes Declaring a [[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]] object in a block will lock the mutex and gaurantee the mutex is unlocked when the block is exited. The scope of the block is the period the mutex is held.
 
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[CTCLMutex.h|CTCLMutex_8h_source]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[CTCLMutex.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLMutex_8h_source.md]]
 
  contents 
  start footer part 

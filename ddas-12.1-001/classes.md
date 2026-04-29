@@ -24,83 +24,83 @@ header
 
 - <a name="letter_B"></a>B
 
-  [[BufferArena|classDDASReadout_1_1BufferArena]] ([[DDASReadout|namespaceDDASReadout]])
+  [[BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]] ([[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]])
 
 
 - <a name="letter_C"></a>C
 
-  [[CBootCommand|classCBootCommand]]
-  [[CDataGenerator|classCDataGenerator]]
-  [[CDDASStatisticsCommand|classCDDASStatisticsCommand]]
-  [[CMyBusy|classCMyBusy]]
-  [[CMyEndCommand|classCMyEndCommand]]
-  [[CMyEventSegment|classCMyEventSegment]]
-  [[CMyScaler|classCMyScaler]]
-  [[CMyTrigger|classCMyTrigger]]
-  [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
-  [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
-  [[CPixieDSPUtilities|classCPixieDSPUtilities]]
-  [[CPixieRunUtilities|classCPixieRunUtilities]]
-  [[CPixieSystemUtilities|classCPixieSystemUtilities]]
-  [[CPixieTraceUtilities|classCPixieTraceUtilities]]
-  [[CSyncCommand|classCSyncCommand]]
+  [[CBootCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md]]
+  [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md]]
+  [[CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md]]
+  [[CMyBusy|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md]]
+  [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]
+  [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]
+  [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
+  [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]]
+  [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
+  [[ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
+  [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]
+  [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md]]
+  [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]
+  [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]
+  [[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md]]
 
 
 - <a name="letter_D"></a>D
 
-  [[DataSource|classDataSource]]
-  [[DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
-  [[DDASReadoutMain|classDDASReadoutMain]]
-  [[DDASRootEvent|classDDASRootEvent]]
-  [[DDASRootHit|classDDASRootHit]]
-  [[DDASSorter|classDDASSorter]]
+  [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]]
+  [[DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
+  [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md]]
+  [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]
+  [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]]
+  [[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md]]
 
 
 - <a name="letter_E"></a>E
 
-  [[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent]]
+  [[CMyEndCommand::EndEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md]]
 
 
 - <a name="letter_F"></a>F
 
-  [[FdDataSource|classFdDataSource]]
-  [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
-  [[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
+  [[FdDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md]]
+  [[FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
+  [[FirmwareVersionFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
 
 
 - <a name="letter_H"></a>H
 
-  [[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]] ([[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]])
-  [[HitManager|classDDASReadout_1_1HitManager]] ([[DDASReadout|namespaceDDASReadout]])
+  [[HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md]] ([[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]])
+  [[HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]] ([[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]])
 
 
 - <a name="letter_M"></a>M
 
-  [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
+  [[ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
 
 
 - <a name="letter_R"></a>R
 
-  [[RawChannel|structDDASReadout_1_1RawChannel]] ([[DDASReadout|namespaceDDASReadout]])
-  [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]] ([[DDASReadout|namespaceDDASReadout]])
-  [[RootFileDataSink|classRootFileDataSink]]
+  [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]] ([[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]])
+  [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]] ([[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]])
+  [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md]]
 
 
 - <a name="letter_S"></a>S
 
-  [[StreamDataSource|classStreamDataSource]]
-  [[SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
+  [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md]]
+  [[SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md]] ([[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]])
 
 
 - <a name="letter_Z"></a>Z
 
-  [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] ([[DDASReadout|namespaceDDASReadout]])
+  [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]] ([[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]])
 
 
 - <a name="letter__"></a>_
 
-  [[CMyScaler::_Counters|structCMyScaler_1_1__Counters]]
-  [[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics]]
+  [[CMyScaler::_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]]
+  [[CMyScaler::_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]]
 
  contents 
  start footer part 

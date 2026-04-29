@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classRootFileDataSink-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink-members.md]]
 
 
 RootFileDataSink Class Reference
 
 header
 This class knows how to write ROOT files from the ring items created by the fitting program.  
- [[More...|classRootFileDataSink#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#details]]
 
 
 `#include <RootFileDataSink.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for RootFileDataSink:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for RootFileDataSink:
@@ -57,7 +57,7 @@ Collaboration diagram for RootFileDataSink:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -187,8 +187,8 @@ The ring item is assumed to consist of a set of fragments. Each fragment contain
 
 ---
 
-The documentation for this class was generated from the following files:- [[RootFileDataSink.h|RootFileDataSink_8h_source]]
-- [[RootFileDataSink.cpp|RootFileDataSink_8cpp]]
+The documentation for this class was generated from the following files:- [[RootFileDataSink.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootFileDataSink_8h_source.md]]
+- [[RootFileDataSink.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootFileDataSink_8cpp.md]]
 
  contents 
  start footer part 

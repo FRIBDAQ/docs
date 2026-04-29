@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLThread Member List
 
 header
-This is the complete list of members for [[CTCLThread|classCTCLThread]], including all inherited members.
+This is the complete list of members for [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]], including all inherited members.
 
 
 |  |  |  |

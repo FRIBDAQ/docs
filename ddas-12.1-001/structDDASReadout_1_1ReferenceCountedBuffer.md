@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DDASReadout|namespaceDDASReadout]]
-- [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
+- [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
+- [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structDDASReadout_1_1ReferenceCountedBuffer-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer-members.md]]
 
 
 DDASReadout::ReferenceCountedBuffer Struct Reference
 
 header
 A reference-counted buffer with dynamic storage.  
- [[More...|structDDASReadout_1_1ReferenceCountedBuffer#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#details]]
 
 
 `#include <ReferenceCountedBuffer.h>`
@@ -292,8 +292,8 @@ Number of bytes of data.
 
 ---
 
-The documentation for this struct was generated from the following files:- [[ReferenceCountedBuffer.h|ReferenceCountedBuffer_8h_source]]
-- [[ReferenceCountedBuffer.cpp|ReferenceCountedBuffer_8cpp]]
+The documentation for this struct was generated from the following files:- [[ReferenceCountedBuffer.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ReferenceCountedBuffer_8h_source.md]]
+- [[ReferenceCountedBuffer.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ReferenceCountedBuffer_8cpp.md]]
 
  contents 
  start footer part 

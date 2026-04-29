@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 MPIParameterDealer.h
@@ -67,13 +67,13 @@ header
 
 <a name="l00023"></a>   23 #include <stddef.h>
 
-<a name="l00024"></a>   24 #include <[[DataReader.h|DataReader_8h]]>
+<a name="l00024"></a>   24 #include <[[DataReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataReader_8h.md]]>
 
 <a name="l00025"></a>   25 #include <mpi.h>
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 namespace [[frib|namespacefrib]] {
+<a name="l00027"></a>   27 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00028"></a>   28     namespace analysis {
 
@@ -83,7 +83,7 @@ header
 
 <a name="l00031"></a>   31
 
-<a name="l00067"></a>[[67|classfrib_1_1analysis_1_1CMPIParameterDealer]]         class [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]] {
+<a name="l00067"></a>[[67|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]         class [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]] {
 
 <a name="l00068"></a>   68         private:
 
@@ -91,9 +91,9 @@ header
 
 <a name="l00070"></a>   70             char** m_argv;
 
-<a name="l00071"></a>   71             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
+<a name="l00071"></a>   71             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* m_pApp;
 
-<a name="l00072"></a>   72             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]* m_pReader;
+<a name="l00072"></a>   72             [[CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]* m_pReader;
 
 <a name="l00073"></a>   73             unsigned     m_nBlockSize;
 
@@ -103,23 +103,23 @@ header
 
 <a name="l00076"></a>   76         public:
 
-<a name="l00077"></a>   77             [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]](int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp);
+<a name="l00077"></a>   77             [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#aca747949ab88386475e1d12d03a45452]](int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp);
 
-<a name="l00078"></a>   78             virtual [[~CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]();
+<a name="l00078"></a>   78             virtual [[~CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#af62ea3bf71902d300876ff9e123d3613]]();
 
 <a name="l00079"></a>   79         private:
 
-<a name="l00080"></a>   80             [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]](const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00080"></a>   80             [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#aca747949ab88386475e1d12d03a45452]](const [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]& rhs);
 
-<a name="l00081"></a>   81             [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& operator=(const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00081"></a>   81             [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]& operator=(const [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]& rhs);
 
-<a name="l00082"></a>   82             int operator==(const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00082"></a>   82             int operator==(const [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]& rhs);
 
-<a name="l00083"></a>   83             int operator!=(const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00083"></a>   83             int operator!=(const [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]& rhs);
 
 <a name="l00084"></a>   84         public:
 
-<a name="l00085"></a>   85             void [[operator()|classfrib_1_1analysis_1_1CMPIParameterDealer#a394eb31b747676ba17c78cc18be5ee47]]();
+<a name="l00085"></a>   85             void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#a394eb31b747676ba17c78cc18be5ee47]]();
 
 <a name="l00086"></a>   86         private:
 
@@ -165,46 +165,46 @@ header
 
 <a name="l00107"></a>  107 #endif
 
-[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader]]
+[[frib::analysis::CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]
 
 **Definition:** DataReader.h:60
 
 
-[[DataReader.h|DataReader_8h]]
+[[DataReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataReader_8h.md]]
 
 : Read data from a file and present it to the caller.
 
 
-[[frib::analysis::CMPIParameterDealer::operator()|classfrib_1_1analysis_1_1CMPIParameterDealer#a394eb31b747676ba17c78cc18be5ee47]]
+[[frib::analysis::CMPIParameterDealer::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#a394eb31b747676ba17c78cc18be5ee47]]
 
 void operator()()
 
 **Definition:** MPIParameterDealer.cpp:61
 
 
-[[frib::analysis::CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]
+[[frib::analysis::CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]
 
 **Definition:** MPIParameterDealer.h:67
 
 
-[[frib::analysis::CMPIParameterDealer::~CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]
+[[frib::analysis::CMPIParameterDealer::~CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#af62ea3bf71902d300876ff9e123d3613]]
 
 virtual ~CMPIParameterDealer()
 
 **Definition:** MPIParameterDealer.cpp:52
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[frib::analysis::CMPIParameterDealer::CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]]
+[[frib::analysis::CMPIParameterDealer::CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md#aca747949ab88386475e1d12d03a45452]]
 
 CMPIParameterDealer(int argc, char **argv, AbstractApplication *pApp)
 

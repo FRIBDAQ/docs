@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classQRootCanvas-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas-members.md]]
 
 
 QRootCanvas Class Reference
 
 header
 A ROOT canvas embedded in a Qt application.  
- [[More...|classQRootCanvas#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#details]]
 
 
 Inheritance diagram for QRootCanvas:
@@ -42,7 +42,7 @@ Inheritance diagram for QRootCanvas:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for QRootCanvas:
@@ -55,7 +55,7 @@ Collaboration diagram for QRootCanvas:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -128,7 +128,7 @@ Constructor.
   | parent | Pointer to QWidget parent object (optional, default=nullptr). |
 
 
-Construct a QWidget and register it with the ROOT graphics backend. The canvas does not own the [[FitManager|classFitManager]] object.
+Construct a QWidget and register it with the ROOT graphics backend. The canvas does not own the [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]] object.
 
 
 ## Member Function Documentation
@@ -224,8 +224,8 @@ Handle Qt mouse release events on the ROOT canvas.
 
 ---
 
-The documentation for this class was generated from the following files:- [[QRootCanvas.h|QRootCanvas_8h_source]]
-- [[QRootCanvas.cpp|QRootCanvas_8cpp]]
+The documentation for this class was generated from the following files:- [[QRootCanvas.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QRootCanvas_8h_source.md]]
+- [[QRootCanvas.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QRootCanvas_8cpp.md]]
 
  contents 
  start footer part 

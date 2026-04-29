@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classwritertest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classwritertest-members.md]]
 
 
 writertest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for writertest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for writertest:
@@ -47,7 +47,7 @@ Collaboration diagram for writertest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -120,7 +120,7 @@ Params:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[writertests.cpp|writertests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[writertests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/writertests_8cpp.md]]
 
  contents 
  start footer part 

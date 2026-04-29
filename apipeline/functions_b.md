@@ -22,25 +22,25 @@ Here is a list of all documented class members with links to the class documenta
 ### - b -
 
 - begin()
-  : [[CTCLObjectPackage|classCTCLObjectPackage#addb1eedc5dfd1fbbb7787fe6a35f6d02]]
-  , [[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent#ae0768bfb99b4479cb4c1b8a114533ab2]]
-  , [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray#a3ba49a8800bf1e156ef0a5a36aff9539]]
-  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#abc21656832523f428b8a46e1db4b6e9b]]
+  : [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md#addb1eedc5dfd1fbbb7787fe6a35f6d02]]
+  , [[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#ae0768bfb99b4479cb4c1b8a114533ab2]]
+  , [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#a3ba49a8800bf1e156ef0a5a36aff9539]]
+  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#abc21656832523f428b8a46e1db4b6e9b]]
 - Bind()
-  : [[CTCLProcessor|classCTCLProcessor#ab1e7e52710530a700100d82fe5b64467]]
-  , [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a2b8a2e124ecd4f427fdae5d9fe0a13c8]]
-  , [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray#ab017d6b037a0cec1f72b5d4511d785ca]]
-  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#a70fa2119e649c24a226d8e54f7b8c1db]]
+  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#ab1e7e52710530a700100d82fe5b64467]]
+  , [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a2b8a2e124ecd4f427fdae5d9fe0a13c8]]
+  , [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#ab017d6b037a0cec1f72b5d4511d785ca]]
+  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a70fa2119e649c24a226d8e54f7b8c1db]]
 - bindAll()
-  : [[CTCLObjectProcessor|classCTCLObjectProcessor#aaa7c28e0865652adcc3e8e87a7f60237]]
+  : [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aaa7c28e0865652adcc3e8e87a7f60237]]
 - BindParameters()
-  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#afba816dffc60f43184a477418b0f5767]]
+  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#afba816dffc60f43184a477418b0f5767]]
 - blockMode()
-  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a09fc61e364669f3ec028741903c27e20]]
+  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a09fc61e364669f3ec028741903c27e20]]
 - broadcast()
-  : [[CConditionVariable|classCConditionVariable#aa04bb9f0255f2993d839e9be4cd8a12e]]
+  : [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md#aa04bb9f0255f2993d839e9be4cd8a12e]]
 - BuildArray()
-  : [[frib::analysis::CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#ada3962c3e73a08a314d95d4e69a31808]]
+  : [[frib::analysis::CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ada3962c3e73a08a314d95d4e69a31808]]
 
  contents 
  start footer part 

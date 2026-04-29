@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 ProcessToRootSink.h
 
 header
-[[Go to the documentation of this file.|ProcessToRootSink_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/ProcessToRootSink_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -84,7 +84,7 @@ header
 <a name="l00025"></a>   25
 
 
-<a name="l00026"></a>   26 #include <[[CRingItemProcessor.h|CRingItemProcessor_8h]]>
+<a name="l00026"></a>   26 #include <[[CRingItemProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CRingItemProcessor_8h.md]]>
 
 
 <a name="l00027"></a>   27
@@ -96,7 +96,7 @@ header
 <a name="l00029"></a>   29
 
 
-<a name="l00030"></a>   30 class [[RootFileDataSink|classRootFileDataSink]];
+<a name="l00030"></a>   30 class [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md]];
 
 
 <a name="l00031"></a>   31 class CPhysicsEventItem;
@@ -105,7 +105,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00040"></a>[[40|classProcessToRootSink]] class [[ProcessToRootSink|classProcessToRootSink]] : public [[CRingItemProcessor|classCRingItemProcessor]]
+<a name="l00040"></a>[[40|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md]] class [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md]] : public [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]
 
 
 <a name="l00041"></a>   41 {
@@ -114,10 +114,10 @@ header
 <a name="l00042"></a>   42 public:
 
 
-<a name="l00044"></a>   44     [[ProcessToRootSink|classProcessToRootSink#a269c5c0a814c978586f1e07942e61b85]](std::string sink);
+<a name="l00044"></a>   44     [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#a269c5c0a814c978586f1e07942e61b85]](std::string sink);
 
 
-<a name="l00046"></a>   46     virtual [[~ProcessToRootSink|classProcessToRootSink#aba24da509dff1f2cce59b9ee8d4b868a]]();
+<a name="l00046"></a>   46     virtual [[~ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#aba24da509dff1f2cce59b9ee8d4b868a]]();
 
 
 <a name="l00047"></a>   47
@@ -132,7 +132,7 @@ header
 <a name="l00050"></a>   50 public:
 
 
-<a name="l00055"></a>   55     virtual void [[processEvent|classProcessToRootSink#acab9912362d68ca3e291e13e91828b21]](CPhysicsEventItem& item);
+<a name="l00055"></a>   55     virtual void [[processEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#acab9912362d68ca3e291e13e91828b21]](CPhysicsEventItem& item);
 
 
 <a name="l00056"></a>   56
@@ -147,7 +147,7 @@ header
 <a name="l00059"></a>   59 private:
 
 
-<a name="l00060"></a>   60     [[RootFileDataSink|classRootFileDataSink]]* m_pSink;
+<a name="l00060"></a>   60     [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md]]* m_pSink;
 
 
 <a name="l00061"></a>   61 };
@@ -159,26 +159,26 @@ header
 <a name="l00063"></a>   63 #endif
 
 
-[[CRingItemProcessor.h|CRingItemProcessor_8h]]
+[[CRingItemProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CRingItemProcessor_8h.md]]
 
 Defines an abstract base class for ring item processing.
 
 
-[[CRingItemProcessor|classCRingItemProcessor]]
+[[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]
 
 Abstract base class to support type-independent ring-item processing.
 
 **Definition:** CRingItemProcessor.h:48
 
 
-[[ProcessToRootSink|classProcessToRootSink]]
+[[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md]]
 
 A ring item processeor concrete class that overrides the CRingItemProcessor base class method to put ...
 
 **Definition:** ProcessToRootSink.h:41
 
 
-[[ProcessToRootSink::ProcessToRootSink|classProcessToRootSink#a269c5c0a814c978586f1e07942e61b85]]
+[[ProcessToRootSink::ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#a269c5c0a814c978586f1e07942e61b85]]
 
 ProcessToRootSink(std::string sink)
 
@@ -187,7 +187,7 @@ Constructor.
 **Definition:** ProcessToRootSink.cpp:33
 
 
-[[ProcessToRootSink::~ProcessToRootSink|classProcessToRootSink#aba24da509dff1f2cce59b9ee8d4b868a]]
+[[ProcessToRootSink::~ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#aba24da509dff1f2cce59b9ee8d4b868a]]
 
 virtual ~ProcessToRootSink()
 
@@ -196,7 +196,7 @@ Destructor.
 **Definition:** ProcessToRootSink.cpp:40
 
 
-[[ProcessToRootSink::processEvent|classProcessToRootSink#acab9912362d68ca3e291e13e91828b21]]
+[[ProcessToRootSink::processEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#acab9912362d68ca3e291e13e91828b21]]
 
 virtual void processEvent(CPhysicsEventItem &item)
 
@@ -205,7 +205,7 @@ Process physics events.
 **Definition:** ProcessToRootSink.cpp:55
 
 
-[[RootFileDataSink|classRootFileDataSink]]
+[[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md]]
 
 This class knows how to write ROOT files from the ring items created by the fitting program.
 

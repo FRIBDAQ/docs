@@ -6,161 +6,161 @@
 ---
 
 - **Table of Contents**
-- 1. [[Introduction|c13]]
-- I. [[SpecTclAPI class|p31]]
-  - 2. [[SpecTcl|c33]]
-  - [[SpecTcl|r37]] -- API Singleton class.
-- II. [[Tree Parameter, Tree Variable API|p2375]]
-  - 3. [[Tree parameter, tree variable API|c2377]]
-  - [[CTreeParameter|r2386]] -- Parameter object 'independent' of rEvent
-  - [[CTreeParameterArray|r3194]] -- Arrays of tree parameters
-  - [[CTreeVariable|r3671]] -- Access to Tcl variables with metadata
-  - [[CTreeVariableProperites|r4061]] -- Shared properties of CTreeVariable
-  - [[CTreeVariableArray|r4238]] -- Container for an array of tree variables.
-- III. [[Tcl++ classes|p4402]]
-  - 4. [[Tcl++ classes|c4404]]
-  - [[CTCLInterpreter|r4430]] -- 
+- 1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/c13.md]]
+- I. [[SpecTclAPI class|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p31.md]]
+  - 2. [[SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/c33.md]]
+  - [[SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r37.md]] -- API Singleton class.
+- II. [[Tree Parameter, Tree Variable API|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p2375.md]]
+  - 3. [[Tree parameter, tree variable API|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/c2377.md]]
+  - [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r2386.md]] -- Parameter object 'independent' of rEvent
+  - [[CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r3194.md]] -- Arrays of tree parameters
+  - [[CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r3671.md]] -- Access to Tcl variables with metadata
+  - [[CTreeVariableProperites|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4061.md]] -- Shared properties of CTreeVariable
+  - [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4238.md]] -- Container for an array of tree variables.
+- III. [[Tcl++ classes|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p4402.md]]
+  - 4. [[Tcl++ classes|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/c4404.md]]
+  - [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4430.md]] -- 
               Encapsulate a Tcl interpreter.
-  - [[CTCLInterpreterObject|r4666]] -- 
+  - [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4666.md]] -- 
               Base class for objects that are associated with a Tcl Interpreter.
-  - [[CTCLResult|r4745]] -- 
+  - [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4745.md]] -- 
               Provide an object oriented interace to the Tcl interpreter result.
-  - [[CTCLException|r4856]] -- 
+  - [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4856.md]] -- 
               Class for reporting exceptional conditions in Tcl applications
               via the C++ try/catch mechanism.
-  - [[CTCLObjectProcessor|r4999]] -- 
+  - [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r4999.md]] -- 
               Abstract base class to encapsulate the Tcl object command interface exposed by
               `Tcl_CreateObjCommand`.
-  - [[CTCLProcessor|r5114]] -- 
+  - [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5114.md]] -- 
               Provide `argc`, `argv`
               extension commands to Tcl.
-  - [[CTCLCompatibiltyProcessor|r5304]] -- 
+  - [[CTCLCompatibiltyProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5304.md]] -- 
               Adaptor between `CTCLOjbectProcessor`
               and `CTCLProcessor`.
-  - [[CTCLCommandPackage|r5371]] -- 
+  - [[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5371.md]] -- 
               Group several related Tcl command extensions and common services they
               may require together.
-  - [[CTCLPackagedCommand|r5476]] -- 
+  - [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5476.md]] -- 
               Base class for a command that lives in a `CTCLCommandPackage`
-  - [[CTCLVariable|r5537]] -- 
+  - [[CTCLVariable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5537.md]] -- 
               Encapsulate Tcl interpreter variables.
-  - [[CTCLApplication 3|r5733]] -- 
+  - [[CTCLApplication 3|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5733.md]] -- 
               Base class for TCL/Tk applications.
-  - [[CTCLHashTable|r5780]] -- 
+  - [[CTCLHashTable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5780.md]] -- 
               Object oriented interface to Tcl's hash table functions.
-  - [[CTCLHashTableItem|r5911]] -- 
+  - [[CTCLHashTableItem|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5911.md]] -- 
               Encapsulation of an entry in a Tcl Hash table as encapsulated
               in `CTCLHashTable`
-  - [[CTCLHashTableIterator|r5979]] -- 
+  - [[CTCLHashTableIterator|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r5979.md]] -- 
               Iterator for visiting all elements of a `CTCLHashTable`
-  - [[CTCLString|r6075]] -- 
+  - [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6075.md]] -- 
               Provide a wrapper for the Tcl_DString data type
               and its API
-  - [[CTCLList|r6292]] -- 
+  - [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6292.md]] -- 
               Provide access to Tcl List parsing.
-  - [[CTCLChannel|r6401]] -- 
+  - [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6401.md]] -- 
               Provide a C++ abstraction wrapper for Tcl Channels.
-  - [[CTCLFileHandler|r6571]] -- 
+  - [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6571.md]] -- 
               Base class for building object oriented Tcl File event handlers.
-  - [[CTCLIdleProcess|r6657]] -- 
+  - [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6657.md]] -- 
               Allows the establishment of an executable object that
               can be scheduled to be invoked when the Tcl/Tk intperpreter
               has no events that require processing.
-  - [[CTCLTimer|r6718]] -- 
+  - [[CTCLTimer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6718.md]] -- 
               Abstract base class for C++ objects attached to timer events.
-  - [[CTCLLiveEventLoop|r6788]] -- Run Tcl with event loop.
-  - [[CTCLChannelCommander|r6892]] -- Accept commands on a Tcl channel from the event loop.
-  - [[CTCLStdioCommander|r7104]] -- Event driven command input on stdin/stdout
-  - [[CTCLServer|r7168]] -- Listener for a Tcl server.
-  - [[CTCLTcpServerInstance|r7296]] -- Channel commander that is a server instance for `CTCLServer`
-  - [[CItemConfiguration|r7369]] -- Hold a configuration
-  - [[CConfigurableObject|r8092]] -- Base class for objects tht have a configuration.
-  - [[CTCLObjectPackage|r8312]] -- Provide common functionality for a set of
+  - [[CTCLLiveEventLoop|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6788.md]] -- Run Tcl with event loop.
+  - [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6892.md]] -- Accept commands on a Tcl channel from the event loop.
+  - [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r7104.md]] -- Event driven command input on stdin/stdout
+  - [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r7168.md]] -- Listener for a Tcl server.
+  - [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r7296.md]] -- Channel commander that is a server instance for `CTCLServer`
+  - [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r7369.md]] -- Hold a configuration
+  - [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8092.md]] -- Base class for objects tht have a configuration.
+  - [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8312.md]] -- Provide common functionality for a set of
                   related commands.
-  - [[CTCLPackagedObjectProcessor|r8374]] -- Base class for commands living in a
+  - [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8374.md]] -- Base class for commands living in a
                       `CTCLObjectPackage`
-- IV. [[Core SpecTcl classes|p8474]]
-  - [[Extensible Factories|r8479]] -- Create factories that don't have hard-coded creationals.
-  - [[CEventProcessor|r8591]] -- Abstract base class convering events to parameters
-  - [[CEventBuilderEventProcessor|r8783]] -- Event processor for event built data.
-  - [[CTclGrammerApp|r8892]] -- Base Application class
-  - [[CHistogrammer|r9514]] -- SpecTcl histogramming core
-  - [[Dictionaries|r10265]] -- Describe dictionaries used by SpecTcl
-  - [[CAnalyzer|r10876]] -- Analyzer base class and classic analyzer
-  - [[CTclAnalyzer|r11278]] -- Analyzer integrated with Tcl supporting pipeline
-  - [[CBufferDecoder|r11832]] -- Base class for SpecTcl buffer decoders
-  - [[CNSCLBufferDecoder|r12116]] -- Decode fixed sized event buffers from NSCLDAQ-7.x/8.x
-  - [[CNSCLJumboBufferDecoder|r12276]] -- Decode NSCLDAQ 7.x/8.x buffers bigger than 128Kbytes.
-  - [[CRingBufferDecoder|r12440]] -- Decode data from ring buffers
-  - [[CRingFormatHelper|r12803]] -- ABC for4 ring buffer format helpers
-  - [[CNamedItem|r12984]] -- Base class for items with names and ids.
-  - [[CParameter|r13065]] -- Parameter definition.
-  - [[CEvent|r13256]] -- Destination for decoded event data.
-  - [[CSpectrum|r13409]] -- Classes implementing SpecTcl spectra
-  - [[CFold|r15613]] -- Process gamma ray spectrum folds
-  - [[CAxis|r15729]] -- Spectrum axis coordinate transforms.
-  - [[CGate|r15841]] -- SpecTcl gate classes
-  - [[CGateContainer|r17425]] -- Pointer like class for Gates.
-  - [[CGateObserver|r17533]] -- Observe changes in the gate dictionary.
-  - [[CFit|r17618]] -- Base class for spectrum fitting subsystem.
-  - [[Predefined CFit classes|r17881]] -- 3SpecTcl
-  - [[CSpectrumFit|r18049]] -- Fit of spectrum channels.
-  - [[CFitFactory|r18232]] -- Creating fit objects by name
-  - [[CFitDictionary|r18537]] -- Fitting subsystem dictionary.
-  - [[CEventSink|r18809]] -- Base class for event sink pipeline elements
-  - [[CEventFilter|r18871]] -- Abstract base class for event filters.
-  - [[CGatedEventFilter|r19167]] -- Filter with output conditionalized on a gate check.
-  - [[CFilterOutputStage|r19273]] -- Abstract base class for filter output streamers.
-  - [[CXdrFilterOutputStage|r19381]] -- Filter output stage for writing Xdr filters.
-  - [[CFilterOutputStageCreator|r19505]] -- Create filter output stages for
+- IV. [[Core SpecTcl classes|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p8474.md]]
+  - [[Extensible Factories|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8479.md]] -- Create factories that don't have hard-coded creationals.
+  - [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8591.md]] -- Abstract base class convering events to parameters
+  - [[CEventBuilderEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8783.md]] -- Event processor for event built data.
+  - [[CTclGrammerApp|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r8892.md]] -- Base Application class
+  - [[CHistogrammer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r9514.md]] -- SpecTcl histogramming core
+  - [[Dictionaries|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r10265.md]] -- Describe dictionaries used by SpecTcl
+  - [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r10876.md]] -- Analyzer base class and classic analyzer
+  - [[CTclAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r11278.md]] -- Analyzer integrated with Tcl supporting pipeline
+  - [[CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r11832.md]] -- Base class for SpecTcl buffer decoders
+  - [[CNSCLBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r12116.md]] -- Decode fixed sized event buffers from NSCLDAQ-7.x/8.x
+  - [[CNSCLJumboBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r12276.md]] -- Decode NSCLDAQ 7.x/8.x buffers bigger than 128Kbytes.
+  - [[CRingBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r12440.md]] -- Decode data from ring buffers
+  - [[CRingFormatHelper|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r12803.md]] -- ABC for4 ring buffer format helpers
+  - [[CNamedItem|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r12984.md]] -- Base class for items with names and ids.
+  - [[CParameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r13065.md]] -- Parameter definition.
+  - [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r13256.md]] -- Destination for decoded event data.
+  - [[CSpectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r13409.md]] -- Classes implementing SpecTcl spectra
+  - [[CFold|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r15613.md]] -- Process gamma ray spectrum folds
+  - [[CAxis|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r15729.md]] -- Spectrum axis coordinate transforms.
+  - [[CGate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r15841.md]] -- SpecTcl gate classes
+  - [[CGateContainer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r17425.md]] -- Pointer like class for Gates.
+  - [[CGateObserver|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r17533.md]] -- Observe changes in the gate dictionary.
+  - [[CFit|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r17618.md]] -- Base class for spectrum fitting subsystem.
+  - [[Predefined CFit classes|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r17881.md]] -- 3SpecTcl
+  - [[CSpectrumFit|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r18049.md]] -- Fit of spectrum channels.
+  - [[CFitFactory|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r18232.md]] -- Creating fit objects by name
+  - [[CFitDictionary|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r18537.md]] -- Fitting subsystem dictionary.
+  - [[CEventSink|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r18809.md]] -- Base class for event sink pipeline elements
+  - [[CEventFilter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r18871.md]] -- Abstract base class for event filters.
+  - [[CGatedEventFilter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19167.md]] -- Filter with output conditionalized on a gate check.
+  - [[CFilterOutputStage|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19273.md]] -- Abstract base class for filter output streamers.
+  - [[CXdrFilterOutputStage|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19381.md]] -- Filter output stage for writing Xdr filters.
+  - [[CFilterOutputStageCreator|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19505.md]] -- Create filter output stages for
               `CFilterOutputStageFactory`
-  - [[CFilterOutputStageFactory|r19567]] -- Create filter output stage objects.
-  - [[CXdrFilterOutputStageCreator|r19634]] -- 
+  - [[CFilterOutputStageFactory|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19567.md]] -- Create filter output stage objects.
+  - [[CXdrFilterOutputStageCreator|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19634.md]] -- 
               Create `CXrFilterOutputStage` objects
-  - [[FilterEventProcessor|r19648]] -- 
+  - [[FilterEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19648.md]] -- 
               Decodes events from a filter file into parameters.
-  - [[CFold|r19662]] -- Process gamma ray spectrum folds
-  - [[CAxis|r19778]] -- Spectrum axis coordinate transforms.
-  - [[CGate|r19890]] -- SpecTcl gate classes
-  - [[CGateContainer|r21474]] -- Pointer like class for Gates.
-  - [[CGateObserver|r21582]] -- Observe changes in the gate dictionary.
-  - [[CFit|r21667]] -- Base class for spectrum fitting subsystem.
-  - [[Predefined CFit classes|r21930]] -- 3SpecTcl
-  - [[CSpectrumFit|r22098]] -- Fit of spectrum channels.
-  - [[CFitFactory|r22281]] -- Creating fit objects by name
-  - [[CFitDictionary|r22586]] -- Fitting subsystem dictionary.
-  - [[CEventSink|r22858]] -- Base class for event sink pipeline elements
-  - [[CEventFilter|r22920]] -- Abstract base class for event filters.
-  - [[Root tree building|r22961]] -- Classes to build root trees.
-  - [[RootTreeSink|r23349]] -- Event sink that writes root trees.
-  - [[RootEventProcessor|r23465]] -- Event processor to manage root event sinks
-  - [[CPipelineManager|r23554]] -- v5.1+ Dynamic pipeline management
-  - [[CPipelineEventProcessor|r23927]] -- Encapsulate an event processing pipeline as a processor.
-- V. [[SpecTcl Displays|p23943]]
-  - [[CDisplay|r23949]] -- Display interface base class
-  - [[CNullDisplay|r24269]] -- Batch mode displayer
-  - [[CXamine|r24282]] -- Displayer class for Xamine
-  - [[Xamine Gates|r24515]] -- Represent gates in Xamine
-  - [[XamineButton|r24847]] -- Describe a client button
-  - [[CXamineButtonPrompt|r24993]] -- Base class for button prompter descriptions
-  - [[CXamineNoPrompt|r25009]] -- Prompter that does not prompt
-  - [[CXamineConfirmPrompt|r25021]] -- Prompt for confirmation
-  - [[CXamineTextPrompt|r25034]] -- Prompt for a text string
-  - [[CXamineSpectrumPrompt|r25046]] -- Prompt for a spectrum
-  - [[CXamineFilePrompt|r25066]] -- Prompt for a filename.
-  - [[CXaminePointsPrompt|r25078]] -- Prompt for points
-  - [[CXamineEvent|r25093]] -- Encapsulate events from Xamine.
-  - [[CButtonEvent|r25124]] -- Encapsulate button press events
-  - [[CDisplayInterface|r25245]] -- Manages displayers
-  - [[CDisplayCollection|r25366]] -- Maintain a named set of display objects.
-  - [[CDisplayFactory|r25473]] -- Associate display creators with display type names
-- VI. [[Callback based analysis framework.|p25567]]
-  - [[CAnalysisEventProcessor|r25571]] -- Event processor for callback analysis.
-  - [[CAnalysisBase|r25649]] -- Base class for callout objects
-  - [[CAnalysisBase|r25751]] -- Base class for callout analyzers.
+  - [[CFold|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19662.md]] -- Process gamma ray spectrum folds
+  - [[CAxis|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19778.md]] -- Spectrum axis coordinate transforms.
+  - [[CGate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r19890.md]] -- SpecTcl gate classes
+  - [[CGateContainer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r21474.md]] -- Pointer like class for Gates.
+  - [[CGateObserver|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r21582.md]] -- Observe changes in the gate dictionary.
+  - [[CFit|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r21667.md]] -- Base class for spectrum fitting subsystem.
+  - [[Predefined CFit classes|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r21930.md]] -- 3SpecTcl
+  - [[CSpectrumFit|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r22098.md]] -- Fit of spectrum channels.
+  - [[CFitFactory|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r22281.md]] -- Creating fit objects by name
+  - [[CFitDictionary|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r22586.md]] -- Fitting subsystem dictionary.
+  - [[CEventSink|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r22858.md]] -- Base class for event sink pipeline elements
+  - [[CEventFilter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r22920.md]] -- Abstract base class for event filters.
+  - [[Root tree building|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r22961.md]] -- Classes to build root trees.
+  - [[RootTreeSink|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r23349.md]] -- Event sink that writes root trees.
+  - [[RootEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r23465.md]] -- Event processor to manage root event sinks
+  - [[CPipelineManager|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r23554.md]] -- v5.1+ Dynamic pipeline management
+  - [[CPipelineEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r23927.md]] -- Encapsulate an event processing pipeline as a processor.
+- V. [[SpecTcl Displays|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p23943.md]]
+  - [[CDisplay|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r23949.md]] -- Display interface base class
+  - [[CNullDisplay|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r24269.md]] -- Batch mode displayer
+  - [[CXamine|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r24282.md]] -- Displayer class for Xamine
+  - [[Xamine Gates|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r24515.md]] -- Represent gates in Xamine
+  - [[XamineButton|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r24847.md]] -- Describe a client button
+  - [[CXamineButtonPrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r24993.md]] -- Base class for button prompter descriptions
+  - [[CXamineNoPrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25009.md]] -- Prompter that does not prompt
+  - [[CXamineConfirmPrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25021.md]] -- Prompt for confirmation
+  - [[CXamineTextPrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25034.md]] -- Prompt for a text string
+  - [[CXamineSpectrumPrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25046.md]] -- Prompt for a spectrum
+  - [[CXamineFilePrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25066.md]] -- Prompt for a filename.
+  - [[CXaminePointsPrompt|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25078.md]] -- Prompt for points
+  - [[CXamineEvent|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25093.md]] -- Encapsulate events from Xamine.
+  - [[CButtonEvent|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25124.md]] -- Encapsulate button press events
+  - [[CDisplayInterface|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25245.md]] -- Manages displayers
+  - [[CDisplayCollection|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25366.md]] -- Maintain a named set of display objects.
+  - [[CDisplayFactory|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25473.md]] -- Associate display creators with display type names
+- VI. [[Callback based analysis framework.|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p25567.md]]
+  - [[CAnalysisEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25571.md]] -- Event processor for callback analysis.
+  - [[CAnalysisBase|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25649.md]] -- Base class for callout objects
+  - [[CAnalysisBase|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r25751.md]] -- Base class for callout analyzers.
 
 - **List of Examples**
-- 1. [[evttclsh|r6788#AEN6889]]
+- 1. [[evttclsh|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6788.md#AEN6889]]
 
 ---
 

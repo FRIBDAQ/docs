@@ -19,43 +19,43 @@ do not remove this div, it is closed by doxygen!
 Here is a list of all namespace members with links to the namespace documentation for each member:
 
 - computeHardwareType()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc667cd1e6674cc33c99eb8103769454]]
 - configureHardwareType()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#a6777f823961ea38f084c1ee6276822d0]]
 - createHardwareType()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
 - FirmwareMap
-  : [[DAQ::DDAS|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
+  : [[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md#gab57c39c59d29781a083353f2c8d6b040]]
 - getSpecification()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#a5da07c529204ba2a6c1b7e7073859ec6]]
 - HardwareType
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4]]
 - resetToDefaults()
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#a8c2b7192993080085fb2e14bd3d51850]]
 - RevB_100MHz_12Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]
 - RevC_100MHz_12Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]
 - RevD_100MHz_12Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]
 - RevF_100MHz_14Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]
 - RevF_100MHz_16Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]
 - RevF_250MHz_12Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]
 - RevF_250MHz_14Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]
 - RevF_250MHz_16Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]
 - RevF_500MHz_12Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]
 - RevF_500MHz_14Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]
 - RevF_500MHz_16Bit
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]
 - Unknown
-  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]
+  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]
 
  contents 
  start footer part 

@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory]]
+- [[FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1analyticfit_1_1FitEngineFactory-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory-members.md]]
 
 
 ddastoys::analyticfit::FitEngineFactory Class Reference
 
 header
 Factory for creating fit serial and Cuda-enabled fit engines.  
- [[More...|classddastoys_1_1analyticfit_1_1FitEngineFactory#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#details]]
 
 
 `#include <jacobian_analytic.h>`
@@ -152,7 +152,7 @@ Create a double pulse serial fit engine.
 
 ---
 
-The documentation for this class was generated from the following file:- [[jacobian_analytic.h|jacobian__analytic_8h_source]]
+The documentation for this class was generated from the following file:- [[jacobian_analytic.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/jacobian__analytic_8h_source.md]]
 
  contents 
  start footer part 

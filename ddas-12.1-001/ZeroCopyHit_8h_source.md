@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
 
  top 
 ZeroCopyHit.h
 
 header
-[[Go to the documentation of this file.|ZeroCopyHit_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ZeroCopyHit_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -88,13 +88,13 @@ header
 <a name="l00025"></a>   25
 
 
-<a name="l00026"></a>   26 #include "[[RawChannel.h|RawChannel_8h]]"
+<a name="l00026"></a>   26 #include "[[RawChannel.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md]]"
 
 
 <a name="l00027"></a>   27
 
 
-<a name="l00028"></a>   28 namespace [[DDASReadout|namespaceDDASReadout]] {
+<a name="l00028"></a>   28 namespace [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] {
 
 
 <a name="l00029"></a>   29
@@ -109,7 +109,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00054"></a>[[54|classDDASReadout_1_1ZeroCopyHit]]     class [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] : public [[RawChannel|structDDASReadout_1_1RawChannel]]
+<a name="l00054"></a>[[54|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]     class [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]] : public [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]
 
 
 <a name="l00055"></a>   55     {
@@ -118,10 +118,10 @@ header
 <a name="l00056"></a>   56     private:
 
 
-<a name="l00057"></a>   57     [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]* m_pBuffer;
+<a name="l00057"></a>   57     [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]* m_pBuffer;
 
 
-<a name="l00058"></a>   58     [[BufferArena|classDDASReadout_1_1BufferArena]]* m_pArena;
+<a name="l00058"></a>   58     [[BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]* m_pArena;
 
 
 <a name="l00059"></a>   59
@@ -130,28 +130,28 @@ header
 <a name="l00060"></a>   60     public:
 
 
-<a name="l00062"></a>   62     [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#af8eceddf06d97552bb787f16d8e973c7]]();
+<a name="l00062"></a>   62     [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7]]();
 
 
-<a name="l00071"></a>   71     [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#af8eceddf06d97552bb787f16d8e973c7]](
+<a name="l00071"></a>   71     [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7]](
 
 
-<a name="l00072"></a>   72         size_t nWords, void* pHitData, [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]* pBuffer,
+<a name="l00072"></a>   72         size_t nWords, void* pHitData, [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]* pBuffer,
 
 
-<a name="l00073"></a>   73         [[BufferArena|classDDASReadout_1_1BufferArena]]* pArena
+<a name="l00073"></a>   73         [[BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]* pArena
 
 
 <a name="l00074"></a>   74         );
 
 
-<a name="l00079"></a>   79     [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#af8eceddf06d97552bb787f16d8e973c7]](const [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]& rhs);
+<a name="l00079"></a>   79     [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7]](const [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]& rhs);
 
 
-<a name="l00085"></a>   85     [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]& [[operator=|classDDASReadout_1_1ZeroCopyHit#a36e954dcc2d4cba32b1f1c7bf3acf00c]](const [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]& rhs);
+<a name="l00085"></a>   85     [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a36e954dcc2d4cba32b1f1c7bf3acf00c]](const [[ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]& rhs);
 
 
-<a name="l00087"></a>   87     virtual [[~ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#a062c144d5c7052fb8bc9a724d32e72c3]]();
+<a name="l00087"></a>   87     virtual [[~ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a062c144d5c7052fb8bc9a724d32e72c3]]();
 
 
 <a name="l00088"></a>   88
@@ -163,19 +163,19 @@ header
 <a name="l00090"></a>   90
 
 
-<a name="l00098"></a>   98     void [[setHit|classDDASReadout_1_1ZeroCopyHit#a99b2e6e216650aa4af52071e115872a3]](
+<a name="l00098"></a>   98     void [[setHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a99b2e6e216650aa4af52071e115872a3]](
 
 
-<a name="l00099"></a>   99         size_t nWords, void* pHitData, [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]* pBuffer,
+<a name="l00099"></a>   99         size_t nWords, void* pHitData, [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]* pBuffer,
 
 
-<a name="l00100"></a>  100         [[BufferArena|classDDASReadout_1_1BufferArena]]* pArena
+<a name="l00100"></a>  100         [[BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]* pArena
 
 
 <a name="l00101"></a>  101         );
 
 
-<a name="l00103"></a>  103     void [[freeHit|classDDASReadout_1_1ZeroCopyHit#a18a15c932d4605045f68220e75588a26]]();
+<a name="l00103"></a>  103     void [[freeHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a18a15c932d4605045f68220e75588a26]]();
 
 
 <a name="l00104"></a>  104
@@ -208,26 +208,26 @@ header
 <a name="l00118"></a>  118 #endif
 
 
-[[RawChannel.h|RawChannel_8h]]
+[[RawChannel.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md]]
 
 Defines a raw channel hit storage struct for Readout/sorting.
 
 
-[[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]]
+[[DDASReadout::BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]
 
 Provides a class for memory management in reference-counted buffers.
 
 **Definition:** BufferArena.h:51
 
 
-[[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]
+[[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]
 
 This class extends RawChannel to produce a raw channel that is zero-copied from a reference counted b...
 
 **Definition:** ZeroCopyHit.h:55
 
 
-[[DDASReadout::ZeroCopyHit::~ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#a062c144d5c7052fb8bc9a724d32e72c3]]
+[[DDASReadout::ZeroCopyHit::~ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a062c144d5c7052fb8bc9a724d32e72c3]]
 
 virtual ~ZeroCopyHit()
 
@@ -236,7 +236,7 @@ Destructor.
 **Definition:** ZeroCopyHit.cpp:86
 
 
-[[DDASReadout::ZeroCopyHit::freeHit|classDDASReadout_1_1ZeroCopyHit#a18a15c932d4605045f68220e75588a26]]
+[[DDASReadout::ZeroCopyHit::freeHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a18a15c932d4605045f68220e75588a26]]
 
 void freeHit()
 
@@ -245,7 +245,7 @@ Free an existing hit.
 **Definition:** ZeroCopyHit.cpp:134
 
 
-[[DDASReadout::ZeroCopyHit::operator=|classDDASReadout_1_1ZeroCopyHit#a36e954dcc2d4cba32b1f1c7bf3acf00c]]
+[[DDASReadout::ZeroCopyHit::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a36e954dcc2d4cba32b1f1c7bf3acf00c]]
 
 ZeroCopyHit & operator=(const ZeroCopyHit &rhs)
 
@@ -254,7 +254,7 @@ Assignment operator.
 **Definition:** ZeroCopyHit.cpp:70
 
 
-[[DDASReadout::ZeroCopyHit::setHit|classDDASReadout_1_1ZeroCopyHit#a99b2e6e216650aa4af52071e115872a3]]
+[[DDASReadout::ZeroCopyHit::setHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a99b2e6e216650aa4af52071e115872a3]]
 
 void setHit(size_t nWords, void *pHitData, ReferenceCountedBuffer *pBuffer, BufferArena *pArena)
 
@@ -263,7 +263,7 @@ Sets a new hit.
 **Definition:** ZeroCopyHit.cpp:99
 
 
-[[DDASReadout::ZeroCopyHit::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#af8eceddf06d97552bb787f16d8e973c7]]
+[[DDASReadout::ZeroCopyHit::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7]]
 
 ZeroCopyHit()
 
@@ -272,19 +272,19 @@ Default constructor.
 **Definition:** ZeroCopyHit.cpp:37
 
 
-[[DDASReadout|namespaceDDASReadout]]
+[[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
 
 **Definition:** BufferArena.cpp:29
 
 
-[[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]
+[[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]
 
 A struct containing a pointer to a hit and its properties.
 
 **Definition:** RawChannel.h:41
 
 
-[[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
+[[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]
 
 A reference-counted buffer with dynamic storage.
 

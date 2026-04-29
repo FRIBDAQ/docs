@@ -6,106 +6,106 @@
 ---
 
 - **Table of Contents**
-- 1. [[Introduction|c13]]
-- I. [[SpecTcl Commands|r16]]
-  - [[apply|r18]] -- Show which gates are applied to which spectra
-  - [[attach|r102]] -- Connect SpecTcl to a data source
-  - [[sbind|r230]] -- Store spectrum channels in display share memory
-  - [[fit|r294]] -- 1-d Spectrum fitting computation
-  - [[fold|r459]] -- Apply a gamma gate as a fold
-  - [[channel|r518]] -- Access spectrum channels
-  - [[clear|r577]] -- Clear spectra
-  - [[project|r646]] -- Create projections of 2-d spectra
-  - [[specstats|r729]] -- Return spectrum statistics information
-  - [[treeparameter|r774]] -- Create list or modify characteristics treeparameters
-  - [[treevariable|r1026]] -- List and manipulate tree variables
-  - [[filter|r1190]] -- Create filtered data sets
-  - [[gate|r1422]] -- Create, list, delete gates
-  - [[integrate|r1816]] -- Integrate regions of interest on spectra
-  - [[parameter|r1862]] -- Define, list and delete parameter definitions
-  - [[pseudo|r2051]] -- Create, listm, delete pseudo parameters.
-  - [[sread|r2174]] -- Read spectrum from file or pipe.
-  - [[ringformat|r2285]] -- Select ringbuffer format
-  - [[scontents|r2322]] -- Obtain spectrum bulk contents
-  - [[shmemkey|r2383]] -- Get shared memory key.
-  - [[shmemsize|r2397]] -- Return the size of the spectrum shared memory region.
-  - [[spectrum|r2411]] -- Create, list, delete, and trace changes to spectrum definitions.
-  - [[unbind|r2793]] -- Move spectrum storage out of shared display memory
-  - [[ungate|r2847]] -- Remove gate applications.
-  - [[version|r2877]] -- Return SpecTcl version
-  - [[sread|r2904]] -- Write spectrum contents to file.
-  - [[start|r2974]] -- Start analyzing data
-  - [[start|r3005]] -- stop analyzing data
-  - [[rootexec|r3032]] -- Execute a root macro file.
-  - [[roottree|r3059]] -- Write CERN ROOT Trees.
-  - [[pman|r3102]] -- V5.1+ Manipulate the SpecTcl Analysis Pipeline
-  - [[evbunpack|r3247]] -- Dynamically setup decoding of event built data.
+- 1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/c13.md]]
+- I. [[SpecTcl Commands|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r16.md]]
+  - [[apply|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r18.md]] -- Show which gates are applied to which spectra
+  - [[attach|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r102.md]] -- Connect SpecTcl to a data source
+  - [[sbind|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r230.md]] -- Store spectrum channels in display share memory
+  - [[fit|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r294.md]] -- 1-d Spectrum fitting computation
+  - [[fold|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r459.md]] -- Apply a gamma gate as a fold
+  - [[channel|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r518.md]] -- Access spectrum channels
+  - [[clear|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r577.md]] -- Clear spectra
+  - [[project|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r646.md]] -- Create projections of 2-d spectra
+  - [[specstats|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r729.md]] -- Return spectrum statistics information
+  - [[treeparameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r774.md]] -- Create list or modify characteristics treeparameters
+  - [[treevariable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1026.md]] -- List and manipulate tree variables
+  - [[filter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1190.md]] -- Create filtered data sets
+  - [[gate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md]] -- Create, list, delete gates
+  - [[integrate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1816.md]] -- Integrate regions of interest on spectra
+  - [[parameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1862.md]] -- Define, list and delete parameter definitions
+  - [[pseudo|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2051.md]] -- Create, listm, delete pseudo parameters.
+  - [[sread|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2174.md]] -- Read spectrum from file or pipe.
+  - [[ringformat|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2285.md]] -- Select ringbuffer format
+  - [[scontents|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2322.md]] -- Obtain spectrum bulk contents
+  - [[shmemkey|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2383.md]] -- Get shared memory key.
+  - [[shmemsize|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2397.md]] -- Return the size of the spectrum shared memory region.
+  - [[spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md]] -- Create, list, delete, and trace changes to spectrum definitions.
+  - [[unbind|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2793.md]] -- Move spectrum storage out of shared display memory
+  - [[ungate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2847.md]] -- Remove gate applications.
+  - [[version|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2877.md]] -- Return SpecTcl version
+  - [[sread|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2904.md]] -- Write spectrum contents to file.
+  - [[start|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2974.md]] -- Start analyzing data
+  - [[start|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r3005.md]] -- stop analyzing data
+  - [[rootexec|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r3032.md]] -- Execute a root macro file.
+  - [[roottree|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r3059.md]] -- Write CERN ROOT Trees.
+  - [[pman|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r3102.md]] -- V5.1+ Manipulate the SpecTcl Analysis Pipeline
+  - [[evbunpack|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r3247.md]] -- Dynamically setup decoding of event built data.
 
 - **List of Figures**
-- 1. [[A band draw with backtracking|r1422#AEN1520]]
-- 2. [[Contour interior|r1422#AEN1534]]
+- 1. [[A band draw with backtracking|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md#AEN1520]]
+- 2. [[Contour interior|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md#AEN1534]]
 
 - **List of Examples**
-- 1. [[Applying a gate to a single spectrum|r18#AEN58]]
-- 2. [[Applying a gate to several spectra|r18#AEN65]]
-- 3. [[Listing gates applied to all spectra|r18#AEN75]]
-- 4. [[Using a filter to list gate applications|r18#AEN89]]
-- 1. [[Attaching to a data file for nscldaq-11:|r102#AEN197]]
-- 2. [[Attaching to the online system via a pipe data source|r102#AEN204]]
-- 3. [[Attaching to a compressed datafile:|r102#AEN213]]
-- 1. [[Binding all spectra to display memory|r230#AEN270]]
-- 2. [[Binding a list of spectra to the displayer|r230#AEN274]]
-- 3. [[Listing the bindings of spectra that match a pattern|r230#AEN278]]
-- 1. [[Using the proc subcommand|r294#AEN450]]
-- 1. [[Getting the value of a channel in a 1-d spectrum|r518#AEN559]]
-- 2. [[Clearing a spectrum using **channel**|r518#AEN562]]
-- 1. [[Clearing all spectra|r577#AEN621]]
-- 2. [[Clearing spectra given their names|r577#AEN624]]
-- 3. [[Clearing spectra given their ids:|r577#AEN627]]
-- 4. [[Clearing spectra whose names match a glob pattern r*|r577#AEN630]]
-- 1. [[Creating a new tree parameter|r774#AEN976]]
-- 2. [[Listing all tree parameters with sample output|r774#AEN985]]
-- 3. [[Listing only some parameters (using a pattern)|r774#AEN990]]
-- 4. [[The treeparameter -check command|r774#AEN995]]
-- 5. [[Unsetting the modified flag:|r774#AEN1006]]
-- 1. [[Listing all variables:|r1026#AEN1137]]
-- 2. [[Using a glob pattern; listing variables thaty start with vars.w|r1026#AEN1143]]
-- 3. [[Modifying value and units of a tree variable|r1026#AEN1149]]
-- 4. [[Changing only the value of a tree parameter|r1026#AEN1159]]
-- 5. [[Modifying only the units of a tree variable|r1026#AEN1171]]
-- 1. [[Creating a filter|r1190#AEN1379]]
-- 2. [[Setting filter filenames|r1190#AEN1390]]
-- 3. [[Enabling filters|r1190#AEN1398]]
-- 1. [[Creating a slice gate|r1422#AEN1786]]
-- 2. [[Listing all gates|r1422#AEN1790]]
-- 3. [[Deleting a gate|r1422#AEN1794]]
-- 4. [[Establishing a trace|r1422#AEN1798]]
-- 1. [[Creating a 12 bit 'integer' parameter|r1862#AEN2028]]
-- 2. [[Creating a real valued parameter with units in mm|r1862#AEN2032]]
-- 1. [[Defining a simple psuedo|r2051#AEN2136]]
-- 2. [[Pseudo illustrating quoting:|r2051#AEN2151]]
-- 3. [[listing pseudos|r2051#AEN2155]]
-- 1. [[Reading a spectrum in from file|r2174#AEN2251]]
-- 2. [[Reading several spectra from one file|r2174#AEN2257]]
-- 3. [[Reading from a pipeline:|r2174#AEN2267]]
-- 1. [[NSCLDAQ version 10 data:|r2285#AEN2309]]
-- 2. [[NSDCLDAQ version 11 data|r2285#AEN2313]]
-- 1. [[Creating a 1-d spectrum|r2411#AEN2681]]
-- 2. [[Creating a 2-d spectrum|r2411#AEN2687]]
-- 3. [[Creating a g1 spectrum|r2411#AEN2693]]
-- 4. [[Creating a g2 spectrum|r2411#AEN2699]]
-- 5. [[Creating a summary spectrum|r2411#AEN2705]]
-- 6. [[Creating a bitmask spectrum|r2411#AEN2711]]
-- 7. [[Making a strip chart spectrum|r2411#AEN2717]]
-- 8. [[Creating an m2 (multiple 2d spectrum)|r2411#AEN2723]]
-- 9. [[Creating a gd (gamma deluxe) spectrum|r2411#AEN2729]]
-- 10. [[Creating a gs (gamma summary) spectrum|r2411#AEN2735]]
-- 11. [[Listing all spectra|r2411#AEN2741]]
-- 12. [[Listing only spectra with matching names|r2411#AEN2747]]
-- 13. [[Deleting a spectrum|r2411#AEN2753]]
-- 14. [[Spectrum traces:|r2411#AEN2757]]
-- 1. [[Writing spectra to file by filename|r2904#AEN2949]]
-- 2. [[Writing to a file descriptor|r2904#AEN2954]]
+- 1. [[Applying a gate to a single spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r18.md#AEN58]]
+- 2. [[Applying a gate to several spectra|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r18.md#AEN65]]
+- 3. [[Listing gates applied to all spectra|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r18.md#AEN75]]
+- 4. [[Using a filter to list gate applications|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r18.md#AEN89]]
+- 1. [[Attaching to a data file for nscldaq-11:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r102.md#AEN197]]
+- 2. [[Attaching to the online system via a pipe data source|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r102.md#AEN204]]
+- 3. [[Attaching to a compressed datafile:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r102.md#AEN213]]
+- 1. [[Binding all spectra to display memory|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r230.md#AEN270]]
+- 2. [[Binding a list of spectra to the displayer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r230.md#AEN274]]
+- 3. [[Listing the bindings of spectra that match a pattern|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r230.md#AEN278]]
+- 1. [[Using the proc subcommand|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r294.md#AEN450]]
+- 1. [[Getting the value of a channel in a 1-d spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r518.md#AEN559]]
+- 2. [[Clearing a spectrum using **channel**|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r518.md#AEN562]]
+- 1. [[Clearing all spectra|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r577.md#AEN621]]
+- 2. [[Clearing spectra given their names|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r577.md#AEN624]]
+- 3. [[Clearing spectra given their ids:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r577.md#AEN627]]
+- 4. [[Clearing spectra whose names match a glob pattern r*|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r577.md#AEN630]]
+- 1. [[Creating a new tree parameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r774.md#AEN976]]
+- 2. [[Listing all tree parameters with sample output|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r774.md#AEN985]]
+- 3. [[Listing only some parameters (using a pattern)|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r774.md#AEN990]]
+- 4. [[The treeparameter -check command|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r774.md#AEN995]]
+- 5. [[Unsetting the modified flag:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r774.md#AEN1006]]
+- 1. [[Listing all variables:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1026.md#AEN1137]]
+- 2. [[Using a glob pattern; listing variables thaty start with vars.w|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1026.md#AEN1143]]
+- 3. [[Modifying value and units of a tree variable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1026.md#AEN1149]]
+- 4. [[Changing only the value of a tree parameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1026.md#AEN1159]]
+- 5. [[Modifying only the units of a tree variable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1026.md#AEN1171]]
+- 1. [[Creating a filter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1190.md#AEN1379]]
+- 2. [[Setting filter filenames|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1190.md#AEN1390]]
+- 3. [[Enabling filters|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1190.md#AEN1398]]
+- 1. [[Creating a slice gate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md#AEN1786]]
+- 2. [[Listing all gates|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md#AEN1790]]
+- 3. [[Deleting a gate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md#AEN1794]]
+- 4. [[Establishing a trace|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1422.md#AEN1798]]
+- 1. [[Creating a 12 bit 'integer' parameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1862.md#AEN2028]]
+- 2. [[Creating a real valued parameter with units in mm|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r1862.md#AEN2032]]
+- 1. [[Defining a simple psuedo|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2051.md#AEN2136]]
+- 2. [[Pseudo illustrating quoting:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2051.md#AEN2151]]
+- 3. [[listing pseudos|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2051.md#AEN2155]]
+- 1. [[Reading a spectrum in from file|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2174.md#AEN2251]]
+- 2. [[Reading several spectra from one file|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2174.md#AEN2257]]
+- 3. [[Reading from a pipeline:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2174.md#AEN2267]]
+- 1. [[NSCLDAQ version 10 data:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2285.md#AEN2309]]
+- 2. [[NSDCLDAQ version 11 data|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2285.md#AEN2313]]
+- 1. [[Creating a 1-d spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2681]]
+- 2. [[Creating a 2-d spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2687]]
+- 3. [[Creating a g1 spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2693]]
+- 4. [[Creating a g2 spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2699]]
+- 5. [[Creating a summary spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2705]]
+- 6. [[Creating a bitmask spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2711]]
+- 7. [[Making a strip chart spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2717]]
+- 8. [[Creating an m2 (multiple 2d spectrum)|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2723]]
+- 9. [[Creating a gd (gamma deluxe) spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2729]]
+- 10. [[Creating a gs (gamma summary) spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2735]]
+- 11. [[Listing all spectra|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2741]]
+- 12. [[Listing only spectra with matching names|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2747]]
+- 13. [[Deleting a spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2753]]
+- 14. [[Spectrum traces:|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2411.md#AEN2757]]
+- 1. [[Writing spectra to file by filename|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2904.md#AEN2949]]
+- 2. [[Writing to a file descriptor|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2904.md#AEN2954]]
 
 ---
 

@@ -38,7 +38,7 @@ The tree parameter class is the basis of internal parameter representation in th
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[TreeParameter.h|TreeParameter_8h_source]]
+The documentation for this class was generated from the following file:- base/[[TreeParameter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h_source.md]]
 
  contents 
  start footer part 

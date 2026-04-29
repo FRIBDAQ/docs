@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 LinkDef.h
 
 header
-[[Go to the documentation of this file.|LinkDef_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/LinkDef_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan

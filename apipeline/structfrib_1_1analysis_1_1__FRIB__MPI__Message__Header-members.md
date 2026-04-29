@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]
+- [[_FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]]
 
  top 
 frib::analysis::_FRIB_MPI_Message_Header Member List
 
 header
-This is the complete list of members for [[frib::analysis::_FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]], including all inherited members.
+This is the complete list of members for [[frib::analysis::_FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]], including all inherited members.
 
 
 |  |  |  |

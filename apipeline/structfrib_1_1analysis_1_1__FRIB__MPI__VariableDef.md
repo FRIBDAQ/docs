@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_FRIB_MPI_VariableDef|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef]]
+- [[_FRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef-members.md]]
 
 
 frib::analysis::_FRIB_MPI_VariableDef Struct Reference
@@ -47,7 +47,7 @@ header
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h_source.md]]
 
  contents 
  start footer part 

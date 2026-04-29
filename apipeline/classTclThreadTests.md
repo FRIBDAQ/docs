@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classTclThreadTests-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclThreadTests-members.md]]
 
 
 TclThreadTests Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TclThreadTests:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for TclThreadTests:
@@ -47,7 +47,7 @@ Collaboration diagram for TclThreadTests:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -76,7 +76,7 @@ Collaboration diagram for TclThreadTests:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/tclplus/[[threadtests.cpp|threadtests_8cpp]]
+The documentation for this class was generated from the following file:- libtclplus/tclplus/[[threadtests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/threadtests_8cpp.md]]
 
  contents 
  start footer part 

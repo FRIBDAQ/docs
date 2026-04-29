@@ -19,9 +19,9 @@ do not remove this div, it is closed by doxygen!
 ### - t -
 
 - teardown()
-  : [[CMyTrigger|classCMyTrigger#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]
+  : [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]
 - transitionToInactive()
-  : [[CMyEndCommand|classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]
+  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a19de43c3e32ac03b60071e07000de510]]
 
  contents 
  start footer part 

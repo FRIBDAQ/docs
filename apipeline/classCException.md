@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCException-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException-members.md]]
 
 
 CException Class Reference
@@ -46,7 +46,7 @@ Inheritance diagram for CException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -87,7 +87,7 @@ Inheritance diagram for CException:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[Exception.h|Exception_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[Exception.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/Exception_8h_source.md]]
 - libtclplus/exception/Exception.cpp
 
  contents 

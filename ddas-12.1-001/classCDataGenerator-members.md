@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CDataGenerator Member List
 
 header
-This is the complete list of members for [[CDataGenerator|classCDataGenerator]], including all inherited members.
+This is the complete list of members for [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md]], including all inherited members.
 
 
 |  |  |  |

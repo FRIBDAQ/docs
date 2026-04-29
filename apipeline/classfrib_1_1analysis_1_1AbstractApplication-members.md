@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
+- [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
 
  top 
 frib::analysis::AbstractApplication Member List
 
 header
-This is the complete list of members for [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]], including all inherited members.
+This is the complete list of members for [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]], including all inherited members.
 
 
 |  |  |  |

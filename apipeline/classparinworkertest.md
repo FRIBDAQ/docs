@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classparinworkertest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classparinworkertest-members.md]]
 
 
 parinworkertest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for parinworkertest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for parinworkertest:
@@ -47,7 +47,7 @@ Collaboration diagram for parinworkertest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -76,7 +76,7 @@ Collaboration diagram for parinworkertest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[parinworkertests.cpp|parinworkertests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[parinworkertests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/parinworkertests_8cpp.md]]
 
  contents 
  start footer part 

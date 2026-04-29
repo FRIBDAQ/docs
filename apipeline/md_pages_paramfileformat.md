@@ -35,7 +35,7 @@ The format recognizes that the parameter ids of the program recovering data may 
 Furthermore, the output file recognizes that knowing the values of the steering variables that produced the parameter file is useful.
 
 
-Refer to [[AnalysisRingItems.h|AnalysisRingItems_8h]] when reading this section. It defines the structs that are written to file.
+Refer to [[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md]] when reading this section. It defines the structs that are written to file.
 
 
 The file, as with all NSCLDAQ event files is written as a stream of ring items. A ring item has a header (frib::analysis::RingItemHeader) that, in the case of files written by this framework contains the following fields:

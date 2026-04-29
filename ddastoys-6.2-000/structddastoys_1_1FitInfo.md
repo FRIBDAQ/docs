@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[FitInfo|structddastoys_1_1FitInfo]]
+- [[FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structddastoys_1_1FitInfo-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo-members.md]]
 
 
 ddastoys::FitInfo Struct Reference
 
 header
 A fit extension that knows its size.  
- [[More...|structddastoys_1_1FitInfo#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#details]]
 
 
 `#include <fit_extensions.h>`
@@ -53,7 +53,7 @@ Collaboration diagram for ddastoys::FitInfo:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -82,7 +82,7 @@ A fit extension that knows its size.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h_source.md]]
 
  contents 
  start footer part 

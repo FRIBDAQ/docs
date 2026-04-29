@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 [Classes](#nested-classes) |
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCMyScaler-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler-members.md]]
 
 
 CMyScaler Class Reference
 
 header
 Generate scaler data from run statistics.  
- [[More...|classCMyScaler#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#details]]
 
 
 `#include <CMyScaler.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for CMyScaler:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for CMyScaler:
@@ -59,7 +59,7 @@ Collaboration diagram for CMyScaler:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -295,8 +295,8 @@ Return the size of the scaler data.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyScaler.h|CMyScaler_8h_source]]
-- [[CMyScaler.cpp|CMyScaler_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyScaler.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8h_source.md]]
+- [[CMyScaler.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8cpp.md]]
 
  contents 
  start footer part 

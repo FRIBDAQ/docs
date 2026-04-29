@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 TestTracer Member List
 
 header
-This is the complete list of members for [[TestTracer|classTestTracer]], including all inherited members.
+This is the complete list of members for [[TestTracer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTestTracer.md]], including all inherited members.
 
 
 |  |  |  |

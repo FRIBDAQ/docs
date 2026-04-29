@@ -22,9 +22,9 @@ Here is a list of all documented class members with links to the class documenta
 ### - _ -
 
 - _Definition()
-  : [[frib::analysis::CTreeVariable::_Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition#aefc063236c25976fba1610a9e451352e]]
+  : [[frib::analysis::CTreeVariable::_Definition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md#aefc063236c25976fba1610a9e451352e]]
 - _SharedData()
-  : [[frib::analysis::CTreeParameter::_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData#ac0163dc2201a5b5990558d9c2864134b]]
+  : [[frib::analysis::CTreeParameter::_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md#ac0163dc2201a5b5990558d9c2864134b]]
 
  contents 
  start footer part 

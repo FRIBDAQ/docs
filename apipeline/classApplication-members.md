@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Application Member List
 
 header
-This is the complete list of members for [[Application|classApplication]], including all inherited members.
+This is the complete list of members for [[Application|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication.md]], including all inherited members.
 
 
 |  |  |  |

@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[exception|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_606be0c095146ea0038c0fba572d628a.md]]
 
  top 
 MonitorException.h
@@ -79,7 +79,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00034"></a>[[34|classCMonitorException]] class [[CMonitorException|classCMonitorException]] : public [[CException|classCException]]
+<a name="l00034"></a>[[34|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]] class [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]] : public [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
 
 <a name="l00035"></a>   35 {
 
@@ -95,11 +95,11 @@ header
 
 <a name="l00041"></a>   41 public:
 
-<a name="l00042"></a>   42   [[CMonitorException|classCMonitorException#a9cb5d9635b7cb7d6df2bb592959335f6]](int correctOwner, int actualOwner, const char* file, const char* line);
+<a name="l00042"></a>   42   [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#a9cb5d9635b7cb7d6df2bb592959335f6]](int correctOwner, int actualOwner, const char* file, const char* line);
 
-<a name="l00043"></a>   43   [[CMonitorException|classCMonitorException#a9cb5d9635b7cb7d6df2bb592959335f6]](const [[CMonitorException|classCMonitorException]]& rhs);
+<a name="l00043"></a>   43   [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#a9cb5d9635b7cb7d6df2bb592959335f6]](const [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]& rhs);
 
-<a name="l00044"></a>   44   virtual ~[[CMonitorException|classCMonitorException]]() {}
+<a name="l00044"></a>   44   virtual ~[[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]() {}
 
 <a name="l00045"></a>   45
 
@@ -109,11 +109,11 @@ header
 
 <a name="l00048"></a>   48 public:
 
-<a name="l00049"></a>   49   [[CMonitorException|classCMonitorException]]& [[operator=|classCMonitorException#a0c3b4036cfb2fbaa6035344ad939715c]](const [[CMonitorException|classCMonitorException]]& rhs);
+<a name="l00049"></a>   49   [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#a0c3b4036cfb2fbaa6035344ad939715c]](const [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]& rhs);
 
-<a name="l00050"></a>   50   int [[operator==|classCMonitorException#ac5c9065f553f9e95d8067a06848ffd79]](const [[CMonitorException|classCMonitorException]]& rhs) const;
+<a name="l00050"></a>   50   int [[operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#ac5c9065f553f9e95d8067a06848ffd79]](const [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]& rhs) const;
 
-<a name="l00051"></a>   51   int [[operator!=|classCMonitorException#ab63ba4d74df907f6eb73d7dce4cb818b]](const [[CMonitorException|classCMonitorException]]& rhs) const;
+<a name="l00051"></a>   51   int [[operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#ab63ba4d74df907f6eb73d7dce4cb818b]](const [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]& rhs) const;
 
 <a name="l00052"></a>   52
 
@@ -123,9 +123,9 @@ header
 
 <a name="l00055"></a>   55 public:
 
-<a name="l00056"></a>   56   virtual const char* [[ReasonText|classCMonitorException#aa6f1efc8c3e4bd310ff0966078f52e34]]() const;
+<a name="l00056"></a>   56   virtual const char* [[ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#aa6f1efc8c3e4bd310ff0966078f52e34]]() const;
 
-<a name="l00057"></a>   57   virtual int [[ReasonCode|classCMonitorException#ae679ab4f73d3c2a9c3ae3717bba608b2]]() const;
+<a name="l00057"></a>   57   virtual int [[ReasonCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#ae679ab4f73d3c2a9c3ae3717bba608b2]]() const;
 
 <a name="l00058"></a>   58
 
@@ -139,52 +139,52 @@ header
 
 <a name="l00063"></a>   63 #endif
 
-[[CMonitorException::ReasonText|classCMonitorException#aa6f1efc8c3e4bd310ff0966078f52e34]]
+[[CMonitorException::ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#aa6f1efc8c3e4bd310ff0966078f52e34]]
 
 virtual const char * ReasonText() const
 
 **Definition:** MonitorException.cpp:103
 
 
-[[CMonitorException::ReasonCode|classCMonitorException#ae679ab4f73d3c2a9c3ae3717bba608b2]]
+[[CMonitorException::ReasonCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#ae679ab4f73d3c2a9c3ae3717bba608b2]]
 
 virtual int ReasonCode() const
 
 **Definition:** MonitorException.cpp:112
 
 
-[[CMonitorException::CMonitorException|classCMonitorException#a9cb5d9635b7cb7d6df2bb592959335f6]]
+[[CMonitorException::CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#a9cb5d9635b7cb7d6df2bb592959335f6]]
 
 CMonitorException(int correctOwner, int actualOwner, const char *file, const char *line)
 
 **Definition:** MonitorException.cpp:41
 
 
-[[CException|classCException]]
+[[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
 
 **Definition:** Exception.h:41
 
 
-[[CMonitorException|classCMonitorException]]
+[[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]]
 
 **Definition:** MonitorException.h:34
 
 
-[[CMonitorException::operator=|classCMonitorException#a0c3b4036cfb2fbaa6035344ad939715c]]
+[[CMonitorException::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#a0c3b4036cfb2fbaa6035344ad939715c]]
 
 CMonitorException & operator=(const CMonitorException &rhs)
 
 **Definition:** MonitorException.cpp:68
 
 
-[[CMonitorException::operator==|classCMonitorException#ac5c9065f553f9e95d8067a06848ffd79]]
+[[CMonitorException::operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#ac5c9065f553f9e95d8067a06848ffd79]]
 
 int operator==(const CMonitorException &rhs) const
 
 **Definition:** MonitorException.cpp:80
 
 
-[[CMonitorException::operator!=|classCMonitorException#ab63ba4d74df907f6eb73d7dce4cb818b]]
+[[CMonitorException::operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md#ab63ba4d74df907f6eb73d7dce4cb818b]]
 
 int operator!=(const CMonitorException &rhs) const
 

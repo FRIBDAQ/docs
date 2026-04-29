@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classMyApp-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyApp-members.md]]
 
 
 MyApp Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for MyApp:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for MyApp:
@@ -51,7 +51,7 @@ Collaboration diagram for MyApp:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -190,9 +190,9 @@ worker We open an output file and just put the data we get from the dealer into 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[testInput.cpp|testInput_8cpp]]
-- base/[[testParinput.cpp|testParinput_8cpp]]
-- base/[[testWorker2.cpp|testWorker2_8cpp]]
+The documentation for this class was generated from the following files:- base/[[testInput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testInput_8cpp.md]]
+- base/[[testParinput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testParinput_8cpp.md]]
+- base/[[testWorker2.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testWorker2_8cpp.md]]
 - libtclplus/tclplus/TCLTest.cpp
 
  contents 

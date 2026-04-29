@@ -24,7 +24,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCTCLThread-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread-members.md]]
 
 
 CTCLThread Class Referenceabstract
@@ -205,8 +205,8 @@ start Starts the thread:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLThread.h|CTCLThread_8h_source]]
-- libtclplus/tclplus/[[CTCLThread.cpp|CTCLThread_8cpp]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLThread.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLThread_8h_source.md]]
+- libtclplus/tclplus/[[CTCLThread.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLThread_8cpp.md]]
 
  contents 
  start footer part 

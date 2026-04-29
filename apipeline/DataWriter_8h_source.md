@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 DataWriter.h
 
 header
-[[Go to the documentation of this file.|DataWriter_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataWriter_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -71,17 +71,17 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 #include "[[TreeVariable.h|TreeVariable_8h]]"
+<a name="l00026"></a>   26 #include "[[TreeVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h.md]]"
 
-<a name="l00027"></a>   27 #include "[[TreeParameter.h|TreeParameter_8h]]"
+<a name="l00027"></a>   27 #include "[[TreeParameter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h.md]]"
 
 <a name="l00028"></a>   28
 
-<a name="l00029"></a>   29 namespace [[frib|namespacefrib]] {
+<a name="l00029"></a>   29 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00030"></a>   30     namespace analysis {
 
-<a name="l00040"></a>[[40|classfrib_1_1analysis_1_1CDataWriter]]         class [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]] {
+<a name="l00040"></a>[[40|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]         class [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]] {
 
 <a name="l00041"></a>   41         private:
 
@@ -89,25 +89,25 @@ header
 
 <a name="l00043"></a>   43         public:
 
-<a name="l00044"></a>   44             [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a650c5bf53b040c6951704ec0ed7d650e]](const char* pFilename);
+<a name="l00044"></a>   44             [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a650c5bf53b040c6951704ec0ed7d650e]](const char* pFilename);
 
-<a name="l00045"></a>   45             [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a650c5bf53b040c6951704ec0ed7d650e]](int fd);
+<a name="l00045"></a>   45             [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a650c5bf53b040c6951704ec0ed7d650e]](int fd);
 
-<a name="l00046"></a>   46             virtual [[~CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a9bb5c9ba8c7c865f18eb68a6232ef36b]]();
+<a name="l00046"></a>   46             virtual [[~CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a9bb5c9ba8c7c865f18eb68a6232ef36b]]();
 
 <a name="l00047"></a>   47         private:
 
-<a name="l00048"></a>   48             [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a650c5bf53b040c6951704ec0ed7d650e]](const [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]& rhs);
+<a name="l00048"></a>   48             [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a650c5bf53b040c6951704ec0ed7d650e]](const [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]& rhs);
 
-<a name="l00049"></a>   49             [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]& operator=(const [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]& rhs);
+<a name="l00049"></a>   49             [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]& operator=(const [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]& rhs);
 
-<a name="l00050"></a>   50             int operator==(const [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]& rhs) const;
+<a name="l00050"></a>   50             int operator==(const [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]& rhs) const;
 
-<a name="l00051"></a>   51             int operator!=(const [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]& rhs) const;
+<a name="l00051"></a>   51             int operator!=(const [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]& rhs) const;
 
 <a name="l00052"></a>   52         public:
 
-<a name="l00053"></a>   53             void [[writeEvent|classfrib_1_1analysis_1_1CDataWriter#a9828dc67ca5ac86422d8a6011888fa2f]](
+<a name="l00053"></a>   53             void [[writeEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a9828dc67ca5ac86422d8a6011888fa2f]](
 
 <a name="l00054"></a>   54                 const std::vector<std::pair<unsigned, double>>& event,
 
@@ -115,7 +115,7 @@ header
 
 <a name="l00056"></a>   56             );
 
-<a name="l00057"></a>   57             void [[writeItem|classfrib_1_1analysis_1_1CDataWriter#ab0466f58da7e1289338fac28bdfe3c44]](const void* pItem);
+<a name="l00057"></a>   57             void [[writeItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#ab0466f58da7e1289338fac28bdfe3c44]](const void* pItem);
 
 <a name="l00058"></a>   58         private:
 
@@ -143,50 +143,50 @@ header
 
 <a name="l00070"></a>   70 #endif
 
-[[frib::analysis::CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]
+[[frib::analysis::CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]
 
 **Definition:** DataWriter.h:40
 
 
-[[TreeVariable.h|TreeVariable_8h]]
+[[TreeVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h.md]]
 
 : Define a class that holds variables that steer computations.
 
 
-[[frib::analysis::CDataWriter::~CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a9bb5c9ba8c7c865f18eb68a6232ef36b]]
+[[frib::analysis::CDataWriter::~CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a9bb5c9ba8c7c865f18eb68a6232ef36b]]
 
 virtual ~CDataWriter()
 
 **Definition:** DataWriter.cpp:67
 
 
-[[frib::analysis::CDataWriter::writeEvent|classfrib_1_1analysis_1_1CDataWriter#a9828dc67ca5ac86422d8a6011888fa2f]]
+[[frib::analysis::CDataWriter::writeEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a9828dc67ca5ac86422d8a6011888fa2f]]
 
 void writeEvent(const std::vector< std::pair< unsigned, double >> &event, std::uint64_t eventNum)
 
 **Definition:** DataWriter.cpp:78
 
 
-[[frib::analysis::CDataWriter::CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a650c5bf53b040c6951704ec0ed7d650e]]
+[[frib::analysis::CDataWriter::CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a650c5bf53b040c6951704ec0ed7d650e]]
 
 CDataWriter(const char *pFilename)
 
 **Definition:** DataWriter.cpp:41
 
 
-[[TreeParameter.h|TreeParameter_8h]]
+[[TreeParameter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h.md]]
 
 : Define the tree parameter class.
 
 
-[[frib::analysis::CDataWriter::writeItem|classfrib_1_1analysis_1_1CDataWriter#ab0466f58da7e1289338fac28bdfe3c44]]
+[[frib::analysis::CDataWriter::writeItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#ab0466f58da7e1289338fac28bdfe3c44]]
 
 void writeItem(const void *pItem)
 
 **Definition:** DataWriter.cpp:108
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 

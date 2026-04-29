@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md]]
 
  top 
 QTraceView.h
 
 header
-[[Go to the documentation of this file.|QTraceView_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QTraceView_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -153,22 +153,22 @@ header
 <a name="l00047"></a>   47
 
 
-<a name="l00048"></a>   48 class [[DDASDecoder|classDDASDecoder]];
+<a name="l00048"></a>   48 class [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md]];
 
 
-<a name="l00049"></a>   49 class [[FitManager|classFitManager]];
+<a name="l00049"></a>   49 class [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]];
 
 
-<a name="l00050"></a>   50 class [[QHitData|classQHitData]];
+<a name="l00050"></a>   50 class [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md]];
 
 
-<a name="l00051"></a>   51 class [[QRootCanvas|classQRootCanvas]];
+<a name="l00051"></a>   51 class [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]];
 
 
 <a name="l00052"></a>   52
 
 
-<a name="l00080"></a>[[80|classQTraceView]] class [[QTraceView|classQTraceView]] : public QWidget
+<a name="l00080"></a>[[80|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md]] class [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md]] : public QWidget
 
 
 <a name="l00081"></a>   81 {
@@ -183,10 +183,10 @@ header
 <a name="l00084"></a>   84 public:
 
 
-<a name="l00091"></a>   91     [[QTraceView|classQTraceView#a229f3b9498e8d2a84ed741716f942b95]](QCommandLineParser& parser, QWidget* parent=Q_NULLPTR);
+<a name="l00091"></a>   91     [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a229f3b9498e8d2a84ed741716f942b95]](QCommandLineParser& parser, QWidget* parent=Q_NULLPTR);
 
 
-<a name="l00093"></a>   93     virtual [[~QTraceView|classQTraceView#a80d1eca0f99941ee814c08550749c9d1]]();
+<a name="l00093"></a>   93     virtual [[~QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a80d1eca0f99941ee814c08550749c9d1]]();
 
 
 <a name="l00094"></a>   94
@@ -198,7 +198,7 @@ header
 <a name="l00096"></a>   96 protected:
 
 
-<a name="l00101"></a>  101     virtual void [[changeEvent|classQTraceView#a39b340b97f4e801d6d59437b257572b8]](QEvent* e);
+<a name="l00101"></a>  101     virtual void [[changeEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a39b340b97f4e801d6d59437b257572b8]](QEvent* e);
 
 
 <a name="l00102"></a>  102
@@ -276,7 +276,7 @@ header
 <a name="l00161"></a>  161     void selectEventByIndex(int idx);
 
 
-<a name="l00167"></a>  167     bool isValidHit(const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00167"></a>  167     bool isValidHit(const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
 
 
 <a name="l00168"></a>  168
@@ -324,10 +324,10 @@ header
 <a name="l00217"></a>  217     // Our member data
 
 
-<a name="l00218"></a>  218     [[DDASDecoder|classDDASDecoder]]* m_pDecoder;
+<a name="l00218"></a>  218     [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md]]* m_pDecoder;
 
 
-<a name="l00219"></a>  219     [[FitManager|classFitManager]]*  m_pFitManager;
+<a name="l00219"></a>  219     [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]*  m_pFitManager;
 
 
 <a name="l00220"></a>  220
@@ -402,7 +402,7 @@ header
 <a name="l00247"></a>  247     QWidget*     m_pTopBoxes;
 
 
-<a name="l00248"></a>  248     [[QHitData|classQHitData]]*    m_pHitData;
+<a name="l00248"></a>  248     [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md]]*    m_pHitData;
 
 
 <a name="l00249"></a>  249
@@ -414,7 +414,7 @@ header
 <a name="l00251"></a>  251     QWidget*     m_pPlotWidget;
 
 
-<a name="l00252"></a>  252     [[QRootCanvas|classQRootCanvas]]* m_pRootCanvas;
+<a name="l00252"></a>  252     [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]]* m_pRootCanvas;
 
 
 <a name="l00253"></a>  253     QTimer*      m_pTimer;
@@ -435,42 +435,42 @@ header
 <a name="l00258"></a>  258 #endif
 
 
-[[DDASDecoder|classDDASDecoder]]
+[[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md]]
 
 An interactive event processor integrated in the traceview GUI.
 
 **Definition:** DDASDecoder.h:53
 
 
-[[FitManager|classFitManager]]
+[[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]
 
 Provides an interface for calculating trace fits using HitExtension fit parameters.
 
 **Definition:** FitManager.h:65
 
 
-[[QHitData|classQHitData]]
+[[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md]]
 
 Widget for managing hit information when interating with the GUI.
 
 **Definition:** QHitData.h:54
 
 
-[[QRootCanvas|classQRootCanvas]]
+[[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]]
 
 A ROOT canvas embedded in a Qt application.
 
 **Definition:** QRootCanvas.h:45
 
 
-[[QTraceView|classQTraceView]]
+[[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md]]
 
 Main traceview GUI window.
 
 **Definition:** QTraceView.h:81
 
 
-[[QTraceView::QTraceView|classQTraceView#a229f3b9498e8d2a84ed741716f942b95]]
+[[QTraceView::QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a229f3b9498e8d2a84ed741716f942b95]]
 
 QTraceView(QCommandLineParser &parser, QWidget *parent=Q_NULLPTR)
 
@@ -479,7 +479,7 @@ Constructor.
 **Definition:** QTraceView.cpp:69
 
 
-[[QTraceView::changeEvent|classQTraceView#a39b340b97f4e801d6d59437b257572b8]]
+[[QTraceView::changeEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a39b340b97f4e801d6d59437b257572b8]]
 
 virtual void changeEvent(QEvent *e)
 
@@ -488,7 +488,7 @@ Event handler for state changes.
 **Definition:** QTraceView.cpp:128
 
 
-[[QTraceView::~QTraceView|classQTraceView#a80d1eca0f99941ee814c08550749c9d1]]
+[[QTraceView::~QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a80d1eca0f99941ee814c08550749c9d1]]
 
 virtual ~QTraceView()
 
@@ -497,7 +497,7 @@ Destructor.
 **Definition:** QTraceView.cpp:112
 
 
-[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 

@@ -22,14 +22,14 @@ Here is a list of all class members with links to the classes they belong to:
 ### - e -
 
 - EndBaselineRun()
-  : [[CPixieRunUtilities|classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]]
+  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a2b754a86c9b3ff3b65da06a9d41de135]]
 - EndHistogramRun()
-  : [[CPixieRunUtilities|classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]]
+  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a0f7657098ea3adc47ea9cd965721c5cf]]
 - endRun()
-  : [[CMyEndCommand|classCMyEndCommand#a939cf7f6338bfd8e23bd64c33f0a88ba]]
-  , [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#a7d65d28b4381eade37631991d590e1f1]]
+  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a939cf7f6338bfd8e23bd64c33f0a88ba]]
+  , [[DAQ::DDAS::DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a7d65d28b4381eade37631991d590e1f1]]
 - ExitSystem()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#a8bbb91058a3ffeb39cbb9d288c7c68c2]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a8bbb91058a3ffeb39cbb9d288c7c68c2]]
 
  contents 
  start footer part 

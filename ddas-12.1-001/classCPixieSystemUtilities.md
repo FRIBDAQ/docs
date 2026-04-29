@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCPixieSystemUtilities-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities-members.md]]
 
 
-CPixieSystemUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
+CPixieSystemUtilities Class Reference[[libPixieUtilities.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__utilities.md]]
 
 header
 System manager class for DDAS.  
- [[More...|classCPixieSystemUtilities#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#details]]
 
 
 `#include <CPixieSystemUtilities.h>`
@@ -75,7 +75,7 @@ System manager class for DDAS.
 System manager class for DDAS.
 
 
-This class manages the Pixie [[DAQ|namespaceDAQ]] system. It controls loading and saving settings files, booting and exiting, and stores information about the state of the system which can be accessed across the ctypes interface.
+This class manages the Pixie [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] system. It controls loading and saving settings files, booting and exiting, and stores information about the state of the system which can be accessed across the ctypes interface.
 
 ## Constructor & Destructor Documentation
 
@@ -323,8 +323,8 @@ Set the boot mode.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieSystemUtilities.h|CPixieSystemUtilities_8h_source]]
-- [[CPixieSystemUtilities.cpp|CPixieSystemUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h_source.md]]
+- [[CPixieSystemUtilities.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8cpp.md]]
 
  contents 
  start footer part 

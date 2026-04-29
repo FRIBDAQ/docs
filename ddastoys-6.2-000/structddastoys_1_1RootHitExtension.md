@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[RootHitExtension|structddastoys_1_1RootHitExtension]]
+- [[RootHitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|structddastoys_1_1RootHitExtension-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension-members.md]]
 
 
 ddastoys::RootHitExtension Struct Reference
 
 header
 The data structure containing the full fit information.  
- [[More...|structddastoys_1_1RootHitExtension#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#details]]
 
 
 `#include <RootExtensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::RootHitExtension:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::RootHitExtension:
@@ -67,7 +67,7 @@ Collaboration diagram for ddastoys::RootHitExtension:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -110,7 +110,7 @@ The data structure containing the full fit information.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[RootExtensions.h|RootExtensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[RootExtensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootExtensions_8h_source.md]]
 
  contents 
  start footer part 

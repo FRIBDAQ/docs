@@ -30,9 +30,9 @@ This project provides a single DDAS format library and unpacker which can be use
 
 The format library consists of the following:
 
-- [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit]] - A class which encapsulates the information emitted by a Pixie-16 digitizer. It contains information for a single channel only.
-- [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]] - Unpacks DDAS data recorded by NSCLDAQ into DDASHits.
-- [[DDASBitMasks.h|DDASBitMasks_8h]] - A header file containing masks used to extract information from specific parts of XIA Pixie list-mode data. Bitmasks are also in the ddasfmt namespace.
+- [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] - A class which encapsulates the information emitted by a Pixie-16 digitizer. It contains information for a single channel only.
+- [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md]] - Unpacks DDAS data recorded by NSCLDAQ into DDASHits.
+- [[DDASBitMasks.h|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASBitMasks_8h.md]] - A header file containing masks used to extract information from specific parts of XIA Pixie list-mode data. Bitmasks are also in the ddasfmt namespace.
 
 
 # Requirements

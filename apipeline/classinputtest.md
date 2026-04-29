@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classinputtest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classinputtest-members.md]]
 
 
 inputtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for inputtest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for inputtest:
@@ -47,7 +47,7 @@ Collaboration diagram for inputtest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -76,7 +76,7 @@ Collaboration diagram for inputtest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testintests.cpp|testintests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testintests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testintests_8cpp.md]]
 
  contents 
  start footer part 

@@ -24,7 +24,7 @@ do not remove this div, it is closed by doxygen!
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[List of all members|classCItemConfiguration-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration-members.md]]
 
 
 CItemConfiguration Class Reference
@@ -136,10 +136,10 @@ For convenience, some of the static functions of this class provide commonly use
 How to use this:
 
 
-In general, one would create an object that contains a [[CItemConfiguration|classCItemConfiguration]] object. That object would provide mechanisms to set/get the configuration. The object itself, would register the configuration names it needs. It would, in appropriate methods, get the values of the configuration names.
+In general, one would create an object that contains a [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]] object. That object would provide mechanisms to set/get the configuration. The object itself, would register the configuration names it needs. It would, in appropriate methods, get the values of the configuration names.
 
 
-See e.g. [[CConfigurableObject|classCConfigurableObject]] for a base class that can be used and that has those properties.
+See e.g. [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]] for a base class that can be used and that has those properties.
 
 
 The configuration subsystem would at some point call configure to set up the configuration (note subclassed objects can also call this to set up their default configuration).
@@ -585,7 +585,7 @@ Check that this is a valid list of integers. For string lists in this implementa
   | false | - List not validated |
 
 
-- **[[Todo:|todo#_todo000001]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/apipeline/todo.md#_todo000001]]**
   Extend the parameter to us to supply optional limit information.
 
 
@@ -718,7 +718,7 @@ Equality is via item comparison.
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CItemConfiguration.h|CItemConfiguration_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CItemConfiguration.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CItemConfiguration_8h_source.md]]
 - libtclplus/tclplus/CItemConfiguration.cpp
 
  contents 

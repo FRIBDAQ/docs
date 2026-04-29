@@ -19,75 +19,75 @@ do not remove this div, it is closed by doxygen!
 ### - g -
 
 - generate()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a53d57c830dbd769bc046e17fc4c031d1]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a53d57c830dbd769bc046e17fc4c031d1]]
 - GetBaselineData()
-  : [[CDataGenerator|classCDataGenerator#ac6531e0bac7da221d47a02a794b7a0e7]]
-  , [[CPixieRunUtilities|classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]
+  : [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#ac6531e0bac7da221d47a02a794b7a0e7]]
+  , [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a593941ce31042a5f366df9f469ae164c]]
 - GetBootMode()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#a72e23154fe63def8188d30f1b978811e]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72e23154fe63def8188d30f1b978811e]]
 - GetBootStatus()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#a430773db39d9987356fd65c42ec76266]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a430773db39d9987356fd65c42ec76266]]
 - getBuffer()
-  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#ac0cc6c8da4900e73929d5eca21e8a2fd]]
+  : [[DAQ::DDAS::DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd]]
 - GetCrateID()
-  : [[CMyEventSegment|classCMyEventSegment#a7b554738d1d50f64f3c6bf903e8e87f2]]
+  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a7b554738d1d50f64f3c6bf903e8e87f2]]
 - getCrateId()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ac53d328787ee72520beda14d3aef14e9]]
 - GetData()
-  : [[DDASRootEvent|classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]
+  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad]]
 - getDefaultFirmwareMap()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a631aab52dd3a07420761f8674b968cc9]]
 - getFirmwareConfiguration()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a75984310a14ddcb0106d87cb5ae448ec]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a75984310a14ddcb0106d87cb5ae448ec]]
 - GetFirstTime()
-  : [[DDASRootEvent|classDDASRootEvent#abb0d65e6507f4b6e32eabf39501a294f]]
+  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abb0d65e6507f4b6e32eabf39501a294f]]
 - getHardwareMap()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ad8a07c20c17f1d849723e4ed540f178a]]
 - GetHistogramData()
-  : [[CDataGenerator|classCDataGenerator#a73c4d25d481f3014ecee914474b1e57e]]
-  , [[CPixieRunUtilities|classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]
+  : [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a73c4d25d481f3014ecee914474b1e57e]]
+  , [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a6778f8255f2a578f3f930f2653d84cb7]]
 - getItem()
-  : [[DataSource|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]]
-  , [[FdDataSource|classFdDataSource#a798fb79377ecc62786e54e2fe74c1c03]]
-  , [[StreamDataSource|classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]]
+  : [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24]]
+  , [[FdDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md#a798fb79377ecc62786e54e2fe74c1c03]]
+  , [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#a02bf519172132c894990cf9af7b1f83d]]
 - GetLastTime()
-  : [[DDASRootEvent|classDDASRootEvent#a1355ada3cc269a9a1fa83e794de86c25]]
+  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a1355ada3cc269a9a1fa83e794de86c25]]
 - getModuleEventLengths()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a2e5696e707923ecf8434cac8153d21f7]]
 - getModuleFirmwareConfiguration()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a6ad7fd9204aad6e1c298203055f0cc44]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a6ad7fd9204aad6e1c298203055f0cc44]]
 - GetModuleMSPS()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#a72f3fee797d91d46fd6e91698dcff24f]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72f3fee797d91d46fd6e91698dcff24f]]
 - GetNHits()
-  : [[DDASRootEvent|classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]
+  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b]]
 - GetNumberOfModules()
-  : [[CMyEventSegment|classCMyEventSegment#a9321893c5fd93985932b6a7925a5e371]]
+  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371]]
 - getNumberOfModules()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a6bd890cea5bb80f4050e4462601aa892]]
 - GetNumModules()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#aa1c4385acdb310d9d53785dcb251153f]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aa1c4385acdb310d9d53785dcb251153f]]
 - getOfflineMode()
-  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]
+  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef]]
 - GetRunActive()
-  : [[CPixieRunUtilities|classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]
+  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#ade882c72a71afa6cf76d1d14ff9a11e0]]
 - getSettingsFilePath()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#ae239ff357b0e37e8eed1f345a6c06a82]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ae239ff357b0e37e8eed1f345a6c06a82]]
 - getSlotMap()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a2379128e77511d4e571187a20800bb44]]
 - getStatistics()
-  : [[CMyEventSegment|classCMyEventSegment#a575080123e05c7193b4033b164573d53]]
-  , [[CMyScaler|classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]
+  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53]]
+  , [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db]]
 - GetTimeWidth()
-  : [[DDASRootEvent|classDDASRootEvent#aa388c0f4fb6f3343507dbfd8128f0b05]]
+  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#aa388c0f4fb6f3343507dbfd8128f0b05]]
 - GetTraceData()
-  : [[CDataGenerator|classCDataGenerator#a946fbbcfc74258dfff3d42304181e4a1]]
-  , [[CPixieTraceUtilities|classCPixieTraceUtilities#a16213d143d9718616864fda4068290ac]]
+  : [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a946fbbcfc74258dfff3d42304181e4a1]]
+  , [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac]]
 - getWordsInModules()
-  : [[CMyTrigger|classCMyTrigger#af8b861e1e309838ff8fbb31d43cfb343]]
+  : [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#af8b861e1e309838ff8fbb31d43cfb343]]
 - GoBusy()
-  : [[CMyBusy|classCMyBusy#abc37d7a3040f7dc03ded1d569a31fcc8]]
+  : [[CMyBusy|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md#abc37d7a3040f7dc03ded1d569a31fcc8]]
 - GoClear()
-  : [[CMyBusy|classCMyBusy#a95c6377a23f4026f112f0c9ed2be4173]]
+  : [[CMyBusy|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md#a95c6377a23f4026f112f0c9ed2be4173]]
 
  contents 
  start footer part 

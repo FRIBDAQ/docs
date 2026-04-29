@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
 
  top 
 CTCLThread.h
 
 header
-[[Go to the documentation of this file.|CTCLThread_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLThread_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -69,7 +69,7 @@ header
 
 <a name="l00023"></a>   23 #include <tcl.h>
 
-<a name="l00029"></a>[[29|classCTCLThread]] class [[CTCLThread|classCTCLThread]]
+<a name="l00029"></a>[[29|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]] class [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]]
 
 <a name="l00030"></a>   30 {
 
@@ -91,7 +91,7 @@ header
 
 <a name="l00039"></a>   39     struct MyClientData  {
 
-<a name="l00040"></a>   40         [[CTCLThread|classCTCLThread]]*  m_pThis;
+<a name="l00040"></a>   40         [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]]*  m_pThis;
 
 <a name="l00041"></a>   41         ClientData   m_pArg;
 
@@ -101,33 +101,33 @@ header
 
 <a name="l00044"></a>   44 public:
 
-<a name="l00045"></a>   45     [[CTCLThread|classCTCLThread#a2e1aad69fe673db49b502d208007ba02]](int flags = TCL_THREAD_JOINABLE, int stacksize = TCL_THREAD_STACK_DEFAULT);
+<a name="l00045"></a>   45     [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a2e1aad69fe673db49b502d208007ba02]](int flags = TCL_THREAD_JOINABLE, int stacksize = TCL_THREAD_STACK_DEFAULT);
 
-<a name="l00046"></a>   46     virtual [[~CTCLThread|classCTCLThread#ac9f46789468a29ac0e90be1a82948f7a]]();
+<a name="l00046"></a>   46     virtual [[~CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#ac9f46789468a29ac0e90be1a82948f7a]]();
 
 <a name="l00047"></a>   47
 
-<a name="l00048"></a>   48     void [[start|classCTCLThread#a50c6d8d6499131a00af2e7331d7b9f96]](ClientData pData = nullptr);
+<a name="l00048"></a>   48     void [[start|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a50c6d8d6499131a00af2e7331d7b9f96]](ClientData pData = nullptr);
 
-<a name="l00049"></a>   49     void [[requestExit|classCTCLThread#aa414d324d6943e79bb4256686e4a25c5]]();
+<a name="l00049"></a>   49     void [[requestExit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#aa414d324d6943e79bb4256686e4a25c5]]();
 
 <a name="l00050"></a>   50
 
 <a name="l00051"></a>   51     virtual int operator()(ClientData arg) = 0;
 
-<a name="l00052"></a>   52     virtual void [[exitHandler|classCTCLThread#a3018ec9579cfa628351538cbc9ecce6b]]();
+<a name="l00052"></a>   52     virtual void [[exitHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3018ec9579cfa628351538cbc9ecce6b]]();
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54     int [[join|classCTCLThread#ac71f3baaac1f2798d0df83a03753379d]]();
+<a name="l00054"></a>   54     int [[join|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#ac71f3baaac1f2798d0df83a03753379d]]();
 
 <a name="l00055"></a>   55
 
-<a name="l00056"></a>   56     static Tcl_ThreadId [[currentThread|classCTCLThread#a0067607ad945aa93f3bc8ae864efc7fe]]();
+<a name="l00056"></a>   56     static Tcl_ThreadId [[currentThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a0067607ad945aa93f3bc8ae864efc7fe]]();
 
 <a name="l00057"></a>   57 protected:
 
-<a name="l00058"></a>   58     bool [[exitRequested|classCTCLThread#a3e640ce2a031df97a39021266a8b217f]]() const;
+<a name="l00058"></a>   58     bool [[exitRequested|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3e640ce2a031df97a39021266a8b217f]]() const;
 
 <a name="l00059"></a>   59 private:
 
@@ -143,61 +143,61 @@ header
 
 <a name="l00065"></a>   65 #endif
 
-[[CTCLThread::currentThread|classCTCLThread#a0067607ad945aa93f3bc8ae864efc7fe]]
+[[CTCLThread::currentThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a0067607ad945aa93f3bc8ae864efc7fe]]
 
 static Tcl_ThreadId currentThread()
 
 **Definition:** CTCLThread.cpp:125
 
 
-[[CTCLThread::~CTCLThread|classCTCLThread#ac9f46789468a29ac0e90be1a82948f7a]]
+[[CTCLThread::~CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#ac9f46789468a29ac0e90be1a82948f7a]]
 
 virtual ~CTCLThread()
 
 **Definition:** CTCLThread.cpp:53
 
 
-[[CTCLThread::exitHandler|classCTCLThread#a3018ec9579cfa628351538cbc9ecce6b]]
+[[CTCLThread::exitHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3018ec9579cfa628351538cbc9ecce6b]]
 
 virtual void exitHandler()
 
 **Definition:** CTCLThread.cpp:99
 
 
-[[CTCLThread::CTCLThread|classCTCLThread#a2e1aad69fe673db49b502d208007ba02]]
+[[CTCLThread::CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a2e1aad69fe673db49b502d208007ba02]]
 
 CTCLThread(int flags=TCL_THREAD_JOINABLE, int stacksize=TCL_THREAD_STACK_DEFAULT)
 
 **Definition:** CTCLThread.cpp:35
 
 
-[[CTCLThread|classCTCLThread]]
+[[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]]
 
 **Definition:** CTCLThread.h:29
 
 
-[[CTCLThread::start|classCTCLThread#a50c6d8d6499131a00af2e7331d7b9f96]]
+[[CTCLThread::start|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a50c6d8d6499131a00af2e7331d7b9f96]]
 
 void start(ClientData pData=nullptr)
 
 **Definition:** CTCLThread.cpp:67
 
 
-[[CTCLThread::requestExit|classCTCLThread#aa414d324d6943e79bb4256686e4a25c5]]
+[[CTCLThread::requestExit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#aa414d324d6943e79bb4256686e4a25c5]]
 
 void requestExit()
 
 **Definition:** CTCLThread.cpp:84
 
 
-[[CTCLThread::exitRequested|classCTCLThread#a3e640ce2a031df97a39021266a8b217f]]
+[[CTCLThread::exitRequested|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3e640ce2a031df97a39021266a8b217f]]
 
 bool exitRequested() const
 
 **Definition:** CTCLThread.cpp:138
 
 
-[[CTCLThread::join|classCTCLThread#ac71f3baaac1f2798d0df83a03753379d]]
+[[CTCLThread::join|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#ac71f3baaac1f2798d0df83a03753379d]]
 
 int join()
 

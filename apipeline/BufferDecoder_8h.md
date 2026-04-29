@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
 
  top 
 [Classes](#nested-classes)
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](BufferDecoder_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|BufferDecoder_8h_source]]
+[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/BufferDecoder_8h_source.md]]
 
 
 |  |  |

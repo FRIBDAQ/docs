@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CMyScaler|classCMyScaler]]
-- [[_Counters|structCMyScaler_1_1__Counters]]
+- [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
+- [[_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]]
 
  top 
 CMyScaler::_Counters Member List
 
 header
-This is the complete list of members for [[CMyScaler::_Counters|structCMyScaler_1_1__Counters]], including all inherited members.
+This is the complete list of members for [[CMyScaler::_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]], including all inherited members.
 
 
 |  |  |  |

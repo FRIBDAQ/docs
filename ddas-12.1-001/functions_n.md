@@ -22,7 +22,7 @@ Here is a list of all class members with links to the classes they belong to:
 ### - n -
 
 - nextHit()
-  : [[DDASReadout::HitManager|classDDASReadout_1_1HitManager#ae2d8aba51a3945b5eee126d13d405654]]
+  : [[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ae2d8aba51a3945b5eee126d13d405654]]
 
  contents 
  start footer part 

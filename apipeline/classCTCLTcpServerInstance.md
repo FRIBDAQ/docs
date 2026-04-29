@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCTCLTcpServerInstance-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance-members.md]]
 
 
 CTCLTcpServerInstance Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLTcpServerInstance:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLTcpServerInstance:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLTcpServerInstance:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -119,7 +119,7 @@ Collaboration diagram for CTCLTcpServerInstance:
 <a name="details"></a>## Detailed Description
 
 
-Server instance for a Tcl TCP server. Subclass of [[CTCLChannelCommander|classCTCLChannelCommander]] we supply:
+Server instance for a Tcl TCP server. Subclass of [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]] we supply:
 
 - onEndFile - so that we can get removed from the listeners list of active instances.
 - returnResult - Which writes the result back at the client.
@@ -168,7 +168,7 @@ Destruction gets and closes the channel. Typically destruction happens when onEn
 Called when an end file is detected on the socket. This means the client has disconnected.
 
 
-Reimplemented from [[CTCLChannelCommander|classCTCLChannelCommander#aafec1c21cbf1a697f56e3d84b70abd18]].
+Reimplemented from [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aafec1c21cbf1a697f56e3d84b70abd18]].
 
 
 
@@ -183,13 +183,13 @@ Reimplemented from [[CTCLChannelCommander|classCTCLChannelCommander#aafec1c21cbf
 The resultis returned by writing it to the channel.
 
 
-Reimplemented from [[CTCLChannelCommander|classCTCLChannelCommander#a61d2bdbc8ceab654a01e93f8063af807]].
+Reimplemented from [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a61d2bdbc8ceab654a01e93f8063af807]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLTcpServerInstance.h|CTCLTcpServerInstance_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLTcpServerInstance.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLTcpServerInstance_8h_source.md]]
 - libtclplus/tclplus/CTCLTcpServerInstance.cpp
 
  contents 

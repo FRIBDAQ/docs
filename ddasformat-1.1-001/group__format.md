@@ -40,7 +40,7 @@ DDAS data format library.
 DDAS data format library.
 
 
-This library contains the [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]], a class to unpack Pixie-16 data recorded by FRIBDAQ into a generic, module-independent format defined by the [[DDASHit|classddasfmt_1_1DDASHit]] class. The [[DDASHit|classddasfmt_1_1DDASHit]] class comes with a collection of getter and setter functions to access and manipulate data.
+This library contains the [[DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md]], a class to unpack Pixie-16 data recorded by FRIBDAQ into a generic, module-independent format defined by the [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] class. The [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] class comes with a collection of getter and setter functions to access and manipulate data.
 
  contents 
  start footer part 

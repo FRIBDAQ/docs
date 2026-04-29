@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CItemConfiguration|classCItemConfiguration]]
-- [[flimit|structCItemConfiguration_1_1flimit]]
+- [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
+- [[flimit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1flimit.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structCItemConfiguration_1_1flimit-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1flimit-members.md]]
 
 
 CItemConfiguration::flimit Struct Reference
@@ -51,7 +51,7 @@ header
 
 ---
 
-The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|CItemConfiguration_8h_source]]
+The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CItemConfiguration_8h_source.md]]
 
  contents 
  start footer part 

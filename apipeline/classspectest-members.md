@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 spectest Member List
 
 header
-This is the complete list of members for [[spectest|classspectest]], including all inherited members.
+This is the complete list of members for [[spectest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classspectest.md]], including all inherited members.
 
 
 |  |  |  |

@@ -21,24 +21,24 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
 
  top 
-LinkDef.h File Reference[[libddasrootformat.so|group__libddasrootformat]]
+LinkDef.h File Reference[[libddasrootformat.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__libddasrootformat.md]]
 
 header
-Tell rootcling to add our custom classes [[DDASRootEvent|classDDASRootEvent]], [[DDASRootHit|classDDASRootHit]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.  
+Tell rootcling to add our custom classes [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]], [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.  
 [More...](#details)
 
 
-[[Go to the source code of this file.|LinkDef_8h_source]]
+[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/LinkDef_8h_source.md]]
 
 
 <a name="details"></a>## Detailed Description
 
 
-Tell rootcling to add our custom classes [[DDASRootEvent|classDDASRootEvent]], [[DDASRootHit|classDDASRootHit]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.
+Tell rootcling to add our custom classes [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]], [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.
 
  contents 
  start footer part 

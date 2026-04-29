@@ -6,36 +6,36 @@
 ---
 
 - **Table of Contents**
-- 1. [[Introduction|c13]]
-- 2. [[The **python** command.|c23]]
-  - [[python|r28]] -- Runs python scripts in SpecTcl
-- 3. [[The python spectcl package|c81]]
-  - 3.1. [[spectcl package level methods.|c81#AEN89]]
-    - [[tcl|r91]] -- Run a Tcl script from Python.
-    - [[listparams|r109]] -- Creates a listing of defined parameters.
-    - [[listspectra|r130]] -- Create a list of defined spectrum names.
-    - [[listvars|r143]] -- Get a list of tree variables.
-    - [[listgates|r156]] -- Create a list of gate names.
-    - [[attach|r169]] -- Attach SpecTcl to a data source.
-    - [[start|r260]] -- Start analyzing data.
-    - [[stop|r279]] -- Stop data analysis
-  - 3.2. [[The spectcl.parameter type|x294]]
-    - [[parameter|r298]] -- Wrap SpecTcl parameter/treeparameters
-  - 3.3. [[The spectcl.spectrum type|x408]]
-    - [[spectrum|r416]] -- Wrap SpecTcl Spectrum objects.
-  - 3.4. [[The spectcl.variable type|x712]]
-    - [[variable|r716]] -- Wrapper for SpecTcl tree variable objects.
-  - 3.5. [[The spectcl.gates type|x840]]
-    - [[gate|r848]] -- Wraps a gate via its gate container.
+- 1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/c13.md]]
+- 2. [[The **python** command.|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/c23.md]]
+  - [[python|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r28.md]] -- Runs python scripts in SpecTcl
+- 3. [[The python spectcl package|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/c81.md]]
+  - 3.1. [[spectcl package level methods.|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/c81.md#AEN89]]
+    - [[tcl|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r91.md]] -- Run a Tcl script from Python.
+    - [[listparams|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r109.md]] -- Creates a listing of defined parameters.
+    - [[listspectra|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r130.md]] -- Create a list of defined spectrum names.
+    - [[listvars|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r143.md]] -- Get a list of tree variables.
+    - [[listgates|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r156.md]] -- Create a list of gate names.
+    - [[attach|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r169.md]] -- Attach SpecTcl to a data source.
+    - [[start|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r260.md]] -- Start analyzing data.
+    - [[stop|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r279.md]] -- Stop data analysis
+  - 3.2. [[The spectcl.parameter type|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/x294.md]]
+    - [[parameter|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r298.md]] -- Wrap SpecTcl parameter/treeparameters
+  - 3.3. [[The spectcl.spectrum type|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/x408.md]]
+    - [[spectrum|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r416.md]] -- Wrap SpecTcl Spectrum objects.
+  - 3.4. [[The spectcl.variable type|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/x712.md]]
+    - [[variable|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r716.md]] -- Wrapper for SpecTcl tree variable objects.
+  - 3.5. [[The spectcl.gates type|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/x840.md]]
+    - [[gate|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r848.md]] -- Wraps a gate via its gate container.
 
 - **List of Examples**
-- 2-1. [[Running a script file|r28#AEN59]]
-- 2-2. [[Running an immediate script|r28#AEN65]]
-- 2-3. [[Tcl variable substitution|r28#AEN74]]
-- 3-1. [[Listing all parameters to tkcon|r109#AEN124]]
-- 3-1. [[Attaching a file data source|r169#AEN232]]
-- 3-2. [[Taking data from an NSCLDAQ ringbuffer|r169#AEN237]]
-- 3-3. [[Reading data from a gzipped event file|r169#AEN254]]
+- 2-1. [[Running a script file|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r28.md#AEN59]]
+- 2-2. [[Running an immediate script|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r28.md#AEN65]]
+- 2-3. [[Tcl variable substitution|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r28.md#AEN74]]
+- 3-1. [[Listing all parameters to tkcon|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r109.md#AEN124]]
+- 3-1. [[Attaching a file data source|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r169.md#AEN232]]
+- 3-2. [[Taking data from an NSCLDAQ ringbuffer|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r169.md#AEN237]]
+- 3-3. [[Reading data from a gzipped event file|https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r169.md#AEN254]]
 
 ---
 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structCConditionAttributes-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes-members.md]]
 
 
 CConditionAttributes Struct Reference
@@ -106,7 +106,7 @@ Set the condition variable to be only usable to synchronize threads within this 
 
 ---
 
-The documentation for this struct was generated from the following files:- libtclplus/include/tclplus/[[CTCLConditionVariable.h|CTCLConditionVariable_8h_source]]
+The documentation for this struct was generated from the following files:- libtclplus/include/tclplus/[[CTCLConditionVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLConditionVariable_8h_source.md]]
 - libtclplus/tclplus/CTCLConditionVariable.cpp
 
  contents 

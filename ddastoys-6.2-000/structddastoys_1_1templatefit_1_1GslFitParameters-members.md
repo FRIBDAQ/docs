@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **templatefit**
-- [[GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters]]
+- [[GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md]]
 
  top 
 ddastoys::templatefit::GslFitParameters Member List
 
 header
-This is the complete list of members for [[ddastoys::templatefit::GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters]], including all inherited members.
+This is the complete list of members for [[ddastoys::templatefit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md]], including all inherited members.
 
 
 |  |  |  |

@@ -15,11 +15,11 @@ NSCLDAQ is a software suite that provides a flexible and extensible
 As you can imagine, NSCLDAQ is a large package with many utilities. Indeed 
      a lot of time has been spent documenting its capabilities. For more 
      details, please continue reading the [[user's 
-     guide|11.0/index]] of the NSCLDAQ 11.0 comprehensive documentation. That should get 
+     guide|https://github.com/FRIBDAQ/docs/tree/main/11.0/index.md]] of the NSCLDAQ 11.0 comprehensive documentation. That should get 
      your feet wet.
 
 
-[[## Proceed to User's Guide|11.0/index]]
+[[## Proceed to User's Guide|https://github.com/FRIBDAQ/docs/tree/main/11.0/index.md]]
 
 
 # What is SpecTcl?
@@ -32,4 +32,4 @@ SpecTcl is for analysis what NSCLDAQ is for dataflow. SpecTcl is a C++
       1d and 2d gates and apply them to histograms on the fly.
 
 
-[[## Proceed to User's Guide|../spectcl/index]]
+[[## Proceed to User's Guide|https://github.com/FRIBDAQ/docs/tree/main/../spectcl/index.md]]

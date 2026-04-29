@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 CEventProcessor.h
 
 header
-[[Go to the documentation of this file.|CEventProcessor_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CEventProcessor_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -93,13 +93,13 @@ header
 <a name="l00029"></a>   29 class CRingItem;
 
 
-<a name="l00030"></a>   30 class [[CRingItemProcessor|classCRingItemProcessor]];
+<a name="l00030"></a>   30 class [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]];
 
 
 <a name="l00031"></a>   31
 
 
-<a name="l00042"></a>[[42|classCEventProcessor]] class [[CEventProcessor|classCEventProcessor]]
+<a name="l00042"></a>[[42|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md]] class [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md]]
 
 
 <a name="l00043"></a>   43 {
@@ -117,7 +117,7 @@ header
 <a name="l00047"></a>   47     URL* m_pDataSource;
 
 
-<a name="l00048"></a>   48     [[CRingItemProcessor|classCRingItemProcessor]]* m_pProcessor;
+<a name="l00048"></a>   48     [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]* m_pProcessor;
 
 
 <a name="l00049"></a>   49     unsigned m_itemCount;
@@ -138,10 +138,10 @@ header
 <a name="l00054"></a>   54 public:
 
 
-<a name="l00056"></a>   56     [[CEventProcessor|classCEventProcessor#a747299b17063d417d1671b815d7b50fc]]();
+<a name="l00056"></a>   56     [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a747299b17063d417d1671b815d7b50fc]]();
 
 
-<a name="l00058"></a>   58     [[~CEventProcessor|classCEventProcessor#ab26433d9692ac374be3f55c8065b2aef]]();
+<a name="l00058"></a>   58     [[~CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#ab26433d9692ac374be3f55c8065b2aef]]();
 
 
 <a name="l00059"></a>   59
@@ -156,7 +156,7 @@ header
 <a name="l00062"></a>   62 public:
 
 
-<a name="l00073"></a>   73     int [[operator()|classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]](int argc, char* argv[]);
+<a name="l00073"></a>   73     int [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a28600238d0e8cf1e5fa853316ade86e8]](int argc, char* argv[]);
 
 
 <a name="l00074"></a>   74
@@ -183,14 +183,14 @@ header
 <a name="l00086"></a>   86 #endif
 
 
-[[CEventProcessor|classCEventProcessor]]
+[[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md]]
 
 Define an event processor for DDAS data.
 
 **Definition:** CEventProcessor.h:43
 
 
-[[CEventProcessor::operator()|classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]]
+[[CEventProcessor::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a28600238d0e8cf1e5fa853316ade86e8]]
 
 int operator()(int argc, char *argv[])
 
@@ -199,7 +199,7 @@ Entry point for the processor.
 **Definition:** CEventProcessor.cpp:83
 
 
-[[CEventProcessor::CEventProcessor|classCEventProcessor#a747299b17063d417d1671b815d7b50fc]]
+[[CEventProcessor::CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a747299b17063d417d1671b815d7b50fc]]
 
 CEventProcessor()
 
@@ -208,7 +208,7 @@ Constructor.
 **Definition:** CEventProcessor.cpp:61
 
 
-[[CEventProcessor::~CEventProcessor|classCEventProcessor#ab26433d9692ac374be3f55c8065b2aef]]
+[[CEventProcessor::~CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#ab26433d9692ac374be3f55c8065b2aef]]
 
 ~CEventProcessor()
 
@@ -217,7 +217,7 @@ Destructor.
 **Definition:** CEventProcessor.cpp:67
 
 
-[[CRingItemProcessor|classCRingItemProcessor]]
+[[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]
 
 Abstract base class to support type-independent ring-item processing.
 

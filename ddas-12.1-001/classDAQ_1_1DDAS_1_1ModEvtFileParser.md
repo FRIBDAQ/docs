@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|namespaceDAQ]]
-- [[DDAS|namespaceDAQ_1_1DDAS]]
-- [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]]
+- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
+- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+- [[ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDAQ_1_1DDAS_1_1ModEvtFileParser-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser-members.md]]
 
 
-DAQ::DDAS::ModEvtFileParser Class Reference[[libConfiguration.so|group__configuration]]
+DAQ::DDAS::ModEvtFileParser Class Reference[[libConfiguration.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md]]
 
 header
 A parser for the modevtlen.txt file.  
- [[More...|classDAQ_1_1DDAS_1_1ModEvtFileParser#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#details]]
 
 
 `#include <ModEvtFileParser.h>`
@@ -116,8 +116,8 @@ The parser will read in as many lines as the value returned by `config.getNumber
 
 ---
 
-The documentation for this class was generated from the following files:- [[ModEvtFileParser.h|ModEvtFileParser_8h_source]]
-- [[ModEvtFileParser.cpp|ModEvtFileParser_8cpp]]
+The documentation for this class was generated from the following files:- [[ModEvtFileParser.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ModEvtFileParser_8h_source.md]]
+- [[ModEvtFileParser.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ModEvtFileParser_8cpp.md]]
 
  contents 
  start footer part 

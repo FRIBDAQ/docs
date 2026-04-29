@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCTCLProcessor-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor-members.md]]
 
 
 CTCLProcessor Class Referenceabstract
@@ -44,7 +44,7 @@ Inheritance diagram for CTCLProcessor:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLProcessor:
@@ -56,7 +56,7 @@ Collaboration diagram for CTCLProcessor:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -143,7 +143,7 @@ Collaboration diagram for CTCLProcessor:
 <a name="details"></a>## Detailed Description
 
 
-This class is an abstract base class for commands written against the argc/argv interface of Tcl/Tk. Note that since this interface is supposedly due to be deprecated with Tcl 9.0, this is actually written with the aid of an adaptor class ([[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor]]) to work with only the object interface.
+This class is an abstract base class for commands written against the argc/argv interface of Tcl/Tk. Note that since this interface is supposedly due to be deprecated with Tcl 9.0, this is actually written with the aid of an adaptor class ([[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]) to work with only the object interface.
 
 
 This is a complete rewrite of this class since SpecTcl-3.0 however it should be compatible with older uses.
@@ -279,7 +279,7 @@ Match a keyword, rValue, against the set of keywords in a MatchTable. If no matc
 Called when the command is being deleted. The default action is to do nothing.
 
 
-Reimplemented in [[Reverse|classReverse#acfe4a22505ffb7d9f54808c386160b72]].
+Reimplemented in [[Reverse|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#acfe4a22505ffb7d9f54808c386160b72]].
 
 
 
@@ -379,7 +379,7 @@ Uses the currently bound interpreter to parse a parameter as an integer.
 This is a hook that can be overiddent by derived classes. It is called just after the execution of operator()... success or failure.
 
 
-Reimplemented in [[Reverse|classReverse#a272c1777ee49cb371dc0b7275da36dc3]].
+Reimplemented in [[Reverse|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#a272c1777ee49cb371dc0b7275da36dc3]].
 
 
 
@@ -406,7 +406,7 @@ Hook for derived classes to get control just after OnDelete
 This is a hook that can be overridden by derived classes. It is called just prior to the execution of operator().
 
 
-Reimplemented in [[Reverse|classReverse#aaf8be85be7e0621c6030e48a7bad73a3]].
+Reimplemented in [[Reverse|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#aaf8be85be7e0621c6030e48a7bad73a3]].
 
 
 
@@ -457,7 +457,7 @@ Unregister all just does a caught unregister on the adaptor.
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLProcessor.h|TCLProcessor_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLProcessor_8h_source.md]]
 - libtclplus/tclplus/TCLProcessor.cpp
 
  contents 

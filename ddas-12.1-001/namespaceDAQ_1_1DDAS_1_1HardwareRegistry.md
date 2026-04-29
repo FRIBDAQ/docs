@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|namespaceDAQ]]
-- [[DDAS|namespaceDAQ_1_1DDAS]]
-- [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
+- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
+- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+- [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]]
 
  top 
 [Classes](#nested-classes) |
@@ -34,8 +34,8 @@ do not remove this div, it is closed by doxygen!
 DAQ::DDAS::HardwareRegistry Namespace Reference
 
 header
-The [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]] namespace is where information about all known [[DDAS|namespaceDAQ_1_1DDAS]] modules are stored.  
-[[More...|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#details]]
+The [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]] namespace is where information about all known [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] modules are stored.  
+[[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#details]]
 
 
 |  |  |
@@ -84,16 +84,16 @@ The [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]] namespace is w
 <a name="details"></a>## Detailed Description
 
 
-The [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]] namespace is where information about all known [[DDAS|namespaceDAQ_1_1DDAS]] modules are stored.
+The [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]] namespace is where information about all known [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] modules are stored.
 
 
 The information that the user can access in this namespace's functions is not specific to a module but rather to a hardware type. If the user wants to know basic information about the ADC resolution or frequency, this namespace will scratch that itch. However, if the user is looking for information about the serial number, this is not the place for that. In fact, there currently is no place for that.
 
 
-The [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]] is fairly simple. It is just a map of HardwareRegistry::HardwareSpecifications that are keyed by [[HardwareRegistry::HardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]] enumerations. The [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]] provides a default state that provides the normal specifications for each hardware type in use at the NSCL. If for some crazy reason, something changes, the user can change the specifications associated with each device type.
+The [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]] is fairly simple. It is just a map of HardwareRegistry::HardwareSpecifications that are keyed by [[HardwareRegistry::HardwareType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4]] enumerations. The [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]] provides a default state that provides the normal specifications for each hardware type in use at the NSCL. If for some crazy reason, something changes, the user can change the specifications associated with each device type.
 
 
-There is also a function to determine the hardware type enumeration value given the hardware revision, ACD frequency, and ADC resolution called [[HardwareRegistry::computeHardwareType()|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]. The reverse operation is called HardwareRegistry::getSpecification(HardwareType type). Together these two functions are probably the most useful tools.
+There is also a function to determine the hardware type enumeration value given the hardware revision, ACD frequency, and ADC resolution called [[HardwareRegistry::computeHardwareType()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc667cd1e6674cc33c99eb8103769454]]. The reverse operation is called HardwareRegistry::getSpecification(HardwareType type). Together these two functions are probably the most useful tools.
 
 ## Enumeration Type Documentation
 
@@ -112,7 +112,7 @@ The HardwareType enum.
 The HardwareType enumeration provides an identifier for each type of hardware that might be found in the system. The user can determine which hardware type they are dealing with by calling the `Pixie16ReadModuleInfo()` methods to access the ADC sampling frequency, the ADC resolution, and the hardware revision. Together with those three pieces of information, it is possible to determine the appropriate HardwareType.
 
 
-- **[[Todo:|todo#_todo000013]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000013]]**
   (ASC 3/13/24): Create a method that can query a module and compute the HardwareType.
 
 |  |  |

@@ -22,13 +22,13 @@ Here is a list of all documented class members with links to the class documenta
 ### - t -
 
 - throwMPIError()
-  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a80527bacc6595b44b24eaab256b64046]]
+  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a80527bacc6595b44b24eaab256b64046]]
 - timedwait()
-  : [[CConditionVariable|classCConditionVariable#ab4e64edfbef80485a236c95b163f0a16]]
+  : [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md#ab4e64edfbef80485a236c95b163f0a16]]
 - treeparamarray_2()
-  : [[TclConfigtest|classTclConfigtest#afa4c0452688023fb36888ac9852f9de6]]
+  : [[TclConfigtest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclConfigtest.md#afa4c0452688023fb36888ac9852f9de6]]
 - trylock()
-  : [[CMutex|classCMutex#add2d5d7ba3dd1b7e4440d83b122eda2e]]
+  : [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#add2d5d7ba3dd1b7e4440d83b122eda2e]]
 
  contents 
  start footer part 

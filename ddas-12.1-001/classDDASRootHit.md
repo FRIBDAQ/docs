@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDDASRootHit-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit-members.md]]
 
 
-DDASRootHit Class Reference[[libddasrootformat.so|group__libddasrootformat]]
+DDASRootHit Class Reference[[libddasrootformat.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__libddasrootformat.md]]
 
 header
 Encapsulation of a generic DDAS hit with added capabilities for writing to ROOT files.  
- [[More...|classDDASRootHit#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#details]]
 
 
 `#include <DDASRootHit.h>`
@@ -45,7 +45,7 @@ Inheritance diagram for DDASRootHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for DDASRootHit:
@@ -59,7 +59,7 @@ Collaboration diagram for DDASRootHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -81,14 +81,14 @@ Collaboration diagram for DDASRootHit:
 Encapsulation of a generic DDAS hit with added capabilities for writing to ROOT files.
 
 
-The [[DDASRootHit|classDDASRootHit]] class is intended to encapsulate the information that is emitted by the Pixie-16 digitizer for a single hit from a single channel. It is generic because it can store data for the 100 MSPS, 250 MSPS, and 500 MSPS Pixie-16 digitizers used at the lab. In general all of these contain the same set of information, however, the meaning of the CFD data is different for each. The [[DDASRootHit|classDDASRootHit]] class abstracts these differences away from the user.
+The [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] class is intended to encapsulate the information that is emitted by the Pixie-16 digitizer for a single hit from a single channel. It is generic because it can store data for the 100 MSPS, 250 MSPS, and 500 MSPS Pixie-16 digitizers used at the lab. In general all of these contain the same set of information, however, the meaning of the CFD data is different for each. The [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] class abstracts these differences away from the user.
 
 
 This is a very, very simple class. It inherits from ddasfmt::DDASHit and ROOT's TObject class and adds a ROOT `ClassDef()` macro. Everything else, including copy construction, assignment, etc. is handled "for free" by the base classes. Because the class inherits from ddasfmt::DDASHit, we can trivially use the ddasfmt::DDASHitUnpacker to unpack the event data directly into the ddasfmt::DDASHit members.
 
 
 - Note
-  In previous versions of NSCLDAQ (prior to 12.1), this class is called ddaschannel and is part of the libddaschannel library. The class is now called [[DDASRootHit|classDDASRootHit]] to make more clear its relationship to the DDASHit class, which it is derived from. The library which contains the ROOT I/O classes is now called libddasrootformat to better reflect its purpose.
+  In previous versions of NSCLDAQ (prior to 12.1), this class is called ddaschannel and is part of the libddaschannel library. The class is now called [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] to make more clear its relationship to the DDASHit class, which it is derived from. The library which contains the ROOT I/O classes is now called libddasrootformat to better reflect its purpose.
 
   No namespace because we are going to refactor everything anyway...
 
@@ -136,7 +136,7 @@ Default destructor.
 
 ---
 
-The documentation for this class was generated from the following file:- [[DDASRootHit.h|DDASRootHit_8h_source]]
+The documentation for this class was generated from the following file:- [[DDASRootHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootHit_8h_source.md]]
 
  contents 
  start footer part 

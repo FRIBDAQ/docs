@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCRangeError-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCRangeError-members.md]]
 
 
 CRangeError Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for CRangeError:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CRangeError:
@@ -50,7 +50,7 @@ Collaboration diagram for CRangeError:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -125,7 +125,7 @@ Collaboration diagram for CRangeError:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[RangeError.h|RangeError_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[RangeError.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/RangeError_8h_source.md]]
 - libtclplus/exception/RangeError.cpp
 
  contents 

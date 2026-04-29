@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMyTrigger Member List
 
 header
-This is the complete list of members for [[CMyTrigger|classCMyTrigger]], including all inherited members.
+This is the complete list of members for [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]], including all inherited members.
 
 
 |  |  |  |

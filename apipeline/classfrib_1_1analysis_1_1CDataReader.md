@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]
+- [[CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]
 
  top 
 [Classes](#nested-classes) |
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[List of all members|classfrib_1_1analysis_1_1CDataReader-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader-members.md]]
 
 
 frib::analysis::CDataReader Class Reference
@@ -91,7 +91,7 @@ Typical use case:
 ```
 
 - Note
-  this works best (in terms of minmal data movement), if the size of the reader's buffer is closely matched to the maxsize's that are passed to [[getBlock()|classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]].
+  this works best (in terms of minmal data movement), if the size of the reader's buffer is closely matched to the maxsize's that are passed to [[getBlock()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md#ad59897cfd7aa0d0bda1f4f9ccf67f90a]].
 
 ## Constructor & Destructor Documentation
 
@@ -165,8 +165,8 @@ getBlock
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[DataReader.h|DataReader_8h_source]]
-- base/[[DataReader.cpp|DataReader_8cpp]]
+The documentation for this class was generated from the following files:- base/[[DataReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataReader_8h_source.md]]
+- base/[[DataReader.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataReader_8cpp.md]]
 
  contents 
  start footer part 

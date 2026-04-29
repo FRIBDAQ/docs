@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classworker2test-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classworker2test-members.md]]
 
 
 worker2test Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for worker2test:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for worker2test:
@@ -47,7 +47,7 @@ Collaboration diagram for worker2test:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -88,7 +88,7 @@ Collaboration diagram for worker2test:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[worker2tests.cpp|worker2tests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[worker2tests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/worker2tests_8cpp.md]]
 
  contents 
  start footer part 

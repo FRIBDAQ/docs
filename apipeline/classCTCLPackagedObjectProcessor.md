@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCTCLPackagedObjectProcessor-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor-members.md]]
 
 
 CTCLPackagedObjectProcessor Class Reference
@@ -42,7 +42,7 @@ Inheritance diagram for CTCLPackagedObjectProcessor:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLPackagedObjectProcessor:
@@ -55,7 +55,7 @@ Collaboration diagram for CTCLPackagedObjectProcessor:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -199,7 +199,7 @@ Return the package pointer so that derived classes can invoke package facilities
 Default initialize is null. The derived class can override this however:
 
 
-Reimplemented in [[testCommand|classtestCommand#a6f085e980b062a895cf423e1c2c4aa9e]].
+Reimplemented in [[testCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestCommand.md#a6f085e980b062a895cf423e1c2c4aa9e]].
 
 
 
@@ -222,7 +222,7 @@ Attachment saves the package pointer for later and invokes the Initialize method
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLPackagedObjectProcessor.h|TCLPackagedObjectProcessor_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLPackagedObjectProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLPackagedObjectProcessor_8h_source.md]]
 - libtclplus/tclplus/TCLPackagedObjectProcessor.cpp
 
  contents 

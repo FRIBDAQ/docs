@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
 
  top 
 DataSource.h
 
 header
-[[Go to the documentation of this file.|DataSource_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DataSource_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -91,7 +91,7 @@ header
 <a name="l00021"></a>   21
 
 
-<a name="l00027"></a>[[27|namespaceufmt]] namespace [[ufmt|namespaceufmt]] {
+<a name="l00027"></a>[[27|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md]] namespace [[ufmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md]] {
 
 
 <a name="l00028"></a>   28     class CRingItem;
@@ -103,19 +103,19 @@ header
 <a name="l00030"></a>   30 }
 
 
-<a name="l00031"></a>   31 using namespace [[ufmt|namespaceufmt]];
+<a name="l00031"></a>   31 using namespace [[ufmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md]];
 
 
 <a name="l00032"></a>   32
 
 
-<a name="l00048"></a>[[48|classDataSource]] class [[DataSource|classDataSource]] {
+<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]] class [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]] {
 
 
 <a name="l00049"></a>   49 protected:
 
 
-<a name="l00050"></a>[[50|classDataSource#a6f0912454e4f3444260ed98272d3b7d5]]     RingItemFactoryBase* [[m_pFactory|classDataSource#a6f0912454e4f3444260ed98272d3b7d5]];
+<a name="l00050"></a>[[50|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6f0912454e4f3444260ed98272d3b7d5]]     RingItemFactoryBase* [[m_pFactory|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6f0912454e4f3444260ed98272d3b7d5]];
 
 
 <a name="l00051"></a>   51
@@ -124,13 +124,13 @@ header
 <a name="l00052"></a>   52 public:
 
 
-<a name="l00054"></a>   54     [[DataSource|classDataSource]](RingItemFactoryBase* pFactory);
+<a name="l00054"></a>   54     [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]](RingItemFactoryBase* pFactory);
 
 
-<a name="l00056"></a>   56     virtual ~[[DataSource|classDataSource]]();
+<a name="l00056"></a>   56     virtual ~[[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]]();
 
 
-<a name="l00062"></a>[[62|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]]     virtual CRingItem* [[getItem|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]]() = 0;
+<a name="l00062"></a>[[62|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24]]     virtual CRingItem* [[getItem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24]]() = 0;
 
 
 <a name="l00064"></a>   64     void setFactory(RingItemFactoryBase* pFactory);
@@ -148,14 +148,14 @@ header
 <a name="l00068"></a>   68 #endif
 
 
-[[DataSource|classDataSource]]
+[[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]]
 
 Abstract base class for DDAS data sources.
 
 **Definition:** DataSource.h:48
 
 
-[[DataSource::m_pFactory|classDataSource#a6f0912454e4f3444260ed98272d3b7d5]]
+[[DataSource::m_pFactory|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6f0912454e4f3444260ed98272d3b7d5]]
 
 RingItemFactoryBase * m_pFactory
 
@@ -164,14 +164,14 @@ Pointer to our ring item factory.
 **Definition:** DataSource.h:50
 
 
-[[DataSource::getItem|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]]
+[[DataSource::getItem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24]]
 
 virtual CRingItem * getItem()=0
 
 Pure-virtual method to access a ring item from the data source. Must be implemented in derived classe...
 
 
-[[ufmt|namespaceufmt]]
+[[ufmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md]]
 
 **Definition:** DataSource.h:27
 

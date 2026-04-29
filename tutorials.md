@@ -1,7 +1,7 @@
 # Readout From Scratch
 
 
-## [[VMUSBReadout : A V775, V785, SIS3820 Setup|samples/vmusbsetup_autobook.pdf]]
+## [[VMUSBReadout : A V775, V785, SIS3820 Setup|https://github.com/FRIBDAQ/docs/tree/main/samples/vmusbsetup_autobook.pdf.md]]
 
 
 Provides a step by step approach to setting up a basic system read out by 
@@ -12,7 +12,7 @@ Provides a step by step approach to setting up a basic system read out by
       how to set up a system for CCUSBReadout.
 
 
-## [[SBS Readout : V785 ADC Triggered By V262 IO Reg|samples/v785setup_autobook.pdf]]
+## [[SBS Readout : V785 ADC Triggered By V262 IO Reg|https://github.com/FRIBDAQ/docs/tree/main/samples/v785setup_autobook.pdf.md]]
 
 
 An overview of how to set up a basic system that consists of a CAEN V785
@@ -23,7 +23,7 @@ An overview of how to set up a basic system that consists of a CAEN V785
       class, and a tutorial of the dumper program.
 
 
-## [[SBS Readout : V775 TDC with SpecTcl|samples/v775setup_autobook.pdf]]
+## [[SBS Readout : V775 TDC with SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/samples/v775setup_autobook.pdf.md]]
 
 
 Overviews the setup of a CAEN V775 time to digital converter read out
@@ -36,7 +36,7 @@ Overviews the setup of a CAEN V775 time to digital converter read out
 # Using the ReadoutGUI
 
 
-## [[Setting up a Complete DAQ|NSCLDAQ11-SetupTutorial.pdf]]
+## [[Setting up a Complete DAQ|https://github.com/FRIBDAQ/docs/tree/main/NSCLDAQ11-SetupTutorial.pdf.md]]
 
 
 Given a clean experimental account and already existing Readout programs, this
@@ -49,8 +49,8 @@ Given a clean experimental account and already existing Readout programs, this
 # Upgrading to Version 11.0
 
 
-## [[Starting from version 10.x|NSCLDAQ11-SetupTutorial.pdf]]
+## [[Starting from version 10.x|https://github.com/FRIBDAQ/docs/tree/main/NSCLDAQ11-SetupTutorial.pdf.md]]
 
 
-## [[Starting from 8.x|ringtutorial/index]]
-       ([[PDF|ringtutorial/tutorial.pdf]])
+## [[Starting from 8.x|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/index.md]]
+       ([[PDF|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/tutorial.pdf.md]])

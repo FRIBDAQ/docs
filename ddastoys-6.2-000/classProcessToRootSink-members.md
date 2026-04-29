@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 ProcessToRootSink Member List
 
 header
-This is the complete list of members for [[ProcessToRootSink|classProcessToRootSink]], including all inherited members.
+This is the complete list of members for [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md]], including all inherited members.
 
 
 |  |  |  |

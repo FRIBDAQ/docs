@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 AbstractApplication.h
 
 header
-[[Go to the documentation of this file.|AbstractApplication_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AbstractApplication_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,13 +67,13 @@ header
 
 <a name="l00023"></a>   23 #include <mpi.h>
 
-<a name="l00024"></a>   24 namespace [[frib|namespacefrib]] {
+<a name="l00024"></a>   24 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00025"></a>   25     namespace analysis {
 
 <a name="l00026"></a>   26         class CParameterReader;
 
-<a name="l00102"></a>[[102|classfrib_1_1analysis_1_1AbstractApplication]]         class [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]] {
+<a name="l00102"></a>[[102|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]         class [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]] {
 
 <a name="l00103"></a>  103         private:
 
@@ -107,19 +107,19 @@ header
 
 <a name="l00118"></a>  118         public:
 
-<a name="l00119"></a>  119             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a7f7a06f14708d5c85e281da6f0c2d369]](int argc, char** argv);
+<a name="l00119"></a>  119             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a7f7a06f14708d5c85e281da6f0c2d369]](int argc, char** argv);
 
-<a name="l00120"></a>  120             virtual [[~AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#adf5af96182e880bd6012c2d6aa520715]]();
+<a name="l00120"></a>  120             virtual [[~AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#adf5af96182e880bd6012c2d6aa520715]]();
 
 <a name="l00121"></a>  121         private:
 
-<a name="l00122"></a>  122             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a7f7a06f14708d5c85e281da6f0c2d369]](const [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& rhs);
+<a name="l00122"></a>  122             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a7f7a06f14708d5c85e281da6f0c2d369]](const [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& rhs);
 
-<a name="l00123"></a>  123             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& operator=(const [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& rhs);
+<a name="l00123"></a>  123             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& operator=(const [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& rhs);
 
-<a name="l00124"></a>  124             int operator==(const [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& rhs);
+<a name="l00124"></a>  124             int operator==(const [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& rhs);
 
-<a name="l00125"></a>  125             int operator!=(const [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& rhs);
+<a name="l00125"></a>  125             int operator!=(const [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& rhs);
 
 <a name="l00126"></a>  126
 
@@ -129,7 +129,7 @@ header
 
 <a name="l00129"></a>  129
 
-<a name="l00130"></a>  130             virtual void [[operator()|classfrib_1_1analysis_1_1AbstractApplication#a5bf065943cfc2865504da5b5db406779]]([[CParameterReader|classfrib_1_1analysis_1_1CParameterReader]]& paramReader);
+<a name="l00130"></a>  130             virtual void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a5bf065943cfc2865504da5b5db406779]]([[CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]]& paramReader);
 
 <a name="l00131"></a>  131
 
@@ -137,13 +137,13 @@ header
 
 <a name="l00133"></a>  133
 
-<a name="l00134"></a>  134             virtual void dealer(int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp) = 0;  // Rank 0
+<a name="l00134"></a>  134             virtual void dealer(int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp) = 0;  // Rank 0
 
-<a name="l00135"></a>  135             virtual void farmer(int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp) = 0;  // Rank 1
+<a name="l00135"></a>  135             virtual void farmer(int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp) = 0;  // Rank 1
 
-<a name="l00136"></a>  136             virtual void outputter(int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp) = 0; // Rank 2
+<a name="l00136"></a>  136             virtual void outputter(int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp) = 0; // Rank 2
 
-<a name="l00137"></a>  137             virtual void worker(int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp) = 0;  // Rank 3-n.
+<a name="l00137"></a>  137             virtual void worker(int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp) = 0;  // Rank 3-n.
 
 <a name="l00138"></a>  138
 
@@ -151,21 +151,21 @@ header
 
 <a name="l00140"></a>  140
 
-<a name="l00141"></a>  141             MPI_Datatype& [[messageHeaderType|classfrib_1_1analysis_1_1AbstractApplication#a5185ccf668ee2098b0786a057e75f5a9]]();
+<a name="l00141"></a>  141             MPI_Datatype& [[messageHeaderType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a5185ccf668ee2098b0786a057e75f5a9]]();
 
-<a name="l00142"></a>  142             MPI_Datatype& [[requestDataType|classfrib_1_1analysis_1_1AbstractApplication#a4eaa12a19d5d8a0fe9628d955f0c3e38]]();
+<a name="l00142"></a>  142             MPI_Datatype& [[requestDataType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a4eaa12a19d5d8a0fe9628d955f0c3e38]]();
 
-<a name="l00143"></a>  143             MPI_Datatype& [[parameterHeaderDataType|classfrib_1_1analysis_1_1AbstractApplication#ae6372b441eac110cc1bc77088a67a2f5]]();
+<a name="l00143"></a>  143             MPI_Datatype& [[parameterHeaderDataType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ae6372b441eac110cc1bc77088a67a2f5]]();
 
-<a name="l00144"></a>  144             MPI_Datatype& [[parameterValueDataType|classfrib_1_1analysis_1_1AbstractApplication#a148b53c78f9259570554bc659fdded85]]();
+<a name="l00144"></a>  144             MPI_Datatype& [[parameterValueDataType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a148b53c78f9259570554bc659fdded85]]();
 
-<a name="l00145"></a>  145             MPI_Datatype& [[parameterDefType|classfrib_1_1analysis_1_1AbstractApplication#a0493e974efd48b09f07c5411e7bf802d]]();
+<a name="l00145"></a>  145             MPI_Datatype& [[parameterDefType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a0493e974efd48b09f07c5411e7bf802d]]();
 
-<a name="l00146"></a>  146             MPI_Datatype& [[variableDefType|classfrib_1_1analysis_1_1AbstractApplication#abf5850ea1d16538a27fbc3f98377ec90]]();
+<a name="l00146"></a>  146             MPI_Datatype& [[variableDefType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#abf5850ea1d16538a27fbc3f98377ec90]]();
 
 <a name="l00147"></a>  147
 
-<a name="l00148"></a>  148             unsigned [[numWorkers|classfrib_1_1analysis_1_1AbstractApplication#a769d6d2c41df55f6cb9608a22ab15502]]();
+<a name="l00148"></a>  148             unsigned [[numWorkers|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a769d6d2c41df55f6cb9608a22ab15502]]();
 
 <a name="l00149"></a>  149
 
@@ -173,17 +173,17 @@ header
 
 <a name="l00151"></a>  151
 
-<a name="l00152"></a>  152             void [[forwardPassThrough|classfrib_1_1analysis_1_1AbstractApplication#a942e121cd877b6bff95c57c0a010cdc1]](const void* pData, size_t nBytes);
+<a name="l00152"></a>  152             void [[forwardPassThrough|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a942e121cd877b6bff95c57c0a010cdc1]](const void* pData, size_t nBytes);
 
-<a name="l00153"></a>  153             int [[getRequest|classfrib_1_1analysis_1_1AbstractApplication#aba659c2561ee078e0b4969d770f8d011]]();
+<a name="l00153"></a>  153             int [[getRequest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aba659c2561ee078e0b4969d770f8d011]]();
 
-<a name="l00154"></a>  154             void [[sendEofs|classfrib_1_1analysis_1_1AbstractApplication#a801d4278156338b224e2c7b7228ec02b]]();
+<a name="l00154"></a>  154             void [[sendEofs|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a801d4278156338b224e2c7b7228ec02b]]();
 
-<a name="l00155"></a>  155             void [[sendEof|classfrib_1_1analysis_1_1AbstractApplication#ac7c47c29a42e3966bee5cec1ac545ff5]]();
+<a name="l00155"></a>  155             void [[sendEof|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ac7c47c29a42e3966bee5cec1ac545ff5]]();
 
-<a name="l00156"></a>  156             void [[requestData|classfrib_1_1analysis_1_1AbstractApplication#a6912961ab356feec28c5feba56a7380c]](size_t maxBytes);
+<a name="l00156"></a>  156             void [[requestData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a6912961ab356feec28c5feba56a7380c]](size_t maxBytes);
 
-<a name="l00157"></a>  157             void [[throwMPIError|classfrib_1_1analysis_1_1AbstractApplication#a80527bacc6595b44b24eaab256b64046]](int status, const char* reason);
+<a name="l00157"></a>  157             void [[throwMPIError|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a80527bacc6595b44b24eaab256b64046]](int status, const char* reason);
 
 <a name="l00158"></a>  158
 
@@ -193,11 +193,11 @@ header
 
 <a name="l00161"></a>  161         protected:
 
-<a name="l00162"></a>  162             int [[getArgc|classfrib_1_1analysis_1_1AbstractApplication#ab22b8c43f7372537ec1d697f5e7e12a7]]() const;
+<a name="l00162"></a>  162             int [[getArgc|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ab22b8c43f7372537ec1d697f5e7e12a7]]() const;
 
-<a name="l00163"></a>  163             char** [[getArgv|classfrib_1_1analysis_1_1AbstractApplication#afe10b3e1eb7b1db14eba96b2f66ebaac]]();
+<a name="l00163"></a>  163             char** [[getArgv|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#afe10b3e1eb7b1db14eba96b2f66ebaac]]();
 
-<a name="l00164"></a>  164             void [[makeDataTypes|classfrib_1_1analysis_1_1AbstractApplication#aac8252e5e21c448705b6c63d81e302a9]]();
+<a name="l00164"></a>  164             void [[makeDataTypes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aac8252e5e21c448705b6c63d81e302a9]]();
 
 <a name="l00165"></a>  165
 
@@ -215,148 +215,148 @@ header
 
 <a name="l00172"></a>  172 #endif
 
-[[frib::analysis::AbstractApplication::~AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#adf5af96182e880bd6012c2d6aa520715]]
+[[frib::analysis::AbstractApplication::~AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#adf5af96182e880bd6012c2d6aa520715]]
 
 virtual ~AbstractApplication()
 
 **Definition:** AbstractApplication.cpp:44
 
 
-[[frib::analysis::AbstractApplication::makeDataTypes|classfrib_1_1analysis_1_1AbstractApplication#aac8252e5e21c448705b6c63d81e302a9]]
+[[frib::analysis::AbstractApplication::makeDataTypes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aac8252e5e21c448705b6c63d81e302a9]]
 
 void makeDataTypes()
 
 **Definition:** AbstractApplication.cpp:235
 
 
-[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::AbstractApplication::numWorkers|classfrib_1_1analysis_1_1AbstractApplication#a769d6d2c41df55f6cb9608a22ab15502]]
+[[frib::analysis::AbstractApplication::numWorkers|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a769d6d2c41df55f6cb9608a22ab15502]]
 
 unsigned numWorkers()
 
 **Definition:** AbstractApplication.cpp:175
 
 
-[[frib::analysis::AbstractApplication::operator()|classfrib_1_1analysis_1_1AbstractApplication#a5bf065943cfc2865504da5b5db406779]]
+[[frib::analysis::AbstractApplication::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a5bf065943cfc2865504da5b5db406779]]
 
 virtual void operator()(CParameterReader &paramReader)
 
 **Definition:** AbstractApplication.cpp:46
 
 
-[[frib::analysis::AbstractApplication::getArgv|classfrib_1_1analysis_1_1AbstractApplication#afe10b3e1eb7b1db14eba96b2f66ebaac]]
+[[frib::analysis::AbstractApplication::getArgv|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#afe10b3e1eb7b1db14eba96b2f66ebaac]]
 
 char ** getArgv()
 
 **Definition:** AbstractApplication.cpp:128
 
 
-[[frib::analysis::AbstractApplication::variableDefType|classfrib_1_1analysis_1_1AbstractApplication#abf5850ea1d16538a27fbc3f98377ec90]]
+[[frib::analysis::AbstractApplication::variableDefType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#abf5850ea1d16538a27fbc3f98377ec90]]
 
 MPI_Datatype & variableDefType()
 
 **Definition:** AbstractApplication.cpp:168
 
 
-[[frib::analysis::AbstractApplication::throwMPIError|classfrib_1_1analysis_1_1AbstractApplication#a80527bacc6595b44b24eaab256b64046]]
+[[frib::analysis::AbstractApplication::throwMPIError|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a80527bacc6595b44b24eaab256b64046]]
 
 void throwMPIError(int status, const char *reason)
 
 **Definition:** AbstractApplication.cpp:389
 
 
-[[frib::analysis::CParameterReader|classfrib_1_1analysis_1_1CParameterReader]]
+[[frib::analysis::CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]]
 
 **Definition:** ParameterReader.h:32
 
 
-[[frib::analysis::AbstractApplication::sendEofs|classfrib_1_1analysis_1_1AbstractApplication#a801d4278156338b224e2c7b7228ec02b]]
+[[frib::analysis::AbstractApplication::sendEofs|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a801d4278156338b224e2c7b7228ec02b]]
 
 void sendEofs()
 
 **Definition:** AbstractApplication.cpp:440
 
 
-[[frib::analysis::AbstractApplication::forwardPassThrough|classfrib_1_1analysis_1_1AbstractApplication#a942e121cd877b6bff95c57c0a010cdc1]]
+[[frib::analysis::AbstractApplication::forwardPassThrough|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a942e121cd877b6bff95c57c0a010cdc1]]
 
 void forwardPassThrough(const void *pData, size_t nBytes)
 
 **Definition:** AbstractApplication.cpp:185
 
 
-[[frib::analysis::AbstractApplication::sendEof|classfrib_1_1analysis_1_1AbstractApplication#ac7c47c29a42e3966bee5cec1ac545ff5]]
+[[frib::analysis::AbstractApplication::sendEof|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ac7c47c29a42e3966bee5cec1ac545ff5]]
 
 void sendEof()
 
 **Definition:** AbstractApplication.cpp:449
 
 
-[[frib::analysis::AbstractApplication::parameterHeaderDataType|classfrib_1_1analysis_1_1AbstractApplication#ae6372b441eac110cc1bc77088a67a2f5]]
+[[frib::analysis::AbstractApplication::parameterHeaderDataType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ae6372b441eac110cc1bc77088a67a2f5]]
 
 MPI_Datatype & parameterHeaderDataType()
 
 **Definition:** AbstractApplication.cpp:143
 
 
-[[frib::analysis::AbstractApplication::getRequest|classfrib_1_1analysis_1_1AbstractApplication#aba659c2561ee078e0b4969d770f8d011]]
+[[frib::analysis::AbstractApplication::getRequest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aba659c2561ee078e0b4969d770f8d011]]
 
 int getRequest()
 
 **Definition:** AbstractApplication.cpp:406
 
 
-[[frib::analysis::AbstractApplication::messageHeaderType|classfrib_1_1analysis_1_1AbstractApplication#a5185ccf668ee2098b0786a057e75f5a9]]
+[[frib::analysis::AbstractApplication::messageHeaderType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a5185ccf668ee2098b0786a057e75f5a9]]
 
 MPI_Datatype & messageHeaderType()
 
 **Definition:** AbstractApplication.cpp:126
 
 
-[[frib::analysis::AbstractApplication::requestData|classfrib_1_1analysis_1_1AbstractApplication#a6912961ab356feec28c5feba56a7380c]]
+[[frib::analysis::AbstractApplication::requestData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a6912961ab356feec28c5feba56a7380c]]
 
 void requestData(size_t maxBytes)
 
 **Definition:** AbstractApplication.cpp:370
 
 
-[[frib::analysis::AbstractApplication::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a7f7a06f14708d5c85e281da6f0c2d369]]
+[[frib::analysis::AbstractApplication::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a7f7a06f14708d5c85e281da6f0c2d369]]
 
 AbstractApplication(int argc, char **argv)
 
 **Definition:** AbstractApplication.cpp:38
 
 
-[[frib::analysis::AbstractApplication::requestDataType|classfrib_1_1analysis_1_1AbstractApplication#a4eaa12a19d5d8a0fe9628d955f0c3e38]]
+[[frib::analysis::AbstractApplication::requestDataType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a4eaa12a19d5d8a0fe9628d955f0c3e38]]
 
 MPI_Datatype & requestDataType()
 
 **Definition:** AbstractApplication.cpp:134
 
 
-[[frib::analysis::AbstractApplication::parameterValueDataType|classfrib_1_1analysis_1_1AbstractApplication#a148b53c78f9259570554bc659fdded85]]
+[[frib::analysis::AbstractApplication::parameterValueDataType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a148b53c78f9259570554bc659fdded85]]
 
 MPI_Datatype & parameterValueDataType()
 
 **Definition:** AbstractApplication.cpp:152
 
 
-[[frib::analysis::AbstractApplication::getArgc|classfrib_1_1analysis_1_1AbstractApplication#ab22b8c43f7372537ec1d697f5e7e12a7]]
+[[frib::analysis::AbstractApplication::getArgc|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ab22b8c43f7372537ec1d697f5e7e12a7]]
 
 int getArgc() const
 
 **Definition:** AbstractApplication.cpp:119
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[frib::analysis::AbstractApplication::parameterDefType|classfrib_1_1analysis_1_1AbstractApplication#a0493e974efd48b09f07c5411e7bf802d]]
+[[frib::analysis::AbstractApplication::parameterDefType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a0493e974efd48b09f07c5411e7bf802d]]
 
 MPI_Datatype & parameterDefType()
 

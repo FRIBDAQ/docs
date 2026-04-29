@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 MPIRawToParametersWorker.h File Reference
 
 header
-: [[Raw|classRaw]] events -> Parameter worker skeleton.  
+: [[Raw|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classRaw.md]] events -> Parameter worker skeleton.  
 [More...](#details)
 
 
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](MPIRawToParametersWorker_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|MPIRawToParametersWorker_8h_source]]
+[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8h_source.md]]
 
 
 |  |  |
@@ -64,7 +64,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-: [[Raw|classRaw]] events -> Parameter worker skeleton.
+: [[Raw|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classRaw.md]] events -> Parameter worker skeleton.
 
  contents 
  start footer part 

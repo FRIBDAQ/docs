@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classFitManager-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager-members.md]]
 
 
 FitManager Class Reference
 
 header
 Provides an interface for calculating trace fits using HitExtension fit parameters.  
- [[More...|classFitManager#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#details]]
 
 
 `#include <FitManager.h>`
@@ -94,7 +94,7 @@ Wrapper class to call fitting functions from either the analytic fit or the temp
 Constructor.
 
 
-The [[FitManager|classFitManager]] owns a Configuration object used to read settings from configuration files.
+The [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]] owns a Configuration object used to read settings from configuration files.
 
 
 
@@ -297,8 +297,8 @@ Set the fitting method.
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitManager.h|FitManager_8h_source]]
-- [[FitManager.cpp|FitManager_8cpp]]
+The documentation for this class was generated from the following files:- [[FitManager.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h_source.md]]
+- [[FitManager.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8cpp.md]]
 
  contents 
  start footer part 

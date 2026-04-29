@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDDASReadoutMain-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain-members.md]]
 
 
 DDASReadoutMain Class Reference
 
 header
 Production readout class for DDAS systems.  
- [[More...|classDDASReadoutMain#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#details]]
 
 
 `#include <DDASReadoutMain.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for DDASReadoutMain:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for DDASReadoutMain:
@@ -57,7 +57,7 @@ Collaboration diagram for DDASReadoutMain:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -86,7 +86,7 @@ Collaboration diagram for DDASReadoutMain:
 Production readout class for DDAS systems.
 
 
-[[DDASReadoutMain|classDDASReadoutMain]] is the 'application' class for the production readout software for DDAS systems i.e. systems utilizing XIA digitizer modules. The application class has overridden and implemented several member functions from the CReadoutMain base class for use in this application.
+[[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md]] is the 'application' class for the production readout software for DDAS systems i.e. systems utilizing XIA digitizer modules. The application class has overridden and implemented several member functions from the CReadoutMain base class for use in this application.
 
 
 These are:
@@ -142,7 +142,7 @@ Setup the Readout.
   | pExperiment | Pointer to the experiment object. |
 
 
-This function must define the trigger as well as the response of the program to triggers. A trigger is an object that describes when an event happens. Triggers are objects derived from CEventTrigger. In this case we use the [[CMyTrigger|classCMyTrigger]] class to define the trigger object.
+This function must define the trigger as well as the response of the program to triggers. A trigger is an object that describes when an event happens. Triggers are objects derived from CEventTrigger. In this case we use the [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]] class to define the trigger object.
 
 
 - Note
@@ -227,8 +227,8 @@ See also: SetupRunVariables
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASReadoutMain.h|DDASReadoutMain_8h_source]]
-- [[DDASReadoutMain.cpp|DDASReadoutMain_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASReadoutMain.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8h_source.md]]
+- [[DDASReadoutMain.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md]]
 
  contents 
  start footer part 

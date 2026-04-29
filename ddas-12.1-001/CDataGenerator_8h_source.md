@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[qtscope|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md]]
 
  top 
 CDataGenerator.h
 
 header
-[[Go to the documentation of this file.|CDataGenerator_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDataGenerator_8h.md]]<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef CDATAGENERATOR_H
@@ -46,7 +46,7 @@ header
 <a name="l00011"></a>   11
 
 
-<a name="l00031"></a>[[31|classCDataGenerator]] class [[CDataGenerator|classCDataGenerator]]
+<a name="l00031"></a>[[31|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md]] class [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md]]
 
 
 <a name="l00032"></a>   32 {
@@ -64,19 +64,19 @@ header
 <a name="l00036"></a>   36 public:
 
 
-<a name="l00038"></a>[[38|classCDataGenerator#a8e8db84a63f6c8dd15c8f356efe543df]]     [[CDataGenerator|classCDataGenerator#a8e8db84a63f6c8dd15c8f356efe543df]]() : m_engine((std::random_device())()) {};
+<a name="l00038"></a>[[38|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a8e8db84a63f6c8dd15c8f356efe543df]]     [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a8e8db84a63f6c8dd15c8f356efe543df]]() : m_engine((std::random_device())()) {};
 
 
 <a name="l00039"></a>   39
 
 
-<a name="l00048"></a>   48     int [[GetTraceData|classCDataGenerator#a946fbbcfc74258dfff3d42304181e4a1]](unsigned short* data, int dataSize, double binWidth);
+<a name="l00048"></a>   48     int [[GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a946fbbcfc74258dfff3d42304181e4a1]](unsigned short* data, int dataSize, double binWidth);
 
 
-<a name="l00055"></a>   55     int [[GetHistogramData|classCDataGenerator#a73c4d25d481f3014ecee914474b1e57e]](unsigned int* data, int dataSize);
+<a name="l00055"></a>   55     int [[GetHistogramData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a73c4d25d481f3014ecee914474b1e57e]](unsigned int* data, int dataSize);
 
 
-<a name="l00063"></a>   63     int [[GetBaselineData|classCDataGenerator#ac6531e0bac7da221d47a02a794b7a0e7]](double* data, int dataSize);
+<a name="l00063"></a>   63     int [[GetBaselineData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#ac6531e0bac7da221d47a02a794b7a0e7]](double* data, int dataSize);
 
 
 <a name="l00064"></a>   64
@@ -106,14 +106,14 @@ header
 <a name="l00085"></a>   85 #endif
 
 
-[[CDataGenerator|classCDataGenerator]]
+[[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md]]
 
 A class to generate test pulse, run, and baseline data for offline operation of QtScope.
 
 **Definition:** CDataGenerator.h:32
 
 
-[[CDataGenerator::GetHistogramData|classCDataGenerator#a73c4d25d481f3014ecee914474b1e57e]]
+[[CDataGenerator::GetHistogramData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a73c4d25d481f3014ecee914474b1e57e]]
 
 int GetHistogramData(unsigned int *data, int dataSize)
 
@@ -122,7 +122,7 @@ Generate test Gaussian-distributed data.
 **Definition:** CDataGenerator.cpp:47
 
 
-[[CDataGenerator::CDataGenerator|classCDataGenerator#a8e8db84a63f6c8dd15c8f356efe543df]]
+[[CDataGenerator::CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a8e8db84a63f6c8dd15c8f356efe543df]]
 
 CDataGenerator()
 
@@ -131,7 +131,7 @@ Constructor.
 **Definition:** CDataGenerator.h:38
 
 
-[[CDataGenerator::GetTraceData|classCDataGenerator#a946fbbcfc74258dfff3d42304181e4a1]]
+[[CDataGenerator::GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#a946fbbcfc74258dfff3d42304181e4a1]]
 
 int GetTraceData(unsigned short *data, int dataSize, double binWidth)
 
@@ -140,7 +140,7 @@ Generate test trace data.
 **Definition:** CDataGenerator.cpp:17
 
 
-[[CDataGenerator::GetBaselineData|classCDataGenerator#ac6531e0bac7da221d47a02a794b7a0e7]]
+[[CDataGenerator::GetBaselineData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#ac6531e0bac7da221d47a02a794b7a0e7]]
 
 int GetBaselineData(double *data, int dataSize)
 

@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - v -
 
 - Validate()
-  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]]
+  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a4f954ae86246843a4ebbd2ef113ebbdf]]
 
  contents 
  start footer part 

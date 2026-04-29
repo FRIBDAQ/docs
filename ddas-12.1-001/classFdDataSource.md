@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classFdDataSource-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource-members.md]]
 
 
 FdDataSource Class Reference
 
 header
 A class taking the file descriptor as a data source. Most commonly used to construct a data source from stdin.  
- [[More...|classFdDataSource#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md#details]]
 
 
 `#include <FdDataSource.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for FdDataSource:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for FdDataSource:
@@ -57,7 +57,7 @@ Collaboration diagram for FdDataSource:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -156,14 +156,14 @@ Get a ring item from the soruce. Implementation of the mandatory interface from 
   | nullptr | If none. |
 
 
-Implements [[DataSource|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].
+Implements [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[FdDataSource.h|FdDataSource_8h_source]]
-- [[FdDataSource.cpp|FdDataSource_8cpp]]
+The documentation for this class was generated from the following files:- [[FdDataSource.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/FdDataSource_8h_source.md]]
+- [[FdDataSource.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/FdDataSource_8cpp.md]]
 
  contents 
  start footer part 

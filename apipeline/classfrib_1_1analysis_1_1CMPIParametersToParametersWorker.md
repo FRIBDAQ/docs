@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
+- [[CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md]]
 
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker-members.md]]
 
 
 frib::analysis::CMPIParametersToParametersWorker Class Referenceabstract
@@ -44,7 +44,7 @@ Inheritance diagram for frib::analysis::CMPIParametersToParametersWorker:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -198,8 +198,8 @@ operator() Entry point for the worker. The top level logic is simple: Receive th
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIParametersToParametersWorker.h|MPIParametersToParametersWorker_8h_source]]
-- base/[[MPIParametersToParametersWorker.cpp|MPIParametersToParametersWorker_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIParametersToParametersWorker.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParametersToParametersWorker_8h_source.md]]
+- base/[[MPIParametersToParametersWorker.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParametersToParametersWorker_8cpp.md]]
 
  contents 
  start footer part 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 DDASRootFitEvent.cpp File Reference

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]]
+- [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1FitEditorTemplate-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate-members.md]]
 
 
-ddastoys::FitEditorTemplate Class Reference[[libFitEditorTemplate.so|group__template]]
+ddastoys::FitEditorTemplate Class Reference[[libFitEditorTemplate.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__template.md]]
 
 header
 Fit trace data with the template fitting functions.  
- [[More...|classddastoys_1_1FitEditorTemplate#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#details]]
 
 
 `#include <FitEditorTemplate.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::FitEditorTemplate:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::FitEditorTemplate:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::FitEditorTemplate:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -119,8 +119,8 @@ Constructor.
 Sets up the configuration manager to parse config files and manage configuration data. Read the fit configuration file and the template file on creation.
 
 
-- **[[Todo:|todo#_todo000002]]**
-  (ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|Configuration_8h]].
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000002]]**
+  (ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/Configuration_8h.md]].
 
 
 
@@ -173,7 +173,7 @@ Constructs using move assignment.
 Destructor.
 
 
-Delete the [[Configuration|classddastoys_1_1Configuration]] object managed by this class.
+Delete the [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]] object managed by this class.
 
 
 ## Member Function Documentation
@@ -225,7 +225,7 @@ Perform the fit and create a fit extension for a single fragment.
 - Returns
   Final segment descriptors.
 
-This is the hook into the [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]] class. Here we:
+This is the hook into the [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]] class. Here we:
 
 - Parse the fragment into a hit.
 - Produce a IOvec element for the existing hit (without any fit that might have been there).
@@ -282,8 +282,8 @@ Move assignment operator.
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitEditorTemplate.h|FitEditorTemplate_8h_source]]
-- [[FitEditorTemplate.cpp|FitEditorTemplate_8cpp]]
+The documentation for this class was generated from the following files:- [[FitEditorTemplate.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorTemplate_8h_source.md]]
+- [[FitEditorTemplate.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorTemplate_8cpp.md]]
 
  contents 
  start footer part 

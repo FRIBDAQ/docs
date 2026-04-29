@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLLiveEventLoop Member List
 
 header
-This is the complete list of members for [[CTCLLiveEventLoop|classCTCLLiveEventLoop]], including all inherited members.
+This is the complete list of members for [[CTCLLiveEventLoop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md]], including all inherited members.
 
 
 |  |  |  |

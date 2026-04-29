@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classNullParameters-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classNullParameters-members.md]]
 
 
 NullParameters Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for NullParameters:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for NullParameters:
@@ -48,7 +48,7 @@ Collaboration diagram for NullParameters:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for NullParameters:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testInput.cpp|testInput_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testInput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testInput_8cpp.md]]
 
  contents 
  start footer part 

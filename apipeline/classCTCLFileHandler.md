@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[List of all members|classCTCLFileHandler-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler-members.md]]
 
 
 CTCLFileHandler Class Referenceabstract
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLFileHandler:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLFileHandler:
@@ -49,7 +49,7 @@ Collaboration diagram for CTCLFileHandler:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CTCLFileHandler:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLFileHandler.h|TCLFileHandler_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLFileHandler.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLFileHandler_8h_source.md]]
 - libtclplus/tclplus/TCLFileHandler.cpp
 
  contents 

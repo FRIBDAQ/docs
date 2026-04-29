@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]
-- [[_Result|structfrib_1_1analysis_1_1CDataReader_1_1__Result]]
+- [[CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]
+- [[_Result|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CDataReader_1_1__Result.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structfrib_1_1analysis_1_1CDataReader_1_1__Result-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CDataReader_1_1__Result-members.md]]
 
 
 frib::analysis::CDataReader::_Result Struct Reference
@@ -48,7 +48,7 @@ header
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[DataReader.h|DataReader_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[DataReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataReader_8h_source.md]]
 
  contents 
  start footer part 

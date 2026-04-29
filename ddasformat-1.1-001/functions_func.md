@@ -19,175 +19,175 @@ do not remove this div, it is closed by doxygen!
 ### - a -
 
 - appendEnergySum()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a77e8fd95be5abe637c671e0c04115e86]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a77e8fd95be5abe637c671e0c04115e86]]
 - appendQDCSum()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a2a0d8bb4692ec0f83220fd0a2c1a07bf]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2a0d8bb4692ec0f83220fd0a2c1a07bf]]
 - appendTraceSample()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a4efbfd19a40f40b477672d1c962043b9]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efbfd19a40f40b477672d1c962043b9]]
 
 
 ### - c -
 
 - computeCoarseTime()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a8f3f66f1af35ea10741a9d2db05700fc]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a8f3f66f1af35ea10741a9d2db05700fc]]
 
 
 ### - d -
 
 - DDASHit()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771]]
 
 
 ### - e -
 
 - extractEnergySums()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a11fa189033f084b166e7f484f847fc6c]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a11fa189033f084b166e7f484f847fc6c]]
 - extractExternalTimestamp()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#ae1ef0c0a6f3f2f970b053c2330fec522]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#ae1ef0c0a6f3f2f970b053c2330fec522]]
 - extractQDC()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a5e6b295ede5fe85edaad111f9389b635]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a5e6b295ede5fe85edaad111f9389b635]]
 
 
 ### - g -
 
 - getADCOverflowUnderflow()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a5f6b643aaee0317bee23c5b24faa0e30]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5f6b643aaee0317bee23c5b24faa0e30]]
 - getADCResolution()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#ae5ebf6e23c2c0242b8d52be36d2812ed]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ae5ebf6e23c2c0242b8d52be36d2812ed]]
 - getCFDFailBit()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#aec0b11d8ed064a338ca18a5edd4619c1]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aec0b11d8ed064a338ca18a5edd4619c1]]
 - getCFDTrigSource()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a6b3e79df8eb37b80ed0c05c63beb49f4]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6b3e79df8eb37b80ed0c05c63beb49f4]]
 - getChannelHeaderLength()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a4efa5fa6434fe6377c24e9d356e0e846]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efa5fa6434fe6377c24e9d356e0e846]]
 - getChannelID()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a8e1e63fa667ac17908390ce4dd0b7592]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8e1e63fa667ac17908390ce4dd0b7592]]
 - getChannelLength()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#abfde5ae9dac786db796e3ba0bee6378d]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abfde5ae9dac786db796e3ba0bee6378d]]
 - getCoarseTime()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a6693a8a812c12a740dd5c00f857ccd69]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6693a8a812c12a740dd5c00f857ccd69]]
 - getCrateID()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a72394829094106567b43076a68650a9f]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a72394829094106567b43076a68650a9f]]
 - getEnergy()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a58a1fa2bf20605a286025cf5722117bb]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58a1fa2bf20605a286025cf5722117bb]]
 - getEnergySums()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#ac899feeb60afd44cfe5e7ed81cfb8636]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac899feeb60afd44cfe5e7ed81cfb8636]]
 - getExternalTimestamp()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a81d1d7a5acb3225a2183a01912c0ad45]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a81d1d7a5acb3225a2183a01912c0ad45]]
 - getFinishCode()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a01f4e0a578e6f07c29e8adb7b674c78c]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a01f4e0a578e6f07c29e8adb7b674c78c]]
 - getHardwareRevision()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a3c0c32d01afbf2428b8980198fc417f8]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3c0c32d01afbf2428b8980198fc417f8]]
 - getModMSPS()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a785d814f5d2db7f284f0349b96fb7712]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a785d814f5d2db7f284f0349b96fb7712]]
 - getQDCSums()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a8bb010e08028da538d53859558b1f7a7]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8bb010e08028da538d53859558b1f7a7]]
 - getSlotID()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a33fb7f4c31b5d926e6d86961e075bfea]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a33fb7f4c31b5d926e6d86961e075bfea]]
 - getTime()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#ad247d024b64efe0161f10f9eaf7d6bd7]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ad247d024b64efe0161f10f9eaf7d6bd7]]
 - getTimeCFD()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#aba4235f4d90c9057f54f173217593ff1]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aba4235f4d90c9057f54f173217593ff1]]
 - getTimeHigh()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a97160202a4513dcfa98e05dabaedb611]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a97160202a4513dcfa98e05dabaedb611]]
 - getTimeLow()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#afbbdfd6b3dee82528fd0237c6b8c3dfd]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#afbbdfd6b3dee82528fd0237c6b8c3dfd]]
 - getTrace()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a2b8773486dfbb6e2fbe7e1497d516cf7]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2b8773486dfbb6e2fbe7e1497d516cf7]]
 - getTraceLength()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#ac45165add6cb87b6fd39e65ba0638873]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac45165add6cb87b6fd39e65ba0638873]]
 
 
 ### - o -
 
 - operator=()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a402aee86a89a2663e1b21dea1f0b8f19]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a402aee86a89a2663e1b21dea1f0b8f19]]
 
 
 ### - p -
 
 - parseAndComputeCFD()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a2c6ebc937e91c252ff4482b53a7cd3e9]]
 - parseBodySize()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a5b34cf05c7cfa40654a4548e7396dfd0]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a5b34cf05c7cfa40654a4548e7396dfd0]]
 - parseHeaderWord0()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a848062c7e9d5c2312d1b426b19a0b4d8]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a848062c7e9d5c2312d1b426b19a0b4d8]]
 - parseHeaderWord3()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a251680d0fe2b1c064110db9df664f203]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a251680d0fe2b1c064110db9df664f203]]
 - parseHeaderWords1And2()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#ac8c23a47a192bb6510e9058d4f8a0194]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#ac8c23a47a192bb6510e9058d4f8a0194]]
 - parseModuleInfo()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a4164656ac01513b054d454e69ecf3f32]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a4164656ac01513b054d454e69ecf3f32]]
 - parseTraceData()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#a6ddb2612a4d16f5a68ab9a97dd9754d9]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#a6ddb2612a4d16f5a68ab9a97dd9754d9]]
 
 
 ### - r -
 
 - Reset()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a98712acae15daa79cad2f0f5d2a79f62]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a98712acae15daa79cad2f0f5d2a79f62]]
 
 
 ### - s -
 
 - setADCOverflowUnderflow()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a53455e1afb568c4dc8a9a858c574ccec]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a53455e1afb568c4dc8a9a858c574ccec]]
 - setADCResolution()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#acbe9e4ff0980461cb64460e92f814d4a]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acbe9e4ff0980461cb64460e92f814d4a]]
 - setCFDFailBit()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#af7e9ad15e05c1ea8c0904910703cdb11]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#af7e9ad15e05c1ea8c0904910703cdb11]]
 - setCFDTrigSourceBit()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#aef7fac5082a9627b02264f713eccf721]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aef7fac5082a9627b02264f713eccf721]]
 - setChannelHeaderLength()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#ac9157bfb4f552b18831848b3343c8bd6]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac9157bfb4f552b18831848b3343c8bd6]]
 - setChannelID()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#aa9e4d1fbdbcff217ac9c360b61a65fe7]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aa9e4d1fbdbcff217ac9c360b61a65fe7]]
 - setChannelLength()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a053540359b0426af9c46883c0af871c3]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a053540359b0426af9c46883c0af871c3]]
 - setCoarseTime()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a58ec6db48588e440fd499220bfe63a87]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58ec6db48588e440fd499220bfe63a87]]
 - setCrateID()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a99af70dc8ca30bfd2a572da2d2ea2e78]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a99af70dc8ca30bfd2a572da2d2ea2e78]]
 - setEnergy()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#aaa8c505c0cc457625d269af364210888]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aaa8c505c0cc457625d269af364210888]]
 - setEnergySums()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a9b93fcf8e3757e9b250ad2766d405d60]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a9b93fcf8e3757e9b250ad2766d405d60]]
 - setExternalTimestamp()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a9ae9e150c583717cb79ad115a729bb91]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a9ae9e150c583717cb79ad115a729bb91]]
 - setFinishCode()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a2dbbe41fe2505dc643bca54f856f9f72]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2dbbe41fe2505dc643bca54f856f9f72]]
 - setHardwareRevision()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a3192979272b7f92ce82471ee2bd205a1]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3192979272b7f92ce82471ee2bd205a1]]
 - setModMSPS()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a5b87af0d4a2ec417cdcd770ad846b7f2]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5b87af0d4a2ec417cdcd770ad846b7f2]]
 - setQDCSums()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#ac8bfb4504006f81caefc33642b091eab]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac8bfb4504006f81caefc33642b091eab]]
 - setRawCFDTime()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a58960cbd9057b9d41f6a82b74bdcd5b9]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58960cbd9057b9d41f6a82b74bdcd5b9]]
 - setSlotID()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#acbbe4a027b6d80194591a847f2cd69ab]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acbbe4a027b6d80194591a847f2cd69ab]]
 - setTime()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a18cc857d1428f7b4f287954aac034b5c]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a18cc857d1428f7b4f287954aac034b5c]]
 - setTimeHigh()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#abca1f6ee55d4671606526dd8401f60a1]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abca1f6ee55d4671606526dd8401f60a1]]
 - setTimeLow()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a4d71d6b8ca63cdf9a9cdfcc2db3041ee]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4d71d6b8ca63cdf9a9cdfcc2db3041ee]]
 - setTrace()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#a53daf01f74a70f6644c98a30097236e9]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a53daf01f74a70f6644c98a30097236e9]]
 - setTraceLength()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#acd32bb9076e3767e1a977c09cbd7f901]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acd32bb9076e3767e1a977c09cbd7f901]]
 
 
 ### - u -
 
 - unpack()
-  : [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]]
+  : [[ddasfmt::DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#ade8cd554e2ac02dc79488e5455ef61c9]]
 
 
 ### - ~ -
 
 - ~DDASHit()
-  : [[ddasfmt::DDASHit|classddasfmt_1_1DDASHit#abdeb19109a6da793514f6f984e7e91ae]]
+  : [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abdeb19109a6da793514f6f984e7e91ae]]
 
  contents 
  start footer part 

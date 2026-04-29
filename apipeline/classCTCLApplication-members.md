@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLApplication Member List
 
 header
-This is the complete list of members for [[CTCLApplication|classCTCLApplication]], including all inherited members.
+This is the complete list of members for [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]], including all inherited members.
 
 
 |  |  |  |

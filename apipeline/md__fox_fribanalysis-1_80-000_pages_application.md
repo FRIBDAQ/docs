@@ -44,7 +44,7 @@ In the framwork, these roles are referred to as:
 The [strategy pattern](https://en.wikipedia.org/wiki/Strategy_pattern)] provides a natural match to this structure. In the strategy pattern, a class instance provide the main flow of control (in this case initialization, role selection and finalization), but defers the actual execution of the role to a virtual method.
 
 
-The [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]] class provides the strategy pattern. It's operator() initializes MPI, computes several custom data types corresponding to the messages that will be sent around the application and, using the process *rank*, selects a pure virtual method to run the role for the process.
+The [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]] class provides the strategy pattern. It's operator() initializes MPI, computes several custom data types corresponding to the messages that will be sent around the application and, using the process *rank*, selects a pure virtual method to run the role for the process.
 
 
 A typical use of the AbstractApplication is to derive a concrete class and then instantiate that class from the main and call the instance's operator(). operator() then initializes MPI, computes our custom data types and, using the process's world rank selecs the correct method. To the user this might look like:
@@ -78,7 +78,7 @@ virtual void worker(int argc, char** argv, AbstractApplication* pApp) {...}
 
 };
 
- fragment The following methods must be implemented by the [[MyApp|classMyApp]]:
+ fragment The following methods must be implemented by the [[MyApp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyApp.md]]:
 
 
 - **dealer** must read in data and distribute it to workers. This implementation is normally simply selecting an existing dealer class, instantiating and running it.

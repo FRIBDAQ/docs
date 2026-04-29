@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DDASReadout|namespaceDDASReadout]]
-- [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
+- [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
+- [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]
 
  top 
 DDASReadout::ReferenceCountedBuffer Member List
 
 header
-This is the complete list of members for [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]], including all inherited members.
+This is the complete list of members for [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]], including all inherited members.
 
 
 |  |  |  |

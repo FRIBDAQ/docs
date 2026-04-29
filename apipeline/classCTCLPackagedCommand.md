@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCTCLPackagedCommand-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand-members.md]]
 
 
 CTCLPackagedCommand Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLPackagedCommand:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLPackagedCommand:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLPackagedCommand:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -144,7 +144,7 @@ Collaboration diagram for CTCLPackagedCommand:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLPackagedCommand.h|TCLPackagedCommand_8h_source]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLPackagedCommand.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLPackagedCommand_8h_source.md]]
 
  contents 
  start footer part 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCVariableTraceCallback-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback-members.md]]
 
 
 CVariableTraceCallback Class Referenceabstract
@@ -40,7 +40,7 @@ Inheritance diagram for CVariableTraceCallback:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -58,7 +58,7 @@ This is an abstract base class that defines the interface into a variable trace 
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[VariableTraceCallback.h|VariableTraceCallback_8h_source]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[VariableTraceCallback.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/VariableTraceCallback_8h_source.md]]
 
  contents 
  start footer part 

@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 MPIParametersToParametersWorker.h
 
 header
-[[Go to the documentation of this file.|MPIParametersToParametersWorker_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParametersToParametersWorker_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -73,7 +73,7 @@ header
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 namespace [[frib|namespacefrib]] {
+<a name="l00027"></a>   27 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00028"></a>   28     namespace analysis {
 
@@ -109,7 +109,7 @@ header
 
 <a name="l00044"></a>   44
 
-<a name="l00075"></a>[[75|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]         class [[CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]  {
+<a name="l00075"></a>[[75|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md]]         class [[CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md]]  {
 
 <a name="l00076"></a>   76         public:
 
@@ -127,31 +127,31 @@ header
 
 <a name="l00083"></a>   83             char**                m_argv;
 
-<a name="l00084"></a>   84             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]*  m_pApp;
+<a name="l00084"></a>   84             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]*  m_pApp;
 
 <a name="l00085"></a>   85         public:
 
-<a name="l00086"></a>   86             [[CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#ad517988e801ae26ddb55223b6cdb858a]](
+<a name="l00086"></a>   86             [[CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#ad517988e801ae26ddb55223b6cdb858a]](
 
-<a name="l00087"></a>   87                 int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp
+<a name="l00087"></a>   87                 int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp
 
 <a name="l00088"></a>   88             );
 
-<a name="l00089"></a>   89             virtual [[~CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a7bb18d7ab9d09bc811ac2167d0593c17]]();
+<a name="l00089"></a>   89             virtual [[~CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a7bb18d7ab9d09bc811ac2167d0593c17]]();
 
 <a name="l00090"></a>   90
 
-<a name="l00091"></a>   91             virtual void [[operator()|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#add885039232a004266ddac6cc9c0d258]]();
+<a name="l00091"></a>   91             virtual void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#add885039232a004266ddac6cc9c0d258]]();
 
 <a name="l00092"></a>   92             virtual void process() = 0;
 
 <a name="l00093"></a>   93         protected:
 
-<a name="l00094"></a>   94             VariableInfo* [[getVariable|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a948829243569a872126e90a27d06075d]](const char* pVarName);
+<a name="l00094"></a>   94             VariableInfo* [[getVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a948829243569a872126e90a27d06075d]](const char* pVarName);
 
-<a name="l00095"></a>   95             void [[loadVariable|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a84cccc26f3c0efc21da0ec6f36daaa7a]](const char* pVarName);
+<a name="l00095"></a>   95             void [[loadVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a84cccc26f3c0efc21da0ec6f36daaa7a]](const char* pVarName);
 
-<a name="l00096"></a>   96             std::vector<std::string> [[getVariableNames|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a1aa237b408f975337ef7031e70e1dc5b]]();
+<a name="l00096"></a>   96             std::vector<std::string> [[getVariableNames|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a1aa237b408f975337ef7031e70e1dc5b]]();
 
 <a name="l00097"></a>   97         private:
 
@@ -197,57 +197,57 @@ header
 
 <a name="l00118"></a>  118 #endif
 
-[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
+[[frib::analysis::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md]]
 
 **Definition:** MPIParametersToParametersWorker.h:75
 
 
-[[frib::analysis::CMPIParametersToParametersWorker::loadVariable|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a84cccc26f3c0efc21da0ec6f36daaa7a]]
+[[frib::analysis::CMPIParametersToParametersWorker::loadVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a84cccc26f3c0efc21da0ec6f36daaa7a]]
 
 void loadVariable(const char *pVarName)
 
 **Definition:** MPIParametersToParametersWorker.cpp:99
 
 
-[[frib::analysis::CMPIParametersToParametersWorker::~CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a7bb18d7ab9d09bc811ac2167d0593c17]]
+[[frib::analysis::CMPIParametersToParametersWorker::~CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a7bb18d7ab9d09bc811ac2167d0593c17]]
 
 virtual ~CMPIParametersToParametersWorker()
 
 **Definition:** MPIParametersToParametersWorker.cpp:48
 
 
-[[frib::analysis::CMPIParametersToParametersWorker::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#ad517988e801ae26ddb55223b6cdb858a]]
+[[frib::analysis::CMPIParametersToParametersWorker::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#ad517988e801ae26ddb55223b6cdb858a]]
 
 CMPIParametersToParametersWorker(int argc, char **argv, AbstractApplication *pApp)
 
 **Definition:** MPIParametersToParametersWorker.cpp:39
 
 
-[[frib::analysis::CMPIParametersToParametersWorker::operator()|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#add885039232a004266ddac6cc9c0d258]]
+[[frib::analysis::CMPIParametersToParametersWorker::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#add885039232a004266ddac6cc9c0d258]]
 
 virtual void operator()()
 
 **Definition:** MPIParametersToParametersWorker.cpp:61
 
 
-[[frib::analysis::CMPIParametersToParametersWorker::getVariable|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a948829243569a872126e90a27d06075d]]
+[[frib::analysis::CMPIParametersToParametersWorker::getVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a948829243569a872126e90a27d06075d]]
 
 VariableInfo * getVariable(const char *pVarName)
 
 **Definition:** MPIParametersToParametersWorker.cpp:80
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[frib::analysis::CMPIParametersToParametersWorker::getVariableNames|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a1aa237b408f975337ef7031e70e1dc5b]]
+[[frib::analysis::CMPIParametersToParametersWorker::getVariableNames|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a1aa237b408f975337ef7031e70e1dc5b]]
 
 std::vector< std::string > getVariableNames()
 

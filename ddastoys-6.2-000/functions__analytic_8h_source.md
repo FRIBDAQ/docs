@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 functions_analytic.h
 
 header
-[[Go to the documentation of this file.|functions__analytic_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/functions__analytic_8h.md]]<a name="l00001"></a>    1
 
 
 <a name="l00002"></a>    2 /*
@@ -103,16 +103,16 @@ header
 <a name="l00036"></a>   36
 
 
-<a name="l00051"></a>   51     double [[logistic|cudafit__analytic_8cu#a8ad7a892e2871cb7e23665a5884f6735]](double A, double k, double x1, double x);
+<a name="l00051"></a>   51     double [[logistic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#a8ad7a892e2871cb7e23665a5884f6735]](double A, double k, double x1, double x);
 
 
-<a name="l00061"></a>   61     double [[decay|cudafit__analytic_8cu#ad53c1c2be1465b8eafe9b926a680b752]](double A, double k, double x1, double x);
+<a name="l00061"></a>   61     double [[decay|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#ad53c1c2be1465b8eafe9b926a680b752]](double A, double k, double x1, double x);
 
 
-<a name="l00071"></a>   71     double [[switchOn|group__analytic#gab8955e8a8a70e7c53a8ee2ccb5173d4e]](double x1, double x);
+<a name="l00071"></a>   71     double [[switchOn|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gab8955e8a8a70e7c53a8ee2ccb5173d4e]](double x1, double x);
 
 
-<a name="l00082"></a>   82     double [[singlePulse|cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]](
+<a name="l00082"></a>   82     double [[singlePulse|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#a33c26171ad9cfabf1613966d81761eff]](
 
 
 <a name="l00083"></a>   83         double A1, double k1, double k2, double x1,
@@ -124,7 +124,7 @@ header
 <a name="l00085"></a>   85         );
 
 
-<a name="l00100"></a>  100     double [[doublePulse|cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]](
+<a name="l00100"></a>  100     double [[doublePulse|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#a7b6549a9395d3f8f40b2f12e790198e6]](
 
 
 <a name="l00101"></a>  101         double A1, double k1, double k2, double x1,
@@ -139,10 +139,10 @@ header
 <a name="l00104"></a>  104         );
 
 
-<a name="l00115"></a>  115     double [[pulseAmplitude|functions__analytic_8cpp#a4c15c04ccdd0a70976fbc146e66e8d06]](double A, double k1, double k2, double x0);
+<a name="l00115"></a>  115     double [[pulseAmplitude|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/functions__analytic_8cpp.md#a4c15c04ccdd0a70976fbc146e66e8d06]](double A, double k1, double k2, double x0);
 
 
-<a name="l00132"></a>  132     double [[chiSquare1|group__analytic#ga1f1acb0f7616f70c13ea2c16dcba1b7d]](
+<a name="l00132"></a>  132     double [[chiSquare1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga1f1acb0f7616f70c13ea2c16dcba1b7d]](
 
 
 <a name="l00133"></a>  133         double A1, double k1, double k2, double x1, double C,
@@ -157,7 +157,7 @@ header
 <a name="l00136"></a>  136         );
 
 
-<a name="l00150"></a>  150     double [[chiSquare1|group__analytic#ga1f1acb0f7616f70c13ea2c16dcba1b7d]](
+<a name="l00150"></a>  150     double [[chiSquare1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga1f1acb0f7616f70c13ea2c16dcba1b7d]](
 
 
 <a name="l00151"></a>  151         double A1, double k1, double k2, double x1, double C,
@@ -169,7 +169,7 @@ header
 <a name="l00153"></a>  153         );
 
 
-<a name="l00174"></a>  174     double [[chiSquare2|group__analytic#ga1c90a9a68c7bc8de6acf9f2e725e976c]](
+<a name="l00174"></a>  174     double [[chiSquare2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga1c90a9a68c7bc8de6acf9f2e725e976c]](
 
 
 <a name="l00175"></a>  175         double A1, double k1, double k2, double x1,
@@ -190,7 +190,7 @@ header
 <a name="l00180"></a>  180         );
 
 
-<a name="l00198"></a>  198     double [[chiSquare2|group__analytic#ga1c90a9a68c7bc8de6acf9f2e725e976c]](
+<a name="l00198"></a>  198     double [[chiSquare2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga1c90a9a68c7bc8de6acf9f2e725e976c]](
 
 
 <a name="l00199"></a>  199         double A1, double k1, double k2, double x1,
@@ -208,7 +208,7 @@ header
 <a name="l00203"></a>  203         );
 
 
-<a name="l00210"></a>  210     void [[writeTrace|group__analytic#gac5783135c5aa7d20436d5fbed134882a]](
+<a name="l00210"></a>  210     void [[writeTrace|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gac5783135c5aa7d20436d5fbed134882a]](
 
 
 <a name="l00211"></a>  211         const char* filename, const char* title,
@@ -220,7 +220,7 @@ header
 <a name="l00213"></a>  213         );
 
 
-<a name="l00221"></a>  221     void [[writeTrace2|group__analytic#gab4d22e47c49e170eb0a2d2f61e6693ad]](
+<a name="l00221"></a>  221     void [[writeTrace2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gab4d22e47c49e170eb0a2d2f61e6693ad]](
 
 
 <a name="l00222"></a>  222         const char* filename, const char* title,
@@ -250,7 +250,7 @@ header
 <a name="l00232"></a>  232 #endif
 
 
-[[singlePulse|cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]]
+[[singlePulse|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#a33c26171ad9cfabf1613966d81761eff]]
 
 __host__ __device__ float singlePulse(float A1, float k1, float k2, float x1, float C, float x)
 
@@ -259,7 +259,7 @@ Evaluate the value of a single pulse in accordance with our canonical functional
 **Definition:** cudafit_analytic.cu:225
 
 
-[[doublePulse|cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]]
+[[doublePulse|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#a7b6549a9395d3f8f40b2f12e790198e6]]
 
 __host__ __device__ float doublePulse(float A1, float k1, float k2, float x1, float A2, float k3, float k4, float x2, float C, float x)
 
@@ -268,7 +268,7 @@ Evaluate the canonical form of a double pulse.
 **Definition:** cudafit_analytic.cu:254
 
 
-[[logistic|cudafit__analytic_8cu#a8ad7a892e2871cb7e23665a5884f6735]]
+[[logistic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#a8ad7a892e2871cb7e23665a5884f6735]]
 
 __host__ __device__ float logistic(float A, float k, float x1, float x)
 
@@ -277,7 +277,7 @@ Evaluate a logistic function for the specified parameters and point.
 **Definition:** cudafit_analytic.cu:182
 
 
-[[decay|cudafit__analytic_8cu#ad53c1c2be1465b8eafe9b926a680b752]]
+[[decay|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/cudafit__analytic_8cu.md#ad53c1c2be1465b8eafe9b926a680b752]]
 
 __host__ __device__ float decay(float A, float k, float x1, float x)
 
@@ -286,14 +286,14 @@ Exponential decay function.
 **Definition:** cudafit_analytic.cu:201
 
 
-[[pulseAmplitude|functions__analytic_8cpp#a4c15c04ccdd0a70976fbc146e66e8d06]]
+[[pulseAmplitude|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/functions__analytic_8cpp.md#a4c15c04ccdd0a70976fbc146e66e8d06]]
 
 double pulseAmplitude(double A, double k1, double k2, double x0)
 
 **Definition:** functions_analytic.cpp:127
 
 
-[[ddastoys::analyticfit::chiSquare2|group__analytic#ga1c90a9a68c7bc8de6acf9f2e725e976c]]
+[[ddastoys::analyticfit::chiSquare2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga1c90a9a68c7bc8de6acf9f2e725e976c]]
 
 double chiSquare2(double A1, double k1, double k2, double x1, double A2, double k3, double k4, double x2, double C, const std::vector< std::pair< uint16_t, uint16_t > > &points)
 
@@ -302,7 +302,7 @@ Computes the chi-square goodness of a specific parameterization of a double puls
 **Definition:** functions_analytic.cpp:239
 
 
-[[ddastoys::analyticfit::chiSquare1|group__analytic#ga1f1acb0f7616f70c13ea2c16dcba1b7d]]
+[[ddastoys::analyticfit::chiSquare1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga1f1acb0f7616f70c13ea2c16dcba1b7d]]
 
 double chiSquare1(double A1, double k1, double k2, double x1, double C, const std::vector< std::pair< uint16_t, uint16_t > > &points)
 
@@ -311,7 +311,7 @@ Computes the chi-square goodness-of-fit for a specific parameterization of a sin
 **Definition:** functions_analytic.cpp:181
 
 
-[[ddastoys::analyticfit::writeTrace2|group__analytic#gab4d22e47c49e170eb0a2d2f61e6693ad]]
+[[ddastoys::analyticfit::writeTrace2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gab4d22e47c49e170eb0a2d2f61e6693ad]]
 
 void writeTrace2(const char *filename, const char *title, const std::vector< uint16_t > &trace1, const std::vector< uint16_t > &trace2)
 
@@ -320,7 +320,7 @@ Write two traces to a file.
 **Definition:** functions_analytic.cpp:279
 
 
-[[ddastoys::analyticfit::switchOn|group__analytic#gab8955e8a8a70e7c53a8ee2ccb5173d4e]]
+[[ddastoys::analyticfit::switchOn|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gab8955e8a8a70e7c53a8ee2ccb5173d4e]]
 
 double switchOn(double x1, double x)
 
@@ -329,7 +329,7 @@ Logistic switch to turn on a function evaluation at a given point.
 **Definition:** functions_analytic.cpp:65
 
 
-[[ddastoys::analyticfit::writeTrace|group__analytic#gac5783135c5aa7d20436d5fbed134882a]]
+[[ddastoys::analyticfit::writeTrace|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gac5783135c5aa7d20436d5fbed134882a]]
 
 void writeTrace(const char *filename, const char *title, const std::vector< uint16_t > &trace)
 

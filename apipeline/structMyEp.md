@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structMyEp-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structMyEp-members.md]]
 
 
 MyEp Struct Reference
@@ -37,7 +37,7 @@ Inheritance diagram for MyEp:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for MyEp:
@@ -51,7 +51,7 @@ Collaboration diagram for MyEp:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -86,7 +86,7 @@ Collaboration diagram for MyEp:
 
 ---
 
-The documentation for this struct was generated from the following file:- spectcl/[[workerTest.cpp|workerTest_8cpp]]
+The documentation for this struct was generated from the following file:- spectcl/[[workerTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/workerTest_8cpp.md]]
 
  contents 
  start footer part 

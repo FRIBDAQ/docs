@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCTCLTimer-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer-members.md]]
 
 
 CTCLTimer Class Referenceabstract
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLTimer:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLTimer:
@@ -51,7 +51,7 @@ Collaboration diagram for CTCLTimer:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CTCLTimer:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTimer.h|TCLTimer_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTimer.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLTimer_8h_source.md]]
 - libtclplus/tclplus/TCLTimer.cpp
 
  contents 

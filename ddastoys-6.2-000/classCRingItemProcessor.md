@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCRingItemProcessor-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor-members.md]]
 
 
 CRingItemProcessor Class Reference
 
 header
 Abstract base class to support type-independent ring-item processing.  
- [[More...|classCRingItemProcessor#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#details]]
 
 
 `#include <CRingItemProcessor.h>`
@@ -45,7 +45,7 @@ Inheritance diagram for CRingItemProcessor:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -115,7 +115,7 @@ Output a physics event item to stdout.
 Here we "analyze" a physics event by dumping it to stdout. Derived classes can implement their own event processing using this function.
 
 
-Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]], and [[ProcessToRootSink|classProcessToRootSink#acab9912362d68ca3e291e13e91828b21]].
+Reimplemented in [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a9258fb90d1e63d1efebf842f57c868dc]], and [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#acab9912362d68ca3e291e13e91828b21]].
 
 
 
@@ -139,7 +139,7 @@ Output an event count item to stdout.
 Event count items are used to describe, for a given data source, the number of triggers that occured since the last instance of that item. This can be used both to determine the rough event rate as well as the fraction of data analyzed (more complicated for built events) in a program sampling physics events. We'll dump out information about the item.
 
 
-Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]].
+Reimplemented in [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#abe06f276641d6aa2245e462d50634f1c]].
 
 
 
@@ -184,7 +184,7 @@ Output a glom parameters item to stdout.
 When the data source is the output of an event building pipeline, the glom stage of that pipeline will insert a glom parameters record into the output data. This record type will indicate whether or not glom is building events (or acting in passthrough mode) and the coincidence interval in clock ticks used when in build mode, as well as how the timestamp is computed from the fragments that make up each event.
 
 
-Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]].
+Reimplemented in [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a8c2a0744afcfe95457cd1b26b84e5e48]].
 
 
 
@@ -208,7 +208,7 @@ Output an abbreviated scaler dump to stdout.
 Your own processing should create a new class and override this if you want to process scalers. Note that this and all ring item types have a toString() method that returns the string the NSCLDAQ dumper outputs for each item type.
 
 
-Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]].
+Reimplemented in [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#ad1ed7b77567e835c025d075127cbc5bc]].
 
 
 
@@ -259,7 +259,7 @@ Text items are items that contain documentation information in the form of strin
 - MONITORED_VARIABLES - used by all frameworks to give the values of tcl variables that are being injected during the run or are constant throughout the run. Again we format a dump of the item.
 
 
-Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]].
+Reimplemented in [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a6bf4c66f539bbf3db00e7e041f92fa44]].
 
 
 
@@ -286,8 +286,8 @@ Process a ring item with an unknown item type. This can happen if we're seeing a
 
 ---
 
-The documentation for this class was generated from the following files:- [[CRingItemProcessor.h|CRingItemProcessor_8h_source]]
-- [[CRingItemProcessor.cpp|CRingItemProcessor_8cpp]]
+The documentation for this class was generated from the following files:- [[CRingItemProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CRingItemProcessor_8h_source.md]]
+- [[CRingItemProcessor.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CRingItemProcessor_8cpp.md]]
 
  contents 
  start footer part 

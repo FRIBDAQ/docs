@@ -19,15 +19,15 @@ do not remove this div, it is closed by doxygen!
 ### - u -
 
 - unlock()
-  : [[CMutex|classCMutex#a889a2c611edc8c7ab0250e87c891ae0a]]
+  : [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#a889a2c611edc8c7ab0250e87c891ae0a]]
 - unpackData()
-  : [[frib::analysis::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#ab010922c1133670bc23c8e37d40f814e]]
+  : [[frib::analysis::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ab010922c1133670bc23c8e37d40f814e]]
 - unregister()
-  : [[CTCLObjectProcessor|classCTCLObjectProcessor#aa50bee2d8258f4aff7ce6c7e4198b8a3]]
+  : [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa50bee2d8258f4aff7ce6c7e4198b8a3]]
 - UnregisterAll()
-  : [[CTCLProcessor|classCTCLProcessor#a3f386e23c0179afa14b3188ada0d6cd5]]
+  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a3f386e23c0179afa14b3188ada0d6cd5]]
 - unregisterAs()
-  : [[CTCLObjectProcessor|classCTCLObjectProcessor#a01bc0c0cb385078923c6c465784d94a7]]
+  : [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a01bc0c0cb385078923c6c465784d94a7]]
 
  contents 
  start footer part 

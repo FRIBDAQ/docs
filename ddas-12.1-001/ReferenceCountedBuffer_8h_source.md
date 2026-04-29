@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
 
  top 
 ReferenceCountedBuffer.h
 
 header
-[[Go to the documentation of this file.|ReferenceCountedBuffer_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ReferenceCountedBuffer_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -97,34 +97,34 @@ header
 <a name="l00028"></a>   28
 
 
-<a name="l00030"></a>   30 namespace [[DDASReadout|namespaceDDASReadout]] {
+<a name="l00030"></a>   30 namespace [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] {
 
 
 <a name="l00031"></a>   31
 
 
-<a name="l00052"></a>[[52|structDDASReadout_1_1ReferenceCountedBuffer]]     struct [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
+<a name="l00052"></a>[[52|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]     struct [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]
 
 
 <a name="l00053"></a>   53     {
 
 
-<a name="l00054"></a>[[54|structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]]     size_t [[s_size|structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]];
+<a name="l00054"></a>[[54|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a562a56d236c091e6cc67d6dbe50e3add]]     size_t [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a562a56d236c091e6cc67d6dbe50e3add]];
 
 
-<a name="l00055"></a>[[55|structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]]     size_t [[s_references|structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]];
+<a name="l00055"></a>[[55|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0298089bbe30665745d6cdad36fbce56]]     size_t [[s_references|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0298089bbe30665745d6cdad36fbce56]];
 
 
-<a name="l00056"></a>[[56|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]     void*  [[s_pData|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]];
+<a name="l00056"></a>[[56|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]]     void*  [[s_pData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]];
 
 
 <a name="l00057"></a>   57
 
 
-<a name="l00064"></a>   64     [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#adbbc7a8b65896f07baaff75788d93d12]](size_t initialSize = 0);
+<a name="l00064"></a>   64     [[ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#adbbc7a8b65896f07baaff75788d93d12]](size_t initialSize = 0);
 
 
-<a name="l00066"></a>   66     virtual [[~ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#aaed8849c1ca6da8d443ee1110456c547]]();
+<a name="l00066"></a>   66     virtual [[~ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aaed8849c1ca6da8d443ee1110456c547]]();
 
 
 <a name="l00067"></a>   67
@@ -136,13 +136,13 @@ header
 <a name="l00069"></a>   69
 
 
-<a name="l00071"></a>   71     void [[reference|structDDASReadout_1_1ReferenceCountedBuffer#aa8ede74dfe55cd27669f335bac81359e]]();
+<a name="l00071"></a>   71     void [[reference|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aa8ede74dfe55cd27669f335bac81359e]]();
 
 
-<a name="l00073"></a>   73     void [[dereference|structDDASReadout_1_1ReferenceCountedBuffer#a0634dd6ccbd92fb64d320e1a10f83cb6]]();
+<a name="l00073"></a>   73     void [[dereference|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0634dd6ccbd92fb64d320e1a10f83cb6]]();
 
 
-<a name="l00080"></a>   80     bool [[isReferenced|structDDASReadout_1_1ReferenceCountedBuffer#aebc8761a4e8521576c0ec30f921a19ac]]();
+<a name="l00080"></a>   80     bool [[isReferenced|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aebc8761a4e8521576c0ec30f921a19ac]]();
 
 
 <a name="l00081"></a>   81
@@ -154,7 +154,7 @@ header
 <a name="l00083"></a>   83
 
 
-<a name="l00090"></a>   90     void [[resize|structDDASReadout_1_1ReferenceCountedBuffer#a722efd4bbd7606db005600a3f482abc5]](size_t newSize);
+<a name="l00090"></a>   90     void [[resize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a722efd4bbd7606db005600a3f482abc5]](size_t newSize);
 
 
 <a name="l00091"></a>   91
@@ -169,13 +169,13 @@ header
 <a name="l00094"></a>   94
 
 
-<a name="l00095"></a>[[95|structDDASReadout_1_1ReferenceCountedBuffer#a6a510e20879031db1db900ab6c589fee]]     operator uint8_t*()  { return static_cast<uint8_t*>([[s_pData|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]); }
+<a name="l00095"></a>[[95|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a6a510e20879031db1db900ab6c589fee]]     operator uint8_t*()  { return static_cast<uint8_t*>([[s_pData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]]); }
 
 
-<a name="l00096"></a>[[96|structDDASReadout_1_1ReferenceCountedBuffer#a4f284be984881859cff2dd85824b6054]]     operator uint16_t*() { return static_cast<uint16_t*>([[s_pData|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]); }
+<a name="l00096"></a>[[96|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a4f284be984881859cff2dd85824b6054]]     operator uint16_t*() { return static_cast<uint16_t*>([[s_pData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]]); }
 
 
-<a name="l00097"></a>[[97|structDDASReadout_1_1ReferenceCountedBuffer#a1b28cb8c11fa71aed1887bf80bba7cdf]]     operator uint32_t*() { return static_cast<uint32_t*>([[s_pData|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]); }
+<a name="l00097"></a>[[97|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a1b28cb8c11fa71aed1887bf80bba7cdf]]     operator uint32_t*() { return static_cast<uint32_t*>([[s_pData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]]); }
 
 
 <a name="l00098"></a>   98     };
@@ -193,19 +193,19 @@ header
 <a name="l00102"></a>  102 #endif
 
 
-[[DDASReadout|namespaceDDASReadout]]
+[[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
 
 **Definition:** BufferArena.cpp:29
 
 
-[[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
+[[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md]]
 
 A reference-counted buffer with dynamic storage.
 
 **Definition:** ReferenceCountedBuffer.h:53
 
 
-[[DDASReadout::ReferenceCountedBuffer::s_pData|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]
+[[DDASReadout::ReferenceCountedBuffer::s_pData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]]
 
 void * s_pData
 
@@ -214,7 +214,7 @@ Data pointer.
 **Definition:** ReferenceCountedBuffer.h:56
 
 
-[[DDASReadout::ReferenceCountedBuffer::s_references|structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]]
+[[DDASReadout::ReferenceCountedBuffer::s_references|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0298089bbe30665745d6cdad36fbce56]]
 
 size_t s_references
 
@@ -223,7 +223,7 @@ Number of references.
 **Definition:** ReferenceCountedBuffer.h:55
 
 
-[[DDASReadout::ReferenceCountedBuffer::dereference|structDDASReadout_1_1ReferenceCountedBuffer#a0634dd6ccbd92fb64d320e1a10f83cb6]]
+[[DDASReadout::ReferenceCountedBuffer::dereference|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0634dd6ccbd92fb64d320e1a10f83cb6]]
 
 void dereference()
 
@@ -232,7 +232,7 @@ Remove a reference to the storage.
 **Definition:** ReferenceCountedBuffer.cpp:83
 
 
-[[DDASReadout::ReferenceCountedBuffer::s_size|structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]]
+[[DDASReadout::ReferenceCountedBuffer::s_size|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a562a56d236c091e6cc67d6dbe50e3add]]
 
 size_t s_size
 
@@ -241,7 +241,7 @@ Number of bytes of data.
 **Definition:** ReferenceCountedBuffer.h:54
 
 
-[[DDASReadout::ReferenceCountedBuffer::resize|structDDASReadout_1_1ReferenceCountedBuffer#a722efd4bbd7606db005600a3f482abc5]]
+[[DDASReadout::ReferenceCountedBuffer::resize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a722efd4bbd7606db005600a3f482abc5]]
 
 void resize(size_t newSize)
 
@@ -250,7 +250,7 @@ Resize the storage.
 **Definition:** ReferenceCountedBuffer.cpp:104
 
 
-[[DDASReadout::ReferenceCountedBuffer::reference|structDDASReadout_1_1ReferenceCountedBuffer#aa8ede74dfe55cd27669f335bac81359e]]
+[[DDASReadout::ReferenceCountedBuffer::reference|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aa8ede74dfe55cd27669f335bac81359e]]
 
 void reference()
 
@@ -259,7 +259,7 @@ Add a reference to the storage.
 **Definition:** ReferenceCountedBuffer.cpp:73
 
 
-[[DDASReadout::ReferenceCountedBuffer::~ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#aaed8849c1ca6da8d443ee1110456c547]]
+[[DDASReadout::ReferenceCountedBuffer::~ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aaed8849c1ca6da8d443ee1110456c547]]
 
 virtual ~ReferenceCountedBuffer()
 
@@ -268,7 +268,7 @@ Destructor.
 **Definition:** ReferenceCountedBuffer.cpp:56
 
 
-[[DDASReadout::ReferenceCountedBuffer::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#adbbc7a8b65896f07baaff75788d93d12]]
+[[DDASReadout::ReferenceCountedBuffer::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#adbbc7a8b65896f07baaff75788d93d12]]
 
 ReferenceCountedBuffer(size_t initialSize=0)
 
@@ -277,7 +277,7 @@ Construct the buffer.
 **Definition:** ReferenceCountedBuffer.cpp:39
 
 
-[[DDASReadout::ReferenceCountedBuffer::isReferenced|structDDASReadout_1_1ReferenceCountedBuffer#aebc8761a4e8521576c0ec30f921a19ac]]
+[[DDASReadout::ReferenceCountedBuffer::isReferenced|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aebc8761a4e8521576c0ec30f921a19ac]]
 
 bool isReferenced()
 

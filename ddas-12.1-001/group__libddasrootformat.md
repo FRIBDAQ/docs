@@ -51,10 +51,10 @@ DDAS data format for ROOT I/O e.g. produced by the ddasdumper program.
 DDAS data format for ROOT I/O e.g. produced by the ddasdumper program.
 
 
-- **[[Todo:|todo#_todo000016]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000016]]**
   (ASC 3/26/24): Enforce some consistent namespace business here:1. Does this class belong in some namespace or not?
   2. What namespace(s) is/are used for DDAS code?
-  3. What purpose(s) do they serve? For example, [[DDASRootHit|classDDASRootHit]] probably should be under some daq::ddas:: namespace.
+  3. What purpose(s) do they serve? For example, [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] probably should be under some daq::ddas:: namespace.
 
  contents 
  start footer part 

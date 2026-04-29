@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[RootFit1Info|structddastoys_1_1RootFit1Info]]
+- [[RootFit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|structddastoys_1_1RootFit1Info-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info-members.md]]
 
 
 ddastoys::RootFit1Info Struct Reference
 
 header
 Full fitting information for the single pulse.  
- [[More...|structddastoys_1_1RootFit1Info#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#details]]
 
 
 `#include <RootExtensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::RootFit1Info:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::RootFit1Info:
@@ -65,7 +65,7 @@ Collaboration diagram for ddastoys::RootFit1Info:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -104,7 +104,7 @@ Full fitting information for the single pulse.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[RootExtensions.h|RootExtensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[RootExtensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootExtensions_8h_source.md]]
 
  contents 
  start footer part 

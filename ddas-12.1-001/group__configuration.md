@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 libConfiguration.so
 
 header
-[[DDAS|namespaceDAQ_1_1DDAS]] Pixie-16 hardware configuration library.  
+[[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] Pixie-16 hardware configuration library.  
 [More...](#details)
 
 
@@ -57,10 +57,10 @@ header
 <a name="details"></a>## Detailed Description
 
 
-[[DDAS|namespaceDAQ_1_1DDAS]] Pixie-16 hardware configuration library.
+[[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] Pixie-16 hardware configuration library.
 
 
-Shared library containing classes to manage the internal configuration of a [[DDAS|namespaceDAQ_1_1DDAS]] system and store information about its hardware. Contains all functions defined in the [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]] namespace.
+Shared library containing classes to manage the internal configuration of a [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] system and store information about its hardware. Contains all functions defined in the [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]] namespace.
 
 
 ## Typedef Documentation
@@ -74,7 +74,7 @@ Shared library containing classes to manage the internal configuration of a [[DD
 | --- |
 | DAQ::DDAS::FirmwareMap |
 
-A map of firmware configurations keyed by the hardware type defined in [[HardwareRegistry.h|HardwareRegistry_8h]].
+A map of firmware configurations keyed by the hardware type defined in [[HardwareRegistry.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md]].
 
  contents 
  start footer part 

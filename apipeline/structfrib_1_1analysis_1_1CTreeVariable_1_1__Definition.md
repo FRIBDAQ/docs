@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]
-- [[_Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
+- [[CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md]]
+- [[_Definition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition-members.md]]
 
 
 frib::analysis::CTreeVariable::_Definition Struct Reference
@@ -123,8 +123,8 @@ copy constructor
 
 ---
 
-The documentation for this struct was generated from the following files:- base/[[TreeVariable.h|TreeVariable_8h_source]]
-- base/[[TreeVariable.cpp|TreeVariable_8cpp]]
+The documentation for this struct was generated from the following files:- base/[[TreeVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h_source.md]]
+- base/[[TreeVariable.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8cpp.md]]
 
  contents 
  start footer part 

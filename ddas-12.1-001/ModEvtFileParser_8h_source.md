@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_1ad96cec73befb7849da500ecefc5069.md]]
 
  top 
 ModEvtFileParser.h
 
 header
-[[Go to the documentation of this file.|ModEvtFileParser_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ModEvtFileParser_8h.md]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef MODEVTFILEPARSER_H
@@ -46,7 +46,7 @@ header
 <a name="l00010"></a>   10
 
 
-<a name="l00012"></a>   12 namespace [[DAQ|namespaceDAQ]] {
+<a name="l00012"></a>   12 namespace [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] {
 
 
 <a name="l00014"></a>   14     namespace DDAS {
@@ -61,7 +61,7 @@ header
 <a name="l00017"></a>   17
 
 
-<a name="l00045"></a>[[45|classDAQ_1_1DDAS_1_1ModEvtFileParser]]     class [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]]
+<a name="l00045"></a>[[45|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md]]     class [[ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md]]
 
 
 <a name="l00046"></a>   46     {
@@ -70,10 +70,10 @@ header
 <a name="l00047"></a>   47     public:
 
 
-<a name="l00049"></a>[[49|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]         [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]() = default;
+<a name="l00049"></a>[[49|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#a7dd35f49151edd3d540eb518f9b27b8f]]         [[ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#a7dd35f49151edd3d540eb518f9b27b8f]]() = default;
 
 
-<a name="l00059"></a>   59         void [[parse|classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]](std::istream& input, [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]& config);
+<a name="l00059"></a>   59         void [[parse|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#ae8d6f48194941c5b9923f9c26ecbf2ef]](std::istream& input, [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]& config);
 
 
 <a name="l00060"></a>   60     };
@@ -97,28 +97,28 @@ header
 <a name="l00068"></a>   68
 
 
-[[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]]
+[[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[DAQ::DDAS::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]]
+[[DAQ::DDAS::ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md]]
 
 A parser for the modevtlen.txt file.
 
 **Definition:** ModEvtFileParser.h:46
 
 
-[[DAQ::DDAS::ModEvtFileParser::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]
+[[DAQ::DDAS::ModEvtFileParser::ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#a7dd35f49151edd3d540eb518f9b27b8f]]
 
 ModEvtFileParser()=default
 
 Constructor.
 
 
-[[DAQ::DDAS::ModEvtFileParser::parse|classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]]
+[[DAQ::DDAS::ModEvtFileParser::parse|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#ae8d6f48194941c5b9923f9c26ecbf2ef]]
 
 void parse(std::istream &input, Configuration &config)
 
@@ -127,7 +127,7 @@ Parse and store the contents of the modevtlen.txt file in a configuration object
 **Definition:** ModEvtFileParser.cpp:19
 
 
-[[DAQ|namespaceDAQ]]
+[[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
 
  fragment
 

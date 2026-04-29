@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 MPIParametersToParametersWorker.h File Reference
 
 header
-: [[Worker|classWorker]] framework for pipeline stage that takes params -> params.  
+: [[Worker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classWorker.md]] framework for pipeline stage that takes params -> params.  
 [More...](#details)
 
 
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](MPIParametersToParametersWorker_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|MPIParametersToParametersWorker_8h_source]]
+[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParametersToParametersWorker_8h_source.md]]
 
 
 |  |  |
@@ -64,7 +64,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-: [[Worker|classWorker]] framework for pipeline stage that takes params -> params.
+: [[Worker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classWorker.md]] framework for pipeline stage that takes params -> params.
 
  contents 
  start footer part 

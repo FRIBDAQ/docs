@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 ParameterReader.h
 
 header
-[[Go to the documentation of this file.|ParameterReader_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/ParameterReader_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,11 +67,11 @@ header
 
 <a name="l00023"></a>   23 #include <string>
 
-<a name="l00024"></a>   24 namespace [[frib|namespacefrib]] {
+<a name="l00024"></a>   24 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00025"></a>   25     namespace analysis {
 
-<a name="l00032"></a>[[32|classfrib_1_1analysis_1_1CParameterReader]]         class [[CParameterReader|classfrib_1_1analysis_1_1CParameterReader]] {
+<a name="l00032"></a>[[32|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]]         class [[CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]] {
 
 <a name="l00033"></a>   33         protected:
 
@@ -79,7 +79,7 @@ header
 
 <a name="l00035"></a>   35         public:
 
-<a name="l00036"></a>   36             [[CParameterReader|classfrib_1_1analysis_1_1CParameterReader]](const char* pFilename) : m_filename(pFilename) {}
+<a name="l00036"></a>   36             [[CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]](const char* pFilename) : m_filename(pFilename) {}
 
 <a name="l00037"></a>   37             virtual void read() = 0;
 
@@ -93,12 +93,12 @@ header
 
 <a name="l00042"></a>   42 #endif
 
-[[frib::analysis::CParameterReader|classfrib_1_1analysis_1_1CParameterReader]]
+[[frib::analysis::CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]]
 
 **Definition:** ParameterReader.h:32
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 

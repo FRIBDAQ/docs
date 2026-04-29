@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CMyScaler|classCMyScaler]]
-- [[_Counters|structCMyScaler_1_1__Counters]]
+- [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
+- [[_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structCMyScaler_1_1__Counters-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters-members.md]]
 
 
 CMyScaler::_Counters Struct Reference
 
 header
 Count raw and accepted triggers.  
- [[More...|structCMyScaler_1_1__Counters#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#details]]
 
 
 `#include <CMyScaler.h>`
@@ -83,7 +83,7 @@ Raw triggers.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[CMyScaler.h|CMyScaler_8h_source]]
+The documentation for this struct was generated from the following file:- [[CMyScaler.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8h_source.md]]
 
  contents 
  start footer part 

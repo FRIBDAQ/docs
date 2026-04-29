@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
 
  top 
 TreeParameter.h
 
 header
-[[Go to the documentation of this file.|TreeParameter_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -73,13 +73,13 @@ header
 
 <a name="l00026"></a>   26 #include <vector>
 
-<a name="l00027"></a>   27 namespace [[frib|namespacefrib]] {
+<a name="l00027"></a>   27 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00028"></a>   28     namespace analysis {
 
-<a name="l00029"></a>[[29|classTreeParameter]]         class CEvent;
+<a name="l00029"></a>[[29|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTreeParameter.md]]         class CEvent;
 
-<a name="l00042"></a>[[42|classfrib_1_1analysis_1_1CTreeParameter]]         class [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]] {
+<a name="l00042"></a>[[42|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]         class [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]] {
 
 <a name="l00043"></a>   43         public:
 
@@ -87,7 +87,7 @@ header
 
 <a name="l00045"></a>   45
 
-<a name="l00046"></a>[[46|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]             typedef struct [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]] {
+<a name="l00046"></a>[[46|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]             typedef struct [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]] {
 
 <a name="l00047"></a>   47                 unsigned s_parameterNumber;       // Offset into paramter vector.
 
@@ -103,13 +103,13 @@ header
 
 <a name="l00053"></a>   53                 bool          s_changed;          // Definition has changed.
 
-<a name="l00054"></a>   54                 [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]](double low, double hi, unsigned chans, const char* units);
+<a name="l00054"></a>   54                 [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]](double low, double hi, unsigned chans, const char* units);
 
-<a name="l00055"></a>   55                 [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]](const [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]& rhs);
+<a name="l00055"></a>   55                 [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]](const [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]& rhs);
 
-<a name="l00056"></a>   56                 [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]();
+<a name="l00056"></a>   56                 [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]();
 
-<a name="l00057"></a>   57             } [[SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]], *[[pSharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]];
+<a name="l00057"></a>   57             } [[SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]], *[[pSharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]];
 
 <a name="l00058"></a>   58         private:
 
@@ -125,7 +125,7 @@ header
 
 <a name="l00064"></a>   64         public:
 
-<a name="l00065"></a>   65             static [[SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]                        m_defaultSpecification;
+<a name="l00065"></a>   65             static [[SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]                        m_defaultSpecification;
 
 <a name="l00066"></a>   66
 
@@ -143,15 +143,15 @@ header
 
 <a name="l00073"></a>   73         public:
 
-<a name="l00074"></a>   74             static void [[nextEvent|classfrib_1_1analysis_1_1CTreeParameter#ac76200d9964c0d7e683876b46fc4d863]]();               // Called to start a new event.
+<a name="l00074"></a>   74             static void [[nextEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ac76200d9964c0d7e683876b46fc4d863]]();               // Called to start a new event.
 
-<a name="l00075"></a>   75             static std::vector<std::pair<unsigned, double>> [[collectEvent|classfrib_1_1analysis_1_1CTreeParameter#af4ee7dd5f48e4cc937980d0a360601ae]]();
+<a name="l00075"></a>   75             static std::vector<std::pair<unsigned, double>> [[collectEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#af4ee7dd5f48e4cc937980d0a360601ae]]();
 
-<a name="l00076"></a>   76             static void [[setDefaultLimits|classfrib_1_1analysis_1_1CTreeParameter#a0fff6519d585ce088053b38841d2846f]](double low, double high);
+<a name="l00076"></a>   76             static void [[setDefaultLimits|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a0fff6519d585ce088053b38841d2846f]](double low, double high);
 
-<a name="l00077"></a>   77             static void [[setDefaultBins|classfrib_1_1analysis_1_1CTreeParameter#ae4ae59b00a1facb7fe3799ede0b8f705]](unsigned bins);
+<a name="l00077"></a>   77             static void [[setDefaultBins|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae4ae59b00a1facb7fe3799ede0b8f705]](unsigned bins);
 
-<a name="l00078"></a>   78             static void [[setDefaultUnits|classfrib_1_1analysis_1_1CTreeParameter#a9071a27c67c976fb9667726da3e2acea]](const char* units);
+<a name="l00078"></a>   78             static void [[setDefaultUnits|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a9071a27c67c976fb9667726da3e2acea]](const char* units);
 
 <a name="l00079"></a>   79
 
@@ -161,17 +161,17 @@ header
 
 <a name="l00082"></a>   82
 
-<a name="l00083"></a>   83             static void [[BindParameters|classfrib_1_1analysis_1_1CTreeParameter#afba816dffc60f43184a477418b0f5767]]();
+<a name="l00083"></a>   83             static void [[BindParameters|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#afba816dffc60f43184a477418b0f5767]]();
 
-<a name="l00084"></a>   84             static void [[setEvent|classfrib_1_1analysis_1_1CTreeParameter#acfe0d48f80c1b43ecd734ed1bc24cabb]](...);
+<a name="l00084"></a>   84             static void [[setEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#acfe0d48f80c1b43ecd734ed1bc24cabb]](...);
 
 <a name="l00085"></a>   85
 
-<a name="l00086"></a>   86             static const std::vector<double>&   [[getEvent|classfrib_1_1analysis_1_1CTreeParameter#a47954cf33d99ffcfd5ed0267b211907d]]();
+<a name="l00086"></a>   86             static const std::vector<double>&   [[getEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a47954cf33d99ffcfd5ed0267b211907d]]();
 
-<a name="l00087"></a>   87             static const std::vector<unsigned> [[getScoreboard|classfrib_1_1analysis_1_1CTreeParameter#abefb8699922575955baca9d7aab9585d]]();
+<a name="l00087"></a>   87             static const std::vector<unsigned> [[getScoreboard|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#abefb8699922575955baca9d7aab9585d]]();
 
-<a name="l00088"></a>   88             static std::vector<std::pair<std::string, SharedData>> [[getDefinitions|classfrib_1_1analysis_1_1CTreeParameter#a096f7b50387e60c244980f6a1328f6ce]]();
+<a name="l00088"></a>   88             static std::vector<std::pair<std::string, SharedData>> [[getDefinitions|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a096f7b50387e60c244980f6a1328f6ce]]();
 
 <a name="l00089"></a>   89         private:
 
@@ -193,51 +193,51 @@ header
 
 <a name="l00098"></a>   98         public:
 
-<a name="l00099"></a>   99             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]]();
+<a name="l00099"></a>   99             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]]();
 
-<a name="l00100"></a>  100             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name);
+<a name="l00100"></a>  100             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name);
 
-<a name="l00101"></a>  101             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name, std::string units);
+<a name="l00101"></a>  101             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name, std::string units);
 
-<a name="l00102"></a>  102             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name, double lowLimit, double highLimit,
+<a name="l00102"></a>  102             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name, double lowLimit, double highLimit,
 
 <a name="l00103"></a>  103                    std::string units);
 
-<a name="l00104"></a>  104             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name, unsigned channels,
+<a name="l00104"></a>  104             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name, unsigned channels,
 
 <a name="l00105"></a>  105                    double lowLimit, double highLimit, std::string units);
 
-<a name="l00106"></a>  106             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name, unsigned resolution);
+<a name="l00106"></a>  106             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name, unsigned resolution);
 
-<a name="l00107"></a>  107             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name, unsigned resolution,
+<a name="l00107"></a>  107             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name, unsigned resolution,
 
 <a name="l00108"></a>  108                    double lowLimit, double widthOrHigh,
 
 <a name="l00109"></a>  109                    std::string units, bool widthOrHighGiven);
 
-<a name="l00110"></a>  110             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](std::string name, const [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& Template);
+<a name="l00110"></a>  110             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](std::string name, const [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& Template);
 
-<a name="l00111"></a>  111             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]](const [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& rhs);
+<a name="l00111"></a>  111             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]](const [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& rhs);
 
-<a name="l00112"></a>  112             [[~CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a4704c41ccdbeeafcdb4e40a3dcda4b4e]]();
+<a name="l00112"></a>  112             [[~CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a4704c41ccdbeeafcdb4e40a3dcda4b4e]]();
 
 <a name="l00113"></a>  113
 
 <a name="l00114"></a>  114
 
-<a name="l00115"></a>  115             void [[Initialize|classfrib_1_1analysis_1_1CTreeParameter#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, unsigned resolution);
+<a name="l00115"></a>  115             void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, unsigned resolution);
 
-<a name="l00116"></a>  116             void [[Initialize|classfrib_1_1analysis_1_1CTreeParameter#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, unsigned resolution,
+<a name="l00116"></a>  116             void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, unsigned resolution,
 
 <a name="l00117"></a>  117                     double lowLimit, double highOrWidth, std::string units,
 
 <a name="l00118"></a>  118                     bool highOrWidthGiven);
 
-<a name="l00119"></a>  119             void [[Initialize|classfrib_1_1analysis_1_1CTreeParameter#ab730f7001fdf31c77160fa68bf4d0851]](std::string name);
+<a name="l00119"></a>  119             void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]](std::string name);
 
-<a name="l00120"></a>  120             void [[Initialize|classfrib_1_1analysis_1_1CTreeParameter#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, std::string units);
+<a name="l00120"></a>  120             void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, std::string units);
 
-<a name="l00121"></a>  121             void [[Initialize|classfrib_1_1analysis_1_1CTreeParameter#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, unsigned channels,
+<a name="l00121"></a>  121             void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]](std::string name, unsigned channels,
 
 <a name="l00122"></a>  122                     double lowLimit, double highLimit, std::string units);
 
@@ -247,7 +247,7 @@ header
 
 <a name="l00125"></a>  125
 
-<a name="l00126"></a>  126             bool [[isBound|classfrib_1_1analysis_1_1CTreeParameter#a718aa03c7bfa70113e92cb447819981b]]() const;
+<a name="l00126"></a>  126             bool [[isBound|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a718aa03c7bfa70113e92cb447819981b]]() const;
 
 <a name="l00127"></a>  127
 
@@ -257,25 +257,25 @@ header
 
 <a name="l00130"></a>  130             operator double() const;
 
-<a name="l00131"></a>  131             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator=|classfrib_1_1analysis_1_1CTreeParameter#a48df0bab8b7d1ca4a02c7a1cbb57b2b8]](double newValue);
+<a name="l00131"></a>  131             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a48df0bab8b7d1ca4a02c7a1cbb57b2b8]](double newValue);
 
-<a name="l00132"></a>  132             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator=|classfrib_1_1analysis_1_1CTreeParameter#a48df0bab8b7d1ca4a02c7a1cbb57b2b8]](const [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& rhs);
+<a name="l00132"></a>  132             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a48df0bab8b7d1ca4a02c7a1cbb57b2b8]](const [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& rhs);
 
-<a name="l00133"></a>  133             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator+=|classfrib_1_1analysis_1_1CTreeParameter#a96c9a724cf8f94cfa61689d47c30635d]](double rhs);
+<a name="l00133"></a>  133             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator+=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a96c9a724cf8f94cfa61689d47c30635d]](double rhs);
 
-<a name="l00134"></a>  134             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator-=|classfrib_1_1analysis_1_1CTreeParameter#aba97aa07c7fb6928da609829a7633ce3]](double rhs);
+<a name="l00134"></a>  134             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator-=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aba97aa07c7fb6928da609829a7633ce3]](double rhs);
 
-<a name="l00135"></a>  135             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator*=|classfrib_1_1analysis_1_1CTreeParameter#abd421c05f35a418f51772a88f8ca35fd]](double rhs);
+<a name="l00135"></a>  135             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator*=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#abd421c05f35a418f51772a88f8ca35fd]](double rhs);
 
-<a name="l00136"></a>  136             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator/=|classfrib_1_1analysis_1_1CTreeParameter#ab8d0cb0f3bfd85c681e1b2a8668d5647]](double rhs);
+<a name="l00136"></a>  136             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator/=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab8d0cb0f3bfd85c681e1b2a8668d5647]](double rhs);
 
-<a name="l00137"></a>  137             double [[operator++|classfrib_1_1analysis_1_1CTreeParameter#a3000b0aa2461458c57ac33a8c85cbf1e]](int dummy);
+<a name="l00137"></a>  137             double [[operator++|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a3000b0aa2461458c57ac33a8c85cbf1e]](int dummy);
 
-<a name="l00138"></a>  138             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator++|classfrib_1_1analysis_1_1CTreeParameter#a3000b0aa2461458c57ac33a8c85cbf1e]]();
+<a name="l00138"></a>  138             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator++|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a3000b0aa2461458c57ac33a8c85cbf1e]]();
 
-<a name="l00139"></a>  139             double [[operator--|classfrib_1_1analysis_1_1CTreeParameter#aef1fb51e92c6aaa04a464c51d75ce340]](int dummy);
+<a name="l00139"></a>  139             double [[operator--|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aef1fb51e92c6aaa04a464c51d75ce340]](int dummy);
 
-<a name="l00140"></a>  140             [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]& [[operator--|classfrib_1_1analysis_1_1CTreeParameter#aef1fb51e92c6aaa04a464c51d75ce340]]();
+<a name="l00140"></a>  140             [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]& [[operator--|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aef1fb51e92c6aaa04a464c51d75ce340]]();
 
 <a name="l00141"></a>  141
 
@@ -283,53 +283,53 @@ header
 
 <a name="l00143"></a>  143
 
-<a name="l00144"></a>  144             std::string [[getName|classfrib_1_1analysis_1_1CTreeParameter#a4e33f320d42074dc302adac64ee48656]]() const;
+<a name="l00144"></a>  144             std::string [[getName|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a4e33f320d42074dc302adac64ee48656]]() const;
 
-<a name="l00145"></a>  145             unsigned [[getId|classfrib_1_1analysis_1_1CTreeParameter#ab654767114326936c1be727e0501fef6]]() const;
+<a name="l00145"></a>  145             unsigned [[getId|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab654767114326936c1be727e0501fef6]]() const;
 
-<a name="l00146"></a>  146             double [[getValue|classfrib_1_1analysis_1_1CTreeParameter#a28f75682ecbe9a047b780735acfe960e]]() const;
+<a name="l00146"></a>  146             double [[getValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a28f75682ecbe9a047b780735acfe960e]]() const;
 
-<a name="l00147"></a>  147             void [[setValue|classfrib_1_1analysis_1_1CTreeParameter#a97cf290e4a36576d53e0221e403320b0]](double newValue);
+<a name="l00147"></a>  147             void [[setValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a97cf290e4a36576d53e0221e403320b0]](double newValue);
 
-<a name="l00148"></a>  148             unsigned [[getBins|classfrib_1_1analysis_1_1CTreeParameter#aed1a62acebf1e4c5c31871f61a20b9ff]]() const;
+<a name="l00148"></a>  148             unsigned [[getBins|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aed1a62acebf1e4c5c31871f61a20b9ff]]() const;
 
-<a name="l00149"></a>  149             void [[setBins|classfrib_1_1analysis_1_1CTreeParameter#aad46f51c8961bfac63ac01a869a5fc9c]](unsigned channels);
+<a name="l00149"></a>  149             void [[setBins|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aad46f51c8961bfac63ac01a869a5fc9c]](unsigned channels);
 
-<a name="l00150"></a>  150             double [[getStart|classfrib_1_1analysis_1_1CTreeParameter#a1cd97e843b216fc90508dcfbe967989a]]() const;
+<a name="l00150"></a>  150             double [[getStart|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a1cd97e843b216fc90508dcfbe967989a]]() const;
 
-<a name="l00151"></a>  151             void [[setStart|classfrib_1_1analysis_1_1CTreeParameter#a8e1fefa3848060c9c3dd597c23757eb2]](double low);
+<a name="l00151"></a>  151             void [[setStart|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a8e1fefa3848060c9c3dd597c23757eb2]](double low);
 
-<a name="l00152"></a>  152             double [[getStop|classfrib_1_1analysis_1_1CTreeParameter#ae6b65dd1ef24e45d2f0167040c20c2dc]]() const;
+<a name="l00152"></a>  152             double [[getStop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae6b65dd1ef24e45d2f0167040c20c2dc]]() const;
 
-<a name="l00153"></a>  153             void [[setStop|classfrib_1_1analysis_1_1CTreeParameter#a951ef201146462bcdea55f55d2e488ba]](double high);
+<a name="l00153"></a>  153             void [[setStop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a951ef201146462bcdea55f55d2e488ba]](double high);
 
-<a name="l00154"></a>  154             double [[getInc|classfrib_1_1analysis_1_1CTreeParameter#adf102ebcfc113e4e6fb78d017ee362f5]]() const;
+<a name="l00154"></a>  154             double [[getInc|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#adf102ebcfc113e4e6fb78d017ee362f5]]() const;
 
-<a name="l00155"></a>  155             void [[setInc|classfrib_1_1analysis_1_1CTreeParameter#a1fe7777a165d27c2f2f9f550690caf9a]](double channelWidth);
+<a name="l00155"></a>  155             void [[setInc|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a1fe7777a165d27c2f2f9f550690caf9a]](double channelWidth);
 
-<a name="l00156"></a>  156             std::string [[getUnit|classfrib_1_1analysis_1_1CTreeParameter#aa08aa3aab539dd9490ae44891e7b3f3c]]() const;
+<a name="l00156"></a>  156             std::string [[getUnit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aa08aa3aab539dd9490ae44891e7b3f3c]]() const;
 
-<a name="l00157"></a>  157             void [[setUnit|classfrib_1_1analysis_1_1CTreeParameter#a2cf976d537e9b1de31e26f545112eb00]](std::string units);
+<a name="l00157"></a>  157             void [[setUnit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a2cf976d537e9b1de31e26f545112eb00]](std::string units);
 
-<a name="l00158"></a>  158             bool [[isValid|classfrib_1_1analysis_1_1CTreeParameter#a827fcff24007d9667681be6e907d330a]]() const;
+<a name="l00158"></a>  158             bool [[isValid|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a827fcff24007d9667681be6e907d330a]]() const;
 
-<a name="l00159"></a>  159             void [[setInvalid|classfrib_1_1analysis_1_1CTreeParameter#ab0c455037c883d8f73724b4f6d7f3c76]]();
+<a name="l00159"></a>  159             void [[setInvalid|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab0c455037c883d8f73724b4f6d7f3c76]]();
 
-<a name="l00160"></a>  160             void [[Reset|classfrib_1_1analysis_1_1CTreeParameter#a21969650ac12b5729cd576643a9171c5]]();
+<a name="l00160"></a>  160             void [[Reset|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a21969650ac12b5729cd576643a9171c5]]();
 
 <a name="l00161"></a>  161             void   clear();
 
-<a name="l00162"></a>  162             bool [[hasChanged|classfrib_1_1analysis_1_1CTreeParameter#ae02584ff616af320ce900789cf761eb0]]() const;
+<a name="l00162"></a>  162             bool [[hasChanged|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae02584ff616af320ce900789cf761eb0]]() const;
 
-<a name="l00163"></a>  163             void [[setChanged|classfrib_1_1analysis_1_1CTreeParameter#ae132d613d9aeaa3b249fe1a7ffda998c]]() ;
+<a name="l00163"></a>  163             void [[setChanged|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae132d613d9aeaa3b249fe1a7ffda998c]]() ;
 
-<a name="l00164"></a>  164             void [[resetChanged|classfrib_1_1analysis_1_1CTreeParameter#aa883276d6929d0967b993d9564c3fb05]]() ;
+<a name="l00164"></a>  164             void [[resetChanged|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aa883276d6929d0967b993d9564c3fb05]]() ;
 
-<a name="l00165"></a>  165             static void [[ResetAll|classfrib_1_1analysis_1_1CTreeParameter#a0b36621f1dd6ace568fc1e991ce75598]]();
+<a name="l00165"></a>  165             static void [[ResetAll|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a0b36621f1dd6ace568fc1e991ce75598]]();
 
 <a name="l00166"></a>  166
 
-<a name="l00167"></a>  167             void [[Bind|classfrib_1_1analysis_1_1CTreeParameter#a2b8a2e124ecd4f427fdae5d9fe0a13c8]]();
+<a name="l00167"></a>  167             void [[Bind|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a2b8a2e124ecd4f427fdae5d9fe0a13c8]]();
 
 <a name="l00168"></a>  168             // It's either this or expose all the internals via public methods
 
@@ -355,316 +355,316 @@ header
 
 <a name="l00179"></a>  179 #endif
 
-[[frib::analysis::CTreeParameter::setChanged|classfrib_1_1analysis_1_1CTreeParameter#ae132d613d9aeaa3b249fe1a7ffda998c]]
+[[frib::analysis::CTreeParameter::setChanged|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae132d613d9aeaa3b249fe1a7ffda998c]]
 
 void setChanged()
 
 **Definition:** TreeParameter.cpp:917
 
 
-[[frib::analysis::CTreeParameter::operator++|classfrib_1_1analysis_1_1CTreeParameter#a3000b0aa2461458c57ac33a8c85cbf1e]]
+[[frib::analysis::CTreeParameter::operator++|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a3000b0aa2461458c57ac33a8c85cbf1e]]
 
 CTreeParameter & operator++()
 
 **Definition:** TreeParameter.cpp:584
 
 
-[[frib::analysis::CTreeParameter::Initialize|classfrib_1_1analysis_1_1CTreeParameter#ab730f7001fdf31c77160fa68bf4d0851]]
+[[frib::analysis::CTreeParameter::Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]]
 
 void Initialize(std::string name, unsigned resolution)
 
 **Definition:** TreeParameter.cpp:411
 
 
-[[frib::analysis::CTreeParameter::nextEvent|classfrib_1_1analysis_1_1CTreeParameter#ac76200d9964c0d7e683876b46fc4d863]]
+[[frib::analysis::CTreeParameter::nextEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ac76200d9964c0d7e683876b46fc4d863]]
 
 static void nextEvent()
 
 **Definition:** TreeParameter.cpp:128
 
 
-[[frib::analysis::CTreeParameter::setStop|classfrib_1_1analysis_1_1CTreeParameter#a951ef201146462bcdea55f55d2e488ba]]
+[[frib::analysis::CTreeParameter::setStop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a951ef201146462bcdea55f55d2e488ba]]
 
 void setStop(double high)
 
 **Definition:** TreeParameter.cpp:770
 
 
-[[frib::analysis::CTreeParameter::setDefaultLimits|classfrib_1_1analysis_1_1CTreeParameter#a0fff6519d585ce088053b38841d2846f]]
+[[frib::analysis::CTreeParameter::setDefaultLimits|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a0fff6519d585ce088053b38841d2846f]]
 
 static void setDefaultLimits(double low, double high)
 
 **Definition:** TreeParameter.cpp:160
 
 
-[[frib::analysis::CTreeParameter::getValue|classfrib_1_1analysis_1_1CTreeParameter#a28f75682ecbe9a047b780735acfe960e]]
+[[frib::analysis::CTreeParameter::getValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a28f75682ecbe9a047b780735acfe960e]]
 
 double getValue() const
 
 **Definition:** TreeParameter.cpp:647
 
 
-[[frib::analysis::CTreeParameter::getName|classfrib_1_1analysis_1_1CTreeParameter#a4e33f320d42074dc302adac64ee48656]]
+[[frib::analysis::CTreeParameter::getName|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a4e33f320d42074dc302adac64ee48656]]
 
 std::string getName() const
 
 **Definition:** TreeParameter.cpp:616
 
 
-[[frib::analysis::CTreeParameter::operator=|classfrib_1_1analysis_1_1CTreeParameter#a48df0bab8b7d1ca4a02c7a1cbb57b2b8]]
+[[frib::analysis::CTreeParameter::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a48df0bab8b7d1ca4a02c7a1cbb57b2b8]]
 
 CTreeParameter & operator=(double newValue)
 
 **Definition:** TreeParameter.cpp:517
 
 
-[[frib::analysis::CTreeParameter::getStart|classfrib_1_1analysis_1_1CTreeParameter#a1cd97e843b216fc90508dcfbe967989a]]
+[[frib::analysis::CTreeParameter::getStart|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a1cd97e843b216fc90508dcfbe967989a]]
 
 double getStart() const
 
 **Definition:** TreeParameter.cpp:726
 
 
-[[frib::analysis::CTreeParameter::_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]
+[[frib::analysis::CTreeParameter::_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]
 
 **Definition:** TreeParameter.h:46
 
 
-[[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]
+[[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]
 
 **Definition:** TreeParameter.h:42
 
 
-[[frib::analysis::CTreeParameter::operator--|classfrib_1_1analysis_1_1CTreeParameter#aef1fb51e92c6aaa04a464c51d75ce340]]
+[[frib::analysis::CTreeParameter::operator--|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aef1fb51e92c6aaa04a464c51d75ce340]]
 
 CTreeParameter & operator--()
 
 **Definition:** TreeParameter.cpp:603
 
 
-[[frib::analysis::CTreeParameter::collectEvent|classfrib_1_1analysis_1_1CTreeParameter#af4ee7dd5f48e4cc937980d0a360601ae]]
+[[frib::analysis::CTreeParameter::collectEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#af4ee7dd5f48e4cc937980d0a360601ae]]
 
 static std::vector< std::pair< unsigned, double > > collectEvent()
 
 **Definition:** TreeParameter.cpp:144
 
 
-[[frib::analysis::CTreeParameter::~CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a4704c41ccdbeeafcdb4e40a3dcda4b4e]]
+[[frib::analysis::CTreeParameter::~CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a4704c41ccdbeeafcdb4e40a3dcda4b4e]]
 
 ~CTreeParameter()
 
 **Definition:** TreeParameter.cpp:396
 
 
-[[frib::analysis::CTreeParameter::getUnit|classfrib_1_1analysis_1_1CTreeParameter#aa08aa3aab539dd9490ae44891e7b3f3c]]
+[[frib::analysis::CTreeParameter::getUnit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aa08aa3aab539dd9490ae44891e7b3f3c]]
 
 std::string getUnit() const
 
 **Definition:** TreeParameter.cpp:830
 
 
-[[frib::analysis::CTreeParameter::Reset|classfrib_1_1analysis_1_1CTreeParameter#a21969650ac12b5729cd576643a9171c5]]
+[[frib::analysis::CTreeParameter::Reset|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a21969650ac12b5729cd576643a9171c5]]
 
 void Reset()
 
 **Definition:** TreeParameter.cpp:891
 
 
-[[frib::analysis::CTreeParameter::operator+=|classfrib_1_1analysis_1_1CTreeParameter#a96c9a724cf8f94cfa61689d47c30635d]]
+[[frib::analysis::CTreeParameter::operator+=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a96c9a724cf8f94cfa61689d47c30635d]]
 
 CTreeParameter & operator+=(double rhs)
 
 **Definition:** TreeParameter.cpp:537
 
 
-[[frib::analysis::CTreeParameter::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a90c65868f89d30d07257c21f7c6fc567]]
+[[frib::analysis::CTreeParameter::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a90c65868f89d30d07257c21f7c6fc567]]
 
 CTreeParameter()
 
 **Definition:** TreeParameter.cpp:295
 
 
-[[frib::analysis::CTreeParameter::setDefaultBins|classfrib_1_1analysis_1_1CTreeParameter#ae4ae59b00a1facb7fe3799ede0b8f705]]
+[[frib::analysis::CTreeParameter::setDefaultBins|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae4ae59b00a1facb7fe3799ede0b8f705]]
 
 static void setDefaultBins(unsigned bins)
 
 **Definition:** TreeParameter.cpp:172
 
 
-[[frib::analysis::CTreeParameter::resetChanged|classfrib_1_1analysis_1_1CTreeParameter#aa883276d6929d0967b993d9564c3fb05]]
+[[frib::analysis::CTreeParameter::resetChanged|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aa883276d6929d0967b993d9564c3fb05]]
 
 void resetChanged()
 
 **Definition:** TreeParameter.cpp:930
 
 
-[[frib::analysis::CTreeParameter::setUnit|classfrib_1_1analysis_1_1CTreeParameter#a2cf976d537e9b1de31e26f545112eb00]]
+[[frib::analysis::CTreeParameter::setUnit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a2cf976d537e9b1de31e26f545112eb00]]
 
 void setUnit(std::string units)
 
 **Definition:** TreeParameter.cpp:845
 
 
-[[frib::analysis::CTreeParameter::ResetAll|classfrib_1_1analysis_1_1CTreeParameter#a0b36621f1dd6ace568fc1e991ce75598]]
+[[frib::analysis::CTreeParameter::ResetAll|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a0b36621f1dd6ace568fc1e991ce75598]]
 
 static void ResetAll()
 
 **Definition:** TreeParameter.cpp:944
 
 
-[[frib::analysis::CTreeParameter::setInc|classfrib_1_1analysis_1_1CTreeParameter#a1fe7777a165d27c2f2f9f550690caf9a]]
+[[frib::analysis::CTreeParameter::setInc|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a1fe7777a165d27c2f2f9f550690caf9a]]
 
 void setInc(double channelWidth)
 
 **Definition:** TreeParameter.cpp:807
 
 
-[[frib::analysis::CTreeParameter::getInc|classfrib_1_1analysis_1_1CTreeParameter#adf102ebcfc113e4e6fb78d017ee362f5]]
+[[frib::analysis::CTreeParameter::getInc|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#adf102ebcfc113e4e6fb78d017ee362f5]]
 
 double getInc() const
 
 **Definition:** TreeParameter.cpp:788
 
 
-[[frib::analysis::CTreeParameter::operator/=|classfrib_1_1analysis_1_1CTreeParameter#ab8d0cb0f3bfd85c681e1b2a8668d5647]]
+[[frib::analysis::CTreeParameter::operator/=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab8d0cb0f3bfd85c681e1b2a8668d5647]]
 
 CTreeParameter & operator/=(double rhs)
 
 **Definition:** TreeParameter.cpp:565
 
 
-[[frib::analysis::CTreeParameter::setEvent|classfrib_1_1analysis_1_1CTreeParameter#acfe0d48f80c1b43ecd734ed1bc24cabb]]
+[[frib::analysis::CTreeParameter::setEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#acfe0d48f80c1b43ecd734ed1bc24cabb]]
 
 static void setEvent(...)
 
 **Definition:** TreeParameter.cpp:199
 
 
-[[frib::analysis::CTreeParameter::isBound|classfrib_1_1analysis_1_1CTreeParameter#a718aa03c7bfa70113e92cb447819981b]]
+[[frib::analysis::CTreeParameter::isBound|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a718aa03c7bfa70113e92cb447819981b]]
 
 bool isBound() const
 
 **Definition:** TreeParameter.cpp:493
 
 
-[[frib::analysis::CTreeParameter::setDefaultUnits|classfrib_1_1analysis_1_1CTreeParameter#a9071a27c67c976fb9667726da3e2acea]]
+[[frib::analysis::CTreeParameter::setDefaultUnits|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a9071a27c67c976fb9667726da3e2acea]]
 
 static void setDefaultUnits(const char *units)
 
 **Definition:** TreeParameter.cpp:182
 
 
-[[frib::analysis::CTreeParameter::operator-=|classfrib_1_1analysis_1_1CTreeParameter#aba97aa07c7fb6928da609829a7633ce3]]
+[[frib::analysis::CTreeParameter::operator-=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aba97aa07c7fb6928da609829a7633ce3]]
 
 CTreeParameter & operator-=(double rhs)
 
 **Definition:** TreeParameter.cpp:547
 
 
-[[frib::analysis::CTreeParameter::isValid|classfrib_1_1analysis_1_1CTreeParameter#a827fcff24007d9667681be6e907d330a]]
+[[frib::analysis::CTreeParameter::isValid|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a827fcff24007d9667681be6e907d330a]]
 
 bool isValid() const
 
 **Definition:** TreeParameter.cpp:860
 
 
-[[frib::analysis::CTreeParameter::getId|classfrib_1_1analysis_1_1CTreeParameter#ab654767114326936c1be727e0501fef6]]
+[[frib::analysis::CTreeParameter::getId|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab654767114326936c1be727e0501fef6]]
 
 unsigned getId() const
 
 **Definition:** TreeParameter.cpp:627
 
 
-[[frib::analysis::CTreeParameter::BindParameters|classfrib_1_1analysis_1_1CTreeParameter#afba816dffc60f43184a477418b0f5767]]
+[[frib::analysis::CTreeParameter::BindParameters|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#afba816dffc60f43184a477418b0f5767]]
 
 static void BindParameters()
 
 **Definition:** TreeParameter.cpp:192
 
 
-[[frib::analysis::CTreeParameter::getDefinitions|classfrib_1_1analysis_1_1CTreeParameter#a096f7b50387e60c244980f6a1328f6ce]]
+[[frib::analysis::CTreeParameter::getDefinitions|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a096f7b50387e60c244980f6a1328f6ce]]
 
 static std::vector< std::pair< std::string, SharedData > > getDefinitions()
 
 **Definition:** TreeParameter.cpp:224
 
 
-[[frib::analysis::CTreeParameter::setBins|classfrib_1_1analysis_1_1CTreeParameter#aad46f51c8961bfac63ac01a869a5fc9c]]
+[[frib::analysis::CTreeParameter::setBins|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aad46f51c8961bfac63ac01a869a5fc9c]]
 
 void setBins(unsigned channels)
 
 **Definition:** TreeParameter.cpp:708
 
 
-[[frib::analysis::CTreeParameter::getStop|classfrib_1_1analysis_1_1CTreeParameter#ae6b65dd1ef24e45d2f0167040c20c2dc]]
+[[frib::analysis::CTreeParameter::getStop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae6b65dd1ef24e45d2f0167040c20c2dc]]
 
 double getStop() const
 
 **Definition:** TreeParameter.cpp:756
 
 
-[[frib::analysis::CTreeParameter::hasChanged|classfrib_1_1analysis_1_1CTreeParameter#ae02584ff616af320ce900789cf761eb0]]
+[[frib::analysis::CTreeParameter::hasChanged|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae02584ff616af320ce900789cf761eb0]]
 
 bool hasChanged() const
 
 **Definition:** TreeParameter.cpp:904
 
 
-[[frib::analysis::CTreeParameter::getEvent|classfrib_1_1analysis_1_1CTreeParameter#a47954cf33d99ffcfd5ed0267b211907d]]
+[[frib::analysis::CTreeParameter::getEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a47954cf33d99ffcfd5ed0267b211907d]]
 
 static const std::vector< double > & getEvent()
 
 **Definition:** TreeParameter.cpp:206
 
 
-[[frib::analysis::CTreeParameter::operator*=|classfrib_1_1analysis_1_1CTreeParameter#abd421c05f35a418f51772a88f8ca35fd]]
+[[frib::analysis::CTreeParameter::operator*=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#abd421c05f35a418f51772a88f8ca35fd]]
 
 CTreeParameter & operator*=(double rhs)
 
 **Definition:** TreeParameter.cpp:556
 
 
-[[frib::analysis::CTreeParameter::setStart|classfrib_1_1analysis_1_1CTreeParameter#a8e1fefa3848060c9c3dd597c23757eb2]]
+[[frib::analysis::CTreeParameter::setStart|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a8e1fefa3848060c9c3dd597c23757eb2]]
 
 void setStart(double low)
 
 **Definition:** TreeParameter.cpp:741
 
 
-[[frib::analysis::CTreeParameter::setInvalid|classfrib_1_1analysis_1_1CTreeParameter#ab0c455037c883d8f73724b4f6d7f3c76]]
+[[frib::analysis::CTreeParameter::setInvalid|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab0c455037c883d8f73724b4f6d7f3c76]]
 
 void setInvalid()
 
 **Definition:** TreeParameter.cpp:876
 
 
-[[frib::analysis::CTreeParameter::getScoreboard|classfrib_1_1analysis_1_1CTreeParameter#abefb8699922575955baca9d7aab9585d]]
+[[frib::analysis::CTreeParameter::getScoreboard|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#abefb8699922575955baca9d7aab9585d]]
 
 static const std::vector< unsigned > getScoreboard()
 
 **Definition:** TreeParameter.cpp:214
 
 
-[[frib::analysis::CTreeParameter::Bind|classfrib_1_1analysis_1_1CTreeParameter#a2b8a2e124ecd4f427fdae5d9fe0a13c8]]
+[[frib::analysis::CTreeParameter::Bind|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a2b8a2e124ecd4f427fdae5d9fe0a13c8]]
 
 void Bind()
 
 **Definition:** TreeParameter.cpp:954
 
 
-[[frib::analysis::CTreeParameter::getBins|classfrib_1_1analysis_1_1CTreeParameter#aed1a62acebf1e4c5c31871f61a20b9ff]]
+[[frib::analysis::CTreeParameter::getBins|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aed1a62acebf1e4c5c31871f61a20b9ff]]
 
 unsigned getBins() const
 
 **Definition:** TreeParameter.cpp:691
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[frib::analysis::CTreeParameter::setValue|classfrib_1_1analysis_1_1CTreeParameter#a97cf290e4a36576d53e0221e403320b0]]
+[[frib::analysis::CTreeParameter::setValue|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a97cf290e4a36576d53e0221e403320b0]]
 
 void setValue(double newValue)
 

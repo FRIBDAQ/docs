@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLChannel Member List
 
 header
-This is the complete list of members for [[CTCLChannel|classCTCLChannel]], including all inherited members.
+This is the complete list of members for [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]], including all inherited members.
 
 
 |  |  |  |

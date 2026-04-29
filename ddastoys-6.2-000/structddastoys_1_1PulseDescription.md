@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[PulseDescription|structddastoys_1_1PulseDescription]]
+- [[PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structddastoys_1_1PulseDescription-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription-members.md]]
 
 
 ddastoys::PulseDescription Struct Reference
 
 header
 Describes a single pulse without an offset.  
- [[More...|structddastoys_1_1PulseDescription#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#details]]
 
 
 `#include <fit_extensions.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::PulseDescription:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -77,7 +77,7 @@ Describes a single pulse without an offset.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h_source.md]]
 
  contents 
  start footer part 

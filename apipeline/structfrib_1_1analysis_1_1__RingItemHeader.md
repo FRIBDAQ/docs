@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_RingItemHeader|structfrib_1_1analysis_1_1__RingItemHeader]]
+- [[_RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structfrib_1_1analysis_1_1__RingItemHeader-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader-members.md]]
 
 
 frib::analysis::_RingItemHeader Struct Reference
@@ -55,7 +55,7 @@ Analysis ring items don't have body headers so:
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h_source.md]]
 
  contents 
  start footer part 

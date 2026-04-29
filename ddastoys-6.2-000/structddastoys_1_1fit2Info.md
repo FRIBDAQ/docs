@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[fit2Info|structddastoys_1_1fit2Info]]
+- [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structddastoys_1_1fit2Info-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info-members.md]]
 
 
 ddastoys::fit2Info Struct Reference
 
 header
 Full fitting information for the double pulse.  
- [[More...|structddastoys_1_1fit2Info#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#details]]
 
 
 `#include <fit_extensions.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::fit2Info:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::fit2Info:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::fit2Info:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -93,7 +93,7 @@ Full fitting information for the double pulse.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h_source.md]]
 
  contents 
  start footer part 

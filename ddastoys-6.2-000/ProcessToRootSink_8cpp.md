@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 ProcessToRootSink.cpp File Reference
 
 header
-Implement mandatory interface from [[CRingItemProcessor|classCRingItemProcessor]] to process data to a ROOT file sink.  
+Implement mandatory interface from [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]] to process data to a ROOT file sink.  
 [More...](#details)
 
 
@@ -47,7 +47,7 @@ Include dependency graph for ProcessToRootSink.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Implement mandatory interface from [[CRingItemProcessor|classCRingItemProcessor]] to process data to a ROOT file sink.
+Implement mandatory interface from [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]] to process data to a ROOT file sink.
 
  contents 
  start footer part 

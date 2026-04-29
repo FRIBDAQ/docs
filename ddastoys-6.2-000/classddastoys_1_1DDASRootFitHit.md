@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]
+- [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1DDASRootFitHit-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit-members.md]]
 
 
-ddastoys::DDASRootFitHit Class Reference[[libDDASRootFitFormat.so|group__ddasrootfitformat]]
+ddastoys::DDASRootFitHit Class Reference[[libDDASRootFitFormat.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__ddasrootfitformat.md]]
 
 header
 This class is a ROOT serializable DDAS hit with possible fit data.  
- [[More...|classddastoys_1_1DDASRootFitHit#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#details]]
 
 
 `#include <DDASRootFitHit.h>`
@@ -51,7 +51,7 @@ Inheritance diagram for ddastoys::DDASRootFitHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::DDASRootFitHit:
@@ -66,7 +66,7 @@ Collaboration diagram for ddastoys::DDASRootFitHit:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -117,7 +117,7 @@ Collaboration diagram for ddastoys::DDASRootFitHit:
 This class is a ROOT serializable DDAS hit with possible fit data.
 
 
-This is a very, very simple class. It inherits from [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]] and ROOT's TObject class and adds a ROOT `ClassDef()` macro.
+This is a very, very simple class. It inherits from [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]] and ROOT's TObject class and adds a ROOT `ClassDef()` macro.
 
 ## Constructor & Destructor Documentation
 
@@ -163,7 +163,7 @@ Assignment from a DAQ::DDAS::DDASFitHit.
   *this.
 
 - Note
-  This is the "normal" way we'll get data. Default construction and then assignment from a decoded [[DDASFitHit|classddastoys_1_1DDASFitHit]].
+  This is the "normal" way we'll get data. Default construction and then assignment from a decoded [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]].
 
 
 
@@ -174,7 +174,7 @@ Assignment from a DAQ::DDAS::DDASFitHit.
 | --- | --- | --- | --- | --- | --- |
 | DDASRootFitHit& ddastoys::DDASRootFitHit::operator= | ( | constDDASRootFitHit& | rhs | ) |  |
 
-Assignment from another [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]].
+Assignment from another [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]].
 
 
 - Parameters
@@ -190,8 +190,8 @@ Assignment from another [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]].
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASRootFitHit.h|DDASRootFitHit_8h_source]]
-- [[DDASRootFitHit.cpp|DDASRootFitHit_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASRootFitHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitHit_8h_source.md]]
+- [[DDASRootFitHit.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitHit_8cpp.md]]
 
  contents 
  start footer part 

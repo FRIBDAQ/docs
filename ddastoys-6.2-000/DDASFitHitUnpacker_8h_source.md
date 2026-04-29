@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 DDASFitHitUnpacker.h
 
 header
-[[Go to the documentation of this file.|DDASFitHitUnpacker_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASFitHitUnpacker_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -100,7 +100,7 @@ header
 <a name="l00033"></a>   33
 
 
-<a name="l00061"></a>[[61|classddastoys_1_1DDASFitHitUnpacker]]     class [[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]] : public ddasfmt::DDASHitUnpacker
+<a name="l00061"></a>[[61|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]]     class [[DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]] : public ddasfmt::DDASHitUnpacker
 
 
 <a name="l00062"></a>   62     {
@@ -109,7 +109,7 @@ header
 <a name="l00063"></a>   63     public:
 
 
-<a name="l00075"></a>   75     const void* [[decode|classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]](const void* p, [[DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00075"></a>   75     const void* [[decode|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md#a79a9e2d9267c8036fef746f45ef4c4d7]](const void* p, [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
 
 
 <a name="l00076"></a>   76     };
@@ -127,14 +127,14 @@ header
 <a name="l00082"></a>   82 #endif
 
 
-[[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
+[[ddastoys::DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]]
 
 Unpack raw hit data from DDAS event files.
 
 **Definition:** DDASFitHitUnpacker.h:62
 
 
-[[ddastoys::DDASFitHitUnpacker::decode|classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]]
+[[ddastoys::DDASFitHitUnpacker::decode|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md#a79a9e2d9267c8036fef746f45ef4c4d7]]
 
 const void * decode(const void *p, DDASFitHit &hit)
 
@@ -143,7 +143,7 @@ Decode the current event and unpack it into a DDASFitHit.
 **Definition:** DDASFitHitUnpacker.cpp:61
 
 
-[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 

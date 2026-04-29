@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 Class Hierarchy
 
 header
-[[Go to the textual class hierarchy|hierarchy]]
+[[Go to the textual class hierarchy|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/hierarchy.md]]
 
 |  |
 | --- |

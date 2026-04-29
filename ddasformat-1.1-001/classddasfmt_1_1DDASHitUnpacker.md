@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddasfmt**
-- [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]]
+- [[DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classddasfmt_1_1DDASHitUnpacker-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker-members.md]]
 
 
-ddasfmt::DDASHitUnpacker Class Reference[[libDDASFormat.so|group__ddasfmt]]
+ddasfmt::DDASHitUnpacker Class Reference[[libDDASFormat.so|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/group__ddasfmt.md]]
 
 header
 Unpacker for DDAS data recorded by NSCLDAQ.  
- [[More...|classddasfmt_1_1DDASHitUnpacker#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md#details]]
 
 
 `#include <DDASHitUnpacker.h>`
@@ -100,7 +100,7 @@ Unpacker for DDAS data recorded by NSCLDAQ.
 This class unpacks NSCLDAQ-formatted Pixie-16 data recorded by a DDAS readout program into DDASHits which encapsulate the information recorded by a single Pixie channel. This is a generic unpacker which can accomodate information from all Pixie-16 digitizer types at FRIB. In general, all of the digitizer outputs contain the same information but importantly the meaning of the CFD data depends on the digitizer type. The unpacker class abstracts this difference away from the user.
 
 
-This class does not provide any parsing capabilities like the ddasdumper. You must create a [[DDASHit|classddasfmt_1_1DDASHit]] object and unpack data into it. Here is how you do that:
+This class does not provide any parsing capabilities like the ddasdumper. You must create a [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] object and unpack data into it. Here is how you do that:
 
 
 DDASHit hit;
@@ -509,7 +509,7 @@ The 16-bit trace data is stored two samples to one 32-bit word in little-endian.
 |  |  | const uint32_t * | sentinel |
 |  | ) |  |  |
 
-Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
+Unpack data into a [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]].
 
 
 - Parameters
@@ -520,7 +520,7 @@ Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
 
 
 - Returns
-  Tuple of ([[DDASHit|classddasfmt_1_1DDASHit]], nextWord).
+  Tuple of ([[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]], nextWord).
 
 This expects data from a DDAS readout program. It will parse the entire body of the event in a manner that is consistent with the data present. In other words, it uses the sizes of the event encoded in the data to determine when the parsing is complete.
 
@@ -539,7 +539,7 @@ While it parses, it stores the results into the data members of the object hit. 
 |  |  | DDASHit& | hit |
 |  | ) |  |  |
 
-Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
+Unpack data into a [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]].
 
 
 - Parameters
@@ -569,8 +569,8 @@ While it parses, it stores the results into the data members of the object hit. 
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASHitUnpacker.h|DDASHitUnpacker_8h_source]]
-- [[DDASHitUnpacker.cpp|DDASHitUnpacker_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASHitUnpacker.h|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHitUnpacker_8h_source.md]]
+- [[DDASHitUnpacker.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHitUnpacker_8cpp.md]]
 
  contents 
  start footer part 

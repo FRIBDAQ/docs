@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCNoSuchObjectException-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCNoSuchObjectException-members.md]]
 
 
 CNoSuchObjectException Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CNoSuchObjectException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CNoSuchObjectException:
@@ -49,7 +49,7 @@ Collaboration diagram for CNoSuchObjectException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CNoSuchObjectException:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CNoSuchObjectException.h|CNoSuchObjectException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CNoSuchObjectException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CNoSuchObjectException_8h_source.md]]
 - libtclplus/exception/CNoSuchObjectException.cpp
 
  contents 

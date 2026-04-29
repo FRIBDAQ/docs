@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classProcessToRootSink-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink-members.md]]
 
 
 ProcessToRootSink Class Reference
 
 header
-A ring item processeor concrete class that overrides the [[CRingItemProcessor|classCRingItemProcessor]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.  
- [[More...|classProcessToRootSink#details]]
+A ring item processeor concrete class that overrides the [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.  
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#details]]
 
 
 `#include <ProcessToRootSink.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for ProcessToRootSink:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ProcessToRootSink:
@@ -57,7 +57,7 @@ Collaboration diagram for ProcessToRootSink:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -105,7 +105,7 @@ Collaboration diagram for ProcessToRootSink:
 <a name="details"></a>## Detailed Description
 
 
-A ring item processeor concrete class that overrides the [[CRingItemProcessor|classCRingItemProcessor]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.
+A ring item processeor concrete class that overrides the [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.
 
 ## Member Function Documentation
 
@@ -131,14 +131,14 @@ Process physics events.
 Derived class decides what to do with PHYSICS_EVENT ring items. In this case, we just pass the data to the ROOT file sink and let it handle the rest.
 
 
-Reimplemented from [[CRingItemProcessor|classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]].
+Reimplemented from [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[ProcessToRootSink.h|ProcessToRootSink_8h_source]]
-- [[ProcessToRootSink.cpp|ProcessToRootSink_8cpp]]
+The documentation for this class was generated from the following files:- [[ProcessToRootSink.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/ProcessToRootSink_8h_source.md]]
+- [[ProcessToRootSink.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/ProcessToRootSink_8cpp.md]]
 
  contents 
  start footer part 

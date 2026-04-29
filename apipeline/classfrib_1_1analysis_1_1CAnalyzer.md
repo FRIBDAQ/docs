@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]
+- [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classfrib_1_1analysis_1_1CAnalyzer-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer-members.md]]
 
 
 frib::analysis::CAnalyzer Class Reference
@@ -70,7 +70,7 @@ This is intended as a stub class to satisfy refernces to the SpecTcl analyzer th
 
 
 - Note
-  some [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]] methods are missing as they are purely internal to SpecTcl and even the analyzer itself.
+  some [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]] methods are missing as they are purely internal to SpecTcl and even the analyzer itself.
 
 ## Constructor & Destructor Documentation
 
@@ -176,8 +176,8 @@ other canonicals.
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[Analyzer.h|Analyzer_8h_source]]
-- spectcl/[[Analyzer.cpp|Analyzer_8cpp]]
+The documentation for this class was generated from the following files:- spectcl/[[Analyzer.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/Analyzer_8h_source.md]]
+- spectcl/[[Analyzer.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/Analyzer_8cpp.md]]
 
  contents 
  start footer part 

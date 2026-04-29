@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
 
  top 
 EventProcessor.h
 
 header
-[[Go to the documentation of this file.|EventProcessor_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/EventProcessor_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -69,7 +69,7 @@ header
 
 <a name="l00024"></a>   24 #include <string>
 
-<a name="l00025"></a>   25 namespace [[frib|namespacefrib]] {
+<a name="l00025"></a>   25 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00026"></a>   26     namespace analysis {
 
@@ -81,21 +81,21 @@ header
 
 <a name="l00030"></a>   30
 
-<a name="l00037"></a>[[37|classfrib_1_1analysis_1_1CEventProcessor]]         class [[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]] {
+<a name="l00037"></a>[[37|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]         class [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]] {
 
 <a name="l00038"></a>   38         public:
 
-<a name="l00039"></a>   39             virtual ~[[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]() {}               // for destructor chaining.
+<a name="l00039"></a>   39             virtual ~[[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]() {}               // for destructor chaining.
 
 <a name="l00040"></a>   40
 
 <a name="l00041"></a>   41             virtual Bool_t operator()(const Address_t pEvent,
 
-<a name="l00042"></a>   42                             [[CEvent|classfrib_1_1analysis_1_1CEvent]]& rEvent,
+<a name="l00042"></a>   42                             [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]& rEvent,
 
-<a name="l00043"></a>   43                             [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]& rAnalyzer,
+<a name="l00043"></a>   43                             [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]& rAnalyzer,
 
-<a name="l00044"></a>   44                             [[CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]& rDecoder) = 0;
+<a name="l00044"></a>   44                             [[CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]& rDecoder) = 0;
 
 <a name="l00045"></a>   45             virtual Bool_t OnEventSourceOpen(std::string name);
 
@@ -117,27 +117,27 @@ header
 
 <a name="l00054"></a>   54 #endif
 
-[[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]
+[[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]
 
 **Definition:** Analyzer.h:41
 
 
-[[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]
+[[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]
 
 **Definition:** BufferDecoder.h:39
 
 
-[[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]]
+[[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]
 
 **Definition:** Event.h:45
 
 
-[[frib::analysis::CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]
+[[frib::analysis::CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]
 
 **Definition:** EventProcessor.h:37
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 

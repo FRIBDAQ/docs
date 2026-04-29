@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classTclConfigtest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclConfigtest-members.md]]
 
 
 TclConfigtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TclConfigtest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for TclConfigtest:
@@ -47,7 +47,7 @@ Collaboration diagram for TclConfigtest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -87,7 +87,7 @@ Collaboration diagram for TclConfigtest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[tclconfigtests.cpp|tclconfigtests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[tclconfigtests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/tclconfigtests_8cpp.md]]
 
  contents 
  start footer part 

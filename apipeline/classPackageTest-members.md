@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 PackageTest Member List
 
 header
-This is the complete list of members for [[PackageTest|classPackageTest]], including all inherited members.
+This is the complete list of members for [[PackageTest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classPackageTest.md]], including all inherited members.
 
 
 |  |  |  |

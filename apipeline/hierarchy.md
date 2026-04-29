@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 Class Hierarchy
 
 header
-[[Go to the graphical class hierarchy|inherits]]
+[[Go to the graphical class hierarchy|https://github.com/FRIBDAQ/docs/tree/main/apipeline/inherits.md]]
 
 
 This inheritance list is sorted roughly, but not completely, alphabetically:

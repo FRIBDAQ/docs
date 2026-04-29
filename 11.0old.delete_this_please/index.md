@@ -4,981 +4,981 @@
 ---
 
 - **Table of Contents**
-- I. [[user-guide|p3]]
-  - 1. [[NSCLDAQ In a Nut Shell|c5]]
-    - 1.1. [[Basics of Data Flow in NSCLDAQ|c5#AEN8]]
-    - 1.2. [[Pipeline Building, Run Control, and DAQ Modularization|x19]]
-    - 1.3. [[Built-in Diagnostics|x25]]
-    - 1.4. [[Extensibility and Openness|x33]]
-  - 2. [[The Ring Buffer|c43]]
-    - 2.1. [[Overview|c43#AEN45]]
-    - 2.2. [[Data Transfer and Flow Control|x80]]
-    - 2.3. [[Proxy Rings, Ring Masters, and Network Transparency|x97]]
-    - 2.4. [[Ring buffer utilities|x130]]
-  - 3. [[NSCLDAQ Data Format : The Ring Item|c183]]
-    - 3.1. [[Generic Ring Item Traits|c183#AEN188]]
-    - 3.2. [[The Body Header|x212]]
-    - 3.3. [[The Ring Item Types|x312]]
-  - 4. [[VMUSBReadout|c744]]
-    - 4.1. [[Introduction|c744#AEN746]]
-    - 4.2. [[Basic Tenets of VM-USB Operation|x786]]
-    - 4.3. [[Writing the Configuration Script|x800]]
-    - 4.4. [[The Slow-Controls Subsystem|x858]]
-    - 4.5. [[Running the VMUSBReadout program|x903]]
-    - 4.6. [[Understanding VMUSBReadout Output|x1016]]
-    - 4.7. [[Developing a Timestamp Extractor Library|x1022]]
-    - 4.8. [[Extending the Supported Readout Hardware|x1137]]
-    - 4.9. [[Extending the slow controls subsystem|x1550]]
-    - 4.10. [[Pushing external data into the event stream|x2245]]
-  - 5. [[CCUSBReadout|c2287]]
-    - 5.1. [[How the CCUSB readout framework works|c2287#AEN2319]]
-    - 5.2. [[Writing DAQ configuration files|x2335]]
-    - 5.3. [[Writing device support software|x2376]]
-    - 5.4. [[Tcl device driver support|x2537]]
-    - 5.5. [[The slow controls subsystem|x2795]]
-    - 5.6. [[Running CCUSBReadout|x2809]]
-    - 5.7. [[Writing C++ slow controls device drivers|x2888]]
-    - 5.8. [[Writing Tcl slow controls device drivers|x3315]]
-    - 5.9. [[The ccusbcamac Tcl package|x3513]]
-  - 6. [[ReadoutGUI & ReadoutShell|c3594]]
-    - 6.1. [[Principles of operation|c3594#AEN3611]]
-    - 6.2. [[Operating the user interface|x3692]]
-    - 6.3. [[The event logger and ReadoutShell|x4007]]
-    - 6.4. [[Customizing the ReadoutShell|x4041]]
-    - 6.5. [[Remote control package|x4431]]
-  - 7. [[Event Builder|c4456]]
-    - 7.1. [[Introduction|c4456#AEN4458]]
-    - 7.2. [[Using the event builder|x4467]]
-    - 7.3. [[More detail on when the fragments are ouptutted|x4487]]
-    - 7.4. [[Fragments and Data Format|x4493]]
-  - 8. [[ScalerDisplay|c4573]]
-    - 8.1. [[What is the ScalerDisplay?|c4573#AEN4575]]
-    - 8.2. [[Why does it exist?|x4578]]
-    - 8.3. [[What does it do?|x4581]]
-    - 8.4. [[How to set up the ScalerDisplay|x4599]]
-- II. [[simple-setups|p4722]]
-  - 9. [[A Simple VMUSBReadout Experiment Tutorial|c4724]]
-    - 9.1. [[Introduction|c4724#AEN4726]]
-    - 9.2. [[Setting up the Electronics|x4747]]
-    - 9.3. [[The Configuration Files|x4787]]
-    - 9.4. [[Running VMUSBReadout|x4891]]
-    - 9.5. [[Understanding the Output|x4929]]
-    - 9.6. [[Developing a Tailored SpecTcl|x4996]]
-    - 9.7. [[The VMUSBSpecTcl Alternative|x5290]]
-    - 9.8. [[Using SpecTcl|x5299]]
-    - 9.9. [[Conclusion|x5326]]
-  - 10. [[Simple V775 readout|c5329]]
-    - 10.1. [[Introduction|c5329#AEN5331]]
-    - 10.2. [[Setting up the Electronics.|x5343]]
-    - 10.3. [[Creating the Readout program|x5363]]
-    - 10.4. [[Creating the tailored SpecTcl|x5673]]
-    - 10.5. [[Running the system.|x6058]]
-    - 10.6. [[Taking the example further.|x6157]]
-    - 10.7. [[The full readout program.|x6166]]
-    - 10.8. [[The full SpecTcl program.|x6222]]
-  - 11. [[Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register|c6247]]
-    - 11.1. [[PREFACE|c6247#AEN6249]]
-    - 11.2. [[The electronics|x6270]]
-    - 11.3. [[Setting up the software|x6334]]
-    - 11.4. [[The dumper program|x6456]]
-    - 11.5. [[Running the Readout Program|x6500]]
-    - 11.6. [[Interpreting the dumper output|x6534]]
-- III. [[device-support|p6566]]
-  - 12. [[Mesytec MCFD-16 Controls|c6568]]
-    - 12.1. [[Overview|c6568#AEN6570]]
-    - 12.2. [[Starting the GUI for USB communication|x6576]]
-    - 12.3. [[Starting the GUI for the RC-bus through an MxDC device|x6593]]
-    - 12.4. [[Saving and restoring state|x6618]]
-  - 13. [[Mesytec MSCF-16 Controls|c6636]]
-    - 13.1. [[Overview|c6636#AEN6638]]
-    - 13.2. [[Synchronization Paradigm|x6643]]
-    - 13.3. [[Starting the GUI for USB communication|x6647]]
-    - 13.4. [[Saving and restoring state|x6664]]
-  - 14. [[Wiener MDGG-16 Controls|c6686]]
-    - 14.1. [[Overview|c6686#AEN6688]]
-    - 14.2. [[How to use the MDGG16Control GUI|x6693]]
-    - 14.3. [[Saving and Restoring The State of the GUI Between Sessions|x6726]]
-- IV. [[commands|p6734]]
-  - 15. [[Command line access to CAMAC via the SBS interface|c6736]]
-- V. [[utilities|p6760]]
-  - 16. [[Ring piping utilities|c6762]]
-  - 17. [[The dumper program|c6788]]
-    - 17.1. [[Item dump formats and examples|c6788#AEN6816]]
-  - 18. [[The Event log program|c6852]]
-  - 19. [[The tcl server application|c6882]]
-    - 19.1. [[Tcl server package|c6882#AEN6901]]
-  - 20. [[CAEN V812 Constant Fraction Discriminator|c6905]]
-  - 21. [[N568B CAENnet shaping amplifier|c6942]]
-  - 22. [[VHS-40xxx SBS support.|c6977]]
-  - 23. [[cratelocator|c7012]]
-  - 24. [[Tcl access to the VME via the SBS interface|c7025]]
-    - 24.1. [[Incorporating Vme Tcl in your scripts|c7025#AEN7040]]
-    - 24.2. [[Sample programs that use the package|x7060]]
-  - 25. [[VM/CCUSB Firmware loaders|c7067]]
-  - 26. [[Sequencing runs|c7087]]
-    - 26.1. [[Configuring the sequencer.|c7087#AEN7092]]
-    - 26.2. [[Using the sequencer.|x7157]]
-  - 27. [[The ringselector application|c7177]]
-  - 28. [[Compatibility utilities|c7258]]
-    - 28.1. [[Format conversion with compatibilitybuffer|c7258#AEN7271]]
-    - 28.2. [[Writing event files with compatibilitylogger|x7295]]
-    - 28.3. [[Converting NSCLDAQ-V10.x data to NSCLDAQ-11.x data|x7314]]
-    - 28.4. [[Convenience scripts|x7323]]
-    - 28.5. [[BufferToRing|x7358]]
-  - 29. [[Providing EPICS channel information to Tcl Servers|c7363]]
-  - 30. [[The epics display utility|c7401]]
-  - 31. [[Epics Channel logging|c7420]]
-- VI. [[servers|p7433]]
-  - 32. [[The RingMaster server|c7435]]
-    - 32.1. [[The RingMaster Protocol|c7435#AEN7448]]
-  - 33. [[Service Port Manager.|c7586]]
-- VII. [[libraries|p7602]]
-  - 34. [[Ring master class library.|c7604]]
-  - 35. [[Networked ring buffer access|c7624]]
-  - 36. [[Ring Buffer Primitives|c7685]]
-    - 36.1. [[Incorporating ring buffer software|c7685#AEN7699]]
-    - 36.2. [[Overview and Examples of ring buffers in action.|x7722]]
-  - 37. [[The Tcl ring package|c7805]]
-  - 38. [[Data Format Support Software|c7820]]
-    - 38.1. [[The basic data formats|c7820#AEN7835]]
-    - 38.2. [[Selecting Data From a Ring Buffer|x8274]]
-    - 38.3. [[Incorporating the headers and libraries into your applications.|x8302]]
-    - 38.4. [[Generic ring data sinks|x8411]]
-    - 38.5. [[Creating ring items|x8425]]
-  - 39. [[Event builder client API|c8530]]
-    - 39.1. [[C++ Client API|c8530#AEN8539]]
-    - 39.2. [[Incorporating the event builder client library|x8553]]
-    - 39.3. [[Connecting to the event builder.|x8577]]
-    - 39.4. [[Disconnecting from the event builder.|x8610]]
-    - 39.5. [[Sending data to the event builder.|x8628]]
-    - 39.6. [[The Event orderer/event builder API|x8718]]
-    - 39.7. [[Callbacks|x8752]]
-  - 40. [[Tcl ring access package.|c8788]]
-    - 40.1. [[An overview of the Tcl ring access package.|c8788#AEN8796]]
-    - 40.2. [[Usage patterns|x8846]]
-  - 41. [[The ccusbcamac tcl package|c9010]]
-    - 41.1. [[Overview|c9010#AEN9012]]
-    - 41.2. [[A simple example|x9091]]
-  - 42. [[SBS VME Module level device support software|c9109]]
-  - 43. [[Tcl CAENet package|c9121]]
-  - 44. [[The CES CBD 8210 Tcl CAMAC Package|c9162]]
-    - 44.1. [[Incorporating camac into your scripts|c9162#AEN9174]]
-    - 44.2. [[An overview of the use of the camac package|x9193]]
-  - 45. [[The Wienercamac Tcl package|c9212]]
-    - 45.1. [[Incorporating wienercamac in your scripts.|c9212#AEN9226]]
-    - 45.2. [[Using wienercamac|x9258]]
-  - 46. [[Integer byte order conversion library|c9400]]
-    - 46.1. [[Using the conversion library in your code|c9400#AEN9407]]
-    - 46.2. [[Byte order signatures and conversion blocks|x9424]]
-    - 46.3. [[Data conversion|x9444]]
-  - 47. [[NSCL DAQ Thread Library|c9481]]
-    - 47.1. [[The thread and synchronization model|c9481#AEN9491]]
-    - 47.2. [[Incorporating the library into an application.|x9582]]
-    - 47.3. [[Using CGaurdedObject to implement synchronized methods|x9593]]
-    - 47.4. [[Thread safe queues (`CBufferQueue`).|x9633]]
-    - 47.5. [[Pointers to the reference material|x9705]]
-  - 48. [[Access control and security|c9733]]
-    - 48.1. [[Incorporting the software into your code|c9733#AEN9739]]
-    - 48.2. [[Authenticators|x9753]]
-    - 48.3. [[Interactors|x9798]]
-  - 49. [[Parsing and URIs|c9866]]
-  - 50. [[Shared memory|c9924]]
-    - 50.1. [[Overview of the API, and using it from within your C++ software|c9924#AEN9937]]
-    - 50.2. [[Compiling/Linking your software with the shared memory API|x9995]]
-  - 51. [[C++ encapsulation of a Tcl API subset|c10014]]
-  - 52. [[The NSCL Exception class library|c10072]]
-    - 52.1. [[Incorporating the library in your programs|c10072#AEN10093]]
-    - 52.2. [[Exception classes|x10103]]
-- VIII. [[frameworks|p10133]]
-  - 53. [[Injecting variables into the USB data taking frameworks|c10135]]
-  - 54. [[Event orderer and its user interface|c10163]]
-    - 54.1. [[Event orderer design philosophy.|c10163#AEN10178]]
-    - 54.2. [[Using the standard event orderer startup script|x10183]]
-    - 54.3. [[Writing an event orderer startup script|x10194]]
-    - 54.4. [[Event orderer packages|x10260]]
-  - 55. [[Event builder client framework|c10329]]
-    - 55.1. [[Application specific code for the event builder|c10329#AEN10349]]
-    - 55.2. [[Building event builder clients.|x10517]]
-    - 55.3. [[Running event builder clients|x10562]]
-    - 55.4. [[ringFragmentSource - a prepackaged client for ringbuffer data sources|x10595]]
-  - 56. [[Event builder Readout Callouts|c10688]]
-    - 56.1. [[API layer|c10688#AEN10701]]
-    - 56.2. [[EZBuilder|x10708]]
-    - 56.3. [[EVBC state manager callback bundle.|x10712]]
-  - 57. [[The SBS Readout framework|c10747]]
-    - 57.1. [[SBS Readout concepts|c10747#AEN10758]]
-    - 57.2. [[Obtaining and building the skeleton application|x11153]]
-    - 57.3. [[Modifying the skeleton application to meet your needs|x11168]]
-    - 57.4. [[Readout commands|x11240]]
-    - 57.5. [[Embedded Tcl server|x11256]]
-    - 57.6. [[Running a readout application|x11266]]
-  - 58. [[Filter framework|c11271]]
-    - 58.1. [[Overview|c11271#AEN11273]]
-    - 58.2. [[Getting Started|x11293]]
-    - 58.3. [[Defining a primitive filter|x11296]]
-    - 58.4. [[Building a composite filter|x11321]]
-    - 58.5. [[The main function|x11325]]
-    - 58.6. [[Building the filter program|x11352]]
-  - 59. [[The actions library|c11355]]
-    - 59.1. [[Introduction|c11355#AEN11358]]
-    - 59.2. [[How does it work?|x11430]]
-    - 59.3. [[Run Control and Command Execution|x11433]]
-    - 59.4. [[Exemplified Usage of the Actions package|x11438]]
-- IX. [[Reference Pages|p11446]]
-  - I. [[1compatibility|r11448]]
-    - [[compatibilitybuffer|r11450]] -- Filter ring items to spectrodaq buffers
-    - [[convert10to11|r11488]] -- Filter converting NSCLDAQ10.x to NSCLDAQ11.x data.
-    - [[compatibilitylogger|r11511]] -- Create spectrodaq formatted event log files.
-    - [[eventlog-compat|r11551]] -- Provide event logger pipeline for use with ReadoutGUI.
-    - [[spectcldaq|r11598]] -- Pipe data source for SpecTcl in spectrodaq buffer mode.
-    - [[spectcldaq.server|r11639]] -- TCP/IP server of ring data in spectrodaq format.
-    - [[BufferToRing|r11700]] -- Convert old buffered data to ring buffer format.
-    - [[bufdump|r11765]] -- Dump NSCLDAQ event files earlier than version 10.0
-  - II. [[1daq|r11832]]
-    - [[ringbuffer|r11834]] -- Manage ring buffers.
-    - [[ringtostdout|r11932]] -- Transmit data from a ring buffer to stdout.
-    - [[stdintoring|r11986]] -- Pipe stdin to a ring buffer.
-    - [[ReadoutShell|r12038]] -- Shell wrapper for readout programs.
-    - [[ReadoutGUIOutputClient|r12145]] -- Readout gui output monitor client.
-    - [[frag2ring|r12214]] -- Filter flattened fragments to ring items.
-    - [[Scaler Display program|r12292]]<a name="manpage.scalerdisplay"></a> -- Display counts and rates in scalers.
-    - [[dumper|r12590]] -- Produce a formatted dump of event data.
-    - [[eventlog|r12674]] -- Record Event Data to Disk.
-    - [[ccusbloader|r12765]] -- CC-USB Firmware loader
-    - [[vmusbloader|r12789]] -- VM-USB Firmware loader
-    - [[ringselector|r12813]] -- Provide selected ring data to non NSCL DAQ aware clients
-    - [[tkdumper|r12936]] -- GUI Dump of ring buffer items.
-    - [[evttclsh|r12950]] -- Tcl interpreter that always runs an event loop
-  - III. [[1epics|r12963]]
-    - [[controlpush|r12965]] -- 
+- I. [[user-guide|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p3.md]]
+  - 1. [[NSCLDAQ In a Nut Shell|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c5.md]]
+    - 1.1. [[Basics of Data Flow in NSCLDAQ|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c5.md#AEN8]]
+    - 1.2. [[Pipeline Building, Run Control, and DAQ Modularization|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x19.md]]
+    - 1.3. [[Built-in Diagnostics|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x25.md]]
+    - 1.4. [[Extensibility and Openness|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x33.md]]
+  - 2. [[The Ring Buffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c43.md]]
+    - 2.1. [[Overview|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c43.md#AEN45]]
+    - 2.2. [[Data Transfer and Flow Control|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x80.md]]
+    - 2.3. [[Proxy Rings, Ring Masters, and Network Transparency|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x97.md]]
+    - 2.4. [[Ring buffer utilities|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x130.md]]
+  - 3. [[NSCLDAQ Data Format : The Ring Item|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c183.md]]
+    - 3.1. [[Generic Ring Item Traits|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c183.md#AEN188]]
+    - 3.2. [[The Body Header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x212.md]]
+    - 3.3. [[The Ring Item Types|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md]]
+  - 4. [[VMUSBReadout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c744.md]]
+    - 4.1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c744.md#AEN746]]
+    - 4.2. [[Basic Tenets of VM-USB Operation|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x786.md]]
+    - 4.3. [[Writing the Configuration Script|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x800.md]]
+    - 4.4. [[The Slow-Controls Subsystem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x858.md]]
+    - 4.5. [[Running the VMUSBReadout program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x903.md]]
+    - 4.6. [[Understanding VMUSBReadout Output|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1016.md]]
+    - 4.7. [[Developing a Timestamp Extractor Library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1022.md]]
+    - 4.8. [[Extending the Supported Readout Hardware|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md]]
+    - 4.9. [[Extending the slow controls subsystem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md]]
+    - 4.10. [[Pushing external data into the event stream|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2245.md]]
+  - 5. [[CCUSBReadout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c2287.md]]
+    - 5.1. [[How the CCUSB readout framework works|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c2287.md#AEN2319]]
+    - 5.2. [[Writing DAQ configuration files|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2335.md]]
+    - 5.3. [[Writing device support software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2376.md]]
+    - 5.4. [[Tcl device driver support|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2537.md]]
+    - 5.5. [[The slow controls subsystem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2795.md]]
+    - 5.6. [[Running CCUSBReadout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2809.md]]
+    - 5.7. [[Writing C++ slow controls device drivers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md]]
+    - 5.8. [[Writing Tcl slow controls device drivers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md]]
+    - 5.9. [[The ccusbcamac Tcl package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3513.md]]
+  - 6. [[ReadoutGUI & ReadoutShell|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c3594.md]]
+    - 6.1. [[Principles of operation|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c3594.md#AEN3611]]
+    - 6.2. [[Operating the user interface|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3692.md]]
+    - 6.3. [[The event logger and ReadoutShell|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4007.md]]
+    - 6.4. [[Customizing the ReadoutShell|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4041.md]]
+    - 6.5. [[Remote control package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4431.md]]
+  - 7. [[Event Builder|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c4456.md]]
+    - 7.1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c4456.md#AEN4458]]
+    - 7.2. [[Using the event builder|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4467.md]]
+    - 7.3. [[More detail on when the fragments are ouptutted|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4487.md]]
+    - 7.4. [[Fragments and Data Format|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4493.md]]
+  - 8. [[ScalerDisplay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c4573.md]]
+    - 8.1. [[What is the ScalerDisplay?|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c4573.md#AEN4575]]
+    - 8.2. [[Why does it exist?|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4578.md]]
+    - 8.3. [[What does it do?|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4581.md]]
+    - 8.4. [[How to set up the ScalerDisplay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4599.md]]
+- II. [[simple-setups|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p4722.md]]
+  - 9. [[A Simple VMUSBReadout Experiment Tutorial|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c4724.md]]
+    - 9.1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c4724.md#AEN4726]]
+    - 9.2. [[Setting up the Electronics|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4747.md]]
+    - 9.3. [[The Configuration Files|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4787.md]]
+    - 9.4. [[Running VMUSBReadout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4891.md]]
+    - 9.5. [[Understanding the Output|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4929.md]]
+    - 9.6. [[Developing a Tailored SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4996.md]]
+    - 9.7. [[The VMUSBSpecTcl Alternative|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5290.md]]
+    - 9.8. [[Using SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5299.md]]
+    - 9.9. [[Conclusion|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5326.md]]
+  - 10. [[Simple V775 readout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c5329.md]]
+    - 10.1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c5329.md#AEN5331]]
+    - 10.2. [[Setting up the Electronics.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5343.md]]
+    - 10.3. [[Creating the Readout program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md]]
+    - 10.4. [[Creating the tailored SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md]]
+    - 10.5. [[Running the system.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6058.md]]
+    - 10.6. [[Taking the example further.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6157.md]]
+    - 10.7. [[The full readout program.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md]]
+    - 10.8. [[The full SpecTcl program.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md]]
+  - 11. [[Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6247.md]]
+    - 11.1. [[PREFACE|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6247.md#AEN6249]]
+    - 11.2. [[The electronics|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6270.md]]
+    - 11.3. [[Setting up the software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6334.md]]
+    - 11.4. [[The dumper program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6456.md]]
+    - 11.5. [[Running the Readout Program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6500.md]]
+    - 11.6. [[Interpreting the dumper output|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6534.md]]
+- III. [[device-support|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p6566.md]]
+  - 12. [[Mesytec MCFD-16 Controls|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6568.md]]
+    - 12.1. [[Overview|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6568.md#AEN6570]]
+    - 12.2. [[Starting the GUI for USB communication|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6576.md]]
+    - 12.3. [[Starting the GUI for the RC-bus through an MxDC device|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6593.md]]
+    - 12.4. [[Saving and restoring state|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6618.md]]
+  - 13. [[Mesytec MSCF-16 Controls|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6636.md]]
+    - 13.1. [[Overview|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6636.md#AEN6638]]
+    - 13.2. [[Synchronization Paradigm|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6643.md]]
+    - 13.3. [[Starting the GUI for USB communication|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6647.md]]
+    - 13.4. [[Saving and restoring state|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6664.md]]
+  - 14. [[Wiener MDGG-16 Controls|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6686.md]]
+    - 14.1. [[Overview|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6686.md#AEN6688]]
+    - 14.2. [[How to use the MDGG16Control GUI|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6693.md]]
+    - 14.3. [[Saving and Restoring The State of the GUI Between Sessions|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6726.md]]
+- IV. [[commands|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p6734.md]]
+  - 15. [[Command line access to CAMAC via the SBS interface|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6736.md]]
+- V. [[utilities|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p6760.md]]
+  - 16. [[Ring piping utilities|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6762.md]]
+  - 17. [[The dumper program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md]]
+    - 17.1. [[Item dump formats and examples|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6816]]
+  - 18. [[The Event log program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6852.md]]
+  - 19. [[The tcl server application|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6882.md]]
+    - 19.1. [[Tcl server package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6882.md#AEN6901]]
+  - 20. [[CAEN V812 Constant Fraction Discriminator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6905.md]]
+  - 21. [[N568B CAENnet shaping amplifier|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6942.md]]
+  - 22. [[VHS-40xxx SBS support.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6977.md]]
+  - 23. [[cratelocator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7012.md]]
+  - 24. [[Tcl access to the VME via the SBS interface|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7025.md]]
+    - 24.1. [[Incorporating Vme Tcl in your scripts|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7025.md#AEN7040]]
+    - 24.2. [[Sample programs that use the package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7060.md]]
+  - 25. [[VM/CCUSB Firmware loaders|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7067.md]]
+  - 26. [[Sequencing runs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7087.md]]
+    - 26.1. [[Configuring the sequencer.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7087.md#AEN7092]]
+    - 26.2. [[Using the sequencer.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7157.md]]
+  - 27. [[The ringselector application|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7177.md]]
+  - 28. [[Compatibility utilities|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7258.md]]
+    - 28.1. [[Format conversion with compatibilitybuffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7258.md#AEN7271]]
+    - 28.2. [[Writing event files with compatibilitylogger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7295.md]]
+    - 28.3. [[Converting NSCLDAQ-V10.x data to NSCLDAQ-11.x data|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7314.md]]
+    - 28.4. [[Convenience scripts|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7323.md]]
+    - 28.5. [[BufferToRing|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7358.md]]
+  - 29. [[Providing EPICS channel information to Tcl Servers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7363.md]]
+  - 30. [[The epics display utility|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7401.md]]
+  - 31. [[Epics Channel logging|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7420.md]]
+- VI. [[servers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p7433.md]]
+  - 32. [[The RingMaster server|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md]]
+    - 32.1. [[The RingMaster Protocol|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7448]]
+  - 33. [[Service Port Manager.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7586.md]]
+- VII. [[libraries|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p7602.md]]
+  - 34. [[Ring master class library.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7604.md]]
+  - 35. [[Networked ring buffer access|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7624.md]]
+  - 36. [[Ring Buffer Primitives|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7685.md]]
+    - 36.1. [[Incorporating ring buffer software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7685.md#AEN7699]]
+    - 36.2. [[Overview and Examples of ring buffers in action.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7722.md]]
+  - 37. [[The Tcl ring package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7805.md]]
+  - 38. [[Data Format Support Software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7820.md]]
+    - 38.1. [[The basic data formats|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7820.md#AEN7835]]
+    - 38.2. [[Selecting Data From a Ring Buffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8274.md]]
+    - 38.3. [[Incorporating the headers and libraries into your applications.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8302.md]]
+    - 38.4. [[Generic ring data sinks|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8411.md]]
+    - 38.5. [[Creating ring items|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8425.md]]
+  - 39. [[Event builder client API|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c8530.md]]
+    - 39.1. [[C++ Client API|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c8530.md#AEN8539]]
+    - 39.2. [[Incorporating the event builder client library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8553.md]]
+    - 39.3. [[Connecting to the event builder.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8577.md]]
+    - 39.4. [[Disconnecting from the event builder.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8610.md]]
+    - 39.5. [[Sending data to the event builder.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8628.md]]
+    - 39.6. [[The Event orderer/event builder API|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8718.md]]
+    - 39.7. [[Callbacks|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8752.md]]
+  - 40. [[Tcl ring access package.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c8788.md]]
+    - 40.1. [[An overview of the Tcl ring access package.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c8788.md#AEN8796]]
+    - 40.2. [[Usage patterns|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8846.md]]
+  - 41. [[The ccusbcamac tcl package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9010.md]]
+    - 41.1. [[Overview|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9010.md#AEN9012]]
+    - 41.2. [[A simple example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9091.md]]
+  - 42. [[SBS VME Module level device support software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9109.md]]
+  - 43. [[Tcl CAENet package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9121.md]]
+  - 44. [[The CES CBD 8210 Tcl CAMAC Package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9162.md]]
+    - 44.1. [[Incorporating camac into your scripts|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9162.md#AEN9174]]
+    - 44.2. [[An overview of the use of the camac package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9193.md]]
+  - 45. [[The Wienercamac Tcl package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9212.md]]
+    - 45.1. [[Incorporating wienercamac in your scripts.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9212.md#AEN9226]]
+    - 45.2. [[Using wienercamac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9258.md]]
+  - 46. [[Integer byte order conversion library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9400.md]]
+    - 46.1. [[Using the conversion library in your code|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9400.md#AEN9407]]
+    - 46.2. [[Byte order signatures and conversion blocks|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9424.md]]
+    - 46.3. [[Data conversion|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9444.md]]
+  - 47. [[NSCL DAQ Thread Library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9481.md]]
+    - 47.1. [[The thread and synchronization model|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9481.md#AEN9491]]
+    - 47.2. [[Incorporating the library into an application.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9582.md]]
+    - 47.3. [[Using CGaurdedObject to implement synchronized methods|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9593.md]]
+    - 47.4. [[Thread safe queues (`CBufferQueue`).|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9633.md]]
+    - 47.5. [[Pointers to the reference material|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9705.md]]
+  - 48. [[Access control and security|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9733.md]]
+    - 48.1. [[Incorporting the software into your code|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9733.md#AEN9739]]
+    - 48.2. [[Authenticators|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9753.md]]
+    - 48.3. [[Interactors|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9798.md]]
+  - 49. [[Parsing and URIs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9866.md]]
+  - 50. [[Shared memory|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9924.md]]
+    - 50.1. [[Overview of the API, and using it from within your C++ software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9924.md#AEN9937]]
+    - 50.2. [[Compiling/Linking your software with the shared memory API|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9995.md]]
+  - 51. [[C++ encapsulation of a Tcl API subset|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10014.md]]
+  - 52. [[The NSCL Exception class library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10072.md]]
+    - 52.1. [[Incorporating the library in your programs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10072.md#AEN10093]]
+    - 52.2. [[Exception classes|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10103.md]]
+- VIII. [[frameworks|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p10133.md]]
+  - 53. [[Injecting variables into the USB data taking frameworks|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10135.md]]
+  - 54. [[Event orderer and its user interface|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10163.md]]
+    - 54.1. [[Event orderer design philosophy.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10163.md#AEN10178]]
+    - 54.2. [[Using the standard event orderer startup script|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10183.md]]
+    - 54.3. [[Writing an event orderer startup script|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10194.md]]
+    - 54.4. [[Event orderer packages|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10260.md]]
+  - 55. [[Event builder client framework|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md]]
+    - 55.1. [[Application specific code for the event builder|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md#AEN10349]]
+    - 55.2. [[Building event builder clients.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10517.md]]
+    - 55.3. [[Running event builder clients|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10562.md]]
+    - 55.4. [[ringFragmentSource - a prepackaged client for ringbuffer data sources|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10595.md]]
+  - 56. [[Event builder Readout Callouts|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10688.md]]
+    - 56.1. [[API layer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10688.md#AEN10701]]
+    - 56.2. [[EZBuilder|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10708.md]]
+    - 56.3. [[EVBC state manager callback bundle.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10712.md]]
+  - 57. [[The SBS Readout framework|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10747.md]]
+    - 57.1. [[SBS Readout concepts|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10747.md#AEN10758]]
+    - 57.2. [[Obtaining and building the skeleton application|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11153.md]]
+    - 57.3. [[Modifying the skeleton application to meet your needs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11168.md]]
+    - 57.4. [[Readout commands|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11240.md]]
+    - 57.5. [[Embedded Tcl server|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11256.md]]
+    - 57.6. [[Running a readout application|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11266.md]]
+  - 58. [[Filter framework|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c11271.md]]
+    - 58.1. [[Overview|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c11271.md#AEN11273]]
+    - 58.2. [[Getting Started|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11293.md]]
+    - 58.3. [[Defining a primitive filter|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11296.md]]
+    - 58.4. [[Building a composite filter|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11321.md]]
+    - 58.5. [[The main function|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11325.md]]
+    - 58.6. [[Building the filter program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11352.md]]
+  - 59. [[The actions library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c11355.md]]
+    - 59.1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c11355.md#AEN11358]]
+    - 59.2. [[How does it work?|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11430.md]]
+    - 59.3. [[Run Control and Command Execution|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11433.md]]
+    - 59.4. [[Exemplified Usage of the Actions package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11438.md]]
+- IX. [[Reference Pages|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/p11446.md]]
+  - I. [[1compatibility|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11448.md]]
+    - [[compatibilitybuffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11450.md]] -- Filter ring items to spectrodaq buffers
+    - [[convert10to11|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11488.md]] -- Filter converting NSCLDAQ10.x to NSCLDAQ11.x data.
+    - [[compatibilitylogger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11511.md]] -- Create spectrodaq formatted event log files.
+    - [[eventlog-compat|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11551.md]] -- Provide event logger pipeline for use with ReadoutGUI.
+    - [[spectcldaq|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11598.md]] -- Pipe data source for SpecTcl in spectrodaq buffer mode.
+    - [[spectcldaq.server|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11639.md]] -- TCP/IP server of ring data in spectrodaq format.
+    - [[BufferToRing|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11700.md]] -- Convert old buffered data to ring buffer format.
+    - [[bufdump|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11765.md]] -- Dump NSCLDAQ event files earlier than version 10.0
+  - II. [[1daq|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11832.md]]
+    - [[ringbuffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11834.md]] -- Manage ring buffers.
+    - [[ringtostdout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11932.md]] -- Transmit data from a ring buffer to stdout.
+    - [[stdintoring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11986.md]] -- Pipe stdin to a ring buffer.
+    - [[ReadoutShell|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12038.md]] -- Shell wrapper for readout programs.
+    - [[ReadoutGUIOutputClient|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12145.md]] -- Readout gui output monitor client.
+    - [[frag2ring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12214.md]] -- Filter flattened fragments to ring items.
+    - [[Scaler Display program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12292.md]]<a name="manpage.scalerdisplay"></a> -- Display counts and rates in scalers.
+    - [[dumper|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12590.md]] -- Produce a formatted dump of event data.
+    - [[eventlog|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12674.md]] -- Record Event Data to Disk.
+    - [[ccusbloader|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12765.md]] -- CC-USB Firmware loader
+    - [[vmusbloader|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12789.md]] -- VM-USB Firmware loader
+    - [[ringselector|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12813.md]] -- Provide selected ring data to non NSCL DAQ aware clients
+    - [[tkdumper|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12936.md]] -- GUI Dump of ring buffer items.
+    - [[evttclsh|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12950.md]] -- Tcl interpreter that always runs an event loop
+  - III. [[1epics|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12963.md]]
+    - [[controlpush|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12965.md]] -- 
                 Push epics data into a Tcl Server (e.g. production readout).
-    - [[chanlog|r13064]] -- Write a set of channels to file
-  - IV. [[1evb|r13120]]
-    - [[EVB::BarrierStats::incomplete|r13122]] -- Display incomplete barrier statistics
-    - [[EVB::BarrierStats::queueBarriers|r13212]] -- Displays per queue barrier statistics
-    - [[EVB::BarrierStats::Summary|r13281]] -- UI element to summarize barrier statistics.
-    - [[EVB::CallbackManager|r13313]] -- Object that manages callback sets.
-    - [[EVB::connectionList|r13393]] -- List event builder connections
-    - [[EVB::GUI procs|r13435]] -- Standard monitor UI procs.
-    - [[EVB::inputStatistics::statusDisplay|r13480]] -- Widget to display input statitics
-    - [[EVB::inputStatistics::queueStats|r13647]] -- Per queue input statistics widget
-    - [[::EVB::inputStatistics::queueDisplay|r13740]] -- Display input queue statistics
-    - [[EVB::inputStatistics::summaryDisplay|r13792]] -- Summary of input statistics.
-    - [[EVB::lateFragments|r13844]] -- Late fragment statistics
-    - [[EVB::lateSummary|r13915]] -- Widget to display summar of data late fragments.
-    - [[::EVB::outputStatistics|r13950]] -- Complete output statistics widget
-    - [[::EVB::outputSummary|r14037]] -- Summarize output statistics
-    - [[::EVB::utility::sortedPair|r14093]] -- Key value pair widget
-    - [[::EVB::utility::sortedWidget|r14188]] -- General key/widget sorted list
-    - [[EventBuilder|r14315]] -- Event builder utility **proc**s
-    - [[Observer|r14449]] -- Support the Observer pattern
-    - [[EvbOrderer|r14548]] -- Event orderer compiled commands.
-    - [[EVB::handleFragment|r14804]] -- Submit event fragments.
-    - [[EVB::inputStats|r14831]] -- Event builder input statistics
-    - [[EVB::outputStats|r14887]] -- Get orderer output statistics
-    - [[EVB::dlatestats|r14914]] -- Get the late fragment statistics.
-    - [[EVB::onDataLate|r14950]] -- Bind scripts to data late events.
-    - [[EVB::barriertrace|r14982]] -- Supply a script to invoke on barrier events.
-    - [[EVB::source|r15010]] -- Create event source queues.
-    - [[EVB::deadsource|r15036]] -- Mark a data source dead.
-    - [[EVB::reviveSocket|r15059]] -- Revive all dead data sources associated with a socket
-    - [[EVB::flush|r15082]] -- Empty all input queues.
-    - [[EVB::reset|r15103]] -- Reset timestamp clocks.
-  - V. [[1tcl|r15124]]
-    - [[DaqPortManager|r15126]] -- Manage TCP/IP service ports and advertise their allocations
-    - [[tclserver|r15237]] -- Start a Tcl Server.
-    - [[serverauth|r15280]] -- Control tcl server authorization.
-    - [[!ModuleName!|r15326]] -- Tabbed notebook for multiple GDG-8 controllers.
-    - [[ledph7106.tcl|r15380]] -- PH7106 Control application for CCUSBReadout
-    - [[canev812control|r15400]] -- GUI for controlling CAEN V812 CFD modules
-    - [[loadcfd|r15420]] -- Load settings in to a CAEN V812 CFD module.
-    - [[cesbcnaf|r15439]] -- CAMAC operation via a CES CAMAC interface
-    - [[wienerbcnaf|r15464]] -- CAMAC operation via a Wiener VC32/CC32 board set
-    - [[bcnaf|r15489]] -- bcnaf via SBS VME CAMAC interfaces
-    - [[loadshaper|r15525]] -- Load setttings into an N568 shaper via SBS/V288.
-    - [[n568Control|r15543]] -- GUI for the n568 shaper.
-    - [[vhsPanel|r15566]] -- Canned VHS Control panel
-    - [[vhqControl|r15594]] -- Control panel application for VHQ bias supply modules.
-    - [[cratelocator|r15610]] -- locate specific SBS VME crate controllers.
-    - [[SBS Vme Tcl package|r15636]] -- Provide access to VME crates to Tcl scripts.
-    - [[epicsdisplay|r15743]] -- Display epics channels
-  - VI. [[1sbsReadout|r15824]]
-    - [[Readout|r15826]] -- Start an event readout program.
-  - VII. [[1utilities|r15960]]
-    - [[vmusbcaenupgrader|r15962]] -- CAEN cvUpgrade ported to VM-USB interface
-  - VIII. [[3daq|r16104]]
-    - [[CRingMaster|r16106]] -- RingMaster access.
-    - [[CRingAccess|r16345]] -- Remote Ring Access
-    - [[CRingBuffer|r16538]] -- Low level ring buffer primitives
-    - [[CRingItem|r17348]] -- Encapsulates an item in a ring buffer.
-    - [[CRingScalerItem|r17815]] -- Encapsulate ring buffer scaler items.
-    - [[CRingStateChangeItem|r18251]] -- Encapsulate a ring buffer state change item.
-    - [[CRingTextItem|r18646]] -- Encapsulate ring items that are lists of text strings.
-    - [[CPhysicsEventItem|r18962]] -- Response to trigger.
-    - [[CRingPhysicsEventCountItem|r19148]] -- Provides statistics regarding the number of events produced.
-    - [[CRingFragmentItem|r19465]] -- Encapsulate a EVB_FRAGMENT ring item
-    - [[CUnknownFragment|r19770]] -- Event fragment likley not containing a ring item
-    - [[CDataFomatItem|r19858]] -- Describe the format of a stream of ringitems.
-    - [[CGlomParameters|r20101]] -- Reports event building parameters.
-    - [[CAbnormaEndItem|r20359]] -- Abnormal end of run.
-    - [[CRingSelectionPredicate|r20571]] -- Base class for predicates that select items from
+    - [[chanlog|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13064.md]] -- Write a set of channels to file
+  - IV. [[1evb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13120.md]]
+    - [[EVB::BarrierStats::incomplete|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13122.md]] -- Display incomplete barrier statistics
+    - [[EVB::BarrierStats::queueBarriers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13212.md]] -- Displays per queue barrier statistics
+    - [[EVB::BarrierStats::Summary|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13281.md]] -- UI element to summarize barrier statistics.
+    - [[EVB::CallbackManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13313.md]] -- Object that manages callback sets.
+    - [[EVB::connectionList|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13393.md]] -- List event builder connections
+    - [[EVB::GUI procs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13435.md]] -- Standard monitor UI procs.
+    - [[EVB::inputStatistics::statusDisplay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13480.md]] -- Widget to display input statitics
+    - [[EVB::inputStatistics::queueStats|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13647.md]] -- Per queue input statistics widget
+    - [[::EVB::inputStatistics::queueDisplay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13740.md]] -- Display input queue statistics
+    - [[EVB::inputStatistics::summaryDisplay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13792.md]] -- Summary of input statistics.
+    - [[EVB::lateFragments|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13844.md]] -- Late fragment statistics
+    - [[EVB::lateSummary|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13915.md]] -- Widget to display summar of data late fragments.
+    - [[::EVB::outputStatistics|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13950.md]] -- Complete output statistics widget
+    - [[::EVB::outputSummary|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14037.md]] -- Summarize output statistics
+    - [[::EVB::utility::sortedPair|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14093.md]] -- Key value pair widget
+    - [[::EVB::utility::sortedWidget|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14188.md]] -- General key/widget sorted list
+    - [[EventBuilder|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14315.md]] -- Event builder utility **proc**s
+    - [[Observer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14449.md]] -- Support the Observer pattern
+    - [[EvbOrderer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14548.md]] -- Event orderer compiled commands.
+    - [[EVB::handleFragment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14804.md]] -- Submit event fragments.
+    - [[EVB::inputStats|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14831.md]] -- Event builder input statistics
+    - [[EVB::outputStats|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14887.md]] -- Get orderer output statistics
+    - [[EVB::dlatestats|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14914.md]] -- Get the late fragment statistics.
+    - [[EVB::onDataLate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14950.md]] -- Bind scripts to data late events.
+    - [[EVB::barriertrace|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14982.md]] -- Supply a script to invoke on barrier events.
+    - [[EVB::source|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15010.md]] -- Create event source queues.
+    - [[EVB::deadsource|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15036.md]] -- Mark a data source dead.
+    - [[EVB::reviveSocket|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15059.md]] -- Revive all dead data sources associated with a socket
+    - [[EVB::flush|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15082.md]] -- Empty all input queues.
+    - [[EVB::reset|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15103.md]] -- Reset timestamp clocks.
+  - V. [[1tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15124.md]]
+    - [[DaqPortManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15126.md]] -- Manage TCP/IP service ports and advertise their allocations
+    - [[tclserver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15237.md]] -- Start a Tcl Server.
+    - [[serverauth|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15280.md]] -- Control tcl server authorization.
+    - [[!ModuleName!|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15326.md]] -- Tabbed notebook for multiple GDG-8 controllers.
+    - [[ledph7106.tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15380.md]] -- PH7106 Control application for CCUSBReadout
+    - [[canev812control|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15400.md]] -- GUI for controlling CAEN V812 CFD modules
+    - [[loadcfd|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15420.md]] -- Load settings in to a CAEN V812 CFD module.
+    - [[cesbcnaf|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15439.md]] -- CAMAC operation via a CES CAMAC interface
+    - [[wienerbcnaf|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15464.md]] -- CAMAC operation via a Wiener VC32/CC32 board set
+    - [[bcnaf|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15489.md]] -- bcnaf via SBS VME CAMAC interfaces
+    - [[loadshaper|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15525.md]] -- Load setttings into an N568 shaper via SBS/V288.
+    - [[n568Control|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15543.md]] -- GUI for the n568 shaper.
+    - [[vhsPanel|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15566.md]] -- Canned VHS Control panel
+    - [[vhqControl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15594.md]] -- Control panel application for VHQ bias supply modules.
+    - [[cratelocator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15610.md]] -- locate specific SBS VME crate controllers.
+    - [[SBS Vme Tcl package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15636.md]] -- Provide access to VME crates to Tcl scripts.
+    - [[epicsdisplay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15743.md]] -- Display epics channels
+  - VI. [[1sbsReadout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15824.md]]
+    - [[Readout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15826.md]] -- Start an event readout program.
+  - VII. [[1utilities|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15960.md]]
+    - [[vmusbcaenupgrader|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r15962.md]] -- CAEN cvUpgrade ported to VM-USB interface
+  - VIII. [[3daq|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16104.md]]
+    - [[CRingMaster|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16106.md]] -- RingMaster access.
+    - [[CRingAccess|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16345.md]] -- Remote Ring Access
+    - [[CRingBuffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16538.md]] -- Low level ring buffer primitives
+    - [[CRingItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r17348.md]] -- Encapsulates an item in a ring buffer.
+    - [[CRingScalerItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r17815.md]] -- Encapsulate ring buffer scaler items.
+    - [[CRingStateChangeItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r18251.md]] -- Encapsulate a ring buffer state change item.
+    - [[CRingTextItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r18646.md]] -- Encapsulate ring items that are lists of text strings.
+    - [[CPhysicsEventItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r18962.md]] -- Response to trigger.
+    - [[CRingPhysicsEventCountItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r19148.md]] -- Provides statistics regarding the number of events produced.
+    - [[CRingFragmentItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r19465.md]] -- Encapsulate a EVB_FRAGMENT ring item
+    - [[CUnknownFragment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r19770.md]] -- Event fragment likley not containing a ring item
+    - [[CDataFomatItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r19858.md]] -- Describe the format of a stream of ringitems.
+    - [[CGlomParameters|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r20101.md]] -- Reports event building parameters.
+    - [[CAbnormaEndItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r20359.md]] -- Abnormal end of run.
+    - [[CRingSelectionPredicate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r20571.md]] -- Base class for predicates that select items from
                 ring buffers.
-    - [[CAllButPredicate|r20903]] -- Select all ring items except some.
-    - [[CDesiredTypesPredicate|r21079]] -- Only accept specified ring item types.
-    - [[DataFormat.h|r21244]] -- Format of ring items.
-    - [[format  Functions|r21733]] -- Functions to create ring items.
-    - [[CDataSource|r22643]] -- Abstract base class of data source for ring items.
-    - [[CRingDataSource|r22685]] -- Ringbuffer data source for ring items.
-    - [[CFileDataSource|r22754]] -- Ring item data source from a file
-    - [[CDataSourceFactory"|r22811]] -- Create data sources given a URI
-    - [[CRingItemFactory|r22868]] -- Upcast ring items to specific ring item objects.
-    - [[CDataSink|r22961]] -- Abstract base class for data sinks.
-    - [[CFileDataSink|r23050]] -- Data sink to a disk file.
-    - [[CRingDataSink|r23190]] -- Data sink that writes to a `CRingBuffer`
-    - [[CDataSinkFactory|r23289]] -- Create an appropriate CDataSink object
-    - [[CEvbClientApp|r23353]] -- Framework event builder client application.
-    - [[CEVBClientFramework|r23497]] -- Event builder client framework.
-    - [[CEventOrderClient|r23553]] -- Client of the event orderer
-    - [[CPortManager|r23764]] -- Provide a C++ interface to the server port manager daemon.
-    - [[CPortManagerException|r23919]] -- Report errors conditions in port manager transactions
-    - [[CADC2530|r24073]] -- Support the Hytec NADC 2530 Peak sensing ADC.
-    - [[CAENcard|r24535]] -- Support for the CAEN 32 bit digitizers
-    - [[CBD8210|r25338]] -- CES CBD 8210 CAMAC branch highway driver (obsolete)
-    - [[CCAENV1x90|r25706]] -- Support for the CAEN V1190 and V1290
+    - [[CAllButPredicate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r20903.md]] -- Select all ring items except some.
+    - [[CDesiredTypesPredicate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r21079.md]] -- Only accept specified ring item types.
+    - [[DataFormat.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r21244.md]] -- Format of ring items.
+    - [[format  Functions|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r21733.md]] -- Functions to create ring items.
+    - [[CDataSource|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r22643.md]] -- Abstract base class of data source for ring items.
+    - [[CRingDataSource|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r22685.md]] -- Ringbuffer data source for ring items.
+    - [[CFileDataSource|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r22754.md]] -- Ring item data source from a file
+    - [[CDataSourceFactory"|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r22811.md]] -- Create data sources given a URI
+    - [[CRingItemFactory|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r22868.md]] -- Upcast ring items to specific ring item objects.
+    - [[CDataSink|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r22961.md]] -- Abstract base class for data sinks.
+    - [[CFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23050.md]] -- Data sink to a disk file.
+    - [[CRingDataSink|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23190.md]] -- Data sink that writes to a `CRingBuffer`
+    - [[CDataSinkFactory|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23289.md]] -- Create an appropriate CDataSink object
+    - [[CEvbClientApp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23353.md]] -- Framework event builder client application.
+    - [[CEVBClientFramework|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23497.md]] -- Event builder client framework.
+    - [[CEventOrderClient|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23553.md]] -- Client of the event orderer
+    - [[CPortManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23764.md]] -- Provide a C++ interface to the server port manager daemon.
+    - [[CPortManagerException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23919.md]] -- Report errors conditions in port manager transactions
+    - [[CADC2530|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r24073.md]] -- Support the Hytec NADC 2530 Peak sensing ADC.
+    - [[CAENcard|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r24535.md]] -- Support for the CAEN 32 bit digitizers
+    - [[CBD8210|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r25338.md]] -- CES CBD 8210 CAMAC branch highway driver (obsolete)
+    - [[CCAENV1x90|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r25706.md]] -- Support for the CAEN V1190 and V1290
                         multihit, complicated TDC.
-    - [[CCAENV560|r28088]] -- Support the CCAENV560 non-latching scaler.
-    - [[CCAENV830|r28252]] -- Support driver for the CAEN V820/V830 latching scaler module.
-    - [[CCAENV977|r28809]] -- Software support for the CAEN V977 I/O register.
-    - [[CCAMACScalerLRS2551|r29208]] -- Support software for the LeCroy LRS 2551 12 channel CAMAC scaler
-    - [[CCAMACScalerLRS4434|r29318]] -- High level support software for the 32 channel LeCroy LRS 4434 CAMAC scaler module
-    - [[CCAMACStatusModule|r29430]] -- Provide computer busy status support for the BiRA CAMAC
+    - [[CCAENV560|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r28088.md]] -- Support the CCAENV560 non-latching scaler.
+    - [[CCAENV830|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r28252.md]] -- Support driver for the CAEN V820/V830 latching scaler module.
+    - [[CCAENV977|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r28809.md]] -- Software support for the CAEN V977 I/O register.
+    - [[CCAMACScalerLRS2551|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r29208.md]] -- Support software for the LeCroy LRS 2551 12 channel CAMAC scaler
+    - [[CCAMACScalerLRS4434|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r29318.md]] -- High level support software for the 32 channel LeCroy LRS 4434 CAMAC scaler module
+    - [[CCAMACStatusModule|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r29430.md]] -- Provide computer busy status support for the BiRA CAMAC
                     NIM out module.
-    - [[CCAMACTrigger|r29538]] -- Trigger module for the CES CBD 8210 VME CAMAC Parallel Branch Highway Driver
-    - [[CCamac|r29592]] -- Manages CAMAC memory maps.
-    - [[CCamacModule|r29674]] -- Provide support for a generic CAMAC module.
-    - [[CCamacNimout|r30048]] -- Provides low level support for the BiRa CAMAC Nim output module.
-    - [[CCrateController|r30137]] -- Encapsulation of a BiRa 1302 CAMAC controller via CES CBS8210.
-    - [[CSIS3600|r30477]] -- Support for the SIS 3600 VME latch module.
-    - [[CSIS3820|r30936]] -- Low level support for SIS 3820 32 channel latching scaler module
-    - [[CScaler|r31642]] -- Abstract base class for reading scalers into a vector
-    - [[CStatusModule|r31749]] -- Abstract base class for status modules.
-    - [[CTrigger|r31814]] -- Abstract base class for triggers
-    - [[CVME|r31842]] -- Pointer like object for accessing the VME
-    - [[CVMEScalerLRS1151|r32186]] -- High level support for the LeCroy LRS 1151 VME scaler.
-    - [[CVMEStatusModule|r32273]] -- Implement a status module using the CAEN V262 module.
-    - [[CVMETrigger|r32357]] -- VME trigger class based on the CAEN V262 I/O module.
-    - [[CVMEptr|r32408]] --
-    - [[CaenIO|r32751]] -- Support for the CAEN V262 I/O register module.
-    - [[CMmapError|r32898]] -- Exception that can be thrown in the event of memory mapping errors.
-    - [[CNimout|r32933]] -- Low level support for the BiRa VME nim output module
-    - [[CVmeModule|r33207]] -- Convenience base class for implementing VME module support
-    - [[CSIS3300|r33505]] -- Low Level support for the SIS 3300 Flash ADC module
-    - [[CFilter|r34238]] -- Base class for primitive filters
-    - [[CCompositeFilter|r34420]] -- A composite filter composed of primitive filters
-    - [[cvt|r34638]] -- Integer byte order conversions
-    - [[Thread|r34824]] -- Abstract base class for thread objects.
-    - [[Synchronizable|r34958]] -- Wait queue for threads
-    - [[SyncGuard|r35056]] -- Provide Critical Regions, Monitors
-    - [[CMutex|r35223]] -- C++ encapsulation of pthread mutexes.
-    - [[CriticalSection|r35444]] -- Simple, safe critical section
-    - [[CCondition|r35475]] -- Encapsulate POSIX condition variables.
-    - [[CGaurdedObject|r35776]] -- Provide entry/exit guards for object critical regions.
-    - [[CBufferQueue|r35832]] -- Templated class for safe inter-thread messaging.
-    - [[CAuthenticator|r36019]] -- Abstract base authenticator class.
-    - [[CPasswordCheck|r36123]] -- Authenticate against a stored password.
-    - [[CUnixUserCheck|r36311]] -- Authenticate against a unix user name and password.
-    - [[CTclAccessListCheck|r36522]] -- Authenticate against a Tcl List.
-    - [[CAccessListCheck|r36620]] -- Authenticate against a list of allowed credentials.
-    - [[CHostListCheck|r36762]] -- Authenticate from a list of TCP/IP hosts
-    - [[CInteractor|r36942]] -- Base class for security interactions.
-    - [[CStringInteractor|r37111]] -- Provide an interactor that processes strings.
-    - [[CFdInteractor|r37272]] -- Interact with  file descriptor
-    - [[CIOInteractor|r37398]] -- Separate prompt and input interactors.
-    - [[URL|r37523]] -- Parse Uniform Resource Identifiers (URI)
-    - [[CopyrightNotice|r37671]] -- Generate license/author credits.
-    - [[CDAQShm|r37767]] -- class description
-    - [[CTCLApplication 3|r38126]] -- 
+    - [[CCAMACTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r29538.md]] -- Trigger module for the CES CBD 8210 VME CAMAC Parallel Branch Highway Driver
+    - [[CCamac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r29592.md]] -- Manages CAMAC memory maps.
+    - [[CCamacModule|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r29674.md]] -- Provide support for a generic CAMAC module.
+    - [[CCamacNimout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r30048.md]] -- Provides low level support for the BiRa CAMAC Nim output module.
+    - [[CCrateController|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r30137.md]] -- Encapsulation of a BiRa 1302 CAMAC controller via CES CBS8210.
+    - [[CSIS3600|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r30477.md]] -- Support for the SIS 3600 VME latch module.
+    - [[CSIS3820|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r30936.md]] -- Low level support for SIS 3820 32 channel latching scaler module
+    - [[CScaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r31642.md]] -- Abstract base class for reading scalers into a vector
+    - [[CStatusModule|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r31749.md]] -- Abstract base class for status modules.
+    - [[CTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r31814.md]] -- Abstract base class for triggers
+    - [[CVME|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r31842.md]] -- Pointer like object for accessing the VME
+    - [[CVMEScalerLRS1151|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32186.md]] -- High level support for the LeCroy LRS 1151 VME scaler.
+    - [[CVMEStatusModule|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32273.md]] -- Implement a status module using the CAEN V262 module.
+    - [[CVMETrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32357.md]] -- VME trigger class based on the CAEN V262 I/O module.
+    - [[CVMEptr|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32408.md]] --
+    - [[CaenIO|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32751.md]] -- Support for the CAEN V262 I/O register module.
+    - [[CMmapError|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32898.md]] -- Exception that can be thrown in the event of memory mapping errors.
+    - [[CNimout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32933.md]] -- Low level support for the BiRa VME nim output module
+    - [[CVmeModule|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r33207.md]] -- Convenience base class for implementing VME module support
+    - [[CSIS3300|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r33505.md]] -- Low Level support for the SIS 3300 Flash ADC module
+    - [[CFilter|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r34238.md]] -- Base class for primitive filters
+    - [[CCompositeFilter|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r34420.md]] -- A composite filter composed of primitive filters
+    - [[cvt|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r34638.md]] -- Integer byte order conversions
+    - [[Thread|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r34824.md]] -- Abstract base class for thread objects.
+    - [[Synchronizable|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r34958.md]] -- Wait queue for threads
+    - [[SyncGuard|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r35056.md]] -- Provide Critical Regions, Monitors
+    - [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r35223.md]] -- C++ encapsulation of pthread mutexes.
+    - [[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r35444.md]] -- Simple, safe critical section
+    - [[CCondition|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r35475.md]] -- Encapsulate POSIX condition variables.
+    - [[CGaurdedObject|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r35776.md]] -- Provide entry/exit guards for object critical regions.
+    - [[CBufferQueue|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r35832.md]] -- Templated class for safe inter-thread messaging.
+    - [[CAuthenticator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36019.md]] -- Abstract base authenticator class.
+    - [[CPasswordCheck|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36123.md]] -- Authenticate against a stored password.
+    - [[CUnixUserCheck|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36311.md]] -- Authenticate against a unix user name and password.
+    - [[CTclAccessListCheck|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36522.md]] -- Authenticate against a Tcl List.
+    - [[CAccessListCheck|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36620.md]] -- Authenticate against a list of allowed credentials.
+    - [[CHostListCheck|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36762.md]] -- Authenticate from a list of TCP/IP hosts
+    - [[CInteractor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r36942.md]] -- Base class for security interactions.
+    - [[CStringInteractor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37111.md]] -- Provide an interactor that processes strings.
+    - [[CFdInteractor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37272.md]] -- Interact with  file descriptor
+    - [[CIOInteractor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37398.md]] -- Separate prompt and input interactors.
+    - [[URL|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37523.md]] -- Parse Uniform Resource Identifiers (URI)
+    - [[CopyrightNotice|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37671.md]] -- Generate license/author credits.
+    - [[CDAQShm|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37767.md]] -- class description
+    - [[CTCLApplication 3|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38126.md]] -- 
                 Base class for TCL/Tk applications.
-    - [[CTCLException|r38169]] -- 
+    - [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38169.md]] -- 
                 Class for reporting exceptional conditions in Tcl applications
                 via the C++ try/catch mechanism.
-    - [[CTCLInterpreter|r38312]] -- 
+    - [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38312.md]] -- 
                 Encapsulate a Tcl interpreter.
-    - [[CTCLInterpreterObject  3|r38567]] -- 
+    - [[CTCLInterpreterObject  3|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38567.md]] -- 
                 Base class for objects that are associated with a Tcl Interpreter.
-    - [[CTCLList|r38646]] -- 
+    - [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38646.md]] -- 
                 Provide access to Tcl List parsing.
-    - [[CTCLObject|r38755]] -- 
+    - [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38755.md]] -- 
                 Encapsulate Tcl Dual ported objects.
-    - [[CTCLObjectProcessor|r38986]] -- 
+    - [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r38986.md]] -- 
                 Abstract base class to encapsulate the Tcl object command interface exposed by
                 `Tcl_CreateObjCommand`.
-    - [[CTCLVariable|r39157]] -- 
+    - [[CTCLVariable|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39157.md]] -- 
                 Encapsulate Tcl interpreter variables.
-    - [[CTCLProcessor|r39352]] -- 
+    - [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39352.md]] -- 
                 Provide `argc`, `argv`
                 extension commands to Tcl.
-    - [[CTCLChannel|r39541]] -- 
+    - [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39541.md]] -- 
                 Provide a C++ abstraction wrapper for Tcl Channels.
-    - [[CTCLCommandPackage|r39711]] -- 
+    - [[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39711.md]] -- 
                 Group several related Tcl command extensions and common services they
                 may require together.
-    - [[CTCLCompatibiltyProcessor|r39816]] -- 
+    - [[CTCLCompatibiltyProcessor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39816.md]] -- 
                 Adaptor between `CTCLOjbectProcessor`
                 and `CTCLProcessor`.
-    - [[CTCLFileHandler|r39883]] -- 
+    - [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39883.md]] -- 
                 Base class for building object oriented Tcl File event handlers.
-    - [[CTCLHashTable|r39969]] -- 
+    - [[CTCLHashTable|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r39969.md]] -- 
                 Object oriented interface to Tcl's hash table functions.
-    - [[CTCLHashTableItem|r40100]] -- 
+    - [[CTCLHashTableItem|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40100.md]] -- 
                 Encapsulation of an entry in a Tcl Hash table as encapsulated
                 in `CTCLHashTable`
-    - [[CTCLHashTableIterator|r40168]] -- 
+    - [[CTCLHashTableIterator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40168.md]] -- 
                 Iterator for visiting all elements of a `CTCLHashTable`
-    - [[CTCLIdleProcess|r40264]] -- 
+    - [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40264.md]] -- 
                 Allows the establishment of an executable object that
                 can be scheduled to be invoked when the Tcl/Tk intperpreter
                 has no events that require processing.
-    - [[CTCLPackagedCommand|r40325]] -- 
+    - [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40325.md]] -- 
                 Base class for a command that lives in a `CTCLCommandPackage`
-    - [[CTCLResult|r40386]] -- 
+    - [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40386.md]] -- 
                 Provide an object oriented interace to the Tcl interpreter result.
-    - [[CTCLString|r40497]] -- 
+    - [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40497.md]] -- 
                 Provide a wrapper for the Tcl_DString data type
                 and its API
-    - [[CTCLTimer|r40714]] -- 
+    - [[CTCLTimer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40714.md]] -- 
                 Abstract base class for C++ objects attached to timer events.
-    - [[CTCLLiveEventLoop|r40784]] -- Run Tcl with event loop.
-    - [[CTCLChannelCommander|r40888]] -- Accept commands on a Tcl channel from the event loop.
-    - [[CTCLStdioCommander|r41100]] -- Event driven command input on stdin/stdout
-    - [[CTCLServer|r41164]] -- Listener for a Tcl server.
-    - [[CTCLTcpServerInstance|r41292]] -- Channel commander that is a server instance for `CTCLServer`
-    - [[CTCLObjectPackage|r41365]] -- Provide common functionality for a set of
+    - [[CTCLLiveEventLoop|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40784.md]] -- Run Tcl with event loop.
+    - [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40888.md]] -- Accept commands on a Tcl channel from the event loop.
+    - [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r41100.md]] -- Event driven command input on stdin/stdout
+    - [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r41164.md]] -- Listener for a Tcl server.
+    - [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r41292.md]] -- Channel commander that is a server instance for `CTCLServer`
+    - [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r41365.md]] -- Provide common functionality for a set of
                     related commands.
-    - [[CTCLPackagedObjectProcessor|r41427]] -- Base class for commands living in a
+    - [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r41427.md]] -- Base class for commands living in a
                         `CTCLObjectPackage`
-    - [[CItemConfiguration|r41527]] -- Hold a configuration
-    - [[CConfigurableObject|r42250]] -- Base class for objects tht have a configuration.
-    - [[CException|r42470]] -- Abstract base class for the exception class hierarchy.
-    - [[CErrnoException|r42557]] -- Exceptions that wrap the Unix `errno`
-    - [[CRangeError|r42634]] -- Reports and exception for a value out of allowed range.
-    - [[CStateException|r42772]] -- Exception for invalid state transitions.
-    - [[CStreamIOError|r42871]] -- I/O error on a C++ stream.
-    - [[CURIFormatException|r43034]] -- Report errors in universal resource identifiers (uri)s.
-    - [[CMonitorException|r43219]] -- Exceptions for synchronization class abuse.
-    - [[CInvalidArgumentException|r43354]] -- Report invalid function arguments.
-  - IX. [[3ccusb|r43488]]
-    - [[addtcldriver|r43490]] -- Register Tcl command ensemble as a device module
-    - [[ad811|r43516]] -- Support the Ortec AD811 ADC
-    - [[c1205|r43572]] -- Manage CAEN C1205 QDC modules.
-    - [[c257|r43692]] -- Manages the C257 scaler module
-    - [[ccusb (command)|r43765]] -- Configure and read scalers from CC-USB module
-    - [[lrs2228|r44011]] -- Manages the LRS2228 TDC
-    - [[lrs2249|r44068]] -- Manage LeCroy 2249 QDC modules
-    - [[lrs2551|r44121]] -- Manage LRS 2551 modules
-    - [[marker|r44197]] -- Create/manipulate marker instances
-    - [[ph7xxx|r44236]] -- Define Phillips ADC/TDC/QDC modules
-    - [[stack|r44430]] -- Create and configure CC-USB stacks.
-    - [[Module|r44565]] -- Create and manipulate slow control device instances
-    - [[CamacCrate|r44611]] -- group modules into a crate
-    - [[LeCroy4300B|r44655]] -- control a LeCroy 4300B FERA
-    - [[LeCroy4434|r44762]] -- control a LeCroy 4434 Scaler
-    - [[LeCroy2551|r44808]] -- control a LeCroy 2551 Scaler
-    - [[ULMTrigger|r44846]] -- control a LeCroy 2637 ULM running trigger firmware
-    - [[Slow controls protocol|r45024]] -- TCP/IP slow control protocol
-    - [[CCCUSB|r45135]] -- Provide access to a CC-USB device.
-    - [[CCCUSBusb|r47889]] -- Provide access to a connected CC-USB device.
-    - [[CCCUSBRemote|r48081]] -- Provide remote access to a CC-USB device through CCUSBReadout's slow-controls server.
-    - [[CCCUSBReadoutList|r48354]] -- Create lists of CAMAC commands for CC-USB controllers.
-    - [[CConfigurableObject|r48869]] -- base class for devices that have a configuration
-    - [[cccusb|r50121]] -- Swig wrapping of the CCCUSB C++ class.
-    - [[cccusbreadoutlist|r50846]] -- Tcl wrapping of `CCCUSBReadoutList`
-    - [[CModuleFactory|r51113]] -- Creates specific slow control drivers
-    - [[CModuleCreator|r51210]] -- Object creational ABC for `CModuleFactory`
-    - [[CControlHardware|r51253]] -- Base class (ABC) of a slow controls driver
-    - [[CControlModule|r51473]] -- Configuration and wrapper for CControlHardware
-    - [[CCCUSBControl|r51542]] -- A slow-controls driver for receiving and executing remote commands
-    - [[ccusbcamac|r51617]] -- Tcl Script CAMAC access CCUSBReadout slow-controls server
-    - [[ph7106Widget|r51764]] -- Control panel for Ph7106 LED
-  - X. [[3evb|r51888]]
-    - [[EVBC::start|r51890]] -- Start the event builder pipeline.
-    - [[EVBC::stop|r51963]] -- Stop the event builder pipeline.
-    - [[EVBC::reset|r51984]] -- Reset timestamp history
-    - [[EVBC::flush|r52006]] -- Flush event builder event queues.
-    - [[EVBC::startRingSource|r52027]] -- Start a ring fragment source for the event builder.
-    - [[EVBC::startS800Source|r52081]] -- Start S800 data source
-    - [[EVBC::initialize|r52107]] -- Initialize the EZBuilder layer.
-    - [[EVBC::onBegin|r52168]] -- EZBuilder begin run actions
-    - [[EVBC::onEnd|r52195]] -- EZBuilder end run actions.
-    - [[Eventbuilder callback bundle|r52217]] -- Event builder callback bundle.
-    - [[Event builder client framework|r52253]] -- Event builder cilent framework
-  - XI. [[3rdogui|r52305]]
-    - [[Introduction|r52307]] -- ReadoutGUI API introduction
-    - [[bells|r52419]] -- Provide audible alarm bells.
-    - [[Configuration|r52538]] -- Configuration variable management
-    - [[DAQParameters|r52635]] -- Cluster of configuration parameters for data acquisition
-    - [[DataSourceManager|r52811]] -- Data source manager and its API
-    - [[DataSourceUI|r53061]] -- Data source parameter user interface
-    - [[Diagnostics|r53284]] -- Provide error warning and message dialogs
-    - [[ExpFileSystemConfig|r53357]] -- Configuration cluster for event directory tree
-    - [[ReadoutGui|r53444]] -- ReadoutGui elements.
-    - [[ReadoutGUIPanel|r53593]] -- ReadoutGUI Convenience commands
-    - [[RunStateMachine|r53850]] -- Run control state machine
-    - [[StateManager|r54081]] -- Save restore program state variables.
-    - [[ui|r54240]] -- ReadoutGUI graphical user interface elements.
-    - [[OutputWindowSettings|r54752]] -- Prompter for `OutputWindow` settings.
-    - [[StatusArea|r54821]] -- Status area megawidget
-  - XII. [[3provider|r54906]]
-    - [[Introduction|r54908]] -- Data source providers
-    - [[parameters|r55066]] -- Describe data source parameterization
-    - [[start|r55091]] -- Start a data source
-    - [[check|r55118]] -- Check Data Source Liveness
-    - [[stop|r55148]] -- Stop data sources
-    - [[begin|r55177]] -- Start data taking in a data source
-    - [[pause|r55206]] -- Pause a data taking run (optional)
-    - [[resume|r55241]] -- Resume a Paused Run
-    - [[end|r55272]] -- End a Data Taking Run
-    - [[init|r55299]] -- On-demand initialize procedure
-    - [[capabilities|r55326]] -- Get Provider Capabilities Dict
-    - [[SSHPipe|r55373]] -- SSHPipe data source provider.
-    - [[s800|r55483]] -- s800 data source provider.
-    - [[Delay|r55538]] -- Inserts a delay between data provider begins
-  - XIII. [[3python|r55567]]
-    - [[PortManager|r55569]] -- Python bindings to port manager
-  - XIV. [[3vmusb|r55677]]
-    - [[adc|r55679]] -- Create/configure CAEN V775, V785, V792, V862 modules.
-    - [[caenchain|r55828]] -- Aggregate adc modules into CBLT readout chains.
-    - [[vmusb|r55885]] -- Control VM-USB resources and read internal scalers
-    - [[sis330x|r56143]] -- Driver for SIS3300/1 FADC
-    - [[sis3820|r56315]] -- Create and configure SIS 3820 scaler modules
-    - [[v830|r56376]] -- Create and configure CAEN V830 32 channel scalers.
-    - [[v977|r56571]] -- Create and configure CAEN V977 Input registers
-    - [[sis3804|r56716]] -- Create and configure SIS 3804 scalers
-    - [[hira|r56783]] -- Pair up to 2 XLMs and FADC for HiRA
-    - [[hytec|r56843]] -- Support the Hytec NADC 2530 adc module.
-    - [[tcl driver support|r57006]] -- tcl driver support functions.
-    - [[madc|r57151]] -- Acquire events from Mesytec MADC32 ADC.
-    - [[mtdc|r57410]] -- Mesytec 32/34 channel TDC
-    - [[mqdc|r57773]] -- Support Mesytec MQDC-32 modules
-    - [[madcchain|r58200]] -- Support CBLT chains of Mesytec MxDC32 family of modules.
-    - [[madcscaler|r58275]] -- Support dead-time counters in MADC32 as scalers.
-    - [[mase|r58320]] -- Support for XLM with MASE firmware.
-    - [[tdc1x90|r58378]] -- Provide support for the CAEN V1x90 TDC family.
-    - [[v1729a|r58633]] -- CAENV1729a waveform digitizer.
-    - [[stack|r58763]] -- Compose and configure VM-USB readout stacks.
-    - [[CVMUSB|r58891]] -- Interface with VM-USB controller.
-    - [[CVMUSBReadoutList|r60883]] -- Construct VM-USB stacks
-    - [[CVMUSBRemote|r61778]] -- Execute lists remotely on VMUSBReadout
-    - [[CConfigurableObject|r63005]] -- Configuration database
-    - [[CControlHardware|r64233]] -- Base class for slow controls drivers
-    - [[cvmusb|r64528]] -- SWIG Tcl wrapping of `CVMUSB`
-    - [[cvmusbreadoutlist|r65273]] -- SWIG wrappers for `CVMUSBReadoutList`
-    - [[Module|r65763]] -- control config command: create/configure modules.
-    - [[watch|r66110]] -- Watch variables (slow controls)
-    - [[delay|r66129]] -- Insert a stack delay.
-    - [[CBDCamacBranch|r66164]] -- run a CAMAC branch through a CES CBD8210 bridge
-    - [[CBDCamacCrate|r66216]] -- group CBD8210 compatible modules into a crate
-    - [[CBDLeCroy4300B|r66260]] -- control a LeCroy 4300B FERA on a CAMAC branch
-    - [[CBDLeCroy4434|r66367]] -- control a LeCroy 4434 Scaler on a CAMAC branch
-    - [[CBDLeCroy2551|r66413]] -- control a LeCroy 2551 Scaler on a CAMAC branch
-    - [[CBDULMTrigger|r66453]] -- control a LeCroy 2637 ULM running trigger firmware on a CAMAC branch
-    - [[XLMTimestamp|r66632]] -- control an XLM running 64-bit latching scaler firmware
-    - [[marker|r66676]] -- Insert a constant into the VMUSB data stream
-    - [[XLMFERA|r66714]] -- control an XLM72V running firmware to readout FERA via ECL ports
-    - [[AXLM72ScalerControl|r66771]] -- slow-controls driver for controlling an XLM72 running 32-ch scaler firmware
-    - [[XLM72ScalerGUI|r66858]] -- Diagnostics GUI for controlling an XLM72 running 32 ch scaler firmware
-    - [[AXLM72|r66911]] -- TCL base class for JTech XLM72 family of devices
-    - [[AXLM72Scaler|r67212]] -- Driver for an XLM72 running 32-channel scaler firmware
-    - [[v1495sc|r67442]] -- CAEN V1495 with Scaler firmware
-    - [[controlClient|r67557]] -- Object to interact with VM/CCusb control server
-    - [[USB Control operations|r67649]] -- connect, controlOp, listUSBControlServers
-    - [[slowControlsPrompter|r67700]] -- Prompt for slow controls server host and port
-    - [[gdgcontrol|r67802]] -- Slow control client of Wiener/JTec MGGD8
-    - [[gdgwidget|r68020]] -- Widget to control/display GDG-8.
-    - [[V6533Driver|r68113]] -- Driver for CAEN V6533 HV modules
-  - XV. [[3tcl|r68320]]
+    - [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r41527.md]] -- Hold a configuration
+    - [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r42250.md]] -- Base class for objects tht have a configuration.
+    - [[CException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r42470.md]] -- Abstract base class for the exception class hierarchy.
+    - [[CErrnoException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r42557.md]] -- Exceptions that wrap the Unix `errno`
+    - [[CRangeError|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r42634.md]] -- Reports and exception for a value out of allowed range.
+    - [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r42772.md]] -- Exception for invalid state transitions.
+    - [[CStreamIOError|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r42871.md]] -- I/O error on a C++ stream.
+    - [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43034.md]] -- Report errors in universal resource identifiers (uri)s.
+    - [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43219.md]] -- Exceptions for synchronization class abuse.
+    - [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43354.md]] -- Report invalid function arguments.
+  - IX. [[3ccusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43488.md]]
+    - [[addtcldriver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43490.md]] -- Register Tcl command ensemble as a device module
+    - [[ad811|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43516.md]] -- Support the Ortec AD811 ADC
+    - [[c1205|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43572.md]] -- Manage CAEN C1205 QDC modules.
+    - [[c257|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43692.md]] -- Manages the C257 scaler module
+    - [[ccusb (command)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43765.md]] -- Configure and read scalers from CC-USB module
+    - [[lrs2228|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44011.md]] -- Manages the LRS2228 TDC
+    - [[lrs2249|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44068.md]] -- Manage LeCroy 2249 QDC modules
+    - [[lrs2551|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44121.md]] -- Manage LRS 2551 modules
+    - [[marker|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44197.md]] -- Create/manipulate marker instances
+    - [[ph7xxx|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44236.md]] -- Define Phillips ADC/TDC/QDC modules
+    - [[stack|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44430.md]] -- Create and configure CC-USB stacks.
+    - [[Module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44565.md]] -- Create and manipulate slow control device instances
+    - [[CamacCrate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44611.md]] -- group modules into a crate
+    - [[LeCroy4300B|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44655.md]] -- control a LeCroy 4300B FERA
+    - [[LeCroy4434|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44762.md]] -- control a LeCroy 4434 Scaler
+    - [[LeCroy2551|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44808.md]] -- control a LeCroy 2551 Scaler
+    - [[ULMTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44846.md]] -- control a LeCroy 2637 ULM running trigger firmware
+    - [[Slow controls protocol|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r45024.md]] -- TCP/IP slow control protocol
+    - [[CCCUSB|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r45135.md]] -- Provide access to a CC-USB device.
+    - [[CCCUSBusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r47889.md]] -- Provide access to a connected CC-USB device.
+    - [[CCCUSBRemote|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r48081.md]] -- Provide remote access to a CC-USB device through CCUSBReadout's slow-controls server.
+    - [[CCCUSBReadoutList|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r48354.md]] -- Create lists of CAMAC commands for CC-USB controllers.
+    - [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r48869.md]] -- base class for devices that have a configuration
+    - [[cccusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r50121.md]] -- Swig wrapping of the CCCUSB C++ class.
+    - [[cccusbreadoutlist|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r50846.md]] -- Tcl wrapping of `CCCUSBReadoutList`
+    - [[CModuleFactory|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51113.md]] -- Creates specific slow control drivers
+    - [[CModuleCreator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51210.md]] -- Object creational ABC for `CModuleFactory`
+    - [[CControlHardware|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51253.md]] -- Base class (ABC) of a slow controls driver
+    - [[CControlModule|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51473.md]] -- Configuration and wrapper for CControlHardware
+    - [[CCCUSBControl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51542.md]] -- A slow-controls driver for receiving and executing remote commands
+    - [[ccusbcamac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51617.md]] -- Tcl Script CAMAC access CCUSBReadout slow-controls server
+    - [[ph7106Widget|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51764.md]] -- Control panel for Ph7106 LED
+  - X. [[3evb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51888.md]]
+    - [[EVBC::start|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51890.md]] -- Start the event builder pipeline.
+    - [[EVBC::stop|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51963.md]] -- Stop the event builder pipeline.
+    - [[EVBC::reset|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r51984.md]] -- Reset timestamp history
+    - [[EVBC::flush|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52006.md]] -- Flush event builder event queues.
+    - [[EVBC::startRingSource|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52027.md]] -- Start a ring fragment source for the event builder.
+    - [[EVBC::startS800Source|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52081.md]] -- Start S800 data source
+    - [[EVBC::initialize|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52107.md]] -- Initialize the EZBuilder layer.
+    - [[EVBC::onBegin|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52168.md]] -- EZBuilder begin run actions
+    - [[EVBC::onEnd|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52195.md]] -- EZBuilder end run actions.
+    - [[Eventbuilder callback bundle|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52217.md]] -- Event builder callback bundle.
+    - [[Event builder client framework|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52253.md]] -- Event builder cilent framework
+  - XI. [[3rdogui|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52305.md]]
+    - [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52307.md]] -- ReadoutGUI API introduction
+    - [[bells|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52419.md]] -- Provide audible alarm bells.
+    - [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52538.md]] -- Configuration variable management
+    - [[DAQParameters|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52635.md]] -- Cluster of configuration parameters for data acquisition
+    - [[DataSourceManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52811.md]] -- Data source manager and its API
+    - [[DataSourceUI|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53061.md]] -- Data source parameter user interface
+    - [[Diagnostics|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53284.md]] -- Provide error warning and message dialogs
+    - [[ExpFileSystemConfig|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53357.md]] -- Configuration cluster for event directory tree
+    - [[ReadoutGui|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53444.md]] -- ReadoutGui elements.
+    - [[ReadoutGUIPanel|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53593.md]] -- ReadoutGUI Convenience commands
+    - [[RunStateMachine|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53850.md]] -- Run control state machine
+    - [[StateManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54081.md]] -- Save restore program state variables.
+    - [[ui|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54240.md]] -- ReadoutGUI graphical user interface elements.
+    - [[OutputWindowSettings|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54752.md]] -- Prompter for `OutputWindow` settings.
+    - [[StatusArea|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54821.md]] -- Status area megawidget
+  - XII. [[3provider|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54906.md]]
+    - [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54908.md]] -- Data source providers
+    - [[parameters|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55066.md]] -- Describe data source parameterization
+    - [[start|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55091.md]] -- Start a data source
+    - [[check|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55118.md]] -- Check Data Source Liveness
+    - [[stop|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55148.md]] -- Stop data sources
+    - [[begin|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55177.md]] -- Start data taking in a data source
+    - [[pause|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55206.md]] -- Pause a data taking run (optional)
+    - [[resume|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55241.md]] -- Resume a Paused Run
+    - [[end|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55272.md]] -- End a Data Taking Run
+    - [[init|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55299.md]] -- On-demand initialize procedure
+    - [[capabilities|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55326.md]] -- Get Provider Capabilities Dict
+    - [[SSHPipe|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55373.md]] -- SSHPipe data source provider.
+    - [[s800|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55483.md]] -- s800 data source provider.
+    - [[Delay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55538.md]] -- Inserts a delay between data provider begins
+  - XIII. [[3python|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55567.md]]
+    - [[PortManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55569.md]] -- Python bindings to port manager
+  - XIV. [[3vmusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55677.md]]
+    - [[adc|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55679.md]] -- Create/configure CAEN V775, V785, V792, V862 modules.
+    - [[caenchain|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55828.md]] -- Aggregate adc modules into CBLT readout chains.
+    - [[vmusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55885.md]] -- Control VM-USB resources and read internal scalers
+    - [[sis330x|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56143.md]] -- Driver for SIS3300/1 FADC
+    - [[sis3820|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56315.md]] -- Create and configure SIS 3820 scaler modules
+    - [[v830|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56376.md]] -- Create and configure CAEN V830 32 channel scalers.
+    - [[v977|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56571.md]] -- Create and configure CAEN V977 Input registers
+    - [[sis3804|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56716.md]] -- Create and configure SIS 3804 scalers
+    - [[hira|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56783.md]] -- Pair up to 2 XLMs and FADC for HiRA
+    - [[hytec|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56843.md]] -- Support the Hytec NADC 2530 adc module.
+    - [[tcl driver support|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57006.md]] -- tcl driver support functions.
+    - [[madc|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57151.md]] -- Acquire events from Mesytec MADC32 ADC.
+    - [[mtdc|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57410.md]] -- Mesytec 32/34 channel TDC
+    - [[mqdc|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57773.md]] -- Support Mesytec MQDC-32 modules
+    - [[madcchain|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58200.md]] -- Support CBLT chains of Mesytec MxDC32 family of modules.
+    - [[madcscaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58275.md]] -- Support dead-time counters in MADC32 as scalers.
+    - [[mase|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58320.md]] -- Support for XLM with MASE firmware.
+    - [[tdc1x90|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58378.md]] -- Provide support for the CAEN V1x90 TDC family.
+    - [[v1729a|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58633.md]] -- CAENV1729a waveform digitizer.
+    - [[stack|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58763.md]] -- Compose and configure VM-USB readout stacks.
+    - [[CVMUSB|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58891.md]] -- Interface with VM-USB controller.
+    - [[CVMUSBReadoutList|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r60883.md]] -- Construct VM-USB stacks
+    - [[CVMUSBRemote|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r61778.md]] -- Execute lists remotely on VMUSBReadout
+    - [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r63005.md]] -- Configuration database
+    - [[CControlHardware|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r64233.md]] -- Base class for slow controls drivers
+    - [[cvmusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r64528.md]] -- SWIG Tcl wrapping of `CVMUSB`
+    - [[cvmusbreadoutlist|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r65273.md]] -- SWIG wrappers for `CVMUSBReadoutList`
+    - [[Module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r65763.md]] -- control config command: create/configure modules.
+    - [[watch|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66110.md]] -- Watch variables (slow controls)
+    - [[delay|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66129.md]] -- Insert a stack delay.
+    - [[CBDCamacBranch|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66164.md]] -- run a CAMAC branch through a CES CBD8210 bridge
+    - [[CBDCamacCrate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66216.md]] -- group CBD8210 compatible modules into a crate
+    - [[CBDLeCroy4300B|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66260.md]] -- control a LeCroy 4300B FERA on a CAMAC branch
+    - [[CBDLeCroy4434|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66367.md]] -- control a LeCroy 4434 Scaler on a CAMAC branch
+    - [[CBDLeCroy2551|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66413.md]] -- control a LeCroy 2551 Scaler on a CAMAC branch
+    - [[CBDULMTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66453.md]] -- control a LeCroy 2637 ULM running trigger firmware on a CAMAC branch
+    - [[XLMTimestamp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66632.md]] -- control an XLM running 64-bit latching scaler firmware
+    - [[marker|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66676.md]] -- Insert a constant into the VMUSB data stream
+    - [[XLMFERA|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66714.md]] -- control an XLM72V running firmware to readout FERA via ECL ports
+    - [[AXLM72ScalerControl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66771.md]] -- slow-controls driver for controlling an XLM72 running 32-ch scaler firmware
+    - [[XLM72ScalerGUI|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66858.md]] -- Diagnostics GUI for controlling an XLM72 running 32 ch scaler firmware
+    - [[AXLM72|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66911.md]] -- TCL base class for JTech XLM72 family of devices
+    - [[AXLM72Scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r67212.md]] -- Driver for an XLM72 running 32-channel scaler firmware
+    - [[v1495sc|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r67442.md]] -- CAEN V1495 with Scaler firmware
+    - [[controlClient|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r67557.md]] -- Object to interact with VM/CCusb control server
+    - [[USB Control operations|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r67649.md]] -- connect, controlOp, listUSBControlServers
+    - [[slowControlsPrompter|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r67700.md]] -- Prompt for slow controls server host and port
+    - [[gdgcontrol|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r67802.md]] -- Slow control client of Wiener/JTec MGGD8
+    - [[gdgwidget|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68020.md]] -- Widget to control/display GDG-8.
+    - [[V6533Driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68113.md]] -- Driver for CAEN V6533 HV modules
+  - XV. [[3tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68320.md]]
     - [[TCL Ring package.
             Ron Fox
-            NSCLDAQ|r68322]] -- Access Rings from tcl.
-    - [[ring|r68497]] -- 
+            NSCLDAQ|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68322.md]] -- Access Rings from tcl.
+    - [[ring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68497.md]] -- 
                 Tcl ring buffer access package.k
-    - [[portAllocator|r68886]] -- Tcl API for the DaqPortManager daemon.
-    - [[TclServer|r68986]] -- Embeddable Tcl Server script object
-    - [[CFD812|r69092]] -- low level control of the CAEN V812 CFD
-    - [[caenv812gui|r69232]] -- Megawidget control panel for the CAEN V812 CFD
-    - [[n568b|r69364]] -- Support package for the CAEN N568B shaper.
-    - [[n568Panel|r69552]] -- Control panel megawidget for N568 shaping amplifier
-    - [[iSegVhs|r69689]] -- SBS support for VHS 404 modules.
-    - [[VhsWidgets|r70193]] -- User interface components for VHS 404 power supplies.
-    - [[vhq|r70272]] -- Low level Tcl access to iSEG VHQ2xxx units.
-    - [[vhqPanel|r70459]] -- Control widget for iSeg vhq2xx VME bias supply.
-    - [[caennet|r70652]] -- Access CAENnet from Tcl scripts.
-    - [[camac|r70717]] -- Provide access to CES CBD8210 CAMAC to Tcl scripts
-    - [[wienercamac|r70884]] -- Tcl Script CAMAC access via VC32/CC32 boardset.
-    - [[sequencer|r71022]] -- 
+    - [[portAllocator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68886.md]] -- Tcl API for the DaqPortManager daemon.
+    - [[TclServer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68986.md]] -- Embeddable Tcl Server script object
+    - [[CFD812|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r69092.md]] -- low level control of the CAEN V812 CFD
+    - [[caenv812gui|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r69232.md]] -- Megawidget control panel for the CAEN V812 CFD
+    - [[n568b|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r69364.md]] -- Support package for the CAEN N568B shaper.
+    - [[n568Panel|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r69552.md]] -- Control panel megawidget for N568 shaping amplifier
+    - [[iSegVhs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r69689.md]] -- SBS support for VHS 404 modules.
+    - [[VhsWidgets|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70193.md]] -- User interface components for VHS 404 power supplies.
+    - [[vhq|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70272.md]] -- Low level Tcl access to iSEG VHQ2xxx units.
+    - [[vhqPanel|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70459.md]] -- Control widget for iSeg vhq2xx VME bias supply.
+    - [[caennet|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70652.md]] -- Access CAENnet from Tcl scripts.
+    - [[camac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70717.md]] -- Provide access to CES CBD8210 CAMAC to Tcl scripts
+    - [[wienercamac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70884.md]] -- Tcl Script CAMAC access via VC32/CC32 boardset.
+    - [[sequencer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71022.md]] -- 
                 Provide a ReadoutGui plugin for nscldaq 8.1 and later that can
                 automate several data taking runs.
-    - [[plotcontainer|r71148]] -- Plotchart XY plot wrapper
-    - [[marker|r71459]] -- Manage markers on a plotchart plot.
-    - [[RingStatus|r71559]] -- Widget that shows ring status.
-  - XVI. [[3sbsReadout|r71619]]
-    - [[CBusy|r71621]] -- Abstract base class for Busy module management.
-    - [[CCAENV262Busy|r71676]] -- Concrete busy class for the CAEN V262 input module.
-    - [[CCAENV262Triger|r71801]] -- Trigger module with CAEN V262
-    - [[CCompoundEventSegment|r71905]] -- Container for other event segments
-    - [[CDocumentedPacket|r72175]] -- Encapsulate event data in a packet that is documented.
-    - [[CEventPacket|r72438]] -- Encapsulate an event segment in a documented packet.
-    - [[CEventSegment|r72556]] -- Base class for all event segments.
-    - [[CEventTrigger|r72802]] -- Abstract base class for triggers.
-    - [[CExperiment|r72865]] -- Encapsulate the experiment.
-    - [[CInvalidPacketStateException|r73138]] -- Exception thrown by documented packets.
-    - [[CNullTrigger|r73248]] -- A trigger that never fires.
-    - [[CReadoutException|r73268]] -- Base class for readout specific exceptions
-    - [[CScalerBank|r73292]] -- Container for individual Scaler objects.
-    - [[CTimedTrigger|r73534]] -- CEventTrigger that fires periodically
-    - [[CV977Busy|r73622]] -- Concrete busy class using the CAEN V977 module
-    - [[CV977Trigger|r73724]] -- Concrete Trigger class using CAEN V977 module.
-    - [[RunState|r73818]] -- Encapsulate important state of the software.
-    - [[CScaler|r73918]] -- Base class for scaler readout classes
-  - XVII. [[5daq|r74004]]
-    - [[eventorderer|r74006]] -- Event orderer protocol
-  - XVIII. [[5tcl|r74121]]
-    - [[caen812configfile|r74123]] -- Format of configuration files for CAENV 812 software.
-    - [[n568configfile|r74229]] -- N568 shaper configuration file
-    - [[vhqconfig|r74345]] --  Config file for
-  - XIX. [[5vmusb|r74412]]
-    - [[VMUSB slow controls protocol|r74414]] -- VMUSB Slow controls protocol
+    - [[plotcontainer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71148.md]] -- Plotchart XY plot wrapper
+    - [[marker|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71459.md]] -- Manage markers on a plotchart plot.
+    - [[RingStatus|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71559.md]] -- Widget that shows ring status.
+  - XVI. [[3sbsReadout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71619.md]]
+    - [[CBusy|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71621.md]] -- Abstract base class for Busy module management.
+    - [[CCAENV262Busy|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71676.md]] -- Concrete busy class for the CAEN V262 input module.
+    - [[CCAENV262Triger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71801.md]] -- Trigger module with CAEN V262
+    - [[CCompoundEventSegment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71905.md]] -- Container for other event segments
+    - [[CDocumentedPacket|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r72175.md]] -- Encapsulate event data in a packet that is documented.
+    - [[CEventPacket|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r72438.md]] -- Encapsulate an event segment in a documented packet.
+    - [[CEventSegment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r72556.md]] -- Base class for all event segments.
+    - [[CEventTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r72802.md]] -- Abstract base class for triggers.
+    - [[CExperiment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r72865.md]] -- Encapsulate the experiment.
+    - [[CInvalidPacketStateException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73138.md]] -- Exception thrown by documented packets.
+    - [[CNullTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73248.md]] -- A trigger that never fires.
+    - [[CReadoutException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73268.md]] -- Base class for readout specific exceptions
+    - [[CScalerBank|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73292.md]] -- Container for individual Scaler objects.
+    - [[CTimedTrigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73534.md]] -- CEventTrigger that fires periodically
+    - [[CV977Busy|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73622.md]] -- Concrete busy class using the CAEN V977 module
+    - [[CV977Trigger|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73724.md]] -- Concrete Trigger class using CAEN V977 module.
+    - [[RunState|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73818.md]] -- Encapsulate important state of the software.
+    - [[CScaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73918.md]] -- Base class for scaler readout classes
+  - XVII. [[5daq|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74004.md]]
+    - [[eventorderer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74006.md]] -- Event orderer protocol
+  - XVIII. [[5tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74121.md]]
+    - [[caen812configfile|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74123.md]] -- Format of configuration files for CAENV 812 software.
+    - [[n568configfile|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74229.md]] -- N568 shaper configuration file
+    - [[vhqconfig|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74345.md]] --  Config file for
+  - XIX. [[5vmusb|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74412.md]]
+    - [[VMUSB slow controls protocol|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74414.md]] -- VMUSB Slow controls protocol
 
 - **List of Tables**
-- 3-1. [[Ring Item Top-Level Memory Layout|c183#AEN192]]
-- 3-2. [[Body Header|x212#AEN215]]
-- 3-3. [[Ring Item With Body Header|x212#AEN254]]
-- 3-4. [[Ring Item Without Body Header|x212#AEN288]]
-- 3-5. [[Ring Item Types|x312#AEN315]]
-- 3-6. [[Predefined State Change Body Layout|x312#AEN456]]
-- 3-7. [[Predefined Text Item Body Layout|x312#AEN510]]
-- 3-8. [[Predefined Scaler Item Body Layout|x312#AEN575]]
-- 3-9. [[Predefined Physics Event Count Body Layout|x312#AEN650]]
-- 3-10. [[Predefined Data Format Body Layout|x312#AEN693]]
-- 3-11. [[Predefined Glom Information Body Layout|x312#AEN713]]
-- 6-1. [[Event logger environment variables|x4041#AEN4064]]
-- 6-2. [[Experiment file systems environment variables|x4041#AEN4106]]
-- 6-3. [[SSHPipe prompter environment variables|x4041#AEN4127]]
-- 7-1. [[Fragment header|x4493#AEN4499]]
-- 7-2. [[Body of Built PHYSICS_EVENT|x4493#AEN4532]]
-- 45-1. [[Wiener CC32 addressing convention|x9258#AEN9262]]
-- 1. [[Readmode and Read and clear implications|r56571#AEN56691]]
+- 3-1. [[Ring Item Top-Level Memory Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c183.md#AEN192]]
+- 3-2. [[Body Header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x212.md#AEN215]]
+- 3-3. [[Ring Item With Body Header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x212.md#AEN254]]
+- 3-4. [[Ring Item Without Body Header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x212.md#AEN288]]
+- 3-5. [[Ring Item Types|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN315]]
+- 3-6. [[Predefined State Change Body Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN456]]
+- 3-7. [[Predefined Text Item Body Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN510]]
+- 3-8. [[Predefined Scaler Item Body Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN575]]
+- 3-9. [[Predefined Physics Event Count Body Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN650]]
+- 3-10. [[Predefined Data Format Body Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN693]]
+- 3-11. [[Predefined Glom Information Body Layout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x312.md#AEN713]]
+- 6-1. [[Event logger environment variables|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4041.md#AEN4064]]
+- 6-2. [[Experiment file systems environment variables|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4041.md#AEN4106]]
+- 6-3. [[SSHPipe prompter environment variables|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4041.md#AEN4127]]
+- 7-1. [[Fragment header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4493.md#AEN4499]]
+- 7-2. [[Body of Built PHYSICS_EVENT|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4493.md#AEN4532]]
+- 45-1. [[Wiener CC32 addressing convention|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9258.md#AEN9262]]
+- 1. [[Readmode and Read and clear implications|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56571.md#AEN56691]]
 
 - **List of Figures**
-- 6-1. [[ReadoutShell's state diagram|c3594#rdogui_statediagram]]
-- 6-2. [[ReadoutShell's GUI|x3692#AEN3695]]
-- 6-3. [[The Eventlog settings dialog|x3692#AEN3819]]
-- 6-4. [[Readout GUI Directory tree|x4007#AEN4023]]
-- 9-1. [[Block diagram of the V775 and V785 wiring|x4747#v775v785blockdiagram]]
-- 9-2. [[Block diagram of SIS3820 scaler wiring|x4747#sis3820blockdiagram]]
-- 10-1. [[V775 Simple setup electronics block diagram.|x5343#AEN5353]]
-- 11-1. [[A simple electronics setup for the CAEN V785|x6270#AEN6310]]
-- 11-2. [[Pulser Output Signal|x6270#AEN6316]]
-- 11-3. [[Amplifer Output Signal|x6270#AEN6319]]
-- 11-4. [[Amplified Signal with Logic Pulser|x6270#AEN6325]]
-- 11-5. [[Amplified Signal and Gate|x6270#AEN6329]]
-- 12-1. [[The MCFD16Control Graphical User Interface for USB|x6576#AEN6586]]
-- 12-2. [[MCFD16Control Graphical User Interface for MxDC-RCbus|x6593#mcfd16control_fig1]]
-- 13-1. [[The MSCF16Control Graphical User Interface for USB|x6647#AEN6657]]
-- 14-1. [[MDGG16Control Graphical User Interface|x6693#mdgg16control_fig1]]
+- 6-1. [[ReadoutShell's state diagram|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c3594.md#rdogui_statediagram]]
+- 6-2. [[ReadoutShell's GUI|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3692.md#AEN3695]]
+- 6-3. [[The Eventlog settings dialog|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3692.md#AEN3819]]
+- 6-4. [[Readout GUI Directory tree|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4007.md#AEN4023]]
+- 9-1. [[Block diagram of the V775 and V785 wiring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4747.md#v775v785blockdiagram]]
+- 9-2. [[Block diagram of SIS3820 scaler wiring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4747.md#sis3820blockdiagram]]
+- 10-1. [[V775 Simple setup electronics block diagram.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5343.md#AEN5353]]
+- 11-1. [[A simple electronics setup for the CAEN V785|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6270.md#AEN6310]]
+- 11-2. [[Pulser Output Signal|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6270.md#AEN6316]]
+- 11-3. [[Amplifer Output Signal|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6270.md#AEN6319]]
+- 11-4. [[Amplified Signal with Logic Pulser|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6270.md#AEN6325]]
+- 11-5. [[Amplified Signal and Gate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6270.md#AEN6329]]
+- 12-1. [[The MCFD16Control Graphical User Interface for USB|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6576.md#AEN6586]]
+- 12-2. [[MCFD16Control Graphical User Interface for MxDC-RCbus|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6593.md#mcfd16control_fig1]]
+- 13-1. [[The MSCF16Control Graphical User Interface for USB|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6647.md#AEN6657]]
+- 14-1. [[MDGG16Control Graphical User Interface|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6693.md#mdgg16control_fig1]]
 
 - **List of Examples**
-- 4-1. [[Creating and configuring devices|x800#AEN813]]
-- 4-2. [[A Sample Controls Configuration|x858#AEN870]]
-- 4-3. [[A sample getEventTimestamp() implementation|x1022#AEN1042]]
-- 4-4. [[Defining a null getScalerTimestamp()|x1022#AEN1094]]
-- 4-5. [[Adding an offset to the timestamp|x1022#AEN1107]]
-- 4-6. [[Obtaning the VM-USB device driver development kit|x1137#AEN1150]]
-- 4-7. [[Using a user written VMUSB driver|x1137#AEN1159]]
-- 4-8. [[The template driver `Initialize` method|x1137#AEN1221]]
-- 4-9. [[Template Driver `addReadoutList` method|x1137#AEN1240]]
+- 4-1. [[Creating and configuring devices|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x800.md#AEN813]]
+- 4-2. [[A Sample Controls Configuration|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x858.md#AEN870]]
+- 4-3. [[A sample getEventTimestamp() implementation|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1022.md#AEN1042]]
+- 4-4. [[Defining a null getScalerTimestamp()|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1022.md#AEN1094]]
+- 4-5. [[Adding an offset to the timestamp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1022.md#AEN1107]]
+- 4-6. [[Obtaning the VM-USB device driver development kit|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1150]]
+- 4-7. [[Using a user written VMUSB driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1159]]
+- 4-8. [[The template driver `Initialize` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1221]]
+- 4-9. [[Template Driver `addReadoutList` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1240]]
 - 4-10. [[The VMUSB driver `Xxxx_Init`
-                    function.|x1137#AEN1266]]
-- 4-11. [[Itcl VM-USB device driver|x1137#AEN1339]]
-- 4-12. [[A Snit VM-USB driver.|x1137#AEN1431]]
-- 4-13. [[USing a Tcl VM-USB driver.|x1137#AEN1536]]
-- 4-14. [[Control driver headers|x1550#AEN1720]]
-- 4-15. [[Control driver class definition|x1550#AEN1739]]
-- 4-16. [[Control driver constructor|x1550#AEN1746]]
-- 4-17. [[Control driver `onAttach` method|x1550#AEN1750]]
-- 4-18. [[Control driver `Update`|x1550#AEN1773]]
-- 4-19. [[Control driver `Set` method.|x1550#AEN1785]]
-- 4-20. [[Control driver `Get` method|x1550#AEN1835]]
-- 4-21. [[Control driver `clone` method|x1550#AEN1869]]
-- 4-22. [[Control driver creator|x1550#AEN1883]]
-- 4-23. [[Control driver initialization|x1550#AEN1918]]
-- 4-24. [[Control drivers - structure of a Tcl driver|x1550#AEN2030]]
-- 4-25. [[Tcl control driver `Initialize` method|x1550#AEN2081]]
-- 4-26. [[Tcl control driver `Update` method|x1550#AEN2096]]
-- 4-27. [[Tcl control driver `Set` method|x1550#AEN2114]]
-- 4-28. [[Tcl control driver `Get` method|x1550#AEN2137]]
-- 4-29. [[Tcl control drer `addMonitorList` method|x1550#AEN2155]]
-- 4-30. [[Tcl control driver `processMonitorList` method|x1550#AEN2166]]
-- 4-31. [[Tcl control driver `getMonitoredData` method|x1550#AEN2178]]
-- 4-32. [[Tcl control driver validation|x1550#AEN2191]]
-- 4-33. [[Specifying VM-USB monitored variables|x2245#AEN2269]]
-- 5-1. [[Creating and configuring devices|x2335#AEN2339]]
-- 5-2. [[Configuring an event stack|x2335#AEN2362]]
-- 5-3. [[Setting up a scaler stack|x2335#AEN2373]]
-- 5-4. [[Obtaining the ccusb driver development kit|x2376#AEN2381]]
-- 5-5. [[Using a user written CCUSB driver|x2376#AEN2387]]
-- 5-6. [[A snit CCUSB device driver module|x2537#AEN2584]]
-- 5-7. [[CCUSB device support example writtin in Incr Tcl|x2537#AEN2681]]
-- 5-8. [[DAQ config script fragment with tcl drivers.|x2537#AEN2792]]
-- 5-9. [[Obtaining the sample CCUSB slow controls driver|x2888#AEN2909]]
-- 5-10. [[Headers for the CCUSB sample slow controls driver|x2888#AEN2949]]
-- 5-11. [[CCUSB Slow control driver class definition|x2888#AEN2992]]
-- 5-12. [[The constructor and destructor|x2888#ccusb-slowdriver-impl-condestruct]]
-- 5-13. [[CCUSB Slow controls driver `OnAttach`|x2888#AEN3073]]
-- 5-14. [[CCUSB Slow controls driver initialize method|x2888#AEN3107]]
-- 5-15. [[CCUSB Slow controls driver Update|x2888#AEN3119]]
-- 5-16. [[CCUSB Slow controls driver Set method|x2888#AEN3147]]
-- 5-17. [[CCUSB slow controls Get method|x2888#AEN3182]]
-- 5-18. [[CCUSB Slow controls clone method|x2888#AEN3207]]
-- 5-19. [[Module creator for the CCUSB Sample slow controls driver|x2888#AEN3226]]
-- 5-20. [[CCUSB Slow control driver initialization function|x2888#AEN3256]]
-- 5-21. [[CCUSB Slow controls driver Skeleton Makefile|x2888#AEN3292]]
-- 5-22. [[CCUSB Tcl slow controls driver skeleton|x3315#AEN3344]]
-- 5-23. [[CCUSB Tcl slow controls driver construction|x3315#AEN3432]]
-- 5-24. [[CCUSB Tcl slow controls initialization|x3315#AEN3439]]
-- 5-25. [[CCUSB Tcl Slow Controls Update|x3315#AEN3445]]
-- 5-26. [[CCUSB Tcl Slow controls driver Set|x3315#AEN3464]]
-- 5-27. [[CCUSB Tcl Slow Control driver Get|x3315#AEN3472]]
-- 5-28. [[CCUSB Slow controls Tcl driver option validation|x3315#AEN3498]]
-- 5-29. [[Using the Tcl sample driver in a configuration script.|x3315#AEN3510]]
-- 5-30. [[Enabling a module Lam with ccusbcamac|x3513#AEN3590]]
-- 6-1. [[Custom ReadoutGUI startup script|x4041#AEN4318]]
-- 10-1. [[V775 Event Segment (V775EventSegment.h).|x5363#AEN5400]]
-- 10-2. [[v775 Event Segment (V775EventSegment.cpp) - file heading|x5363#AEN5458]]
-- 10-3. [[v775 Event Segment (V775EventSegment.cpp) - Constructor|x5363#AEN5477]]
-- 10-4. [[v775 Event Segment (V775EventSegment.cpp) - Initialization|x5363#AEN5482]]
-- 10-5. [[v775 Event Segment (V775EventSegment.cpp) - reading data|x5363#AEN5505]]
-- 10-6. [[V775 data ready trigger header (MyTrigger.h)|x5363#AEN5541]]
-- 10-7. [[V775 data ready trigger implementation (MyTrigger.cpp)|x5363#AEN5548]]
-- 10-8. [[Copying in the SpecTcl-v3.4 skeleton|x5673#AEN5701]]
-- 10-9. [[Raw TDC unpacker (RawUnpacker.h)|x5673#AEN5707]]
-- 10-10. [[v775 raw unpacker implementation includes and defs (RawUnpacker.cpp)|x5673#AEN5739]]
-- 10-11. [[V775 raw unpacker - getLong utility (RawUnpacker.cpp)|x5673#AEN5761]]
-- 10-12. [[V775 raw unpacker object constructor/destructor (RawUnpacker.cpp)|x5673#AEN5767]]
-- 10-13. [[v75 raw unpacker unpacking events (RawUnpacker.cpp)|x5673#AEN5780]]
-- 10-14. [[Defining raw Time spectra the hard way.|x5673#AEN5899]]
-- 10-15. [[Header for time difference event processor (Tdiff.h)|x5673#AEN6023]]
-- 10-16. [[CTdiff implementation (Tdiff.cpp)|x5673#AEN6036]]
-- 10-17. [[Setting up ssh for password-less login|x6058#AEN6072]]
-- 10-18. [[Creating an event area for a small amount of data|x6058#AEN6100]]
-- 10-19. [[Makefile|x6166#AEN6200]]
-- 10-20. [[Skeleton.cpp|x6166#AEN6204]]
-- 10-21. [[V775EventSegment.h|x6166#AEN6208]]
-- 10-22. [[V775EventSegment.cpp|x6166#AEN6212]]
-- 10-23. [[MyTrigger.h|x6166#AEN6216]]
-- 10-24. [[MyTrigger.cpp|x6166#AEN6219]]
-- 10-25. [[RawUnpacker.h|x6222#AEN6229]]
-- 10-26. [[RawUnpacker.cpp|x6222#AEN6232]]
-- 10-27. [[spectra.tcl|x6222#AEN6235]]
-- 10-28. [[SpecTclRC.tcl|x6222#AEN6238]]
-- 10-29. [[Tdiff.h|x6222#AEN6241]]
-- 10-30. [[Tdiff.cpp|x6222#AEN6244]]
-- 11-1. [[Header for MyEventSegment|x6334#AEN6351]]
-- 11-2. [[Impementation of CMyEventSegment|x6334#AEN6384]]
-- 11-3. [[The Packet Data|x6534#AEN6546]]
-- 17-1. [[Dumping data from the ring buffer named 0400x on spdaq22|c6788#AEN6802]]
+                    function.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1266]]
+- 4-11. [[Itcl VM-USB device driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1339]]
+- 4-12. [[A Snit VM-USB driver.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1431]]
+- 4-13. [[USing a Tcl VM-USB driver.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1137.md#AEN1536]]
+- 4-14. [[Control driver headers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1720]]
+- 4-15. [[Control driver class definition|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1739]]
+- 4-16. [[Control driver constructor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1746]]
+- 4-17. [[Control driver `onAttach` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1750]]
+- 4-18. [[Control driver `Update`|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1773]]
+- 4-19. [[Control driver `Set` method.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1785]]
+- 4-20. [[Control driver `Get` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1835]]
+- 4-21. [[Control driver `clone` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1869]]
+- 4-22. [[Control driver creator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1883]]
+- 4-23. [[Control driver initialization|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN1918]]
+- 4-24. [[Control drivers - structure of a Tcl driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2030]]
+- 4-25. [[Tcl control driver `Initialize` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2081]]
+- 4-26. [[Tcl control driver `Update` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2096]]
+- 4-27. [[Tcl control driver `Set` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2114]]
+- 4-28. [[Tcl control driver `Get` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2137]]
+- 4-29. [[Tcl control drer `addMonitorList` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2155]]
+- 4-30. [[Tcl control driver `processMonitorList` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2166]]
+- 4-31. [[Tcl control driver `getMonitoredData` method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2178]]
+- 4-32. [[Tcl control driver validation|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x1550.md#AEN2191]]
+- 4-33. [[Specifying VM-USB monitored variables|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2245.md#AEN2269]]
+- 5-1. [[Creating and configuring devices|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2335.md#AEN2339]]
+- 5-2. [[Configuring an event stack|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2335.md#AEN2362]]
+- 5-3. [[Setting up a scaler stack|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2335.md#AEN2373]]
+- 5-4. [[Obtaining the ccusb driver development kit|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2376.md#AEN2381]]
+- 5-5. [[Using a user written CCUSB driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2376.md#AEN2387]]
+- 5-6. [[A snit CCUSB device driver module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2537.md#AEN2584]]
+- 5-7. [[CCUSB device support example writtin in Incr Tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2537.md#AEN2681]]
+- 5-8. [[DAQ config script fragment with tcl drivers.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2537.md#AEN2792]]
+- 5-9. [[Obtaining the sample CCUSB slow controls driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN2909]]
+- 5-10. [[Headers for the CCUSB sample slow controls driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN2949]]
+- 5-11. [[CCUSB Slow control driver class definition|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN2992]]
+- 5-12. [[The constructor and destructor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#ccusb-slowdriver-impl-condestruct]]
+- 5-13. [[CCUSB Slow controls driver `OnAttach`|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3073]]
+- 5-14. [[CCUSB Slow controls driver initialize method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3107]]
+- 5-15. [[CCUSB Slow controls driver Update|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3119]]
+- 5-16. [[CCUSB Slow controls driver Set method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3147]]
+- 5-17. [[CCUSB slow controls Get method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3182]]
+- 5-18. [[CCUSB Slow controls clone method|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3207]]
+- 5-19. [[Module creator for the CCUSB Sample slow controls driver|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3226]]
+- 5-20. [[CCUSB Slow control driver initialization function|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3256]]
+- 5-21. [[CCUSB Slow controls driver Skeleton Makefile|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x2888.md#AEN3292]]
+- 5-22. [[CCUSB Tcl slow controls driver skeleton|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3344]]
+- 5-23. [[CCUSB Tcl slow controls driver construction|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3432]]
+- 5-24. [[CCUSB Tcl slow controls initialization|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3439]]
+- 5-25. [[CCUSB Tcl Slow Controls Update|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3445]]
+- 5-26. [[CCUSB Tcl Slow controls driver Set|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3464]]
+- 5-27. [[CCUSB Tcl Slow Control driver Get|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3472]]
+- 5-28. [[CCUSB Slow controls Tcl driver option validation|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3498]]
+- 5-29. [[Using the Tcl sample driver in a configuration script.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3315.md#AEN3510]]
+- 5-30. [[Enabling a module Lam with ccusbcamac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x3513.md#AEN3590]]
+- 6-1. [[Custom ReadoutGUI startup script|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x4041.md#AEN4318]]
+- 10-1. [[V775 Event Segment (V775EventSegment.h).|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5400]]
+- 10-2. [[v775 Event Segment (V775EventSegment.cpp) - file heading|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5458]]
+- 10-3. [[v775 Event Segment (V775EventSegment.cpp) - Constructor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5477]]
+- 10-4. [[v775 Event Segment (V775EventSegment.cpp) - Initialization|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5482]]
+- 10-5. [[v775 Event Segment (V775EventSegment.cpp) - reading data|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5505]]
+- 10-6. [[V775 data ready trigger header (MyTrigger.h)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5541]]
+- 10-7. [[V775 data ready trigger implementation (MyTrigger.cpp)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5363.md#AEN5548]]
+- 10-8. [[Copying in the SpecTcl-v3.4 skeleton|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5701]]
+- 10-9. [[Raw TDC unpacker (RawUnpacker.h)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5707]]
+- 10-10. [[v775 raw unpacker implementation includes and defs (RawUnpacker.cpp)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5739]]
+- 10-11. [[V775 raw unpacker - getLong utility (RawUnpacker.cpp)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5761]]
+- 10-12. [[V775 raw unpacker object constructor/destructor (RawUnpacker.cpp)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5767]]
+- 10-13. [[v75 raw unpacker unpacking events (RawUnpacker.cpp)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5780]]
+- 10-14. [[Defining raw Time spectra the hard way.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN5899]]
+- 10-15. [[Header for time difference event processor (Tdiff.h)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN6023]]
+- 10-16. [[CTdiff implementation (Tdiff.cpp)|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x5673.md#AEN6036]]
+- 10-17. [[Setting up ssh for password-less login|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6058.md#AEN6072]]
+- 10-18. [[Creating an event area for a small amount of data|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6058.md#AEN6100]]
+- 10-19. [[Makefile|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md#AEN6200]]
+- 10-20. [[Skeleton.cpp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md#AEN6204]]
+- 10-21. [[V775EventSegment.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md#AEN6208]]
+- 10-22. [[V775EventSegment.cpp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md#AEN6212]]
+- 10-23. [[MyTrigger.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md#AEN6216]]
+- 10-24. [[MyTrigger.cpp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6166.md#AEN6219]]
+- 10-25. [[RawUnpacker.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md#AEN6229]]
+- 10-26. [[RawUnpacker.cpp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md#AEN6232]]
+- 10-27. [[spectra.tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md#AEN6235]]
+- 10-28. [[SpecTclRC.tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md#AEN6238]]
+- 10-29. [[Tdiff.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md#AEN6241]]
+- 10-30. [[Tdiff.cpp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6222.md#AEN6244]]
+- 11-1. [[Header for MyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6334.md#AEN6351]]
+- 11-2. [[Impementation of CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6334.md#AEN6384]]
+- 11-3. [[The Packet Data|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x6534.md#AEN6546]]
+- 17-1. [[Dumping data from the ring buffer named 0400x on spdaq22|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6802]]
 - 17-2. [[Dumping data from the event file segment
-            /user/0400x/complete/run-1234-00.evt|c6788#AEN6806]]
-- 17-3. [[State Transition items|c6788#AEN6819]]
-- 17-4. [[Text List items|c6788#AEN6824]]
-- 17-5. [[Incremental Scalers dump|c6788#AEN6829]]
-- 17-6. [[Event count items|c6788#AEN6835]]
-- 17-7. [[Physics Event items|c6788#AEN6841]]
-- 17-8. [[Unknown item types|c6788#AEN6846]]
-- 18-1. [[Taking data from a remote ring|c6852#AEN6877]]
-- 19-1. [[Using **serverauth** to authorize a node|c6882#AEN6897]]
+            /user/0400x/complete/run-1234-00.evt|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6806]]
+- 17-3. [[State Transition items|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6819]]
+- 17-4. [[Text List items|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6824]]
+- 17-5. [[Incremental Scalers dump|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6829]]
+- 17-6. [[Event count items|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6835]]
+- 17-7. [[Physics Event items|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6841]]
+- 17-8. [[Unknown item types|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6788.md#AEN6846]]
+- 18-1. [[Taking data from a remote ring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6852.md#AEN6877]]
+- 19-1. [[Using **serverauth** to authorize a node|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c6882.md#AEN6897]]
 - 24-1. [[Appending the NSCLDAQ Tcl Package repository to Tcl's search
-            path|c7025#AEN7049]]
-- 24-2. [[Appending NSLCDAQ's TclPackage repository to Tcl's search path|c7025#AEN7053]]
-- 24-3. [[Requesting the VME Tcl package be loaded.|c7025#AEN7057]]
-- 24-4. [[Using VME Tcl to locate all 2530 modules|x7060#AEN7064]]
-- 26-1. [[Loading the sequencer package|c7087#AEN7137]]
-- 27-1. [[Dumping state changes and sampled event data with od|c7177#AEN7236]]
-- 27-2. [[Dumping all but packet types|c7177#AEN7244]]
-- 27-3. [[Attaching SpecTcl|c7177#AEN7252]]
-- 28-1. [[Converting a ring buffer event file with compatibilitybuffer|c7258#compatibilitybuffer-ex1]]
-- 28-2. [[Converting ring buffer data to a 8Kword (16Kbyte) old style event file|c7258#AEN7279]]
-- 28-3. [[Using compatibilitylogger to convert event files|x7295#AEN7309]]
-- 28-4. [[convert10to11 - converting event files|x7314#AEN7319]]
-- 28-5. [[Attaching SpecTcl to ring buffers in compatibility mode|x7323#AEN7338]]
-- 32-1. [[The CONNECT message format|c7435#AEN7470]]
-- 32-2. [[Format of the DISCONNECT message|c7435#AEN7485]]
-- 32-3. [[Format of the LIST command|c7435#AEN7499]]
-- 32-4. [[Format of the REGISTER command|c7435#AEN7551]]
-- 32-5. [[Format of the UNREGISTER message|c7435#AEN7561]]
-- 32-6. [[Format of the REMOTE message|c7435#AEN7572]]
-- 34-1. [[Including the header|c7604#AEN7613]]
-- 34-2. [[Compiling code|c7604#AEN7616]]
-- 34-3. [[Linking code to the library|c7604#AEN7619]]
-- 35-1. [[A sample ring specification in URI form|c7624#AEN7632]]
-- 35-2. [[Substituting local host for the hostname in URI's|c7624#AEN7640]]
-- 35-3. [[Including the header|c7624#AEN7672]]
-- 35-4. [[Compiling code that uses `CRingAccess`|c7624#AEN7675]]
-- 35-5. [[Linking code that uses `CRingAccess`|c7624#AEN7679]]
-- 36-1. [[Compilation line for ring buffer primitives|c7685#AEN7706]]
-- 36-2. [[Including the ring buffer primitives header|c7685#AEN7712]]
-- 36-3. [[Linking to the ring buffer primitives|c7685#AEN7718]]
-- 36-4. [[Sample ring buffer consumer|x7722#AEN7736]]
-- 36-5. [[A sample Ring Buffer producer program|x7722#AEN7785]]
-- 37-1. [[Incorporating the ring package in your scripts|c7805#AEN7812]]
-- 38-1. [[Including a ring item class|x8302#AEN8308]]
-- 38-2. [[Telling the compiler where to find Ring Item headers|x8302#AEN8315]]
-- 38-3. [[Linking the ring item format libraries|x8302#AEN8320]]
-- 39-1. [[Connecting to the event builder as a data source.|x8577#AEN8580]]
-- 39-2. [[Closing an event builder connection|x8610#AEN8625]]
-- 39-3. [[Starting the event builder|x8718#AEN8729]]
-- 39-4. [[Establishing the connection callback|x8752#AEN8760]]
-- 39-5. [[Setting up the disconnect callback|x8752#AEN8777]]
-- 40-1. [[Incorporating the ring access package into a Tcl script|c8788#AEN8806]]
-- 40-2. [[Simple usage of the Tcl Ring access package.|x8846#AEN8859]]
-- 40-3. [[Setting up a ring readout thread in Tcl|x8846#AEN8947]]
-- 45-1. [[Enabling a module Lam with wienercamac|x9258#AEN9396]]
-- 46-1. [[Including the cvt header|c9400#AEN9410]]
-- 46-2. [[Compiling a C or C++ source file that includes cvt.h|c9400#AEN9416]]
+            path|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7025.md#AEN7049]]
+- 24-2. [[Appending NSLCDAQ's TclPackage repository to Tcl's search path|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7025.md#AEN7053]]
+- 24-3. [[Requesting the VME Tcl package be loaded.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7025.md#AEN7057]]
+- 24-4. [[Using VME Tcl to locate all 2530 modules|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7060.md#AEN7064]]
+- 26-1. [[Loading the sequencer package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7087.md#AEN7137]]
+- 27-1. [[Dumping state changes and sampled event data with od|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7177.md#AEN7236]]
+- 27-2. [[Dumping all but packet types|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7177.md#AEN7244]]
+- 27-3. [[Attaching SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7177.md#AEN7252]]
+- 28-1. [[Converting a ring buffer event file with compatibilitybuffer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7258.md#compatibilitybuffer-ex1]]
+- 28-2. [[Converting ring buffer data to a 8Kword (16Kbyte) old style event file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7258.md#AEN7279]]
+- 28-3. [[Using compatibilitylogger to convert event files|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7295.md#AEN7309]]
+- 28-4. [[convert10to11 - converting event files|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7314.md#AEN7319]]
+- 28-5. [[Attaching SpecTcl to ring buffers in compatibility mode|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7323.md#AEN7338]]
+- 32-1. [[The CONNECT message format|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7470]]
+- 32-2. [[Format of the DISCONNECT message|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7485]]
+- 32-3. [[Format of the LIST command|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7499]]
+- 32-4. [[Format of the REGISTER command|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7551]]
+- 32-5. [[Format of the UNREGISTER message|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7561]]
+- 32-6. [[Format of the REMOTE message|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7435.md#AEN7572]]
+- 34-1. [[Including the header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7604.md#AEN7613]]
+- 34-2. [[Compiling code|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7604.md#AEN7616]]
+- 34-3. [[Linking code to the library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7604.md#AEN7619]]
+- 35-1. [[A sample ring specification in URI form|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7624.md#AEN7632]]
+- 35-2. [[Substituting local host for the hostname in URI's|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7624.md#AEN7640]]
+- 35-3. [[Including the header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7624.md#AEN7672]]
+- 35-4. [[Compiling code that uses `CRingAccess`|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7624.md#AEN7675]]
+- 35-5. [[Linking code that uses `CRingAccess`|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7624.md#AEN7679]]
+- 36-1. [[Compilation line for ring buffer primitives|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7685.md#AEN7706]]
+- 36-2. [[Including the ring buffer primitives header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7685.md#AEN7712]]
+- 36-3. [[Linking to the ring buffer primitives|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7685.md#AEN7718]]
+- 36-4. [[Sample ring buffer consumer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7722.md#AEN7736]]
+- 36-5. [[A sample Ring Buffer producer program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x7722.md#AEN7785]]
+- 37-1. [[Incorporating the ring package in your scripts|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c7805.md#AEN7812]]
+- 38-1. [[Including a ring item class|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8302.md#AEN8308]]
+- 38-2. [[Telling the compiler where to find Ring Item headers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8302.md#AEN8315]]
+- 38-3. [[Linking the ring item format libraries|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8302.md#AEN8320]]
+- 39-1. [[Connecting to the event builder as a data source.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8577.md#AEN8580]]
+- 39-2. [[Closing an event builder connection|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8610.md#AEN8625]]
+- 39-3. [[Starting the event builder|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8718.md#AEN8729]]
+- 39-4. [[Establishing the connection callback|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8752.md#AEN8760]]
+- 39-5. [[Setting up the disconnect callback|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8752.md#AEN8777]]
+- 40-1. [[Incorporating the ring access package into a Tcl script|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c8788.md#AEN8806]]
+- 40-2. [[Simple usage of the Tcl Ring access package.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8846.md#AEN8859]]
+- 40-3. [[Setting up a ring readout thread in Tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x8846.md#AEN8947]]
+- 45-1. [[Enabling a module Lam with wienercamac|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9258.md#AEN9396]]
+- 46-1. [[Including the cvt header|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9400.md#AEN9410]]
+- 46-2. [[Compiling a C or C++ source file that includes cvt.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9400.md#AEN9416]]
 - 46-3. [[A makefile rule that builds a C++ program using the
-                cvt package|c9400#AEN9420]]
-- 46-4. [[Creating a DaqConversion|x9424#AEN9437]]
-- 47-1. [[The life of a thread|c9481#AEN9504]]
-- 47-2. [[Why synchonization is needed|c9481#AEN9536]]
-- 47-3. [[Using `SyncGuard` to implement a monitor|c9481#AEN9560]]
-- 47-4. [[Compiling and linking NSCLDAQ threaded software|x9582#AEN9590]]
-- 47-5. [[Using `CGaurdedObject`|x9593#AEN9600]]
-- 47-6. [[Sending data to a CBufferQueue|x9633#AEN9673]]
-- 47-7. [[Consumer of data from a CBufferQueue|x9633#AEN9695]]
-- 48-1. [[Compilation switches for the security includes|c9733#AEN9746]]
-- 48-2. [[Link switches for the security library|c9733#AEN9750]]
-- 48-3. [[Boilerplate DAQ Authorization code|x9753#AEN9757]]
-- 49-1. [[Sample URI library program|c9866#AEN9894]]
-- 49-2. [[Building urltst.cpp|c9866#AEN9920]]
-- 50-1. [[Shared memory library example|c9924#AEN9965]]
-- 50-2. [[Compiling a C++ source that includes daqshm.h|x9995#AEN10006]]
+                cvt package|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9400.md#AEN9420]]
+- 46-4. [[Creating a DaqConversion|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9424.md#AEN9437]]
+- 47-1. [[The life of a thread|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9481.md#AEN9504]]
+- 47-2. [[Why synchonization is needed|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9481.md#AEN9536]]
+- 47-3. [[Using `SyncGuard` to implement a monitor|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9481.md#AEN9560]]
+- 47-4. [[Compiling and linking NSCLDAQ threaded software|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9582.md#AEN9590]]
+- 47-5. [[Using `CGaurdedObject`|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9593.md#AEN9600]]
+- 47-6. [[Sending data to a CBufferQueue|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9633.md#AEN9673]]
+- 47-7. [[Consumer of data from a CBufferQueue|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9633.md#AEN9695]]
+- 48-1. [[Compilation switches for the security includes|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9733.md#AEN9746]]
+- 48-2. [[Link switches for the security library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9733.md#AEN9750]]
+- 48-3. [[Boilerplate DAQ Authorization code|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9753.md#AEN9757]]
+- 49-1. [[Sample URI library program|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9866.md#AEN9894]]
+- 49-2. [[Building urltst.cpp|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9866.md#AEN9920]]
+- 50-1. [[Shared memory library example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c9924.md#AEN9965]]
+- 50-2. [[Compiling a C++ source that includes daqshm.h|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9995.md#AEN10006]]
 - 50-3. [[Linking C++ object files that use the
-            daqshm library|x9995#AEN10010]]
-- 52-1. [[Catching `CException` and exiting|x10103#AEN10128]]
-- 53-1. [[The **watch** command.|c10135#AEN10154]]
-- 54-1. [[The standard startup script explained|x10194#AEN10199]]
-- 55-1. [[`CEVBClientApp` definition|c10329#AEN10375]]
+            daqshm library|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x9995.md#AEN10010]]
+- 52-1. [[Catching `CException` and exiting|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10103.md#AEN10128]]
+- 53-1. [[The **watch** command.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10135.md#AEN10154]]
+- 54-1. [[The standard startup script explained|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10194.md#AEN10199]]
+- 55-1. [[`CEVBClientApp` definition|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md#AEN10375]]
 - 55-2. [[The `CEVBRingClientApp` class
-                definition.|c10329#AEN10407]]
+                definition.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md#AEN10407]]
 - 55-3. [[The `CEVBRingClientApp` `initialize`
-                and `shutdown` methods.|c10329#AEN10421]]
+                and `shutdown` methods.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md#AEN10421]]
 - 55-4. [[The `CEVBRingClientApp`
-`dataReady` method.|c10329#AEN10434]]
+`dataReady` method.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md#AEN10434]]
 - 55-5. [[The `EVBRingClientApp` `getEvents`
-                implementation.|c10329#AEN10478]]
-- 55-6. [[Configuring the event builder client framework|x10517#AEN10528]]
-- 55-7. [[S800 timestamp extractor (s800timestamp.c|x10595#AEN10641]]
-- 56-1. [[Using the EVBC state manager callback bundle|x10712#AEN10718]]
-- 57-1. [[Passing the ring buffer to the construction of an Event segment.|c10747#AEN11080]]
-- 57-2. [[Creating Events|c10747#AEN11116]]
-- 57-3. [[Obtaining the SBS readout skeleton|x11153#AEN11158]]
-- 1. [[Uncompressing NSCLDAQ-10.x data and converting it to NSCLDAQ-11 format|r11488#AEN11507]]
-- 1. [[Attaching SpecTcl to a ring buffer in compatibility mode|r11598#AEN11630]]
-- 1. [[Running spectcldaq.server|r11639#AEN11692]]
-- 2. [[Connecting to spectcldaq.server|r11639#AEN11697]]
-- 1. [[Dumping all data from an old style event file|r11765#AEN11822]]
-- 2. [[Dumping all data but event data from an old style event file|r11765#AEN11825]]
-- 3. [[Dumping all but physics data from several event files|r11765#AEN11829]]
-- 1. [[Sample output from **ringbuffer status**|r11834#AEN11904]]
-- 1. [[making hex dumps of data from a ring buffer.|r11932#AEN11983]]
-- 1. [[Using stdintoring|r11986#AEN12035]]
-- 1. [[Dumping state changes and sampled event data with od|r12813#AEN12916]]
-- 2. [[Dumping all but packet types|r12813#AEN12924]]
-- 3. [[Attaching SpecTcl|r12813#AEN12932]]
-- 1. [[Viewing a set of channel values interactively|r13064#AEN13098]]
-- 2. [[Writing a set of channels to a file|r13064#AEN13101]]
-- 3. [[Appending a set of channels to a file|r13064#AEN13104]]
-- 4. [[Piping a set of channels to a program for processing|r13064#AEN13107]]
-- 1. [[Supporting an observer in a snit type or widget|r14449#AEN14530]]
-- 2. [[Supporting multiple observers in a snit type or widget|r14449#AEN14541]]
+                implementation.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10329.md#AEN10478]]
+- 55-6. [[Configuring the event builder client framework|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10517.md#AEN10528]]
+- 55-7. [[S800 timestamp extractor (s800timestamp.c|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10595.md#AEN10641]]
+- 56-1. [[Using the EVBC state manager callback bundle|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x10712.md#AEN10718]]
+- 57-1. [[Passing the ring buffer to the construction of an Event segment.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10747.md#AEN11080]]
+- 57-2. [[Creating Events|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/c10747.md#AEN11116]]
+- 57-3. [[Obtaining the SBS readout skeleton|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/x11153.md#AEN11158]]
+- 1. [[Uncompressing NSCLDAQ-10.x data and converting it to NSCLDAQ-11 format|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11488.md#AEN11507]]
+- 1. [[Attaching SpecTcl to a ring buffer in compatibility mode|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11598.md#AEN11630]]
+- 1. [[Running spectcldaq.server|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11639.md#AEN11692]]
+- 2. [[Connecting to spectcldaq.server|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11639.md#AEN11697]]
+- 1. [[Dumping all data from an old style event file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11765.md#AEN11822]]
+- 2. [[Dumping all data but event data from an old style event file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11765.md#AEN11825]]
+- 3. [[Dumping all but physics data from several event files|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11765.md#AEN11829]]
+- 1. [[Sample output from **ringbuffer status**|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11834.md#AEN11904]]
+- 1. [[making hex dumps of data from a ring buffer.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11932.md#AEN11983]]
+- 1. [[Using stdintoring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r11986.md#AEN12035]]
+- 1. [[Dumping state changes and sampled event data with od|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12813.md#AEN12916]]
+- 2. [[Dumping all but packet types|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12813.md#AEN12924]]
+- 3. [[Attaching SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r12813.md#AEN12932]]
+- 1. [[Viewing a set of channel values interactively|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13064.md#AEN13098]]
+- 2. [[Writing a set of channels to a file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13064.md#AEN13101]]
+- 3. [[Appending a set of channels to a file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13064.md#AEN13104]]
+- 4. [[Piping a set of channels to a program for processing|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r13064.md#AEN13107]]
+- 1. [[Supporting an observer in a snit type or widget|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14449.md#AEN14530]]
+- 2. [[Supporting multiple observers in a snit type or widget|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r14449.md#AEN14541]]
 - 1. [[Using `CRingAccess` to connect to
-                    a local ring.|r16345#AEN16530]]
+                    a local ring.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16345.md#AEN16530]]
 - 2. [[Using `CRingAccess` to connect to a remote
-                ring|r16345#AEN16534]]
-- 1. [[Message filter predicate|r16538#AEN17293]]
-- 1. [[Selecting sampled event from a ring.|r17348#AEN17787]]
-- 1. [[Constructing a scaler item from an item gotten from a ring|r17815#AEN18226]]
-- 1. [[Creating a begin run state transition item|r18251#AEN18643]]
-- 1. [[Allocating a port with the port manager|r23764#AEN23906]]
-- 2. [[Listing the port allocatiosn on a system.|r23764#AEN23910]]
-- 1. [[Catching a CPortManagerException|r23919#AEN24063]]
-- 1. [[Creating a CAENcard geographically|r24535#AEN25322]]
-- 2. [[Setting a TDC to common stop mode|r24535#AEN25326]]
-- 3. [[Reading out a CAEN 785 e.g.|r24535#AEN25330]]
-- 1. [[Initializing branch 0|r25338#AEN25699]]
-- 1. [[Using the LRS 1151 in the production readout framework.|r32186#AEN32270]]
-- 1. [[Creating a device driver via private derivation|r33207#AEN33324]]
-- 2. [[Creating a device driver via inclusion|r33207#AEN33330]]
+                ring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16345.md#AEN16534]]
+- 1. [[Message filter predicate|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r16538.md#AEN17293]]
+- 1. [[Selecting sampled event from a ring.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r17348.md#AEN17787]]
+- 1. [[Constructing a scaler item from an item gotten from a ring|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r17815.md#AEN18226]]
+- 1. [[Creating a begin run state transition item|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r18251.md#AEN18643]]
+- 1. [[Allocating a port with the port manager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23764.md#AEN23906]]
+- 2. [[Listing the port allocatiosn on a system.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23764.md#AEN23910]]
+- 1. [[Catching a CPortManagerException|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r23919.md#AEN24063]]
+- 1. [[Creating a CAENcard geographically|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r24535.md#AEN25322]]
+- 2. [[Setting a TDC to common stop mode|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r24535.md#AEN25326]]
+- 3. [[Reading out a CAEN 785 e.g.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r24535.md#AEN25330]]
+- 1. [[Initializing branch 0|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r25338.md#AEN25699]]
+- 1. [[Using the LRS 1151 in the production readout framework.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r32186.md#AEN32270]]
+- 1. [[Creating a device driver via private derivation|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r33207.md#AEN33324]]
+- 2. [[Creating a device driver via inclusion|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r33207.md#AEN33330]]
 - 1. [[Calling `CStringInteractor` specific
-         members|r37111#AEN37268]]
-- 1. [[Creating a coypright notice on stderr|r37671#AEN37760]]
-- 2. [[Creating an author credit on stderr|r37671#AEN37764]]
-- 1. [[evttclsh|r40784#AEN40885]]
-- 1. [[AD811 configuration file example|r43516#AEN43569]]
-- 1. [[LRS2228 creation example|r44011#AEN44065]]
-- 1. [[The lrs2551 command|r44121#AEN44194]]
+         members|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37111.md#AEN37268]]
+- 1. [[Creating a coypright notice on stderr|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37671.md#AEN37760]]
+- 2. [[Creating an author credit on stderr|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r37671.md#AEN37764]]
+- 1. [[evttclsh|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r40784.md#AEN40885]]
+- 1. [[AD811 configuration file example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r43516.md#AEN43569]]
+- 1. [[LRS2228 creation example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44011.md#AEN44065]]
+- 1. [[The lrs2551 command|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44121.md#AEN44194]]
 - 1. [[Using the **list** command to
-                                  construct pedestals|r44236#AEN44336]]
-- 2. [[Sample **ph7xxx** commands|r44236#AEN44426]]
-- 1. [[Example of the **stack** command.|r44430#AEN44544]]
-- 1. [[A simple crate setup containing a single scaler|r44611#AEN44651]]
-- 1. [[A simple setup of one FERA|r44655#AEN44758]]
-- 1. [[A simple setup of one scaler|r44762#AEN44804]]
-- 1. [[A simple setup of a single scaler|r44808#AEN44842]]
-- 1. [[A simple setup of a single ULM|r44846#AEN45020]]
-- 1. [[Listing CC-USB Serial numbers (Tcl).|r50121#AEN50781]]
-- 2. [[Creating a CCCUSB object by serial number (Tcl).|r50121#AEN50791]]
-- 1. [[bell example|r52419#AEN52535]]
-- 1. [[Sample use of the `DialogWrapper`|r53061#AEN53231]]
-- 1. [[A do nothing `RunstateMachine` callout bundle|r53850#AEN54041]]
-- 1. [[Getters and setters for StateManager|r54081#AEN54196]]
-- 1. [[Sample ADC commands|r55679#AEN55821]]
-- 1. [[Using the **caenchain** command.|r55828#AEN55881]]
-- 1. [[Configuring an SIS3820 scaler module|r56315#AEN56373]]
-- 1. [[Configuring a CAEN V830 scaler|r56376#AEN56568]]
-- 1. [[Configuring the SIS 3804 scaler|r56716#AEN56780]]
-- 1. [[Sample Hytec 2530 configuration|r56843#AEN56982]]
-- 1. [[Sample use of madc command|r57151#AEN57389]]
-- 1. [[Sample use of mqdc command for timestamping with external oscillator|r57773#AEN58166]]
-- 2. [[Sample configuration of mqdc for event counting and interrupt readout|r57773#AEN58188]]
-- 1. [[Sample usage|r58200#AEN58272]]
-- 1. [[Building Stacks|r58763#AEN58888]]
-- 1. [[A simple delay example|r66129#AEN66160]]
-- 1. [[Sample setup of two camac crates on branch 0|r66164#AEN66212]]
-- 1. [[Sample setup of a single LeCroy 2551|r66216#AEN66256]]
-- 1. [[Sample setup of a few FERAs|r66260#AEN66363]]
-- 1. [[Sample setup of a single scaler|r66367#AEN66409]]
-- 1. [[Simple setup of a single scaler|r66413#AEN66449]]
-- 1. [[Setup of a single ULM trigger module|r66453#AEN66628]]
-- 1. [[Simple setup of a single timestamp module|r66632#AEN66672]]
-- 1. [[Simple setup of a single timestamp module|r66714#AEN66767]]
-- 1. [[Simple setup of the AXLM72ScalerControl|r66771#AEN66854]]
-- 1. [[Example ctlconfig.tcl entry|r66858#AEN66902]]
-- 1. [[Allocating a service port in Tcl|r68886#AEN68973]]
-- 2. [[Listing allocated ports in Tcl|r68886#AEN68977]]
-- 1. [[Hooking update methods to recurring timer|r70193#AEN70264]]
-- 1. [[Action script example|r71022#AEN71136]]
-- 2. [[Sequencer column configuration file|r71022#AEN71142]]
-- 1. [[Creating and registering a V262 as a busy:|r71676#AEN71792]]
-- 1. [[Deep iteration of `CCompondEventSegment` elements|r71905#AEN72163]]
-- 2. [[Deep visitation of `CCompoundEventSegment` elements|r71905#AEN72167]]
-- 1. [[Using the `CDocumentedPacket` class|r72175#AEN72430]]
-- 1. [[Catching readout specific examples|r73268#AEN73285]]
-- 1. [[Deep visitation in `CScalerBank` containers|r73292#AEN73526]]
-- 1. [[Outputting the state of the run|r73818#AEN73915]]
-- 1. [[Sample configuration file|r74123#AEN74221]]
-- 1. [[Sample configuration file|r74229#AEN74337]]
-- 1. [[Sample configuration file|r74345#AEN74353]]
+                                  construct pedestals|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44236.md#AEN44336]]
+- 2. [[Sample **ph7xxx** commands|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44236.md#AEN44426]]
+- 1. [[Example of the **stack** command.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44430.md#AEN44544]]
+- 1. [[A simple crate setup containing a single scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44611.md#AEN44651]]
+- 1. [[A simple setup of one FERA|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44655.md#AEN44758]]
+- 1. [[A simple setup of one scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44762.md#AEN44804]]
+- 1. [[A simple setup of a single scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44808.md#AEN44842]]
+- 1. [[A simple setup of a single ULM|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r44846.md#AEN45020]]
+- 1. [[Listing CC-USB Serial numbers (Tcl).|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r50121.md#AEN50781]]
+- 2. [[Creating a CCCUSB object by serial number (Tcl).|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r50121.md#AEN50791]]
+- 1. [[bell example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r52419.md#AEN52535]]
+- 1. [[Sample use of the `DialogWrapper`|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53061.md#AEN53231]]
+- 1. [[A do nothing `RunstateMachine` callout bundle|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r53850.md#AEN54041]]
+- 1. [[Getters and setters for StateManager|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r54081.md#AEN54196]]
+- 1. [[Sample ADC commands|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55679.md#AEN55821]]
+- 1. [[Using the **caenchain** command.|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r55828.md#AEN55881]]
+- 1. [[Configuring an SIS3820 scaler module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56315.md#AEN56373]]
+- 1. [[Configuring a CAEN V830 scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56376.md#AEN56568]]
+- 1. [[Configuring the SIS 3804 scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56716.md#AEN56780]]
+- 1. [[Sample Hytec 2530 configuration|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r56843.md#AEN56982]]
+- 1. [[Sample use of madc command|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57151.md#AEN57389]]
+- 1. [[Sample use of mqdc command for timestamping with external oscillator|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57773.md#AEN58166]]
+- 2. [[Sample configuration of mqdc for event counting and interrupt readout|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r57773.md#AEN58188]]
+- 1. [[Sample usage|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58200.md#AEN58272]]
+- 1. [[Building Stacks|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r58763.md#AEN58888]]
+- 1. [[A simple delay example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66129.md#AEN66160]]
+- 1. [[Sample setup of two camac crates on branch 0|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66164.md#AEN66212]]
+- 1. [[Sample setup of a single LeCroy 2551|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66216.md#AEN66256]]
+- 1. [[Sample setup of a few FERAs|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66260.md#AEN66363]]
+- 1. [[Sample setup of a single scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66367.md#AEN66409]]
+- 1. [[Simple setup of a single scaler|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66413.md#AEN66449]]
+- 1. [[Setup of a single ULM trigger module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66453.md#AEN66628]]
+- 1. [[Simple setup of a single timestamp module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66632.md#AEN66672]]
+- 1. [[Simple setup of a single timestamp module|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66714.md#AEN66767]]
+- 1. [[Simple setup of the AXLM72ScalerControl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66771.md#AEN66854]]
+- 1. [[Example ctlconfig.tcl entry|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r66858.md#AEN66902]]
+- 1. [[Allocating a service port in Tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68886.md#AEN68973]]
+- 2. [[Listing allocated ports in Tcl|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r68886.md#AEN68977]]
+- 1. [[Hooking update methods to recurring timer|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r70193.md#AEN70264]]
+- 1. [[Action script example|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71022.md#AEN71136]]
+- 2. [[Sequencer column configuration file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71022.md#AEN71142]]
+- 1. [[Creating and registering a V262 as a busy:|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71676.md#AEN71792]]
+- 1. [[Deep iteration of `CCompondEventSegment` elements|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71905.md#AEN72163]]
+- 2. [[Deep visitation of `CCompoundEventSegment` elements|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r71905.md#AEN72167]]
+- 1. [[Using the `CDocumentedPacket` class|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r72175.md#AEN72430]]
+- 1. [[Catching readout specific examples|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73268.md#AEN73285]]
+- 1. [[Deep visitation in `CScalerBank` containers|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73292.md#AEN73526]]
+- 1. [[Outputting the state of the run|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r73818.md#AEN73915]]
+- 1. [[Sample configuration file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74123.md#AEN74221]]
+- 1. [[Sample configuration file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74229.md#AEN74337]]
+- 1. [[Sample configuration file|https://github.com/FRIBDAQ/docs/tree/main/11.0old.delete_this_please/r74345.md#AEN74353]]
 
 ---
 

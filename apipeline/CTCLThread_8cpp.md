@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[tclplus|dir_c948a11158a47e9d05fa31773eff393c]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_c948a11158a47e9d05fa31773eff393c.md]]
 
  top 
 CTCLThread.cpp File Reference
 
 header
-: Implement the [[CTCLThread|classCTCLThread]] class.  
+: Implement the [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]] class.  
 [More...](#details)
 
 
@@ -44,7 +44,7 @@ Include dependency graph for CTCLThread.cpp:
 <a name="details"></a>## Detailed Description
 
 
-: Implement the [[CTCLThread|classCTCLThread]] class.
+: Implement the [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md]] class.
 
  contents 
  start footer part 

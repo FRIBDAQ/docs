@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classccallbacktests-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classccallbacktests-members.md]]
 
 
 ccallbacktests Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for ccallbacktests:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for ccallbacktests:
@@ -47,7 +47,7 @@ Collaboration diagram for ccallbacktests:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |

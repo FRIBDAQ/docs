@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCPixieRunUtilities-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities-members.md]]
 
 
-CPixieRunUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
+CPixieRunUtilities Class Reference[[libPixieUtilities.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__utilities.md]]
 
 header
 Manage list-mode histogram and baseline runs for a Pixie-16 system.  
- [[More...|classCPixieRunUtilities#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#details]]
 
 
 `#include <CPixieRunUtilities.h>`
@@ -97,7 +97,7 @@ This class provides functionality to start and stop runs as well as read data fr
 Constructor.
 
 
-The [[CPixieRunUtilities|classCPixieRunUtilities]] class has ownership of a [[CDataGenerator|classCDataGenerator]] object and is responsible for managing it.
+The [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md]] class has ownership of a [[CDataGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md]] object and is responsible for managing it.
 
 
 ## Member Function Documentation
@@ -156,7 +156,7 @@ Begin a histogram (MCA) run for a single module. Explicitly sets module synchron
   | !=0 | XIA API error code. |
 
 
-- **[[Todo:|todo#_todo000001]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000001]]**
   Disable multiple modules from running in non-sync mode.
 
 
@@ -300,7 +300,7 @@ Acquire baselines and read baseline data from a single channel.
 Acquire baseline values for all channels on a module using Pixie16AcquireBaselines() and update the internal storage for baseline data. The single channel baseline data we want, specified by the input channel parameter, is copied into a local variable which is accessible via a getter function.
 
 
-- **[[Todo:|todo#_todo000002]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000002]]**
   (ASC 7/14/23): Why not just have the getter take a channel as an input parameter and return the correct baseline data. It seems unnecessary to maintain a separate copy.
 
 
@@ -367,7 +367,7 @@ Read statistics for a single module after a run is ended.
 Statistics size is different between XIA API version 2 and 3. 3.x provides a Pixie16GetStatisticsSize() so we don't have to worry about calculating the statistics size ourselves or use a hardcoded value. Accessing the run statistics using the wrong method results in a segfault.
 
 
-- **[[Todo:|todo#_todo000003]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000003]]**
   (ASC 9/27/23): Confirm end of run and handle if not ended properly.
 
 
@@ -392,8 +392,8 @@ Set the use of the generator for offline data.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieRunUtilities.h|CPixieRunUtilities_8h_source]]
-- [[CPixieRunUtilities.cpp|CPixieRunUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h_source.md]]
+- [[CPixieRunUtilities.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8cpp.md]]
 
  contents 
  start footer part 

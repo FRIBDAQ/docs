@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCPixieDSPUtilities-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities-members.md]]
 
 
-CPixieDSPUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
+CPixieDSPUtilities Class Reference[[libPixieUtilities.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__utilities.md]]
 
 header
 Read and writes both channel-level and module-level DSP settings.  
- [[More...|classCPixieDSPUtilities#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#details]]
 
 
 `#include <CPixieDSPUtilities.h>`
@@ -239,8 +239,8 @@ Module parameters are unsigned ints. For a list of parameters and their units, s
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieDSPUtilities.h|CPixieDSPUtilities_8h_source]]
-- [[CPixieDSPUtilities.cpp|CPixieDSPUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h_source.md]]
+- [[CPixieDSPUtilities.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8cpp.md]]
 
  contents 
  start footer part 

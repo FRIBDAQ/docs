@@ -19,9 +19,9 @@ do not remove this div, it is closed by doxygen!
 ### - n -
 
 - nextEvent()
-  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#ac76200d9964c0d7e683876b46fc4d863]]
+  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ac76200d9964c0d7e683876b46fc4d863]]
 - numWorkers()
-  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a769d6d2c41df55f6cb9608a22ab15502]]
+  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a769d6d2c41df55f6cb9608a22ab15502]]
 
  contents 
  start footer part 

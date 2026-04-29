@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCInvalidArgumentException-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException-members.md]]
 
 
 CInvalidArgumentException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CInvalidArgumentException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CInvalidArgumentException:
@@ -51,7 +51,7 @@ Collaboration diagram for CInvalidArgumentException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -206,7 +206,7 @@ Assignement from rhs.
 
 
 - Returns
-  [[CInvalidArgumentException|classCInvalidArgumentException]]&
+  [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]&
 
 - Return values
   |  |  |
@@ -256,13 +256,13 @@ Assignement from rhs.
   | A | human readable string that describes the error that caused the exception to be thrown. |
 
 
-Reimplemented from [[CException|classCException]].
+Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CInvalidArgumentException.h|CInvalidArgumentException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CInvalidArgumentException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CInvalidArgumentException_8h_source.md]]
 - libtclplus/exception/CInvalidArgumentException.cpp
 
  contents 

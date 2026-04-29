@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 fit_extensions.h
 
 header
-[[Go to the documentation of this file.|fit__extensions_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -97,19 +97,19 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00037"></a>[[37|structddastoys_1_1PulseDescription]]     struct [[PulseDescription|structddastoys_1_1PulseDescription]] {
+<a name="l00037"></a>[[37|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]]     struct [[PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]] {
 
 
-<a name="l00038"></a>[[38|structddastoys_1_1PulseDescription#acac1ce0792a5923da20ffa74eb66691b]]     double [[position|structddastoys_1_1PulseDescription#acac1ce0792a5923da20ffa74eb66691b]];
+<a name="l00038"></a>[[38|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#acac1ce0792a5923da20ffa74eb66691b]]     double [[position|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#acac1ce0792a5923da20ffa74eb66691b]];
 
 
-<a name="l00039"></a>[[39|structddastoys_1_1PulseDescription#a7dfe5ec91515520c4ad705aa759b257d]]     double [[amplitude|structddastoys_1_1PulseDescription#a7dfe5ec91515520c4ad705aa759b257d]];
+<a name="l00039"></a>[[39|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a7dfe5ec91515520c4ad705aa759b257d]]     double [[amplitude|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a7dfe5ec91515520c4ad705aa759b257d]];
 
 
-<a name="l00040"></a>[[40|structddastoys_1_1PulseDescription#afd9eb234ef215507bb9aaffce6f2744f]]     double [[steepness|structddastoys_1_1PulseDescription#afd9eb234ef215507bb9aaffce6f2744f]];
+<a name="l00040"></a>[[40|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#afd9eb234ef215507bb9aaffce6f2744f]]     double [[steepness|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#afd9eb234ef215507bb9aaffce6f2744f]];
 
 
-<a name="l00041"></a>[[41|structddastoys_1_1PulseDescription#a721c2b83dd1f33cfcd5a039442ff6e83]]     double [[decayTime|structddastoys_1_1PulseDescription#a721c2b83dd1f33cfcd5a039442ff6e83]];
+<a name="l00041"></a>[[41|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a721c2b83dd1f33cfcd5a039442ff6e83]]     double [[decayTime|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a721c2b83dd1f33cfcd5a039442ff6e83]];
 
 
 <a name="l00042"></a>   42     };
@@ -118,22 +118,22 @@ header
 <a name="l00043"></a>   43
 
 
-<a name="l00048"></a>[[48|structddastoys_1_1fit1Info]]     struct [[fit1Info|structddastoys_1_1fit1Info]] { // Info from single pulse fit:
+<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]     struct [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]] { // Info from single pulse fit:
 
 
-<a name="l00049"></a>[[49|structddastoys_1_1fit1Info#afd4c01f18493324850b22dae9be64207]]     [[PulseDescription|structddastoys_1_1PulseDescription]] [[pulse|structddastoys_1_1fit1Info#afd4c01f18493324850b22dae9be64207]];
+<a name="l00049"></a>[[49|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#afd4c01f18493324850b22dae9be64207]]     [[PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]] [[pulse|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#afd4c01f18493324850b22dae9be64207]];
 
 
-<a name="l00050"></a>[[50|structddastoys_1_1fit1Info#a0fd88c11d1366d5c82eb9827dae20c3a]]     double [[chiSquare|structddastoys_1_1fit1Info#a0fd88c11d1366d5c82eb9827dae20c3a]];
+<a name="l00050"></a>[[50|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a0fd88c11d1366d5c82eb9827dae20c3a]]     double [[chiSquare|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a0fd88c11d1366d5c82eb9827dae20c3a]];
 
 
-<a name="l00051"></a>[[51|structddastoys_1_1fit1Info#a28fcfa9a811b677edba81832655506a3]]     double [[offset|structddastoys_1_1fit1Info#a28fcfa9a811b677edba81832655506a3]];
+<a name="l00051"></a>[[51|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a28fcfa9a811b677edba81832655506a3]]     double [[offset|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a28fcfa9a811b677edba81832655506a3]];
 
 
-<a name="l00052"></a>[[52|structddastoys_1_1fit1Info#a284e564281fe171e1fd567dc7fe86192]]     unsigned [[iterations|structddastoys_1_1fit1Info#a284e564281fe171e1fd567dc7fe86192]];
+<a name="l00052"></a>[[52|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a284e564281fe171e1fd567dc7fe86192]]     unsigned [[iterations|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a284e564281fe171e1fd567dc7fe86192]];
 
 
-<a name="l00053"></a>[[53|structddastoys_1_1fit1Info#a8dc20c4c1d52a7e5120ad1761c5ed949]]     unsigned [[fitStatus|structddastoys_1_1fit1Info#a8dc20c4c1d52a7e5120ad1761c5ed949]];
+<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a8dc20c4c1d52a7e5120ad1761c5ed949]]     unsigned [[fitStatus|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a8dc20c4c1d52a7e5120ad1761c5ed949]];
 
 
 <a name="l00054"></a>   54     };
@@ -142,22 +142,22 @@ header
 <a name="l00055"></a>   55
 
 
-<a name="l00060"></a>[[60|structddastoys_1_1fit2Info]]     struct [[fit2Info|structddastoys_1_1fit2Info]] { // Info from double pulse fit:
+<a name="l00060"></a>[[60|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]     struct [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]] { // Info from double pulse fit:
 
 
-<a name="l00061"></a>[[61|structddastoys_1_1fit2Info#a410768c2c76b361c08ed4ce7fee931d7]]     [[PulseDescription|structddastoys_1_1PulseDescription]] [[pulses|structddastoys_1_1fit2Info#a410768c2c76b361c08ed4ce7fee931d7]][2];
+<a name="l00061"></a>[[61|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a410768c2c76b361c08ed4ce7fee931d7]]     [[PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]] [[pulses|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a410768c2c76b361c08ed4ce7fee931d7]][2];
 
 
-<a name="l00062"></a>[[62|structddastoys_1_1fit2Info#a416a2b2d7c2328c456d46060373fcb37]]     double [[chiSquare|structddastoys_1_1fit2Info#a416a2b2d7c2328c456d46060373fcb37]];
+<a name="l00062"></a>[[62|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a416a2b2d7c2328c456d46060373fcb37]]     double [[chiSquare|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a416a2b2d7c2328c456d46060373fcb37]];
 
 
-<a name="l00063"></a>[[63|structddastoys_1_1fit2Info#a08e5d4968217ec0bc94a3f9c54a926b2]]     double [[offset|structddastoys_1_1fit2Info#a08e5d4968217ec0bc94a3f9c54a926b2]];
+<a name="l00063"></a>[[63|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a08e5d4968217ec0bc94a3f9c54a926b2]]     double [[offset|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a08e5d4968217ec0bc94a3f9c54a926b2]];
 
 
-<a name="l00064"></a>[[64|structddastoys_1_1fit2Info#ab8686d8462ece209d2e552a298eda764]]     unsigned [[iterations|structddastoys_1_1fit2Info#ab8686d8462ece209d2e552a298eda764]];
+<a name="l00064"></a>[[64|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#ab8686d8462ece209d2e552a298eda764]]     unsigned [[iterations|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#ab8686d8462ece209d2e552a298eda764]];
 
 
-<a name="l00065"></a>[[65|structddastoys_1_1fit2Info#aab25a88a6dce9c050ead9c72ba263b3b]]     unsigned [[fitStatus|structddastoys_1_1fit2Info#aab25a88a6dce9c050ead9c72ba263b3b]];
+<a name="l00065"></a>[[65|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#aab25a88a6dce9c050ead9c72ba263b3b]]     unsigned [[fitStatus|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#aab25a88a6dce9c050ead9c72ba263b3b]];
 
 
 <a name="l00066"></a>   66     };
@@ -166,13 +166,13 @@ header
 <a name="l00067"></a>   67
 
 
-<a name="l00073"></a>[[73|structddastoys_1_1HitExtensionLegacy]]     struct [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]] { // Data added to hits with traces:
+<a name="l00073"></a>[[73|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]]     struct [[HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]] { // Data added to hits with traces:
 
 
-<a name="l00074"></a>[[74|structddastoys_1_1HitExtensionLegacy#ad8818a1b170c3d7035e02c8aa0871f6b]]     [[fit1Info|structddastoys_1_1fit1Info]] [[onePulseFit|structddastoys_1_1HitExtensionLegacy#ad8818a1b170c3d7035e02c8aa0871f6b]];
+<a name="l00074"></a>[[74|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#ad8818a1b170c3d7035e02c8aa0871f6b]]     [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]] [[onePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#ad8818a1b170c3d7035e02c8aa0871f6b]];
 
 
-<a name="l00075"></a>[[75|structddastoys_1_1HitExtensionLegacy#a34ae6f42360bc20948d7ef037bf90d44]]     [[fit2Info|structddastoys_1_1fit2Info]] [[twoPulseFit|structddastoys_1_1HitExtensionLegacy#a34ae6f42360bc20948d7ef037bf90d44]];
+<a name="l00075"></a>[[75|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#a34ae6f42360bc20948d7ef037bf90d44]]     [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]] [[twoPulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#a34ae6f42360bc20948d7ef037bf90d44]];
 
 
 <a name="l00076"></a>   76     };
@@ -181,31 +181,31 @@ header
 <a name="l00077"></a>   77
 
 
-<a name="l00082"></a>[[82|structddastoys_1_1HitExtension]]     struct [[HitExtension|structddastoys_1_1HitExtension]] { // Data added to hits with traces:
+<a name="l00082"></a>[[82|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]     struct [[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]] { // Data added to hits with traces:
 
 
-<a name="l00083"></a>[[83|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]]     [[fit1Info|structddastoys_1_1fit1Info]] [[onePulseFit|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]];
+<a name="l00083"></a>[[83|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]]     [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]] [[onePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]];
 
 
-<a name="l00084"></a>[[84|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]]     [[fit2Info|structddastoys_1_1fit2Info]] [[twoPulseFit|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]];
+<a name="l00084"></a>[[84|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]]     [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]] [[twoPulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]];
 
 
-<a name="l00085"></a>[[85|structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]]     double [[singleProb|structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]];
+<a name="l00085"></a>[[85|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869]]     double [[singleProb|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869]];
 
 
-<a name="l00086"></a>[[86|structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]]     double [[doubleProb|structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]];
+<a name="l00086"></a>[[86|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42]]     double [[doubleProb|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42]];
 
 
-<a name="l00088"></a>[[88|structddastoys_1_1HitExtension#ac8751242514b0198b362a02023fe9479]]     [[HitExtension|structddastoys_1_1HitExtension#ac8751242514b0198b362a02023fe9479]]() = default;
+<a name="l00088"></a>[[88|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ac8751242514b0198b362a02023fe9479]]     [[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ac8751242514b0198b362a02023fe9479]]() = default;
 
 
-<a name="l00095"></a>[[95|structddastoys_1_1HitExtension#a8b3e47c0e5b15d05624c17906ff583df]]     [[HitExtension|structddastoys_1_1HitExtension#a8b3e47c0e5b15d05624c17906ff583df]](const [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]]& leg) :
+<a name="l00095"></a>[[95|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#a8b3e47c0e5b15d05624c17906ff583df]]     [[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#a8b3e47c0e5b15d05624c17906ff583df]](const [[HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]]& leg) :
 
 
-<a name="l00096"></a>   96         [[onePulseFit|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]](leg.[[onePulseFit|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]]), [[twoPulseFit|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]](leg.[[twoPulseFit|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]]),
+<a name="l00096"></a>   96         [[onePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]](leg.[[onePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]]), [[twoPulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]](leg.[[twoPulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]]),
 
 
-<a name="l00097"></a>   97         [[singleProb|structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]](0), [[doubleProb|structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]](0) {}
+<a name="l00097"></a>   97         [[singleProb|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869]](0), [[doubleProb|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42]](0) {}
 
 
 <a name="l00098"></a>   98     };
@@ -214,13 +214,13 @@ header
 <a name="l00099"></a>   99
 
 
-<a name="l00104"></a>[[104|structddastoys_1_1nullExtension]]     struct [[nullExtension|structddastoys_1_1nullExtension]] {
+<a name="l00104"></a>[[104|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md]]     struct [[nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md]] {
 
 
-<a name="l00105"></a>[[105|structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]]     uint32_t [[s_size|structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]];
+<a name="l00105"></a>[[105|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e]]     uint32_t [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e]];
 
 
-<a name="l00107"></a>[[107|structddastoys_1_1nullExtension#ae2fdd115094befd4c3d0485573105426]]     [[nullExtension|structddastoys_1_1nullExtension#ae2fdd115094befd4c3d0485573105426]]() : [[s_size|structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]](sizeof(uint32_t)) {}
+<a name="l00107"></a>[[107|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ae2fdd115094befd4c3d0485573105426]]     [[nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ae2fdd115094befd4c3d0485573105426]]() : [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e]](sizeof(uint32_t)) {}
 
 
 <a name="l00108"></a>  108     };
@@ -229,19 +229,19 @@ header
 <a name="l00109"></a>  109
 
 
-<a name="l00115"></a>[[115|structddastoys_1_1FitInfoLegacy]]     struct [[FitInfoLegacy|structddastoys_1_1FitInfoLegacy]] {
+<a name="l00115"></a>[[115|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md]]     struct [[FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md]] {
 
 
-<a name="l00116"></a>[[116|structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]]     [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]] [[s_extension|structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]];
+<a name="l00116"></a>[[116|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c]]     [[HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]] [[s_extension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c]];
 
 
-<a name="l00117"></a>[[117|structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]]     uint32_t           [[s_size|structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]];
+<a name="l00117"></a>[[117|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b]]     uint32_t           [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b]];
 
 
-<a name="l00119"></a>[[119|structddastoys_1_1FitInfoLegacy#a55bfcd0a28ff7b1f566135df1ff02791]]     [[FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a55bfcd0a28ff7b1f566135df1ff02791]]() : [[s_size|structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]](sizeof([[FitInfoLegacy|structddastoys_1_1FitInfoLegacy]])) {
+<a name="l00119"></a>[[119|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a55bfcd0a28ff7b1f566135df1ff02791]]     [[FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a55bfcd0a28ff7b1f566135df1ff02791]]() : [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b]](sizeof([[FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md]])) {
 
 
-<a name="l00120"></a>  120         memset(&[[s_extension|structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]], 0, sizeof([[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]]));
+<a name="l00120"></a>  120         memset(&[[s_extension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c]], 0, sizeof([[HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]]));
 
 
 <a name="l00121"></a>  121     }
@@ -253,19 +253,19 @@ header
 <a name="l00123"></a>  123
 
 
-<a name="l00128"></a>[[128|structddastoys_1_1FitInfo]]     struct [[FitInfo|structddastoys_1_1FitInfo]] {
+<a name="l00128"></a>[[128|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md]]     struct [[FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md]] {
 
 
-<a name="l00129"></a>[[129|structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]]     [[HitExtension|structddastoys_1_1HitExtension]] [[s_extension|structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]];
+<a name="l00129"></a>[[129|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd]]     [[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]] [[s_extension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd]];
 
 
-<a name="l00130"></a>[[130|structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]]     uint32_t     [[s_size|structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]];
+<a name="l00130"></a>[[130|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5]]     uint32_t     [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5]];
 
 
-<a name="l00132"></a>[[132|structddastoys_1_1FitInfo#af1ba3e561df65f66a0000a142db07fad]]     [[FitInfo|structddastoys_1_1FitInfo#af1ba3e561df65f66a0000a142db07fad]]() : [[s_size|structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]](sizeof([[FitInfo|structddastoys_1_1FitInfo]])) {
+<a name="l00132"></a>[[132|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#af1ba3e561df65f66a0000a142db07fad]]     [[FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#af1ba3e561df65f66a0000a142db07fad]]() : [[s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5]](sizeof([[FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md]])) {
 
 
-<a name="l00133"></a>  133         memset(&[[s_extension|structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]], 0, sizeof([[HitExtension|structddastoys_1_1HitExtension]]));
+<a name="l00133"></a>  133         memset(&[[s_extension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd]], 0, sizeof([[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]));
 
 
 <a name="l00134"></a>  134     }
@@ -286,14 +286,14 @@ header
 <a name="l00139"></a>  139 #endif
 
 
-[[ddastoys::FitInfoLegacy|structddastoys_1_1FitInfoLegacy]]
+[[ddastoys::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md]]
 
 Legacy fit extension that knows its size. This is the fit info struct for DDASToys pre-6....
 
 **Definition:** fit_extensions.h:115
 
 
-[[ddastoys::FitInfoLegacy::FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a55bfcd0a28ff7b1f566135df1ff02791]]
+[[ddastoys::FitInfoLegacy::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a55bfcd0a28ff7b1f566135df1ff02791]]
 
 FitInfoLegacy()
 
@@ -302,7 +302,7 @@ Creates FitInfo, set its size, and zeroes fit parameters.
 **Definition:** fit_extensions.h:119
 
 
-[[ddastoys::FitInfoLegacy::s_size|structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]]
+[[ddastoys::FitInfoLegacy::s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b]]
 
 uint32_t s_size
 
@@ -311,7 +311,7 @@ sizeof(HitExtensionLegacy)
 **Definition:** fit_extensions.h:117
 
 
-[[ddastoys::FitInfoLegacy::s_extension|structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]]
+[[ddastoys::FitInfoLegacy::s_extension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c]]
 
 HitExtensionLegacy s_extension
 
@@ -320,14 +320,14 @@ The hit extension data.
 **Definition:** fit_extensions.h:116
 
 
-[[ddastoys::FitInfo|structddastoys_1_1FitInfo]]
+[[ddastoys::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md]]
 
 A fit extension that knows its size.
 
 **Definition:** fit_extensions.h:128
 
 
-[[ddastoys::FitInfo::s_size|structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]]
+[[ddastoys::FitInfo::s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5]]
 
 uint32_t s_size
 
@@ -336,7 +336,7 @@ sizeof(HitExtension)
 **Definition:** fit_extensions.h:130
 
 
-[[ddastoys::FitInfo::s_extension|structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]]
+[[ddastoys::FitInfo::s_extension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd]]
 
 HitExtension s_extension
 
@@ -345,7 +345,7 @@ The hit extension data.
 **Definition:** fit_extensions.h:129
 
 
-[[ddastoys::FitInfo::FitInfo|structddastoys_1_1FitInfo#af1ba3e561df65f66a0000a142db07fad]]
+[[ddastoys::FitInfo::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#af1ba3e561df65f66a0000a142db07fad]]
 
 FitInfo()
 
@@ -354,14 +354,14 @@ Creates FitInfo, set its size, and zeroes parameters.
 **Definition:** fit_extensions.h:132
 
 
-[[ddastoys::HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]]
+[[ddastoys::HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]]
 
 Legacy data structure appended to each fit hit. This is the hit extension struct for DDASToys pre-6....
 
 **Definition:** fit_extensions.h:73
 
 
-[[ddastoys::HitExtensionLegacy::twoPulseFit|structddastoys_1_1HitExtensionLegacy#a34ae6f42360bc20948d7ef037bf90d44]]
+[[ddastoys::HitExtensionLegacy::twoPulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#a34ae6f42360bc20948d7ef037bf90d44]]
 
 fit2Info twoPulseFit
 
@@ -370,7 +370,7 @@ Double-pulse fit information.
 **Definition:** fit_extensions.h:75
 
 
-[[ddastoys::HitExtensionLegacy::onePulseFit|structddastoys_1_1HitExtensionLegacy#ad8818a1b170c3d7035e02c8aa0871f6b]]
+[[ddastoys::HitExtensionLegacy::onePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#ad8818a1b170c3d7035e02c8aa0871f6b]]
 
 fit1Info onePulseFit
 
@@ -379,14 +379,14 @@ Single-pulse fit information.
 **Definition:** fit_extensions.h:74
 
 
-[[ddastoys::HitExtension|structddastoys_1_1HitExtension]]
+[[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]
 
 The data structure appended to each fit hit.
 
 **Definition:** fit_extensions.h:82
 
 
-[[ddastoys::HitExtension::HitExtension|structddastoys_1_1HitExtension#a8b3e47c0e5b15d05624c17906ff583df]]
+[[ddastoys::HitExtension::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#a8b3e47c0e5b15d05624c17906ff583df]]
 
 HitExtension(const HitExtensionLegacy &leg)
 
@@ -395,7 +395,7 @@ Construct from legacy extension.
 **Definition:** fit_extensions.h:95
 
 
-[[ddastoys::HitExtension::twoPulseFit|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]]
+[[ddastoys::HitExtension::twoPulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]]
 
 fit2Info twoPulseFit
 
@@ -404,14 +404,14 @@ Double-pulse fit information.
 **Definition:** fit_extensions.h:84
 
 
-[[ddastoys::HitExtension::HitExtension|structddastoys_1_1HitExtension#ac8751242514b0198b362a02023fe9479]]
+[[ddastoys::HitExtension::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ac8751242514b0198b362a02023fe9479]]
 
 HitExtension()=default
 
 Default constructor.
 
 
-[[ddastoys::HitExtension::doubleProb|structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]]
+[[ddastoys::HitExtension::doubleProb|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42]]
 
 double doubleProb
 
@@ -420,7 +420,7 @@ Probability of double pulse.
 **Definition:** fit_extensions.h:86
 
 
-[[ddastoys::HitExtension::onePulseFit|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]]
+[[ddastoys::HitExtension::onePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]]
 
 fit1Info onePulseFit
 
@@ -429,7 +429,7 @@ Single-pulse fit information.
 **Definition:** fit_extensions.h:83
 
 
-[[ddastoys::HitExtension::singleProb|structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]]
+[[ddastoys::HitExtension::singleProb|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869]]
 
 double singleProb
 
@@ -438,14 +438,14 @@ Probability of single pulse.
 **Definition:** fit_extensions.h:85
 
 
-[[ddastoys::PulseDescription|structddastoys_1_1PulseDescription]]
+[[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]]
 
 Describes a single pulse without an offset.
 
 **Definition:** fit_extensions.h:37
 
 
-[[ddastoys::PulseDescription::decayTime|structddastoys_1_1PulseDescription#a721c2b83dd1f33cfcd5a039442ff6e83]]
+[[ddastoys::PulseDescription::decayTime|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a721c2b83dd1f33cfcd5a039442ff6e83]]
 
 double decayTime
 
@@ -454,7 +454,7 @@ Exponential decay constant.
 **Definition:** fit_extensions.h:41
 
 
-[[ddastoys::PulseDescription::amplitude|structddastoys_1_1PulseDescription#a7dfe5ec91515520c4ad705aa759b257d]]
+[[ddastoys::PulseDescription::amplitude|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a7dfe5ec91515520c4ad705aa759b257d]]
 
 double amplitude
 
@@ -463,7 +463,7 @@ Pulse amplitude.
 **Definition:** fit_extensions.h:39
 
 
-[[ddastoys::PulseDescription::position|structddastoys_1_1PulseDescription#acac1ce0792a5923da20ffa74eb66691b]]
+[[ddastoys::PulseDescription::position|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#acac1ce0792a5923da20ffa74eb66691b]]
 
 double position
 
@@ -472,7 +472,7 @@ Where the pulse is.
 **Definition:** fit_extensions.h:38
 
 
-[[ddastoys::PulseDescription::steepness|structddastoys_1_1PulseDescription#afd9eb234ef215507bb9aaffce6f2744f]]
+[[ddastoys::PulseDescription::steepness|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#afd9eb234ef215507bb9aaffce6f2744f]]
 
 double steepness
 
@@ -481,14 +481,14 @@ Logistic steepness factor.
 **Definition:** fit_extensions.h:40
 
 
-[[ddastoys::fit1Info|structddastoys_1_1fit1Info]]
+[[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]
 
 Full fitting information for the single pulse.
 
 **Definition:** fit_extensions.h:48
 
 
-[[ddastoys::fit1Info::chiSquare|structddastoys_1_1fit1Info#a0fd88c11d1366d5c82eb9827dae20c3a]]
+[[ddastoys::fit1Info::chiSquare|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a0fd88c11d1366d5c82eb9827dae20c3a]]
 
 double chiSquare
 
@@ -497,7 +497,7 @@ Chi-square value of the fit.
 **Definition:** fit_extensions.h:50
 
 
-[[ddastoys::fit1Info::iterations|structddastoys_1_1fit1Info#a284e564281fe171e1fd567dc7fe86192]]
+[[ddastoys::fit1Info::iterations|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a284e564281fe171e1fd567dc7fe86192]]
 
 unsigned iterations
 
@@ -506,7 +506,7 @@ Iterations for fit to converge.
 **Definition:** fit_extensions.h:52
 
 
-[[ddastoys::fit1Info::offset|structddastoys_1_1fit1Info#a28fcfa9a811b677edba81832655506a3]]
+[[ddastoys::fit1Info::offset|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a28fcfa9a811b677edba81832655506a3]]
 
 double offset
 
@@ -515,7 +515,7 @@ Constant offset.
 **Definition:** fit_extensions.h:51
 
 
-[[ddastoys::fit1Info::fitStatus|structddastoys_1_1fit1Info#a8dc20c4c1d52a7e5120ad1761c5ed949]]
+[[ddastoys::fit1Info::fitStatus|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a8dc20c4c1d52a7e5120ad1761c5ed949]]
 
 unsigned fitStatus
 
@@ -524,7 +524,7 @@ Fit status from GSL.
 **Definition:** fit_extensions.h:53
 
 
-[[ddastoys::fit1Info::pulse|structddastoys_1_1fit1Info#afd4c01f18493324850b22dae9be64207]]
+[[ddastoys::fit1Info::pulse|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#afd4c01f18493324850b22dae9be64207]]
 
 PulseDescription pulse
 
@@ -533,14 +533,14 @@ Description of the pulse parameters.
 **Definition:** fit_extensions.h:49
 
 
-[[ddastoys::fit2Info|structddastoys_1_1fit2Info]]
+[[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]
 
 Full fitting information for the double pulse.
 
 **Definition:** fit_extensions.h:60
 
 
-[[ddastoys::fit2Info::offset|structddastoys_1_1fit2Info#a08e5d4968217ec0bc94a3f9c54a926b2]]
+[[ddastoys::fit2Info::offset|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a08e5d4968217ec0bc94a3f9c54a926b2]]
 
 double offset
 
@@ -549,7 +549,7 @@ Shared constant offset.
 **Definition:** fit_extensions.h:63
 
 
-[[ddastoys::fit2Info::pulses|structddastoys_1_1fit2Info#a410768c2c76b361c08ed4ce7fee931d7]]
+[[ddastoys::fit2Info::pulses|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a410768c2c76b361c08ed4ce7fee931d7]]
 
 PulseDescription pulses[2]
 
@@ -558,7 +558,7 @@ The two pulses.
 **Definition:** fit_extensions.h:61
 
 
-[[ddastoys::fit2Info::chiSquare|structddastoys_1_1fit2Info#a416a2b2d7c2328c456d46060373fcb37]]
+[[ddastoys::fit2Info::chiSquare|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a416a2b2d7c2328c456d46060373fcb37]]
 
 double chiSquare
 
@@ -567,7 +567,7 @@ Chi-square value of the fit.
 **Definition:** fit_extensions.h:62
 
 
-[[ddastoys::fit2Info::fitStatus|structddastoys_1_1fit2Info#aab25a88a6dce9c050ead9c72ba263b3b]]
+[[ddastoys::fit2Info::fitStatus|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#aab25a88a6dce9c050ead9c72ba263b3b]]
 
 unsigned fitStatus
 
@@ -576,7 +576,7 @@ Fit status from GSL.
 **Definition:** fit_extensions.h:65
 
 
-[[ddastoys::fit2Info::iterations|structddastoys_1_1fit2Info#ab8686d8462ece209d2e552a298eda764]]
+[[ddastoys::fit2Info::iterations|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#ab8686d8462ece209d2e552a298eda764]]
 
 unsigned iterations
 
@@ -585,14 +585,14 @@ Iterations needed to converge.
 **Definition:** fit_extensions.h:64
 
 
-[[ddastoys::nullExtension|structddastoys_1_1nullExtension]]
+[[ddastoys::nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md]]
 
 A null fit extension is a single 32-bit word.
 
 **Definition:** fit_extensions.h:104
 
 
-[[ddastoys::nullExtension::s_size|structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]]
+[[ddastoys::nullExtension::s_size|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e]]
 
 uint32_t s_size
 
@@ -601,7 +601,7 @@ sizeof(uint32_t)
 **Definition:** fit_extensions.h:105
 
 
-[[ddastoys::nullExtension::nullExtension|structddastoys_1_1nullExtension#ae2fdd115094befd4c3d0485573105426]]
+[[ddastoys::nullExtension::nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ae2fdd115094befd4c3d0485573105426]]
 
 nullExtension()
 

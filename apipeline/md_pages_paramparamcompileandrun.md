@@ -26,7 +26,7 @@ header
 # Compiling and Running Parameter to Parameter Stages
 
 
-The instructions at [[Compiling and running the application|md_pages_buildandrunraw#compileandrunrawtoparams]] are correct, with the exception that there's never a need to link in the SpecTcl compatibility layer.
+The instructions at [[Compiling and running the application|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_buildandrunraw.md#compileandrunrawtoparams]] are correct, with the exception that there's never a need to link in the SpecTcl compatibility layer.
 
  contents 
  start footer part 

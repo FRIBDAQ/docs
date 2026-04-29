@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CParameterReader|classfrib_1_1analysis_1_1CParameterReader]]
+- [[CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[List of all members|classfrib_1_1analysis_1_1CParameterReader-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader-members.md]]
 
 
 frib::analysis::CParameterReader Class Referenceabstract
@@ -52,7 +52,7 @@ Inheritance diagram for frib::analysis::CParameterReader:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -78,7 +78,7 @@ Reads parameter/variable definition files. This is an abstract base class so tha
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[ParameterReader.h|ParameterReader_8h_source]]
+The documentation for this class was generated from the following file:- base/[[ParameterReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/ParameterReader_8h_source.md]]
 
  contents 
  start footer part 

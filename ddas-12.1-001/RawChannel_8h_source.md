@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
 
  top 
 RawChannel.h
 
 header
-[[Go to the documentation of this file.|RawChannel_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -97,97 +97,97 @@ header
 <a name="l00028"></a>   28
 
 
-<a name="l00029"></a>   29 namespace [[DDASReadout|namespaceDDASReadout]] {
+<a name="l00029"></a>   29 namespace [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] {
 
 
 <a name="l00030"></a>   30
 
 
-<a name="l00041"></a>[[41|structDDASReadout_1_1RawChannel]]     struct [[RawChannel|structDDASReadout_1_1RawChannel]] {
+<a name="l00041"></a>[[41|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]     struct [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]] {
 
 
-<a name="l00042"></a>[[42|structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]]         uint32_t [[s_moduleType|structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]];
+<a name="l00042"></a>[[42|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af937289721f5495c31218fafbba551fe]]         uint32_t [[s_moduleType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af937289721f5495c31218fafbba551fe]];
 
 
-<a name="l00043"></a>[[43|structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]]     double [[s_time|structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]];
+<a name="l00043"></a>[[43|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a99390756b2ad85cd0533216f5d818ee0]]     double [[s_time|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a99390756b2ad85cd0533216f5d818ee0]];
 
 
-<a name="l00044"></a>[[44|structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]]         int [[s_chanid|structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]];
+<a name="l00044"></a>[[44|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a501cd8167cec55226136d15f95f16e20]]         int [[s_chanid|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a501cd8167cec55226136d15f95f16e20]];
 
 
-<a name="l00045"></a>[[45|structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]]         bool [[s_ownData|structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]];
+<a name="l00045"></a>[[45|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a14ce9fb1311750d3fbac1615f85af16e]]         bool [[s_ownData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a14ce9fb1311750d3fbac1615f85af16e]];
 
 
-<a name="l00046"></a>[[46|structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]]         int [[s_ownDataSize|structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]];
+<a name="l00046"></a>[[46|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acc8e94d864512ee4a620494967758f6c]]         int [[s_ownDataSize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acc8e94d864512ee4a620494967758f6c]];
 
 
-<a name="l00047"></a>[[47|structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]]         int [[s_channelLength|structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]];
+<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a743cf78929046df7979c98c2ce54d246]]         int [[s_channelLength|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a743cf78929046df7979c98c2ce54d246]];
 
 
-<a name="l00048"></a>[[48|structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]]         uint32_t* [[s_data|structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]];
+<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afd457d4da3c346e4477362f63b1c332d]]         uint32_t* [[s_data|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afd457d4da3c346e4477362f63b1c332d]];
 
 
 <a name="l00049"></a>   49
 
 
-<a name="l00051"></a>   51         [[RawChannel|structDDASReadout_1_1RawChannel#ae02a90966bd1968a6c1046919c010445]]();
+<a name="l00051"></a>   51         [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ae02a90966bd1968a6c1046919c010445]]();
 
 
-<a name="l00057"></a>   57         [[RawChannel|structDDASReadout_1_1RawChannel#ae02a90966bd1968a6c1046919c010445]](size_t nWords);
+<a name="l00057"></a>   57         [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ae02a90966bd1968a6c1046919c010445]](size_t nWords);
 
 
-<a name="l00063"></a>   63         [[RawChannel|structDDASReadout_1_1RawChannel#ae02a90966bd1968a6c1046919c010445]](size_t nWords, void* pZcopyData);
+<a name="l00063"></a>   63         [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ae02a90966bd1968a6c1046919c010445]](size_t nWords, void* pZcopyData);
 
 
-<a name="l00065"></a>   65         virtual [[~RawChannel|structDDASReadout_1_1RawChannel#ac615b7ee7644eb3591b0001bf3ef6dc4]]();
+<a name="l00065"></a>   65         virtual [[~RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ac615b7ee7644eb3591b0001bf3ef6dc4]]();
 
 
 <a name="l00066"></a>   66
 
 
-<a name="l00073"></a>   73         int [[SetTime|structDDASReadout_1_1RawChannel#a1025dc1b3de71acff62887e169de761d]]();
+<a name="l00073"></a>   73         int [[SetTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1025dc1b3de71acff62887e169de761d]]();
 
 
-<a name="l00086"></a>   86         int [[SetTime|structDDASReadout_1_1RawChannel#a1025dc1b3de71acff62887e169de761d]](double nsPerTick, bool useExt=false);
+<a name="l00086"></a>   86         int [[SetTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1025dc1b3de71acff62887e169de761d]](double nsPerTick, bool useExt=false);
 
 
-<a name="l00091"></a>   91         int [[SetLength|structDDASReadout_1_1RawChannel#afb067fdd1cf2842d8f38aeaa2e129c85]]();
+<a name="l00091"></a>   91         int [[SetLength|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afb067fdd1cf2842d8f38aeaa2e129c85]]();
 
 
-<a name="l00098"></a>   98         int [[SetChannel|structDDASReadout_1_1RawChannel#a1143576edf8acc08fcf55ca351e6e3de]]();
+<a name="l00098"></a>   98         int [[SetChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1143576edf8acc08fcf55ca351e6e3de]]();
 
 
-<a name="l00107"></a>  107         int [[Validate|structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]](int expecting);
+<a name="l00107"></a>  107         int [[Validate|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a4f954ae86246843a4ebbd2ef113ebbdf]](int expecting);
 
 
 <a name="l00108"></a>  108
 
 
-<a name="l00114"></a>  114         void [[setData|structDDASReadout_1_1RawChannel#aadfa560d832709ff5f65b94d578fb309]](size_t nWords, void* pZCopyData);
+<a name="l00114"></a>  114         void [[setData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#aadfa560d832709ff5f65b94d578fb309]](size_t nWords, void* pZCopyData);
 
 
 <a name="l00115"></a>  115
 
 
-<a name="l00121"></a>  121         void [[copyInData|structDDASReadout_1_1RawChannel#a1cdbebc5dd8aa1f35d572079cff69c0c]](size_t nWords, const void* pData);
+<a name="l00121"></a>  121         void [[copyInData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1cdbebc5dd8aa1f35d572079cff69c0c]](size_t nWords, const void* pData);
 
 
 <a name="l00122"></a>  122
 
 
-<a name="l00127"></a>  127         [[RawChannel|structDDASReadout_1_1RawChannel#ae02a90966bd1968a6c1046919c010445]](const [[RawChannel|structDDASReadout_1_1RawChannel]]& rhs);
+<a name="l00127"></a>  127         [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ae02a90966bd1968a6c1046919c010445]](const [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& rhs);
 
 
-<a name="l00133"></a>  133         [[RawChannel|structDDASReadout_1_1RawChannel]]& [[operator=|structDDASReadout_1_1RawChannel#abf5e54d19345538acd16a563afb80eca]](const [[RawChannel|structDDASReadout_1_1RawChannel]]& rhs);
+<a name="l00133"></a>  133         [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#abf5e54d19345538acd16a563afb80eca]](const [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& rhs);
 
 
 <a name="l00134"></a>  134
 
 
-<a name="l00140"></a>  140         static uint32_t [[channelLength|structDDASReadout_1_1RawChannel#acf06d3419b501848eccb2bee986bafe9]](void* pData);
+<a name="l00140"></a>  140         static uint32_t [[channelLength|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acf06d3419b501848eccb2bee986bafe9]](void* pData);
 
 
-<a name="l00148"></a>  148         static double [[moduleCalibration|structDDASReadout_1_1RawChannel#af2be5fd58d780069deb9fe27b3cb9edf]](uint32_t moduleType);
+<a name="l00148"></a>  148         static double [[moduleCalibration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af2be5fd58d780069deb9fe27b3cb9edf]](uint32_t moduleType);
 
 
 <a name="l00149"></a>  149     };
@@ -205,28 +205,28 @@ header
 <a name="l00153"></a>  153
 
 
-<a name="l00161"></a>  161 bool [[operator<|RawChannel_8h#a54cfd566a9b0ddf284bb5ac7927501f3]](
+<a name="l00161"></a>  161 bool [[operator<|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#a54cfd566a9b0ddf284bb5ac7927501f3]](
 
 
-<a name="l00162"></a>  162     const [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]& c1, const [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]& c2
+<a name="l00162"></a>  162     const [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& c1, const [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& c2
 
 
 <a name="l00163"></a>  163     );
 
 
-<a name="l00171"></a>  171 bool [[operator>|RawChannel_8h#ad61e97e883c94b4a748a94a712d9dba3]](
+<a name="l00171"></a>  171 bool [[operator>|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#ad61e97e883c94b4a748a94a712d9dba3]](
 
 
-<a name="l00172"></a>  172     const [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]& c1, const [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]& c2
+<a name="l00172"></a>  172     const [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& c1, const [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& c2
 
 
 <a name="l00173"></a>  173     );
 
 
-<a name="l00181"></a>  181 bool [[operator==|RawChannel_8h#adca0b3900d6a1c11b6d8422f951ec3d4]](
+<a name="l00181"></a>  181 bool [[operator==|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#adca0b3900d6a1c11b6d8422f951ec3d4]](
 
 
-<a name="l00182"></a>  182     const [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]& c1, const [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]& c2
+<a name="l00182"></a>  182     const [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& c1, const [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]& c2
 
 
 <a name="l00183"></a>  183     );
@@ -238,7 +238,7 @@ header
 <a name="l00185"></a>  185 #endif
 
 
-[[operator<|RawChannel_8h#a54cfd566a9b0ddf284bb5ac7927501f3]]
+[[operator<|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#a54cfd566a9b0ddf284bb5ac7927501f3]]
 
 bool operator<(const DDASReadout::RawChannel &c1, const DDASReadout::RawChannel &c2)
 
@@ -247,7 +247,7 @@ operator<
 **Definition:** RawChannel.cpp:319
 
 
-[[operator>|RawChannel_8h#ad61e97e883c94b4a748a94a712d9dba3]]
+[[operator>|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#ad61e97e883c94b4a748a94a712d9dba3]]
 
 bool operator>(const DDASReadout::RawChannel &c1, const DDASReadout::RawChannel &c2)
 
@@ -256,7 +256,7 @@ operator>
 **Definition:** RawChannel.cpp:329
 
 
-[[operator==|RawChannel_8h#adca0b3900d6a1c11b6d8422f951ec3d4]]
+[[operator==|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#adca0b3900d6a1c11b6d8422f951ec3d4]]
 
 bool operator==(const DDASReadout::RawChannel &c1, const DDASReadout::RawChannel &c2)
 
@@ -265,19 +265,19 @@ operator==
 **Definition:** RawChannel.cpp:339
 
 
-[[DDASReadout|namespaceDDASReadout]]
+[[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
 
 **Definition:** BufferArena.cpp:29
 
 
-[[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]
+[[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]
 
 A struct containing a pointer to a hit and its properties.
 
 **Definition:** RawChannel.h:41
 
 
-[[DDASReadout::RawChannel::SetTime|structDDASReadout_1_1RawChannel#a1025dc1b3de71acff62887e169de761d]]
+[[DDASReadout::RawChannel::SetTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1025dc1b3de71acff62887e169de761d]]
 
 int SetTime()
 
@@ -286,7 +286,7 @@ Set the 48-bit timestamp data from the hit infomration.
 **Definition:** RawChannel.cpp:107
 
 
-[[DDASReadout::RawChannel::SetChannel|structDDASReadout_1_1RawChannel#a1143576edf8acc08fcf55ca351e6e3de]]
+[[DDASReadout::RawChannel::SetChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1143576edf8acc08fcf55ca351e6e3de]]
 
 int SetChannel()
 
@@ -295,7 +295,7 @@ Set the channel value from the data.
 **Definition:** RawChannel.cpp:168
 
 
-[[DDASReadout::RawChannel::s_ownData|structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]]
+[[DDASReadout::RawChannel::s_ownData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a14ce9fb1311750d3fbac1615f85af16e]]
 
 bool s_ownData
 
@@ -304,7 +304,7 @@ True if we own s_data.
 **Definition:** RawChannel.h:45
 
 
-[[DDASReadout::RawChannel::copyInData|structDDASReadout_1_1RawChannel#a1cdbebc5dd8aa1f35d572079cff69c0c]]
+[[DDASReadout::RawChannel::copyInData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1cdbebc5dd8aa1f35d572079cff69c0c]]
 
 void copyInData(size_t nWords, const void *pData)
 
@@ -313,7 +313,7 @@ Copy in data.
 **Definition:** RawChannel.cpp:227
 
 
-[[DDASReadout::RawChannel::Validate|structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]]
+[[DDASReadout::RawChannel::Validate|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a4f954ae86246843a4ebbd2ef113ebbdf]]
 
 int Validate(int expecting)
 
@@ -322,7 +322,7 @@ Determine if a channel has the correct amount of data.
 **Definition:** RawChannel.cpp:187
 
 
-[[DDASReadout::RawChannel::s_chanid|structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]]
+[[DDASReadout::RawChannel::s_chanid|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a501cd8167cec55226136d15f95f16e20]]
 
 int s_chanid
 
@@ -331,7 +331,7 @@ Channel within module.
 **Definition:** RawChannel.h:44
 
 
-[[DDASReadout::RawChannel::s_channelLength|structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]]
+[[DDASReadout::RawChannel::s_channelLength|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a743cf78929046df7979c98c2ce54d246]]
 
 int s_channelLength
 
@@ -340,7 +340,7 @@ Number of uint32_t in s_data.
 **Definition:** RawChannel.h:47
 
 
-[[DDASReadout::RawChannel::s_time|structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]]
+[[DDASReadout::RawChannel::s_time|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a99390756b2ad85cd0533216f5d818ee0]]
 
 double s_time
 
@@ -349,7 +349,7 @@ Extracted time, possibly calibrated.
 **Definition:** RawChannel.h:43
 
 
-[[DDASReadout::RawChannel::setData|structDDASReadout_1_1RawChannel#aadfa560d832709ff5f65b94d578fb309]]
+[[DDASReadout::RawChannel::setData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#aadfa560d832709ff5f65b94d578fb309]]
 
 void setData(size_t nWords, void *pZCopyData)
 
@@ -358,7 +358,7 @@ Set new data.
 **Definition:** RawChannel.cpp:207
 
 
-[[DDASReadout::RawChannel::operator=|structDDASReadout_1_1RawChannel#abf5e54d19345538acd16a563afb80eca]]
+[[DDASReadout::RawChannel::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#abf5e54d19345538acd16a563afb80eca]]
 
 RawChannel & operator=(const RawChannel &rhs)
 
@@ -367,7 +367,7 @@ Assignment operator.
 **Definition:** RawChannel.cpp:264
 
 
-[[DDASReadout::RawChannel::~RawChannel|structDDASReadout_1_1RawChannel#ac615b7ee7644eb3591b0001bf3ef6dc4]]
+[[DDASReadout::RawChannel::~RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ac615b7ee7644eb3591b0001bf3ef6dc4]]
 
 virtual ~RawChannel()
 
@@ -376,7 +376,7 @@ Destructor.
 **Definition:** RawChannel.cpp:90
 
 
-[[DDASReadout::RawChannel::s_ownDataSize|structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]]
+[[DDASReadout::RawChannel::s_ownDataSize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acc8e94d864512ee4a620494967758f6c]]
 
 int s_ownDataSize
 
@@ -385,7 +385,7 @@ If we own data, how many uint32_t's.
 **Definition:** RawChannel.h:46
 
 
-[[DDASReadout::RawChannel::channelLength|structDDASReadout_1_1RawChannel#acf06d3419b501848eccb2bee986bafe9]]
+[[DDASReadout::RawChannel::channelLength|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acf06d3419b501848eccb2bee986bafe9]]
 
 static uint32_t channelLength(void *pData)
 
@@ -394,7 +394,7 @@ Extract the number of words in a hit.
 **Definition:** RawChannel.cpp:283
 
 
-[[DDASReadout::RawChannel::RawChannel|structDDASReadout_1_1RawChannel#ae02a90966bd1968a6c1046919c010445]]
+[[DDASReadout::RawChannel::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ae02a90966bd1968a6c1046919c010445]]
 
 RawChannel()
 
@@ -403,7 +403,7 @@ Default constructor.
 **Definition:** RawChannel.cpp:48
 
 
-[[DDASReadout::RawChannel::moduleCalibration|structDDASReadout_1_1RawChannel#af2be5fd58d780069deb9fe27b3cb9edf]]
+[[DDASReadout::RawChannel::moduleCalibration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af2be5fd58d780069deb9fe27b3cb9edf]]
 
 static double moduleCalibration(uint32_t moduleType)
 
@@ -412,7 +412,7 @@ Returns the multiplier used to convert the module raw timestamp into nanoseconds
 **Definition:** RawChannel.cpp:297
 
 
-[[DDASReadout::RawChannel::s_moduleType|structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]]
+[[DDASReadout::RawChannel::s_moduleType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af937289721f5495c31218fafbba551fe]]
 
 uint32_t s_moduleType
 
@@ -421,7 +421,7 @@ Type of module this comes from.
 **Definition:** RawChannel.h:42
 
 
-[[DDASReadout::RawChannel::SetLength|structDDASReadout_1_1RawChannel#afb067fdd1cf2842d8f38aeaa2e129c85]]
+[[DDASReadout::RawChannel::SetLength|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afb067fdd1cf2842d8f38aeaa2e129c85]]
 
 int SetLength()
 
@@ -430,7 +430,7 @@ Set the event length from the data.
 **Definition:** RawChannel.cpp:161
 
 
-[[DDASReadout::RawChannel::s_data|structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]]
+[[DDASReadout::RawChannel::s_data|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afd457d4da3c346e4477362f63b1c332d]]
 
 uint32_t * s_data
 

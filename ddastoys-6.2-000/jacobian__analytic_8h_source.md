@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 jacobian_analytic.h
 
 header
-[[Go to the documentation of this file.|jacobian__analytic_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/jacobian__analytic_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -82,7 +82,7 @@ header
 <a name="l00027"></a>   27
 
 
-<a name="l00028"></a>   28 #include "[[CFitEngine.h|CFitEngine_8h]]"
+<a name="l00028"></a>   28 #include "[[CFitEngine.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CFitEngine_8h.md]]"
 
 
 <a name="l00029"></a>   29
@@ -103,13 +103,13 @@ header
 <a name="l00036"></a>   36
 
 
-<a name="l00053"></a>[[53|classddastoys_1_1analyticfit_1_1SerialFitEngine1]]     class [[SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1]] : public [[CFitEngine|classddastoys_1_1CFitEngine]] {
+<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md]]     class [[SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md]] : public [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]] {
 
 
 <a name="l00054"></a>   54     public:
 
 
-<a name="l00059"></a>   59         [[SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a8845508f89df90aca7ddb0752b59307f]](
+<a name="l00059"></a>   59         [[SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a8845508f89df90aca7ddb0752b59307f]](
 
 
 <a name="l00060"></a>   60         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -118,13 +118,13 @@ header
 <a name="l00061"></a>   61         );
 
 
-<a name="l00063"></a>[[63|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a40e41bfee2c232521b3583b927a1c3c3]]         [[~SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a40e41bfee2c232521b3583b927a1c3c3]]() {}
+<a name="l00063"></a>[[63|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a40e41bfee2c232521b3583b927a1c3c3]]         [[~SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a40e41bfee2c232521b3583b927a1c3c3]]() {}
 
 
-<a name="l00069"></a>   69         virtual void [[jacobian|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a24723626242f1694379c0f8af26d175d]](const gsl_vector* p,  gsl_matrix *J);
+<a name="l00069"></a>   69         virtual void [[jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a24723626242f1694379c0f8af26d175d]](const gsl_vector* p,  gsl_matrix *J);
 
 
-<a name="l00075"></a>   75         virtual void [[residuals|classddastoys_1_1analyticfit_1_1SerialFitEngine1#ad8c1242fa432745d0eee0d703f82aedc]](const gsl_vector*p, gsl_vector* r);
+<a name="l00075"></a>   75         virtual void [[residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#ad8c1242fa432745d0eee0d703f82aedc]](const gsl_vector*p, gsl_vector* r);
 
 
 <a name="l00076"></a>   76     };
@@ -133,7 +133,7 @@ header
 <a name="l00077"></a>   77
 
 
-<a name="l00097"></a>[[97|classddastoys_1_1analyticfit_1_1CudaFitEngine1]]     class [[CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]] : public [[CFitEngine|classddastoys_1_1CFitEngine]] {
+<a name="l00097"></a>[[97|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md]]     class [[CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md]] : public [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]] {
 
 
 <a name="l00098"></a>   98     private:
@@ -160,7 +160,7 @@ header
 <a name="l00105"></a>  105     public:
 
 
-<a name="l00109"></a>  109         [[CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a8129a0b15f4fc6bc1e775e4aa173970c]](
+<a name="l00109"></a>  109         [[CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a8129a0b15f4fc6bc1e775e4aa173970c]](
 
 
 <a name="l00110"></a>  110         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -169,13 +169,13 @@ header
 <a name="l00111"></a>  111         );
 
 
-<a name="l00115"></a>  115         [[~CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a05ac41954e926579449ed4236939d27d]]();
+<a name="l00115"></a>  115         [[~CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a05ac41954e926579449ed4236939d27d]]();
 
 
-<a name="l00122"></a>  122         virtual void [[jacobian|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a4f2749dc5b790598ad73d131104c92bf]](const gsl_vector* p, gsl_matrix *J);
+<a name="l00122"></a>  122         virtual void [[jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a4f2749dc5b790598ad73d131104c92bf]](const gsl_vector* p, gsl_matrix *J);
 
 
-<a name="l00129"></a>  129         virtual void [[residuals|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a85042242da59ca044ae70cdca1e36cb5]](const gsl_vector*p, gsl_vector* r);
+<a name="l00129"></a>  129         virtual void [[residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a85042242da59ca044ae70cdca1e36cb5]](const gsl_vector*p, gsl_vector* r);
 
 
 <a name="l00130"></a>  130
@@ -193,13 +193,13 @@ header
 <a name="l00134"></a>  134
 
 
-<a name="l00151"></a>[[151|classddastoys_1_1analyticfit_1_1SerialFitEngine2]]     class [[SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2]] : public [[CFitEngine|classddastoys_1_1CFitEngine]] {
+<a name="l00151"></a>[[151|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md]]     class [[SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md]] : public [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]] {
 
 
 <a name="l00152"></a>  152     public:
 
 
-<a name="l00157"></a>  157         [[SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a1ea9c546facd9dea6fba18e304f6f3bb]](
+<a name="l00157"></a>  157         [[SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a1ea9c546facd9dea6fba18e304f6f3bb]](
 
 
 <a name="l00158"></a>  158         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -208,10 +208,10 @@ header
 <a name="l00159"></a>  159         );
 
 
-<a name="l00165"></a>  165         virtual void [[jacobian|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a77e0e4a467fa2bb413ddb0c94c7da644]](const gsl_vector* p,  gsl_matrix *J);
+<a name="l00165"></a>  165         virtual void [[jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a77e0e4a467fa2bb413ddb0c94c7da644]](const gsl_vector* p,  gsl_matrix *J);
 
 
-<a name="l00171"></a>  171         virtual void [[residuals|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a58399e52f404f4e3398c9140c0d168a8]](const gsl_vector*p, gsl_vector* r);
+<a name="l00171"></a>  171         virtual void [[residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a58399e52f404f4e3398c9140c0d168a8]](const gsl_vector*p, gsl_vector* r);
 
 
 <a name="l00172"></a>  172     };
@@ -220,7 +220,7 @@ header
 <a name="l00173"></a>  173
 
 
-<a name="l00193"></a>[[193|classddastoys_1_1analyticfit_1_1CudaFitEngine2]]     class [[CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2]] : public [[CFitEngine|classddastoys_1_1CFitEngine]] {
+<a name="l00193"></a>[[193|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]]     class [[CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]] : public [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]] {
 
 
 <a name="l00194"></a>  194     private:
@@ -247,7 +247,7 @@ header
 <a name="l00201"></a>  201     public:
 
 
-<a name="l00206"></a>  206         [[CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a88d444932918e4e861a3359601cf11c3]](
+<a name="l00206"></a>  206         [[CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a88d444932918e4e861a3359601cf11c3]](
 
 
 <a name="l00207"></a>  207         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -256,13 +256,13 @@ header
 <a name="l00208"></a>  208         );
 
 
-<a name="l00210"></a>  210         [[~CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a8174e72f7fdd7ad2039223605080e5a2]]();
+<a name="l00210"></a>  210         [[~CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a8174e72f7fdd7ad2039223605080e5a2]]();
 
 
-<a name="l00218"></a>  218         virtual void [[jacobian|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a59480ccd2761639a782db66df8af0d2b]](const gsl_vector* p,  gsl_matrix *J);
+<a name="l00218"></a>  218         virtual void [[jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a59480ccd2761639a782db66df8af0d2b]](const gsl_vector* p,  gsl_matrix *J);
 
 
-<a name="l00224"></a>  224         virtual void [[residuals|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a1db08004bd6f37f8f62861a8a311b30e]](const gsl_vector*p, gsl_vector* r);
+<a name="l00224"></a>  224         virtual void [[residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a1db08004bd6f37f8f62861a8a311b30e]](const gsl_vector*p, gsl_vector* r);
 
 
 <a name="l00225"></a>  225
@@ -280,13 +280,13 @@ header
 <a name="l00229"></a>  229
 
 
-<a name="l00234"></a>[[234|classddastoys_1_1analyticfit_1_1FitEngineFactory]]     class [[FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory]] {
+<a name="l00234"></a>[[234|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md]]     class [[FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md]] {
 
 
 <a name="l00235"></a>  235     public:
 
 
-<a name="l00241"></a>[[241|classddastoys_1_1analyticfit_1_1FitEngineFactory#a6b14e6f33763fcc24cd42e1f18b2dce2]]         [[CFitEngine|classddastoys_1_1CFitEngine]]* [[createSerialFitEngine1|classddastoys_1_1analyticfit_1_1FitEngineFactory#a6b14e6f33763fcc24cd42e1f18b2dce2]](
+<a name="l00241"></a>[[241|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a6b14e6f33763fcc24cd42e1f18b2dce2]]         [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]* [[createSerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a6b14e6f33763fcc24cd42e1f18b2dce2]](
 
 
 <a name="l00242"></a>  242         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -295,7 +295,7 @@ header
 <a name="l00243"></a>  243         );
 
 
-<a name="l00249"></a>[[249|classddastoys_1_1analyticfit_1_1FitEngineFactory#adfe9c01407a002042a38a45d479976e8]]         [[CFitEngine|classddastoys_1_1CFitEngine]]* [[createCudaFitEngine1|classddastoys_1_1analyticfit_1_1FitEngineFactory#adfe9c01407a002042a38a45d479976e8]](
+<a name="l00249"></a>[[249|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#adfe9c01407a002042a38a45d479976e8]]         [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]* [[createCudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#adfe9c01407a002042a38a45d479976e8]](
 
 
 <a name="l00250"></a>  250         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -304,7 +304,7 @@ header
 <a name="l00251"></a>  251         );
 
 
-<a name="l00257"></a>[[257|classddastoys_1_1analyticfit_1_1FitEngineFactory#af289d3cdac662dad748bacd83a3cb647]]         [[CFitEngine|classddastoys_1_1CFitEngine]]* [[createSerialFitEngine2|classddastoys_1_1analyticfit_1_1FitEngineFactory#af289d3cdac662dad748bacd83a3cb647]](
+<a name="l00257"></a>[[257|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#af289d3cdac662dad748bacd83a3cb647]]         [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]* [[createSerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#af289d3cdac662dad748bacd83a3cb647]](
 
 
 <a name="l00258"></a>  258         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -313,7 +313,7 @@ header
 <a name="l00259"></a>  259         );
 
 
-<a name="l00265"></a>[[265|classddastoys_1_1analyticfit_1_1FitEngineFactory#a16269d888b01355430d8dde44c15075b]]         [[CFitEngine|classddastoys_1_1CFitEngine]]* [[createCudaFitEngine2|classddastoys_1_1analyticfit_1_1FitEngineFactory#a16269d888b01355430d8dde44c15075b]](
+<a name="l00265"></a>[[265|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a16269d888b01355430d8dde44c15075b]]         [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]* [[createCudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a16269d888b01355430d8dde44c15075b]](
 
 
 <a name="l00266"></a>  266         std::vector<std::pair<uint16_t, uint16_t>>&  data
@@ -343,26 +343,26 @@ header
 <a name="l00274"></a>  274 #endif
 
 
-[[CFitEngine.h|CFitEngine_8h]]
+[[CFitEngine.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CFitEngine_8h.md]]
 
 Define the CFitEngine abstract base class.
 
 
-[[ddastoys::CFitEngine|classddastoys_1_1CFitEngine]]
+[[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]
 
 Abstract base class for marshalling data to the fitting subsystems to calculate Jacobian elements and...
 
 **Definition:** CFitEngine.h:41
 
 
-[[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]]
+[[ddastoys::analyticfit::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md]]
 
 CUDA-aware fit engine for analytic single pulse fits.
 
 **Definition:** jacobian_analytic.h:97
 
 
-[[ddastoys::analyticfit::CudaFitEngine1::~CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a05ac41954e926579449ed4236939d27d]]
+[[ddastoys::analyticfit::CudaFitEngine1::~CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a05ac41954e926579449ed4236939d27d]]
 
 ~CudaFitEngine1()
 
@@ -371,7 +371,7 @@ Destructor.
 **Definition:** CudaFitEngineAnalytic.cu:526
 
 
-[[ddastoys::analyticfit::CudaFitEngine1::jacobian|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a4f2749dc5b790598ad73d131104c92bf]]
+[[ddastoys::analyticfit::CudaFitEngine1::jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a4f2749dc5b790598ad73d131104c92bf]]
 
 virtual void jacobian(const gsl_vector *p, gsl_matrix *J)
 
@@ -380,7 +380,7 @@ Invoke the kernal to do the pointwise parallel Jacobian computation.
 **Definition:** CudaFitEngineAnalytic.cu:541
 
 
-[[ddastoys::analyticfit::CudaFitEngine1::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a8129a0b15f4fc6bc1e775e4aa173970c]]
+[[ddastoys::analyticfit::CudaFitEngine1::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a8129a0b15f4fc6bc1e775e4aa173970c]]
 
 CudaFitEngine1(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
@@ -389,7 +389,7 @@ Constructor.
 **Definition:** CudaFitEngineAnalytic.cu:479
 
 
-[[ddastoys::analyticfit::CudaFitEngine1::residuals|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a85042242da59ca044ae70cdca1e36cb5]]
+[[ddastoys::analyticfit::CudaFitEngine1::residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a85042242da59ca044ae70cdca1e36cb5]]
 
 virtual void residuals(const gsl_vector *p, gsl_vector *r)
 
@@ -398,14 +398,14 @@ Triggers a pointwise parallel residual kernel in the device and impedance matche
 **Definition:** CudaFitEngineAnalytic.cu:578
 
 
-[[ddastoys::analyticfit::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2]]
+[[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]]
 
 CUDA-aware fit engine for analytic double pulse fits.
 
 **Definition:** jacobian_analytic.h:193
 
 
-[[ddastoys::analyticfit::CudaFitEngine2::residuals|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a1db08004bd6f37f8f62861a8a311b30e]]
+[[ddastoys::analyticfit::CudaFitEngine2::residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a1db08004bd6f37f8f62861a8a311b30e]]
 
 virtual void residuals(const gsl_vector *p, gsl_vector *r)
 
@@ -414,7 +414,7 @@ Fire off the kernel to compute the pointwise residuals.
 **Definition:** CudaFitEngineAnalytic.cu:857
 
 
-[[ddastoys::analyticfit::CudaFitEngine2::jacobian|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a59480ccd2761639a782db66df8af0d2b]]
+[[ddastoys::analyticfit::CudaFitEngine2::jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a59480ccd2761639a782db66df8af0d2b]]
 
 virtual void jacobian(const gsl_vector *p, gsl_matrix *J)
 
@@ -423,7 +423,7 @@ Marshall the parameter and call the jacobian2 kernel. Then pull the Jacobian mat
 **Definition:** CudaFitEngineAnalytic.cu:806
 
 
-[[ddastoys::analyticfit::CudaFitEngine2::~CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a8174e72f7fdd7ad2039223605080e5a2]]
+[[ddastoys::analyticfit::CudaFitEngine2::~CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a8174e72f7fdd7ad2039223605080e5a2]]
 
 ~CudaFitEngine2()
 
@@ -432,7 +432,7 @@ Destructor.
 **Definition:** CudaFitEngineAnalytic.cu:792
 
 
-[[ddastoys::analyticfit::CudaFitEngine2::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a88d444932918e4e861a3359601cf11c3]]
+[[ddastoys::analyticfit::CudaFitEngine2::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a88d444932918e4e861a3359601cf11c3]]
 
 CudaFitEngine2(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
@@ -441,49 +441,49 @@ Constructor.
 **Definition:** CudaFitEngineAnalytic.cu:744
 
 
-[[ddastoys::analyticfit::FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory]]
+[[ddastoys::analyticfit::FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md]]
 
 Factory for creating fit serial and Cuda-enabled fit engines.
 
 **Definition:** jacobian_analytic.h:234
 
 
-[[ddastoys::analyticfit::FitEngineFactory::createCudaFitEngine2|classddastoys_1_1analyticfit_1_1FitEngineFactory#a16269d888b01355430d8dde44c15075b]]
+[[ddastoys::analyticfit::FitEngineFactory::createCudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a16269d888b01355430d8dde44c15075b]]
 
 CFitEngine * createCudaFitEngine2(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
 Create a double pulse Cuda-enabled fit engine.
 
 
-[[ddastoys::analyticfit::FitEngineFactory::createSerialFitEngine1|classddastoys_1_1analyticfit_1_1FitEngineFactory#a6b14e6f33763fcc24cd42e1f18b2dce2]]
+[[ddastoys::analyticfit::FitEngineFactory::createSerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a6b14e6f33763fcc24cd42e1f18b2dce2]]
 
 CFitEngine * createSerialFitEngine1(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
 Create a single pulse Cuda-enabled fit engine.
 
 
-[[ddastoys::analyticfit::FitEngineFactory::createCudaFitEngine1|classddastoys_1_1analyticfit_1_1FitEngineFactory#adfe9c01407a002042a38a45d479976e8]]
+[[ddastoys::analyticfit::FitEngineFactory::createCudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#adfe9c01407a002042a38a45d479976e8]]
 
 CFitEngine * createCudaFitEngine1(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
 Create a single pulse Cuda-enabled fit engine.
 
 
-[[ddastoys::analyticfit::FitEngineFactory::createSerialFitEngine2|classddastoys_1_1analyticfit_1_1FitEngineFactory#af289d3cdac662dad748bacd83a3cb647]]
+[[ddastoys::analyticfit::FitEngineFactory::createSerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#af289d3cdac662dad748bacd83a3cb647]]
 
 CFitEngine * createSerialFitEngine2(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
 Create a double pulse serial fit engine.
 
 
-[[ddastoys::analyticfit::SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1]]
+[[ddastoys::analyticfit::SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md]]
 
 Fit engine for analytic single pulse fits.
 
 **Definition:** jacobian_analytic.h:53
 
 
-[[ddastoys::analyticfit::SerialFitEngine1::jacobian|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a24723626242f1694379c0f8af26d175d]]
+[[ddastoys::analyticfit::SerialFitEngine1::jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a24723626242f1694379c0f8af26d175d]]
 
 virtual void jacobian(const gsl_vector *p, gsl_matrix *J)
 
@@ -492,14 +492,14 @@ Compute the Jacobian matrix.
 **Definition:** SerialFitEngineAnalytic.cpp:216
 
 
-[[ddastoys::analyticfit::SerialFitEngine1::~SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a40e41bfee2c232521b3583b927a1c3c3]]
+[[ddastoys::analyticfit::SerialFitEngine1::~SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a40e41bfee2c232521b3583b927a1c3c3]]
 
 ~SerialFitEngine1()
 
 **Definition:** jacobian_analytic.h:63
 
 
-[[ddastoys::analyticfit::SerialFitEngine1::SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a8845508f89df90aca7ddb0752b59307f]]
+[[ddastoys::analyticfit::SerialFitEngine1::SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a8845508f89df90aca7ddb0752b59307f]]
 
 SerialFitEngine1(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
@@ -508,7 +508,7 @@ Constructor.
 **Definition:** SerialFitEngineAnalytic.cpp:203
 
 
-[[ddastoys::analyticfit::SerialFitEngine1::residuals|classddastoys_1_1analyticfit_1_1SerialFitEngine1#ad8c1242fa432745d0eee0d703f82aedc]]
+[[ddastoys::analyticfit::SerialFitEngine1::residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#ad8c1242fa432745d0eee0d703f82aedc]]
 
 virtual void residuals(const gsl_vector *p, gsl_vector *r)
 
@@ -517,14 +517,14 @@ Compute the vector of residuals.
 **Definition:** SerialFitEngineAnalytic.cpp:253
 
 
-[[ddastoys::analyticfit::SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2]]
+[[ddastoys::analyticfit::SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md]]
 
 Fit engine for analytic double pulse fits.
 
 **Definition:** jacobian_analytic.h:151
 
 
-[[ddastoys::analyticfit::SerialFitEngine2::SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a1ea9c546facd9dea6fba18e304f6f3bb]]
+[[ddastoys::analyticfit::SerialFitEngine2::SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a1ea9c546facd9dea6fba18e304f6f3bb]]
 
 SerialFitEngine2(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
@@ -533,7 +533,7 @@ Constructor.
 **Definition:** SerialFitEngineAnalytic.cpp:285
 
 
-[[ddastoys::analyticfit::SerialFitEngine2::residuals|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a58399e52f404f4e3398c9140c0d168a8]]
+[[ddastoys::analyticfit::SerialFitEngine2::residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a58399e52f404f4e3398c9140c0d168a8]]
 
 virtual void residuals(const gsl_vector *p, gsl_vector *r)
 
@@ -542,7 +542,7 @@ Compute the residual vector.
 **Definition:** SerialFitEngineAnalytic.cpp:291
 
 
-[[ddastoys::analyticfit::SerialFitEngine2::jacobian|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a77e0e4a467fa2bb413ddb0c94c7da644]]
+[[ddastoys::analyticfit::SerialFitEngine2::jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a77e0e4a467fa2bb413ddb0c94c7da644]]
 
 virtual void jacobian(const gsl_vector *p, gsl_matrix *J)
 

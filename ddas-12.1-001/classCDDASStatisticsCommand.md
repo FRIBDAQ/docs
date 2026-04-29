@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCDDASStatisticsCommand-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand-members.md]]
 
 
 CDDASStatisticsCommand Class Reference
 
 header
 Provides a statistics command processor that overrides the SBS one.  
- [[More...|classCDDASStatisticsCommand#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#details]]
 
 
 `#include <CDDASStatisticsCommand.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CDDASStatisticsCommand:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for CDDASStatisticsCommand:
@@ -57,7 +57,7 @@ Collaboration diagram for CDDASStatisticsCommand:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -80,7 +80,7 @@ Collaboration diagram for CDDASStatisticsCommand:
 Provides a statistics command processor that overrides the SBS one.
 
 
-We need to override because the concept of a trigger within DDAS is completely different than the triggering used to invoke the readouts. For DDAS readout, the triggering information comes from the module pseudo scalers. Thus we'll function by grabbing byte statistics from [[CMyEventSegment|classCMyEventSegment]] and trigger information from the collection of [[CMyScaler|classCMyScaler]] objects.
+We need to override because the concept of a trigger within DDAS is completely different than the triggering used to invoke the readouts. For DDAS readout, the triggering information comes from the module pseudo scalers. Thus we'll function by grabbing byte statistics from [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]] and trigger information from the collection of [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]] objects.
 
 ## Constructor & Destructor Documentation
 
@@ -157,8 +157,8 @@ Called to execute the Tcl command.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CDDASStatisticsCommand.h|CDDASStatisticsCommand_8h_source]]
-- [[CDDASStatisticsCommand.cpp|CDDASStatisticsCommand_8cpp]]
+The documentation for this class was generated from the following files:- [[CDDASStatisticsCommand.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDDASStatisticsCommand_8h_source.md]]
+- [[CDDASStatisticsCommand.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDDASStatisticsCommand_8cpp.md]]
 
  contents 
  start footer part 

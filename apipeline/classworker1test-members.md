@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 worker1test Member List
 
 header
-This is the complete list of members for [[worker1test|classworker1test]], including all inherited members.
+This is the complete list of members for [[worker1test|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classworker1test.md]], including all inherited members.
 
 
 |  |  |  |

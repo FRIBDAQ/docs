@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - FirmwareMap
-  : [[DAQ::DDAS|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
+  : [[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md#gab57c39c59d29781a083353f2c8d6b040]]
 
  contents 
  start footer part 

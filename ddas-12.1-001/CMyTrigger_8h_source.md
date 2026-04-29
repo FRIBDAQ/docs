@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
 
  top 
 CMyTrigger.h
 
 header
-[[Go to the documentation of this file.|CMyTrigger_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8h.md]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef CMYTRIGGER_H
@@ -52,7 +52,7 @@ header
 <a name="l00012"></a>   12
 
 
-<a name="l00023"></a>[[23|classCMyTrigger]] class [[CMyTrigger|classCMyTrigger]] : public CEventTrigger
+<a name="l00023"></a>[[23|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]] class [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]] : public CEventTrigger
 
 
 <a name="l00024"></a>   24 {
@@ -94,10 +94,10 @@ header
 <a name="l00036"></a>   36 public:
 
 
-<a name="l00038"></a>   38     [[CMyTrigger|classCMyTrigger#ab3a0ffc961b9e7bd1c89a05649daa8df]]();
+<a name="l00038"></a>   38     [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ab3a0ffc961b9e7bd1c89a05649daa8df]]();
 
 
-<a name="l00040"></a>   40     [[~CMyTrigger|classCMyTrigger#ae707c0d7f054c6f4b500aca7e347785e]]();
+<a name="l00040"></a>   40     [[~CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ae707c0d7f054c6f4b500aca7e347785e]]();
 
 
 <a name="l00041"></a>   41
@@ -118,22 +118,22 @@ header
 <a name="l00046"></a>   46 public:
 
 
-<a name="l00048"></a>   48     virtual void [[setup|classCMyTrigger#a359e115dd24af2b2879b4b47d04b11ae]]();
+<a name="l00048"></a>   48     virtual void [[setup|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#a359e115dd24af2b2879b4b47d04b11ae]]();
 
 
-<a name="l00050"></a>   50     virtual void [[teardown|classCMyTrigger#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]();
+<a name="l00050"></a>   50     virtual void [[teardown|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]();
 
 
-<a name="l00057"></a>   57     virtual bool [[operator()|classCMyTrigger#afc50f0c6df8768b719ec8566654731f8]]();
+<a name="l00057"></a>   57     virtual bool [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#afc50f0c6df8768b719ec8566654731f8]]();
 
 
-<a name="l00063"></a>   63     virtual void [[Initialize|classCMyTrigger#ada58ec7c0b8aee0171b5142d790c29b4]](int nummod);
+<a name="l00063"></a>   63     virtual void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ada58ec7c0b8aee0171b5142d790c29b4]](int nummod);
 
 
-<a name="l00068"></a>   68     void [[Reset|classCMyTrigger#aa7cb649cc7f7dfcf1ec36967f88f4f34]]();
+<a name="l00068"></a>   68     void [[Reset|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#aa7cb649cc7f7dfcf1ec36967f88f4f34]]();
 
 
-<a name="l00074"></a>[[74|classCMyTrigger#af8b861e1e309838ff8fbb31d43cfb343]]     unsigned int* [[getWordsInModules|classCMyTrigger#af8b861e1e309838ff8fbb31d43cfb343]]() const { return m_wordsInEachModule; };
+<a name="l00074"></a>[[74|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#af8b861e1e309838ff8fbb31d43cfb343]]     unsigned int* [[getWordsInModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#af8b861e1e309838ff8fbb31d43cfb343]]() const { return m_wordsInEachModule; };
 
 
 <a name="l00075"></a>   75 };
@@ -145,14 +145,14 @@ header
 <a name="l00077"></a>   77 #endif
 
 
-[[CMyTrigger|classCMyTrigger]]
+[[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]]
 
 Trigger class for DDAS.
 
 **Definition:** CMyTrigger.h:24
 
 
-[[CMyTrigger::setup|classCMyTrigger#a359e115dd24af2b2879b4b47d04b11ae]]
+[[CMyTrigger::setup|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#a359e115dd24af2b2879b4b47d04b11ae]]
 
 virtual void setup()
 
@@ -161,7 +161,7 @@ Start the trigger timeout.
 **Definition:** CMyTrigger.cpp:49
 
 
-[[CMyTrigger::Reset|classCMyTrigger#aa7cb649cc7f7dfcf1ec36967f88f4f34]]
+[[CMyTrigger::Reset|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#aa7cb649cc7f7dfcf1ec36967f88f4f34]]
 
 void Reset()
 
@@ -170,7 +170,7 @@ Control for determing if trigger should poll modules or pass control back to CEv
 **Definition:** CMyTrigger.cpp:69
 
 
-[[CMyTrigger::CMyTrigger|classCMyTrigger#ab3a0ffc961b9e7bd1c89a05649daa8df]]
+[[CMyTrigger::CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ab3a0ffc961b9e7bd1c89a05649daa8df]]
 
 CMyTrigger()
 
@@ -179,7 +179,7 @@ Default constructor.
 **Definition:** CMyTrigger.cpp:24
 
 
-[[CMyTrigger::teardown|classCMyTrigger#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]
+[[CMyTrigger::teardown|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]
 
 virtual void teardown()
 
@@ -188,7 +188,7 @@ Called as data taking ends.
 **Definition:** CMyTrigger.cpp:61
 
 
-[[CMyTrigger::Initialize|classCMyTrigger#ada58ec7c0b8aee0171b5142d790c29b4]]
+[[CMyTrigger::Initialize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ada58ec7c0b8aee0171b5142d790c29b4]]
 
 virtual void Initialize(int nummod)
 
@@ -197,7 +197,7 @@ Setup the trigger and FIFO words array.
 **Definition:** CMyTrigger.cpp:79
 
 
-[[CMyTrigger::~CMyTrigger|classCMyTrigger#ae707c0d7f054c6f4b500aca7e347785e]]
+[[CMyTrigger::~CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ae707c0d7f054c6f4b500aca7e347785e]]
 
 ~CMyTrigger()
 
@@ -206,7 +206,7 @@ Destructor.
 **Definition:** CMyTrigger.cpp:43
 
 
-[[CMyTrigger::getWordsInModules|classCMyTrigger#af8b861e1e309838ff8fbb31d43cfb343]]
+[[CMyTrigger::getWordsInModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#af8b861e1e309838ff8fbb31d43cfb343]]
 
 unsigned int * getWordsInModules() const
 
@@ -215,7 +215,7 @@ Get the number of words in each module.
 **Definition:** CMyTrigger.h:74
 
 
-[[CMyTrigger::operator()|classCMyTrigger#afc50f0c6df8768b719ec8566654731f8]]
+[[CMyTrigger::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#afc50f0c6df8768b719ec8566654731f8]]
 
 virtual bool operator()()
 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCTCLList-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList-members.md]]
 
 
 CTCLList Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLList:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLList:
@@ -49,7 +49,7 @@ Collaboration diagram for CTCLList:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -110,8 +110,8 @@ Collaboration diagram for CTCLList:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLList.h|TCLList_8h_source]]
-- libtclplus/tclplus/[[TCLList.cpp|TCLList_8cpp]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLList.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLList_8h_source.md]]
+- libtclplus/tclplus/[[TCLList.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLList_8cpp.md]]
 
  contents 
  start footer part 

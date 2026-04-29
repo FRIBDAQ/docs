@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
 
  top 
 [Functions](#func-members)
@@ -154,7 +154,7 @@ Setup, configure dumper settings and dump events.
 |  |  | const std::string & | strUrl |
 |  | ) |  |  |
 
-Parse the URI of the source and based on the parse create the underlying connection. Create the correct concrete instance of [[DataSource|classDataSource]] given all that.
+Parse the URI of the source and based on the parse create the underlying connection. Create the correct concrete instance of [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]] given all that.
 
 
 - Parameters

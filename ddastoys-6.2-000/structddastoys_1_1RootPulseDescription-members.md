@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[RootPulseDescription|structddastoys_1_1RootPulseDescription]]
+- [[RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]]
 
  top 
 ddastoys::RootPulseDescription Member List
 
 header
-This is the complete list of members for [[ddastoys::RootPulseDescription|structddastoys_1_1RootPulseDescription]], including all inherited members.
+This is the complete list of members for [[ddastoys::RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]], including all inherited members.
 
 
 |  |  |  |

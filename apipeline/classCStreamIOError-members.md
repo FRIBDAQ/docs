@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CStreamIOError Member List
 
 header
-This is the complete list of members for [[CStreamIOError|classCStreamIOError]], including all inherited members.
+This is the complete list of members for [[CStreamIOError|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStreamIOError.md]], including all inherited members.
 
 
 |  |  |  |

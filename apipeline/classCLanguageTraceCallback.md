@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCLanguageTraceCallback-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCLanguageTraceCallback-members.md]]
 
 
 CLanguageTraceCallback Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CLanguageTraceCallback:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CLanguageTraceCallback:
@@ -51,7 +51,7 @@ Collaboration diagram for CLanguageTraceCallback:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -128,13 +128,13 @@ Function call operator... called for a trace. We delegate to the callback.
 - Note
   If the user tried to trick us by providing a null function pointer, we raise that as a TCL error.
 
-Implements [[CVariableTraceCallback|classCVariableTraceCallback]].
+Implements [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CLanguageTraceCallbacks.h|CLanguageTraceCallbacks_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CLanguageTraceCallbacks.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CLanguageTraceCallbacks_8h_source.md]]
 - libtclplus/tclplus/CLanguageTraceCallbacks.cpp
 
  contents 

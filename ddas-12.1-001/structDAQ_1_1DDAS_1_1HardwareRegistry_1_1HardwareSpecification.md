@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|namespaceDAQ]]
-- [[DDAS|namespaceDAQ_1_1DDAS]]
-- [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
-- [[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
+- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
+- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+- [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]]
+- [[HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification-members.md]]
 
 
 DAQ::DDAS::HardwareRegistry::HardwareSpecification Struct Reference
 
 header
 Generic hardware specs for hardware types.  
- [[More...|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#details]]
 
 
 `#include <HardwareRegistry.h>`
@@ -112,7 +112,7 @@ Module hardware revision.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[HardwareRegistry.h|HardwareRegistry_8h_source]]
+The documentation for this struct was generated from the following file:- [[HardwareRegistry.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h_source.md]]
 
  contents 
  start footer part 

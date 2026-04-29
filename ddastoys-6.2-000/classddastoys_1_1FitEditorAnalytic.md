@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic]]
+- [[FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1FitEditorAnalytic-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic-members.md]]
 
 
 ddastoys::FitEditorAnalytic Class Reference
 
 header
 Fit trace data using the analytic fitting functions and populate and save a hit extension with the results.  
- [[More...|classddastoys_1_1FitEditorAnalytic#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#details]]
 
 
 `#include <FitEditorAnalytic.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::FitEditorAnalytic:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::FitEditorAnalytic:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::FitEditorAnalytic:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -169,7 +169,7 @@ Constructs using move assignment.
 Destructor.
 
 
-Delete the [[Configuration|classddastoys_1_1Configuration]] object managed by this class.
+Delete the [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]] object managed by this class.
 
 
 ## Member Function Documentation
@@ -221,7 +221,7 @@ Perform the fit and create a fit extension for a single fragment.
 - Returns
   Final segment descriptors.
 
-This is the hook into the [[FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic]] class. Here we:
+This is the hook into the [[FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md]] class. Here we:
 
 - Parse the fragment into a hit.
 - Produce a IOvec element for the existing hit (without any fit that might have been there).
@@ -278,8 +278,8 @@ Move assignment operator.
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitEditorAnalytic.h|FitEditorAnalytic_8h_source]]
-- [[FitEditorAnalytic.cpp|FitEditorAnalytic_8cpp]]
+The documentation for this class was generated from the following files:- [[FitEditorAnalytic.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorAnalytic_8h_source.md]]
+- [[FitEditorAnalytic.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorAnalytic_8cpp.md]]
 
  contents 
  start footer part 

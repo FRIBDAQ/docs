@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCErrnoException-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCErrnoException-members.md]]
 
 
 CErrnoException Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CErrnoException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CErrnoException:
@@ -49,7 +49,7 @@ Collaboration diagram for CErrnoException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -108,7 +108,7 @@ Collaboration diagram for CErrnoException:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[ErrnoException.h|ErrnoException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[ErrnoException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/ErrnoException_8h_source.md]]
 - libtclplus/exception/ErrnoException.cpp
 
  contents 

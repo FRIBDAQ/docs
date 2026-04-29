@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_1ad96cec73befb7849da500ecefc5069.md]]
 
  top 
 [Typedefs](#typedef-members) |

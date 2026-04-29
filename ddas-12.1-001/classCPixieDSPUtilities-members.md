@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CPixieDSPUtilities Member List
 
 header
-This is the complete list of members for [[CPixieDSPUtilities|classCPixieDSPUtilities]], including all inherited members.
+This is the complete list of members for [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]], including all inherited members.
 
 
 |  |  |  |

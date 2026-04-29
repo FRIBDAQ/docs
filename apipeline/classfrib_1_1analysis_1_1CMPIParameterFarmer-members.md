@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer]]
+- [[CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md]]
 
  top 
 frib::analysis::CMPIParameterFarmer Member List
 
 header
-This is the complete list of members for [[frib::analysis::CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md]], including all inherited members.
 
 
 |  |  |  |

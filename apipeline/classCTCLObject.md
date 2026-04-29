@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classCTCLObject-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject-members.md]]
 
 
 CTCLObject Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for CTCLObject:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLObject:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLObject:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -161,7 +161,7 @@ Collaboration diagram for CTCLObject:
 | --- | --- | --- | --- | --- | --- |
 | CTCLObject& CTCLObject::concat | ( | CTCLObject& | rhs | ) |  |
 
-Concatente a rhs object that is assumed to be a list into this... see Tcl_ListObjAppendList for more information about this function. Note that if Tcl_ListObjAppendList returns an error, this is mapped to a [[CTCLException|classCTCLException]] of the appropriate type.
+Concatente a rhs object that is assumed to be a list into this... see Tcl_ListObjAppendList for more information about this function. Note that if Tcl_ListObjAppendList returns an error, this is mapped to a [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]] of the appropriate type.
 
 
 - Parameters
@@ -171,7 +171,7 @@ Concatente a rhs object that is assumed to be a list into this... see Tcl_ListOb
 
 
 - Returns
-  [[CTCLObject|classCTCLObject]]&
+  [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&
 
 - Return values
   |  |  |
@@ -242,7 +242,7 @@ Get a range of characters from the object. See Tcl_GetRange for the full semanti
 
 
 - Returns
-  [[CTCLObject|classCTCLObject]]
+  [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]
 
 - Return values
   |  |  |
@@ -272,7 +272,7 @@ Get the element of a list at the specified index. If the index is out of range, 
 
 
 - Returns
-  [[CTCLObject|classCTCLObject]]
+  [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]
 
 - Return values
   |  |  |
@@ -343,7 +343,7 @@ Replace a range of elements of this treated as a list with another set of object
 
 
 - Returns
-  [[CTCLObject|classCTCLObject]]&
+  [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&
 
 - Return values
   |  |  |
@@ -413,7 +413,7 @@ Assign from a wide int. Wide ints are at least uint64_t wide.
 
 
 - Returns
-  [[CTCLObject|classCTCLObject]]& (*this).
+  [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& (*this).
 
 
 
@@ -434,7 +434,7 @@ set the object to a list of elements. This is an object oriented wrapper for Tcl
 
 
 - Returns
-  [[CTCLObject|classCTCLObject]]&
+  [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&
 
 - Return values
   |  |  |
@@ -445,7 +445,7 @@ set the object to a list of elements. This is an object oriented wrapper for Tcl
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObject.h|TCLObject_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObject.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLObject_8h_source.md]]
 - libtclplus/tclplus/TCLObject.cpp
 
  contents 

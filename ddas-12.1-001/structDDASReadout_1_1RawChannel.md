@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DDASReadout|namespaceDDASReadout]]
-- [[RawChannel|structDDASReadout_1_1RawChannel]]
+- [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
+- [[RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structDDASReadout_1_1RawChannel-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel-members.md]]
 
 
 DDASReadout::RawChannel Struct Reference
 
 header
 A struct containing a pointer to a hit and its properties.  
- [[More...|structDDASReadout_1_1RawChannel#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#details]]
 
 
 `#include <RawChannel.h>`
@@ -51,7 +51,7 @@ Inheritance diagram for DDASReadout::RawChannel:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -510,7 +510,7 @@ Determine if a channel has the correct amount of data.
 Retains rough compatibility with the old channel class.
 
 
-- **[[Todo:|todo#_todo000023]]**
+- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000023]]**
   (ASC 1/23/24): An old and somewhat cryptic comment about "hating 
   the output" but maintaining it for compatibility. Perhaps because we write to stderr and return 1 instead of raising an exception?
 
@@ -598,8 +598,8 @@ Extracted time, possibly calibrated.
 
 ---
 
-The documentation for this struct was generated from the following files:- [[RawChannel.h|RawChannel_8h_source]]
-- [[RawChannel.cpp|RawChannel_8cpp]]
+The documentation for this struct was generated from the following files:- [[RawChannel.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h_source.md]]
+- [[RawChannel.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md]]
 
  contents 
  start footer part 

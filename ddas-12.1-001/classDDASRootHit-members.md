@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DDASRootHit Member List
 
 header
-This is the complete list of members for [[DDASRootHit|classDDASRootHit]], including all inherited members.
+This is the complete list of members for [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]], including all inherited members.
 
 
 |  |  |  |

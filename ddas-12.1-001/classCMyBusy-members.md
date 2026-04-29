@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMyBusy Member List
 
 header
-This is the complete list of members for [[CMyBusy|classCMyBusy]], including all inherited members.
+This is the complete list of members for [[CMyBusy|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md]], including all inherited members.
 
 
 |  |  |  |

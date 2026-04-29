@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 MyEcho Member List
 
 header
-This is the complete list of members for [[MyEcho|classMyEcho]], including all inherited members.
+This is the complete list of members for [[MyEcho|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyEcho.md]], including all inherited members.
 
 
 |  |  |  |

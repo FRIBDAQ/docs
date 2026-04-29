@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classsorttest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classsorttest-members.md]]
 
 
 sorttest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for sorttest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for sorttest:
@@ -47,7 +47,7 @@ Collaboration diagram for sorttest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -82,7 +82,7 @@ Collaboration diagram for sorttest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[sorttests.cpp|sorttests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[sorttests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/sorttests_8cpp.md]]
 
  contents 
  start footer part 

@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[CFitEngine|classddastoys_1_1CFitEngine]]
+- [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[List of all members|classddastoys_1_1CFitEngine-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine-members.md]]
 
 
 ddastoys::CFitEngine Class Referenceabstract
 
 header
 Abstract base class for marshalling data to the fitting subsystems to calculate Jacobian elements and residuals.  
- [[More...|classddastoys_1_1CFitEngine#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#details]]
 
 
 `#include <CFitEngine.h>`
@@ -53,7 +53,7 @@ Inheritance diagram for ddastoys::CFitEngine:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -114,8 +114,8 @@ Marshall the (x, y) points into the coordinate vectors.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CFitEngine.h|CFitEngine_8h_source]]
-- [[CFitEngine.cpp|CFitEngine_8cpp]]
+The documentation for this class was generated from the following files:- [[CFitEngine.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CFitEngine_8h_source.md]]
+- [[CFitEngine.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CFitEngine_8cpp.md]]
 
  contents 
  start footer part 

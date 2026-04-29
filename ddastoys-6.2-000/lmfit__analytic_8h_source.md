@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 lmfit_analytic.h
 
 header
-[[Go to the documentation of this file.|lmfit__analytic_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/lmfit__analytic_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -91,7 +91,7 @@ header
 <a name="l00030"></a>   30
 
 
-<a name="l00031"></a>   31 #include "[[fit_extensions.h|fit__extensions_8h]]"
+<a name="l00031"></a>   31 #include "[[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]]"
 
 
 <a name="l00032"></a>   32
@@ -106,10 +106,10 @@ header
 <a name="l00037"></a>   37
 
 
-<a name="l00048"></a>[[48|structddastoys_1_1analyticfit_1_1GslFitParameters]]     struct [[GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]] {
+<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md]]     struct [[GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md]] {
 
 
-<a name="l00050"></a>[[50|structddastoys_1_1analyticfit_1_1GslFitParameters#a74d95f9de0e68a0cb7ca66d098097483]]         const std::vector<std::pair<uint16_t, uint16_t>>* [[s_pPoints|structddastoys_1_1analyticfit_1_1GslFitParameters#a74d95f9de0e68a0cb7ca66d098097483]];
+<a name="l00050"></a>[[50|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#a74d95f9de0e68a0cb7ca66d098097483]]         const std::vector<std::pair<uint16_t, uint16_t>>* [[s_pPoints|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#a74d95f9de0e68a0cb7ca66d098097483]];
 
 
 <a name="l00051"></a>   51     };
@@ -118,10 +118,10 @@ header
 <a name="l00052"></a>   52
 
 
-<a name="l00068"></a>   68     void [[lmfit1|group__analytic#ga3e09cc6de053e863af098df57906411a]](
+<a name="l00068"></a>   68     void [[lmfit1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga3e09cc6de053e863af098df57906411a]](
 
 
-<a name="l00069"></a>   69         [[fit1Info|structddastoys_1_1fit1Info]]* pResult, std::vector<uint16_t>& trace,
+<a name="l00069"></a>   69         [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]* pResult, std::vector<uint16_t>& trace,
 
 
 <a name="l00070"></a>   70         const std::pair<unsigned, unsigned>& limits,
@@ -136,16 +136,16 @@ header
 <a name="l00073"></a>   73
 
 
-<a name="l00085"></a>   85     void [[lmfit2|group__analytic#ga87dc608c375b3ea8c7314e2a4b9c1bbc]](
+<a name="l00085"></a>   85     void [[lmfit2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga87dc608c375b3ea8c7314e2a4b9c1bbc]](
 
 
-<a name="l00086"></a>   86         [[fit2Info|structddastoys_1_1fit2Info]]* pResult, std::vector<uint16_t>& trace,
+<a name="l00086"></a>   86         [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]* pResult, std::vector<uint16_t>& trace,
 
 
 <a name="l00087"></a>   87         const std::pair<unsigned, unsigned>& limits,
 
 
-<a name="l00088"></a>   88         [[fit1Info|structddastoys_1_1fit1Info]]* pSinglePulseFit = nullptr,
+<a name="l00088"></a>   88         [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]* pSinglePulseFit = nullptr,
 
 
 <a name="l00089"></a>   89         uint16_t saturation = 0xffff
@@ -157,16 +157,16 @@ header
 <a name="l00091"></a>   91
 
 
-<a name="l00105"></a>  105     void [[lmfit2fixedT|group__analytic#ga542526691caac3432b026160dd4f7c88]](
+<a name="l00105"></a>  105     void [[lmfit2fixedT|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga542526691caac3432b026160dd4f7c88]](
 
 
-<a name="l00106"></a>  106         [[fit2Info|structddastoys_1_1fit2Info]]* pResult, std::vector<uint16_t>& trace,
+<a name="l00106"></a>  106         [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]* pResult, std::vector<uint16_t>& trace,
 
 
 <a name="l00107"></a>  107         const std::pair<unsigned, unsigned>& limits,
 
 
-<a name="l00108"></a>  108         [[fit1Info|structddastoys_1_1fit1Info]]* pSinglePulseFit = nullptr,
+<a name="l00108"></a>  108         [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]* pSinglePulseFit = nullptr,
 
 
 <a name="l00109"></a>  109         uint16_t saturation = 0xffff
@@ -190,12 +190,12 @@ header
 <a name="l00117"></a>  117 #endif
 
 
-[[fit_extensions.h|fit__extensions_8h]]
+[[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]]
 
 Define structs used by fitting functions and to extend DDAS hits.
 
 
-[[ddastoys::analyticfit::lmfit1|group__analytic#ga3e09cc6de053e863af098df57906411a]]
+[[ddastoys::analyticfit::lmfit1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga3e09cc6de053e863af098df57906411a]]
 
 void lmfit1(fit1Info *pResult, std::vector< uint16_t > &trace, const std::pair< unsigned, unsigned > &limits, uint16_t saturation=0xffff)
 
@@ -204,7 +204,7 @@ Driver for the GSL LM fitter for single pulses.
 **Definition:** lmfit_analytic.cpp:406
 
 
-[[ddastoys::analyticfit::lmfit2fixedT|group__analytic#ga542526691caac3432b026160dd4f7c88]]
+[[ddastoys::analyticfit::lmfit2fixedT|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga542526691caac3432b026160dd4f7c88]]
 
 void lmfit2fixedT(fit2Info *pResult, std::vector< uint16_t > &trace, const std::pair< unsigned, unsigned > &limits, fit1Info *pSinglePulseFit=nullptr, uint16_t saturation=0xffff)
 
@@ -213,7 +213,7 @@ Driver for the GSL LM fitter for double pulses, constraining the two timing para
 **Definition:** lmfit_analytic.cpp:942
 
 
-[[ddastoys::analyticfit::lmfit2|group__analytic#ga87dc608c375b3ea8c7314e2a4b9c1bbc]]
+[[ddastoys::analyticfit::lmfit2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#ga87dc608c375b3ea8c7314e2a4b9c1bbc]]
 
 void lmfit2(fit2Info *pResult, std::vector< uint16_t > &trace, const std::pair< unsigned, unsigned > &limits, fit1Info *pSinglePulseFit=nullptr, uint16_t saturation=0xffff)
 
@@ -222,28 +222,28 @@ Driver for the GSL LM fitter for double pulses.
 **Definition:** lmfit_analytic.cpp:600
 
 
-[[ddastoys::analyticfit::GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]]
+[[ddastoys::analyticfit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md]]
 
 Data passed around the fitting subsystem to Jacobian and function evaluators.
 
 **Definition:** lmfit_analytic.h:48
 
 
-[[ddastoys::analyticfit::GslFitParameters::s_pPoints|structddastoys_1_1analyticfit_1_1GslFitParameters#a74d95f9de0e68a0cb7ca66d098097483]]
+[[ddastoys::analyticfit::GslFitParameters::s_pPoints|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#a74d95f9de0e68a0cb7ca66d098097483]]
 
 const std::vector< std::pair< uint16_t, uint16_t > > * s_pPoints
 
 **Definition:** lmfit_analytic.h:50
 
 
-[[ddastoys::fit1Info|structddastoys_1_1fit1Info]]
+[[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]
 
 Full fitting information for the single pulse.
 
 **Definition:** fit_extensions.h:48
 
 
-[[ddastoys::fit2Info|structddastoys_1_1fit2Info]]
+[[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]
 
 Full fitting information for the double pulse.
 

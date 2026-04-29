@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 [Classes](#nested-classes)
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASRootFitHit_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|DDASRootFitHit_8h_source]]
+[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitHit_8h_source.md]]
 
 
 |  |  |

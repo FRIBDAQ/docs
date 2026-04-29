@@ -24,84 +24,84 @@ header
 
 - <a name="letter_C"></a>C
 
-  [[CEventProcessor|classCEventProcessor]]
-  [[CFitEngine|classddastoys_1_1CFitEngine]] (ddastoys)
-  [[Configuration|classddastoys_1_1Configuration]] (ddastoys)
-  [[CRingItemProcessor|classCRingItemProcessor]]
-  [[CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]] (ddastoys::analyticfit)
-  [[CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2]] (ddastoys::analyticfit)
+  [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md]]
+  [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]] (ddastoys)
+  [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]] (ddastoys)
+  [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]
+  [[CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md]] (ddastoys::analyticfit)
+  [[CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]] (ddastoys::analyticfit)
 
 
 - <a name="letter_D"></a>D
 
-  [[DDASDecoder|classDDASDecoder]]
-  [[DDASFitHit|classddastoys_1_1DDASFitHit]] (ddastoys)
-  [[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]] (ddastoys)
-  [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]] (ddastoys)
-  [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]] (ddastoys)
+  [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md]]
+  [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]] (ddastoys)
+  [[DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]] (ddastoys)
+  [[DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md]] (ddastoys)
+  [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]] (ddastoys)
 
 
 - <a name="letter_F"></a>F
 
-  [[fit1Info|structddastoys_1_1fit1Info]] (ddastoys)
-  [[fit2Info|structddastoys_1_1fit2Info]] (ddastoys)
-  [[FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic]] (ddastoys)
-  [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]] (ddastoys)
-  [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]] (ddastoys)
-  [[FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory]] (ddastoys::analyticfit)
-  [[FitInfo|structddastoys_1_1FitInfo]] (ddastoys)
-  [[FitInfoLegacy|structddastoys_1_1FitInfoLegacy]] (ddastoys)
-  [[FitManager|classFitManager]]
+  [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]] (ddastoys)
+  [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]] (ddastoys)
+  [[FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md]] (ddastoys)
+  [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]] (ddastoys)
+  [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]] (ddastoys)
+  [[FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md]] (ddastoys::analyticfit)
+  [[FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md]] (ddastoys)
+  [[FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md]] (ddastoys)
+  [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]
 
 
 - <a name="letter_G"></a>G
 
-  [[GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]] (ddastoys::analyticfit)
-  [[GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters]] (ddastoys::templatefit)
+  [[GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md]] (ddastoys::analyticfit)
+  [[GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md]] (ddastoys::templatefit)
 
 
 - <a name="letter_H"></a>H
 
-  [[HitExtension|structddastoys_1_1HitExtension]] (ddastoys)
-  [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]] (ddastoys)
+  [[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]] (ddastoys)
+  [[HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md]] (ddastoys)
 
 
 - <a name="letter_N"></a>N
 
-  [[nullExtension|structddastoys_1_1nullExtension]] (ddastoys)
+  [[nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md]] (ddastoys)
 
 
 - <a name="letter_P"></a>P
 
-  [[ProcessToRootSink|classProcessToRootSink]]
-  [[PulseDescription|structddastoys_1_1PulseDescription]] (ddastoys)
+  [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md]]
+  [[PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]] (ddastoys)
 
 
 - <a name="letter_Q"></a>Q
 
-  [[QHitData|classQHitData]]
-  [[QRootCanvas|classQRootCanvas]]
-  [[QTraceView|classQTraceView]]
+  [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md]]
+  [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]]
+  [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md]]
 
 
 - <a name="letter_R"></a>R
 
-  [[RootFileDataSink|classRootFileDataSink]]
-  [[RootFit1Info|structddastoys_1_1RootFit1Info]] (ddastoys)
-  [[RootFit2Info|structddastoys_1_1RootFit2Info]] (ddastoys)
-  [[RootHitExtension|structddastoys_1_1RootHitExtension]] (ddastoys)
-  [[RootPulseDescription|structddastoys_1_1RootPulseDescription]] (ddastoys)
+  [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md]]
+  [[RootFit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md]] (ddastoys)
+  [[RootFit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md]] (ddastoys)
+  [[RootHitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md]] (ddastoys)
+  [[RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]] (ddastoys)
 
 
 - <a name="letter_S"></a>S
 
-  [[SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1]] (ddastoys::analyticfit)
-  [[SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2]] (ddastoys::analyticfit)
+  [[SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md]] (ddastoys::analyticfit)
+  [[SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md]] (ddastoys::analyticfit)
 
 
 - <a name="letter_T"></a>T
 
-  [[TraceViewProcessor|classTraceViewProcessor]]
+  [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md]]
 
  contents 
  start footer part 

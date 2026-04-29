@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[exception|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_606be0c095146ea0038c0fba572d628a.md]]
 
  top 
 URIFormatException.h
@@ -77,7 +77,7 @@ header
 
 <a name="l00024"></a>   24
 
-<a name="l00037"></a>[[37|classCURIFormatException]] class  [[CURIFormatException|classCURIFormatException]] : public [[CException|classCException]]
+<a name="l00037"></a>[[37|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]] class  [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]] : public [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
 
 <a name="l00038"></a>   38 {
 
@@ -95,21 +95,21 @@ header
 
 <a name="l00045"></a>   45
 
-<a name="l00046"></a>   46   [[CURIFormatException|classCURIFormatException#a8ea715d1cccf279dfa83dde6771f4357]](std::string uri, const char* file, int line);
+<a name="l00046"></a>   46   [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a8ea715d1cccf279dfa83dde6771f4357]](std::string uri, const char* file, int line);
 
-<a name="l00047"></a>   47   [[CURIFormatException|classCURIFormatException#a8ea715d1cccf279dfa83dde6771f4357]](std::string uri, std::string port,
+<a name="l00047"></a>   47   [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a8ea715d1cccf279dfa83dde6771f4357]](std::string uri, std::string port,
 
 <a name="l00048"></a>   48               const char* file, int line);
 
-<a name="l00049"></a>   49   [[CURIFormatException|classCURIFormatException#a8ea715d1cccf279dfa83dde6771f4357]](std::string uri, const char* host,
+<a name="l00049"></a>   49   [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a8ea715d1cccf279dfa83dde6771f4357]](std::string uri, const char* host,
 
 <a name="l00050"></a>   50               const char* file, int line);
 
-<a name="l00051"></a>   51   [[CURIFormatException|classCURIFormatException#a8ea715d1cccf279dfa83dde6771f4357]](const [[CURIFormatException|classCURIFormatException]]& rhs);              // copy construction
+<a name="l00051"></a>   51   [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a8ea715d1cccf279dfa83dde6771f4357]](const [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]& rhs);              // copy construction
 
 <a name="l00052"></a>   52
 
-<a name="l00053"></a>   53   virtual ~[[CURIFormatException|classCURIFormatException]]();
+<a name="l00053"></a>   53   virtual ~[[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]();
 
 <a name="l00054"></a>   54
 
@@ -117,11 +117,11 @@ header
 
 <a name="l00056"></a>   56
 
-<a name="l00057"></a>   57   [[CURIFormatException|classCURIFormatException]]& [[operator=|classCURIFormatException#a6f30de526f102be1a748500dd08ec501]](const [[CURIFormatException|classCURIFormatException]]& rhs);
+<a name="l00057"></a>   57   [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a6f30de526f102be1a748500dd08ec501]](const [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]& rhs);
 
-<a name="l00058"></a>   58   int [[operator==|classCURIFormatException#a0a32d38445ba9ca350a4c0d4b4a3ce37]](const [[CURIFormatException|classCURIFormatException]]& rhs) const;
+<a name="l00058"></a>   58   int [[operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a0a32d38445ba9ca350a4c0d4b4a3ce37]](const [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]& rhs) const;
 
-<a name="l00059"></a>   59   int [[operator!=|classCURIFormatException#a0d8fedfa7a5d082f237b453dd10abf42]](const [[CURIFormatException|classCURIFormatException]]& rhs) const;
+<a name="l00059"></a>   59   int [[operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a0d8fedfa7a5d082f237b453dd10abf42]](const [[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]& rhs) const;
 
 <a name="l00060"></a>   60
 
@@ -129,60 +129,60 @@ header
 
 <a name="l00062"></a>   62
 
-<a name="l00063"></a>   63   virtual const char* [[ReasonText|classCURIFormatException#a7e77dadc45ff7d6421c2bbd5fada9285]]() const;
+<a name="l00063"></a>   63   virtual const char* [[ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a7e77dadc45ff7d6421c2bbd5fada9285]]() const;
 
-<a name="l00064"></a>   64   virtual int [[ReasonCode|classCURIFormatException#a2eff30bfda43e570137d80251258e200]]() const;
+<a name="l00064"></a>   64   virtual int [[ReasonCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a2eff30bfda43e570137d80251258e200]]() const;
 
 <a name="l00065"></a>   65
 
 <a name="l00066"></a>   66 };
 
-[[CURIFormatException::operator!=|classCURIFormatException#a0d8fedfa7a5d082f237b453dd10abf42]]
+[[CURIFormatException::operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a0d8fedfa7a5d082f237b453dd10abf42]]
 
 int operator!=(const CURIFormatException &rhs) const
 
 **Definition:** URIFormatException.cpp:133
 
 
-[[CURIFormatException::CURIFormatException|classCURIFormatException#a8ea715d1cccf279dfa83dde6771f4357]]
+[[CURIFormatException::CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a8ea715d1cccf279dfa83dde6771f4357]]
 
 CURIFormatException(std::string uri, const char *file, int line)
 
 uri is just not the right format.
 
 
-[[CURIFormatException::operator=|classCURIFormatException#a6f30de526f102be1a748500dd08ec501]]
+[[CURIFormatException::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a6f30de526f102be1a748500dd08ec501]]
 
 CURIFormatException & operator=(const CURIFormatException &rhs)
 
 **Definition:** URIFormatException.cpp:110
 
 
-[[CURIFormatException|classCURIFormatException]]
+[[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]]
 
 **Definition:** URIFormatException.h:37
 
 
-[[CException|classCException]]
+[[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
 
 **Definition:** Exception.h:41
 
 
-[[CURIFormatException::operator==|classCURIFormatException#a0a32d38445ba9ca350a4c0d4b4a3ce37]]
+[[CURIFormatException::operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a0a32d38445ba9ca350a4c0d4b4a3ce37]]
 
 int operator==(const CURIFormatException &rhs) const
 
 **Definition:** URIFormatException.cpp:123
 
 
-[[CURIFormatException::ReasonCode|classCURIFormatException#a2eff30bfda43e570137d80251258e200]]
+[[CURIFormatException::ReasonCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a2eff30bfda43e570137d80251258e200]]
 
 virtual int ReasonCode() const
 
 **Definition:** URIFormatException.cpp:158
 
 
-[[CURIFormatException::ReasonText|classCURIFormatException#a7e77dadc45ff7d6421c2bbd5fada9285]]
+[[CURIFormatException::ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md#a7e77dadc45ff7d6421c2bbd5fada9285]]
 
 virtual const char * ReasonText() const
 

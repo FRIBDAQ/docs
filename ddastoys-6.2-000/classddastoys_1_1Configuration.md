@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[Configuration|classddastoys_1_1Configuration]]
+- [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]
 
  top 
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
-[[List of all members|classddastoys_1_1Configuration-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration-members.md]]
 
 
-ddastoys::Configuration Class Reference[[libFitEditorAnalytic.so|group__analytic]] | [[libFitEditorTemplate.so|group__template]] | [[libFitEditorMLInfernence.so|group__mlinference]]
+ddastoys::Configuration Class Reference[[libFitEditorAnalytic.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md]] | [[libFitEditorTemplate.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__template.md]] | [[libFitEditorMLInfernence.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__mlinference.md]]
 
 header
 Manage fit configuration information.  
- [[More...|classddastoys_1_1Configuration#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#details]]
 
 
 `#include <Configuration.h>`
@@ -293,8 +293,8 @@ Lines in the configuration file can be empty or have as their first non-blank ch
 
 ---
 
-The documentation for this class was generated from the following files:- [[Configuration.h|Configuration_8h_source]]
-- [[Configuration.cpp|Configuration_8cpp]]
+The documentation for this class was generated from the following files:- [[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/Configuration_8h_source.md]]
+- [[Configuration.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/Configuration_8cpp.md]]
 
  contents 
  start footer part 

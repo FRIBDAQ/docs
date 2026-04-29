@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCTCLApplication-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication-members.md]]
 
 
 CTCLApplication Class Referenceabstract
@@ -38,7 +38,7 @@ Inheritance diagram for CTCLApplication:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLApplication:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLApplication:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -144,7 +144,7 @@ Get the thread for the interpreter/application:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLApplication.h|TCLApplication_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLApplication.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLApplication_8h_source.md]]
 - libtclplus/tclplus/TCLApplication.cpp
 
  contents 

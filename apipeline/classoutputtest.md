@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classoutputtest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classoutputtest-members.md]]
 
 
 outputtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for outputtest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for outputtest:
@@ -47,7 +47,7 @@ Collaboration diagram for outputtest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -78,7 +78,7 @@ Collaboration diagram for outputtest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testouttests.cpp|testouttests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testouttests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testouttests_8cpp.md]]
 
  contents 
  start footer part 

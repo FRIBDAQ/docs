@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
 
  top 
 TCLObjectProcessor.h
@@ -93,11 +93,11 @@ header
 
 <a name="l00032"></a>   32
 
-<a name="l00033"></a>   33 class  [[CTCLInterpreter|classCTCLInterpreter]];
+<a name="l00033"></a>   33 class  [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
 
 <a name="l00034"></a>   34
 
-<a name="l00044"></a>[[44|classCTCLObjectProcessor]] class [[CTCLObjectProcessor|classCTCLObjectProcessor]] : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
+<a name="l00044"></a>[[44|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]] class [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]] : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
 
 <a name="l00045"></a>   45 {
 
@@ -119,25 +119,25 @@ header
 
 <a name="l00054"></a>   54
 
-<a name="l00055"></a>   55   [[CTCLObjectProcessor|classCTCLObjectProcessor]]([[CTCLInterpreter|classCTCLInterpreter]]& interp,
+<a name="l00055"></a>   55   [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& interp,
 
 <a name="l00056"></a>   56               std::string      name,
 
 <a name="l00057"></a>   57               bool             registerMe=true);
 
-<a name="l00058"></a>   58   virtual [[~CTCLObjectProcessor|classCTCLObjectProcessor#a1b9dc2b8115c0d67a7e26ebaa694b5a8]]();
+<a name="l00058"></a>   58   virtual [[~CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a1b9dc2b8115c0d67a7e26ebaa694b5a8]]();
 
 <a name="l00059"></a>   59   // Illegal canonicals:
 
 <a name="l00060"></a>   60 private:
 
-<a name="l00061"></a>   61   [[CTCLObjectProcessor|classCTCLObjectProcessor]](const [[CTCLObjectProcessor|classCTCLObjectProcessor]]& rhs);
+<a name="l00061"></a>   61   [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]](const [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]& rhs);
 
-<a name="l00062"></a>   62   [[CTCLObjectProcessor|classCTCLObjectProcessor]]& operator=(const [[CTCLObjectProcessor|classCTCLObjectProcessor]]& rhs);
+<a name="l00062"></a>   62   [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]& operator=(const [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]& rhs);
 
-<a name="l00063"></a>   63   int operator==(const [[CTCLObjectProcessor|classCTCLObjectProcessor]]& rhs) const;
+<a name="l00063"></a>   63   int operator==(const [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]& rhs) const;
 
-<a name="l00064"></a>   64   int operator!=(const [[CTCLObjectProcessor|classCTCLObjectProcessor]]& rhs) const;
+<a name="l00064"></a>   64   int operator!=(const [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]& rhs) const;
 
 <a name="l00065"></a>   65 public:
 
@@ -149,17 +149,17 @@ header
 
 <a name="l00069"></a>   69 public:
 
-<a name="l00070"></a>   70   void [[Register|classCTCLObjectProcessor#a63ff2563bfb22acfb3d9175f5589c648]]();      // Register command on the interpreter.
+<a name="l00070"></a>   70   void [[Register|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a63ff2563bfb22acfb3d9175f5589c648]]();      // Register command on the interpreter.
 
-<a name="l00071"></a>   71   Tcl_Command [[RegisterAs|classCTCLObjectProcessor#ad5a5c627060264812e900697c3abfec9]](std::string name); // register with a specific name.
+<a name="l00071"></a>   71   Tcl_Command [[RegisterAs|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#ad5a5c627060264812e900697c3abfec9]](std::string name); // register with a specific name.
 
-<a name="l00072"></a>   72   void [[unregister|classCTCLObjectProcessor#aa50bee2d8258f4aff7ce6c7e4198b8a3]]();        // Unregister command from the interp.
+<a name="l00072"></a>   72   void [[unregister|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa50bee2d8258f4aff7ce6c7e4198b8a3]]();        // Unregister command from the interp.
 
-<a name="l00073"></a>   73   void [[unregisterAs|classCTCLObjectProcessor#a01bc0c0cb385078923c6c465784d94a7]](Tcl_Command token); // unregister given command token.
+<a name="l00073"></a>   73   void [[unregisterAs|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a01bc0c0cb385078923c6c465784d94a7]](Tcl_Command token); // unregister given command token.
 
-<a name="l00074"></a>   74   std::string [[getName|classCTCLObjectProcessor#aa834a508ae9e48d9eaa96617c3a5f0a4]]() const;  // Return the name of the object.
+<a name="l00074"></a>   74   std::string [[getName|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa834a508ae9e48d9eaa96617c3a5f0a4]]() const;  // Return the name of the object.
 
-<a name="l00075"></a>   75   Tcl_CmdInfo [[getInfo|classCTCLObjectProcessor#ad466df918560696433e233a4f3ae3844]]() const;  // Return info about the command.
+<a name="l00075"></a>   75   Tcl_CmdInfo [[getInfo|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#ad466df918560696433e233a4f3ae3844]]() const;  // Return info about the command.
 
 <a name="l00076"></a>   76
 
@@ -169,11 +169,11 @@ header
 
 <a name="l00079"></a>   79 protected:
 
-<a name="l00080"></a>   80   virtual int operator()([[CTCLInterpreter|classCTCLInterpreter]]& interp,
+<a name="l00080"></a>   80   virtual int operator()([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& interp,
 
 <a name="l00081"></a>   81              std::vector<CTCLObject>& objv) = 0;
 
-<a name="l00082"></a>   82   virtual void [[onUnregister|classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]]();
+<a name="l00082"></a>   82   virtual void [[onUnregister|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a3bb43c6ecbdf32cb1187cb17de8d7923]]();
 
 <a name="l00083"></a>   83
 
@@ -183,13 +183,13 @@ header
 
 <a name="l00086"></a>   86 protected:
 
-<a name="l00087"></a>   87   void [[bindAll|classCTCLObjectProcessor#aaa7c28e0865652adcc3e8e87a7f60237]]([[CTCLInterpreter|classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
+<a name="l00087"></a>   87   void [[bindAll|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aaa7c28e0865652adcc3e8e87a7f60237]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& interp, std::vector<CTCLObject>& objv);
 
-<a name="l00088"></a>   88   void [[requireAtLeast|classCTCLObjectProcessor#a6b86015d392781ac7b98ed4ecadefc60]](std::vector<CTCLObject>& objv, unsigned n, const char* msg=0) const;
+<a name="l00088"></a>   88   void [[requireAtLeast|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a6b86015d392781ac7b98ed4ecadefc60]](std::vector<CTCLObject>& objv, unsigned n, const char* msg=0) const;
 
-<a name="l00089"></a>   89   void [[requireAtMost|classCTCLObjectProcessor#aa38304af6ba5fc40fb6bda6f91efc064]](std::vector<CTCLObject>& objv, unsigned n, const char* msg=0) const;
+<a name="l00089"></a>   89   void [[requireAtMost|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa38304af6ba5fc40fb6bda6f91efc064]](std::vector<CTCLObject>& objv, unsigned n, const char* msg=0) const;
 
-<a name="l00090"></a>   90   void [[requireExactly|classCTCLObjectProcessor#a1de09e60d61d7f44b12f1417dd9bd42a]](std::vector<CTCLObject>& objv, unsigned n, const char* msg=0) const;
+<a name="l00090"></a>   90   void [[requireExactly|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a1de09e60d61d7f44b12f1417dd9bd42a]](std::vector<CTCLObject>& objv, unsigned n, const char* msg=0) const;
 
 <a name="l00091"></a>   91
 
@@ -217,99 +217,99 @@ header
 
 <a name="l00103"></a>  103 #endif
 
-[[CTCLObjectProcessor::unregisterAs|classCTCLObjectProcessor#a01bc0c0cb385078923c6c465784d94a7]]
+[[CTCLObjectProcessor::unregisterAs|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a01bc0c0cb385078923c6c465784d94a7]]
 
 void unregisterAs(Tcl_Command token)
 
 **Definition:** TCLObjectProcessor.cpp:124
 
 
-[[CTCLInterpreterObject|classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|classCTCLInterpreter]]
+[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLObjectProcessor::bindAll|classCTCLObjectProcessor#aaa7c28e0865652adcc3e8e87a7f60237]]
+[[CTCLObjectProcessor::bindAll|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aaa7c28e0865652adcc3e8e87a7f60237]]
 
 void bindAll(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
 **Definition:** TCLObjectProcessor.cpp:200
 
 
-[[CTCLObjectProcessor::requireAtLeast|classCTCLObjectProcessor#a6b86015d392781ac7b98ed4ecadefc60]]
+[[CTCLObjectProcessor::requireAtLeast|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a6b86015d392781ac7b98ed4ecadefc60]]
 
 void requireAtLeast(std::vector< CTCLObject > &objv, unsigned n, const char *msg=0) const
 
 **Definition:** TCLObjectProcessor.cpp:217
 
 
-[[CTCLObjectProcessor::unregister|classCTCLObjectProcessor#aa50bee2d8258f4aff7ce6c7e4198b8a3]]
+[[CTCLObjectProcessor::unregister|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa50bee2d8258f4aff7ce6c7e4198b8a3]]
 
 void unregister()
 
 **Definition:** TCLObjectProcessor.cpp:107
 
 
-[[CTCLObjectProcessor::Register|classCTCLObjectProcessor#a63ff2563bfb22acfb3d9175f5589c648]]
+[[CTCLObjectProcessor::Register|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a63ff2563bfb22acfb3d9175f5589c648]]
 
 void Register()
 
 **Definition:** TCLObjectProcessor.cpp:74
 
 
-[[CTCLObjectProcessor|classCTCLObjectProcessor]]
+[[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]
 
 **Definition:** TCLObjectProcessor.h:44
 
 
-[[CTCLObjectProcessor::getName|classCTCLObjectProcessor#aa834a508ae9e48d9eaa96617c3a5f0a4]]
+[[CTCLObjectProcessor::getName|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa834a508ae9e48d9eaa96617c3a5f0a4]]
 
 std::string getName() const
 
 **Definition:** TCLObjectProcessor.cpp:141
 
 
-[[CTCLObjectProcessor::getInfo|classCTCLObjectProcessor#ad466df918560696433e233a4f3ae3844]]
+[[CTCLObjectProcessor::getInfo|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#ad466df918560696433e233a4f3ae3844]]
 
 Tcl_CmdInfo getInfo() const
 
 **Definition:** TCLObjectProcessor.cpp:164
 
 
-[[CTCLObjectProcessor::requireExactly|classCTCLObjectProcessor#a1de09e60d61d7f44b12f1417dd9bd42a]]
+[[CTCLObjectProcessor::requireExactly|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a1de09e60d61d7f44b12f1417dd9bd42a]]
 
 void requireExactly(std::vector< CTCLObject > &objv, unsigned n, const char *msg=0) const
 
 **Definition:** TCLObjectProcessor.cpp:255
 
 
-[[CTCLObjectProcessor::~CTCLObjectProcessor|classCTCLObjectProcessor#a1b9dc2b8115c0d67a7e26ebaa694b5a8]]
+[[CTCLObjectProcessor::~CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a1b9dc2b8115c0d67a7e26ebaa694b5a8]]
 
 virtual ~CTCLObjectProcessor()
 
 **Definition:** TCLObjectProcessor.cpp:60
 
 
-[[CTCLObjectProcessor::requireAtMost|classCTCLObjectProcessor#aa38304af6ba5fc40fb6bda6f91efc064]]
+[[CTCLObjectProcessor::requireAtMost|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa38304af6ba5fc40fb6bda6f91efc064]]
 
 void requireAtMost(std::vector< CTCLObject > &objv, unsigned n, const char *msg=0) const
 
 **Definition:** TCLObjectProcessor.cpp:236
 
 
-[[CTCLObjectProcessor::RegisterAs|classCTCLObjectProcessor#ad5a5c627060264812e900697c3abfec9]]
+[[CTCLObjectProcessor::RegisterAs|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#ad5a5c627060264812e900697c3abfec9]]
 
 Tcl_Command RegisterAs(std::string name)
 
 **Definition:** TCLObjectProcessor.cpp:89
 
 
-[[CTCLObjectProcessor::onUnregister|classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]]
+[[CTCLObjectProcessor::onUnregister|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a3bb43c6ecbdf32cb1187cb17de8d7923]]
 
 virtual void onUnregister()
 

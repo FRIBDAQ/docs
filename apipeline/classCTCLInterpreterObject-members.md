@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLInterpreterObject Member List
 
 header
-This is the complete list of members for [[CTCLInterpreterObject|classCTCLInterpreterObject]], including all inherited members.
+This is the complete list of members for [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]], including all inherited members.
 
 
 |  |  |  |

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLObjectProcessor Member List
 
 header
-This is the complete list of members for [[CTCLObjectProcessor|classCTCLObjectProcessor]], including all inherited members.
+This is the complete list of members for [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]], including all inherited members.
 
 
 |  |  |  |

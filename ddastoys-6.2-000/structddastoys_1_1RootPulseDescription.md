@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[RootPulseDescription|structddastoys_1_1RootPulseDescription]]
+- [[RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|structddastoys_1_1RootPulseDescription-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription-members.md]]
 
 
-ddastoys::RootPulseDescription Struct Reference[[libDDASRootFitFormat.so|group__ddasrootfitformat]]
+ddastoys::RootPulseDescription Struct Reference[[libDDASRootFitFormat.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__ddasrootfitformat.md]]
 
 header
 Describes a single pulse without an offset.  
- [[More...|structddastoys_1_1RootPulseDescription#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#details]]
 
 
 `#include <RootExtensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::RootPulseDescription:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 Collaboration diagram for ddastoys::RootPulseDescription:
@@ -64,7 +64,7 @@ Collaboration diagram for ddastoys::RootPulseDescription:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
 
 
 |  |  |
@@ -100,7 +100,7 @@ Describes a single pulse without an offset.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[RootExtensions.h|RootExtensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[RootExtensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootExtensions_8h_source.md]]
 
  contents 
  start footer part 

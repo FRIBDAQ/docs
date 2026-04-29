@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
 
  top 
 TCLObject.h
@@ -127,7 +127,7 @@ header
 
 <a name="l00049"></a>   49
 
-<a name="l00050"></a>[[50|classCTCLObject]] class [[CTCLObject|classCTCLObject]] : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
+<a name="l00050"></a>[[50|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] class [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
 
 <a name="l00051"></a>   51 {
 
@@ -149,7 +149,7 @@ header
 
 <a name="l00060"></a>   60
 
-<a name="l00061"></a>   61   [[CTCLObject|classCTCLObject]] ()    : m_pObject(0)
+<a name="l00061"></a>   61   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] ()    : m_pObject(0)
 
 <a name="l00062"></a>   62   {
 
@@ -163,7 +163,7 @@ header
 
 <a name="l00067"></a>   67   }
 
-<a name="l00068"></a>   68   virtual  ~[[CTCLObject|classCTCLObject]] ( )      // Destructor
+<a name="l00068"></a>   68   virtual  ~[[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] ( )      // Destructor
 
 <a name="l00069"></a>   69   {
 
@@ -175,7 +175,7 @@ header
 
 <a name="l00073"></a>   73
 
-<a name="l00074"></a>   74   [[CTCLObject|classCTCLObject]] (Tcl_Obj* am_pObject)
+<a name="l00074"></a>   74   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] (Tcl_Obj* am_pObject)
 
 <a name="l00075"></a>   75
 
@@ -199,9 +199,9 @@ header
 
 <a name="l00085"></a>   85
 
-<a name="l00086"></a>   86   [[CTCLObject|classCTCLObject]] (const [[CTCLObject|classCTCLObject]]& aCTCLObject )  :
+<a name="l00086"></a>   86   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] (const [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& aCTCLObject )  :
 
-<a name="l00087"></a>   87     [[CTCLInterpreterObject|classCTCLInterpreterObject]](aCTCLObject)
+<a name="l00087"></a>   87     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](aCTCLObject)
 
 <a name="l00088"></a>   88   {
 
@@ -219,7 +219,7 @@ header
 
 <a name="l00095"></a>   95
 
-<a name="l00096"></a>   96   [[CTCLObject|classCTCLObject]]& operator= (const [[CTCLObject|classCTCLObject]]& aCTCLObject);
+<a name="l00096"></a>   96   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator= (const [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& aCTCLObject);
 
 <a name="l00097"></a>   97
 
@@ -227,7 +227,7 @@ header
 
 <a name="l00099"></a>   99
 
-<a name="l00100"></a>  100   int operator== (const [[CTCLObject|classCTCLObject]]& aCTCLObject) const;
+<a name="l00100"></a>  100   int operator== (const [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& aCTCLObject) const;
 
 <a name="l00101"></a>  101
 
@@ -287,19 +287,19 @@ header
 
 <a name="l00129"></a>  129
 
-<a name="l00130"></a>  130    [[CTCLObject|classCTCLObject]]& operator= (const std::string& rSource)    ;
+<a name="l00130"></a>  130    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator= (const std::string& rSource)    ;
 
-<a name="l00131"></a>  131    [[CTCLObject|classCTCLObject]]& operator= (const char* pSource)    ;
+<a name="l00131"></a>  131    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator= (const char* pSource)    ;
 
-<a name="l00132"></a>  132    [[CTCLObject|classCTCLObject]]& operator= (int nSource)    ;
+<a name="l00132"></a>  132    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator= (int nSource)    ;
 
-<a name="l00133"></a>  133    [[CTCLObject|classCTCLObject]]& operator= (const [[CTCLList|classCTCLList]]& rList)    ;
+<a name="l00133"></a>  133    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator= (const [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& rList)    ;
 
-<a name="l00134"></a>  134    [[CTCLObject|classCTCLObject]]& operator= (double dSource)     ;
+<a name="l00134"></a>  134    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator= (double dSource)     ;
 
-<a name="l00135"></a>  135    [[CTCLObject|classCTCLObject]]&  operator=(Tcl_Obj* rhs);
+<a name="l00135"></a>  135    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&  operator=(Tcl_Obj* rhs);
 
-<a name="l00136"></a>  136    [[CTCLObject|classCTCLObject]]& operator=(Tcl_WideInt rhs);
+<a name="l00136"></a>  136    [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator=(Tcl_WideInt rhs);
 
 <a name="l00137"></a>  137
 
@@ -311,7 +311,7 @@ header
 
 <a name="l00141"></a>  141   operator int ()    ;
 
-<a name="l00142"></a>  142   operator [[CTCLList|classCTCLList]] ()    ;
+<a name="l00142"></a>  142   operator [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]] ()    ;
 
 <a name="l00143"></a>  143   operator double ()    ;
 
@@ -325,17 +325,17 @@ header
 
 <a name="l00148"></a>  148
 
-<a name="l00149"></a>  149   [[CTCLObject|classCTCLObject]]& operator+= (const [[CTCLObject|classCTCLObject]]& rObject)    ;
+<a name="l00149"></a>  149   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator+= (const [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& rObject)    ;
 
-<a name="l00150"></a>  150   [[CTCLObject|classCTCLObject]]& operator+= (int nItem)    ;
+<a name="l00150"></a>  150   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator+= (int nItem)    ;
 
-<a name="l00151"></a>  151   [[CTCLObject|classCTCLObject]]& operator+= (const std::string& rItem)    ;
+<a name="l00151"></a>  151   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator+= (const std::string& rItem)    ;
 
-<a name="l00152"></a>  152   [[CTCLObject|classCTCLObject]]& operator+= (const char* pItem)    ;
+<a name="l00152"></a>  152   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator+= (const char* pItem)    ;
 
-<a name="l00153"></a>  153   [[CTCLObject|classCTCLObject]]& operator+= (double  Item)    ;
+<a name="l00153"></a>  153   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator+= (double  Item)    ;
 
-<a name="l00154"></a>  154   [[CTCLObject|classCTCLObject]]& operator+= (Tcl_Obj* pObj);
+<a name="l00154"></a>  154   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& operator+= (Tcl_Obj* pObj);
 
 <a name="l00155"></a>  155
 
@@ -343,7 +343,7 @@ header
 
 <a name="l00157"></a>  157
 
-<a name="l00158"></a>  158   [[CTCLObject|classCTCLObject]] clone ()    ;
+<a name="l00158"></a>  158   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] clone ()    ;
 
 <a name="l00159"></a>  159
 
@@ -353,7 +353,7 @@ header
 
 <a name="l00162"></a>  162
 
-<a name="l00163"></a>  163   [[CTCLObject|classCTCLObject]] operator() ()    ;
+<a name="l00163"></a>  163   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] operator() ()    ;
 
 <a name="l00164"></a>  164
 
@@ -361,7 +361,7 @@ header
 
 <a name="l00166"></a>  166
 
-<a name="l00167"></a>  167   [[CTCLObject|classCTCLObject]] [[getRange|classCTCLObject#a2bd426580e66abaaefb685cac5b4444c]](int first, int last);
+<a name="l00167"></a>  167   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] [[getRange|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a2bd426580e66abaaefb685cac5b4444c]](int first, int last);
 
 <a name="l00168"></a>  168
 
@@ -371,17 +371,17 @@ header
 
 <a name="l00171"></a>  171
 
-<a name="l00172"></a>  172   [[CTCLObject|classCTCLObject]]&  [[concat|classCTCLObject#a9109250b14fb18de91a0694c7c4456c4]]([[CTCLObject|classCTCLObject]]& rhs); // Concat lists.
+<a name="l00172"></a>  172   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&  [[concat|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a9109250b14fb18de91a0694c7c4456c4]]([[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]& rhs); // Concat lists.
 
-<a name="l00173"></a>  173   std::vector<CTCLObject>  [[getListElements|classCTCLObject#aaaad89dd3eaf3f8072b8926b6c3fd117]]();
+<a name="l00173"></a>  173   std::vector<CTCLObject>  [[getListElements|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#aaaad89dd3eaf3f8072b8926b6c3fd117]]();
 
-<a name="l00174"></a>  174   [[CTCLObject|classCTCLObject]]&  [[setList|classCTCLObject#af2f34e6e5a36e56561200b8a2002980c]](std::vector<CTCLObject> elements);
+<a name="l00174"></a>  174   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&  [[setList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#af2f34e6e5a36e56561200b8a2002980c]](std::vector<CTCLObject> elements);
 
-<a name="l00175"></a>  175   int [[llength|classCTCLObject#acfcfdd68b043831aeda21dc80a1becc1]]();
+<a name="l00175"></a>  175   int [[llength|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#acfcfdd68b043831aeda21dc80a1becc1]]();
 
-<a name="l00176"></a>  176   [[CTCLObject|classCTCLObject]] [[lindex|classCTCLObject#a14e8e0b4fa61d6a2582962f0b29c9cae]](int index);
+<a name="l00176"></a>  176   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]] [[lindex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a14e8e0b4fa61d6a2582962f0b29c9cae]](int index);
 
-<a name="l00177"></a>  177   [[CTCLObject|classCTCLObject]]&  [[lreplace|classCTCLObject#a5076bf1bd7925bb817b8a55da5f37619]](int first, int count, std::vector<CTCLObject> newElements);
+<a name="l00177"></a>  177   [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]&  [[lreplace|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a5076bf1bd7925bb817b8a55da5f37619]](int first, int count, std::vector<CTCLObject> newElements);
 
 <a name="l00178"></a>  178
 
@@ -451,64 +451,64 @@ header
 
 <a name="l00211"></a>  211
 
-[[CTCLObject::setList|classCTCLObject#af2f34e6e5a36e56561200b8a2002980c]]
+[[CTCLObject::setList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#af2f34e6e5a36e56561200b8a2002980c]]
 
 CTCLObject & setList(std::vector< CTCLObject > elements)
 
 **Definition:** TCLObject.cpp:516
 
 
-[[CTCLObject::concat|classCTCLObject#a9109250b14fb18de91a0694c7c4456c4]]
+[[CTCLObject::concat|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a9109250b14fb18de91a0694c7c4456c4]]
 
 CTCLObject & concat(CTCLObject &rhs)
 
 **Definition:** TCLObject.cpp:457
 
 
-[[CTCLInterpreterObject|classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLObject::lindex|classCTCLObject#a14e8e0b4fa61d6a2582962f0b29c9cae]]
+[[CTCLObject::lindex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a14e8e0b4fa61d6a2582962f0b29c9cae]]
 
 CTCLObject lindex(int index)
 
 **Definition:** TCLObject.cpp:582
 
 
-[[CTCLObject::llength|classCTCLObject#acfcfdd68b043831aeda21dc80a1becc1]]
+[[CTCLObject::llength|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#acfcfdd68b043831aeda21dc80a1becc1]]
 
 int llength()
 
 **Definition:** TCLObject.cpp:553
 
 
-[[CTCLObject|classCTCLObject]]
+[[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]
 
 **Definition:** TCLObject.h:50
 
 
-[[CTCLList|classCTCLList]]
+[[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]
 
 **Definition:** TCLList.h:45
 
 
-[[CTCLObject::getListElements|classCTCLObject#aaaad89dd3eaf3f8072b8926b6c3fd117]]
+[[CTCLObject::getListElements|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#aaaad89dd3eaf3f8072b8926b6c3fd117]]
 
 std::vector< CTCLObject > getListElements()
 
 **Definition:** TCLObject.cpp:484
 
 
-[[CTCLObject::lreplace|classCTCLObject#a5076bf1bd7925bb817b8a55da5f37619]]
+[[CTCLObject::lreplace|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a5076bf1bd7925bb817b8a55da5f37619]]
 
 CTCLObject & lreplace(int first, int count, std::vector< CTCLObject > newElements)
 
 **Definition:** TCLObject.cpp:625
 
 
-[[CTCLObject::getRange|classCTCLObject#a2bd426580e66abaaefb685cac5b4444c]]
+[[CTCLObject::getRange|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a2bd426580e66abaaefb685cac5b4444c]]
 
 CTCLObject getRange(int first, int last)
 

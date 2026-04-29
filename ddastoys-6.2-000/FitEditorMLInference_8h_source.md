@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 FitEditorMLInference.h
 
 header
-[[Go to the documentation of this file.|FitEditorMLInference_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorMLInference_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -118,7 +118,7 @@ header
 <a name="l00039"></a>   39
 
 
-<a name="l00051"></a>[[51|classddastoys_1_1FitEditorMLInference]]     class [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]] : public CBuiltRingItemEditor::BodyEditor
+<a name="l00051"></a>[[51|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]     class [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]] : public CBuiltRingItemEditor::BodyEditor
 
 
 <a name="l00052"></a>   52     {
@@ -127,28 +127,28 @@ header
 <a name="l00053"></a>   53     public:
 
 
-<a name="l00055"></a>   55     [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a471e3f88230c6f6515aab43788c8645d]]();
+<a name="l00055"></a>   55     [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a471e3f88230c6f6515aab43788c8645d]]();
 
 
-<a name="l00060"></a>   60     [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a471e3f88230c6f6515aab43788c8645d]](const [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]& rhs);
+<a name="l00060"></a>   60     [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a471e3f88230c6f6515aab43788c8645d]](const [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]& rhs);
 
 
-<a name="l00065"></a>   65     [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a471e3f88230c6f6515aab43788c8645d]]([[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]&& rhs) noexcept;
+<a name="l00065"></a>   65     [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a471e3f88230c6f6515aab43788c8645d]]([[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]&& rhs) noexcept;
 
 
 <a name="l00066"></a>   66
 
 
-<a name="l00072"></a>   72     [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]& [[operator=|classddastoys_1_1FitEditorMLInference#ac92df8acc509c05dabd4ba4e84aa83f2]](const [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]& rhs);
+<a name="l00072"></a>   72     [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#ac92df8acc509c05dabd4ba4e84aa83f2]](const [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]& rhs);
 
 
-<a name="l00078"></a>   78     [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]& [[operator=|classddastoys_1_1FitEditorMLInference#ac92df8acc509c05dabd4ba4e84aa83f2]]([[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]&& rhs) noexcept;
+<a name="l00078"></a>   78     [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#ac92df8acc509c05dabd4ba4e84aa83f2]]([[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]&& rhs) noexcept;
 
 
 <a name="l00079"></a>   79
 
 
-<a name="l00081"></a>   81     virtual [[~FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a5e1af5690f9cdf346de91868d40968c2]]();
+<a name="l00081"></a>   81     virtual [[~FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a5e1af5690f9cdf346de91868d40968c2]]();
 
 
 <a name="l00082"></a>   82
@@ -160,7 +160,7 @@ header
 <a name="l00084"></a>   84     public:
 
 
-<a name="l00094"></a>   94     virtual std::vector<CBuiltRingItemEditor::BodySegment> [[operator()|classddastoys_1_1FitEditorMLInference#aec80def3c2a2c6afd708cacce02740e0]](
+<a name="l00094"></a>   94     virtual std::vector<CBuiltRingItemEditor::BodySegment> [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#aec80def3c2a2c6afd708cacce02740e0]](
 
 
 <a name="l00095"></a>   95         pRingItemHeader pHdr, pBodyHeader pBHdr, size_t bodySize,
@@ -172,7 +172,7 @@ header
 <a name="l00097"></a>   97         );
 
 
-<a name="l00102"></a>  102     virtual void [[free|classddastoys_1_1FitEditorMLInference#a3f9483cecb40afec96c5f4fd2147ad6f]](iovec& e);
+<a name="l00102"></a>  102     virtual void [[free|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a3f9483cecb40afec96c5f4fd2147ad6f]](iovec& e);
 
 
 <a name="l00103"></a>  103
@@ -184,7 +184,7 @@ header
 <a name="l00105"></a>  105     private:
 
 
-<a name="l00106"></a>  106     [[Configuration|classddastoys_1_1Configuration]]* m_pConfig;
+<a name="l00106"></a>  106     [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]* m_pConfig;
 
 
 <a name="l00108"></a>  108     std::map<std::string, torch::jit::script::Module> m_models;
@@ -205,21 +205,21 @@ header
 <a name="l00113"></a>  113 #endif
 
 
-[[ddastoys::Configuration|classddastoys_1_1Configuration]]
+[[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]
 
 Manage fit configuration information.
 
 **Definition:** Configuration.h:68
 
 
-[[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]
+[[ddastoys::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]
 
 Fit trace data using machine-learning inference with a detector response model defined by the analyti...
 
 **Definition:** FitEditorMLInference.h:52
 
 
-[[ddastoys::FitEditorMLInference::free|classddastoys_1_1FitEditorMLInference#a3f9483cecb40afec96c5f4fd2147ad6f]]
+[[ddastoys::FitEditorMLInference::free|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a3f9483cecb40afec96c5f4fd2147ad6f]]
 
 virtual void free(iovec &e)
 
@@ -228,7 +228,7 @@ Free the dynamic fit extension descriptor(s).
 **Definition:** FitEditorMLInference.cpp:187
 
 
-[[ddastoys::FitEditorMLInference::FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a471e3f88230c6f6515aab43788c8645d]]
+[[ddastoys::FitEditorMLInference::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a471e3f88230c6f6515aab43788c8645d]]
 
 FitEditorMLInference()
 
@@ -237,7 +237,7 @@ Constructor.
 **Definition:** FitEditorMLInference.cpp:43
 
 
-[[ddastoys::FitEditorMLInference::~FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a5e1af5690f9cdf346de91868d40968c2]]
+[[ddastoys::FitEditorMLInference::~FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a5e1af5690f9cdf346de91868d40968c2]]
 
 virtual ~FitEditorMLInference()
 
@@ -246,7 +246,7 @@ Destructor.
 **Definition:** FitEditorMLInference.cpp:115
 
 
-[[ddastoys::FitEditorMLInference::operator=|classddastoys_1_1FitEditorMLInference#ac92df8acc509c05dabd4ba4e84aa83f2]]
+[[ddastoys::FitEditorMLInference::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#ac92df8acc509c05dabd4ba4e84aa83f2]]
 
 FitEditorMLInference & operator=(const FitEditorMLInference &rhs)
 
@@ -255,7 +255,7 @@ Copy assignment operator.
 **Definition:** FitEditorMLInference.cpp:89
 
 
-[[ddastoys::FitEditorMLInference::operator()|classddastoys_1_1FitEditorMLInference#aec80def3c2a2c6afd708cacce02740e0]]
+[[ddastoys::FitEditorMLInference::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#aec80def3c2a2c6afd708cacce02740e0]]
 
 virtual std::vector< CBuiltRingItemEditor::BodySegment > operator()(pRingItemHeader pHdr, pBodyHeader pBHdr, size_t bodySize, void *pBody)
 

@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 CRingItemProcessor.h
 
 header
-[[Go to the documentation of this file.|CRingItemProcessor_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CRingItemProcessor_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -109,7 +109,7 @@ header
 <a name="l00035"></a>   35
 
 
-<a name="l00047"></a>[[47|classCRingItemProcessor]] class [[CRingItemProcessor|classCRingItemProcessor]]
+<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]] class [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]
 
 
 <a name="l00048"></a>   48 {
@@ -118,10 +118,10 @@ header
 <a name="l00049"></a>   49 public:
 
 
-<a name="l00051"></a>[[51|classCRingItemProcessor#a548338280690b7797189885ea41c8e02]]     [[CRingItemProcessor|classCRingItemProcessor#a548338280690b7797189885ea41c8e02]]() {};
+<a name="l00051"></a>[[51|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a548338280690b7797189885ea41c8e02]]     [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a548338280690b7797189885ea41c8e02]]() {};
 
 
-<a name="l00053"></a>[[53|classCRingItemProcessor#a4be9670039452778f73e545d9bcfc3e6]]     virtual [[~CRingItemProcessor|classCRingItemProcessor#a4be9670039452778f73e545d9bcfc3e6]]() {};
+<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4be9670039452778f73e545d9bcfc3e6]]     virtual [[~CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4be9670039452778f73e545d9bcfc3e6]]() {};
 
 
 <a name="l00054"></a>   54
@@ -130,28 +130,28 @@ header
 <a name="l00055"></a>   55 public:
 
 
-<a name="l00060"></a>   60     virtual void [[processScalerItem|classCRingItemProcessor#a6effcf50a659f796abde459f4f9e741c]](CRingScalerItem& item);
+<a name="l00060"></a>   60     virtual void [[processScalerItem|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a6effcf50a659f796abde459f4f9e741c]](CRingScalerItem& item);
 
 
-<a name="l00065"></a>   65     virtual void [[processStateChangeItem|classCRingItemProcessor#afeae63a1f87299dbd7f7d36d49b4f375]](CRingStateChangeItem& item);
+<a name="l00065"></a>   65     virtual void [[processStateChangeItem|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#afeae63a1f87299dbd7f7d36d49b4f375]](CRingStateChangeItem& item);
 
 
-<a name="l00070"></a>   70     virtual void [[processTextItem|classCRingItemProcessor#aae9b288e73a47f55fb84b183568c3c10]](CRingTextItem& item);
+<a name="l00070"></a>   70     virtual void [[processTextItem|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aae9b288e73a47f55fb84b183568c3c10]](CRingTextItem& item);
 
 
-<a name="l00075"></a>   75     virtual void [[processEvent|classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]](CPhysicsEventItem& item);
+<a name="l00075"></a>   75     virtual void [[processEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f]](CPhysicsEventItem& item);
 
 
-<a name="l00080"></a>   80     virtual void [[processEventCount|classCRingItemProcessor#ad40e90e2379274cdeba3b6e3684ea2cd]](CRingPhysicsEventCountItem& item);
+<a name="l00080"></a>   80     virtual void [[processEventCount|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#ad40e90e2379274cdeba3b6e3684ea2cd]](CRingPhysicsEventCountItem& item);
 
 
-<a name="l00085"></a>   85     virtual void [[processFormat|classCRingItemProcessor#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]](CDataFormatItem& item);
+<a name="l00085"></a>   85     virtual void [[processFormat|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]](CDataFormatItem& item);
 
 
-<a name="l00090"></a>   90     virtual void [[processGlomParams|classCRingItemProcessor#a4fe9f6a8d52479dffbfd386b2eddd549]](CGlomParameters& item);
+<a name="l00090"></a>   90     virtual void [[processGlomParams|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4fe9f6a8d52479dffbfd386b2eddd549]](CGlomParameters& item);
 
 
-<a name="l00095"></a>   95     virtual void [[processUnknownItemType|classCRingItemProcessor#af6296575a22ec026da72c9571b88f8b7]](CRingItem& item);
+<a name="l00095"></a>   95     virtual void [[processUnknownItemType|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#af6296575a22ec026da72c9571b88f8b7]](CRingItem& item);
 
 
 <a name="l00096"></a>   96 };
@@ -163,14 +163,14 @@ header
 <a name="l00098"></a>   98 #endif
 
 
-[[CRingItemProcessor|classCRingItemProcessor]]
+[[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]]
 
 Abstract base class to support type-independent ring-item processing.
 
 **Definition:** CRingItemProcessor.h:48
 
 
-[[CRingItemProcessor::~CRingItemProcessor|classCRingItemProcessor#a4be9670039452778f73e545d9bcfc3e6]]
+[[CRingItemProcessor::~CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4be9670039452778f73e545d9bcfc3e6]]
 
 virtual ~CRingItemProcessor()
 
@@ -179,7 +179,7 @@ Destructor.
 **Definition:** CRingItemProcessor.h:53
 
 
-[[CRingItemProcessor::processGlomParams|classCRingItemProcessor#a4fe9f6a8d52479dffbfd386b2eddd549]]
+[[CRingItemProcessor::processGlomParams|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4fe9f6a8d52479dffbfd386b2eddd549]]
 
 virtual void processGlomParams(CGlomParameters &item)
 
@@ -188,7 +188,7 @@ Output a glom parameters item to stdout.
 **Definition:** CRingItemProcessor.cpp:167
 
 
-[[CRingItemProcessor::CRingItemProcessor|classCRingItemProcessor#a548338280690b7797189885ea41c8e02]]
+[[CRingItemProcessor::CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a548338280690b7797189885ea41c8e02]]
 
 CRingItemProcessor()
 
@@ -197,7 +197,7 @@ Constructor.
 **Definition:** CRingItemProcessor.h:51
 
 
-[[CRingItemProcessor::processScalerItem|classCRingItemProcessor#a6effcf50a659f796abde459f4f9e741c]]
+[[CRingItemProcessor::processScalerItem|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a6effcf50a659f796abde459f4f9e741c]]
 
 virtual void processScalerItem(CRingScalerItem &item)
 
@@ -206,7 +206,7 @@ Output an abbreviated scaler dump to stdout.
 **Definition:** CRingItemProcessor.cpp:57
 
 
-[[CRingItemProcessor::processFormat|classCRingItemProcessor#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]]
+[[CRingItemProcessor::processFormat|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]]
 
 virtual void processFormat(CDataFormatItem &item)
 
@@ -215,7 +215,7 @@ Output the ring item format to stdout.
 **Definition:** CRingItemProcessor.cpp:151
 
 
-[[CRingItemProcessor::processEvent|classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]]
+[[CRingItemProcessor::processEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f]]
 
 virtual void processEvent(CPhysicsEventItem &item)
 
@@ -224,7 +224,7 @@ Output a physics event item to stdout.
 **Definition:** CRingItemProcessor.cpp:118
 
 
-[[CRingItemProcessor::processTextItem|classCRingItemProcessor#aae9b288e73a47f55fb84b183568c3c10]]
+[[CRingItemProcessor::processTextItem|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aae9b288e73a47f55fb84b183568c3c10]]
 
 virtual void processTextItem(CRingTextItem &item)
 
@@ -233,7 +233,7 @@ Output a text item to stdout.
 **Definition:** CRingItemProcessor.cpp:98
 
 
-[[CRingItemProcessor::processEventCount|classCRingItemProcessor#ad40e90e2379274cdeba3b6e3684ea2cd]]
+[[CRingItemProcessor::processEventCount|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#ad40e90e2379274cdeba3b6e3684ea2cd]]
 
 virtual void processEventCount(CRingPhysicsEventCountItem &item)
 
@@ -242,7 +242,7 @@ Output an event count item to stdout.
 **Definition:** CRingItemProcessor.cpp:132
 
 
-[[CRingItemProcessor::processUnknownItemType|classCRingItemProcessor#af6296575a22ec026da72c9571b88f8b7]]
+[[CRingItemProcessor::processUnknownItemType|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#af6296575a22ec026da72c9571b88f8b7]]
 
 virtual void processUnknownItemType(CRingItem &item)
 
@@ -251,7 +251,7 @@ Output a ring item with unknown type to stdout.
 **Definition:** CRingItemProcessor.cpp:189
 
 
-[[CRingItemProcessor::processStateChangeItem|classCRingItemProcessor#afeae63a1f87299dbd7f7d36d49b4f375]]
+[[CRingItemProcessor::processStateChangeItem|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#afeae63a1f87299dbd7f7d36d49b4f375]]
 
 virtual void processStateChangeItem(CRingStateChangeItem &item)
 

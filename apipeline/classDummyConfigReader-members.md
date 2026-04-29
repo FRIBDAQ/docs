@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DummyConfigReader Member List
 
 header
-This is the complete list of members for [[DummyConfigReader|classDummyConfigReader]], including all inherited members.
+This is the complete list of members for [[DummyConfigReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classDummyConfigReader.md]], including all inherited members.
 
 
 |  |  |  |

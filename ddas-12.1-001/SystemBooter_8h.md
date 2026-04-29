@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[booter|dir_6ee16d49823f5bdfd30ad95b5fce836e]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[booter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6ee16d49823f5bdfd30ad95b5fce836e.md]]
 
  top 
 [Classes](#nested-classes) |
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](SystemBooter_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|SystemBooter_8h_source]]
+[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h_source.md]]
 
 
 |  |  |

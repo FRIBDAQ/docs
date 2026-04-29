@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CItemConfiguration|classCItemConfiguration]]
-- [[_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]]
+- [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
+- [[_ListSizeConstraint|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__ListSizeConstraint.md]]
 
  top 
 CItemConfiguration::_ListSizeConstraint Member List
 
 header
-This is the complete list of members for [[CItemConfiguration::_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration::_ListSizeConstraint|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__ListSizeConstraint.md]], including all inherited members.
 
 
 |  |  |  |

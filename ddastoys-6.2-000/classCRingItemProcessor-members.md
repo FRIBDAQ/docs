@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CRingItemProcessor Member List
 
 header
-This is the complete list of members for [[CRingItemProcessor|classCRingItemProcessor]], including all inherited members.
+This is the complete list of members for [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md]], including all inherited members.
 
 
 |  |  |  |

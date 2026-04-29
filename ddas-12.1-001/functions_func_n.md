@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - n -
 
 - nextHit()
-  : [[DDASReadout::HitManager|classDDASReadout_1_1HitManager#ae2d8aba51a3945b5eee126d13d405654]]
+  : [[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ae2d8aba51a3945b5eee126d13d405654]]
 
  contents 
  start footer part 

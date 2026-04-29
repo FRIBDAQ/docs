@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
 
  top 
 DDASRootFitHit.h
 
 header
-[[Go to the documentation of this file.|DDASRootFitHit_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitHit_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -90,7 +90,7 @@ header
 <a name="l00026"></a>   26
 
 
-<a name="l00027"></a>   27 #include <[[DDASFitHit.h|DDASFitHit_8h]]>
+<a name="l00027"></a>   27 #include <[[DDASFitHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASFitHit_8h.md]]>
 
 
 <a name="l00028"></a>   28 #include <TObject.h>
@@ -105,7 +105,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00052"></a>[[52|classddastoys_1_1DDASRootFitHit]]     class [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]] : public [[DDASFitHit|classddastoys_1_1DDASFitHit]], public TObject
+<a name="l00052"></a>[[52|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]     class [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]] : public [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]], public TObject
 
 
 <a name="l00053"></a>   53     {
@@ -114,25 +114,25 @@ header
 <a name="l00054"></a>   54     public:
 
 
-<a name="l00056"></a>   56     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]();
+<a name="l00056"></a>   56     [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#ace1d313dc95d0a43072a4ec8f08bb658]]();
 
 
-<a name="l00061"></a>   61     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]](const [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& rhs);
+<a name="l00061"></a>   61     [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#ace1d313dc95d0a43072a4ec8f08bb658]](const [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]& rhs);
 
 
 <a name="l00062"></a>   62
 
 
-<a name="l00068"></a>   68     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& [[operator=|classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]](const [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& rhs);
+<a name="l00068"></a>   68     [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a243d32e4f3cfb7620616ae7059f9bac7]](const [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]& rhs);
 
 
-<a name="l00076"></a>   76     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& [[operator=|classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]](const [[DDASFitHit|classddastoys_1_1DDASFitHit]]& rhs);
+<a name="l00076"></a>   76     [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a243d32e4f3cfb7620616ae7059f9bac7]](const [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& rhs);
 
 
 <a name="l00077"></a>   77
 
 
-<a name="l00082"></a>   82     void [[Reset|classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]();
+<a name="l00082"></a>   82     void [[Reset|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a7e84085f97d9d990bac1c2aeaa49a226]]();
 
 
 <a name="l00083"></a>   83
@@ -144,7 +144,7 @@ header
 <a name="l00085"></a>   85
 
 
-<a name="l00086"></a>   86     ClassDef([[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]], 1)
+<a name="l00086"></a>   86     ClassDef([[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]], 1)
 
 
 <a name="l00087"></a>   87     };
@@ -162,26 +162,26 @@ header
 <a name="l00092"></a>   92 #endif
 
 
-[[DDASFitHit.h|DDASFitHit_8h]]
+[[DDASFitHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASFitHit_8h.md]]
 
 Extends DDASHit to include fit data that's been tacked on to the end of a hit.
 
 
-[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 
 **Definition:** DDASFitHit.h:46
 
 
-[[ddastoys::DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]
+[[ddastoys::DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]]
 
 This class is a ROOT serializable DDAS hit with possible fit data.
 
 **Definition:** DDASRootFitHit.h:53
 
 
-[[ddastoys::DDASRootFitHit::operator=|classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]]
+[[ddastoys::DDASRootFitHit::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a243d32e4f3cfb7620616ae7059f9bac7]]
 
 DDASRootFitHit & operator=(const DDASRootFitHit &rhs)
 
@@ -190,7 +190,7 @@ Assignment from another DDASRootFitHit.
 **Definition:** DDASRootFitHit.cpp:43
 
 
-[[ddastoys::DDASRootFitHit::Reset|classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]
+[[ddastoys::DDASRootFitHit::Reset|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a7e84085f97d9d990bac1c2aeaa49a226]]
 
 void Reset()
 
@@ -199,7 +199,7 @@ Reset the object to empty. This is really just a matter of assigning a reset hit
 **Definition:** DDASRootFitHit.cpp:65
 
 
-[[ddastoys::DDASRootFitHit::DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]
+[[ddastoys::DDASRootFitHit::DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#ace1d313dc95d0a43072a4ec8f08bb658]]
 
 DDASRootFitHit()
 

@@ -21,16 +21,16 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|namespaceDAQ]]
-- [[DDAS|namespaceDAQ_1_1DDAS]]
-- [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
-- [[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
+- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
+- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+- [[HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md]]
+- [[HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md]]
 
  top 
 DAQ::DDAS::HardwareRegistry::HardwareSpecification Member List
 
 header
-This is the complete list of members for [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]], including all inherited members.
+This is the complete list of members for [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md]], including all inherited members.
 
 
 |  |  |  |

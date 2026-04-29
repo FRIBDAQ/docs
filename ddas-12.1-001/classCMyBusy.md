@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classCMyBusy-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy-members.md]]
 
 
 CMyBusy Class Reference
 
 header
 Provides a busy command to override the SBS one. There is no concept of "busy" for DDAS systems, so all of these class' functions are no-ops.  
- [[More...|classCMyBusy#details]]
+ [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md#details]]
 
 
 `#include <CMyBusy.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CMyBusy:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 Collaboration diagram for CMyBusy:
@@ -57,7 +57,7 @@ Collaboration diagram for CMyBusy:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
 
 
 |  |  |
@@ -138,8 +138,8 @@ Do nothing.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyBusy.h|CMyBusy_8h_source]]
-- [[CMyBusy.cpp|CMyBusy_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyBusy.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyBusy_8h_source.md]]
+- [[CMyBusy.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyBusy_8cpp.md]]
 
  contents 
  start footer part 

@@ -19,66 +19,66 @@ do not remove this div, it is closed by doxygen!
 ### - s -
 
 - SaveSetFile()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#ab5ff3257d6aaf462560d38cdb8d5f231]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#ab5ff3257d6aaf462560d38cdb8d5f231]]
 - SetBootMode()
-  : [[CPixieSystemUtilities|classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]]
+  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#acec2d34a276b14ef68d40b83627a036e]]
 - setBuffer()
-  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#a5e231bfb36f6ede27696b20f6d9cdd13]]
+  : [[DAQ::DDAS::DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a5e231bfb36f6ede27696b20f6d9cdd13]]
 - SetChannel()
-  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a1143576edf8acc08fcf55ca351e6e3de]]
+  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1143576edf8acc08fcf55ca351e6e3de]]
 - setCrateId()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#abc9ffcb5294d509e27def905d5ec8d57]]
 - setData()
-  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#aadfa560d832709ff5f65b94d578fb309]]
+  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#aadfa560d832709ff5f65b94d578fb309]]
 - setFactory()
-  : [[DataSource|classDataSource#a6480bdb02e863710e5ff73ab32e94496]]
+  : [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6480bdb02e863710e5ff73ab32e94496]]
 - setFirmwareConfiguration()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a46417511db33f3e6bf584e03a2067bb7]]
 - setHardwareMap()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a87ed54b5b3f74edf3c85ded475382bdb]]
 - setHit()
-  : [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#a99b2e6e216650aa4af52071e115872a3]]
+  : [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a99b2e6e216650aa4af52071e115872a3]]
 - SetLength()
-  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#afb067fdd1cf2842d8f38aeaa2e129c85]]
+  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afb067fdd1cf2842d8f38aeaa2e129c85]]
 - setModuleEventLengths()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a9f76deb7e880bf2d5fe10f64f986fd82]]
 - setModuleFirmwareMap()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a2790739e59e2f726e2178324f64845d9]]
 - setModuleSettingsFilePath()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a8ac12b10b6ec720b13713b51410f4a51]]
 - setNumberOfModules()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a8802ca55988847ea8153b0edc8ec47d5]]
 - setOfflineMode()
-  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]]
+  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a12e7e42d870c6d0ea58622d408afb1b8]]
 - setSettingsFilePath()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a4d16ff3b59fa8d8f28ae7c14516406cf]]
 - setSlotMap()
-  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]]
+  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ab19e8cae4cc819ef7ea0e88fa0d310e1]]
 - SetTime()
-  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a1025dc1b3de71acff62887e169de761d]]
+  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a1025dc1b3de71acff62887e169de761d]]
 - setup()
-  : [[CMyTrigger|classCMyTrigger#a359e115dd24af2b2879b4b47d04b11ae]]
+  : [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#a359e115dd24af2b2879b4b47d04b11ae]]
 - SetupReadout()
-  : [[DDASReadoutMain|classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]]
+  : [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab5b601d4fd5a87735fba02149c549d55]]
 - SetupRunVariables()
-  : [[DDASReadoutMain|classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]]
+  : [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a30e365f2ed0910727a37d2210196b2ad]]
 - SetupScalers()
-  : [[DDASReadoutMain|classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]]
+  : [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a7a92356d7d50e48b4df50bcc4a94b86f]]
 - SetupStateVariables()
-  : [[DDASReadoutMain|classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
+  : [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
 - SetUseGenerator()
-  : [[CPixieRunUtilities|classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]
-  , [[CPixieTraceUtilities|classCPixieTraceUtilities#a79730a6c8c0f129a335a7b7d91de4d64]]
+  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a2b2c255fd29626dcd5f06576caa05776]]
+  , [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64]]
 - setVerbose()
-  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]]
+  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aa41fc9915a1418e939ac02742e9d92c9]]
 - size()
-  : [[CMyScaler|classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]
+  : [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b]]
 - StreamDataSource()
-  : [[StreamDataSource|classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]]
+  : [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#ab0b4d3d4a1dd0af58dc79c43256161cb]]
 - synchronize()
-  : [[CMyEventSegment|classCMyEventSegment#a26f54f7782fe9d27e22480324b0b4c92]]
+  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a26f54f7782fe9d27e22480324b0b4c92]]
 - SystemBooter()
-  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
+  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200]]
 
  contents 
  start footer part 

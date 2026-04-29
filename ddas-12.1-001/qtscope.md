@@ -106,7 +106,7 @@ header
   The very first thing that a user needs to do to run QtScope is to connect a PXI crate with at least one Pixie-16 card to a host PC. The PXI crate must be powered on.
 
 - Attention
-  If you have not set up a DDAS system before, it is probably best to stop reading this and work your way through a set up tutorial (e.g. [[Single-crate system setup guide|single_crate]]).
+  If you have not set up a DDAS system before, it is probably best to stop reading this and work your way through a set up tutorial (e.g. [[Single-crate system setup guide|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md]]).
 
   To run QtScope, the NSCLDAQ environment must be configured by sourcing its daqsetup.bash script:```
   . /usr/opt/daq/12.0-015/daqsetup.bash 
@@ -114,7 +114,7 @@ header
    for QtScope from NSCLDAQ version 12.1-015. Sourcing this script will set the `DAQBIN` environment variable to point to the directory where the `qtscope` executable is installed for the selected version of NSCLDAQ. Once complete, the QtScope executable can be launched with the following command:```
   $DAQBIN/qtscope 
   ```
-   Note that QtScope expects to be run on a machine connected to Pixie-16 hardware–at FRIB this is typically an spdaq computer–and from a directory containing the necessary [[cfgPixie16.txt|cfgpixie16]] and [[modevtlen.txt|modevtlen]] configuration files. Running the `qtscope` executable launches the QtScope GUI. The various elements of the GUI are labeled on the figure below.
+   Note that QtScope expects to be run on a machine connected to Pixie-16 hardware–at FRIB this is typically an spdaq computer–and from a directory containing the necessary [[cfgPixie16.txt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md]] and [[modevtlen.txt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md]] configuration files. Running the `qtscope` executable launches the QtScope GUI. The various elements of the GUI are labeled on the figure below.
 
 ![](qtscope_unbooted_wtoolbars.png)
 The QtScope GUI state on startup with labeled GUI elements. Note that most GUI elements besides [Boot system], [About] and [Exit] on the system toolbar are disabled.
@@ -177,7 +177,7 @@ The QtScope system toolbar.
 - Note
   QtScope refers to modules using an internal zero-indexed counter. The module number displayed in QtScope should not be confused with the module's slot number in the PXI crate. If there are modules installed in slots 2 and 4, the module installed in slot 2 is module 0 and the module in slot 4 is module 1 in the QtScope GUI.
 
-  Selecting a tab will display that tab's DSP parameters. The DSP parameters which can be configured on each tab are described in more detail in the [[Configuring Channel DSP Settings|qtscope#sec_qtscope_chandsp]] section.
+  Selecting a tab will display that tab's DSP parameters. The DSP parameters which can be configured on each tab are described in more detail in the [[Configuring Channel DSP Settings|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp]] section.
 
 ![](analog_signal.PNG)
 The channel DSP popup window displayed when clicking the [Channel DSP] button. The tab controlling the analog signal properties and DC offset on module 0 is selected. If more modules were installed, additional tabs reading ''Mod. 1,'' ''Mod. 2,'' etc. would be present.
@@ -191,7 +191,7 @@ The channel DSP popup window displayed when clicking the [Channel DSP] button. T
 ### The Module DSP Button
 
 
-  Clicking **[Module DSP]** will open a popup window which allows you to configure module DSP parameters. Module DSP parameters are applied at the module level, for example the crate ID value specifying where these modules are installed. The module DSP window allows the user to automatically configure the crate and trigger settings for common setups. The DSP parameters configurable in this window are discussed further in [[Configuring Module DSP Settings|qtscope#sec_qtscope_moddsp]].
+  Clicking **[Module DSP]** will open a popup window which allows you to configure module DSP parameters. Module DSP parameters are applied at the module level, for example the crate ID value specifying where these modules are installed. The module DSP window allows the user to automatically configure the crate and trigger settings for common setups. The DSP parameters configurable in this window are discussed further in [[Configuring Module DSP Settings|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_moddsp]].
 
   Similar to the channel DSP parameters, the **[Apply]** and **[Load]** buttons will write and read parameters from the modules based on what is set on this window, respectively. The **[Cancel]** button will close the popup.
 
@@ -337,10 +337,10 @@ The QtScope fit panel.
 The AnalogSignal tab.
 
 
-  The tab provides control over all three the aspects of the analog conditioning circuit. The parameter in the column labeled "Offset [V]" will control the DC offset (in volts), the "Gain" column will control the amplification and the polarity is controlled by the "Polarity" column. Single-channel analog signal properties are displayed on each row, with the zero-indexed channel number shown on the left. Automatic adjustment of the DC offset can be performed by clicking the **[Adjust offsets]** button. This will allow the Pixie-16 software to calibrate the channel DC offsets such that the signal baseline lies at approximately 10% of the maximum ADC range (by default; see the [[Baseline|qtscope#sec_qtscope_chandsp_baseline]] tab), i.e. approximately 6500 for a 16-bit ADC.
+  The tab provides control over all three the aspects of the analog conditioning circuit. The parameter in the column labeled "Offset [V]" will control the DC offset (in volts), the "Gain" column will control the amplification and the polarity is controlled by the "Polarity" column. Single-channel analog signal properties are displayed on each row, with the zero-indexed channel number shown on the left. Automatic adjustment of the DC offset can be performed by clicking the **[Adjust offsets]** button. This will allow the Pixie-16 software to calibrate the channel DC offsets such that the signal baseline lies at approximately 10% of the maximum ADC range (by default; see the [[Baseline|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_baseline]] tab), i.e. approximately 6500 for a 16-bit ADC.
 
 - Note
-  The "Gain" and "Polarity" settings are set via bits in the channel CSRA register, but are configurable on this tab because they describe the properties of the input analog signal. The values of these settings are visible on the [[CSRA|qtscope#sec_qtscope_chandsp_csra]] tab, but are configurable only on the this tab.
+  The "Gain" and "Polarity" settings are set via bits in the channel CSRA register, but are configurable on this tab because they describe the properties of the input analog signal. The values of these settings are visible on the [[CSRA|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra]] tab, but are configurable only on the this tab.
 
 ## The Trigger Filter Tab
 
@@ -354,7 +354,7 @@ The AnalogSignal tab.
 The TriggerFilter tab.
 
 
-  If the CFD triggering is disabled (see the [[CSRA|qtscope#sec_qtscope_chandsp_csra]] tab), the trigger time is given by the leading-edge time. Alternatively, if the CFD is enabled then the rise and gap times are used in conjunction with the CFD scale and delay factors to implement a digital CFD algorithm to generate a trigger time. If the CFD output fails to exceed the CFD threshold, or no valid CFD zero-crossing point can be determined, the trigger filter will be used instead to generate a leading-edge fast trigger. Refer to the [[CFD|qtscope#sec_qtscope_chandsp_cfd]] tab for more information).
+  If the CFD triggering is disabled (see the [[CSRA|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra]] tab), the trigger time is given by the leading-edge time. Alternatively, if the CFD is enabled then the rise and gap times are used in conjunction with the CFD scale and delay factors to implement a digital CFD algorithm to generate a trigger time. If the CFD output fails to exceed the CFD threshold, or no valid CFD zero-crossing point can be determined, the trigger filter will be used instead to generate a leading-edge fast trigger. Refer to the [[CFD|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_cfd]] tab for more information).
 
 ## The Energy Filter Tab
 
@@ -368,13 +368,13 @@ The EnergyFilter tab.
 ## The CFD Tab
 
 
-  The user can configure the device to use a digital CFD algorithm for determining channel hit timestamps. The CFD algorithm allows timestamps to be acquired with sub-sample resolution if the CFD bit is set on the [[CSRA|qtscope#sec_qtscope_chandsp_csra]] tab.
+  The user can configure the device to use a digital CFD algorithm for determining channel hit timestamps. The CFD algorithm allows timestamps to be acquired with sub-sample resolution if the CFD bit is set on the [[CSRA|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra]] tab.
 
 ![](cfd.PNG)
 The CFD tab.
 
 
-  A detailed description of the Pixie-16 digital CFD algorithm and its corresponding parameters are given in [the Pixie-16 User's Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf). The CFD is constructed by subtracting a delayed fast filter signal from itself. The "Delay [us]" parameter controls the length of this delay and the "Scale" parameter controls the fraction of the delayed signal to subtract (specifically \(1-s/8\) where \(s\in 0,1,\ldots,7\) is the scale factor). A CFD threshold, configured in the "Threshold [arb.]" column, is used to prevent noise-generated CFD zero-crossing points. If the CFD is not enabled on the [[CSRA|qtscope#sec_qtscope_chandsp_csra]] tab, or if the CFD algorithm fails to find a valid zero-crossing point, channel timestamps will be determined using the leading-edge trigger generated using the [[trigger filter|qtscope#sec_qtscope_chandsp_trigger]] settings.
+  A detailed description of the Pixie-16 digital CFD algorithm and its corresponding parameters are given in [the Pixie-16 User's Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf). The CFD is constructed by subtracting a delayed fast filter signal from itself. The "Delay [us]" parameter controls the length of this delay and the "Scale" parameter controls the fraction of the delayed signal to subtract (specifically \(1-s/8\) where \(s\in 0,1,\ldots,7\) is the scale factor). A CFD threshold, configured in the "Threshold [arb.]" column, is used to prevent noise-generated CFD zero-crossing points. If the CFD is not enabled on the [[CSRA|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra]] tab, or if the CFD algorithm fails to find a valid zero-crossing point, channel timestamps will be determined using the leading-edge trigger generated using the [[trigger filter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_trigger]] settings.
 
 - Attention
   The values of the delay and scale parameters are fixed for 500-MSPS Pixie-16 modules due to the implementation of the digital CFD algorithm in those modules. For 500-MSPS modules, the user only has control over the threshold parameter.
@@ -394,10 +394,10 @@ The Tau tab.
   Pixie-16 modules can be configured to output digitized waveform traces that were generated by the flash ADCs. To enable trace output, click the **[ ] Record traces** checkbox at the bottom of this tab. Note that clicking this button enables trace output for every channel on the module. The total length of the trace and the trace delay (length of the pre-trigger baseline) can be set on this tab. Both values are given in microseconds.
 
 - Attention
-  If the trace output is enabled, it is critical that the proper event length is set for the corresponding module in the [[modevtlen.txt|modevtlen]] configuration file. Improper event lengths will cause errors when running DDAS Readout programs.
+  If the trace output is enabled, it is critical that the proper event length is set for the corresponding module in the [[modevtlen.txt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md]] configuration file. Improper event lengths will cause errors when running DDAS Readout programs.
 
 - Note
-  Enabling the trace output sets a bit in the channel CSRA register. The value of the trace enable bit is visible on the [[CSRA|qtscope#sec_qtscope_chandsp_csra]] tab, but can only be set here.
+  Enabling the trace output sets a bit in the channel CSRA register. The value of the trace enable bit is visible on the [[CSRA|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra]] tab, but can only be set here.
 
 ![](trace.PNG)
 The Trace tab. Trace output is currently not enabled for this module because the **[ ] Record traces** button is not checked.
@@ -478,14 +478,14 @@ The TimingControl tab.
 A visual representation of the various timing parameters configurable on this tab. To show this diagram, click the [Show timing diagram] button. The nominal fast trigger point for the hit is given by the dashed vertical line at t = 0.
 
 
-  The function of the timing control parameters can be inferred from the diagram. Two details are worth mentioning: the first is that the "ChanCoincWidth [us]" parameter is not configurable on this tab. This DSP parameter sets the coincidence window for channel validation and is set on the [[MultCoincidence|qtscope#sec_qtscope_chandsp_multcoinc]] tab where other channel validation parameters are controlled. Secondly, the analogous setting for an external validation trigger is "ExtTrigWidth [us]" which functions similarly to the "Channel Coincidence Trigger" shown on the diagram.
+  The function of the timing control parameters can be inferred from the diagram. Two details are worth mentioning: the first is that the "ChanCoincWidth [us]" parameter is not configurable on this tab. This DSP parameter sets the coincidence window for channel validation and is set on the [[MultCoincidence|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_multcoinc]] tab where other channel validation parameters are controlled. Secondly, the analogous setting for an external validation trigger is "ExtTrigWidth [us]" which functions similarly to the "Channel Coincidence Trigger" shown on the diagram.
 
   A complete description of the Pixie-16 multiplicity and coincidence triggering scheme is beyond the scope of this guide. It is recommended to refer to the [Pixie-16 User Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf), specifically Sec. 3.3.11 and Appendix A.
 
 # Configuring Module DSP Settings
 
 
-  As described in the [[QtScope GUI|qtscope#sec_qtscope_gui]] section, clicking the **[Module DSP]** button on the [[system toolbar|qtscope#sec_qtscope_gui_sys]] displays a popup window allowing the user to configure module-level parameters.
+  As described in the [[QtScope GUI|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_gui]] section, clicking the **[Module DSP]** button on the [[system toolbar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_gui_sys]] displays a popup window allowing the user to configure module-level parameters.
 
 ![](module_dsp.PNG)
 The module DSP popup window displayed when clicking the [Module DSP] button.
@@ -502,7 +502,7 @@ The module DSP popup window displayed when clicking the [Module DSP] button.
   The crate configuration box allows the user automatically configure the module CSRB ("Module Control Register B") settings by selecting one of a number of pre-configured crate definitions from a list. These pre-defined crate settings represent the most common use cases encountered in the laboratory:- Single crate – A single-crate system, the crate is operating standalone. The most common use case in the laboratory.
   - Multicrate (director) – The director crate in a multi-crate system. The director crate supplies the clock to the rest of the system. In a multi-crate system there should be only one crate configured as the director.
   - Multicrate (chassis) – A chassis crate in a multi-crate system. These crates are configured to receive a clock from the director.
-  - Custom – Custom CSRB settings. In most cases it is not necessary to configure custom CSRB settings. Please refer to the [Pixie-16 User Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf) for custom applications. Clicking the **[Display CSRB]** button will show a graphical representation of the CSRB bits, similar to [[CSRA|qtscope#sec_qtscope_chandsp_csra]] tab are displayed:
+  - Custom – Custom CSRB settings. In most cases it is not necessary to configure custom CSRB settings. Please refer to the [Pixie-16 User Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf) for custom applications. Clicking the **[Display CSRB]** button will show a graphical representation of the CSRB bits, similar to [[CSRA|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra]] tab are displayed:
 
 ![](csrb.PNG)
 The CSRB settings for the current crate, shown after clicking the [Display CSRB] button. Each row contains a complete set of CSRB settings for a single module. Tooltips describing CSRB bit values can be viewed by hovering the mouse over the column headings. In order to directly manipulate the CSRB bit values, the ''Custom'' setting must be selected from the configuration list.

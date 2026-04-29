@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLTracedVariable Member List
 
 header
-This is the complete list of members for [[CTCLTracedVariable|classCTCLTracedVariable]], including all inherited members.
+This is the complete list of members for [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]], including all inherited members.
 
 
 |  |  |  |

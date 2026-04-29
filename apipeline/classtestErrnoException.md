@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classtestErrnoException-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestErrnoException-members.md]]
 
 
 testErrnoException Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for testErrnoException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for testErrnoException:
@@ -47,7 +47,7 @@ Collaboration diagram for testErrnoException:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |

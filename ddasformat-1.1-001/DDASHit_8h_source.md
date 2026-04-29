@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 DDASHit.h
 
 header
-[[Go to the documentation of this file.|DDASHit_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHit_8h.md]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -100,7 +100,7 @@ header
 <a name="l00033"></a>   33
 
 
-<a name="l00076"></a>[[76|classddasfmt_1_1DDASHit]]     class [[DDASHit|classddasfmt_1_1DDASHit]] {
+<a name="l00076"></a>[[76|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]     class [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] {
 
 
 <a name="l00077"></a>   77
@@ -202,7 +202,7 @@ header
 <a name="l00109"></a>  109     public:
 
 
-<a name="l00111"></a>  111     [[DDASHit|classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]]();
+<a name="l00111"></a>  111     [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771]]();
 
 
 <a name="l00112"></a>  112
@@ -211,7 +211,7 @@ header
 <a name="l00113"></a>  113     private:
 
 
-<a name="l00118"></a>  118     void copyIn(const [[DDASHit|classddasfmt_1_1DDASHit]]& rhs);
+<a name="l00118"></a>  118     void copyIn(const [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]& rhs);
 
 
 <a name="l00119"></a>  119
@@ -220,7 +220,7 @@ header
 <a name="l00120"></a>  120     public:
 
 
-<a name="l00122"></a>[[122|classddasfmt_1_1DDASHit#a86ec8b3c0f894f88f3674cc72f9312bc]]     [[DDASHit|classddasfmt_1_1DDASHit#a86ec8b3c0f894f88f3674cc72f9312bc]](const [[DDASHit|classddasfmt_1_1DDASHit]]& obj) {
+<a name="l00122"></a>[[122|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a86ec8b3c0f894f88f3674cc72f9312bc]]     [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a86ec8b3c0f894f88f3674cc72f9312bc]](const [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]& obj) {
 
 
 <a name="l00123"></a>  123         copyIn(obj);
@@ -229,7 +229,7 @@ header
 <a name="l00124"></a>  124     }
 
 
-<a name="l00126"></a>[[126|classddasfmt_1_1DDASHit#a402aee86a89a2663e1b21dea1f0b8f19]]     [[DDASHit|classddasfmt_1_1DDASHit]]& [[operator=|classddasfmt_1_1DDASHit#a402aee86a89a2663e1b21dea1f0b8f19]](const [[DDASHit|classddasfmt_1_1DDASHit]]& obj) {
+<a name="l00126"></a>[[126|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a402aee86a89a2663e1b21dea1f0b8f19]]     [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a402aee86a89a2663e1b21dea1f0b8f19]](const [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]& obj) {
 
 
 <a name="l00127"></a>  127         if (this != &obj) {
@@ -247,40 +247,40 @@ header
 <a name="l00131"></a>  131     }
 
 
-<a name="l00138"></a>  138     virtual [[~DDASHit|classddasfmt_1_1DDASHit#abdeb19109a6da793514f6f984e7e91ae]]();
+<a name="l00138"></a>  138     virtual [[~DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abdeb19109a6da793514f6f984e7e91ae]]();
 
 
-<a name="l00143"></a>  143     void [[Reset|classddasfmt_1_1DDASHit#a98712acae15daa79cad2f0f5d2a79f62]]();
+<a name="l00143"></a>  143     void [[Reset|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a98712acae15daa79cad2f0f5d2a79f62]]();
 
 
 <a name="l00144"></a>  144
 
 
-<a name="l00175"></a>[[175|classddasfmt_1_1DDASHit#ad247d024b64efe0161f10f9eaf7d6bd7]]     double [[getTime|classddasfmt_1_1DDASHit#ad247d024b64efe0161f10f9eaf7d6bd7]]() const { return m_time; }
+<a name="l00175"></a>[[175|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ad247d024b64efe0161f10f9eaf7d6bd7]]     double [[getTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ad247d024b64efe0161f10f9eaf7d6bd7]]() const { return m_time; }
 
 
-<a name="l00192"></a>[[192|classddasfmt_1_1DDASHit#a6693a8a812c12a740dd5c00f857ccd69]]     uint64_t [[getCoarseTime|classddasfmt_1_1DDASHit#a6693a8a812c12a740dd5c00f857ccd69]]() const { return m_coarseTime; }
+<a name="l00192"></a>[[192|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6693a8a812c12a740dd5c00f857ccd69]]     uint64_t [[getCoarseTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6693a8a812c12a740dd5c00f857ccd69]]() const { return m_coarseTime; }
 
 
-<a name="l00202"></a>[[202|classddasfmt_1_1DDASHit#a58a1fa2bf20605a286025cf5722117bb]]     uint32_t [[getEnergy|classddasfmt_1_1DDASHit#a58a1fa2bf20605a286025cf5722117bb]]() const { return m_energy; }
+<a name="l00202"></a>[[202|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58a1fa2bf20605a286025cf5722117bb]]     uint32_t [[getEnergy|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58a1fa2bf20605a286025cf5722117bb]]() const { return m_energy; }
 
 
-<a name="l00207"></a>[[207|classddasfmt_1_1DDASHit#a97160202a4513dcfa98e05dabaedb611]]     uint32_t [[getTimeHigh|classddasfmt_1_1DDASHit#a97160202a4513dcfa98e05dabaedb611]]() const { return m_timeHigh; }
+<a name="l00207"></a>[[207|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a97160202a4513dcfa98e05dabaedb611]]     uint32_t [[getTimeHigh|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a97160202a4513dcfa98e05dabaedb611]]() const { return m_timeHigh; }
 
 
-<a name="l00212"></a>[[212|classddasfmt_1_1DDASHit#afbbdfd6b3dee82528fd0237c6b8c3dfd]]     uint32_t [[getTimeLow|classddasfmt_1_1DDASHit#afbbdfd6b3dee82528fd0237c6b8c3dfd]]() const { return m_timeLow; }
+<a name="l00212"></a>[[212|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#afbbdfd6b3dee82528fd0237c6b8c3dfd]]     uint32_t [[getTimeLow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#afbbdfd6b3dee82528fd0237c6b8c3dfd]]() const { return m_timeLow; }
 
 
-<a name="l00217"></a>[[217|classddasfmt_1_1DDASHit#aba4235f4d90c9057f54f173217593ff1]]     uint32_t [[getTimeCFD|classddasfmt_1_1DDASHit#aba4235f4d90c9057f54f173217593ff1]]() const { return m_timeCFD; }
+<a name="l00217"></a>[[217|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aba4235f4d90c9057f54f173217593ff1]]     uint32_t [[getTimeCFD|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aba4235f4d90c9057f54f173217593ff1]]() const { return m_timeCFD; }
 
 
-<a name="l00224"></a>[[224|classddasfmt_1_1DDASHit#a01f4e0a578e6f07c29e8adb7b674c78c]]     uint32_t [[getFinishCode|classddasfmt_1_1DDASHit#a01f4e0a578e6f07c29e8adb7b674c78c]]() const { return m_finishCode; }
+<a name="l00224"></a>[[224|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a01f4e0a578e6f07c29e8adb7b674c78c]]     uint32_t [[getFinishCode|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a01f4e0a578e6f07c29e8adb7b674c78c]]() const { return m_finishCode; }
 
 
-<a name="l00233"></a>[[233|classddasfmt_1_1DDASHit#abfde5ae9dac786db796e3ba0bee6378d]]     uint32_t [[getChannelLength|classddasfmt_1_1DDASHit#abfde5ae9dac786db796e3ba0bee6378d]]() const { return m_channelLength; }
+<a name="l00233"></a>[[233|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abfde5ae9dac786db796e3ba0bee6378d]]     uint32_t [[getChannelLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abfde5ae9dac786db796e3ba0bee6378d]]() const { return m_channelLength; }
 
 
-<a name="l00238"></a>[[238|classddasfmt_1_1DDASHit#a4efa5fa6434fe6377c24e9d356e0e846]]     uint32_t [[getChannelHeaderLength|classddasfmt_1_1DDASHit#a4efa5fa6434fe6377c24e9d356e0e846]]() const {
+<a name="l00238"></a>[[238|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efa5fa6434fe6377c24e9d356e0e846]]     uint32_t [[getChannelHeaderLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efa5fa6434fe6377c24e9d356e0e846]]() const {
 
 
 <a name="l00239"></a>  239         return m_channelHeaderLength;
@@ -289,43 +289,43 @@ header
 <a name="l00240"></a>  240     }
 
 
-<a name="l00245"></a>[[245|classddasfmt_1_1DDASHit#a33fb7f4c31b5d926e6d86961e075bfea]]     uint32_t [[getSlotID|classddasfmt_1_1DDASHit#a33fb7f4c31b5d926e6d86961e075bfea]]() const { return m_slotID; }
+<a name="l00245"></a>[[245|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a33fb7f4c31b5d926e6d86961e075bfea]]     uint32_t [[getSlotID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a33fb7f4c31b5d926e6d86961e075bfea]]() const { return m_slotID; }
 
 
-<a name="l00250"></a>[[250|classddasfmt_1_1DDASHit#a72394829094106567b43076a68650a9f]]     uint32_t [[getCrateID|classddasfmt_1_1DDASHit#a72394829094106567b43076a68650a9f]]() const { return m_crateID; }
+<a name="l00250"></a>[[250|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a72394829094106567b43076a68650a9f]]     uint32_t [[getCrateID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a72394829094106567b43076a68650a9f]]() const { return m_crateID; }
 
 
-<a name="l00255"></a>[[255|classddasfmt_1_1DDASHit#a8e1e63fa667ac17908390ce4dd0b7592]]     uint32_t [[getChannelID|classddasfmt_1_1DDASHit#a8e1e63fa667ac17908390ce4dd0b7592]]() const { return m_chanID; }
+<a name="l00255"></a>[[255|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8e1e63fa667ac17908390ce4dd0b7592]]     uint32_t [[getChannelID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8e1e63fa667ac17908390ce4dd0b7592]]() const { return m_chanID; }
 
 
-<a name="l00260"></a>[[260|classddasfmt_1_1DDASHit#a785d814f5d2db7f284f0349b96fb7712]]     uint32_t [[getModMSPS|classddasfmt_1_1DDASHit#a785d814f5d2db7f284f0349b96fb7712]]() const { return m_modMSPS; }
+<a name="l00260"></a>[[260|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a785d814f5d2db7f284f0349b96fb7712]]     uint32_t [[getModMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a785d814f5d2db7f284f0349b96fb7712]]() const { return m_modMSPS; }
 
 
-<a name="l00265"></a>[[265|classddasfmt_1_1DDASHit#a3c0c32d01afbf2428b8980198fc417f8]]     int [[getHardwareRevision|classddasfmt_1_1DDASHit#a3c0c32d01afbf2428b8980198fc417f8]]() const { return m_hdwrRevision; }
+<a name="l00265"></a>[[265|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3c0c32d01afbf2428b8980198fc417f8]]     int [[getHardwareRevision|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3c0c32d01afbf2428b8980198fc417f8]]() const { return m_hdwrRevision; }
 
 
-<a name="l00270"></a>[[270|classddasfmt_1_1DDASHit#ae5ebf6e23c2c0242b8d52be36d2812ed]]     int [[getADCResolution|classddasfmt_1_1DDASHit#ae5ebf6e23c2c0242b8d52be36d2812ed]]() const { return m_adcResolution; }
+<a name="l00270"></a>[[270|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ae5ebf6e23c2c0242b8d52be36d2812ed]]     int [[getADCResolution|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ae5ebf6e23c2c0242b8d52be36d2812ed]]() const { return m_adcResolution; }
 
 
-<a name="l00275"></a>[[275|classddasfmt_1_1DDASHit#a6b3e79df8eb37b80ed0c05c63beb49f4]]     uint32_t [[getCFDTrigSource|classddasfmt_1_1DDASHit#a6b3e79df8eb37b80ed0c05c63beb49f4]]() const { return m_cfdTrigSourceBit; }
+<a name="l00275"></a>[[275|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6b3e79df8eb37b80ed0c05c63beb49f4]]     uint32_t [[getCFDTrigSource|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6b3e79df8eb37b80ed0c05c63beb49f4]]() const { return m_cfdTrigSourceBit; }
 
 
-<a name="l00282"></a>[[282|classddasfmt_1_1DDASHit#aec0b11d8ed064a338ca18a5edd4619c1]]     uint32_t [[getCFDFailBit|classddasfmt_1_1DDASHit#aec0b11d8ed064a338ca18a5edd4619c1]]() const { return m_cfdFailBit; }
+<a name="l00282"></a>[[282|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aec0b11d8ed064a338ca18a5edd4619c1]]     uint32_t [[getCFDFailBit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aec0b11d8ed064a338ca18a5edd4619c1]]() const { return m_cfdFailBit; }
 
 
-<a name="l00287"></a>[[287|classddasfmt_1_1DDASHit#ac45165add6cb87b6fd39e65ba0638873]]     uint32_t [[getTraceLength|classddasfmt_1_1DDASHit#ac45165add6cb87b6fd39e65ba0638873]]() const { return m_traceLength; }
+<a name="l00287"></a>[[287|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac45165add6cb87b6fd39e65ba0638873]]     uint32_t [[getTraceLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac45165add6cb87b6fd39e65ba0638873]]() const { return m_traceLength; }
 
 
-<a name="l00292"></a>[[292|classddasfmt_1_1DDASHit#a2b8773486dfbb6e2fbe7e1497d516cf7]]     std::vector<uint16_t>& [[getTrace|classddasfmt_1_1DDASHit#a2b8773486dfbb6e2fbe7e1497d516cf7]]() { return m_trace; }
+<a name="l00292"></a>[[292|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2b8773486dfbb6e2fbe7e1497d516cf7]]     std::vector<uint16_t>& [[getTrace|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2b8773486dfbb6e2fbe7e1497d516cf7]]() { return m_trace; }
 
 
-<a name="l00297"></a>[[297|classddasfmt_1_1DDASHit#a13cabf6a7d48212fdf358bcb5a7d06b4]]     const std::vector<uint16_t>& [[getTrace|classddasfmt_1_1DDASHit#a13cabf6a7d48212fdf358bcb5a7d06b4]]() const { return m_trace; }
+<a name="l00297"></a>[[297|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a13cabf6a7d48212fdf358bcb5a7d06b4]]     const std::vector<uint16_t>& [[getTrace|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a13cabf6a7d48212fdf358bcb5a7d06b4]]() const { return m_trace; }
 
 
-<a name="l00302"></a>[[302|classddasfmt_1_1DDASHit#ac899feeb60afd44cfe5e7ed81cfb8636]]     std::vector<uint32_t>& [[getEnergySums|classddasfmt_1_1DDASHit#ac899feeb60afd44cfe5e7ed81cfb8636]]() { return m_energySums; }
+<a name="l00302"></a>[[302|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac899feeb60afd44cfe5e7ed81cfb8636]]     std::vector<uint32_t>& [[getEnergySums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac899feeb60afd44cfe5e7ed81cfb8636]]() { return m_energySums; }
 
 
-<a name="l00307"></a>[[307|classddasfmt_1_1DDASHit#a5c89df3bebbd46c54ac78759a7d66324]]     const std::vector<uint32_t>& [[getEnergySums|classddasfmt_1_1DDASHit#a5c89df3bebbd46c54ac78759a7d66324]]() const {
+<a name="l00307"></a>[[307|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5c89df3bebbd46c54ac78759a7d66324]]     const std::vector<uint32_t>& [[getEnergySums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5c89df3bebbd46c54ac78759a7d66324]]() const {
 
 
 <a name="l00308"></a>  308         return m_energySums;
@@ -334,10 +334,10 @@ header
 <a name="l00309"></a>  309     }
 
 
-<a name="l00314"></a>[[314|classddasfmt_1_1DDASHit#a8bb010e08028da538d53859558b1f7a7]]     std::vector<uint32_t>& [[getQDCSums|classddasfmt_1_1DDASHit#a8bb010e08028da538d53859558b1f7a7]]() { return m_qdcSums; }
+<a name="l00314"></a>[[314|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8bb010e08028da538d53859558b1f7a7]]     std::vector<uint32_t>& [[getQDCSums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8bb010e08028da538d53859558b1f7a7]]() { return m_qdcSums; }
 
 
-<a name="l00319"></a>[[319|classddasfmt_1_1DDASHit#affb276da3a89b55206bf170e0eadb8bd]]     const std::vector<uint32_t>& [[getQDCSums|classddasfmt_1_1DDASHit#affb276da3a89b55206bf170e0eadb8bd]]() const {
+<a name="l00319"></a>[[319|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#affb276da3a89b55206bf170e0eadb8bd]]     const std::vector<uint32_t>& [[getQDCSums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#affb276da3a89b55206bf170e0eadb8bd]]() const {
 
 
 <a name="l00320"></a>  320         return m_qdcSums;
@@ -346,7 +346,7 @@ header
 <a name="l00321"></a>  321     }
 
 
-<a name="l00326"></a>[[326|classddasfmt_1_1DDASHit#a81d1d7a5acb3225a2183a01912c0ad45]]     uint64_t [[getExternalTimestamp|classddasfmt_1_1DDASHit#a81d1d7a5acb3225a2183a01912c0ad45]]() const {
+<a name="l00326"></a>[[326|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a81d1d7a5acb3225a2183a01912c0ad45]]     uint64_t [[getExternalTimestamp|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a81d1d7a5acb3225a2183a01912c0ad45]]() const {
 
 
 <a name="l00327"></a>  327         return m_externalTimestamp;
@@ -355,7 +355,7 @@ header
 <a name="l00328"></a>  328     }
 
 
-<a name="l00339"></a>[[339|classddasfmt_1_1DDASHit#a5f6b643aaee0317bee23c5b24faa0e30]]     bool [[getADCOverflowUnderflow|classddasfmt_1_1DDASHit#a5f6b643aaee0317bee23c5b24faa0e30]]() const {
+<a name="l00339"></a>[[339|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5f6b643aaee0317bee23c5b24faa0e30]]     bool [[getADCOverflowUnderflow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5f6b643aaee0317bee23c5b24faa0e30]]() const {
 
 
 <a name="l00340"></a>  340         return m_adcOverflowUnderflow;
@@ -367,82 +367,82 @@ header
 <a name="l00342"></a>  342
 
 
-<a name="l00347"></a>  347     void [[setChannelID|classddasfmt_1_1DDASHit#aa9e4d1fbdbcff217ac9c360b61a65fe7]](uint32_t channel);
+<a name="l00347"></a>  347     void [[setChannelID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aa9e4d1fbdbcff217ac9c360b61a65fe7]](uint32_t channel);
 
 
-<a name="l00352"></a>  352     void [[setSlotID|classddasfmt_1_1DDASHit#acbbe4a027b6d80194591a847f2cd69ab]](uint32_t slot);
+<a name="l00352"></a>  352     void [[setSlotID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acbbe4a027b6d80194591a847f2cd69ab]](uint32_t slot);
 
 
-<a name="l00357"></a>  357     void [[setCrateID|classddasfmt_1_1DDASHit#a99af70dc8ca30bfd2a572da2d2ea2e78]](uint32_t crate);
+<a name="l00357"></a>  357     void [[setCrateID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a99af70dc8ca30bfd2a572da2d2ea2e78]](uint32_t crate);
 
 
-<a name="l00362"></a>  362     void [[setChannelHeaderLength|classddasfmt_1_1DDASHit#ac9157bfb4f552b18831848b3343c8bd6]](uint32_t channelHeaderLength);
+<a name="l00362"></a>  362     void [[setChannelHeaderLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac9157bfb4f552b18831848b3343c8bd6]](uint32_t channelHeaderLength);
 
 
-<a name="l00367"></a>  367     void [[setChannelLength|classddasfmt_1_1DDASHit#a053540359b0426af9c46883c0af871c3]](uint32_t channelLength);
+<a name="l00367"></a>  367     void [[setChannelLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a053540359b0426af9c46883c0af871c3]](uint32_t channelLength);
 
 
-<a name="l00372"></a>  372     void [[setFinishCode|classddasfmt_1_1DDASHit#a2dbbe41fe2505dc643bca54f856f9f72]](bool finishCode);
+<a name="l00372"></a>  372     void [[setFinishCode|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2dbbe41fe2505dc643bca54f856f9f72]](bool finishCode);
 
 
-<a name="l00377"></a>  377     void [[setCoarseTime|classddasfmt_1_1DDASHit#a58ec6db48588e440fd499220bfe63a87]](uint64_t time);
+<a name="l00377"></a>  377     void [[setCoarseTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58ec6db48588e440fd499220bfe63a87]](uint64_t time);
 
 
-<a name="l00382"></a>  382     void [[setRawCFDTime|classddasfmt_1_1DDASHit#a58960cbd9057b9d41f6a82b74bdcd5b9]](uint32_t data);
+<a name="l00382"></a>  382     void [[setRawCFDTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58960cbd9057b9d41f6a82b74bdcd5b9]](uint32_t data);
 
 
-<a name="l00387"></a>  387     void [[setCFDTrigSourceBit|classddasfmt_1_1DDASHit#aef7fac5082a9627b02264f713eccf721]](uint32_t bit);
+<a name="l00387"></a>  387     void [[setCFDTrigSourceBit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aef7fac5082a9627b02264f713eccf721]](uint32_t bit);
 
 
-<a name="l00392"></a>  392     void [[setCFDFailBit|classddasfmt_1_1DDASHit#af7e9ad15e05c1ea8c0904910703cdb11]](uint32_t bit);
+<a name="l00392"></a>  392     void [[setCFDFailBit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#af7e9ad15e05c1ea8c0904910703cdb11]](uint32_t bit);
 
 
-<a name="l00397"></a>  397     void [[setTimeLow|classddasfmt_1_1DDASHit#a4d71d6b8ca63cdf9a9cdfcc2db3041ee]](uint32_t datum);
+<a name="l00397"></a>  397     void [[setTimeLow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4d71d6b8ca63cdf9a9cdfcc2db3041ee]](uint32_t datum);
 
 
-<a name="l00404"></a>  404     void [[setTimeHigh|classddasfmt_1_1DDASHit#abca1f6ee55d4671606526dd8401f60a1]](uint32_t datum);
+<a name="l00404"></a>  404     void [[setTimeHigh|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abca1f6ee55d4671606526dd8401f60a1]](uint32_t datum);
 
 
-<a name="l00410"></a>  410     void [[setTime|classddasfmt_1_1DDASHit#a18cc857d1428f7b4f287954aac034b5c]](double compTime);
+<a name="l00410"></a>  410     void [[setTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a18cc857d1428f7b4f287954aac034b5c]](double compTime);
 
 
-<a name="l00415"></a>  415     void [[setEnergy|classddasfmt_1_1DDASHit#aaa8c505c0cc457625d269af364210888]](uint32_t energy);
+<a name="l00415"></a>  415     void [[setEnergy|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aaa8c505c0cc457625d269af364210888]](uint32_t energy);
 
 
-<a name="l00420"></a>  420     void [[setTraceLength|classddasfmt_1_1DDASHit#acd32bb9076e3767e1a977c09cbd7f901]](uint32_t length);
+<a name="l00420"></a>  420     void [[setTraceLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acd32bb9076e3767e1a977c09cbd7f901]](uint32_t length);
 
 
-<a name="l00426"></a>  426     void [[setModMSPS|classddasfmt_1_1DDASHit#a5b87af0d4a2ec417cdcd770ad846b7f2]](uint32_t msps);
+<a name="l00426"></a>  426     void [[setModMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5b87af0d4a2ec417cdcd770ad846b7f2]](uint32_t msps);
 
 
-<a name="l00432"></a>  432     void [[setADCResolution|classddasfmt_1_1DDASHit#acbe9e4ff0980461cb64460e92f814d4a]](int value);
+<a name="l00432"></a>  432     void [[setADCResolution|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acbe9e4ff0980461cb64460e92f814d4a]](int value);
 
 
-<a name="l00438"></a>  438     void [[setHardwareRevision|classddasfmt_1_1DDASHit#a3192979272b7f92ce82471ee2bd205a1]](int value);
+<a name="l00438"></a>  438     void [[setHardwareRevision|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3192979272b7f92ce82471ee2bd205a1]](int value);
 
 
-<a name="l00443"></a>  443     void [[appendEnergySum|classddasfmt_1_1DDASHit#a77e8fd95be5abe637c671e0c04115e86]](uint32_t value);
+<a name="l00443"></a>  443     void [[appendEnergySum|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a77e8fd95be5abe637c671e0c04115e86]](uint32_t value);
 
 
-<a name="l00448"></a>  448     void [[setEnergySums|classddasfmt_1_1DDASHit#a9b93fcf8e3757e9b250ad2766d405d60]](std::vector<uint32_t> eneSums);
+<a name="l00448"></a>  448     void [[setEnergySums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a9b93fcf8e3757e9b250ad2766d405d60]](std::vector<uint32_t> eneSums);
 
 
-<a name="l00453"></a>  453     void [[appendQDCSum|classddasfmt_1_1DDASHit#a2a0d8bb4692ec0f83220fd0a2c1a07bf]](uint32_t value);
+<a name="l00453"></a>  453     void [[appendQDCSum|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2a0d8bb4692ec0f83220fd0a2c1a07bf]](uint32_t value);
 
 
-<a name="l00458"></a>  458     void [[setQDCSums|classddasfmt_1_1DDASHit#ac8bfb4504006f81caefc33642b091eab]](std::vector<uint32_t> qdcSums);
+<a name="l00458"></a>  458     void [[setQDCSums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac8bfb4504006f81caefc33642b091eab]](std::vector<uint32_t> qdcSums);
 
 
-<a name="l00463"></a>  463     void [[appendTraceSample|classddasfmt_1_1DDASHit#a4efbfd19a40f40b477672d1c962043b9]](uint16_t value);
+<a name="l00463"></a>  463     void [[appendTraceSample|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efbfd19a40f40b477672d1c962043b9]](uint16_t value);
 
 
-<a name="l00468"></a>  468     void [[setTrace|classddasfmt_1_1DDASHit#a53daf01f74a70f6644c98a30097236e9]](std::vector<uint16_t> trace);
+<a name="l00468"></a>  468     void [[setTrace|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a53daf01f74a70f6644c98a30097236e9]](std::vector<uint16_t> trace);
 
 
-<a name="l00474"></a>  474     void [[setExternalTimestamp|classddasfmt_1_1DDASHit#a9ae9e150c583717cb79ad115a729bb91]](uint64_t value);
+<a name="l00474"></a>  474     void [[setExternalTimestamp|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a9ae9e150c583717cb79ad115a729bb91]](uint64_t value);
 
 
-<a name="l00480"></a>  480     void [[setADCOverflowUnderflow|classddasfmt_1_1DDASHit#a53455e1afb568c4dc8a9a858c574ccec]](bool state);
+<a name="l00480"></a>  480     void [[setADCOverflowUnderflow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a53455e1afb568c4dc8a9a858c574ccec]](bool state);
 
 
 <a name="l00481"></a>  481     };
@@ -460,14 +460,14 @@ header
 <a name="l00487"></a>  487 #endif
 
 
-[[ddasfmt::DDASHit|classddasfmt_1_1DDASHit]]
+[[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]
 
 Encapsulation of a generic DDAS event.
 
 **Definition:** DDASHit.h:76
 
 
-[[ddasfmt::DDASHit::getFinishCode|classddasfmt_1_1DDASHit#a01f4e0a578e6f07c29e8adb7b674c78c]]
+[[ddasfmt::DDASHit::getFinishCode|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a01f4e0a578e6f07c29e8adb7b674c78c]]
 
 uint32_t getFinishCode() const
 
@@ -476,7 +476,7 @@ Retrieve finish code.
 **Definition:** DDASHit.h:224
 
 
-[[ddasfmt::DDASHit::setChannelLength|classddasfmt_1_1DDASHit#a053540359b0426af9c46883c0af871c3]]
+[[ddasfmt::DDASHit::setChannelLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a053540359b0426af9c46883c0af871c3]]
 
 void setChannelLength(uint32_t channelLength)
 
@@ -485,7 +485,7 @@ Set the channel length.
 **Definition:** DDASHit.cpp:115
 
 
-[[ddasfmt::DDASHit::getTrace|classddasfmt_1_1DDASHit#a13cabf6a7d48212fdf358bcb5a7d06b4]]
+[[ddasfmt::DDASHit::getTrace|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a13cabf6a7d48212fdf358bcb5a7d06b4]]
 
 const std::vector< uint16_t > & getTrace() const
 
@@ -494,7 +494,7 @@ Access the trace data.
 **Definition:** DDASHit.h:297
 
 
-[[ddasfmt::DDASHit::setTime|classddasfmt_1_1DDASHit#a18cc857d1428f7b4f287954aac034b5c]]
+[[ddasfmt::DDASHit::setTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a18cc857d1428f7b4f287954aac034b5c]]
 
 void setTime(double compTime)
 
@@ -503,7 +503,7 @@ Set the hit time.
 **Definition:** DDASHit.cpp:192
 
 
-[[ddasfmt::DDASHit::appendQDCSum|classddasfmt_1_1DDASHit#a2a0d8bb4692ec0f83220fd0a2c1a07bf]]
+[[ddasfmt::DDASHit::appendQDCSum|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2a0d8bb4692ec0f83220fd0a2c1a07bf]]
 
 void appendQDCSum(uint32_t value)
 
@@ -512,7 +512,7 @@ Append a QDC value to the vector of QDC sums.
 **Definition:** DDASHit.cpp:247
 
 
-[[ddasfmt::DDASHit::getTrace|classddasfmt_1_1DDASHit#a2b8773486dfbb6e2fbe7e1497d516cf7]]
+[[ddasfmt::DDASHit::getTrace|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2b8773486dfbb6e2fbe7e1497d516cf7]]
 
 std::vector< uint16_t > & getTrace()
 
@@ -521,7 +521,7 @@ Access the trace data.
 **Definition:** DDASHit.h:292
 
 
-[[ddasfmt::DDASHit::setFinishCode|classddasfmt_1_1DDASHit#a2dbbe41fe2505dc643bca54f856f9f72]]
+[[ddasfmt::DDASHit::setFinishCode|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a2dbbe41fe2505dc643bca54f856f9f72]]
 
 void setFinishCode(bool finishCode)
 
@@ -530,7 +530,7 @@ Set the finish code.
 **Definition:** DDASHit.cpp:121
 
 
-[[ddasfmt::DDASHit::setHardwareRevision|classddasfmt_1_1DDASHit#a3192979272b7f92ce82471ee2bd205a1]]
+[[ddasfmt::DDASHit::setHardwareRevision|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3192979272b7f92ce82471ee2bd205a1]]
 
 void setHardwareRevision(int value)
 
@@ -539,7 +539,7 @@ Set the ADC hardware revision for the ADC which recorded this hit.
 **Definition:** DDASHit.cpp:222
 
 
-[[ddasfmt::DDASHit::getSlotID|classddasfmt_1_1DDASHit#a33fb7f4c31b5d926e6d86961e075bfea]]
+[[ddasfmt::DDASHit::getSlotID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a33fb7f4c31b5d926e6d86961e075bfea]]
 
 uint32_t getSlotID() const
 
@@ -548,7 +548,7 @@ Retrieve the slot that the module resided in.
 **Definition:** DDASHit.h:245
 
 
-[[ddasfmt::DDASHit::getHardwareRevision|classddasfmt_1_1DDASHit#a3c0c32d01afbf2428b8980198fc417f8]]
+[[ddasfmt::DDASHit::getHardwareRevision|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a3c0c32d01afbf2428b8980198fc417f8]]
 
 int getHardwareRevision() const
 
@@ -557,7 +557,7 @@ Retrieve the hardware revision.
 **Definition:** DDASHit.h:265
 
 
-[[ddasfmt::DDASHit::operator=|classddasfmt_1_1DDASHit#a402aee86a89a2663e1b21dea1f0b8f19]]
+[[ddasfmt::DDASHit::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a402aee86a89a2663e1b21dea1f0b8f19]]
 
 DDASHit & operator=(const DDASHit &obj)
 
@@ -566,7 +566,7 @@ Assignment operator.
 **Definition:** DDASHit.h:126
 
 
-[[ddasfmt::DDASHit::setTimeLow|classddasfmt_1_1DDASHit#a4d71d6b8ca63cdf9a9cdfcc2db3041ee]]
+[[ddasfmt::DDASHit::setTimeLow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4d71d6b8ca63cdf9a9cdfcc2db3041ee]]
 
 void setTimeLow(uint32_t datum)
 
@@ -575,7 +575,7 @@ Set the lower 32 bits of the 48-bit timestamp.
 **Definition:** DDASHit.cpp:180
 
 
-[[ddasfmt::DDASHit::getChannelHeaderLength|classddasfmt_1_1DDASHit#a4efa5fa6434fe6377c24e9d356e0e846]]
+[[ddasfmt::DDASHit::getChannelHeaderLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efa5fa6434fe6377c24e9d356e0e846]]
 
 uint32_t getChannelHeaderLength() const
 
@@ -584,7 +584,7 @@ Retrieve length of header in original data packet.
 **Definition:** DDASHit.h:238
 
 
-[[ddasfmt::DDASHit::appendTraceSample|classddasfmt_1_1DDASHit#a4efbfd19a40f40b477672d1c962043b9]]
+[[ddasfmt::DDASHit::appendTraceSample|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a4efbfd19a40f40b477672d1c962043b9]]
 
 void appendTraceSample(uint16_t value)
 
@@ -593,7 +593,7 @@ Append a 16-bit ADC trace sample to the trace vector.
 **Definition:** DDASHit.cpp:266
 
 
-[[ddasfmt::DDASHit::setADCOverflowUnderflow|classddasfmt_1_1DDASHit#a53455e1afb568c4dc8a9a858c574ccec]]
+[[ddasfmt::DDASHit::setADCOverflowUnderflow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a53455e1afb568c4dc8a9a858c574ccec]]
 
 void setADCOverflowUnderflow(bool state)
 
@@ -602,7 +602,7 @@ Set ADC over- or under-flow state.
 **Definition:** DDASHit.cpp:285
 
 
-[[ddasfmt::DDASHit::setTrace|classddasfmt_1_1DDASHit#a53daf01f74a70f6644c98a30097236e9]]
+[[ddasfmt::DDASHit::setTrace|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a53daf01f74a70f6644c98a30097236e9]]
 
 void setTrace(std::vector< uint16_t > trace)
 
@@ -611,7 +611,7 @@ Set the trace data from an existing trace.
 **Definition:** DDASHit.cpp:272
 
 
-[[ddasfmt::DDASHit::setRawCFDTime|classddasfmt_1_1DDASHit#a58960cbd9057b9d41f6a82b74bdcd5b9]]
+[[ddasfmt::DDASHit::setRawCFDTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58960cbd9057b9d41f6a82b74bdcd5b9]]
 
 void setRawCFDTime(uint32_t data)
 
@@ -620,7 +620,7 @@ Set the raw CFD time.
 **Definition:** DDASHit.cpp:146
 
 
-[[ddasfmt::DDASHit::getEnergy|classddasfmt_1_1DDASHit#a58a1fa2bf20605a286025cf5722117bb]]
+[[ddasfmt::DDASHit::getEnergy|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58a1fa2bf20605a286025cf5722117bb]]
 
 uint32_t getEnergy() const
 
@@ -629,7 +629,7 @@ Retrieve the energy.
 **Definition:** DDASHit.h:202
 
 
-[[ddasfmt::DDASHit::setCoarseTime|classddasfmt_1_1DDASHit#a58ec6db48588e440fd499220bfe63a87]]
+[[ddasfmt::DDASHit::setCoarseTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a58ec6db48588e440fd499220bfe63a87]]
 
 void setCoarseTime(uint64_t time)
 
@@ -638,7 +638,7 @@ Set the coarse timestamp.
 **Definition:** DDASHit.cpp:140
 
 
-[[ddasfmt::DDASHit::setModMSPS|classddasfmt_1_1DDASHit#a5b87af0d4a2ec417cdcd770ad846b7f2]]
+[[ddasfmt::DDASHit::setModMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5b87af0d4a2ec417cdcd770ad846b7f2]]
 
 void setModMSPS(uint32_t msps)
 
@@ -647,7 +647,7 @@ Set the value of the ADC frequency in MSPS for the ADC which recorded this hit.
 **Definition:** DDASHit.cpp:210
 
 
-[[ddasfmt::DDASHit::getEnergySums|classddasfmt_1_1DDASHit#a5c89df3bebbd46c54ac78759a7d66324]]
+[[ddasfmt::DDASHit::getEnergySums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5c89df3bebbd46c54ac78759a7d66324]]
 
 const std::vector< uint32_t > & getEnergySums() const
 
@@ -656,7 +656,7 @@ Access the energy/baseline sum data.
 **Definition:** DDASHit.h:307
 
 
-[[ddasfmt::DDASHit::getADCOverflowUnderflow|classddasfmt_1_1DDASHit#a5f6b643aaee0317bee23c5b24faa0e30]]
+[[ddasfmt::DDASHit::getADCOverflowUnderflow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a5f6b643aaee0317bee23c5b24faa0e30]]
 
 bool getADCOverflowUnderflow() const
 
@@ -665,7 +665,7 @@ Retrieve the ADC overflow/underflow status.
 **Definition:** DDASHit.h:339
 
 
-[[ddasfmt::DDASHit::getCoarseTime|classddasfmt_1_1DDASHit#a6693a8a812c12a740dd5c00f857ccd69]]
+[[ddasfmt::DDASHit::getCoarseTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6693a8a812c12a740dd5c00f857ccd69]]
 
 uint64_t getCoarseTime() const
 
@@ -674,7 +674,7 @@ Retrieve the 48-bit timestamp in nanoseconds without any CFD correction.
 **Definition:** DDASHit.h:192
 
 
-[[ddasfmt::DDASHit::getCFDTrigSource|classddasfmt_1_1DDASHit#a6b3e79df8eb37b80ed0c05c63beb49f4]]
+[[ddasfmt::DDASHit::getCFDTrigSource|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a6b3e79df8eb37b80ed0c05c63beb49f4]]
 
 uint32_t getCFDTrigSource() const
 
@@ -683,7 +683,7 @@ Retrieve trigger source bit from CFD data.
 **Definition:** DDASHit.h:275
 
 
-[[ddasfmt::DDASHit::getCrateID|classddasfmt_1_1DDASHit#a72394829094106567b43076a68650a9f]]
+[[ddasfmt::DDASHit::getCrateID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a72394829094106567b43076a68650a9f]]
 
 uint32_t getCrateID() const
 
@@ -692,7 +692,7 @@ Retrieve the index of the crate the module resided in.
 **Definition:** DDASHit.h:250
 
 
-[[ddasfmt::DDASHit::appendEnergySum|classddasfmt_1_1DDASHit#a77e8fd95be5abe637c671e0c04115e86]]
+[[ddasfmt::DDASHit::appendEnergySum|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a77e8fd95be5abe637c671e0c04115e86]]
 
 void appendEnergySum(uint32_t value)
 
@@ -701,7 +701,7 @@ Set the crate ID.
 **Definition:** DDASHit.cpp:228
 
 
-[[ddasfmt::DDASHit::getModMSPS|classddasfmt_1_1DDASHit#a785d814f5d2db7f284f0349b96fb7712]]
+[[ddasfmt::DDASHit::getModMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a785d814f5d2db7f284f0349b96fb7712]]
 
 uint32_t getModMSPS() const
 
@@ -710,7 +710,7 @@ Retrieve the ADC frequency of the module.
 **Definition:** DDASHit.h:260
 
 
-[[ddasfmt::DDASHit::getExternalTimestamp|classddasfmt_1_1DDASHit#a81d1d7a5acb3225a2183a01912c0ad45]]
+[[ddasfmt::DDASHit::getExternalTimestamp|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a81d1d7a5acb3225a2183a01912c0ad45]]
 
 uint64_t getExternalTimestamp() const
 
@@ -719,7 +719,7 @@ Retrieve the external timestamp.
 **Definition:** DDASHit.h:326
 
 
-[[ddasfmt::DDASHit::DDASHit|classddasfmt_1_1DDASHit#a86ec8b3c0f894f88f3674cc72f9312bc]]
+[[ddasfmt::DDASHit::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a86ec8b3c0f894f88f3674cc72f9312bc]]
 
 DDASHit(const DDASHit &obj)
 
@@ -728,7 +728,7 @@ Copy constructor.
 **Definition:** DDASHit.h:122
 
 
-[[ddasfmt::DDASHit::getQDCSums|classddasfmt_1_1DDASHit#a8bb010e08028da538d53859558b1f7a7]]
+[[ddasfmt::DDASHit::getQDCSums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8bb010e08028da538d53859558b1f7a7]]
 
 std::vector< uint32_t > & getQDCSums()
 
@@ -737,7 +737,7 @@ Access the QDC data.
 **Definition:** DDASHit.h:314
 
 
-[[ddasfmt::DDASHit::getChannelID|classddasfmt_1_1DDASHit#a8e1e63fa667ac17908390ce4dd0b7592]]
+[[ddasfmt::DDASHit::getChannelID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a8e1e63fa667ac17908390ce4dd0b7592]]
 
 uint32_t getChannelID() const
 
@@ -746,7 +746,7 @@ Retrieve the channel index.
 **Definition:** DDASHit.h:255
 
 
-[[ddasfmt::DDASHit::getTimeHigh|classddasfmt_1_1DDASHit#a97160202a4513dcfa98e05dabaedb611]]
+[[ddasfmt::DDASHit::getTimeHigh|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a97160202a4513dcfa98e05dabaedb611]]
 
 uint32_t getTimeHigh() const
 
@@ -755,7 +755,7 @@ Retrieve most significant 16-bits of raw timestamp.
 **Definition:** DDASHit.h:207
 
 
-[[ddasfmt::DDASHit::DDASHit|classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]]
+[[ddasfmt::DDASHit::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771]]
 
 DDASHit()
 
@@ -764,7 +764,7 @@ Default constructor.
 **Definition:** DDASHit.cpp:40
 
 
-[[ddasfmt::DDASHit::Reset|classddasfmt_1_1DDASHit#a98712acae15daa79cad2f0f5d2a79f62]]
+[[ddasfmt::DDASHit::Reset|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a98712acae15daa79cad2f0f5d2a79f62]]
 
 void Reset()
 
@@ -773,7 +773,7 @@ Resets the state of all member data to that of initialization.
 **Definition:** DDASHit.cpp:57
 
 
-[[ddasfmt::DDASHit::setCrateID|classddasfmt_1_1DDASHit#a99af70dc8ca30bfd2a572da2d2ea2e78]]
+[[ddasfmt::DDASHit::setCrateID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a99af70dc8ca30bfd2a572da2d2ea2e78]]
 
 void setCrateID(uint32_t crate)
 
@@ -782,7 +782,7 @@ Set the crate ID.
 **Definition:** DDASHit.cpp:103
 
 
-[[ddasfmt::DDASHit::setExternalTimestamp|classddasfmt_1_1DDASHit#a9ae9e150c583717cb79ad115a729bb91]]
+[[ddasfmt::DDASHit::setExternalTimestamp|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a9ae9e150c583717cb79ad115a729bb91]]
 
 void setExternalTimestamp(uint64_t value)
 
@@ -791,7 +791,7 @@ Set the value of the external timestamp.
 **Definition:** DDASHit.cpp:279
 
 
-[[ddasfmt::DDASHit::setEnergySums|classddasfmt_1_1DDASHit#a9b93fcf8e3757e9b250ad2766d405d60]]
+[[ddasfmt::DDASHit::setEnergySums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a9b93fcf8e3757e9b250ad2766d405d60]]
 
 void setEnergySums(std::vector< uint32_t > eneSums)
 
@@ -800,7 +800,7 @@ Set the energy sum data from an existing set of sums.
 **Definition:** DDASHit.cpp:234
 
 
-[[ddasfmt::DDASHit::setChannelID|classddasfmt_1_1DDASHit#aa9e4d1fbdbcff217ac9c360b61a65fe7]]
+[[ddasfmt::DDASHit::setChannelID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aa9e4d1fbdbcff217ac9c360b61a65fe7]]
 
 void setChannelID(uint32_t channel)
 
@@ -809,7 +809,7 @@ Set the channel ID.
 **Definition:** DDASHit.cpp:91
 
 
-[[ddasfmt::DDASHit::setEnergy|classddasfmt_1_1DDASHit#aaa8c505c0cc457625d269af364210888]]
+[[ddasfmt::DDASHit::setEnergy|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aaa8c505c0cc457625d269af364210888]]
 
 void setEnergy(uint32_t energy)
 
@@ -818,7 +818,7 @@ Set the energy for this hit.
 **Definition:** DDASHit.cpp:198
 
 
-[[ddasfmt::DDASHit::getTimeCFD|classddasfmt_1_1DDASHit#aba4235f4d90c9057f54f173217593ff1]]
+[[ddasfmt::DDASHit::getTimeCFD|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aba4235f4d90c9057f54f173217593ff1]]
 
 uint32_t getTimeCFD() const
 
@@ -827,7 +827,7 @@ Retrieve the raw CFD time.
 **Definition:** DDASHit.h:217
 
 
-[[ddasfmt::DDASHit::setTimeHigh|classddasfmt_1_1DDASHit#abca1f6ee55d4671606526dd8401f60a1]]
+[[ddasfmt::DDASHit::setTimeHigh|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abca1f6ee55d4671606526dd8401f60a1]]
 
 void setTimeHigh(uint32_t datum)
 
@@ -836,7 +836,7 @@ Set the higher 16 bits of the 48-bit timestamp.
 **Definition:** DDASHit.cpp:186
 
 
-[[ddasfmt::DDASHit::~DDASHit|classddasfmt_1_1DDASHit#abdeb19109a6da793514f6f984e7e91ae]]
+[[ddasfmt::DDASHit::~DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abdeb19109a6da793514f6f984e7e91ae]]
 
 virtual ~DDASHit()
 
@@ -845,7 +845,7 @@ Destructor.
 **Definition:** DDASHit.cpp:87
 
 
-[[ddasfmt::DDASHit::getChannelLength|classddasfmt_1_1DDASHit#abfde5ae9dac786db796e3ba0bee6378d]]
+[[ddasfmt::DDASHit::getChannelLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#abfde5ae9dac786db796e3ba0bee6378d]]
 
 uint32_t getChannelLength() const
 
@@ -854,7 +854,7 @@ Retrieve number of 32-bit words that were in original data packet.
 **Definition:** DDASHit.h:233
 
 
-[[ddasfmt::DDASHit::getTraceLength|classddasfmt_1_1DDASHit#ac45165add6cb87b6fd39e65ba0638873]]
+[[ddasfmt::DDASHit::getTraceLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac45165add6cb87b6fd39e65ba0638873]]
 
 uint32_t getTraceLength() const
 
@@ -863,7 +863,7 @@ Retrieve trace length.
 **Definition:** DDASHit.h:287
 
 
-[[ddasfmt::DDASHit::getEnergySums|classddasfmt_1_1DDASHit#ac899feeb60afd44cfe5e7ed81cfb8636]]
+[[ddasfmt::DDASHit::getEnergySums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac899feeb60afd44cfe5e7ed81cfb8636]]
 
 std::vector< uint32_t > & getEnergySums()
 
@@ -872,7 +872,7 @@ Access the energy/baseline sum data.
 **Definition:** DDASHit.h:302
 
 
-[[ddasfmt::DDASHit::setQDCSums|classddasfmt_1_1DDASHit#ac8bfb4504006f81caefc33642b091eab]]
+[[ddasfmt::DDASHit::setQDCSums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac8bfb4504006f81caefc33642b091eab]]
 
 void setQDCSums(std::vector< uint32_t > qdcSums)
 
@@ -881,7 +881,7 @@ Set the QDC sum data from an existing set of sums.
 **Definition:** DDASHit.cpp:253
 
 
-[[ddasfmt::DDASHit::setChannelHeaderLength|classddasfmt_1_1DDASHit#ac9157bfb4f552b18831848b3343c8bd6]]
+[[ddasfmt::DDASHit::setChannelHeaderLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ac9157bfb4f552b18831848b3343c8bd6]]
 
 void setChannelHeaderLength(uint32_t channelHeaderLength)
 
@@ -890,7 +890,7 @@ Set the channel header length.
 **Definition:** DDASHit.cpp:109
 
 
-[[ddasfmt::DDASHit::setSlotID|classddasfmt_1_1DDASHit#acbbe4a027b6d80194591a847f2cd69ab]]
+[[ddasfmt::DDASHit::setSlotID|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acbbe4a027b6d80194591a847f2cd69ab]]
 
 void setSlotID(uint32_t slot)
 
@@ -899,7 +899,7 @@ Set the slot ID.
 **Definition:** DDASHit.cpp:97
 
 
-[[ddasfmt::DDASHit::setADCResolution|classddasfmt_1_1DDASHit#acbe9e4ff0980461cb64460e92f814d4a]]
+[[ddasfmt::DDASHit::setADCResolution|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acbe9e4ff0980461cb64460e92f814d4a]]
 
 void setADCResolution(int value)
 
@@ -908,7 +908,7 @@ Set the value of the ADC resolution (bit depth) for the ADC which recorded this 
 **Definition:** DDASHit.cpp:216
 
 
-[[ddasfmt::DDASHit::setTraceLength|classddasfmt_1_1DDASHit#acd32bb9076e3767e1a977c09cbd7f901]]
+[[ddasfmt::DDASHit::setTraceLength|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#acd32bb9076e3767e1a977c09cbd7f901]]
 
 void setTraceLength(uint32_t length)
 
@@ -917,7 +917,7 @@ Set the ADC trace length.
 **Definition:** DDASHit.cpp:204
 
 
-[[ddasfmt::DDASHit::getTime|classddasfmt_1_1DDASHit#ad247d024b64efe0161f10f9eaf7d6bd7]]
+[[ddasfmt::DDASHit::getTime|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ad247d024b64efe0161f10f9eaf7d6bd7]]
 
 double getTime() const
 
@@ -926,7 +926,7 @@ Retrieve computed time.
 **Definition:** DDASHit.h:175
 
 
-[[ddasfmt::DDASHit::getADCResolution|classddasfmt_1_1DDASHit#ae5ebf6e23c2c0242b8d52be36d2812ed]]
+[[ddasfmt::DDASHit::getADCResolution|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#ae5ebf6e23c2c0242b8d52be36d2812ed]]
 
 int getADCResolution() const
 
@@ -935,7 +935,7 @@ Retrieve the ADC resolution.
 **Definition:** DDASHit.h:270
 
 
-[[ddasfmt::DDASHit::getCFDFailBit|classddasfmt_1_1DDASHit#aec0b11d8ed064a338ca18a5edd4619c1]]
+[[ddasfmt::DDASHit::getCFDFailBit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aec0b11d8ed064a338ca18a5edd4619c1]]
 
 uint32_t getCFDFailBit() const
 
@@ -944,7 +944,7 @@ Retreive failure bit from CFD data.
 **Definition:** DDASHit.h:282
 
 
-[[ddasfmt::DDASHit::setCFDTrigSourceBit|classddasfmt_1_1DDASHit#aef7fac5082a9627b02264f713eccf721]]
+[[ddasfmt::DDASHit::setCFDTrigSourceBit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#aef7fac5082a9627b02264f713eccf721]]
 
 void setCFDTrigSourceBit(uint32_t bit)
 
@@ -953,7 +953,7 @@ Set the CFD trigger source bit.
 **Definition:** DDASHit.cpp:161
 
 
-[[ddasfmt::DDASHit::setCFDFailBit|classddasfmt_1_1DDASHit#af7e9ad15e05c1ea8c0904910703cdb11]]
+[[ddasfmt::DDASHit::setCFDFailBit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#af7e9ad15e05c1ea8c0904910703cdb11]]
 
 void setCFDFailBit(uint32_t bit)
 
@@ -962,7 +962,7 @@ Set the CFD fail bit.
 **Definition:** DDASHit.cpp:174
 
 
-[[ddasfmt::DDASHit::getTimeLow|classddasfmt_1_1DDASHit#afbbdfd6b3dee82528fd0237c6b8c3dfd]]
+[[ddasfmt::DDASHit::getTimeLow|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#afbbdfd6b3dee82528fd0237c6b8c3dfd]]
 
 uint32_t getTimeLow() const
 
@@ -971,7 +971,7 @@ Retrieve least significant 32-bit of raw timestamp.
 **Definition:** DDASHit.h:212
 
 
-[[ddasfmt::DDASHit::getQDCSums|classddasfmt_1_1DDASHit#affb276da3a89b55206bf170e0eadb8bd]]
+[[ddasfmt::DDASHit::getQDCSums|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#affb276da3a89b55206bf170e0eadb8bd]]
 
 const std::vector< uint32_t > & getQDCSums() const
 

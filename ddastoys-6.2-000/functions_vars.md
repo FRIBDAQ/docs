@@ -19,101 +19,101 @@ do not remove this div, it is closed by doxygen!
 ### - a -
 
 - amplitude
-  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#a7dfe5ec91515520c4ad705aa759b257d]]
+  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a7dfe5ec91515520c4ad705aa759b257d]]
 
 
 ### - c -
 
 - chiSquare
-  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a0fd88c11d1366d5c82eb9827dae20c3a]]
-  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#a416a2b2d7c2328c456d46060373fcb37]]
+  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a0fd88c11d1366d5c82eb9827dae20c3a]]
+  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a416a2b2d7c2328c456d46060373fcb37]]
 
 
 ### - d -
 
 - decayTime
-  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#a721c2b83dd1f33cfcd5a039442ff6e83]]
+  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a721c2b83dd1f33cfcd5a039442ff6e83]]
 - doubleProb
-  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]]
+  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42]]
 
 
 ### - f -
 
 - fitStatus
-  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a8dc20c4c1d52a7e5120ad1761c5ed949]]
-  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#aab25a88a6dce9c050ead9c72ba263b3b]]
+  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a8dc20c4c1d52a7e5120ad1761c5ed949]]
+  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#aab25a88a6dce9c050ead9c72ba263b3b]]
 
 
 ### - i -
 
 - iterations
-  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a284e564281fe171e1fd567dc7fe86192]]
-  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#ab8686d8462ece209d2e552a298eda764]]
+  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a284e564281fe171e1fd567dc7fe86192]]
+  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#ab8686d8462ece209d2e552a298eda764]]
 
 
 ### - m -
 
 - m_hits
-  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]
+  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#abeec01aa1c0823c73e97906be94740bb]]
 
 
 ### - o -
 
 - offset
-  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a28fcfa9a811b677edba81832655506a3]]
-  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#a08e5d4968217ec0bc94a3f9c54a926b2]]
+  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a28fcfa9a811b677edba81832655506a3]]
+  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a08e5d4968217ec0bc94a3f9c54a926b2]]
 - onePulseFit
-  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]]
-  , [[ddastoys::HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy#ad8818a1b170c3d7035e02c8aa0871f6b]]
+  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]]
+  , [[ddastoys::HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#ad8818a1b170c3d7035e02c8aa0871f6b]]
 
 
 ### - p -
 
 - position
-  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#acac1ce0792a5923da20ffa74eb66691b]]
+  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#acac1ce0792a5923da20ffa74eb66691b]]
 - pulse
-  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#afd4c01f18493324850b22dae9be64207]]
+  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#afd4c01f18493324850b22dae9be64207]]
 - pulses
-  : [[ddastoys::fit2Info|structddastoys_1_1fit2Info#a410768c2c76b361c08ed4ce7fee931d7]]
+  : [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a410768c2c76b361c08ed4ce7fee931d7]]
 
 
 ### - s -
 
 - s_extension
-  : [[ddastoys::FitInfo|structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]]
-  , [[ddastoys::FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]]
+  : [[ddastoys::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd]]
+  , [[ddastoys::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c]]
 - s_pPoints
-  : [[ddastoys::analyticfit::GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters#a74d95f9de0e68a0cb7ca66d098097483]]
-  , [[ddastoys::templatefit::GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters#acd151d24c51b61c3678d95c47fdaba2d]]
+  : [[ddastoys::analyticfit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#a74d95f9de0e68a0cb7ca66d098097483]]
+  , [[ddastoys::templatefit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md#acd151d24c51b61c3678d95c47fdaba2d]]
 - s_pTraceTemplate
-  : [[ddastoys::templatefit::GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters#ac996fd1b4706cfdb54a9853d76d69e96]]
+  : [[ddastoys::templatefit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md#ac996fd1b4706cfdb54a9853d76d69e96]]
 - s_size
-  : [[ddastoys::FitInfo|structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]]
-  , [[ddastoys::FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]]
-  , [[ddastoys::nullExtension|structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]]
+  : [[ddastoys::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5]]
+  , [[ddastoys::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b]]
+  , [[ddastoys::nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e]]
 - singleProb
-  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]]
+  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869]]
 - steepness
-  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#afd9eb234ef215507bb9aaffce6f2744f]]
+  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#afd9eb234ef215507bb9aaffce6f2744f]]
 
 
 ### - t -
 
 - twoPulseFit
-  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]]
-  , [[ddastoys::HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy#a34ae6f42360bc20948d7ef037bf90d44]]
+  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]]
+  , [[ddastoys::HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#a34ae6f42360bc20948d7ef037bf90d44]]
 
 
 ### - x -
 
 - x
-  : [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]
+  : [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e]]
 
 
 ### - y -
 
 - y
-  : [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]
+  : [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638]]
 
  contents 
  start footer part 

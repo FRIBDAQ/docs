@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
 
  top 
 SpecTclWorker.h
@@ -65,7 +65,7 @@ header
 
 <a name="l00022"></a>   22 #define ANALYSIS_SPECTCLWORKER_H
 
-<a name="l00023"></a>   23 #include <[[MPIRawToParametersWorker.h|MPIRawToParametersWorker_8h]]>
+<a name="l00023"></a>   23 #include <[[MPIRawToParametersWorker.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8h.md]]>
 
 <a name="l00024"></a>   24
 
@@ -73,7 +73,7 @@ header
 
 <a name="l00026"></a>   26 #include <string>
 
-<a name="l00027"></a>   27 namespace [[frib|namespacefrib]] {
+<a name="l00027"></a>   27 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00028"></a>   28     namespace analysis {
 
@@ -85,7 +85,7 @@ header
 
 <a name="l00032"></a>   32         class CEvent;
 
-<a name="l00047"></a>[[47|classfrib_1_1analysis_1_1CSpecTclWorker]]         class [[CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker]] : public [[CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]] {
+<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md]]         class [[CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md]] : public [[CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]] {
 
 <a name="l00048"></a>   48         private:
 
@@ -99,17 +99,17 @@ header
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54             [[CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]*  m_pDecoder;
+<a name="l00054"></a>   54             [[CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]*  m_pDecoder;
 
-<a name="l00055"></a>   55             [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]*       m_pAnalyzer;
+<a name="l00055"></a>   55             [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]*       m_pAnalyzer;
 
-<a name="l00056"></a>   56             [[CEvent|classfrib_1_1analysis_1_1CEvent]]*          m_pEvent;
+<a name="l00056"></a>   56             [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]*          m_pEvent;
 
 <a name="l00057"></a>   57             public:
 
-<a name="l00058"></a>   58             [[CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#a96fad1184e81a0f0bb498f7a555fe63a]]([[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& app);
+<a name="l00058"></a>   58             [[CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a96fad1184e81a0f0bb498f7a555fe63a]]([[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& app);
 
-<a name="l00059"></a>   59             virtual [[~CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#af6cb9ee0de85a97b1d616513e7cd6c3a]]();
+<a name="l00059"></a>   59             virtual [[~CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#af6cb9ee0de85a97b1d616513e7cd6c3a]]();
 
 <a name="l00060"></a>   60
 
@@ -119,11 +119,11 @@ header
 
 <a name="l00063"></a>   63
 
-<a name="l00064"></a>   64             std::string [[addProcessor|classfrib_1_1analysis_1_1CSpecTclWorker#a092db30a0a4c06f372836961663e6c56]]([[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]* pProcessor, const char* name=nullptr);
+<a name="l00064"></a>   64             std::string [[addProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a092db30a0a4c06f372836961663e6c56]]([[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]* pProcessor, const char* name=nullptr);
 
-<a name="l00065"></a>   65             void [[removeEventProcessor|classfrib_1_1analysis_1_1CSpecTclWorker#a35211a582117ce40105cec71bf1d82cd]]([[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]* pProcessor);
+<a name="l00065"></a>   65             void [[removeEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a35211a582117ce40105cec71bf1d82cd]]([[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]* pProcessor);
 
-<a name="l00066"></a>   66             void [[removeEventProcessor|classfrib_1_1analysis_1_1CSpecTclWorker#a35211a582117ce40105cec71bf1d82cd]](const char* name);
+<a name="l00066"></a>   66             void [[removeEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a35211a582117ce40105cec71bf1d82cd]](const char* name);
 
 <a name="l00067"></a>   67
 
@@ -131,13 +131,13 @@ header
 
 <a name="l00069"></a>   69
 
-<a name="l00070"></a>   70             virtual void [[initializeUserCode|classfrib_1_1analysis_1_1CSpecTclWorker#ad9c1c74b18539fedd0e670dbb41fc8e8]](
+<a name="l00070"></a>   70             virtual void [[initializeUserCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ad9c1c74b18539fedd0e670dbb41fc8e8]](
 
-<a name="l00071"></a>   71                 int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& app
+<a name="l00071"></a>   71                 int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& app
 
 <a name="l00072"></a>   72             );
 
-<a name="l00073"></a>   73             virtual void [[unpackData|classfrib_1_1analysis_1_1CSpecTclWorker#ab010922c1133670bc23c8e37d40f814e]](const void* pData);
+<a name="l00073"></a>   73             virtual void [[unpackData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ab010922c1133670bc23c8e37d40f814e]](const void* pData);
 
 <a name="l00074"></a>   74
 
@@ -147,13 +147,13 @@ header
 
 <a name="l00077"></a>   77
 
-<a name="l00078"></a>   78             virtual std::string [[getInputFilename|classfrib_1_1analysis_1_1CSpecTclWorker#a6f33396a8ce46b81894b4ded7de60a17]](int argc, char** argv);
+<a name="l00078"></a>   78             virtual std::string [[getInputFilename|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a6f33396a8ce46b81894b4ded7de60a17]](int argc, char** argv);
 
 <a name="l00079"></a>   79         private:
 
 <a name="l00080"></a>   80             std::string makeName();
 
-<a name="l00081"></a>   81             void [[removeEventProcessor|classfrib_1_1analysis_1_1CSpecTclWorker#a35211a582117ce40105cec71bf1d82cd]](
+<a name="l00081"></a>   81             void [[removeEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a35211a582117ce40105cec71bf1d82cd]](
 
 <a name="l00082"></a>   82                 std::vector<std::pair<std::string, CEventProcessor*>>::iterator p
 
@@ -169,94 +169,94 @@ header
 
 <a name="l00088"></a>   88 #endif
 
-[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::CSpecTclWorker::~CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#af6cb9ee0de85a97b1d616513e7cd6c3a]]
+[[frib::analysis::CSpecTclWorker::~CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#af6cb9ee0de85a97b1d616513e7cd6c3a]]
 
 virtual ~CSpecTclWorker()
 
 **Definition:** SpecTclWorker.cpp:58
 
 
-[[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]
+[[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]
 
 **Definition:** Analyzer.h:41
 
 
-[[frib::analysis::CSpecTclWorker::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#a96fad1184e81a0f0bb498f7a555fe63a]]
+[[frib::analysis::CSpecTclWorker::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a96fad1184e81a0f0bb498f7a555fe63a]]
 
 CSpecTclWorker(AbstractApplication &app)
 
 **Definition:** SpecTclWorker.cpp:46
 
 
-[[frib::analysis::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker]]
+[[frib::analysis::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md]]
 
 **Definition:** SpecTclWorker.h:47
 
 
-[[MPIRawToParametersWorker.h|MPIRawToParametersWorker_8h]]
+[[MPIRawToParametersWorker.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8h.md]]
 
 : Raw events -> Parameter worker skeleton.
 
 
-[[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]
+[[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]
 
 **Definition:** BufferDecoder.h:39
 
 
-[[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]]
+[[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]
 
 **Definition:** Event.h:45
 
 
-[[frib::analysis::CSpecTclWorker::getInputFilename|classfrib_1_1analysis_1_1CSpecTclWorker#a6f33396a8ce46b81894b4ded7de60a17]]
+[[frib::analysis::CSpecTclWorker::getInputFilename|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a6f33396a8ce46b81894b4ded7de60a17]]
 
 virtual std::string getInputFilename(int argc, char **argv)
 
 **Definition:** SpecTclWorker.cpp:211
 
 
-[[frib::analysis::CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]
+[[frib::analysis::CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]
 
 **Definition:** EventProcessor.h:37
 
 
-[[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]
+[[frib::analysis::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]]
 
 **Definition:** MPIRawToParametersWorker.h:67
 
 
-[[frib::analysis::CSpecTclWorker::addProcessor|classfrib_1_1analysis_1_1CSpecTclWorker#a092db30a0a4c06f372836961663e6c56]]
+[[frib::analysis::CSpecTclWorker::addProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a092db30a0a4c06f372836961663e6c56]]
 
 std::string addProcessor(CEventProcessor *pProcessor, const char *name=nullptr)
 
 **Definition:** SpecTclWorker.cpp:73
 
 
-[[frib::analysis::CSpecTclWorker::initializeUserCode|classfrib_1_1analysis_1_1CSpecTclWorker#ad9c1c74b18539fedd0e670dbb41fc8e8]]
+[[frib::analysis::CSpecTclWorker::initializeUserCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ad9c1c74b18539fedd0e670dbb41fc8e8]]
 
 virtual void initializeUserCode(int argc, char **argv, AbstractApplication &app)
 
 **Definition:** SpecTclWorker.cpp:130
 
 
-[[frib::analysis::CSpecTclWorker::removeEventProcessor|classfrib_1_1analysis_1_1CSpecTclWorker#a35211a582117ce40105cec71bf1d82cd]]
+[[frib::analysis::CSpecTclWorker::removeEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a35211a582117ce40105cec71bf1d82cd]]
 
 void removeEventProcessor(CEventProcessor *pProcessor)
 
 **Definition:** SpecTclWorker.cpp:92
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[frib::analysis::CSpecTclWorker::unpackData|classfrib_1_1analysis_1_1CSpecTclWorker#ab010922c1133670bc23c8e37d40f814e]]
+[[frib::analysis::CSpecTclWorker::unpackData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ab010922c1133670bc23c8e37d40f814e]]
 
 virtual void unpackData(const void *pData)
 

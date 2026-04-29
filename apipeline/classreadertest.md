@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|classreadertest-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classreadertest-members.md]]
 
 
 readertest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for readertest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for readertest:
@@ -47,7 +47,7 @@ Collaboration diagram for readertest:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -94,7 +94,7 @@ Collaboration diagram for readertest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[readertests.cpp|readertests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[readertests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/readertests_8cpp.md]]
 
  contents 
  start footer part 

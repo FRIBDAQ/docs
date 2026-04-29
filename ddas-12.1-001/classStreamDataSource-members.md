@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 StreamDataSource Member List
 
 header
-This is the complete list of members for [[StreamDataSource|classStreamDataSource]], including all inherited members.
+This is the complete list of members for [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md]], including all inherited members.
 
 
 |  |  |  |

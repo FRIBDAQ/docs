@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLException Member List
 
 header
-This is the complete list of members for [[CTCLException|classCTCLException]], including all inherited members.
+This is the complete list of members for [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md]], including all inherited members.
 
 
 |  |  |  |

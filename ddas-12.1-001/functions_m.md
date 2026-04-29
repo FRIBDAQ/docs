@@ -22,11 +22,11 @@ Here is a list of all class members with links to the classes they belong to:
 ### - m -
 
 - m_pFactory
-  : [[DataSource|classDataSource#a6f0912454e4f3444260ed98272d3b7d5]]
+  : [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6f0912454e4f3444260ed98272d3b7d5]]
 - ModEvtFileParser()
-  : [[DAQ::DDAS::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]
+  : [[DAQ::DDAS::ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#a7dd35f49151edd3d540eb518f9b27b8f]]
 - moduleCalibration()
-  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#af2be5fd58d780069deb9fe27b3cb9edf]]
+  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af2be5fd58d780069deb9fe27b3cb9edf]]
 
  contents 
  start footer part 

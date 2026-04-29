@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
+- [[DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]]
 
  top 
 ddastoys::DDASFitHitUnpacker Member List
 
 header
-This is the complete list of members for [[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]], including all inherited members.
+This is the complete list of members for [[ddastoys::DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md]], including all inherited members.
 
 
 |  |  |  |

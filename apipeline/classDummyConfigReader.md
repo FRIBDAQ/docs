@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDummyConfigReader-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classDummyConfigReader-members.md]]
 
 
 DummyConfigReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for DummyConfigReader:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for DummyConfigReader:
@@ -48,7 +48,7 @@ Collaboration diagram for DummyConfigReader:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for DummyConfigReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testOutput.cpp|testOutput_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testOutput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testOutput_8cpp.md]]
 
  contents 
  start footer part 

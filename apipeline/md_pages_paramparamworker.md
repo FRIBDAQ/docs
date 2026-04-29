@@ -26,7 +26,7 @@ header
 # The Parameter to Parmaeter Worker.
 
 
-The analysis library defines an abstract base class named: [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]] It operates as follows:
+The analysis library defines an abstract base class named: [[frib::analysis::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md]] It operates as follows:
 
 
 - It receives the parameter definitions item pushed to all workers by the dealer and uses it to construct a lookup table indexed by ids in that item whose entries point to tree parameters with corresonding names in the application.
@@ -42,10 +42,10 @@ As with the raw event to parameters stage of the pipeline, the farmer re-sorts e
 ## Sample Worker.
 
 
-Let's carry on with the example in [[Using parameter files.|md_pages_parametermapping#paramfiles]]. Recall that this example was applying a linear calibration function to input parameters producing energy parameters as output. In order to make our worker we need to
+Let's carry on with the example in [[Using parameter files.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_parametermapping.md#paramfiles]]. Recall that this example was applying a linear calibration function to input parameters producing energy parameters as output. In order to make our worker we need to
 
 
-- Create a new class derived from [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
+- Create a new class derived from [[frib::analysis::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md]]
 - The constructor of that class must define the tree variables and tree parameters the application needs.
 - The `process` method *must* be written and must apply the linear transform to compute the output parameters.
 
@@ -132,8 +132,8 @@ calibrated[i] = raw[i]*slopes[i] + offsets[i];
 }
 
  fragment 1. This set of headers bring in definitions of neede classes:- MPIParametersToParameters.h contains the defintion of the base class for workers.
-   - TreePaarameter.h [[TreeParameterArray.h|TreeParameterArray_8h_source]] and [[TreeVariableArray.h|TreeVariableArray_8h_source]] bring in definitions for the tree parameter and tree variable subsystems we will use.
-2. This is a forward definition of the abstract base class for applications: [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]] it is needed because a pointer to it is passed as a parameter to methods of our worker class. Where possible, to avoid circular includes it is stylistically preferable to use forward defintions rather than including the definitions themselves.
+   - TreePaarameter.h [[TreeParameterArray.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameterArray_8h_source.md]] and [[TreeVariableArray.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariableArray_8h_source.md]] bring in definitions for the tree parameter and tree variable subsystems we will use.
+2. This is a forward definition of the abstract base class for applications: [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]] it is needed because a pointer to it is passed as a parameter to methods of our worker class. Where possible, to avoid circular includes it is stylistically preferable to use forward defintions rather than including the definitions themselves.
 3. These tree parameter and tree variable definitions will be constructed to allow access to the definitions made in the definition file. Furthermore, the worker base class will map parameter data in events into the tree paramters we've declared giving us access to the input data.
 4. The contructor constructs the base class object.
 5. Construction also constructs the tree parameters and tree variables needed for the computations. The input file is assumed to have the `raw` parameters while we will copute the `energy` parameters into the calibrated parameters. The values of the `slopes` and `offset` tree variables will be read from the definition file and, for this example, are linear energy calibration parameters to apply to the raw parameters.

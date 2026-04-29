@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
 
  top 
 Event.h
 
 header
-[[Go to the documentation of this file.|Event_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/Event_8h.md]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -71,7 +71,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 namespace [[frib|namespacefrib]] {
+<a name="l00026"></a>   26 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
 
 <a name="l00027"></a>   27     namespace analysis {
 
@@ -81,7 +81,7 @@ header
 
 <a name="l00030"></a>   30         typedef std::vector<double>::iterator CEventIterator;
 
-<a name="l00045"></a>[[45|classfrib_1_1analysis_1_1CEvent]]         class [[CEvent|classfrib_1_1analysis_1_1CEvent]] {
+<a name="l00045"></a>[[45|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]         class [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]] {
 
 <a name="l00046"></a>   46         public:
 
@@ -89,35 +89,35 @@ header
 
 <a name="l00048"></a>   48             // Ensure initial values entered.
 
-<a name="l00049"></a>   49             [[CEvent|classfrib_1_1analysis_1_1CEvent#acd159498543465efa39b6b855befb8bd]]();
+<a name="l00049"></a>   49             [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#acd159498543465efa39b6b855befb8bd]]();
 
-<a name="l00050"></a>   50             virtual [[~CEvent|classfrib_1_1analysis_1_1CEvent#aa6f5c9b0d8df3da12c19faa66f45e62e]]();
+<a name="l00050"></a>   50             virtual [[~CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#aa6f5c9b0d8df3da12c19faa66f45e62e]]();
 
-<a name="l00051"></a>   51             [[CEvent|classfrib_1_1analysis_1_1CEvent#acd159498543465efa39b6b855befb8bd]](UInt_t nInitialSize);
+<a name="l00051"></a>   51             [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#acd159498543465efa39b6b855befb8bd]](UInt_t nInitialSize);
 
-<a name="l00052"></a>   52             [[CEvent|classfrib_1_1analysis_1_1CEvent#acd159498543465efa39b6b855befb8bd]](const [[CEvent|classfrib_1_1analysis_1_1CEvent]]& aEvent);
+<a name="l00052"></a>   52             [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#acd159498543465efa39b6b855befb8bd]](const [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]& aEvent);
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54             [[CEvent|classfrib_1_1analysis_1_1CEvent]]& operator=(const [[CEvent|classfrib_1_1analysis_1_1CEvent]]& aEvent);
+<a name="l00054"></a>   54             [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]& operator=(const [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]& aEvent);
 
-<a name="l00055"></a>   55             int operator==(const [[CEvent|classfrib_1_1analysis_1_1CEvent]]& aEvent);
+<a name="l00055"></a>   55             int operator==(const [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]& aEvent);
 
-<a name="l00056"></a>   56             int operator!=(const [[CEvent|classfrib_1_1analysis_1_1CEvent]]& anEvent) ;
+<a name="l00056"></a>   56             int operator!=(const [[CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]& anEvent) ;
 
-<a name="l00057"></a>   57             CParameterValue& [[operator[]|classfrib_1_1analysis_1_1CEvent#adae1763bd238f2075f47d0b90f3a4cde]](UInt_t nParam);
+<a name="l00057"></a>   57             CParameterValue& [[operator[]|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#adae1763bd238f2075f47d0b90f3a4cde]](UInt_t nParam);
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>   59             CEventIterator [[begin|classfrib_1_1analysis_1_1CEvent#ae0768bfb99b4479cb4c1b8a114533ab2]]();
+<a name="l00059"></a>   59             CEventIterator [[begin|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#ae0768bfb99b4479cb4c1b8a114533ab2]]();
 
-<a name="l00060"></a>   60             CEventIterator [[end|classfrib_1_1analysis_1_1CEvent#a560e4fc205d43bff0b31a5457d62ff48]]();
+<a name="l00060"></a>   60             CEventIterator [[end|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a560e4fc205d43bff0b31a5457d62ff48]]();
 
-<a name="l00061"></a>   61             UInt_t [[size|classfrib_1_1analysis_1_1CEvent#a8bc1ac684176615ea7742d37125d7037]]();
+<a name="l00061"></a>   61             UInt_t [[size|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a8bc1ac684176615ea7742d37125d7037]]();
 
-<a name="l00062"></a>   62             void [[clear|classfrib_1_1analysis_1_1CEvent#a321296eeeb57590541bbf2588fafd0f1]]() ;
+<a name="l00062"></a>   62             void [[clear|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a321296eeeb57590541bbf2588fafd0f1]]() ;
 
-<a name="l00063"></a>   63             DopeVector [[getDopeVector|classfrib_1_1analysis_1_1CEvent#aed7a49b319c3f139f2699145f307ce1d]]();
+<a name="l00063"></a>   63             DopeVector [[getDopeVector|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#aed7a49b319c3f139f2699145f307ce1d]]();
 
 <a name="l00064"></a>   64          private:
 
@@ -135,68 +135,68 @@ header
 
 <a name="l00071"></a>   71 #endif
 
-[[frib::analysis::CEvent::begin|classfrib_1_1analysis_1_1CEvent#ae0768bfb99b4479cb4c1b8a114533ab2]]
+[[frib::analysis::CEvent::begin|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#ae0768bfb99b4479cb4c1b8a114533ab2]]
 
 CEventIterator begin()
 
 **Definition:** Event.cpp:83
 
 
-[[frib::analysis::CEvent::getDopeVector|classfrib_1_1analysis_1_1CEvent#aed7a49b319c3f139f2699145f307ce1d]]
+[[frib::analysis::CEvent::getDopeVector|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#aed7a49b319c3f139f2699145f307ce1d]]
 
 DopeVector getDopeVector()
 
 **Definition:** Event.cpp:116
 
 
-[[frib::analysis::CEvent::size|classfrib_1_1analysis_1_1CEvent#a8bc1ac684176615ea7742d37125d7037]]
+[[frib::analysis::CEvent::size|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a8bc1ac684176615ea7742d37125d7037]]
 
 UInt_t size()
 
 **Definition:** Event.cpp:100
 
 
-[[frib::analysis::CEvent::end|classfrib_1_1analysis_1_1CEvent#a560e4fc205d43bff0b31a5457d62ff48]]
+[[frib::analysis::CEvent::end|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a560e4fc205d43bff0b31a5457d62ff48]]
 
 CEventIterator end()
 
 **Definition:** Event.cpp:92
 
 
-[[frib::analysis::CEvent::operator[]|classfrib_1_1analysis_1_1CEvent#adae1763bd238f2075f47d0b90f3a4cde]]
+[[frib::analysis::CEvent::operator[]|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#adae1763bd238f2075f47d0b90f3a4cde]]
 
 CParameterValue & operator[](UInt_t nParam)
 
 **Definition:** Event.cpp:61
 
 
-[[frib::analysis::CEvent::~CEvent|classfrib_1_1analysis_1_1CEvent#aa6f5c9b0d8df3da12c19faa66f45e62e]]
+[[frib::analysis::CEvent::~CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#aa6f5c9b0d8df3da12c19faa66f45e62e]]
 
 virtual ~CEvent()
 
 **Definition:** Event.cpp:37
 
 
-[[frib::analysis::CEvent::CEvent|classfrib_1_1analysis_1_1CEvent#acd159498543465efa39b6b855befb8bd]]
+[[frib::analysis::CEvent::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#acd159498543465efa39b6b855befb8bd]]
 
 CEvent()
 
 **Definition:** Event.cpp:30
 
 
-[[frib::analysis::CEvent::clear|classfrib_1_1analysis_1_1CEvent#a321296eeeb57590541bbf2588fafd0f1]]
+[[frib::analysis::CEvent::clear|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a321296eeeb57590541bbf2588fafd0f1]]
 
 void clear()
 
 **Definition:** Event.cpp:108
 
 
-[[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]]
+[[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]
 
 **Definition:** Event.h:45
 
 
-[[frib|namespacefrib]]
+[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
 
 **Definition:** AbstractApplication.cpp:30
 

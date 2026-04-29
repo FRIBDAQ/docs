@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[qtscope|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md]]
 
  top 
 CPixieSystemUtilities.h
 
 header
-[[Go to the documentation of this file.|CPixieSystemUtilities_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md]]<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef CPIXIESYSTEMUTILITIES_H
@@ -46,13 +46,13 @@ header
 <a name="l00011"></a>   11
 
 
-<a name="l00012"></a>   12 #include <[[Configuration.h|Configuration_8h]]>
+<a name="l00012"></a>   12 #include <[[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md]]>
 
 
 <a name="l00013"></a>   13
 
 
-<a name="l00029"></a>[[29|classCPixieSystemUtilities]] class [[CPixieSystemUtilities|classCPixieSystemUtilities]]
+<a name="l00029"></a>[[29|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]] class [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]
 
 
 <a name="l00030"></a>   30 {
@@ -61,7 +61,7 @@ header
 <a name="l00031"></a>   31 private:
 
 
-<a name="l00032"></a>   32     [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]] m_config;
+<a name="l00032"></a>   32     [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] m_config;
 
 
 <a name="l00033"></a>   33     int  m_bootMode;
@@ -97,37 +97,37 @@ header
 <a name="l00043"></a>   43 public:
 
 
-<a name="l00045"></a>   45     [[CPixieSystemUtilities|classCPixieSystemUtilities#a8bde94b0f5ad743a8d83320f7271814b]]();
+<a name="l00045"></a>   45     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a8bde94b0f5ad743a8d83320f7271814b]]();
 
 
 <a name="l00046"></a>   46
 
 
-<a name="l00053"></a>   53     int [[Boot|classCPixieSystemUtilities#aff3ae5dd4308ff50585274391eafa475]]();
+<a name="l00053"></a>   53     int [[Boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aff3ae5dd4308ff50585274391eafa475]]();
 
 
-<a name="l00061"></a>   61     int [[SaveSetFile|classCPixieSystemUtilities#ab5ff3257d6aaf462560d38cdb8d5f231]](char* fileName);
+<a name="l00061"></a>   61     int [[SaveSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#ab5ff3257d6aaf462560d38cdb8d5f231]](char* fileName);
 
 
-<a name="l00069"></a>   69     int [[LoadSetFile|classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]](char* fileName);
+<a name="l00069"></a>   69     int [[LoadSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a7abb978776e7de015681fc24eb290cd9]](char* fileName);
 
 
-<a name="l00076"></a>   76     int [[ExitSystem|classCPixieSystemUtilities#a8bbb91058a3ffeb39cbb9d288c7c68c2]]();
+<a name="l00076"></a>   76     int [[ExitSystem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a8bbb91058a3ffeb39cbb9d288c7c68c2]]();
 
 
-<a name="l00082"></a>[[82|classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]]     void [[SetBootMode|classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]](int mode) {m_bootMode = mode;};
+<a name="l00082"></a>[[82|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#acec2d34a276b14ef68d40b83627a036e]]     void [[SetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#acec2d34a276b14ef68d40b83627a036e]](int mode) {m_bootMode = mode;};
 
 
-<a name="l00090"></a>[[90|classCPixieSystemUtilities#a72e23154fe63def8188d30f1b978811e]]     int [[GetBootMode|classCPixieSystemUtilities#a72e23154fe63def8188d30f1b978811e]]() {return m_bootMode;};
+<a name="l00090"></a>[[90|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72e23154fe63def8188d30f1b978811e]]     int [[GetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72e23154fe63def8188d30f1b978811e]]() {return m_bootMode;};
 
 
-<a name="l00097"></a>[[97|classCPixieSystemUtilities#a430773db39d9987356fd65c42ec76266]]     bool [[GetBootStatus|classCPixieSystemUtilities#a430773db39d9987356fd65c42ec76266]]() {return m_booted;};
+<a name="l00097"></a>[[97|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a430773db39d9987356fd65c42ec76266]]     bool [[GetBootStatus|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a430773db39d9987356fd65c42ec76266]]() {return m_booted;};
 
 
-<a name="l00102"></a>[[102|classCPixieSystemUtilities#aa1c4385acdb310d9d53785dcb251153f]]     unsigned short [[GetNumModules|classCPixieSystemUtilities#aa1c4385acdb310d9d53785dcb251153f]]() {return m_numModules;};
+<a name="l00102"></a>[[102|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aa1c4385acdb310d9d53785dcb251153f]]     unsigned short [[GetNumModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aa1c4385acdb310d9d53785dcb251153f]]() {return m_numModules;};
 
 
-<a name="l00110"></a>  110     int [[GetModuleMSPS|classCPixieSystemUtilities#a72f3fee797d91d46fd6e91698dcff24f]](int module);
+<a name="l00110"></a>  110     int [[GetModuleMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72f3fee797d91d46fd6e91698dcff24f]](int module);
 
 
 <a name="l00111"></a>  111 };
@@ -139,13 +139,13 @@ header
 <a name="l00115"></a>  115 extern "C" {
 
 
-<a name="l00117"></a>[[117|CPixieSystemUtilities_8h#ae2a352b1c38fc0c9c929203adaabec31]]     [[CPixieSystemUtilities|classCPixieSystemUtilities]]* [[CPixieSystemUtilities_new|CPixieSystemUtilities_8h#ae2a352b1c38fc0c9c929203adaabec31]]()
+<a name="l00117"></a>[[117|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ae2a352b1c38fc0c9c929203adaabec31]]     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* [[CPixieSystemUtilities_new|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ae2a352b1c38fc0c9c929203adaabec31]]()
 
 
 <a name="l00118"></a>  118     {
 
 
-<a name="l00119"></a>  119     return new [[CPixieSystemUtilities|classCPixieSystemUtilities]]();
+<a name="l00119"></a>  119     return new [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]();
 
 
 <a name="l00120"></a>  120     }
@@ -154,22 +154,22 @@ header
 <a name="l00121"></a>  121
 
 
-<a name="l00123"></a>[[123|CPixieSystemUtilities_8h#ad5b72cbabc65dd242cd2c1b3d2c276d1]]     int [[CPixieSystemUtilities_Boot|CPixieSystemUtilities_8h#ad5b72cbabc65dd242cd2c1b3d2c276d1]]([[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils)
+<a name="l00123"></a>[[123|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ad5b72cbabc65dd242cd2c1b3d2c276d1]]     int [[CPixieSystemUtilities_Boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ad5b72cbabc65dd242cd2c1b3d2c276d1]]([[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils)
 
 
 <a name="l00124"></a>  124     {
 
 
-<a name="l00125"></a>  125     return utils->[[Boot|classCPixieSystemUtilities#aff3ae5dd4308ff50585274391eafa475]]();
+<a name="l00125"></a>  125     return utils->[[Boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aff3ae5dd4308ff50585274391eafa475]]();
 
 
 <a name="l00126"></a>  126     }
 
 
-<a name="l00128"></a>[[128|CPixieSystemUtilities_8h#a7a59ad34efc3744f5aaaf095a7f402d7]]     int [[CPixieSystemUtilities_SaveSetFile|CPixieSystemUtilities_8h#a7a59ad34efc3744f5aaaf095a7f402d7]](
+<a name="l00128"></a>[[128|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a7a59ad34efc3744f5aaaf095a7f402d7]]     int [[CPixieSystemUtilities_SaveSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a7a59ad34efc3744f5aaaf095a7f402d7]](
 
 
-<a name="l00129"></a>  129     [[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils, char* fName
+<a name="l00129"></a>  129     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils, char* fName
 
 
 <a name="l00130"></a>  130     )
@@ -178,16 +178,16 @@ header
 <a name="l00131"></a>  131     {
 
 
-<a name="l00132"></a>  132     return utils->[[SaveSetFile|classCPixieSystemUtilities#ab5ff3257d6aaf462560d38cdb8d5f231]](fName);
+<a name="l00132"></a>  132     return utils->[[SaveSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#ab5ff3257d6aaf462560d38cdb8d5f231]](fName);
 
 
 <a name="l00133"></a>  133     }
 
 
-<a name="l00135"></a>[[135|CPixieSystemUtilities_8h#aa47e2a16eac93a72cb17a5f7f9402bfa]]     int [[CPixieSystemUtilities_LoadSetFile|CPixieSystemUtilities_8h#aa47e2a16eac93a72cb17a5f7f9402bfa]](
+<a name="l00135"></a>[[135|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa47e2a16eac93a72cb17a5f7f9402bfa]]     int [[CPixieSystemUtilities_LoadSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa47e2a16eac93a72cb17a5f7f9402bfa]](
 
 
-<a name="l00136"></a>  136     [[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils, char* fName
+<a name="l00136"></a>  136     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils, char* fName
 
 
 <a name="l00137"></a>  137     )
@@ -196,19 +196,19 @@ header
 <a name="l00138"></a>  138     {
 
 
-<a name="l00139"></a>  139     return utils->[[LoadSetFile|classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]](fName);
+<a name="l00139"></a>  139     return utils->[[LoadSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a7abb978776e7de015681fc24eb290cd9]](fName);
 
 
 <a name="l00140"></a>  140     }
 
 
-<a name="l00142"></a>[[142|CPixieSystemUtilities_8h#a8bae80680eb26577cb921845485cca69]]     int [[CPixieSystemUtilities_ExitSystem|CPixieSystemUtilities_8h#a8bae80680eb26577cb921845485cca69]]([[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils)
+<a name="l00142"></a>[[142|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a8bae80680eb26577cb921845485cca69]]     int [[CPixieSystemUtilities_ExitSystem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a8bae80680eb26577cb921845485cca69]]([[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils)
 
 
 <a name="l00143"></a>  143     {
 
 
-<a name="l00144"></a>  144     return utils->[[ExitSystem|classCPixieSystemUtilities#a8bbb91058a3ffeb39cbb9d288c7c68c2]]();
+<a name="l00144"></a>  144     return utils->[[ExitSystem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a8bbb91058a3ffeb39cbb9d288c7c68c2]]();
 
 
 <a name="l00145"></a>  145     }
@@ -217,10 +217,10 @@ header
 <a name="l00146"></a>  146
 
 
-<a name="l00148"></a>[[148|CPixieSystemUtilities_8h#aff5a98724a090b4f37a389d875686ec8]]     void [[CPixieSystemUtilities_SetBootMode|CPixieSystemUtilities_8h#aff5a98724a090b4f37a389d875686ec8]](
+<a name="l00148"></a>[[148|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aff5a98724a090b4f37a389d875686ec8]]     void [[CPixieSystemUtilities_SetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aff5a98724a090b4f37a389d875686ec8]](
 
 
-<a name="l00149"></a>  149     [[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils, int mode
+<a name="l00149"></a>  149     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils, int mode
 
 
 <a name="l00150"></a>  150     )
@@ -229,40 +229,40 @@ header
 <a name="l00151"></a>  151     {
 
 
-<a name="l00152"></a>  152     return utils->[[SetBootMode|classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]](mode);
+<a name="l00152"></a>  152     return utils->[[SetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#acec2d34a276b14ef68d40b83627a036e]](mode);
 
 
 <a name="l00153"></a>  153     }
 
 
-<a name="l00155"></a>[[155|CPixieSystemUtilities_8h#a2434d667ccd452f6c4471b5366c0f716]]     int [[CPixieSystemUtilities_GetBootMode|CPixieSystemUtilities_8h#a2434d667ccd452f6c4471b5366c0f716]]([[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils)
+<a name="l00155"></a>[[155|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a2434d667ccd452f6c4471b5366c0f716]]     int [[CPixieSystemUtilities_GetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a2434d667ccd452f6c4471b5366c0f716]]([[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils)
 
 
 <a name="l00156"></a>  156     {
 
 
-<a name="l00157"></a>  157     return utils->[[GetBootMode|classCPixieSystemUtilities#a72e23154fe63def8188d30f1b978811e]]();
+<a name="l00157"></a>  157     return utils->[[GetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72e23154fe63def8188d30f1b978811e]]();
 
 
 <a name="l00158"></a>  158     }
 
 
-<a name="l00160"></a>[[160|CPixieSystemUtilities_8h#a3b97f36a0e18a49023d575cf793fa560]]     bool [[CPixieSystemUtilities_GetBootStatus|CPixieSystemUtilities_8h#a3b97f36a0e18a49023d575cf793fa560]]([[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils)
+<a name="l00160"></a>[[160|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a3b97f36a0e18a49023d575cf793fa560]]     bool [[CPixieSystemUtilities_GetBootStatus|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a3b97f36a0e18a49023d575cf793fa560]]([[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils)
 
 
 <a name="l00161"></a>  161     {
 
 
-<a name="l00162"></a>  162     return utils->[[GetBootStatus|classCPixieSystemUtilities#a430773db39d9987356fd65c42ec76266]]();
+<a name="l00162"></a>  162     return utils->[[GetBootStatus|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a430773db39d9987356fd65c42ec76266]]();
 
 
 <a name="l00163"></a>  163     }
 
 
-<a name="l00165"></a>[[165|CPixieSystemUtilities_8h#aa0b739e664a7940a6cc6508e4e46f385]]     unsigned short [[CPixieSystemUtilities_GetNumModules|CPixieSystemUtilities_8h#aa0b739e664a7940a6cc6508e4e46f385]](
+<a name="l00165"></a>[[165|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa0b739e664a7940a6cc6508e4e46f385]]     unsigned short [[CPixieSystemUtilities_GetNumModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa0b739e664a7940a6cc6508e4e46f385]](
 
 
-<a name="l00166"></a>  166     [[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils
+<a name="l00166"></a>  166     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils
 
 
 <a name="l00167"></a>  167     )
@@ -271,16 +271,16 @@ header
 <a name="l00168"></a>  168     {
 
 
-<a name="l00169"></a>  169     return utils->[[GetNumModules|classCPixieSystemUtilities#aa1c4385acdb310d9d53785dcb251153f]]();
+<a name="l00169"></a>  169     return utils->[[GetNumModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aa1c4385acdb310d9d53785dcb251153f]]();
 
 
 <a name="l00170"></a>  170     }
 
 
-<a name="l00172"></a>[[172|CPixieSystemUtilities_8h#aca8bd0d11c27ced3e85b7f1cf4d6b20d]]     int [[CPixieSystemUtilities_GetModuleMSPS|CPixieSystemUtilities_8h#aca8bd0d11c27ced3e85b7f1cf4d6b20d]](
+<a name="l00172"></a>[[172|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aca8bd0d11c27ced3e85b7f1cf4d6b20d]]     int [[CPixieSystemUtilities_GetModuleMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aca8bd0d11c27ced3e85b7f1cf4d6b20d]](
 
 
-<a name="l00173"></a>  173     [[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils, int mod
+<a name="l00173"></a>  173     [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils, int mod
 
 
 <a name="l00174"></a>  174     )
@@ -289,7 +289,7 @@ header
 <a name="l00175"></a>  175     {
 
 
-<a name="l00176"></a>  176     return utils->[[GetModuleMSPS|classCPixieSystemUtilities#a72f3fee797d91d46fd6e91698dcff24f]](mod);
+<a name="l00176"></a>  176     return utils->[[GetModuleMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72f3fee797d91d46fd6e91698dcff24f]](mod);
 
 
 <a name="l00177"></a>  177     }
@@ -298,7 +298,7 @@ header
 <a name="l00178"></a>  178
 
 
-<a name="l00180"></a>[[180|CPixieSystemUtilities_8h#a249c9fb47c2aba2142380ee307026ed2]]     void [[CPixieSystemUtilities_delete|CPixieSystemUtilities_8h#a249c9fb47c2aba2142380ee307026ed2]]([[CPixieSystemUtilities|classCPixieSystemUtilities]]* utils)
+<a name="l00180"></a>[[180|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a249c9fb47c2aba2142380ee307026ed2]]     void [[CPixieSystemUtilities_delete|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a249c9fb47c2aba2142380ee307026ed2]]([[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]* utils)
 
 
 <a name="l00181"></a>  181     {
@@ -328,7 +328,7 @@ header
 <a name="l00189"></a>  189 #endif
 
 
-[[CPixieSystemUtilities_GetBootMode|CPixieSystemUtilities_8h#a2434d667ccd452f6c4471b5366c0f716]]
+[[CPixieSystemUtilities_GetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a2434d667ccd452f6c4471b5366c0f716]]
 
 int CPixieSystemUtilities_GetBootMode(CPixieSystemUtilities *utils)
 
@@ -337,7 +337,7 @@ Wrapper to get the boot mode.
 **Definition:** CPixieSystemUtilities.h:155
 
 
-[[CPixieSystemUtilities_delete|CPixieSystemUtilities_8h#a249c9fb47c2aba2142380ee307026ed2]]
+[[CPixieSystemUtilities_delete|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a249c9fb47c2aba2142380ee307026ed2]]
 
 void CPixieSystemUtilities_delete(CPixieSystemUtilities *utils)
 
@@ -346,7 +346,7 @@ Wrapper for the class destructor.
 **Definition:** CPixieSystemUtilities.h:180
 
 
-[[CPixieSystemUtilities_GetBootStatus|CPixieSystemUtilities_8h#a3b97f36a0e18a49023d575cf793fa560]]
+[[CPixieSystemUtilities_GetBootStatus|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a3b97f36a0e18a49023d575cf793fa560]]
 
 bool CPixieSystemUtilities_GetBootStatus(CPixieSystemUtilities *utils)
 
@@ -355,7 +355,7 @@ Wrapper to get the boot status.
 **Definition:** CPixieSystemUtilities.h:160
 
 
-[[CPixieSystemUtilities_SaveSetFile|CPixieSystemUtilities_8h#a7a59ad34efc3744f5aaaf095a7f402d7]]
+[[CPixieSystemUtilities_SaveSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a7a59ad34efc3744f5aaaf095a7f402d7]]
 
 int CPixieSystemUtilities_SaveSetFile(CPixieSystemUtilities *utils, char *fName)
 
@@ -364,7 +364,7 @@ Wrapper to save a settings file.
 **Definition:** CPixieSystemUtilities.h:128
 
 
-[[CPixieSystemUtilities_ExitSystem|CPixieSystemUtilities_8h#a8bae80680eb26577cb921845485cca69]]
+[[CPixieSystemUtilities_ExitSystem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a8bae80680eb26577cb921845485cca69]]
 
 int CPixieSystemUtilities_ExitSystem(CPixieSystemUtilities *utils)
 
@@ -373,7 +373,7 @@ Wrapper to exit the system file.
 **Definition:** CPixieSystemUtilities.h:142
 
 
-[[CPixieSystemUtilities_GetNumModules|CPixieSystemUtilities_8h#aa0b739e664a7940a6cc6508e4e46f385]]
+[[CPixieSystemUtilities_GetNumModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa0b739e664a7940a6cc6508e4e46f385]]
 
 unsigned short CPixieSystemUtilities_GetNumModules(CPixieSystemUtilities *utils)
 
@@ -382,7 +382,7 @@ Wrapper to get the number of modules.
 **Definition:** CPixieSystemUtilities.h:165
 
 
-[[CPixieSystemUtilities_LoadSetFile|CPixieSystemUtilities_8h#aa47e2a16eac93a72cb17a5f7f9402bfa]]
+[[CPixieSystemUtilities_LoadSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa47e2a16eac93a72cb17a5f7f9402bfa]]
 
 int CPixieSystemUtilities_LoadSetFile(CPixieSystemUtilities *utils, char *fName)
 
@@ -391,7 +391,7 @@ Wrapper to load a settings file.
 **Definition:** CPixieSystemUtilities.h:135
 
 
-[[CPixieSystemUtilities_GetModuleMSPS|CPixieSystemUtilities_8h#aca8bd0d11c27ced3e85b7f1cf4d6b20d]]
+[[CPixieSystemUtilities_GetModuleMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aca8bd0d11c27ced3e85b7f1cf4d6b20d]]
 
 int CPixieSystemUtilities_GetModuleMSPS(CPixieSystemUtilities *utils, int mod)
 
@@ -400,7 +400,7 @@ Wrapper to get a single module ADC MSPS from the HW map.
 **Definition:** CPixieSystemUtilities.h:172
 
 
-[[CPixieSystemUtilities_Boot|CPixieSystemUtilities_8h#ad5b72cbabc65dd242cd2c1b3d2c276d1]]
+[[CPixieSystemUtilities_Boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ad5b72cbabc65dd242cd2c1b3d2c276d1]]
 
 int CPixieSystemUtilities_Boot(CPixieSystemUtilities *utils)
 
@@ -409,7 +409,7 @@ Wrapper to boot the crate.
 **Definition:** CPixieSystemUtilities.h:123
 
 
-[[CPixieSystemUtilities_new|CPixieSystemUtilities_8h#ae2a352b1c38fc0c9c929203adaabec31]]
+[[CPixieSystemUtilities_new|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ae2a352b1c38fc0c9c929203adaabec31]]
 
 CPixieSystemUtilities * CPixieSystemUtilities_new()
 
@@ -418,7 +418,7 @@ Wrapper for the class constructor.
 **Definition:** CPixieSystemUtilities.h:117
 
 
-[[CPixieSystemUtilities_SetBootMode|CPixieSystemUtilities_8h#aff5a98724a090b4f37a389d875686ec8]]
+[[CPixieSystemUtilities_SetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aff5a98724a090b4f37a389d875686ec8]]
 
 void CPixieSystemUtilities_SetBootMode(CPixieSystemUtilities *utils, int mode)
 
@@ -427,19 +427,19 @@ Wrapper to set the boot mode.
 **Definition:** CPixieSystemUtilities.h:148
 
 
-[[Configuration.h|Configuration_8h]]
+[[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md]]
 
 Defines a class for storing system configuration information.
 
 
-[[CPixieSystemUtilities|classCPixieSystemUtilities]]
+[[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md]]
 
 System manager class for DDAS.
 
 **Definition:** CPixieSystemUtilities.h:30
 
 
-[[CPixieSystemUtilities::GetBootStatus|classCPixieSystemUtilities#a430773db39d9987356fd65c42ec76266]]
+[[CPixieSystemUtilities::GetBootStatus|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a430773db39d9987356fd65c42ec76266]]
 
 bool GetBootStatus()
 
@@ -448,7 +448,7 @@ Get the crate boot status.
 **Definition:** CPixieSystemUtilities.h:97
 
 
-[[CPixieSystemUtilities::GetBootMode|classCPixieSystemUtilities#a72e23154fe63def8188d30f1b978811e]]
+[[CPixieSystemUtilities::GetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72e23154fe63def8188d30f1b978811e]]
 
 int GetBootMode()
 
@@ -457,7 +457,7 @@ Get the boot mode.
 **Definition:** CPixieSystemUtilities.h:90
 
 
-[[CPixieSystemUtilities::GetModuleMSPS|classCPixieSystemUtilities#a72f3fee797d91d46fd6e91698dcff24f]]
+[[CPixieSystemUtilities::GetModuleMSPS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a72f3fee797d91d46fd6e91698dcff24f]]
 
 int GetModuleMSPS(int module)
 
@@ -466,7 +466,7 @@ Get the module ADC sampling rate in MSPS.
 **Definition:** CPixieSystemUtilities.cpp:221
 
 
-[[CPixieSystemUtilities::LoadSetFile|classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]]
+[[CPixieSystemUtilities::LoadSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a7abb978776e7de015681fc24eb290cd9]]
 
 int LoadSetFile(char *fileName)
 
@@ -475,7 +475,7 @@ Load a new settings file.
 **Definition:** CPixieSystemUtilities.cpp:152
 
 
-[[CPixieSystemUtilities::ExitSystem|classCPixieSystemUtilities#a8bbb91058a3ffeb39cbb9d288c7c68c2]]
+[[CPixieSystemUtilities::ExitSystem|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a8bbb91058a3ffeb39cbb9d288c7c68c2]]
 
 int ExitSystem()
 
@@ -484,7 +484,7 @@ Exit the system and release resources from the modules.
 **Definition:** CPixieSystemUtilities.cpp:192
 
 
-[[CPixieSystemUtilities::CPixieSystemUtilities|classCPixieSystemUtilities#a8bde94b0f5ad743a8d83320f7271814b]]
+[[CPixieSystemUtilities::CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a8bde94b0f5ad743a8d83320f7271814b]]
 
 CPixieSystemUtilities()
 
@@ -493,7 +493,7 @@ Constructor.
 **Definition:** CPixieSystemUtilities.cpp:25
 
 
-[[CPixieSystemUtilities::GetNumModules|classCPixieSystemUtilities#aa1c4385acdb310d9d53785dcb251153f]]
+[[CPixieSystemUtilities::GetNumModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aa1c4385acdb310d9d53785dcb251153f]]
 
 unsigned short GetNumModules()
 
@@ -502,7 +502,7 @@ Get the number of installed modules.
 **Definition:** CPixieSystemUtilities.h:102
 
 
-[[CPixieSystemUtilities::SaveSetFile|classCPixieSystemUtilities#ab5ff3257d6aaf462560d38cdb8d5f231]]
+[[CPixieSystemUtilities::SaveSetFile|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#ab5ff3257d6aaf462560d38cdb8d5f231]]
 
 int SaveSetFile(char *fileName)
 
@@ -511,7 +511,7 @@ Save the currently loaded DSP settings to a settings file.
 **Definition:** CPixieSystemUtilities.cpp:122
 
 
-[[CPixieSystemUtilities::SetBootMode|classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]]
+[[CPixieSystemUtilities::SetBootMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#acec2d34a276b14ef68d40b83627a036e]]
 
 void SetBootMode(int mode)
 
@@ -520,7 +520,7 @@ Set the boot mode.
 **Definition:** CPixieSystemUtilities.h:82
 
 
-[[CPixieSystemUtilities::Boot|classCPixieSystemUtilities#aff3ae5dd4308ff50585274391eafa475]]
+[[CPixieSystemUtilities::Boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#aff3ae5dd4308ff50585274391eafa475]]
 
 int Boot()
 
@@ -529,7 +529,7 @@ Boot the entire system.
 **Definition:** CPixieSystemUtilities.cpp:35
 
 
-[[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]]
+[[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]
 
 Store the system configuration information needed by Readout.
 

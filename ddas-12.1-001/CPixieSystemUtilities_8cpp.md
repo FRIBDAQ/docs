@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
+- [[qtscope|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md]]
 
  top 
 CPixieSystemUtilities.cpp File Reference
 
 header
-Implementation the Pixie [[DAQ|namespaceDAQ]] system utilities class.  
+Implementation the Pixie [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] system utilities class.  
 [More...](#details)
 
 
@@ -54,7 +54,7 @@ Include dependency graph for CPixieSystemUtilities.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Implementation the Pixie [[DAQ|namespaceDAQ]] system utilities class.
+Implementation the Pixie [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] system utilities class.
 
  contents 
  start footer part 

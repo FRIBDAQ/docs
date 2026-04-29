@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter]]
+- [[CMPITriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classfrib_1_1analysis_1_1CMPITriggerSorter-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter-members.md]]
 
 
 frib::analysis::CMPITriggerSorter Class Reference
@@ -42,7 +42,7 @@ Inheritance diagram for frib::analysis::CMPITriggerSorter:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for frib::analysis::CMPITriggerSorter:
@@ -54,7 +54,7 @@ Collaboration diagram for frib::analysis::CMPITriggerSorter:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -140,14 +140,14 @@ emitItem Marshall the event up into a header and parameter block and send it on 
 - Note
   item will be deleted after we no longer need its data.
 
-Implements [[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]].
+Implements [[frib::analysis::CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPITriggerSorter.h|MPITriggerSorter_8h_source]]
-- base/[[MPITriggerSorter.cpp|MPITriggerSorter_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPITriggerSorter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPITriggerSorter_8h_source.md]]
+- base/[[MPITriggerSorter.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPITriggerSorter_8cpp.md]]
 
  contents 
  start footer part 

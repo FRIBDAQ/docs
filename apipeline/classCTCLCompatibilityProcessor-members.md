@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLCompatibilityProcessor Member List
 
 header
-This is the complete list of members for [[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor]], including all inherited members.
+This is the complete list of members for [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]], including all inherited members.
 
 
 |  |  |  |

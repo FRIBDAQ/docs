@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
+- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
+- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
 
  top 
 CTCLStdioCommander.h
@@ -79,13 +79,13 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 class [[CTCLInterpreter|classCTCLInterpreter]];
+<a name="l00026"></a>   26 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
 
 <a name="l00027"></a>   27
 
 <a name="l00028"></a>   28
 
-<a name="l00040"></a>[[40|classCTCLStdioCommander]] class [[CTCLStdioCommander|classCTCLStdioCommander]] : public [[CTCLChannelCommander|classCTCLChannelCommander]]
+<a name="l00040"></a>[[40|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]] class [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]] : public [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]
 
 <a name="l00041"></a>   41 {
 
@@ -103,21 +103,21 @@ header
 
 <a name="l00048"></a>   48 public:
 
-<a name="l00049"></a>   49   [[CTCLStdioCommander|classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp);
+<a name="l00049"></a>   49   [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md#a3ea38cad8387256c44cc9a37dda7ce7b]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp);
 
-<a name="l00050"></a>   50   virtual [[~CTCLStdioCommander|classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]();
+<a name="l00050"></a>   50   virtual [[~CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md#ad9ef7268d1306b9b8633f33cb69d2f1b]]();
 
 <a name="l00051"></a>   51
 
 <a name="l00052"></a>   52 private:
 
-<a name="l00053"></a>   53   [[CTCLStdioCommander|classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]](const [[CTCLStdioCommander|classCTCLStdioCommander]]&);
+<a name="l00053"></a>   53   [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md#a3ea38cad8387256c44cc9a37dda7ce7b]](const [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]&);
 
-<a name="l00054"></a>   54   [[CTCLStdioCommander|classCTCLStdioCommander]]& operator=(const [[CTCLStdioCommander|classCTCLStdioCommander]]&);
+<a name="l00054"></a>   54   [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]& operator=(const [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]&);
 
-<a name="l00055"></a>   55   int operator==(const [[CTCLStdioCommander|classCTCLStdioCommander]]&) const;
+<a name="l00055"></a>   55   int operator==(const [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]&) const;
 
-<a name="l00056"></a>   56   int operator!=(const [[CTCLStdioCommander|classCTCLStdioCommander]]&) const;
+<a name="l00056"></a>   56   int operator!=(const [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]&) const;
 
 <a name="l00057"></a>   57
 
@@ -135,29 +135,29 @@ header
 
 <a name="l00064"></a>   64 #endif
 
-[[CTCLStdioCommander|classCTCLStdioCommander]]
+[[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]
 
 **Definition:** CTCLStdioCommander.h:40
 
 
-[[CTCLChannelCommander|classCTCLChannelCommander]]
+[[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]
 
 **Definition:** CTCLChannelCommander.h:39
 
 
-[[CTCLInterpreter|classCTCLInterpreter]]
+[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLStdioCommander::CTCLStdioCommander|classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]]
+[[CTCLStdioCommander::CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md#a3ea38cad8387256c44cc9a37dda7ce7b]]
 
 CTCLStdioCommander(CTCLInterpreter *pInterp)
 
 **Definition:** CTCLStdioCommander.cpp:37
 
 
-[[CTCLStdioCommander::~CTCLStdioCommander|classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]
+[[CTCLStdioCommander::~CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md#ad9ef7268d1306b9b8633f33cb69d2f1b]]
 
 virtual ~CTCLStdioCommander()
 

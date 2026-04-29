@@ -24,7 +24,7 @@ do not remove this div, it is closed by doxygen!
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
 [Protected Attributes](#pro-attribs) |
-[[List of all members|classCTCLChannelCommander-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander-members.md]]
 
 
 CTCLChannelCommander Class Reference
@@ -43,7 +43,7 @@ Inheritance diagram for CTCLChannelCommander:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for CTCLChannelCommander:
@@ -55,7 +55,7 @@ Collaboration diagram for CTCLChannelCommander:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -122,7 +122,7 @@ Collaboration diagram for CTCLChannelCommander:
 <a name="details"></a>## Detailed Description
 
 
-A Channel commander is an object that can accept commands on some channel in an event driven way, and submit them for processing to the interpreter. Commanders could point to some interactive channel (e.g. see [[CTCLStdioCommander|classCTCLStdioCommander]]), or something less interactive like the socket of [[CTCLTcpServerInstance|classCTCLTcpServerInstance]].
+A Channel commander is an object that can accept commands on some channel in an event driven way, and submit them for processing to the interpreter. Commanders could point to some interactive channel (e.g. see [[CTCLStdioCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander.md]]), or something less interactive like the socket of [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]].
 
 
 This base class is suitable for the generic case but has member functions that can be overriden for more specific cases.
@@ -236,7 +236,7 @@ Called when a command has been received. Default behavior:
 Called when an end of file was seen on the input. This calls the stop function by default, leaving it up to the client software to decidew what to do about the channel (which is still open).
 
 
-Reimplemented in [[CTCLTcpServerInstance|classCTCLTcpServerInstance#a3b9d392f4d54f196904547990e642d68]].
+Reimplemented in [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md#a3b9d392f4d54f196904547990e642d68]].
 
 
 
@@ -251,7 +251,7 @@ Reimplemented in [[CTCLTcpServerInstance|classCTCLTcpServerInstance#a3b9d392f4d5
 Input handler. The default action is to read a line of input with Tcl_GetsObj. The resulting object is converted to its string representation and appended to m_command. The m_command is then sent through Tcl_CommandComplete and, if the command is complete, onCommand is invoked to handle it. Prompting is done as follows:
 
 - If the object acquired does not complete a line, then prompt2 is called.
-- If the object acquired completes the line, then on the return from onCommand, [[prompt1()|classCTCLChannelCommander#ae0d0e4783a4f7c8ecf82801d8c36c2e4]] is called.
+- If the object acquired completes the line, then on the return from onCommand, [[prompt1()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4]] is called.
 
 
 - Note
@@ -314,7 +314,7 @@ prompt2>    ...
 Return the result of a command to well... somewhere. By default this does nothing. In other contexts, you could expect it to write the result string somewhere (e.g. for sockets back to the client, for stdin, to stdout or stderr.
 
 
-Reimplemented in [[CTCLTcpServerInstance|classCTCLTcpServerInstance#a3ec4aca2a91bafb9115f76620f85b922]].
+Reimplemented in [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md#a3ec4aca2a91bafb9115f76620f85b922]].
 
 
 
@@ -367,7 +367,7 @@ stopped Returns true if the channel has stopped (due to eof).
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLChannelCommander.h|CTCLChannelCommander_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLChannelCommander.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLChannelCommander_8h_source.md]]
 - libtclplus/tclplus/CTCLChannelCommander.cpp
 
  contents 

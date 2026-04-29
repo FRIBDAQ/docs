@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]
+- [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classfrib_1_1analysis_1_1CMPIParameterDealer-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer-members.md]]
 
 
 frib::analysis::CMPIParameterDealer Class Reference
@@ -126,8 +126,8 @@ operator() The entry point to the code.
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIParameterDealer.h|MPIParameterDealer_8h_source]]
-- base/[[MPIParameterDealer.cpp|MPIParameterDealer_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIParameterDealer.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterDealer_8h_source.md]]
+- base/[[MPIParameterDealer.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterDealer_8cpp.md]]
 
  contents 
  start footer part 

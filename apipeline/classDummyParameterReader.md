@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|classDummyParameterReader-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classDummyParameterReader-members.md]]
 
 
 DummyParameterReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for DummyParameterReader:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 Collaboration diagram for DummyParameterReader:
@@ -48,7 +48,7 @@ Collaboration diagram for DummyParameterReader:
 
 
 
-[[[legend|graph_legend]]]
+[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
 
 
 |  |  |
@@ -73,8 +73,8 @@ Collaboration diagram for DummyParameterReader:
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[testWorker1.cpp|testWorker1_8cpp]]
-- spectcl/[[spectclTest.cpp|spectclTest_8cpp]]
+The documentation for this class was generated from the following files:- base/[[testWorker1.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testWorker1_8cpp.md]]
+- spectcl/[[spectclTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/spectclTest_8cpp.md]]
 
  contents 
  start footer part 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|structCMutexAttr-members]]
+[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr-members.md]]
 
 
 CMutexAttr Struct Reference
@@ -79,7 +79,7 @@ Direct encapsulation of a pthread mutex attribute block. We only support the att
 | --- | --- | --- | --- | --- |
 | CMutexAttr::CMutexAttr | ( |  | ) |  |
 
-Construct a [[CMutexAttr|structCMutexAttr]]&. The member is just initialized and [[CErrnoException|classCErrnoException]] thrown if there was an error:
+Construct a [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]]&. The member is just initialized and [[CErrnoException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCErrnoException.md]] thrown if there was an error:
 
 
 
@@ -90,7 +90,7 @@ Construct a [[CMutexAttr|structCMutexAttr]]&. The member is just initialized and
 | --- | --- | --- | --- | --- |
 | CMutexAttr::~CMutexAttr | ( |  | ) |  |
 
-Destruction just destroys the attribute block, reporting a [[CErrnoException|classCErrnoException]] if there's an error:
+Destruction just destroys the attribute block, reporting a [[CErrnoException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCErrnoException.md]] if there's an error:
 
 
 ## Member Function Documentation
@@ -174,7 +174,7 @@ Set the mutex attributes to process private. The mutex can only synchronize thre
 
 ---
 
-The documentation for this struct was generated from the following files:- libtclplus/include/tclplus/[[CTCLMutex.h|CTCLMutex_8h_source]]
+The documentation for this struct was generated from the following files:- libtclplus/include/tclplus/[[CTCLMutex.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLMutex_8h_source.md]]
 - libtclplus/tclplus/CTCLMutex.cpp
 
  contents 
