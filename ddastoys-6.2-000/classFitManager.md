@@ -125,12 +125,10 @@ Delete the Configuration object owned by this class.
 Configure the fit method settings.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| method | String describing the fit method. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | method | String describing the fit method. |
 
 
 Configuration is performed based on a text string which comes directly from the text of the fit method selection box. We *do* need to know what those possible strings are. Terminate the program and issue an error message if the fit method is not known.
@@ -150,17 +148,16 @@ Configuration is performed based on a text string which comes directly from the 
 Create and return a vector of fit values for each trace sample in the fit range.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| ext | References the HitExtension containing the fit parameters for this hit. |
-| low | Low limit of the fit in samples. |
-| high | High limit of the fit in samples. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | ext | References the HitExtension containing the fit parameters for this hit. |
+  | low | Low limit of the fit in samples. |
+  | high | High limit of the fit in samples. |
 
 
-
-
-ReturnsVector of fit values for range [low, high].
+- Returns
+  Vector of fit values for range [low, high].
 
 
 
@@ -174,15 +171,15 @@ ReturnsVector of fit values for range [low, high].
 Get the upper limit of the fit range.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit we are currently processing. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit we are currently processing. |
 
 
+- Returns
+  The upper limit of the fitting range.
 
-
-ReturnsThe upper limit of the fitting range.
 The fitting range is mapped in the Configuration class for hits keyed by a unique identifier derived from their crate/slot/channel. Note that the high fitting limit is inclusive.
 
 
@@ -197,15 +194,15 @@ The fitting range is mapped in the Configuration class for hits keyed by a uniqu
 Get the lower limit of the fit range.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit we are currently processing. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit we are currently processing. |
 
 
+- Returns
+  The lower limit of the fitting range.
 
-
-ReturnsThe lower limit of the fitting range.
 The fitting range is mapped in the Configuration class for hits keyed by a unique identifier derived from their crate/slot/channel. Note that the low fitting limit is inclusive.
 
 
@@ -221,7 +218,8 @@ The fitting range is mapped in the Configuration class for hits keyed by a uniqu
 Get the fitting method.
 
 
-ReturnsfitMethod enum type.
+- Returns
+  fitMethod enum type.
 
 
 
@@ -238,17 +236,16 @@ ReturnsfitMethod enum type.
 Create and return a vector of fit values for each trace sample in the fit range.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| ext | References the HitExtension containing the fit parameters for this hit. |
-| low | Low limit of the fit in samples. |
-| high | High limit of the fit in samples. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | ext | References the HitExtension containing the fit parameters for this hit. |
+  | low | Low limit of the fit in samples. |
+  | high | High limit of the fit in samples. |
 
 
-
-
-ReturnsVector of fit values for range [low, high].
+- Returns
+  Vector of fit values for range [low, high].
 
 
 
@@ -291,10 +288,10 @@ Will terminate the program and issue an error message if the configuration file 
 Set the fitting method.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| m | fitMethod enum type. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | m | fitMethod enum type. |
 
 
 

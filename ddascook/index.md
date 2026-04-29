@@ -5,7 +5,9 @@
 
 ---
 
-**Table of Contents**1. [[Introduction|c13]]2. [[Reading ROOT-formatted DDAS data events|c24]]
+- **Table of Contents**
+- 1. [[Introduction|c13]]
+- 2. [[Reading ROOT-formatted DDAS data events|c24]]
 
 ---
 

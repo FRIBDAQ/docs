@@ -84,10 +84,10 @@ Default construtor value -> 0.0, units ""
 
 constructor:
 
-Parameters
-|  |  |
-| --- | --- |
-| value | - initial value of the variable: |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | - initial value of the variable: |
 
 
 
@@ -102,11 +102,11 @@ Parameters
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| value | -initial value |
-| pUnits | - unists of measure. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | -initial value |
+  | pUnits | - unists of measure. |
 
 
 

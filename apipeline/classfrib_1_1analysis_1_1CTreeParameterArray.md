@@ -109,8 +109,11 @@ This class is a container for an array of Tree parameters. Given a base paramete
 
 for an 18 element array.
 
-AuthorRon Fox 
-Version1.0  30-Mar-2005 11:03:51 AM
+- Author
+  Ron Fox
+
+- Version
+  1.0  30-Mar-2005 11:03:51 AM
 
 ## Constructor & Destructor Documentation
 
@@ -179,12 +182,12 @@ Bind Binds all of the parameters to their underlying raw parameters.
 
 Creates the parameters associated with this array, the name, units, low, high and channels are used to define the parameter.
 
-Parameters
-|  |  |
-| --- | --- |
-| baseName | The base name of the array. Parameters will be created with names of the form baseName.nnn where nnn has as many zero filled digits as required to be the largest index. Note that if the array includes negative indices these will look like: baseName.-005 for example... a perfectly legal parameter number and, given the english character set collating sequence will sort properly. |
-| size | Number of array elements to create. |
-| Template | Tree parameter that will be duplicated (except for the name obviously) to create the array. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | baseName | The base name of the array. Parameters will be created with names of the form baseName.nnn where nnn has as many zero filled digits as required to be the largest index. Note that if the array includes negative indices these will look like: baseName.-005 for example... a perfectly legal parameter number and, given the english character set collating sequence will sort properly. |
+  | size | Number of array elements to create. |
+  | Template | Tree parameter that will be duplicated (except for the name obviously) to create the array. |
 
 
 
@@ -220,7 +223,8 @@ Returns end of iteration iterator.
 
 isBound
 
-Returnsbool - true if all parameters in the array are bound.
+- Returns
+  bool - true if all parameters in the array are bound.
 
 
 
@@ -244,10 +248,10 @@ Returns the smalles accepted index in the array.
 
 Indexes into the tree parameter. If the array index is out of bounds, throws an exception std::out_of_range
 
-Parameters
-|  |  |
-| --- | --- |
-| nIndex | Index into the array. Note that the index is adjusted by subtracting m_nFirstIndex. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nIndex | Index into the array. Note that the index is adjusted by subtracting m_nFirstIndex. |
 
 
 

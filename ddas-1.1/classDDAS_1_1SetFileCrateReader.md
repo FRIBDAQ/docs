@@ -99,13 +99,13 @@ constructor
 - Build the maps for the var file an speeds.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crateId | - Id of the crate. |
-| slots | - map of slots to read. |
-| varFiles | - vector of corresponding var files. |
-| MHz | - Vector of corresponding speeds. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crateId | - Id of the crate. |
+  | slots | - map of slots to read. |
+  | varFiles | - vector of corresponding var files. |
+  | MHz | - Vector of corresponding speeds. |
 
 
 ## Member Function Documentation
@@ -120,15 +120,15 @@ Parameters
 createReader Create the reader for a slot.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number to read. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number to read. |
 
 
+- Returns
+  SettingsReader* - pointer to the new'd [[SetFileReader|classDDAS_1_1SetFileReader]] object.
 
-
-ReturnsSettingsReader* - pointer to the new'd [[SetFileReader|classDDAS_1_1SetFileReader]] object. 
 Implements [[DDAS::CrateReader|classDDAS_1_1CrateReader]].
 
 

@@ -97,7 +97,8 @@ Generally Accept() is called on the [[XMLDocument|classtinyxml2_1_1XMLDocument]]
 You should never change the document from a callback.
 
 
-See also[[XMLNode::Accept()|classtinyxml2_1_1XMLNode#a81e66df0a44c67a7af17f3b77a152785]]
+- See also
+  [[XMLNode::Accept()|classtinyxml2_1_1XMLNode#a81e66df0a44c67a7af17f3b77a152785]]
 
 
 ---

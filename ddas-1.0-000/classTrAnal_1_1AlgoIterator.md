@@ -98,7 +98,9 @@ template<class T >
 Max extent To implement the maximum iterator extent for the range This default implementation returns an iterator to address 0x0.
 
 
-Returnsnull iterator 
+- Returns
+  null iterator
+
 Reimplemented in [[TrAnal::TrapFilter< T >|classTrAnal_1_1TrapFilter#a0793799d43dcbfe21a018c7907c4d768]], and [[TrAnal::SumIterator< T >|classTrAnal_1_1SumIterator#aedd8e072efb0a0949c29321671a43df5]].
 
 
@@ -114,7 +116,9 @@ template<class T >
 Min extent To implement the minimum iterator extent for the range This default implementation returns an iterator to address 0x0.
 
 
-Returnsnull iterator 
+- Returns
+  null iterator
+
 Reimplemented in [[TrAnal::TrapFilter< T >|classTrAnal_1_1TrapFilter#a69b62c45160b76b81be8f34df77a419a]], and [[TrAnal::SumIterator< T >|classTrAnal_1_1SumIterator#a01b37497d641c474032dbb5cddfd37e6]].
 
 
@@ -133,7 +137,9 @@ Dereference operator.
 Contrary to TrIterators, this returns a double value irrespective of the template parameter. This return 0 always.
 
 
-Returnsnull value (i.e. zero) 
+- Returns
+  null value (i.e. zero)
+
 Reimplemented in [[TrAnal::TrapFilter< T >|classTrAnal_1_1TrapFilter#a087177606d98f9a542f27f4bd8e3b7a3]], and [[TrAnal::SumIterator< T >|classTrAnal_1_1SumIterator#a5eee4d61c56103f0a50a230a1c7e827a]].
 
 
@@ -149,7 +155,9 @@ template<class T >
 Prefixed incrementation Supports ++x style incrementing. Default implementation does nothing.
 
 
-Returnsconst reference to this 
+- Returns
+  const reference to this
+
 Reimplemented in [[TrAnal::SumIterator< T >|classTrAnal_1_1SumIterator#a7d757857a71ebfdbae597f45ff57570c]], and [[TrAnal::TrapFilter< T >|classTrAnal_1_1TrapFilter#a5c86e816f1179fb9e5d3add9eba4d895]].
 
 

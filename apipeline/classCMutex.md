@@ -85,10 +85,10 @@ Construct the mutex with the default attributes:
 
 Construct the mutex given a normal attributes block:
 
-Parameters
-|  |  |
-| --- | --- |
-| attributes | reference to the attributes block. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | attributes | reference to the attributes block. |
 
 
 
@@ -101,10 +101,10 @@ Parameters
 
 Construct the mutex given an encapsulated attributes block.
 
-Parameters
-|  |  |
-| --- | --- |
-| attributes | - theCMutexAttrthat encapsulates the attributes. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | attributes | - theCMutexAttrthat encapsulates the attributes. |
 
 
 

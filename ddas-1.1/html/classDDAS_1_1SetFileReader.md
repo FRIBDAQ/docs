@@ -70,13 +70,13 @@ Inheritance diagram for DDAS::SetFileReader:
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| setfile | - path to setfile. |
-| varfile | - Path to the variable file. |
-| Mhz | - Digitizer speed in Mhz. |
-| slot | - Number of the slot in the DSP Para file we want. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | setfile | - path to setfile. |
+  | varfile | - Path to the variable file. |
+  | Mhz | - Digitizer speed in Mhz. |
+  | slot | - Number of the slot in the DSP Para file we want. |
 
 
 ## Member Function Documentation
@@ -91,7 +91,9 @@ Parameters
 get Gets all module settings from the set file. A set file actually has up to 24 module settings. To get them all we assume that they are exactly end to end and that the last item in each setfile is a module level thing (they actually do that for us).
 
 
-Returnsstd::vector<ModuleSettings> - the module settings for each item. 
+- Returns
+  std::vector<ModuleSettings> - the module settings for each item.
+
 Implements [[DDAS::SettingsReader|classDDAS_1_1SettingsReader]].
 
 

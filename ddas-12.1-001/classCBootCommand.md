@@ -96,12 +96,12 @@ This class implements the ddasboot command. It is added to to the Tcl interprete
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | Reference to the interpreter. |
-| pCmd | Command string. |
-| pSeg | Event segment to manipulate. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | Reference to the interpreter. |
+  | pCmd | Command string. |
+  | pSeg | Event segment to manipulate. |
 
 
 
@@ -133,23 +133,21 @@ Destructor.
 Gets control when the command is invoked.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | Interpreter executing the command. |
-| objv | Command words. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | Interpreter executing the command. |
+  | objv | Command words. |
 
 
+- Returns
+  Status of the command.
 
-
-ReturnsStatus of the command. 
-Return values
-|  |  |
-| --- | --- |
-| TCL_OK | Successful completion. |
-| TCL_ERROR | Failure. Human readable reason is in the intepreter result. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | TCL_OK | Successful completion. |
+  | TCL_ERROR | Failure. Human readable reason is in the intepreter result. |
 
 
 Ensures there are no additional command parameters. Invokes the segments's boot method.

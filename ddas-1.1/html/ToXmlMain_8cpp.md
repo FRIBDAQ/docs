@@ -95,16 +95,15 @@ header
 
 main The main program. Just parses the arguments and calls [[Main|classMain]] wrapped in a try/catch block.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | - count of command line words. |
-| argv | - array of pointers to the command line words. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | - count of command line words. |
+  | argv | - array of pointers to the command line words. |
 
 
-
-
-Returnsint - final program status.
+- Returns
+  int - final program status.
 
  contents 
  start footer part 

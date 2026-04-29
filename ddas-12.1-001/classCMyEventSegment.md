@@ -135,13 +135,11 @@ The event segment reads out a logical chunk of an experiment. In the DDAS case, 
 Construct from trigger object and experiment.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| trig | Pointer to the DDAS trigger. |
-| exp | Reference to the experiment the event segment comes from. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | trig | Pointer to the DDAS trigger. |
+  | exp | Reference to the experiment the event segment comes from. |
 
 
 Initialize the system, load the configuration and expected event lengths from the cfgPixie16.txt and modevtlen.txt files, boot the system and initialize the trigger.
@@ -155,7 +153,8 @@ Failure to properly construct an event segment occurs if:
 - The CSRA register cannot be read from channel 0 on any of the modules.
 - An custom external timestamp clock calibration is <= 0.
 - There are a mix of external and internal clocks enabled on the same crate.
-  **[[Todo:|todo#_todo000017]]**(ASC 1/25/24): The assumption that the external timestamp bit for channel 0 is the same as the rest of the module allows some obviously bad configurations to be accepted. This *may* be a QtScope issue too: users should be prevented from enabling the external timestamp on a subset of channels if the readout code doesn't support it.
+  - **[[Todo:|todo#_todo000017]]**
+    (ASC 1/25/24): The assumption that the external timestamp bit for channel 0 is the same as the rest of the module allows some obviously bad configurations to be accepted. This *may* be a QtScope issue too: users should be prevented from enabling the external timestamp on a subset of channels if the readout code doesn't support it.
 
 
 
@@ -169,7 +168,8 @@ Failure to properly construct an event segment occurs if:
 Default constructor.
 
 
-NoteFor unit testing purposes only!
+- Note
+  For unit testing purposes only!
 
 
 
@@ -197,18 +197,16 @@ Destructor.
 Load firmware and boot the modules.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| type | The boot type (boot mask) passed to the system booter (default = SystemBooter::FullBoot). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | type | The boot type (boot mask) passed to the system booter (default = SystemBooter::FullBoot). |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CDDASException | If the system is initialized and fails to exit before attempting to boot again. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CDDASException | If the system is initialized and fails to exit before attempting to boot again. |
 
 
 
@@ -246,7 +244,8 @@ Nothing to disable.
 Get the crate ID value from the configuration.
 
 
-ReturnsThe crate ID.
+- Returns
+  The crate ID.
 
 
 
@@ -261,7 +260,8 @@ ReturnsThe crate ID.
 Get the number of modules in the crate.
 
 
-ReturnsNumber of modules.
+- Returns
+  Number of modules.
 
 
 
@@ -276,7 +276,8 @@ ReturnsNumber of modules.
 Get the cumulative and current run statistics.
 
 
-ReturnsCumulative and current run stats as a std::pair.
+- Returns
+  Cumulative and current run stats as a std::pair.
 
 
 
@@ -293,8 +294,11 @@ Initialize the modules recording data in this segment.
 
 Initialize unless there is an INFINITY_CLOCK environment variable with the value "YES" or the firmware has been loaded recently (no system exit).
 
-NoteThis is not threadsafe as C++ does not require getenv to be thread-safe. 
-**[[Todo:|todo#_todo000018]]**(ASC 1/25/24): An old comment from (I bet) RF: "paging through the global **environ is probably thread-safe however I'm pretty sure at this point in time there's no other thread doing a getenv()."
+- Note
+  This is not threadsafe as C++ does not require getenv to be thread-safe.
+
+- **[[Todo:|todo#_todo000018]]**
+  (ASC 1/25/24): An old comment from (I bet) RF: "paging through the global **environ is probably thread-safe however I'm pretty sure at this point in time there's no other thread doing a getenv()."
 
 
 
@@ -353,16 +357,16 @@ Resume the list mode run with RESUME_RUN (= 0) run mode. If the resume fails, di
 Read data from the modules following a valid trigger.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | rBuffer | Read data into this buffer. |
-| [in] | maxBytes | Max bytes of data we can stuff in the buffer. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | rBuffer | Read data into this buffer. |
+  | [in] | maxBytes | Max bytes of data we can stuff in the buffer. |
 
 
+- Returns
+  Number of 16-bit words in the ring item body.
 
-
-ReturnsNumber of 16-bit words in the ring item body.
 Pixie has triggered. There are greater than EXTFIFO_READ_THRESH words in the output FIFO of a particular Pixie module. Read out all modules.
 
 
@@ -380,12 +384,10 @@ This loop finds the first module that has at least one event in it since the tri
 Perform clock synchronization.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CDDASException | If we fail to talk properly to the module while setting the clock synchronization parameters. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CDDASException | If we fail to talk properly to the module while setting the clock synchronization parameters. |
 
 
 More or less straight from the XIA Pixie SDK docs: configure the system to run synchronously through the backplane by setting Pixie module parameters. Synchronous running means that the last module ready to take data starts the run in all modules and the first module to end the run stops the run in all modules (SYNCH_WAIT = 1). In synchronous mode, all run timers are cleared at the start of a new run (IN_SYNCH = 0). Once the run has started, IN_SYNCH is automatically set to 1.

@@ -103,17 +103,17 @@ This class is a configuration manager for the DDASToys programs. It is responsib
 Check the map and determine if the channel should be fit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | The crate ID. |
-| slot | The slot ID. |
-| channel | The channel ID. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | The crate ID. |
+  | slot | The slot ID. |
+  | channel | The channel ID. |
 
 
+- Returns
+  True if this channel trace should be fit (its in the map), false otherwise.
 
-
-ReturnsTrue if this channel trace should be fit (its in the map), false otherwise.
 Its up to caller to ensure that there is a map entry for this channel. Caller should exit with failure message if we attempt to fit an unmapped channel.
 
 
@@ -131,17 +131,16 @@ Its up to caller to ensure that there is a map entry for this channel. Caller sh
 Get the (inclusive) fit limits for a single crate/slot/channel combination.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | The crate ID. |
-| slot | The slot ID. |
-| channel | The channel ID. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | The crate ID. |
+  | slot | The slot ID. |
+  | channel | The channel ID. |
 
 
-
-
-ReturnsPair of [low, high] fit limits (inclusive).
+- Returns
+  Pair of [low, high] fit limits (inclusive).
 
 
 
@@ -155,7 +154,9 @@ ReturnsPair of [low, high] fit limits (inclusive).
 Get the list of unique model names specified in the configuration file.
 
 
-ReturnsVector of unique model paths.
+- Returns
+  Vector of unique model paths.
+
 As a consequence of the sort-and-erase idiom used to uniquify the model list, the model paths names are sorted in the returned vector and may be in a different order than how they appear in the configuration file. It is the responsibilty of the caller to deal with this.
 
 
@@ -173,17 +174,16 @@ As a consequence of the sort-and-erase idiom used to uniquify the model list, th
 Get the ML inference model path for a single crate/slot/channel combination.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | The crate ID. |
-| slot | The slot ID. |
-| channel | The channel ID. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | The crate ID. |
+  | slot | The slot ID. |
+  | channel | The channel ID. |
 
 
-
-
-ReturnsPath to the ML inference model.
+- Returns
+  Path to the ML inference model.
 
 
 
@@ -200,17 +200,16 @@ ReturnsPath to the ML inference model.
 Get the ADC saturation value for a single crate/slot/channel combination.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | The crate ID. |
-| slot | The slot ID. |
-| channel | The channel ID. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | The crate ID. |
+  | slot | The slot ID. |
+  | channel | The channel ID. |
 
 
-
-
-ReturnsThe saturation value of the trace for this channel.
+- Returns
+  The saturation value of the trace for this channel.
 
 
 
@@ -225,7 +224,8 @@ ReturnsThe saturation value of the trace for this channel.
 Return the template data.
 
 
-ReturnsThe template trace data.
+- Returns
+  The template trace data.
 
 
 
@@ -240,7 +240,8 @@ ReturnsThe template trace data.
 Return the template alignment point.
 
 
-ReturnsThe template trace alignment point.
+- Returns
+  The template trace alignment point.
 
 
 
@@ -254,18 +255,17 @@ ReturnsThe template trace alignment point.
 Read the configuration file.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | If there are errors processing the file, including an inability to open the file. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | If there are errors processing the file, including an inability to open the file. |
 
 
 Lines in the configuration file can be empty or have as their first non-blank character "#" in which case they are ignored. All other lines specify channels that should be fit and must contain six whitespace integers and one string: crate slot channel low high saturation model. The crate, slot, and channel are unsigned integers used to identify a channel to fit. Low and high specify the inclusive limits of the trace to fit in samples. The saturation value defines a limit above which the trace data points will not be fit. Most commonly this saturation value is set to the saturation value of the ADC. The last parameter is a string specifying a path to a PyTorch model for the machine-learning inference fitting. Not all parameters are used by each fitting method but default values must be provided. Please refer to the following:
 
 
-WarningWhile all parameters must be specified in the configuration, depending on the fitting method, some of them may be ignored in parts of the code. Specifically, the machine-learning inference fitting will ignore the fit limits, as it requires the input data to be the same shape as the training data which is assumed to be the full acquired trace. The traceview plotter will use these low and high limits to draw the fit so in practice it is best to set them to sensible values. Non-ML based fitting methods will ignore the model parameter. An empty string ("") is a vaild input in the configuration file.
+- Warning
+  While all parameters must be specified in the configuration, depending on the fitting method, some of them may be ignored in parts of the code. Specifically, the machine-learning inference fitting will ignore the fit limits, as it requires the input data to be the same shape as the training data which is assumed to be the full acquired trace. The traceview plotter will use these low and high limits to draw the fit so in practice it is best to set them to sensible values. Non-ML based fitting methods will ignore the model parameter. An empty string ("") is a vaild input in the configuration file.
 
 
 
@@ -279,14 +279,12 @@ WarningWhile all parameters must be specified in the configuration, depending on
 Read the formatted tempalate data from a file.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::length_error | If the number of template data points is different than what the configuration file expects. |
-| std::invalid_arugment | If the alignment point of the template is not contained in the trace (e.g. align to sample 100 on a 100 sample trace [0, 99]). |
-| std::invalid_argument | If the template data file cannot be opened. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::length_error | If the number of template data points is different than what the configuration file expects. |
+  | std::invalid_arugment | If the alignment point of the template is not contained in the trace (e.g. align to sample 100 on a 100 sample trace [0, 99]). |
+  | std::invalid_argument | If the template data file cannot be opened. |
 
 
 Lines in the configuration file can be empty or have as their first non-blank character "#" in which case they are ignored. The first line consists of two whitespace-separated unsigned integer values which define the template metadata: the alignment point and the number of points in the template trace. The remaining lines in the configuration file contain the floating point template trace data itself.

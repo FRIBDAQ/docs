@@ -82,7 +82,8 @@ Provides the ddas_sync command for the ddas readout program.
 
 - Construction maintains a pointer to the event segment.
 - The class registers the "ddas_sync" command on the main interp.
-- When invoked, simply calls the synchronize method of the event segment. NoteA more refined approach would be to refuse to perform the operation when the run is in progress. At this time, however we're going to (heaven help us) rely on the user to know that they really need to do a clock synchronization.
+- When invoked, simply calls the synchronize method of the event segment. - Note
+    A more refined approach would be to refuse to perform the operation when the run is in progress. At this time, however we're going to (heaven help us) rely on the user to know that they really need to do a clock synchronization.
 
 ## Constructor & Destructor Documentation
 
@@ -100,13 +101,11 @@ Provides the ddas_sync command for the ddas readout program.
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | Reference to the interpreter. |
-| pSeg | Event segment to manipulate. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | Reference to the interpreter. |
+  | pSeg | Event segment to manipulate. |
 
 
 Base class registers the command. We need to save the event processor pointer.
@@ -143,23 +142,21 @@ Chain to superclass for now.
 Gets control when the command is invoked.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | Intepreter that is running this command. |
-| objv | Words that make up the tcl command. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | Intepreter that is running this command. |
+  | objv | Words that make up the tcl command. |
 
 
+- Returns
+  Command status.
 
-
-ReturnsCommand status. 
-Return values
-|  |  |
-| --- | --- |
-| TCL_OK | Success. |
-| TCL_ERROR | Failure. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | TCL_OK | Success. |
+  | TCL_ERROR | Failure. |
 
 
 - Ensure there are no more parameters.

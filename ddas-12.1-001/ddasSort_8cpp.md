@@ -95,7 +95,8 @@ In order to get best performance from [[DDASReadout|namespaceDDASReadout]], sort
 +---------------------------------------------------—+ | Size of the body in 16 bit words (uint32_t) | +---------------------------------------------------—+ | Module ID uint32_t (note bit 21 says use ext clock) | +---------------------------------------------------—+ | Clock scale factor (double precision) | +---------------------------------------------------—+ | Hit 1, Hit 2, ... | | ... |
 
 
-**[[Todo:|todo#_todo000019]]**(ASC 3/18/24): Sometimes the sorter fails to create its sort ring. In my attempts to resurrect the sorter tests, I had some issues making multiple `createAndProduce` calls from within the same function. Here it had better be making that call only once. Is this more reliable if I call `CRingBuffer::create()` and `new CRingBuffer()` similar to whats done in sortertests.cpp?
+- **[[Todo:|todo#_todo000019]]**
+  (ASC 3/18/24): Sometimes the sorter fails to create its sort ring. In my attempts to resurrect the sorter tests, I had some issues making multiple `createAndProduce` calls from within the same function. Here it had better be making that call only once. Is this more reliable if I call `CRingBuffer::create()` and `new CRingBuffer()` similar to whats done in sortertests.cpp?
 
  contents 
  start footer part 

@@ -83,7 +83,8 @@ Collaboration diagram for RootFileDataSink:
 This class knows how to write ROOT files from the ring items created by the fitting program.
 
 
-NotePut is not intended to be used by this file. If it's used, a warning will be output to stderr. pData will then be treated as a raw ring item, turned into a CRingItem and putItem will be called from then on.
+- Note
+  Put is not intended to be used by this file. If it's used, a warning will be output to stderr. pData will then be treated as a raw ring item, turned into a CRingItem and putItem will be called from then on.
 
 ## Constructor & Destructor Documentation
 
@@ -101,21 +102,17 @@ NotePut is not intended to be used by this file. If it's used, a warning will be
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | ROOT file to open. |
-| treename | Name of the tree to create in the root file. The tree name defaults to "DDASFit" if not provided. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | ROOT file to open. |
+  | treename | Name of the tree to create in the root file. The tree name defaults to "DDASFit" if not provided. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| ... | All exceptions back to the caller. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | ... | All exceptions back to the caller. |
 
 
 We're going to make this sink so it can be used in other programs. That implies presrving ROOT's concept of a current working directory across our operation.
@@ -153,13 +150,11 @@ Flush the stuff to file and delete all the dynamic components.
 Called to put arbitrary data to the file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | Pointer to the data. |
-| nBytes | Number of bytes of data to put; actually ignored. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | Pointer to the data. |
+  | nBytes | Number of bytes of data to put; actually ignored. |
 
 
 We really don't know how to do this so:
@@ -180,12 +175,10 @@ We really don't know how to do this so:
 Put a ring item to file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Reference to a ring item object. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Reference to a ring item object. |
 
 
 The ring item is assumed to consist of a set of fragments. Each fragment contains a hit. The hits are decoded and added to the tree event. Once that's done we can fill the tree and delete any dynamic storage we got.

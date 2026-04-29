@@ -97,24 +97,22 @@ The DDASHitUnpacker is capable of unpacking raw hits from NSCLDAQ event data whi
 Decode the current event and unpack it into a [[DDASFitHit|classddastoys_1_1DDASFitHit]].
 
 
-Parameters
-|  |  |
-| --- | --- |
-| p | Pointer to the ring item to decode. For an event built fragment, this is normally the FragmentInfo's s_itemhdr pointer. Note the difference from DDASHitUnpacker which expects a pointer to the body. |
-| hit | Hit item that we will unpack data into. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | p | Pointer to the ring item to decode. For an event built fragment, this is normally the FragmentInfo's s_itemhdr pointer. Note the difference from DDASHitUnpacker which expects a pointer to the body. |
+  | hit | Hit item that we will unpack data into. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::length_error | An unexpected hit or extension size is encountered. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::length_error | An unexpected hit or extension size is encountered. |
+- Returns
+  A pointer just after the ring item.
 
-
-
-
-ReturnsA pointer just after the ring item.
 The decode function:
 
 - Determines the limits of the hit.

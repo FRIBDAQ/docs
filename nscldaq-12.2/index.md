@@ -3,96 +3,1408 @@
 
 ---
 
-**Table of Contents**I. [[user-guide|p3]]1. [[NSCLDAQ In a Nut Shell|c5]]1.1. [[Basics of Data Flow in NSCLDAQ|c5#AEN8]]1.2. [[Pipeline Building, Run Control, and DAQ Modularization|x19]]1.3. [[Built-in Diagnostics|x25]]1.4. [[Extensibility and Openness|x33]]2. [[The Ring Buffer|c43]]2.1. [[Overview|c43#AEN45]]2.2. [[Data Transfer and Flow Control|x94]]2.3. [[Proxy Rings, Ring Masters, and Network Transparency|x111]]2.4. [[Ring buffer utilities|x144]]3. [[NSCLDAQ Data Format : The Ring Item|c197]]3.1. [[Generic Ring Item Traits|c197#AEN202]]3.2. [[The Body Header|x226]]3.3. [[The Ring Item Types|x328]]4. [[NSCLDAQ Manager subsystem (new in 12.0)|c760]]4.1. [[Introduction|c760#sec.mgr.intro]]4.2. [[Managed Objects and Configuration|x799]]4.3. [[Running an Experiment With The Manager|x1228]]4.4. [[Running Readout Software With the Manager|x1411]]4.5. [[Using the NSCLDAQ Event Builder With the Manager|x1673]]4.6. [[Composing experiment configurations from existing pieces|x1792]]5. [[VMUSBReadout|c1812]]5.1. [[Introduction|c1812#AEN1814]]5.2. [[Basic Tenets of VM-USB Operation|x1854]]5.3. [[Writing the Configuration Script|x1868]]5.4. [[The Slow-Controls Subsystem|x1926]]5.5. [[Running the VMUSBReadout program|x1971]]5.6. [[Understanding VMUSBReadout Output|x2141]]5.7. [[Developing a Timestamp Extractor Library|x2147]]5.8. [[Extending the Supported Readout Hardware|x2269]]5.9. [[Extending the slow controls subsystem|x2682]]5.10. [[Pushing external data into the event stream|x3377]]6. [[CCUSBReadout|c3419]]6.1. [[How the CCUSB readout framework works|c3419#AEN3451]]6.2. [[Writing DAQ configuration files|x3467]]6.3. [[Writing device support software|x3508]]6.4. [[Tcl device driver support|x3669]]6.5. [[The slow controls subsystem|x3927]]6.6. [[Running CCUSBReadout|x3941]]6.7. [[Writing C++ slow controls device drivers|x4043]]6.8. [[Writing Tcl slow controls device drivers|x4470]]6.9. [[The ccusbcamac Tcl package|x4668]]7. [[Non stack VMUSB Readout framwork **$DAQBIN/VMUSBnostackReadout**|c4749]]7.1. [[Running the VMUSB no stack readout program|c4749#AEN4767]]7.2. [[Supported Event Modules|x4908]]7.3. [[Supported Scaler modules|x5217]]8. [[ReadoutGUI & ReadoutShell|c5223]]8.1. [[Principles of operation|c5223#AEN5240]]8.2. [[Operating the user interface|x5321]]8.3. [[The event logger and ReadoutShell|x5636]]8.4. [[Customizing the ReadoutShell|x5668]]8.5. [[Remote control package|x6064]]9. [[Event Builder|c6101]]9.1. [[Introduction|c6101#AEN6103]]9.2. [[Using the event builder|x6112]]9.3. [[More detail on when the fragments are ouptutted|x6146]]9.4. [[Fragments and Data Format|x6152]]9.5. [[Using the Event Builder With The Manager|x6232]]10. [[EVBLite -  light event building|c6249]]10.1. [[What is EVBLite|c6249#AEN6260]]10.2. [[evbtagger - making event builder fragments from ring items.|x6300]]10.3. [[The evblite Tcl package.|x6322]]11. [[ScalerDisplay|c6367]]11.1. [[What is the ScalerDisplay?|c6367#AEN6369]]11.2. [[Why does it exist?|x6372]]11.3. [[What does it do?|x6375]]11.4. [[How to set up the ScalerDisplay|x6393]]12. [[Examples (Beginning 11.2-009).|c6517]]12.1. [[ReadNSCLDAQFiles - analyze NSCLDAQ data (released 11.2-009)|c6517#AEN6531]]13. [[mvlcgenerate and using the Mesytec MVLC VME controller|c7047]]13.1. [[Preparing your experiment to use the MVLC.|c7047#AEN7082]]13.2. [[Reference manual for fribdaq-readout|x7091]]13.3. [[RING ITEMS PRODUCED|x7329]]13.4. [[BUILDING mesytec-mvlc WITH THE OPTIONAL fribdaq-readout PROGRAM|x7340]]13.5. [[Extending the generator with loadable C++ generators|x7385]]13.6. [[Tcl Drivers|x7676]]13.7. [[XLM-72 based modlues|x8038]]II. [[simple-setups|p8050]]14. [[A Simple VMUSBReadout Experiment Tutorial|c8052]]14.1. [[Introduction|c8052#AEN8054]]14.2. [[Setting up the Electronics|x8075]]14.3. [[The Configuration Files|x8115]]14.4. [[Running VMUSBReadout|x8219]]14.5. [[Understanding the Output|x8257]]14.6. [[Developing a Tailored SpecTcl|x8324]]14.7. [[The VMUSBSpecTcl Alternative|x8622]]14.8. [[Using SpecTcl|x8631]]14.9. [[Conclusion|x8658]]15. [[Simple V775 readout|c8661]]15.1. [[Introduction|c8661#AEN8663]]15.2. [[Setting up the Electronics.|x8675]]15.3. [[Creating the Readout program|x8695]]15.4. [[Creating the tailored SpecTcl|x9005]]15.5. [[Running the system.|x9390]]15.6. [[Taking the example further.|x9496]]15.7. [[The full readout program.|x9505]]15.8. [[The full SpecTcl program.|x9561]]16. [[Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register|c9586]]16.1. [[PREFACE|c9586#AEN9588]]16.2. [[The electronics|x9609]]16.3. [[Setting up the software|x9673]]16.4. [[The dumper program|x9795]]16.5. [[Running the Readout Program|x9839]]16.6. [[Interpreting the dumper output|x9873]]III. [[device-support|p9905]]17. [[Mesytec MCFD-16 Controls|c9907]]17.1. [[Overview|c9907#AEN9909]]17.2. [[Starting the GUI for USB communication|x9915]]17.3. [[Starting the GUI for the RC-bus through an MxDC device|x9932]]17.4. [[Configuration menu|x9957]]17.5. [[Saving and restoring state|x9977]]18. [[Mesytec MSCF-16 Controls|c9995]]18.1. [[Overview|c9995#AEN9997]]18.2. [[Synchronization Paradigm|x10002]]18.3. [[Starting the GUI for USB communication|x10006]]18.4. [[Saving and restoring state|x10023]]19. [[Wiener MDGG-16 Controls|c10045]]19.1. [[Overview|c10045#AEN10047]]19.2. [[How to use the MDGG16Control GUI|x10052]]19.3. [[Saving and Restoring The State of the GUI Between Sessions|x10085]]20. [[XLM72 Gate Delay Control GUI|c10093]]20.1. [[Introduction|c10093#AEN10095]]20.2. [[Setting up an XLM72 as a gate delay generator for remote control|x10110]]20.3. [[Launching the XLM72GateDelayControl|x10121]]20.4. [[Overview of Functionality|x10144]]20.5. [[The Saved File|x10149]]21. [[ULM Trigger GUI|c10155]]21.1. [[Configuring CCUSBReadout for Remote Communication|c10155#AEN10158]]21.2. [[Launching the ULMTriggerGUI|x10163]]21.3. [[Overview of Basic Operation|x10198]]22. [[Sample programs for the SIS3316/SIS3316-2 digitizer.|c10204]]IV. [[commands|p10215]]23. [[Command line access to CAMAC via the SBS interface|c10217]]V. [[utilities|p10241]]24. [[Ring piping utilities|c10243]]25. [[NSCLDAQ Logbook facility|c10269]]25.1. [[Components of the NSCL logbook system|c10269#sec.lg_inventory]]25.2. [[Setting up a logbook for use.|x10440]]25.3. [[Using the logbook in an experiment|x10562]]25.4. [[Making logbooks available to collaborators|x10861]]25.5. [[x10955]]26. [[glom|c11148]]26.1. [[Format of glom's output|c11148#AEN11159]]27. [[unglom|c11169]]28. [[The dumper program|c11188]]28.1. [[Item dump formats and examples|c11188#AEN11216]]29. [[The Event log program|c11252]]30. [[The tcl server application|c11282]]30.1. [[Tcl server package|c11282#AEN11301]]31. [[CAEN V812 Constant Fraction Discriminator|c11305]]32. [[N568B CAENnet shaping amplifier|c11342]]33. [[VHS-40xxx SBS support.|c11377]]34. [[cratelocator|c11412]]35. [[Tcl access to the VME via the SBS interface|c11425]]35.1. [[Incorporating Vme Tcl in your scripts|c11425#AEN11440]]35.2. [[Sample programs that use the package|x11460]]36. [[VM/CCUSB Firmware loaders|c11467]]37. [[xlmload firmware loader for XLM modules via VM-USB controllers.|c11487]]38. [[Sequencing runs|c11493]]38.1. [[Configuring the sequencer.|c11493#AEN11498]]38.2. [[Using the sequencer.|x11563]]39. [[The ringselector application|c11583]]40. [[Compatibility utilities|c11664]]40.1. [[Format conversion with compatibilitybuffer|c11664#AEN11677]]40.2. [[Writing event files with compatibilitylogger|x11701]]40.3. [[Converting NSCLDAQ-V10.x data to NSCLDAQ-11.x data|x11720]]40.4. [[Convenience scripts|x11729]]40.5. [[BufferToRing|x11764]]41. [[Providing EPICS channel information to Tcl Servers|c11769]]42. [[The epics display utility|c11807]]43. [[Epics Channel logging|c11826]]VI. [[servers|p11839]]44. [[The RingMaster server|c11841]]44.1. [[The RingMaster Protocol|c11841#AEN11854]]45. [[Service Port Manager.|c11997]]VII. [[libraries|p12013]]46. [[Ring master class library.|c12015]]47. [[Networked ring buffer access|c12035]]48. [[Ring Buffer Primitives|c12098]]48.1. [[Incorporating ring buffer software|c12098#AEN12112]]48.2. [[Overview and Examples of ring buffers in action.|x12135]]49. [[The Tcl ring package|c12218]]50. [[Data Format Support Software|c12233]]50.1. [[The basic data formats|c12233#AEN12248]]50.2. [[Selecting Data From a Ring Buffer|x12691]]50.3. [[Incorporating the headers and libraries into your applications.|x12719]]50.4. [[Generic ring data sinks|x12828]]50.5. [[Creating ring items|x12842]]51. [[DAQ Manager APIs|c12947]]51.1. [[Manager Configuration Database API|c12947#sec.manager.dbapi]]51.2. [[Manager REST client API.|x13812]]51.3. [[Manager User Interface API|x14002]]52. [[Event builder client API|c14307]]52.1. [[C++ Client API|c14307#AEN14316]]52.2. [[Incorporating the event builder client library|x14330]]52.3. [[Connecting to the event builder.|x14354]]52.4. [[Disconnecting from the event builder.|x14387]]52.5. [[Sending data to the event builder.|x14405]]52.6. [[The Event orderer/event builder API|x14495]]52.7. [[Callbacks|x14529]]53. [[TclRingBuffer Tcl package.|c14565]]53.1. [[What is it?|c14565#AEN14567]]53.2. [[How do I use it?|x14571]]53.3. [[Using TclRingBuffer in event driven software|x14613]]54. [[The ccusbcamac tcl package|c14668]]54.1. [[Overview|c14668#AEN14670]]54.2. [[A simple example|x14749]]55. [[SBS VME Module level device support software|c14767]]56. [[Tcl CAENet package|c14779]]57. [[The CES CBD 8210 Tcl CAMAC Package|c14820]]57.1. [[Incorporating camac into your scripts|c14820#AEN14832]]57.2. [[An overview of the use of the camac package|x14851]]58. [[The Wienercamac Tcl package|c14870]]58.1. [[Incorporating wienercamac in your scripts.|c14870#AEN14884]]58.2. [[Using wienercamac|x14916]]59. [[Integer byte order conversion library|c15058]]59.1. [[Using the conversion library in your code|c15058#AEN15065]]59.2. [[Byte order signatures and conversion blocks|x15082]]59.3. [[Data conversion|x15102]]60. [[NSCL DAQ Thread Library|c15139]]60.1. [[The thread and synchronization model|c15139#AEN15149]]60.2. [[Incorporating the library into an application.|x15248]]60.3. [[Using CGaurdedObject to implement synchronized methods|x15259]]60.4. [[Thread safe queues (`CBufferQueue`).|x15299]]60.5. [[Pointers to the reference material|x15371]]61. [[Access control and security|c15399]]61.1. [[Incorporting the software into your code|c15399#AEN15405]]61.2. [[Authenticators|x15419]]61.3. [[Interactors|x15464]]62. [[Parsing and URIs|c15532]]63. [[Shared memory|c15590]]63.1. [[Overview of the API, and using it from within your C++ software|c15590#AEN15603]]63.2. [[Compiling/Linking your software with the shared memory API|x15661]]64. [[The `Os` class|c15680]]65. [[io|c15690]]66. [[Plotchart|c15716]]67. [[TCPIP classes|c15725]]67.1. [[Library concepts|c15725#AEN15754]]67.2. [[Incorporating the socket library|x15811]]68. [[C++ encapsulation of a Tcl API subset|c15830]]69. [[The NSCL Exception class library|c15888]]69.1. [[Incorporating the library in your programs|c15888#AEN15909]]69.2. [[Exception classes|x15919]]70. [[Parallel programming framework|c15949]]70.1. [[Concepts and classes|c15949#AEN15975]]70.2. [[Transport implementations|x16027]]70.3. [[Compiling and linking parallel programs|x16075]]71. [[Transformer|c16090]]71.1. [[User shared libraries for Transformer|c16090#AEN16107]]71.2. [[Building the use shared library|x16146]]72. [[SoftwareTrigger|c16312]]73. [[EventEditor|c16317]]VIII. [[frameworks|p16321]]74. [[Injecting variables into the USB data taking frameworks|c16323]]75. [[Event orderer and its user interface|c16351]]75.1. [[Event orderer design philosophy.|c16351#AEN16366]]75.2. [[Using the standard event orderer startup script|x16371]]75.3. [[Writing an event orderer startup script|x16382]]75.4. [[Event orderer packages|x16448]]76. [[Event builder client framework|c16517]]76.1. [[Application specific code for the event builder|c16517#AEN16537]]76.2. [[Building event builder clients.|x16705]]76.3. [[Running event builder clients|x16750]]76.4. [[ringFragmentSource - a prepackaged client for ringbuffer data sources|x16783]]77. [[Event builder Readout Callouts|c16876]]77.1. [[Introduction|c16876#AEN16878]]77.2. [[API layer|x16892]]77.3. [[EVBC state manager callback bundle.|x16899]]77.4. [[EZBuilder|x16935]]78. [[The SBS Readout framework|c16939]]78.1. [[SBS Readout concepts|c16939#AEN16950]]78.2. [[Obtaining and building the skeleton application|x17345]]78.3. [[Modifying the skeleton application to meet your needs|x17360]]78.4. [[Readout commands|x17432]]78.5. [[Embedded Tcl server|x17448]]78.6. [[Running a readout application|x17458]]79. [[Filter framework|c17463]]79.1. [[Overview|c17463#AEN17465]]79.2. [[Getting Started|x17485]]79.3. [[Defining a primitive filter|x17488]]79.4. [[Building a composite filter|x17517]]79.5. [[The main function|x17521]]79.6. [[Building the filter program|x17548]]80. [[The actions library|c17551]]80.1. [[Introduction|c17551#AEN17554]]80.2. [[How does it work?|x17627]]80.3. [[Run Control and Command Execution|x17630]]80.4. [[Exemplified Usage of the Actions package|x17635]]81. [[Support for CAEN Nextgen DPP-PHA digitizers|c17643]]81.1. [[Introduction|c17643#AEN17645]]81.2. [[Getting Data|x17673]]81.3. [[Event structure|x18481]]81.4. [[Configuring SpecTcl|x18589]]81.5. [[Software structure|x19086]]82. [[Software Triggering NEW IN 11.4|c19187]]82.1. [[Creating classification libraries.|c19187#AEN19211]]82.2. [[The SoftwareTrigger and EventFilter programs|x19329]]IX. [[Reference Pages|p19406]]I. [[1compatibility|r19408]][[compatibilitybuffer|r19410]] -- Filter ring items to spectrodaq buffers[[convert10to11|r19458]] -- Filter converting NSCLDAQ10.x to NSCLDAQ11.x data.[[compatibilitylogger|r19491]] -- Create spectrodaq formatted event log files.[[eventlog-compat|r19541]] -- Provide event logger pipeline for use with ReadoutGUI.[[spectcldaq|r19598]] -- Pipe data source for SpecTcl in spectrodaq buffer mode.[[spectcldaq.server|r19649]] -- TCP/IP server of ring data in spectrodaq format.[[BufferToRing|r19720]] -- Convert old buffered data to ring buffer format.[[bufdump|r19795]] -- Dump NSCLDAQ event files earlier than version 10.0II. [[1daq|r19872]][[ringbuffer|r19874]] -- Manage ring buffers.[[ringtostdout|r20001]] -- Transmit data from a ring buffer to stdout.[[compatibilitybuffer|r20065]] -- Pipe stdin to a ring buffer.[[mg_mkconfig|r20127]] -- Create NSCLDAQ Manager ConfigurationDatabase[[mg_config|r20150]] -- Launcher for all manager configuration editors.[[mg_cfgcontainers|r20188]] -- Configure the containers known to the NSCLDAQ manager[[mg_cfgprogram|r20226]] -- Configure manager program definitions[[mg_stateedit|r20265]] -- Edit DAQ Manager state machine[[mg_seqedit|r20311]] -- Edit DAQ manager sequences[[mg_cfgEvlog|r20354]] -- Configure DAQ manager event logging.[[mg_kvedit|r20480]] -- Edit the DAQ Manager Key/Value Store[[mg_authedit|r20515]] -- Edit NSCLDAQ manager authorization database.[[mg_monitorOutput|r20592]] -- Monitor the Output from Managed Programs.[[rdo_RunControl|r20642]] -- DAQ Manager Run Control Panel.[[EVBMonitor|r20679]] -- Monitor Event Builder Statistics via REST Interface.[[mg_startloggers|r20774]] -- Start Event Managed Event Loggers[[rdo_runFromKv|r20794]] -- Set Run Number from Key Value STore[[rdo_titleFromKv|r20826]] -- Set Readout Title From the KV 'title' Value.[[rdo_control|r20858]] -- Control a Readout via ReadoutREST[[mg_startManager|r20962]] -- Start the DAQ Manager[[mg_shutdown|r20978]] -- Shutdown the DAQ manager.[[mg_kvget|r20997]] -- Get the value of a manager KV store key.[[mg_container_wizard|r21030]] -- Make the creation of container definitions simpler[[mg_readout_wizard|r21164]] -- Create managed readouts[[mg_logwizard|r21443]] -- Wizard to create event loggers for managed experiments[[mg_program_wizard|r21461]] -- Wizard to create programs for managed experiments[[mg_import|r21481]] -- Import an experiment definition[[ReadoutShell|r21508]] -- Shell wrapper for readout programs.[[evbwizard|r21617]] -- Set up readout GUI and event builder.[[lg_create|r21640]] -- Create a new logbook database.[[lg_current|r21692]] -- Set the current logbook database[[lg_ls|r21718]] -- Show current logbook.[[lg_addperson|r21731]] -- Add a person to the logbook.[[lg_lspeople|r21755]] -- List the people defined in the logbook.[[lg_mkshift|r21770]] -- Create a logbook shift[[lg_mgshift|r21791]] -- Manage shifts and memberships[[lg_selshift|r21835]] -- Select the current shift[[lg_kvstore|r21853]] -- Manipulate the key value store.[[lg_wrnote|r21899]] -- Write logbook notes[[lg_browse|r21915]] -- Logbook browser[[lg_print|r21928]] -- Convert part or all of the logbook to PDF.[[lg_lspeople|r21954]] -- List people that are defined[[frag2ring|r21967]] -- Filter flattened fragments to ring items.[[EVBShutdown|r22055]] -- Stop Orderer Started with EVBRest[[EVBRest|r22079]] -- Run Event Builder Orderer With REST Interface[[glom|r22096]] -- Glue Ordered Fragments Into Events[[Event builder client framework|r22151]] -- Event builder cilent framework[[RingSourceMgr|r22205]] -- A callout bundle that spawns ringFragmentSource processes.[[glom|r22336]] -- Glue event fragments together into events[[evbtagger|r22395]] -- Filter to add fragment headers[[ringFragmentSource|r22441]] -- Provide Fragments To EventBuilder From Ring Buffers.[[unglom|r22532]] -- Break up an event file into event fragments[[ScalerDisplay|r22579]]<a name="manpage.scalerdisplay"></a> -- Display counts and rates in scalers.[[dumper|r22906]] -- Produce a formatted dump of event data.[[eventlog|r23019]] -- Record Event Data to Disk.[[VMUSB V812 control|r23120]] -- Adapt CAENV812GUI to the VM-USB readout[[gdgpanel|r23207]] -- Tabbed notebook for multiple GDG-8 controllers.[[xlmload|r23263]] -- Load firmware into XLM modules.[[ccusbloader|r23348]] -- CC-USB Firmware loader[[vmusbloader|r23382]] -- VM-USB Firmware loader[[ringselector|r23416]] -- Provide selected ring data to non NSCL DAQ aware clients[[tkdumper|r23549]] -- GUI Dump of ring buffer items.[[offlinereglom|r23573]] -- Offline event rebuilder.[[Unglom (note capital U)|r23617]] -- Break up event file into fragment flie[[reglom|r23639]] -- Rebuild events offline[[timecheck|r23708]] -- Check for out of order timestamps in event files[[evttclsh|r23728]] -- Tcl interpreter that always runs an event loop[[DDASReadout|r23751]] -- Read data from XIA digitizer modules.[[ddasReadout|r23815]] -- Run DDASReadout and an associated sorter.[[ddasSort|r23994]] -- Sort data obtained using `DDASReadout`.[[ringdiagnostics|r24042]] --  Diagnose ring data flow bottlenecks[[mvlcgenerate|r24101]] -- Generate config files for the mvlc fribdaq-readout program[[mvlc_xlmload|r24203]] -- Connect to and MVLC and load firmware for an XLM-72[[ring_monitor|r24325]] -- Monitor ring throughput statistics[[statsview|r24423]] -- View ringbuffer statistics in a system[[SoftwareTrigger|r24496]] -- Classify events for later filtering in the software trigger.[[EventFilter|r24600]] -- [[Transformer|r24658]] -- Add extensions to fragments of event built data[[EventEditor|r24797]] -- Edit event fragment bodies.[[FullEventEditor|r24995]] -- Edit the entire body of an event built event.[[SoftwareTrigger|r25145]] -- Classify event for EventFilter.[[EventFilter|r25224]] -- Filter classified events.III. [[1epics|r25297]][[controlpush|r25299]] -- 
-            Push epics data into a Tcl Server (e.g. production readout).
-        [[chanlog|r25408]] -- Write a set of channels to fileIV. [[1evb|r25474]][[EVB_BarrierStats_incomplete|r25476]] -- Display incomplete barrier statistics[[EVB_BarrierStats_queueBarriers|r25576]] -- Displays per queue barrier statistics[[EVB_BarrierStats_Summary|r25655]] -- UI element to summarize barrier statistics.[[EVB_CallbackManager|r25697]] -- Object that manages callback sets.[[EVB_connectionList|r25787]] -- List event builder connections[[EVB_GUI procs|r25839]] -- Standard monitor UI procs.[[EVB_inputStatistics_statusDisplay|r25894]] -- Widget to display input statitics[[EVB_inputStatistics_queueStats|r26071]] -- Per queue input statistics widget[[EVB_inputStatistics_queueDisplay|r26174]] -- Display input queue statistics[[EVB_inputStatistics:_summaryDisplay|r26236]] -- Summary of input statistics.[[EVB_lateFragments|r26298]] -- Late fragment statistics[[EVB_lateSummary|r26379]] -- Widget to display summar of data late fragments.[[EVB_outputStatistics|r26424]] -- Complete output statistics widget[[EVB_outputSummary|r26521]] -- Summarize output statistics[[EVB_utility_sortedPair|r26587]] -- Key value pair widget[[EVB_utility_sortedWidget|r26692]] -- General key/widget sorted list[[EventBuilder|r26829]] -- Event builder utility **proc**s[[Observer|r26985]] -- Support the Observer pattern[[EvbOrderer|r27094]] -- Event orderer compiled commands.[[EVB::handleFragment|r27370]] -- Submit event fragments.[[EVB::inputStats|r27399]] -- Event builder input statistics[[EVB::outputStats|r27457]] -- Get orderer output statistics[[EVB::dlatestats|r27486]] -- Get the late fragment statistics.[[EVB::onDataLate|r27524]] -- Bind scripts to data late events.[[EVB::barriertrace|r27558]] -- Supply a script to invoke on barrier events.[[EVB::source|r27588]] -- Create event source queues.[[EVB::deadsource|r27616]] -- Mark a data source dead.[[EVB::reviveSocket|r27641]] -- Revive all dead data sources associated with a socket[[EVB::flush|r27666]] -- Empty all input queues.[[EVB::reset|r27689]] -- Reset timestamp clocks.V. [[1tcl|r27712]][[DaqPortManager|r27714]] -- Manage TCP/IP service ports and advertise their allocations[[lsservices|r27831]] -- List advertised services[[tclserver|r27872]] -- Start a Tcl Server.[[serverauth|r27925]] -- Control tcl server authorization.[[ledph7106.tcl|r27981]] -- PH7106 Control application for CCUSBReadout[[canev812control|r28011]] -- GUI for controlling CAEN V812 CFD modules[[loadcfd|r28041]] -- Load settings in to a CAEN V812 CFD module.[[cesbcnaf|r28070]] -- CAMAC operation via a CES CAMAC interface[[wienerbcnaf|r28105]] -- CAMAC operation via a Wiener VC32/CC32 board set[[bcnaf|r28140]] -- bcnaf via SBS VME CAMAC interfaces[[loadshaper|r28186]] -- Load setttings into an N568 shaper via SBS/V288.[[n568Control|r28214]] -- GUI for the n568 shaper.[[vhsPanel|r28247]] -- Canned VHS Control panel[[vhqControl|r28285]] -- Control panel application for VHQ bias supply modules.[[cratelocator|r28311]] -- locate specific SBS VME crate controllers.[[SBS Vme Tcl package|r28347]] -- Provide access to VME crates to Tcl scripts.[[epicsdisplay|r28464]] -- Display epics channelsVI. [[1sbsReadout|r28547]][[Readout|r28549]] -- Start an event readout program.VII. [[1utilities|r28704]][[vmusbcaenupgrader|r28706]] -- CAEN cvUpgrade ported to VM-USB interfaceVIII. [[3daq|r28858]][[CRingMaster|r28860]] -- RingMaster access.[[CRingAccess|r29102]] -- Remote Ring Access[[CZCopyRingBuffer|r29295]] -- Provide zero copy access to low level ring buffers.[[CRingBuffer|r29354]] -- Low level ring buffer primitives[[CRingItem|r30177]] -- Encapsulates an item in a ring buffer.[[CRingScalerItem|r30665]] -- Encapsulate ring buffer scaler items.[[CRingStateChangeItem|r31162]] -- Encapsulate a ring buffer state change item.[[CRingTextItem|r31604]] -- Encapsulate ring items that are lists of text strings.[[CPhysicsEventItem|r31966]] -- Response to trigger.[[CRingPhysicsEventCountItem|r32162]] -- Provides statistics regarding the number of events produced.[[CRingFragmentItem|r32524]] -- Encapsulate a EVB_FRAGMENT ring item
-         [[CUnknownFragment|r32839]] -- Event fragment likley not containing a ring item[[CDataFormatItem|r32937]] -- Describe the format of a stream of ringitems.[[CGlomParameters|r33191]] -- Reports event building parameters.[[CAbnormaEndItem|r33459]] -- Abnormal end of run.[[CRingSelectionPredicate|r33673]] -- Base class for predicates that select items from
-            ring buffers.[[CAllButPredicate|r34015]] -- Select all ring items except some.[[CDesiredTypesPredicate|r34201]] -- Only accept specified ring item types.[[DataFormat.h|r34376]] -- Format of ring items.[[format  Functions|r34902]] -- Functions to create ring items.[[CDataSource|r36308]] -- Abstract base class of data source for ring items.[[CRingDataSource|r36360]] -- Ringbuffer data source for ring items.[[CFileDataSource|r36439]] -- Ring item data source from a file[[CDataSourceFactory"|r36506]] -- Create data sources given a URI[[CRingItemFactory|r36573]] -- Upcast ring items to specific ring item objects.[[CDataSink|r36676]] -- Abstract base class for data sinks.[[CFileDataSink|r36767]] -- Data sink to a disk file.[[CRingDataSink|r36909]] -- Data sink that writes to a `CRingBuffer`
-[[CDataSinkFactory|r37010]] -- Create an appropriate CDataSink object[[CRingBufferChunkAccess|r37076]] -- Provides zero copy, low level consumer access to ring buffers[[LIBUSB1 INTRO|r37333]] -- Wrappers for userspace USB library.[[USBException|r37376]] -- Report errors from libUSB1[[USB|r37403]] -- Encapsulate low level USB context[[USBDeviceInfo|r37453]] -- Provide information about a USB device.[[USBDevice|r37599]] -- I/O object for a USB device[[XXUSBUtil|r37850]] -- Utility methods for JTEC/Wiener XXUSB controllers[[LogBook|r38166]] -- Top Level Logbook C++ API[[LogBookPerson|r38922]] -- Encapsulate a person registered in a logbook.[[LogBookShift|r39058]] -- Encapsulates shifts in logbook databases[[LogBookRun|r39231]] -- Encapsulates runs from logbooks.[[LogBookNote|r39722]] -- Encapsulate logbook notes.[[fragment.h|r40050]] -- Define event builder fragment structures.[[CEvbClientApp|r40277]] -- Framework event builder client application.[[CEVBClientFramework|r40431]] -- Event builder client framework.[[CEventOrderClient|r40497]] -- Client of the event orderer[[FragmentIndex|r40718]] -- Iterator for event built data.[[CPortManager|r40929]] -- Provide a C++ interface to the server port manager daemon.[[CPortManagerException|r41090]] -- Report errors conditions in port manager transactions[[CADC2530|r41251]] -- Support the Hytec NADC 2530 Peak sensing ADC.[[CAENcard|r41723]] -- Support for the CAEN 32 bit digitizers[[CBD8210|r42528]] -- CES CBD 8210 CAMAC branch highway driver (obsolete)[[CCAENV1x90|r42906]] -- Support for the CAEN V1190 and V1290
-                    multihit, complicated TDC.[[CCAENV560|r45298]] -- Support the CCAENV560 non-latching scaler.[[CCAENV830|r45472]] -- Support driver for the CAEN V820/V830 latching scaler module.[[CCAENV977|r46039]] -- Software support for the CAEN V977 I/O register.[[CCAMACScalerLRS2551|r46448]] -- Support software for the LeCroy LRS 2551 12 channel CAMAC scaler[[CCAMACScalerLRS4434|r46568]] -- High level support software for the 32 channel LeCroy LRS 4434 CAMAC scaler module[[CCAMACStatusModule|r46690]] -- Provide computer busy status support for the BiRA CAMAC
-                NIM out module.
-            [[CCAMACTrigger|r46808]] -- Trigger module for the CES CBD 8210 VME CAMAC Parallel Branch Highway Driver
-            [[CCamac|r46872]] -- Manages CAMAC memory maps.[[CCamacModule|r46964]] -- Provide support for a generic CAMAC module.[[CCamacNimout|r47348]] -- Provides low level support for the BiRa CAMAC Nim output module.[[CCrateController|r47447]] -- Encapsulation of a BiRa 1302 CAMAC controller via CES CBS8210.[[CSIS3600|r47797]] -- Support for the SIS 3600 VME latch module.[[CSIS3820|r48266]] -- Low level support for SIS 3820 32 channel latching scaler module[[CScaler|r48982]] -- Abstract base class for reading scalers into a vector[[CStatusModule|r49099]] -- Abstract base class for status modules.[[CTrigger|r49174]] -- Abstract base class for triggers[[CVME|r49212]] -- Pointer like object for accessing the VME[[CVMEScalerLRS1151|r49566]] -- High level support for the LeCroy LRS 1151 VME scaler.[[CVMEStatusModule|r49663]] -- Implement a status module using the CAEN V262 module.[[CVMETrigger|r49757]] -- VME trigger class based on the CAEN V262 I/O module.[[CVMEptr|r49818]] -- [[CaenIO|r50171]] -- Support for the CAEN V262 I/O register module.[[CMmapError|r50328]] -- Exception that can be thrown in the event of memory mapping errors.[[CNimout|r50373]] -- Low level support for the BiRa VME nim output module[[CVmeModule|r50657]] -- Convenience base class for implementing VME module support[[CSIS3300|r50965]] -- Low Level support for the SIS 3300 Flash ADC module[[CFilter|r51708]] -- Base class for primitive filters[[CCompositeFilter|r51892]] -- A composite filter composed of primitive filters[[CFilterMain|r52112]] -- Ring item filter application class.[[cvt|r52185]] -- Integer byte order conversions[[Thread|r52381]] -- Abstract base class for thread objects.[[CSynchronizedThread|r52524]] -- Thread with synchronized initialization[[Synchronizable|r52619]] -- Wait queue for threads[[SyncGuard|r52727]] -- Provide Critical Regions, Monitors[[CMutex|r52904]] -- C++ encapsulation of pthread mutexes.[[CriticalSection|r53135]] -- Simple, safe critical section[[CCondition|r53168]] -- Encapsulate POSIX condition variables.[[CGaurdedObject|r53479]] -- Provide entry/exit guards for object critical regions.[[CBufferQueue|r53545]] -- Templated class for safe inter-thread messaging.[[CAuthenticator|r53742]] -- Abstract base authenticator class.[[CPasswordCheck|r53854]] -- Authenticate against a stored password.[[CUnixUserCheck|r54052]] -- Authenticate against a unix user name and password.[[CTclAccessListCheck|r54273]] -- Authenticate against a Tcl List.[[CAccessListCheck|r54377]] -- Authenticate against a list of allowed credentials.[[CHostListCheck|r54529]] -- Authenticate from a list of TCP/IP hosts[[CInteractor|r54719]] -- Base class for security interactions.[[CStringInteractor|r54898]] -- Provide an interactor that processes strings.[[CFdInteractor|r55069]] -- Interact with  file descriptor[[CIOInteractor|r55205]] -- Separate prompt and input interactors.[[URL|r55340]] -- Parse Uniform Resource Identifiers (URI)[[CopyrightNotice|r55490]] -- Generate license/author credits.[[io|r55596]] -- Binary I/O operations.[[Os|r55720]] -- Operating system interfaces.[[CDAQShm|r55905]] -- class description[[io::CBufferedOutput|r56274]] -- Simple binary buffered output class with flush.[[CRingBlockReader|r56370]] -- ABC for reading blocks of ring items from a source.[[CRingFileBlockReader|r56469]] -- CRingBlockreader that reads from file.[[CElapsedTime|r56506]] -- Subsecond measurement of elapsed times.[[CSocket|r56522]] -- Encapsulation of a socket file descriptor.[[CTCPBadSocketState|r57376]] -- class description[[CTCPConnectionFailed|r57495]] -- Exception thrown for TCP/IP connection failures.[[CTCPConnectionLost|r57617]] -- Exception thrown when connection to peer is lost[[CTCPNoSuchHost|r57727]] -- CTCPNoSuchHost[[CTCPNoSuchService|r57862]] -- Exception thrown if a nonexistent service is referenced[[CTCLApplication 3|r57950]] -- 
-            Base class for TCL/Tk applications.
-        [[CTCLException|r58003]] -- 
-            Class for reporting exceptional conditions in Tcl applications
-            via the C++ try/catch mechanism.
-        [[CTCLInterpreter|r58156]] -- 
-            Encapsulate a Tcl interpreter.
-        [[CTCLInterpreterObject  3|r58384]] -- 
-            Base class for objects that are associated with a Tcl Interpreter.
-        [[CTCLList|r58473]] -- 
-            Provide access to Tcl List parsing.
-        [[CTCLObject|r58592]] -- 
-            Encapsulate Tcl Dual ported objects.
-        [[CTCLObjectProcessor|r58833]] -- 
-            Abstract base class to encapsulate the Tcl object command interface exposed by
-            `Tcl_CreateObjCommand`.
-        [[CTCLVariable|r58936]] -- 
-            Encapsulate Tcl interpreter variables.
-        [[CTCLProcessor|r59141]] -- 
-            Provide `argc`, `argv`
-            extension commands to Tcl.
-        [[CTCLChannel|r59340]] -- 
-            Provide a C++ abstraction wrapper for Tcl Channels.
-        [[CTCLCommandPackage|r59520]] -- 
-            Group several related Tcl command extensions and common services they
-            may require together.
-        [[CTCLCompatibiltyProcessor|r59635]] -- 
-            Adaptor between `CTCLOjbectProcessor`
-            and `CTCLProcessor`.
-        [[CTCLFileHandler|r59712]] -- 
-            Base class for building object oriented Tcl File event handlers.
-        [[CTCLHashTable|r59808]] -- 
-            Object oriented interface to Tcl's hash table functions.
-        [[CTCLHashTableItem|r59949]] -- 
-            Encapsulation of an entry in a Tcl Hash table as encapsulated
-            in `CTCLHashTable`
-[[CTCLHashTableIterator|r60027]] -- 
-            Iterator for visiting all elements of a `CTCLHashTable`
-[[CTCLIdleProcess|r60133]] -- 
-            Allows the establishment of an executable object that
-            can be scheduled to be invoked when the Tcl/Tk intperpreter
-            has no events that require processing.
-        [[CTCLPackagedCommand|r60204]] -- 
-            Base class for a command that lives in a `CTCLCommandPackage`
-[[CTCLResult|r60275]] -- 
-            Provide an object oriented interace to the Tcl interpreter result.
-        [[CTCLString|r60396]] -- 
-            Provide a wrapper for the Tcl_DString data type
-            and its API
-        [[CTCLTimer|r60623]] -- 
-            Abstract base class for C++ objects attached to timer events.
-        [[CTCLLiveEventLoop|r60703]] -- Run Tcl with event loop.[[CTCLChannelCommander|r60817]] -- Accept commands on a Tcl channel from the event loop.[[CTCLStdioCommander|r61039]] -- Event driven command input on stdin/stdout[[CTCLServer|r61113]] -- Listener for a Tcl server.[[CTCLTcpServerInstance|r61251]] -- Channel commander that is a server instance for `CTCLServer`[[CTCLObjectPackage|r61334]] -- Provide common functionality for a set of
-                related commands.[[CTCLPackagedObjectProcessor|r61406]] -- Base class for commands living in a
-                    `CTCLObjectPackage`
-[[CItemConfiguration|r61516]] -- Hold a configuration[[CConfigurableObject|r62249]] -- Base class for objects tht have a configuration.[[CException|r62479]] -- Abstract base class for the exception class hierarchy.[[CErrnoException|r62576]] -- Exceptions that wrap the Unix `errno`[[CRangeError|r62663]] -- Reports and exception for a value out of allowed range.[[CStateException|r62811]] -- Exception for invalid state transitions.[[CStreamIOError|r62920]] -- I/O error on a C++ stream.[[CURIFormatException|r63093]] -- Report errors in universal resource identifiers (uri)s.[[CMonitorException|r63288]] -- Exceptions for synchronization class abuse.[[CInvalidArgumentException|r63433]] -- Report invalid function arguments.[[pixieplugin|r63577]] -- Support dynamic configuration of Pixie-16 modules via DDASReadout Server.[[Dig2Device|r63761]] -- Low Level Access To Digitizers[[VX2750Pha|r64270]] -- Provide compile time checked API to CAEN Nextgen digitizers DPP-PHA[[VX2750PHAModuleConfiguration|r67976]] -- Encapsulate module configuration for CAEN Nextgen digitizers[[VX2750TclConfig|r69262]] -- Tcl scripted configuration.[[TclConfiguredReadout|r69393]] -- Event Segment configured with Tcl[[VX2750EventSegment|r69479]] -- Event segment for single VX2750 DPP-PHA module[[VX2750MultiTrigger|r69552]] -- Manage readout triggers.[[CProcessor|r69641]] -- Abtract base class for a CSP process[[CProcessingElement|r69683]] -- Abstract base class for a CSP processing element[[CParallelWorker|r69744]] -- Base class for a worker that receives fanned out data.[[CTransport|r69821]] -- Abstract base class for data transport objects.[[CSender|r69895]] -- Encapsulate a transport to send data.[[CReceiver|r69971]] -- Encapsulates a transport to receive data[[CNullTransport|r70032]] -- Null transport for testing[[CTestTransport|r70047]] -- Transport class for test purposes.[[CClientRegistry|r70126]] -- Registry of clients.[[CFanoutTransport|r70201]] -- Transport to fanout data to several workers.[[CFanoutClientTransport|r70214]] -- Client for a fanout transport[[CRingItemTransport|r70228]] -- Base class for ring item transports.[[CRingBufferTransport|r70240]] -- Transport for ring items to or from ring buffers.[[CRingItemFileTransport|r70313]] -- Transport ring items to and from files.[[CRingItemTransportFactory|r70391]] -- Create and appropriate ring item transport[[CZMQTransport|r70412]] -- Base class for ZeroMQ transports[[CZMQClientTransport|r70528]] -- ZeroMQ transport that does a connect.[[CZMQServerTransport|r70544]] -- ZeroMQ transport that does a listen.[[CZMQRouterTransport|r70560]] -- ZeroMQ transport that's a ROUTER fanout.[[CZMQDealerTransport|r70632]] -- Peer, receiver for CZMQRouterTransport(3daq)[[CDataSinkElement|r70714]] -- Forward data to some sink.[[CDataSourceElement|r70727]] -- Fan out a data source without transformations[[CRingItemZMQSourceElement|r70744]] -- Fanout ring items from some data source.[[CRingItemMarkingWorker|r70792]] -- Strategy pattern for classifying ring items[[CRingItemSorter|r70839]] -- Re-sort a stream of ring items by timestamp[[CThreadedProcessingElement|r70860]] -- Run a processing element ina thread.[[CZMQRingItemThreadedWorker|r70880]] -- ZeroMQ Threaded worker for ZeroMQ[[CZMQRingItemSourceThread|r70899]] -- Provide a thread that routes ring items from a source[[CCommunicatorFactory|r70913]] -- Create transports for an underlying communication scheme.[[CZMQCommunicatorFactory|r71020]] -- Communicator factory for ZeroMQ[[CCommunicatorFactoryMaker|r71096]] -- Create communication factories.[[CMPITransport|r71120]] -- Base class for transports using MPI for communication.[[CMPIFanoutTransport|r71270]] -- Fanout data over MPI to multiple workers.[[CMPIFanoutClientTransport|r71361]] -- Worker side of a fanout transport (client).[[CRingItemMPIDataSource|r71455]] -- Fanout clumps of ring items.IX. [[3ccusb|r71475]][[addtcldriver|r71477]] -- Register Tcl command ensemble as a device module[[ad811|r71513]] -- Support the Ortec AD811 ADC[[c1205|r71583]] -- Manage CAEN C1205 QDC modules.[[c257|r71726]] -- Manages the C257 scaler module[[ccusb (command)|r71816]] -- Configure and read scalers from CC-USB module[[lrs2228|r72147]] -- Manages the LRS2228 TDC[[lrs2249|r72216]] -- Manage LeCroy 2249 QDC modules[[lrs2551|r72281]] -- Manage LRS 2551 modules[[marker|r72373]] -- Create/manipulate marker instances[[ph7xxx|r72415]] -- Define Phillips ADC/TDC/QDC modules[[stack|r72633]] -- Create and configure CC-USB stacks.[[Module|r72780]] -- Create and manipulate slow control device instances[[CamacCrate|r72836]] -- group modules into a crate[[LeCroy4300B|r72890]] -- control a LeCroy 4300B FERA[[LeCroy4434|r73009]] -- control a LeCroy 4434 Scaler[[LeCroy2551|r73065]] -- control a LeCroy 2551 Scaler[[ULMTrigger|r73113]] -- control a LeCroy 2637 ULM running trigger firmware[[Slow controls protocol|r73301]] -- TCP/IP slow control protocol[[CCCUSB|r73422]] -- Provide access to a CC-USB device.[[CCCUSBusb|r76186]] -- Provide access to a connected CC-USB device.[[CCCUSBRemote|r76388]] -- Provide remote access to a CC-USB device through CCUSBReadout's slow-controls server.[[CCCUSBReadoutList|r76671]] -- Create lists of CAMAC commands for CC-USB controllers.[[CConfigurableObject|r77196]] -- base class for devices that have a configuration[[cccusb|r78458]] -- Swig wrapping of the CCCUSB C++ class.[[cccusbreadoutlist|r79193]] -- Tcl wrapping of `CCCUSBReadoutList`[[CModuleFactory|r79470]] -- Creates specific slow control drivers[[CModuleCreator|r79577]] -- Object creational ABC for `CModuleFactory`[[CControlHardware|r79630]] -- Base class (ABC) of a slow controls driver[[CControlModule|r79860]] -- Configuration and wrapper for CControlHardware[[CCCUSBControl|r79939]] -- A slow-controls driver for receiving and executing remote commands[[ccusbcamac|r80024]] -- Tcl Script CAMAC access CCUSBReadout slow-controls server[[ph7106Widget|r80182]] -- Control panel for Ph7106 LEDX. [[3evb|r80316]][[EVBC::start|r80318]] -- Start the event builder pipeline.[[EVBC::stop|r80393]] -- Stop the event builder pipeline.[[EVBC::reset|r80416]] -- Reset timestamp history[[EVBC::flush|r80440]] -- Flush event builder event queues.[[EVBC::registerRingSource|r80463]] -- Register a ring fragment source to the RingSourceMgr.[[EVBC::startRingSource|r80551]] -- Start a ring fragment source for the event builder.[[EVBC::startS800Source|r80609]] -- Start S800 data source[[EVBC::initialize|r80639]] -- Initialize the EZBuilder layer.[[EVBC::onBegin|r80749]] -- EZBuilder begin run actions[[EVBC::onEnd|r80778]] -- EZBuilder end run actions.[[EVBC::configParams|r80802]] -- Configure orderer behavior.[[Eventbuilder callback bundle|r80844]] -- Event builder callback bundle.XI. [[3rdogui|r80884]][[Introduction|r80886]] -- ReadoutGUI API introduction[[bells|r81000]] -- Provide audible alarm bells.[[Configuration|r81121]] -- Configuration variable management[[DAQParameters|r81220]] -- Cluster of configuration parameters for data acquisition[[DataSourceManager|r81398]] -- Data source manager and its API[[DataSourceUI|r81650]] -- Data source parameter user interface[[ReadoutGUIAppLauncher|r81875]] -- Simplify the process of adding application launcher buttons to a ReadoutGUI[[Diagnostics|r81980]] -- Provide error warning and message dialogs[[ExpFileSystemConfig|r82055]] -- Configuration cluster for event directory tree[[ReadoutGui|r82144]] -- ReadoutGui elements.[[ReadoutGUIPanel|r82295]] -- ReadoutGUI Convenience commands[[RunStateMachine|r82554]] -- Run control state machine[[StateManager|r82793]] -- Save restore program state variables.[[ui|r82954]] -- ReadoutGUI graphical user interface elements.[[OutputWindowSettings|r83468]] -- Prompter for `OutputWindow` settings.[[StatusArea|r83539]] -- Status area megawidget[[ReadoutGUIOutputClient|r83626]] -- Readout gui output monitor client.[[multilogger|r83697]] -- Log data from multiple ring buffersXII. [[3provider|r83757]][[Introduction|r83759]] -- Data source providers[[parameters|r83919]] -- Describe data source parameterization[[start|r83946]] -- Start a data source[[check|r83975]] -- Check Data Source Liveness[[stop|r84007]] -- Stop data sources[[begin|r84038]] -- Start data taking in a data source[[pause|r84069]] -- Pause a data taking run (optional)[[resume|r84106]] -- Resume a Paused Run[[end|r84139]] -- End a Data Taking Run[[init|r84168]] -- On-demand initialize procedure[[capabilities|r84197]] -- Get Provider Capabilities Dict[[SSHPipe|r84246]] -- SSHPipe data source provider.[[s800|r84358]] -- s800 data source provider.[[Delay|r84415]] -- Inserts a delay between data provider beginsXIII. [[3python|r84446]][[Container|r84448]] -- Provide access to the container part of managed experiment configuration databases[[EventLog|r84533]] -- Python3 API for the Eventlogger part of the managed expeiment configuration file database.[[Program|r84663]] -- Provide access to the Program part of FRIB managed experiment definition database[[LogBook|r84759]] -- Python bindings to LogBook Api.[[LogBook.Person|r85177]] -- Python class encapsulating Log Book people.[[LogBook.Shift|r85221]] -- Encapsulate logbook shifts for python[[LogBook.Run|r85297]] -- Encapsulate runs and their transitions for Python[[LogBook.Note|r85496]] -- Encapsulate notes for python[[PortManager|r85662]] -- Python bindings to port manager[[pidtocommand|r85772]] -- Convert a PID into its command string[[nscldaqutils|r85787]] -- Provide a set of utilities for NSCLDAQXIV. [[3vmusb|r85886]][[adc|r85888]] -- Create/configure CAEN V775, V785, V792, V862 modules.[[caenchain|r86119]] -- Aggregate adc modules into CBLT readout chains.[[vmusb|r86181]] -- Control VM-USB resources and read internal scalers[[sis3300|r86488]] -- Simplified sis3300 support.[[sis330x|r86775]] -- Driver for SIS3300/1 FADC[[sis3820|r86982]] -- Create and configure SIS 3820 scaler modules[[v830|r87142]] -- Create and configure CAEN V830 32 channel scalers.[[v977|r87343]] -- Create and configure CAEN V977 Input registers[[sis3804|r87517]] -- Create and configure SIS 3804 scalers[[hira|r87586]] -- Pair up to 2 XLMs and FADC for HiRA[[hytec|r87649]] -- Support the Hytec NADC 2530 adc module.[[tcl driver support|r87829]] -- tcl driver support functions.[[madc|r87976]] -- Acquire events from Mesytec MADC32 ADC.[[mtdc|r88324]] -- Mesytec 32/34 channel TDC[[mqdc|r88756]] -- Support Mesytec MQDC-32 modules[[madcchain|r89229]] -- Support CBLT chains of Mesytec MxDC32 family of modules.[[madcscaler|r89313]] -- Support dead-time counters in MADC32 as scalers.[[mase|r89360]] -- Support for XLM with MASE firmware.[[tdc1x90|r89431]] -- Provide support for the CAEN V1x90 TDC family.[[v1729a|r89710]] -- CAENV1729a waveform digitizer.[[stack|r89856]] -- Compose and configure VM-USB readout stacks.[[mdpp32qdc|r90018]] -- Mesytec MDPP-32 module with QDC firmware[[mdpp16qdc|r90586]] -- Mesytec MDPP-16 module with QDC firmware[[mdpp32scp|r91149]] -- Mesytec MDPP-32 module with SCP firmware[[CVMUSB|r91660]] -- Interface with VM-USB controller.[[CVMUSBReadoutList|r93662]] -- Construct VM-USB stacks[[CVMUSBRemote|r94567]] -- Execute lists remotely on VMUSBReadout[[CConfigurableObject|r95804]] -- Configuration database[[CControlHardware|r97042]] -- Base class for slow controls drivers[[sis_vmusb_interface|r97347]] -- Use SIS module software over VMUSB[[cvmusb|r97825]] -- SWIG Tcl wrapping of `CVMUSB`[[cvmusbreadoutlist|r98580]] -- SWIG wrappers for `CVMUSBReadoutList`
-[[Module|r99080]] -- control config command: create/configure modules.[[watch|r99479]] -- Watch variables (slow controls)[[delay|r99508]] -- Insert a stack delay.[[CBDCamacBranch|r99554]] -- run a CAMAC branch through a CES CBD8210 bridge[[CBDCamacCrate|r99616]] -- group CBD8210 compatible modules into a crate[[CBDLeCroy4300B|r99670]] -- control a LeCroy 4300B FERA on a CAMAC branch[[CBDLeCroy4434|r99788]] -- control a LeCroy 4434 Scaler on a CAMAC branch[[CBDLeCroy2551|r99844]] -- control a LeCroy 2551 Scaler on a CAMAC branch[[CBDULMTrigger|r99894]] -- control a LeCroy 2637 ULM running trigger firmware on a CAMAC branch[[XLMTimestamp|r100097]] -- control an XLM running 64-bit latching scaler firmware[[marker|r100151]] -- Insert a constant into the VMUSB data stream[[XLMFERA|r100194]] -- control an XLM72V running firmware to readout FERA via ECL ports[[AXLM72ScalerControl|r100263]] -- slow-controls driver for controlling an XLM72 running 32-ch scaler firmware[[XLM72ScalerGUI|r100360]] -- Diagnostics GUI for controlling an XLM72 running 32 ch scaler firmware[[AXLM72|r100423]] -- TCL base class for JTech XLM72 family of devices[[AXLM72Scaler|r100734]] -- Driver for an XLM72 running 32-channel scaler firmware[[v1495sc|r100974]] -- CAEN V1495 with Scaler firmware[[sis3316|r101092]] -- Support for the SIS3316 digitizer[[controlClient|r101240]] -- Object to interact with VM/CCusb control server[[USB Control operations|r101342]] -- connect, controlOp, listUSBControlServers[[slowControlsPrompter|r101403]] -- Prompt for slow controls server host and port[[gdgcontrol|r101515]] -- Slow control client of Wiener/JTec MGGD8[[gdgwidget|r101743]] -- Widget to control/display GDG-8.[[V6533Driver|r101846]] -- Driver for CAEN V6533 HV modules[[VMUSB VME access|r102063]] -- Provide Tcl VME access via VMUSB or control server[[controlscript|r102214]] -- Virtual slow controls module to execute TCL scripts[[readoutscript|r102318]] -- Virtual driver to execute TCL scriptsXV. [[3mvlcgen|r102419]][[sis3804|r102421]] -- Create and configure SiS 3804 VME scaler modules[[sis3820|r102464]] -- Configurea Struck (SIS) 3820 latching scaler.[[adc|r102580]] -- Manage CAEN V785, V775 and V792 digitizers[[v830|r102730]] -- Support the CAEN V830 latching scaler[[caenchain|r102834]] -- Bulk readout of **adc** modules in a chain.[[delay|r102877]] -- Add a delay to the readout stack[[madc|r102893]] -- Support Mesytec MADC32 devices[[madcchain|r103065]] -- Chain block readout of MADc32, MQDC32 and MTDC32 modules[[madcscaler|r103120]] -- Read MADC32 performance counters[[marker|r103142]] -- Insert a 32 bit marker in the data[[mdpp16qdc, mdpp32qdc|r103158]] -- Suport the Mesytec MDPP16 and MDPP32 with QDC firmware[[mdpp32scp|r103425]] -- Support for Mesytect MDPP32 with peak sensing firmware[[mqdc|r103668]] -- Support for MESYTEC MQDC32 module[[mtdc|r103910]] -- Provide support for Mesytec MTDC32 module[[hytec|r104186]] -- Support hytec NADC 2530 module[[stack|r104261]] -- Group modules into readout 'stacks'.[[v1495sc|r104334]] -- Use CAEN V1495 with scaler firmware[[v1729a|r104419]] -- Support for the  CAEN v1729a waveform digitizer[[tdc1x90|r104546]] -- Support the CAEN V1290 and V1190 TDC family[[v977|r104770]] -- Support the CAEN V977 input/coincidence register[[XLMTimestamp|r104841]] -- XLM with timstamp firmware[[ACAENV1290|r104877]] -- Special purpose Tcl CAEN V1290 driver [[ACAENV795|r104908]] -- Tcl Driver for CAEN V785 fixed initialization[[ACrdcXLM72|r104926]] -- Provide support for the XLM72 with the S800 CRDC Firmware[[AGD16XLM72|r105001]] -- Support XLM72 running 16 channel gate and delay generator firmware.[[ALevel3XLM72|r105066]] -- Support the MoNA/Sweeper level 3 trigger XLM7s fpga[[AMesytecMADC32|r105086]] -- Support for REA3 diganostics use of Mesytec MADC32[[APpacXLM72|r105103]] -- Provide support for XLM72 with PPAC readout firmware[[ATimeStampXLM72|r105164]] -- Use XLM72 with timestamp firmware[[sis3300|r105182]] -- Tcl driver for the SIS3300/3301 FADC without HiRA firmware[[CReadoutHardware|r105324]] -- Base class for mvlcgenerate compiled code drivers[[DeviceCommand|r105423]] -- Base class for mvlcgenerate device commands[[CReadoutModule|r105482]] -- Encapsulate a code generator and its configuration.[[CVMUSB|r105612]] -- Standin class for VMUSBReadout's CVMUSB class[[CVMUSBReadoutList|r105818]] -- Stand in for VMUSBReadout's CVMUSBReadoutList[[TCLConfigParser|r106127]] -- Base class for mvlcgenerate configuration parser[[MVLCCOnfigParser|r106293]] -- Provide MVLC specific `TCLConfigParser` classXVI. [[3tcl|r106340]][[TCL Ring package.|r106342]] -- Access Rings from tcl.[[getRingUsage|r106521]] -- Return list of ringbuffers and usage statistics[[ringExists|r106551]] -- Determine if a ringbuffer exists[[waitForRing|r106570]] -- Wait for a ring to exist with a timeout[[containers|r106592]] -- DAQ Manager Containers Database Package.[[programs|r106761]] -- API For the DAQ Manager Program Database[[sequence|r107034]] -- States, Sequence, Transitions API[[kvstore|r107445]] -- Access the manager configuration's key value store[[eventloggers|r107513]] -- Define Event Logging for the NSCLDAQ Manager.[[auth|r107778]] -- Manager Authorization System[[stateclient|r107871]] -- REST client of manager state machine[[programstatusclient|r107938]] -- REST Client for Manager /Programs Domain.[[kvclient|r108043]] -- Client To Manager's REST Key Value Store Service[[loggerrestclient|r108111]] -- Client to Manager's Event Log REST Interface[[ReadoutRESTClient|r108235]] -- Client for Readout REST servers[[ReadoutStatistics|r108356]] -- Display readout statistics (VIEW)[[ReadoutParameters|r108371]] -- Display/Set Readout Parametesrs (VIEW)[[ReadoutState|r108415]] -- Show Readout State and Request Transitions (VIEW)[[ReadoutUI|r108449]] -- Combined Readout Control Panel (REST VIEW).[[ssh|r108521]] -- Run programs on an ssh pipe.[[logbook|r108576]] -- Access Logbooks from Tcl[[logbookinstance|r108632]] -- Logbook API instance object.[[personinstance|r109004]] -- Encapsulate a logbook person for Tcl scripts[[shiftinstance|r109059]] -- Encapsulate a shift for Tcl scripts[[runinstance|r109107]] -- Encapsulate logbook runs for Tcl scripts[[noteinstance|r109207]] -- Tcl encapsulation of a note[[logbookadmin|r109322]] -- High level logbook interface[[logbookbundle|r109806]] -- Automate logging transitions in ReadoutGui[[lg_noteutilities|r109819]] -- Utilties for dealing with notes[[lg_utilities|r109883]] -- Utilties for Tcl logbook procssessing.[[EVBRestUI|r109976]] -- EVentBuilder REST Client View classes[[EVBRESTClient|r110222]] -- REST Client for Event Builder Statistics[[EVBRestControllers|r110481]] -- Controllers for MVC Event Builder Statistics Packages[[evblite::evblite|r110566]] -- Encapsulste EVBLite instances[[TclRingBuffer|r110686]] -- Tcl ring buffer consumer package[[portAllocator|r111007]] -- Tcl API for the DaqPortManager daemon.[[TclServer|r111109]] -- Embeddable Tcl Server script object[[CFD812|r111225]] -- low level control of the CAEN V812 CFD[[caenv812gui|r111375]] -- Megawidget control panel for the CAEN V812 CFD[[n568b|r111517]] -- Support package for the CAEN N568B shaper.[[n568Panel|r111715]] -- Control panel megawidget for N568 shaping amplifier[[iSegVhs|r111862]] -- SBS support for VHS 404 modules.[[VhsWidgets|r112376]] -- User interface components for VHS 404 power supplies.[[vhq|r112465]] -- Low level Tcl access to iSEG VHQ2xxx units.[[vhqPanel|r112662]] -- Control widget for iSeg vhq2xx VME bias supply.[[caennet|r112865]] -- Access CAENnet from Tcl scripts.[[camac|r112940]] -- Provide access to CES CBD8210 CAMAC to Tcl scripts[[wienercamac|r113117]] -- Tcl Script CAMAC access via VC32/CC32 boardset.[[sequencer|r113265]] -- 
-            Provide a ReadoutGui plugin for nscldaq 8.1 and later that can
-            automate several data taking runs.
-        [[plotcontainer|r113401]] -- Plotchart XY plot wrapper[[marker|r113725]] -- Manage markers on a plotchart plot.[[Process|r113827]] -- Simplified asynchronous pipeline handling[[TclSourceFilter|r113884]] -- Extract blocs mathing a regexp from a script[[Utils|r113934]] -- Tcl namespace with useful utility procs.[[wait|r114000]] -- Wait/reap for subprocess completion[[Pipe|r114057]] -- Make a unix pipe[[ppid|r114079]] -- Get parent process id.[[Orphan|r114098]] -- Run script when the process is orphaned[[FrameManager|r114138]] -- Make one of a set of widgets visible.[[FrameSequencer|r114221]] -- Manages a sequence of widgets (like a wizard e.g.).[[RingStatus|r114306]] -- Widget that shows ring status.[[ScaleControl|r114368]] -- Megawidget intended for axis scale control[[TransientLabel|r114506]] -- Label widget that transforms to default.XVII. [[3sbsReadout|r114560]][[CBusy|r114562]] -- Abstract base class for Busy module management.[[CCAENV262Busy|r114627]] -- Concrete busy class for the CAEN V262 input module.[[CCAENV262Triger|r114762]] -- Trigger module with CAEN V262[[CCompoundEventSegment|r114876]] -- Container for other event segments[[CDocumentedPacket|r115156]] -- Encapsulate event data in a packet that is documented.[[CEventPacket|r115429]] -- Encapsulate an event segment in a documented packet.[[CEventSegment|r115557]] -- Base class for all event segments.[[CEventTrigger|r115813]] -- Abstract base class for triggers.[[CExperiment|r115878]] -- Encapsulate the experiment.[[CInvalidPacketStateException|r116161]] -- Exception thrown by documented packets.[[CNullTrigger|r116281]] -- A trigger that never fires.[[CReadoutException|r116311]] -- Base class for readout specific exceptions[[CScalerBank|r116345]] -- Container for individual Scaler objects.[[CTimedTrigger|r116635]] -- CEventTrigger that fires periodically[[CV977Busy|r116733]] -- Concrete busy class using the CAEN V977 module[[CV977Trigger|r116845]] -- Concrete Trigger class using CAEN V977 module.[[RunState|r116949]] -- Encapsulate important state of the software.[[CScaler|r117059]] -- Base class for scaler readout classesXVIII. [[5daq|r117194]][[Manager REST|r117196]] -- DAQ Manager REST Specification[[DAQ manager database schema|r117525]] -- Document database tables for manager.[[Container Description File|r117852]] -- Describe containes to Manager configuration container wizard[[Readouts REST|r117929]] -- REST specification for Readouts[[Readout GUI Remote control protocol|r118087]] -- 
-         Documents the protocol used by the ReadoutGUI's remote control server.
-        [[Logbook Schema|r118253]] -- Describe schema of logbook databases.[[Event Builder REST|r118668]] -- Event Builder Statistics REST Protocol[[eventorderer|r118941]] -- Event orderer protocolXIX. [[5tcl|r119112]][[caen812configfile|r119114]] -- Format of configuration files for CAENV 812 software.[[n568configfile|r119230]] -- N568 shaper configuration file[[vhqconfig|r119356]] --  Config file for
-        XX. [[5vmusb|r119432]][[VMUSB slow controls protocol|r119434]] -- VMUSB Slow controls protocol
+- **Table of Contents**
+- I. [[user-guide|p3]]
+  - 1. [[NSCLDAQ In a Nut Shell|c5]]
+    - 1.1. [[Basics of Data Flow in NSCLDAQ|c5#AEN8]]
+    - 1.2. [[Pipeline Building, Run Control, and DAQ Modularization|x19]]
+    - 1.3. [[Built-in Diagnostics|x25]]
+    - 1.4. [[Extensibility and Openness|x33]]
+  - 2. [[The Ring Buffer|c43]]
+    - 2.1. [[Overview|c43#AEN45]]
+    - 2.2. [[Data Transfer and Flow Control|x94]]
+    - 2.3. [[Proxy Rings, Ring Masters, and Network Transparency|x111]]
+    - 2.4. [[Ring buffer utilities|x144]]
+  - 3. [[NSCLDAQ Data Format : The Ring Item|c197]]
+    - 3.1. [[Generic Ring Item Traits|c197#AEN202]]
+    - 3.2. [[The Body Header|x226]]
+    - 3.3. [[The Ring Item Types|x328]]
+  - 4. [[NSCLDAQ Manager subsystem (new in 12.0)|c760]]
+    - 4.1. [[Introduction|c760#sec.mgr.intro]]
+    - 4.2. [[Managed Objects and Configuration|x799]]
+    - 4.3. [[Running an Experiment With The Manager|x1228]]
+    - 4.4. [[Running Readout Software With the Manager|x1411]]
+    - 4.5. [[Using the NSCLDAQ Event Builder With the Manager|x1673]]
+    - 4.6. [[Composing experiment configurations from existing pieces|x1792]]
+  - 5. [[VMUSBReadout|c1812]]
+    - 5.1. [[Introduction|c1812#AEN1814]]
+    - 5.2. [[Basic Tenets of VM-USB Operation|x1854]]
+    - 5.3. [[Writing the Configuration Script|x1868]]
+    - 5.4. [[The Slow-Controls Subsystem|x1926]]
+    - 5.5. [[Running the VMUSBReadout program|x1971]]
+    - 5.6. [[Understanding VMUSBReadout Output|x2141]]
+    - 5.7. [[Developing a Timestamp Extractor Library|x2147]]
+    - 5.8. [[Extending the Supported Readout Hardware|x2269]]
+    - 5.9. [[Extending the slow controls subsystem|x2682]]
+    - 5.10. [[Pushing external data into the event stream|x3377]]
+  - 6. [[CCUSBReadout|c3419]]
+    - 6.1. [[How the CCUSB readout framework works|c3419#AEN3451]]
+    - 6.2. [[Writing DAQ configuration files|x3467]]
+    - 6.3. [[Writing device support software|x3508]]
+    - 6.4. [[Tcl device driver support|x3669]]
+    - 6.5. [[The slow controls subsystem|x3927]]
+    - 6.6. [[Running CCUSBReadout|x3941]]
+    - 6.7. [[Writing C++ slow controls device drivers|x4043]]
+    - 6.8. [[Writing Tcl slow controls device drivers|x4470]]
+    - 6.9. [[The ccusbcamac Tcl package|x4668]]
+  - 7. [[Non stack VMUSB Readout framwork **$DAQBIN/VMUSBnostackReadout**|c4749]]
+    - 7.1. [[Running the VMUSB no stack readout program|c4749#AEN4767]]
+    - 7.2. [[Supported Event Modules|x4908]]
+    - 7.3. [[Supported Scaler modules|x5217]]
+  - 8. [[ReadoutGUI & ReadoutShell|c5223]]
+    - 8.1. [[Principles of operation|c5223#AEN5240]]
+    - 8.2. [[Operating the user interface|x5321]]
+    - 8.3. [[The event logger and ReadoutShell|x5636]]
+    - 8.4. [[Customizing the ReadoutShell|x5668]]
+    - 8.5. [[Remote control package|x6064]]
+  - 9. [[Event Builder|c6101]]
+    - 9.1. [[Introduction|c6101#AEN6103]]
+    - 9.2. [[Using the event builder|x6112]]
+    - 9.3. [[More detail on when the fragments are ouptutted|x6146]]
+    - 9.4. [[Fragments and Data Format|x6152]]
+    - 9.5. [[Using the Event Builder With The Manager|x6232]]
+  - 10. [[EVBLite -  light event building|c6249]]
+    - 10.1. [[What is EVBLite|c6249#AEN6260]]
+    - 10.2. [[evbtagger - making event builder fragments from ring items.|x6300]]
+    - 10.3. [[The evblite Tcl package.|x6322]]
+  - 11. [[ScalerDisplay|c6367]]
+    - 11.1. [[What is the ScalerDisplay?|c6367#AEN6369]]
+    - 11.2. [[Why does it exist?|x6372]]
+    - 11.3. [[What does it do?|x6375]]
+    - 11.4. [[How to set up the ScalerDisplay|x6393]]
+  - 12. [[Examples (Beginning 11.2-009).|c6517]]
+    - 12.1. [[ReadNSCLDAQFiles - analyze NSCLDAQ data (released 11.2-009)|c6517#AEN6531]]
+  - 13. [[mvlcgenerate and using the Mesytec MVLC VME controller|c7047]]
+    - 13.1. [[Preparing your experiment to use the MVLC.|c7047#AEN7082]]
+    - 13.2. [[Reference manual for fribdaq-readout|x7091]]
+    - 13.3. [[RING ITEMS PRODUCED|x7329]]
+    - 13.4. [[BUILDING mesytec-mvlc WITH THE OPTIONAL fribdaq-readout PROGRAM|x7340]]
+    - 13.5. [[Extending the generator with loadable C++ generators|x7385]]
+    - 13.6. [[Tcl Drivers|x7676]]
+    - 13.7. [[XLM-72 based modlues|x8038]]
+- II. [[simple-setups|p8050]]
+  - 14. [[A Simple VMUSBReadout Experiment Tutorial|c8052]]
+    - 14.1. [[Introduction|c8052#AEN8054]]
+    - 14.2. [[Setting up the Electronics|x8075]]
+    - 14.3. [[The Configuration Files|x8115]]
+    - 14.4. [[Running VMUSBReadout|x8219]]
+    - 14.5. [[Understanding the Output|x8257]]
+    - 14.6. [[Developing a Tailored SpecTcl|x8324]]
+    - 14.7. [[The VMUSBSpecTcl Alternative|x8622]]
+    - 14.8. [[Using SpecTcl|x8631]]
+    - 14.9. [[Conclusion|x8658]]
+  - 15. [[Simple V775 readout|c8661]]
+    - 15.1. [[Introduction|c8661#AEN8663]]
+    - 15.2. [[Setting up the Electronics.|x8675]]
+    - 15.3. [[Creating the Readout program|x8695]]
+    - 15.4. [[Creating the tailored SpecTcl|x9005]]
+    - 15.5. [[Running the system.|x9390]]
+    - 15.6. [[Taking the example further.|x9496]]
+    - 15.7. [[The full readout program.|x9505]]
+    - 15.8. [[The full SpecTcl program.|x9561]]
+  - 16. [[Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register|c9586]]
+    - 16.1. [[PREFACE|c9586#AEN9588]]
+    - 16.2. [[The electronics|x9609]]
+    - 16.3. [[Setting up the software|x9673]]
+    - 16.4. [[The dumper program|x9795]]
+    - 16.5. [[Running the Readout Program|x9839]]
+    - 16.6. [[Interpreting the dumper output|x9873]]
+- III. [[device-support|p9905]]
+  - 17. [[Mesytec MCFD-16 Controls|c9907]]
+    - 17.1. [[Overview|c9907#AEN9909]]
+    - 17.2. [[Starting the GUI for USB communication|x9915]]
+    - 17.3. [[Starting the GUI for the RC-bus through an MxDC device|x9932]]
+    - 17.4. [[Configuration menu|x9957]]
+    - 17.5. [[Saving and restoring state|x9977]]
+  - 18. [[Mesytec MSCF-16 Controls|c9995]]
+    - 18.1. [[Overview|c9995#AEN9997]]
+    - 18.2. [[Synchronization Paradigm|x10002]]
+    - 18.3. [[Starting the GUI for USB communication|x10006]]
+    - 18.4. [[Saving and restoring state|x10023]]
+  - 19. [[Wiener MDGG-16 Controls|c10045]]
+    - 19.1. [[Overview|c10045#AEN10047]]
+    - 19.2. [[How to use the MDGG16Control GUI|x10052]]
+    - 19.3. [[Saving and Restoring The State of the GUI Between Sessions|x10085]]
+  - 20. [[XLM72 Gate Delay Control GUI|c10093]]
+    - 20.1. [[Introduction|c10093#AEN10095]]
+    - 20.2. [[Setting up an XLM72 as a gate delay generator for remote control|x10110]]
+    - 20.3. [[Launching the XLM72GateDelayControl|x10121]]
+    - 20.4. [[Overview of Functionality|x10144]]
+    - 20.5. [[The Saved File|x10149]]
+  - 21. [[ULM Trigger GUI|c10155]]
+    - 21.1. [[Configuring CCUSBReadout for Remote Communication|c10155#AEN10158]]
+    - 21.2. [[Launching the ULMTriggerGUI|x10163]]
+    - 21.3. [[Overview of Basic Operation|x10198]]
+  - 22. [[Sample programs for the SIS3316/SIS3316-2 digitizer.|c10204]]
+- IV. [[commands|p10215]]
+  - 23. [[Command line access to CAMAC via the SBS interface|c10217]]
+- V. [[utilities|p10241]]
+  - 24. [[Ring piping utilities|c10243]]
+  - 25. [[NSCLDAQ Logbook facility|c10269]]
+    - 25.1. [[Components of the NSCL logbook system|c10269#sec.lg_inventory]]
+    - 25.2. [[Setting up a logbook for use.|x10440]]
+    - 25.3. [[Using the logbook in an experiment|x10562]]
+    - 25.4. [[Making logbooks available to collaborators|x10861]]
+    - 25.5. [[x10955]]
+  - 26. [[glom|c11148]]
+    - 26.1. [[Format of glom's output|c11148#AEN11159]]
+  - 27. [[unglom|c11169]]
+  - 28. [[The dumper program|c11188]]
+    - 28.1. [[Item dump formats and examples|c11188#AEN11216]]
+  - 29. [[The Event log program|c11252]]
+  - 30. [[The tcl server application|c11282]]
+    - 30.1. [[Tcl server package|c11282#AEN11301]]
+  - 31. [[CAEN V812 Constant Fraction Discriminator|c11305]]
+  - 32. [[N568B CAENnet shaping amplifier|c11342]]
+  - 33. [[VHS-40xxx SBS support.|c11377]]
+  - 34. [[cratelocator|c11412]]
+  - 35. [[Tcl access to the VME via the SBS interface|c11425]]
+    - 35.1. [[Incorporating Vme Tcl in your scripts|c11425#AEN11440]]
+    - 35.2. [[Sample programs that use the package|x11460]]
+  - 36. [[VM/CCUSB Firmware loaders|c11467]]
+  - 37. [[xlmload firmware loader for XLM modules via VM-USB controllers.|c11487]]
+  - 38. [[Sequencing runs|c11493]]
+    - 38.1. [[Configuring the sequencer.|c11493#AEN11498]]
+    - 38.2. [[Using the sequencer.|x11563]]
+  - 39. [[The ringselector application|c11583]]
+  - 40. [[Compatibility utilities|c11664]]
+    - 40.1. [[Format conversion with compatibilitybuffer|c11664#AEN11677]]
+    - 40.2. [[Writing event files with compatibilitylogger|x11701]]
+    - 40.3. [[Converting NSCLDAQ-V10.x data to NSCLDAQ-11.x data|x11720]]
+    - 40.4. [[Convenience scripts|x11729]]
+    - 40.5. [[BufferToRing|x11764]]
+  - 41. [[Providing EPICS channel information to Tcl Servers|c11769]]
+  - 42. [[The epics display utility|c11807]]
+  - 43. [[Epics Channel logging|c11826]]
+- VI. [[servers|p11839]]
+  - 44. [[The RingMaster server|c11841]]
+    - 44.1. [[The RingMaster Protocol|c11841#AEN11854]]
+  - 45. [[Service Port Manager.|c11997]]
+- VII. [[libraries|p12013]]
+  - 46. [[Ring master class library.|c12015]]
+  - 47. [[Networked ring buffer access|c12035]]
+  - 48. [[Ring Buffer Primitives|c12098]]
+    - 48.1. [[Incorporating ring buffer software|c12098#AEN12112]]
+    - 48.2. [[Overview and Examples of ring buffers in action.|x12135]]
+  - 49. [[The Tcl ring package|c12218]]
+  - 50. [[Data Format Support Software|c12233]]
+    - 50.1. [[The basic data formats|c12233#AEN12248]]
+    - 50.2. [[Selecting Data From a Ring Buffer|x12691]]
+    - 50.3. [[Incorporating the headers and libraries into your applications.|x12719]]
+    - 50.4. [[Generic ring data sinks|x12828]]
+    - 50.5. [[Creating ring items|x12842]]
+  - 51. [[DAQ Manager APIs|c12947]]
+    - 51.1. [[Manager Configuration Database API|c12947#sec.manager.dbapi]]
+    - 51.2. [[Manager REST client API.|x13812]]
+    - 51.3. [[Manager User Interface API|x14002]]
+  - 52. [[Event builder client API|c14307]]
+    - 52.1. [[C++ Client API|c14307#AEN14316]]
+    - 52.2. [[Incorporating the event builder client library|x14330]]
+    - 52.3. [[Connecting to the event builder.|x14354]]
+    - 52.4. [[Disconnecting from the event builder.|x14387]]
+    - 52.5. [[Sending data to the event builder.|x14405]]
+    - 52.6. [[The Event orderer/event builder API|x14495]]
+    - 52.7. [[Callbacks|x14529]]
+  - 53. [[TclRingBuffer Tcl package.|c14565]]
+    - 53.1. [[What is it?|c14565#AEN14567]]
+    - 53.2. [[How do I use it?|x14571]]
+    - 53.3. [[Using TclRingBuffer in event driven software|x14613]]
+  - 54. [[The ccusbcamac tcl package|c14668]]
+    - 54.1. [[Overview|c14668#AEN14670]]
+    - 54.2. [[A simple example|x14749]]
+  - 55. [[SBS VME Module level device support software|c14767]]
+  - 56. [[Tcl CAENet package|c14779]]
+  - 57. [[The CES CBD 8210 Tcl CAMAC Package|c14820]]
+    - 57.1. [[Incorporating camac into your scripts|c14820#AEN14832]]
+    - 57.2. [[An overview of the use of the camac package|x14851]]
+  - 58. [[The Wienercamac Tcl package|c14870]]
+    - 58.1. [[Incorporating wienercamac in your scripts.|c14870#AEN14884]]
+    - 58.2. [[Using wienercamac|x14916]]
+  - 59. [[Integer byte order conversion library|c15058]]
+    - 59.1. [[Using the conversion library in your code|c15058#AEN15065]]
+    - 59.2. [[Byte order signatures and conversion blocks|x15082]]
+    - 59.3. [[Data conversion|x15102]]
+  - 60. [[NSCL DAQ Thread Library|c15139]]
+    - 60.1. [[The thread and synchronization model|c15139#AEN15149]]
+    - 60.2. [[Incorporating the library into an application.|x15248]]
+    - 60.3. [[Using CGaurdedObject to implement synchronized methods|x15259]]
+    - 60.4. [[Thread safe queues (`CBufferQueue`).|x15299]]
+    - 60.5. [[Pointers to the reference material|x15371]]
+  - 61. [[Access control and security|c15399]]
+    - 61.1. [[Incorporting the software into your code|c15399#AEN15405]]
+    - 61.2. [[Authenticators|x15419]]
+    - 61.3. [[Interactors|x15464]]
+  - 62. [[Parsing and URIs|c15532]]
+  - 63. [[Shared memory|c15590]]
+    - 63.1. [[Overview of the API, and using it from within your C++ software|c15590#AEN15603]]
+    - 63.2. [[Compiling/Linking your software with the shared memory API|x15661]]
+  - 64. [[The `Os` class|c15680]]
+  - 65. [[io|c15690]]
+  - 66. [[Plotchart|c15716]]
+  - 67. [[TCPIP classes|c15725]]
+    - 67.1. [[Library concepts|c15725#AEN15754]]
+    - 67.2. [[Incorporating the socket library|x15811]]
+  - 68. [[C++ encapsulation of a Tcl API subset|c15830]]
+  - 69. [[The NSCL Exception class library|c15888]]
+    - 69.1. [[Incorporating the library in your programs|c15888#AEN15909]]
+    - 69.2. [[Exception classes|x15919]]
+  - 70. [[Parallel programming framework|c15949]]
+    - 70.1. [[Concepts and classes|c15949#AEN15975]]
+    - 70.2. [[Transport implementations|x16027]]
+    - 70.3. [[Compiling and linking parallel programs|x16075]]
+  - 71. [[Transformer|c16090]]
+    - 71.1. [[User shared libraries for Transformer|c16090#AEN16107]]
+    - 71.2. [[Building the use shared library|x16146]]
+  - 72. [[SoftwareTrigger|c16312]]
+  - 73. [[EventEditor|c16317]]
+- VIII. [[frameworks|p16321]]
+  - 74. [[Injecting variables into the USB data taking frameworks|c16323]]
+  - 75. [[Event orderer and its user interface|c16351]]
+    - 75.1. [[Event orderer design philosophy.|c16351#AEN16366]]
+    - 75.2. [[Using the standard event orderer startup script|x16371]]
+    - 75.3. [[Writing an event orderer startup script|x16382]]
+    - 75.4. [[Event orderer packages|x16448]]
+  - 76. [[Event builder client framework|c16517]]
+    - 76.1. [[Application specific code for the event builder|c16517#AEN16537]]
+    - 76.2. [[Building event builder clients.|x16705]]
+    - 76.3. [[Running event builder clients|x16750]]
+    - 76.4. [[ringFragmentSource - a prepackaged client for ringbuffer data sources|x16783]]
+  - 77. [[Event builder Readout Callouts|c16876]]
+    - 77.1. [[Introduction|c16876#AEN16878]]
+    - 77.2. [[API layer|x16892]]
+    - 77.3. [[EVBC state manager callback bundle.|x16899]]
+    - 77.4. [[EZBuilder|x16935]]
+  - 78. [[The SBS Readout framework|c16939]]
+    - 78.1. [[SBS Readout concepts|c16939#AEN16950]]
+    - 78.2. [[Obtaining and building the skeleton application|x17345]]
+    - 78.3. [[Modifying the skeleton application to meet your needs|x17360]]
+    - 78.4. [[Readout commands|x17432]]
+    - 78.5. [[Embedded Tcl server|x17448]]
+    - 78.6. [[Running a readout application|x17458]]
+  - 79. [[Filter framework|c17463]]
+    - 79.1. [[Overview|c17463#AEN17465]]
+    - 79.2. [[Getting Started|x17485]]
+    - 79.3. [[Defining a primitive filter|x17488]]
+    - 79.4. [[Building a composite filter|x17517]]
+    - 79.5. [[The main function|x17521]]
+    - 79.6. [[Building the filter program|x17548]]
+  - 80. [[The actions library|c17551]]
+    - 80.1. [[Introduction|c17551#AEN17554]]
+    - 80.2. [[How does it work?|x17627]]
+    - 80.3. [[Run Control and Command Execution|x17630]]
+    - 80.4. [[Exemplified Usage of the Actions package|x17635]]
+  - 81. [[Support for CAEN Nextgen DPP-PHA digitizers|c17643]]
+    - 81.1. [[Introduction|c17643#AEN17645]]
+    - 81.2. [[Getting Data|x17673]]
+    - 81.3. [[Event structure|x18481]]
+    - 81.4. [[Configuring SpecTcl|x18589]]
+    - 81.5. [[Software structure|x19086]]
+  - 82. [[Software Triggering NEW IN 11.4|c19187]]
+    - 82.1. [[Creating classification libraries.|c19187#AEN19211]]
+    - 82.2. [[The SoftwareTrigger and EventFilter programs|x19329]]
+- IX. [[Reference Pages|p19406]]
+  - I. [[1compatibility|r19408]]
+    - [[compatibilitybuffer|r19410]] -- Filter ring items to spectrodaq buffers
+    - [[convert10to11|r19458]] -- Filter converting NSCLDAQ10.x to NSCLDAQ11.x data.
+    - [[compatibilitylogger|r19491]] -- Create spectrodaq formatted event log files.
+    - [[eventlog-compat|r19541]] -- Provide event logger pipeline for use with ReadoutGUI.
+    - [[spectcldaq|r19598]] -- Pipe data source for SpecTcl in spectrodaq buffer mode.
+    - [[spectcldaq.server|r19649]] -- TCP/IP server of ring data in spectrodaq format.
+    - [[BufferToRing|r19720]] -- Convert old buffered data to ring buffer format.
+    - [[bufdump|r19795]] -- Dump NSCLDAQ event files earlier than version 10.0
+  - II. [[1daq|r19872]]
+    - [[ringbuffer|r19874]] -- Manage ring buffers.
+    - [[ringtostdout|r20001]] -- Transmit data from a ring buffer to stdout.
+    - [[compatibilitybuffer|r20065]] -- Pipe stdin to a ring buffer.
+    - [[mg_mkconfig|r20127]] -- Create NSCLDAQ Manager ConfigurationDatabase
+    - [[mg_config|r20150]] -- Launcher for all manager configuration editors.
+    - [[mg_cfgcontainers|r20188]] -- Configure the containers known to the NSCLDAQ manager
+    - [[mg_cfgprogram|r20226]] -- Configure manager program definitions
+    - [[mg_stateedit|r20265]] -- Edit DAQ Manager state machine
+    - [[mg_seqedit|r20311]] -- Edit DAQ manager sequences
+    - [[mg_cfgEvlog|r20354]] -- Configure DAQ manager event logging.
+    - [[mg_kvedit|r20480]] -- Edit the DAQ Manager Key/Value Store
+    - [[mg_authedit|r20515]] -- Edit NSCLDAQ manager authorization database.
+    - [[mg_monitorOutput|r20592]] -- Monitor the Output from Managed Programs.
+    - [[rdo_RunControl|r20642]] -- DAQ Manager Run Control Panel.
+    - [[EVBMonitor|r20679]] -- Monitor Event Builder Statistics via REST Interface.
+    - [[mg_startloggers|r20774]] -- Start Event Managed Event Loggers
+    - [[rdo_runFromKv|r20794]] -- Set Run Number from Key Value STore
+    - [[rdo_titleFromKv|r20826]] -- Set Readout Title From the KV 'title' Value.
+    - [[rdo_control|r20858]] -- Control a Readout via ReadoutREST
+    - [[mg_startManager|r20962]] -- Start the DAQ Manager
+    - [[mg_shutdown|r20978]] -- Shutdown the DAQ manager.
+    - [[mg_kvget|r20997]] -- Get the value of a manager KV store key.
+    - [[mg_container_wizard|r21030]] -- Make the creation of container definitions simpler
+    - [[mg_readout_wizard|r21164]] -- Create managed readouts
+    - [[mg_logwizard|r21443]] -- Wizard to create event loggers for managed experiments
+    - [[mg_program_wizard|r21461]] -- Wizard to create programs for managed experiments
+    - [[mg_import|r21481]] -- Import an experiment definition
+    - [[ReadoutShell|r21508]] -- Shell wrapper for readout programs.
+    - [[evbwizard|r21617]] -- Set up readout GUI and event builder.
+    - [[lg_create|r21640]] -- Create a new logbook database.
+    - [[lg_current|r21692]] -- Set the current logbook database
+    - [[lg_ls|r21718]] -- Show current logbook.
+    - [[lg_addperson|r21731]] -- Add a person to the logbook.
+    - [[lg_lspeople|r21755]] -- List the people defined in the logbook.
+    - [[lg_mkshift|r21770]] -- Create a logbook shift
+    - [[lg_mgshift|r21791]] -- Manage shifts and memberships
+    - [[lg_selshift|r21835]] -- Select the current shift
+    - [[lg_kvstore|r21853]] -- Manipulate the key value store.
+    - [[lg_wrnote|r21899]] -- Write logbook notes
+    - [[lg_browse|r21915]] -- Logbook browser
+    - [[lg_print|r21928]] -- Convert part or all of the logbook to PDF.
+    - [[lg_lspeople|r21954]] -- List people that are defined
+    - [[frag2ring|r21967]] -- Filter flattened fragments to ring items.
+    - [[EVBShutdown|r22055]] -- Stop Orderer Started with EVBRest
+    - [[EVBRest|r22079]] -- Run Event Builder Orderer With REST Interface
+    - [[glom|r22096]] -- Glue Ordered Fragments Into Events
+    - [[Event builder client framework|r22151]] -- Event builder cilent framework
+    - [[RingSourceMgr|r22205]] -- A callout bundle that spawns ringFragmentSource processes.
+    - [[glom|r22336]] -- Glue event fragments together into events
+    - [[evbtagger|r22395]] -- Filter to add fragment headers
+    - [[ringFragmentSource|r22441]] -- Provide Fragments To EventBuilder From Ring Buffers.
+    - [[unglom|r22532]] -- Break up an event file into event fragments
+    - [[ScalerDisplay|r22579]]<a name="manpage.scalerdisplay"></a> -- Display counts and rates in scalers.
+    - [[dumper|r22906]] -- Produce a formatted dump of event data.
+    - [[eventlog|r23019]] -- Record Event Data to Disk.
+    - [[VMUSB V812 control|r23120]] -- Adapt CAENV812GUI to the VM-USB readout
+    - [[gdgpanel|r23207]] -- Tabbed notebook for multiple GDG-8 controllers.
+    - [[xlmload|r23263]] -- Load firmware into XLM modules.
+    - [[ccusbloader|r23348]] -- CC-USB Firmware loader
+    - [[vmusbloader|r23382]] -- VM-USB Firmware loader
+    - [[ringselector|r23416]] -- Provide selected ring data to non NSCL DAQ aware clients
+    - [[tkdumper|r23549]] -- GUI Dump of ring buffer items.
+    - [[offlinereglom|r23573]] -- Offline event rebuilder.
+    - [[Unglom (note capital U)|r23617]] -- Break up event file into fragment flie
+    - [[reglom|r23639]] -- Rebuild events offline
+    - [[timecheck|r23708]] -- Check for out of order timestamps in event files
+    - [[evttclsh|r23728]] -- Tcl interpreter that always runs an event loop
+    - [[DDASReadout|r23751]] -- Read data from XIA digitizer modules.
+    - [[ddasReadout|r23815]] -- Run DDASReadout and an associated sorter.
+    - [[ddasSort|r23994]] -- Sort data obtained using `DDASReadout`.
+    - [[ringdiagnostics|r24042]] --  Diagnose ring data flow bottlenecks
+    - [[mvlcgenerate|r24101]] -- Generate config files for the mvlc fribdaq-readout program
+    - [[mvlc_xlmload|r24203]] -- Connect to and MVLC and load firmware for an XLM-72
+    - [[ring_monitor|r24325]] -- Monitor ring throughput statistics
+    - [[statsview|r24423]] -- View ringbuffer statistics in a system
+    - [[SoftwareTrigger|r24496]] -- Classify events for later filtering in the software trigger.
+    - [[EventFilter|r24600]] --
+    - [[Transformer|r24658]] -- Add extensions to fragments of event built data
+    - [[EventEditor|r24797]] -- Edit event fragment bodies.
+    - [[FullEventEditor|r24995]] -- Edit the entire body of an event built event.
+    - [[SoftwareTrigger|r25145]] -- Classify event for EventFilter.
+    - [[EventFilter|r25224]] -- Filter classified events.
+  - III. [[1epics|r25297]]
+    - [[controlpush|r25299]] -- 
+                Push epics data into a Tcl Server (e.g. production readout).
+    - [[chanlog|r25408]] -- Write a set of channels to file
+  - IV. [[1evb|r25474]]
+    - [[EVB_BarrierStats_incomplete|r25476]] -- Display incomplete barrier statistics
+    - [[EVB_BarrierStats_queueBarriers|r25576]] -- Displays per queue barrier statistics
+    - [[EVB_BarrierStats_Summary|r25655]] -- UI element to summarize barrier statistics.
+    - [[EVB_CallbackManager|r25697]] -- Object that manages callback sets.
+    - [[EVB_connectionList|r25787]] -- List event builder connections
+    - [[EVB_GUI procs|r25839]] -- Standard monitor UI procs.
+    - [[EVB_inputStatistics_statusDisplay|r25894]] -- Widget to display input statitics
+    - [[EVB_inputStatistics_queueStats|r26071]] -- Per queue input statistics widget
+    - [[EVB_inputStatistics_queueDisplay|r26174]] -- Display input queue statistics
+    - [[EVB_inputStatistics:_summaryDisplay|r26236]] -- Summary of input statistics.
+    - [[EVB_lateFragments|r26298]] -- Late fragment statistics
+    - [[EVB_lateSummary|r26379]] -- Widget to display summar of data late fragments.
+    - [[EVB_outputStatistics|r26424]] -- Complete output statistics widget
+    - [[EVB_outputSummary|r26521]] -- Summarize output statistics
+    - [[EVB_utility_sortedPair|r26587]] -- Key value pair widget
+    - [[EVB_utility_sortedWidget|r26692]] -- General key/widget sorted list
+    - [[EventBuilder|r26829]] -- Event builder utility **proc**s
+    - [[Observer|r26985]] -- Support the Observer pattern
+    - [[EvbOrderer|r27094]] -- Event orderer compiled commands.
+    - [[EVB::handleFragment|r27370]] -- Submit event fragments.
+    - [[EVB::inputStats|r27399]] -- Event builder input statistics
+    - [[EVB::outputStats|r27457]] -- Get orderer output statistics
+    - [[EVB::dlatestats|r27486]] -- Get the late fragment statistics.
+    - [[EVB::onDataLate|r27524]] -- Bind scripts to data late events.
+    - [[EVB::barriertrace|r27558]] -- Supply a script to invoke on barrier events.
+    - [[EVB::source|r27588]] -- Create event source queues.
+    - [[EVB::deadsource|r27616]] -- Mark a data source dead.
+    - [[EVB::reviveSocket|r27641]] -- Revive all dead data sources associated with a socket
+    - [[EVB::flush|r27666]] -- Empty all input queues.
+    - [[EVB::reset|r27689]] -- Reset timestamp clocks.
+  - V. [[1tcl|r27712]]
+    - [[DaqPortManager|r27714]] -- Manage TCP/IP service ports and advertise their allocations
+    - [[lsservices|r27831]] -- List advertised services
+    - [[tclserver|r27872]] -- Start a Tcl Server.
+    - [[serverauth|r27925]] -- Control tcl server authorization.
+    - [[ledph7106.tcl|r27981]] -- PH7106 Control application for CCUSBReadout
+    - [[canev812control|r28011]] -- GUI for controlling CAEN V812 CFD modules
+    - [[loadcfd|r28041]] -- Load settings in to a CAEN V812 CFD module.
+    - [[cesbcnaf|r28070]] -- CAMAC operation via a CES CAMAC interface
+    - [[wienerbcnaf|r28105]] -- CAMAC operation via a Wiener VC32/CC32 board set
+    - [[bcnaf|r28140]] -- bcnaf via SBS VME CAMAC interfaces
+    - [[loadshaper|r28186]] -- Load setttings into an N568 shaper via SBS/V288.
+    - [[n568Control|r28214]] -- GUI for the n568 shaper.
+    - [[vhsPanel|r28247]] -- Canned VHS Control panel
+    - [[vhqControl|r28285]] -- Control panel application for VHQ bias supply modules.
+    - [[cratelocator|r28311]] -- locate specific SBS VME crate controllers.
+    - [[SBS Vme Tcl package|r28347]] -- Provide access to VME crates to Tcl scripts.
+    - [[epicsdisplay|r28464]] -- Display epics channels
+  - VI. [[1sbsReadout|r28547]]
+    - [[Readout|r28549]] -- Start an event readout program.
+  - VII. [[1utilities|r28704]]
+    - [[vmusbcaenupgrader|r28706]] -- CAEN cvUpgrade ported to VM-USB interface
+  - VIII. [[3daq|r28858]]
+    - [[CRingMaster|r28860]] -- RingMaster access.
+    - [[CRingAccess|r29102]] -- Remote Ring Access
+    - [[CZCopyRingBuffer|r29295]] -- Provide zero copy access to low level ring buffers.
+    - [[CRingBuffer|r29354]] -- Low level ring buffer primitives
+    - [[CRingItem|r30177]] -- Encapsulates an item in a ring buffer.
+    - [[CRingScalerItem|r30665]] -- Encapsulate ring buffer scaler items.
+    - [[CRingStateChangeItem|r31162]] -- Encapsulate a ring buffer state change item.
+    - [[CRingTextItem|r31604]] -- Encapsulate ring items that are lists of text strings.
+    - [[CPhysicsEventItem|r31966]] -- Response to trigger.
+    - [[CRingPhysicsEventCountItem|r32162]] -- Provides statistics regarding the number of events produced.
+    - [[CRingFragmentItem|r32524]] -- Encapsulate a EVB_FRAGMENT ring item
+    - [[CUnknownFragment|r32839]] -- Event fragment likley not containing a ring item
+    - [[CDataFormatItem|r32937]] -- Describe the format of a stream of ringitems.
+    - [[CGlomParameters|r33191]] -- Reports event building parameters.
+    - [[CAbnormaEndItem|r33459]] -- Abnormal end of run.
+    - [[CRingSelectionPredicate|r33673]] -- Base class for predicates that select items from
+                ring buffers.
+    - [[CAllButPredicate|r34015]] -- Select all ring items except some.
+    - [[CDesiredTypesPredicate|r34201]] -- Only accept specified ring item types.
+    - [[DataFormat.h|r34376]] -- Format of ring items.
+    - [[format  Functions|r34902]] -- Functions to create ring items.
+    - [[CDataSource|r36308]] -- Abstract base class of data source for ring items.
+    - [[CRingDataSource|r36360]] -- Ringbuffer data source for ring items.
+    - [[CFileDataSource|r36439]] -- Ring item data source from a file
+    - [[CDataSourceFactory"|r36506]] -- Create data sources given a URI
+    - [[CRingItemFactory|r36573]] -- Upcast ring items to specific ring item objects.
+    - [[CDataSink|r36676]] -- Abstract base class for data sinks.
+    - [[CFileDataSink|r36767]] -- Data sink to a disk file.
+    - [[CRingDataSink|r36909]] -- Data sink that writes to a `CRingBuffer`
+    - [[CDataSinkFactory|r37010]] -- Create an appropriate CDataSink object
+    - [[CRingBufferChunkAccess|r37076]] -- Provides zero copy, low level consumer access to ring buffers
+    - [[LIBUSB1 INTRO|r37333]] -- Wrappers for userspace USB library.
+    - [[USBException|r37376]] -- Report errors from libUSB1
+    - [[USB|r37403]] -- Encapsulate low level USB context
+    - [[USBDeviceInfo|r37453]] -- Provide information about a USB device.
+    - [[USBDevice|r37599]] -- I/O object for a USB device
+    - [[XXUSBUtil|r37850]] -- Utility methods for JTEC/Wiener XXUSB controllers
+    - [[LogBook|r38166]] -- Top Level Logbook C++ API
+    - [[LogBookPerson|r38922]] -- Encapsulate a person registered in a logbook.
+    - [[LogBookShift|r39058]] -- Encapsulates shifts in logbook databases
+    - [[LogBookRun|r39231]] -- Encapsulates runs from logbooks.
+    - [[LogBookNote|r39722]] -- Encapsulate logbook notes.
+    - [[fragment.h|r40050]] -- Define event builder fragment structures.
+    - [[CEvbClientApp|r40277]] -- Framework event builder client application.
+    - [[CEVBClientFramework|r40431]] -- Event builder client framework.
+    - [[CEventOrderClient|r40497]] -- Client of the event orderer
+    - [[FragmentIndex|r40718]] -- Iterator for event built data.
+    - [[CPortManager|r40929]] -- Provide a C++ interface to the server port manager daemon.
+    - [[CPortManagerException|r41090]] -- Report errors conditions in port manager transactions
+    - [[CADC2530|r41251]] -- Support the Hytec NADC 2530 Peak sensing ADC.
+    - [[CAENcard|r41723]] -- Support for the CAEN 32 bit digitizers
+    - [[CBD8210|r42528]] -- CES CBD 8210 CAMAC branch highway driver (obsolete)
+    - [[CCAENV1x90|r42906]] -- Support for the CAEN V1190 and V1290
+                        multihit, complicated TDC.
+    - [[CCAENV560|r45298]] -- Support the CCAENV560 non-latching scaler.
+    - [[CCAENV830|r45472]] -- Support driver for the CAEN V820/V830 latching scaler module.
+    - [[CCAENV977|r46039]] -- Software support for the CAEN V977 I/O register.
+    - [[CCAMACScalerLRS2551|r46448]] -- Support software for the LeCroy LRS 2551 12 channel CAMAC scaler
+    - [[CCAMACScalerLRS4434|r46568]] -- High level support software for the 32 channel LeCroy LRS 4434 CAMAC scaler module
+    - [[CCAMACStatusModule|r46690]] -- Provide computer busy status support for the BiRA CAMAC
+                    NIM out module.
+    - [[CCAMACTrigger|r46808]] -- Trigger module for the CES CBD 8210 VME CAMAC Parallel Branch Highway Driver
+    - [[CCamac|r46872]] -- Manages CAMAC memory maps.
+    - [[CCamacModule|r46964]] -- Provide support for a generic CAMAC module.
+    - [[CCamacNimout|r47348]] -- Provides low level support for the BiRa CAMAC Nim output module.
+    - [[CCrateController|r47447]] -- Encapsulation of a BiRa 1302 CAMAC controller via CES CBS8210.
+    - [[CSIS3600|r47797]] -- Support for the SIS 3600 VME latch module.
+    - [[CSIS3820|r48266]] -- Low level support for SIS 3820 32 channel latching scaler module
+    - [[CScaler|r48982]] -- Abstract base class for reading scalers into a vector
+    - [[CStatusModule|r49099]] -- Abstract base class for status modules.
+    - [[CTrigger|r49174]] -- Abstract base class for triggers
+    - [[CVME|r49212]] -- Pointer like object for accessing the VME
+    - [[CVMEScalerLRS1151|r49566]] -- High level support for the LeCroy LRS 1151 VME scaler.
+    - [[CVMEStatusModule|r49663]] -- Implement a status module using the CAEN V262 module.
+    - [[CVMETrigger|r49757]] -- VME trigger class based on the CAEN V262 I/O module.
+    - [[CVMEptr|r49818]] --
+    - [[CaenIO|r50171]] -- Support for the CAEN V262 I/O register module.
+    - [[CMmapError|r50328]] -- Exception that can be thrown in the event of memory mapping errors.
+    - [[CNimout|r50373]] -- Low level support for the BiRa VME nim output module
+    - [[CVmeModule|r50657]] -- Convenience base class for implementing VME module support
+    - [[CSIS3300|r50965]] -- Low Level support for the SIS 3300 Flash ADC module
+    - [[CFilter|r51708]] -- Base class for primitive filters
+    - [[CCompositeFilter|r51892]] -- A composite filter composed of primitive filters
+    - [[CFilterMain|r52112]] -- Ring item filter application class.
+    - [[cvt|r52185]] -- Integer byte order conversions
+    - [[Thread|r52381]] -- Abstract base class for thread objects.
+    - [[CSynchronizedThread|r52524]] -- Thread with synchronized initialization
+    - [[Synchronizable|r52619]] -- Wait queue for threads
+    - [[SyncGuard|r52727]] -- Provide Critical Regions, Monitors
+    - [[CMutex|r52904]] -- C++ encapsulation of pthread mutexes.
+    - [[CriticalSection|r53135]] -- Simple, safe critical section
+    - [[CCondition|r53168]] -- Encapsulate POSIX condition variables.
+    - [[CGaurdedObject|r53479]] -- Provide entry/exit guards for object critical regions.
+    - [[CBufferQueue|r53545]] -- Templated class for safe inter-thread messaging.
+    - [[CAuthenticator|r53742]] -- Abstract base authenticator class.
+    - [[CPasswordCheck|r53854]] -- Authenticate against a stored password.
+    - [[CUnixUserCheck|r54052]] -- Authenticate against a unix user name and password.
+    - [[CTclAccessListCheck|r54273]] -- Authenticate against a Tcl List.
+    - [[CAccessListCheck|r54377]] -- Authenticate against a list of allowed credentials.
+    - [[CHostListCheck|r54529]] -- Authenticate from a list of TCP/IP hosts
+    - [[CInteractor|r54719]] -- Base class for security interactions.
+    - [[CStringInteractor|r54898]] -- Provide an interactor that processes strings.
+    - [[CFdInteractor|r55069]] -- Interact with  file descriptor
+    - [[CIOInteractor|r55205]] -- Separate prompt and input interactors.
+    - [[URL|r55340]] -- Parse Uniform Resource Identifiers (URI)
+    - [[CopyrightNotice|r55490]] -- Generate license/author credits.
+    - [[io|r55596]] -- Binary I/O operations.
+    - [[Os|r55720]] -- Operating system interfaces.
+    - [[CDAQShm|r55905]] -- class description
+    - [[io::CBufferedOutput|r56274]] -- Simple binary buffered output class with flush.
+    - [[CRingBlockReader|r56370]] -- ABC for reading blocks of ring items from a source.
+    - [[CRingFileBlockReader|r56469]] -- CRingBlockreader that reads from file.
+    - [[CElapsedTime|r56506]] -- Subsecond measurement of elapsed times.
+    - [[CSocket|r56522]] -- Encapsulation of a socket file descriptor.
+    - [[CTCPBadSocketState|r57376]] -- class description
+    - [[CTCPConnectionFailed|r57495]] -- Exception thrown for TCP/IP connection failures.
+    - [[CTCPConnectionLost|r57617]] -- Exception thrown when connection to peer is lost
+    - [[CTCPNoSuchHost|r57727]] -- CTCPNoSuchHost
+    - [[CTCPNoSuchService|r57862]] -- Exception thrown if a nonexistent service is referenced
+    - [[CTCLApplication 3|r57950]] -- 
+                Base class for TCL/Tk applications.
+    - [[CTCLException|r58003]] -- 
+                Class for reporting exceptional conditions in Tcl applications
+                via the C++ try/catch mechanism.
+    - [[CTCLInterpreter|r58156]] -- 
+                Encapsulate a Tcl interpreter.
+    - [[CTCLInterpreterObject  3|r58384]] -- 
+                Base class for objects that are associated with a Tcl Interpreter.
+    - [[CTCLList|r58473]] -- 
+                Provide access to Tcl List parsing.
+    - [[CTCLObject|r58592]] -- 
+                Encapsulate Tcl Dual ported objects.
+    - [[CTCLObjectProcessor|r58833]] -- 
+                Abstract base class to encapsulate the Tcl object command interface exposed by
+                `Tcl_CreateObjCommand`.
+    - [[CTCLVariable|r58936]] -- 
+                Encapsulate Tcl interpreter variables.
+    - [[CTCLProcessor|r59141]] -- 
+                Provide `argc`, `argv`
+                extension commands to Tcl.
+    - [[CTCLChannel|r59340]] -- 
+                Provide a C++ abstraction wrapper for Tcl Channels.
+    - [[CTCLCommandPackage|r59520]] -- 
+                Group several related Tcl command extensions and common services they
+                may require together.
+    - [[CTCLCompatibiltyProcessor|r59635]] -- 
+                Adaptor between `CTCLOjbectProcessor`
+                and `CTCLProcessor`.
+    - [[CTCLFileHandler|r59712]] -- 
+                Base class for building object oriented Tcl File event handlers.
+    - [[CTCLHashTable|r59808]] -- 
+                Object oriented interface to Tcl's hash table functions.
+    - [[CTCLHashTableItem|r59949]] -- 
+                Encapsulation of an entry in a Tcl Hash table as encapsulated
+                in `CTCLHashTable`
+    - [[CTCLHashTableIterator|r60027]] -- 
+                Iterator for visiting all elements of a `CTCLHashTable`
+    - [[CTCLIdleProcess|r60133]] -- 
+                Allows the establishment of an executable object that
+                can be scheduled to be invoked when the Tcl/Tk intperpreter
+                has no events that require processing.
+    - [[CTCLPackagedCommand|r60204]] -- 
+                Base class for a command that lives in a `CTCLCommandPackage`
+    - [[CTCLResult|r60275]] -- 
+                Provide an object oriented interace to the Tcl interpreter result.
+    - [[CTCLString|r60396]] -- 
+                Provide a wrapper for the Tcl_DString data type
+                and its API
+    - [[CTCLTimer|r60623]] -- 
+                Abstract base class for C++ objects attached to timer events.
+    - [[CTCLLiveEventLoop|r60703]] -- Run Tcl with event loop.
+    - [[CTCLChannelCommander|r60817]] -- Accept commands on a Tcl channel from the event loop.
+    - [[CTCLStdioCommander|r61039]] -- Event driven command input on stdin/stdout
+    - [[CTCLServer|r61113]] -- Listener for a Tcl server.
+    - [[CTCLTcpServerInstance|r61251]] -- Channel commander that is a server instance for `CTCLServer`
+    - [[CTCLObjectPackage|r61334]] -- Provide common functionality for a set of
+                    related commands.
+    - [[CTCLPackagedObjectProcessor|r61406]] -- Base class for commands living in a
+                        `CTCLObjectPackage`
+    - [[CItemConfiguration|r61516]] -- Hold a configuration
+    - [[CConfigurableObject|r62249]] -- Base class for objects tht have a configuration.
+    - [[CException|r62479]] -- Abstract base class for the exception class hierarchy.
+    - [[CErrnoException|r62576]] -- Exceptions that wrap the Unix `errno`
+    - [[CRangeError|r62663]] -- Reports and exception for a value out of allowed range.
+    - [[CStateException|r62811]] -- Exception for invalid state transitions.
+    - [[CStreamIOError|r62920]] -- I/O error on a C++ stream.
+    - [[CURIFormatException|r63093]] -- Report errors in universal resource identifiers (uri)s.
+    - [[CMonitorException|r63288]] -- Exceptions for synchronization class abuse.
+    - [[CInvalidArgumentException|r63433]] -- Report invalid function arguments.
+    - [[pixieplugin|r63577]] -- Support dynamic configuration of Pixie-16 modules via DDASReadout Server.
+    - [[Dig2Device|r63761]] -- Low Level Access To Digitizers
+    - [[VX2750Pha|r64270]] -- Provide compile time checked API to CAEN Nextgen digitizers DPP-PHA
+    - [[VX2750PHAModuleConfiguration|r67976]] -- Encapsulate module configuration for CAEN Nextgen digitizers
+    - [[VX2750TclConfig|r69262]] -- Tcl scripted configuration.
+    - [[TclConfiguredReadout|r69393]] -- Event Segment configured with Tcl
+    - [[VX2750EventSegment|r69479]] -- Event segment for single VX2750 DPP-PHA module
+    - [[VX2750MultiTrigger|r69552]] -- Manage readout triggers.
+    - [[CProcessor|r69641]] -- Abtract base class for a CSP process
+    - [[CProcessingElement|r69683]] -- Abstract base class for a CSP processing element
+    - [[CParallelWorker|r69744]] -- Base class for a worker that receives fanned out data.
+    - [[CTransport|r69821]] -- Abstract base class for data transport objects.
+    - [[CSender|r69895]] -- Encapsulate a transport to send data.
+    - [[CReceiver|r69971]] -- Encapsulates a transport to receive data
+    - [[CNullTransport|r70032]] -- Null transport for testing
+    - [[CTestTransport|r70047]] -- Transport class for test purposes.
+    - [[CClientRegistry|r70126]] -- Registry of clients.
+    - [[CFanoutTransport|r70201]] -- Transport to fanout data to several workers.
+    - [[CFanoutClientTransport|r70214]] -- Client for a fanout transport
+    - [[CRingItemTransport|r70228]] -- Base class for ring item transports.
+    - [[CRingBufferTransport|r70240]] -- Transport for ring items to or from ring buffers.
+    - [[CRingItemFileTransport|r70313]] -- Transport ring items to and from files.
+    - [[CRingItemTransportFactory|r70391]] -- Create and appropriate ring item transport
+    - [[CZMQTransport|r70412]] -- Base class for ZeroMQ transports
+    - [[CZMQClientTransport|r70528]] -- ZeroMQ transport that does a connect.
+    - [[CZMQServerTransport|r70544]] -- ZeroMQ transport that does a listen.
+    - [[CZMQRouterTransport|r70560]] -- ZeroMQ transport that's a ROUTER fanout.
+    - [[CZMQDealerTransport|r70632]] -- Peer, receiver for CZMQRouterTransport(3daq)
+    - [[CDataSinkElement|r70714]] -- Forward data to some sink.
+    - [[CDataSourceElement|r70727]] -- Fan out a data source without transformations
+    - [[CRingItemZMQSourceElement|r70744]] -- Fanout ring items from some data source.
+    - [[CRingItemMarkingWorker|r70792]] -- Strategy pattern for classifying ring items
+    - [[CRingItemSorter|r70839]] -- Re-sort a stream of ring items by timestamp
+    - [[CThreadedProcessingElement|r70860]] -- Run a processing element ina thread.
+    - [[CZMQRingItemThreadedWorker|r70880]] -- ZeroMQ Threaded worker for ZeroMQ
+    - [[CZMQRingItemSourceThread|r70899]] -- Provide a thread that routes ring items from a source
+    - [[CCommunicatorFactory|r70913]] -- Create transports for an underlying communication scheme.
+    - [[CZMQCommunicatorFactory|r71020]] -- Communicator factory for ZeroMQ
+    - [[CCommunicatorFactoryMaker|r71096]] -- Create communication factories.
+    - [[CMPITransport|r71120]] -- Base class for transports using MPI for communication.
+    - [[CMPIFanoutTransport|r71270]] -- Fanout data over MPI to multiple workers.
+    - [[CMPIFanoutClientTransport|r71361]] -- Worker side of a fanout transport (client).
+    - [[CRingItemMPIDataSource|r71455]] -- Fanout clumps of ring items.
+  - IX. [[3ccusb|r71475]]
+    - [[addtcldriver|r71477]] -- Register Tcl command ensemble as a device module
+    - [[ad811|r71513]] -- Support the Ortec AD811 ADC
+    - [[c1205|r71583]] -- Manage CAEN C1205 QDC modules.
+    - [[c257|r71726]] -- Manages the C257 scaler module
+    - [[ccusb (command)|r71816]] -- Configure and read scalers from CC-USB module
+    - [[lrs2228|r72147]] -- Manages the LRS2228 TDC
+    - [[lrs2249|r72216]] -- Manage LeCroy 2249 QDC modules
+    - [[lrs2551|r72281]] -- Manage LRS 2551 modules
+    - [[marker|r72373]] -- Create/manipulate marker instances
+    - [[ph7xxx|r72415]] -- Define Phillips ADC/TDC/QDC modules
+    - [[stack|r72633]] -- Create and configure CC-USB stacks.
+    - [[Module|r72780]] -- Create and manipulate slow control device instances
+    - [[CamacCrate|r72836]] -- group modules into a crate
+    - [[LeCroy4300B|r72890]] -- control a LeCroy 4300B FERA
+    - [[LeCroy4434|r73009]] -- control a LeCroy 4434 Scaler
+    - [[LeCroy2551|r73065]] -- control a LeCroy 2551 Scaler
+    - [[ULMTrigger|r73113]] -- control a LeCroy 2637 ULM running trigger firmware
+    - [[Slow controls protocol|r73301]] -- TCP/IP slow control protocol
+    - [[CCCUSB|r73422]] -- Provide access to a CC-USB device.
+    - [[CCCUSBusb|r76186]] -- Provide access to a connected CC-USB device.
+    - [[CCCUSBRemote|r76388]] -- Provide remote access to a CC-USB device through CCUSBReadout's slow-controls server.
+    - [[CCCUSBReadoutList|r76671]] -- Create lists of CAMAC commands for CC-USB controllers.
+    - [[CConfigurableObject|r77196]] -- base class for devices that have a configuration
+    - [[cccusb|r78458]] -- Swig wrapping of the CCCUSB C++ class.
+    - [[cccusbreadoutlist|r79193]] -- Tcl wrapping of `CCCUSBReadoutList`
+    - [[CModuleFactory|r79470]] -- Creates specific slow control drivers
+    - [[CModuleCreator|r79577]] -- Object creational ABC for `CModuleFactory`
+    - [[CControlHardware|r79630]] -- Base class (ABC) of a slow controls driver
+    - [[CControlModule|r79860]] -- Configuration and wrapper for CControlHardware
+    - [[CCCUSBControl|r79939]] -- A slow-controls driver for receiving and executing remote commands
+    - [[ccusbcamac|r80024]] -- Tcl Script CAMAC access CCUSBReadout slow-controls server
+    - [[ph7106Widget|r80182]] -- Control panel for Ph7106 LED
+  - X. [[3evb|r80316]]
+    - [[EVBC::start|r80318]] -- Start the event builder pipeline.
+    - [[EVBC::stop|r80393]] -- Stop the event builder pipeline.
+    - [[EVBC::reset|r80416]] -- Reset timestamp history
+    - [[EVBC::flush|r80440]] -- Flush event builder event queues.
+    - [[EVBC::registerRingSource|r80463]] -- Register a ring fragment source to the RingSourceMgr.
+    - [[EVBC::startRingSource|r80551]] -- Start a ring fragment source for the event builder.
+    - [[EVBC::startS800Source|r80609]] -- Start S800 data source
+    - [[EVBC::initialize|r80639]] -- Initialize the EZBuilder layer.
+    - [[EVBC::onBegin|r80749]] -- EZBuilder begin run actions
+    - [[EVBC::onEnd|r80778]] -- EZBuilder end run actions.
+    - [[EVBC::configParams|r80802]] -- Configure orderer behavior.
+    - [[Eventbuilder callback bundle|r80844]] -- Event builder callback bundle.
+  - XI. [[3rdogui|r80884]]
+    - [[Introduction|r80886]] -- ReadoutGUI API introduction
+    - [[bells|r81000]] -- Provide audible alarm bells.
+    - [[Configuration|r81121]] -- Configuration variable management
+    - [[DAQParameters|r81220]] -- Cluster of configuration parameters for data acquisition
+    - [[DataSourceManager|r81398]] -- Data source manager and its API
+    - [[DataSourceUI|r81650]] -- Data source parameter user interface
+    - [[ReadoutGUIAppLauncher|r81875]] -- Simplify the process of adding application launcher buttons to a ReadoutGUI
+    - [[Diagnostics|r81980]] -- Provide error warning and message dialogs
+    - [[ExpFileSystemConfig|r82055]] -- Configuration cluster for event directory tree
+    - [[ReadoutGui|r82144]] -- ReadoutGui elements.
+    - [[ReadoutGUIPanel|r82295]] -- ReadoutGUI Convenience commands
+    - [[RunStateMachine|r82554]] -- Run control state machine
+    - [[StateManager|r82793]] -- Save restore program state variables.
+    - [[ui|r82954]] -- ReadoutGUI graphical user interface elements.
+    - [[OutputWindowSettings|r83468]] -- Prompter for `OutputWindow` settings.
+    - [[StatusArea|r83539]] -- Status area megawidget
+    - [[ReadoutGUIOutputClient|r83626]] -- Readout gui output monitor client.
+    - [[multilogger|r83697]] -- Log data from multiple ring buffers
+  - XII. [[3provider|r83757]]
+    - [[Introduction|r83759]] -- Data source providers
+    - [[parameters|r83919]] -- Describe data source parameterization
+    - [[start|r83946]] -- Start a data source
+    - [[check|r83975]] -- Check Data Source Liveness
+    - [[stop|r84007]] -- Stop data sources
+    - [[begin|r84038]] -- Start data taking in a data source
+    - [[pause|r84069]] -- Pause a data taking run (optional)
+    - [[resume|r84106]] -- Resume a Paused Run
+    - [[end|r84139]] -- End a Data Taking Run
+    - [[init|r84168]] -- On-demand initialize procedure
+    - [[capabilities|r84197]] -- Get Provider Capabilities Dict
+    - [[SSHPipe|r84246]] -- SSHPipe data source provider.
+    - [[s800|r84358]] -- s800 data source provider.
+    - [[Delay|r84415]] -- Inserts a delay between data provider begins
+  - XIII. [[3python|r84446]]
+    - [[Container|r84448]] -- Provide access to the container part of managed experiment configuration databases
+    - [[EventLog|r84533]] -- Python3 API for the Eventlogger part of the managed expeiment configuration file database.
+    - [[Program|r84663]] -- Provide access to the Program part of FRIB managed experiment definition database
+    - [[LogBook|r84759]] -- Python bindings to LogBook Api.
+    - [[LogBook.Person|r85177]] -- Python class encapsulating Log Book people.
+    - [[LogBook.Shift|r85221]] -- Encapsulate logbook shifts for python
+    - [[LogBook.Run|r85297]] -- Encapsulate runs and their transitions for Python
+    - [[LogBook.Note|r85496]] -- Encapsulate notes for python
+    - [[PortManager|r85662]] -- Python bindings to port manager
+    - [[pidtocommand|r85772]] -- Convert a PID into its command string
+    - [[nscldaqutils|r85787]] -- Provide a set of utilities for NSCLDAQ
+  - XIV. [[3vmusb|r85886]]
+    - [[adc|r85888]] -- Create/configure CAEN V775, V785, V792, V862 modules.
+    - [[caenchain|r86119]] -- Aggregate adc modules into CBLT readout chains.
+    - [[vmusb|r86181]] -- Control VM-USB resources and read internal scalers
+    - [[sis3300|r86488]] -- Simplified sis3300 support.
+    - [[sis330x|r86775]] -- Driver for SIS3300/1 FADC
+    - [[sis3820|r86982]] -- Create and configure SIS 3820 scaler modules
+    - [[v830|r87142]] -- Create and configure CAEN V830 32 channel scalers.
+    - [[v977|r87343]] -- Create and configure CAEN V977 Input registers
+    - [[sis3804|r87517]] -- Create and configure SIS 3804 scalers
+    - [[hira|r87586]] -- Pair up to 2 XLMs and FADC for HiRA
+    - [[hytec|r87649]] -- Support the Hytec NADC 2530 adc module.
+    - [[tcl driver support|r87829]] -- tcl driver support functions.
+    - [[madc|r87976]] -- Acquire events from Mesytec MADC32 ADC.
+    - [[mtdc|r88324]] -- Mesytec 32/34 channel TDC
+    - [[mqdc|r88756]] -- Support Mesytec MQDC-32 modules
+    - [[madcchain|r89229]] -- Support CBLT chains of Mesytec MxDC32 family of modules.
+    - [[madcscaler|r89313]] -- Support dead-time counters in MADC32 as scalers.
+    - [[mase|r89360]] -- Support for XLM with MASE firmware.
+    - [[tdc1x90|r89431]] -- Provide support for the CAEN V1x90 TDC family.
+    - [[v1729a|r89710]] -- CAENV1729a waveform digitizer.
+    - [[stack|r89856]] -- Compose and configure VM-USB readout stacks.
+    - [[mdpp32qdc|r90018]] -- Mesytec MDPP-32 module with QDC firmware
+    - [[mdpp16qdc|r90586]] -- Mesytec MDPP-16 module with QDC firmware
+    - [[mdpp32scp|r91149]] -- Mesytec MDPP-32 module with SCP firmware
+    - [[CVMUSB|r91660]] -- Interface with VM-USB controller.
+    - [[CVMUSBReadoutList|r93662]] -- Construct VM-USB stacks
+    - [[CVMUSBRemote|r94567]] -- Execute lists remotely on VMUSBReadout
+    - [[CConfigurableObject|r95804]] -- Configuration database
+    - [[CControlHardware|r97042]] -- Base class for slow controls drivers
+    - [[sis_vmusb_interface|r97347]] -- Use SIS module software over VMUSB
+    - [[cvmusb|r97825]] -- SWIG Tcl wrapping of `CVMUSB`
+    - [[cvmusbreadoutlist|r98580]] -- SWIG wrappers for `CVMUSBReadoutList`
+    - [[Module|r99080]] -- control config command: create/configure modules.
+    - [[watch|r99479]] -- Watch variables (slow controls)
+    - [[delay|r99508]] -- Insert a stack delay.
+    - [[CBDCamacBranch|r99554]] -- run a CAMAC branch through a CES CBD8210 bridge
+    - [[CBDCamacCrate|r99616]] -- group CBD8210 compatible modules into a crate
+    - [[CBDLeCroy4300B|r99670]] -- control a LeCroy 4300B FERA on a CAMAC branch
+    - [[CBDLeCroy4434|r99788]] -- control a LeCroy 4434 Scaler on a CAMAC branch
+    - [[CBDLeCroy2551|r99844]] -- control a LeCroy 2551 Scaler on a CAMAC branch
+    - [[CBDULMTrigger|r99894]] -- control a LeCroy 2637 ULM running trigger firmware on a CAMAC branch
+    - [[XLMTimestamp|r100097]] -- control an XLM running 64-bit latching scaler firmware
+    - [[marker|r100151]] -- Insert a constant into the VMUSB data stream
+    - [[XLMFERA|r100194]] -- control an XLM72V running firmware to readout FERA via ECL ports
+    - [[AXLM72ScalerControl|r100263]] -- slow-controls driver for controlling an XLM72 running 32-ch scaler firmware
+    - [[XLM72ScalerGUI|r100360]] -- Diagnostics GUI for controlling an XLM72 running 32 ch scaler firmware
+    - [[AXLM72|r100423]] -- TCL base class for JTech XLM72 family of devices
+    - [[AXLM72Scaler|r100734]] -- Driver for an XLM72 running 32-channel scaler firmware
+    - [[v1495sc|r100974]] -- CAEN V1495 with Scaler firmware
+    - [[sis3316|r101092]] -- Support for the SIS3316 digitizer
+    - [[controlClient|r101240]] -- Object to interact with VM/CCusb control server
+    - [[USB Control operations|r101342]] -- connect, controlOp, listUSBControlServers
+    - [[slowControlsPrompter|r101403]] -- Prompt for slow controls server host and port
+    - [[gdgcontrol|r101515]] -- Slow control client of Wiener/JTec MGGD8
+    - [[gdgwidget|r101743]] -- Widget to control/display GDG-8.
+    - [[V6533Driver|r101846]] -- Driver for CAEN V6533 HV modules
+    - [[VMUSB VME access|r102063]] -- Provide Tcl VME access via VMUSB or control server
+    - [[controlscript|r102214]] -- Virtual slow controls module to execute TCL scripts
+    - [[readoutscript|r102318]] -- Virtual driver to execute TCL scripts
+  - XV. [[3mvlcgen|r102419]]
+    - [[sis3804|r102421]] -- Create and configure SiS 3804 VME scaler modules
+    - [[sis3820|r102464]] -- Configurea Struck (SIS) 3820 latching scaler.
+    - [[adc|r102580]] -- Manage CAEN V785, V775 and V792 digitizers
+    - [[v830|r102730]] -- Support the CAEN V830 latching scaler
+    - [[caenchain|r102834]] -- Bulk readout of **adc** modules in a chain.
+    - [[delay|r102877]] -- Add a delay to the readout stack
+    - [[madc|r102893]] -- Support Mesytec MADC32 devices
+    - [[madcchain|r103065]] -- Chain block readout of MADc32, MQDC32 and MTDC32 modules
+    - [[madcscaler|r103120]] -- Read MADC32 performance counters
+    - [[marker|r103142]] -- Insert a 32 bit marker in the data
+    - [[mdpp16qdc, mdpp32qdc|r103158]] -- Suport the Mesytec MDPP16 and MDPP32 with QDC firmware
+    - [[mdpp32scp|r103425]] -- Support for Mesytect MDPP32 with peak sensing firmware
+    - [[mqdc|r103668]] -- Support for MESYTEC MQDC32 module
+    - [[mtdc|r103910]] -- Provide support for Mesytec MTDC32 module
+    - [[hytec|r104186]] -- Support hytec NADC 2530 module
+    - [[stack|r104261]] -- Group modules into readout 'stacks'.
+    - [[v1495sc|r104334]] -- Use CAEN V1495 with scaler firmware
+    - [[v1729a|r104419]] -- Support for the  CAEN v1729a waveform digitizer
+    - [[tdc1x90|r104546]] -- Support the CAEN V1290 and V1190 TDC family
+    - [[v977|r104770]] -- Support the CAEN V977 input/coincidence register
+    - [[XLMTimestamp|r104841]] -- XLM with timstamp firmware
+    - [[ACAENV1290|r104877]] -- Special purpose Tcl CAEN V1290 driver
+    - [[ACAENV795|r104908]] -- Tcl Driver for CAEN V785 fixed initialization
+    - [[ACrdcXLM72|r104926]] -- Provide support for the XLM72 with the S800 CRDC Firmware
+    - [[AGD16XLM72|r105001]] -- Support XLM72 running 16 channel gate and delay generator firmware.
+    - [[ALevel3XLM72|r105066]] -- Support the MoNA/Sweeper level 3 trigger XLM7s fpga
+    - [[AMesytecMADC32|r105086]] -- Support for REA3 diganostics use of Mesytec MADC32
+    - [[APpacXLM72|r105103]] -- Provide support for XLM72 with PPAC readout firmware
+    - [[ATimeStampXLM72|r105164]] -- Use XLM72 with timestamp firmware
+    - [[sis3300|r105182]] -- Tcl driver for the SIS3300/3301 FADC without HiRA firmware
+    - [[CReadoutHardware|r105324]] -- Base class for mvlcgenerate compiled code drivers
+    - [[DeviceCommand|r105423]] -- Base class for mvlcgenerate device commands
+    - [[CReadoutModule|r105482]] -- Encapsulate a code generator and its configuration.
+    - [[CVMUSB|r105612]] -- Standin class for VMUSBReadout's CVMUSB class
+    - [[CVMUSBReadoutList|r105818]] -- Stand in for VMUSBReadout's CVMUSBReadoutList
+    - [[TCLConfigParser|r106127]] -- Base class for mvlcgenerate configuration parser
+    - [[MVLCCOnfigParser|r106293]] -- Provide MVLC specific `TCLConfigParser` class
+  - XVI. [[3tcl|r106340]]
+    - [[TCL Ring package.|r106342]] -- Access Rings from tcl.
+    - [[getRingUsage|r106521]] -- Return list of ringbuffers and usage statistics
+    - [[ringExists|r106551]] -- Determine if a ringbuffer exists
+    - [[waitForRing|r106570]] -- Wait for a ring to exist with a timeout
+    - [[containers|r106592]] -- DAQ Manager Containers Database Package.
+    - [[programs|r106761]] -- API For the DAQ Manager Program Database
+    - [[sequence|r107034]] -- States, Sequence, Transitions API
+    - [[kvstore|r107445]] -- Access the manager configuration's key value store
+    - [[eventloggers|r107513]] -- Define Event Logging for the NSCLDAQ Manager.
+    - [[auth|r107778]] -- Manager Authorization System
+    - [[stateclient|r107871]] -- REST client of manager state machine
+    - [[programstatusclient|r107938]] -- REST Client for Manager /Programs Domain.
+    - [[kvclient|r108043]] -- Client To Manager's REST Key Value Store Service
+    - [[loggerrestclient|r108111]] -- Client to Manager's Event Log REST Interface
+    - [[ReadoutRESTClient|r108235]] -- Client for Readout REST servers
+    - [[ReadoutStatistics|r108356]] -- Display readout statistics (VIEW)
+    - [[ReadoutParameters|r108371]] -- Display/Set Readout Parametesrs (VIEW)
+    - [[ReadoutState|r108415]] -- Show Readout State and Request Transitions (VIEW)
+    - [[ReadoutUI|r108449]] -- Combined Readout Control Panel (REST VIEW).
+    - [[ssh|r108521]] -- Run programs on an ssh pipe.
+    - [[logbook|r108576]] -- Access Logbooks from Tcl
+    - [[logbookinstance|r108632]] -- Logbook API instance object.
+    - [[personinstance|r109004]] -- Encapsulate a logbook person for Tcl scripts
+    - [[shiftinstance|r109059]] -- Encapsulate a shift for Tcl scripts
+    - [[runinstance|r109107]] -- Encapsulate logbook runs for Tcl scripts
+    - [[noteinstance|r109207]] -- Tcl encapsulation of a note
+    - [[logbookadmin|r109322]] -- High level logbook interface
+    - [[logbookbundle|r109806]] -- Automate logging transitions in ReadoutGui
+    - [[lg_noteutilities|r109819]] -- Utilties for dealing with notes
+    - [[lg_utilities|r109883]] -- Utilties for Tcl logbook procssessing.
+    - [[EVBRestUI|r109976]] -- EVentBuilder REST Client View classes
+    - [[EVBRESTClient|r110222]] -- REST Client for Event Builder Statistics
+    - [[EVBRestControllers|r110481]] -- Controllers for MVC Event Builder Statistics Packages
+    - [[evblite::evblite|r110566]] -- Encapsulste EVBLite instances
+    - [[TclRingBuffer|r110686]] -- Tcl ring buffer consumer package
+    - [[portAllocator|r111007]] -- Tcl API for the DaqPortManager daemon.
+    - [[TclServer|r111109]] -- Embeddable Tcl Server script object
+    - [[CFD812|r111225]] -- low level control of the CAEN V812 CFD
+    - [[caenv812gui|r111375]] -- Megawidget control panel for the CAEN V812 CFD
+    - [[n568b|r111517]] -- Support package for the CAEN N568B shaper.
+    - [[n568Panel|r111715]] -- Control panel megawidget for N568 shaping amplifier
+    - [[iSegVhs|r111862]] -- SBS support for VHS 404 modules.
+    - [[VhsWidgets|r112376]] -- User interface components for VHS 404 power supplies.
+    - [[vhq|r112465]] -- Low level Tcl access to iSEG VHQ2xxx units.
+    - [[vhqPanel|r112662]] -- Control widget for iSeg vhq2xx VME bias supply.
+    - [[caennet|r112865]] -- Access CAENnet from Tcl scripts.
+    - [[camac|r112940]] -- Provide access to CES CBD8210 CAMAC to Tcl scripts
+    - [[wienercamac|r113117]] -- Tcl Script CAMAC access via VC32/CC32 boardset.
+    - [[sequencer|r113265]] -- 
+                Provide a ReadoutGui plugin for nscldaq 8.1 and later that can
+                automate several data taking runs.
+    - [[plotcontainer|r113401]] -- Plotchart XY plot wrapper
+    - [[marker|r113725]] -- Manage markers on a plotchart plot.
+    - [[Process|r113827]] -- Simplified asynchronous pipeline handling
+    - [[TclSourceFilter|r113884]] -- Extract blocs mathing a regexp from a script
+    - [[Utils|r113934]] -- Tcl namespace with useful utility procs.
+    - [[wait|r114000]] -- Wait/reap for subprocess completion
+    - [[Pipe|r114057]] -- Make a unix pipe
+    - [[ppid|r114079]] -- Get parent process id.
+    - [[Orphan|r114098]] -- Run script when the process is orphaned
+    - [[FrameManager|r114138]] -- Make one of a set of widgets visible.
+    - [[FrameSequencer|r114221]] -- Manages a sequence of widgets (like a wizard e.g.).
+    - [[RingStatus|r114306]] -- Widget that shows ring status.
+    - [[ScaleControl|r114368]] -- Megawidget intended for axis scale control
+    - [[TransientLabel|r114506]] -- Label widget that transforms to default.
+  - XVII. [[3sbsReadout|r114560]]
+    - [[CBusy|r114562]] -- Abstract base class for Busy module management.
+    - [[CCAENV262Busy|r114627]] -- Concrete busy class for the CAEN V262 input module.
+    - [[CCAENV262Triger|r114762]] -- Trigger module with CAEN V262
+    - [[CCompoundEventSegment|r114876]] -- Container for other event segments
+    - [[CDocumentedPacket|r115156]] -- Encapsulate event data in a packet that is documented.
+    - [[CEventPacket|r115429]] -- Encapsulate an event segment in a documented packet.
+    - [[CEventSegment|r115557]] -- Base class for all event segments.
+    - [[CEventTrigger|r115813]] -- Abstract base class for triggers.
+    - [[CExperiment|r115878]] -- Encapsulate the experiment.
+    - [[CInvalidPacketStateException|r116161]] -- Exception thrown by documented packets.
+    - [[CNullTrigger|r116281]] -- A trigger that never fires.
+    - [[CReadoutException|r116311]] -- Base class for readout specific exceptions
+    - [[CScalerBank|r116345]] -- Container for individual Scaler objects.
+    - [[CTimedTrigger|r116635]] -- CEventTrigger that fires periodically
+    - [[CV977Busy|r116733]] -- Concrete busy class using the CAEN V977 module
+    - [[CV977Trigger|r116845]] -- Concrete Trigger class using CAEN V977 module.
+    - [[RunState|r116949]] -- Encapsulate important state of the software.
+    - [[CScaler|r117059]] -- Base class for scaler readout classes
+  - XVIII. [[5daq|r117194]]
+    - [[Manager REST|r117196]] -- DAQ Manager REST Specification
+    - [[DAQ manager database schema|r117525]] -- Document database tables for manager.
+    - [[Container Description File|r117852]] -- Describe containes to Manager configuration container wizard
+    - [[Readouts REST|r117929]] -- REST specification for Readouts
+    - [[Readout GUI Remote control protocol|r118087]] -- 
+             Documents the protocol used by the ReadoutGUI's remote control server.
+    - [[Logbook Schema|r118253]] -- Describe schema of logbook databases.
+    - [[Event Builder REST|r118668]] -- Event Builder Statistics REST Protocol
+    - [[eventorderer|r118941]] -- Event orderer protocol
+  - XIX. [[5tcl|r119112]]
+    - [[caen812configfile|r119114]] -- Format of configuration files for CAENV 812 software.
+    - [[n568configfile|r119230]] -- N568 shaper configuration file
+    - [[vhqconfig|r119356]] --  Config file for
+  - XX. [[5vmusb|r119432]]
+    - [[VMUSB slow controls protocol|r119434]] -- VMUSB Slow controls protocol
 
-**List of Tables**3-1. [[Ring Item Top-Level Memory Layout|c197#AEN206]]3-2. [[Body Header|x226#AEN229]]3-3. [[Ring Item With Body Header|x226#AEN270]]3-4. [[Ring Item Without Body Header|x226#AEN304]]3-5. [[Ring Item Types|x328#AEN331]]3-6. [[Predefined State Change Body Layout|x328#AEN472]]3-7. [[Predefined Text Item Body Layout|x328#AEN526]]3-8. [[Predefined Scaler Item Body Layout|x328#AEN591]]3-9. [[Predefined Physics Event Count Body Layout|x328#AEN666]]3-10. [[Predefined Data Format Body Layout|x328#AEN709]]3-11. [[Predefined Glom Information Body Layout|x328#AEN729]]8-1. [[Event logger environment variables|x5668#AEN5691]]8-2. [[Experiment file systems environment variables|x5668#AEN5733]]8-3. [[SSHPipe prompter environment variables|x5668#AEN5758]]9-1. [[Fragment header|x6152#AEN6158]]9-2. [[Body of Built PHYSICS_EVENT|x6152#AEN6191]]51-1. [[Default Manager State Machine|c12947#AEN13374]]58-1. [[Wiener CC32 addressing convention|x14916#AEN14920]]81-1. [[Format of event body|x18481#AEN18490]]1. [[State transition values|r39231#daq3.logbookrun.trantbl]]1. [[Readmode and Read and clear implications|r87343#AEN87492]]1. [[EVBRestControllers and Corresponding EVBRestUI Views|r110481#AEN110529]]1. [[State transition values|r118253#daq5.logbookrun.trantbl]]2. [[valid_state_transitions table contents|r118253#AEN118547]]
+- **List of Tables**
+- 3-1. [[Ring Item Top-Level Memory Layout|c197#AEN206]]
+- 3-2. [[Body Header|x226#AEN229]]
+- 3-3. [[Ring Item With Body Header|x226#AEN270]]
+- 3-4. [[Ring Item Without Body Header|x226#AEN304]]
+- 3-5. [[Ring Item Types|x328#AEN331]]
+- 3-6. [[Predefined State Change Body Layout|x328#AEN472]]
+- 3-7. [[Predefined Text Item Body Layout|x328#AEN526]]
+- 3-8. [[Predefined Scaler Item Body Layout|x328#AEN591]]
+- 3-9. [[Predefined Physics Event Count Body Layout|x328#AEN666]]
+- 3-10. [[Predefined Data Format Body Layout|x328#AEN709]]
+- 3-11. [[Predefined Glom Information Body Layout|x328#AEN729]]
+- 8-1. [[Event logger environment variables|x5668#AEN5691]]
+- 8-2. [[Experiment file systems environment variables|x5668#AEN5733]]
+- 8-3. [[SSHPipe prompter environment variables|x5668#AEN5758]]
+- 9-1. [[Fragment header|x6152#AEN6158]]
+- 9-2. [[Body of Built PHYSICS_EVENT|x6152#AEN6191]]
+- 51-1. [[Default Manager State Machine|c12947#AEN13374]]
+- 58-1. [[Wiener CC32 addressing convention|x14916#AEN14920]]
+- 81-1. [[Format of event body|x18481#AEN18490]]
+- 1. [[State transition values|r39231#daq3.logbookrun.trantbl]]
+- 1. [[Readmode and Read and clear implications|r87343#AEN87492]]
+- 1. [[EVBRestControllers and Corresponding EVBRestUI Views|r110481#AEN110529]]
+- 1. [[State transition values|r118253#daq5.logbookrun.trantbl]]
+- 2. [[valid_state_transitions table contents|r118253#AEN118547]]
 
-**List of Figures**8-1. [[ReadoutShell's state diagram|c5223#rdogui_statediagram]]8-2. [[ReadoutShell's GUI|x5321#AEN5324]]8-3. [[The Eventlog settings dialog|x5321#AEN5448]]8-4. [[Readout GUI Directory tree|x5636#AEN5653]]14-1. [[Block diagram of the V775 and V785 wiring|x8075#v775v785blockdiagram]]14-2. [[Block diagram of SIS3820 scaler wiring|x8075#sis3820blockdiagram]]15-1. [[V775 Simple setup electronics block diagram.|x8675#AEN8685]]16-1. [[A simple electronics setup for the CAEN V785|x9609#AEN9649]]16-2. [[Pulser Output Signal|x9609#AEN9655]]16-3. [[Amplifer Output Signal|x9609#AEN9658]]16-4. [[Amplified Signal with Logic Pulser|x9609#AEN9664]]16-5. [[Amplified Signal and Gate|x9609#AEN9668]]17-1. [[The MCFD16Control Graphical User Interface for USB|x9915#AEN9925]]17-2. [[MCFD16Control Graphical User Interface for MxDC-RCbus|x9932#mcfd16control_fig1]]17-3. [[Channel Enable/Disable Configuration Dialog|x9957#mcfd16control_enabledisable_config]]17-4. [[OR Pattern Configuration Dialog|x9957#mcfd16control_orpattern_config]]18-1. [[The MSCF16Control Graphical User Interface for USB|x10006#AEN10016]]19-1. [[MDGG16Control Graphical User Interface|x10052#mdgg16control_fig1]]20-1. [[Screenshot of XLM72GateDelayControl|x10121#AEN10134]]21-1. [[Screenshot of ULMTriggerGUI|x10163#AEN10188]]25-1. [[Logbook component layering.|c10269#AEN10335]]25-2. [[The shift editor|x10440#fig.lg_shifteditor]]25-3. [[The shift selector.|x10440#fig.lg_selshift]]25-4. [[The note editor GUI.|x10562#fig.lg_noteeditor]]25-5. [[The image selector dialog|x10562#fig.lg_imagesel]]25-6. [[Logbook Browser|x10562#fig.lg_browser]]25-7. [[**lg_browse** People|x10562#AEN10768]]25-8. [[**lg_browse** Shifts tab|x10562#AEN10778]]25-9. [[**lg_browse** command's LogBook tab|x10562#AEN10807]]51-1. [[Full logger directory tree|c12947#AEN13747]]1. [[S800 Trigger GUI|r99894#AEN99971]]1. [[Full logger directory tree|r107513#AEN107599]]
+- **List of Figures**
+- 8-1. [[ReadoutShell's state diagram|c5223#rdogui_statediagram]]
+- 8-2. [[ReadoutShell's GUI|x5321#AEN5324]]
+- 8-3. [[The Eventlog settings dialog|x5321#AEN5448]]
+- 8-4. [[Readout GUI Directory tree|x5636#AEN5653]]
+- 14-1. [[Block diagram of the V775 and V785 wiring|x8075#v775v785blockdiagram]]
+- 14-2. [[Block diagram of SIS3820 scaler wiring|x8075#sis3820blockdiagram]]
+- 15-1. [[V775 Simple setup electronics block diagram.|x8675#AEN8685]]
+- 16-1. [[A simple electronics setup for the CAEN V785|x9609#AEN9649]]
+- 16-2. [[Pulser Output Signal|x9609#AEN9655]]
+- 16-3. [[Amplifer Output Signal|x9609#AEN9658]]
+- 16-4. [[Amplified Signal with Logic Pulser|x9609#AEN9664]]
+- 16-5. [[Amplified Signal and Gate|x9609#AEN9668]]
+- 17-1. [[The MCFD16Control Graphical User Interface for USB|x9915#AEN9925]]
+- 17-2. [[MCFD16Control Graphical User Interface for MxDC-RCbus|x9932#mcfd16control_fig1]]
+- 17-3. [[Channel Enable/Disable Configuration Dialog|x9957#mcfd16control_enabledisable_config]]
+- 17-4. [[OR Pattern Configuration Dialog|x9957#mcfd16control_orpattern_config]]
+- 18-1. [[The MSCF16Control Graphical User Interface for USB|x10006#AEN10016]]
+- 19-1. [[MDGG16Control Graphical User Interface|x10052#mdgg16control_fig1]]
+- 20-1. [[Screenshot of XLM72GateDelayControl|x10121#AEN10134]]
+- 21-1. [[Screenshot of ULMTriggerGUI|x10163#AEN10188]]
+- 25-1. [[Logbook component layering.|c10269#AEN10335]]
+- 25-2. [[The shift editor|x10440#fig.lg_shifteditor]]
+- 25-3. [[The shift selector.|x10440#fig.lg_selshift]]
+- 25-4. [[The note editor GUI.|x10562#fig.lg_noteeditor]]
+- 25-5. [[The image selector dialog|x10562#fig.lg_imagesel]]
+- 25-6. [[Logbook Browser|x10562#fig.lg_browser]]
+- 25-7. [[**lg_browse** People|x10562#AEN10768]]
+- 25-8. [[**lg_browse** Shifts tab|x10562#AEN10778]]
+- 25-9. [[**lg_browse** command's LogBook tab|x10562#AEN10807]]
+- 51-1. [[Full logger directory tree|c12947#AEN13747]]
+- 1. [[S800 Trigger GUI|r99894#AEN99971]]
+- 1. [[Full logger directory tree|r107513#AEN107599]]
 
-**List of Examples**4-1. [[Readout initscript to Start a REST server|x1411#AEN1446]]4-2. [[An Event Builder Start Script|x1673#AEN1700]]5-1. [[Creating and configuring devices|x1868#AEN1881]]5-2. [[A Sample Controls Configuration|x1926#AEN1938]]5-3. [[A sample getEventTimestamp() implementation|x2147#AEN2167]]5-4. [[Defining a null getScalerTimestamp()|x2147#AEN2219]]5-5. [[Adding an offset to the timestamp|x2147#AEN2233]]5-6. [[Obtaning the VM-USB device driver development kit|x2269#AEN2282]]5-7. [[Using a user written VMUSB driver|x2269#AEN2291]]5-8. [[The template driver `Initialize` method|x2269#AEN2353]]5-9. [[Template Driver `addReadoutList` method|x2269#AEN2372]]5-10. [[The VMUSB driver `Xxxx_Init`
-                    function.|x2269#AEN2398]]5-11. [[Itcl VM-USB device driver|x2269#AEN2471]]5-12. [[A Snit VM-USB driver.|x2269#AEN2563]]5-13. [[USing a Tcl VM-USB driver.|x2269#AEN2668]]5-14. [[Control driver headers|x2682#AEN2852]]5-15. [[Control driver class definition|x2682#AEN2871]]5-16. [[Control driver constructor|x2682#AEN2878]]5-17. [[Control driver `onAttach` method|x2682#AEN2882]]5-18. [[Control driver `Update`|x2682#AEN2905]]5-19. [[Control driver `Set` method.|x2682#AEN2917]]5-20. [[Control driver `Get` method|x2682#AEN2967]]5-21. [[Control driver `clone` method|x2682#AEN3001]]5-22. [[Control driver creator|x2682#AEN3015]]5-23. [[Control driver initialization|x2682#AEN3050]]5-24. [[Control drivers - structure of a Tcl driver|x2682#AEN3162]]5-25. [[Tcl control driver `Initialize` method|x2682#AEN3213]]5-26. [[Tcl control driver `Update` method|x2682#AEN3228]]5-27. [[Tcl control driver `Set` method|x2682#AEN3246]]5-28. [[Tcl control driver `Get` method|x2682#AEN3269]]5-29. [[Tcl control drer `addMonitorList` method|x2682#AEN3287]]5-30. [[Tcl control driver `processMonitorList` method|x2682#AEN3298]]5-31. [[Tcl control driver `getMonitoredData` method|x2682#AEN3310]]5-32. [[Tcl control driver validation|x2682#AEN3323]]5-33. [[Specifying VM-USB monitored variables|x3377#AEN3401]]6-1. [[Creating and configuring devices|x3467#AEN3471]]6-2. [[Configuring an event stack|x3467#AEN3494]]6-3. [[Setting up a scaler stack|x3467#AEN3505]]6-4. [[Obtaining the ccusb driver development kit|x3508#AEN3513]]6-5. [[Using a user written CCUSB driver|x3508#AEN3519]]6-6. [[A snit CCUSB device driver module|x3669#AEN3716]]6-7. [[CCUSB device support example writtin in Incr Tcl|x3669#AEN3813]]6-8. [[DAQ config script fragment with tcl drivers.|x3669#AEN3924]]6-9. [[Obtaining the sample CCUSB slow controls driver|x4043#AEN4064]]6-10. [[Headers for the CCUSB sample slow controls driver|x4043#AEN4104]]6-11. [[CCUSB Slow control driver class definition|x4043#AEN4147]]6-12. [[The constructor and destructor|x4043#ccusb-slowdriver-impl-condestruct]]6-13. [[CCUSB Slow controls driver `OnAttach`|x4043#AEN4228]]6-14. [[CCUSB Slow controls driver initialize method|x4043#AEN4262]]6-15. [[CCUSB Slow controls driver Update|x4043#AEN4274]]6-16. [[CCUSB Slow controls driver Set method|x4043#AEN4302]]6-17. [[CCUSB slow controls Get method|x4043#AEN4337]]6-18. [[CCUSB Slow controls clone method|x4043#AEN4362]]6-19. [[Module creator for the CCUSB Sample slow controls driver|x4043#AEN4381]]6-20. [[CCUSB Slow control driver initialization function|x4043#AEN4411]]6-21. [[CCUSB Slow controls driver Skeleton Makefile|x4043#AEN4447]]6-22. [[CCUSB Tcl slow controls driver skeleton|x4470#AEN4499]]6-23. [[CCUSB Tcl slow controls driver construction|x4470#AEN4587]]6-24. [[CCUSB Tcl slow controls initialization|x4470#AEN4594]]6-25. [[CCUSB Tcl Slow Controls Update|x4470#AEN4600]]6-26. [[CCUSB Tcl Slow controls driver Set|x4470#AEN4619]]6-27. [[CCUSB Tcl Slow Control driver Get|x4470#AEN4627]]6-28. [[CCUSB Slow controls Tcl driver option validation|x4470#AEN4653]]6-29. [[Using the Tcl sample driver in a configuration script.|x4470#AEN4665]]6-30. [[Enabling a module Lam with ccusbcamac|x4668#AEN4745]]8-1. [[Custom ReadoutGUI startup script|x5668#AEN5951]]9-1. [[Script To Start The EventBuilder in the Manager|x6232#AEN6236]]10-1. [[Starting EVBLite from ReadoutCallouts.tcl|x6322#AEN6331]]13-1. [[Silly timestamp extractor for fribdaq-readout|r7094#AEN7225]]13-2. [[Extracting a timestamp from the first 64 bits of MVLC data|r7094#AEN7320]]13-3. [[Building mesytec-mvlc with fribdaq-readout|x7340#AEN7382]]13-4. [[Headers included by the sample MVLC loadable driver|x7385#AEN7407]]13-5. [[Sample mvlcgenerate driver definition|x7385#AEN7418]]13-6. [[mvlcgenerate SampleDriver::onAttach - defining configuration options|x7385#AEN7438]]13-7. [[mvlc SampleDriver::Initialize - generating initialization operations.|x7385#AEN7517]]13-8. [[mvlcgenerate SampleDriver::AddReadoutList - Generating readout operations.|x7385#AEN7537]]13-9. [[mvlcgenerate SampleDriver::addReadoutList - generating event readout|x7385#AEN7545]]13-10. [[mvlcgenerate SampleDriverCommand definition|x7385#AEN7556]]13-11. [[mvlcgenerate SampleDriverCommmand constructor - defining the command|x7385#AEN7565]]13-12. [[mvlcgenerate - creating a device instance (createDevice).|x7385#AEN7583]]13-13. [[mvlcgenerate sample driver initialization code:|x7385#AEN7607]]13-14. [[mvlcgenerate building the C++ extension:|x7385#AEN7651]]13-15. [[mvlcgenerate - using a C++ extension driver:|x7385#AEN7657]]13-16. [[mvlcgenerate - Sample Tcl driver in snit.|x7676#AEN7711]]15-1. [[V775 Event Segment (V775EventSegment.h).|x8695#AEN8732]]15-2. [[v775 Event Segment (V775EventSegment.cpp) - file heading|x8695#AEN8790]]15-3. [[v775 Event Segment (V775EventSegment.cpp) - Constructor|x8695#AEN8809]]15-4. [[v775 Event Segment (V775EventSegment.cpp) - Initialization|x8695#AEN8814]]15-5. [[v775 Event Segment (V775EventSegment.cpp) - reading data|x8695#AEN8837]]15-6. [[V775 data ready trigger header (MyTrigger.h)|x8695#AEN8873]]15-7. [[V775 data ready trigger implementation (MyTrigger.cpp)|x8695#AEN8880]]15-8. [[Copying in the SpecTcl-v3.4 skeleton|x9005#AEN9033]]15-9. [[Raw TDC unpacker (RawUnpacker.h)|x9005#AEN9039]]15-10. [[v775 raw unpacker implementation includes and defs (RawUnpacker.cpp)|x9005#AEN9071]]15-11. [[V775 raw unpacker - getLong utility (RawUnpacker.cpp)|x9005#AEN9093]]15-12. [[V775 raw unpacker object constructor/destructor (RawUnpacker.cpp)|x9005#AEN9099]]15-13. [[v75 raw unpacker unpacking events (RawUnpacker.cpp)|x9005#AEN9112]]15-14. [[Defining raw Time spectra the hard way.|x9005#AEN9231]]15-15. [[Header for time difference event processor (Tdiff.h)|x9005#AEN9355]]15-16. [[CTdiff implementation (Tdiff.cpp)|x9005#AEN9368]]15-17. [[Setting up ssh for password-less login|x9390#AEN9404]]15-18. [[Creating an event area for a small amount of data|x9390#AEN9439]]15-19. [[Makefile|x9505#AEN9539]]15-20. [[Skeleton.cpp|x9505#AEN9543]]15-21. [[V775EventSegment.h|x9505#AEN9547]]15-22. [[V775EventSegment.cpp|x9505#AEN9551]]15-23. [[MyTrigger.h|x9505#AEN9555]]15-24. [[MyTrigger.cpp|x9505#AEN9558]]15-25. [[RawUnpacker.h|x9561#AEN9568]]15-26. [[RawUnpacker.cpp|x9561#AEN9571]]15-27. [[spectra.tcl|x9561#AEN9574]]15-28. [[SpecTclRC.tcl|x9561#AEN9577]]15-29. [[Tdiff.h|x9561#AEN9580]]15-30. [[Tdiff.cpp|x9561#AEN9583]]16-1. [[Header for MyEventSegment|x9673#AEN9690]]16-2. [[Impementation of CMyEventSegment|x9673#AEN9723]]16-3. [[The Packet Data|x9873#AEN9885]]25-1. [[Creating a logbook and making it current|x10440#AEN10476]]25-2. [[Using **lg_addperson to add people to the logbook**|x10440#AEN10498]]25-3. [[Using **lg_mkshift**|x10440#AEN10508]]25-4. [[Using **lg_mgshift** to manage shifts|x10440#AEN10534]]25-5. [[Using **lg_selshift** to select the current shift|x10440#AEN10547]]25-6. [[Enabling automatic recording of run state transitions|x10562#AEN10566]]25-7. [[Invoking **lg_wrnote**|x10562#AEN10613]]25-8. [[Using **lg_print**|x10562#AEN10855]]25-9. [[C++ example using logbook API|x10955#AEN10963]]25-10. [[Compiling the C++ Logbook API example.|x10955#AEN11007]]25-11. [[kvexamplelow.tcl low level Tcl logbook API example|x10955#ex.tclapilow]]25-12. [[kvexamplehi.tcl Using the high level Tcl logbook API|x10955#AEN11083]]25-13. [[kvexample.py programming the Python logbook API|x10955#AEN11110]]25-14. [[Running Python scripts that use the logbook API|x10955#AEN11137]]27-1. [[Using unglom and glom to re-build events|c11169#AEN11184]]28-1. [[Dumping data from the ring buffer named 0400x on spdaq22|c11188#AEN11202]]28-2. [[Dumping data from the event file segment
-            /user/0400x/complete/run-1234-00.evt|c11188#AEN11206]]28-3. [[State Transition items|c11188#AEN11219]]28-4. [[Text List items|c11188#AEN11224]]28-5. [[Incremental Scalers dump|c11188#AEN11229]]28-6. [[Event count items|c11188#AEN11235]]28-7. [[Physics Event items|c11188#AEN11241]]28-8. [[Unknown item types|c11188#AEN11246]]29-1. [[Taking data from a remote ring|c11252#AEN11277]]30-1. [[Using **serverauth** to authorize a node|c11282#AEN11297]]35-1. [[Appending the NSCLDAQ Tcl Package repository to Tcl's search
-            path|c11425#AEN11449]]35-2. [[Appending NSLCDAQ's TclPackage repository to Tcl's search path|c11425#AEN11453]]35-3. [[Requesting the VME Tcl package be loaded.|c11425#AEN11457]]35-4. [[Using VME Tcl to locate all 2530 modules|x11460#AEN11464]]38-1. [[Loading the sequencer package|c11493#AEN11543]]39-1. [[Dumping state changes and sampled event data with od|c11583#AEN11642]]39-2. [[Dumping all but packet types|c11583#AEN11650]]39-3. [[Attaching SpecTcl|c11583#AEN11658]]40-1. [[Converting a ring buffer event file with compatibilitybuffer|c11664#compatibilitybuffer-ex1]]40-2. [[Converting ring buffer data to a 8Kword (16Kbyte) old style event file|c11664#AEN11685]]40-3. [[Using compatibilitylogger to convert event files|x11701#AEN11715]]40-4. [[convert10to11 - converting event files|x11720#AEN11725]]40-5. [[Attaching SpecTcl to ring buffers in compatibility mode|x11729#AEN11744]]44-1. [[The CONNECT message format|c11841#AEN11876]]44-2. [[Format of the DISCONNECT message|c11841#AEN11891]]44-3. [[Format of the LIST command|c11841#AEN11905]]44-4. [[Format of the REGISTER command|c11841#AEN11957]]44-5. [[Format of the UNREGISTER message|c11841#AEN11967]]44-6. [[Format of the REMOTE message|c11841#AEN11979]]46-1. [[Including the header|c12015#AEN12024]]46-2. [[Compiling code|c12015#AEN12027]]46-3. [[Linking code to the library|c12015#AEN12030]]47-1. [[A sample ring specification in URI form|c12035#AEN12045]]47-2. [[Substituting local host for the hostname in URI's|c12035#AEN12053]]47-3. [[Including the header|c12035#AEN12085]]47-4. [[Compiling code that uses `CRingAccess`|c12035#AEN12088]]47-5. [[Linking code that uses `CRingAccess`|c12035#AEN12092]]48-1. [[Compilation line for ring buffer primitives|c12098#AEN12119]]48-2. [[Including the ring buffer primitives header|c12098#AEN12125]]48-3. [[Linking to the ring buffer primitives|c12098#AEN12131]]48-4. [[Sample ring buffer consumer|x12135#AEN12149]]48-5. [[A sample Ring Buffer producer program|x12135#AEN12198]]49-1. [[Incorporating the ring package in your scripts|c12218#AEN12225]]50-1. [[Including a ring item class|x12719#AEN12725]]50-2. [[Telling the compiler where to find Ring Item headers|x12719#AEN12732]]50-3. [[Linking the ring item format libraries|x12719#AEN12737]]51-1. [[Setting the TCLLIBPATH environment variable for tclsh|c12947#AEN12969]]51-2. [[Adding DAQTCLLIBS to auto_path|c12947#AEN12975]]51-3. [[Creating an SQLite3 database command|c12947#ex.sqlite3cmd]]51-4. [[Creating a container definition for buster|c12947#AEN13044]]51-5. [[Using containers To Make a RingBuffer.|c12947#AEN13087]]51-6. [[Adding a New Program Definition|c12947#AEN13228]]51-7. [[Initialization Script to start Readout REST servers|c12947#AEN13272]]51-8. [[Listing Program Definitions|c12947#AEN13282]]51-9. [[Starting Programs in the programs Package|c12947#AEN13296]]51-10. [[Adding a PAUSED State|c12947#AEN13416]]51-11. [[Defining A Boot Sequence|c12947#AEN13449]]51-12. [[Booting the System.|c12947#AEN13475]]51-13. [[Using Miscellaneous Sequence Facilities|c12947#AEN13512]]51-14. [[Using the kvstore package|c12947#AEN13587]]51-15. [[Program Using the auth Package|c12947#AEN13639]]51-16. [[Sample Eventloggers Program|c12947#AEN13753]]51-17. [[Sample State Transition REST Client|x13812#AEN13836]]51-18. [[Using The programstatusclient Package|x13812#AEN13890]]51-19. [[Using the kvclient Package.|x13812#AEN13932]]51-20. [[Using the loggerrestclient Package|x13812#AEN13971]]52-1. [[Connecting to the event builder as a data source.|x14354#AEN14357]]52-2. [[Closing an event builder connection|x14387#AEN14402]]52-3. [[Starting the event builder|x14495#AEN14506]]52-4. [[Establishing the connection callback|x14529#AEN14537]]52-5. [[Setting up the disconnect callback|x14529#AEN14554]]53-1. [[Processing ring items in Tcl.|x14571#AEN14586]]53-2. [[The Scaler Display ring buffer thread|x14613#AEN14619]]58-1. [[Enabling a module Lam with wienercamac|x14916#AEN15054]]59-1. [[Including the cvt header|c15058#AEN15068]]59-2. [[Compiling a C or C++ source file that includes cvt.h|c15058#AEN15074]]59-3. [[A makefile rule that builds a C++ program using the
-                cvt package|c15058#AEN15078]]59-4. [[Creating a DaqConversion|x15082#AEN15095]]60-1. [[The life of a thread|c15139#AEN15162]]60-2. [[Why synchonization is needed|c15139#AEN15194]]60-3. [[Using `SyncGuard` to implement a monitor|c15139#AEN15218]]60-4. [[Compiling and linking NSCLDAQ threaded software|x15248#AEN15256]]60-5. [[Using `CGaurdedObject`|x15259#AEN15266]]60-6. [[Sending data to a CBufferQueue|x15299#AEN15339]]60-7. [[Consumer of data from a CBufferQueue|x15299#AEN15361]]61-1. [[Compilation switches for the security includes|c15399#AEN15412]]61-2. [[Link switches for the security library|c15399#AEN15416]]61-3. [[Boilerplate DAQ Authorization code|x15419#AEN15423]]62-1. [[Sample URI library program|c15532#AEN15560]]62-2. [[Building urltst.cpp|c15532#AEN15586]]63-1. [[Shared memory library example|c15590#AEN15631]]63-2. [[Compiling a C++ source that includes daqshm.h|x15661#AEN15672]]63-3. [[Linking C++ object files that use the
-            daqshm library|x15661#AEN15676]]69-1. [[Catching `CException` and exiting|x15919#AEN15944]]71-1. [[CTestExtender class definition|x16146#AEN16152]]71-2. [[`CTestExtender` implementation|x16146#AEN16196]]71-3. [[The factory function|x16146#AEN16267]]74-1. [[The **watch** command.|c16323#AEN16342]]75-1. [[The standard startup script explained|x16382#AEN16387]]76-1. [[`CEVBClientApp` definition|c16517#AEN16563]]76-2. [[The `CEVBRingClientApp` class
-                definition.|c16517#AEN16595]]76-3. [[The `CEVBRingClientApp` `initialize`
-                and `shutdown` methods.|c16517#AEN16609]]76-4. [[The `CEVBRingClientApp`
-`dataReady` method.|c16517#AEN16622]]76-5. [[The `EVBRingClientApp` `getEvents`
-                implementation.|c16517#AEN16666]]76-6. [[Configuring the event builder client framework|x16705#AEN16716]]76-7. [[S800 timestamp extractor (s800timestamp.c|x16783#AEN16829]]77-1. [[Using the EVBC state manager callback bundle|x16899#AEN16906]]78-1. [[Passing the ring buffer to the construction of an Event segment.|c16939#AEN17272]]78-2. [[Creating Events|c16939#AEN17308]]78-3. [[Obtaining the SBS readout skeleton|x17345#AEN17350]]81-1. [[Selecting DAQ version and obtaining the skeleton:|x17673#AEN17709]]81-2. [[Sample Skeleton.cpp modifications|x17673#ex.skeleton]]81-3. [[Front part of Makefile for Readout|x17673#AEN17826]]81-4. [[Obtaining a copy of the SpecTcl skeleton|x18589#AEN18973]]81-5. [[MySpecTclApp.cpp modified for a single module|x18589#AEN18991]]81-6. [[Makefile for SpecTcl|x18589#AEN19050]]1. [[Uncompressing NSCLDAQ-10.x data and converting it to NSCLDAQ-11 format|r19458#AEN19487]]1. [[Attaching SpecTcl to a ring buffer in compatibility mode|r19598#AEN19640]]1. [[Running spectcldaq.server|r19649#AEN19712]]2. [[Connecting to spectcldaq.server|r19649#AEN19717]]1. [[Dumping all data from an old style event file|r19795#AEN19862]]2. [[Dumping all data but event data from an old style event file|r19795#AEN19865]]3. [[Dumping all but physics data from several event files|r19795#AEN19869]]1. [[Sample output from **ringbuffer status**|r19874#AEN19973]]1. [[making hex dumps of data from a ring buffer.|r20001#AEN20062]]1. [[Using stdintoring|r20065#AEN20124]]1. [[Using rdo_control To Begin A Run|r20858#AEN20939]]2. [[Using rdo_control To Set A Title|r20858#AEN20945]]3. [[Using rdo_control To Get Trigger Statistics|r20858#AEN20951]]1. [[Getting the Title Key From the KVSTORE|r20997#AEN21025]]1. [[Sample containers.ini file|r21030#AEN21153]]1. [[Dumping state changes and sampled event data with od|r23416#AEN23529]]2. [[Dumping all but packet types|r23416#AEN23537]]3. [[Attaching SpecTcl|r23416#AEN23545]]1. [[Viewing a set of channel values interactively|r25408#AEN25452]]2. [[Writing a set of channels to a file|r25408#AEN25455]]3. [[Appending a set of channels to a file|r25408#AEN25458]]4. [[Piping a set of channels to a program for processing|r25408#AEN25461]]1. [[Supporting an observer in a snit type or widget|r26985#AEN27076]]2. [[Supporting multiple observers in a snit type or widget|r26985#AEN27087]]1. [[Using `CRingAccess` to connect to
-                    a local ring.|r29102#AEN29287]]2. [[Using `CRingAccess` to connect to a remote
-                ring|r29102#AEN29291]]1. [[Message filter predicate|r29354#AEN30122]]1. [[Selecting sampled event from a ring.|r30177#AEN30637]]1. [[Constructing a scaler item from an item gotten from a ring|r30665#AEN31137]]1. [[Creating a begin run state transition item|r31162#AEN31601]]1. [[Allocating a port with the port manager|r40929#AEN41073]]2. [[Listing the port allocatiosn on a system.|r40929#AEN41077]]1. [[Catching a CPortManagerException|r41090#AEN41236]]1. [[Creating a CAENcard geographically|r41723#AEN42512]]2. [[Setting a TDC to common stop mode|r41723#AEN42516]]3. [[Reading out a CAEN 785 e.g.|r41723#AEN42520]]1. [[Initializing branch 0|r42528#AEN42899]]1. [[Using the LRS 1151 in the production readout framework.|r49566#AEN49660]]1. [[Creating a device driver via private derivation|r50657#AEN50784]]2. [[Creating a device driver via inclusion|r50657#AEN50790]]1. [[Calling `CStringInteractor` specific
-         members|r54898#AEN55065]]1. [[Creating a coypright notice on stderr|r55490#AEN55589]]2. [[Creating an author credit on stderr|r55490#AEN55593]]1. [[evttclsh|r60703#AEN60814]]1. [[AD811 configuration file example|r71513#AEN71580]]1. [[LRS2228 creation example|r72147#AEN72213]]1. [[The lrs2551 command|r72281#AEN72370]]1. [[Using the **list** command to
-                                  construct pedestals|r72415#AEN72529]]2. [[Sample **ph7xxx** commands|r72415#AEN72629]]1. [[Example of the **stack** command.|r72633#AEN72759]]1. [[A simple crate setup containing a single scaler|r72836#AEN72886]]1. [[A simple setup of one FERA|r72890#AEN73005]]1. [[A simple setup of one scaler|r73009#AEN73061]]1. [[A simple setup of a single scaler|r73065#AEN73109]]1. [[A simple setup of a single ULM|r73113#AEN73297]]1. [[Listing CC-USB Serial numbers (Tcl).|r78458#AEN79128]]2. [[Creating a CCCUSB object by serial number (Tcl).|r78458#AEN79138]]1. [[bell example|r81000#AEN81118]]1. [[Sample use of the `DialogWrapper`|r81650#AEN81822]]1. [[Simple usage of the ReadoutGUIAppLauncher package|r81875#AEN81977]]1. [[A do nothing `RunstateMachine` callout bundle|r82554#AEN82753]]1. [[Getters and setters for StateManager|r82793#AEN82910]]1. [[Sample ADC commands|r85888#AEN86112]]1. [[Using the **caenchain** command.|r86119#AEN86177]]1. [[Configuring an SIS3820 scaler module|r86982#AEN87128]]2. [[Configuring an SIS3820 module as a timestamper|r86982#AEN87131]]1. [[Configuring a CAEN V830 scaler|r87142#AEN87340]]1. [[Configuring the SIS 3804 scaler|r87517#AEN87583]]1. [[Sample Hytec 2530 configuration|r87649#AEN87805]]1. [[Sample use of madc command|r87976#AEN88303]]1. [[Sample use of mqdc command for timestamping with external oscillator|r88756#AEN89195]]2. [[Sample configuration of mqdc for event counting and interrupt readout|r88756#AEN89217]]1. [[Sample usage|r89229#AEN89310]]1. [[Building Stacks|r89856#AEN90015]]1. [[Sample MDPP-32 QDC commands|r90018#AEN90578]]1. [[Sample MDPP-16 QDC commands|r90586#AEN91141]]1. [[Sample MDPP-32 SCP commands|r91149#AEN91653]]1. [[A simple delay example|r99508#AEN99550]]1. [[Sample setup of two camac crates on branch 0|r99554#AEN99612]]1. [[Sample setup of a single LeCroy 2551|r99616#AEN99666]]1. [[Sample setup of a few FERAs|r99670#AEN99784]]1. [[Sample setup of a single scaler|r99788#AEN99840]]1. [[Simple setup of a single scaler|r99844#AEN99890]]1. [[Setup of a single ULM trigger module|r99894#AEN100093]]1. [[Simple setup of a single timestamp module|r100097#AEN100147]]1. [[Simple setup of a single timestamp module|r100194#AEN100259]]1. [[Simple setup of the AXLM72ScalerControl|r100263#AEN100356]]1. [[Example ctlconfig.tcl entry|r100360#AEN100414]]1. [[An example usage in VMUSBReadout|r102214#AEN102299]]1. [[An example usage in VMUSBReadout|r102318#AEN102392]]1. [[Allocating a service port in Tcl|r111007#AEN111096]]2. [[Listing allocated ports in Tcl|r111007#AEN111100]]1. [[Hooking update methods to recurring timer|r112376#AEN112457]]1. [[Action script example|r113265#AEN113389]]2. [[Sequencer column configuration file|r113265#AEN113395]]1. [[Creating and registering a V262 as a busy:|r114627#AEN114753]]1. [[Deep iteration of `CCompondEventSegment` elements|r114876#AEN115144]]2. [[Deep visitation of `CCompoundEventSegment` elements|r114876#AEN115148]]1. [[Using the `CDocumentedPacket` class|r115156#AEN115421]]1. [[Catching readout specific examples|r116311#AEN116338]]1. [[Deep visitation in `CScalerBank` containers|r116345#AEN116627]]1. [[Outputting the state of the run|r116949#AEN117056]]1. [[Sample Container Configuration File|r117852#AEN117915]]1. [[Sample configuration file|r119114#AEN119222]]1. [[Sample configuration file|r119230#AEN119348]]1. [[Sample configuration file|r119356#AEN119374]]
+- **List of Examples**
+- 4-1. [[Readout initscript to Start a REST server|x1411#AEN1446]]
+- 4-2. [[An Event Builder Start Script|x1673#AEN1700]]
+- 5-1. [[Creating and configuring devices|x1868#AEN1881]]
+- 5-2. [[A Sample Controls Configuration|x1926#AEN1938]]
+- 5-3. [[A sample getEventTimestamp() implementation|x2147#AEN2167]]
+- 5-4. [[Defining a null getScalerTimestamp()|x2147#AEN2219]]
+- 5-5. [[Adding an offset to the timestamp|x2147#AEN2233]]
+- 5-6. [[Obtaning the VM-USB device driver development kit|x2269#AEN2282]]
+- 5-7. [[Using a user written VMUSB driver|x2269#AEN2291]]
+- 5-8. [[The template driver `Initialize` method|x2269#AEN2353]]
+- 5-9. [[Template Driver `addReadoutList` method|x2269#AEN2372]]
+- 5-10. [[The VMUSB driver `Xxxx_Init`
+                    function.|x2269#AEN2398]]
+- 5-11. [[Itcl VM-USB device driver|x2269#AEN2471]]
+- 5-12. [[A Snit VM-USB driver.|x2269#AEN2563]]
+- 5-13. [[USing a Tcl VM-USB driver.|x2269#AEN2668]]
+- 5-14. [[Control driver headers|x2682#AEN2852]]
+- 5-15. [[Control driver class definition|x2682#AEN2871]]
+- 5-16. [[Control driver constructor|x2682#AEN2878]]
+- 5-17. [[Control driver `onAttach` method|x2682#AEN2882]]
+- 5-18. [[Control driver `Update`|x2682#AEN2905]]
+- 5-19. [[Control driver `Set` method.|x2682#AEN2917]]
+- 5-20. [[Control driver `Get` method|x2682#AEN2967]]
+- 5-21. [[Control driver `clone` method|x2682#AEN3001]]
+- 5-22. [[Control driver creator|x2682#AEN3015]]
+- 5-23. [[Control driver initialization|x2682#AEN3050]]
+- 5-24. [[Control drivers - structure of a Tcl driver|x2682#AEN3162]]
+- 5-25. [[Tcl control driver `Initialize` method|x2682#AEN3213]]
+- 5-26. [[Tcl control driver `Update` method|x2682#AEN3228]]
+- 5-27. [[Tcl control driver `Set` method|x2682#AEN3246]]
+- 5-28. [[Tcl control driver `Get` method|x2682#AEN3269]]
+- 5-29. [[Tcl control drer `addMonitorList` method|x2682#AEN3287]]
+- 5-30. [[Tcl control driver `processMonitorList` method|x2682#AEN3298]]
+- 5-31. [[Tcl control driver `getMonitoredData` method|x2682#AEN3310]]
+- 5-32. [[Tcl control driver validation|x2682#AEN3323]]
+- 5-33. [[Specifying VM-USB monitored variables|x3377#AEN3401]]
+- 6-1. [[Creating and configuring devices|x3467#AEN3471]]
+- 6-2. [[Configuring an event stack|x3467#AEN3494]]
+- 6-3. [[Setting up a scaler stack|x3467#AEN3505]]
+- 6-4. [[Obtaining the ccusb driver development kit|x3508#AEN3513]]
+- 6-5. [[Using a user written CCUSB driver|x3508#AEN3519]]
+- 6-6. [[A snit CCUSB device driver module|x3669#AEN3716]]
+- 6-7. [[CCUSB device support example writtin in Incr Tcl|x3669#AEN3813]]
+- 6-8. [[DAQ config script fragment with tcl drivers.|x3669#AEN3924]]
+- 6-9. [[Obtaining the sample CCUSB slow controls driver|x4043#AEN4064]]
+- 6-10. [[Headers for the CCUSB sample slow controls driver|x4043#AEN4104]]
+- 6-11. [[CCUSB Slow control driver class definition|x4043#AEN4147]]
+- 6-12. [[The constructor and destructor|x4043#ccusb-slowdriver-impl-condestruct]]
+- 6-13. [[CCUSB Slow controls driver `OnAttach`|x4043#AEN4228]]
+- 6-14. [[CCUSB Slow controls driver initialize method|x4043#AEN4262]]
+- 6-15. [[CCUSB Slow controls driver Update|x4043#AEN4274]]
+- 6-16. [[CCUSB Slow controls driver Set method|x4043#AEN4302]]
+- 6-17. [[CCUSB slow controls Get method|x4043#AEN4337]]
+- 6-18. [[CCUSB Slow controls clone method|x4043#AEN4362]]
+- 6-19. [[Module creator for the CCUSB Sample slow controls driver|x4043#AEN4381]]
+- 6-20. [[CCUSB Slow control driver initialization function|x4043#AEN4411]]
+- 6-21. [[CCUSB Slow controls driver Skeleton Makefile|x4043#AEN4447]]
+- 6-22. [[CCUSB Tcl slow controls driver skeleton|x4470#AEN4499]]
+- 6-23. [[CCUSB Tcl slow controls driver construction|x4470#AEN4587]]
+- 6-24. [[CCUSB Tcl slow controls initialization|x4470#AEN4594]]
+- 6-25. [[CCUSB Tcl Slow Controls Update|x4470#AEN4600]]
+- 6-26. [[CCUSB Tcl Slow controls driver Set|x4470#AEN4619]]
+- 6-27. [[CCUSB Tcl Slow Control driver Get|x4470#AEN4627]]
+- 6-28. [[CCUSB Slow controls Tcl driver option validation|x4470#AEN4653]]
+- 6-29. [[Using the Tcl sample driver in a configuration script.|x4470#AEN4665]]
+- 6-30. [[Enabling a module Lam with ccusbcamac|x4668#AEN4745]]
+- 8-1. [[Custom ReadoutGUI startup script|x5668#AEN5951]]
+- 9-1. [[Script To Start The EventBuilder in the Manager|x6232#AEN6236]]
+- 10-1. [[Starting EVBLite from ReadoutCallouts.tcl|x6322#AEN6331]]
+- 13-1. [[Silly timestamp extractor for fribdaq-readout|r7094#AEN7225]]
+- 13-2. [[Extracting a timestamp from the first 64 bits of MVLC data|r7094#AEN7320]]
+- 13-3. [[Building mesytec-mvlc with fribdaq-readout|x7340#AEN7382]]
+- 13-4. [[Headers included by the sample MVLC loadable driver|x7385#AEN7407]]
+- 13-5. [[Sample mvlcgenerate driver definition|x7385#AEN7418]]
+- 13-6. [[mvlcgenerate SampleDriver::onAttach - defining configuration options|x7385#AEN7438]]
+- 13-7. [[mvlc SampleDriver::Initialize - generating initialization operations.|x7385#AEN7517]]
+- 13-8. [[mvlcgenerate SampleDriver::AddReadoutList - Generating readout operations.|x7385#AEN7537]]
+- 13-9. [[mvlcgenerate SampleDriver::addReadoutList - generating event readout|x7385#AEN7545]]
+- 13-10. [[mvlcgenerate SampleDriverCommand definition|x7385#AEN7556]]
+- 13-11. [[mvlcgenerate SampleDriverCommmand constructor - defining the command|x7385#AEN7565]]
+- 13-12. [[mvlcgenerate - creating a device instance (createDevice).|x7385#AEN7583]]
+- 13-13. [[mvlcgenerate sample driver initialization code:|x7385#AEN7607]]
+- 13-14. [[mvlcgenerate building the C++ extension:|x7385#AEN7651]]
+- 13-15. [[mvlcgenerate - using a C++ extension driver:|x7385#AEN7657]]
+- 13-16. [[mvlcgenerate - Sample Tcl driver in snit.|x7676#AEN7711]]
+- 15-1. [[V775 Event Segment (V775EventSegment.h).|x8695#AEN8732]]
+- 15-2. [[v775 Event Segment (V775EventSegment.cpp) - file heading|x8695#AEN8790]]
+- 15-3. [[v775 Event Segment (V775EventSegment.cpp) - Constructor|x8695#AEN8809]]
+- 15-4. [[v775 Event Segment (V775EventSegment.cpp) - Initialization|x8695#AEN8814]]
+- 15-5. [[v775 Event Segment (V775EventSegment.cpp) - reading data|x8695#AEN8837]]
+- 15-6. [[V775 data ready trigger header (MyTrigger.h)|x8695#AEN8873]]
+- 15-7. [[V775 data ready trigger implementation (MyTrigger.cpp)|x8695#AEN8880]]
+- 15-8. [[Copying in the SpecTcl-v3.4 skeleton|x9005#AEN9033]]
+- 15-9. [[Raw TDC unpacker (RawUnpacker.h)|x9005#AEN9039]]
+- 15-10. [[v775 raw unpacker implementation includes and defs (RawUnpacker.cpp)|x9005#AEN9071]]
+- 15-11. [[V775 raw unpacker - getLong utility (RawUnpacker.cpp)|x9005#AEN9093]]
+- 15-12. [[V775 raw unpacker object constructor/destructor (RawUnpacker.cpp)|x9005#AEN9099]]
+- 15-13. [[v75 raw unpacker unpacking events (RawUnpacker.cpp)|x9005#AEN9112]]
+- 15-14. [[Defining raw Time spectra the hard way.|x9005#AEN9231]]
+- 15-15. [[Header for time difference event processor (Tdiff.h)|x9005#AEN9355]]
+- 15-16. [[CTdiff implementation (Tdiff.cpp)|x9005#AEN9368]]
+- 15-17. [[Setting up ssh for password-less login|x9390#AEN9404]]
+- 15-18. [[Creating an event area for a small amount of data|x9390#AEN9439]]
+- 15-19. [[Makefile|x9505#AEN9539]]
+- 15-20. [[Skeleton.cpp|x9505#AEN9543]]
+- 15-21. [[V775EventSegment.h|x9505#AEN9547]]
+- 15-22. [[V775EventSegment.cpp|x9505#AEN9551]]
+- 15-23. [[MyTrigger.h|x9505#AEN9555]]
+- 15-24. [[MyTrigger.cpp|x9505#AEN9558]]
+- 15-25. [[RawUnpacker.h|x9561#AEN9568]]
+- 15-26. [[RawUnpacker.cpp|x9561#AEN9571]]
+- 15-27. [[spectra.tcl|x9561#AEN9574]]
+- 15-28. [[SpecTclRC.tcl|x9561#AEN9577]]
+- 15-29. [[Tdiff.h|x9561#AEN9580]]
+- 15-30. [[Tdiff.cpp|x9561#AEN9583]]
+- 16-1. [[Header for MyEventSegment|x9673#AEN9690]]
+- 16-2. [[Impementation of CMyEventSegment|x9673#AEN9723]]
+- 16-3. [[The Packet Data|x9873#AEN9885]]
+- 25-1. [[Creating a logbook and making it current|x10440#AEN10476]]
+- 25-2. [[Using **lg_addperson to add people to the logbook**|x10440#AEN10498]]
+- 25-3. [[Using **lg_mkshift**|x10440#AEN10508]]
+- 25-4. [[Using **lg_mgshift** to manage shifts|x10440#AEN10534]]
+- 25-5. [[Using **lg_selshift** to select the current shift|x10440#AEN10547]]
+- 25-6. [[Enabling automatic recording of run state transitions|x10562#AEN10566]]
+- 25-7. [[Invoking **lg_wrnote**|x10562#AEN10613]]
+- 25-8. [[Using **lg_print**|x10562#AEN10855]]
+- 25-9. [[C++ example using logbook API|x10955#AEN10963]]
+- 25-10. [[Compiling the C++ Logbook API example.|x10955#AEN11007]]
+- 25-11. [[kvexamplelow.tcl low level Tcl logbook API example|x10955#ex.tclapilow]]
+- 25-12. [[kvexamplehi.tcl Using the high level Tcl logbook API|x10955#AEN11083]]
+- 25-13. [[kvexample.py programming the Python logbook API|x10955#AEN11110]]
+- 25-14. [[Running Python scripts that use the logbook API|x10955#AEN11137]]
+- 27-1. [[Using unglom and glom to re-build events|c11169#AEN11184]]
+- 28-1. [[Dumping data from the ring buffer named 0400x on spdaq22|c11188#AEN11202]]
+- 28-2. [[Dumping data from the event file segment
+            /user/0400x/complete/run-1234-00.evt|c11188#AEN11206]]
+- 28-3. [[State Transition items|c11188#AEN11219]]
+- 28-4. [[Text List items|c11188#AEN11224]]
+- 28-5. [[Incremental Scalers dump|c11188#AEN11229]]
+- 28-6. [[Event count items|c11188#AEN11235]]
+- 28-7. [[Physics Event items|c11188#AEN11241]]
+- 28-8. [[Unknown item types|c11188#AEN11246]]
+- 29-1. [[Taking data from a remote ring|c11252#AEN11277]]
+- 30-1. [[Using **serverauth** to authorize a node|c11282#AEN11297]]
+- 35-1. [[Appending the NSCLDAQ Tcl Package repository to Tcl's search
+            path|c11425#AEN11449]]
+- 35-2. [[Appending NSLCDAQ's TclPackage repository to Tcl's search path|c11425#AEN11453]]
+- 35-3. [[Requesting the VME Tcl package be loaded.|c11425#AEN11457]]
+- 35-4. [[Using VME Tcl to locate all 2530 modules|x11460#AEN11464]]
+- 38-1. [[Loading the sequencer package|c11493#AEN11543]]
+- 39-1. [[Dumping state changes and sampled event data with od|c11583#AEN11642]]
+- 39-2. [[Dumping all but packet types|c11583#AEN11650]]
+- 39-3. [[Attaching SpecTcl|c11583#AEN11658]]
+- 40-1. [[Converting a ring buffer event file with compatibilitybuffer|c11664#compatibilitybuffer-ex1]]
+- 40-2. [[Converting ring buffer data to a 8Kword (16Kbyte) old style event file|c11664#AEN11685]]
+- 40-3. [[Using compatibilitylogger to convert event files|x11701#AEN11715]]
+- 40-4. [[convert10to11 - converting event files|x11720#AEN11725]]
+- 40-5. [[Attaching SpecTcl to ring buffers in compatibility mode|x11729#AEN11744]]
+- 44-1. [[The CONNECT message format|c11841#AEN11876]]
+- 44-2. [[Format of the DISCONNECT message|c11841#AEN11891]]
+- 44-3. [[Format of the LIST command|c11841#AEN11905]]
+- 44-4. [[Format of the REGISTER command|c11841#AEN11957]]
+- 44-5. [[Format of the UNREGISTER message|c11841#AEN11967]]
+- 44-6. [[Format of the REMOTE message|c11841#AEN11979]]
+- 46-1. [[Including the header|c12015#AEN12024]]
+- 46-2. [[Compiling code|c12015#AEN12027]]
+- 46-3. [[Linking code to the library|c12015#AEN12030]]
+- 47-1. [[A sample ring specification in URI form|c12035#AEN12045]]
+- 47-2. [[Substituting local host for the hostname in URI's|c12035#AEN12053]]
+- 47-3. [[Including the header|c12035#AEN12085]]
+- 47-4. [[Compiling code that uses `CRingAccess`|c12035#AEN12088]]
+- 47-5. [[Linking code that uses `CRingAccess`|c12035#AEN12092]]
+- 48-1. [[Compilation line for ring buffer primitives|c12098#AEN12119]]
+- 48-2. [[Including the ring buffer primitives header|c12098#AEN12125]]
+- 48-3. [[Linking to the ring buffer primitives|c12098#AEN12131]]
+- 48-4. [[Sample ring buffer consumer|x12135#AEN12149]]
+- 48-5. [[A sample Ring Buffer producer program|x12135#AEN12198]]
+- 49-1. [[Incorporating the ring package in your scripts|c12218#AEN12225]]
+- 50-1. [[Including a ring item class|x12719#AEN12725]]
+- 50-2. [[Telling the compiler where to find Ring Item headers|x12719#AEN12732]]
+- 50-3. [[Linking the ring item format libraries|x12719#AEN12737]]
+- 51-1. [[Setting the TCLLIBPATH environment variable for tclsh|c12947#AEN12969]]
+- 51-2. [[Adding DAQTCLLIBS to auto_path|c12947#AEN12975]]
+- 51-3. [[Creating an SQLite3 database command|c12947#ex.sqlite3cmd]]
+- 51-4. [[Creating a container definition for buster|c12947#AEN13044]]
+- 51-5. [[Using containers To Make a RingBuffer.|c12947#AEN13087]]
+- 51-6. [[Adding a New Program Definition|c12947#AEN13228]]
+- 51-7. [[Initialization Script to start Readout REST servers|c12947#AEN13272]]
+- 51-8. [[Listing Program Definitions|c12947#AEN13282]]
+- 51-9. [[Starting Programs in the programs Package|c12947#AEN13296]]
+- 51-10. [[Adding a PAUSED State|c12947#AEN13416]]
+- 51-11. [[Defining A Boot Sequence|c12947#AEN13449]]
+- 51-12. [[Booting the System.|c12947#AEN13475]]
+- 51-13. [[Using Miscellaneous Sequence Facilities|c12947#AEN13512]]
+- 51-14. [[Using the kvstore package|c12947#AEN13587]]
+- 51-15. [[Program Using the auth Package|c12947#AEN13639]]
+- 51-16. [[Sample Eventloggers Program|c12947#AEN13753]]
+- 51-17. [[Sample State Transition REST Client|x13812#AEN13836]]
+- 51-18. [[Using The programstatusclient Package|x13812#AEN13890]]
+- 51-19. [[Using the kvclient Package.|x13812#AEN13932]]
+- 51-20. [[Using the loggerrestclient Package|x13812#AEN13971]]
+- 52-1. [[Connecting to the event builder as a data source.|x14354#AEN14357]]
+- 52-2. [[Closing an event builder connection|x14387#AEN14402]]
+- 52-3. [[Starting the event builder|x14495#AEN14506]]
+- 52-4. [[Establishing the connection callback|x14529#AEN14537]]
+- 52-5. [[Setting up the disconnect callback|x14529#AEN14554]]
+- 53-1. [[Processing ring items in Tcl.|x14571#AEN14586]]
+- 53-2. [[The Scaler Display ring buffer thread|x14613#AEN14619]]
+- 58-1. [[Enabling a module Lam with wienercamac|x14916#AEN15054]]
+- 59-1. [[Including the cvt header|c15058#AEN15068]]
+- 59-2. [[Compiling a C or C++ source file that includes cvt.h|c15058#AEN15074]]
+- 59-3. [[A makefile rule that builds a C++ program using the
+                cvt package|c15058#AEN15078]]
+- 59-4. [[Creating a DaqConversion|x15082#AEN15095]]
+- 60-1. [[The life of a thread|c15139#AEN15162]]
+- 60-2. [[Why synchonization is needed|c15139#AEN15194]]
+- 60-3. [[Using `SyncGuard` to implement a monitor|c15139#AEN15218]]
+- 60-4. [[Compiling and linking NSCLDAQ threaded software|x15248#AEN15256]]
+- 60-5. [[Using `CGaurdedObject`|x15259#AEN15266]]
+- 60-6. [[Sending data to a CBufferQueue|x15299#AEN15339]]
+- 60-7. [[Consumer of data from a CBufferQueue|x15299#AEN15361]]
+- 61-1. [[Compilation switches for the security includes|c15399#AEN15412]]
+- 61-2. [[Link switches for the security library|c15399#AEN15416]]
+- 61-3. [[Boilerplate DAQ Authorization code|x15419#AEN15423]]
+- 62-1. [[Sample URI library program|c15532#AEN15560]]
+- 62-2. [[Building urltst.cpp|c15532#AEN15586]]
+- 63-1. [[Shared memory library example|c15590#AEN15631]]
+- 63-2. [[Compiling a C++ source that includes daqshm.h|x15661#AEN15672]]
+- 63-3. [[Linking C++ object files that use the
+            daqshm library|x15661#AEN15676]]
+- 69-1. [[Catching `CException` and exiting|x15919#AEN15944]]
+- 71-1. [[CTestExtender class definition|x16146#AEN16152]]
+- 71-2. [[`CTestExtender` implementation|x16146#AEN16196]]
+- 71-3. [[The factory function|x16146#AEN16267]]
+- 74-1. [[The **watch** command.|c16323#AEN16342]]
+- 75-1. [[The standard startup script explained|x16382#AEN16387]]
+- 76-1. [[`CEVBClientApp` definition|c16517#AEN16563]]
+- 76-2. [[The `CEVBRingClientApp` class
+                definition.|c16517#AEN16595]]
+- 76-3. [[The `CEVBRingClientApp` `initialize`
+                and `shutdown` methods.|c16517#AEN16609]]
+- 76-4. [[The `CEVBRingClientApp`
+`dataReady` method.|c16517#AEN16622]]
+- 76-5. [[The `EVBRingClientApp` `getEvents`
+                implementation.|c16517#AEN16666]]
+- 76-6. [[Configuring the event builder client framework|x16705#AEN16716]]
+- 76-7. [[S800 timestamp extractor (s800timestamp.c|x16783#AEN16829]]
+- 77-1. [[Using the EVBC state manager callback bundle|x16899#AEN16906]]
+- 78-1. [[Passing the ring buffer to the construction of an Event segment.|c16939#AEN17272]]
+- 78-2. [[Creating Events|c16939#AEN17308]]
+- 78-3. [[Obtaining the SBS readout skeleton|x17345#AEN17350]]
+- 81-1. [[Selecting DAQ version and obtaining the skeleton:|x17673#AEN17709]]
+- 81-2. [[Sample Skeleton.cpp modifications|x17673#ex.skeleton]]
+- 81-3. [[Front part of Makefile for Readout|x17673#AEN17826]]
+- 81-4. [[Obtaining a copy of the SpecTcl skeleton|x18589#AEN18973]]
+- 81-5. [[MySpecTclApp.cpp modified for a single module|x18589#AEN18991]]
+- 81-6. [[Makefile for SpecTcl|x18589#AEN19050]]
+- 1. [[Uncompressing NSCLDAQ-10.x data and converting it to NSCLDAQ-11 format|r19458#AEN19487]]
+- 1. [[Attaching SpecTcl to a ring buffer in compatibility mode|r19598#AEN19640]]
+- 1. [[Running spectcldaq.server|r19649#AEN19712]]
+- 2. [[Connecting to spectcldaq.server|r19649#AEN19717]]
+- 1. [[Dumping all data from an old style event file|r19795#AEN19862]]
+- 2. [[Dumping all data but event data from an old style event file|r19795#AEN19865]]
+- 3. [[Dumping all but physics data from several event files|r19795#AEN19869]]
+- 1. [[Sample output from **ringbuffer status**|r19874#AEN19973]]
+- 1. [[making hex dumps of data from a ring buffer.|r20001#AEN20062]]
+- 1. [[Using stdintoring|r20065#AEN20124]]
+- 1. [[Using rdo_control To Begin A Run|r20858#AEN20939]]
+- 2. [[Using rdo_control To Set A Title|r20858#AEN20945]]
+- 3. [[Using rdo_control To Get Trigger Statistics|r20858#AEN20951]]
+- 1. [[Getting the Title Key From the KVSTORE|r20997#AEN21025]]
+- 1. [[Sample containers.ini file|r21030#AEN21153]]
+- 1. [[Dumping state changes and sampled event data with od|r23416#AEN23529]]
+- 2. [[Dumping all but packet types|r23416#AEN23537]]
+- 3. [[Attaching SpecTcl|r23416#AEN23545]]
+- 1. [[Viewing a set of channel values interactively|r25408#AEN25452]]
+- 2. [[Writing a set of channels to a file|r25408#AEN25455]]
+- 3. [[Appending a set of channels to a file|r25408#AEN25458]]
+- 4. [[Piping a set of channels to a program for processing|r25408#AEN25461]]
+- 1. [[Supporting an observer in a snit type or widget|r26985#AEN27076]]
+- 2. [[Supporting multiple observers in a snit type or widget|r26985#AEN27087]]
+- 1. [[Using `CRingAccess` to connect to
+                    a local ring.|r29102#AEN29287]]
+- 2. [[Using `CRingAccess` to connect to a remote
+                ring|r29102#AEN29291]]
+- 1. [[Message filter predicate|r29354#AEN30122]]
+- 1. [[Selecting sampled event from a ring.|r30177#AEN30637]]
+- 1. [[Constructing a scaler item from an item gotten from a ring|r30665#AEN31137]]
+- 1. [[Creating a begin run state transition item|r31162#AEN31601]]
+- 1. [[Allocating a port with the port manager|r40929#AEN41073]]
+- 2. [[Listing the port allocatiosn on a system.|r40929#AEN41077]]
+- 1. [[Catching a CPortManagerException|r41090#AEN41236]]
+- 1. [[Creating a CAENcard geographically|r41723#AEN42512]]
+- 2. [[Setting a TDC to common stop mode|r41723#AEN42516]]
+- 3. [[Reading out a CAEN 785 e.g.|r41723#AEN42520]]
+- 1. [[Initializing branch 0|r42528#AEN42899]]
+- 1. [[Using the LRS 1151 in the production readout framework.|r49566#AEN49660]]
+- 1. [[Creating a device driver via private derivation|r50657#AEN50784]]
+- 2. [[Creating a device driver via inclusion|r50657#AEN50790]]
+- 1. [[Calling `CStringInteractor` specific
+         members|r54898#AEN55065]]
+- 1. [[Creating a coypright notice on stderr|r55490#AEN55589]]
+- 2. [[Creating an author credit on stderr|r55490#AEN55593]]
+- 1. [[evttclsh|r60703#AEN60814]]
+- 1. [[AD811 configuration file example|r71513#AEN71580]]
+- 1. [[LRS2228 creation example|r72147#AEN72213]]
+- 1. [[The lrs2551 command|r72281#AEN72370]]
+- 1. [[Using the **list** command to
+                                  construct pedestals|r72415#AEN72529]]
+- 2. [[Sample **ph7xxx** commands|r72415#AEN72629]]
+- 1. [[Example of the **stack** command.|r72633#AEN72759]]
+- 1. [[A simple crate setup containing a single scaler|r72836#AEN72886]]
+- 1. [[A simple setup of one FERA|r72890#AEN73005]]
+- 1. [[A simple setup of one scaler|r73009#AEN73061]]
+- 1. [[A simple setup of a single scaler|r73065#AEN73109]]
+- 1. [[A simple setup of a single ULM|r73113#AEN73297]]
+- 1. [[Listing CC-USB Serial numbers (Tcl).|r78458#AEN79128]]
+- 2. [[Creating a CCCUSB object by serial number (Tcl).|r78458#AEN79138]]
+- 1. [[bell example|r81000#AEN81118]]
+- 1. [[Sample use of the `DialogWrapper`|r81650#AEN81822]]
+- 1. [[Simple usage of the ReadoutGUIAppLauncher package|r81875#AEN81977]]
+- 1. [[A do nothing `RunstateMachine` callout bundle|r82554#AEN82753]]
+- 1. [[Getters and setters for StateManager|r82793#AEN82910]]
+- 1. [[Sample ADC commands|r85888#AEN86112]]
+- 1. [[Using the **caenchain** command.|r86119#AEN86177]]
+- 1. [[Configuring an SIS3820 scaler module|r86982#AEN87128]]
+- 2. [[Configuring an SIS3820 module as a timestamper|r86982#AEN87131]]
+- 1. [[Configuring a CAEN V830 scaler|r87142#AEN87340]]
+- 1. [[Configuring the SIS 3804 scaler|r87517#AEN87583]]
+- 1. [[Sample Hytec 2530 configuration|r87649#AEN87805]]
+- 1. [[Sample use of madc command|r87976#AEN88303]]
+- 1. [[Sample use of mqdc command for timestamping with external oscillator|r88756#AEN89195]]
+- 2. [[Sample configuration of mqdc for event counting and interrupt readout|r88756#AEN89217]]
+- 1. [[Sample usage|r89229#AEN89310]]
+- 1. [[Building Stacks|r89856#AEN90015]]
+- 1. [[Sample MDPP-32 QDC commands|r90018#AEN90578]]
+- 1. [[Sample MDPP-16 QDC commands|r90586#AEN91141]]
+- 1. [[Sample MDPP-32 SCP commands|r91149#AEN91653]]
+- 1. [[A simple delay example|r99508#AEN99550]]
+- 1. [[Sample setup of two camac crates on branch 0|r99554#AEN99612]]
+- 1. [[Sample setup of a single LeCroy 2551|r99616#AEN99666]]
+- 1. [[Sample setup of a few FERAs|r99670#AEN99784]]
+- 1. [[Sample setup of a single scaler|r99788#AEN99840]]
+- 1. [[Simple setup of a single scaler|r99844#AEN99890]]
+- 1. [[Setup of a single ULM trigger module|r99894#AEN100093]]
+- 1. [[Simple setup of a single timestamp module|r100097#AEN100147]]
+- 1. [[Simple setup of a single timestamp module|r100194#AEN100259]]
+- 1. [[Simple setup of the AXLM72ScalerControl|r100263#AEN100356]]
+- 1. [[Example ctlconfig.tcl entry|r100360#AEN100414]]
+- 1. [[An example usage in VMUSBReadout|r102214#AEN102299]]
+- 1. [[An example usage in VMUSBReadout|r102318#AEN102392]]
+- 1. [[Allocating a service port in Tcl|r111007#AEN111096]]
+- 2. [[Listing allocated ports in Tcl|r111007#AEN111100]]
+- 1. [[Hooking update methods to recurring timer|r112376#AEN112457]]
+- 1. [[Action script example|r113265#AEN113389]]
+- 2. [[Sequencer column configuration file|r113265#AEN113395]]
+- 1. [[Creating and registering a V262 as a busy:|r114627#AEN114753]]
+- 1. [[Deep iteration of `CCompondEventSegment` elements|r114876#AEN115144]]
+- 2. [[Deep visitation of `CCompoundEventSegment` elements|r114876#AEN115148]]
+- 1. [[Using the `CDocumentedPacket` class|r115156#AEN115421]]
+- 1. [[Catching readout specific examples|r116311#AEN116338]]
+- 1. [[Deep visitation in `CScalerBank` containers|r116345#AEN116627]]
+- 1. [[Outputting the state of the run|r116949#AEN117056]]
+- 1. [[Sample Container Configuration File|r117852#AEN117915]]
+- 1. [[Sample configuration file|r119114#AEN119222]]
+- 1. [[Sample configuration file|r119230#AEN119348]]
+- 1. [[Sample configuration file|r119356#AEN119374]]
 
 ---
 

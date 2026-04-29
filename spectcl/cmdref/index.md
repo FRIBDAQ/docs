@@ -5,11 +5,110 @@
 
 ---
 
-**Table of Contents**1. [[Introduction|c13]]I. [[SpecTcl Commands|r16]][[applygate|r18]] -- Apply gates to spectra and show which are applied.[[attach|r108]] -- Connect SpecTcl to a data source[[sbind|r236]] -- Store spectrum channels in display share memory[[fit|r300]] -- 1-d Spectrum fitting computation[[fold|r465]] -- Apply a gamma gate as a fold[[channel|r524]] -- Access spectrum channels[[clear|r583]] -- Clear spectra[[project|r652]] -- Create projections of 2-d spectra[[specstats|r735]] -- Return spectrum statistics information[[treeparameter|r780]] -- Create list or modify characteristics treeparameters[[treevariable|r1032]] -- List and manipulate tree variables[[filter|r1196]] -- Create filtered data sets[[gate|r1428]] -- Create, list, delete gates[[integrate|r1822]] -- Integrate regions of interest on spectra[[parameter|r1868]] -- Define, list and delete parameter definitions[[pseudo|r2084]] -- Create, listm, delete pseudo parameters.[[sread|r2207]] -- Read spectrum from file or pipe.[[ringformat|r2347]] -- Select ringbuffer format[[scontents|r2384]] -- Obtain spectrum bulk contents[[shmemkey|r2445]] -- Get shared memory key.[[shmemsize|r2459]] -- Return the size of the spectrum shared memory region.[[spectrum|r2473]] -- Create, list, delete, and trace changes to spectrum definitions.[[unbind|r2855]] -- Move spectrum storage out of shared display memory[[ungate|r2905]] -- Remove gate applications.[[version|r2935]] -- Return SpecTcl version[[swrite|r2962]] -- Write spectrum contents to file.[[start|r3039]] -- Start analyzing data[[start|r3070]] -- stop analyzing data[[rootexec|r3097]] -- Execute a root macro file.[[roottree|r3125]] -- Write CERN ROOT Trees.[[pman|r3172]] -- V5.1+ Manipulate the SpecTcl Analysis Pipeline[[evbunpack|r3327]] -- Dynamically setup decoding of event built data.[[isRemote|r3394]] -- Test for remote-ness.[[mirror|r3408]] -- List Display Memory mirrors.[[waveform|r3436]] -- Create, maniuplate and query waveform objects
+- **Table of Contents**
+- 1. [[Introduction|c13]]
+- I. [[SpecTcl Commands|r16]]
+  - [[applygate|r18]] -- Apply gates to spectra and show which are applied.
+  - [[attach|r108]] -- Connect SpecTcl to a data source
+  - [[sbind|r236]] -- Store spectrum channels in display share memory
+  - [[fit|r300]] -- 1-d Spectrum fitting computation
+  - [[fold|r465]] -- Apply a gamma gate as a fold
+  - [[channel|r524]] -- Access spectrum channels
+  - [[clear|r583]] -- Clear spectra
+  - [[project|r652]] -- Create projections of 2-d spectra
+  - [[specstats|r735]] -- Return spectrum statistics information
+  - [[treeparameter|r780]] -- Create list or modify characteristics treeparameters
+  - [[treevariable|r1032]] -- List and manipulate tree variables
+  - [[filter|r1196]] -- Create filtered data sets
+  - [[gate|r1428]] -- Create, list, delete gates
+  - [[integrate|r1822]] -- Integrate regions of interest on spectra
+  - [[parameter|r1868]] -- Define, list and delete parameter definitions
+  - [[pseudo|r2084]] -- Create, listm, delete pseudo parameters.
+  - [[sread|r2207]] -- Read spectrum from file or pipe.
+  - [[ringformat|r2347]] -- Select ringbuffer format
+  - [[scontents|r2384]] -- Obtain spectrum bulk contents
+  - [[shmemkey|r2445]] -- Get shared memory key.
+  - [[shmemsize|r2459]] -- Return the size of the spectrum shared memory region.
+  - [[spectrum|r2473]] -- Create, list, delete, and trace changes to spectrum definitions.
+  - [[unbind|r2855]] -- Move spectrum storage out of shared display memory
+  - [[ungate|r2905]] -- Remove gate applications.
+  - [[version|r2935]] -- Return SpecTcl version
+  - [[swrite|r2962]] -- Write spectrum contents to file.
+  - [[start|r3039]] -- Start analyzing data
+  - [[start|r3070]] -- stop analyzing data
+  - [[rootexec|r3097]] -- Execute a root macro file.
+  - [[roottree|r3125]] -- Write CERN ROOT Trees.
+  - [[pman|r3172]] -- V5.1+ Manipulate the SpecTcl Analysis Pipeline
+  - [[evbunpack|r3327]] -- Dynamically setup decoding of event built data.
+  - [[isRemote|r3394]] -- Test for remote-ness.
+  - [[mirror|r3408]] -- List Display Memory mirrors.
+  - [[waveform|r3436]] -- Create, maniuplate and query waveform objects
 
-**List of Figures**1. [[A band draw with backtracking|r1428#AEN1526]]2. [[Contour interior|r1428#AEN1540]]
+- **List of Figures**
+- 1. [[A band draw with backtracking|r1428#AEN1526]]
+- 2. [[Contour interior|r1428#AEN1540]]
 
-**List of Examples**1. [[Applying a gate to a single spectrum|r18#AEN64]]2. [[Applying a gate to several spectra|r18#AEN71]]3. [[Listing gates applied to all spectra|r18#AEN81]]4. [[Using a filter to list gate applications|r18#AEN95]]1. [[Attaching to a data file for nscldaq-11:|r108#AEN203]]2. [[Attaching to the online system via a pipe data source|r108#AEN210]]3. [[Attaching to a compressed datafile:|r108#AEN219]]1. [[Binding all spectra to display memory|r236#AEN276]]2. [[Binding a list of spectra to the displayer|r236#AEN280]]3. [[Listing the bindings of spectra that match a pattern|r236#AEN284]]1. [[Using the proc subcommand|r300#AEN456]]1. [[Getting the value of a channel in a 1-d spectrum|r524#AEN565]]2. [[Clearing a spectrum using **channel**|r524#AEN568]]1. [[Clearing all spectra|r583#AEN627]]2. [[Clearing spectra given their names|r583#AEN630]]3. [[Clearing spectra given their ids:|r583#AEN633]]4. [[Clearing spectra whose names match a glob pattern r*|r583#AEN636]]1. [[Creating a new tree parameter|r780#AEN982]]2. [[Listing all tree parameters with sample output|r780#AEN991]]3. [[Listing only some parameters (using a pattern)|r780#AEN996]]4. [[The treeparameter -check command|r780#AEN1001]]5. [[Unsetting the modified flag:|r780#AEN1012]]1. [[Listing all variables:|r1032#AEN1143]]2. [[Using a glob pattern; listing variables thaty start with vars.w|r1032#AEN1149]]3. [[Modifying value and units of a tree variable|r1032#AEN1155]]4. [[Changing only the value of a tree parameter|r1032#AEN1165]]5. [[Modifying only the units of a tree variable|r1032#AEN1177]]1. [[Creating a filter|r1196#AEN1385]]2. [[Setting filter filenames|r1196#AEN1396]]3. [[Enabling filters|r1196#AEN1404]]1. [[Creating a slice gate|r1428#AEN1792]]2. [[Listing all gates|r1428#AEN1796]]3. [[Deleting a gate|r1428#AEN1800]]4. [[Establishing a trace|r1428#AEN1804]]1. [[Creating a 12 bit 'integer' parameter|r1868#AEN2061]]2. [[Creating a real valued parameter with units in mm|r1868#AEN2065]]1. [[Defining a simple psuedo|r2084#AEN2169]]2. [[Pseudo illustrating quoting:|r2084#AEN2184]]3. [[listing pseudos|r2084#AEN2188]]1. [[Reading a spectrum in from file|r2207#AEN2312]]2. [[Reading several spectra from one file|r2207#AEN2318]]3. [[Reading from a pipeline:|r2207#AEN2329]]1. [[NSCLDAQ version 10 data:|r2347#AEN2371]]2. [[NSDCLDAQ version 11 data|r2347#AEN2375]]1. [[Creating a 1-d spectrum|r2473#AEN2743]]2. [[Creating a 2-d spectrum|r2473#AEN2749]]3. [[Creating a g1 spectrum|r2473#AEN2755]]4. [[Creating a g2 spectrum|r2473#AEN2761]]5. [[Creating a summary spectrum|r2473#AEN2767]]6. [[Creating a bitmask spectrum|r2473#AEN2773]]7. [[Making a strip chart spectrum|r2473#AEN2779]]8. [[Creating an m2 (multiple 2d spectrum)|r2473#AEN2785]]9. [[Creating a gd (gamma deluxe) spectrum|r2473#AEN2791]]10. [[Creating a gs (gamma summary) spectrum|r2473#AEN2797]]11. [[Listing all spectra|r2473#AEN2803]]12. [[Listing only spectra with matching names|r2473#AEN2809]]13. [[Deleting a spectrum|r2473#AEN2815]]14. [[Spectrum traces:|r2473#AEN2819]]1. [[Writing spectra to file by filename|r2962#AEN3014]]2. [[Writing to a file descriptor|r2962#AEN3019]]
+- **List of Examples**
+- 1. [[Applying a gate to a single spectrum|r18#AEN64]]
+- 2. [[Applying a gate to several spectra|r18#AEN71]]
+- 3. [[Listing gates applied to all spectra|r18#AEN81]]
+- 4. [[Using a filter to list gate applications|r18#AEN95]]
+- 1. [[Attaching to a data file for nscldaq-11:|r108#AEN203]]
+- 2. [[Attaching to the online system via a pipe data source|r108#AEN210]]
+- 3. [[Attaching to a compressed datafile:|r108#AEN219]]
+- 1. [[Binding all spectra to display memory|r236#AEN276]]
+- 2. [[Binding a list of spectra to the displayer|r236#AEN280]]
+- 3. [[Listing the bindings of spectra that match a pattern|r236#AEN284]]
+- 1. [[Using the proc subcommand|r300#AEN456]]
+- 1. [[Getting the value of a channel in a 1-d spectrum|r524#AEN565]]
+- 2. [[Clearing a spectrum using **channel**|r524#AEN568]]
+- 1. [[Clearing all spectra|r583#AEN627]]
+- 2. [[Clearing spectra given their names|r583#AEN630]]
+- 3. [[Clearing spectra given their ids:|r583#AEN633]]
+- 4. [[Clearing spectra whose names match a glob pattern r*|r583#AEN636]]
+- 1. [[Creating a new tree parameter|r780#AEN982]]
+- 2. [[Listing all tree parameters with sample output|r780#AEN991]]
+- 3. [[Listing only some parameters (using a pattern)|r780#AEN996]]
+- 4. [[The treeparameter -check command|r780#AEN1001]]
+- 5. [[Unsetting the modified flag:|r780#AEN1012]]
+- 1. [[Listing all variables:|r1032#AEN1143]]
+- 2. [[Using a glob pattern; listing variables thaty start with vars.w|r1032#AEN1149]]
+- 3. [[Modifying value and units of a tree variable|r1032#AEN1155]]
+- 4. [[Changing only the value of a tree parameter|r1032#AEN1165]]
+- 5. [[Modifying only the units of a tree variable|r1032#AEN1177]]
+- 1. [[Creating a filter|r1196#AEN1385]]
+- 2. [[Setting filter filenames|r1196#AEN1396]]
+- 3. [[Enabling filters|r1196#AEN1404]]
+- 1. [[Creating a slice gate|r1428#AEN1792]]
+- 2. [[Listing all gates|r1428#AEN1796]]
+- 3. [[Deleting a gate|r1428#AEN1800]]
+- 4. [[Establishing a trace|r1428#AEN1804]]
+- 1. [[Creating a 12 bit 'integer' parameter|r1868#AEN2061]]
+- 2. [[Creating a real valued parameter with units in mm|r1868#AEN2065]]
+- 1. [[Defining a simple psuedo|r2084#AEN2169]]
+- 2. [[Pseudo illustrating quoting:|r2084#AEN2184]]
+- 3. [[listing pseudos|r2084#AEN2188]]
+- 1. [[Reading a spectrum in from file|r2207#AEN2312]]
+- 2. [[Reading several spectra from one file|r2207#AEN2318]]
+- 3. [[Reading from a pipeline:|r2207#AEN2329]]
+- 1. [[NSCLDAQ version 10 data:|r2347#AEN2371]]
+- 2. [[NSDCLDAQ version 11 data|r2347#AEN2375]]
+- 1. [[Creating a 1-d spectrum|r2473#AEN2743]]
+- 2. [[Creating a 2-d spectrum|r2473#AEN2749]]
+- 3. [[Creating a g1 spectrum|r2473#AEN2755]]
+- 4. [[Creating a g2 spectrum|r2473#AEN2761]]
+- 5. [[Creating a summary spectrum|r2473#AEN2767]]
+- 6. [[Creating a bitmask spectrum|r2473#AEN2773]]
+- 7. [[Making a strip chart spectrum|r2473#AEN2779]]
+- 8. [[Creating an m2 (multiple 2d spectrum)|r2473#AEN2785]]
+- 9. [[Creating a gd (gamma deluxe) spectrum|r2473#AEN2791]]
+- 10. [[Creating a gs (gamma summary) spectrum|r2473#AEN2797]]
+- 11. [[Listing all spectra|r2473#AEN2803]]
+- 12. [[Listing only spectra with matching names|r2473#AEN2809]]
+- 13. [[Deleting a spectrum|r2473#AEN2815]]
+- 14. [[Spectrum traces:|r2473#AEN2819]]
+- 1. [[Writing spectra to file by filename|r2962#AEN3014]]
+- 2. [[Writing to a file descriptor|r2962#AEN3019]]
 
 ---
 

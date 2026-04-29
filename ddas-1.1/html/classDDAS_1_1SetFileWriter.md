@@ -77,12 +77,12 @@ Given a slot number and a set file editor, writes the settings from our internal
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| m_editor | - references a set file m_editor. |
-| slot | -Slotwe are writing. |
-| Mhz | - Speed of the module in MHz. Needed to convert from internal -> module parameters. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | m_editor | - references a set file m_editor. |
+  | slot | -Slotwe are writing. |
+  | Mhz | - Speed of the module in MHz. Needed to convert from internal -> module parameters. |
 
 
 ## Member Function Documentation
@@ -97,12 +97,10 @@ Parameters
 write Writes the settings described by the parameter to the slot of the set file we've been given.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| dspSettings | - Settings information. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | dspSettings | - Settings information. |
 
 
 Implements [[DDAS::SettingsWriter|classDDAS_1_1SettingsWriter]].

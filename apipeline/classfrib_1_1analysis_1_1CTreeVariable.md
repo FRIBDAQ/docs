@@ -175,15 +175,14 @@ constructor Default constructor is unbound from a data block. Initialize must be
 constructor
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the variable. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the variable. |
 
 
-
-
-Noteif this is a new variable we initialize the value - 0.0 and units to an empty string, otherwise we don't touch. the metadata - on the assumption we're trying to make another reference to the original
+- Note
+  if this is a new variable we initialize the value - 0.0 and units to an empty string, otherwise we don't touch. the metadata - on the assumption we're trying to make another reference to the original
 
 
 
@@ -198,16 +197,15 @@ Noteif this is a new variable we initialize the value - 0.0 and units to an empt
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the variable. |
-| units | - Units for a new one. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the variable. |
+  | units | - Units for a new one. |
 
 
-
-
-Note, if the variable exists, we replace the units but leave the value alone.
+- Note
+  , if the variable exists, we replace the units but leave the value alone.
 
 
 
@@ -223,12 +221,12 @@ Note, if the variable exists, we replace the units but leave the value alone.
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - variable name. |
-| value | -initial variable value. |
-| units | - units of measure. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - variable name. |
+  | value | -initial variable value. |
+  | units | - units of measure. |
 
 
 
@@ -243,11 +241,11 @@ Parameters
 
 construct from definition
 
-Parameters
-|  |  |
-| --- | --- |
-| name | -name of parameter. |
-| def | - References the definition. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | -name of parameter. |
+  | def | - References the definition. |
 
 
 
@@ -286,7 +284,8 @@ Destructor doesn't actually have to do anything:
 
 begin Provide standard iteration support for the tree variable dict.
 
-ReturnsCTreeVarialbe::TreeVariableIterator
+- Returns
+  CTreeVarialbe::TreeVariableIterator
 
 
 
@@ -311,7 +310,8 @@ Bind This is a no-op but preserved for compatibility with old programs.
 
 end Provide standard iteration support for the tree variable dict.
 
-ReturnsCTreeVariable::TreeVariableIterator
+- Returns
+  CTreeVariable::TreeVariableIterator
 
 
 
@@ -326,7 +326,8 @@ ReturnsCTreeVariable::TreeVariableIterator
 getDefinitions.
 
 
-Returnsstd::vector<std::pair<std::string, const pDefinition>> first is the name of an item, second its definition.
+- Returns
+  std::vector<std::pair<std::string, const pDefinition>> first is the name of an item, second its definition.
 
 
 
@@ -339,7 +340,8 @@ Returnsstd::vector<std::pair<std::string, const pDefinition>> first is the name 
 
 getName
 
-Returnsstd::string -name given to the variable.
+- Returns
+  std::string -name given to the variable.
 
 
 
@@ -353,7 +355,8 @@ Returnsstd::string -name given to the variable.
 
 getNames Collect the names of all tree variables:
 
-Returnsstd::vector<std::string>
+- Returns
+  std::vector<std::string>
 
 
 
@@ -366,7 +369,8 @@ Returnsstd::vector<std::string>
 
 getUnit Return units if bound else throw std::Logic_error.
 
-Returnsstd::string
+- Returns
+  std::string
 
 
 
@@ -379,7 +383,8 @@ Returnsstd::string
 
 getValue Return the value of the variable if it's bound else throw std::Logic_error.
 
-Returnsdouble
+- Returns
+  double
 
 
 
@@ -392,7 +397,8 @@ Returnsdouble
 
 hasChanged
 
-Returnsbool true if the definition has changed.
+- Returns
+  bool true if the definition has changed.
 
 
 
@@ -408,12 +414,12 @@ Returnsbool true if the definition has changed.
 
 Initialize Do full initialization of a tree variable.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of of the variable. |
-| value | - initial value (replaces existing value). |
-| units | - units of measure(replaces any existing). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of of the variable. |
+  | value | - initial value (replaces existing value). |
+  | units | - units of measure(replaces any existing). |
 
 
 
@@ -427,19 +433,19 @@ Parameters
 
 lookupDefinition Try to find a definition given its name
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name to lookup. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name to lookup. |
 
 
+- Returns
+  pDefinition -definition of that variable.
 
-
-ReturnspDefinition -definition of that variable. 
-Return values
-|  |  |
-| --- | --- |
-| nullptr | -if there's no match. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | nullptr | -if there's no match. |
 
 
 
@@ -452,7 +458,8 @@ Return values
 
 operator double This is a call to getValue which does all the bind checking etc.
 
-Returnsdouble - the value associated with this variable.
+- Returns
+  double - the value associated with this variable.
 
 
 
@@ -476,7 +483,8 @@ Returnsdouble - the value associated with this variable.
 
 postincrement
 
-Returnsdouble -the value prior to the increment.
+- Returns
+  double -the value prior to the increment.
 
 
 
@@ -489,7 +497,8 @@ Returnsdouble -the value prior to the increment.
 
 Pre increment
 
-Returns*this - after the increment.
+- Returns
+  *this - after the increment.
 
 
 
@@ -502,7 +511,8 @@ Returns*this - after the increment.
 
 +=
 
-Returns*this
+- Returns
+  *this
 
 
 
@@ -537,7 +547,8 @@ predecrement
 
 -=
 
-Returns*this
+- Returns
+  *this
 
 
 
@@ -550,7 +561,8 @@ Returns*this
 
 operator= Assignment from double Uses setValue which does bind checking
 
-Returns*this
+- Returns
+  *this
 
 
 
@@ -563,15 +575,14 @@ Returns*this
 
 assignment from another tree variable
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - the other tree variable. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - the other tree variable. |
 
 
-
-
-Returns*this
+- Returns
+  *this
 
 
 
@@ -606,10 +617,10 @@ setUnit New units of measure
 
 setValue set a new value for the variable if bound or throw std::logic_error.
 
-Parameters
-|  |  |
-| --- | --- |
-| newValue |  |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | newValue |  |
 
 
 
@@ -623,7 +634,8 @@ Parameters
 
 size
 
-Returnssize_t - number of unique tree variables.
+- Returns
+  size_t - number of unique tree variables.
 
 
 
@@ -636,7 +648,8 @@ Returnssize_t - number of unique tree variables.
 
 valueChanged
 
-Returnsbool - if the value changed.
+- Returns
+  bool - if the value changed.
 
 
 

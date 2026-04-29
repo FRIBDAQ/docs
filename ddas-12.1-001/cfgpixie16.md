@@ -23,16 +23,22 @@ do not remove this div, it is closed by doxygen!
 The cfgPixie16.txt File
 
 header
-AuthorsAaron Chester, Jeromy Tompkins 
-Date7/18/23
+- Authors
+  Aaron Chester, Jeromy Tompkins
+
+- Date
+  7/18/23
+
 # Introduction
 
 
-The cfgPixie16.txt file is a human-readable configuration file for DDAS systems and is required by the [[QtScope|qtscope]] and [[ddasReadout|readout]] programs at startup to specify which modules exist and how to boot them. It also allows the user to override the default firmware or provide firmware information if it is absent. The cfgPixie16.txt file describes the module slot map and DSP settings file for a single crate. For systems containing more than one DDAS crate, one cfgPixie16.txt file is required for each crate. See the documentation for the [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]] and [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] classes which read this file and store information about the system configuration.
+  The cfgPixie16.txt file is a human-readable configuration file for DDAS systems and is required by the [[QtScope|qtscope]] and [[ddasReadout|readout]] programs at startup to specify which modules exist and how to boot them. It also allows the user to override the default firmware or provide firmware information if it is absent. The cfgPixie16.txt file describes the module slot map and DSP settings file for a single crate. For systems containing more than one DDAS crate, one cfgPixie16.txt file is required for each crate. See the documentation for the [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]] and [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] classes which read this file and store information about the system configuration.
+
 # cfgPixie16.txt Format
 
 
-The basic format of the cfgPixie16.txt file is as follows:
+  The basic format of the cfgPixie16.txt file is as follows:
+
 ```
 CRATE_ID
 NUM_MODULES
@@ -44,8 +50,10 @@ PATH_TO_SETTINGS_FILE
 
 ```
 
-where `CRATE_ID` is a non-negative number, `NUM_MODULES` is a positive number, `SLOT_MODULE_X` is a number greater than or equal to 2, and `PATH_TO_SETTINGS_FILE` is a legitimate path to a DSP settings file. In the top section, the parser will ignore up to 256 characters following the leftmost integer or string found on each line. Because of this, it is customary to add notes on each of these lines. There is no convention for adding notes, though many people like to use a #.
-As an example, consider a PXI crate with two installed Pixie-16 modules: one in slot 2 and one in slot 4. The cfgPixie16.txt for such a system will be:
+  where `CRATE_ID` is a non-negative number, `NUM_MODULES` is a positive number, `SLOT_MODULE_X` is a number greater than or equal to 2, and `PATH_TO_SETTINGS_FILE` is a legitimate path to a DSP settings file. In the top section, the parser will ignore up to 256 characters following the leftmost integer or string found on each line. Because of this, it is customary to add notes on each of these lines. There is no convention for adding notes, though many people like to use a #.
+
+  As an example, consider a PXI crate with two installed Pixie-16 modules: one in slot 2 and one in slot 4. The cfgPixie16.txt for such a system will be:
+
 ```
 1  # crateID
 2  # number of modules
@@ -55,8 +63,10 @@ As an example, consider a PXI crate with two installed Pixie-16 modules: one in 
 
 ```
 
-where `/aaron/readout/crate_1/crate_1.json` specifies the path to my DSP settings file.
-NoteAn example cfgPixie16.txt file can be found in `$DAQSHARE`/ddasreadout/crate_1/ for NSCLDAQ versions 12.0 and later, and in `$DDAS_SHARE`/readout/crate_1/ for NSCLDAQ versions prior to 12.0 as part of the broken-out installation of DDAS located in /usr/opt/ddas. The environment variables `DAQSHARE` and `DDAS_SHARE` are set when sourcing the NSCLDAQ `daqsetup.bash` and `ddassetup.bash` scripts, respectively.
+  where `/aaron/readout/crate_1/crate_1.json` specifies the path to my DSP settings file.
+
+- Note
+  An example cfgPixie16.txt file can be found in `$DAQSHARE`/ddasreadout/crate_1/ for NSCLDAQ versions 12.0 and later, and in `$DDAS_SHARE`/readout/crate_1/ for NSCLDAQ versions prior to 12.0 as part of the broken-out installation of DDAS located in /usr/opt/ddas. The environment variables `DAQSHARE` and `DDAS_SHARE` are set when sourcing the NSCLDAQ `daqsetup.bash` and `ddassetup.bash` scripts, respectively.
 
  contents
 

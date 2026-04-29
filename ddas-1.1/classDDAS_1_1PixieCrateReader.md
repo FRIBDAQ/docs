@@ -99,11 +99,11 @@ This is a crate reader that reads the configuration of an entire crate from the 
 constructor Just initializes the base class:
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | - id of the crate. |
-| slots | - Vector of slots. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | - id of the crate. |
+  | slots | - Vector of slots. |
 
 
 
@@ -127,15 +127,15 @@ destructor Release the crate manager.
 createReader Creates a reader for a single slot. We just need to translate the slot number to a module id. The module id is the corresponding index in the m_slots vector.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number to create a reader for. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number to create a reader for. |
 
 
+- Returns
+  SettingsReader* - pointer to a dynamically created Pixie settings reader object.
 
-
-ReturnsSettingsReader* - pointer to a dynamically created Pixie settings reader object. 
 Implements [[DDAS::CrateReader|classDDAS_1_1CrateReader]].
 
 

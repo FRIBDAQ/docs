@@ -164,32 +164,29 @@ Collaboration diagram for CTCLObject:
 Concatente a rhs object that is assumed to be a list into this... see Tcl_ListObjAppendList for more information about this function. Note that if Tcl_ListObjAppendList returns an error, this is mapped to a [[CTCLException|classCTCLException]] of the appropriate type.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | :CTCLObject& The list of elements that will be concatted with *this. note that to avoid failure, both *this and rhs must be convertible to a valid list format. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | :CTCLObject& The list of elements that will be concatted with *this. note that to avoid failure, both *this and rhs must be convertible to a valid list format. |
 
 
+- Returns
+  [[CTCLObject|classCTCLObject]]&
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | *this |  |
 
 
-Returns[[CTCLObject|classCTCLObject]]& 
-Return values
-|  |  |
-| --- | --- |
-| *this |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CTCLException | if Tcl_ListObjeAppendList returns an error. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CTCLException | if Tcl_ListObjeAppendList returns an error. |
-
-
-
-
-Note*this must be bound to an interpreter.
+- Note
+  *this must be bound to an interpreter.
 
 
 
@@ -203,26 +200,25 @@ Note*this must be bound to an interpreter.
 Treating *this as a Tcl List, return its elements as a vector of objects. This is a wrapper for Tcl_ListObjGetElements().
 
 
-Returnsvector<CTCLObject> 
-Return values
-|  |  |
-| --- | --- |
-| elements | of *this. |
+- Returns
+  vector<CTCLObject>
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | elements | of *this. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CTCLException | if Tcl_ListObjGetElements returns an error. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CTCLException | if Tcl_ListObjGetElements returns an error. |
+- Note
+  *this must be convertible to a properly formatted Tcl list.
 
-
-
-
-Note*this must be convertible to a properly formatted Tcl list. 
-
-we require that the object be bound to an interpreter...although strictly speaking the Tcl lib does not require it.
+  we require that the object be bound to an interpreter...although strictly speaking the Tcl lib does not require it.
 
 
 
@@ -238,25 +234,24 @@ we require that the object be bound to an interpreter...although strictly speaki
 Get a range of characters from the object. See Tcl_GetRange for the full semantics of this as all we will do is return an object constructed from the return value of Tcl_GetRange.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| first | : int First character position to copy. |
-| last | : int Last character position (inclusive) to copy. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | first | : int First character position to copy. |
+  | last | : int Last character position (inclusive) to copy. |
 
 
+- Returns
+  [[CTCLObject|classCTCLObject]]
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | A | CTCLObjectthat is constructed from the output of Tcl_GetRange. |
 
 
-Returns[[CTCLObject|classCTCLObject]] 
-Return values
-|  |  |
-| --- | --- |
-| A | CTCLObjectthat is constructed from the output of Tcl_GetRange. |
-
-
-
-
-NoteThis function will operate on the unicode representation of the string according to the Tcl_GetRange manpage.
+- Note
+  This function will operate on the unicode representation of the string according to the Tcl_GetRange manpage.
 
 
 
@@ -270,32 +265,29 @@ NoteThis function will operate on the unicode representation of the string accor
 Get the element of a list at the specified index. If the index is out of range, an empty element is returned.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| index | : integer The element number in the list (numbered from 0). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | index | : integer The element number in the list (numbered from 0). |
 
 
+- Returns
+  [[CTCLObject|classCTCLObject]]
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | The | element returned or an empty object if index is not valid. |
 
 
-Returns[[CTCLObject|classCTCLObject]] 
-Return values
-|  |  |
-| --- | --- |
-| The | element returned or an empty object if index is not valid. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CTCLException | if *this cannot be recast as a list. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CTCLException | if *this cannot be recast as a list. |
-
-
-
-
-NoteWe require that *this be bound to an interpreter
+- Note
+  We require that *this be bound to an interpreter
 
 
 
@@ -309,24 +301,23 @@ NoteWe require that *this be bound to an interpreter
 Retrieve the length of the list this object represents.
 
 
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| length | of list |
+- Returns
+  int
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | length | of list |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CTCLException | if *this cannot be recast as an appropriately formatted list. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CTCLException | if *this cannot be recast as an appropriately formatted list. |
-
-
-
-
-Notewe require that *this be bound to an interpreter... somewhat more restrictive a requirement than Tcl_ListObjectLength.
+- Note
+  we require that *this be bound to an interpreter... somewhat more restrictive a requirement than Tcl_ListObjectLength.
 
 
 
@@ -343,34 +334,32 @@ Notewe require that *this be bound to an interpreter... somewhat more restrictiv
 Replace a range of elements of this treated as a list with another set of objects treated as list elements.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| first | : int First element of the set to replace. |
-| count | : int Number to replace. |
-| newElements | : vector<CTCLObject&> Elements to replace with. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | first | : int First element of the set to replace. |
+  | count | : int Number to replace. |
+  | newElements | : vector<CTCLObject&> Elements to replace with. |
 
 
+- Returns
+  [[CTCLObject|classCTCLObject]]&
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | *this |  |
 
 
-Returns[[CTCLObject|classCTCLObject]]& 
-Return values
-|  |  |
-| --- | --- |
-| *this |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CTCLException | If *this cannot be converted to a valid list format. |
 
 
+- Note
+  *this must be bound.
 
-
-Exceptions
-|  |  |
-| --- | --- |
-| CTCLException | If *this cannot be converted to a valid list format. |
-
-
-
-
-Note*this must be bound. 
 Marshall the objv:
 
 
@@ -385,15 +374,14 @@ Marshall the objv:
 operator+= This overload lappends an existing Tcl_Obj* to the list.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pObj | - Tcl_Obj* to append: |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pObj | - Tcl_Obj* to append: |
 
 
-
-
-ReturnsCTCLobject& (*this).
+- Returns
+  CTCLobject& (*this).
 
 
 
@@ -418,15 +406,14 @@ Assign to *this from another object.
 Assign from a wide int. Wide ints are at least uint64_t wide.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - source of assignment. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - source of assignment. |
 
 
-
-
-Returns[[CTCLObject|classCTCLObject]]& (*this).
+- Returns
+  [[CTCLObject|classCTCLObject]]& (*this).
 
 
 
@@ -440,19 +427,19 @@ Returns[[CTCLObject|classCTCLObject]]& (*this).
 set the object to a list of elements. This is an object oriented wrapper for Tcl_SetListObj
 
 
-Parameters
-|  |  |
-| --- | --- |
-| elements | : vector<CTCLObject&> The elements that will be used to form this list. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | elements | : vector<CTCLObject&> The elements that will be used to form this list. |
 
 
+- Returns
+  [[CTCLObject|classCTCLObject]]&
 
-
-Returns[[CTCLObject|classCTCLObject]]& 
-Return values
-|  |  |
-| --- | --- |
-| *this |  |
+- Return values
+  |  |  |
+  | --- | --- |
+  | *this |  |
 
 
 

@@ -101,27 +101,24 @@ to extract the firmware, bit depth, and module MSPS.
 Main entry point for parsing DDASFirmwareVersions.txt.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | The stream to read file content from. |
-| config | The FirmwareMap in which to store this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | The stream to read file content from. |
+  | config | The FirmwareMap in which to store this. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If the DDASFirmwareVersionFile.txt is missing any expected field. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If the DDASFirmwareVersionFile.txt is missing any expected field. |
 
 
 Any firmware configurations that were stored in the configuration object before this will be overwritten with new content.
 
 
-**[[Todo:|todo#_todo000011]]**(ASC 3/13/24): CFWFileParseError for exceptions.
+- **[[Todo:|todo#_todo000011]]**
+  (ASC 3/13/24): CFWFileParseError for exceptions.
 
 
 

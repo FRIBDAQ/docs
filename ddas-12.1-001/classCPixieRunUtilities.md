@@ -114,13 +114,13 @@ The [[CPixieRunUtilities|classCPixieRunUtilities]] class has ownership of a [[CD
 Begin a baseline run.
 
 
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Always. |
+- Returns
+  int
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Always. |
 
 
 Baseline acquisition is not a "run" in the same sense that histogram runs or list mode data taking is a "run" to the API (no begin/end functions, no run status change). However, in order for a user to accumulate enough baseline statistics to make judgements about e.g. manually setting baseline cuts, it needs to be treated as such in our manager. The active run flag is set to true when taking a baseline "run."
@@ -140,27 +140,24 @@ The baseline data itself is stored internally as a histogram of values in [0, MA
 Begin a histogram (MCA) run for a single module. Explicitly sets module synchronization to OFF.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
 
 
+- Returns
+  int
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
-
-
-**[[Todo:|todo#_todo000001]]**Disable multiple modules from running in non-sync mode.
+- **[[Todo:|todo#_todo000001]]**
+  Disable multiple modules from running in non-sync mode.
 
 
 
@@ -174,21 +171,19 @@ Return values
 "End" a baseline run.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Always. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Always. |
 
 
 Really all we need to do here is set the active run flag to false.
@@ -205,21 +200,19 @@ Really all we need to do here is set the active run flag to false.
 End a histogram (MCA) run for a single module. Assumes module synchronization is OFF **but** only stops a run in a single module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Always, even if the run ended improperly. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Always, even if the run ended improperly. |
 
 
 If the run cannot be ended on the first attempt, retry 10 times before reporting that the run could not be ended properly. Generally speaking, this is caused when one or more channels has a very high trigger rate.
@@ -237,7 +230,8 @@ If the run cannot be ended on the first attempt, retry 10 times before reporting
 Get the baseline run data.
 
 
-ReturnsPointer to the underlying baseline storage.
+- Returns
+  Pointer to the underlying baseline storage.
 
 
 
@@ -252,7 +246,8 @@ ReturnsPointer to the underlying baseline storage.
 Get the histogram data from a list-mode run.
 
 
-ReturnsPointer to the underlying histogram storage.
+- Returns
+  Pointer to the underlying histogram storage.
 
 
 
@@ -267,7 +262,8 @@ ReturnsPointer to the underlying histogram storage.
 Get the current run status.
 
 
-Returnsbool True if a run is active, false otherwise.
+- Returns
+  bool True if a run is active, false otherwise.
 
 
 
@@ -283,30 +279,29 @@ Returnsbool True if a run is active, false otherwise.
 Acquire baselines and read baseline data from a single channel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
-| channel | Channel number on the module. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
+  | channel | Channel number on the module. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| -1 | If baseline memory cannot be allocated. |
-| -2 | If updating the baseline histograms fails. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | -1 | If baseline memory cannot be allocated. |
+  | -2 | If updating the baseline histograms fails. |
 
 
 Acquire baseline values for all channels on a module using Pixie16AcquireBaselines() and update the internal storage for baseline data. The single channel baseline data we want, specified by the input channel parameter, is copied into a local variable which is accessible via a getter function.
 
 
-**[[Todo:|todo#_todo000002]]**(ASC 7/14/23): Why not just have the getter take a channel as an input parameter and return the correct baseline data. It seems unnecessary to maintain a separate copy.
+- **[[Todo:|todo#_todo000002]]**
+  (ASC 7/14/23): Why not just have the getter take a channel as an input parameter and return the correct baseline data. It seems unnecessary to maintain a separate copy.
 
 
 
@@ -322,25 +317,21 @@ Acquire baseline values for all channels on a module using Pixie16AcquireBaselin
 Read energy histogram from single channel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
-| channel | Channel number on module to read histogram from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
+  | channel | Channel number on module to read histogram from. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Histogram data comes either from the module itself if running in online mode or from the data generator.
@@ -357,30 +348,27 @@ Histogram data comes either from the module itself if running in online mode or 
 Read statistics for a single module after a run is ended.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Statistics size is different between XIA API version 2 and 3. 3.x provides a Pixie16GetStatisticsSize() so we don't have to worry about calculating the statistics size ourselves or use a hardcoded value. Accessing the run statistics using the wrong method results in a segfault.
 
 
-**[[Todo:|todo#_todo000003]]**(ASC 9/27/23): Confirm end of run and handle if not ended properly.
+- **[[Todo:|todo#_todo000003]]**
+  (ASC 9/27/23): Confirm end of run and handle if not ended properly.
 
 
 
@@ -395,10 +383,10 @@ Statistics size is different between XIA API version 2 and 3. 3.x provides a Pix
 Set the use of the generator for offline data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| mode | Set the generator use flag to this value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mode | Set the generator use flag to this value. |
 
 
 

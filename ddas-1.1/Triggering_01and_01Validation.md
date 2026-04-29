@@ -23,8 +23,12 @@ do not remove this div, it is closed by doxygen!
  iframe showing the search results (closed by default)
 
  top 
-AuthorJeromy Tompkins 
-Date7/28/2016
+- Author
+  Jeromy Tompkins
+
+- Date
+  7/28/2016
+
 # What is Validation?
 
 
@@ -57,7 +61,9 @@ Because channel and external validation require the user to set up a coincidence
 In the table above, the delayed local fast trigger is the fast trigger that was generated when the trigger condition was satisfied and then delayed. The manner in which each of these signals are used in the various validation modes will be described in subsequent sections.
 
 
-NoteThe test signals are not outputted unless a the "FP" bit is set in the TrigConfig0 dialog. This bit controls whether or not the internal signals for ch.0 will be routed to the front panel or not. If "FP" is not selected, that simply means that they will not be viewable on the scope. They will still be present internal to the module and performing their roles in the validation process despite not being visible.
+- Note
+  The test signals are not outputted unless a the "FP" bit is set in the TrigConfig0 dialog. This bit controls whether or not the internal signals for ch.0 will be routed to the front panel or not. If "FP" is not selected, that simply means that they will not be viewable on the scope. They will still be present internal to the module and performing their roles in the validation process despite not being visible.
+
 # Channel validation
 
 
@@ -79,7 +85,9 @@ The external trigger validation requires that some settings are configured using
 In the external validation mode, an input is validated if the delayed fast trigger is coincident with the stretched external global validation trigger created by the arrival of a signal on the i4 input. When these two signals overlap in time, the trigger will be validated.
 
 
-NoteIf the global validation bit is not set in the CSRA dialog, the o3 output will not be generated even when a signal is present on i4.
+- Note
+  If the global validation bit is not set in the CSRA dialog, the o3 output will not be generated even when a signal is present on i4.
+
 To adjust the timing of these signals, the user has two parameters to adjust. These parameters are editable using the Timing Controls dialog located under the UV_Setup drop-down menu. In this dialog, the "Fast Trig Delay" will adjust timing of the delayed fast trigger with respect to the external validation gate. The "Ext Trig Width" parameter will adjust the width of the external global validation gate signal. Use an oscilloscope to find a parameter set where the two signals overlap.
 
 

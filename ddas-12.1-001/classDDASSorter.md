@@ -78,12 +78,12 @@ The [[DDASSorter|classDDASSorter]] class processes ring items:
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| source | Input data ringbuffer. |
-| sink | Output data ringbuffer. |
-| window | Accumulation window in seconds. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | source | Input data ringbuffer. |
+  | sink | Output data ringbuffer. |
+  | window | Accumulation window in seconds. |
 
 
 

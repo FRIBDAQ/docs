@@ -60,7 +60,8 @@ This graph shows which files directly or indirectly include this file:
 Defines a class to unpack DDAS data with fit extensions.
 
 
-NoteDDASFitHitUnpacker is in the ddastoys namespace.
+- Note
+  DDASFitHitUnpacker is in the ddastoys namespace.
 
  contents 
  start footer part 

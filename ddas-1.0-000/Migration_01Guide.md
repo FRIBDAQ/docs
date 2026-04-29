@@ -22,8 +22,12 @@ do not remove this div, it is closed by doxygen!
  iframe showing the search results (closed by default)
 
  top 
-AuthorJeromy Tompkins 
-Date6/23/2016
+- Author
+  Jeromy Tompkins
+
+- Date
+  6/23/2016
+
 # Introduction
 
 

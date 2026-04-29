@@ -85,10 +85,10 @@ An event processor class broken into parts performing specific actions like crea
 Create a file data source from the input string.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| src | Name of the file we will create a data source from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | src | Name of the file we will create a data source from. |
 
 
 
@@ -102,7 +102,9 @@ Parameters
 Get the next unpacked PHYSICS_EVENT.
 
 
-ReturnsThe event data. The vector is empty if the end of the data file is encountered.
+- Returns
+  The event data. The vector is empty if the end of the data file is encountered.
+
 An event is a collection of DDASFitHits stored in a vector.
 
 
@@ -118,7 +120,8 @@ An event is a collection of DDASFitHits stored in a vector.
 Return the number of PHYSCIS_EVENTs.
 
 
-ReturnsNumber of PHYSICS_EVENTs in the file.
+- Returns
+  Number of PHYSICS_EVENTs in the file.
 
 
 
@@ -133,7 +136,8 @@ ReturnsNumber of PHYSICS_EVENTs in the file.
 Return the PHYSICS_EVENT index.
 
 
-ReturnsIndex of the event. Trivially m_count-1.
+- Returns
+  Index of the event. Trivially m_count-1.
 
 
 
@@ -147,7 +151,8 @@ ReturnsIndex of the event. Trivially m_count-1.
 Return the path of the file data source.
 
 
-ReturnsThe file path. Returns an empty string if the data source has not been created.
+- Returns
+  The file path. Returns an empty string if the data source has not been created.
 
 
 
@@ -161,22 +166,20 @@ ReturnsThe file path. Returns an empty string if the data source has not been cr
 Skip events in the currently loaded data file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nevts | Number of PHYSICS_EVENTS to skip. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nevts | Number of PHYSICS_EVENTS to skip. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | END_RUN state change event is not encountered when skipping. |
-| -1 | END_RUN state change event is encountered when skipping. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | END_RUN state change event is not encountered when skipping. |
+  | -1 | END_RUN state change event is encountered when skipping. |
 
 
 Skip forward by nevts PHYSICS_EVENTS where nevts is provided as an argument.

@@ -123,11 +123,11 @@ Construction of the application:
 
 Provide a hook for the application to get the program arguments.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | - reference to integer that will get the argument count. |
-| argv | - reference to char** that will get the argument count. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | - reference to integer that will get the argument count. |
+  | argv | - reference to char** that will get the argument count. |
 
 
 

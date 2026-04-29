@@ -87,12 +87,12 @@ Inheritance diagram for DDAS::SetFileCrateWriter:
 
 constructor Construct the base class, Save the filename Create the editor If necessary copy the filename from the setfile template file.
 
-Parameters
-|  |  |
-| --- | --- |
-| setFileName | - Path to the output setfile. |
-| settings | - The settings to write. |
-| slotspeeds | - Vector of slot/speed pairs. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | setFileName | - Path to the output setfile. |
+  | settings | - The settings to write. |
+  | slotspeeds | - Vector of slot/speed pairs. |
 
 
 
@@ -117,13 +117,11 @@ destructor.
 
 endCrate After the settings have been written, each slot's crate id is also set:
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - crate id. |
-| slots | - slot vector. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - crate id. |
+  | slots | - slot vector. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
@@ -138,12 +136,10 @@ Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
 getWriter Returns the settings writer to be used by the base class to write a slot worth of settings.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slotnum | - the number of the slot being written. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slotnum | - the number of the slot being written. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
@@ -160,13 +156,11 @@ Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
 startCrate Flip through the slots and set their speeds in the editor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - crate id. |
-| slots | - vector of slots.  slots that have not been explicitly assigned a speed are assigned 250. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - crate id. |
+  | slots | - vector of slots.  slots that have not been explicitly assigned a speed are assigned 250. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].

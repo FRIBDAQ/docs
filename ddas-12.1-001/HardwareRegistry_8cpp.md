@@ -103,20 +103,20 @@ Map of hardware specifications (MSPS, bit depth, revision, calibration) keyed by
 Check if two HardwareSpecifications are the same.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| lhs,rhs | Left- and right-hand objects for comparison. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | lhs,rhs | Left- and right-hand objects for comparison. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If lhs and rhs are equal. |
-| false | Otherwise. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If lhs and rhs are equal. |
+  | false | Otherwise. |
 
  contents 
  start footer part 

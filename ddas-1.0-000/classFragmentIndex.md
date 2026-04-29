@@ -87,21 +87,19 @@ A class that finds the start of every fragment in a built ring item.
 ! Given the body pointer, index all of the fragmentsa
 
 
-Parameters
-|  |  |
-| --- | --- |
-| a | pointer to the first word in the body (this is b/4 the first fragment) |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | a | pointer to the first word in the body (this is b/4 the first fragment) |
 
 
 ! Given the body pointer, index all of the fragments
 
 
-Parameters
-|  |  |
-| --- | --- |
-| a | pointer to the first word in the body (this is b/4 the first fragment) |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | a | pointer to the first word in the body (this is b/4 the first fragment) |
 
 
 ## Member Function Documentation
@@ -116,15 +114,14 @@ Parameters
 ! Get a fragment Checks whether the index provided is valid. If index is out of range, returns a null pointer. Otherwise, it returns the ith pointer.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| i | is the index of the fragment in the body (starting at 0) |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | i | is the index of the fragment in the body (starting at 0) |
 
 
-
-
-Returnsthe pointer to the ith fragment or null if ith index doesn't exist
+- Returns
+  the pointer to the ith fragment or null if ith index doesn't exist
 
 
 
@@ -137,23 +134,21 @@ Returnsthe pointer to the ith fragment or null if ith index doesn't exist
 ! The indexing algorithm This will traverse the range of data in addresses [begin, end] and find all of the complete fragments. Every fragment found will be appended to the list of fragments m_frags. This is very similar to the constructor but differs in the arguments. The constructor expects that the first word of the body is passed, this expects that the pointer to the first fragment is passed. There should be a difference of 32-bits between the two arguments.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| begin | a pointer to the first fragment |
-| end | pointer just beyond the last fragment |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | begin | a pointer to the first fragment |
+  | end | pointer just beyond the last fragment |
 
 
 ! Indexes all of the fragments
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | a pointer to the first fragment |
-| nbytes | the number of bytes from start of first fragment to end of the body |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | a pointer to the first fragment |
+  | nbytes | the number of bytes from start of first fragment to end of the body |
 
 
 
@@ -167,11 +162,11 @@ Parameters
 ! The indexing algorithm
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | a pointer to the first fragment |
-| nbytes | the number of bytes from start of first fragment to end of the body |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | a pointer to the first fragment |
+  | nbytes | the number of bytes from start of first fragment to end of the body |
 
 
 

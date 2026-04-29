@@ -23,8 +23,12 @@ do not remove this div, it is closed by doxygen!
  iframe showing the search results (closed by default)
 
  top 
-AuthorRon Fox 
-Date3/18/2020
+- Author
+  Ron Fox
+
+- Date
+  3/18/2020
+
 # Overview
 
 

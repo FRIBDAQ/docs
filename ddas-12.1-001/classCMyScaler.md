@@ -138,7 +138,8 @@ scaler[32] = output[15]
 where input[0] and output[0] refer to the observed and accepted triggers seen by channel 0 on the module.
 
 
-Note(ASC 9/4/24): Based on the DDAS scaler class originally written by H. Crawford.
+- Note
+  (ASC 9/4/24): Based on the DDAS scaler class originally written by H. Crawford.
 
 ## Member Typedef Documentation
 
@@ -181,11 +182,11 @@ Statistics are counters for cumulative and per-run triggers.
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| mod | The module number. |
-| crate | The crate ID where the module resides. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mod | The module number. |
+  | crate | The crate ID where the module resides. |
 
 
 
@@ -238,7 +239,8 @@ Disable. Scalars do not need to be disabled at the end of a run.
 Get the run statistics.
 
 
-ReturnsReference to the statistics storage object.
+- Returns
+  Reference to the statistics storage object.
 
 
 
@@ -265,7 +267,9 @@ Zero the per-run statistics and counters.
 Read scalar data from a module.
 
 
-ReturnsVector of scalar data for a single module.
+- Returns
+  Vector of scalar data for a single module.
+
 Now we need to calculate the # of events from the last read of the scalers. NSCL scaler buffers just expect the # events since the last read. However, Pixie-16 statistics cannot be cleared, so we need to do some math and store the counts from our previous read.
 
 
@@ -284,7 +288,8 @@ Input counts (IC) and rate (ICR) are fast triggers. Output counts (OC) and rate 
 Return the size of the scaler data.
 
 
-ReturnsAlways 32 (only for 16-channel cards!)
+- Returns
+  Always 32 (only for 16-channel cards!)
 
 
 

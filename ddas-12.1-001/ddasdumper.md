@@ -33,17 +33,24 @@ header
 - [Incorporating the DDAS ROOT Format into User Code](#sec_ddasdumper_incorp)
 
 
-AuthorsAaron Chester, Jeromy Tompkins 
-Date3/29/23
+- Authors
+  Aaron Chester, Jeromy Tompkins
+
+- Date
+  3/29/23
+
 # Introduction
 
 
-Users frequently wish to repackage their data from NSCLDAQ binary event format into a format suitable for analysis using [CERN ROOT](https://root.cern/). NSCLDAQ provides the ddasdumper program for this purpose. The ddasdumper processes an NSCLDAQ event file and generates a ROOT TTree which is saved to a file in ROOT's TFile format. The output TTree will have only one branch which depends on the configuration options passed to the dumper program.
-This guide will discuss how to use the ddasdumper program and its output format. We will also briefly discuss how to load and process the output TTree.
+  Users frequently wish to repackage their data from NSCLDAQ binary event format into a format suitable for analysis using [CERN ROOT](https://root.cern/). NSCLDAQ provides the ddasdumper program for this purpose. The ddasdumper processes an NSCLDAQ event file and generates a ROOT TTree which is saved to a file in ROOT's TFile format. The output TTree will have only one branch which depends on the configuration options passed to the dumper program.
+
+  This guide will discuss how to use the ddasdumper program and its output format. We will also briefly discuss how to load and process the output TTree.
+
 # Running the ddasdumper Program
 
 
-The ddasdumper program is similar to many other NSCLDAQ utilities. Before running the ddasdumper it is important to setup the NSCLDAQ environment variables by sourcing the `daqsetup.bash` script from an appropriate NSCLDAQ installation (typically `/usr/opt/daq/MM.mm-eee/daqsetup.bash` for NSCLDAQ major version MM, minor version mm, and edit level eee e.g. 12.0-005). Running the program from the command line via `$DAQBIN/ddasdumper -h` will display the list of command-line options available:
+  The ddasdumper program is similar to many other NSCLDAQ utilities. Before running the ddasdumper it is important to setup the NSCLDAQ environment variables by sourcing the `daqsetup.bash` script from an appropriate NSCLDAQ installation (typically `/usr/opt/daq/MM.mm-eee/daqsetup.bash` for NSCLDAQ major version MM, minor version mm, and edit level eee e.g. 12.0-005). Running the program from the command line via `$DAQBIN/ddasdumper -h` will display the list of command-line options available:
+
 ```
 <genesis:~ >$DAQBIN/ddasdumper -h
 Usage: ddasdumper [OPTION]...
@@ -65,20 +72,24 @@ perform a formatted dump of selected data items.
                             "11", "10" default=`12')
 ```
 
-The required options are `--source` and `--fileout`. The `--fileout` option specifies a path to the ROOT file created by this program. The `--source` option specifies where to read data from. This option is slightly more complicated, and for most applications must be formatted as a URL: protocol://host:port/path. The "file" protocol is used to read data from an event file data source. As an example, if you would like to convert data from /path/to/my/eventfile.evt, you would run:
+  The required options are `--source` and `--fileout`. The `--fileout` option specifies a path to the ROOT file created by this program. The `--source` option specifies where to read data from. This option is slightly more complicated, and for most applications must be formatted as a URL: protocol://host:port/path. The "file" protocol is used to read data from an event file data source. As an example, if you would like to convert data from /path/to/my/eventfile.evt, you would run:
+
 ```
 $DAQBIN/ddasdumper --source=file:///path/to/my/eventfile.evt --fileout=output.root
 
 ```
 
-Support for ringbuffer data sources is not enabled in this version of the ddasdumper program. If you would like to dump data directly from a ringbuffer to a ROOT file, you must create a pipeline using the NSCLDAQ ringselector program. ringselector will process data to stdout. Specifying "-" as a data source to the ddasdumper program will allow it to read input data on stdin. Assuming the data source is a ringbuffer called myring on the machine where you are running the ddasdumper, such a pipeline would look like:
+  Support for ringbuffer data sources is not enabled in this version of the ddasdumper program. If you would like to dump data directly from a ringbuffer to a ROOT file, you must create a pipeline using the NSCLDAQ ringselector program. ringselector will process data to stdout. Specifying "-" as a data source to the ddasdumper program will allow it to read input data on stdin. Assuming the data source is a ringbuffer called myring on the machine where you are running the ddasdumper, such a pipeline would look like:
+
 ```
 $DAQBIN/ringselector --source=tcp://localhost/myring | $DAQBIN/ddasdumper --source=- --fileout=output.root
 
 ```
 
-The `--nscldaq-format` option, while not required, is important to consider. This option specifies which input data format is expected by ddasdumper. Three NSCLDAQ data formats exist: 10, 11, and 12. Each format version has its own set of class libraries for producing and handling data. The value passed to the `--nscldaq-format` option specifies which major version of the NSCLDAQ software was used to initially acquire the data. If the wrong format version is supplied, the program will exit with an error, as it cannot properly decode the data.
-The other options are described in the table below:
+  The `--nscldaq-format` option, while not required, is important to consider. This option specifies which input data format is expected by ddasdumper. Three NSCLDAQ data formats exist: 10, 11, and 12. Each format version has its own set of class libraries for producing and handling data. The value passed to the `--nscldaq-format` option specifies which major version of the NSCLDAQ software was used to initially acquire the data. If the wrong format version is supplied, the program will exit with an error, as it cannot properly decode the data.
+
+  The other options are described in the table below:
+
 |  |  |
 | --- | --- |
 | Option | Description |
@@ -91,24 +102,29 @@ The other options are described in the table below:
 # Output Data Format
 
 
-The ddasdumper program unpacks NSCLDAQ PHYSICS_EVENT ring items into [[DDASRootEvent|classDDASRootEvent]] objects which are written to its output file. It does not perform any unpacking for or write any other NSCLDAQ ring item types to disk. The name of the output ROOT file is specified at runtime using the `--fileout` option.
-The output ROOT file contains a single TTree named "ddas." The tree contains a single branch called "rawevents" consisting of [[DDASRootEvent|classDDASRootEvent]] objects. [[DDASRootEvent|classDDASRootEvent]] objects store their channel hit data in a vector of [[DDASRootHit|classDDASRootHit]] objects. Each [[DDASRootHit|classDDASRootHit]] object encapsulates all the data contained for a discrete hit in a single digitizer channel: timestamp, energy, additional data like an ADC trace or QDC sums, etc. A single [[DDASRootEvent|classDDASRootEvent]] consists of one or more DDASRootHits. Note that multiple hits coming from the same digitizer channel may appear in a single built event if that channel re-triggers within the event building window set during acquisition.
+  The ddasdumper program unpacks NSCLDAQ PHYSICS_EVENT ring items into [[DDASRootEvent|classDDASRootEvent]] objects which are written to its output file. It does not perform any unpacking for or write any other NSCLDAQ ring item types to disk. The name of the output ROOT file is specified at runtime using the `--fileout` option.
+
+  The output ROOT file contains a single TTree named "ddas." The tree contains a single branch called "rawevents" consisting of [[DDASRootEvent|classDDASRootEvent]] objects. [[DDASRootEvent|classDDASRootEvent]] objects store their channel hit data in a vector of [[DDASRootHit|classDDASRootHit]] objects. Each [[DDASRootHit|classDDASRootHit]] object encapsulates all the data contained for a discrete hit in a single digitizer channel: timestamp, energy, additional data like an ADC trace or QDC sums, etc. A single [[DDASRootEvent|classDDASRootEvent]] consists of one or more DDASRootHits. Note that multiple hits coming from the same digitizer channel may appear in a single built event if that channel re-triggers within the event building window set during acquisition.
+
 # Reading ddasdumper ROOT Output
 
 
-In order to process ddasdumper output, ROOT must know where to look for the headers and library which define the [[DDASRootEvent|classDDASRootEvent]] and [[DDASRootHit|classDDASRootHit]] classes. The headers `DDASRootEvent.h` and `DDASRootHit.h` are installed in the "usual" NSCLDAQ header path: /usr/opt/daq/MM.mm-eee/include for NSCLDAQ MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQINC` will point to this directory. You must add the `DAQINC` directory to the directories ROOT will search for header files:
+  In order to process ddasdumper output, ROOT must know where to look for the headers and library which define the [[DDASRootEvent|classDDASRootEvent]] and [[DDASRootHit|classDDASRootHit]] classes. The headers `DDASRootEvent.h` and `DDASRootHit.h` are installed in the "usual" NSCLDAQ header path: /usr/opt/daq/MM.mm-eee/include for NSCLDAQ MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQINC` will point to this directory. You must add the `DAQINC` directory to the directories ROOT will search for header files:
+
 ```
 export ROOT_INCLUDE_PATH=${DAQINC}:${ROOT_INCLUDE_PATH}
 
 ```
 
-The shared library `libddasrootformat.so` containing code implementing the [[DDASRootEvent|classDDASRootEvent]] and [[DDASRootHit|classDDASRootHit]] classes is installed in the "usual" library location: /usr/opt/daq/MM.mm-eee/lib for NSCLDAQ version MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQLIB` will point to this directory. The library can be loaded into the ROOT interpreter on startup:
+  The shared library `libddasrootformat.so` containing code implementing the [[DDASRootEvent|classDDASRootEvent]] and [[DDASRootHit|classDDASRootHit]] classes is installed in the "usual" library location: /usr/opt/daq/MM.mm-eee/lib for NSCLDAQ version MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQLIB` will point to this directory. The library can be loaded into the ROOT interpreter on startup:
+
 <genesis:rawdata >root
 
 
 root [0] .L ${DAQLIB}/libddasrootformat.so
 
- fragment The next step is to open the ROOT file containing our data and to get the TTree from the file. Remember the TTree is named "ddas:"
+ fragment   The next step is to open the ROOT file containing our data and to get the TTree from the file. Remember the TTree is named "ddas:"
+
 root [1] TFile* f = new TFile("output.root", "READ")
 
 
@@ -117,7 +133,8 @@ root [2] TTree* t
 
 root [3] f->GetObject("ddas", t)
 
- fragment At this point you can call the methods of TTree such as `TTree::Print()` to print a summary of the tree contents. Now we need to associate an object with the branch we care about. Because the "rawevents" branch is filled with [[DDASRootEvent|classDDASRootEvent]] objects, we need to create a such an object and associate it with the branch:
+ fragment   At this point you can call the methods of TTree such as `TTree::Print()` to print a summary of the tree contents. Now we need to associate an object with the branch we care about. Because the "rawevents" branch is filled with [[DDASRootEvent|classDDASRootEvent]] objects, we need to create a such an object and associate it with the branch:
+
 root [4] [[DDASRootEvent|classDDASRootEvent]]* pEvent = new [[DDASRootEvent|classDDASRootEvent]]
 
 
@@ -130,7 +147,8 @@ Encapsulates a built DDAS event with added capabilities for writing to ROOT file
 
 **Definition:** DDASRootEvent.h:59
 
- fragment You can access the data by calling the `TTree::GetEntry()`. As an example, consider the following ROOT macro which loops over the tree entries and histogram the multiplicity using the `DDASRootEvent::GetNHits()` method to extract the number of channel hits per event:
+ fragment   You can access the data by calling the `TTree::GetEntry()`. As an example, consider the following ROOT macro which loops over the tree entries and histogram the multiplicity using the `DDASRootEvent::GetNHits()` method to extract the number of channel hits per event:
+
 #include <[[DDASRootEvent.h|DDASRootEvent_8h]]> // Class defs. (in ROOT_INCLUDE_PATH)
 
 
@@ -216,26 +234,26 @@ Return the number of hits in this event.
  fragment # Incorporating the DDAS ROOT Format into User Code
 
 
-The DDAS ROOT Format classes can be incorporated into compiled code. You must ensure the compiler knows where the NSCLDAQ headers are installed, for example as part of the `CXXFLAGS` specified in a GNU Makefile. Assuming the NSCLDAQ environment is set, something like:
+  The DDAS ROOT Format classes can be incorporated into compiled code. You must ensure the compiler knows where the NSCLDAQ headers are installed, for example as part of the `CXXFLAGS` specified in a GNU Makefile. Assuming the NSCLDAQ environment is set, something like:
+
 ```
 CXXFLAGS = -I${DAQINC}
 
 ```
 
-Linking the `libddasrootformat.so` library is also necessary. Most commonly this is accomplished by using the `-lddasrootformat` flag during linking and doing one of the following:- Adding `DAQLIB` to the `LD_LIBRARY_PATH` environment variable during execution,
-- Adding `DAQLIB` to the `LD_RUN_PATH` environment variable during linking,
-- Using the `-Wl,-rpath` linker flag.
+  Linking the `libddasrootformat.so` library is also necessary. Most commonly this is accomplished by using the `-lddasrootformat` flag during linking and doing one of the following:- Adding `DAQLIB` to the `LD_LIBRARY_PATH` environment variable during execution,
+  - Adding `DAQLIB` to the `LD_RUN_PATH` environment variable during linking,
+  - Using the `-Wl,-rpath` linker flag.
 
+  In a GNU Makefile, the third option can use the `LDFLAGS` and `LDLIBS` Makefile variables:
 
-
-In a GNU Makefile, the third option can use the `LDFLAGS` and `LDLIBS` Makefile variables:
 ```
 LDFLAGS = -L${DAQLIB} -Wl,-rpath=${DAQLIB}
 LDLIBS = -lddasrootformat
 
 ```
 
-These flags should be used by GNU make when building your application code in addition to any other compiler and linker options your code requires.
+  These flags should be used by GNU make when building your application code in addition to any other compiler and linker options your code requires.
 
  contents
 

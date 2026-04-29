@@ -89,32 +89,28 @@ No real action occurs until the operator() is called, as all of the interesting 
 Entry point for the processor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | Number of command line arguments. |
-| argv | Command line arguments. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | Number of command line arguments. |
+  | argv | Command line arguments. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | If the item skip count is invalid. |
+  | std::invalid_argument | If the dump count is invalid. |
+  | ... | All other exceptions back to caller (main). |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | If the item skip count is invalid. |
-| std::invalid_argument | If the dump count is invalid. |
-| ... | All other exceptions back to caller (main). |
+- Returns
+  When done processing items.
 
-
-
-
-ReturnsWhen done processing items. 
-Return values
-|  |  |
-| --- | --- |
-| EXIT_SUCCESS | Processing successful. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | EXIT_SUCCESS | Processing successful. |
 
 
 Here we:
@@ -125,8 +121,11 @@ Here we:
 - Invoke a processor to process the individual ring items.
 
 
-**[[Todo:|todo#_todo000011]]**(ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits? 
-**[[Todo:|todo#_todo000012]]**(ASC 3/10/23): To support different NSCLDAQ data formats, we need to read the version string from the args and create an appropriate ring item factory. The ROOT converter should be independent of the data format since we can hand it CPhysicsEventItems from the correct format type.
+- **[[Todo:|todo#_todo000011]]**
+  (ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits?
+
+- **[[Todo:|todo#_todo000012]]**
+  (ASC 3/10/23): To support different NSCLDAQ data formats, we need to read the version string from the args and create an appropriate ring item factory. The ROOT converter should be independent of the data format since we can hand it CPhysicsEventItems from the correct format type.
 
 
 

@@ -164,7 +164,8 @@ Processor owns the unpacker, so delete on destruction.
 Return the unpacked event data.
 
 
-ReturnsVector containing the event data.
+- Returns
+  Vector containing the event data.
 
 
 
@@ -179,12 +180,10 @@ ReturnsVector containing the event data.
 Process physics events.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Reference to the physics event item. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Reference to the physics event item. |
 
 
 Break PHYSICS_EVENTs into fragments, convert the fragments into DDASFitHits and append them to the event (just a vector of DDASFitHits).

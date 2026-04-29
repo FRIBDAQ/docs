@@ -133,10 +133,10 @@ This is a very, very simple class. It inherits from [[ddastoys::DDASFitHit|class
 Copy constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Reference the hit to copy-construct. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Reference the hit to copy-construct. |
 
 
 ## Member Function Documentation
@@ -153,16 +153,17 @@ Parameters
 Assignment from a DAQ::DDAS::DDASFitHit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The hit we're assigning from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The hit we're assigning from. |
 
 
+- Returns
+  *this.
 
-
-Returns*this. 
-NoteThis is the "normal" way we'll get data. Default construction and then assignment from a decoded [[DDASFitHit|classddastoys_1_1DDASFitHit]].
+- Note
+  This is the "normal" way we'll get data. Default construction and then assignment from a decoded [[DDASFitHit|classddastoys_1_1DDASFitHit]].
 
 
 
@@ -176,15 +177,14 @@ NoteThis is the "normal" way we'll get data. Default construction and then assig
 Assignment from another [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]].
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The hit we are assigning from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The hit we are assigning from. |
 
 
-
-
-Returns*this.
+- Returns
+  *this.
 
 
 

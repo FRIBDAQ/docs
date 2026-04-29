@@ -23,77 +23,82 @@ do not remove this div, it is closed by doxygen!
 ddasReadout: The Readout Driver for DDAS Systems
 
 header
-AuthorsAaron Chester, Ron Fox, Sean Liddick, Jeromy Tompkins 
-Date3/18/24
+- Authors
+  Aaron Chester, Ron Fox, Sean Liddick, Jeromy Tompkins
+
+- Date
+  3/18/24
+
 # Introduction
 
 
-As of FRIBDAQ 11.4, the DDAS readout framework has been broken into a pair of programs: [[DDASReadout|namespaceDDASReadout]], which reads blocks of data from the XIA digitizer modules and ddasSort, which accepts those data and sorts them by timestamp. This was done to maximize performance. [[DDASReadout|namespaceDDASReadout]] and ddasSort take advantage of pipeline parallelism to do the sorting in parallel with digitizer readout. If necessary, the ddasSort process can be run on a different node than [[DDASReadout|namespaceDDASReadout]], making more processing power available.
-A driver, that looks to the ReadoutGUI like an SSHPipe data source, allows you to treat this pair of programs as if it were a single unified program. The driver program is called ddasReadout (note the lower case 'ddas'). This page describes the ddasReadout program.
+  As of FRIBDAQ 11.4, the DDAS readout framework has been broken into a pair of programs: [[DDASReadout|namespaceDDASReadout]], which reads blocks of data from the XIA digitizer modules and ddasSort, which accepts those data and sorts them by timestamp. This was done to maximize performance. [[DDASReadout|namespaceDDASReadout]] and ddasSort take advantage of pipeline parallelism to do the sorting in parallel with digitizer readout. If necessary, the ddasSort process can be run on a different node than [[DDASReadout|namespaceDDASReadout]], making more processing power available.
+
+  A driver, that looks to the ReadoutGUI like an SSHPipe data source, allows you to treat this pair of programs as if it were a single unified program. The driver program is called ddasReadout (note the lower case 'ddas'). This page describes the ddasReadout program.
+
 # New Features of ddasReadout
 
 
-While the readout process has been simplified greatly, it's still a complex beast and worthy of some documentation. The goals of the rewrite were as follows:- Make the logic clearer.
-- Eliminate data copying for bulk data.
-- Eliminate, where possible, dynamic memory management.
+  While the readout process has been simplified greatly, it's still a complex beast and worthy of some documentation. The goals of the rewrite were as follows:- Make the logic clearer.
+  - Eliminate data copying for bulk data.
+  - Eliminate, where possible, dynamic memory management.
 
+  The first of these goals promotes maintainability while the last two promote performance, as profiling of other FRIBDAQ code (specifically eventlog) suggested that performance can be dramatically improved by minimizing those actions.
 
-
-The first of these goals promotes maintainability while the last two promote performance, as profiling of other FRIBDAQ code (specifically eventlog) suggested that performance can be dramatically improved by minimizing those actions.
 ## The ddasReadout Framework
 
 
-Logic clarification was done by dividing the actual acquisition code into three classes:- [[CMyEventSegment|classCMyEventSegment]] - Responsible for reading data from the Pixie module FIFO buffers.
-- [[DDASReadout::HitManager|classDDASReadout_1_1HitManager]] - Responsible for maintaining time ordered hits, indicating when a hit can be emitted and providing that hit.
-- [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]] - Data storage for a hit and its properties. The storage can be either locally allocated or provided by a client.
+  Logic clarification was done by dividing the actual acquisition code into three classes:- [[CMyEventSegment|classCMyEventSegment]] - Responsible for reading data from the Pixie module FIFO buffers.
+  - [[DDASReadout::HitManager|classDDASReadout_1_1HitManager]] - Responsible for maintaining time ordered hits, indicating when a hit can be emitted and providing that hit.
+  - [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]] - Data storage for a hit and its properties. The storage can be either locally allocated or provided by a client.
 
+  Zero-copy and reduction of dynamic memory allocation were improved by the following classes:- [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]] - Storage that can keep track of the references to it by external objects.
+  - [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]] - A class that supports re-use of DDASReadout::ReferenceCountedBuffers (e.g. by the sorter).
+  - [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] - A DAQ::DDAS::DDASHit whose data are located in a DDAS::Readout::ReferenceCountedBuffer that came from a [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]].
 
+  Finally, note that [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] is derived from [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]. All of these classes with the exception of [[CMyEventSegment|classCMyEventSegment]] exist within the new [[DDASReadout|namespaceDDASReadout]] namespace. CExperiment, the caller of the [[CMyEventSegment|classCMyEventSegment]] instance, has been edited to allow its read code to indicate it has more events to provide prior to entering the trigger loop again.
 
-Zero-copy and reduction of dynamic memory allocation were improved by the following classes:- [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]] - Storage that can keep track of the references to it by external objects.
-- [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]] - A class that supports re-use of DDASReadout::ReferenceCountedBuffers (e.g. by the sorter).
-- [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] - A DAQ::DDAS::DDASHit whose data are located in a DDAS::Readout::ReferenceCountedBuffer that came from a [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]].
-
-
-
-Finally, note that [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] is derived from [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]]. All of these classes with the exception of [[CMyEventSegment|classCMyEventSegment]] exist within the new [[DDASReadout|namespaceDDASReadout]] namespace. CExperiment, the caller of the [[CMyEventSegment|classCMyEventSegment]] instance, has been edited to allow its read code to indicate it has more events to provide prior to entering the trigger loop again.
 # The Data Readout Process
 
 
-Let's take a high-level look at how data readout using ddasReadout operates and then drill down into how the pieces it uses function.
+  Let's take a high-level look at how data readout using ddasReadout operates and then drill down into how the pieces it uses function.
+
 ## DDASReadout: Read Data From Pixie Modules
 
 
-Reading data from a module requires a call to [[DDASReadout|namespaceDDASReadout]]'s `CMyEventSegment::read()` function. This call can happen for two reasons:1. It asked to be called because, after emitting a hit, it has more hits to emit.
-2. [[CMyTrigger|classCMyTrigger]] indicated that at least one module had data in the FIFO that exceeded the FIFO threshold.
+  Reading data from a module requires a call to [[DDASReadout|namespaceDDASReadout]]'s `CMyEventSegment::read()` function. This call can happen for two reasons:1. It asked to be called because, after emitting a hit, it has more hits to emit.
+  2. [[CMyTrigger|classCMyTrigger]] indicated that at least one module had data in the FIFO that exceeded the FIFO threshold.
 
+  The first case has priority. We want to emit as many events as possible before reading more data. Data are read from the modules and emitted on a per-module basis by the [[DDASReadout|namespaceDDASReadout]] program into a raw ringbuffer. Each ring item is a collection of (possibly) time-unordered hits coming from a single module.
 
-
-The first case has priority. We want to emit as many events as possible before reading more data. Data are read from the modules and emitted on a per-module basis by the [[DDASReadout|namespaceDDASReadout]] program into a raw ringbuffer. Each ring item is a collection of (possibly) time-unordered hits coming from a single module.
 ## ddasSort: Sort and Manage Hit Data
 
 
-The ddasSort program reads data from the [[DDASReadout|namespaceDDASReadout]]'s output ringbuffer, time-orders them, and writes them into its own output ringbuffer. Ring items output by ddasSort look like the "old-style" FRIBDAQ 11.3 [[DDASReadout|namespaceDDASReadout]] ring items and can be processed by the FRIBDAQ event builder. The sorter uses a [[DDASReadout::HitManager|classDDASReadout_1_1HitManager]] member object to manage its data. It asks its hit manager whether it has any hits to emit, and if so, calls the `DDASReadout::HitManager::nextHit()` method to emit the earliest hit it is able to. If there are more hits to emit, the read process will tell the experiment that it has more events it can output without waiting for a new trigger.
-If the hit manager says there were no hits to emit, we must have been called in response to a trigger by [[CMyTrigger|classCMyTrigger]]. In this case, we reset the trigger (a holdover from prior code). The trigger maintains an array of the number of words it saw in each module FIFO, so there is no need to ask it to look again. The hits are then read out, sorted and added to the hit manager which maintains a time-ordered list of hits seen so far. Note that the hit list is a deque of pointers to zero-copy hits. This allows data to be passed around without bulk data copying and for the storage management for malloc/free operations to be done at the module level for both the hits and the buffers which they come from.
-In the case where we have emittable hits, logic identical to the code at entry is invoked: emit the hit and ask to be called again if there are still more hits ready to be emitted. Finally if the hit manager says there are no hits to emit, we invoke the base class `reject()` method which results in the event not producing a ring item.
+  The ddasSort program reads data from the [[DDASReadout|namespaceDDASReadout]]'s output ringbuffer, time-orders them, and writes them into its own output ringbuffer. Ring items output by ddasSort look like the "old-style" FRIBDAQ 11.3 [[DDASReadout|namespaceDDASReadout]] ring items and can be processed by the FRIBDAQ event builder. The sorter uses a [[DDASReadout::HitManager|classDDASReadout_1_1HitManager]] member object to manage its data. It asks its hit manager whether it has any hits to emit, and if so, calls the `DDASReadout::HitManager::nextHit()` method to emit the earliest hit it is able to. If there are more hits to emit, the read process will tell the experiment that it has more events it can output without waiting for a new trigger.
+
+  If the hit manager says there were no hits to emit, we must have been called in response to a trigger by [[CMyTrigger|classCMyTrigger]]. In this case, we reset the trigger (a holdover from prior code). The trigger maintains an array of the number of words it saw in each module FIFO, so there is no need to ask it to look again. The hits are then read out, sorted and added to the hit manager which maintains a time-ordered list of hits seen so far. Note that the hit list is a deque of pointers to zero-copy hits. This allows data to be passed around without bulk data copying and for the storage management for malloc/free operations to be done at the module level for both the hits and the buffers which they come from.
+
+  In the case where we have emittable hits, logic identical to the code at entry is invoked: emit the hit and ask to be called again if there are still more hits ready to be emitted. Finally if the hit manager says there are no hits to emit, we invoke the base class `reject()` method which results in the event not producing a ring item.
+
 ## Readout Data Structures
 
 
-Here we provide a bit of background about the data structures used by the ddasReadout programs. The hit manager accumulates sorted hits into a `std::deque<DDASReadout::ZeroCopyHit*>` object. A single ring item merged into this deque consists of hits from one module only. Data from each module separated to improve the performance of the sort.
-The most complicated bits of code for handling data are in the hit manager itself, specifically in trying to find efficient ways to maintain the hits sorted by time. This code is all triggered by calls to the `DDASReadout::HitManager::addHits()` method. Here's the sequence of operations:- A deque of hits from a digitizer module is sorted.
-- The sorted hit deque is merged into the existing sorted hit queue.
+  Here we provide a bit of background about the data structures used by the ddasReadout programs. The hit manager accumulates sorted hits into a `std::deque<DDASReadout::ZeroCopyHit*>` object. A single ring item merged into this deque consists of hits from one module only. Data from each module separated to improve the performance of the sort.
 
+  The most complicated bits of code for handling data are in the hit manager itself, specifically in trying to find efficient ways to maintain the hits sorted by time. This code is all triggered by calls to the `DDASReadout::HitManager::addHits()` method. Here's the sequence of operations:- A deque of hits from a digitizer module is sorted.
+  - The sorted hit deque is merged into the existing sorted hit queue.
 
+  Why operate on a single module of data at a time? Good sort algorithms (e.g. the `std::sort()` algorithm used by the hit manager) run on order \(O(n \log n)\) performance for sorting \(n\) elements ( \(\log\) here means the binary logarithm \(\log_2\)). Suppose we have 5 modules each with \(n\) hits. Sorting them all at once gives performance \(O(5n \log 5n) = O(5n \log n + \log 5)\). Sorting them individually gives performance \(O(5n \log n)\), where that extra term is no longer present. Since we do *a lot* of sorting and merging it's worth it.
 
-Why operate on a single module of data at a time? Good sort algorithms (e.g. the `std::sort()` algorithm used by the hit manager) run on order \(O(n \log n)\) performance for sorting \(n\) elements ( \(\log\) here means the binary logarithm \(\log_2\)). Suppose we have 5 modules each with \(n\) hits. Sorting them all at once gives performance \(O(5n \log 5n) = O(5n \log n + \log 5)\). Sorting them individually gives performance \(O(5n \log n)\), where that extra term is no longer present. Since we do *a lot* of sorting and merging it's worth it.
-After sorting, the sorted deque must be merged with the existing sorted hit queue. Merging two sorted lists is an \(O(n+m)\) problem where \(n\) and \(m\) are the number of elements in each list. The time windows typically ensure that the number of existing hits is much larger than the number of new hits. The final merge must consider a few cases:1. There are no existing hits. The new sorted hits becomes the existing hit list.
-2. If the latest (largest) timestamp of the new hits occurs earlier than (is less than) the earliest (smallest) timestamp of the existing hits, prepend the new hits to the existing hits.
-3. If the latest timestamp of the new hits occurs later than the earliest timestamp of the existing hits, a reduced merge/append approach is taken. First, the new hits are appended to the queue of existing hits. We search backwards in the existing hit list until we reach the first element or we come to an element whose timestamp is less than the earliest new hit timestamp. That subset of the hit list is merged using a `std::inplace_merge().`
+  After sorting, the sorted deque must be merged with the existing sorted hit queue. Merging two sorted lists is an \(O(n+m)\) problem where \(n\) and \(m\) are the number of elements in each list. The time windows typically ensure that the number of existing hits is much larger than the number of new hits. The final merge must consider a few cases:1. There are no existing hits. The new sorted hits becomes the existing hit list.
+  2. If the latest (largest) timestamp of the new hits occurs earlier than (is less than) the earliest (smallest) timestamp of the existing hits, prepend the new hits to the existing hits.
+  3. If the latest timestamp of the new hits occurs later than the earliest timestamp of the existing hits, a reduced merge/append approach is taken. First, the new hits are appended to the queue of existing hits. We search backwards in the existing hit list until we reach the first element or we come to an element whose timestamp is less than the earliest new hit timestamp. That subset of the hit list is merged using a `std::inplace_merge().`
 
+  The end of run is one final complication. At the end of a run, in general, the hit manager will have a set of un-flushed hits. The [[DDASReadout|namespaceDDASReadout]] program replaces the "end" command to handle this case. The end command stops data taking in the Pixie modules and puts the hit manager into flush mode, where it will emit all of its hits regardless of the sort window.
 
+  One last comment on container choices: `std::deque` vs `std::list`. Both of these containers have suitable access patterns, however the implementation of `std::deque` results in fewer dynamic memory allocations. A `std::list` is a doubly linked list of nodes. Each node has a payload containing the data at that point in the list. Each list element, therefore requires that the node be allocated and each list element removal requires that node be deleted.
 
-The end of run is one final complication. At the end of a run, in general, the hit manager will have a set of un-flushed hits. The [[DDASReadout|namespaceDDASReadout]] program replaces the "end" command to handle this case. The end command stops data taking in the Pixie modules and puts the hit manager into flush mode, where it will emit all of its hits regardless of the sort window.
-One last comment on container choices: `std::deque` vs `std::list`. Both of these containers have suitable access patterns, however the implementation of `std::deque` results in fewer dynamic memory allocations. A `std::list` is a doubly linked list of nodes. Each node has a payload containing the data at that point in the list. Each list element, therefore requires that the node be allocated and each list element removal requires that node be deleted.
-An `std::deque` is implemented as a set of fixed length arrays and a pointer array to the beginning and end of each array. Each array contains several deque nodes. Therefore memory allocation/free is substantially less granular. Memory for a deque is only freed when the deque is destroyed and only allocated when pushing a new item on the front or back overflows the array of nodes at the front or back of the deque. Therefore, in general, deques are used rather than lists for the 'lists' of hits.
+  An `std::deque` is implemented as a set of fixed length arrays and a pointer array to the beginning and end of each array. Each array contains several deque nodes. Therefore memory allocation/free is substantially less granular. Memory for a deque is only freed when the deque is destroyed and only allocated when pushing a new item on the front or back overflows the array of nodes at the front or back of the deque. Therefore, in general, deques are used rather than lists for the 'lists' of hits.
 
  contents
 

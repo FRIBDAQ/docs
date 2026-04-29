@@ -85,10 +85,10 @@ The sample file below specifies there are modules in slots 2,5, and 6.
 constructor Just save the filename.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| file | - name of the file to process. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | file | - name of the file to process. |
 
 
 
@@ -118,10 +118,13 @@ assignment
 read Process the configuration file document.
 
 
-Returnsstd::vector<unsigned> - vector of slots in the order specified by the XML file. 
-Notesee [[SlotConfigReader.h|SlotConfigReader_8h]] for the format of the file. 
+- Returns
+  std::vector<unsigned> - vector of slots in the order specified by the XML file.
 
-the order of the slots specified implies an assignment of module ID to slots.
+- Note
+  see [[SlotConfigReader.h|SlotConfigReader_8h]] for the format of the file.
+
+  the order of the slots specified implies an assignment of module ID to slots.
 
 
 

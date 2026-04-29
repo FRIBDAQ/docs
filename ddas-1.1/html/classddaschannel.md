@@ -233,7 +233,9 @@ The ddaschannel class is intended to encapsulate the information that is emitted
 
 This class provides a raw data parser (
 
-See also[[UnpackChannelData|classddaschannel#a55ada0749d06cdf03c03caff15604269]]) that should be used to fill the item with data. It is encouraged to construct complete events from raw data using it. For example,
+- See also
+  [[UnpackChannelData|classddaschannel#a55ada0749d06cdf03c03caff15604269]]) that should be used to fill the item with data. It is encouraged to construct complete events from raw data using it. For example,
+
 [[ddaschannel|classddaschannel]] [[channel|classchannel]];
 
 
@@ -264,7 +266,7 @@ All member data are zero initialized.
 | Double_t ddaschannel::GetCFD()const | Double_t ddaschannel::GetCFD | ( |  | ) | const | inline |
 | Double_t ddaschannel::GetCFD | ( |  | ) | const |
 
-**[[Deprecated:|deprecated#_deprecated000004]]**
+- **[[Deprecated:|deprecated#_deprecated000004]]**
 
 
 
@@ -288,12 +290,10 @@ Note that this only really makes sense to be used if the object was filled with 
 Retrieve specific energy sum.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| i | index of energy sum to access |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | i | index of energy sum to access |
 
 
 There is no bound checking here. The caller is responsible for ensuring that the data exists to be retrieved.
@@ -317,7 +317,7 @@ The finish code will be set to 1 if pileup was detected.
 | Int_t ddaschannel::GetID()const | Int_t ddaschannel::GetID | ( |  | ) | const | inline |
 | Int_t ddaschannel::GetID | ( |  | ) | const |
 
-**[[Deprecated:|deprecated#_deprecated000005]]**
+- **[[Deprecated:|deprecated#_deprecated000005]]**
 
 
 
@@ -353,10 +353,10 @@ For the 500 MSPS module,
 time = 10*(timehigh << 32 + timelow) + 2*(timecfd/(2^13) + cfdtrigsourcebit - 1)
 
 
-Return values
-|  |  |
-| --- | --- |
-| timestamp | (units of nanoseconds) |
+- Return values
+  |  |  |
+  | --- | --- |
+  | timestamp | (units of nanoseconds) |
 
 
 
@@ -378,10 +378,10 @@ This copies the contents of an existing DDASHit into the ddaschannel object. For
 | id | set to zero |
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | the hit to copy |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | the hit to copy |
 
 
 
@@ -423,7 +423,7 @@ While it parses, it stores the results into the data members of the object. Prio
 cfd time only
 
 
-**[[Deprecated:|deprecated#_deprecated000001]]**
+- **[[Deprecated:|deprecated#_deprecated000001]]**
 
 
 
@@ -431,7 +431,7 @@ cfd time only
 | --- |
 | Int_t ddaschannel::channelnum |
 
-**[[Deprecated:|deprecated#_deprecated000002]]**
+- **[[Deprecated:|deprecated#_deprecated000002]]**
 
 
 
@@ -439,7 +439,7 @@ cfd time only
 | --- |
 | Int_t ddaschannel::id |
 
-**[[Deprecated:|deprecated#_deprecated000003]]**
+- **[[Deprecated:|deprecated#_deprecated000003]]**
 
 
 

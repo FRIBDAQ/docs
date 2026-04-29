@@ -118,12 +118,12 @@ See the [[ModuleInformation|structDDAS_1_1XMLCrateWriter_1_1ModuleInformation]] 
 
 constructor We just save the data for now.
 
-Parameters
-|  |  |
-| --- | --- |
-| crateFile | - Where we're going to write the crate file. |
-| settings | - Settings info (passed to the base class). |
-| metadata | - Per slot metadata for the <slot> tag. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crateFile | - Where we're going to write the crate file. |
+  | settings | - Settings info (passed to the base class). |
+  | metadata | - Per slot metadata for the <slot> tag. |
 
 
 
@@ -151,11 +151,11 @@ endCrate Called when the entire crate has been writeen out.
 - Close the top level element.
 - Open the crate file.
 - Write the XML string from the printer.
-- delete the printer and set m_pPrinter -> nullptr. (this allows multiple writes). Parameters
-  |  |  |
-  | --- | --- |
-  | id | - crate id. |
-  | slots | - slot map. |
+- delete the printer and set m_pPrinter -> nullptr. (this allows multiple writes). - Parameters
+    |  |  |
+    | --- | --- |
+    | id | - crate id. |
+    | slots | - slot map. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
@@ -176,12 +176,10 @@ getWriter Our responsibility from the point of view of the base class is to prod
 - Close the <slot> tag. We can use the filename in the [[ModuleSettings|structDDAS_1_1ModuleSettings]] to create the settings writer which we pass back to the caller.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slotNum | - number of the slot to write. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slotNum | - number of the slot to write. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
@@ -201,11 +199,11 @@ startCrate
 - Open the crate tag giving it the crate id. Notes:
 - Each slot tag is issued in GetWriter.
 - The XMLPrinter is opened in string mode.
-- On end crate, the crate file is opened and the XML string written to it. Parameters
-  |  |  |
-  | --- | --- |
-  | id | - Id of the crate. |
-  | slots | (unused) slot map of the crate. |
+- On end crate, the crate file is opened and the XML string written to it. - Parameters
+    |  |  |
+    | --- | --- |
+    | id | - Id of the crate. |
+    | slots | (unused) slot map of the crate. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].

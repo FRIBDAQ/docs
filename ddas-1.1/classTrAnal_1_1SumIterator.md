@@ -150,7 +150,9 @@ template<class T>
 Max extent To implement the maximum iterator extent for the range This default implementation returns an iterator to address 0x0.
 
 
-Returnsnull iterator 
+- Returns
+  null iterator
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a0dbc4f0ead2ebcfc84e1d0fbb72b8ac2]].
 
 
@@ -166,7 +168,9 @@ template<class T>
 Min extent To implement the minimum iterator extent for the range This default implementation returns an iterator to address 0x0.
 
 
-Returnsnull iterator 
+- Returns
+  null iterator
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a56711604a816cbad586f4ff5847251e3]].
 
 
@@ -182,7 +186,9 @@ template<class T>
 Dereference operator.
 
 
-Returnssum of values pointed to by the range [min_extent,max_extent) 
+- Returns
+  sum of values pointed to by the range [min_extent,max_extent)
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a1787d8ec53cd8abc15702d151cb1f32d]].
 
 
@@ -198,7 +204,9 @@ template<class T>
 Prefixed incrementation Supports ++x style incrementing. Default implementation does nothing.
 
 
-Returnsconst reference to this 
+- Returns
+  const reference to this
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a75685e1588f1edb85045c6897bda2173]].
 
 
@@ -217,12 +225,10 @@ Comparison operator.
 Compares whether max_extent is less than the the argument.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| it | the iterator to compare to |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | it | the iterator to compare to |
 
 
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator]].

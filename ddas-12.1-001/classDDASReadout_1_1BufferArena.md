@@ -99,15 +99,15 @@ Destroy all buffers that are in the buffer pool. Note that there's no good way a
 Allocate and return a buffer.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nBytes | Number of bytes requested. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nBytes | Number of bytes requested. |
 
 
+- Returns
+  Pointer to the buffer pool which is guaranteed to hold *at least* nBytes of storage.
 
-
-ReturnsPointer to the buffer pool which is guaranteed to hold *at least* nBytes of storage.
 If the pool is not empty the front element is gotten and resized. Otherwise, a new buffer element is created.
 
 
@@ -122,15 +122,14 @@ If the pool is not empty the front element is gotten and resized. Otherwise, a n
 Returns a buffer to the pool.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pBuffer | The buffer being returned. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pBuffer | The buffer being returned. |
 
 
-
-
-NoteThis is only legal if the buffer is not referenced.
+- Note
+  This is only legal if the buffer is not referenced.
 
 
 

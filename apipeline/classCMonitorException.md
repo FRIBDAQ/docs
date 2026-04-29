@@ -127,13 +127,13 @@ There are several operations on monitors that require the monitor to be held by 
 Construct the exception. The context text will be "Performing operations on a Synchronizable object" The reason will be: Mutex should be owned by correctOwner but was owned by actualOwner at **FILE**:**LINE** : WasDoing
 
 
-Parameters
-|  |  |
-| --- | --- |
-| correctOwner | - The Pid of the thread that should be owning the mutex. |
-| actualOwner | - The Pid of the thread that actually owns the mutex. |
-| file | - Name of the file in which the exception was constructed Typically useFILE |
-| line | - Line number in file where exception was constructed, Typically useLINE |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | correctOwner | - The Pid of the thread that should be owning the mutex. |
+  | actualOwner | - The Pid of the thread that actually owns the mutex. |
+  | file | - Name of the file in which the exception was constructed Typically useFILE |
+  | line | - Line number in file where exception was constructed, Typically useLINE |
 
 
 

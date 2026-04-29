@@ -88,10 +88,10 @@ That is for each module, in the crate, there's a module tag that specifies the m
 
 constructor Save the module file for later.
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | - name of the XML file to process. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | - name of the XML file to process. |
 
 
 
@@ -114,7 +114,9 @@ destructor Just kill off the documents in m_modules
 
 get Return the module settings for all of the documents stored. The first element of the pair in m_modules will be substituted into the s_modId field overriding the value in the XML.
 
-Returnsstd::vector<ModuleSettings> - the settings. 
+- Returns
+  std::vector<ModuleSettings> - the settings.
+
 Implements [[DDAS::SettingsReader|classDDAS_1_1SettingsReader]].
 
 

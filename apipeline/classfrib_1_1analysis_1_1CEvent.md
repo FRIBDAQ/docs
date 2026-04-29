@@ -111,7 +111,8 @@ destructor is also nill because there's not any data to destroy.
 
 begin - provide an iterator to the event data.
 
-ReturnsCEventIterator
+- Returns
+  CEventIterator
 
 
 
@@ -135,7 +136,8 @@ clear Just a stand in for nextevent
 
 end end iterator for the event.
 
-ReturnsCEventIterator
+- Returns
+  CEventIterator
 
 
 
@@ -160,8 +162,10 @@ getDopeVector A stand in for getScoreboard
 operator[] Indexing the revent is mostly as simple as providing the index to the array. *However*
 
 - If the index does not exist a new tree parameter is created.
-- If the index is not in the scoreboard it's added.  nParam - index into the parameter vector. ReturnsCParameterValue& where CParameterValue is just a double. 
-  NoteSince we don't touch the underlying tree parameter and its shared data, isValid isn't going to work on this That's ok because there's no isValid in CParameterValue anymore. We strongly suggest the use of CTreeParameters and not [[CEvent|classfrib_1_1analysis_1_1CEvent]] as targets of the unpacking.
+- If the index is not in the scoreboard it's added.  nParam - index into the parameter vector. - Returns
+    CParameterValue& where CParameterValue is just a double.
+  - Note
+    Since we don't touch the underlying tree parameter and its shared data, isValid isn't going to work on this That's ok because there's no isValid in CParameterValue anymore. We strongly suggest the use of CTreeParameters and not [[CEvent|classfrib_1_1analysis_1_1CEvent]] as targets of the unpacking.
 
 
 

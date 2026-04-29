@@ -84,15 +84,14 @@ A bunch of static methods that can manipulate set files:
 createVarNameMap Takes an array of offset descriptors from a var file and tossses them up into a map that's indexed by variable name.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| offsets | - the offset array descriptor. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | offsets | - the offset array descriptor. |
 
 
-
-
-ReturnsVarMapByName - the map.
+- Returns
+  VarMapByName - the map.
 
 
 
@@ -104,15 +103,14 @@ ReturnsVarMapByName - the map.
 createVaroffsetMap Create a map organized by offset values from the array of descriptors created by readVarFile.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| offsets | - the array of offset descriptors. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | offsets | - the array of offset descriptors. |
 
 
-
-
-ReturnsVarMapByOffset - map of those descriptors organized by offset:
+- Returns
+  VarMapByOffset - map of those descriptors organized by offset:
 
 
 
@@ -139,17 +137,16 @@ p - pointer to data returned from readSetFile
 populateSetFileArray Given the contents of a setfile and its variable offset definitions, returns a vector of set file descriptor/contents.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nLongs | - number of longs in the set file data. |
-| pVars | - Buffer contaning the set file data. |
-| map | - vars definition. Assumed sorted by offset. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nLongs | - number of longs in the set file data. |
+  | pVars | - Buffer contaning the set file data. |
+  | map | - vars definition. Assumed sorted by offset. |
 
 
-
-
-ReturnsUnpackedSetFile - vector of variable value definitions.
+- Returns
+  UnpackedSetFile - vector of variable value definitions.
 
 
 
@@ -164,17 +161,16 @@ ReturnsUnpackedSetFile - vector of variable value definitions.
 populateSetFileMap Populates a set file map indexed by item name.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nLong | - Number of longs in the map. |
-| pVars | - Pointer to the variables in the set file buffer. |
-| map | -Variablemapping array. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nLong | - Number of longs in the map. |
+  | pVars | - Pointer to the variables in the set file buffer. |
+  | map | -Variablemapping array. |
 
 
-
-
-ReturnsSetFileByName
+- Returns
+  SetFileByName
 
 
 
@@ -186,10 +182,10 @@ ReturnsSetFileByName
 populateSetFileMap Overload to populate the map given an unpacked setfile:
 
 
-Parameters
-|  |  |
-| --- | --- |
-| vars | - the unpacked set file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | vars | - the unpacked set file. |
 
 
 
@@ -205,15 +201,14 @@ readSetFile Reads the set file in to a soup of storage.
 - opens the file and suckes it all into the buffer.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | - path to the .set file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | - path to the .set file. |
 
 
-
-
-Returnsstd::pair<unsigned, uint32_t*> - first is number of longs, second pointer to the file contents.
+- Returns
+  std::pair<unsigned, uint32_t*> - first is number of longs, second pointer to the file contents.
 
 
 
@@ -225,16 +220,17 @@ Returnsstd::pair<unsigned, uint32_t*> - first is number of longs, second pointer
 readVarFile Reads a Var file and provides descriptors for the variables it defines relative to the start of either the DSP var memory in the boards or relative to the file itself.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | - Pointer to the filename to open. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | - Pointer to the filename to open. |
 
 
+- Returns
+  VarOffsetArray - Resulting description of all the variables.
 
-
-ReturnsVarOffsetArray - Resulting description of all the variables. 
-Notethe array is in order of the definitions in the var file.
+- Note
+  the array is in order of the definitions in the var file.
 
 
 
@@ -248,12 +244,12 @@ Notethe array is in order of the definitions in the var file.
 
 writeSetFile Writes a set file back out to disk.
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | - name of the file to write to. |
-| nLongs | - Number of longs in the set file. |
-| pVars | - Pointer to the setfile data in memory. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | - name of the file to write to. |
+  | nLongs | - Number of longs in the set file. |
+  | pVars | - Pointer to the setfile data in memory. |
 
 
 

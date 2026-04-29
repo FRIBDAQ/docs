@@ -35,8 +35,12 @@ header
   - [Processing the Standard Data](#ddasdumper_usingoutput_current_sec)
 
 
-AuthorJeromy Tompkins 
-DateApril 21, 2016
+- Author
+  Jeromy Tompkins
+
+- Date
+  April 21, 2016
+
 # Introduction
 
 

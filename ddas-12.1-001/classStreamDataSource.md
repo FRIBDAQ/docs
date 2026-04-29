@@ -113,11 +113,11 @@ A class taking the input stream as a data source. Most commonly used to construc
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pFactory | Pointer to the ring item factory. |
-| str | References the stream from which to get ring items. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFactory | Pointer to the ring item factory. |
+  | str | References the stream from which to get ring items. |
 
 
 
@@ -147,13 +147,13 @@ Destructor.
 Get a ring item from the soruce. Implementation of the mandatory interface from the base class.
 
 
-ReturnsPointer to the next ring item from the stream. 
-Return values
-|  |  |
-| --- | --- |
-| nullptr | If none. |
+- Returns
+  Pointer to the next ring item from the stream.
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | nullptr | If none. |
 
 
 Implements [[DataSource|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].

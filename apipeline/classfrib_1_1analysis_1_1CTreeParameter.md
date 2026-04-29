@@ -229,10 +229,10 @@ Someone better invoke initialize on this before doing anything meaningful or the
 construct with only the name. Initialize with all the default definitions.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the object. |
 
 
 
@@ -248,11 +248,11 @@ Parameters
 construct with the units overriding the defaults.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - tree parameter name. |
-| units | - units of measure. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - tree parameter name. |
+  | units | - units of measure. |
 
 
 
@@ -270,13 +270,13 @@ Parameters
 construct withy low, high and units overriding the defaaults.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | -name of the parameter |
-| lowLimit | - suggested low limit |
-| highLimit | - suggested high limit |
-| units | -units of measure. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | -name of the parameter |
+  | lowLimit | - suggested low limit |
+  | highLimit | - suggested high limit |
+  | units | -units of measure. |
 
 
 
@@ -295,13 +295,13 @@ Parameters
 constructor fully specified:
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the parameter. |
-| channels | - suggested bins. |
-| lowLimit,highLimit | - suggested axis limits. |
-| units | - units of measure. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the parameter. |
+  | channels | - suggested bins. |
+  | lowLimit,highLimit | - suggested axis limits. |
+  | units | - units of measure. |
 
 
 
@@ -317,11 +317,11 @@ Parameters
 constructor for simple raw parameter.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of parameter. |
-| resolution | - bits of resolution e.g. 0-2^resolution with 2^resolution channels. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of parameter. |
+  | resolution | - bits of resolution e.g. 0-2^resolution with 2^resolution channels. |
 
 
 
@@ -354,11 +354,11 @@ This constructor is no longer supported because it's too wonky, and overdetermin
 Construct a tree parameter from an existing one (just a different name).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the new tree parameter. |
-| t | - the existing tree parameter that will be duplicated into the new one. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the new tree parameter. |
+  | t | - the existing tree parameter that will be duplicated into the new one. |
 
 
 
@@ -420,8 +420,11 @@ BindParameters Supplied only for compatiblity - parameters are bound as they are
 
 collectEvent Using the scoreboard and the event, return a vector of pairs that describe the event contents. The first element of each pair is the parameter number while the second element is the parameter value for all elements parameters that have been set this event.
 
-Returnsstd::vector<std::pair<unsigned, double> - see above. 
-Noteif, somehow the scoreboard has an invalid index, std::out_of_range is throw.
+- Returns
+  std::vector<std::pair<unsigned, double> - see above.
+
+- Note
+  if, somehow the scoreboard has an invalid index, std::out_of_range is throw.
 
 
 
@@ -434,11 +437,13 @@ Noteif, somehow the scoreboard has an invalid index, std::out_of_range is throw.
 
 getBins
 
-Returnsunsigned - number of bins suggested for this parameter. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | - if we are not yet bound. |
+- Returns
+  unsigned - number of bins suggested for this parameter.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | - if we are not yet bound. |
 
 
 
@@ -452,8 +457,11 @@ Exceptions
 
 getDefinitions
 
-Returnsstd::vector<std::pair<std::string, SharedData> - the tree parameter definitions. 
-Note- tree parameter vectors will appear as several entries in this vector.
+- Returns
+  std::vector<std::pair<std::string, SharedData> - the tree parameter definitions.
+
+- Note
+  - tree parameter vectors will appear as several entries in this vector.
 
 
 
@@ -467,7 +475,8 @@ Note- tree parameter vectors will appear as several entries in this vector.
 
 getEvent
 
-Returnsconst std::vector<double>& - reference to the event vector.
+- Returns
+  const std::vector<double>& - reference to the event vector.
 
 
 
@@ -480,11 +489,12 @@ Returnsconst std::vector<double>& - reference to the event vector.
 
 getId
 
-- Requires that the parameter is bound to a slot. Returnsunsigned - parameter number binding 
-  Exceptions
-  |  |  |
-  | --- | --- |
-  | std::logic_error | if the parameter is not bound. |
+- Requires that the parameter is bound to a slot. - Returns
+    unsigned - parameter number binding
+  - Exceptions
+    |  |  |
+    | --- | --- |
+    | std::logic_error | if the parameter is not bound. |
 
 
 
@@ -497,16 +507,17 @@ getId
 
 getInc Get the width of a channel, in parameter value. This is just high - low / bins.
 
-Returnsdouble - width of a channel 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | - if not bound yet. |
+- Returns
+  double - width of a channel
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | - if not bound yet. |
 
 
-
-
-Notethis can be negative if the axis is 'backwards' (high < low).
+- Note
+  this can be negative if the axis is 'backwards' (high < low).
 
 
 
@@ -519,7 +530,8 @@ Notethis can be negative if the axis is 'backwards' (high < low).
 
 getters/setters and testers. getName
 
-Returnsstd::string - the tree parameter name.
+- Returns
+  std::string - the tree parameter name.
 
 
 
@@ -533,7 +545,8 @@ Returnsstd::string - the tree parameter name.
 
 getScoreboard
 
-Returnsconst std::vector<unsigned>& - referencde to the event scoreboard.
+- Returns
+  const std::vector<unsigned>& - referencde to the event scoreboard.
 
 
 
@@ -546,11 +559,13 @@ Returnsconst std::vector<unsigned>& - referencde to the event scoreboard.
 
 getStart
 
-Returnsdouble - the suggested low limit for histograms. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | if not bound. |
+- Returns
+  double - the suggested low limit for histograms.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | if not bound. |
 
 
 
@@ -563,11 +578,13 @@ Exceptions
 
 getStop
 
-Returnsdouble - the suggested high axis value for this parameter. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::Logic_error | - if the parameter is not yet bound. |
+- Returns
+  double - the suggested high axis value for this parameter.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::Logic_error | - if the parameter is not yet bound. |
 
 
 
@@ -580,11 +597,13 @@ Exceptions
 
 getUnit
 
-Returnsstd::string - the units of measure of the parameter. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::Logic_error | if the parameter has not yet been bound. |
+- Returns
+  std::string - the units of measure of the parameter.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::Logic_error | if the parameter has not yet been bound. |
 
 
 
@@ -598,12 +617,13 @@ Exceptions
 getValue Return the current value of the parameter.
 
 - The parameter must be bound.
-- The parameter must have been assigned to for this event. Returnsdouble - the parameter's value for this event. 
-  Exceptions
-  |  |  |
-  | --- | --- |
-  | std::logic_error | - the parameter is not bound. |
-  | std::range_error | - the parameter has no value yet. |
+- The parameter must have been assigned to for this event. - Returns
+    double - the parameter's value for this event.
+  - Exceptions
+    |  |  |
+    | --- | --- |
+    | std::logic_error | - the parameter is not bound. |
+    | std::range_error | - the parameter has no value yet. |
 
 
 
@@ -616,11 +636,13 @@ getValue Return the current value of the parameter.
 
 hasChanged Parameter metatdata has, associated with it, a flag that indicates if it any metadata has been modified in the course of running the program. This can be used, in large parameter spaces, to limit the set of parameter definitions that are output.
 
-Returnsbool if the parameter's metadata has changed. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | - if not bound. |
+- Returns
+  bool if the parameter's metadata has changed.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | - if not bound. |
 
 
 
@@ -635,11 +657,11 @@ Exceptions
 
 Initialize These overloads do the actual heavy lifting of creating a tree parameter Note that all of these funnel into the fully specified Initialize. Initialize
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the parameter. |
-| resolution | - the number of bits of resolution. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the parameter. |
+  | resolution | - the number of bits of resolution. |
 
 
 
@@ -669,10 +691,10 @@ Initialize This is no longer available - it's over determined and wonky to boot.
 
 Initialize With only the name and everything else default:
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - the parameter name. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - the parameter name. |
 
 
 
@@ -687,11 +709,11 @@ Parameters
 
 Initialize WIth just the name and units.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the parameter. |
-| units | - units of measure |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the parameter. |
+  | units | - units of measure |
 
 
 
@@ -710,12 +732,13 @@ Parameters
 Initialize (full)
 
 - If there's already a shared data associated with this, overwrite it with the requested metadata.
-- If there's not a shared data associated with this, create it. NoteIf the tree parameter is bound and the name is different than its current binding it will be bound to a different parameter. 
-  Parameters
-  |  |  |
-  | --- | --- |
-  | name | - name of the parameter. |
-  | channes | - suggested channels |
+- If there's not a shared data associated with this, create it. - Note
+    If the tree parameter is bound and the name is different than its current binding it will be bound to a different parameter.
+  - Parameters
+    |  |  |
+    | --- | --- |
+    | name | - name of the parameter. |
+    | channes | - suggested channels |
 
 
 
@@ -728,7 +751,8 @@ Initialize (full)
 
 isBound A parameter is bound if it has shared data:
 
-Returnsbool - true if the parameter is bound.
+- Returns
+  bool - true if the parameter is bound.
 
 
 
@@ -741,11 +765,13 @@ Returnsbool - true if the parameter is bound.
 
 isValid
 
-Returnsbool - true if the parameter has been set 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | if the parameter is not yet bound. |
+- Returns
+  bool - true if the parameter has been set
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | if the parameter is not yet bound. |
 
 
 
@@ -773,11 +799,13 @@ Static Method implementations: nextEvent
 
 Support for treating instances as doubles. Note all fetches are via getValue and sets via setValue so the validity handling is done in a single spot. operator double() Convert value to a double.
 
-Returnsdouble. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::Logic_error | if the value is invalid or not bound. |
+- Returns
+  double.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::Logic_error | if the value is invalid or not bound. |
 
 
 
@@ -790,10 +818,10 @@ Exceptions
 
 operator *=
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | value ot multiply this by |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | value ot multiply this by |
 
 
 
@@ -806,7 +834,8 @@ Parameters
 
 pre-increment
 
-Returns*this
+- Returns
+  *this
 
 
 
@@ -819,10 +848,10 @@ Returns*this
 
 operator+= Add to from double
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - double to add to this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - double to add to this. |
 
 
 
@@ -835,7 +864,8 @@ Parameters
 
 post decrement
 
-Returnsdouble
+- Returns
+  double
 
 
 
@@ -848,7 +878,8 @@ Returnsdouble
 
 pre-decrement
 
-Returns*this
+- Returns
+  *this
 
 
 
@@ -861,10 +892,10 @@ Returns*this
 
 operator-= Subtract double from us.
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | value to subtract |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | value to subtract |
 
 
 
@@ -877,10 +908,10 @@ Parameters
 
 operator /=
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | value to divide us by |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | value to divide us by |
 
 
 
@@ -893,15 +924,14 @@ Parameters
 
 operator= - assign from double.
 
-Parameters
-|  |  |
-| --- | --- |
-| newValue | -the double to assign to this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | newValue | -the double to assign to this. |
 
 
-
-
-Returns*this.
+- Returns
+  *this.
 
 
 
@@ -914,15 +944,14 @@ Returns*this.
 
 operator= assign from another tree parameter.
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - tree parameter to get the data fromm. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - tree parameter to get the data fromm. |
 
 
-
-
-Returns*this.
+- Returns
+  *this.
 
 
 
@@ -969,19 +998,17 @@ resetChanged Clear the metadata changed flag.
 
 setBins Set a new suggested bin count for the parameter. This also sets the changed flag.
 
-Parameters
-|  |  |
-| --- | --- |
-| channels | - new suggested binning. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channels | - new suggested binning. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | - the parameter is not bound. |
-| std::range_error | - the new channel count is zero. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | - the parameter is not bound. |
+  | std::range_error | - the new channel count is zero. |
 
 
 
@@ -1007,10 +1034,10 @@ setChanged Set the changed flag in the parameter.
 setDefaultBins Set the number of bins that will be used for tree parameters that have not specified this.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| bins | - number of bins. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | bins | - number of bins. |
 
 
 
@@ -1026,11 +1053,11 @@ Parameters
 
 setDefaultLimits Set the default limits value that will be used for tree parameters that have not had those limits specified.
 
-Parameters
-|  |  |
-| --- | --- |
-| low | - Low limit. |
-| high | - high limit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | low | - Low limit. |
+  | high | - high limit. |
 
 
 
@@ -1044,10 +1071,10 @@ Parameters
 
 setDefaultUnits Set the units string that will be associated with tree parameters that have not specified this information.
 
-Parameters
-|  |  |
-| --- | --- |
-| units | -new default units. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | units | -new default units. |
 
 
 
@@ -1072,23 +1099,20 @@ setEvent Supplied only for compatibility. This incarnation of tree paramter main
 
 setInc Set the channel width. This just means adjusting bins so that the high-low/bins = inc. If high -low == 0 we set 0 for bins.
 
-Parameters
-|  |  |
-| --- | --- |
-| channelWidth | - noew channel width. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channelWidth | - noew channel width. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | if the parameter is not bound. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | if the parameter is not bound. |
-
-
-
-
-Note- the actual increment may only be an approximation since the bins are integer typed.
+- Note
+  - the actual increment may only be an approximation since the bins are integer typed.
 
 
 
@@ -1118,18 +1142,16 @@ setInvalid
 
 setStart Set a new low value for the suggested histograms.
 
-Parameters
-|  |  |
-| --- | --- |
-| low | - new vlaue to use. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | low | - new vlaue to use. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | -if the parameter is not yet bound. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | -if the parameter is not yet bound. |
 
 
 
@@ -1142,18 +1164,16 @@ Exceptions
 
 setStop
 
-Parameters
-|  |  |
-| --- | --- |
-| high | - new stop value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | high | - new stop value. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | -if the parameter is not yet bound. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | -if the parameter is not yet bound. |
 
 
 
@@ -1166,10 +1186,10 @@ Exceptions
 
 setUnit Change the units of measure for the parameter.
 
-Parameters
-|  |  |
-| --- | --- |
-| units | - new units of measure.  std::Logic_error - if not bound. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | units | - new units of measure.  std::Logic_error - if not bound. |
 
 
 
@@ -1183,18 +1203,16 @@ Parameters
 setValue Set the parameter to a new value and do the book-keeping needed to ensure that the world knows our value is valid.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| newValue | - new value to assign to *this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | newValue | - new value to assign to *this. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | if the tree parameter is not yet bound. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | if the tree parameter is not yet bound. |
 
 
 ## Member Data Documentation

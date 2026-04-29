@@ -122,12 +122,12 @@ Provides an end command to override the SBS one.
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | Reference to interpreter. |
-| pSeg | Pointer to the event segment to manipulate. |
-| pExp | Pointer to the experiment we're reading data from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | Reference to interpreter. |
+  | pSeg | Pointer to the event segment to manipulate. |
+  | pExp | Pointer to the experiment we're reading data from. |
 
 
 
@@ -235,7 +235,8 @@ After reading out the last of the data, write the run statistics to an end-of-ru
 Stop run in the director module (module #0) – a SYNC interrupt should be generated to stop the run in all modules simultaneously when running synchronously. We are not running synchronously when in INFINITY_CLOCK mode. If the INFINITY_CLOCK mode is set, we must stop the run in each module individually.
 
 
-NoteIf the end run signal is successfully communicated to the module(s), the transition to an inactive state cannot fail, only report which module(s) failed to properly end their run. One common cause of this failure is a very high input rate to one or more channels on that module.
+- Note
+  If the end run signal is successfully communicated to the module(s), the transition to an inactive state cannot fail, only report which module(s) failed to properly end their run. One common cause of this failure is a very high input rate to one or more channels on that module.
 
 
 

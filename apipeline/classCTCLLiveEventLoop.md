@@ -91,16 +91,17 @@ Return a pointer to the one and only [[CTCLLiveEventLoop|classCTCLLiveEventLoop]
 
 Return the stop latency. See setStopLatency for a description of this parameter.
 
-Returnslong 
-Return values
-|  |  |
-| --- | --- |
-| Stop | latency value. |
+- Returns
+  long
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | Stop | latency value. |
 
 
-
-
-NoteIf the stop latency was recently changed, the value returned may not have taken effect yet. Sorry, that's the way it goes.
+- Note
+  If the stop latency was recently changed, the value returned may not have taken effect yet. Sorry, that's the way it goes.
 
 
 
@@ -114,28 +115,27 @@ NoteIf the stop latency was recently changed, the value returned may not have ta
 Set the stop latency, event loop timing. This determines how long the event loop will wait for an event before checking to see if it's time to stop running. The latency is expressed in milliseconds. Note, however that it is subject to the clock granularity, and that the less latency you request, the higher the CPU utilization of the loop.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| ms | - Maximum number of milliseconds between checks of the stop flag. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | ms | - Maximum number of milliseconds between checks of the stop flag. |
 
 
+- Returns
+  long
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | Prior | latency value. |
 
 
-Returnslong 
-Return values
-|  |  |
-| --- | --- |
-| Prior | latency value. |
+- Note
+  Changes to the latency to an active event loop have the prior latency before becoming effective.
 
+  It is legal to set the latency of a stopped event loop.
 
-
-
-NoteChanges to the latency to an active event loop have the prior latency before becoming effective. 
-
-It is legal to set the latency of a stopped event loop. 
-
-The latency is not reinitialized to the default value when the event loop is started, but retains any prior value.
+  The latency is not reinitialized to the default value when the event loop is started, but retains any prior value.
 
 
 
@@ -149,10 +149,10 @@ The latency is not reinitialized to the default value when the event loop is sta
 Start the event loop on the application's Tcl interpreter. note that this function will only return to the caller when another thread or an event handler invokes the stop member.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CStateException | There is no application object.The event loop is already running. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CStateException | There is no application object.The event loop is already running. |
 
 
 
@@ -165,18 +165,16 @@ Exceptions
 
 Start the evetn loop on the specified interpreter.
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | - Pointer to theCTCLApplicationthat will receive commands from stdin |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | - Pointer to theCTCLApplicationthat will receive commands from stdin |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CStateException | Event loop is already active. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CStateException | Event loop is already active. |
 
 
 

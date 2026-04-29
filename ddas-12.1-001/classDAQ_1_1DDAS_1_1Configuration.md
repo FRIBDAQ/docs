@@ -195,24 +195,22 @@ Destructor.
 Generate a [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] class object from a firmware version file and cfgPixie16.txt.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| fwVsnPath | Path to the firmware version file. |
-| cfgPixiePath | Path to cfgPixie16.txt. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fwVsnPath | Path to the firmware version file. |
+  | cfgPixiePath | Path to cfgPixie16.txt. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | Any errors opening or parsing the firmware and configuration files. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | Any errors opening or parsing the firmware and configuration files. |
+- Returns
+  Pointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object.
 
-
-
-
-ReturnsPointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object.
 `std::move()` ensures correct ownership of the returned pointer, though we *may* be able to take advantage of some copy elision here.
 
 
@@ -231,25 +229,23 @@ ReturnsPointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuratio
 Generate a [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] class object from a firmware version file and cfgPixie16.txt.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| fwVsnPath | Path to the firmware version file. |
-| cfgPixiePath | Path to cfgPixie16.txt. |
-| modEvtLenPath | Path to the modevtlen.txt file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fwVsnPath | Path to the firmware version file. |
+  | cfgPixiePath | Path to cfgPixie16.txt. |
+  | modEvtLenPath | Path to the modevtlen.txt file. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | Error opening or parsing the modevtlen file. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | Error opening or parsing the modevtlen file. |
+- Returns
+  Pointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object.
 
-
-
-
-ReturnsPointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object.
 `std::move()` ensures correct ownership of the returned pointer, though we *may* be able to take advantage of some copy elision here.
 
 
@@ -265,7 +261,8 @@ ReturnsPointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuratio
 Return the crate id value.
 
 
-ReturnsThe crate id.
+- Returns
+  The crate id.
 
 
 
@@ -280,7 +277,8 @@ ReturnsThe crate id.
 Return the default map of firmware information.
 
 
-ReturnsThe firmware map.
+- Returns
+  The firmware map.
 
 
 
@@ -294,23 +292,21 @@ ReturnsThe firmware map.
 Retrieve the current firmware specifier for a particular hardware type.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hdwrType | The hardware specifier associated with the firmware configuration. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hdwrType | The hardware specifier associated with the firmware configuration. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If no firmware configuration exists for the provided hdwrType. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If no firmware configuration exists for the provided hdwrType. |
+- Returns
+  The firmware configuration associated with the hdwrType.
 
-
-
-
-ReturnsThe firmware configuration associated with the hdwrType.
 Searches the firmware map using std::find.
 
 
@@ -326,7 +322,8 @@ Searches the firmware map using std::find.
 Return a copy of the hardware map vector.
 
 
-ReturnsA copy of hardware map vector.
+- Returns
+  A copy of hardware map vector.
 
 
 
@@ -341,7 +338,8 @@ ReturnsA copy of hardware map vector.
 Return a copy of the module event length vector.
 
 
-Returnsstd::vector<int> Copy of module event lengths vector.
+- Returns
+  std::vector<int> Copy of module event lengths vector.
 
 
 
@@ -357,24 +355,22 @@ Returnsstd::vector<int> Copy of module event lengths vector.
 Get the module firmware configuration information.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hwType | The hardware type detected in the module. |
-| modnum | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hwType | The hardware type detected in the module. |
+  | modnum | Module number. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If the module firmware configuraton is not in the firmware map. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If the module firmware configuraton is not in the firmware map. |
+- Returns
+  The firmware configuration associated with the module.
 
-
-
-
-ReturnsThe firmware configuration associated with the module.
 It is an error to have a firmware configuration map file but not to have a configuration for the hardware type. If a per-module firmware map does not exist, return the default configuration.
 
 
@@ -390,7 +386,8 @@ It is an error to have a firmware configuration map file but not to have a confi
 Return the number of modules in the crate.
 
 
-ReturnsThe number of modules.
+- Returns
+  The number of modules.
 
 
 
@@ -405,7 +402,8 @@ ReturnsThe number of modules.
 Return the path to the .set file.
 
 
-ReturnsThe settings file path.
+- Returns
+  The settings file path.
 
 
 
@@ -419,15 +417,15 @@ ReturnsThe settings file path.
 Returns the DSP settings file path specific to a single module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| modnum | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | modnum | Module number. |
 
 
+- Returns
+  std::string The full path to the settings file.
 
-
-Returnsstd::string The full path to the settings file.
 If there's a per-module set file it's returned otherwise return the default settings file.
 
 
@@ -443,7 +441,8 @@ If there's a per-module set file it's returned otherwise return the default sett
 Return the vector containing the filled slots.
 
 
-Returnsstd::vector<unsigned short> The vector containing the slots that are filled.
+- Returns
+  std::vector<unsigned short> The vector containing the slots that are filled.
 
 
 
@@ -457,12 +456,10 @@ Returnsstd::vector<unsigned short> The vector containing the slots that are fill
 Print brief line of information for cfgPixie16.txt.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| stream | The ostream to write to. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | stream | The ostream to write to. |
 
 
 Prints out a message similar to: "Crate number 1: 2 modules, in slots:2 3 DSPParFile: /path/to/file.set"
@@ -480,10 +477,10 @@ Prints out a message similar to: "Crate number 1: 2 modules, in slots:2 3 DSPPar
 Set the crate id for the module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | The id to assign. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | The id to assign. |
 
 
 
@@ -500,13 +497,11 @@ Parameters
 Set the firmware configuration for a hardware type.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| specifier | The hardware type. |
-| config | The new configuration. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | specifier | The hardware type. |
+  | config | The new configuration. |
 
 
 Any previous [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]] stored will be replaced by the new configuration. If there is no previous configuration for the hardware type it will be added.
@@ -523,20 +518,16 @@ Any previous [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]
 Set the hardware map for each module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| map | The hardware map. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | map | The hardware map. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if size of lengths does not match size of stored slot map. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if size of lengths does not match size of stored slot map. |
 
 
 It is necessary that the caller has previously invoked `setNumberOfModules()` before calling this. The logic of this method aims to keep the slot map and module event length vectors the same length. Without invoking `setNumberOfModules()` this is most likely not going to be the case.
@@ -553,20 +544,16 @@ It is necessary that the caller has previously invoked `setNumberOfModules()` be
 Set the lengths of events for each module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| lengths | The module event lengths. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | lengths | The module event lengths. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if size of lengths does not match size of stored slot map. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if size of lengths does not match size of stored slot map. |
 
 
 It is necessary that the caller has previously invoked `setNumberOfModules()` before calling this. The logic of this method aims to keep the slot map and module event length vectors the same length. Without invoking `setNumberOfModules()` this is most likely not going to be the case.
@@ -585,13 +572,11 @@ It is necessary that the caller has previously invoked `setNumberOfModules()` be
 Sets a firmware map specific to a module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module index. |
-| mapping | Firmware mapping for that module. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module index. |
+  | mapping | Firmware mapping for that module. |
 
 
 An existing map is ovewritten.
@@ -610,13 +595,11 @@ An existing map is ovewritten.
 Set a per-module DSP settings file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| modNum | Module number. |
-| path | The path to the settings file. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | modNum | Module number. |
+  | path | The path to the settings file. |
 
 
 The filename path should be checked for readability by the caller.
@@ -633,12 +616,10 @@ The filename path should be checked for readability by the caller.
 Set the number of modules in the crate.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| size | Number of modules. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | size | Number of modules. |
 
 
 This resizes the vectors storing the slot map, module event lengths, and hardware map to be consistent. The caller should call setNumberOfModules prior to calling `setSlotMap()` or `setModuleEventLengths()`.
@@ -656,10 +637,10 @@ This resizes the vectors storing the slot map, module event lengths, and hardwar
 Set the path to the DSP settings file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| path | The path to the settings file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | path | The path to the settings file. |
 
 
 
@@ -673,20 +654,16 @@ Parameters
 Assign a new slot map.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| map | The slots that are occupied. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | map | The slots that are occupied. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | When length of argument is different than the length of stored modevtlen vector. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | When length of argument is different than the length of stored modevtlen vector. |
 
 
 It is important for the caller to first call `setNumberOfModules()` before calling this to avoid an exception being thrown. To avoid weird configurations, this ensures that the length of the slot map is the same as the module event length vector at all times. If the user has not set the number of modules previously, this cannot be gauranteed and the method will almost always throw.

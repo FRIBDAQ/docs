@@ -86,16 +86,15 @@ Once and end file indication has been gotten on the input file, further requests
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - command line words. |
-| pApp | - pointer to the application object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - command line words. |
+  | pApp | - pointer to the application object. |
 
 
-
-
-Note- this may be called prior to MPI_Init.
+- Note
+  - this may be called prior to MPI_Init.
 
 
 

@@ -80,8 +80,11 @@ This class wraps a vector of tree variables in a nice convenient package. The tr
 
 The vector wrapping also allows for a first index specification much like in Fortran where you can do dimension a(firstdim:lastdim) .. although for 'traditional' reasons tree prameters express this as firstdim,size. The original implementation required firstdim positive. Fortran and this implementation make no such restrictions, allowing negative indices if this is appropriate to the application.. in the example above, if the first index was given as -1, the names might be e.g.: somedetector.fp.-01, somedetector.fp.00 .. somedetector.fp.14
 
-AuthorRon Fox 
-Version1.0  30-Mar-2005 11:03:53 AM
+- Author
+  Ron Fox
+
+- Version
+  1.0  30-Mar-2005 11:03:53 AM
 
 ## Constructor & Destructor Documentation
 
@@ -107,10 +110,10 @@ Default constructor... Creates a tree variable array that has an empty vector, a
 
 Copy constructor. The array of variables is deep copied to produce a duplicate set, bound to the same underlying variables... unless the vector is empty in which case we have duplicated an empty variable.
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The source of the copy construction |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The source of the copy construction |
 
 
 
@@ -141,12 +144,12 @@ Destroys the tree variable and its contents. Note that while the binding to the 
 
 Builds up the new array.
 
-Parameters
-|  |  |
-| --- | --- |
-| basename | Base name used to construct the individual names. |
-| size | Number of elements in the array. |
-| example | Sample properties that will be used to construct the individual elements. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | basename | Base name used to construct the individual names. |
+  | size | Number of elements in the array. |
+  | example | Sample properties that will be used to construct the individual elements. |
 
 
 
@@ -160,10 +163,10 @@ Parameters
 
 Copys the member elements from a rhs [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]] into the current object. This utility is used both by assignment and copy construction.
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The source of the copy. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The source of the copy. |
 
 
 
@@ -192,14 +195,14 @@ Return the value of the lowest index (could be negative).
 
 Intended for use with a variable array that was default constructed.Any existing array is destroyed, and a new one built.
 
-Parameters
-|  |  |
-| --- | --- |
-| baseName | Name used to construct element names. |
-| initialValue | The value to be assigned to the elements. |
-| units | The units of measure of the elements of the array. |
-| size | number of array elements. |
-| firstElement | Lowest numbered index. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | baseName | Name used to construct element names. |
+  | initialValue | The value to be assigned to the elements. |
+  | units | The units of measure of the elements of the array. |
+  | size | number of array elements. |
+  | firstElement | Lowest numbered index. |
 
 
 
@@ -212,11 +215,13 @@ Parameters
 
 Values in the rhs are copied to the values of the LHS.
 
-Noteprecondition is that rhs.size( == this->[[size()|classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]) Else invalid_argument is thrown. 
-Parameters
-|  |  |
-| --- | --- |
-| rhs |  |
+- Note
+  precondition is that rhs.size( == this->[[size()|classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]) Else invalid_argument is thrown.
+
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs |  |
 
 
 
@@ -230,10 +235,10 @@ Parameters
 Indexes in to the array of tree variables and returns the selected element (throw on range errors).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| index | Index into the array. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | index | Index into the array. |
 
 
 

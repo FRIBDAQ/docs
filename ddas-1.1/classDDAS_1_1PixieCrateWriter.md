@@ -92,10 +92,10 @@ Inheritance diagram for DDAS::PixieCrateWriter:
 
 constructor Construct the crate writer. We just pass the settings on to the base class.
 
-Parameters
-|  |  |
-| --- | --- |
-| settings | - crate settings. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | settings | - crate settings. |
 
 
 
@@ -121,13 +121,11 @@ destructor ensure the crate manager is destroyed. That does an exit system.
 endCrate ALl modules are now programmed with their crate ids. The crate manager is also deleted, which does a Pixie16ExitSystem.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - the crate id. |
-| slots | - the slot map. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - the crate id. |
+  | slots | - the slot map. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
@@ -142,15 +140,15 @@ Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
 getWriter Produce a [[ModuleWriter|classDDAS_1_1ModuleWriter]] which will write the settings to a module. Note that we'll write the slotid and the module id parameters directly ourselves.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - the slot number to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - the slot number to write. |
 
 
+- Note
+  the crate manager must have been instantiated already.
 
-
-Notethe crate manager must have been instantiated already. 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
 
 
@@ -165,13 +163,11 @@ Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].
 startCrate Called before the crate is written. Save the crate id. Save the slots so we can compute ids. Create the crate manager.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - the crate id. |
-| slots | - The slot map. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - the crate id. |
+  | slots | - The slot map. |
 
 
 Implements [[DDAS::CrateWriter|classDDAS_1_1CrateWriter]].

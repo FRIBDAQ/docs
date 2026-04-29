@@ -131,17 +131,17 @@ unpacker.unpack(pData, pData + sizeOfData, hit);
 Compute time in nanoseconds from raw data (no CFD correction).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| adcFrequency | Module ADC frequency in MSPS. |
-| timeLow | Data word containing the lower 32 bits of the 48-bit timestamp. |
-| timeHigh | Data word containing the upper 16 bits of the 48-bit timestamp. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | adcFrequency | Module ADC frequency in MSPS. |
+  | timeLow | Data word containing the lower 32 bits of the 48-bit timestamp. |
+  | timeHigh | Data word containing the upper 16 bits of the 48-bit timestamp. |
 
 
+- Returns
+  The 48-bit coarse timestamp in nanoseconds.
 
-
-ReturnsThe 48-bit coarse timestamp in nanoseconds.
 Form the timestamp from the low and high bits and convert it to a time in nanoseconds.
 
 
@@ -180,16 +180,16 @@ For the 500 MSPS module,
 Unpack energy sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | Pointer to the first 32-bit word containing the energy sum data. |
-| hit | References theDDASHitwe are unpacking. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | Pointer to the first 32-bit word containing the energy sum data. |
+  | hit | References theDDASHitwe are unpacking. |
 
 
+- Returns
+  Pointer to the word after the energy sums.
 
-
-ReturnsPointer to the word after the energy sums.
 Energy sums consist of SIZE_OF_ENE_SUMS (=4) 32-bit words, which are, in order: 0. The trailing (pre-gap ) sum.
 
 1. The gap sum.
@@ -214,16 +214,16 @@ If the hit is not reset between calls to this function, the energy sum data will
 Unpack the external timestamp data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | Pointer to the 32-bit word containing the lower 16 bits of the 48-bit external timestamp. |
-| hit | References theDDASHitwe are unpacking. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | Pointer to the 32-bit word containing the lower 16 bits of the 48-bit external timestamp. |
+  | hit | References theDDASHitwe are unpacking. |
 
 
+- Returns
+  Pointer to the word after the external timestamp.
 
-
-ReturnsPointer to the word after the external timestamp.
 Unpack and set the 48-bit external timestamp. Unlike the internal timestamp where the conversion from clock tics to nanoseconds is known, for the external timestamp no unit conversion is applied. Converting the timestamp to proper units is left to the user.
 
 
@@ -241,16 +241,16 @@ Unpack and set the 48-bit external timestamp. Unlike the internal timestamp wher
 Unpack QDC values.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | Pointer to the first 32-bit word containing the QDC sum data. |
-| hit | References theDDASHitwe are unpacking. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | Pointer to the first 32-bit word containing the QDC sum data. |
+  | hit | References theDDASHitwe are unpacking. |
 
 
+- Returns
+  Pointer to the word after the QDC sums.
 
-
-ReturnsPointer to the word after the QDC sums.
 QDC sums consist of SIZE_OF_QDC_SUMS (=8) 32-bit words. If the hit is not reset between calls to this function, the QDC sum data will be appended to the end of the exisiting QDC sums.
 
 
@@ -268,16 +268,16 @@ QDC sums consist of SIZE_OF_QDC_SUMS (=8) 32-bit words. If the hit is not reset 
 Determine the CFD correction to the leading-edge time in nanoseconds from the CFD word.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References theDDASHitwe are unpacking. |
-| data | The 32-bit data word encoding the CFD information. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References theDDASHitwe are unpacking. |
+  | data | The 32-bit data word encoding the CFD information. |
 
 
+- Returns
+  double The CFD correction in nanoseconds.
 
-
-Returnsdouble The CFD correction in nanoseconds.
 The value of the CFD correction depends on the module. Because the module information is encoded in the data, this function should be called after `parseModuleInfo()`.
 
 
@@ -295,16 +295,16 @@ The value of the CFD correction depends on the module. Because the module inform
 Determine the CFD correction to the leading-edge time in nanoseconds from the CFD word.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| ModMSPS | The module ADC frequency in MSPS. |
-| data | The 32-bit data word encoding the CFD information. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | ModMSPS | The module ADC frequency in MSPS. |
+  | data | The 32-bit data word encoding the CFD information. |
 
 
+- Returns
+  (CFD correction in nanoseconds, value of the CFD encoded in the data, CFD trigger source bit, CFD fail bit).
 
-
-Returns(CFD correction in nanoseconds, value of the CFD encoded in the data, CFD trigger source bit, CFD fail bit).
 The value of the CFD correction depends on the module. Because the module information is encoded in the data, this function should be called after `parseModuleInfo()`.
 
 
@@ -322,24 +322,22 @@ The value of the CFD correction depends on the module. Because the module inform
 Ensure there is enough data to parse.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | Pointer to the hit body. |
-| sentinel | Pointer to the first word after the body. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | Pointer to the hit body. |
+  | sentinel | Pointer to the first word after the body. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If there are an incorrect number of 16-bit data words in the event (words exceed sentinal boundry) and the pointer to the last data word is not a nullptr. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If there are an incorrect number of 16-bit data words in the event (words exceed sentinal boundry) and the pointer to the last data word is not a nullptr. |
+- Returns
+  Pointer to the next data word.
 
-
-
-
-ReturnsPointer to the next data word.
 The first word of the body passed to this function is the self-inclusive event size in 16-bit words.
 
 
@@ -357,16 +355,16 @@ The first word of the body passed to this function is the self-inclusive event s
 Parse the word 0 of the Pixie-16 data header.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References theDDASHitwe are unpacking. |
-| data | The 32-bit data word to parse. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References theDDASHitwe are unpacking. |
+  | data | The 32-bit data word to parse. |
 
 
+- Returns
+  Pointer to the next data word (word 1).
 
-
-ReturnsPointer to the next data word (word 1).
 Word 0 contains:
 
 - Crate/slot/channel information,
@@ -374,7 +372,8 @@ Word 0 contains:
 - The module finish code (equals 1 if piled up).
 
 
-NoteIn previous versions of the Pixie data format, the ADC out-of-range bit was stored in bit 30 of word 0 and the channel length was extracted from bits [17:29]. In the current data format, the out-of-range flag has been moved to word 3, bit 31, and the channel length mask is extracted from bits [17:30] allowing up to 16383 32-bit words per channel hit.
+- Note
+  In previous versions of the Pixie data format, the ADC out-of-range bit was stored in bit 30 of word 0 and the channel length was extracted from bits [17:29]. In the current data format, the out-of-range flag has been moved to word 3, bit 31, and the channel length mask is extracted from bits [17:30] allowing up to 16383 32-bit words per channel hit.
 
 
 
@@ -391,16 +390,16 @@ NoteIn previous versions of the Pixie data format, the ADC out-of-range bit was 
 Parse word 3 of the Pixie-16 data header.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References theDDASHitwe are unpacking. |
-| data | Pointer to word 3. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References theDDASHitwe are unpacking. |
+  | data | Pointer to word 3. |
 
 
+- Returns
+  Pointer to the first word of the Pixie-16 data body.
 
-
-ReturnsPointer to the first word of the Pixie-16 data body.
 Word 3 contains:
 
 - The trace out-of-range (overflow/underflow) flag,
@@ -408,7 +407,8 @@ Word 3 contains:
 - The hit energy.
 
 
-NoteIn the current Pixie list mode data format, the ADC out-of-range flag is stored in word 3, bit 31 rather than word 0, bit 30. See documentation for `parseHeaderWord0()` for more info.
+- Note
+  In the current Pixie list mode data format, the ADC out-of-range flag is stored in word 3, bit 31 rather than word 0, bit 30. See documentation for `parseHeaderWord0()` for more info.
 
 
 
@@ -425,16 +425,16 @@ NoteIn the current Pixie list mode data format, the ADC out-of-range flag is sto
 Parse words 1 and 2 of the Pixie-16 data header.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References theDDASHitwe are unpacking. |
-| data | Pointer to word 1. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References theDDASHitwe are unpacking. |
+  | data | Pointer to word 1. |
 
 
+- Returns
+  Pointer to word 3.
 
-
-ReturnsPointer to word 3.
 Words 1 and 2 contain the timestamp and CFD information. The meaning of the CFD word depends on the module type. The unpacker abstracts this meaning away from the user. Note that we know the module type if the module identifier word was unpacked before calling this function.
 
 
@@ -459,16 +459,16 @@ Word 1 contains:
 Parse the module identifying information encoded in the hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References theDDASHitwe are unpacking. |
-| data | The 32-bit data word containing the module identifying information. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References theDDASHitwe are unpacking. |
+  | data | The 32-bit data word containing the module identifying information. |
 
 
+- Returns
+  Pointer to the next data word.
 
-
-ReturnsPointer to the next data word.
 The lower 16 bits encode the ADC frequency, the upper 16 bits encode the hardware revision and ADC resolution.
 
 
@@ -486,16 +486,16 @@ The lower 16 bits encode the ADC frequency, the upper 16 bits encode the hardwar
 Unpack the trace data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit we are unpacking. |
-| data | Pointer to the 32-bit trace word to unpack. The 32-bit trace word contains two 16-bit trace ADC values. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit we are unpacking. |
+  | data | Pointer to the 32-bit trace word to unpack. The 32-bit trace word contains two 16-bit trace ADC values. |
 
 
+- Returns
+  Pointer to the next 32-bit word.
 
-
-ReturnsPointer to the next 32-bit word.
 The 16-bit trace data is stored two samples to one 32-bit word in little-endian. The data for sample i is stored in the lower 16 bits while the data for sample i + 1 is stored in the upper 16 bits. For ADCs with less than 16-bit resolution, those bits are set to 0.
 
 
@@ -512,16 +512,16 @@ The 16-bit trace data is stored two samples to one 32-bit word in little-endian.
 Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
 
 
-Parameters
-|  |  |
-| --- | --- |
-| beg | Pointer to the first word of the hit body. |
-| sentinel | Pointer to the first word after the end of the body. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | beg | Pointer to the first word of the hit body. |
+  | sentinel | Pointer to the first word after the end of the body. |
 
 
+- Returns
+  Tuple of ([[DDASHit|classddasfmt_1_1DDASHit]], nextWord).
 
-
-ReturnsTuple of ([[DDASHit|classddasfmt_1_1DDASHit]], nextWord).
 This expects data from a DDAS readout program. It will parse the entire body of the event in a manner that is consistent with the data present. In other words, it uses the sizes of the event encoded in the data to determine when the parsing is complete.
 
 
@@ -542,26 +542,24 @@ While it parses, it stores the results into the data members of the object hit. 
 Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in] | beg | Pointer to the first 32-bit word of the hit body. |
-| [in] | sentinel | Pointer to the first word after the end of the body. |
-| [in,out] | hit | Reference to theDDASHitobject filled during unpacking. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in] | beg | Pointer to the first 32-bit word of the hit body. |
+  | [in] | sentinel | Pointer to the first word after the end of the body. |
+  | [in,out] | hit | Reference to theDDASHitobject filled during unpacking. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If the hit data buffer is empty. |
+  | std::runtime_error | If the hit's length is not the value specified in the header. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If the hit data buffer is empty. |
-| std::runtime_error | If the hit's length is not the value specified in the header. |
+- Returns
+  Pointer to the next data word after the hit.
 
-
-
-
-ReturnsPointer to the next data word after the hit.
 This expects data from a DDAS readout program. It will parse the entire body of the event in a manner that is consistent with the data present. In other words, it uses the sizes of the event encoded in the data to determine when the parsing is complete.
 
 

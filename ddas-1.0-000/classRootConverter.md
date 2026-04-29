@@ -143,13 +143,11 @@ Adds dchan branch to tree and associates it with the local ddaschannel object.
 First calls the [[Converter::Initialize(std::string,std::string)|classConverter#a7bc5c097d0bc9b7e1afdeffb18644cc1]] method to create the output file and the tree, then adds the dchan branch to the tree. This branch holds the ddaschannel objects produced by the [[DumpData(const CRingItem&)|classRootConverter#ae13972969e6fac531cf12da8ac1847be]] method.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filein | currently not implemented |
-| fileout | name of the root file to store the outputted data tree |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filein | currently not implemented |
+  | fileout | name of the root file to store the outputted data tree |
 
 
 Reimplemented from [[Converter|classConverter#a7bc5c097d0bc9b7e1afdeffb18644cc1]].

@@ -119,7 +119,8 @@ Constructor.
 Sets up the configuration manager to parse config files and manage configuration data. Read the fit configuration file and the template file on creation.
 
 
-**[[Todo:|todo#_todo000002]]**(ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|Configuration_8h]].
+- **[[Todo:|todo#_todo000002]]**
+  (ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|Configuration_8h]].
 
 
 
@@ -133,10 +134,10 @@ Sets up the configuration manager to parse config files and manage configuration
 Copy constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Object to copy construct. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Object to copy construct. |
 
 
 
@@ -151,12 +152,10 @@ Parameters
 Move constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Object to move construct. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Object to move construct. |
 
 
 Constructs using move assignment.
@@ -192,10 +191,10 @@ Delete the [[Configuration|classddastoys_1_1Configuration]] object managed by th
 Free the dynamic fit extension descriptor(s).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| e | IOvec we need to free. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | e | IOvec we need to free. |
 
 
 
@@ -214,18 +213,18 @@ Parameters
 Perform the fit and create a fit extension for a single fragment.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pHdr | Pointer to the ring item header of the hit. |
-| pBHdr | Pointer to the body header pointer for the hit. |
-| bodySize | Number of bytes in the body. |
-| pBody | Pointer to the body. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pHdr | Pointer to the ring item header of the hit. |
+  | pBHdr | Pointer to the body header pointer for the hit. |
+  | bodySize | Number of bytes in the body. |
+  | pBody | Pointer to the body. |
 
 
+- Returns
+  Final segment descriptors.
 
-
-ReturnsFinal segment descriptors.
 This is the hook into the [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]] class. Here we:
 
 - Parse the fragment into a hit.
@@ -248,15 +247,14 @@ This is the hook into the [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate
 Copy assignment operator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Object to copy assign. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Object to copy assign. |
 
 
-
-
-ReturnsReference to created object.
+- Returns
+  Reference to created object.
 
 
 
@@ -271,15 +269,14 @@ ReturnsReference to created object.
 Move assignment operator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Object to move assign. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Object to move assign. |
 
 
-
-
-ReturnsReference to created object.
+- Returns
+  Reference to created object.
 
 
 

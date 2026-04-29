@@ -108,20 +108,21 @@ Default: boot in online mode and read the settings file specified in cfgPixie16.
 Boot the entire system.
 
 
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | On successful boot. |
-| -1 | If the boot fails. |
+- Returns
+  int
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | On successful boot. |
+  | -1 | If the boot fails. |
 
 
 Reads in configuration information from cfgPixie16.txt, loads settings file information, boots modules and saves configuration info.
 
 
-Note(ASC 9/11/24): Check the same envvar as e.g. the readout code to determine whether to perform a full boot or settings-only boot. In principle this could be configurable on the QtScope GUI but for now the boot mode is set the same way as it is for the readout code. An important thing to keep in mind is that `getenv("DDAS_BOOT_WHEN_REQUESTED")` is false iff `DDAS_BOOT_WHEN_REQUESTED` is not set (`getenv()` returns pointer to the value string which evaluates to true regardless of the value itself). When running a containerized NSCLDAQ one needs to make sure the envvar is set *inside* the container.
+- Note
+  (ASC 9/11/24): Check the same envvar as e.g. the readout code to determine whether to perform a full boot or settings-only boot. In principle this could be configurable on the QtScope GUI but for now the boot mode is set the same way as it is for the readout code. An important thing to keep in mind is that `getenv("DDAS_BOOT_WHEN_REQUESTED")` is false iff `DDAS_BOOT_WHEN_REQUESTED` is not set (`getenv()` returns pointer to the value string which evaluates to true regardless of the value itself). When running a containerized NSCLDAQ one needs to make sure the envvar is set *inside* the container.
 
 
 
@@ -135,16 +136,14 @@ Note(ASC 9/11/24): Check the same envvar as e.g. the readout code to determine w
 Exit the system and release resources from the modules.
 
 
-Returnsint   
+- Returns
+  int
 
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 If the call to Pixie16ExitSystem() fails for any module, return the error code and set the booted state flag to false. The system is likely in a bad state.
@@ -162,13 +161,17 @@ If the call to Pixie16ExitSystem() fails for any module, return the error code a
 Get the boot mode.
 
 
-WarningOffline boot mode is currently only allowed for XIA API 2! 
-ReturnsThe boot mode. 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Online mode. |
-| 1 | Offline mode (no hardware). |
+- Warning
+  Offline boot mode is currently only allowed for XIA API 2!
+
+- Returns
+  The boot mode.
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Online mode. |
+  | 1 | Offline mode (no hardware). |
 
 
 
@@ -183,12 +186,14 @@ Return values
 Get the crate boot status.
 
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If the system has been booted. |
-| false | Otherwise. |
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If the system has been booted. |
+  | false | Otherwise. |
 
 
 
@@ -202,20 +207,20 @@ Return values
 Get the module ADC sampling rate in MSPS.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If the module number is invalid. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If the module number is invalid. |
 
 
+- Returns
+  The module ADC sampling rate in MSPS.
 
-
-ReturnsThe module ADC sampling rate in MSPS. 
-Return values
-|  |  |
-| --- | --- |
-| -1 | if the system is not booted. |
-| -2 | if the module number is invalid. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | -1 | if the system is not booted. |
+  | -2 | if the module number is invalid. |
 
 
 
@@ -230,7 +235,8 @@ Return values
 Get the number of installed modules.
 
 
-ReturnsThe number of modules in the crate.
+- Returns
+  The number of modules in the crate.
 
 
 
@@ -244,24 +250,20 @@ ReturnsThe number of modules in the crate.
 Load a new settings file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| fileName | Settings file name we are attempting to open. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fileName | Settings file name we are attempting to open. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Check and see if the system is booted. If so, load the parameters from the settings file. If not flag that a new settings file path (potentially different from that in the cfgPixie16.txt) has been set. The flag is checked at boot to load the new settings file.
@@ -278,24 +280,20 @@ Check and see if the system is booted. If so, load the parameters from the setti
 Save the currently loaded DSP settings to a settings file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| fileName | Name of file to save. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fileName | Name of file to save. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 File format depends on what is supported by the version of the XIA API being used. Version 3+ will save the settings file as a JSON file while in version 2 it is binary.
@@ -313,11 +311,13 @@ File format depends on what is supported by the version of the XIA API being use
 Set the boot mode.
 
 
-WarningOffline boot mode is currently only allowed for XIA API 2! 
-Parameters
-|  |  |
-| --- | --- |
-| mode | Set the boot mode to this value. |
+- Warning
+  Offline boot mode is currently only allowed for XIA API 2!
+
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mode | Set the boot mode to this value. |
 
 
 

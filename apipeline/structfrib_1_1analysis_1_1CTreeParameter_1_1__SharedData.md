@@ -79,12 +79,12 @@ header
 
 implement CTreeParameter::SharedData constructor:
 
-Parameters
-|  |  |
-| --- | --- |
-| low,hi | - limits. |
-| bins | - number of bins. |
-| units | - units of measure. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | low,hi | - limits. |
+  | bins | - number of bins. |
+  | units | - units of measure. |
 
 
 

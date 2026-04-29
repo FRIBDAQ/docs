@@ -143,16 +143,15 @@ destructor Note that the event processor ownership is retained by the client so 
 
 addProcessor Append an event processor to the end of the logical event processing pipeline.
 
-Parameters
-|  |  |
-| --- | --- |
-| pProcessor | - Pointer to the event processor object. This storage remains owned/managed by the caller. |
-| name | - If the name is nullptr (the default) a new, unique one is generated. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pProcessor | - Pointer to the event processor object. This storage remains owned/managed by the caller. |
+  | name | - If the name is nullptr (the default) a new, unique one is generated. |
 
 
-
-
-Returnsstd::string - name of the event processor.
+- Returns
+  std::string - name of the event processor.
 
 
 
@@ -168,19 +167,19 @@ Returnsstd::string - name of the event processor.
 
 getInputFilename Default implementation - argv[1] is the input filename. If it does not exist, std::invalid_argument is thrown.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - the command line. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - the command line. |
 
 
+- Returns
+  std::string
 
-
-Returnsstd::string 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | - see above. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | - see above. |
 
 
 
@@ -197,13 +196,11 @@ Exceptions
 
 initializeUserCode Use getInputFilename to get the name of the input file and call OnInitialize and OnEventSourceOpen for all elements of the pipeline. If any element returns kfFalse, our abort is even stronger than SpecTcl's throwing a std::runtime_error.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - command parameters. |
-| app | - application reference. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - command parameters. |
+  | app | - application reference. |
 
 
 Reimplemented from [[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]].
@@ -219,18 +216,16 @@ Reimplemented from [[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1anal
 
 removeEventProcessor Remove an event processor specified by a pointer to it.
 
-Parameters
-|  |  |
-| --- | --- |
-| pProcessor | - pointer to the one to remove. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pProcessor | - pointer to the one to remove. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | - no such processor. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | - no such processor. |
 
 
 
@@ -243,18 +238,16 @@ Exceptions
 
 removeEventProcessor Removes an event processor given its name.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | name of the event processor. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | name of the event processor. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | - no such processor. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | - no such processor. |
 
 
 
@@ -269,12 +262,10 @@ Exceptions
 unpackData Called for each ring item. Invokes the event processor pipeline element operator()'s. On a failure, the event is reset to empty and processing continues with the next event.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | - pointer to the ring item. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | - pointer to the ring item. |
 
 
 Implements [[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]].

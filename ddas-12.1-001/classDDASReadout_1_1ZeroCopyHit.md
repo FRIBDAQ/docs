@@ -210,15 +210,13 @@ Creates a hit. The hit must be initialized with setHit before being accessed.
 Construct from parameters.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nWords | Number of uint32_t's in the hit. |
-| pHitData | Pointer to the hit data. |
-| pBuffer | Underlying reference counted buffer. |
-| pArena | Buffer arena to which the buffer is released when no longer referenced. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nWords | Number of uint32_t's in the hit. |
+  | pHitData | Pointer to the hit data. |
+  | pBuffer | Underlying reference counted buffer. |
+  | pArena | Buffer arena to which the buffer is released when no longer referenced. |
 
 
 Stores stuff away and increments the refrence count on the underlying buffer.
@@ -235,12 +233,10 @@ Stores stuff away and increments the refrence count on the underlying buffer.
 Copy constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Reference otZeroCopyHitobject to copy. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Reference otZeroCopyHitobject to copy. |
 
 
 Copy in the new hit and reference.
@@ -289,15 +285,15 @@ If this hit is associated with data, disassociates.
 Assignment operator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Reference toZeroCopyHitobject assigned to lhs. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Reference toZeroCopyHitobject assigned to lhs. |
 
 
+- Returns
+  Reference to [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] object.
 
-
-ReturnsReference to [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] object.
 Dereference, copy in, reference.
 
 
@@ -316,15 +312,13 @@ Dereference, copy in, reference.
 Sets a new hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nWords | Number of words in the new hit. |
-| pHitData | Pointer to the hit data. |
-| pBuffer | Buffer from whence the hit data came. |
-| pArena | Arena to which the buffer is returned. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nWords | Number of words in the new hit. |
+  | pHitData | Pointer to the hit data. |
+  | pBuffer | Buffer from whence the hit data came. |
+  | pArena | Arena to which the buffer is returned. |
 
 
 If the hit is associated with a zero copy buffer, the reference is released first.

@@ -54,8 +54,12 @@ do not remove this div, it is closed by doxygen!
 - [Troubleshooting](#nscope_troubleshooting_sec)- [The computer froze after pressing the Boot button](#nscope_troubleshooting0_sec)
 
 
-AuthorJeromy Tompkins 
-DateMarch 9, 2016
+- Author
+  Jeromy Tompkins
+
+- Date
+  March 9, 2016
+
 # Introduction
 
 
@@ -96,7 +100,9 @@ Nscope is an essential tool for running a DDAS system because it is the only mec
 The very first thing that a user needs to do to run nscope is to connect a PXI crate with at least one Pixie-16 card to a host pc. The PXI crate must be powered on.
 
 
-AttentionIf you have not set up a DDAS system before, it is probably best to stop reading this and work your way through a set up tutorial (e.g. [[Single-crate System Setup Tutorial|singlecrate]]).
+- Attention
+  If you have not set up a DDAS system before, it is probably best to stop reading this and work your way through a set up tutorial (e.g. [[Single-crate System Setup Tutorial|singlecrate]]).
+
 The next step is to choose the version of the DDAS that you will be using. The installation directory of DDAS at the NSCL is in the /usr/opt/ddas. In this directory there will be at least one version available for use. Choose the version you want to run and then source its ddassetup.bash script. For example, if you are going to use version 1.0-001, then you must execute the following command :
 
 
@@ -157,7 +163,9 @@ To be more illustrative, consider a DDAS system with two Pixie-16 modules. One m
 The human-readable notes at the end of each line are actually allowed in the file, because all characters after the first whitespace character in each line are ignored. If this is the first time that you have set up a DDAS system and you have no preexisting parameter settings file, then you can find one at $DDAS_SHARE/crate_1.set.
 
 
-NoteThe cfgPixie16.txt and pxisys.ini files must exist and be readable in the directory the user is launching nscope from.
+- Note
+  The cfgPixie16.txt and pxisys.ini files must exist and be readable in the directory the user is launching nscope from.
+
 ## Launching Nscope and Booting the Devices
 
 
@@ -225,7 +233,9 @@ Each card needs to be booted sequentially so this can take some time. The amount
 Nscope booted state
 
 
-NoteIf failures are to occur with the setting up of the system, they are most likely to become visible during this booting phase. If you are having issues with booting, please see the FAQ section.
+- Note
+  If failures are to occur with the setting up of the system, they are most likely to become visible during this booting phase. If you are having issues with booting, please see the FAQ section.
+
 # Configuring the device
 
 
@@ -268,7 +278,9 @@ The dialogs provide direct access to parameters. It should be understood that th
 Nscope refers to modules in a crate by a module index. This index is assigned based on the order of the module from left to right. The leftmost module is assigned index 0 and then subsequent modules to the right are assigned incrementally larger indices.
 
 
-NoteThe module index should not be confused with the slot number. If there exists a module in slot 2 and slot 4, the module in slot 2 is module 0 and the module in slot 4 is module 1.
+- Note
+  The module index should not be confused with the slot number. If there exists a module in slot 2 and slot 4, the module in slot 2 is module 0 and the module in slot 4 is module 1.
+
 ###### 
 
 
@@ -294,7 +306,9 @@ The analog signal conditioning dialog
 The Pixie-16 digitizers apply a DC offset to the analog signal, amplification, and a possible inversion of the signal. The dialog provides control over all three the aspects of the analog conditioning circuit. The parameter in the column labeled "DCOffset" will control the DC offset, the "Gain" column will control the amplification, and the polarity is controlled by the "Sign" column. The user should set the value of sign to the actual polarity of the input signal.
 
 
-NoteThe gain and polarity settings in this dialog are also controllable via the CSRA dialog. This and the CSRA dialog are two independent ways to manipulate the same bits in the CSRA register.
+- Note
+  The gain and polarity settings in this dialog are also controllable via the CSRA dialog. This and the CSRA dialog are two independent ways to manipulate the same bits in the CSRA register.
+
 The settings for the 16 channels of a single module are displayed at a single time. To configure a module that is different than currently visible, use the "Module #" spinbox. This spinbox identifies a module based on its index. The leftmost module in the crate is module 0 and each subsequent module to the right of it is assigned incrementally higher module numbers.
 
 
@@ -419,7 +433,9 @@ There is a two stage trigger used by the Pixie-16 devices to determine when an i
 A fast trigger is validated by being coincident with at least one other validation signal. To modify the relative timing of the fast trigger with the other signal it is to be in coincidence with, there are a set of timing parameters that can manipulated. Nscope provides controls over these through the timing dialog found at UV_Setup > Timing Controls.
 
 
-**[[Todo:|todo#_todo000001]]**Flesh out the information on the validation
+- **[[Todo:|todo#_todo000001]]**
+  Flesh out the information on the validation
+
 ![nscope-timingcontrol-dialog.png](nscope-timingcontrol-dialog.png)
 The Timing Control dialog.
 

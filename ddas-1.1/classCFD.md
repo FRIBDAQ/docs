@@ -153,15 +153,14 @@ Cancel Button
 setDisable Determines if all but the threshold are disabled (e.g. 500MHz module).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | - true to disable, false not tol |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | - true to disable, false not tol |
 
 
-
-
-NoteStuff starts enabled.
+- Note
+  Stuff starts enabled.
 
 
 

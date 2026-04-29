@@ -197,13 +197,13 @@ I think that destruction is not necessary since all the pairs will copyconstruct
 Adds a configuration parameter to the configuration. If there is already a configuration parameter by this name, it is silently ovewritten.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter to add. |
-| checker | : typeChecker A type checker to validate the values proposed for the parameter, if NULL, no validation is performed. |
-| arg | : void Parameter passed without interpretation to the typechecker at validation time. |
-| defaultValue | : string (default = "") Initial value for the parameter. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter to add. |
+  | checker | : typeChecker A type checker to validate the values proposed for the parameter, if NULL, no validation is performed. |
+  | arg | : void Parameter passed without interpretation to the typechecker at validation time. |
+  | defaultValue | : string (default = "") Initial value for the parameter. |
 
 
 
@@ -216,16 +216,17 @@ Parameters
 
 Get the values of all the configuration parameters.
 
-ReturnsCCOnfigurableObject::ConfigurationArray 
-Return values
-|  |  |
-| --- | --- |
-| A | vector of parameter name/value pairs. Given an element, ele of the vector, ele.first is the parameter name, ele.second the value. |
+- Returns
+  CCOnfigurableObject::ConfigurationArray
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | A | vector of parameter name/value pairs. Given an element, ele of the vector, ele.first is the parameter name, ele.second the value. |
 
 
-
-
-NoteWhile at present, the parameters come out sorted alphabetically, you should not count on that fact.
+- Note
+  While at present, the parameters come out sorted alphabetically, you should not count on that fact.
 
 
 
@@ -251,20 +252,18 @@ clear the current configuration. The configuration map m_parameters map is empti
 
 Configure the value of a parameter.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter to configure. |
-| value | : std::string New value of the parameter |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter to configure. |
+  | value | : std::string New value of the parameter |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::string("No | such parameter") if the parameter 'name' is not defined.
-\throw std::string("Validation failed for 'name' <- 'value'") if the value does not pass the validator for the parameter. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::string("No | such parameter") if the parameter 'name' is not defined.
+  \throw std::string("Validation failed for 'name' <- 'value'") if the value does not pass the validator for the parameter. |
 
 
 
@@ -278,19 +277,19 @@ Exceptions
 Return the value of a bool parameter. This uses the same set of true values as the checker.. however any other value is assumed to be false.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the value. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| the | boolean equivalent of the config param |
+- Return values
+  |  |  |
+  | --- | --- |
+  | the | boolean equivalent of the config param |
 
 
 
@@ -304,15 +303,14 @@ Return values
 Return a parameter decoded as a double.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter |
 
 
-
-
-Returnsdouble
+- Returns
+  double
 
 
 
@@ -325,19 +323,19 @@ Returnsdouble
 
 Return a parameter that is a list of integers.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - name of the parameter. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - name of the parameter. |
 
 
+- Returns
+  vector<int>
 
-
-Returnsvector<int> 
-Return values
-|  |  |
-| --- | --- |
-| Vector | containing the integers in the list. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | Vector | containing the integers in the list. |
 
 
 
@@ -350,19 +348,19 @@ Return values
 
 Return the value of an integer parameter.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the value. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| the | integer equivalent of the config paramter. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | the | integer equivalent of the config paramter. |
 
 
 
@@ -373,11 +371,13 @@ Return values
 | --- | --- | --- | --- | --- |
 | string CItemConfiguration::getName | ( |  | ) | const |
 
-Returnsstring 
-Return values
-|  |  |
-| --- | --- |
-| The | name of the object. |
+- Returns
+  string
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | The | name of the object. |
 
 
 
@@ -406,18 +406,19 @@ Same as above but for an integer. Needed because strtol for something bigger tha
 Validate a bool parameter. Bool parameters have any of the values:
 
 - true: true, yes, 1, on, enabled
-- false: false, no, 0, off, disabled We'll just delegate this off to isEnum. Parameters
-  |  |  |
-  | --- | --- |
-  | name | : std::string Name of the parameter |
-  | value | : std:: string proposed new value. |
-  | ignored | : void* Ignored value parameter. |
-  Returnsbool 
-  Return values
-  |  |  |
-  | --- | --- |
-  | true | If valid. |
-  | false | If invalid. |
+- false: false, no, 0, off, disabled We'll just delegate this off to isEnum. - Parameters
+    |  |  |
+    | --- | --- |
+    | name | : std::string Name of the parameter |
+    | value | : std:: string proposed new value. |
+    | ignored | : void* Ignored value parameter. |
+  - Returns
+    bool
+  - Return values
+    |  |  |
+    | --- | --- |
+    | true | If valid. |
+    | false | If invalid. |
 
 
 
@@ -434,22 +435,22 @@ Validate a bool parameter. Bool parameters have any of the values:
 
 Check that a list is a valid bool list. This is done by constructing the listValidity object with a list element checker set to the bool element checker.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter. |
-| value | : std:: string Proposed new value. |
-| sizes | : void* Actually a pointer to ListSizeConstraint if non null:If NULL elements are checked for validity but any list size is ok.If non NULL elements are checked for validity and Limits set the limits on size. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter. |
+  | value | : std:: string Proposed new value. |
+  | sizes | : void* Actually a pointer to ListSizeConstraint if non null:If NULL elements are checked for validity but any list size is ok.If non NULL elements are checked for validity and Limits set the limits on size. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | List validates. |
-| false | List is not valid. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | List validates. |
+  | false | List is not valid. |
 
 
 
@@ -466,22 +467,22 @@ Return values
 
 Validate an enum parameter. An enumerated parameter is one that can be a string drawn from a limited set of keywords. Validation fails of the string is not one of the valid keywords.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter. |
-| value | : std::string Proposed parameter value. |
-| values | : void* Actually an std::set<string>* where the set elements are the valid keywords. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter. |
+  | value | : std::string Proposed parameter value. |
+  | values | : void* Actually an std::set<string>* where the set elements are the valid keywords. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If valid. |
-| false | If invalid. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If valid. |
+  | false | If invalid. |
 
 
 
@@ -502,22 +503,22 @@ Validate a floating point parameter. Floating parameters allow the implementor o
 The application can place limits on the floating point value as well. See the parameters below:
 
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Parameter name (ignored). |
-| value | : std::string The value of the paramter. |
-| values | : void* Actually a ppointer to a FloatingLimits type which sets the limits on the parameter. If the FloatingLimits type is NULL, all floating values are allowed...except for NAN's... which are never allowed. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Parameter name (ignored). |
+  | value | : std::string The value of the paramter. |
+  | values | : void* Actually a ppointer to a FloatingLimits type which sets the limits on the parameter. If the FloatingLimits type is NULL, all floating values are allowed...except for NAN's... which are never allowed. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - if Valid. |
-| false | - if not Valid. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - if Valid. |
+  | false | - if not Valid. |
 
 
 
@@ -534,22 +535,22 @@ Return values
 
 Validate an integer parameter with optional limits.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter being checked (ignored). |
-| value | : std::string Proposed new value. |
-| arg | : void* This is actually a pointer to an Limits structure or NULL.If NULL, no range checking is done.If not null, range checking is done. Each limit contains a checkme flag which allows validation to occur when one or both limits are needed. limits are inclusively valid. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter being checked (ignored). |
+  | value | : std::string Proposed new value. |
+  | arg | : void* This is actually a pointer to an Limits structure or NULL.If NULL, no range checking is done.If not null, range checking is done. Each limit contains a checkme flag which allows validation to occur when one or both limits are needed. limits are inclusively valid. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - Validation passed. |
-| false | - Validation failed. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - Validation passed. |
+  | false | - Validation failed. |
 
 
 
@@ -566,27 +567,26 @@ Return values
 
 Check that this is a valid list of integers. For string lists in this implementation we are not able to do range checking on the values of the list elements. We do, however enforce the integer-ness of each element of the list.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter. |
-| value | : std::string Proposed value of the parameter. |
-| sizes | : void* Actually a pointer to a ListSizeConstraint which, if non null places constraints on the number of elements in the list. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter. |
+  | value | : std::string Proposed value of the parameter. |
+  | sizes | : void* Actually a pointer to a ListSizeConstraint which, if non null places constraints on the number of elements in the list. |
 
 
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - List validated. |
+  | false | - List not validated |
 
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - List validated. |
-| false | - List not validated |
-
-
-
-
-**[[Todo:|todo#_todo000001]]**Extend the parameter to us to supply optional limit information.
+- **[[Todo:|todo#_todo000001]]**
+  Extend the parameter to us to supply optional limit information.
 
 
 
@@ -606,18 +606,19 @@ Validate a list parameter. To simplify; a list parameter is a Tcl formatted list
 - The value is not a properly formatted list.
 - The value has too many list elements.
 - The value has too few list elements.
-- One or more of the list elements fails validation. Parameters
-  |  |  |
-  | --- | --- |
-  | name | : std::string Name of the parameter being modified. |
-  | value | : std::string Value proposed for the parameter. |
-  | validity | : void* Actually an optional pointer to an isListParameter:If validity is NULL, no size or element validity checking is done.If validity is non-null, it's s_allowedSize element is used to validate the list size, and if the s_checker.first is not null, it is used to validate the list elementss. |
-  Returnsbool 
-  Return values
-  |  |  |
-  | --- | --- |
-  | true | List is valid. |
-  | fals | List is invalid. |
+- One or more of the list elements fails validation. - Parameters
+    |  |  |
+    | --- | --- |
+    | name | : std::string Name of the parameter being modified. |
+    | value | : std::string Value proposed for the parameter. |
+    | validity | : void* Actually an optional pointer to an isListParameter:If validity is NULL, no size or element validity checking is done.If validity is non-null, it's s_allowedSize element is used to validate the list size, and if the s_checker.first is not null, it is used to validate the list elementss. |
+  - Returns
+    bool
+  - Return values
+    |  |  |
+    | --- | --- |
+    | true | List is valid. |
+    | fals | List is invalid. |
 
 
 
@@ -634,22 +635,22 @@ Validate a list parameter. To simplify; a list parameter is a Tcl formatted list
 
 Check for a string list. String lists are allowed to have just about anything as element values...therefore, if the validSizes parameter is present, we'll do list size checking only, otherwise on list syntax checking.
 
-Parameters
-|  |  |
-| --- | --- |
-| name | : std::string Name of the parameter being modified. |
-| value | ; std::string proposed new value for the parameter. |
-| validSizes | : void* Actually a pointer to a ListSizeConstraint structure that, if non-null defines the list size checking that will take place. If NULL, any sized list (including empty) is allowed. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | : std::string Name of the parameter being modified. |
+  | value | ; std::string proposed new value for the parameter. |
+  | validSizes | : void* Actually a pointer to a ListSizeConstraint structure that, if non-null defines the list size checking that will take place. If NULL, any sized list (including empty) is allowed. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - List validated. |
-| false | - List not validated |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - List validated. |
+  | false | - List not validated |
 
 
 
@@ -664,21 +665,21 @@ Return values
 
 Returns true if a proposed configuration is valid. This will still throw if the name is not defined... but will
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - The proposed configuration is acceptable. |
-| false | - The proposed configuration is not acceptable. |
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - The proposed configuration is acceptable. |
+  | false | - The proposed configuration is not acceptable. |
 
 
-
-
-Parameters
-|  |  |
-| --- | --- |
-| name | - of the parameter to validate. |
-| value | - Proposed new value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - of the parameter to validate. |
+  | value | - Proposed new value. |
 
 
 

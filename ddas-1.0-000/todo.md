@@ -25,8 +25,9 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-Page [[nscope]] 
-Flesh out the information on the validation
+- Page [[nscope]]
+
+  Flesh out the information on the validation
 
  contents 
  start footer part 

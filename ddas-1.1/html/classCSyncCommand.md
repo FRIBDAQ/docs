@@ -67,7 +67,8 @@ Provides the ddas_sync command for the ddas readout program.
 
 - Construction maintains a pointer to the event segment.
 - The class registers the "ddas_sync" command on the main interp.
-- When invoked, simply calls the synchronize method of the event segment. NoteNOTE A more refined approach would be to refuse to perform the operation when the run is in progress. At this time, however we're going to (heaven help us) rely on the user to know that they really need to do a clock synchronization.
+- When invoked, simply calls the synchronize method of the event segment. - Note
+    NOTE A more refined approach would be to refuse to perform the operation when the run is in progress. At this time, however we're going to (heaven help us) rely on the user to know that they really need to do a clock synchronization.
 
 ## Constructor & Destructor Documentation
 
@@ -107,16 +108,15 @@ operator() Gets control when the command is invoked. We're just going to
 - Invoke the event segment's synchronize method.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - intepreter that is running this command. |
-| objv | - words that make up the tcl command. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - intepreter that is running this command. |
+  | objv | - words that make up the tcl command. |
 
 
-
-
-Returnsint TCL_OK, TCL_ERROR to give the result.
+- Returns
+  int TCL_OK, TCL_ERROR to give the result.
 
 
 

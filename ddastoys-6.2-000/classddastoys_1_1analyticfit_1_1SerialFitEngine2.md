@@ -120,12 +120,10 @@ The concept is that each GSL lmfitter can supply a pair of methods: One that com
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | The trace. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | The trace. |
 
 
 Delegates to base class construction.
@@ -148,13 +146,11 @@ Delegates to base class construction.
 Compute the Jacobian matrix.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in] | p | The current parameters. |
-| [out] | J | The Jacobian matrix to fill in. |
-
-
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in] | p | The current parameters. |
+  | [out] | J | The Jacobian matrix to fill in. |
 
 
 Compute the Jacobian matrix of the fit with respect to current values of the fit parameters.
@@ -177,13 +173,11 @@ Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9
 Compute the residual vector.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in] | p | Current parameter set. |
-| [out] | r | Pointwise residuals. |
-
-
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in] | p | Current parameter set. |
+  | [out] | r | Pointwise residuals. |
 
 
 Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].

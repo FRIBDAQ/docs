@@ -122,12 +122,13 @@ decode
 - Determines the limits of the old style hit.
 - Determines where, or if, there's an extension block.
 - Unpacks the original hit using DDASHitUnpacker::unpack.
-- Sets the extension if there is one. Parameters
-  |  |  |
-  | --- | --- |
-  | pRingItem | - points to the ring item to decode. For an event built fragment, this is normally the FragmentInfo's s_itemhdr pointer. Note the difference fromDDASHitUnpackerwhich expects a pointer to the body. |
-  | hit | - hit item that we will unpack. |
-  ReturnsPointer just after the ring item.
+- Sets the extension if there is one. - Parameters
+    |  |  |
+    | --- | --- |
+    | pRingItem | - points to the ring item to decode. For an event built fragment, this is normally the FragmentInfo's s_itemhdr pointer. Note the difference fromDDASHitUnpackerwhich expects a pointer to the body. |
+    | hit | - hit item that we will unpack. |
+  - Returns
+    Pointer just after the ring item.
 
 
 

@@ -164,21 +164,21 @@ header
 GetChannel - Given the name of a Tcl Channel registered with this interpreter, returns a Tcl channel handle. This is a pointer to an opaque structure. It can be used to construct a [[CTCLChannel|classCTCLChannel]] object.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rName | (const string&) The name of the channel to lookup. |
-| pMode | (Int_t* [out] == kpNULL If non null, the integer pointed to by this will be filed in with a mask defining the access mode the channel supports. This will be the logical or of:TCL_READABLE you may read the channel.TCL_WRITABLE you may write the channel. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rName | (const string&) The name of the channel to lookup. |
+  | pMode | (Int_t* [out] == kpNULL If non null, the integer pointed to by this will be filed in with a mask defining the access mode the channel supports. This will be the logical or of:TCL_READABLE you may read the channel.TCL_WRITABLE you may write the channel. |
 
 
+- Returns
+  Tcl_Channel
 
-
-ReturnsTcl_Channel 
-Return values
-|  |  |
-| --- | --- |
-| NULL | - There is no channel by this name. |
-| nonnull- | Opaque pointer to the channel. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | NULL | - There is no channel by this name. |
+  | nonnull- | Opaque pointer to the channel. |
 
 
 
@@ -192,20 +192,20 @@ Return values
 GetChannelNames Given a pattern returns all the names of TCL channels that match the pattern. Note that "*" will return the names of all channels.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rPattern | (const string&): The glob pattern to match. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rPattern | (const string&): The glob pattern to match. |
 
 
+- Returns
+  vector<string>
 
-
-Returnsvector<string> 
-Return values
-|  |  |
-| --- | --- |
-| Empty | vector: no matches. |
-| Each | element of the vector is a channel name. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | Empty | vector: no matches. |
+  | Each | element of the vector is a channel name. |
 
 
 
@@ -218,10 +218,10 @@ Return values
 
 Set the interpreter result from a character string
 
-Parameters
-|  |  |
-| --- | --- |
-| resultString | : const char* Pointer to a null terminated string that will be set as the result. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | resultString | : const char* Pointer to a null terminated string that will be set as the result. |
 
 
 
@@ -234,10 +234,10 @@ Parameters
 
 SEt the interpreter result from a Tcl_Obj*
 
-Parameters
-|  |  |
-| --- | --- |
-| resultObj | : Tcl_obj* The object to set the result to. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | resultObj | : Tcl_obj* The object to set the result to. |
 
 
 
@@ -250,10 +250,10 @@ Parameters
 
 SEt the interpreter result from a result object.
 
-Parameters
-|  |  |
-| --- | --- |
-| resultObj | :CTCLObject& Reference to the object containing the result string. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | resultObj | :CTCLObject& Reference to the object containing the result string. |
 
 
 

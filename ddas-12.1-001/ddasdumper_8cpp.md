@@ -131,16 +131,17 @@ Main program to use the format library to dump DDAS event files. Based on the un
 Setup, configure dumper settings and dump events.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | Argument count and argument vector. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | Argument count and argument vector. |
 
 
+- Returns
+  EXIT_SUCCESS Successful event dump
 
-
-ReturnsEXIT_SUCCESS Successful event dump 
-NoteAll handled exceptions cause immidiate termination via `std::exit(EXIT_FAILURE)`.
+- Note
+  All handled exceptions cause immidiate termination via `std::exit(EXIT_FAILURE)`.
 
 
 
@@ -156,24 +157,21 @@ NoteAll handled exceptions cause immidiate termination via `std::exit(EXIT_FAILU
 Parse the URI of the source and based on the parse create the underlying connection. Create the correct concrete instance of [[DataSource|classDataSource]] given all that.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pFactory | Pointer to the ring item factory to use. |
-| strUrl | String URI of the connection. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFactory | Pointer to the ring item factory to use. |
+  | strUrl | String URI of the connection. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | If a ringbuffer data source is requested. The unified format library is incorporated into the NSCLDAQ, but does not have NSCLDAQ support enabled as its installed first. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | If a ringbuffer data source is requested. The unified format library is incorporated into the NSCLDAQ, but does not have NSCLDAQ support enabled as its installed first. |
-
-
-
-
-ReturnsDynamically allocated data source.
+- Returns
+  Dynamically allocated data source.
 
 
 
@@ -187,23 +185,21 @@ ReturnsDynamically allocated data source.
 Creates a vector of the ring item types to be excluded from the dump given a comma separated list of types.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| exclusions | - string containing the exclusion list. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | exclusions | - string containing the exclusion list. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | an exclusion item is not a string and is not in the map of recognized item types. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | an exclusion item is not a string and is not in the map of recognized item types. |
+- Returns
+  Vector of items to exclude.
 
-
-
-
-ReturnsVector of items to exclude.
 A type can be a string or a positive number. If it is a string, it is translated to the type id using TypeMap. If it is a number, it is used as is.
 
  contents 

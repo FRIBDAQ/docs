@@ -95,10 +95,10 @@ Construct a condition variable with default attributes:
 
 Construct a condition variable givena a reference to a raw attributes block
 
-Parameters
-|  |  |
-| --- | --- |
-| attr | - reference to a pthread_condattr_t. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | attr | - reference to a pthread_condattr_t. |
 
 
 
@@ -111,10 +111,10 @@ Parameters
 
 Construct a condition variable given a reference to an encapsulated condition variable attribute block.
 
-Parameters
-|  |  |
-| --- | --- |
-| attr | - ACConditionAttributesreference. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | attr | - ACConditionAttributesreference. |
 
 
 
@@ -172,29 +172,27 @@ Waits for a condition variable to be signalled.
 - If the wait timedout, the thread will not own the mutex.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| mutex | - The encapsulated mutex that will be atomically released when blocking. Note that all threads that cooperate on this condition variable should use the same mutex, but this is not enforeced. |
-| abstime | - Absolute time at which the condition variable should timeout. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mutex | - The encapsulated mutex that will be atomically released when blocking. Note that all threads that cooperate on this condition variable should use the same mutex, but this is not enforeced. |
+  | abstime | - Absolute time at which the condition variable should timeout. |
 
 
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - The thread woke up due to a signal/broadcast on the condition variable. |
+  | false- | The thread timed out on the wait. |
 
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - The thread woke up due to a signal/broadcast on the condition variable. |
-| false- | The thread timed out on the wait. |
-
-
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CErrnoException | - if there was another error. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CErrnoException | - if there was another error. |
 
 
 
@@ -247,10 +245,10 @@ Same as above, but the mutex is a pthread mutex
 Wait until the condition variable is signalled, or we are interrupted.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| mutex | - The wrapped mutex we are holding that is associated with the condition variable. This should be the same for all callers of wait and timedwait. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mutex | - The wrapped mutex we are holding that is associated with the condition variable. This should be the same for all callers of wait and timedwait. |
 
 
 

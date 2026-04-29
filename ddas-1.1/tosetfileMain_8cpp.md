@@ -87,15 +87,14 @@ header
 
 [[Main|classMain]] The main logic flow. This is separated so that exceptions can be thrown but handled by the actual main.
 
-Parameters
-|  |  |
-| --- | --- |
-| args | - parsed arguments. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | args | - parsed arguments. |
 
 
-
-
-Returnsint status
+- Returns
+  int status
 
 
 

@@ -77,11 +77,11 @@ Hooks exist for an authentication mechanism via the allowConnection virtual meth
 
 Construct the module and set up the listener. The listener is set up using Tcl_OpenTcpServer errors are reported as a [[CErrnoException|classCErrnoException]] using Tcl_GetErrno to get and set the errno variable.
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - Interpreter to which commands will be submitted. |
-| port | - Tcp/Ip port on which to listen. If this is not a privileged program this should generally be larger than 1023. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - Interpreter to which commands will be submitted. |
+  | port | - Tcp/Ip port on which to listen. If this is not a privileged program this should generally be larger than 1023. |
 
 
 
@@ -116,21 +116,21 @@ Determines if the connection is allowed. The default behavior is to require that
 This can be overridden to implement a security policy for connections.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| connection | - Data connection (provided to allow some authentication handshaking if desired. |
-| hostname | - Name of the client's host. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | connection | - Data connection (provided to allow some authentication handshaking if desired. |
+  | hostname | - Name of the client's host. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - Connection is allowed. |
-| false | - Connection should not be allowed. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - Connection is allowed. |
+  | false | - Connection should not be allowed. |
 
 
 
@@ -146,16 +146,15 @@ Return values
 
 Create the default server instance object type ([[CTCLTcpServerInstance|classCTCLTcpServerInstance]]) and return it. This can be overridden in subclasses if a different type is required.
 
-Parameters
-|  |  |
-| --- | --- |
-| connection | - Tcl_Channel on which data communication will take place. |
-| hostname | - Name of the host to which the connection will be made. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | connection | - Tcl_Channel on which data communication will take place. |
+  | hostname | - Name of the host to which the connection will be made. |
 
 
-
-
-ReturnsCTCLTcpServerInstance*
+- Returns
+  CTCLTcpServerInstance*
 
 
 
@@ -168,10 +167,10 @@ ReturnsCTCLTcpServerInstance*
 
 Called by a server instance when its exiting. The server instance is removed from the book-keeping list.
 
-Parameters
-|  |  |
-| --- | --- |
-| pInstance | - Pointer to aCTCLTcpServerInstanceto remove. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInstance | - Pointer to aCTCLTcpServerInstanceto remove. |
 
 
 
@@ -187,11 +186,11 @@ Parameters
 
 This is called on a connection. In order to support creating subclasses of [[CTCLTcpServerInstance|classCTCLTcpServerInstance]], we will actually create the server with the virtual member createInstance, so this class can be subclassed, and that member overriden. (strategy pattern). The pointer to the resulting object is isnerted in the m_seerverInstnaces list.
 
-Parameters
-|  |  |
-| --- | --- |
-| connection | - Tcl_Channel the client and server use to communicate. |
-| hostname | - Name of the client's host. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | connection | - Tcl_Channel the client and server use to communicate. |
+  | hostname | - Name of the client's host. |
 
 
 

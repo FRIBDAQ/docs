@@ -81,13 +81,11 @@ Ultimately, the contents of the DDASFirmwareVersions.txt file will be stored in 
 [[Main|classMain]] entry point for parsing DDASFirmwareVersions.txt file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | the stream to read file content from |
-| config | the configuration to store data in |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | the stream to read file content from |
+  | config | the configuration to store data in |
 
 
 Any firmware configurations that were stored in the configuration object before this will be overwritten with new content.

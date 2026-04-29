@@ -81,22 +81,20 @@ QtScope main.
 QtScope main.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | Number of command line options. |
-| argv | The command line options. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | Number of command line options. |
+  | argv | The command line options. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
 
 
 Uses Python C++ API to call main.py to configure and run QtScope.

@@ -205,11 +205,11 @@ Encapsulates an interpreter result. We derive this from a [[CTCLObject|classCTCL
 
 Constructs a [[CTCLResult|classCTCLResult]]... Results are always bound to an interpreter...therefore our constructor requires an interpreter.
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | : CTCLInterpreter* The interpreter to which we will be bound. |
-| reset | : bool (true) If true, the interpreter's result is reset, otherwise our contents are loaded from the interpreter's current result value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | : CTCLInterpreter* The interpreter to which we will be bound. |
+  | reset | : bool (true) If true, the interpreter's result is reset, otherwise our contents are loaded from the interpreter's current result value. |
 
 
 
@@ -303,19 +303,19 @@ inequality is just the logical negation of equality:
 
 += unfortunately has already been documented to have different semantics than that of the base class.. and we really can't do anything about that without breaking a bunch-o-code. Therefore we just live with it. here += implies string append. For element append, see AppendElement.
 
-Parameters
-|  |  |
-| --- | --- |
-| pString | : const char* the string to add. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pString | : const char* the string to add. |
 
 
+- Returns
+  [[CTCLResult|classCTCLResult]]&
 
-
-Returns[[CTCLResult|classCTCLResult]]& 
-Return values
-|  |  |
-| --- | --- |
-| *this |  |
+- Return values
+  |  |  |
+  | --- | --- |
+  | *this |  |
 
 
 

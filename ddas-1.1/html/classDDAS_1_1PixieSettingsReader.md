@@ -73,10 +73,10 @@ constructor
 - We probe for the set of modules actually in the crate by getting module information. If a requested module is not present, std::invalid_argument is thrown
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - id of the module we want to read from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - id of the module we want to read from. |
 
 
 
@@ -100,7 +100,9 @@ destructor does nothing for now:
 get Get the settings from the hardware
 
 
-Returnsstd::vector<ModuleSettings> - the module settings. 
+- Returns
+  std::vector<ModuleSettings> - the module settings.
+
 Implements [[DDAS::SettingsReader|classDDAS_1_1SettingsReader]].
 
 

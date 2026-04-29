@@ -169,20 +169,16 @@ Constructs a new raw channel that could be used in either zerocopy or copy mode.
 Construct a channel for copy-in data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nWords | Number of data words to pre-allocate. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nWords | Number of data words to pre-allocate. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::bad_alloc | If malloc of pre-allocated storage fails. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::bad_alloc | If malloc of pre-allocated storage fails. |
 
 
 Construts a channel for copy in data. Data are pre-allocated as demanded but not initialized. We use malloc rather than new because new will construct (initialize) ints to zero and we don't want to take that time.
@@ -191,7 +187,8 @@ Construts a channel for copy in data. Data are pre-allocated as demanded but not
 Data must eventually be provided by calling copyInData.
 
 
-Noteafter this call, m_ownData is true and m_ownDataSize is set to nWords.
+- Note
+  after this call, m_ownData is true and m_ownDataSize is set to nWords.
 
 
 
@@ -207,16 +204,15 @@ Noteafter this call, m_ownData is true and m_ownDataSize is set to nWords.
 Constructor initialized with zero-copy hit data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nWords | Number of data words to pre-allocate. |
-| pZCopyData | Pointer to the data of the hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nWords | Number of data words to pre-allocate. |
+  | pZCopyData | Pointer to the data of the hit. |
 
 
-
-
-NoteThe data pointed to by pZCopyData must be in scope for the duration of this object's lifetime else probably segfaults or bus errors will happen in the best case.
+- Note
+  The data pointed to by pZCopyData must be in scope for the duration of this object's lifetime else probably segfaults or bus errors will happen in the best case.
 
 
 
@@ -245,12 +241,10 @@ If we own the data, this will free it.
 Copy constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The object we're copying into this. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The object we're copying into this. |
 
 
 This is just assignment to *this once we're appropriately initialized.
@@ -271,15 +265,14 @@ This is just assignment to *this once we're appropriately initialized.
 Extract the number of words in a hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | Pointer to the hit data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | Pointer to the hit data. |
 
 
-
-
-ReturnsThe length of the hit.
+- Returns
+  The length of the hit.
 
 
 
@@ -295,13 +288,11 @@ ReturnsThe length of the hit.
 Copy in data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nWords | The new channel length (32-bit words). |
-| pData | Pointer to the data to copy in. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nWords | The new channel length (32-bit words). |
+  | pData | Pointer to the data to copy in. |
 
 
 - If s_ownData is false, then allocate sufficient storage for the hit.
@@ -321,15 +312,14 @@ Parameters
 Returns the multiplier used to convert the module raw timestamp into nanoseconds.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| moduleType | The module type/speed etc. word that's normally prepended to hit data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | moduleType | The module type/speed etc. word that's normally prepended to hit data. |
 
 
-
-
-ReturnsThe timestamp multiplier.
+- Returns
+  The timestamp multiplier.
 
 
 
@@ -343,15 +333,15 @@ ReturnsThe timestamp multiplier.
 Assignment operator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The object we'er assigning to this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The object we'er assigning to this. |
 
 
+- Returns
+  Pointer to lhs (*this).
 
-
-ReturnsPointer to lhs (*this).
 Only works if this != &rhs. There are piles of cases to consider:
 
 - rhs is zero copy: we'll zero copy.
@@ -372,12 +362,14 @@ These two cases and their subcases are handled by setData and copyInData respect
 Set the channel value from the data.
 
 
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| 1 | Insufficent data in the hit or the hit has not been set. |
+- Returns
+  int
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | 1 | Insufficent data in the hit or the hit has not been set. |
 
 
 
@@ -393,13 +385,11 @@ Return values
 Set new data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nWords | The new channel length (32-bit words). |
-| pZCopyData | Pointer to the data to set. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nWords | The new channel length (32-bit words). |
+  | pZCopyData | Pointer to the data to set. |
 
 
 Perform at most two tasks:
@@ -419,7 +409,8 @@ Perform at most two tasks:
 Set the event length from the data.
 
 
-Returns0 Always.
+- Returns
+  0 Always.
 
 
 
@@ -433,20 +424,21 @@ Returns0 Always.
 Set the 48-bit timestamp data from the hit infomration.
 
 
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| 1 | If the number of data words is insufficient (< 4). |
+- Returns
+  int
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | 1 | If the number of data words is insufficient (< 4). |
 
 
 Assumes that the data are set using the `setData()` or `copyInData()` methods of this class. Determine the raw timestamp from the 48-bit timestamp data in the hit and set it in s_time. The timestamp is extracted from data words 1 and 2 of the Pixie-16 list mode event header structure in the hit.
 
 
-NoteIf the data have not yet been set, number of words is 0 so this is well behaved.
+- Note
+  If the data have not yet been set, number of words is 0 so this is well behaved.
 
 
 
@@ -462,31 +454,30 @@ NoteIf the data have not yet been set, number of words is 0 so this is well beha
 Set time time in ns.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nsPerTick | Clock calibration in nanoseconds per clock tick. |
-| useExt | True if using an external timestamp (default=false). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nsPerTick | Clock calibration in nanoseconds per clock tick. |
+  | useExt | True if using an external timestamp (default=false). |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| 1 | Failure, which can happen in the following ways:If attempting to use the external timestamp but none is present in the data (header has insufficient words).If not using an external timestamp, but the number of data words are insufficient (< 4). |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | 1 | Failure, which can happen in the following ways:If attempting to use the external timestamp but none is present in the data (header has insufficient words).If not using an external timestamp, but the number of data words are insufficient (< 4). |
 
 
 This function assumes that the data are set using either the `setData()` or `copyInData()` methods of this class. Note that `setData()` is used for zero-copy. Determine the calibrated timestamp from the 48-bit timestamp data in the hit and set it in s_time. The timestamp is extracted from data words 1 and 2 of the Pixie-16 list mode event header structure in the hit. The clock calibration passed to this function is used to convert the time to nanoseconds from clock ticks.
 
 
-NoteIn Pixie systems, the value of nsPerTick is module-dependent. 
+- Note
+  In Pixie systems, the value of nsPerTick is module-dependent.
 
-If the data have not yet been set, number of words is 0 so this is well behaved.
+  If the data have not yet been set, number of words is 0 so this is well behaved.
 
 
 
@@ -500,29 +491,28 @@ If the data have not yet been set, number of words is 0 so this is well behaved.
 Determine if a channel has the correct amount of data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| expecting | The expected channel length in 32-bit words. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | expecting | The expected channel length in 32-bit words. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Correct length. |
-| 1 | Incorrect channel length. A message is output to std::cerr. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Correct length. |
+  | 1 | Incorrect channel length. A message is output to std::cerr. |
 
 
 Retains rough compatibility with the old channel class.
 
 
-**[[Todo:|todo#_todo000023]]**(ASC 1/23/24): An old and somewhat cryptic comment about "hating 
-the output" but maintaining it for compatibility. Perhaps because we write to stderr and return 1 instead of raising an exception?
+- **[[Todo:|todo#_todo000023]]**
+  (ASC 1/23/24): An old and somewhat cryptic comment about "hating 
+  the output" but maintaining it for compatibility. Perhaps because we write to stderr and return 1 instead of raising an exception?
 
 
 ## Member Data Documentation

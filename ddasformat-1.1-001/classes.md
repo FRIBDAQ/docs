@@ -22,8 +22,10 @@ header
 [D](#letter_D)
 
 
-<a name="letter_D"></a>D
-[[DDASHit|classddasfmt_1_1DDASHit]] (ddasfmt)[[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]] (ddasfmt)
+- <a name="letter_D"></a>D
+
+  [[DDASHit|classddasfmt_1_1DDASHit]] (ddasfmt)
+  [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]] (ddasfmt)
 
  contents 
  start footer part 

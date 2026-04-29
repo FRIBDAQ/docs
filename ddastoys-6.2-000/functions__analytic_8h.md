@@ -93,7 +93,8 @@ This graph shows which files directly or indirectly include this file:
 Provide code to evaluate various functions used to fit DDAS pulses.
 
 
-NoteAll functions are in the ddastoys::analyticfit namespace.
+- Note
+  All functions are in the ddastoys::analyticfit namespace.
 
  contents 
  start footer part 

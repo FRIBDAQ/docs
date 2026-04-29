@@ -76,20 +76,20 @@ The class also contains a function to adjust the DC offsets on a single module, 
 Adjust DC offsets of all channels for a single module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 
@@ -107,27 +107,23 @@ Return values
 Read a channel parameter for a single channel.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in] | module | Module number. |
-| [in] | channel | Channel number on module. |
-| [in] | paramName | XIA API channel parameter name. |
-| [in,out] | value | Reference to read parameter value. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in] | module | Module number. |
+  | [in] | channel | Channel number on module. |
+  | [in] | paramName | XIA API channel parameter name. |
+  | [in,out] | value | Reference to read parameter value. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Channel parameters are doubles. For a list of parameters and their units, see the Pixie-16 Programmers Manual, pgs. 60-61.
@@ -147,26 +143,22 @@ Channel parameters are doubles. For a list of parameters and their units, see th
 Read a module parameter for a single module.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in] | module | Module number. |
-| [in] | paramName | XIA API chanel parameter name. |
-| [in,out] | value | Reference to read parameter value. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in] | module | Module number. |
+  | [in] | paramName | XIA API chanel parameter name. |
+  | [in,out] | value | Reference to read parameter value. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Module parameters are unsigned ints. For a list of parameters and their units, see the Pixie-16 Programmers Manual, pgs. 62-63.
@@ -187,27 +179,23 @@ Module parameters are unsigned ints. For a list of parameters and their units, s
 Write a channel parameter for a single channel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
-| channel | Channel number on module. |
-| paramName | XIA API chanel parameter name. |
-| value | Parameter value to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
+  | channel | Channel number on module. |
+  | paramName | XIA API chanel parameter name. |
+  | value | Parameter value to write. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Channel parameters are doubles. For a list of parameters and their units, see the Pixie-16 Programmers Manual, pgs. 60-61.
@@ -227,26 +215,22 @@ Channel parameters are doubles. For a list of parameters and their units, see th
 Write a module parameter for a single module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
-| paramName | XIA API chanel parameter name. |
-| value | Parameter value to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
+  | paramName | XIA API chanel parameter name. |
+  | value | Parameter value to write. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| !=0 | XIA API error code. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | !=0 | XIA API error code. |
 
 
 Module parameters are unsigned ints. For a list of parameters and their units, see the Pixie-16 Programmers Manual, pgs. 62-63.

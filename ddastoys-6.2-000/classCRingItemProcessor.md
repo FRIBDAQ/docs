@@ -106,12 +106,10 @@ The concept of this class is really simple. A virtual method for each ring-item 
 Output a physics event item to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Reference the physics event item. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Reference the physics event item. |
 
 
 Here we "analyze" a physics event by dumping it to stdout. Derived classes can implement their own event processing using this function.
@@ -132,12 +130,10 @@ Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#a9258fb90d1e63d1ef
 Output an event count item to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | References the CPhysicsEventCountItem being dumped. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | References the CPhysicsEventCountItem being dumped. |
 
 
 Event count items are used to describe, for a given data source, the number of triggers that occured since the last instance of that item. This can be used both to determine the rough event rate as well as the fraction of data analyzed (more complicated for built events) in a program sampling physics events. We'll dump out information about the item.
@@ -158,12 +154,10 @@ Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#abe06f276641d6aa22
 Output the ring item format to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | References the format item. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | References the format item. |
 
 
 FRIBDAQ runs have, as their first record an event format record that indicates hat the data format (11.0, 12.0, etc.)
@@ -181,12 +175,10 @@ FRIBDAQ runs have, as their first record an event format record that indicates h
 Output a glom parameters item to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | References the glom parameter record. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | References the glom parameter record. |
 
 
 When the data source is the output of an event building pipeline, the glom stage of that pipeline will insert a glom parameters record into the output data. This record type will indicate whether or not glom is building events (or acting in passthrough mode) and the coincidence interval in clock ticks used when in build mode, as well as how the timestamp is computed from the fragments that make up each event.
@@ -207,12 +199,10 @@ Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#a8c2a0744afcfe9545
 Output an abbreviated scaler dump to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Reference to the scaler ring item to process. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Reference to the scaler ring item to process. |
 
 
 Your own processing should create a new class and override this if you want to process scalers. Note that this and all ring item types have a toString() method that returns the string the NSCLDAQ dumper outputs for each item type.
@@ -233,12 +223,10 @@ Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#ad1ed7b77567e835c0
 Output a state change item to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Reference to the state change item. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Reference to the state change item. |
 
 
 Again we're just going to do a partial dump:
@@ -259,12 +247,10 @@ Again we're just going to do a partial dump:
 Output a text item to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Refereinces the CRingTextItem we got. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Refereinces the CRingTextItem we got. |
 
 
 Text items are items that contain documentation information in the form of strings. The currently defined text items are:
@@ -288,12 +274,10 @@ Reimplemented in [[TraceViewProcessor|classTraceViewProcessor#a6bf4c66f539bbf3db
 Output a ring item with unknown type to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | References the ring item for the event. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | References the ring item for the event. |
 
 
 Process a ring item with an unknown item type. This can happen if we're seeing a ring item that we've not specified a handler for (unlikely) or the item types have expanded but the data format is the same (possible) or the user has defined and is using their own ring item type. We'll just dump the item.

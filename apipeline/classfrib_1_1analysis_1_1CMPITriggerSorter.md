@@ -93,17 +93,16 @@ Collaboration diagram for frib::analysis::CMPITriggerSorter:
 
 constructor The parameters really tell us how to talk to the outputter:
 
-Parameters
-|  |  |
-| --- | --- |
-| outputRank | - the rank to which we send our sorted items. |
-| headers | - MPI Data type for FRIB_MPI_Parameter_MessageHeader normallyAbstractApplicationcomputed this. |
-| param | - MPIData type for FRIB_MPI_Parameter_Value which, again, is normally created byAbstractApplication. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | outputRank | - the rank to which we send our sorted items. |
+  | headers | - MPI Data type for FRIB_MPI_Parameter_MessageHeader normallyAbstractApplicationcomputed this. |
+  | param | - MPIData type for FRIB_MPI_Parameter_Value which, again, is normally created byAbstractApplication. |
 
 
-
-
-Note- we're going to pre-allocate 100 FRIB_MPI_Parameter_Value items just to get us started.
+- Note
+  - we're going to pre-allocate 100 FRIB_MPI_Parameter_Value items just to get us started.
 
 
 
@@ -132,15 +131,15 @@ Destructor -The cool thing about unique pointers is they destroy themselves.,\
 
 emitItem Marshall the event up into a header and parameter block and send it on its way to the m_outputRank receiver.
 
-Parameters
-|  |  |
-| --- | --- |
-| item | -pointer to the ring item that contains the parameters. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | -pointer to the ring item that contains the parameters. |
 
 
+- Note
+  item will be deleted after we no longer need its data.
 
-
-Noteitem will be deleted after we no longer need its data. 
 Implements [[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]].
 
 

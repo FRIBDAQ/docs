@@ -118,11 +118,12 @@ Delete any remaining items.
 addItem
 
 - If the item is the next trigger just emit it. otherwise shove it into m_items indexed by trigger#
-- while the map is not empty and the 'first' item's trigger is sequential, emit it and remove it from the map. A bit on ownereship Ownership of the item is ours and passes to emitItem or whatever it does. Note that in most of the frameworks we put his class into, delete should should be called by emitItem to get rid of the item. Parameters
-  |  |  |
-  | --- | --- |
-  | item | pointer to the item to add/sort/emit. |
-  Notethe 'sorting' via the map is amortized O(nLog(m)) where m is the number of in-flight items and n is the total number of items.
+- while the map is not empty and the 'first' item's trigger is sequential, emit it and remove it from the map. A bit on ownereship Ownership of the item is ours and passes to emitItem or whatever it does. Note that in most of the frameworks we put his class into, delete should should be called by emitItem to get rid of the item. - Parameters
+    |  |  |
+    | --- | --- |
+    | item | pointer to the item to add/sort/emit. |
+  - Note
+    the 'sorting' via the map is amortized O(nLog(m)) where m is the number of in-flight items and n is the total number of items.
 
 
 
@@ -135,9 +136,10 @@ addItem
 
 flush flush all elements of m_items -> emitItem
 
-Notethat at the end of this m_items will be empty. 
+- Note
+  that at the end of this m_items will be empty.
 
-if the application operates properly, this should not really do anything as the application is supposed to hand us empty parameter item placeholders for events that were software filtered out.
+  if the application operates properly, this should not really do anything as the application is supposed to hand us empty parameter item placeholders for events that were software filtered out.
 
 
 

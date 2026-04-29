@@ -86,8 +86,12 @@ Collaboration diagram for QTraceView:
 Main traceview GUI window.
 
 
-**[[Todo:|todo#_todo000009]]**(ASC 10/15/24): Probably a project-wide TODO... only the public and Qt signaling interfaces need to be exposed here. I suspect that any helper functions can be make static, which may greatly simplify the class and make compilation easier. 
-**[[Todo:|todo#_todo000010]]**(ASC 10/16/24): Probably *another* project-wide TODO... avoid constructor initializations which use the new keyword. Can use smart ptrs (preferred?) or simply initialize in the constructor body with the initialization list for all pointer membvers as nullptr. Hopefully improves safety e.g., an exception or other error in the constructor body will (hopefully!) ensure deletion of created objetcs which *may* not happen if new'd in init list. 
+- **[[Todo:|todo#_todo000009]]**
+  (ASC 10/15/24): Probably a project-wide TODO... only the public and Qt signaling interfaces need to be exposed here. I suspect that any helper functions can be make static, which may greatly simplify the class and make compilation easier.
+
+- **[[Todo:|todo#_todo000010]]**
+  (ASC 10/16/24): Probably *another* project-wide TODO... avoid constructor initializations which use the new keyword. Can use smart ptrs (preferred?) or simply initialize in the constructor body with the initialization list for all pointer membvers as nullptr. Hopefully improves safety e.g., an exception or other error in the constructor body will (hopefully!) ensure deletion of created objetcs which *may* not happen if new'd in init list.
+
 Main window class for traceview responsible for management and high-level control over the application. Uses Qt's signal and slot framework to communicate between objects. See Qt documentation for details.
 
 ## Constructor & Destructor Documentation
@@ -106,13 +110,11 @@ Main window class for traceview responsible for management and high-level contro
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| parser | References the QCommandLineParser. |
-| parent | Pointer to QWidget parent object (optional, default=Q_NULLPTR). |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | parser | References the QCommandLineParser. |
+  | parent | Pointer to QWidget parent object (optional, default=Q_NULLPTR). |
 
 
 Constructs the widgets which define the main window layout. Initialization list order and the order of the funciton calls in the constructor matter as some member variables depend on others being initialized to configure children or actions.
@@ -148,12 +150,10 @@ Qt *should* manage deletion of child objects when each parent is destroyed upon 
 Event handler for state changes.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| e | Pointer to the handled QEvent. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | e | Pointer to the handled QEvent. |
 
 
 Primary purpose here is to propagate the state changes to ROOT.

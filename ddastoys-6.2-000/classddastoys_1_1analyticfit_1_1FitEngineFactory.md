@@ -76,15 +76,14 @@ Factory for creating fit serial and Cuda-enabled fit engines.
 Create a single pulse Cuda-enabled fit engine.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | (x, y) values of the data to be fit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | (x, y) values of the data to be fit. |
 
 
-
-
-ReturnsPointer to the created fit engine object.
+- Returns
+  Pointer to the created fit engine object.
 
 
 
@@ -98,15 +97,14 @@ ReturnsPointer to the created fit engine object.
 Create a double pulse Cuda-enabled fit engine.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | (x, y) values of the data to be fit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | (x, y) values of the data to be fit. |
 
 
-
-
-ReturnsPointer to the created fit engine object.
+- Returns
+  Pointer to the created fit engine object.
 
 
 
@@ -120,15 +118,14 @@ ReturnsPointer to the created fit engine object.
 Create a single pulse Cuda-enabled fit engine.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | (x, y) values of the data to be fit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | (x, y) values of the data to be fit. |
 
 
-
-
-ReturnsPointer to the created fit engine object.
+- Returns
+  Pointer to the created fit engine object.
 
 
 
@@ -142,15 +139,14 @@ ReturnsPointer to the created fit engine object.
 Create a double pulse serial fit engine.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | (x, y) values of the data to be fit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | (x, y) values of the data to be fit. |
 
 
-
-
-ReturnsPointer to the created fit engine object.
+- Returns
+  Pointer to the created fit engine object.
 
 
 

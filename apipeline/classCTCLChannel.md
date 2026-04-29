@@ -176,21 +176,19 @@ Construct command pipeline.
 Construct a command pipeline channel. A command pipeline is a channel abstraction to a pipeline of executing programs. Using command pipelines, the client can feed input to stdin of the pipeline as well as gather the stdout and stderr The pipeline is specified using the argc/argv style where I believe a multistage pipe can be constructed via elements of argv that contain '|' and I/O redirection can be done similarly as described in the documentation of the Tcl [exec] and [open] commands.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | (CTCLInterpreter* [m]): The interpreter on which this channel will be registered/executed. |
-| argc | (int): Number of words describing the command pipeline. |
-| pargv | (char** [in]): The command pipeline description words. |
-| flags | (int) Bitwise or of Flags that describe how the pipeline is connected to the channel:TCL_STDIN - the first element of the pipeline takes stdin from writes to the channel.TCL_STDOUT - The last element's stdout is connected to reads from the channel.TCL_STDERR - The last element's stderr is connected to reads from the channelTCL_ENFORCE_MODE - Causes the open to return an error to be returned if the pipeline then further redirects file descriptors that should go to or come from the channel. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | (CTCLInterpreter* [m]): The interpreter on which this channel will be registered/executed. |
+  | argc | (int): Number of words describing the command pipeline. |
+  | pargv | (char** [in]): The command pipeline description words. |
+  | flags | (int) Bitwise or of Flags that describe how the pipeline is connected to the channel:TCL_STDIN - the first element of the pipeline takes stdin from writes to the channel.TCL_STDOUT - The last element's stdout is connected to reads from the channel.TCL_STDERR - The last element's stderr is connected to reads from the channelTCL_ENFORCE_MODE - Causes the open to return an error to be returned if the pipeline then further redirects file descriptors that should go to or come from the channel. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| string | - contaning an error if there's a problem opening the pipe. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | string | - contaning an error if there's a problem opening the pipe. |
 
 
 
@@ -219,21 +217,19 @@ Construct a Tcp/ip server channel. The server channel is listening on the design
 Note that the seerver has already done an accept(2), the only way to reject a client is to close the corresponding channel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | (CTCLInterpreter* [m]): The interpreter on which this channel will be opened. |
-| port | (int): The port on which the server we connect to will be running. |
-| proc | (Tcl_TcpAcceptProc [callback]): This function is called when a client connects. Parameters are described above. |
-| AppData | (ClientData [?]): Data that is passed to the client without any interpretation. In the OO world, this is recommended to be a pointer to the object that will service the client. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | (CTCLInterpreter* [m]): The interpreter on which this channel will be opened. |
+  | port | (int): The port on which the server we connect to will be running. |
+  | proc | (Tcl_TcpAcceptProc [callback]): This function is called when a client connects. Parameters are described above. |
+  | AppData | (ClientData [?]): Data that is passed to the client without any interpretation. In the OO world, this is recommended to be a pointer to the object that will service the client. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| string | If the channel cannot be opened, a string exception is thrown. The string dscribes the reason the channel could not be opened. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | string | If the channel cannot be opened, a string exception is thrown. The string dscribes the reason the channel could not be opened. |
 
 
 
@@ -252,11 +248,11 @@ Construct from existing channel.
 Create a channel from an existing open channel. In this case, we are not allowed to close or register the channel... only the original creator can do that.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | (CTCLInterpreter* [m]): The interpreter on which the channel is open |
-| Channel | (Tcl_Channel [m]): The channel to bless into this object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | (CTCLInterpreter* [m]): The interpreter on which the channel is open |
+  | Channel | (Tcl_Channel [m]): The channel to bless into this object. |
 
 
 
@@ -362,32 +358,28 @@ Read data from the channel.
 
 Read data from the channel. The data are read using Tcl_ReadChars which implies that transformations consistent with the current encoding on the channel are applied to convert the data to UTF-8 unless the channel encoding has been set to binary.. in which case no transformations are performed. See SetEncoding and GetEncoding for more about this... as well as the TCL documentation.
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | (void** [in]): Points to a pointer. The pointer will be filled in with a dynamically allocated buffer in which the data have been transferred. The buffer must be deleted by the caller. It was allocated as new char[nnn]. No effot is made to null terminate etc. since in binary mode, this may be just bytes. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | (void** [in]): Points to a pointer. The pointer will be filled in with a dynamically allocated buffer in which the data have been transferred. The buffer must be deleted by the caller. It was allocated as new char[nnn]. No effot is made to null terminate etc. since in binary mode, this may be just bytes. |
 
 
 This is done because in general there's no way for the caller to know a-priori how large a buffer is required to hold nchars o UTF-8 encoded textual data.
 
-Parameters
-|  |  |
-| --- | --- |
-| nChars | (int): The number of bytes to read. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nChars | (int): The number of bytes to read. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| >= | 0: The number ofcharacterstransfered. See the special cases below. |
-| < | 0: An error occured that is stored in errno. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | >= | 0: The number ofcharacterstransfered. See the special cases below. |
+  | < | 0: An error occured that is stored in errno. |
 
 
 Special cases:
@@ -409,10 +401,10 @@ Expose channel name to scripts (dangerous!!)
 
 Registers a channel to make it visible to the TCL script world.
 
-Parameters
-|  |  |
-| --- | --- |
-| Name | (string [in]): Name under which the channel should be registered. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | Name | (string [in]): Name under which the channel should be registered. |
 
 
 
@@ -425,10 +417,10 @@ Parameters
 
 Set the input/output encoding of the channel (binary means no encoding).
 
-Parameters
-|  |  |
-| --- | --- |
-| name | (string): The name of the encoding. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | (string): The name of the encoding. |
 
 
 
@@ -447,22 +439,20 @@ Write data to the channel.
 Writes a set of bytes to the channel. Note that unless the encoding has been set to binary, the buffer is assumed to contain nbytes of utf-8 data that will be encoded as described by the encoding. Note that data written with Write may not appear in the underlying operating system channel until Flush is called.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | (const void* [in]): Pointer to the data to be written. |
-| nBytes | (int) Number of bytes to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | (const void* [in]): Pointer to the data to be written. |
+  | nBytes | (int) Number of bytes to write. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| >= | 0 Number of bytes asctually written. 0 may indicate that the channel is in nonblocking mode and cannot be written yet.  <=0 Indicates an error described by errno. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | >= | 0 Number of bytes asctually written. 0 may indicate that the channel is in nonblocking mode and cannot be written yet.  <=0 Indicates an error described by errno. |
 
 
 Notes:

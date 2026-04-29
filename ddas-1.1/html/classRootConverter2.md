@@ -119,7 +119,8 @@ The [[RootConverter2|classRootConverter2]] object creates a branch in the tree r
 Default constructor Constructs the [[DDASEvent|classDDASEvent]] object.
 
 
-See also[[Converter::Converter()|classConverter#a1de81f3e06093411e5d27ce882bc010f]]
+- See also
+  [[Converter::Converter()|classConverter#a1de81f3e06093411e5d27ce882bc010f]]
 
 
 
@@ -146,12 +147,10 @@ Conversion of CRingItem data and filling of the tree.
 Responsible for converting the data stored in the CRingItem into the [[DDASEvent|classDDASEvent]] object. This is the top level iterator through the data. It steps through the EVBFragments. For each EVBFragemt, the ExtractDDASChannelFromEVBFragment method is called and then the generated ddaschannel object is appended to the [[DDASEvent|classDDASEvent]] object. When there are no more EVBFragments to process in the current item, the [[DDASEvent|classDDASEvent]] is added to the tree.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | is the CRingItem (that should always be of type PHYSICS_EVENT) |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | is the CRingItem (that should always be of type PHYSICS_EVENT) |
 
 
 Implements [[Converter|classConverter#a9ff35398f215af687593e4785f3ecf19]].
@@ -171,13 +170,11 @@ Adds ddasevent branch to tree and associates it with local [[DDASEvent|classDDAS
 First calls the [[Converter::Initialize(std::string,std::string)|classConverter#a7bc5c097d0bc9b7e1afdeffb18644cc1]] method to create the output file and the tree, then adds the ddasevent branch to the tree. This branch holds the [[DDASEvent|classDDASEvent]] objects produced by the [[DumpData(const CRingItem&)|classRootConverter2#a8b5461e30739b427669f7aa1942614af]] method.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filein | currently not implemented |
-| fileout | name of the root file to store the outputted data tree |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filein | currently not implemented |
+  | fileout | name of the root file to store the outputted data tree |
 
 
 Reimplemented from [[Converter|classConverter#a7bc5c097d0bc9b7e1afdeffb18644cc1]].

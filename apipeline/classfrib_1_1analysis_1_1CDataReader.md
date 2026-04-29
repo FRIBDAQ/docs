@@ -90,7 +90,8 @@ Typical use case:
 * 
 ```
 
-Notethis works best (in terms of minmal data movement), if the size of the reader's buffer is closely matched to the maxsize's that are passed to [[getBlock()|classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]].
+- Note
+  this works best (in terms of minmal data movement), if the size of the reader's buffer is closely matched to the maxsize's that are passed to [[getBlock()|classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]].
 
 ## Constructor & Destructor Documentation
 
@@ -107,15 +108,14 @@ Notethis works best (in terms of minmal data movement), if the size of the reade
 
 constructor Already have a file descriptor open:
 
-Parameters
-|  |  |
-| --- | --- |
-| fd | - a file descriptor open on the data source. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fd | - a file descriptor open on the data source. |
 
 
-
-
-Notefd will be closed on destruction.
+- Note
+  fd will be closed on destruction.
 
 
 

@@ -151,11 +151,11 @@ Destruction just requires unregistering the command. The deletion callback will 
 bindAll Binds all the objects in a vector to an interpreter.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - reference to the interpreter. |
-| objv | - reference to vector of objecgts. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - reference to the interpreter. |
+  | objv | - reference to vector of objecgts. |
 
 
 
@@ -169,20 +169,20 @@ Parameters
 Return information about this command from the Tcl interpreter.
 
 
-ReturnsTcl_CmdInfo 
-Return values
-|  |  |
-| --- | --- |
-| copy | of struct from Tcl_GetCmdInfo(). |
+- Returns
+  Tcl_CmdInfo
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | copy | of struct from Tcl_GetCmdInfo(). |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CStateException | - If not registered. |
-| CTCLException | - If Tcl_GetCommandInfo fails. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CStateException | - If not registered. |
+  | CTCLException | - If Tcl_GetCommandInfo fails. |
 
 
 
@@ -222,10 +222,10 @@ Reimplemented in [[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor#ab
 Register this object as an object command. Note that if the command is already registered, we throw a [[CStateException|classCStateException]].
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CStateException | thrown if already registered. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CStateException | thrown if already registered. |
 
 
 
@@ -254,12 +254,12 @@ Register the command with a specific name. This allows objects to field more tha
 requireAtLeast Thrown std::string exception if the size of an objv is less than the specified number of parameters.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| objv | - command object vector. |
-| n | - Minimmum size required of objv |
-| msg | - Pointer to the message string to use if the default is not desired. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | objv | - command object vector. |
+  | n | - Minimmum size required of objv |
+  | msg | - Pointer to the message string to use if the default is not desired. |
 
 
 
@@ -277,12 +277,12 @@ Parameters
 requireAtMost Same as requireAtLeast but there can be no more than n parameters.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| objv | - command object vector. |
-| n | - Maximum size required of objv |
-| msg | - Pointer to the message string to use if the default is not desired. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | objv | - command object vector. |
+  | n | - Maximum size required of objv |
+  | msg | - Pointer to the message string to use if the default is not desired. |
 
 
 
@@ -300,12 +300,12 @@ Parameters
 requireExactly Same as above but there must be exactly the requested number of params.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| objv | - command object vector. |
-| n | - exact size required of objv |
-| msg | - Pointer to the message string to use if the default is not desired. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | objv | - command object vector. |
+  | n | - exact size required of objv |
+  | msg | - Pointer to the message string to use if the default is not desired. |
 
 
 
@@ -318,11 +318,11 @@ Parameters
 
 Delete a command.
 
-Exceptions
-|  |  |
-| --- | --- |
-| CStateException | - if the object is not deleted. |
-| CTCLException | - if the delete failed. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CStateException | - if the object is not deleted. |
+  | CTCLException | - if the delete failed. |
 
 
 
@@ -335,10 +335,10 @@ Exceptions
 
 Unregister the command object from a specific command name
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - THe name to unregister as. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - THe name to unregister as. |
 
 
 

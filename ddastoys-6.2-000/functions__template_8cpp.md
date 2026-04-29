@@ -48,7 +48,8 @@ Include dependency graph for functions_template.cpp:
 Implement functions used to fit DDAS pulses using a trace template.
 
 
-NoteAll functions are in the DDAS::TemplateFit namespace
+- Note
+  All functions are in the DDAS::TemplateFit namespace
 
  contents 
  start footer part 

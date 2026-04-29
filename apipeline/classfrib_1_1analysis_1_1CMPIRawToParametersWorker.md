@@ -79,9 +79,10 @@ The very top levels of the MPI framework are expected to have read in the parame
 Users *must* implement unpackData as it is pure virtual. Users *may* implement initializeUserCode if they have one-time initialization code they must run.
 
 
-Noteunpack data will only get PHYSICS_EVENT ring items. all other ring item types are treated as passthrough items and sent directly, as such, to the outputter. 
+- Note
+  unpack data will only get PHYSICS_EVENT ring items. all other ring item types are treated as passthrough items and sent directly, as such, to the outputter.
 
-implementers that are porting SpecTcl code should look at MPISpecTclWorker which tries to allow users to re-use SpecTcl event processor code as much as possible.
+  implementers that are porting SpecTcl code should look at MPISpecTclWorker which tries to allow users to re-use SpecTcl event processor code as much as possible.
 
 ## Constructor & Destructor Documentation
 
@@ -96,10 +97,10 @@ implementers that are porting SpecTcl code should look at MPISpecTclWorker which
 
 Constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| App | - referencees the application |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | App | - referencees the application |
 
 
 
@@ -135,10 +136,10 @@ operator() The entry point for the application object.
 - Process the data block.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - the program parameters. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - the program parameters. |
 
 
 

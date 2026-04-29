@@ -136,12 +136,12 @@ Constructs a symmetric trap filter.
 Given a starting position, the symmetric filter is built from the rise_range and gap_range provided. These make use of the offset definitions of a [[TrRange|classTrAnal_1_1TrRange]]. The trailing sum is defined as a region [begin, begin+rise_range) and the leading sum is defined as [begin+rise_range+gap_range, begin+ 2*rise_range+gap_range).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| begin | the iterator defining the starting position of the trailing sum |
-| rise_range | the range of the summing region and the length of the filter rise |
-| gap_range | the distance between the max_extent of the trailing sum and min_extent of leading sum |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | begin | the iterator defining the starting position of the trailing sum |
+  | rise_range | the range of the summing region and the length of the filter rise |
+  | gap_range | the distance between the max_extent of the trailing sum and min_extent of leading sum |
 
 
 
@@ -161,11 +161,11 @@ Constructs an arbitrary trap filter.
 Construct an arbitrary fast trapezoidal filter by providing the summing ranges
 
 
-Parameters
-|  |  |
-| --- | --- |
-| trail_range | the initial trailing sum range |
-| lead_range | the initial leading sum range |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | trail_range | the initial trailing sum range |
+  | lead_range | the initial leading sum range |
 
 
 
@@ -201,7 +201,9 @@ Gets the most advanced iterator position of the summing regions.
 Returns the most advanced iterator between the two summing regions. This most likely points to the first value outside of the leading sum's range. However, no assumption is made about which summing region comes before the other because no logic is in place to ensure proper ordering.
 
 
-Returnsiterator pointing to the most advanced iterator of the two summing regions 
+- Returns
+  iterator pointing to the most advanced iterator of the two summing regions
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a0dbc4f0ead2ebcfc84e1d0fbb72b8ac2]].
 
 
@@ -220,7 +222,9 @@ Gets the minimum iterator position of the summing regions.
 Returns the minimum iterator position between the two summing regions. This most likely points to the first valid value of the trailing sum's range. However, no assumption is made about which summing region comes before the other because no logic is in place to ensure proper ordering.
 
 
-Returnsiterator pointing to the minimum iterator position of the two summing regions 
+- Returns
+  iterator pointing to the minimum iterator position of the two summing regions
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a56711604a816cbad586f4ff5847251e3]].
 
 
@@ -236,7 +240,9 @@ template<class T>
 Dereference operator <==> evaluates to current filter value.
 
 
-Returnsdifference between leading and trailing sums. 
+- Returns
+  difference between leading and trailing sums.
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a1787d8ec53cd8abc15702d151cb1f32d]].
 
 
@@ -255,7 +261,9 @@ template<class T>
 Increments the two summing regions together as ++sum
 
 
-Returnsa reference to this after incrementing 
+- Returns
+  a reference to this after incrementing
+
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator#a75685e1588f1edb85045c6897bda2173]].
 
 
@@ -274,7 +282,8 @@ filter++ style increment
 Increments the two summing regions together as sum++
 
 
-Returnsa copy of filter before incrementing
+- Returns
+  a copy of filter before incrementing
 
 
 
@@ -292,15 +301,15 @@ Less than comparison to [[TrIterator|classTrAnal_1_1TrIterator]].
 Comparison against a simple iterator (useful for checking whether next dereference will be a valid and safe). Literally compares whether the iterator returned by [[max_extent()|classTrAnal_1_1TrapFilter#a0793799d43dcbfe21a018c7907c4d768]] is less than the argument. In normal situations, this is analogous to checking whether the [[max_extent()|classTrAnal_1_1TrapFilter#a0793799d43dcbfe21a018c7907c4d768]] of the leading sum comes before the argument.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| it | the iterator to compare to |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | it | the iterator to compare to |
 
 
+- Returns
+  true if it<[[max_extent()|classTrAnal_1_1TrapFilter#a0793799d43dcbfe21a018c7907c4d768]], false otherwise
 
-
-Returnstrue if it<[[max_extent()|classTrAnal_1_1TrapFilter#a0793799d43dcbfe21a018c7907c4d768]], false otherwise 
 Reimplemented from [[TrAnal::AlgoIterator< T >|classTrAnal_1_1AlgoIterator]].
 
 
@@ -318,15 +327,14 @@ Assignment operator.
 
 Copy the two summing regions.
 
-Parameters
-|  |  |
-| --- | --- |
-| that | the object whose state will be copied |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | that | the object whose state will be copied |
 
 
-
-
-Returnsa reference to this after assignment
+- Returns
+  a reference to this after assignment
 
 
 
@@ -344,15 +352,14 @@ Greater than comparison to [[TrIterator|classTrAnal_1_1TrIterator]].
 Comparison against a simple iterator. Literally compares whether the iterator returned by [[min_extent()|classTrAnal_1_1TrapFilter#a69b62c45160b76b81be8f34df77a419a]] is greater than the argument. In normal situations, this is analogous to checking whether the [[min_extent()|classTrAnal_1_1TrapFilter#a69b62c45160b76b81be8f34df77a419a]] of the trailing sum comes after the argument.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| it | the iterator to compare to |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | it | the iterator to compare to |
 
 
-
-
-Returnstrue if [[min_extent()|classTrAnal_1_1TrapFilter#a69b62c45160b76b81be8f34df77a419a]] > it, false otherwise
+- Returns
+  true if [[min_extent()|classTrAnal_1_1TrapFilter#a69b62c45160b76b81be8f34df77a419a]] > it, false otherwise
 
 
 

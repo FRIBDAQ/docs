@@ -168,19 +168,19 @@ parser.parse(configFile, config);
 [[ConfigurationParser::extractClockCalibration|classDAQ_1_1DDAS_1_1ConfigurationParser#a0107f0b0d423e04c9c558c1ddc6c6c4f]].
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | the stream to read from |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | the stream to read from |
 
 
+- Returns
+  the clock calibration integer that was read from the file
 
-
-Returnsthe clock calibration integer that was read from the file
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if an error occurs while processing the next line |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if an error occurs while processing the next line |
 
 
 
@@ -191,22 +191,22 @@ Exceptions
 [[ConfigurationParser::extractFirmwareConfiguration|classDAQ_1_1DDAS_1_1ConfigurationParser#a5043e9f60e968b9c76aadb054a980830]].
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | the stream to read from |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | the stream to read from |
 
 
 The current implementation does not support reading firmware paths with whitespace in them
 
 
-Returnsa firmware configuration encapsulating the data read from the file.
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtimer_error | if an error occurs while processing next 4 lines |
+- Returns
+  a firmware configuration encapsulating the data read from the file.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtimer_error | if an error occurs while processing next 4 lines |
 
 
 
@@ -219,20 +219,18 @@ Exceptions
 Parse the contents of the cfgPixie16.txt file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | the input stream associated with the cfgPixie16 content (likely an std::ifstream) |
-| config | a configuration to store the parsed data |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | the input stream associated with the cfgPixie16 content (likely an std::ifstream) |
+  | config | a configuration to store the parsed data |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if failed to read in sufficient slot map data for number of modules |
-| std::runtime_error | if settings file does not end in .set |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if failed to read in sufficient slot map data for number of modules |
+  | std::runtime_error | if settings file does not end in .set |
 
 
 
@@ -247,25 +245,23 @@ Exceptions
 parseHardwareTypeTag
 
 
-Parameters
-|  |  |
-| --- | --- |
-| line | the tag to parse |
-| revision | integer variable to store X into |
-| freq | integer variable to store Y into |
-| resolution | integer variable to store Z into |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | line | the tag to parse |
+  | revision | integer variable to store X into |
+  | freq | integer variable to store Y into |
+  | resolution | integer variable to store Z into |
 
 
 Parses the values of X, Y, and Z from a tag of the form [RevX-YBit-ZMSPS].
 
 
-Return values
-|  |  |
-| --- | --- |
-| false | if line is not in the format [RevX-YBit-ZMSPS] |
-| true | otherwise |
+- Return values
+  |  |  |
+  | --- | --- |
+  | false | if line is not in the format [RevX-YBit-ZMSPS] |
+  | true | otherwise |
 
 
 

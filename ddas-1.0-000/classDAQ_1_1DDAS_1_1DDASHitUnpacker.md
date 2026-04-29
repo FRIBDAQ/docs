@@ -152,12 +152,10 @@ Compute time in nanoseconds from raw data (no [[CFD|classCFD]] correction)
 Append energy sum to stored energy sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | energy sum to append |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | energy sum to append |
 
 
 This can be called many times and will cause each successive value to be appended to objec.t
@@ -174,12 +172,10 @@ This can be called many times and will cause each successive value to be appende
 Append qdc sum to stored qdc sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | energy sum to store |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | energy sum to store |
 
 
 Like the [[SetEnergySums()|classDAQ_1_1DDAS_1_1DDASHitUnpacker#abdd51a615520b0990923ace877ea467b]] method, this can be called repeatedly to append multiple values to the existing data.

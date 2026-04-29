@@ -144,7 +144,8 @@ This graph shows which files directly or indirectly include this file:
 : Defines the analysis specific ring items
 
 
-Notenormally a user will also include an appropriate DataFormat.h from the version of NSCLDAQ their data used.
+- Note
+  normally a user will also include an appropriate DataFormat.h from the version of NSCLDAQ their data used.
 
 ## Typedef Documentation
 

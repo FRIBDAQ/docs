@@ -77,7 +77,8 @@ This class is responsible for
 
 - Obtaining crate configuration.
 - Initializing the Pixie16 API
-- Booting the modules in the crate. NoteWe assume the compiler definition FIRMWARE_DEF_FILE is a CString path to the firmware directory file.
+- Booting the modules in the crate. - Note
+    We assume the compiler definition FIRMWARE_DEF_FILE is a CString path to the firmware directory file.
 
 ## Constructor & Destructor Documentation
 
@@ -90,10 +91,10 @@ This class is responsible for
 constructor Our job is to create a configuration and read the hardware registry into the configuration by parsing the firmware definition file. We also initialize the Pixie16's with the slot map provided.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slots | - the slots we intend to use. Note that each slot is assigned an id that is its index into the slots array. The moduleID and slot can translate between the two. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slots | - the slots we intend to use. Note that each slot is assigned an id that is its index into the slots array. The moduleID and slot can translate between the two. |
 
 
 
@@ -116,10 +117,10 @@ destructor Exit the system (ignore errors) delete the configuration.
 fullBoot Performs a full boot of the selected board. This is done by setting getting the boot files and doing a mask of 0x6d Which does everything but load the DSP parameters The idea is that we'll load the DSP parameters later using one of our XML based loaders when we do this. Not we have an overload that supports old style SEt file parameter loading.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - board id. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - board id. |
 
 
 
@@ -132,11 +133,11 @@ Parameters
 fullBoot Overload for booting and loading DSP variables from old fashioned setfile:
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - module ID. |
-| setFile | - The DSP variable settings file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - module ID. |
+  | setFile | - The DSP variable settings file. |
 
 
 
@@ -148,10 +149,10 @@ Parameters
 (static) getVarFile Gets our best guess at the varfile for a specific digitizer speed.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| speed | MHz of the digitizer. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | speed | MHz of the digitizer. |
 
 
 
@@ -161,10 +162,10 @@ Parameters
 
 loadDSPAddressMap Does a null boot which has the effect of loading the DSP address map for the selected module.
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - mdule id. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - mdule id. |
 
 
 
@@ -174,19 +175,19 @@ Parameters
 
 moduleId Find the module id associated with a slot number.
 
-Parameters
-|  |  |
-| --- | --- |
-| s | - the slot. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | s | - the slot. |
 
 
+- Returns
+  unsigned short - the module id.
 
-
-Returnsunsigned short - the module id. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | if there's no such slot. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | if there's no such slot. |
 
 
 
@@ -196,15 +197,14 @@ Exceptions
 
 slot Translate a module id into a slot. This is just a protected lookup
 
-Parameters
-|  |  |
-| --- | --- |
-| id | - module id. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | - module id. |
 
 
-
-
-Returnsunsigned short - corresponding slot.
+- Returns
+  unsigned short - corresponding slot.
 
 
 

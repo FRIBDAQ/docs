@@ -100,13 +100,13 @@ We need to override because the concept of a trigger within DDAS is completely d
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | Interpreter on which the command is registered. |
-| command | Name of the command 'should/must' be "statistics" to smoothly replace the SBSReaout framework command. |
-| pSeg | Pointer to the event segment which provides byte counters. |
-| scalers | Reference to the array of scaler segments that provide the individual module trigger statistics information. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | Interpreter on which the command is registered. |
+  | command | Name of the command 'should/must' be "statistics" to smoothly replace the SBSReaout framework command. |
+  | pSeg | Pointer to the event segment which provides byte counters. |
+  | scalers | Reference to the array of scaler segments that provide the individual module trigger statistics information. |
 
 
 
@@ -137,21 +137,21 @@ Destructor.
 Called to execute the Tcl command.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | references The interpreter executing the command. |
-| objv | Command line parameters. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | references The interpreter executing the command. |
+  | objv | Command line parameters. |
 
 
+- Returns
+  Status of the command.
 
-
-ReturnsStatus of the command. 
-Return values
-|  |  |
-| --- | --- |
-| TCL_OK | Successful completion. |
-| TCL_ERROR | Failure. Human readable reason is in the intepreter result. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | TCL_OK | Successful completion. |
+  | TCL_ERROR | Failure. Human readable reason is in the intepreter result. |
 
 
 

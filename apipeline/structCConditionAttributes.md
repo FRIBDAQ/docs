@@ -71,12 +71,14 @@ Direct encapsulation of a pthread condition variable attributes block. We are on
 | --- | --- | --- | --- | --- |
 | bool CConditionAttributes::isShared | ( |  | ) |  |
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - the attributes have PTHREAD_PROCESS_SHARED set. |
-| false |  |
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - the attributes have PTHREAD_PROCESS_SHARED set. |
+  | false |  |
 
 
 

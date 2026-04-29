@@ -210,13 +210,11 @@ QtScope main.
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| fname | Output file name. |
-| version | NSLCDAQ data format version. Mapped to ufmt enum value. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fname | Output file name. |
+  | version | NSLCDAQ data format version. Mapped to ufmt enum value. |
 
 
 The format factory owns the concrete factory subclass. Any exceptions when mapping version specifiers are thrown to the caller.
@@ -236,12 +234,10 @@ The format factory owns the concrete factory subclass. Any exceptions when mappi
 Begin a simulated run.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CErrnoExecption | If the output file isn't opened properly. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CErrnoExecption | If the output file isn't opened properly. |
 
 
 On begin:
@@ -274,12 +270,10 @@ Formatted dump of data buffer to stdout.
 End a simulated run.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| CErrnoExecption | If the output file isn't closed properly. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CErrnoExecption | If the output file isn't closed properly. |
 
 
 On end:
@@ -302,7 +296,8 @@ On end:
 Get the data buffer.
 
 
-ReturnsThe data buffer. May or may not be empty, depending on whether `setBuffer()` is called first.
+- Returns
+  The data buffer. May or may not be empty, depending on whether `setBuffer()` is called first.
 
 
 
@@ -320,23 +315,19 @@ ReturnsThe data buffer. May or may not be empty, depending on whether `setBuffer
 Write a hit to the output file. This is the normal way users will add simulated data to the output.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit to write. |
-| sourceID | The source ID value (optional, default=0). |
-| useExtTS | Use an external timestamp (optional, default=false). |
-| cal | Clock calibration in nanoseconds per clock cycle. Required if useExtTS is true (optional, default=0.0). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit to write. |
+  | sourceID | The source ID value (optional, default=0). |
+  | useExtTS | Use an external timestamp (optional, default=false). |
+  | cal | Clock calibration in nanoseconds per clock cycle. Required if useExtTS is true (optional, default=0.0). |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If using an external timestamp with an invalid clock calibration (<= 0.0). |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If using an external timestamp with an invalid clock calibration (<= 0.0). |
 
 
 Sets the internal data buffer using `setBuffer()` and creates a PHYSICS_EVENT ring item from it. For events with an external timestamp, the user must provide a clock calibration in nanoseconds per clock tick. Otherwise the calibraton is determined from the module type. All exceptions thrown when parsing the hit are raised to the caller.
@@ -353,12 +344,10 @@ Sets the internal data buffer using `setBuffer()` and creates a PHYSICS_EVENT ri
 Set the data buffer from a DDASHit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit to process. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit to process. |
 
 
 Sets the data buffer based on the size of the hit passed in. Assumes that the input hit data is valid.

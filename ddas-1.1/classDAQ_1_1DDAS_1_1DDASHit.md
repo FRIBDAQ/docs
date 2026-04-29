@@ -302,7 +302,8 @@ Access the energy/baseline sum data
 | uint64_t DAQ::DDAS::DDASHit::GetExternalTimestamp()const | uint64_t DAQ::DDAS::DDASHit::GetExternalTimestamp | ( |  | ) | const | inline |
 | uint64_t DAQ::DDAS::DDASHit::GetExternalTimestamp | ( |  | ) | const |
 
-- ReturnsRetrieve the external timestamp
+- - Returns
+    Retrieve the external timestamp
 
 
 
@@ -359,10 +360,10 @@ For the 500 MSPS module,
 time = 10*(timehigh << 32 + timelow) + 2*(timecfd/(2^13) + cfdtrigsourcebit - 1)
 
 
-Return values
-|  |  |
-| --- | --- |
-| timestamp | (units of nanoseconds) |
+- Return values
+  |  |  |
+  | --- | --- |
+  | timestamp | (units of nanoseconds) |
 
 
 

@@ -51,8 +51,12 @@ header
 - [Tailoring SpecTcl to Analyze the Data](#ssn_spectcl_sec)
 
 
-AuthorJeromy Tompkins and Ron Fox 
-DateMarch 21, 2016
+- Author
+  Jeromy Tompkins and Ron Fox
+
+- Date
+  March 21, 2016
+
 # Introduction
 
 
@@ -232,7 +236,9 @@ Install: Plx9054
 The user must load the PLX kernel module before using DDAS after every time the computer is booted.
 
 
-WarningIn a multicrate system, the PLX kernel module must be loaded into *every* computer attached to the PXI backplane (i.e. every spdaq in your system reading out DDAS modules).
+- Warning
+  In a multicrate system, the PLX kernel module must be loaded into *every* computer attached to the PXI backplane (i.e. every spdaq in your system reading out DDAS modules).
+
 # Setting Up the Hardware
 
 
@@ -262,7 +268,9 @@ To sum up, each crate will have a clock master and in one of those crates, the c
 The next step is to configure the jumpers for each module in the system according to the role that the module will serve. The jumper settings are extremely important to get right because if the modules are configured incorrectly, the host computer that is reading out the hardware can completely lock up. You would then have to reboot the crate and the computer.
 
 
-NoteIf you get the configuration wrong and freeze up the computer, you didn't break anything. You just need to reboot everything.
+- Note
+  If you get the configuration wrong and freeze up the computer, you didn't break anything. You just need to reboot everything.
+
 ![ssncrate_jumper_settings.png](ssncrate_jumper_settings.png)
 The jumper settings for connecting pins in the JP101 jumper block. In a multi-crate system, the user should only configure Pixie-16 modules to use the upper and lower right and bottom left configurations. (This diagram is an excerpt from the XIA manual).
 
@@ -317,7 +325,9 @@ The trigger board is configured with jumpers. At the NSCL, we don't typically st
 With the clock jumpers in the correct configuration, it is essential that we wire up the rest of the system. For each crate, it is necessary that you have a corresponding data collection computer attached to the crate. You can either accomplish this with a fiber interface or an embedded single board computer in slot 1 of each crate. To read out the crate with a fiber interface, a fiber interface card must be installed in slot 1 and then the data collection computer must have a compatible PCI bridge card installed. These of course must be connected via a fiber optic cable.
 
 
-NoteIf you are using a fiber interface, the order that the crate and the data collection computer are powered up is important. The crate must be powered on first and the data collection computer second. If you reverse this order, the data collection computer will freeze during its boot sequence.
+- Note
+  If you are using a fiber interface, the order that the crate and the data collection computer are powered up is important. The crate must be powered on first and the data collection computer second. If you reverse this order, the data collection computer will freeze during its boot sequence.
+
 # Configuring the Parameters Using Nscope
 
 
@@ -330,7 +340,9 @@ The next step to get the system running is to configure each module for taking d
 The nscope application must be told basic information about the system it is intended to configure at start up. It receives this information through the cfgPixie16.txt file that it expects to exist in the directory it was launched in.
 
 
-NoteIn the past, nscope read in a hidden file called .cfgPixie. We have modified the file to be cfgPixie16.txt and made its contents similar to the cfgPixie16.txt that was used by Readout.
+- Note
+  In the past, nscope read in a hidden file called .cfgPixie. We have modified the file to be cfgPixie16.txt and made its contents similar to the cfgPixie16.txt that was used by Readout.
+
 The cfgPixie16.txt is a very simple file that has the following form:
 
 
@@ -606,7 +618,9 @@ $DAQROOT/ReadoutShell
 
 ```
 
-NoteThe DAQROOT, DAQBIN, and DAQLIB environment variables were set when you sourced ddassetup.bash at the very beginning of this tutorial. It will contain the path to the NSCLDAQ that DDAS was built against.
+- Note
+  The DAQROOT, DAQBIN, and DAQLIB environment variables were set when you sourced ddassetup.bash at the very beginning of this tutorial. It will contain the path to the NSCLDAQ that DDAS was built against.
+
 At this point, one of three things should have happened.
 
 1. The ReadoutGUI became visible.
@@ -779,7 +793,9 @@ At this point, pressing the "Start" button will start the Readout programs in th
 Once you have seen similar output for both the Readout programs, the system is ready to begin a run. The "Begin" button, which enables after the start transition is successful, will cause the data taking to begin. To end the run, simply press the "End" run button.
 
 
-NoteIt is important for you to know that the DDAS Readout programs buffer 10 seconds worth of data before outputting it. For that reason, you should not expect to see any data ouputted from your Readout programs for the first 10 seconds of the run.
+- Note
+  It is important for you to know that the DDAS Readout programs buffer 10 seconds worth of data before outputting it. For that reason, you should not expect to see any data ouputted from your Readout programs for the first 10 seconds of the run.
+
 # Understanding the output
 
 

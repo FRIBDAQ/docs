@@ -116,18 +116,18 @@ Destructor is noop.
 
 Function call operator... called for a trace. We delegate to the callback.
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | (CTCLInterpreter*) Pointer to the interpreter object that is calling us. |
-| pVariable | (char*): Pointer to the name of the variable or basename of the array that fired the trace. |
-| pElement | (char*) If the trace was fired on an array element this is the index, otherwise this will be null. |
-| flags | (int): A bitmask describing why the traace fired. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | (CTCLInterpreter*) Pointer to the interpreter object that is calling us. |
+  | pVariable | (char*): Pointer to the name of the variable or basename of the array that fired the trace. |
+  | pElement | (char*) If the trace was fired on an array element this is the index, otherwise this will be null. |
+  | flags | (int): A bitmask describing why the traace fired. |
 
 
+- Note
+  If the user tried to trick us by providing a null function pointer, we raise that as a TCL error.
 
-
-NoteIf the user tried to trick us by providing a null function pointer, we raise that as a TCL error. 
 Implements [[CVariableTraceCallback|classCVariableTraceCallback]].
 
 

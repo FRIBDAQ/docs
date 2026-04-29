@@ -131,10 +131,10 @@ Default constructor.
 Default to a null iterator when the argument is absent. Dereferencing a null iterator is undefined and will result in unpredictable behavior. It is the user's responsibility to avoid this.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| iter | is a pointer to an object of type T |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | iter | is a pointer to an object of type T |
 
 
 
@@ -152,10 +152,10 @@ Copy constructor.
 Creates a new iterator that points at the same object as the argument.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| iter | the iterator to copy |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | iter | the iterator to copy |
 
 
 ## Member Function Documentation
@@ -173,7 +173,8 @@ template<class T>
 Dereference operator.
 
 
-Returnsvalue currently pointed to by the iterator
+- Returns
+  value currently pointed to by the iterator
 
 
 
@@ -188,7 +189,8 @@ template<class T>
 Distance between two iterators.
 
 
-Returnsnumber of elements between the two iterators
+- Returns
+  number of elements between the two iterators
 
 
 
@@ -206,15 +208,14 @@ Assignment operator.
 Copies the internal pointer
 
 
-Parameters
-|  |  |
-| --- | --- |
-| iter | theTrIteratorwhose state will be copied |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | iter | theTrIteratorwhose state will be copied |
 
 
-
-
-Returnsreference to this
+- Returns
+  reference to this
 
 
 

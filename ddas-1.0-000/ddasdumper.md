@@ -25,8 +25,12 @@ do not remove this div, it is closed by doxygen!
 The ddasdumper : Converting data for ROOT analyses
 
 header
-AuthorSean Liddick, Ron Fox 
-DateMarch 4, 2016 (last modification).
+- Author
+  Sean Liddick, Ron Fox
+
+- Date
+  March 4, 2016 (last modification).
+
 # The ddasdumper : Converting data for ROOT analyses
 
 

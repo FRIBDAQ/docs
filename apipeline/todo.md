@@ -23,8 +23,9 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-Member [[CItemConfiguration::isIntList|classCItemConfiguration#aaca42f05574f4166042680970d69b8d9]]  (std::string name, std::string value, void *arg)
-Extend the parameter to us to supply optional limit information.
+- Member [[CItemConfiguration::isIntList|classCItemConfiguration#aaca42f05574f4166042680970d69b8d9]]  (std::string name, std::string value, void *arg)
+
+  Extend the parameter to us to supply optional limit information.
 
  contents 
  start footer part 

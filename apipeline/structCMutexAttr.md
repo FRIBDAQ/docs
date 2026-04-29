@@ -104,11 +104,13 @@ Destruction just destroys the attribute block, reporting a [[CErrnoException|cla
 | --- | --- | --- | --- | --- |
 | int CMutexAttr::getType | ( |  | ) |  |
 
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| one | of the mutex type codes above. |
+- Returns
+  int
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | one | of the mutex type codes above. |
 
 
 
@@ -121,12 +123,14 @@ Return values
 
 Get the state of the shared flag
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | - mutex can be used to synchronize processes. |
-| false | - Mutex can only be used within the process. |
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | - mutex can be used to synchronize processes. |
+  | false | - Mutex can only be used within the process. |
 
 
 
@@ -150,10 +154,10 @@ Set the attributes block for a sharable resource. Shared mutexes can be created 
 
 Sets the mutex type:
 
-Parameters
-|  |  |
-| --- | --- |
-| type | - an integer code that can be one of:PTHREAD_MUTEX_NORMAL - mutex does not detect deadlockPTHREAD_MUTEX_ERRORCHECK - recursively locking a mutex is an error.PTHREAD_MUTEX_RECURSIVE - Recursive mutex locking is supported with a lock depth count.PTHREAD_MUTEX_DEFAULT - Same meaning as PTHEAD_MUTEX_NORMAL in linux anyway, I won't gaurentee this is the same value though. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | type | - an integer code that can be one of:PTHREAD_MUTEX_NORMAL - mutex does not detect deadlockPTHREAD_MUTEX_ERRORCHECK - recursively locking a mutex is an error.PTHREAD_MUTEX_RECURSIVE - Recursive mutex locking is supported with a lock depth count.PTHREAD_MUTEX_DEFAULT - Same meaning as PTHEAD_MUTEX_NORMAL in linux anyway, I won't gaurentee this is the same value though. |
 
 
 

@@ -85,22 +85,25 @@ Implementation of analytic fitting functions we use in GSL's LM fitter.
 Estimate a value for the steepness parameter of the rising side of the pulse.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| xmax | Where the maximum point is. |
-| C0 | Estimate for the constant offset. |
-| trace | The trace data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | xmax | Where the maximum point is. |
+  | C0 | Estimate for the constant offset. |
+  | trace | The trace data. |
 
 
+- Returns
+  The risetime estimate.
 
-
-ReturnsThe risetime estimate.
 We approximate xmax as 0.9 of maximum and use that ln(9)/(xmax - xhalf) gives k where xhalf is the position of 1/2 height. If we can't find xhalf then we fall back on a guess of 0.1.
 
 
-**[[Todo:|todo#_todo000005]]**Should allow this fallback value to be an input parameter. 
-NoteFor now assume that the half position is within the AOI and are not correcting for flattops.
+- **[[Todo:|todo#_todo000005]]**
+  Should allow this fallback value to be an input parameter.
+
+- Note
+  For now assume that the half position is within the AOI and are not correcting for flattops.
 
  contents 
  start footer part 

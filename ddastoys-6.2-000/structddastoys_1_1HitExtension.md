@@ -115,15 +115,14 @@ The data structure appended to each fit hit.
 Construct from legacy extension.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| leg | Legacy extension to construct from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | leg | Legacy extension to construct from. |
 
 
-
-
-NoteSingle- and double-pulse probabilities are set to 0 since the old-style extension does not contain any classificaton data.
+- Note
+  Single- and double-pulse probabilities are set to 0 since the old-style extension does not contain any classificaton data.
 
 
 

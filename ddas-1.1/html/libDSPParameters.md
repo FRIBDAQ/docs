@@ -23,12 +23,18 @@ do not remove this div, it is closed by doxygen!
  iframe showing the search results (closed by default)
 
  top 
-AuthorRon Fox 
-Date3/18/2020
+- Author
+  Ron Fox
+
+- Date
+  3/18/2020
+
 # Overview
 
 
-NoteThis document applies to DDAS version 3.0-000 and later.
+- Note
+  This document applies to DDAS version 3.0-000 and later.
+
 The libDSPParameters library provides a package for managing the Digital Signal Processing (DSP) Parameters of Pixie16 boards. It also provides utilities for managing crates of modules. Finally the [[toxxx|toxxx]] package is built on top of this library.
 
 

@@ -169,13 +169,13 @@ This is designed to process data downstream from the event builder. The parsing 
 This sets the event size.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pEvent | address in buffer to begin parsing at |
-| rEvent | current SpecTcl event |
-| rAnalyzer | the analyzer |
-| rDecoder | current buffer decoder |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pEvent | address in buffer to begin parsing at |
+  | rEvent | current SpecTcl event |
+  | rAnalyzer | the analyzer |
+  | rDecoder | current buffer decoder |
 
 
 
@@ -197,10 +197,10 @@ unpacker.setParameterMapper(*pMapper);
  fragment Ownership of the mapper is transferred into this object.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rParameterMapper | the user's parameter mapper |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rParameterMapper | the user's parameter mapper |
 
 
 
@@ -211,10 +211,10 @@ Parameters
 Pass in new set of source ids.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| validSourceIds | the list |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | validSourceIds | the list |
 
 
 

@@ -135,15 +135,14 @@ This is an adapter pattern class between object based commands and the classic a
 
 Construct the object. The assumption is that the CTCL processor is constructed 'enough' that we can pull out the command name, and the interpreter from it.
 
-Parameters
-|  |  |
-| --- | --- |
-| actualCommand | :CTCLProcessorObject that implements an old style argc/argv command. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | actualCommand | :CTCLProcessorObject that implements an old style argc/argv command. |
 
 
-
-
-Notethe [[CTCLProcessor|classCTCLProcessor]] required a two-step construct/register, we enforce that by not allowing the base class constructor to register us.
+- Note
+  the [[CTCLProcessor|classCTCLProcessor]] required a two-step construct/register, we enforce that by not allowing the base class constructor to register us.
 
 
 
@@ -190,22 +189,20 @@ Reimplemented from [[CTCLObjectProcessor|classCTCLObjectProcessor#a3bb43c6ecbdf3
 Called to execute the command. Here's where the serious adaptor work comes in to play. We need to turn the objects passed in to us into an argc/argv pair, and create a [[CTCLResult|classCTCLResult]] to give the command we're adapting for.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | :CTCLInterpreter& Interpreter that's running this command |
-| objv | : vector<CTCLOBject>& Reference to the vector of command line objects. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | :CTCLInterpreter& Interpreter that's running this command |
+  | objv | : vector<CTCLOBject>& Reference to the vector of command line objects. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| from | m_ActualCommand->operator() |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | from | m_ActualCommand->operator() |
 
 
 Implements [[CTCLObjectProcessor|classCTCLObjectProcessor]].

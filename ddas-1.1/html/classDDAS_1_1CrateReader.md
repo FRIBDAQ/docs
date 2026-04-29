@@ -90,11 +90,11 @@ This class is able to read and process a crate The first <slot> element is id 0 
 constructor Save the slots we're reading in.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | - Id of the crate we're reading. |
-| slots | - the slotst to read. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | - Id of the crate we're reading. |
+  | slots | - the slotst to read. |
 
 
 
@@ -118,7 +118,8 @@ destructor
 readCrate This is a strategy driver for the reader. It has helpers that must be implemented to function:
 
 - crateReader - must return a dynamically allocated reader for the data in a slot.
-- getEvtLen - must return the expected event length for a slot These are called in that order for each slot. Returns[[Crate|structDDAS_1_1Crate]] - the processed crate description.
+- getEvtLen - must return the expected event length for a slot These are called in that order for each slot. - Returns
+    [[Crate|structDDAS_1_1Crate]] - the processed crate description.
 
 
 

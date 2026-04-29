@@ -117,10 +117,10 @@ Append channel data to event.
 Appends the pointer to the internal, extensible data array. There is no check that the object pointed to by the argument exists, so that it is the user's responsibility to implement.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| channel | pointer to a ddaschannel object |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channel | pointer to a ddaschannel object |
 
 
 
@@ -132,7 +132,8 @@ Parameters
 Access internal, extensible array of channel data.
 
 
-Returnsreference to the data
+- Returns
+  reference to the data
 
 
 

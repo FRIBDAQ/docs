@@ -77,7 +77,8 @@ This graph shows which files directly or indirectly include this file:
 Define the template fitting functions and data structures for GSL's Levenburg-Marquardt fitter.
 
 
-NoteFit functions are in the ddastoys::templatefit namespace.
+- Note
+  Fit functions are in the ddastoys::templatefit namespace.
 
  contents 
  start footer part 

@@ -149,28 +149,25 @@ daqdev/DDAS#106. This typedef defines the data that can be returned when parsing
 Parse the contents of the cfgPixie16.txt file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | The input stream associated with the cfgPixie16 content (likely an std::ifstream) |
-| config | A configuration to store the parsed data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | The input stream associated with the cfgPixie16 content (likely an std::ifstream) |
+  | config | A configuration to store the parsed data. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If the DSP parameter file has an invalid file extension. |
-| std::runtime_error | If the configuration file contains anything other than whitespace after reading the settings file. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If the DSP parameter file has an invalid file extension. |
+  | std::runtime_error | If the configuration file contains anything other than whitespace after reading the settings file. |
 
 
 Parses the configuration file line by line, extracting slot information, optional per-module firmware and DSP settings files, and the (default) per-crate DSP settings file. DSP settings files must have the file extension .set for XIA API 2 and either .set or .json for XIA API 3. Exits on any error processing the configuration file.
 
 
-**[[Todo:|todo#_todo000010]]**(ASC 3/13/24): Whitespace-tolerant comments could be allowed using this trim-and-inspect framework i.e. check that first character of trimmed line is a comment character. For now, anything besides whitespace will throw when parsing the configuration file.
+- **[[Todo:|todo#_todo000010]]**
+  (ASC 3/13/24): Whitespace-tolerant comments could be allowed using this trim-and-inspect framework i.e. check that first character of trimmed line is a comment character. For now, anything besides whitespace will throw when parsing the configuration file.
 
 
 
@@ -184,23 +181,21 @@ Parses the configuration file line by line, extracting slot information, optiona
 Parses a slot line.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | Input stream from which the line is parsed. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | Input stream from which the line is parsed. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If there are errors processing this line, e.g. the slot cannot be decoded or a file is not readable. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If there are errors processing this line, e.g. the slot cannot be decoded or a file is not readable. |
+- Returns
+  Tuple containing the slot number and and file paths. The filepaths will be empty strings if omitted.
 
-
-
-
-ReturnsTuple containing the slot number and and file paths. The filepaths will be empty strings if omitted.
 Slot lines consist of a mandatory slot number, and optional substitute firmware mapping file and an optional .set file for that module. Care must be taken since any populated field (other than the slot number) might actually be a comment. Requirements:
 
 - Filenames cannot have spaces in their paths.

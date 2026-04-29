@@ -64,9 +64,10 @@ Include dependency graph for CudaFitEngineAnalytic.cu:
 Provide CUDA fit engines for single- and double-pulse fits.
 
 
-NoteThis requires that the CUDA compiler be used. 
+- Note
+  This requires that the CUDA compiler be used.
 
-Experimentally the Jacobian for double pulses needs to be double precision so we've got functions named XXXX which are float and identical functions named XXXXd which are double.
+  Experimentally the Jacobian for double pulses needs to be double precision so we've got functions named XXXX which are float and identical functions named XXXXd which are double.
 
 ## Function Documentation
 
@@ -90,17 +91,17 @@ Experimentally the Jacobian for double pulses needs to be double precision so we
 Compute the Jacobian at a single point of the trace for a single pulse fit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| tx | Pointer to the trace x coords. |
-| ty | Pointer to the trace y coords. |
-| jac | Pointer to the Jacobian matrix (len*5 elements) |
-| len | Trace length. |
-| A | Scale factor. |
-| k1 | Risetime steepeness. |
-| k2 | Decay time. |
-| x1 | Position. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | tx | Pointer to the trace x coords. |
+  | ty | Pointer to the trace y coords. |
+  | jac | Pointer to the Jacobian matrix (len*5 elements) |
+  | len | Trace length. |
+  | A | Scale factor. |
+  | k1 | Risetime steepeness. |
+  | k2 | Decay time. |
+  | x1 | Position. |
 
 
 
@@ -126,15 +127,15 @@ Parameters
 Compute the double-pulse Jacobian on a point of the pulse. The Jacobian matrix is an npts x 9 matrix.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| xtc | x-coordinates of the trace. |
-| jac | Jacobian matrix. |
-| npts | Number of points in the fit. |
-| A1,k1,k2,x1 | Fit parameters for first pulse. |
-| A2,k3,k4,x2 | Fit parameters for the second pulse. |
-| C | Constant term of the fit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | xtc | x-coordinates of the trace. |
+  | jac | Jacobian matrix. |
+  | npts | Number of points in the fit. |
+  | A1,k1,k2,x1 | Fit parameters for first pulse. |
+  | A2,k3,k4,x2 | Fit parameters for the second pulse. |
+  | C | Constant term of the fit. |
 
 
 
@@ -157,18 +158,18 @@ Parameters
 Compute the residual for a point in the trace with a single pulse fit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| tx | Pointer to trace x values. |
-| ty | Pointer to trace y values. |
-| res | Pointer to residual values. |
-| len | Number of trace elements. |
-| C | Constant baseline. |
-| A | Scale factor. |
-| k1 | Rise steepeness. |
-| k2 | Decay time. |
-| x1 | Position. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | tx | Pointer to trace x values. |
+  | ty | Pointer to trace y values. |
+  | res | Pointer to residual values. |
+  | len | Number of trace elements. |
+  | C | Constant baseline. |
+  | A | Scale factor. |
+  | k1 | Rise steepeness. |
+  | k2 | Decay time. |
+  | x1 | Position. |
 
 
 
@@ -195,22 +196,22 @@ Parameters
 Computes the double-pulse residual pointwise parallel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| xtc | x-coordinates of trace. |
-| ytc | y-coordinates of trace. |
-| res | Residuals to compute. |
-| npts | Number of trace points. |
-| C | Constant offset fit parameter. |
-| A1 | Scale factor for pulse1. |
-| k11 | k1 for pulse 1. |
-| k12 | k2 for pulse 1. |
-| x1 | Position of pulse 1 |
-| A2 | Scale factof for pulse 2. |
-| k21 | k1 for pulse 2. |
-| k22 | k2 for pulse 2. |
-| x2 | Position of pulse 2. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | xtc | x-coordinates of trace. |
+  | ytc | y-coordinates of trace. |
+  | res | Residuals to compute. |
+  | npts | Number of trace points. |
+  | C | Constant offset fit parameter. |
+  | A1 | Scale factor for pulse1. |
+  | k11 | k1 for pulse 1. |
+  | k12 | k2 for pulse 1. |
+  | x1 | Position of pulse 1 |
+  | A2 | Scale factof for pulse 2. |
+  | k21 | k1 for pulse 2. |
+  | k22 | k2 for pulse 2. |
+  | x2 | Position of pulse 2. |
 
  contents 
  start footer part 

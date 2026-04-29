@@ -178,13 +178,13 @@ Equality comparison.. all the members must be the same.
 | int CURIFormatException::ReasonCode()const | int CURIFormatException::ReasonCode | ( |  | ) | const | virtual |
 | int CURIFormatException::ReasonCode | ( |  | ) | const |
 
-ReturnsInt_t 
-Return values
-|  |  |
-| --- | --- |
-| -1 |  |
+- Returns
+  Int_t
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | -1 |  |
 
 
 Reimplemented from [[CException|classCException]].
@@ -199,13 +199,13 @@ Reimplemented from [[CException|classCException]].
 | const char * CURIFormatException::ReasonText()const | const char * CURIFormatException::ReasonText | ( |  | ) | const | virtual |
 | const char * CURIFormatException::ReasonText | ( |  | ) | const |
 
-Returnsconst char* 
-Return values
-|  |  |
-| --- | --- |
-| Return | the full text of the error |
+- Returns
+  const char*
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | Return | the full text of the error |
 
 
 Reimplemented from [[CException|classCException]].

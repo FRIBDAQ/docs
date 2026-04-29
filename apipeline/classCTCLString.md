@@ -127,20 +127,20 @@ header
 Append a double as an element of a string.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | - The value to append. |
-| pFormat | - an sprintf formatting string (defaults to "%f") that describes how the float is to be formatted. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | - The value to append. |
+  | pFormat | - an sprintf formatting string (defaults to "%f") that describes how the float is to be formatted. |
 
 
+- Returns
+  [[CTCLString|classCTCLString]]&
 
-
-Returns[[CTCLString|classCTCLString]]& 
-Return values
-|  |  |
-| --- | --- |
-| Reference | to *this. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | Reference | to *this. |
 
 
 
@@ -156,20 +156,20 @@ Return values
 Append an integer as element of a list
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | - The value to append |
-| pFormat | - A sprintf formatting string (defaults to "%i") that describes how the int should be formatted. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | - The value to append |
+  | pFormat | - A sprintf formatting string (defaults to "%i") that describes how the int should be formatted. |
 
 
+- Returns
+  [[CTCLString|classCTCLString]]&
 
-
-Returns[[CTCLString|classCTCLString]]& 
-Return values
-|  |  |
-| --- | --- |
-| Reference | to *this |
+- Return values
+  |  |  |
+  | --- | --- |
+  | Reference | to *this |
 
 
 

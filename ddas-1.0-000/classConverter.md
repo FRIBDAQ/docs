@@ -142,12 +142,10 @@ Dump the data from ring into a object in a root file.
 Conversion method. This is a purely virtual method. All derived classes must implement this to support the conversion of the data stored in the CRingItem. This method is also where data is added to the TTree by means of the TTree::Fill() method. The user is presented with the full CRingItem, including its header. The structure of these can be found in in the file /path/to/nscldaq/version/./include/DataFormat.h
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | is a reference to the data |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | is a reference to the data |
 
 
 Implemented in [[RootConverter2|classRootConverter2#a8b5461e30739b427669f7aa1942614af]], and [[RootConverter|classRootConverter#ae13972969e6fac531cf12da8ac1847be]].
@@ -170,13 +168,11 @@ Creates and opens the root file in which the tree will be stored and creates the
 *** Derived classes MUST CALL THIS METHOD BEFORE ADDING TO THE TREE! ***
 
 
-Parameters
-|  |  |
-| --- | --- |
-| in_fname | does not serve any functional purpose |
-| fileout | name of the root file to create for output |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | in_fname | does not serve any functional purpose |
+  | fileout | name of the root file to create for output |
 
 
 Reimplemented in [[RootConverter2|classRootConverter2#a82cbffa4f3553d099824c216731d269d]], and [[RootConverter|classRootConverter#a35d0678f9622196fd7caecf43e76bc65]].

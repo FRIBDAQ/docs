@@ -26,8 +26,12 @@ do not remove this div, it is closed by doxygen!
 NSCL DDAS Software documentation
 
 header
-AuthorRon Fox, Jeromy Tompkins, Sean LIddick 
-DateMarch 4, 2016
+- Author
+  Ron Fox, Jeromy Tompkins, Sean LIddick
+
+- Date
+  March 4, 2016
+
 For documentation on individual software components see:
 
 

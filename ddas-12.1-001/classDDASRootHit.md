@@ -87,9 +87,10 @@ The [[DDASRootHit|classDDASRootHit]] class is intended to encapsulate the inform
 This is a very, very simple class. It inherits from ddasfmt::DDASHit and ROOT's TObject class and adds a ROOT `ClassDef()` macro. Everything else, including copy construction, assignment, etc. is handled "for free" by the base classes. Because the class inherits from ddasfmt::DDASHit, we can trivially use the ddasfmt::DDASHitUnpacker to unpack the event data directly into the ddasfmt::DDASHit members.
 
 
-NoteIn previous versions of NSCLDAQ (prior to 12.1), this class is called ddaschannel and is part of the libddaschannel library. The class is now called [[DDASRootHit|classDDASRootHit]] to make more clear its relationship to the DDASHit class, which it is derived from. The library which contains the ROOT I/O classes is now called libddasrootformat to better reflect its purpose.
+- Note
+  In previous versions of NSCLDAQ (prior to 12.1), this class is called ddaschannel and is part of the libddaschannel library. The class is now called [[DDASRootHit|classDDASRootHit]] to make more clear its relationship to the DDASHit class, which it is derived from. The library which contains the ROOT I/O classes is now called libddasrootformat to better reflect its purpose.
 
-No namespace because we are going to refactor everything anyway...
+  No namespace because we are going to refactor everything anyway...
 
 ## Constructor & Destructor Documentation
 

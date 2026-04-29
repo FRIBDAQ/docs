@@ -23,8 +23,12 @@ do not remove this div, it is closed by doxygen!
  iframe showing the search results (closed by default)
 
  top 
-AuthorJeromy Tompkins 
-Date6/21/2016
+- Author
+  Jeromy Tompkins
+
+- Date
+  6/21/2016
+
 # Introduction
 
 
@@ -83,11 +87,10 @@ Let's break down the first four data words in the header. These are always the s
 | 3 | Trace length and energy | [0:14]=energy, [15]=overflow/underflow, [16:31]=trace length |
 
 
-Remarks- The finish code pertains to pile up. If pile up occurred, this is set to 1.
-- The meaning of the [[CFD|classCFD]] bits depend on the type of the Pixie-16 digitizer used. See the page on each module for details about the data it outputs.
-- The overflow/underflow bit is set whenever and overflow or underflow occurs in the ADC period of time whose length is equal to the length of the energy filter's rise and gap time. After that length of time passes, it is reset.
-
-
+- Remarks
+  - The finish code pertains to pile up. If pile up occurred, this is set to 1.
+  - The meaning of the [[CFD|classCFD]] bits depend on the type of the Pixie-16 digitizer used. See the page on each module for details about the data it outputs.
+  - The overflow/underflow bit is set whenever and overflow or underflow occurs in the ADC period of time whose length is equal to the length of the energy filter's rise and gap time. After that length of time passes, it is reset.
 
 If the QDC mode or energy summing mode is enabled, then more data follows. If present, *the energy summing mode data follows first followed by the QDC mode data*. The energy summing mode data has the following form:
 
@@ -151,7 +154,9 @@ Every sixteen seconds, you should expect to get ring item of type PERIODIC_SCALE
 | ... | ... |
 
 
-NoteBecause the value in the scalers are increments, you need to set up the ScalerDisplay to interpret the scaler data as "incremental".
+- Note
+  Because the value in the scalers are increments, you need to set up the ScalerDisplay to interpret the scaler data as "incremental".
+
 ## DDAS Fragment Structure
 
 

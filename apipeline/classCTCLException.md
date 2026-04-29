@@ -157,11 +157,13 @@ Collaboration diagram for CTCLException:
 
 Return the command traceback from the global variable errorInfo.
 
-Returnsstd::string 
-Return values
-|  |  |
-| --- | --- |
-| the | contents of the global variable errorInfo converted to a string. |
+- Returns
+  std::string
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | the | contents of the global variable errorInfo converted to a string. |
 
 
 
@@ -175,19 +177,19 @@ Return values
 
 Return the command traceback given an interpreter (static).
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - Reference to the interpreter we're fetching error info for. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - Reference to the interpreter we're fetching error info for. |
 
 
+- Returns
+  std::string
 
-
-Returnsstd::string 
-Return values
-|  |  |
-| --- | --- |
-| the | contents of the global variable errorInfo converted to a string. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | the | contents of the global variable errorInfo converted to a string. |
 
 
 

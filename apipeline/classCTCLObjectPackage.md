@@ -72,10 +72,10 @@ This is normally a base class.
 Add a command. The command is added to the end of the list and its onAttach member is called with the package as a parameter.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| processor | - Pointer to the packaged object processor. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | processor | - Pointer to the packaged object processor. |
 
 
 
@@ -88,11 +88,13 @@ Parameters
 
 Start an iteration through the commands:
 
-ReturnsCTCLObjectPackage::CommandIterator 
-Return values
-|  |  |
-| --- | --- |
-| Beginning | iterator. |
+- Returns
+  CTCLObjectPackage::CommandIterator
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | Beginning | iterator. |
 
 
 
@@ -106,11 +108,13 @@ Return values
 Test for end of iteration through the commands:
 
 
-ReturnsCTCLObjectPackage::CommandIterator 
-Return values
-|  |  |
-| --- | --- |
-| end | of iteration iterator. |
+- Returns
+  CTCLObjectPackage::CommandIterator
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | end | of iteration iterator. |
 
 
 

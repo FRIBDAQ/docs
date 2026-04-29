@@ -580,7 +580,8 @@ The [[QueryIntText()|classtinyxml2_1_1XMLElement#a71327c9a9d8840562bd204f46d0a71
 
 ```
 
-ReturnsXML_SUCCESS (0) on success, XML_CAN_NOT_CONVERT_TEXT if the text cannot be converted to the requested type, and XML_NO_TEXT_NODE if there is no child text to query.
+- Returns
+  XML_SUCCESS (0) on success, XML_CAN_NOT_CONVERT_TEXT if the text cannot be converted to the requested type, and XML_NO_TEXT_NODE if there is no child text to query.
 
 
 

@@ -69,10 +69,10 @@ Writes data to some sink. We assume that the parameter and variables have been s
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| pFilename | - path to the output file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFilename | - path to the output file. |
 
 
 
@@ -85,10 +85,10 @@ Parameters
 
 constructor from fd
 
-Parameters
-|  |  |
-| --- | --- |
-| fd | - file descriptor already open on the output file: |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | fd | - file descriptor already open on the output file: |
 
 
 
@@ -118,10 +118,10 @@ destructor
 
 writeEvent Write an event that's been marshalled into a parameter #/value set of pairs.
 
-Parameters
-|  |  |
-| --- | --- |
-| event | -the event to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | event | -the event to write. |
 
 
 
@@ -134,10 +134,10 @@ Parameters
 
 writeItem Write a non-event item – this is just a passthrough item.
 
-Parameters
-|  |  |
-| --- | --- |
-| pItem | - pointer to the item to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pItem | - pointer to the item to write. |
 
 
 

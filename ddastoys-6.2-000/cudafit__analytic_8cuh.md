@@ -80,14 +80,14 @@ Header for the CUDA swarm fitting code.
 Perform a single-pulse fit using libcudaoptimize.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pResult | Pointer to the resulting parameters. |
-| trace | References the raw trace data. |
-| limits | Provides the limits over which the trace is done. |
-| saturation | Defines the FADC saturation level. |
-| freeTraceWhenDone | If true (default) the trace data is freed from the GPU if not it's left allocated. This allows a double fit to be done immediately after with no reallocation/copy. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pResult | Pointer to the resulting parameters. |
+  | trace | References the raw trace data. |
+  | limits | Provides the limits over which the trace is done. |
+  | saturation | Defines the FADC saturation level. |
+  | freeTraceWhenDone | If true (default) the trace data is freed from the GPU if not it's left allocated. This allows a double fit to be done immediately after with no reallocation/copy. |
 
 
 
@@ -106,14 +106,14 @@ Parameters
 Perform a double-pulse fit using libcudaoptimize.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pResult | Pointer to the resulting parameters. |
-| trace | References the raw trace data. |
-| limits | Provides the limits over which the trace is done. |
-| saturation | Defines the FADC saturation level. |
-| traceIsLoaded | If true, the trace is already loaded into the GPU from a prior cudafit1 call. Note that regardless the trace is freed after we're run. The default requires us to copy the trace. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pResult | Pointer to the resulting parameters. |
+  | trace | References the raw trace data. |
+  | limits | Provides the limits over which the trace is done. |
+  | saturation | Defines the FADC saturation level. |
+  | traceIsLoaded | If true, the trace is already loaded into the GPU from a prior cudafit1 call. Note that regardless the trace is freed after we're run. The default requires us to copy the trace. |
 
  contents 
  start footer part 

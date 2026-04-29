@@ -140,10 +140,10 @@ Construction requires
 These can be determined using Tcl_GetStdChannel so we don't need the caller's help to get all this going:
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | - Pointer to the interpreter object to which commands will be submitted. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | - Pointer to the interpreter object to which commands will be submitted. |
 
 
 

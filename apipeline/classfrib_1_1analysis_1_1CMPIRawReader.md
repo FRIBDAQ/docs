@@ -60,11 +60,11 @@ header
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - command line parameters. |
-| pApp | - The application. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - command line parameters. |
+  | pApp | - The application. |
 
 
 

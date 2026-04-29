@@ -126,16 +126,15 @@ Copy construction.
 
 Once constructed, at some point the oustide world attaches a configuration to the object. This does that and then invokes the onAttach member function which provides concrete subclasses the chance to create the configuration parameters.
 
-Parameters
-|  |  |
-| --- | --- |
-| pConfiguration | - Pointer to the configuration to attach. |
-| dynamic | - If true, pConfiguration point to a dynamcially allocated object that should be deleted in our destructors. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pConfiguration | - Pointer to the configuration to attach. |
+  | dynamic | - If true, pConfiguration point to a dynamcially allocated object that should be deleted in our destructors. |
 
 
-
-
-Note- no assumption is made about only attaching once.
+- Note
+  - no assumption is made about only attaching once.
 
 
 
@@ -146,28 +145,26 @@ Note- no assumption is made about only attaching once.
 | --- | --- | --- | --- | --- | --- |
 | std::string CConfigurableObject::cget | ( | std::string | name | ) |  |
 
-Parameters
-|  |  |
-| --- | --- |
-| name | - Name of a configuration parameteter. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | name | - Name of a configuration parameteter. |
 
 
+- Returns
+  string
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | Value | of that parameter. |
 
 
-Returnsstring 
-Return values
-|  |  |
-| --- | --- |
-| Value | of that parameter. |
-
-
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CInvalidArgumentException |  |
-| string | - message if the parameter name does not exist. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CInvalidArgumentException |  |
+  | string | - message if the parameter name does not exist. |
 
 
 
@@ -178,19 +175,19 @@ Exceptions
 | --- | --- | --- | --- | --- |
 | CItemConfiguration::ConfigurationArray CConfigurableObject::cget | ( |  | ) |  |
 
-ReturnsCItemConfiguration::ConfigurationArray 
-Return values
-|  |  |
-| --- | --- |
-| the | entire configuration for this module. |
+- Returns
+  CItemConfiguration::ConfigurationArray
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | the | entire configuration for this module. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CInvalidArgumentException | if no configuration. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CInvalidArgumentException | if no configuration. |
 
 
 
@@ -219,11 +216,13 @@ Configure the value of the defined parameter. This can throw for the following r
 
 Get the name of the configuration item which is usually the name of the object.
 
-Returnsstd::string 
-Return values
-|  |  |
-| --- | --- |
-| Name | of the configuration. |
+- Returns
+  std::string
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | Name | of the configuration. |
 
 
 

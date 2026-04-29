@@ -83,10 +83,10 @@ constructor
 - Creates default varmaps for each of the slots (for 250MHz digitizers).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| const | char* setfile - Path to the set file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | const | char* setfile - Path to the set file. |
 
 
 
@@ -110,21 +110,21 @@ destructor just munmap the file.m_longs tells us how big it is and includes any 
 
 get Get a uint32_t value in a set file chunk.
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number. |
-| what | - name of the item to get. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number. |
+  | what | - name of the item to get. |
 
 
+- Returns
+  uint32_t
 
-
-Returnsuint32_t 
-Exceptions
-|  |  |
-| --- | --- |
-| std::range_error |  |
-| std::invalid_argument |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::range_error |  |
+  | std::invalid_argument |  |
 
 
 
@@ -137,21 +137,21 @@ Exceptions
 getChanPar Get the 16 values of a channel parameter
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number, |
-| what | - what to get. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number, |
+  | what | - what to get. |
 
 
+- Returns
+  std::vector<uint32_t>
 
-
-Returnsstd::vector<uint32_t> 
-Exceptions
-|  |  |
-| --- | --- |
-| std::range_error |  |
-| std::invalid_argument |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::range_error |  |
+  | std::invalid_argument |  |
 
 
 
@@ -164,21 +164,19 @@ Exceptions
 
 set Set a uint32_t value in a set file chunk.
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number |
-| what | - Name of the item to set. |
-| value | - new value to set. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number |
+  | what | - Name of the item to set. |
+  | value | - new value to set. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::range_error |  |
-| std::invalid_argument |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::range_error |  |
+  | std::invalid_argument |  |
 
 
 
@@ -191,21 +189,19 @@ Exceptions
 
 setChanPar Set the 16 values of a channel parameter.
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | slot number |
-| what | parameter name. |
-| values | to set |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | slot number |
+  | what | parameter name. |
+  | values | to set |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::range_error |  |
-| std::invalid_argument |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::range_error |  |
+  | std::invalid_argument |  |
 
 
 
@@ -217,21 +213,21 @@ Exceptions
 
 setSlotSpeed Sets the speed of a slot. This is needed to select the proper varfile that defines the offsets into the chunk of memory associated with a slot.
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number (2 is the first slot). |
-| speed | - MHz speed of the digitizer. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number (2 is the first slot). |
+  | speed | - MHz speed of the digitizer. |
 
 
+- Note
+  Several of the methods called by this method may throw exceptions that derive from std::exception including
 
-
-NoteSeveral of the methods called by this method may throw exceptions that derive from std::exception including 
-Exceptions
-|  |  |
-| --- | --- |
-| std::range_error |  |
-| std::invalid_argument |  |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::range_error |  |
+  | std::invalid_argument |  |
 
 
 

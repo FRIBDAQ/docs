@@ -128,7 +128,8 @@ Ring items are not block mode.
 
 getBody The body will point to the ring item as it does for RingBufferDecoder. that body will have to be set by the worker framework by calling setBody.
 
-ReturnsAddress_t - pointer to the ring item.
+- Returns
+  Address_t - pointer to the ring item.
 
 
 
@@ -168,11 +169,11 @@ getBufferType Since we're only going to call the uperator() this will always be 
 
 getByteOrder Little endian won the world. We just return the machine's byt order signatures.
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [out] | signature16 | - 16 bit sig., |
-| [out] | signature32 | - 32 bit sig. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [out] | signature16 | - 16 bit sig., |
+  | [out] | signature32 | - 32 bit sig. |
 
 
 
@@ -186,7 +187,8 @@ Parameters
 
 getEntityCount
 
-ReturnsUInt_t - by definition a ring item has one entity
+- Returns
+  UInt_t - by definition a ring item has one entity
 
 
 
@@ -200,7 +202,8 @@ ReturnsUInt_t - by definition a ring item has one entity
 
 getLamCount This is deprecated and has been returning 0 for some time.
 
-ReturnsUInt_t 0
+- Returns
+  UInt_t 0
 
 
 
@@ -214,7 +217,8 @@ ReturnsUInt_t 0
 
 getPaternCount Similarly, this has been returning 0 for some time
 
-ReturnsUInt_t 0
+- Returns
+  UInt_t 0
 
 
 
@@ -228,7 +232,8 @@ ReturnsUInt_t 0
 
 getRun We don't know the run so always return 0.
 
-ReturnsUInt_t (0).
+- Returns
+  UInt_t (0).
 
 
 
@@ -242,7 +247,8 @@ ReturnsUInt_t (0).
 
 getSequenceNo
 
-ReturnsUInt_t - we really don't have a sequence number so return 0
+- Returns
+  UInt_t - we really don't have a sequence number so return 0
 
 
 
@@ -256,7 +262,8 @@ ReturnsUInt_t - we really don't have a sequence number so return 0
 
 getTitle We don't have a title but we can return an empty string.
 
-Returnsstd::string ""
+- Returns
+  std::string ""
 
 
 

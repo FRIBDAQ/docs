@@ -110,20 +110,16 @@ The intended use for this data structure is to provide support for zero copy ope
 Construct the buffer.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| initialSize | Initial size in bytes allocated to the buffer (default = 0). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | initialSize | Initial size in bytes allocated to the buffer (default = 0). |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::bad_alloc | Buffer malloc fails for initialSize > 0. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::bad_alloc | Buffer malloc fails for initialSize > 0. |
 
 
 If initailSize is zero (the default) no storage is allocated and the user must do a resize at some point to get storage.
@@ -172,12 +168,14 @@ Deincrement the reference counter.
 Are there references to the object?
 
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If the number of references is > 0. |
-| false | Otherwise. |
+- Returns
+  bool
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If the number of references is > 0. |
+  | false | Otherwise. |
 
 
 
@@ -235,27 +233,24 @@ Increment the reference counter.
 Resize the storage.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| newSize | The new size in bytes. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | newSize | The new size in bytes. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | If there are references. |
-| std::bad_alloc | If the memory allocation fails. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | If there are references. |
+  | std::bad_alloc | If the memory allocation fails. |
 
 
 This must not be done when there are references as the resize will invalidate all pointers. Therefore if there are references, a std::logic_error is thrown.
 
 
-NoteIf newSize < s_size no resize is done but the exception can still be thrown.
+- Note
+  If newSize < s_size no resize is done but the exception can still be thrown.
 
 
 ## Member Data Documentation

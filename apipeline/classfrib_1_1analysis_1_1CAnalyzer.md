@@ -69,7 +69,8 @@ header
 This is intended as a stub class to satisfy refernces to the SpecTcl analyzer that, of necessity, SpecTcl event processors will have. Some services are provided to that code (I think) regardless an instance is passed to event processors.
 
 
-Notesome [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]] methods are missing as they are purely internal to SpecTcl and even the analyzer itself.
+- Note
+  some [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]] methods are missing as they are purely internal to SpecTcl and even the analyzer itself.
 
 ## Constructor & Destructor Documentation
 
@@ -129,7 +130,8 @@ The intent was to allow an event's parameters to be composed from two sub-events
 
 getDecoder
 
-ReturnsCBufferDecoder* (&dummyDecoder).
+- Returns
+  CBufferDecoder* (&dummyDecoder).
 
 
 
@@ -142,7 +144,8 @@ ReturnsCBufferDecoder* (&dummyDecoder).
 
 getEventThreshol
 
-Returns0
+- Returns
+  0
 
 
 
@@ -155,7 +158,8 @@ Returns0
 
 getParametersInEvent Return then number of parameters defined for an event. This is the number of tree parameters defined.
 
-ReturnsUInt_t
+- Returns
+  UInt_t
 
 
 

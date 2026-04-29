@@ -26,29 +26,26 @@ do not remove this div, it is closed by doxygen!
 Deprecated List
 
 header
-Member [[cmdline_parser2|dumperargs_8h#a78a0cd581698415a62f68214603b1a30]]  (int argc, char **argv, struct [[gengetopt_args_info|structgengetopt__args__info]] *args_info, int override, int initialize, int check_required)
-use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+- Member [[cmdline_parser2|dumperargs_8h#a78a0cd581698415a62f68214603b1a30]]  (int argc, char **argv, struct [[gengetopt_args_info|structgengetopt__args__info]] *args_info, int override, int initialize, int check_required)
+
+  use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+  use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+  use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+  use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+
+- Member [[ddaschannel::cfd|classddaschannel#add1388a9a7a9c7e756ec88c3450cf474]]
 
 
-use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+- Member [[ddaschannel::channelnum|classddaschannel#aa224d1d510d65d8bc57d5989d2f0001c]]
 
 
-use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+- Member [[ddaschannel::GetCFD|classddaschannel#ad946b614a4fddbea8ce7daa985ef1f41]]  () const
 
 
-use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
+- Member [[ddaschannel::GetID|classddaschannel#afd5ed079c5833824bb846d969ba111f4]]  () const
 
 
-
-Member [[ddaschannel::cfd|classddaschannel#add1388a9a7a9c7e756ec88c3450cf474]] 
-
-Member [[ddaschannel::channelnum|classddaschannel#aa224d1d510d65d8bc57d5989d2f0001c]] 
-
-Member [[ddaschannel::GetCFD|classddaschannel#ad946b614a4fddbea8ce7daa985ef1f41]]  () const 
-
-Member [[ddaschannel::GetID|classddaschannel#afd5ed079c5833824bb846d969ba111f4]]  () const 
-
-Member [[ddaschannel::id|classddaschannel#afc3a65a9eea51e686e8205fa07b77e95]]
+- Member [[ddaschannel::id|classddaschannel#afc3a65a9eea51e686e8205fa07b77e95]]
 
  contents 
  start footer part 

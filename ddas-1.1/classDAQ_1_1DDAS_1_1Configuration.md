@@ -125,7 +125,8 @@ At the moment, modules are expected to output events of equal length for all cha
 | --- | --- | --- | --- | --- |
 | int DAQ::DDAS::Configuration::getCrateId | ( |  | ) | const |
 
-ReturnsThe crate id
+- Returns
+  The crate id
 
 
 
@@ -136,19 +137,19 @@ ReturnsThe crate id
 Retrieve the current firmware specifier for the.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hdwrType | the hardware specifier associated with the firmware configuration |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hdwrType | the hardware specifier associated with the firmware configuration |
 
 
+- Returns
+  the firmware configuration associated with the hdwrType
 
-
-Returnsthe firmware configuration associated with the hdwrType
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if no firmware configuration exists for the provided hdwrType |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if no firmware configuration exists for the provided hdwrType |
 
 
 
@@ -156,7 +157,8 @@ Exceptions
 | --- | --- | --- | --- | --- |
 | std::vector< int > DAQ::DDAS::Configuration::getModuleEventLengths | ( |  | ) | const |
 
-Returnscopy of module event lengths vector
+- Returns
+  copy of module event lengths vector
 
 
 
@@ -164,7 +166,8 @@ Returnscopy of module event lengths vector
 | --- | --- | --- | --- | --- |
 | size_t DAQ::DDAS::Configuration::getNumberOfModules | ( |  | ) | const |
 
-Returnsthe number of modules
+- Returns
+  the number of modules
 
 
 
@@ -172,7 +175,8 @@ Returnsthe number of modules
 | --- | --- | --- | --- | --- |
 | std::string DAQ::DDAS::Configuration::getSettingsFilePath | ( |  | ) | const |
 
-Returnsthe settings file path
+- Returns
+  the settings file path
 
 
 
@@ -180,7 +184,8 @@ Returnsthe settings file path
 | --- | --- | --- | --- | --- |
 | std::vector< unsigned short > DAQ::DDAS::Configuration::getSlotMap | ( |  | ) | const |
 
-Returnsvector containing the slots that are filled
+- Returns
+  vector containing the slots that are filled
 
 
 
@@ -191,12 +196,10 @@ Returnsvector containing the slots that are filled
 Print brief line of information for cfgPixie16.txt.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| stream | the ostream to write to |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | stream | the ostream to write to |
 
 
 Prints out a message similar to : "Crate number 1: 2 modules, in slots:2 10 DSPParFile: /path/to/file.set"
@@ -210,12 +213,10 @@ Prints out a message similar to : "Crate number 1: 2 modules, in slots:2 10 DSPP
 Set the crate id for the module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| id | the id to assign |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | id | the id to assign |
 
 
 Note that this is not currently used for anything.
@@ -231,13 +232,11 @@ Note that this is not currently used for anything.
 Set the firmware configuration for a hardware type.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| specifier | the hardware type |
-| config | the new configuration |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | specifier | the hardware type |
+  | config | the new configuration |
 
 
 Any previous [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]] stored will be replaced by the new configuration. If there is no previous configuration for the hardware type it will be added.
@@ -251,20 +250,16 @@ Any previous [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]
 Set the lengths of events for each module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| lengths | the module event lengths |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | lengths | the module event lengths |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if size of lengths does not match size of stored slot map. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if size of lengths does not match size of stored slot map. |
 
 
 It is necessary that the caller has previously invoked [[setNumberOfModules()|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]] before calling this. The logic of this method aims to keep the slot map and module event length vectors the same length. Without invoking [[setNumberOfModules()|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]] this is most likely not going to be the case.
@@ -278,12 +273,10 @@ It is necessary that the caller has previously invoked [[setNumberOfModules()|cl
 Set the number of modules in the crate.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| size | number of modules |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | size | number of modules |
 
 
 This resizes both the vectors storing the slot map and module event lengths to be consistent. The caller should call setNumberOfModules prior to calling [[setSlotMap()|classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]] or [[setModuleEventLengths()|classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]].
@@ -297,10 +290,10 @@ This resizes both the vectors storing the slot map and module event lengths to b
 Set the path to the .set file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| path | the path to the settings file |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | path | the path to the settings file |
 
 
 
@@ -311,20 +304,16 @@ Parameters
 Assign a new slot map.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| map | the slots that are occupied |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | map | the slots that are occupied |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | when length of argument is different than length of stored modevtlen vector |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | when length of argument is different than length of stored modevtlen vector |
 
 
 It is important for the caller to first call [[setNumberOfModules()|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]] before calling this to avoid an exception being thrown. To avoid weird configurations, this ensures that the length of the slot map is the same as the module event length vector at all times. If the user has not set the number of modules previously, this cannot be gauranteed and the method will almost always throw.

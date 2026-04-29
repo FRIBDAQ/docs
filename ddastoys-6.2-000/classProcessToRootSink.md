@@ -122,12 +122,10 @@ A ring item processeor concrete class that overrides the [[CRingItemProcessor|cl
 Process physics events.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | References the physics event item that we are 'analyzing'. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | References the physics event item that we are 'analyzing'. |
 
 
 Derived class decides what to do with PHYSICS_EVENT ring items. In this case, we just pass the data to the ROOT file sink and let it handle the rest.

@@ -22,8 +22,12 @@ do not remove this div, it is closed by doxygen!
  iframe showing the search results (closed by default)
 
  top 
-AuthorRon Fox, Sean Liddick 
-DateMarch 3, 2016 (last modification).
+- Author
+  Ron Fox, Sean Liddick
+
+- Date
+  March 3, 2016 (last modification).
+
 # Introduction
 
 
@@ -54,7 +58,9 @@ To use the Readout program requires that you:
 Obtain and modify the template crate directory for each DDAS PXI Crate you will use. Set up the Readout(s) you need as data sources for the ReadoutGUI. Set up the NSCL Event builder to build event data from the Readout program(s) you use.
 
 
-NoteIn order to maintain a consistent event structure, the event builder is used even when data only comes from a single PXI crate.
+- Note
+  In order to maintain a consistent event structure, the event builder is used even when data only comes from a single PXI crate.
+
 # Obtaining and modifying the crate files.
 
 
@@ -161,7 +167,9 @@ N_longwords = ceil( 0.5 * trace_length * frequency )
 The factor of 1/2 arises because the ADCs in all DDAS supported modules have less than 16-bit resolution. That means that for every 32-bits, there are two samples. Here is an example calculation for a 100 MSPS digitizer. Assume that trace capture is enabled and that 2.3 us traces are going to be recorded. That means that there are 165 longwords to store for this trace. We then add to this the number of words in the rightmost column of the above table according to the features that were enabled. Let's assume that energy summing is enabled in addition to our trace capture. The value we would write in our modevtlen.txt would be 173. Now if I had the same scenario, but was using a 250 MSPS digitizer, then the corresponding modevtlen.txt entry would be 296. Note that we had to round up to account for the odd number of samples in the trace.
 
 
-NoteAt the moment, there is no support for setting up channels within a single module to output different length events. If one channel in a module is set to acquire traces of length 1 us, then all other channels in the module must do the same. If you do not, then Readout will fail to create events with boundaries that are meaningful and the data will become gibberish very quickly.
+- Note
+  At the moment, there is no support for setting up channels within a single module to output different length events. If one channel in a module is set to acquire traces of length 1 us, then all other channels in the module must do the same. If you do not, then Readout will fail to create events with boundaries that are meaningful and the data will become gibberish very quickly.
+
 ### The pxisys.ini
 
 

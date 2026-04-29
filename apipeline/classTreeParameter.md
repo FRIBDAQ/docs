@@ -32,7 +32,8 @@ header
 The tree parameter class is the basis of internal parameter representation in the analysis pipeline. It mimics a double but it knows when it's been set. It also maintains a scoreboard of the set indices. It has the property that multiple instances of a tree paramter will point to the same underlying parameter. in a single process instance.
 
 
-NoteTree parameters are inherently *not* threadsafe.
+- Note
+  Tree parameters are inherently *not* threadsafe.
 
 
 ---

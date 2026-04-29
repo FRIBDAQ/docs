@@ -195,23 +195,19 @@ Provided a configuration, all modules will be booted. The configuration contains
 Boot a single module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| modIndex | Index of the module in the system. |
-| m_config | The system configuration. |
-| type | Boot style (load firmware or settings only). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | modIndex | Index of the module in the system. |
+  | m_config | The system configuration. |
+  | type | Boot style (load firmware or settings only). |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If hardware type is unknown. |
-| CDDASException | If Pixie16BootModule returns an error. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If hardware type is unknown. |
+  | CDDASException | If Pixie16BootModule returns an error. |
 
 
 The system is booted into a usable state. The mechanics of booting involve either loading firmware and settings or just settings, depending on the type parameter that was passed as a second argument to the method. If the user chooses to boot with a firmware load, the firmware files stored in the configuration associated with the hardware will be used. The settings file that will be used in any boot type, will be the path stored in the configuration.
@@ -229,7 +225,8 @@ The system is booted into a usable state. The mechanics of booting involve eithe
 Return the boot mode of the system.
 
 
-ReturnsThe boot mode.
+- Returns
+  The boot mode.
 
 
 
@@ -244,7 +241,8 @@ ReturnsThe boot mode.
 Return the state of verbosity.
 
 
-ReturnsThe state.
+- Returns
+  The state.
 
 
 
@@ -258,26 +256,23 @@ ReturnsThe state.
 Read and store hardware info from each of the modules in the system.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| config | The system configuration. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | config | The system configuration. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| CDDASException | If Pixie16ReadModuleInfo returns an error. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CDDASException | If Pixie16ReadModuleInfo returns an error. |
 
 
 To retrieve information about all of the modules in the system, Pixie16ReadModuleInfo is called for each module index. The resulting revision number, ADC bits, and ADC frequency is printed (if verbose output enabled) and the hardware mapping is stored in the configuration that was passed in.
 
 
-**[[Todo:|todo#_todo000007]]**(ASC 12/14/23): For the API transition we want to read the module_config struct. We may not even need to log it (just put them in a vector)
+- **[[Todo:|todo#_todo000007]]**
+  (ASC 12/14/23): For the API transition we want to read the module_config struct. We may not even need to log it (just put them in a vector)
 
 
 
@@ -291,15 +286,15 @@ To retrieve information about all of the modules in the system, Pixie16ReadModul
 Enable or disable online boot.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| mode | Boot mode, 0 for online, 1 for offline. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mode | Boot mode, 0 for online, 1 for offline. |
 
 
+- Warning
+  Offline boot mode is only supported in XIA API v2!
 
-
-WarningOffline boot mode is only supported in XIA API v2!
 By default, the boot mode is set to online mode. If it is set to offline mode, calls to the API functions can still be tested with no modules present.
 
 
@@ -314,12 +309,10 @@ By default, the boot mode is set to online mode. If it is set to offline mode, c
 Enable or disable verbose output.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| enable | Enables output messages if true. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | enable | Enables output messages if true. |
 
 
 By default, the output verbosity setting is enabled. If it is disabled, there will be no output printed to the terminal.

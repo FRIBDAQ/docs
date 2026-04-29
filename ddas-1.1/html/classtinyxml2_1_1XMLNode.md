@@ -374,7 +374,8 @@ Set user data into the [[XMLNode|classtinyxml2_1_1XMLNode]]. TinyXML-2 in no way
 
 Set the Value of an XML node.
 
-See also[[Value()|classtinyxml2_1_1XMLNode#a92835c779871918f9af569bfe9669fe6]]
+- See also
+  [[Value()|classtinyxml2_1_1XMLNode#a92835c779871918f9af569bfe9669fe6]]
 
 
 

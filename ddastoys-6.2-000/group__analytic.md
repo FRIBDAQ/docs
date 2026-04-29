@@ -114,20 +114,20 @@ Plugin library for analytic fitting.
 Computes the chi-square goodness-of-fit for a specific parameterization of a single pulse canonical form with respect to a trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Amplitude of pulse |
-| k1 | Steepness of pulse rise. |
-| k2 | Decay time of pulse fall. |
-| x1 | Position of the pulse. |
-| C | Constant offset of the trace. |
-| points | Set of (x, y) data points which contribute to the total chi-square value |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Amplitude of pulse |
+  | k1 | Steepness of pulse rise. |
+  | k2 | Decay time of pulse fall. |
+  | x1 | Position of the pulse. |
+  | C | Constant offset of the trace. |
+  | points | Set of (x, y) data points which contribute to the total chi-square value |
 
 
+- Returns
+  The chi-square goodness-of-fit statistic.
 
-
-ReturnsThe chi-square goodness-of-fit statistic.
 Neyman's chi-square. The chi-square value is calculated from a passed set of (x, y) points.
 
 
@@ -150,22 +150,24 @@ Neyman's chi-square. The chi-square value is calculated from a passed set of (x,
 Computes the chi-square goodness-of-fit for a specific parameterization of a single pulse canonical form with respect to a trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Amplitude of pulse |
-| k1 | Steepness of pulse rise. |
-| k2 | Decay time of pulse fall. |
-| x1 | Position of the pulse. |
-| C | Constant offset of the trace. |
-| trace | Trace to compute the chi-square value with respect to. |
-| low,high | Region of interest over which to compute the chi-square value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Amplitude of pulse |
+  | k1 | Steepness of pulse rise. |
+  | k2 | Decay time of pulse fall. |
+  | x1 | Position of the pulse. |
+  | C | Constant offset of the trace. |
+  | trace | Trace to compute the chi-square value with respect to. |
+  | low,high | Region of interest over which to compute the chi-square value. |
 
 
+- Note
+  high = -1 will set the high limit to the last sample in the trace.
 
+- Returns
+  The chi-square goodness-of-fit statistic.
 
-Notehigh = -1 will set the high limit to the last sample in the trace. 
-ReturnsThe chi-square goodness-of-fit statistic.
 Neyman's chi-square. The chi-square value is calculated based on the passed limits low, high.
 
 
@@ -190,24 +192,24 @@ Neyman's chi-square. The chi-square value is calculated based on the passed limi
 Computes the chi-square goodness of a specific parameterization of a double pulse canonical form with respect to a trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Amplitude of the first pulse. |
-| k1 | Steepness of first pulse rise. |
-| k2 | Decay time of the first pulse. |
-| x1 | Position of the first pulse. |
-| A2 | Amplitude of the second pulse. |
-| k3 | Steepness of second pulse rise. |
-| k4 | Decay time of second pulse. |
-| x2 | Position of second pulse. |
-| C | Constant offset the pulses sit on. |
-| points | Set of x, y data points which contribute to the total chi-square value |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Amplitude of the first pulse. |
+  | k1 | Steepness of first pulse rise. |
+  | k2 | Decay time of the first pulse. |
+  | x1 | Position of the first pulse. |
+  | A2 | Amplitude of the second pulse. |
+  | k3 | Steepness of second pulse rise. |
+  | k4 | Decay time of second pulse. |
+  | x2 | Position of second pulse. |
+  | C | Constant offset the pulses sit on. |
+  | points | Set of x, y data points which contribute to the total chi-square value |
 
 
+- Returns
+  The chi-square goodness-of-fit statistic.
 
-
-ReturnsThe chi-square goodness-of-fit statistic.
 Neyman's chi-square. The chi-square value is calculated from a passed set of (x, y) points.
 
 
@@ -234,26 +236,28 @@ Neyman's chi-square. The chi-square value is calculated from a passed set of (x,
 Computes the chi-square goodness of a specific parameterization of a double pulse canonical form with respect to a trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Amplitude of the first pulse. |
-| k1 | Steepness of first pulse rise. |
-| k2 | Decay time of the first pulse. |
-| x1 | Position of the first pulse. |
-| A2 | Amplitude of the second pulse. |
-| k3 | Steepness of second pulse rise. |
-| k4 | Decay time of second pulse. |
-| x2 | Position of second pulse. |
-| C | Constant offset the pulses sit on. |
-| trace | Trace to compute the chisquare with respect to. |
-| low,high | Region of interest over which to compute the chi-square value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Amplitude of the first pulse. |
+  | k1 | Steepness of first pulse rise. |
+  | k2 | Decay time of the first pulse. |
+  | x1 | Position of the first pulse. |
+  | A2 | Amplitude of the second pulse. |
+  | k3 | Steepness of second pulse rise. |
+  | k4 | Decay time of second pulse. |
+  | x2 | Position of second pulse. |
+  | C | Constant offset the pulses sit on. |
+  | trace | Trace to compute the chisquare with respect to. |
+  | low,high | Region of interest over which to compute the chi-square value. |
 
 
+- Note
+  high = -1 will set the high limit to the last sample in the trace.
 
+- Returns
+  The chi-square goodness-of-fit statistic.
 
-Notehigh = -1 will set the high limit to the last sample in the trace. 
-ReturnsThe chi-square goodness-of-fit statistic.
 Neyman's chi-square. The chi-square values is calculated based on the passed limits low, high.
 
 
@@ -272,18 +276,18 @@ Neyman's chi-square. The chi-square values is calculated based on the passed lim
 Evaluate an exponential decay for the specific parameters and point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A | Amplitude of the signal |
-| k | Decay constant of the signal. |
-| x1 | Position of the pulse. |
-| x | Where to evaluate the signal. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A | Amplitude of the signal |
+  | k | Decay constant of the signal. |
+  | x1 | Position of the pulse. |
+  | x | Where to evaluate the signal. |
 
 
+- Returns
+  Function value at x.
 
-
-ReturnsFunction value at x.
 Signals from detectors usually have a falling shape that approximates an exponential. This function evaluates this decay at some point.
 
 
@@ -308,24 +312,24 @@ Signals from detectors usually have a falling shape that approximates an exponen
 Evaluate the double pulse fit function at a given point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Amplitude of the first pulse. |
-| k1 | Steepness of first pulse rise. |
-| k2 | Decay time of the first pulse. |
-| x1 | Position of the first pulse. |
-| A2 | Amplitude of the second pulse. |
-| k3 | Steepness of second pulse rise. |
-| k4 | Decay time of second pulse. |
-| x2 | Position of second pulse. |
-| C | Constant offset the pulses sit on. |
-| x | Position at which to evaluate the pulse. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Amplitude of the first pulse. |
+  | k1 | Steepness of first pulse rise. |
+  | k2 | Decay time of the first pulse. |
+  | x1 | Position of the first pulse. |
+  | A2 | Amplitude of the second pulse. |
+  | k3 | Steepness of second pulse rise. |
+  | k4 | Decay time of second pulse. |
+  | x2 | Position of second pulse. |
+  | C | Constant offset the pulses sit on. |
+  | x | Position at which to evaluate the pulse. |
 
 
+- Returns
+  Double pulse function evaluated at x.
 
-
-ReturnsDouble pulse function evaluated at x.
 Evaluate the canonical form of a double pulse. This is done by summing two single pulses. The constant term is thrown into the first pulse. The second pulse gets a constant term of 0.
 
 
@@ -344,15 +348,13 @@ Evaluate the canonical form of a double pulse. This is done by summing two singl
 Driver for the GSL LM fitter for single pulses.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pResult | Struct that will get the results of the fit. |
-| trace | Vector of trace points. |
-| limits | Limits of the trace over which to conduct the fit. |
-| saturation | Value at which the ADC is saturated (points at or above this value are removed from the fit.) |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pResult | Struct that will get the results of the fit. |
+  | trace | Vector of trace points. |
+  | limits | Limits of the trace over which to conduct the fit. |
+  | saturation | Value at which the ADC is saturated (points at or above this value are removed from the fit.) |
 
 
 Implements GSL's Levenburg-Marquardt fitter to determine best-fit parameters by chi-square minimization.
@@ -374,16 +376,14 @@ Implements GSL's Levenburg-Marquardt fitter to determine best-fit parameters by 
 Driver for the GSL LM fitter for double pulses.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pResult | Results will be stored here. |
-| trace | References the trace to fit. |
-| limits | The limits of the trace that can be fit. |
-| pSinglePulseFit | The fit for a single pulse, used to seed initial guesses if present. Otherwise a single pulse fit is done for that. |
-| saturation | ADC saturation value. Points with values at or above this value are removed from the fit. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pResult | Results will be stored here. |
+  | trace | References the trace to fit. |
+  | limits | The limits of the trace that can be fit. |
+  | pSinglePulseFit | The fit for a single pulse, used to seed initial guesses if present. Otherwise a single pulse fit is done for that. |
+  | saturation | ADC saturation value. Points with values at or above this value are removed from the fit. |
 
 
 Implements GSL's Levenburg-Marquardt fitter to determine best-fit parameters by chi-square minimization.
@@ -405,16 +405,14 @@ Implements GSL's Levenburg-Marquardt fitter to determine best-fit parameters by 
 Driver for the GSL LM fitter for double pulses, constraining the two timing parameters (rise time and fall time) to be the same for both pulses.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pResult | Results will be stored here. |
-| trace | References the trace to fit. |
-| limits | The limits of the trace that can be fit. |
-| pSinglePulseFit | The fit for a single pulse, used to seed initial uesses if present. Otherwise a single pulse fit is done for that. |
-| saturation | ADC saturation value. Points with values at or above this value are removed from the fit. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pResult | Results will be stored here. |
+  | trace | References the trace to fit. |
+  | limits | The limits of the trace that can be fit. |
+  | pSinglePulseFit | The fit for a single pulse, used to seed initial uesses if present. Otherwise a single pulse fit is done for that. |
+  | saturation | ADC saturation value. Points with values at or above this value are removed from the fit. |
 
 
 Implements GSL's Levenburg-Marquardt fitter to determine best-fit parameters by chi-square minimization.
@@ -435,18 +433,18 @@ Implements GSL's Levenburg-Marquardt fitter to determine best-fit parameters by 
 Evaluate a logistic function for the specified parameters and point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A | Amplitude of the signal. |
-| k | Steepness of the signal (related to the rise time). |
-| x1 | Mid-point of the rise of the logistic. |
-| x | Location at which to evaluate the function. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A | Amplitude of the signal. |
+  | k | Steepness of the signal (related to the rise time). |
+  | x1 | Mid-point of the rise of the logistic. |
+  | x | Location at which to evaluate the function. |
 
 
+- Returns
+  Function value at x.
 
-
-ReturnsFunction value at x.
 A logistic function is a function with a sigmoidal shape. We use it to fit the rising edge of signals from DDAS digitizes. See e.g. [https://en.wikipedia.org/wiki/Logistic_function](https://en.wikipedia.org/wiki/Logistic_function) for a discussion of this function.
 
 
@@ -465,24 +463,22 @@ A logistic function is a function with a sigmoidal shape. We use it to fit the r
 Calculate the pulse amplitude corrected for the ballistic deficit imposed by the exponential decay.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A | The scaling term of the pulse. |
-| k1 | The steepness term of the logistic. |
-| k2 | The fall time term of the decay. |
-| x0 | The position of the pulse. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A | The scaling term of the pulse. |
+  | k1 | The steepness term of the logistic. |
+  | k2 | The fall time term of the decay. |
+  | x0 | The position of the pulse. |
 
 
+- Returns
+  The corrected amplitude of the fitted pulse.
 
-
-ReturnsThe corrected amplitude of the fitted pulse. 
-Return values
-|  |  |
-| --- | --- |
-| -1 | If. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | -1 | If. |
 
 
 The A1 term in a pulse fit is not actually the "true" pulse amplitude. The effect of the exponential decay is already important causing A1 to over-estimate the amplitude.
@@ -514,20 +510,20 @@ We plug that position back into the pulse to get the amplitude.
 Evaluate the single pulse fit function at a given point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Pulse amplitiude. |
-| k1 | Logistic rise steepness. |
-| k2 | Exponential decay time constant. |
-| x1 | Logistic position. |
-| C | Constant offset. |
-| x | Position at which to evaluate the function. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Pulse amplitiude. |
+  | k1 | Logistic rise steepness. |
+  | k2 | Exponential decay time constant. |
+  | x1 | Logistic position. |
+  | C | Constant offset. |
+  | x | Position at which to evaluate the function. |
 
 
+- Returns
+  double Single pulse function evaluated at x.
 
-
-Returnsdouble Single pulse function evaluated at x.
 Evaluate the value of a single pulse in accordance with our canonical functional form. The form is a logistic rise with an exponential decay that sits on top of a constant offset.
 
 
@@ -544,16 +540,16 @@ Evaluate the value of a single pulse in accordance with our canonical functional
 Logistic switch to turn on a function evaluation at a given point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| x1 | Switch on point. The switch is "on" for values greater than x1. |
-| x | Point in space at which to evaluate the switch. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | x1 | Switch on point. The switch is "on" for values greater than x1. |
+  | x | Point in space at which to evaluate the switch. |
 
 
+- Returns
+  The switch value: very nearly 0.0 left of x1 and very nearly 1.0 to the right of x1.
 
-
-ReturnsThe switch value: very nearly 0.0 left of x1 and very nearly 1.0 to the right of x1.
 Provides a multipier that can be used to turn on a function at a point in space. This is provided for GPUs that may want to define functions with conditional chunks without the associated flow control divergence conditionals would require. This is implemented as a *very* steep logistic with rise centered at the point in question.
 
 
@@ -571,12 +567,12 @@ Provides a multipier that can be used to turn on a function at a point in space.
 Write a single trace to a file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | Where to write. |
-| title | Title string. |
-| trace | The trace data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | Where to write. |
+  | title | Title string. |
+  | trace | The trace data. |
 
 
 
@@ -594,18 +590,17 @@ Parameters
 Write two traces to a file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| filename | Where to write. |
-| title | Title string. |
-| t1 | The first trace. |
-| t2 | The second trace. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | filename | Where to write. |
+  | title | Title string. |
+  | t1 | The first trace. |
+  | t2 | The second trace. |
 
 
-
-
-NoteThe traces must be the same length.
+- Note
+  The traces must be the same length.
 
  contents 
  start footer part 

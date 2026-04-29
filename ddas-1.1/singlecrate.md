@@ -49,8 +49,12 @@ header
 - [Appendix - data format](#dataformat)
 
 
-AuthorRon Fox and Jeromy Tompkins 
-Date4/21/2016
+- Author
+  Ron Fox and Jeromy Tompkins
+
+- Date
+  4/21/2016
+
 # Introduction
 
 
@@ -172,7 +176,9 @@ Install: Plx9054
 The user must load the PLX kernel module before using DDAS after every time the computer is booted.
 
 
-WarningIn a multicrate system, the PLX kernel module must be loaded into *every* computer attached to the PXI backplane (i.e. every spdaq in your system reading out DDAS modules).
+- Warning
+  In a multicrate system, the PLX kernel module must be loaded into *every* computer attached to the PXI backplane (i.e. every spdaq in your system reading out DDAS modules).
+
 # Configuration files
 
 
@@ -922,7 +928,8 @@ The event header has several bit fields. The table below shows the bit fields an
 - The most significant bit is 0 if the event was a good event and 1 if the event was a pile-up event.
 
 
-NoteThe interpretation of the [[CFD|classCFD]] bits above pertain specifically to the 100 MSPS Pixie-16 digitizers at the NSCL. The meanings of the bits changes slightly when working with the 250 MSPS and 500 MSPS digitizers.
+- Note
+  The interpretation of the [[CFD|classCFD]] bits above pertain specifically to the 100 MSPS Pixie-16 digitizers at the NSCL. The meanings of the bits changes slightly when working with the 250 MSPS and 500 MSPS digitizers.
 
  contents 
  start footer part 

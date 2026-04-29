@@ -136,7 +136,8 @@ header
 An attribute is a name-value pair. Elements have an arbitrary number of attributes, each with a unique name.
 
 
-NoteThe attributes are not XMLNodes. You may only query the [[Next()|classtinyxml2_1_1XMLAttribute#a7fd852d6185af90361ec1bc9a7681ad6]] attribute in a list.
+- Note
+  The attributes are not XMLNodes. You may only query the [[Next()|classtinyxml2_1_1XMLAttribute#a7fd852d6185af90361ec1bc9a7681ad6]] attribute in a list.
 
 ## Member Function Documentation
 

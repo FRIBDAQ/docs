@@ -112,7 +112,8 @@ Any data that was written to disk downstream of the NSCLDAQ event builder will h
 The class is, as the name suggests, suitable for ROOT I/O. It inherits from ROOT's TObject and contains a `ClassDef()` macro which adds some reflection capability, allows for schema evolution and *in theory* offers some performance benefit.
 
 
-**[[Todo:|todo#_todo000015]]**(ASC 4/2/24): Write tests for this class to validate its methods.
+- **[[Todo:|todo#_todo000015]]**
+  (ASC 4/2/24): Write tests for this class to validate its methods.
 
 ## Constructor & Destructor Documentation
 
@@ -153,12 +154,10 @@ Deletes the objects stored in m_data and clear the vector.
 Copy constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| obj | References theDDASRootEventto copy-construct from. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | obj | References theDDASRootEventto copy-construct from. |
 
 
 Implements a deep copy.
@@ -178,12 +177,10 @@ Implements a deep copy.
 Append channel data to event.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| channel | Pointer to aDDASRootHitobject to append. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channel | Pointer to aDDASRootHitobject to append. |
 
 
 Appends the pointer to the internal, extensible data array. There is no check that the object pointed to by the argument exists, so that it is the user's responsibility to implement.
@@ -212,7 +209,8 @@ Appends the pointer to the internal, extensible data array. There is no check th
 Access internal, extensible array of channel data.
 
 
-ReturnsVector of dynamically allocated DDASRootHits.
+- Returns
+  Vector of dynamically allocated DDASRootHits.
 
 
 
@@ -226,7 +224,9 @@ ReturnsVector of dynamically allocated DDASRootHits.
 Get timestamp of first channel datum.
 
 
-ReturnsTimestamp of the first element in the data vector.
+- Returns
+  Timestamp of the first element in the data vector.
+
 If data exists return timestamp of first element in the array. This should be the earliest unit of data stored by this object. If no data exists, returns 0.
 
 
@@ -241,7 +241,9 @@ If data exists return timestamp of first element in the array. This should be th
 Get timestamp of last channel datum.
 
 
-ReturnsTimestamp of the last element in the data vector.
+- Returns
+  Timestamp of the last element in the data vector.
+
 If data exists return timestamp of last element in the array. This should be the most recent unit of data stored by this object. If no data exists, returns 0.
 
 
@@ -257,7 +259,8 @@ If data exists return timestamp of last element in the array. This should be the
 Return the number of hits in this event.
 
 
-ReturnsThe number of hits in the event (size of the event vector).
+- Returns
+  The number of hits in the event (size of the event vector).
 
 
 
@@ -288,15 +291,14 @@ Assignment operator.
 Performs a deep copy of the data belonging to obj. This assignment operator is simple at the expense of some safety. The entirety of the data vector is deleted prior to assignment. If the initialization of the [[DDASRootHit|classDDASRootHit]] objects threw an exception or caused something else to happen that is bad, then it would be a big problem. The possibility does exist for this to happen. Coding up a safer version is just more complex, harder to understand, and will be slower.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| obj | Reference to the object to assign (rhs). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | obj | Reference to the object to assign (rhs). |
 
 
-
-
-ReturnsReference to the assigned object (lhs).
+- Returns
+  Reference to the assigned object (lhs).
 
 
 

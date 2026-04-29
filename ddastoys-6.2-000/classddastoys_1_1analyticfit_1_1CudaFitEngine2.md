@@ -113,7 +113,8 @@ The concept is that each GSL lmfitter can supply a pair of methods: One that com
 Finally a fit factory can generate the appropriate fit engine as desired by the actual fit.
 
 
-**[[Todo:|todo#_todo000004]]**(ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
+- **[[Todo:|todo#_todo000004]]**
+  (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
 
 ## Constructor & Destructor Documentation
 
@@ -129,12 +130,10 @@ Finally a fit factory can generate the appropriate fit engine as desired by the 
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | The trace data in x/y pairs. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | The trace data in x/y pairs. |
 
 
 Allocate the GPU resources:
@@ -177,16 +176,16 @@ Just frees the device blocks.
 Marshall the parameter and call the jacobian2 kernel. Then pull the Jacobian matrix out of the GPU and marshall it back into the GSL Jacobian matrix.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| p | Parameter vector from GSL. |
-| J | Jacobian matrix to output. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | p | Parameter vector from GSL. |
+  | J | Jacobian matrix to output. |
 
 
+- Note
+  We organize the computing into 32 thread blocks because there are 32 thread per warp.
 
-
-NoteWe organize the computing into 32 thread blocks because there are 32 thread per warp. 
 Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]].
 
 
@@ -204,13 +203,11 @@ Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9
 Fire off the kernel to compute the pointwise residuals.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| p | Fit parameters. |
-| r | Residual vector. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | p | Fit parameters. |
+  | r | Residual vector. |
 
 
 Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].

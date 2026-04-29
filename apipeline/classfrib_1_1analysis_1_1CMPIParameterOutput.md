@@ -125,11 +125,11 @@ operator() Called to run the process:
 
 - Use the virtual getOutputFile to get the output filename.
 - Create the data writer object.
-- Until we get an end message from the sender (there is one), get data and write it to the m_pWriter. Parameters
-  |  |  |
-  | --- | --- |
-  | argc,argv | - command line arguments, used by getOutputFile. |
-  | app | - The application. Used to get the synthetic MPI data types. |
+- Until we get an end message from the sender (there is one), get data and write it to the m_pWriter. - Parameters
+    |  |  |
+    | --- | --- |
+    | argc,argv | - command line arguments, used by getOutputFile. |
+    | app | - The application. Used to get the synthetic MPI data types. |
 
 
 

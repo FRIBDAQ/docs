@@ -67,15 +67,13 @@ Plugin library for machine-learning inference fitting.
 Perform ML inference to determine the pulse parameters.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | pResult | Pointer to the fit results. |
-| [in] | trace | References the trace we're processing. |
-| [in] | saturation | ADC saturation value. Only samples below the saturation threshold are used to extrat the pulse parameters. |
-| [in] | module | References the inference model for this channel. |
-
-
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | pResult | Pointer to the fit results. |
+  | [in] | trace | References the trace we're processing. |
+  | [in] | saturation | ADC saturation value. Only samples below the saturation threshold are used to extrat the pulse parameters. |
+  | [in] | module | References the inference model for this channel. |
 
 
 This is the interface to perform the machine-learning inference fit on a single trace analogous to the lmfit functions for iterative fitting. The steps are pretty simple:

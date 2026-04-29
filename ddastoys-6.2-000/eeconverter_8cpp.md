@@ -76,29 +76,28 @@ Create an event processor, call its operator() to process data, and handle excep
 eeconverter main.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | Number of command line arguments. |
-| argv | Array containing the command line arguments. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | Number of command line arguments. |
+  | argv | Array containing the command line arguments. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| EXIT_SUCCESS | If the program executes and completes properly. |
-| EXIT_FAILURE | Otherwise. Most commonly because some part of the processing code threw and exception which is handled here. The error messages should point the user to the problem. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | EXIT_SUCCESS | If the program executes and completes properly. |
+  | EXIT_FAILURE | Otherwise. Most commonly because some part of the processing code threw and exception which is handled here. The error messages should point the user to the problem. |
 
 
 Creates and calls the event processor's operator().
 
 
-NoteTo users: Please report unhandled exceptions or unclear error messages to daqhelp!
+- Note
+  To users: Please report unhandled exceptions or unclear error messages to daqhelp!
 
  contents 
  start footer part 

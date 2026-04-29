@@ -82,11 +82,11 @@ constructor Simply save the argc/argv in case we later need it (this implementat
 
 The idea is that there's construction of the proceess and then, by calling the object as a functor, the process rus.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - the command line parameters. |
-| app | - References the application object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - the command line parameters. |
+  | app | - References the application object. |
 
 
 

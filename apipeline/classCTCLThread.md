@@ -84,11 +84,11 @@ Concrete derivations of this class are instances of threads that are started usi
 
 constructor We save the stack and flags for when start is called at which point they'll be needed.
 
-Parameters
-|  |  |
-| --- | --- |
-| flags | - start flags. |
-| stacksize | - bytes in stack. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | flags | - start flags. |
+  | stacksize | - bytes in stack. |
 
 
 
@@ -123,7 +123,8 @@ destructor This must be used with caution. Ideally the sequence is
 
 currentThread [static] Returns the current thread id
 
-ReturnsTcl_ThreadId
+- Returns
+  Tcl_ThreadId
 
 
 
@@ -150,7 +151,8 @@ exitHandler The runTrampoline, running in the context of the thread, always sets
 exitRequested
 
 
-Returnsbool - returns true if exit was requested.
+- Returns
+  bool - returns true if exit was requested.
 
 
 
@@ -163,11 +165,13 @@ Returnsbool - returns true if exit was requested.
 
 join If the thread is joinable and running it can be joined here. If this is not the case, an exception will be thrown
 
-Returnsint - exit code of the thread. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | if join could not be done. |
+- Returns
+  int - exit code of the thread.
+
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | if join could not be done. |
 
 
 
@@ -192,10 +196,10 @@ requestExit There's no way to actually force the exit of a thread. What we can d
 start Starts the thread:
 
 - Any client data is putin the m_trampolineArgs struct as m_pArg.
-- Tcl_CreateThread is called with runTrampoline as the thread run function with a pointer to m_trampolnieArgs as the client data. Parameters
-  |  |  |
-  | --- | --- |
-  | pData | - argument to pass to operator() - defaults to a nullptr. |
+- Tcl_CreateThread is called with runTrampoline as the thread run function with a pointer to m_trampolnieArgs as the client data. - Parameters
+    |  |  |
+    | --- | --- |
+    | pData | - argument to pass to operator() - defaults to a nullptr. |
 
 
 

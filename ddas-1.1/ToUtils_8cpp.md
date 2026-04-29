@@ -73,16 +73,15 @@ header
 
 makeSlotVector Given the slot information map, crate a vector of slots.
 
-Parameters
-|  |  |
-| --- | --- |
-| slotInfo | - slot information vetor |
-| crate | - Crate settings. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slotInfo | - slot information vetor |
+  | crate | - Crate settings. |
 
 
-
-
-Returnsstd::vector<unsigned short>
+- Returns
+  std::vector<unsigned short>
 
 
 
@@ -93,15 +92,14 @@ Returnsstd::vector<unsigned short>
 parseMspsOption Given the MSPS string of the form slot:speed returns the pair of {slot,speed}.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| opt | - the option value |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | opt | - the option value |
 
 
-
-
-Returnsstd::pair<unsigned short, unsigned short> first - the slot, second the speed in MHz.
+- Returns
+  std::pair<unsigned short, unsigned short> first - the slot, second the speed in MHz.
 
  contents 
  start footer part 

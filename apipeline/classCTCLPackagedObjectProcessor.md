@@ -149,12 +149,12 @@ In normal usage, the user derives the actual desired class from this. The life o
 
 Construction passes on to the base class:
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - TCL Interpreter on which this command will be defined. |
-| command | - Name of the command. |
-| registerMe | - If true, construction registers the command. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - TCL Interpreter on which this command will be defined. |
+  | command | - Name of the command. |
+  | registerMe | - If true, construction registers the command. |
 
 
 
@@ -183,7 +183,8 @@ Destruction is a NOOP:
 
 Return the package pointer so that derived classes can invoke package facilities
 
-ReturnsCTCLObjectPackage*
+- Returns
+  CTCLObjectPackage*
 
 
 
@@ -212,10 +213,10 @@ Reimplemented in [[testCommand|classtestCommand#a6f085e980b062a895cf423e1c2c4aa9
 Attachment saves the package pointer for later and invokes the Initialize method (which can get the package via getPackage if it needs.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| package | - Pointer to the package. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | package | - Pointer to the package. |
 
 
 

@@ -102,12 +102,10 @@ Abstract base class for marshalling data to the fitting subsystems to calculate 
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | (x, y) data to store in the coordinate vectors. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | (x, y) data to store in the coordinate vectors. |
 
 
 Marshall the (x, y) points into the coordinate vectors.

@@ -113,7 +113,8 @@ The concept is that each GSL lmfitter can supply a pair of methods: One that com
 Finally a fit factory can generate the appropriate fit engine as desired by the actual fit.
 
 
-**[[Todo:|todo#_todo000003]]**(ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
+- **[[Todo:|todo#_todo000003]]**
+  (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
 
 ## Constructor & Destructor Documentation
 
@@ -163,13 +164,11 @@ Just deallocate the GPU resources.
 Invoke the kernal to do the pointwise parallel Jacobian computation.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| p | Parameter vector. |
-| J | Jacobian matrix. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | p | Parameter vector. |
+  | J | Jacobian matrix. |
 
 
 We use a Y size of 32 and x size of npts+31/32. That is one warp wide.
@@ -192,13 +191,11 @@ Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9
 Triggers a pointwise parallel residual kernel in the device and impedance matches that with GSL's requirements.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| p | Parameter vector. |
-| r | Residual vector. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | p | Parameter vector. |
+  | r | Residual vector. |
 
 
 Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].

@@ -87,7 +87,8 @@ header
 : Provide code to evaluate various functions for the DDAS Fit.
 
 
-Noteall functions are in the DDAS namespace.
+- Note
+  all functions are in the DDAS namespace.
 
  contents 
  start footer part 

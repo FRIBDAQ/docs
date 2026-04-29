@@ -139,7 +139,9 @@ Each process type is implemented as a pure virtual method. The function call ope
 - When the strategy method exists, invokes MPI_Finalize and returns to the caller who, presumably, exits.
 
 
-Notethe operator() is also virtual to allow that logic to be overridden.
+- Note
+  the operator() is also virtual to allow that logic to be overridden.
+
 A typical use of this class woud be to:
 
 ```
@@ -176,11 +178,11 @@ A typical use of this class woud be to:
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | -number of command line arguments. |
-| argv | - pointer to the command line arguments. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | -number of command line arguments. |
+  | argv | - pointer to the command line arguments. |
 
 
 
@@ -210,11 +212,11 @@ destructor
 
 forwardPassThrough Send bytes without any real interpretation to the output
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | - data to send. |
-| nBytes | - number of bytes to send. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | - data to send. |
+  | nBytes | - number of bytes to send. |
 
 
 
@@ -228,7 +230,9 @@ Parameters
 
 getArgc
 
-Returnsint - number of command line parameters after MPI_Init is done modifying them.
+- Returns
+  int - number of command line parameters after MPI_Init is done modifying them.
+
 ///////////////////////////// Utility methods for the subclasses ////////
 
 ```
@@ -250,7 +254,8 @@ Returnsint - number of command line parameters after MPI_Init is done modifying 
 
 getArgv
 
-Returnsconst char** - pointer to list oif argument pointers.
+- Returns
+  const char** - pointer to list oif argument pointers.
 
 
 
@@ -263,7 +268,8 @@ Returnsconst char** - pointer to list oif argument pointers.
 
 getRequest Receive a request from a worker and return the rank of the sender.
 
-Returnsint - requesting worker.
+- Returns
+  int - requesting worker.
 
 
 
@@ -311,10 +317,10 @@ return the number of worker processes in the application. This is just size-3 (d
 
 operator() Entry point to the MPI pattern.
 
-Parameters
-|  |  |
-| --- | --- |
-| paramReader | - object that knows how to read the parameter file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | paramReader | - object that knows how to read the parameter file. |
 
 
 
@@ -327,7 +333,8 @@ Parameters
 
 parameterDefType
 
-ReturnsMPI_Datatype& - references data type for parameter definition.
+- Returns
+  MPI_Datatype& - references data type for parameter definition.
 
 
 
@@ -340,7 +347,8 @@ ReturnsMPI_Datatype& - references data type for parameter definition.
 
 parameterHeaderDataType
 
-ReturnsMPI_DataType& reference to the header data type for a parameter message.
+- Returns
+  MPI_DataType& reference to the header data type for a parameter message.
 
 
 
@@ -353,7 +361,8 @@ ReturnsMPI_DataType& reference to the header data type for a parameter message.
 
 parameterValueDataType
 
-ReturnsMPI_DataType& - reference to the data type for parameter values.
+- Returns
+  MPI_DataType& - reference to the data type for parameter values.
 
 
 
@@ -366,10 +375,10 @@ ReturnsMPI_DataType& - reference to the data type for parameter values.
 
 requestData Send a request for data to the dealer
 
-Parameters
-|  |  |
-| --- | --- |
-| maxBytes | - maxium payload we want to accept. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | maxBytes | - maxium payload we want to accept. |
 
 
 
@@ -417,11 +426,11 @@ sendEofs Send all the EOFS to workers.
 
 throwMPIError Analyzes an MPI call status return throwing a runtime error if the status is not normal
 
-Parameters
-|  |  |
-| --- | --- |
-| status | - status from the MPI call. |
-| prefix | - Prefix to the error text from status |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | status | - status from the MPI call. |
+  | prefix | - Prefix to the error text from status |
 
 
 
@@ -434,7 +443,8 @@ Parameters
 
 variableDefType
 
-ReturnsMPI_Datatype& - references the data type for variable values.
+- Returns
+  MPI_Datatype& - references the data type for variable values.
 
 
 

@@ -27,37 +27,40 @@ header
 - [Further Reading](#sec_main_further)
 
 
-AuthorsAaron Chester, Ron Fox, Sean Liddick, Jeromy Tompkins 
-Date7/6/23
+- Authors
+  Aaron Chester, Ron Fox, Sean Liddick, Jeromy Tompkins
+
+- Date
+  7/6/23
+
 # Introduction
 
 
-Welcome to the documentation page for the FRIB Digital Data Acquisition System (DDAS). DDAS is a fully digital, general purpose data acquisition system consisting of 16-channel Pixie-16 digitizers based on the Compact PCI/PXI standard manufactured by XIA LLC. The Pixie-16 digitizers combine the ability to capture waveform traces for offline analysis with online pulse-shape analysis and spectroscopy.
-The purpose of this site is to have, in one place:1. The information necessary to allow a first-time user to configure, run and analyze data from a DDAS system.
-2. Documentation for DDAS software, [[classes|annotated]] and [[libraries|modules]] which the user may encounter while working with DDAS systems or wish to incorporate into their own analysis codes.
-3. Descriptions of the various pieces of hardware available for use in DDAS systems at FRIB.
+  Welcome to the documentation page for the FRIB Digital Data Acquisition System (DDAS). DDAS is a fully digital, general purpose data acquisition system consisting of 16-channel Pixie-16 digitizers based on the Compact PCI/PXI standard manufactured by XIA LLC. The Pixie-16 digitizers combine the ability to capture waveform traces for offline analysis with online pulse-shape analysis and spectroscopy.
 
+  The purpose of this site is to have, in one place:1. The information necessary to allow a first-time user to configure, run and analyze data from a DDAS system.
+  2. Documentation for DDAS software, [[classes|annotated]] and [[libraries|modules]] which the user may encounter while working with DDAS systems or wish to incorporate into their own analysis codes.
+  3. Descriptions of the various pieces of hardware available for use in DDAS systems at FRIB.
 
+  Refer to the [[DDAS User Guides|pages]] page to browse the available guides and manual pages.
 
-Refer to the [[DDAS User Guides|pages]] page to browse the available guides and manual pages.
-DDAS is supported as part of the larger FRIBDAQ software suite. Further information about data acquisition at FRIB can be found on the [FRIBDAQ docs page](https://docs.nscl.msu.edu/daq/newsite/index.php) and as part of the [FRIBDAQ User's Guide](https://docs.nscl.msu.edu/daq/newsite/nscldaq-12.0/index.html). Refer all questions, comments, and concerns to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#).
+  DDAS is supported as part of the larger FRIBDAQ software suite. Further information about data acquisition at FRIB can be found on the [FRIBDAQ docs page](https://docs.nscl.msu.edu/daq/newsite/index.php) and as part of the [FRIBDAQ User's Guide](https://docs.nscl.msu.edu/daq/newsite/nscldaq-12.0/index.html). Refer all questions, comments, and concerns to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#).
+
 # Tutorials
 
 
-A number of tutorials exist to assist users in setting up, configuring, and taking and analyzing data coming from DDAS systems. They can be found by clicking on the User Guides button at the top of the page. Some commonly used tutorials are:- [[Single-Crate System Setup Guide|single_crate]]
-- [[Multi-Crate System Setup Guide|multi_crate]]
-- [[Analyzing DDAS Data in SpecTcl|spectcl]]
-- [[ddasdumper: Convert DDAS Data to ROOT Format|ddasdumper]]
-- [[How to Write a Good Help Ticket|help_ticket]]
-
-
+  A number of tutorials exist to assist users in setting up, configuring, and taking and analyzing data coming from DDAS systems. They can be found by clicking on the User Guides button at the top of the page. Some commonly used tutorials are:- [[Single-Crate System Setup Guide|single_crate]]
+  - [[Multi-Crate System Setup Guide|multi_crate]]
+  - [[Analyzing DDAS Data in SpecTcl|spectcl]]
+  - [[ddasdumper: Convert DDAS Data to ROOT Format|ddasdumper]]
+  - [[How to Write a Good Help Ticket|help_ticket]]
 
 # Further Reading
 
 
-For more information on DDAS, its applications, and the Pixie-16 modules themselves, please refer to the following resources.- ["Digital Data Acquisition System for experiments with segmented detectors at National Superconducting Cyclotron Laboratory." K. Starosta et al., Nucl. Inst. and Meth. A 610 (2009) 700.](https://www.sciencedirect.com/science/article/pii/S0168900209017392)
-- ["Digital data acquisition system implementation at the National Superconducting Cyclotron Laboratory." C. J. Prokop et al., Nucl. Inst. and Meth. A 741 (2014) 163.](https://www.sciencedirect.com/science/article/pii/S0168900213017488)
-- [The XIA Pixie-16 product website](https://xia.com/products/pixie-16/)
+  For more information on DDAS, its applications, and the Pixie-16 modules themselves, please refer to the following resources.- ["Digital Data Acquisition System for experiments with segmented detectors at National Superconducting Cyclotron Laboratory." K. Starosta et al., Nucl. Inst. and Meth. A 610 (2009) 700.](https://www.sciencedirect.com/science/article/pii/S0168900209017392)
+  - ["Digital data acquisition system implementation at the National Superconducting Cyclotron Laboratory." C. J. Prokop et al., Nucl. Inst. and Meth. A 741 (2014) 163.](https://www.sciencedirect.com/science/article/pii/S0168900213017488)
+  - [The XIA Pixie-16 product website](https://xia.com/products/pixie-16/)
 
  PageDoc
 

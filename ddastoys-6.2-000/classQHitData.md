@@ -101,13 +101,11 @@ Widget class for managing UI related to the hit data. Displays relavent infomrat
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pFitMgr | Pointer toFitManagerobject used by this class, managed by caller. |
-| parent | Pointer to QWidget parent object (optional). |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFitMgr | Pointer toFitManagerobject used by this class, managed by caller. |
+  | parent | Pointer to QWidget parent object (optional). |
 
 
 Constructs [[QHitData|classQHitData]] widgets and defines their layout. This class does not manage the [[FitManager|classFitManager]] object.
@@ -141,20 +139,16 @@ Destruction of [[FitManager|classFitManager]] is left to the caller which owns i
 Set the fit method.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| method | The name of the fitting method. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | method | The name of the fitting method. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | If the method parameter does not match a known fitting method. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | If the method parameter does not match a known fitting method. |
 
 
 Set the fit method from a QString if a method parameter is supplied on the command line. Throw an exception if the fit method is not recognized.
@@ -171,10 +165,10 @@ Set the fit method from a QString if a method parameter is supplied on the comma
 Update hit data and enable printing of fit information to stdout if the hit has an extension.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit we are processing |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit we are processing |
 
 
 

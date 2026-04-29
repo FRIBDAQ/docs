@@ -23,17 +23,24 @@ do not remove this div, it is closed by doxygen!
 How to Write a Good Help Ticket
 
 header
-AuthorsAaron Chester 
-Date5/10/24
+- Authors
+  Aaron Chester
+
+- Date
+  5/10/24
+
 # How To Ask For Help
 
 
-For most issues, bug reports, etc. the best way to get help is to use the SDAQ ticketing system. To create a ticket, send an email to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#). For on-call support during an experiment, tell the control room that there is a [[DAQ|namespaceDAQ]] issue and they will call the appropriate people.
+  For most issues, bug reports, etc. the best way to get help is to use the SDAQ ticketing system. To create a ticket, send an email to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#). For on-call support during an experiment, tell the control room that there is a [[DAQ|namespaceDAQ]] issue and they will call the appropriate people.
+
 # Submitting a Good Help Ticket
 
 
-A good help ticket should provide context for the action being performed, messages or errors reported by the software being run, and any steps taken to troubleshoot the issue. If the problem is repeatable, the conditions which trigger the error should be spelled out as precisely as possible.
-As an example, lets consider a user "Bob" who is trying to convert an event file to ROOT format using the [[ddasdumper|ddasdumper]] program. Bob has an event file called run-1234-00.evt which he knows was taken last week using NSCLDAQ 11.3-034. He wants to convert to ROOT format using the ddasdumper program from NSCLDAQ version 12.1-xiaapi4 but the program exits without generating any output:
+  A good help ticket should provide context for the action being performed, messages or errors reported by the software being run, and any steps taken to troubleshoot the issue. If the problem is repeatable, the conditions which trigger the error should be spelled out as precisely as possible.
+
+  As an example, lets consider a user "Bob" who is trying to convert an event file to ROOT format using the [[ddasdumper|ddasdumper]] program. Bob has an event file called run-1234-00.evt which he knows was taken last week using NSCLDAQ 11.3-034. He wants to convert to ROOT format using the ddasdumper program from NSCLDAQ version 12.1-xiaapi4 but the program exits without generating any output:
+
 ```
 <genesis:rawdata >. /usr/opt/daq/12.1-xiaapi4/daqsetup.bash
 <genesis:rawdata >$DAQBIN/ddasdumper -s file:///scratch/chester/rawdata/run-1234-00.evt -f run-1234-00.root
@@ -41,7 +48,8 @@ ddasdumper main caught a C++ exception: Unable to dump a data format item... lik
 
 ```
 
-Bob immediately emails [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#) and says:
+  Bob immediately emails [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#) and says:
+
 
 ---
 
@@ -52,8 +60,10 @@ Bob immediately emails [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#)
 ---
 
 
-This is an example of a bad daqhelp email. There is a great deal of missing context here which is crucial to understanding the underlying cause of the aborted conversion! Alice, the SDAQ group member answering responding to the help ticket, doesn't know where to begin, and it will take some back and forth with Bob to figure out what has gone wrong and how to fix it.
-A better version of this email would look something like:
+  This is an example of a bad daqhelp email. There is a great deal of missing context here which is crucial to understanding the underlying cause of the aborted conversion! Alice, the SDAQ group member answering responding to the help ticket, doesn't know where to begin, and it will take some back and forth with Bob to figure out what has gone wrong and how to fix it.
+
+  A better version of this email would look something like:
+
 
 ---
 
@@ -67,8 +77,10 @@ $DAQBIN/ddasdumper -s [[file:///scratch/chester/rawdata/run-1234-00.evt|file:///
 ---
 
 
-I do not understand what –nscldaq-format refers to or how I should set it. This issue is repeatable and occurs immediately after I attempt to dump the file."
-At this point it is easy to address the issue: there is a format mismatch between the run file's data format and the data format that the ddasdumper program expects. The response by Alice would point user Bob in the right direction:
+  I do not understand what –nscldaq-format refers to or how I should set it. This issue is repeatable and occurs immediately after I attempt to dump the file."
+
+  At this point it is easy to address the issue: there is a format mismatch between the run file's data format and the data format that the ddasdumper program expects. The response by Alice would point user Bob in the right direction:
+
 ```
 <genesis:rawdata >$DAQBIN/ddasdumper -h
 Usage: ddasdumper [OPTION]...
@@ -91,12 +103,11 @@ perform a formatted dump of selected data items.
 
 ```
 
-Which shows two important things:1. The `--nscldaq-format` option expects one of 10, 11, and 12, corresponding to the major version of the NSCLDAQ code used to take the data.
-2. The default format expected by NSCLDAQ 12.1-xiaapi4 is for version 12 data.
+  Which shows two important things:1. The `--nscldaq-format` option expects one of 10, 11, and 12, corresponding to the major version of the NSCLDAQ code used to take the data.
+  2. The default format expected by NSCLDAQ 12.1-xiaapi4 is for version 12 data.
 
+  Specifying the correct format version allows the code to run as expected:
 
-
-Specifying the correct format version allows the code to run as expected:
 ```
 <genesis:rawdata >$DAQBIN/ddasdumper -s file:///scratch/chester/rawdata/run-1234-00.evt -f run-1234-00.root --nscldaq-format=11
 Ring items formatted for: 11.0
@@ -121,7 +132,7 @@ TimestampPolicy : last
 # Conclusion
 
 
-We have seen in this section, using a fairly trivial example, how providing important contextual information can expedite the process of identifying and solving a user's issues.
+  We have seen in this section, using a fairly trivial example, how providing important contextual information can expedite the process of identifying and solving a user's issues.
 
  contents
 

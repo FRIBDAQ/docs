@@ -26,10 +26,13 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-Member [[DAQ::DDAS::SystemBooter::bootModuleByIndex|classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]]  (int modIndex, Configuration &config, BootType type)
-Check that the firmware file paths are less than 256 characters in length.  
-Page [[nscope]] 
-Flesh out the information on the validation
+- Member [[DAQ::DDAS::SystemBooter::bootModuleByIndex|classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]]  (int modIndex, Configuration &config, BootType type)
+
+  Check that the firmware file paths are less than 256 characters in length.
+
+- Page [[nscope]]
+
+  Flesh out the information on the validation
 
  contents 
  start footer part 

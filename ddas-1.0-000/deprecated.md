@@ -25,17 +25,23 @@ do not remove this div, it is closed by doxygen!
 Deprecated List
 
 header
-Member [[cmdline_parser2|dumperargs_8h#a78a0cd581698415a62f68214603b1a30]]  (int argc, char **argv, struct [[gengetopt_args_info|structgengetopt__args__info]] *args_info, int override, int initialize, int check_required)
-use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead  
-Member [[ddaschannel::cfd|classddaschannel#add1388a9a7a9c7e756ec88c3450cf474]] 
+- Member [[cmdline_parser2|dumperargs_8h#a78a0cd581698415a62f68214603b1a30]]  (int argc, char **argv, struct [[gengetopt_args_info|structgengetopt__args__info]] *args_info, int override, int initialize, int check_required)
 
-Member [[ddaschannel::channelnum|classddaschannel#aa224d1d510d65d8bc57d5989d2f0001c]] 
+  use [[cmdline_parser_ext()|dumperargs_8h#ac7bb5d76f3f56d1c0b3b531f11ac6f07]] instead
 
-Member [[ddaschannel::GetCFD|classddaschannel#a2a861b32ecc07cbbf4e95ee3ccc7b55a]]  ()
+- Member [[ddaschannel::cfd|classddaschannel#add1388a9a7a9c7e756ec88c3450cf474]]
 
-Member [[ddaschannel::GetID|classddaschannel#a924d27feff1378a5bf77c083d7188c2d]]  ()
 
-Member [[ddaschannel::id|classddaschannel#afc3a65a9eea51e686e8205fa07b77e95]]
+- Member [[ddaschannel::channelnum|classddaschannel#aa224d1d510d65d8bc57d5989d2f0001c]]
+
+
+- Member [[ddaschannel::GetCFD|classddaschannel#a2a861b32ecc07cbbf4e95ee3ccc7b55a]]  ()
+
+
+- Member [[ddaschannel::GetID|classddaschannel#a924d27feff1378a5bf77c083d7188c2d]]  ()
+
+
+- Member [[ddaschannel::id|classddaschannel#afc3a65a9eea51e686e8205fa07b77e95]]
 
  contents 
  start footer part 

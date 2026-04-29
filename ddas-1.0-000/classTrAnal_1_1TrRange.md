@@ -135,11 +135,11 @@ Default constructor.
 Constructs a range from two iterators. There is no ability to determine whether the two arguments are associated with the same trace. If they are not, then problems are likely to ensue.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| b | iterator defining beginning of range |
-| e | iterator defining ending of range |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | b | iterator defining beginning of range |
+  | e | iterator defining ending of range |
 
 
 
@@ -159,11 +159,11 @@ Range specified constructor.
 Construct a range based on a single iterator and an offset from it. If the range is negative, the range will be generated such that ref is at the end by swapping begin and end. In this way, this constructor will always guarantee that the the beginning and end of the range are in increasing order.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| ref | iterator identifying begining (end) of range if range arg is positive (negative) |
-| range | width of range, can be either positive or negative |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | ref | iterator identifying begining (end) of range if range arg is positive (negative) |
+  | range | width of range, can be either positive or negative |
 
 
 ## Member Function Documentation
@@ -184,7 +184,8 @@ range+n style increment
 Increments both the begin and end iterators together.
 
 
-Returnscopy of range after incrementing
+- Returns
+  copy of range after incrementing
 
 
 
@@ -202,7 +203,8 @@ template<class T>
 Increments both the begin and end iterators together.
 
 
-Returnsreference to this after incrementing
+- Returns
+  reference to this after incrementing
 
 
 
@@ -220,7 +222,8 @@ range++ style incrementation
 Returns a copy of the current range while also incrementing both the begin and end iterators.
 
 
-Returnscopy of range before incrementing
+- Returns
+  copy of range before incrementing
 
 
 
@@ -238,7 +241,8 @@ range += n support
 Increments both the begin and end iterators together.
 
 
-Returnsreference to this range after incrementing
+- Returns
+  reference to this range after incrementing
 
 
 
@@ -256,7 +260,8 @@ range-n style decrement
 Decrements both the begin and end iterators together.
 
 
-Returnscopy of range after decrementing
+- Returns
+  copy of range after decrementing
 
 
 
@@ -274,7 +279,8 @@ template<class T>
 Decrements both the begin and end iterators together.
 
 
-Returnsreference to this range after decrementing
+- Returns
+  reference to this range after decrementing
 
 
 
@@ -292,7 +298,8 @@ Decrementation range–;.
 Returns a copy of the current range while also decrementing both the begin and end iterators.
 
 
-Returnscopy of range before decrementing
+- Returns
+  copy of range before decrementing
 
 
 
@@ -310,7 +317,8 @@ range -=n style decrement
 Decrements both the begin and end iterators together.
 
 
-Returnsreference to this range after decrementing
+- Returns
+  reference to this range after decrementing
 
 
 
@@ -328,15 +336,14 @@ Less than operator.
 Ensures that both begin and end iterators are less than their counterparts. This definition allows ranges to overlap.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| that | range to compare against |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | that | range to compare against |
 
 
-
-
-Returnstrue if this->[[begin()|classTrAnal_1_1TrRange#aef1c4989733015f5c8ea1620d20ebc2f]]<that.begin() && this->[[end()|classTrAnal_1_1TrRange#a1777c96100d2d06183cc3ce196f09fdd]]<that.end()
+- Returns
+  true if this->[[begin()|classTrAnal_1_1TrRange#aef1c4989733015f5c8ea1620d20ebc2f]]<that.begin() && this->[[end()|classTrAnal_1_1TrRange#a1777c96100d2d06183cc3ce196f09fdd]]<that.end()
 
 
 
@@ -369,15 +376,14 @@ Greater than operator.
 Ensures that both begin and end iterators are greater than their counterparts This definition allows ranges to overlap.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| that | range to compare against |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | that | range to compare against |
 
 
-
-
-Returnstrue if this->[[begin()|classTrAnal_1_1TrRange#aef1c4989733015f5c8ea1620d20ebc2f]]>that.begin() && this->[[end()|classTrAnal_1_1TrRange#a1777c96100d2d06183cc3ce196f09fdd]]>that.end()
+- Returns
+  true if this->[[begin()|classTrAnal_1_1TrRange#aef1c4989733015f5c8ea1620d20ebc2f]]>that.begin() && this->[[end()|classTrAnal_1_1TrRange#a1777c96100d2d06183cc3ce196f09fdd]]>that.end()
 
 
 
@@ -392,7 +398,8 @@ template<class T>
 Compute distance between begin and end.
 
 
-Returnsnumber of elements between begin and end
+- Returns
+  number of elements between begin and end
 
 
 

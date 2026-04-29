@@ -97,21 +97,24 @@ estimateK1 Estimate a value for the steepness parameter of the rising side of th
 
 If we can't find x0.5 then we fall back on a guess of 0.1
 
-Note- should allow this fallback value to be an input parameter.
-Parameters
-|  |  |
-| --- | --- |
-| xmax | - where the maximum point is. |
-| C0 | - Estimate for the constant offset. |
-| trace | - The trace data. |
+- Note
+  - should allow this fallback value to be an input parameter.
+
+- Parameters
+  |  |  |
+  | --- | --- |
+  | xmax | - where the maximum point is. |
+  | C0 | - Estimate for the constant offset. |
+  | trace | - The trace data. |
 
 
+- Returns
+  double - the estimate.
 
+- Note
+  for now assume that the .5 position is within the AOI
 
-Returnsdouble - the estimate. 
-Notefor now assume that the .5 position is within the AOI 
-
-for now we're not correcting for flattops.
+  for now we're not correcting for flattops.
 
  contents 
  start footer part 

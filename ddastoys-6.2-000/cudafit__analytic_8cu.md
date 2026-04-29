@@ -101,10 +101,13 @@ Include dependency graph for cudafit_analytic.cu:
 Provide trace fitting using the libucdafit library.
 
 
-AuthorRon Fox[fox@n.nosp@m.scl..nosp@m.msu.e.nosp@m.du](#)
-NoteWe provide call compatible interfaces with lmfit1 and lmfit2. 
+- Author
+  Ron Fox[fox@n.nosp@m.scl..nosp@m.msu.e.nosp@m.du](#)
 
-This fit will not thread due to libcudaoptimize's need for us to have global data for the device pointers to the trace.
+- Note
+  We provide call compatible interfaces with lmfit1 and lmfit2.
+
+  This fit will not thread due to libcudaoptimize's need for us to have global data for the device pointers to the trace.
 
 ## Function Documentation
 
@@ -127,18 +130,17 @@ Computes chi-square fitness for one point in one solution given that d_fitness h
 The choice of weight determines whether the returned value is Neyman's (weight by variance estimated from data wt = 1/y) or Pearson's (weight by variance estimated from fit wt = 1/fit).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pParams | Pointer to this solutions parameters. |
-| x | x-coordinate. |
-| y | y-coordinate. |
-| wt | Weight for this coordinate. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pParams | Pointer to this solutions parameters. |
+  | x | x-coordinate. |
+  | y | y-coordinate. |
+  | wt | Weight for this coordinate. |
 
 
-
-
-ReturnsChi-square between fit function and trace data.
+- Returns
+  Chi-square between fit function and trace data.
 
 
 
@@ -159,18 +161,17 @@ Computes chi-square fitness contribution for one point in one solution given tha
 The choice of weight determines whether the returned value is Neyman's (weight by variance estimated from data wt = 1/y) or Pearson's (weight by variance estimated from fit wt = 1/fit).
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pParams | Pointer to this solutions parameters. |
-| x | x-coordinate. |
-| y | y-coordinate. |
-| wt | Weight for this coordinate. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pParams | Pointer to this solutions parameters. |
+  | x | x-coordinate. |
+  | y | y-coordinate. |
+  | wt | Weight for this coordinate. |
 
 
-
-
-ReturnsChi-square between fit function and trace data.
+- Returns
+  Chi-square between fit function and trace data.
 
 
 
@@ -196,17 +197,17 @@ This function lives in the GPU and:
 - Uses reduceToSum to sum the chisquare contributions over the entire trace. The result is put into the fitness value for our solution.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pSolutions | Pointer to solutions array in the GPU. |
-| pFitnesses | Pointer to the array of fitnesse for all solutions in the swarm. |
-| nParams | Number of parameters in the fit (should be 5). |
-| nSol | Number of solutions in the swarm. |
-| pXcoords | Trace x-coordinates array. |
-| pYcoords | Trace y-coordinates array. |
-| pWeights | y weights to apply. |
-| nPoints | Number of points in the trace. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pSolutions | Pointer to solutions array in the GPU. |
+  | pFitnesses | Pointer to the array of fitnesse for all solutions in the swarm. |
+  | nParams | Number of parameters in the fit (should be 5). |
+  | nSol | Number of solutions in the swarm. |
+  | pXcoords | Trace x-coordinates array. |
+  | pYcoords | Trace y-coordinates array. |
+  | pWeights | y weights to apply. |
+  | nPoints | Number of points in the trace. |
 
 
 
@@ -232,17 +233,17 @@ This function lives in the GPU and:
 - Uses reduceToSum to sum the chisquare contributions over the entire trace. The result is put into the fitness value for our solution.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pSolutions | Pointer to solutions array in the GPU. |
-| pFitnesses | Pointer to the array of fitnesse for all solutions in the swarm. |
-| nParams | Number of parameters in the fit (should be 5). |
-| nSol | Number of solutions in the swarm. |
-| pXcoords | Trace x-coordinates array. |
-| pYcoords | Trace y-coordinates array. |
-| pWeights | y weights to apply. |
-| nPoints | Number of points in the trace. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pSolutions | Pointer to solutions array in the GPU. |
+  | pFitnesses | Pointer to the array of fitnesse for all solutions in the swarm. |
+  | nParams | Number of parameters in the fit (should be 5). |
+  | nSol | Number of solutions in the swarm. |
+  | pXcoords | Trace x-coordinates array. |
+  | pYcoords | Trace y-coordinates array. |
+  | pWeights | y weights to apply. |
+  | nPoints | Number of points in the trace. |
 
 
 
@@ -263,18 +264,17 @@ Exponential decay function.
 Signals from detectors usually have a falling shape that approximates an exponential. This function evaluates this decay at some point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A | Amplitude of the signal |
-| k | Decay time factor f the signal. |
-| x1 | Position of the pulse. |
-| x | Where to evaluate the signal. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A | Amplitude of the signal |
+  | k | Decay time factor f the signal. |
+  | x1 | Position of the pulse. |
+  | x | Where to evaluate the signal. |
 
 
-
-
-ReturnsExponential decay evaluated at x.
+- Returns
+  Exponential decay evaluated at x.
 
 
 
@@ -301,24 +301,23 @@ Evaluate the canonical form of a double pulse.
 This is done by summing two single pulses. The constant term is thrown into the first pulse. The second pulse gets a constant term of 0.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Amplitude of the first pulse. |
-| k1 | Steepness of first pulse rise. |
-| k2 | Decay time of the first pulse. |
-| x1 | Position of the first pulse. |
-| A2 | Amplitude of the second pulse. |
-| k3 | Steepness of second pulse rise. |
-| k4 | Decay time of second pulse. |
-| x2 | Position of second pulse. |
-| C | Constant offset the pulses sit on. |
-| x | Position at which to evaluate the pulse. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Amplitude of the first pulse. |
+  | k1 | Steepness of first pulse rise. |
+  | k2 | Decay time of the first pulse. |
+  | x1 | Position of the first pulse. |
+  | A2 | Amplitude of the second pulse. |
+  | k3 | Steepness of second pulse rise. |
+  | k4 | Decay time of second pulse. |
+  | x2 | Position of second pulse. |
+  | C | Constant offset the pulses sit on. |
+  | x | Position at which to evaluate the pulse. |
 
 
-
-
-ReturnsValue of the double-pulse function evaluated at x.
+- Returns
+  Value of the double-pulse function evaluated at x.
 
 
 
@@ -336,13 +335,13 @@ ReturnsValue of the double-pulse function evaluated at x.
 Host part to setup computation of the fitnesses across the swarm for our fits for a double pulse. Really this just sets up the kernel call for fitness2 which does the rest.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| solutions | Pointer to the current Solution set. |
-| fitnesses | Pointer to the current fitness set |
-| grid | Computaional grid geometry. |
-| block | Shapes of the blocks within the grid. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | solutions | Pointer to the current Solution set. |
+  | fitnesses | Pointer to the current fitness set |
+  | grid | Computaional grid geometry. |
+  | block | Shapes of the blocks within the grid. |
 
 
 
@@ -360,13 +359,13 @@ Parameters
 Invokes the kernel that produces the fitness measure. The fitness is computed in the GPU and is the chi square.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| solutions | Pointer to the Cuda solution set. |
-| fitnesses | Pointer to the current fitness set |
-| grid | Computational grid being used. |
-| block | Shapes of blocks within the grid. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | solutions | Pointer to the Cuda solution set. |
+  | fitnesses | Pointer to the current fitness set |
+  | grid | Computational grid being used. |
+  | block | Shapes of blocks within the grid. |
 
 
 
@@ -387,18 +386,17 @@ Evaluate a logistic function for the specified parameters and point.
 A logistic function is a function with a sigmoidal shape. We use it to fit the rising edge of signals DDAS digitizes from detectors. See e.g. [https://en.wikipedia.org/wiki/Logistic_function](https://en.wikipedia.org/wiki/Logistic_function) for a discussion of this function.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A | Amplitude of the signal. |
-| k | Steepness of the signal (related to the rise time). |
-| x1 | Mid point of the rise of the sigmoid. |
-| x | Location at which to evaluate the function. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A | Amplitude of the signal. |
+  | k | Steepness of the signal (related to the rise time). |
+  | x1 | Mid point of the rise of the sigmoid. |
+  | x | Location at which to evaluate the function. |
 
 
-
-
-ReturnsLogistic function evaluated at x.
+- Returns
+  Logistic function evaluated at x.
 
 
 
@@ -421,20 +419,19 @@ Evaluate the value of a single pulse in accordance with our canonical functional
 The form is a sigmoid rise with an exponential decay that sits on top of a constant offset. The exponential decay is turned on with [[switchOn()|group__analytic#gab8955e8a8a70e7c53a8ee2ccb5173d4e]] above when x > the rise point of the sigmoid.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Pulse amplitiude |
-| k1 | Sigmoid rise steepness. |
-| k2 | Exponential decay time constant. |
-| x1 | Sigmoid position. |
-| C | Constant offset. |
-| x | Position at which to evaluate this function. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Pulse amplitiude |
+  | k1 | Sigmoid rise steepness. |
+  | k2 | Exponential decay time constant. |
+  | x1 | Sigmoid position. |
+  | C | Constant offset. |
+  | x | Position at which to evaluate this function. |
 
 
-
-
-ReturnsSingle pulse evaluated at x.
+- Returns
+  Single pulse evaluated at x.
 
  contents 
  start footer part 

@@ -107,10 +107,10 @@ The user should use this to process data upstream of or in the absence of the ev
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rParameterMapper | user's mapper (must be dynamically allocated, ownership transfers to class) |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rParameterMapper | user's mapper (must be dynamically allocated, ownership transfers to class) |
 
 
 
@@ -151,13 +151,13 @@ This is designed to process data from the DDAS readout program. See the document
 This sets the event size in the CEvent.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pEvent | address in buffer to begin parsing at |
-| rEvent | current SpecTcl event |
-| rAnalyzer | the analyzer |
-| rDecoder | current buffer decoder |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pEvent | address in buffer to begin parsing at |
+  | rEvent | current SpecTcl event |
+  | rAnalyzer | the analyzer |
+  | rDecoder | current buffer decoder |
 
 
 
@@ -178,10 +178,10 @@ unpacker.setParameterMapper(*pMapper);
  fragment Ownership of the mapper is transferred into this object.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rParameterMapper | the user's parameter mapper |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rParameterMapper | the user's parameter mapper |
 
 
 

@@ -146,11 +146,11 @@ The channel commanders use a 2 phase construction scheme so that we can hang on 
 Construction does nothing but save data. To enable event procesing/command dispatch on the channel, you must call start. Event/command processing can be disabled by invoking stop.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - Pointer to theCTCLInterpreterobject to which complete commands will be dispatched. |
-| channel | - Tcl_Channel on which commands will be accepted for submission to *interp. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - Pointer to theCTCLInterpreterobject to which complete commands will be dispatched. |
+  | channel | - Tcl_Channel on which commands will be accepted for submission to *interp. |
 
 
 
@@ -179,11 +179,13 @@ Destruction will stop command processing.
 | --- | --- | --- | --- | --- |
 | Tcl_Channel CTCLChannelCommander::getChannel | ( |  | ) | const |
 
-ReturnsTcl_Channel 
-Return values
-|  |  |
-| --- | --- |
-| The | channel on which commands are processed. |
+- Returns
+  Tcl_Channel
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | The | channel on which commands are processed. |
 
 
 
@@ -200,11 +202,11 @@ Return values
 This static function establishes object context and calls onInput if there was an input event or onInputException if there was an exception event.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | - Really a pointer to a CTCLChannelHandler. |
-| mask | - Mask of the events that actually fired. In theory, more than one event can be dispatched to us. Since exceptions may result in channel closures, reads are handled first. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | - Really a pointer to a CTCLChannelHandler. |
+  | mask | - Mask of the events that actually fired. In theory, more than one event can be dispatched to us. Since exceptions may result in channel closures, reads are handled first. |
 
 
 
@@ -252,10 +254,9 @@ Input handler. The default action is to read a line of input with Tcl_GetsObj. T
 - If the object acquired completes the line, then on the return from onCommand, [[prompt1()|classCTCLChannelCommander#ae0d0e4783a4f7c8ecf82801d8c36c2e4]] is called.
 
 
-NoteTcl_GetsObj will return a -1 if no input is available This can happen for three reasons which are all dealt with:- Channel is in nonblocking mode and there's no data (normal return).
-- Channel has an eof condition (onEndFile called).
-
-
+- Note
+  Tcl_GetsObj will return a -1 if no input is available This can happen for three reasons which are all dealt with:- Channel is in nonblocking mode and there's no data (normal return).
+  - Channel has an eof condition (onEndFile called).
 
 - Channel has some error (onInputException called).
 

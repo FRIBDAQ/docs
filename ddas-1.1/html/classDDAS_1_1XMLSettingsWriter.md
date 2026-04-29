@@ -90,10 +90,10 @@ The structure of each XML file is: <module> <csra value="nnn"> <csrb value="nnn"
 
 constructor Just save the filename for now:
 
-Parameters
-|  |  |
-| --- | --- |
-|  |  |
+- Parameters
+  |  |  |
+  | --- | --- |
+  |  |  |
 
 
 ## Member Function Documentation
@@ -113,20 +113,16 @@ write For each module in the settings vector:
 - Write the module settings.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| dspSettings | - the module settings to write. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | dspSettings | - the module settings to write. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | - unable to open the output file. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | - unable to open the output file. |
 
 
 Implements [[DDAS::SettingsWriter|classDDAS_1_1SettingsWriter]].
@@ -143,12 +139,12 @@ Implements [[DDAS::SettingsWriter|classDDAS_1_1SettingsWriter]].
 
 writeMultiplicityMasks Writes the multiplicity mask element <MultiplicityMasks low="lowmask" high="highmask">
 
-Parameters
-|  |  |
-| --- | --- |
-| printer | - referencs the tinxyml2 printer. |
-| low | - low order mask bits. |
-| high | - high order mask bits. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | printer | - referencs the tinxyml2 printer. |
+  | low | - low order mask bits. |
+  | high | - high order mask bits. |
 
 
 
@@ -161,11 +157,11 @@ Parameters
 
 writeValue Write an integer value attribute:
 
-Parameters
-|  |  |
-| --- | --- |
-| printer | - the XML printer. |
-| value | - the unsigned integer value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | printer | - the XML printer. |
+  | value | - the unsigned integer value. |
 
 
 

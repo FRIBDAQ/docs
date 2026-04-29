@@ -63,7 +63,8 @@ A class to read and fetch trace data from Pixie-16 modules.
 This class provides a ctypes-friendly interface to acquire "validated" (traces which are likely to contain a good signal pulse) and unvalidated traces. The class also provides methods to access the trace data.
 
 
-**[[Todo:|todo#_todo000006]]**Instead of validated traces can we process the trace using the fast filter parameters and wait for a real trigger?
+- **[[Todo:|todo#_todo000006]]**
+  Instead of validated traces can we process the trace using the fast filter parameters and wait for a real trigger?
 
 ## Constructor & Destructor Documentation
 
@@ -97,7 +98,8 @@ The [[CPixieTraceUtilities|classCPixieTraceUtilities]] class has ownership of a 
 Return the trace data.
 
 
-ReturnsPointer to the underlying trace storage.
+- Returns
+  Pointer to the underlying trace storage.
 
 
 
@@ -113,23 +115,21 @@ ReturnsPointer to the underlying trace storage.
 Read a validated ADC trace from single channel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
-| channel | Channel number on module for trace read. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
+  | channel | Channel number on module for trace read. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| -1 | XIA API call fails. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | -1 | XIA API call fails. |
 
 
 Read an ADC trace without signal validation.
@@ -148,31 +148,30 @@ Read an ADC trace without signal validation.
 Read a validated ADC trace from single channel.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| module | Module number. |
-| channel | Channel number on module for trace read. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | module | Module number. |
+  | channel | Channel number on module for trace read. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-| -1 | XIA API call fails. |
-| -2 | Acquired trace is empty (median undefined). |
-| -3 | Unhanded exception when reading trace and calculating median. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
+  | -1 | XIA API call fails. |
+  | -2 | Acquired trace is empty (median undefined). |
+  | -3 | Unhanded exception when reading trace and calculating median. |
 
 
 Traces are "validated" (*not* triggered!) if:
 
 1. The max/min value exceeds the median value +/- 10*SD where SD is the standard deviation estimated from the median absolute deviation.
-2. The max/min value differs from the median value by at least m_validAmplitude ADC units. **[[Todo:|todo#_todo000005]]**(ASC 6/14/24): Improved baseline estimation for validation.
+2. The max/min value differs from the median value by at least m_validAmplitude ADC units. - **[[Todo:|todo#_todo000005]]**
+     (ASC 6/14/24): Improved baseline estimation for validation.
 
 
 
@@ -187,10 +186,10 @@ Traces are "validated" (*not* triggered!) if:
 Set the flag for offline mode using the data generator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| mode | The generator flag is set to this input value. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | mode | The generator flag is set to this input value. |
 
 
 

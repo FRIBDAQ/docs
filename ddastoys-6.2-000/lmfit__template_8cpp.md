@@ -62,7 +62,8 @@ Include dependency graph for lmfit_template.cpp:
 Implementation of template fitting functions we use in GSL's LM fitter.
 
 
-NoteFit functions are in the DDAS::TemplateFit namespace
+- Note
+  Fit functions are in the DDAS::TemplateFit namespace
 
  contents 
  start footer part 

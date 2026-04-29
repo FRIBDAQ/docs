@@ -125,12 +125,12 @@ To use this exception type, the thrower must be able to create a textual equival
 |  |  | std::string | wasDoing |
 |  | ) |  |  |
 
-Parameters
-|  |  |
-| --- | --- |
-| argument | - The texulized version of the bad argument. |
-| whybad | - The reason the argument is bad. |
-| wasdoing | - Context information about what was happening when the exception was thrown. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argument | - The texulized version of the bad argument. |
+  | whybad | - The reason the argument is bad. |
+  | wasdoing | - Context information about what was happening when the exception was thrown. |
 
 
 
@@ -143,10 +143,10 @@ Parameters
 
 Copy construction
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Object from which a new copy is constructed. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Object from which a new copy is constructed. |
 
 
 
@@ -174,19 +174,19 @@ Destructor just needs to chain to the base class.
 
 Inequality is the logical inverse of equality.
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - Object being compared to *this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - Object being compared to *this. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| !operator==(rhs) |  |
+- Return values
+  |  |  |
+  | --- | --- |
+  | !operator==(rhs) |  |
 
 
 
@@ -199,19 +199,19 @@ Return values
 
 Assignement from rhs.
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - The object that will be assigned into *this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - The object that will be assigned into *this. |
 
 
+- Returns
+  [[CInvalidArgumentException|classCInvalidArgumentException]]&
 
-
-Returns[[CInvalidArgumentException|classCInvalidArgumentException]]& 
-Return values
-|  |  |
-| --- | --- |
-| *this |  |
+- Return values
+  |  |  |
+  | --- | --- |
+  | *this |  |
 
 
 
@@ -222,20 +222,20 @@ Return values
 | --- | --- | --- | --- | --- | --- |
 | int CInvalidArgumentException::operator== | ( | constCInvalidArgumentException& | rhs | ) | const |
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | - Object compared for equality with *this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | - Object compared for equality with *this. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 1 | - Equal. |
-| 0 | - Not equal. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | 1 | - Equal. |
+  | 0 | - Not equal. |
 
 
 
@@ -247,13 +247,13 @@ Return values
 | const char * CInvalidArgumentException::ReasonText()const | const char * CInvalidArgumentException::ReasonText | ( |  | ) | const | virtual |
 | const char * CInvalidArgumentException::ReasonText | ( |  | ) | const |
 
-Returnsconst char* 
-Return values
-|  |  |
-| --- | --- |
-| A | human readable string that describes the error that caused the exception to be thrown. |
+- Returns
+  const char*
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | A | human readable string that describes the error that caused the exception to be thrown. |
 
 
 Reimplemented from [[CException|classCException]].

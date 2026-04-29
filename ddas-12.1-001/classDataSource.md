@@ -82,7 +82,8 @@ Abstract base class for DDAS data sources.
 Pure abstract data source which uses a factory's ring item getters to provide ring items from a data source. Since the factory provides this, we'll need concrete classes:
 
 - [[FdDataSource|classFdDataSource]]: give data from a file descriptor.
-- [[StreamDataSource|classStreamDataSource]]: give data from a stream. NoteNeither of these data sources supports reading directly from a ring buffer, as the format library is unaware of those NSCLDAQ classes. To read data from a ringbuffer you can create a file descriptor data source and read data from stdin i.e. `ringselector | ddasdumper -`.
+- [[StreamDataSource|classStreamDataSource]]: give data from a stream. - Note
+    Neither of these data sources supports reading directly from a ring buffer, as the format library is unaware of those NSCLDAQ classes. To read data from a ringbuffer you can create a file descriptor data source and read data from stdin i.e. `ringselector | ddasdumper -`.
 
 ## Constructor & Destructor Documentation
 
@@ -131,7 +132,9 @@ Destroys the factory.
 Pure-virtual method to access a ring item from the data source. Must be implemented in derived classes.
 
 
-ReturnsPointer to the next ring item from the source. 
+- Returns
+  Pointer to the next ring item from the source.
+
 Implemented in [[StreamDataSource|classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]], and [[FdDataSource|classFdDataSource#a798fb79377ecc62786e54e2fe74c1c03]].
 
 

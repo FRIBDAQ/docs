@@ -116,9 +116,10 @@ Defines the object that's put in a ROOT TTree for each event.
 
 An event is just a sequence (vector) of hits. Hits are stored here as pointers to [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]] objects which are hits that are also derived from TObject.
 
-NoteThe code assumes that the pointers in m_hits point to dynamically allocated data. Thus the destructor will destroy the hits as well. 
+- Note
+  The code assumes that the pointers in m_hits point to dynamically allocated data. Thus the destructor will destroy the hits as well.
 
-Copy construction and assignment are implemented as deep operations as demanded by ROOT.
+  Copy construction and assignment are implemented as deep operations as demanded by ROOT.
 
 ## Constructor & Destructor Documentation
 
@@ -148,10 +149,10 @@ Pretty much null but ROOT requires an implementation.
 Copy constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The object we're being copied from. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The object we're being copied from. |
 
 
 
@@ -182,15 +183,14 @@ Destroy the hits. Note that the event vector destroys itself.
 Add a hit to the event.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit to add. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit to add. |
 
 
-
-
-NoteThe hit is copied into a dynamically allocated hit to ensure all hit objects in the vector are dynamic.
+- Note
+  The hit is copied into a dynamically allocated hit to ensure all hit objects in the vector are dynamic.
 
 
 
@@ -204,7 +204,8 @@ NoteThe hit is copied into a dynamically allocated hit to ensure all hit objects
 Return the event vector.
 
 
-ReturnsVector of references to hit objects.
+- Returns
+  Vector of references to hit objects.
 
 
 
@@ -218,11 +219,13 @@ ReturnsVector of references to hit objects.
 Get the time from the first hit in the event.
 
 
-ReturnsDouble_t The time from the first hit of data. 
-Return values
-|  |  |
-| --- | --- |
-| 0.0 | Returned if there are no hits. |
+- Returns
+  Double_t The time from the first hit of data.
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0.0 | Returned if there are no hits. |
 
 
 
@@ -236,11 +239,13 @@ Return values
 Get the time from the last hit in the event.
 
 
-ReturnsDouble_t The time from the last hit of data. 
-Return values
-|  |  |
-| --- | --- |
-| 0.0 | Returned if there are no hits. |
+- Returns
+  Double_t The time from the last hit of data.
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0.0 | Returned if there are no hits. |
 
 
 
@@ -254,11 +259,13 @@ Return values
 Get the time from the last hit in the event.
 
 
-ReturnsDouble_t The time from the last hit of data. 
-Return values
-|  |  |
-| --- | --- |
-| 0.0 | Returned if there are no hits. |
+- Returns
+  Double_t The time from the last hit of data.
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0.0 | Returned if there are no hits. |
 
 
 
@@ -272,15 +279,15 @@ Return values
 Assignment operator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | The object we're assigning to *this. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | The object we're assigning to *this. |
 
 
+- Returns
+  Referencing *this.
 
-
-ReturnsReferencing *this.
 Assignment will:
 
 - Kill off our vector of hits.

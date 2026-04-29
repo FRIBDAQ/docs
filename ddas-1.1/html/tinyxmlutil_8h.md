@@ -83,11 +83,11 @@ header
 checkXmlError IF the XML status passed in is not normal, throw an std::invalid_argument with as detailed a message as possible.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| err | - XMLError which, hopefully is success. |
-| doc | - Reference to the document. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | err | - XMLError which, hopefully is success. |
+  | doc | - Reference to the document. |
 
 
 
@@ -100,12 +100,12 @@ Parameters
 
 Various overloads for getAttribute that call the appropriate QueryxxxAttribute.
 
-Parameters
-|  |  |
-| --- | --- |
-| result | – where to put the reulst, this type varies. |
-| container | - the container to query. |
-| att | - attribute name (e.g. "value"). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | result | – where to put the reulst, this type varies. |
+  | container | - the container to query. |
+  | att | - attribute name (e.g. "value"). |
 
 
 
@@ -117,20 +117,20 @@ Parameters
 
 haveChild Checks for and returns a required child element
 
-Parameters
-|  |  |
-| --- | --- |
-| parent | - the parent that's required to have the child. |
-| element | - the name of the element. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | parent | - the parent that's required to have the child. |
+  | element | - the name of the element. |
 
 
+- Returns
+  [[tinyxml2::XMLElement|classtinyxml2_1_1XMLElement]]* - pointer to the element.
 
-
-Returns[[tinyxml2::XMLElement|classtinyxml2_1_1XMLElement]]* - pointer to the element. 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | if the elmeent does not exist. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | if the elmeent does not exist. |
 
 
 
@@ -145,11 +145,11 @@ template<class T >
 
 readValue Gets the contents of a "value" attribute in an element/tag.
 
-Parameters
-|  |  |
-| --- | --- |
-| dest | - templated type reference to where this is stored. |
-| container | - Element that contains the "value" attribute. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | dest | - templated type reference to where this is stored. |
+  | container | - Element that contains the "value" attribute. |
 
  contents 
  start footer part 

@@ -112,7 +112,9 @@ The HardwareType enum.
 The HardwareType enumeration provides an identifier for each type of hardware that might be found in the system. The user can determine which hardware type they are dealing with by calling the `Pixie16ReadModuleInfo()` methods to access the ADC sampling frequency, the ADC resolution, and the hardware revision. Together with those three pieces of information, it is possible to determine the appropriate HardwareType.
 
 
-**[[Todo:|todo#_todo000013]]**(ASC 3/13/24): Create a method that can query a module and compute the HardwareType. 
+- **[[Todo:|todo#_todo000013]]**
+  (ASC 3/13/24): Create a method that can query a module and compute the HardwareType.
+
 |  |  |
 | --- | --- |
 | Enumerator |
@@ -147,17 +149,16 @@ The HardwareType enumeration provides an identifier for each type of hardware th
 Compute the hardware type from input specifications.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hdwrVersion | Hardware revision. |
-| adcFreq | ADC sampling frequency. |
-| adcRes | ADC bit resolution (e.g. 12, 14, etc.). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hdwrVersion | Hardware revision. |
+  | adcFreq | ADC sampling frequency. |
+  | adcRes | ADC bit resolution (e.g. 12, 14, etc.). |
 
 
-
-
-ReturnsAn enumerated hardware type.
+- Returns
+  An enumerated hardware type.
 
 
 
@@ -186,18 +187,17 @@ ReturnsAn enumerated hardware type.
 Create an enumerated hardware type from input specifications.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hdwrVersion | Hardware revision. |
-| adcFreq | ADC sampling frequency. |
-| adcRes | ADC bit resolution (e.g. 12, 14, etc.). |
-| clockCalibration | FPGA clock calibration in ns/clock tick. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hdwrVersion | Hardware revision. |
+  | adcFreq | ADC sampling frequency. |
+  | adcRes | ADC bit resolution (e.g. 12, 14, etc.). |
+  | clockCalibration | FPGA clock calibration in ns/clock tick. |
 
 
-
-
-ReturnsAn enumerated hardware type.
+- Returns
+  An enumerated hardware type.
 
 
 
@@ -211,23 +211,20 @@ ReturnsAn enumerated hardware type.
 Retrieve a reference to the current hdwr specification for a hardware type.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| type | The enumerated hardware type. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | type | The enumerated hardware type. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | If no specification exists for the hardware type provided. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | If no specification exists for the hardware type provided. |
-
-
-
-
-ReturnsReference to a hardware specificiation.
+- Returns
+  Reference to a hardware specificiation.
 
 
 

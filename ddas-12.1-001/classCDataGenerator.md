@@ -87,24 +87,20 @@ Constructor.
 Generate randomly distributed test baseline data.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | data | Pointer to the start of the baseline data storarge. |
-| [in] | dataSize | How many data points to store. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | data | Pointer to the start of the baseline data storarge. |
+  | [in] | dataSize | How many data points to store. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
 
 
 Params are a pointer to the start of the data storage and a size, as is done in the XIA API for easier integration/consistency.
@@ -123,16 +119,16 @@ Params are a pointer to the start of the data storage and a size, as is done in 
 Generate test Gaussian-distributed data.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | data | Pointer to the start of the baseline data storage. |
-| [in] | dataSize | How many data points to store. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | data | Pointer to the start of the baseline data storage. |
+  | [in] | dataSize | How many data points to store. |
 
 
+- Returns
+  0 (always).
 
-
-Returns0 (always).
 Params are a pointer to the start of the data storage and a size, as is done in the XIA API for easier integration/consistency. Data is stored as a histogram, default binning 1 ADC unit per bin.
 
 
@@ -150,25 +146,21 @@ Params are a pointer to the start of the data storage and a size, as is done in 
 Generate test trace data.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | data | Pointer to the start of the trace data storage. |
-| [in] | dataSize | How many data points to store. |
-| [in] | binWidth | Histogram bin width in microseconds. |
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | data | Pointer to the start of the trace data storage. |
+  | [in] | dataSize | How many data points to store. |
+  | [in] | binWidth | Histogram bin width in microseconds. |
 
 
+- Returns
+  int
 
-
-Returnsint   
-
-
-Return values
-|  |  |
-| --- | --- |
-| 0 | Success. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Success. |
 
 
 Params are a pointer to the start of the data storage and a size, as is done in the XIA API for easier integration/consistency.

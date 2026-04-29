@@ -113,11 +113,11 @@ A class taking the file descriptor as a data source. Most commonly used to const
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pFactory | Pointer to the factory used to get items. |
-| fd | File descriptor open on the data source. The caller owns this, we don't close it on destruction. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFactory | Pointer to the factory used to get items. |
+  | fd | File descriptor open on the data source. The caller owns this, we don't close it on destruction. |
 
 
 
@@ -147,13 +147,13 @@ Destructor.
 Get a ring item from the soruce. Implementation of the mandatory interface from the base class.
 
 
-ReturnsPointer to the next ring item from the stream. 
-Return values
-|  |  |
-| --- | --- |
-| nullptr | If none. |
+- Returns
+  Pointer to the next ring item from the stream.
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | nullptr | If none. |
 
 
 Implements [[DataSource|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].

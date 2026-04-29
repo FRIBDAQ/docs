@@ -80,23 +80,21 @@ traceview main. Run the Qt application.
 traceview main.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | Argument count. |
-| argv | Argument vector. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | Argument count. |
+  | argv | Argument vector. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| 0 | Application exits successfully. |
-| !=0 | Error. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | 0 | Application exits successfully. |
+  | !=0 | Error. |
 
 
 Create the main application. The application has a command line parser to allow the user to pass commands at runtime to configure the initial viewer settings. A TApplication necessary for the embedded Root canvas is also created.

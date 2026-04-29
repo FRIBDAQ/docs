@@ -255,10 +255,10 @@ For the 500 MSPS module,
 time = 10*(timehigh << 32 + timelow) + 2*(timecfd/(2^13) + cfdtrigsourcebit - 1)
 
 
-Return values
-|  |  |
-| --- | --- |
-| timestamp | (units of nanoseconds) |
+- Return values
+  |  |  |
+  | --- | --- |
+  | timestamp | (units of nanoseconds) |
 
 
 

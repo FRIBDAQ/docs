@@ -103,22 +103,20 @@ Defines a raw channel hit storage struct for Readout/sorting.
 operator<
 
 
-Parameters
-|  |  |
-| --- | --- |
-| c1,c2 | Channels with timestamps for comparison. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | c1,c2 | Channels with timestamps for comparison. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If c1 time < c2 time. |
-| false | Otherwise. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If c1 time < c2 time. |
+  | false | Otherwise. |
 
 
 Assumes SetTime() has been called.
@@ -137,22 +135,20 @@ Assumes SetTime() has been called.
 operator==
 
 
-Parameters
-|  |  |
-| --- | --- |
-| c1,c2 | Channels with timestamps for comparison. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | c1,c2 | Channels with timestamps for comparison. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If c1 time, c2 time are equal. |
-| false | Otherwise. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If c1 time, c2 time are equal. |
+  | false | Otherwise. |
 
 
 Assumes SetTime() has been called.
@@ -171,22 +167,20 @@ Assumes SetTime() has been called.
 operator>
 
 
-Parameters
-|  |  |
-| --- | --- |
-| c1,c2 | Channels with timestamps for comparison. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | c1,c2 | Channels with timestamps for comparison. |
 
 
+- Returns
+  bool
 
-
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If c1 time > c2 time. |
-| false | Otherwise. |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If c1 time > c2 time. |
+  | false | Otherwise. |
 
 
 Assumes SetTime() has been called.

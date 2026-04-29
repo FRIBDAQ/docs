@@ -72,7 +72,8 @@ header
 getDescription
 
 
-Returnsm_vars - the most recently parsed description.
+- Returns
+  m_vars - the most recently parsed description.
 
 
 
@@ -83,10 +84,10 @@ Returnsm_vars - the most recently parsed description.
 parseFile Parses a file creating a new m_vars vector (old one is first cleared)
 
 
-Parameters
-|  |  |
-| --- | --- |
-| f | - std::istream open on the input file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | f | - std::istream open on the input file. |
 
 
 

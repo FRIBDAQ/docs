@@ -124,12 +124,12 @@ This class provides an exception that can be thrown if a program detects a 'stat
 
 Construct a state exception.
 
-Parameters
-|  |  |
-| --- | --- |
-| state | : const char* Describes the state the object is in. |
-| allowedStates | : const char* Describes the state the object should be in to be able to perform the request. |
-| pAction | : const char* Describes what the program is doing at the time of the exception. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | state | : const char* Describes the state the object is in. |
+  | allowedStates | : const char* Describes the state the object should be in to be able to perform the request. |
+  | pAction | : const char* Describes what the program is doing at the time of the exception. |
 
 
 
@@ -218,13 +218,13 @@ Reimplemented from [[CException|classCException]].
 Return the reason for the exception. This was stored at construction time in m_Reason.
 
 
-Returnsconst char* 
-Return values
-|  |  |
-| --- | --- |
-| m_Reason.c_str() |  |
+- Returns
+  const char*
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | m_Reason.c_str() |  |
 
 
 Reimplemented from [[CException|classCException]].

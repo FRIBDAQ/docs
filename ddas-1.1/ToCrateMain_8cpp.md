@@ -95,11 +95,11 @@ header
 
 main Entry point wraps [[Main|classMain]] with a try catch block after parsing the arguments.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | - number of command line words. |
-| argv | - the command line words after any shell substitutions. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | - number of command line words. |
+  | argv | - the command line words after any shell substitutions. |
 
  contents 
  start footer part 

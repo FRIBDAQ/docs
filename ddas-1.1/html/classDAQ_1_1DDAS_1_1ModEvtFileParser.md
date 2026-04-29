@@ -84,22 +84,18 @@ It is not an error for the file to contain more lines than there are modules in 
 Parse and store the contents of the modevtlen.txt file in a configuration object.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | the stream from which the contents of the file are read |
-| config | the configuration to store the results in |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | the stream from which the contents of the file are read |
+  | config | the configuration to store the results in |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if fewer lines than there are modules are found |
-| std::runtime_error | if a line is encountered with a value less than 4 |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if fewer lines than there are modules are found |
+  | std::runtime_error | if a line is encountered with a value less than 4 |
 
 
 The parser will read in as many lines as the value returned by config.getNumberOfModules(). For that reason, the caller must have already set the number of modules in the configuration object.

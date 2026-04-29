@@ -89,19 +89,19 @@ Plugin library for template fitting.
 Computes the chi-square goodness of a specific parameterization of a single pulse canonical form with respect to a trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Scaling factor for the template fit. |
-| x1 | Offset with respect to the template. |
-| C | Constant baseline. |
-| points | Set of (x, y) data points which contribute to the total chi-square value. |
-| trace_template | Template trace used to fit the data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Scaling factor for the template fit. |
+  | x1 | Offset with respect to the template. |
+  | C | Constant baseline. |
+  | points | Set of (x, y) data points which contribute to the total chi-square value. |
+  | trace_template | Template trace used to fit the data. |
 
 
+- Returns
+  The chi-square goodness-of-fit statistic.
 
-
-ReturnsThe chi-square goodness-of-fit statistic.
 Neyman's chi-square value is computed from a passed set of (x, y) data.
 
 
@@ -123,21 +123,21 @@ Neyman's chi-square value is computed from a passed set of (x, y) data.
 Computes the chi-square goodness of a specific parameterization of a double pulse canonical form with respect to a trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Scaling factor for the template fit |
-| x1 | Offset with respect to the template |
-| A2 | Scaling factor for the template fit |
-| x2 | Offset with respect to the template |
-| C | Constant baseline |
-| points | Set of x, y data points which contribute to the total chi-square value |
-| trace_template | Template trace used to fit the data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Scaling factor for the template fit |
+  | x1 | Offset with respect to the template |
+  | A2 | Scaling factor for the template fit |
+  | x2 | Offset with respect to the template |
+  | C | Constant baseline |
+  | points | Set of x, y data points which contribute to the total chi-square value |
+  | trace_template | Template trace used to fit the data. |
 
 
+- Returns
+  The chi-square goodness-of-fit statistic.
 
-
-ReturnsThe chi-square goodness-of-fit statistic.
 Neyman's chi-square value is computed from a passed set of (x, y) data.
 
 
@@ -159,21 +159,21 @@ Neyman's chi-square value is computed from a passed set of (x, y) data.
 Evaluate the double pulse fit function at a given point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Scaling factor for the template fit. |
-| x1 | Offset with respect to the template. |
-| A2 | Scaling factor for the template fit. |
-| x2 | Offset with respect to the template. |
-| C | Constant baseline. |
-| x | Position at which to evaluate this function. |
-| trace_template | Template trace used to fit the data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Scaling factor for the template fit. |
+  | x1 | Offset with respect to the template. |
+  | A2 | Scaling factor for the template fit. |
+  | x2 | Offset with respect to the template. |
+  | C | Constant baseline. |
+  | x | Position at which to evaluate this function. |
+  | trace_template | Template trace used to fit the data. |
 
 
+- Returns
+  Double pulse function evaluated at x.
 
-
-ReturnsDouble pulse function evaluated at x.
 Evaluate the canonical form of a double pulse. This is done by summing two single pulses. The constant term is thrown into the first pulse. The second pulse gets a constant term of 0.
 
 
@@ -194,17 +194,15 @@ Evaluate the canonical form of a double pulse. This is done by summing two singl
 Driver for the GSL LM fitter for single pulses.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | pResult | Struct that will get the results of the fit. |
-| [in] | trace | References the trace to fit. |
-| [in] | traceTemplate | References the template trace for the fit. The template is assumed to have a baseline of 0 and a maximum value of 1. |
-| [in] | alignPoint | The internal alignment point of the template. |
-| [in] | limits | Limits of the trace over which to conduct the fit. |
-| [in] | saturation | Value at which the ADC is saturated (points at or above this value are removed from the fit.) |
-
-
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | pResult | Struct that will get the results of the fit. |
+  | [in] | trace | References the trace to fit. |
+  | [in] | traceTemplate | References the template trace for the fit. The template is assumed to have a baseline of 0 and a maximum value of 1. |
+  | [in] | alignPoint | The internal alignment point of the template. |
+  | [in] | limits | Limits of the trace over which to conduct the fit. |
+  | [in] | saturation | Value at which the ADC is saturated (points at or above this value are removed from the fit.) |
 
 
 GSL non-linear least-squares fitter with Levenburg-Marquardt method used to solve the "trust-region problem" of approximating the objective function around its minimum. See [https://www.gnu.org/software/gsl/doc/html/index.html](https://www.gnu.org/software/gsl/doc/html/index.html).
@@ -228,18 +226,16 @@ GSL non-linear least-squares fitter with Levenburg-Marquardt method used to solv
 Driver for the GSL LM fitter for double pulses.
 
 
-Parameters
-|  |  |  |
-| --- | --- | --- |
-| [in,out] | pResult | Struct that will get the results of the fit. |
-| [in] | trace | References the trace to fit. |
-| [in] | traceTemplate | References the template trace for the fit. The template is assumed to have a baseline of 0 and a maximum value of 1. |
-| [in] | alignPoint | The internal alignment point of the template. |
-| [in] | limits | The limits of the trace that can be fit. |
-| [in] | pSinglePulseFit | Pointer to the fit for a single pulse, used to seed initial guesses if present. Otherwise a single pulse fit is done for that. |
-| [in] | saturation | ADC saturation value. Points with values at or above this value are removed from the fit. |
-
-
+- Parameters
+  |  |  |  |
+  | --- | --- | --- |
+  | [in,out] | pResult | Struct that will get the results of the fit. |
+  | [in] | trace | References the trace to fit. |
+  | [in] | traceTemplate | References the template trace for the fit. The template is assumed to have a baseline of 0 and a maximum value of 1. |
+  | [in] | alignPoint | The internal alignment point of the template. |
+  | [in] | limits | The limits of the trace that can be fit. |
+  | [in] | pSinglePulseFit | Pointer to the fit for a single pulse, used to seed initial guesses if present. Otherwise a single pulse fit is done for that. |
+  | [in] | saturation | ADC saturation value. Points with values at or above this value are removed from the fit. |
 
 
 GSL non-linear least-squares fitter with Levenburg-Marquardt method used to solve the "trust-region problem" of approximating the objective function around its minimum. See [https://www.gnu.org/software/gsl/doc/html/index.html](https://www.gnu.org/software/gsl/doc/html/index.html).
@@ -261,19 +257,19 @@ GSL non-linear least-squares fitter with Levenburg-Marquardt method used to solv
 Evaluate the single pulse fit function at a given point.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| A1 | Scaling factor for the template fit. |
-| x1 | Offset with respect to the template. |
-| C | Constant baseline. |
-| x | Position at which to evaluate this function. |
-| trace_template | Template trace used to fit the data. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | A1 | Scaling factor for the template fit. |
+  | x1 | Offset with respect to the template. |
+  | C | Constant baseline. |
+  | x | Position at which to evaluate this function. |
+  | trace_template | Template trace used to fit the data. |
 
 
+- Returns
+  Single pulse function evaluated at x.
 
-
-ReturnsSingle pulse function evaluated at x.
 Evaluate the value of a single pulse in accordance with our canonical functional form. The form is a logistic rise with an exponential decay that sits on top of a constant offset.
 
  contents 

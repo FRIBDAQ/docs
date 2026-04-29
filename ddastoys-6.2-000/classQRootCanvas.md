@@ -121,13 +121,11 @@ Embedded ROOT canvas in a Qt application. Overrides Qt event handling for resize
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pFitMgr | Pointer to aFitManagerfor plotting fit data. TheFitManagerobject is handled by the caller. |
-| parent | Pointer to QWidget parent object (optional, default=nullptr). |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFitMgr | Pointer to aFitManagerfor plotting fit data. TheFitManagerobject is handled by the caller. |
+  | parent | Pointer to QWidget parent object (optional, default=nullptr). |
 
 
 Construct a QWidget and register it with the ROOT graphics backend. The canvas does not own the [[FitManager|classFitManager]] object.
@@ -147,10 +145,10 @@ Construct a QWidget and register it with the ROOT graphics backend. The canvas d
 Draw hit data on the canvas.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| hit | References the hit we're plotting data from |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | hit | References the hit we're plotting data from |
 
 
 
@@ -165,7 +163,8 @@ Parameters
 Return a pointer to the ROOT canvas.
 
 
-ReturnsPointer to the ROOT canvas object.
+- Returns
+  Pointer to the ROOT canvas object.
 
 
 
@@ -180,10 +179,10 @@ ReturnsPointer to the ROOT canvas object.
 Handle Qt mouse move events on the ROOT canvas.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| e | Pointer to the QMouseEvent to handle |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | e | Pointer to the QMouseEvent to handle |
 
 
 
@@ -198,10 +197,10 @@ Parameters
 Handle Qt mouse press events on the ROOT canvas.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| e | Pointer to the QMouseEvent to handle |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | e | Pointer to the QMouseEvent to handle |
 
 
 
@@ -216,10 +215,10 @@ Parameters
 Handle Qt mouse release events on the ROOT canvas.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| e | Pointer to the QMouseEvent to handle |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | e | Pointer to the QMouseEvent to handle |
 
 
 

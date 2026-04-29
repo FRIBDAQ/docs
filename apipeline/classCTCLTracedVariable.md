@@ -167,24 +167,22 @@ Destructor... Since we are going out of scope we need to first untrace.
 
 Function call operator.. This is called in response to the trace fire.
 
-Parameters
-|  |  |
-| --- | --- |
-| pName | (char*) Pointer to the name of the variable that traced. This can differ from the name of the variable because if the variable was an array element, this will be the array's base name. |
-| pElement | (char*) Pointer to the name of the array element or NULL If not an array element. |
-| flags | (int): The flag bit indicating which trace fired. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pName | (char*) Pointer to the name of the variable that traced. This can differ from the name of the variable because if the variable was an array element, this will be the array's base name. |
+  | pElement | (char*) Pointer to the name of the array element or NULL If not an array element. |
+  | flags | (int): The flag bit indicating which trace fired. |
 
 
+- Returns
+  char*
 
-
-Returnschar* 
-Return values
-|  |  |
-| --- | --- |
-| NULL | - no errors. |
-| not | null - Pointer to an error message string, the access will fail with an error, and this string will represent the error |
-
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | NULL | - no errors. |
+  | not | null - Pointer to an error message string, the access will fail with an error, and this string will represent the error |
 
 
 Reimplemented from [[CTCLVariable|classCTCLVariable]].

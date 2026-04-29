@@ -44,8 +44,12 @@ header
 - [Analyzing the data with SpecTcl.](#ddas_1crate_spectcl)
 
 
-AuthorRon Fox and Jeromy Tompkins 
-Date4/21/2016
+- Author
+  Ron Fox and Jeromy Tompkins
+
+- Date
+  4/21/2016
+
 # Introduction
 
 
@@ -166,7 +170,9 @@ Install: Plx9054
 The user must load the PLX kernel module before using DDAS after every time the computer is booted.
 
 
-WarningIn a multicrate system, the PLX kernel module must be loaded into *every* computer attached to the PXI backplane (i.e. every spdaq in your system reading out DDAS modules).
+- Warning
+  In a multicrate system, the PLX kernel module must be loaded into *every* computer attached to the PXI backplane (i.e. every spdaq in your system reading out DDAS modules).
+
 # Configuration files
 
 
@@ -644,7 +650,9 @@ The following longword is the low order 32 bits of the 48-bit event timestamp. C
 The next word is divided into two 16-bit fields, The low order 16 bits (0) are the high order 16 bits of the event timestamp. The high order 16 bits (0x1bdc = 7132) is the [[CFD|classCFD]] interpolation value. This is the fraction of a sample time multiplied by 65536. Therefore the [[CFD|classCFD]] zero crossing was interpolated at about .11 samples after the trigger time giving the high precision timestamp of 22366491.1 ns.
 
 
-NoteThe interpretation of the [[CFD|classCFD]] bits above pertain specifically to the 100 MSPS Pixie-16 digitizers at the NSCL. The meanings of the bits changes slightly when working with the 250 MSPS and 500 MSPS digitizers.
+- Note
+  The interpretation of the [[CFD|classCFD]] bits above pertain specifically to the 100 MSPS Pixie-16 digitizers at the NSCL. The meanings of the bits changes slightly when working with the 250 MSPS and 500 MSPS digitizers.
+
 # Running Readout from the ReadoutGUI
 
 

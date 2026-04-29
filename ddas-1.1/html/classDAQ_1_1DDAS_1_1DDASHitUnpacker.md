@@ -132,12 +132,10 @@ While it parses, it stores the results into the data members of the object hit. 
 Append trace values to stored trace data.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | 32-bit word storing two samples to store |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | 32-bit word storing two samples to store |
 
 
 The two waveform samples are extraced as the lower and upper 16-bit data words and then appended. The least significant 16-bit word is appended to the stored trace first.
@@ -181,12 +179,10 @@ time = 10*(timehigh << 32 + timelow)
 Append energy sum to stored energy sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | energy sum to append |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | energy sum to append |
 
 
 This can be called many times and will cause each successive value to be appended to objec.t
@@ -203,12 +199,10 @@ This can be called many times and will cause each successive value to be appende
 Append qdc sum to stored qdc sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | energy sum to store |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | energy sum to store |
 
 
 Like the [[SetEnergySums()|classDAQ_1_1DDAS_1_1DDASHitUnpacker#abdd51a615520b0990923ace877ea467b]] method, this can be called repeatedly to append multiple values to the existing data.

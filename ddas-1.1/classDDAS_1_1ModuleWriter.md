@@ -72,12 +72,12 @@ Inheritance diagram for DDAS::ModuleWriter:
 constructor Saves the information about which module we're loading and some of the global parameters that are not in the module configuration because they are really experimental configuration items.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | - the crate id of the modules (which crate it's in). |
-| slot | - slotId of the module (normally the slot its in). |
-| module | - moduleId of the module used to specify the module to the API. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | - the crate id of the modules (which crate it's in). |
+  | slot | - slotId of the module (normally the slot its in). |
+  | module | - moduleId of the module used to specify the module to the API. |
 
 
 
@@ -101,12 +101,10 @@ destructor
 write Write module settings to the crate. This assumes that the Pixie16 API has already been initialized and booted sufficiently to have read in the apropriate VAR files.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| dspSettings | the vector of module settings that describes what to load. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | dspSettings | the vector of module settings that describes what to load. |
 
 
 Implements [[DDAS::SettingsWriter|classDDAS_1_1SettingsWriter]].

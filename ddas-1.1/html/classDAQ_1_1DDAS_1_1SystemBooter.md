@@ -137,23 +137,19 @@ Enables verbose output by default.
 Boot the entire system.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| config | a configuration describing the system |
-| type | style of boot |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | config | a configuration describing the system |
+  | type | style of boot |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if Pixie16InitSystem() call returns an error |
-| std::runtime_error | ifpopulateHardwareMap()throws |
-| std::runtime_error | ifbootModuleByIndex()throws |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if Pixie16InitSystem() call returns an error |
+  | std::runtime_error | ifpopulateHardwareMap()throws |
+  | std::runtime_error | ifbootModuleByIndex()throws |
 
 
 Provided a configuration, all modules will be booted. The configuration contains the firmware files for each hardware type, the slot map, and the number of modules. During the course of booting, the hardware will be queried as well to determine the the serial number, revision, adc frequency, and resolution. The revision, adc frequency, and resolution will all be parsed and the information will be stored in the configuration as a HardwareRegistry::HardwareType.
@@ -170,29 +166,26 @@ Provided a configuration, all modules will be booted. The configuration contains
 boot a single module
 
 
-Parameters
-|  |  |
-| --- | --- |
-| modIndex | index of the module in the system |
-| m_config | the system configuration |
-| type | boot style (load firmware or settings only) |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | modIndex | index of the module in the system |
+  | m_config | the system configuration |
+  | type | boot style (load firmware or settings only) |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if hardware type is unknown |
-| std::runtime_error | if Pixie16BootModule returns an error code |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if hardware type is unknown |
+  | std::runtime_error | if Pixie16BootModule returns an error code |
 
 
 The system is booted into a usable state. The mechanics of booting involve either loading firmware and settings or just settings, depending on the type parameter that was passed as a second argument to the method. If the user chooses to boot with a firmware load, the firmware files stored in the configuration associated with the hardware will be used. The settings file that will be used in any boot type, will be the path stored in the configuration.
 
 
-**[[Todo:|todo#_todo000001]]**Check that the firmware file paths are less than 256 characters in length.
+- **[[Todo:|todo#_todo000001]]**
+  Check that the firmware file paths are less than 256 characters in length.
 
 
 
@@ -200,7 +193,8 @@ The system is booted into a usable state. The mechanics of booting involve eithe
 | --- | --- | --- | --- | --- |
 | bool DAQ::DDAS::SystemBooter::isVerbose | ( |  | ) | const |
 
-Returnsthe state of verbosity
+- Returns
+  the state of verbosity
 
 
 
@@ -211,20 +205,16 @@ Returnsthe state of verbosity
 Read and store hardware info from each of the modules in the system.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| config | the system configuration |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | config | the system configuration |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | if Pixie16ReadModuleInfo returns error code |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | if Pixie16ReadModuleInfo returns error code |
 
 
 To retrieve information about all of the modules in the system, Pixie16ReadModuleInfo is called for each module index. The resulting revision number, adc bits, and adc frequency is printed (if verbose output enabled) and the hardware mapping is stored in the configuration that was passed in.
@@ -238,12 +228,10 @@ To retrieve information about all of the modules in the system, Pixie16ReadModul
 Enable or disable verbose output.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| enable | enables output messages |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | enable | enables output messages |
 
 
 By default, the output verbosity setting is enabled. If it is disabled, there will be no output printed to the terminal.

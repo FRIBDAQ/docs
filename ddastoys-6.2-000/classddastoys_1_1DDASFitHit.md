@@ -115,15 +115,14 @@ These objects are produced by `DDASFitHitUnpacker::decode()`. They are basically
 Get the extension data from the current hit.
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::logic_error | If the hit does not contain an extension. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::logic_error | If the hit does not contain an extension. |
 
 
-
-
-ReturnsReference to the extension of the current hit.
+- Returns
+  Reference to the extension of the current hit.
 
 
 
@@ -138,7 +137,8 @@ ReturnsReference to the extension of the current hit.
 Check whether hit has a fit extension.
 
 
-ReturnsTrue if the hit contains an extension, false otherwise.
+- Returns
+  True if the hit contains an extension, false otherwise.
 
 
 
@@ -153,15 +153,15 @@ ReturnsTrue if the hit contains an extension, false otherwise.
 Assignment operator.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| rhs | Reference toDDASFitHitfor assignment. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | rhs | Reference toDDASFitHitfor assignment. |
 
 
+- Returns
+  Reference to lhs.
 
-
-ReturnsReference to lhs.
 Calls base class operator= and sets the hit extension (if present).
 
 
@@ -177,10 +177,10 @@ Calls base class operator= and sets the hit extension (if present).
 Set the hit extension information for this hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| extension | Reference to the extension for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | extension | Reference to the extension for this hit. |
 
 
 

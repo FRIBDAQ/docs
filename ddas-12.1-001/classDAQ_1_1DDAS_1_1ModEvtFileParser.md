@@ -96,22 +96,18 @@ Constructor.
 Parse and store the contents of the modevtlen.txt file in a configuration object.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| input | Input stream for reading. |
-| config | The configuration to store the results in. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | input | Input stream for reading. |
+  | config | The configuration to store the results in. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | Fewer lines in modevtlen.txt than installed modules. |
-| std::runtime_error | Event length < 4. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | Fewer lines in modevtlen.txt than installed modules. |
+  | std::runtime_error | Event length < 4. |
 
 
 The parser will read in as many lines as the value returned by `config.getNumberOfModules()`. For that reason, the caller must have already set the number of modules in the configuration object.

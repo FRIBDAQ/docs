@@ -110,10 +110,10 @@ load fimrware and start boards.
 
 boot Load firmware and start the modules.
 
-Parameters
-|  |  |
-| --- | --- |
-| bootmask | Boot mask passed to boot. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | bootmask | Boot mask passed to boot. |
 
 
 
@@ -127,10 +127,10 @@ Clock synchronization.
 synchronize Perform clock synchronization. This is has been removed from initialize() so that it an be called from the constructor (infinity clock mode), conditionally from initialize() (classic mode) via a command (resynchronized infinity clock mode).
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::runtime_error | - if we fail to talk properly to the module(s). |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::runtime_error | - if we fail to talk properly to the module(s). |
 
 
 

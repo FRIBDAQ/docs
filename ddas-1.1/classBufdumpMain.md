@@ -108,21 +108,21 @@ Entry point for the dumper.
 - Accept items from the ring and dump them to stdout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc | Number of command line arguments. |
-| argv | Array of pointers to command line arguments. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc | Number of command line arguments. |
+  | argv | Array of pointers to command line arguments. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| EXIT_SUCCESS | - Successful execution |
-| EXIT_FAILURE | - Some problem.. or may just exit. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | EXIT_SUCCESS | - Successful execution |
+  | EXIT_FAILURE | - Some problem.. or may just exit. |
 
 
 

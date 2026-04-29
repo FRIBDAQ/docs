@@ -57,7 +57,8 @@ A ROOT file sink for DDAS data.
 A ROOT file sink for DDAS data.
 
 
-NoteThe `put()` method is not intended to be used by this class but is part of the mandatory interface of the CDataSink base class. If it's used, a warning will be output to stderr. The data will then be treated as a raw ring item, turned into a CRingItem and `putItem()` will be called from then on. The behavior in this case is likely undefined.
+- Note
+  The `put()` method is not intended to be used by this class but is part of the mandatory interface of the CDataSink base class. If it's used, a warning will be output to stderr. The data will then be treated as a raw ring item, turned into a CRingItem and `putItem()` will be called from then on. The behavior in this case is likely undefined.
 
 ## Constructor & Destructor Documentation
 
@@ -76,22 +77,18 @@ NoteThe `put()` method is not intended to be used by this class but is part of t
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pFactory | Factory for creating ring items from hit bodies. |
-| fileName | ROOT file to open. |
-| treeName | Name of the tree to create in the root file. The tree name defaults to "DDASRootHit" if not provided. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFactory | Factory for creating ring items from hit bodies. |
+  | fileName | ROOT file to open. |
+  | treeName | Name of the tree to create in the root file. The tree name defaults to "DDASRootHit" if not provided. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| All | exceptions back to the caller. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | All | exceptions back to the caller. |
 
 
 We're going to make this sink so it can be used in other programs. That implies preserving ROOT's concept of a current working directory across our operation.
@@ -111,7 +108,8 @@ Destructor.
 
 Flush the stuff to file and delete all the dynamic components which we own.
 
-NoteThe factory is owned by the caller and is the caller's responsibility.
+- Note
+  The factory is owned by the caller and is the caller's responsibility.
 
 
 ## Member Function Documentation
@@ -131,13 +129,11 @@ NoteThe factory is owned by the caller and is the caller's responsibility.
 Called to put arbitrary data to the file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pData | Pointer to the data. |
-| nBytes | Number of bytes of data to put; actually ignored. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pData | Pointer to the data. |
+  | nBytes | Number of bytes of data to put; actually ignored. |
 
 
 We really don't know how to do this so:
@@ -158,20 +154,16 @@ We really don't know how to do this so:
 Put a ring item to file.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| item | Reference to a ring item object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | item | Reference to a ring item object. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::length_error | If the event size is different than expected. |
-
-
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::length_error | If the event size is different than expected. |
 
 
 The ring item is assumed to consist of a set of fragments. Each fragment contains a hit. The hits are decoded and added to the tree event. Once that's done we can fill the tree and delete any dynamic storage we got.

@@ -81,10 +81,10 @@ This module does no storage management, the receiver of all hits is expected to 
 Constructor.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| window | The hit emission window in nanoseconds (ns). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | window | The hit emission window in nanoseconds (ns). |
 
 
 ## Member Function Documentation
@@ -101,12 +101,10 @@ Parameters
 Adds a new set of hits to the m_sortedHits deque maintaining total ordering by calibrated timestamp.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| newHits | References the new hits to be added. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | newHits | References the new hits to be added. |
 
 
 On return the deque will be empty.
@@ -123,7 +121,9 @@ On return the deque will be empty.
 Returns true if there's at least one hit that can be output.
 
 
-ReturnsTrue if a hit can be output, false otherwise.
+- Returns
+  True if a hit can be output, false otherwise.
+
 Returns false if < 2 hits since no window can be constructed.
 
 
@@ -138,13 +138,13 @@ Returns false if < 2 hits since no window can be constructed.
 Get the next hit from the queue.
 
 
-ReturnsPointer to the oldest hit in the m_sortedHits deque. 
-Return values
-|  |  |
-| --- | --- |
-| nullptr | If there are no hits in m_sortedHits |
+- Returns
+  Pointer to the oldest hit in the m_sortedHits deque.
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | nullptr | If there are no hits in m_sortedHits |
 
 
 On exit, if a hit is returned it has been popped off the deque.

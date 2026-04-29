@@ -23,21 +23,30 @@ do not remove this div, it is closed by doxygen!
 The modevtlen.txt File
 
 header
-AuthorsAaron Chester, Ron Fox, Jeromy Tompkins 
-Date3/20/24
+- Authors
+  Aaron Chester, Ron Fox, Jeromy Tompkins
+
+- Date
+  3/20/24
+
 # Introduction
 
 
-The modevtlen.txt file contains the length of each event expected from each module in a PXI crate. Event lengths are given in 32-bit longwords. For each channel on a digitizer, the assumption is that events of equal length will be emitted. This implies that for a single module, all channels must be configured to have the same settings for trace capture, QDC sums, etc. If this is not the case, the readout program will fail. For systems containing multiple DDAS crates, one modevtlen.txt file is required for each crate. 
-AttentionIt is an error to have fewer entries in the modevtlen.txt file than there are modules installed in the PXI crate. It is not an error to have more entries than modules.
+  The modevtlen.txt file contains the length of each event expected from each module in a PXI crate. Event lengths are given in 32-bit longwords. For each channel on a digitizer, the assumption is that events of equal length will be emitted. This implies that for a single module, all channels must be configured to have the same settings for trace capture, QDC sums, etc. If this is not the case, the readout program will fail. For systems containing multiple DDAS crates, one modevtlen.txt file is required for each crate.
+
+- Attention
+  It is an error to have fewer entries in the modevtlen.txt file than there are modules installed in the PXI crate. It is not an error to have more entries than modules.
+
 # modevtlen.txt Format
 
 
-The format of this file is very simple: there should be one line containing the expected event length in 32-bit words for each module in the system. The minimum number of words is determined by the XIA data format. By default this minimum read size is 4 words. Enabling optional features such as trace capture or QDC sums can increase the length of the event expected by the readout program.
+  The format of this file is very simple: there should be one line containing the expected event length in 32-bit words for each module in the system. The minimum number of words is determined by the XIA data format. By default this minimum read size is 4 words. Enabling optional features such as trace capture or QDC sums can increase the length of the event expected by the readout program.
+
 ## Optional Output Data Sizes
 
 
-The following table summarizes the additional number of 32-bit words added for each additional output data type.
+  The following table summarizes the additional number of 32-bit words added for each additional output data type.
+
 |  |  |
 | --- | --- |
 | Data type | 32-bit words |
@@ -50,8 +59,9 @@ The following table summarizes the additional number of 32-bit words added for e
 ## Calculating the Trace Length in 32-Bit Words
 
 
-The length of the trace data in 32-bit words depends on the module type and the trace length set in the DSP settings file. It is given by \(N_{\text{longwords}} = \text{ceil}(0.5 \times L \times f)\) where \(L\) is the trace length in microseconds and \(f\) is the module ADC frequency in MSPS. The factor of 0.5 is included because each 32-bit trace word consists of two 16-bit trace samples. The calculated number of words must be rounded up to the nearest whole number. For example, capturing a 500 nanosecond trace on a 250 MSPS module requires an additional 63 longwords.
-The total number of longwords for an event is 4 plus the sum of the longwords associated with all enabled optional data output. For example, a module with the aforementioned trace capture enabled as well as QDC sums would require a total 4 + 63 + 8 = 75 longwords; this is the value that should be specified in modevtlen.txt for that module.
+  The length of the trace data in 32-bit words depends on the module type and the trace length set in the DSP settings file. It is given by \(N_{\text{longwords}} = \text{ceil}(0.5 \times L \times f)\) where \(L\) is the trace length in microseconds and \(f\) is the module ADC frequency in MSPS. The factor of 0.5 is included because each 32-bit trace word consists of two 16-bit trace samples. The calculated number of words must be rounded up to the nearest whole number. For example, capturing a 500 nanosecond trace on a 250 MSPS module requires an additional 63 longwords.
+
+  The total number of longwords for an event is 4 plus the sum of the longwords associated with all enabled optional data output. For example, a module with the aforementioned trace capture enabled as well as QDC sums would require a total 4 + 63 + 8 = 75 longwords; this is the value that should be specified in modevtlen.txt for that module.
 
  contents
 

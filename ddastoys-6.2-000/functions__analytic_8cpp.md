@@ -58,7 +58,8 @@ Include dependency graph for functions_analytic.cpp:
 Implement analytic functions used to fit DDAS pulses.
 
 
-NoteAll functions are in the ddastoys::analytic namespace.
+- Note
+  All functions are in the ddastoys::analytic namespace.
 
 ## Function Documentation
 

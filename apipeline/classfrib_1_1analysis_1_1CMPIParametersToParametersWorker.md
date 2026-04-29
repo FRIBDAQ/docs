@@ -92,11 +92,11 @@ Inheritance diagram for frib::analysis::CMPIParametersToParametersWorker:
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - command line parameters after MPI_Init's strip. |
-| pApp | - pointer to the application object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - command line parameters after MPI_Init's strip. |
+  | pApp | - pointer to the application object. |
 
 
 
@@ -126,19 +126,19 @@ destructor - The tree parameters in the tree map were dynamically created by the
 getVariable Return the information block that describes a variable received from the dealer.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pVarName | - name of the variable we want. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pVarName | - name of the variable we want. |
 
 
+- Returns
+  CMPIParametersToParametersWorker::VariableInfo*
 
-
-ReturnsCMPIParametersToParametersWorker::VariableInfo* 
-Return values
-|  |  |
-| --- | --- |
-| nullptr | - no matching variable definition. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | nullptr | - no matching variable definition. |
 
 
 
@@ -152,7 +152,8 @@ Return values
 
 getVariableNames Return a vector of variable names received from the dealer.
 
-Returnsstd::vector<std::string>
+- Returns
+  std::vector<std::string>
 
 
 
@@ -166,23 +167,20 @@ Returnsstd::vector<std::string>
 
 loadVariable Given a variable loads its information into the current set of tree variables.
 
-Parameters
-|  |  |
-| --- | --- |
-| pVarName | - name of the variable. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pVarName | - name of the variable. |
 
 
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | - if there's no matching variable. |
 
 
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | - if there's no matching variable. |
-
-
-
-
-NoteIf there's no matching *locally defined* variable, we will create a new one but this new variable will not be known to the outputter.
+- Note
+  If there's no matching *locally defined* variable, we will create a new one but this new variable will not be known to the outputter.
 
 
 

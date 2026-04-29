@@ -115,12 +115,10 @@ For more information about how to tailor this code, see the SBS readout CReadout
 Used to add Tcl commands. See the CTCLObjectProcessor class.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | Pointer to CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | Pointer to CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
 
 
 Register the statistics command in addition to all the usual stuff from the base class.
@@ -138,18 +136,17 @@ Register the statistics command in addition to all the usual stuff from the base
 Setup the Readout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pExperiment | Pointer to the experiment object. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pExperiment | Pointer to the experiment object. |
 
 
 This function must define the trigger as well as the response of the program to triggers. A trigger is an object that describes when an event happens. Triggers are objects derived from CEventTrigger. In this case we use the [[CMyTrigger|classCMyTrigger]] class to define the trigger object.
 
 
-NoteThis function is incompatible with the pre-10.0 software in that for the 10.0 software, there was a default trigger that did useful stuff. The default trigger for this version is a NULL trigger (a trigger that never happens). You *must* create a trigger object and register it with the experiment object via its EstablishTrigger member funtion else you'll never get any events.
+- Note
+  This function is incompatible with the pre-10.0 software in that for the 10.0 software, there was a default trigger that did useful stuff. The default trigger for this version is a NULL trigger (a trigger that never happens). You *must* create a trigger object and register it with the experiment object via its EstablishTrigger member funtion else you'll never get any events.
 
 
 
@@ -164,18 +161,18 @@ NoteThis function is incompatible with the pre-10.0 software in that for the 10.
 Setup run variables.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | Pointer to CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | Pointer to CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
 
 
 A run variable is a Tcl variable whose value is periodically written to the output event stream. Run variables are intended to monitor things that can change in the middle of a run.
 
 
-NoteThe base class may create run variables so see the comments in the function body about where to add code.
+- Note
+  The base class may create run variables so see the comments in the function body about where to add code.
+
 See also: SetupStateVariables
 
 
@@ -191,12 +188,10 @@ See also: SetupStateVariables
 Setup the scaler Readout.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pExperiment | Pointer to the experiment object. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pExperiment | Pointer to the experiment object. |
 
 
 We simply use a timed trigger to read out scaler data at regular intervals. By default the scaler read interval is 16 seconds. This can be overridden using the environment variable `SCALER_SECONDS` or by specifying a value using the `-scalerseconds` option when invoking this program with `ddasReadout`.
@@ -214,18 +209,18 @@ We simply use a timed trigger to read out scaler data at regular intervals. By d
 Setup state variables.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | Pointer to CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | Pointer to CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
 
 
 A state variable is a Tcl variable whose value is logged whenever the run transitions to active. While the run is not halted, state variables are write protected. State variables are intended to log a property of the run. Examples of state variables created by the production readout framework are run and title which hold the run number, and the title.
 
 
-NoteThe base class may create state variables so see the comments in the function body about where to add code.
+- Note
+  The base class may create state variables so see the comments in the function body about where to add code.
+
 See also: SetupRunVariables
 
 

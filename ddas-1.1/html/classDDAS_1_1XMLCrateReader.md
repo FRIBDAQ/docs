@@ -137,18 +137,16 @@ constructor Given the crate information file, process it and use the resulting i
 - m_crateId - the id of this crate.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| configFile | - the crate configuration file. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | configFile | - the crate configuration file. |
 
 
-
-
-Exceptions
-|  |  |
-| --- | --- |
-| std::invalid_argument | if there are errors:Opening the file.Parsing it to XMLSemantics of the XML file. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | std::invalid_argument | if there are errors:Opening the file.Parsing it to XMLSemantics of the XML file. |
 
 
 
@@ -172,11 +170,12 @@ destructor just let the map destroy itself
 createReader Given a slot number:
 
 - Get the slot information.
-- Create an [[XMLSettingsReader|classDDAS_1_1XMLSettingsReader]] on the filename that's in the [[SlotInformation|structDDAS_1_1XMLCrateReader_1_1SlotInformation]] struct for that slot. Parameters
-  |  |  |
-  | --- | --- |
-  | slot | - slot number. |
-  ReturnsSettingsReader* pointer to a dynamically created [[XMLSettingsReader|classDDAS_1_1XMLSettingsReader]]
+- Create an [[XMLSettingsReader|classDDAS_1_1XMLSettingsReader]] on the filename that's in the [[SlotInformation|structDDAS_1_1XMLCrateReader_1_1SlotInformation]] struct for that slot. - Parameters
+    |  |  |
+    | --- | --- |
+    | slot | - slot number. |
+  - Returns
+    SettingsReader* pointer to a dynamically created [[XMLSettingsReader|classDDAS_1_1XMLSettingsReader]]
 
 
 Implements [[DDAS::CrateReader|classDDAS_1_1CrateReader]].
@@ -190,15 +189,14 @@ Implements [[DDAS::CrateReader|classDDAS_1_1CrateReader]].
 getEvtLen Returns the event length for a slot.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - the slot number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - the slot number. |
 
 
-
-
-Returnsunsigned - Event length for the slot.
+- Returns
+  unsigned - Event length for the slot.
 
 
 
@@ -209,15 +207,14 @@ Returnsunsigned - Event length for the slot.
 getFifoThreshold Return the fifo threshold for a slot.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number. |
 
 
-
-
-Returnsunsigned FIFO trigger threshold for the slot.
+- Returns
+  unsigned FIFO trigger threshold for the slot.
 
 
 
@@ -227,15 +224,14 @@ Returnsunsigned FIFO trigger threshold for the slot.
 
 getTimestampScale Returns the timestamp scale factor.
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number to use. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number to use. |
 
 
-
-
-Returnsdouble - multiplier for the timstamp, whatever the source.
+- Returns
+  double - multiplier for the timstamp, whatever the source.
 
 
 
@@ -245,15 +241,14 @@ Returnsdouble - multiplier for the timstamp, whatever the source.
 
 isExternalClock
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot number to check. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot number to check. |
 
 
-
-
-Returnsbool - true if the external timestamp should be used for event building.
+- Returns
+  bool - true if the external timestamp should be used for event building.
 
 
 
@@ -263,10 +258,10 @@ Returnsbool - true if the external timestamp should be used for event building.
 
 isInfinityClock
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | - slot to get the flag for.  - Flag of whether or not to use infinity clock. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | - slot to get the flag for.  - Flag of whether or not to use infinity clock. |
 
 
 

@@ -204,25 +204,24 @@ Binding must also rebind the adaptor.
 Concatenates a parameter set into a single string. This can be used by command interpreters which will need to further parse their input (e.g an epxression evaluator may want to act globally on the expression, rather than a token at a time). Spaces are put between each parameter.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nArguments | Number of parameters to concatenate. |
-| pArguments[] | : char* Pointer to the set of parameters to concatenate. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nArguments | Number of parameters to concatenate. |
+  | pArguments[] | : char* Pointer to the set of parameters to concatenate. |
 
 
+- Returns
+  string
+
+- Return values
+  |  |  |
+  | --- | --- |
+  | String | containing the concatenation of the parameters. |
 
 
-Returnsstring 
-Return values
-|  |  |
-| --- | --- |
-| String | containing the concatenation of the parameters. |
-
-
-
-
-NoteCommand invocations set argv[0] to be the command text. In order to be policy free, we act as if that's not the case, therefore if the client really only wants the parameters, they should pass a pointer to argv[1]
+- Note
+  Command invocations set argv[0] to be the command text. In order to be policy free, we act as if that's not the case, therefore if the client really only wants the parameters, they should pass a pointer to argv[1]
 
 
 
@@ -250,22 +249,22 @@ Return the name of the command. This is the initial command name, not the name a
 
 Match a keyword, rValue, against the set of keywords in a MatchTable. If no match can be found, the NoMatch value is returned. Otherwise the index into the table is returned.
 
-Parameters
-|  |  |
-| --- | --- |
-| MatchTable | : vector<string>& vector of legitimate keyword strings. |
-| rValue | : const string& The keyword to match against the table. |
-| NoMatch | : int Value to return if no match is found. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | MatchTable | : vector<string>& vector of legitimate keyword strings. |
+  | rValue | : const string& The keyword to match against the table. |
+  | NoMatch | : int Value to return if no match is found. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| the | index into MatchTable where a string matched rValue. |
-| NoMatch | if there is no such index. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | the | index into MatchTable where a string matched rValue. |
+  | NoMatch | if there is no such index. |
 
 
 
@@ -296,21 +295,21 @@ Reimplemented in [[Reverse|classReverse#acfe4a22505ffb7d9f54808c386160b72]].
 Parses a string as a boolean. True values are any of: 1,true,on, or yes False values are any of 0, false, off, or no.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pString | const char* Pointer to the string to parse. |
-| pBool | Bool_t* Pointer to the result boolean. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pString | const char* Pointer to the string to parse. |
+  | pBool | Bool_t* Pointer to the result boolean. |
 
 
+- Returns
+  int
 
-
-Returnsint 
-Return values
-|  |  |
-| --- | --- |
-| TCL_OK | if parse worked. |
-| TCL_ERROR | and instantiating aCTCLResultobject on the currently bound interpreter will enable a textual reason for the parse failure to be retrieved. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | TCL_OK | if parse worked. |
+  | TCL_ERROR | and instantiating aCTCLResultobject on the currently bound interpreter will enable a textual reason for the parse failure to be retrieved. |
 
 
 
@@ -326,21 +325,20 @@ Return values
 Parses a string as a double using the currently bound interpreter.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pString | char* String to parse. |
-| pDouble | double* Points to where to put value to parse. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pString | char* String to parse. |
+  | pDouble | double* Points to where to put value to parse. |
 
 
+- Returns
 
-
-Returns
-Return values
-|  |  |
-| --- | --- |
-| TCL_OK | - If ok. |
-| TCL_ERROR | and aCTCLResultcan be instantiated on the bound interpreter to retrieve a textual reason for the parse failure. |
+- Return values
+  |  |  |
+  | --- | --- |
+  | TCL_OK | - If ok. |
+  | TCL_ERROR | and aCTCLResultcan be instantiated on the bound interpreter to retrieve a textual reason for the parse failure. |
 
 
 

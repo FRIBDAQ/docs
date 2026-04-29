@@ -156,11 +156,11 @@ Collaboration diagram for MyApp:
 The dealer First we create a raw event file - then we can distribute it to the worker(s) – run this so there's only one worker so that the output file is faithful.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - command line parameters |
-| pApp | - the application. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - command line parameters |
+  | pApp | - the application. |
 
 
 
@@ -177,13 +177,11 @@ Parameters
 
 the worker - it's just going to get data from the dealer and write it to file - note that the headers in the response are written as well as the ring items so tests can look at those and be sure they're right.
 
-Parameters
-|  |  |
-| --- | --- |
-| argc,argv | - command line parameters |
-| pApp | - the application. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | argc,argv | - command line parameters |
+  | pApp | - the application. |
 
 
 worker We open an output file and just put the data we get from the dealer into it for later examination. Note that both the header and contents will be written.

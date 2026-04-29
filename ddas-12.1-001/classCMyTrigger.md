@@ -143,7 +143,8 @@ We need to deallocate memory used to store the FIFO words in each module.
 Get the number of words in each module.
 
 
-ReturnsPointer to the array containing the number of words each module has.
+- Returns
+  Pointer to the array containing the number of words each module has.
 
 
 
@@ -158,12 +159,10 @@ ReturnsPointer to the array containing the number of words each module has.
 Setup the trigger and FIFO words array.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| nummod | The number of installed modules in the Pixie setup. Received from the event segment class. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | nummod | The number of installed modules in the Pixie setup. Received from the event segment class. |
 
 
 Delete and recreate the FIFO words array based on the number of modules.
@@ -181,14 +180,14 @@ Delete and recreate the FIFO words array based on the number of modules.
 operator()
 
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | Good trigger, pass control back to the event segment. |
-| false | Not enough data to trigger. |
+- Returns
+  bool
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | Good trigger, pass control back to the event segment. |
+  | false | Not enough data to trigger. |
 
 
 Defines the trigger logic. Trigger a read if the number of words in the external FIFO of any Pixie-16 module in a crate exceeds a defined threshold.

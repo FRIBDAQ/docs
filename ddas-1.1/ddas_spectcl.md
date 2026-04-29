@@ -39,8 +39,12 @@ header
 - [Creating spectra](#ddas_1crate_spectra)
 
 
-AuthorJeromy Tompkins and Ron Fox 
-Date8/24/2017
+- Author
+  Jeromy Tompkins and Ron Fox
+
+- Date
+  8/24/2017
+
 # Introduction
 
 
@@ -513,7 +517,9 @@ We fill tree parameters so we don't need to refer directly to the rEvent paramet
 So what does the mapToParameters() method do? Well, let's consider what is passed into the method as arguments. The most important of these is the first, which is a vector of DDASHit objects. A DDASHit object encapsulates the data contained in a single channel event. It has things like the energy, timestamp, raw data elements, geographic information, trace data, as well as QDC and energy sum / baseline data. It is essentially just a vehicle to access data elements at a higher level. The provided unpacker will parse the raw data and fill the vector with all of the data in each event. If more than one DDAS hit was in an event, there will be more than one DDASHit object in the vector.
 
 
-NoteIf you have experience with DDAS prior to its lab-supported reincarnation, then you should think of DDASHit as a ddaschannel object. In fact, it has the same interface for accessing data through methods. The differences are that it has no bindings to ROOT or SpecTcl and can be used easily in independent code. Furthermore, some refactoring has been done to separate raw data parsing into a separate class called [[DAQ::DDAS::DDASHitUnpacker|classDAQ_1_1DDAS_1_1DDASHitUnpacker]].
+- Note
+  If you have experience with DDAS prior to its lab-supported reincarnation, then you should think of DDASHit as a ddaschannel object. In fact, it has the same interface for accessing data through methods. The differences are that it has no bindings to ROOT or SpecTcl and can be used easily in independent code. Furthermore, some refactoring has been done to separate raw data parsing into a separate class called [[DAQ::DDAS::DDASHitUnpacker|classDAQ_1_1DDAS_1_1DDASHitUnpacker]].
+
 Here is the implementation of the mapToParameters() method (for the real code see $DAQ_ROOT/share/src/multicrate_src/MyParameterMapper.cpp):
 
 

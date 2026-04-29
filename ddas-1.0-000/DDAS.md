@@ -25,8 +25,12 @@ do not remove this div, it is closed by doxygen!
 Hardware
 
 header
-AuthorJeromy Tompkins 
-Date4/12/2016
+- Author
+  Jeromy Tompkins
+
+- Date
+  4/12/2016
+
 # Introduction
 
 

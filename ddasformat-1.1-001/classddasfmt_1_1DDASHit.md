@@ -292,10 +292,10 @@ The destrutor is virtual to ensure proper destruction of objects derived from [[
 Set the crate ID.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | Crate ID value for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | Crate ID value for this hit. |
 
 
 
@@ -309,10 +309,10 @@ Parameters
 Append a QDC value to the vector of QDC sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | The QDC value appended to the vector. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | The QDC value appended to the vector. |
 
 
 
@@ -326,10 +326,10 @@ Parameters
 Append a 16-bit ADC trace sample to the trace vector.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | The 16-bit ADC sample appended to the vector. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | The 16-bit ADC sample appended to the vector. |
 
 
 
@@ -344,14 +344,14 @@ Parameters
 Retrieve the ADC overflow/underflow status.
 
 
-Returnsbool 
-Return values
-|  |  |
-| --- | --- |
-| true | If the ADC over- or underflows. |
-| false | Otherwise. |
+- Returns
+  bool
 
-
+- Return values
+  |  |  |
+  | --- | --- |
+  | true | If the ADC over- or underflows. |
+  | false | Otherwise. |
 
 
 In the 12 and 14 bit modules, this is the value of bit 15 in the 4th header word. In the 16 bit modules, this is the value of bit 31 in the 4th header word.
@@ -369,7 +369,8 @@ In the 12 and 14 bit modules, this is the value of bit 15 in the 4th header word
 Retrieve the ADC resolution.
 
 
-ReturnsModule ADC resolution (bit depth).
+- Returns
+  Module ADC resolution (bit depth).
 
 
 
@@ -384,7 +385,9 @@ ReturnsModule ADC resolution (bit depth).
 Retreive failure bit from CFD data.
 
 
-ReturnsThe CFD fail bit.
+- Returns
+  The CFD fail bit.
+
 The fail bit == 1 if the CFD fails, 0 otherwise.
 
 
@@ -400,7 +403,8 @@ The fail bit == 1 if the CFD fails, 0 otherwise.
 Retrieve trigger source bit from CFD data.
 
 
-ReturnsThe CFD trigger source bit.
+- Returns
+  The CFD trigger source bit.
 
 
 
@@ -415,7 +419,8 @@ ReturnsThe CFD trigger source bit.
 Retrieve length of header in original data packet.
 
 
-ReturnsLength of the channel header.
+- Returns
+  Length of the channel header.
 
 
 
@@ -430,7 +435,8 @@ ReturnsLength of the channel header.
 Retrieve the channel index.
 
 
-ReturnsChannel index on the module.
+- Returns
+  Channel index on the module.
 
 
 
@@ -445,7 +451,9 @@ ReturnsChannel index on the module.
 Retrieve number of 32-bit words that were in original data packet.
 
 
-ReturnsThe number of 32-bit words in the event.
+- Returns
+  The number of 32-bit words in the event.
+
 Note that this only really makes sense to be used if the object was filled with data using UnpackChannelData().
 
 
@@ -465,7 +473,8 @@ Latching of the coarse timestamp depends on whether or not the CFD is enabled, a
 
 - If the CFD is enabled and a vaild CFD exists, the coarse timestamp is latched to the trace sample immidiately prior to the zero-crossing point.
 - If the CFD is enabled and fails, the coarse timestamp is latched to the leading-edge trigger point.
-- If the CFD is disabled, the coarse timestamp is latched to the leading-edge trigger point. ReturnsThe raw 48-bit timestamp in nanoseconds.
+- If the CFD is disabled, the coarse timestamp is latched to the leading-edge trigger point. - Returns
+    The raw 48-bit timestamp in nanoseconds.
 
 
 
@@ -480,7 +489,8 @@ Latching of the coarse timestamp depends on whether or not the CFD is enabled, a
 Retrieve the index of the crate the module resided in.
 
 
-ReturnsModule crate ID.
+- Returns
+  Module crate ID.
 
 
 
@@ -497,7 +507,8 @@ Retrieve the energy.
 
 With the advent of Pixie-16 modules with 16-bit ADCs, the `getEnergy()` method no longer includes the ADC overflow/underflow bit. The overflow/underflow bit can be accessed via the `getADCOverflowUnderflow()` method instead.
 
-ReturnsThe energy.
+- Returns
+  The energy.
 
 
 
@@ -512,7 +523,8 @@ ReturnsThe energy.
 Access the energy/baseline sum data.
 
 
-ReturnsThe energy sum data.
+- Returns
+  The energy sum data.
 
 
 
@@ -527,7 +539,8 @@ ReturnsThe energy sum data.
 Access the energy/baseline sum data.
 
 
-ReturnsThe energy sum data.
+- Returns
+  The energy sum data.
 
 
 
@@ -542,7 +555,8 @@ ReturnsThe energy sum data.
 Retrieve the external timestamp.
 
 
-ReturnsThe 48-bit external timestamp in nanoseconds.
+- Returns
+  The 48-bit external timestamp in nanoseconds.
 
 
 
@@ -557,7 +571,9 @@ ReturnsThe 48-bit external timestamp in nanoseconds.
 Retrieve finish code.
 
 
-ReturnsThe finish code.
+- Returns
+  The finish code.
+
 The finish code will be set to 1 if pileup was detected.
 
 
@@ -573,7 +589,8 @@ The finish code will be set to 1 if pileup was detected.
 Retrieve the hardware revision.
 
 
-Returnsint Module hardware revision number.
+- Returns
+  int Module hardware revision number.
 
 
 
@@ -588,7 +605,8 @@ Returnsint Module hardware revision number.
 Retrieve the ADC frequency of the module.
 
 
-ReturnsModule ADC MSPS.
+- Returns
+  Module ADC MSPS.
 
 
 
@@ -603,7 +621,8 @@ ReturnsModule ADC MSPS.
 Access the QDC data.
 
 
-ReturnsThe QDC sum data.
+- Returns
+  The QDC sum data.
 
 
 
@@ -618,7 +637,8 @@ ReturnsThe QDC sum data.
 Access the QDC data.
 
 
-ReturnsThe QDC sum data.
+- Returns
+  The QDC sum data.
 
 
 
@@ -633,7 +653,8 @@ ReturnsThe QDC sum data.
 Retrieve the slot that the module resided in.
 
 
-ReturnsModule slot.
+- Returns
+  Module slot.
 
 
 
@@ -672,7 +693,8 @@ For the 500 MSPS modules:
 \[\text{time} = 10\times((\text{timeHigh} << 32) + \text{timeLow}) + 2\times(\text{timeCFD}/2^{13} + \text{cfdTrigSourceBit} - 1)\]
 
 
-Returnsdouble The timestamp in units of nanoseconds.
+- Returns
+  double The timestamp in units of nanoseconds.
 
 
 
@@ -687,7 +709,8 @@ Returnsdouble The timestamp in units of nanoseconds.
 Retrieve the raw CFD time.
 
 
-ReturnsThe raw CFD time value from the data word.
+- Returns
+  The raw CFD time value from the data word.
 
 
 
@@ -702,7 +725,8 @@ ReturnsThe raw CFD time value from the data word.
 Retrieve most significant 16-bits of raw timestamp.
 
 
-ReturnsThe upper 16 bits of the 48-bit timestamp.
+- Returns
+  The upper 16 bits of the 48-bit timestamp.
 
 
 
@@ -717,7 +741,8 @@ ReturnsThe upper 16 bits of the 48-bit timestamp.
 Retrieve least significant 32-bit of raw timestamp.
 
 
-ReturnsThe lower 16 bits of the 48-bit timestamp.
+- Returns
+  The lower 16 bits of the 48-bit timestamp.
 
 
 
@@ -732,7 +757,8 @@ ReturnsThe lower 16 bits of the 48-bit timestamp.
 Access the trace data.
 
 
-ReturnsThe ADC trace.
+- Returns
+  The ADC trace.
 
 
 
@@ -747,7 +773,8 @@ ReturnsThe ADC trace.
 Access the trace data.
 
 
-ReturnsThe ADC trace.
+- Returns
+  The ADC trace.
 
 
 
@@ -762,7 +789,8 @@ ReturnsThe ADC trace.
 Retrieve trace length.
 
 
-ReturnsThe trace length in ADC samples.
+- Returns
+  The trace length in ADC samples.
 
 
 
@@ -790,10 +818,10 @@ For primitive types, this sets the values to 0. For vector data (i.e. trace), th
 Set ADC over- or under-flow state.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| state | The ADC under-/overflow state. True if the ADC under- or overflows the ADC. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | state | The ADC under-/overflow state. True if the ADC under- or overflows the ADC. |
 
 
 
@@ -807,10 +835,10 @@ Parameters
 Set the value of the ADC resolution (bit depth) for the ADC which recorded this hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | The ADC resolution. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | The ADC resolution. |
 
 
 
@@ -824,12 +852,10 @@ Parameters
 Set the CFD fail bit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| bit | The CFD fail bit value. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | bit | The CFD fail bit value. |
 
 
 The CFD fail bit == 1 if the CFD algorithm fails. The CFD can fail if the threshold value is too high or the CFD algorithm fails to find a zero-crossing point within 32 samples of the leading-edge trigger point.
@@ -846,12 +872,10 @@ The CFD fail bit == 1 if the CFD algorithm fails. The CFD can fail if the thresh
 Set the CFD trigger source bit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| bit | The CFD trigger source bit value for this hit. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | bit | The CFD trigger source bit value for this hit. |
 
 
 The 250 MSPS and 500 MSPS modules de-serialize data into an FPGA which operates at some fraction of the ADC sampling rate. The CFD trigger source bit specifies which fractional time offset from the FPGA clock tick the CFD zero-crossing occured. For 100 MSPS modules, the source bit is always equal to 0 (FPGA captures data also at 100 MSPS).
@@ -868,10 +892,10 @@ The 250 MSPS and 500 MSPS modules de-serialize data into an FPGA which operates 
 Set the channel header length.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| channelHeaderLength | Channel header length of this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channelHeaderLength | Channel header length of this hit. |
 
 
 
@@ -885,10 +909,10 @@ Parameters
 Set the channel ID.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| channel | Channel value for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channel | Channel value for this hit. |
 
 
 
@@ -902,10 +926,10 @@ Parameters
 Set the channel length.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| channelLength | The length of the hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | channelLength | The length of the hit. |
 
 
 
@@ -919,12 +943,10 @@ Parameters
 Set the coarse timestamp.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| time | The coarse timestamp. |
-
-
+- Parameters
+  |  |  |
+  | --- | --- |
+  | time | The coarse timestamp. |
 
 
 Latching of the coarse timestamp depends on whether or not the CFD is enabled, and, if enabled, whether the CFD algorithm succeeds or not:
@@ -945,10 +967,10 @@ Latching of the coarse timestamp depends on whether or not the CFD is enabled, a
 Set the crate ID.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| crate | Crate ID value for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | crate | Crate ID value for this hit. |
 
 
 
@@ -962,10 +984,10 @@ Parameters
 Set the energy for this hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| energy | The energy for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | energy | The energy for this hit. |
 
 
 
@@ -979,10 +1001,10 @@ Parameters
 Set the energy sum data from an existing set of sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| eneSums | Vector of energy sums. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | eneSums | Vector of energy sums. |
 
 
 
@@ -996,10 +1018,10 @@ Parameters
 Set the value of the external timestamp.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | The value of the external timestamp supplied to DDAS. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | The value of the external timestamp supplied to DDAS. |
 
 
 
@@ -1013,10 +1035,10 @@ Parameters
 Set the finish code.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| finishCode | Finish code for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | finishCode | Finish code for this hit. |
 
 
 
@@ -1030,10 +1052,10 @@ Parameters
 Set the ADC hardware revision for the ADC which recorded this hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| value | The hardware revision of the ADC. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | value | The hardware revision of the ADC. |
 
 
 
@@ -1047,10 +1069,10 @@ Parameters
 Set the value of the ADC frequency in MSPS for the ADC which recorded this hit.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| msps | The ADC frequency in MSPS. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | msps | The ADC frequency in MSPS. |
 
 
 
@@ -1064,10 +1086,10 @@ Parameters
 Set the QDC sum data from an existing set of sums.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| qdcSums | Vector of QDC sums. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | qdcSums | Vector of QDC sums. |
 
 
 
@@ -1081,10 +1103,10 @@ Parameters
 Set the raw CFD time.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| data | The raw CFD value from the data word. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | data | The raw CFD value from the data word. |
 
 
 
@@ -1098,10 +1120,10 @@ Parameters
 Set the slot ID.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| slot | Slot value for this hit. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | slot | Slot value for this hit. |
 
 
 
@@ -1115,10 +1137,10 @@ Parameters
 Set the hit time.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| compTime | The computed time for this hit with the CFD correction applied. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | compTime | The computed time for this hit with the CFD correction applied. |
 
 
 
@@ -1132,10 +1154,10 @@ Parameters
 Set the higher 16 bits of the 48-bit timestamp.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| datum | The higher 16 bits of the 48-bit timestamp extracted from the lower 16 bits of the 32-bit word passed to this function. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | datum | The higher 16 bits of the 48-bit timestamp extracted from the lower 16 bits of the 32-bit word passed to this function. |
 
 
 
@@ -1149,10 +1171,10 @@ Parameters
 Set the lower 32 bits of the 48-bit timestamp.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| datum | The lower 32 bits of the timestamp. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | datum | The lower 32 bits of the timestamp. |
 
 
 
@@ -1166,10 +1188,10 @@ Parameters
 Set the trace data from an existing trace.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| trace | The trace. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | trace | The trace. |
 
 
 
@@ -1183,10 +1205,10 @@ Parameters
 Set the ADC trace length.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| length | The length of the trace in 16-bit words (samples). |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | length | The length of the trace in 16-bit words (samples). |
 
 
 

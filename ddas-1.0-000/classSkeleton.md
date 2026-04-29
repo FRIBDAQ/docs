@@ -62,10 +62,10 @@ header
 Add new Tcl Commands here. See the CTCLObjectProcessor class. You can create new command by deriving a subclass from this abstract base class. The base class will automatically register itself with the interpreter. If you have some procedural commands you registered with Tcl_CreateCommand or Tcl_CreateObjCommand, you can obtain the raw interpreter (Tcl_Interp*) of a CTCLInterpreter by calling its getInterp() member.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | - Pointer to the CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | - Pointer to the CTCLInterpreter object that encapsulates the Tcl_Interp* of our main interpreter. |
 
 
 
@@ -77,7 +77,9 @@ Parameters
 Setup the Readout This function must define the trigger as well as the response of the program to triggers. A trigger is an object that describes when an event happens. Triggers are objects derived from CEventTrigger
 
 
-NoteThis function is incompatible with the pre 10.0 software in that for the 10.0 software, there was a default trigger that did useful stuff. The default trigger for this version is a NULL trigger (a trigger that never happens. You *must* create a trigger object and register it with the experiment object via its EstablishTrigger member funtion else you'll never get any events.
+- Note
+  This function is incompatible with the pre 10.0 software in that for the 10.0 software, there was a default trigger that did useful stuff. The default trigger for this version is a NULL trigger (a trigger that never happens. You *must* create a trigger object and register it with the experiment object via its EstablishTrigger member funtion else you'll never get any events.
+
 The following are trigger classes you can use:
 
 
@@ -88,10 +90,10 @@ The following are trigger classes you can use:
 - CV977Trigger - Uses the CAEN V977 as a trigger module.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pExperiment | - Pointer to the experiment object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pExperiment | - Pointer to the experiment object. |
 
 
 
@@ -112,10 +114,10 @@ See also:
 SetupStateVariables
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | - pointer to the TCL interpreter. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | - pointer to the TCL interpreter. |
 
 
 
@@ -133,10 +135,10 @@ By default, the scalers are read periodically every few seconds. The interval be
 You may replace this default trigger by creating a CEventTrigger derived object and passing it to the experiment's setScalerTrigger member function.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pExperiment | - Pointer to the experiment object. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pExperiment | - Pointer to the experiment object. |
 
 
 
@@ -157,10 +159,10 @@ See also
 SetupRunVariables
 
 
-Parameters
-|  |  |
-| --- | --- |
-| pInterp | - Pointer to the tcl interpreter. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pInterp | - Pointer to the tcl interpreter. |
 
 
 

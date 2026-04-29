@@ -86,12 +86,12 @@ Syntax:
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - Reference to the interpreter. |
-| pCmd | - Command string. |
-| pSeg | - Event segment to manipulate. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - Reference to the interpreter. |
+  | pCmd | - Command string. |
+  | pSeg | - Event segment to manipulate. |
 
 
 
@@ -120,17 +120,16 @@ operator() Gets control when the command is invoked.
 - Invokes the segments's boot method.
 
 
-Parameters
-|  |  |
-| --- | --- |
-| interp | - interpreter executing the command. |
-| objv | - command words. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | interp | - interpreter executing the command. |
+  | objv | - command words. |
 
 
-
-
-Returnsint - Status of the command:- TCL_OK - successful completion.
-- TCL_ERROR - failure. Human readable reason is in the intepreter result.
+- Returns
+  int - Status of the command:- TCL_OK - successful completion.
+  - TCL_ERROR - failure. Human readable reason is in the intepreter result.
 
 
 

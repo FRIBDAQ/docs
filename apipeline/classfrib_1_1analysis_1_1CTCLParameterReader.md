@@ -92,7 +92,8 @@ A parameter reader class that uses an extended Tcl interpreter to read the param
 - treevariablearray name value units elements firstindex
 
 
-Notethat these create initial definitions but user code can modify those definitions as well. Therefore it's normally needed to have all computational elements not only read the configuration file but to define any CTreeParameters/CTreeVariables as well...otherwise, since MPI is a multiprocessing, SPMD system, there's danger that one or more processes will operate with differing parameter/variable definitions.
+- Note
+  that these create initial definitions but user code can modify those definitions as well. Therefore it's normally needed to have all computational elements not only read the configuration file but to define any CTreeParameters/CTreeVariables as well...otherwise, since MPI is a multiprocessing, SPMD system, there's danger that one or more processes will operate with differing parameter/variable definitions.
 
 ## Constructor & Destructor Documentation
 
@@ -107,10 +108,10 @@ Notethat these create initial definitions but user code can modify those definit
 
 constructor
 
-Parameters
-|  |  |
-| --- | --- |
-| pFilename | - name of the file to read. |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | pFilename | - name of the file to read. |
 
 
 ## Member Function Documentation

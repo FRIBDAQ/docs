@@ -82,19 +82,19 @@ Definition of functions to convert strings of comma-delimited integers to a vect
 aA unbound function that takes a comma separated list of integer (in string form) and converts them into a vector of ints. *
 
 
-Parameters
-|  |  |
-| --- | --- |
-| items | Stringified comma separated list of integers. * |
+- Parameters
+  |  |  |
+  | --- | --- |
+  | items | Stringified comma separated list of integers. * |
 
 
+- Returns
+  std::vector<int> Ordered vector of the integers decoded from the string. *
 
-
-Returnsstd::vector<int> Ordered vector of the integers decoded from the string. * 
-Exceptions
-|  |  |
-| --- | --- |
-| CInvalidArgumentException | Throws back to the caller if the item type is not a convertable type. |
+- Exceptions
+  |  |  |
+  | --- | --- |
+  | CInvalidArgumentException | Throws back to the caller if the item type is not a convertable type. |
 
  contents 
  start footer part 
