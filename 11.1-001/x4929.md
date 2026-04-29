@@ -1,0 +1,209 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 9. A Simple VMUSBReadout Experiment Tutorial | Next |
+
+
+---
+
+# <a name="AEN4929"></a>9.5. Understanding the Output
+
+The output of the program can be inspected by attaching the
+      dumper program to the ring buffer receiving the
+      data outputted from VMUSBReadout. Because we
+      did not provide a different ring buffer at the command line when launching
+      our program, the output will go to a ring buffer whose name is the same as
+      your username. This is actually the default value of the
+      `--source` command line option of the dumper program. As a
+      result we can attach the dumper with the
+      following command from a different terminal than the one running
+      VMUSBReadout.
+
+```
+spdaqXX> dumper
+    
+```
+
+If the run is active, you should see data printing to your screen. You can
+      kill the dumper program by pressing
+      CTL-C. A cleaner way to do this in the future is to
+      provide dumper with a finite number of ring
+      items to process. For example, to process 10 ring items and then exit, one
+      would enter:
+
+```
+spdaqXX> dumper --count=10
+    
+```
+
+## <a name="AEN4947"></a>9.5.1. Event data
+
+However you do this, you should see event output that might look like this:
+
+```
+      -----------------------------------------------------------
+Event 34 bytes long
+Body Header:
+Timestamp:    5764974207242862948
+SourceID:     0
+Barrier Type: 0
+0010 0100 5200 4d7f 5001 0c08 5400 0100
+5a00 4de4 5801 0c05 5c00 ffff ffff ffff
+ffff
+-----------------------------------------------------------
+      
+    
+```
+
+From the VMUSBReadout user's guide, we know
+      that the first 16-bit word is the event header produced by the VM-USB
+      itself. The most-significant four bits specify that the data corresponds
+      to stack 0 and the least significant 12 bits specify that there are
+      sixteen 16-bit words that follow. This is very sensible because we only
+      defined a single event stack and we can count the remaining data words.
+
+The remaining 16 words must be understood according to the data format of
+      the V785 and V775. Each of these devices outputs a series of 32-bit words
+      bookended by header and end-of-event words. Bits 24-26 uniquely identifies
+      betweeen those two words and the data words. The format also uses the most
+      significant five bits (bits 27-31) for the geographic address. The
+      geographic address should be the same value we provided for the
+      `-geo` option. For that reason, we expect that bits 27-31 of
+      each 32-bit word can be used to identify whether the data originated from
+      the V775 or the V785. Before we start parsing the data further, let's
+      group the 16-bit words in the output into 32-bit words.
+
+```
+0x0010        
+0x52000100    
+0x50014d7f    
+0x54000c08    
+0x5a000100    
+0x58014def    
+0x5c000c05    
+0xffffffff   
+0xffffffff     
+    
+```
+
+[[x4929#vmusb-ss-rawdata-evthdr]]          VM-USB event header. This is just 16-bits.
+        [[x4929#vmusb-ss-rawdata-v775hdr]]          Header word for the V775 identified by bits 24-26 being the value 2. The
+          most-significant 5 bit of this number is 10, which matches what was defined for
+          the `-geo` option of the v775. Other information
+          encoded in this header are the crate index (bits 16-23) and the number
+          of data words before the end-of-event word (bits 12-16). The header
+          tells us that the module resides in crate 0 and that there is a single
+          data word that follows.
+        [[x4929#vmusb-ss-rawdata-v775data]]          This is the lone data word for the V775 identified by bits 24-26 being
+          0. Bits 27-31 still contain a geographic address of 10 as it should.
+          Bits 16-20 identify the channel number for the data, bits 0-11 identify
+          the value and bits 12 and 13 are the underflow and overflow bits. We can
+          use this information to understand that digitized value did not
+          underflow or overflow and resulted in the value 3455.
+        [[x4929#vmusb-ss-rawdata-v775eoe]]          As we expect by header word of the V775, this is the end of event word.
+          We know this for sure because bits 24-26 store the value 4. Once again
+          the bits 27-31 store the value 10 so the word originated from the
+          V775. The lower 24 bits store the event count, which converts to 3080
+          in decimal.
+        [[x4929#vmusb-ss-rawdata-v785hdr]]          This word is the first word of the V785. It is a header word that
+          corresponds to slot 11 and crate 0. There is one data word that follows
+          prior to the end-of-event word.
+        [[x4929#vmusb-ss-rawdata-v785data]]          Here is the data for the V785. It corresponds to channel 1 and has a
+          value f 3567. 
+        [[x4929#vmusb-ss-rawdata-v785eoe]]          Here is the end-of-event word for the V785. It corresponds to event
+          number 3077.
+        [[x4929#vmusb-ss-rawdata-ffff]]          The 0xffffffff is what is returned by the devices when they complete
+          their block transfer. There are two of these because each module is
+          emitting BERR to signify they are done being read out.
+
+In the above output, it is apparent that the event count of the V775 and
+      V785 differ by 2 events, the V775 having seen two more events than the V785.
+      Such a condition is not terribly worrisome in this case, because the V775
+      is initialized prior to the V785. Because the initialization process is done
+      before the VM-USB transitions to autonomous mode, the timing is
+      controlled by the speed at which a VM-USB can execute interactive commands
+      and the speed at which the software operates. Such timing is indeterminate
+      because the operation system scheduler plays a role. It should be expected
+      that the time between clearing the V775 and V785 is on the order of
+      milliseconds. If the rate is around 1 kHz, then it is possible that
+      multiple triggers occur after the V775 has been cleared and the V785
+      clears.
+
+## <a name="AEN4984"></a>9.5.2. Scaler data
+
+If your most recent dump of the data using
+        dumper did not include any scaler items in
+        the output, you should run the dumper again
+        in such a way that excludes processing ring items of type PHYSICS_EVENT.
+
+```
+spdaqXX> $DAQBIN/dumper --count=5 --exclude=PHYSICS_EVENT
+      
+```
+
+The output should include at least one ring item that has the following
+        look:
+
+```
+        Tue Mar 10 15:12:56 2015 : Scalers:
+Interval start time: 10 end: 12 seconds in to the run
+
+Body Header:
+Timestamp:    0
+SourceID:     0
+Barrier Type: 0
+Scalers are incremental
+Index         Counts                 Rate
+    0              0                 0.00
+    1              0                 0.00
+    2              0                 0.00
+    3              0                 0.00
+    4              0                 0.00
+    5              0                 0.00
+    6              0                 0.00
+    7              0                 0.00
+    8              0                 0.00
+    9              0                 0.00
+   10              0                 0.00
+   11              0                 0.00
+   12              0                 0.00
+   13              0                 0.00
+   14              0                 0.00
+   15              0                 0.00
+   16            513                 256.50
+   17              0                 0.00
+   18              0                 0.00
+   19              0                 0.00
+   20              0                 0.00
+   21              0                 0.00
+   22              0                 0.00
+   23              0                 0.00
+   24              0                 0.00
+   25              0                 0.00
+   26              0                 0.00
+   27              0                 0.00
+   28              0                 0.00
+   29              0                 0.00
+   30              0                 0.00
+   31              0                 0.00
+-----------------------------------------------------------
+        
+      
+```
+
+There is much less to be explained here than for the event data.
+        The scaler stack read out all 32 channels of data from the SIS3820
+        during each stack execution, so the dump shows 32 channels of data. In
+        my test setup, I had only plugged in a single input to the SIS3820 at
+        channel 16. The SIS3820 was operated as an incremental scaler as well,
+        which means that after every read the device was cleared. In the
+        information section above the actual scaler values, you also see that
+        the scaler values account for the time between 10 and 12 seconds after
+        the run began.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running VMUSBReadout | Up | Developing a Tailored SpecTcl |

@@ -1,0 +1,139 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 42. TclRingBuffer Tcl package. | Next |
+
+
+---
+
+# <a name="AEN8933"></a>42.3. Using TclRingBuffer in event driven software
+
+Since the **ring get** command blocks, scripts that use
+      the event loop can be a little complicated to get right.  For example, a
+      Tk based user interface will block until a ring item arrives. To make
+      matters worse, the ring item processing will usually not invoke the
+      event loop.  All of these factors would make the user interface
+      unresponsive.
+
+The normal solution to this problem is to use the Tcl Thread package
+      to create a thread that gets ring items and posts them as events to the
+      main thread.  One program that uses this strategy is the script for
+      which the TclRingBuffer package was originally created; the Scaler
+      Display program.
+
+Let's see how this is done by looking at the code that creates
+      and starts the thread used by the scaler display program.
+
+<a name="AEN8939"></a>**Example 42-2. The Scaler Display ring buffer thread**
+
+```
+
+package require Thread
+package require TclRingBuffer
+....
+
+proc startAcqThread {ringUrl} {
+    set acqThread [thread::create -joinable]                    
+    if {[thread::send $acqThread [list lappend auto_path $::libdir] result]} { 
+        puts "Could not extend thread's auto-path"
+        exit -1
+    }
+    if {[thread::send $acqThread [list package require TclRingBuffer] result]} { 
+        puts "Could not load RingBuffer package in acqthread: $result"
+        exit -1
+    }
+    
+    if {[thread::send $acqThread [list ring attach $ringUrl] result]} {   
+        puts "Could not attach to scaler ring buffer in acqthread $result"
+        exit -1
+    }
+    
+    #  The main loop will forward data to our handleData item.
+    
+    set myThread [thread::id]                                  
+    set getItems "proc getItems {tid uri} {                    
+        while 1 {                                             
+            set ringItem \[ring get \$uri {1 2 20}]             
+            thread::send \$tid \[list handleData \$ringItem]  
+        }                                                     
+    }                                                         
+    getItems $myThread $ringUrl                               
+    "
+    thread::send -async $acqThread $getItems                  
+
+    
+    return $acqThread
+}	
+      
+```
+
+The main purpose of this proc is to create a thread and populate the thread's
+      interpreter with a ring item processing loop very much like our previous
+      example.  Instead of processing ring items locally, however, the thread
+      posts an event that will cause the main thread to execute a command with the
+      ring item as a parameter.
+
+[[x8933#sclthread_create]]	  Creates a thread.  In Tcl a thread is an interpreter that has an
+	  event loop.  Threads can be sent commands which their event loop
+	  cause to be executed in the context of the thread.  
+	Commands
+	  can be sent synchronously (by default) or asynchronously.  Synchronous
+	  commands cause the sending thread to block until the command is
+	  executed.  Synchronous sends return the status of the sent command.
+	  Asynchronous sends return to the caller without waiting for the
+	  command to complete.
+
+Normally synchronous sends are used to populate the thread's interpreter
+	  with commands (procs) and data needed to run some asynchronous
+	  send.  Asynchronous sends are used to run commands that may takes some
+	  time or may block in inconvenient manner (e.g. **ring get**).
+
+The **thread::create** command returns a value called the
+	  *thread id* that can be used to interact with the
+	  thread in the future.
+
+[[x8933#sclthread_auto_path]]	  The environment a thread interpreter starts with is fairly minimal. It
+	  inherits little if anything from its parent.  This command appends
+	  the parent thread's `libdir` global variable to the
+	  child thread's Tcl library path variable (`auto_path`).
+	  In this program, `libdir` contains the path to the
+	  NSCLDAQ  Tcl library directory tree.  This is done so that the
+	  TclRingBuffer package is visible to the thread's
+	  interpreter.
+	[[x8933#sclthread_require]]	  Now that the NSCLDAQ Tcl libraries are visible, the thread is asked
+	  to load the TclRingBuffer package.
+	[[x8933#sclthread_attachring]]	  With the Tcl Ring buffer package loaded **ringbuffer**
+	  command can be issued by the thread.  This command has the thread
+	  attach the ring buffer specified by the `ringUrl`
+	  proc parameter.
+	[[x8933#sclthread_parentid]]	  As we have seen, in order to send a command to a thread you must know
+	  it's thread id.  This command gets the thread id of the parent's thread.
+	  We will pass that in to the child thread so that it can issue
+	  **thread::send** commands to the parent when a ring
+	  item is received.
+	[[x8933#sclthread_procloop]]	  This set of lines defines a **proc** that will
+	  be passed into the child thread.  Note that some substitutions
+	  must be done in the parent thread, while other substitutions
+	  must be done in the child thread.  The subtitutions that must
+	  be done in the child thread therefor use a backslash escape like:
+	  \[ring get \$uri {1 2 20}]  which escapes both
+	  commnd substitution and variable substitution.
+	[[x8933#sclthread_postevent]]	  This line posts an event to the parent thread.  The event invokes the
+	  **handleData** command in the parent thread, passing
+	  it the ring item received by the data taking thread.  This could
+	  probably be an `-async` send but the rates at which
+	  this happen are usually every few seconds and so don't make it
+	  necessary.
+	[[x8933#sclthread_startprocessing]]	  The last line of the code sent to the thread actually start
+	  processing ring items by invoking **getItems**.
+	[[x8933#sclthread_bgthread]]	  Finally the thread code is sent to the thread asyncrhonously
+	  so that it can accept ring items in the background, passing
+	  state change and scaler items to the parent thread as
+	  described above.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| How do I use it? | Up | The ccusbcamac tcl package |

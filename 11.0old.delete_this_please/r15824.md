@@ -1,0 +1,18 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="man-1sbsReadout"></a># VI. 1sbsReadout
+
+**Table of Contents**[[r15826]] -- Start an event readout program.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| epicsdisplay | Up | Readout |

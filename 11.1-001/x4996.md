@@ -1,0 +1,882 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 9. A Simple VMUSBReadout Experiment Tutorial | Next |
+
+
+---
+
+# <a name="AEN4996"></a>9.6. Developing a Tailored SpecTcl
+
+The dumper is not the most useful tool for understanding the data read
+      out by the electronics. Instead we should be using
+      SpecTcl for that purpose, because it provides a
+      much more straightforward and intuitive way to inspect data. To use
+      SpecTcl, we have to teach it how to retrieve the salient features of our
+      data and store them as tree parameters. Tree parameters are objects that
+      behave as though the are plain old double values. What makes them special
+      is that they are histogrammable entities. By unpacking raw data into tree
+      parameters, we can use SpecTcl to quickly define histograms from them.
+
+An example of a
+      simple SpecTcl implementation for unpacking a single V775 exists in conjunction with the
+      SBS Readout framework. To not repeat what has already been demonstrated,
+      this will demonstrate how to develop a SpecTcl whose parsing utilities are
+      separated from the SpecTcl framework. In principle, the parsing class used
+      here could be reused in other analysis framework like ROOT. It will also
+      demonstrate a modern style of implementing C++ that leverages some newer
+      C++11 features, like the range-based for loop.
+
+## <a name="AEN5001"></a>9.6.1. Acquiring the Skeleton
+
+There is a good deal of boilerplate code that goes into developing a
+        tailored SpecTcl. To avoid rewriting a lot of that code, you can start
+        from the "skeleton" implementation. This provides a fully functional
+        SpecTcl application that can be easily modified to support our specific
+        needs. Getting the skeleton can be achieved by doing:
+
+```
+spdaqXX> mkdir MySpecTcl
+spdaqXX> cd MySpecTcl
+spdaqXX> cp /usr/opt/spectcl/3.4/Skel/* .
+      
+```
+
+It does not matter all that much which specific version is used so long
+        as it is at least version 3.4. Prior to version 3.4 there was no support
+        for the NSCLDAQ 11.0 data format. Because our data has been acquired
+        using an 11.0 version VMUSBReadout, it is therefore not possible to
+        analyze it using an older version of SpecTcl.
+
+## <a name="AEN5012"></a>9.6.2. Writing our Event Processor
+
+SpecTcl has an analysis engine in it that handles all of the
+        input/output type operations for the user. It can do so because it
+        understands how to read raw data from an input stream and parse it into
+        entities of a given data format. Once it has determined the type of
+        entity, it passes it to an analysis pipeline for processing. The
+        details of the processing is very experiment specific and must be
+        provided by the experimenter. This is done by deriving a new class from
+        the EventProcessor class and then registering it to the pipeline. Our
+        derived EventProcessor will get passed the beginning of each physics
+        event body for processing.
+
+We intend to write an event processor that clearly separates the
+        SpecTcl-like dependencies from the unpacking code. It will be named
+        CRawUnpacker because it will operate on the raw data format. The
+        CRawUnpacker will be responsible for doing SpecTcl related things, like
+        storing data into tree parameters, using a SpecTcl independent unpacking
+        routine. The latter will be a class named CRawADCUnpacker that will
+        parse the data format produced by the V785 and V775 and store the
+        resulting information in ParsedADCEvent objects.
+
+It is good practice in C++ to declare the capabilities of our class in a
+        header file and then implement those capabilities in a source file.
+        Doing so makes the code more flexible, reusable, and less bloated. We
+        will follow this practice while implementing our SpecTcl, which means we
+        have four files to create.
+
+### <a name="AEN5017"></a>9.6.2.1. CRawUnpacker
+
+Without further ado, let's start by defining
+          our CRawUnpacker header file, CRawUnpacker.h
+
+```
+#ifndef CRAWUNPACKER_H
+#define CRAWUNPACKER_H    
+
+#include <config.h> 
+#include "CRawADCUnpacker.h"
+#include <EventProcessor.h>
+#include <TreeParameter.h>
+#include <cstdint>  
+#include <cstddef>  
+
+class CEvent;
+class CAnalyzer;
+class CBufferDecoder;     
+
+class CRawUnpacker : public CEventProcessor 
+{
+  private:
+    CRawADCUnpacker      m_unpacker;
+    CTreeParameterArray  m_values;    
+
+  public:
+    CRawUnpacker();
+    virtual ~CRawUnpacker();
+
+    virtual Bool_t operator()(const Address_t pEvent,
+                              CEvent& rEvent,
+                              CAnalyzer& rAnalyzer,
+                              CBufferDecoder& rDecoder);  
+  private:
+    Bool_t unpack(TranslatorPointer<std::uint32_t> begin, 
+                  std::size_t nLongWords);   
+};
+
+#endif 
+        
+```
+
+[[x4996#vmusb-ss-rawunpack-incgrd]]              To protect against including the header twice, we add these
+              preprocessor directives to only include it once. This is called an
+              include guard.
+            [[x4996#vmusb-ss-rawunpack-config]]              The config.h file contains lots of
+              preprocessor definitions. You must include it prior to other
+              files.
+            [[x4996#vmusb-ss-rawunpack-stdint]]              To use the std::uint32_t type, we need to
+              include this header. We choose to use this over
+              stdint.h because it is more portable.
+            [[x4996#vmusb-ss-rawunpack-stddef]]              To use the std::size_t type, we need to include
+              this header.
+            [[x4996#vmusb-ss-rawunp-fwddecl]]              Because some of the arguments in the methods of our class will
+              take references to objects, we need to forward declare their
+              types. This does not define the classes, it just introduces the
+              name of these classes as a valid type. We will have to actually
+              include definitions later if we are going to use the
+              functionality of these types.
+            [[x4996#vmusb-ss-rawunpack-classdecl]]              Our CRawUnpacker class derives from the CEventProcessor base
+              class. This makes it possible to use the event processor in the
+              SpecTcl event processing pipeline.
+            [[x4996#vmusb-ss-rawunpack-members]]              The event processor will maintain an object that handles the
+              parsing of the data itself in a platform independent way. The
+              result of the parse will be used to set tree parameters. The
+              CTreeParameterArray is a convenient collection
+              of tree parameters. 
+            [[x4996#vmusb-ss-rawunpack-op]]              The operator() method is called for every ring item of type
+              PHYSICS_EVENT that is read from the input stream of data.
+            [[x4996#vmusb-ss-rawunpack-up]]              The method that actually handles initiation of parsing and setting
+              tree parameters with the results. The first argument of this is a
+              smart pointer that transparently handles byte swapping. It behaves
+              like a pointer, dereferencing it returns a uint32_t.
+
+The implementation of our CRawUnpacker class will be found in the source
+          file CRawUnpacker.cpp. This is naturally a bit longer of a
+          file, because it includes the implementation code. The constructors and
+          destructors are nearly trivial and will be dealt with in one fell
+          swoop.
+
+```
+#include "CRawUnpacker.h"
+#include <BufferDecoder.h>
+#include <TCLAnalyzer.h>
+#include <iostream>
+#include <stdexcept>
+
+using namespace std; 
+
+CRawUnpacker::CRawUnpacker()
+  : m_unpacker(),
+    m_values("t",4096,0.0,4095.0,"channels",64,0) 
+{
+}
+
+CRawUnpacker::~CRawUnpacker()
+{
+}
+        
+```
+
+[[x4996#vmusb-ss-rawunpack-usingstd]]              This brings uint32_t, size_t, and exception into scope. We avoid
+              having to prefix these types with std:: every
+              time.
+            [[x4996#vmusb-ss-rawunpack-ctor]]              The list of comma separated calls following the colon are called
+              an initialize list. We use it to construct the data members. The
+              second element of the list create a
+              CTreeParameterArray consisting of 64 tree
+              parameters, each having 4096 bins in a range of 0 to 4095. The
+              names given to these parameter are of the form "t.XX" where XX is
+              the index, left-padded with zeroes.
+
+The more interesting code occurs in the operator() and unpack() methods.
+          The operator() method is responsible for the actual processing of the
+          data as well as telling SpecTcl what the size
+          of the event is. It will
+          just handle the calculation and reporting of the event size and then
+          delegate the parsing and handling of the results to the unpack() method.
+
+|  |  |
+| --- | --- |
+|  | At least one event processor is required to set the event size
+              and to avoid introducing confusing bugs into your SpecTcl, it is best
+              practice to only do this in the first event processor of the pipeline. |
+
+
+          The resulting operator() method will look like this:
+        ```
+Bool_t
+CRawUnpacker::operator()(const Address_t pEvent, 
+                        CEvent& rEvent, 
+                        CAnalyzer& rAnalyzer, 
+                        CBufferDecoder& rDecoder)
+{
+  TranslatorPointer<uint16_t> p(*rDecoder.getBufferTranslator(), pEvent);  
+
+  CTclAnalyzer& a(dynamic_cast<CTclAnalyzer&>(rAnalyzer)); 
+
+  size_t  size = (*p++ & 0x0fff); 
+
+  // the event header is exclusive so the actual size of the full event
+  // is actually the 
+  a.SetEventSize((size+1)*sizeof(uint16_t)); 
+
+  size_t nLongWords = size*sizeof(uint16_t)/sizeof(uint32_t); 
+
+  return unpack(p, nLongWords); 
+}
+        
+```
+
+[[x4996#vmusb-ss-rawunpack-transptr-ctor]]              The data is not gauranteed to have native byte ordering because it
+              may have originated on a different host. SpecTcl provides a smart
+              pointer called TranslatorPointer that handles the byte-swapping
+              automatically. Here we create one that refers to the buffer
+              managed by the buffer decoder at the address stored by pEvent.
+              This is also a way to convert the pEvent to a more useful type
+              than Address_t.
+            [[x4996#vmusb-ss-rawunpack-dyncast]]              The standard implementation of SpecTcl used at the NSCL makes use
+              of a CTclAnalyzer. The CTclAnalyzer needs to be told how big the
+              buffer is in order to successfully traverse the data stream. A
+              method to set the event side is available in CTclAnalyzer but not
+              in the generic CAnalyzer class. For that reason, we upcast the
+              reference passed into our analyzer. If this is invalid,
+              dynamic_cast will throw an exception of type std::bad_cast. We
+              know it will succeed though because our analyzer is a
+              CTclAnalyzer. Note that we cast to a reference to avoid copying
+              the analyzer unnecessarily.
+            [[x4996#vmusb-ss-rawunpack-extract]]              The first 16-bit word of the VM-USB buffer contains the event
+              header. The entire size of the body less 1 is contained in the
+              lower 12-bits of this word. We use a bitwise-AND operator to
+              extract that number. Note that the *p++
+              effectively retrieved the value pointed and then
+              incremented the pointer forward by 16-bits.
+            [[x4996#vmusb-ss-rawunpack-setsize]]              Here we pass the size of the event to the analyzer. The argument
+              requires a size in units of bytes rather than 16-bit words. We
+              convert by multiplying our number by the number of bytes in a
+              16-bit word (sizeof(uint16_t)). Note that we
+              could have just multiplied by 2, but chose to do otherwise for
+              readability sake. 
+              |  |  |
+| --- | --- |
+|  | Write for people to understand your code easier. Code is
+                  written once and read everytime thereafter. |
+
+
+[[x4996#vmusb-ss-rawunpack-nlongwrds]]              The remainder of the buffer referred to by our pointer
+              p is composed of 32-bit integers. We need to
+              know how many of these there are and will compute it. We are
+              converting our size from units of 16-bit integers to units of
+              32-bit integers.
+
+The unpack() method implementation will look like this:
+
+```
+Bool_t 
+CRawUnpacker::unpack(TranslatorPointer<uint32_t> begin,
+                     size_t nLongWords)
+{
+  auto end = begin+nLongWords;  
+
+  try {  
+    vector<ParsedADCEvent> events = m_unpacker.parseAll(begin, end);  
+
+    int offset = 0;
+    for (auto& event : events) {  
+      offset = (event.s_geo-10)*32;  
+      for (auto& chanData : event.s_data) {  
+        m_values[chanData.first+offset] = chanData.second;
+      }
+    }
+  } catch (exception& exc) {  
+    cout << "Parsing Failed! Reason=" << exc.what() << endl;
+    return kfFALSE;  
+  }
+                                    
+  return kfTRUE;  
+}
+        
+```
+
+[[x4996#vmusb-ss-rawunpack-auto]]              The auto keyword is a shortcut introduced in
+              C++11 that causes the compiler to deduce the type of
+              end. Because begin is of
+              type TranslatorPointer<uint32_t>,
+              end will be of the same type but will point to
+              a location in memory nLongWords away.
+            [[x4996#vmusb-ss-rawunpack-try]][[x4996#vmusb-ss-rawunpack-catch]][[x4996#vmusb-ss-rawunpack-false]]              The CRawADCUnpacker::parseAll() method may through an exception
+              and this along with the catch ensure that any
+              object thrown of type derived from
+              std::exception will be caught. We choose to
+              print a message to the user and then return false. Returning this
+              causes the event to be excluded from the histogramming process. 
+            [[x4996#vmusb-ss-rawunpack-parseall]]              Here is where we call our parser. It will return a list of
+              parsed events if it succeeds. 
+            [[x4996#vmusb-ss-rawunpack-rlevt]]              This is another C++11 construct called a range-based for loop.
+              Basically what this does is loop through each element of the
+              events vector and assign a reference called
+              event to it. We are using it to access the data
+              of the V775 and then the V785.
+            [[x4996#vmusb-ss-rawunpack-offset]]              The channel data of the V775 and V785 are stored in the same array
+              of tree parameters. We compute an offset based on the slot number
+              of the module. The data labeled with slot number
+              (s_geo) 10 will be at offset 0, whereas those
+              from slot 11 will be at offset 32.
+            [[x4996#vmusb-ss-rawunpack-rlch]]             Here we use another range-based for loop to iterate through the
+             channel data of a specific digitizer's data.
+            [[x4996#vmusb-ss-rawunpack-true]]             If we reached this point, our entire event was parsed successfully
+             and it is sensible to histogram the results. We indicate this by
+             returning true.
+
+That is it for the implementation ofthe CRawUnpacker class. Before
+          moving on, I would like to explain the motivation for the unpack()
+          method. It is not obvious why its contents could not have just been
+          included as the body of the operator() method. They very well could have
+          and it would have worked perfectly fine for our specific setup. However,
+          splitting it off makes our event processor much more reusable.
+
+One of the reasons NSCLDAQ 11.0 was created was for better support of
+          event building. The very presence of the capability makes it likely that
+          we might want to use it. Separating the the unpack() from the operator()
+          is aimed at supporting this scenario. The event builder outputs data
+          that looks a bit different than the input data it receives, because it
+          appends extra information to each item and then groups those together.
+          In the lingo of the event builder, PHYSICS_EVENT ring items that enter
+          the event builder are transformed into fragments that are glommed into
+          built ring items of type PHYSICS_EVENT. The built ring item has a body
+          stuffed with fragments. If we tried to parse the body of one of these
+          using our operator() as it is currently implemented, SpecTcl would fail
+          miserably.  However, the same data that this parser understands is
+          present in that built ring item. It is just buried deeply in a fragment.
+          So the logic in this unpacker is still useful if we can traverse through
+          the structure of the built body. By separating the unpack() method from
+          the operator() method, we can call it once the right part of the data
+          has been found. You might be wondering why we don't call the operator()
+          method.  The reason is that the operator method is responsible for
+          reporting the event size. In a built ring item, the value this would
+          extract would be incorrect. The unpack() method allows us to bypass it.
+
+### <a name="AEN5131"></a>9.6.2.2. The CRawADCUnpacker Class
+
+The CRawUnpacker depends on the presence of a parser class for the
+          V785 and V775 class. That will be implemented in the CRawADCUnpacker
+          class. I had stated that I would do this in a framework independent
+          way. I will do so by showing a simpler example that depends on the
+          TranslatorPointer<uint32_t> type for simplicity and then will
+          explain how to generalize this afterwords. This will keep the example
+          accessible to more people that don't need their code 100% independent
+          but will also provide a clear path forward for those who do need it.
+
+We will begin by describing the problem this class will solve. In the
+          most fundamental sense, we have to work our way sequentially through
+          the data, identify each piece, store the information in a framework
+          independent entity, and identify when we are done. By doing this we
+          will in essence validate the structure of the data. If it is different
+          than we expect, then we cannot gaurantee that we understand it and
+          will fail. If we do not encounter an error, we will return our
+          platform independent type filled with the parsed information. Let's
+          start by defining that type, which we will call ParsedADCEvent.
+
+```
+#ifndef CRAWADCUNPACKER_H
+#define CRAWADCUNPACKER_H
+
+#include <vector>
+#include <utility>
+#include <cstdint>
+#include <TranslatorPointer.h>
+
+struct ParsedADCEvent
+{
+  int s_geo;
+  int s_crate;
+  int s_count;
+  int s_eventNumber;
+  std::vector<std::pair<int, std::uint16_t> > s_data; 
+};
+
+#endif
+        
+```
+
+[[x4996#vmusb-ss-adcunp-sdata]]              The digitized value and channel it is associated with group
+              naturally together. We accomplish this by storing the two values
+              as a std::pair, which is just a container. The
+              first element of the pair is the channel index and the second
+              element is the digitize value. Because a single event may consist
+              of up to 32 digitized values, the ParsedADCEvent maintains a
+              vector of these.
+
+The ParsedADCEvent contains all of the information that we care to
+          keep from a complete event. The data for each channel will be stored
+          as a pair in a vector. The first element of each pair will be the
+          channel number while the second element will be the digitized value.
+
+The next thing we need to do is define the CRawADCUnpacker class
+          itself. Two entry points will be provided for public use. One of them
+          is used by the CRawUnpacker class, parseAll(), and it iteratively
+          calls the second, parseSingle(). We will focus primarily on the
+          implementation of parseSingle() because it is the true parsing
+          routine. The parseSingle() method depends on a handful of helper
+          methods that will be explained as they come up. Here is the class
+          declaration of the CRawADCUnpacker. In CRawADCUnpacker.h, it would
+          follow the end of the ParsedADCEvent definition but precede the
+          #endif preprocessor directive.
+
+```
+class CRawADCUnpacker 
+{
+  public:
+    using Iter=TranslatorPointer<std::uint32_t>; 
+
+  public:
+    std::vector<ParsedADCEvent> 
+      parseAll(const Iter& begin, const Iter& end); 
+
+    std::pair<Iter, ParsedADCEvent> 
+      parseSingle(const Iter& begin, const Iter& end);
+
+  private:
+    // Utility methods
+    bool isHeader(std::uint32_t word);
+    bool isData(std::uint32_t word);
+    bool isEOE(std::uint32_t word);
+
+    void unpackHeader(std::uint32_t word, ParsedADCEvent& event);
+    void unpackDatum(std::uint32_t word, ParsedADCEvent& event);
+    Iter unpackData(const Iter& begin, const Iter& end, ParsedADCEvent& event);
+    void unpackEOE(std::uint32_t word, ParsedADCEvent& event);
+};
+          
+        
+```
+
+[[x4996#vmusb-ss-adcunp-tdef]]              To save from repeatedly writing the type name
+              TranslatorPointer<std::uint32_t> over and
+              over again, we alias it as Iter. This is just
+              another way to define a typedef. I will explain later how this
+              also helps loosen the dependence of the class on the SpecTcl
+              framework.
+            [[x4996#vmusb-ss-adcunp-pall-pval]]              This and the next method form the public interface for our parse.
+              Other code can either parse a chunk of ADC data as a series of
+              subsections from multiple devices or a single section from a
+              single device.
+
+We know that the data from the ADC must come in a specific order.  The
+          event header should come first followed by a sequence of data words,
+          and then ultimately an end of event or trailer word.  Furthermore, the
+          header word is descriptive about how many data words exist so by
+          reading it we will know when to expect the end of event word. If the
+          data we are parsing violates this structure, then something bad has
+          happened. Each stage will check whether the data is valid and throw
+          if it is not. Here is the code for the parseSingle() method and
+          includes that we need to add to our
+          CRawADCUnpacker.cpp file:
+
+```
+#include "CRawADCUnpacker.h"
+#include <string>
+#include <stdexcept>
+#include <iostream>
+
+using namespace std;
+
+static const uint32_t TYPE_MASK (0x07000000);
+static const uint32_t TYPE_HDR  (0x02000000);
+static const uint32_t TYPE_DATA (0x00000000);
+static const uint32_t TYPE_TRAIL(0x04000000);
+
+static const unsigned GEO_SHIFT(27);
+static const uint32_t GEO_MASK (0xf8000000);
+
+static const unsigned HDR_COUNT_SHIFT(8);      
+static const uint32_t HDR_COUNT_MASK (0x00003700);
+static const unsigned HDR_CRATE_SHIFT(16);
+static const uint32_t HDR_CRATE_MASK (0x00ff0000);
+
+static const unsigned DATA_CHANSHIFT(16);
+static const uint32_t DATA_CHANMASK (0x001f0000);
+static const uint32_t DATA_CONVMASK (0x00003fff);
+
+static const uint32_t TRAIL_COUNT_MASK(0x00ffffff);
+static const uint32_t BERR(0xffffffff); 
+
+
+pair<CRawADCUnpacker::Iter,ParsedADCEvent> 
+  CRawADCUnpacker::parseSingle(const Iter& begin, const Iter& end)
+{
+  
+  ParsedADCEvent event;             
+
+  auto iter = begin;                
+  if (iter<end) {                
+    unpackHeader(*iter++, event); 
+  } else {
+    string errmsg("CRawADCUnpacker::parseSingle() ");
+    errmsg += "Incomplete event found in buffer.";
+    throw runtime_error(errmsg);
+  }
+
+  int nWords = event.s_count;
+  auto dataEnd = iter+nWords;
+
+  if ((dataEnd > end) || (dataEnd == end)) { 
+    string errmsg("CRawADCUnpacker::parseSingle() ");
+    errmsg += "Incomplete event found in buffer.";
+    throw runtime_error(errmsg);
+  } else {
+    iter = unpackData(iter, dataEnd, event); 
+  }
+ 
+  if (iter<end) {              
+    unpackEOE(*iter++,event);     
+  } else {
+    string errmsg("CRawADCUnpacker::parseSingle() ");
+    errmsg += "Incomplete event found in buffer.";
+    throw runtime_error(errmsg);
+  }
+
+  return make_pair(iter,event);     
+}
+        
+```
+
+[[x4996#vmusb-ss-adcunp-defs]]              This and the lines before it define useful bitmasks and shifts 
+              for performing bitwise arithmetic on the data. We will use them
+              to extract the pieces of information from each word.
+            [[x4996#vmusb-ss-adcunp-ps-evtdec]]              Here we create a brand new, empty ParsedADCEvent that will be
+              filled with the parsed data. 
+            [[x4996#vmusb-ss-adcunp-ps-auto]]              We create a new translator pointer to iterate over the body of
+              data. 
+            [[x4996#vmusb-ss-adcunp-ps-chk0]][[x4996#vmusb-ss-adcunp-ps-chk1]]              Every time that we move the iterator forward, we need to make sure
+              that we do not step out of bounds. Dereferencing an iterator 
+              beyond its bounds of validity is asking for all kinds of pain.
+            [[x4996#vmusb-ss-adcunp-ps-uphdr]]              The logic for parsing the header lives in a utility method. 
+            [[x4996#vmusb-ss-adcunp-ps-check]]              Just because the header word tells us that a certain number of
+              data words should follow does not mean they actually do. This ensures
+              that the data we expect is there before accessing it. 
+            [[x4996#vmusb-ss-adcunp-ps-upd]]              A utility method is called to handle the unpacking of all the data
+              words. The resulting location of the buffer following the last
+              data word is returned by the method. It is used to move the
+              iterator to a new position.
+            [[x4996#vmusb-ss-adcunp-ps-upeoe]]              A utility method handles the parsing of the end-of-event word. 
+            [[x4996#vmusb-ss-adcunp-ps-mkpr]]              This method must both pass the next unprocessed location of the
+              buffer back to the caller in case it desires to continue parsing
+              as well as the newly parsed event data. We do so by using a
+              function to create an object of type
+              std::pair<CRawADCUnpacker::Iter,ParsedADCEvent>.
+
+As you can see, there are many supporting pieces. We will look at them
+          one by one, beginning with the unpackHeader() method.
+
+```
+bool CRawADCUnpacker::isHeader(uint32_t word) 
+{
+  return ((word&TYPE_MASK)==TYPE_HDR);   
+}
+
+
+void CRawADCUnpacker::unpackHeader(uint32_t word, ParsedADCEvent& event)
+{
+  if (! isHeader(word) ) {
+    string errmsg = "CRawADCUnpacker::parseHeader() ";
+    errmsg += "Found non-header word when expecting header. ";
+    errmsg += "Word=";
+    errmsg += to_string(word);
+    throw runtime_error(errmsg);
+  }   
+
+  event.s_geo   = ((word & GEO_MASK)>>GEO_SHIFT);
+  event.s_crate = ((word & HDR_CRATE_MASK)>>HDR_CRATE_SHIFT);
+  event.s_count = ((word & HDR_COUNT_MASK)>>HDR_COUNT_SHIFT);  
+}
+        
+```
+
+[[x4996#vmusb-ss-adcunp-ishdr]]              Here we use bitwise arithmetic to check that bits 24-26 are set to the value 2. 
+            [[x4996#vmusb-ss-adcunp-uph-check]]              If the word is not a header word, we failed to properly
+              understand the data and parsing should stop immediately. An
+              exception is thrown.
+            [[x4996#vmusb-ss-adcunp-uphdr]]              Using bitwise arithmetic again, we extract the geo value (slot
+              number), crate number, and number of data words to follow. These
+              are all stored to the event we are filling.
+
+The data words are unpacked in a bit more fancy method called
+          unpackData(). It loops through a range of words designated by its
+          arguments, calling unpackDatum() on each one. The unpackDatum() is
+          very similar to unpackHeader() method in that it extracts specific
+          pieces of data from the data word it is passed. The difference is that
+          the values it extracts for the channel and value are paired together
+          and stored in the vector of the event. This is what those look like:
+
+```
+bool CRawADCUnpacker::isData(uint32_t word)
+{
+  return ((word&TYPE_MASK)==TYPE_DATA);  
+}
+
+
+void CRawADCUnpacker::unpackDatum(uint32_t word, ParsedADCEvent& event)
+{
+  if (! isData(word) ) {
+    string errmsg = "CRawADCUnpacker::unpackDatum() ";
+    errmsg += "Found non-data word when expecting data.";
+    throw runtime_error(errmsg);
+  }
+
+  int channel   = ((word & DATA_CHANMASK)>>DATA_CHANSHIFT);
+  uint16_t data = (word & DATA_CONVMASK);   
+
+  auto chanData = make_pair(channel,data);
+  event.s_data.push_back(chanData);             
+}
+
+
+CRawADCUnpacker::Iter 
+CRawADCUnpacker::unpackData(const Iter& begin, 
+                            const Iter& end,
+                            ParsedADCEvent& event)
+{
+  // only allocate memory once because we know how much we need already
+  event.s_data.reserve(event.s_count);       
+
+  auto iter = begin;
+  while(iter != end) {
+
+    unpackDatum(*iter, event);                
+
+    ++iter;
+  }
+
+  return iter;   
+}
+        
+```
+
+[[x4996#vmusb-ss-adcunp-isdata]]              We check that bits 24-26 store the value 0. 
+            [[x4996#vmusb-ss-adcunp-updm]]               Using bit-wise arithmetic we extract the channel and value. 
+            [[x4996#vmusb-ss-adcunp-adddatum]]              The channel and value are paired together and then added to the
+              end of the vector. 
+            [[x4996#vmusb-ss-adcunp-ud-rsv]]              Initially the vector that will store the channel data has zero
+              size. Every time that a new element is added we will push it onto
+              the back of the vector. By default, this will likely cause the
+              vector's memory buffer to be reallocated everytime we add an
+              element, which is costly. Because we already know the final size,
+              we can allocate the total memory once using the 
+              vector<>::reserve method.
+            [[x4996#vmusb-ss-adcunp-ud-updm]]              To parse all of the data words, we just iterate through the
+              range that has been passed in as parameters. Each word is unpacked
+              by a call to the unpackDatum() method. If the word is not a data word,
+              an exception is thrown.
+            [[x4996#vmusb-ss-adcunp-ud-ret]]              The location of the next unparsed word in the buffer is returned
+              to the caller.
+
+Finally, we reach the unpackEOE() method. Once again, this is
+          extremely similar to the unpackHeader() method, moreso than the
+          unpackDatum() method. Here is the code for that.
+
+```
+bool CRawADCUnpacker::isEOE(uint32_t word)
+{
+  return ((word&TYPE_MASK)==TYPE_TRAIL);             
+}
+
+void CRawADCUnpacker::unpackEOE(uint32_t word, ParsedADCEvent& event)
+{
+  if (! isEOE(word) ) {
+    string errmsg = "CRawADCUnpacker::unpackEOE() ";
+    errmsg += "Found non-data word when expecting data.";
+    throw runtime_error(errmsg);  
+  } 
+  
+  event.s_eventNumber = (word & TRAIL_COUNT_MASK);   
+}
+        
+```
+
+[[x4996#vmusb-ss-adcunp-eoe-is]]              Check that bits 24-26 contain the number 4 to identify it as an
+              end-of-event word. 
+            [[x4996#vmusb-ss-adcunp-eoe-throw]]              If the word is not identified as an end-of-event word, we do not
+              understand the data properly and need to stop parsing.
+            [[x4996#vmusb-ss-adcunp-eoe-extr]]              Using bitwise arithmetic, we extract the event number from the
+              word and store it in the event.
+
+Alright, now that we have the parseSingle() method defined and
+          understood, we can go back to the
+          parseAll() method. It is very simple and resemble the unpackData()
+          method in that it just calls parseSingle() until it is done. The only
+          differences are that it stores each ADC event into a list for
+          returning and has to protect itself from processing the BERR words
+          (0xffffffff) that follow the more meaningful data. Here is the
+          parseAll() implementation:
+
+```
+vector<ParsedADCEvent> 
+CRawADCUnpacker::parseAll(const Iter& begin,
+                          const Iter& end)
+{
+  vector<ParsedADCEvent> parsedData;  
+
+  auto iter = begin;
+  while (iter != end) {      
+
+    if (*iter != 0xffffffff) {              
+      auto result = parseSingle(iter,end);   
+
+      parsedData.push_back(result.second);   
+      iter = result.first;                   
+    } else {
+      ++iter;                                
+    }
+  } 
+
+  return parsedData;
+}
+        
+```
+
+[[x4996#vmusb-ss-adcunp-pall-init]]              We initialize an empty vector that will ultimately be filled and returned.
+            [[x4996#vmusb-ss-adcunp-pall-chberr]]              Check if the word is a BERR. We expect BERRs at the end of the
+              event body, so seeing one or two is not an error. 
+            [[x4996#vmusb-ss-adcunp-pall-single]]              Parse a single event. 
+            [[x4996#vmusb-ss-adcunp-pall-pback]]              Append the parsed data from the previous call to the end of our
+              vector. The value returned by the parseSingle() method is actually
+              a pair of values, the parsed data was the second element.
+            [[x4996#vmusb-ss-adcunp-pall-upd8]]              Use the iterator returned by the parseSingle() method to increment
+              our pointer.
+            [[x4996#vmusb-ss-adcunp-pall-incr]]              In the case that the word is a BERR, we need to step to the next
+              word.
+
+That is it for the unpacker. Let me now explain what would need to be
+          done to make this fully independent of SpecTcl. The only dependency
+          that this has on SpecTcl are some header files and the
+          TranslatorPointer<uint32_t> type. What may
+          not be terribly clear is that the
+          TranslatorPointer<uint32_t> behaves almost
+          identically to a uint32_t*. In that case, one could
+          just as well use a uint32_t* pointer in its stead.
+          You may wonder why I didn't do this already. Well, the kicker is that
+          a TranslatorPointer is able to automatically handle byte-order
+          swapping if the data requires it. A plain old pointer is not so smart.
+          You will only be bitten by this if the data in the data stream was
+          generated in such a way that swapping bytes is necessary. Only you are
+          the one who knows this if you venture outside the world of SpecTcl. If
+          you have to swap bytes, this becomes a bit less portable and you will
+          need to create your own byte-swapping utility. The good news is
+          that it is little difficulty to accomodate any solution you have
+          concerning the TranslatorPointer. Because we hid this behind a
+          typedef, we only need to change the Iter alias to
+          be a different type. Arguably the more general solution would be
+          to transform the class into a template itself where the
+          Iter is the template parameter. Doing so requires
+          more changes to the code but would not have to be recompiled whenever
+          you wanted to change the type. The most important thing here is that
+          these changes never require a change to the actual implementation
+          code. The only requirement is that whatever you choose to use for the
+          iterator implements the operators used. Any random access iterator
+          will fulfill that requirement, but you need not go so far to implement
+          all requirements of a random access iterator.
+          As for the included headers, you can
+          use preprocessor conditionals for this. If you are building with
+          SpecTcl, then you will need the proper headers, otherwise, you should
+          not include them.
+
+## <a name="AEN5262"></a>9.6.3. Setting up the Event Processing Pipeline
+
+The MySpecTclApp.cpp contains the code the defines
+        the event processing pipeline. We need to add an instance of the
+        CRawUnpacker class to it in order for our code to execute. You will
+        notice that in MySpecTclApp.cpp there are already a handful of
+        predefined event processors that are registered to the pipeline. We need
+        to make the following changes. First, find the following two line:
+
+```
+static CFixedEventUnpacker Stage1;
+static CAddFirst2          Stage2;
+      
+```
+
+You should replace the two lines with a single line:
+
+```
+static CRawUnpacker gRawStage;
+      
+```
+
+You will also need to add the following line to the list of includes at
+        the top of the file.
+
+```
+#include "CRawUnpacker.h"        
+      
+```
+
+The next thing you need to do is find the method called
+        CMySpecTclApp::CreateAnalysisPipeline(). In it your
+        should replace the entire body to look like:
+
+```
+void 
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+  RegisterEventProcessor(gRawStage, "Raw");
+}
+      
+```
+
+With that, SpecTcl will pass every ring item of type PHYSICS_EVENT to
+        our event processor.
+
+Typically, after the first event processor there might be subsequent
+        processors that compute the values of other tree parameters from the raw
+        value extracted by the first. A good example of this is computed a
+        calibrated value from the raw value.  It is common and recommended
+        practice to write the subsequent event processors in such a way that
+        they depend only on the tree parameters that were assigned values in the
+        first processor. There are many ways to accomplish this. One method
+        would be to separate the tree parameters from the CRawUnpacker class and
+        define a structure that provides other processors access to them.
+        Another method might be to define them as a static member of the
+        CRawUnpacker class. These are just two ways that pop into my head, but
+        you can solve the problem however best makes sense to you.
+        Remember that SpecTcl is a software framework much like other analysis
+        frameworks, e.g. ROOT. If you can code it in C++ and work within the
+        constraints of the SpecTcl framework, nothing stops you from doing that.
+
+## <a name="AEN5276"></a>9.6.4. Building SpecTcl
+
+Because we have added two extra classes to the SpecTcl application, we
+        need to ensure that they are added to the build. That is easily done by
+        modifying the OBJECTS variable. You should edit your
+        Makefile to look like this:
+
+```
+OBJECTS=MySpecTclApp.o CRawUnpacker.o CRawADCUnpacker.o
+      
+```
+
+Furthermore, because we have made use of a handful of C++11 features, we
+        need to ensure that the compiler operates in the C++11 mode. This is
+        accomplished with the -std=c++11 flag. You should add
+        it to the USERCXXFLAGS variable. In the end, that
+        line will resemble this:
+
+```
+USERCXXFLAGS= -std=c++11
+      
+```
+
+We can now compile our program. You should see this succeed with no
+        errors. Compilation is initiated by the **make** command.
+
+```
+spdaqXX> make
+      
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Understanding the Output | Up | The VMUSBSpecTcl Alternative |

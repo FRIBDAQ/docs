@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN744"></a>Chapter 4. VMUSBReadout
+
+# <a name="AEN746"></a>4.1. Introduction
+
+The VMUSBReadout is a standalone executable that provides support for
+      reading out front-end electronics through the Wiener-JTec VM-USB VME
+      controller. It provides:
+
+
+
+- A high-level means to interact with readout hardware using the VM-USB.
+- A slow-controls server that enables remote programs to interact
+            with front-end hardware.
+- Support for the readout and control of numerous devices commonly
+            employed at the NSCL for data taking.
+- C++ and TCL frameworks for extending the set of devices that the
+            program can read out and control.
+- Dynamic loading of user-defined code to extract timestamps from both
+            event and scaler data.
+- Direct insertion of data taken to an arbitrary destination
+            ringbuffer.
+
+In this document, we will cover the following
+
+
+
+- A basic overview of the VM-USB
+- How to write configuration files for the VMUSB readout
+            framework.
+- Understanding the output of VMUSBReadout program
+- How to write device support modules in in C++ and incorpoprate those
+            modules into the VMUSB readout framework.
+- How to write device support modules in Tcl and incorporate
+            those modules into a VM-USB readout DAQ configuration file.
+- How to write device support modules for the slow control server in C++
+- How to write device support modules for the slow control server in Tcl.
+- The slow controls protocol and its primitives.
+- Variable monitoring.
+- Information on how to run VMUSBReadout under the state/boot
+            managers that were introduced with NSCLDAQ-11.0
+
+Reference information is available in the
+      3vmusb section of the reference material.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Ring Item Types | Up | Basic Tenets of VM-USB Operation |

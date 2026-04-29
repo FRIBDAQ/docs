@@ -1,0 +1,66 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="CCamac"></a>CCamac
+
+<a name="AEN29596"></a>## Name
+
+CCamac -- Manages CAMAC memory maps.
+
+<a name="AEN29599"></a>## Synopsis
+
+```
+#include <CCamac.h>
+            
+```
+
+```
+  CCamac();
+```
+
+<a name="AEN29625"></a>## Description
+
+The `CCamac` class consists entirely of static
+                member functions (and data).  It is used to create and manipulate
+                maps to CAMAC branch highways.
+
+Branches have a funny numbering system.
+                Branches 0-7 are assumed to be in VME crate 0, Branches 8-15 in VME crate
+                1 and so on.  The class assumes a maximum of 32 VME crates eac with at most
+                8 CAMAC highways installed.
+
+<a name="AEN29630"></a>## Public member functions
+
+
+
+<a name="AEN29635"></a>`static void  BranchInit(int nBranch);`
+
+Creates a map that covers the entire branch, and stores it in the map table
+                            for re-use in case the same branch is requested in the future.
+
+<a name="AEN29647"></a>`static void  BranchRelease(int nBranch);`
+
+Releases a branch.  This will unmap the address space that is
+                            referenced by the map.  It is up to the caller to ensure that the application
+                            will no longer need to reference the branch that is being released.
+
+<a name="AEN29659"></a>`static long*  Base(int nBranch);`
+
+Returns the pointer to start of the memory space mapped by a branch or
+                            NULL if the branch has not yet bee mapped.
+
+<a name="AEN29670"></a>## Exceptions
+
+`CRangeError` is thrown if the branch is not in range.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CCAMACTrigger | Up | CCamacModule |
