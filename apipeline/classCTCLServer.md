@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLServer-members]]
+[[List of all members|classCTCLServer-members]]
 
 
 CTCLServer Class Reference
@@ -75,7 +75,7 @@ Hooks exist for an authentication mechanism via the allowConnection virtual meth
 |  |  | int | port |
 |  | ) |  |  |
 
-Construct the module and set up the listener. The listener is set up using Tcl_OpenTcpServer errors are reported as a [[classCErrnoException]] using Tcl_GetErrno to get and set the errno variable.
+Construct the module and set up the listener. The listener is set up using Tcl_OpenTcpServer errors are reported as a [[CErrnoException|classCErrnoException]] using Tcl_GetErrno to get and set the errno variable.
 
 Parameters
 |  |  |
@@ -93,7 +93,7 @@ Parameters
 | CTCLServer::~CTCLServer() | CTCLServer::~CTCLServer | ( |  | ) |  | virtual |
 | CTCLServer::~CTCLServer | ( |  | ) |  |
 
-Destruction does a [[classCTCLServer#a8d315be128577c518ccd6e9264dba768]].
+Destruction does a [[shutdown()|classCTCLServer#a8d315be128577c518ccd6e9264dba768]].
 
 
 ## Member Function Documentation
@@ -144,7 +144,7 @@ Return values
 |  |  | std::string | hostname |
 |  | ) |  |  |
 
-Create the default server instance object type ([[classCTCLTcpServerInstance]]) and return it. This can be overridden in subclasses if a different type is required.
+Create the default server instance object type ([[CTCLTcpServerInstance|classCTCLTcpServerInstance]]) and return it. This can be overridden in subclasses if a different type is required.
 
 Parameters
 |  |  |
@@ -185,7 +185,7 @@ Parameters
 |  |  | std::string | host |
 |  | ) |  |  |
 
-This is called on a connection. In order to support creating subclasses of [[classCTCLTcpServerInstance]], we will actually create the server with the virtual member createInstance, so this class can be subclassed, and that member overriden. (strategy pattern). The pointer to the resulting object is isnerted in the m_seerverInstnaces list.
+This is called on a connection. In order to support creating subclasses of [[CTCLTcpServerInstance|classCTCLTcpServerInstance]], we will actually create the server with the virtual member createInstance, so this class can be subclassed, and that member overriden. (strategy pattern). The pointer to the resulting object is isnerted in the m_seerverInstnaces list.
 
 Parameters
 |  |  |
@@ -208,7 +208,7 @@ Called to shutdown the server. All instance servers are destroyed. In so doing, 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLServer_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLServer.h|CTCLServer_8h_source]]
 - libtclplus/tclplus/CTCLServer.cpp
 
  contents 

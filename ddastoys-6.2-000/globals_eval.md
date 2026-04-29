@@ -17,11 +17,11 @@ do not remove this div, it is closed by doxygen!
 
 
 - ANALYTIC
-  : [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]
+  : [[FitManager.h|FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]
 - ML_INFERENCE
-  : [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
+  : [[FitManager.h|FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
 - TEMPLATE
-  : [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]
+  : [[FitManager.h|FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]
 
  contents 
  start footer part 

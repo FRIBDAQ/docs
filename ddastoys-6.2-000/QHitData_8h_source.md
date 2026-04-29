@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 QHitData.h
 
 header
-[[QHitData_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|QHitData_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -129,13 +129,13 @@ header
 <a name="l00040"></a>   40
 
 
-<a name="l00041"></a>   41 class [[classFitManager]];
+<a name="l00041"></a>   41 class [[FitManager|classFitManager]];
 
 
 <a name="l00042"></a>   42
 
 
-<a name="l00053"></a>[[classQHitData]] class [[classQHitData]] : public QWidget
+<a name="l00053"></a>[[53|classQHitData]] class [[QHitData|classQHitData]] : public QWidget
 
 
 <a name="l00054"></a>   54 {
@@ -150,19 +150,19 @@ header
 <a name="l00057"></a>   57 public:
 
 
-<a name="l00064"></a>   64     [[classQHitData#a65c4dfc15cd4a67f832d493e51a8347b]]([[classFitManager]]* pFitMgr, QWidget* parent=nullptr);
+<a name="l00064"></a>   64     [[QHitData|classQHitData#a65c4dfc15cd4a67f832d493e51a8347b]]([[FitManager|classFitManager]]* pFitMgr, QWidget* parent=nullptr);
 
 
-<a name="l00066"></a>   66     [[classQHitData#af3b2f2bde9994ea22ee2d0ac9477f493]]();
+<a name="l00066"></a>   66     [[~QHitData|classQHitData#af3b2f2bde9994ea22ee2d0ac9477f493]]();
 
 
 <a name="l00067"></a>   67
 
 
-<a name="l00073"></a>   73     void [[classQHitData#ac5d326f7f77d3b8888ce275ead700307]](const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00073"></a>   73     void [[update|classQHitData#ac5d326f7f77d3b8888ce275ead700307]](const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
-<a name="l00080"></a>   80     void [[classQHitData#a0b920a0b541e39ea7d2c6ad1b4dda3d5]](QString method);
+<a name="l00080"></a>   80     void [[setFitMethod|classQHitData#a0b920a0b541e39ea7d2c6ad1b4dda3d5]](QString method);
 
 
 <a name="l00081"></a>   81
@@ -183,7 +183,7 @@ header
 <a name="l00105"></a>  105     void createConnections();
 
 
-<a name="l00112"></a>  112     void updateHitData(const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00112"></a>  112     void updateHitData(const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
 <a name="l00113"></a>  113
@@ -204,10 +204,10 @@ header
 <a name="l00123"></a>  123 private:
 
 
-<a name="l00124"></a>  124     [[classFitManager]]* m_pFitManager;
+<a name="l00124"></a>  124     [[FitManager|classFitManager]]* m_pFitManager;
 
 
-<a name="l00125"></a>  125     [[structddastoys_1_1HitExtension]]* m_pExtension;
+<a name="l00125"></a>  125     [[ddastoys::HitExtension|structddastoys_1_1HitExtension]]* m_pExtension;
 
 
 <a name="l00126"></a>  126
@@ -246,21 +246,21 @@ header
 <a name="l00137"></a>  137 #endif
 
 
-[[classFitManager]]
+[[FitManager|classFitManager]]
 
 Provides an interface for calculating trace fits using HitExtension fit parameters.
 
 **Definition:** FitManager.h:65
 
 
-[[classQHitData]]
+[[QHitData|classQHitData]]
 
 Widget for managing hit information when interating with the GUI.
 
 **Definition:** QHitData.h:54
 
 
-[[classQHitData#a0b920a0b541e39ea7d2c6ad1b4dda3d5]]
+[[QHitData::setFitMethod|classQHitData#a0b920a0b541e39ea7d2c6ad1b4dda3d5]]
 
 void setFitMethod(QString method)
 
@@ -269,7 +269,7 @@ Set the fit method.
 **Definition:** QHitData.cpp:110
 
 
-[[classQHitData#a65c4dfc15cd4a67f832d493e51a8347b]]
+[[QHitData::QHitData|classQHitData#a65c4dfc15cd4a67f832d493e51a8347b]]
 
 QHitData(FitManager *pFitMgr, QWidget *parent=nullptr)
 
@@ -278,7 +278,7 @@ Constructor.
 **Definition:** QHitData.cpp:45
 
 
-[[classQHitData#ac5d326f7f77d3b8888ce275ead700307]]
+[[QHitData::update|classQHitData#ac5d326f7f77d3b8888ce275ead700307]]
 
 void update(const ddastoys::DDASFitHit &hit)
 
@@ -287,7 +287,7 @@ Update hit data and enable printing of fit information to stdout if the hit has 
 **Definition:** QHitData.cpp:83
 
 
-[[classQHitData#af3b2f2bde9994ea22ee2d0ac9477f493]]
+[[QHitData::~QHitData|classQHitData#af3b2f2bde9994ea22ee2d0ac9477f493]]
 
 ~QHitData()
 
@@ -296,14 +296,14 @@ Destructor.
 **Definition:** QHitData.cpp:78
 
 
-[[classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 
 **Definition:** DDASFitHit.h:46
 
 
-[[structddastoys_1_1HitExtension]]
+[[ddastoys::HitExtension|structddastoys_1_1HitExtension]]
 
 The data structure appended to each fit hit.
 

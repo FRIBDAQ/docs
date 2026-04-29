@@ -21,16 +21,16 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
-- [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
+- [[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
 
  top 
 DAQ::DDAS::HardwareRegistry::HardwareSpecification Member List
 
 header
-This is the complete list of members for [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]], including all inherited members.
+This is the complete list of members for [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]], including all inherited members.
 
 
 |  |  |  |

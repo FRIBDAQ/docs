@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 RootExtensions.h
 
 header
-[[RootExtensions_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|RootExtensions_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -90,7 +90,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00033"></a>   33 #include <[[fit__extensions_8h]]>
+<a name="l00033"></a>   33 #include <[[fit_extensions.h|fit__extensions_8h]]>
 
 
 <a name="l00034"></a>   34 #include <TObject.h>
@@ -105,13 +105,13 @@ header
 <a name="l00038"></a>   38
 
 
-<a name="l00048"></a>[[structddastoys_1_1RootPulseDescription]]     struct [[structddastoys_1_1RootPulseDescription]] : public [[structddastoys_1_1PulseDescription]], public TObject
+<a name="l00048"></a>[[48|structddastoys_1_1RootPulseDescription]]     struct [[RootPulseDescription|structddastoys_1_1RootPulseDescription]] : public [[PulseDescription|structddastoys_1_1PulseDescription]], public TObject
 
 
 <a name="l00049"></a>   49     {
 
 
-<a name="l00051"></a>[[structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]     [[structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]([[structddastoys_1_1RootPulseDescription]], 1);
+<a name="l00051"></a>[[51|structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]     [[ClassDef|structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]([[RootPulseDescription|structddastoys_1_1RootPulseDescription]], 1);
 
 
 <a name="l00052"></a>   52     };
@@ -120,13 +120,13 @@ header
 <a name="l00053"></a>   53
 
 
-<a name="l00058"></a>[[structddastoys_1_1RootFit1Info]]     struct [[structddastoys_1_1RootFit1Info]] : public [[structddastoys_1_1fit1Info]], public TObject
+<a name="l00058"></a>[[58|structddastoys_1_1RootFit1Info]]     struct [[RootFit1Info|structddastoys_1_1RootFit1Info]] : public [[fit1Info|structddastoys_1_1fit1Info]], public TObject
 
 
 <a name="l00059"></a>   59     {
 
 
-<a name="l00061"></a>[[structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]     [[structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]([[structddastoys_1_1RootFit1Info]], 1);
+<a name="l00061"></a>[[61|structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]     [[ClassDef|structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]([[RootFit1Info|structddastoys_1_1RootFit1Info]], 1);
 
 
 <a name="l00062"></a>   62     };
@@ -135,13 +135,13 @@ header
 <a name="l00063"></a>   63
 
 
-<a name="l00068"></a>[[structddastoys_1_1RootFit2Info]]     struct [[structddastoys_1_1RootFit2Info]] : public [[structddastoys_1_1fit2Info]], public TObject
+<a name="l00068"></a>[[68|structddastoys_1_1RootFit2Info]]     struct [[RootFit2Info|structddastoys_1_1RootFit2Info]] : public [[fit2Info|structddastoys_1_1fit2Info]], public TObject
 
 
 <a name="l00069"></a>   69     {
 
 
-<a name="l00071"></a>[[structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]     [[structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]([[structddastoys_1_1RootFit2Info]], 1);
+<a name="l00071"></a>[[71|structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]     [[ClassDef|structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]([[RootFit2Info|structddastoys_1_1RootFit2Info]], 1);
 
 
 <a name="l00072"></a>   72     };
@@ -153,13 +153,13 @@ header
 <a name="l00074"></a>   74
 
 
-<a name="l00079"></a>[[structddastoys_1_1RootHitExtension]]     struct [[structddastoys_1_1RootHitExtension]] : public [[structddastoys_1_1HitExtension]], public TObject
+<a name="l00079"></a>[[79|structddastoys_1_1RootHitExtension]]     struct [[RootHitExtension|structddastoys_1_1RootHitExtension]] : public [[HitExtension|structddastoys_1_1HitExtension]], public TObject
 
 
 <a name="l00080"></a>   80     {
 
 
-<a name="l00082"></a>[[structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]     [[structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]([[structddastoys_1_1RootHitExtension]], 1);
+<a name="l00082"></a>[[82|structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]     [[ClassDef|structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]([[RootHitExtension|structddastoys_1_1RootHitExtension]], 1);
 
 
 <a name="l00083"></a>   83     };
@@ -177,89 +177,89 @@ header
 <a name="l00089"></a>   89 #endif
 
 
-[[fit__extensions_8h]]
+[[fit_extensions.h|fit__extensions_8h]]
 
 Define structs used by fitting functions and to extend DDAS hits.
 
 
-[[structddastoys_1_1HitExtension]]
+[[ddastoys::HitExtension|structddastoys_1_1HitExtension]]
 
 The data structure appended to each fit hit.
 
 **Definition:** fit_extensions.h:82
 
 
-[[structddastoys_1_1PulseDescription]]
+[[ddastoys::PulseDescription|structddastoys_1_1PulseDescription]]
 
 Describes a single pulse without an offset.
 
 **Definition:** fit_extensions.h:37
 
 
-[[structddastoys_1_1RootFit1Info]]
+[[ddastoys::RootFit1Info|structddastoys_1_1RootFit1Info]]
 
 Full fitting information for the single pulse.
 
 **Definition:** RootExtensions.h:59
 
 
-[[structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]
+[[ddastoys::RootFit1Info::ClassDef|structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]
 
 ClassDef(RootFit1Info, 1)
 
 Required for inheritence from TObject.
 
 
-[[structddastoys_1_1RootFit2Info]]
+[[ddastoys::RootFit2Info|structddastoys_1_1RootFit2Info]]
 
 Full fitting information for the double pulse.
 
 **Definition:** RootExtensions.h:69
 
 
-[[structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]
+[[ddastoys::RootFit2Info::ClassDef|structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]
 
 ClassDef(RootFit2Info, 1)
 
 Required for inheritence from TObject.
 
 
-[[structddastoys_1_1RootHitExtension]]
+[[ddastoys::RootHitExtension|structddastoys_1_1RootHitExtension]]
 
 The data structure containing the full fit information.
 
 **Definition:** RootExtensions.h:80
 
 
-[[structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]
+[[ddastoys::RootHitExtension::ClassDef|structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]
 
 ClassDef(RootHitExtension, 1)
 
 Required for inheritence from TObject.
 
 
-[[structddastoys_1_1RootPulseDescription]]
+[[ddastoys::RootPulseDescription|structddastoys_1_1RootPulseDescription]]
 
 Describes a single pulse without an offset.
 
 **Definition:** RootExtensions.h:49
 
 
-[[structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]
+[[ddastoys::RootPulseDescription::ClassDef|structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]
 
 ClassDef(RootPulseDescription, 1)
 
 Required for inheritence from TObject.
 
 
-[[structddastoys_1_1fit1Info]]
+[[ddastoys::fit1Info|structddastoys_1_1fit1Info]]
 
 Full fitting information for the single pulse.
 
 **Definition:** fit_extensions.h:48
 
 
-[[structddastoys_1_1fit2Info]]
+[[ddastoys::fit2Info|structddastoys_1_1fit2Info]]
 
 Full fitting information for the double pulse.
 

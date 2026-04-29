@@ -241,7 +241,7 @@ return kfTRUE;                // kfFALSE would abort pipeline.
 
 
 1. The Makefile for this application must ensure that these come from the FRIB analysis framework headers not the SpecTcl headers.
-2. Pulls the definitions of the FRIB Analysiys code from the `frib::analysis` namespace into the default name resolution space. Thus e.g. [[classfrib_1_1analysis_1_1CEvent]] can be referred to as `CEvent`.
+2. Pulls the definitions of the FRIB Analysiys code from the `frib::analysis` namespace into the default name resolution space. Thus e.g. [[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]] can be referred to as `CEvent`.
 3. In the version of this unpacker in `MySpecTclApp.cpp`, This tree paramter array was defined at file global scope. For both SpecTcl and the FRIB analysis framework this unecessary so we create the tree parameter array here. and delete it in the destructor.
 4. In SpecTcl, we used a translating buffer pointer but, since all NSCLDAQ systems are little endian, and since big endian systems are increasingly hard to come by, we just use a plain old pointer to UShort_t.
 5. The FRIB Framework does not need to be given the size of the event so this code is only compiled if we're not compiling it for the FRIB analysis framework.
@@ -251,7 +251,7 @@ return kfTRUE;                // kfFALSE would abort pipeline.
 ## Setting up the Application for SpecTcl.
 
 
-Much of the work described here is the same as for [[md__fox_fribanalysis-1_80-000_pages_rawtoparameters#rawtoparamworker]] The only difference is that we need to use a SpecTclWorker, instantiate one or more eventprocessors, and add them to that worker to set up the analysis pipeline. That's done as follows:
+Much of the work described here is the same as for [[Writing the Raw to parameter worker.|md__fox_fribanalysis-1_80-000_pages_rawtoparameters#rawtoparamworker]] The only difference is that we need to use a SpecTclWorker, instantiate one or more eventprocessors, and add them to that worker to set up the analysis pipeline. That's done as follows:
 
 
 #include <AbstractApplication.h>

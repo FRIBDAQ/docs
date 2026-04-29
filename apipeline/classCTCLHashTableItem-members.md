@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLHashTableItem< T > Member List
 
 header
-This is the complete list of members for [[classCTCLHashTableItem]], including all inherited members.
+This is the complete list of members for [[CTCLHashTableItem< T >|classCTCLHashTableItem]], including all inherited members.
 
 
 |  |  |  |

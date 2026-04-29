@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 LinkDef.h File Reference
@@ -31,7 +31,7 @@ Defines the linkages to supply to root.
 [More...](#details)
 
 
-[[LinkDef_8h_source]]
+[[Go to the source code of this file.|LinkDef_8h_source]]
 
 
 <a name="details"></a>## Detailed Description

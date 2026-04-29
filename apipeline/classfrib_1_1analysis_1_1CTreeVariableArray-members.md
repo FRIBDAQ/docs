@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeVariableArray]]
+- [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]
 
  top 
 frib::analysis::CTreeVariableArray Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CTreeVariableArray]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]], including all inherited members.
 
 
 |  |  |  |

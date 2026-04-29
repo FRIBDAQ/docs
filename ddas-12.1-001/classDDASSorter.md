@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDDASSorter-members]]
+[[List of all members|classDDASSorter-members]]
 
 
 DDASSorter Class Reference
 
 header
 Class to manage data flow and timestamp ordering.  
- [[classDDASSorter#details]]
+ [[More...|classDDASSorter#details]]
 
 
 `#include <DDASSorter.h>`
@@ -54,7 +54,7 @@ Class to manage data flow and timestamp ordering.
 Class to manage data flow and timestamp ordering.
 
 
-The [[classDDASSorter]] class processes ring items:
+The [[DDASSorter|classDDASSorter]] class processes ring items:
 
 - Non event ring items are just passed on through.
 - Event items are parsed for hits which are added to the hit manager.
@@ -120,8 +120,8 @@ Get data from CRingBufferChunkAccess and call processChunk to process it.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASSorter_8h_source]]
-- [[DDASSorter_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASSorter.h|DDASSorter_8h_source]]
+- [[DDASSorter.cpp|DDASSorter_8cpp]]
 
  contents 
  start footer part 

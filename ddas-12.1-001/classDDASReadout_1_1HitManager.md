@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[classDDASReadout_1_1HitManager]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[HitManager|classDDASReadout_1_1HitManager]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDDASReadout_1_1HitManager-members]]
+[[List of all members|classDDASReadout_1_1HitManager-members]]
 
 
 DDASReadout::HitManager Class Reference
 
 header
 Collect hits from modules and retains them in a sorted deque.  
- [[classDDASReadout_1_1HitManager#details]]
+ [[More...|classDDASReadout_1_1HitManager#details]]
 
 
 `#include <HitManager.h>`
@@ -153,8 +153,8 @@ On exit, if a hit is returned it has been popped off the deque.
 
 ---
 
-The documentation for this class was generated from the following files:- [[HitManager_8h_source]]
-- [[HitManager_8cpp]]
+The documentation for this class was generated from the following files:- [[HitManager.h|HitManager_8h_source]]
+- [[HitManager.cpp|HitManager_8cpp]]
 
  contents 
  start footer part 

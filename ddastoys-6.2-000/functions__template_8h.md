@@ -42,7 +42,7 @@ This graph shows which files directly or indirectly include this file:
 ![](functions__template_8h__dep__incl.png)
 
 
-[[functions__template_8h_source]]
+[[Go to the source code of this file.|functions__template_8h_source]]
 
 
 |  |  |

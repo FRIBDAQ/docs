@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classtestRangeError-members]]
+[[List of all members|classtestRangeError-members]]
 
 
 testRangeError Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for testRangeError:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for testRangeError:
@@ -47,7 +47,7 @@ Collaboration diagram for testRangeError:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

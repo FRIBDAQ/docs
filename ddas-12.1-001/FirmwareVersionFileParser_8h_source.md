@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
 
  top 
 FirmwareVersionFileParser.h
 
 header
-[[FirmwareVersionFileParser_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|FirmwareVersionFileParser_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef FIRMWAREVERSIONFILEPARSER_H
@@ -49,13 +49,13 @@ header
 <a name="l00012"></a>   12
 
 
-<a name="l00019"></a>   19 #include "[[Configuration_8h]]"
+<a name="l00019"></a>   19 #include "[[Configuration.h|Configuration_8h]]"
 
 
 <a name="l00020"></a>   20
 
 
-<a name="l00022"></a>   22 namespace [[namespaceDAQ]] {
+<a name="l00022"></a>   22 namespace [[DAQ|namespaceDAQ]] {
 
 
 <a name="l00024"></a>   24     namespace DDAS {
@@ -64,7 +64,7 @@ header
 <a name="l00025"></a>   25
 
 
-<a name="l00049"></a>[[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]         class [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
+<a name="l00049"></a>[[49|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]         class [[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
 
 
 <a name="l00050"></a>   50     {
@@ -82,10 +82,10 @@ header
 <a name="l00054"></a>   54     public:
 
 
-<a name="l00056"></a>   56         [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#ac8a9d1998a1fb0b0f1fa7109e0ebf7bf]]();
+<a name="l00056"></a>   56         [[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#ac8a9d1998a1fb0b0f1fa7109e0ebf7bf]]();
 
 
-<a name="l00064"></a>   64         void [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]](std::istream& input, [[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]& config);
+<a name="l00064"></a>   64         void [[parse|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]](std::istream& input, [[FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]& config);
 
 
 <a name="l00065"></a>   65     };
@@ -106,19 +106,19 @@ header
 <a name="l00072"></a>   72 #endif // FIRMWAREVERSIONFILEPARSER_H
 
 
-[[Configuration_8h]]
+[[Configuration.h|Configuration_8h]]
 
 Defines a class for storing system configuration information.
 
 
-[[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
+[[DAQ::DDAS::FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
 
 A parser for the DDAS firmware specification file.
 
 **Definition:** FirmwareVersionFileParser.h:50
 
 
-[[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]]
+[[DAQ::DDAS::FirmwareVersionFileParser::parse|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]]
 
 void parse(std::istream &input, FirmwareMap &config)
 
@@ -127,7 +127,7 @@ Main entry point for parsing DDASFirmwareVersions.txt.
 **Definition:** FirmwareVersionFileParser.cpp:34
 
 
-[[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#ac8a9d1998a1fb0b0f1fa7109e0ebf7bf]]
+[[DAQ::DDAS::FirmwareVersionFileParser::FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#ac8a9d1998a1fb0b0f1fa7109e0ebf7bf]]
 
 FirmwareVersionFileParser()
 
@@ -136,7 +136,7 @@ Constructor.
 **Definition:** FirmwareVersionFileParser.cpp:24
 
 
-[[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
+[[DAQ::DDAS::FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
 
 std::map< int, FirmwareConfiguration > FirmwareMap
 
@@ -145,7 +145,7 @@ A map of firmware configurations keyed by the hardware type defined in HardwareR
 **Definition:** Configuration.h:56
 
 
-[[namespaceDAQ]]
+[[DAQ|namespaceDAQ]]
 
  fragment
 

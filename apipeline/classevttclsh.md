@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classevttclsh-members]]
+[[List of all members|classevttclsh-members]]
 
 
 evttclsh Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for evttclsh:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for evttclsh:
@@ -50,7 +50,7 @@ Collaboration diagram for evttclsh:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

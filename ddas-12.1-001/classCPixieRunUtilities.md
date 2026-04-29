@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCPixieRunUtilities-members]]
+[[List of all members|classCPixieRunUtilities-members]]
 
 
-CPixieRunUtilities Class Reference[[group__utilities]]
+CPixieRunUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
 
 header
 Manage list-mode histogram and baseline runs for a Pixie-16 system.  
- [[classCPixieRunUtilities#details]]
+ [[More...|classCPixieRunUtilities#details]]
 
 
 `#include <CPixieRunUtilities.h>`
@@ -97,7 +97,7 @@ This class provides functionality to start and stop runs as well as read data fr
 Constructor.
 
 
-The [[classCPixieRunUtilities]] class has ownership of a [[classCDataGenerator]] object and is responsible for managing it.
+The [[CPixieRunUtilities|classCPixieRunUtilities]] class has ownership of a [[CDataGenerator|classCDataGenerator]] object and is responsible for managing it.
 
 
 ## Member Function Documentation
@@ -160,7 +160,7 @@ Return values
 
 
 
-**[[todo#_todo000001]]**Disable multiple modules from running in non-sync mode.
+**[[Todo:|todo#_todo000001]]**Disable multiple modules from running in non-sync mode.
 
 
 
@@ -306,7 +306,7 @@ Return values
 Acquire baseline values for all channels on a module using Pixie16AcquireBaselines() and update the internal storage for baseline data. The single channel baseline data we want, specified by the input channel parameter, is copied into a local variable which is accessible via a getter function.
 
 
-**[[todo#_todo000002]]**(ASC 7/14/23): Why not just have the getter take a channel as an input parameter and return the correct baseline data. It seems unnecessary to maintain a separate copy.
+**[[Todo:|todo#_todo000002]]**(ASC 7/14/23): Why not just have the getter take a channel as an input parameter and return the correct baseline data. It seems unnecessary to maintain a separate copy.
 
 
 
@@ -380,7 +380,7 @@ Return values
 Statistics size is different between XIA API version 2 and 3. 3.x provides a Pixie16GetStatisticsSize() so we don't have to worry about calculating the statistics size ourselves or use a hardcoded value. Accessing the run statistics using the wrong method results in a segfault.
 
 
-**[[todo#_todo000003]]**(ASC 9/27/23): Confirm end of run and handle if not ended properly.
+**[[Todo:|todo#_todo000003]]**(ASC 9/27/23): Confirm end of run and handle if not ended properly.
 
 
 
@@ -404,8 +404,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieRunUtilities_8h_source]]
-- [[CPixieRunUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieRunUtilities.h|CPixieRunUtilities_8h_source]]
+- [[CPixieRunUtilities.cpp|CPixieRunUtilities_8cpp]]
 
  contents 
  start footer part 

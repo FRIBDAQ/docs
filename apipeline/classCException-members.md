@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CException Member List
 
 header
-This is the complete list of members for [[classCException]], including all inherited members.
+This is the complete list of members for [[CException|classCException]], including all inherited members.
 
 
 |  |  |  |

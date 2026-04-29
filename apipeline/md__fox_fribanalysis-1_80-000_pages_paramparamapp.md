@@ -29,7 +29,7 @@ header
 This section describes the requirements for writing a concrete application class for a parameter to parameter pipeline stage. A simple example is also given.
 
 
-The application object is used to set up the proceses that make up the ranks of the MPI application. It must be derived from the [[classfrib_1_1analysis_1_1AbstractApplication]] abstract base class.
+The application object is used to set up the proceses that make up the ranks of the MPI application. It must be derived from the [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]] abstract base class.
 
 
 This subclass must:
@@ -47,7 +47,7 @@ This subclass must:
 ## The Concrete Subclass of frib::analysis::AbstractApplication
 
 
-In this example we will use the sample worker we showed in [[md__fox_fribanalysis-1_80-000_pages_paramparamworker#paramparamworkerexample]] We'll assume the header for this worker is in `MyWorker.h`
+In this example we will use the sample worker we showed in [[Sample Worker.|md__fox_fribanalysis-1_80-000_pages_paramparamworker#paramparamworkerexample]] We'll assume the header for this worker is in `MyWorker.h`
 
 
 #include <AbstractApplication.h>
@@ -169,11 +169,11 @@ app(defreader);                                  // 11
 
 1. Includes the definitions for the classes we're going to need when implementing our application and program.
 2. Includes the definiton of our worker class.
-3. This section defines the class `MyWorker` which implements a concrete class derived from [[classfrib_1_1analysis_1_1AbstractApplication]] We must implement four methods, one for each process role in our MPI application. The base class, upon starting MPI will invoke the appropriate method depending on the rank of the process running.
-4. The dealer reads input data and sends them to the workers, how operate on them in parallel. Note that the dealer, by default, reads its input data from the file that is `argv[1]` (this is the argv[] after MPI has stripped the mpirun specific parameters from it). You can derive a subclass from [[classfrib_1_1analysis_1_1CMPIParameterDealer]] and override its getInputFile method to modify this behavior.
+3. This section defines the class `MyWorker` which implements a concrete class derived from [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]] We must implement four methods, one for each process role in our MPI application. The base class, upon starting MPI will invoke the appropriate method depending on the rank of the process running.
+4. The dealer reads input data and sends them to the workers, how operate on them in parallel. Note that the dealer, by default, reads its input data from the file that is `argv[1]` (this is the argv[] after MPI has stripped the mpirun specific parameters from it). You can derive a subclass from [[frib::analysis::CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]] and override its getInputFile method to modify this behavior.
 5. Our worker just instantiates `MyWorker` and run it by calling the `operator()` method.
-6. The farmer just insantiates an [[classfrib_1_1analysis_1_1CMPIParameterFarmer]] object and runs it by calling its `operator` method.
-7. The outputter implementation creates an runs a [[classfrib_1_1analysis_1_1CMPIParameterOutput]] which outputs a parameter data file. By default, data are written to the filenamed by argv[2]. To modify this behavior you can derive a subclass which overrides the getOutputFile method to provide a filenane from a different source.
+6. The farmer just insantiates an [[frib::analysis::CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer]] object and runs it by calling its `operator` method.
+7. The outputter implementation creates an runs a [[frib::analysis::CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]] which outputs a parameter data file. By default, data are written to the filenamed by argv[2]. To modify this behavior you can derive a subclass which overrides the getOutputFile method to provide a filenane from a different source.
 8. All programs require a `main` as their entry point. Here we deinfe and implement that function.
 9. We use a Tcl defintion file reader which will get its definition file from argv[3]. In a production program:- The command parameters have not yet been stripped of their mpirun specific parameters. That happens in MPI_Init which is run by the application's function call operator, so you probably should, instead use `argv[arc-1]` e.g.
    - Code should verify the appropriate minimum parameter count.

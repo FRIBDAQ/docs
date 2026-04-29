@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CEventProcessor Member List
 
 header
-This is the complete list of members for [[classCEventProcessor]], including all inherited members.
+This is the complete list of members for [[CEventProcessor|classCEventProcessor]], including all inherited members.
 
 
 |  |  |  |

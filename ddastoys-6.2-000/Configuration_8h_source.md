@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 Configuration.h
 
 header
-[[Configuration_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|Configuration_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -97,7 +97,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00067"></a>[[classddastoys_1_1Configuration]]     class [[classddastoys_1_1Configuration]]
+<a name="l00067"></a>[[67|classddastoys_1_1Configuration]]     class [[Configuration|classddastoys_1_1Configuration]]
 
 
 <a name="l00068"></a>   68     {
@@ -106,10 +106,10 @@ header
 <a name="l00069"></a>   69     public:
 
 
-<a name="l00071"></a>[[classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]     [[classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]() {};
+<a name="l00071"></a>[[71|classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]     [[Configuration|classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]() {};
 
 
-<a name="l00073"></a>[[classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]     [[classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]() {};
+<a name="l00073"></a>[[73|classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]     [[~Configuration|classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]() {};
 
 
 <a name="l00074"></a>   74
@@ -121,13 +121,13 @@ header
 <a name="l00076"></a>   76     public:
 
 
-<a name="l00082"></a>   82     void [[classddastoys_1_1Configuration#a731fab1b2b73567986bbbfbd84c1d4ca]]();
+<a name="l00082"></a>   82     void [[readConfigFile|classddastoys_1_1Configuration#a731fab1b2b73567986bbbfbd84c1d4ca]]();
 
 
-<a name="l00093"></a>   93     void [[classddastoys_1_1Configuration#a8552c1df16585bc30cbc4706f62a3e62]]();
+<a name="l00093"></a>   93     void [[readTemplateFile|classddastoys_1_1Configuration#a8552c1df16585bc30cbc4706f62a3e62]]();
 
 
-<a name="l00102"></a>  102     bool [[classddastoys_1_1Configuration#a5c5b21cc582e272b2c6f7527da681c99]](unsigned crate, unsigned slot, unsigned channel);
+<a name="l00102"></a>  102     bool [[fitChannel|classddastoys_1_1Configuration#a5c5b21cc582e272b2c6f7527da681c99]](unsigned crate, unsigned slot, unsigned channel);
 
 
 <a name="l00103"></a>  103
@@ -139,7 +139,7 @@ header
 <a name="l00105"></a>  105     public:
 
 
-<a name="l00114"></a>  114     std::pair<unsigned, unsigned> [[classddastoys_1_1Configuration#ae8a8ffe8a8763e39e860eb2662279d39]](
+<a name="l00114"></a>  114     std::pair<unsigned, unsigned> [[getFitLimits|classddastoys_1_1Configuration#ae8a8ffe8a8763e39e860eb2662279d39]](
 
 
 <a name="l00115"></a>  115         unsigned crate, unsigned slot, unsigned channel
@@ -148,7 +148,7 @@ header
 <a name="l00116"></a>  116         );
 
 
-<a name="l00125"></a>  125     unsigned [[classddastoys_1_1Configuration#af2455da9bfc9671d6e7f5a36b95d0d27]](
+<a name="l00125"></a>  125     unsigned [[getSaturationValue|classddastoys_1_1Configuration#af2455da9bfc9671d6e7f5a36b95d0d27]](
 
 
 <a name="l00126"></a>  126         unsigned crate, unsigned slot, unsigned channel
@@ -157,7 +157,7 @@ header
 <a name="l00127"></a>  127         );
 
 
-<a name="l00136"></a>  136     std::string [[classddastoys_1_1Configuration#a94db3f175b98b8af0afca4f072d6c93a]](
+<a name="l00136"></a>  136     std::string [[getModelPath|classddastoys_1_1Configuration#a94db3f175b98b8af0afca4f072d6c93a]](
 
 
 <a name="l00137"></a>  137         unsigned crate, unsigned slot, unsigned channel
@@ -166,13 +166,13 @@ header
 <a name="l00138"></a>  138         );
 
 
-<a name="l00144"></a>  144     std::vector<std::string> [[classddastoys_1_1Configuration#a34a7d73e00be6fc04d187978dff4ae09]]();
+<a name="l00144"></a>  144     std::vector<std::string> [[getModelList|classddastoys_1_1Configuration#a34a7d73e00be6fc04d187978dff4ae09]]();
 
 
-<a name="l00149"></a>[[classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]     std::vector<double> [[classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]() { return m_template; };
+<a name="l00149"></a>[[149|classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]     std::vector<double> [[getTemplate|classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]() { return m_template; };
 
 
-<a name="l00154"></a>[[classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]     unsigned [[classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]() { return m_alignPoint; };
+<a name="l00154"></a>[[154|classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]     unsigned [[getTemplateAlignPoint|classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]() { return m_alignPoint; };
 
 
 <a name="l00155"></a>  155
@@ -241,14 +241,14 @@ header
 <a name="l00207"></a>  207 #endif
 
 
-[[classddastoys_1_1Configuration]]
+[[ddastoys::Configuration|classddastoys_1_1Configuration]]
 
 Manage fit configuration information.
 
 **Definition:** Configuration.h:68
 
 
-[[classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]
+[[ddastoys::Configuration::getTemplate|classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]
 
 std::vector< double > getTemplate()
 
@@ -257,7 +257,7 @@ Return the template data.
 **Definition:** Configuration.h:149
 
 
-[[classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]
+[[ddastoys::Configuration::Configuration|classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]
 
 Configuration()
 
@@ -266,7 +266,7 @@ Constructor.
 **Definition:** Configuration.h:71
 
 
-[[classddastoys_1_1Configuration#a34a7d73e00be6fc04d187978dff4ae09]]
+[[ddastoys::Configuration::getModelList|classddastoys_1_1Configuration#a34a7d73e00be6fc04d187978dff4ae09]]
 
 std::vector< std::string > getModelList()
 
@@ -275,7 +275,7 @@ Get the list of unique model names specified in the configuration file.
 **Definition:** Configuration.cpp:247
 
 
-[[classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]
+[[ddastoys::Configuration::~Configuration|classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]
 
 ~Configuration()
 
@@ -284,7 +284,7 @@ Destructor.
 **Definition:** Configuration.h:73
 
 
-[[classddastoys_1_1Configuration#a5c5b21cc582e272b2c6f7527da681c99]]
+[[ddastoys::Configuration::fitChannel|classddastoys_1_1Configuration#a5c5b21cc582e272b2c6f7527da681c99]]
 
 bool fitChannel(unsigned crate, unsigned slot, unsigned channel)
 
@@ -293,7 +293,7 @@ Check the map and determine if the channel should be fit.
 **Definition:** Configuration.cpp:202
 
 
-[[classddastoys_1_1Configuration#a731fab1b2b73567986bbbfbd84c1d4ca]]
+[[ddastoys::Configuration::readConfigFile|classddastoys_1_1Configuration#a731fab1b2b73567986bbbfbd84c1d4ca]]
 
 void readConfigFile()
 
@@ -302,7 +302,7 @@ Read the configuration file.
 **Definition:** Configuration.cpp:77
 
 
-[[classddastoys_1_1Configuration#a8552c1df16585bc30cbc4706f62a3e62]]
+[[ddastoys::Configuration::readTemplateFile|classddastoys_1_1Configuration#a8552c1df16585bc30cbc4706f62a3e62]]
 
 void readTemplateFile()
 
@@ -311,7 +311,7 @@ Read the formatted tempalate data from a file.
 **Definition:** Configuration.cpp:129
 
 
-[[classddastoys_1_1Configuration#a94db3f175b98b8af0afca4f072d6c93a]]
+[[ddastoys::Configuration::getModelPath|classddastoys_1_1Configuration#a94db3f175b98b8af0afca4f072d6c93a]]
 
 std::string getModelPath(unsigned crate, unsigned slot, unsigned channel)
 
@@ -320,7 +320,7 @@ Get the ML inference model path for a single crate/slot/channel combination.
 **Definition:** Configuration.cpp:230
 
 
-[[classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]
+[[ddastoys::Configuration::getTemplateAlignPoint|classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]
 
 unsigned getTemplateAlignPoint()
 
@@ -329,7 +329,7 @@ Return the template alignment point.
 **Definition:** Configuration.h:154
 
 
-[[classddastoys_1_1Configuration#ae8a8ffe8a8763e39e860eb2662279d39]]
+[[ddastoys::Configuration::getFitLimits|classddastoys_1_1Configuration#ae8a8ffe8a8763e39e860eb2662279d39]]
 
 std::pair< unsigned, unsigned > getFitLimits(unsigned crate, unsigned slot, unsigned channel)
 
@@ -338,7 +338,7 @@ Get the (inclusive) fit limits for a single crate/slot/channel combination.
 **Definition:** Configuration.cpp:210
 
 
-[[classddastoys_1_1Configuration#af2455da9bfc9671d6e7f5a36b95d0d27]]
+[[ddastoys::Configuration::getSaturationValue|classddastoys_1_1Configuration#af2455da9bfc9671d6e7f5a36b95d0d27]]
 
 unsigned getSaturationValue(unsigned crate, unsigned slot, unsigned channel)
 

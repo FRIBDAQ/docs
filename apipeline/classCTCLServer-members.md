@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLServer Member List
 
 header
-This is the complete list of members for [[classCTCLServer]], including all inherited members.
+This is the complete list of members for [[CTCLServer|classCTCLServer]], including all inherited members.
 
 
 |  |  |  |

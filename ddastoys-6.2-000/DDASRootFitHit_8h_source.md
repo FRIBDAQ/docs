@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 DDASRootFitHit.h
 
 header
-[[DDASRootFitHit_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASRootFitHit_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -90,7 +90,7 @@ header
 <a name="l00026"></a>   26
 
 
-<a name="l00027"></a>   27 #include <[[DDASFitHit_8h]]>
+<a name="l00027"></a>   27 #include <[[DDASFitHit.h|DDASFitHit_8h]]>
 
 
 <a name="l00028"></a>   28 #include <TObject.h>
@@ -105,7 +105,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00052"></a>[[classddastoys_1_1DDASRootFitHit]]     class [[classddastoys_1_1DDASRootFitHit]] : public [[classddastoys_1_1DDASFitHit]], public TObject
+<a name="l00052"></a>[[52|classddastoys_1_1DDASRootFitHit]]     class [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]] : public [[DDASFitHit|classddastoys_1_1DDASFitHit]], public TObject
 
 
 <a name="l00053"></a>   53     {
@@ -114,25 +114,25 @@ header
 <a name="l00054"></a>   54     public:
 
 
-<a name="l00056"></a>   56     [[classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]();
+<a name="l00056"></a>   56     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]();
 
 
-<a name="l00061"></a>   61     [[classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]](const [[classddastoys_1_1DDASRootFitHit]]& rhs);
+<a name="l00061"></a>   61     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]](const [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& rhs);
 
 
 <a name="l00062"></a>   62
 
 
-<a name="l00068"></a>   68     [[classddastoys_1_1DDASRootFitHit]]& [[classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]](const [[classddastoys_1_1DDASRootFitHit]]& rhs);
+<a name="l00068"></a>   68     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& [[operator=|classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]](const [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& rhs);
 
 
-<a name="l00076"></a>   76     [[classddastoys_1_1DDASRootFitHit]]& [[classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]](const [[classddastoys_1_1DDASFitHit]]& rhs);
+<a name="l00076"></a>   76     [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& [[operator=|classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]](const [[DDASFitHit|classddastoys_1_1DDASFitHit]]& rhs);
 
 
 <a name="l00077"></a>   77
 
 
-<a name="l00082"></a>   82     void [[classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]();
+<a name="l00082"></a>   82     void [[Reset|classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]();
 
 
 <a name="l00083"></a>   83
@@ -144,7 +144,7 @@ header
 <a name="l00085"></a>   85
 
 
-<a name="l00086"></a>   86     ClassDef([[classddastoys_1_1DDASRootFitHit]], 1)
+<a name="l00086"></a>   86     ClassDef([[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]], 1)
 
 
 <a name="l00087"></a>   87     };
@@ -162,26 +162,26 @@ header
 <a name="l00092"></a>   92 #endif
 
 
-[[DDASFitHit_8h]]
+[[DDASFitHit.h|DDASFitHit_8h]]
 
 Extends DDASHit to include fit data that's been tacked on to the end of a hit.
 
 
-[[classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 
 **Definition:** DDASFitHit.h:46
 
 
-[[classddastoys_1_1DDASRootFitHit]]
+[[ddastoys::DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]
 
 This class is a ROOT serializable DDAS hit with possible fit data.
 
 **Definition:** DDASRootFitHit.h:53
 
 
-[[classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]]
+[[ddastoys::DDASRootFitHit::operator=|classddastoys_1_1DDASRootFitHit#a243d32e4f3cfb7620616ae7059f9bac7]]
 
 DDASRootFitHit & operator=(const DDASRootFitHit &rhs)
 
@@ -190,7 +190,7 @@ Assignment from another DDASRootFitHit.
 **Definition:** DDASRootFitHit.cpp:43
 
 
-[[classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]
+[[ddastoys::DDASRootFitHit::Reset|classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]
 
 void Reset()
 
@@ -199,7 +199,7 @@ Reset the object to empty. This is really just a matter of assigning a reset hit
 **Definition:** DDASRootFitHit.cpp:65
 
 
-[[classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]
+[[ddastoys::DDASRootFitHit::DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]
 
 DDASRootFitHit()
 

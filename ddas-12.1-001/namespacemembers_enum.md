@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - HardwareType
-  : [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]
+  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]
 
  contents 
  start footer part 

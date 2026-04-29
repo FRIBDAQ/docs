@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIParameterOutput]]
+- [[CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]]
 
  top 
 frib::analysis::CMPIParameterOutput Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CMPIParameterOutput]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]], including all inherited members.
 
 
 |  |  |  |

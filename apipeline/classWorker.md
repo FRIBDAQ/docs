@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classWorker-members]]
+[[List of all members|classWorker-members]]
 
 
 Worker Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for Worker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for Worker:
@@ -48,7 +48,7 @@ Collaboration diagram for Worker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -77,7 +77,7 @@ dummy parameter reader that defines a tree Parameter array: we're going to 'unpa
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testWorker1_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testWorker1.cpp|testWorker1_8cpp]]
 
  contents 
  start footer part 

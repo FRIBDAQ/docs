@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[structDDASReadout_1_1ReferenceCountedBuffer]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structDDASReadout_1_1ReferenceCountedBuffer-members]]
+[[List of all members|structDDASReadout_1_1ReferenceCountedBuffer-members]]
 
 
 DDASReadout::ReferenceCountedBuffer Struct Reference
 
 header
 A reference-counted buffer with dynamic storage.  
- [[structDDASReadout_1_1ReferenceCountedBuffer#details]]
+ [[More...|structDDASReadout_1_1ReferenceCountedBuffer#details]]
 
 
 `#include <ReferenceCountedBuffer.h>`
@@ -297,8 +297,8 @@ Number of bytes of data.
 
 ---
 
-The documentation for this struct was generated from the following files:- [[ReferenceCountedBuffer_8h_source]]
-- [[ReferenceCountedBuffer_8cpp]]
+The documentation for this struct was generated from the following files:- [[ReferenceCountedBuffer.h|ReferenceCountedBuffer_8h_source]]
+- [[ReferenceCountedBuffer.cpp|ReferenceCountedBuffer_8cpp]]
 
  contents 
  start footer part 

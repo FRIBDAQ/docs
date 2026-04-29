@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLIdleProcess-members]]
+[[List of all members|classCTCLIdleProcess-members]]
 
 
 CTCLIdleProcess Class Referenceabstract
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLIdleProcess:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLIdleProcess:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLIdleProcess:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -118,7 +118,7 @@ Collaboration diagram for CTCLIdleProcess:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLIdleProcess_8h_source]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLIdleProcess.h|TCLIdleProcess_8h_source]]
 
  contents 
  start footer part 

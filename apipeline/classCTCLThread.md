@@ -24,7 +24,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLThread-members]]
+[[List of all members|classCTCLThread-members]]
 
 
 CTCLThread Class Referenceabstract
@@ -201,8 +201,8 @@ start Starts the thread:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLThread_8h_source]]
-- libtclplus/tclplus/[[CTCLThread_8cpp]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLThread.h|CTCLThread_8h_source]]
+- libtclplus/tclplus/[[CTCLThread.cpp|CTCLThread_8cpp]]
 
  contents 
  start footer part 

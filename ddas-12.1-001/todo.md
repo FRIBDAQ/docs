@@ -23,42 +23,42 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-Class [[classDDASRootEvent]] 
+Class [[DDASRootEvent|classDDASRootEvent]] 
 (ASC 4/2/24): Write tests for this class to validate its methods.  
-Member [[classCMyEventSegment#ae3c63a527b099640942713010b2afdc5]]  ([[classCMyTrigger]] *trig, CExperiment &exp)
+Member [[CMyEventSegment::CMyEventSegment|classCMyEventSegment#ae3c63a527b099640942713010b2afdc5]]  ([[CMyTrigger|classCMyTrigger]] *trig, CExperiment &exp)
 (ASC 1/25/24): The assumption that the external timestamp bit for channel 0 is the same as the rest of the module allows some obviously bad configurations to be accepted. This *may* be a QtScope issue too: users should be prevented from enabling the external timestamp on a subset of channels if the readout code doesn't support it.  
-Member [[classCMyEventSegment#a99e7612c75cfb4989647682f348e9c54]]  ()
+Member [[CMyEventSegment::initialize|classCMyEventSegment#a99e7612c75cfb4989647682f348e9c54]]  ()
 (ASC 1/25/24): An old comment from (I bet) RF: "paging through the global **environ is probably thread-safe however I'm pretty sure at this point in time there's no other thread doing a getenv()."  
-Member [[classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]]  (int module)
+Member [[CPixieRunUtilities::BeginHistogramRun|classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]]  (int module)
 Disable multiple modules from running in non-sync mode.  
-Member [[classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]]  (int module, int channel)
+Member [[CPixieRunUtilities::ReadBaseline|classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]]  (int module, int channel)
 (ASC 7/14/23): Why not just have the getter take a channel as an input parameter and return the correct baseline data. It seems unnecessary to maintain a separate copy.  
-Member [[classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]]  (int module)
+Member [[CPixieRunUtilities::ReadModuleStats|classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]]  (int module)
 (ASC 9/27/23): Confirm end of run and handle if not ended properly.  
-Class [[classCPixieTraceUtilities]] 
+Class [[CPixieTraceUtilities|classCPixieTraceUtilities]] 
 Instead of validated traces can we process the trace using the fast filter parameters and wait for a real trigger?  
-Member [[classCPixieTraceUtilities#a45d0a2124baff32e797db2d8e4eed36e]]  (int module, int channel)
+Member [[CPixieTraceUtilities::ReadTrace|classCPixieTraceUtilities#a45d0a2124baff32e797db2d8e4eed36e]]  (int module, int channel)
 (ASC 6/14/24): Improved baseline estimation for validation.  
-Namespace [[namespaceDAQ]] 
-(ASC 9/22/23): Firmware configuration map creates some circular dependencies, as we start including [[Configuration_8h]] and [[HardwareRegistry_8h]] in multiple places. Include guards should handle this but may be nice to redesign things to avoid the multiple inclusions in the first place.  
-Member [[classDAQ_1_1DDAS_1_1ConfigurationParser#a080f00289c3b6c4c69210ae59ed6d628]]  (std::istream &input, [[classDAQ_1_1DDAS_1_1Configuration]] &config)
+Namespace [[DAQ|namespaceDAQ]] 
+(ASC 9/22/23): Firmware configuration map creates some circular dependencies, as we start including [[Configuration.h|Configuration_8h]] and [[HardwareRegistry.h|HardwareRegistry_8h]] in multiple places. Include guards should handle this but may be nice to redesign things to avoid the multiple inclusions in the first place.  
+Member [[DAQ::DDAS::ConfigurationParser::parse|classDAQ_1_1DDAS_1_1ConfigurationParser#a080f00289c3b6c4c69210ae59ed6d628]]  (std::istream &input, [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] &config)
 (ASC 3/13/24): Whitespace-tolerant comments could be allowed using this trim-and-inspect framework i.e. check that first character of trimmed line is a comment character. For now, anything besides whitespace will throw when parsing the configuration file.  
-Member [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]]  (std::istream &input, FirmwareMap &config)
+Member [[DAQ::DDAS::FirmwareVersionFileParser::parse|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]]  (std::istream &input, FirmwareMap &config)
 (ASC 3/13/24): CFWFileParseError for exceptions.  
-Member [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]] 
+Member [[DAQ::DDAS::HardwareRegistry::HardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]] 
 (ASC 3/13/24): Create a method that can query a module and compute the HardwareType.  
-Member [[classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]  ([[classDAQ_1_1DDAS_1_1Configuration]] &config)
+Member [[DAQ::DDAS::SystemBooter::populateHardwareMap|classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]  ([[Configuration|classDAQ_1_1DDAS_1_1Configuration]] &config)
 (ASC 12/14/23): For the API transition we want to read the module_config struct. We may not even need to log it (just put them in a vector)  
-Module [[group__libddasrootformat]] 
+Module [[libddasrootformat|group__libddasrootformat]] 
 (ASC 3/26/24): Enforce some consistent namespace business here:1. Does this class belong in some namespace or not?
-2. What namespace(s) is/are used for [[namespaceDAQ_1_1DDAS]] code?
-3. What purpose(s) do they serve? For example, [[classDDASRootHit]] probably should be under some daq::ddas:: namespace.
+2. What namespace(s) is/are used for [[DDAS|namespaceDAQ_1_1DDAS]] code?
+3. What purpose(s) do they serve? For example, [[DDASRootHit|classDDASRootHit]] probably should be under some daq::ddas:: namespace.
 
 
 
-Member [[ddasSort_8cpp#a3c04138a5bfe5d72780bb7e82a18e627]]  (int argc, char **argv)
+Member [[main|ddasSort_8cpp#a3c04138a5bfe5d72780bb7e82a18e627]]  (int argc, char **argv)
 (ASC 3/18/24): Sometimes the sorter fails to create its sort ring. In my attempts to resurrect the sorter tests, I had some issues making multiple `createAndProduce` calls from within the same function. Here it had better be making that call only once. Is this more reliable if I call `CRingBuffer::create()` and `new CRingBuffer()` similar to whats done in sortertests.cpp?  
-Member [[structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]]  (int expecting)
+Member [[DDASReadout::RawChannel::Validate|structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]]  (int expecting)
 (ASC 1/23/24): An old and somewhat cryptic comment about "hating 
 the output" but maintaining it for compatibility. Perhaps because we write to stderr and return 1 instead of raising an exception?
 

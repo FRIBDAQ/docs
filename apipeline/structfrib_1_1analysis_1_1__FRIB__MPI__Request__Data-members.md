@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]]
+- [[_FRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]]
 
  top 
 frib::analysis::_FRIB_MPI_Request_Data Member List
 
 header
-This is the complete list of members for [[structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]], including all inherited members.
+This is the complete list of members for [[frib::analysis::_FRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]], including all inherited members.
 
 
 |  |  |  |

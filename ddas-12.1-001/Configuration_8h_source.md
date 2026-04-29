@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
 
  top 
 Configuration.h
 
 header
-[[Configuration_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|Configuration_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef CONFIGURATION_H
@@ -58,13 +58,13 @@ header
 <a name="l00014"></a>   14
 
 
-<a name="l00015"></a>   15 #include "[[HardwareRegistry_8h]]"
+<a name="l00015"></a>   15 #include "[[HardwareRegistry.h|HardwareRegistry_8h]]"
 
 
 <a name="l00016"></a>   16
 
 
-<a name="l00018"></a>   18 namespace [[namespaceDAQ]] {
+<a name="l00018"></a>   18 namespace [[DAQ|namespaceDAQ]] {
 
 
 <a name="l00020"></a>   20     namespace DDAS {
@@ -73,22 +73,22 @@ header
 <a name="l00021"></a>   21
 
 
-<a name="l00041"></a>[[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]     struct [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
+<a name="l00041"></a>[[41|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]     struct [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
 
 
 <a name="l00042"></a>   42     {
 
 
-<a name="l00044"></a>[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]         std::string [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]];
+<a name="l00044"></a>[[44|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]         std::string [[s_ComFPGAConfigFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]];
 
 
-<a name="l00046"></a>[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]         std::string [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]];
+<a name="l00046"></a>[[46|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]         std::string [[s_SPFPGAConfigFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]];
 
 
-<a name="l00047"></a>[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]         std::string [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]];
+<a name="l00047"></a>[[47|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]         std::string [[s_DSPCodeFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]];
 
 
-<a name="l00048"></a>[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]         std::string [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]];
+<a name="l00048"></a>[[48|structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]         std::string [[s_DSPVarFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]];
 
 
 <a name="l00049"></a>   49     };
@@ -97,13 +97,13 @@ header
 <a name="l00050"></a>   50
 
 
-<a name="l00056"></a>[[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]     typedef std::map<int, FirmwareConfiguration> [[group__configuration#gab57c39c59d29781a083353f2c8d6b040]];
+<a name="l00056"></a>[[56|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]     typedef std::map<int, FirmwareConfiguration> [[FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]];
 
 
 <a name="l00057"></a>   57
 
 
-<a name="l00080"></a>[[classDAQ_1_1DDAS_1_1Configuration]]     class [[classDAQ_1_1DDAS_1_1Configuration]]
+<a name="l00080"></a>[[80|classDAQ_1_1DDAS_1_1Configuration]]     class [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]
 
 
 <a name="l00081"></a>   81     {
@@ -124,7 +124,7 @@ header
 <a name="l00086"></a>   86         std::vector<int> m_modEvtLengths;
 
 
-<a name="l00087"></a>   87         [[group__configuration#gab57c39c59d29781a083353f2c8d6b040]] m_fwMap;
+<a name="l00087"></a>   87         [[FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]] m_fwMap;
 
 
 <a name="l00088"></a>   88         std::vector<int> m_hardwareMap;
@@ -151,10 +151,10 @@ header
 <a name="l00097"></a>   97     public:
 
 
-<a name="l00099"></a>[[classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]         [[classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]() = default;
+<a name="l00099"></a>[[99|classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]         [[Configuration|classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]() = default;
 
 
-<a name="l00101"></a>[[classDAQ_1_1DDAS_1_1Configuration#a43bf0279cd085d064b673213224202a9]]         [[classDAQ_1_1DDAS_1_1Configuration#a43bf0279cd085d064b673213224202a9]](const [[classDAQ_1_1DDAS_1_1Configuration]]& rhs) :
+<a name="l00101"></a>[[101|classDAQ_1_1DDAS_1_1Configuration#a43bf0279cd085d064b673213224202a9]]         [[Configuration|classDAQ_1_1DDAS_1_1Configuration#a43bf0279cd085d064b673213224202a9]](const [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]& rhs) :
 
 
 <a name="l00102"></a>  102         m_crateId(rhs.m_crateId), m_slotMap(rhs.m_slotMap),
@@ -178,37 +178,37 @@ header
 <a name="l00108"></a>  108         {}
 
 
-<a name="l00110"></a>[[classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]         [[classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]() = default;
+<a name="l00110"></a>[[110|classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]         [[~Configuration|classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]() = default;
 
 
-<a name="l00115"></a>[[classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]         void [[classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]](int id) { m_crateId = id; };
+<a name="l00115"></a>[[115|classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]         void [[setCrateId|classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]](int id) { m_crateId = id; };
 
 
-<a name="l00120"></a>[[classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]         int [[classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]() const { return m_crateId; };
+<a name="l00120"></a>[[120|classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]         int [[getCrateId|classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]() const { return m_crateId; };
 
 
-<a name="l00125"></a>  125         void [[classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]](size_t size);
+<a name="l00125"></a>  125         void [[setNumberOfModules|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]](size_t size);
 
 
-<a name="l00130"></a>[[classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]         size_t [[classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]() const { return m_slotMap.size(); };
+<a name="l00130"></a>[[130|classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]         size_t [[getNumberOfModules|classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]() const { return m_slotMap.size(); };
 
 
-<a name="l00137"></a>  137         void [[classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]](const std::vector<unsigned short>& map);
+<a name="l00137"></a>  137         void [[setSlotMap|classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]](const std::vector<unsigned short>& map);
 
 
-<a name="l00143"></a>[[classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]         std::vector<unsigned short> [[classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]()
+<a name="l00143"></a>[[143|classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]         std::vector<unsigned short> [[getSlotMap|classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]()
 
 
 <a name="l00144"></a>  144         const { return m_slotMap; };
 
 
-<a name="l00149"></a>[[classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]         void [[classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]](const std::string& path)
+<a name="l00149"></a>[[149|classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]         void [[setSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]](const std::string& path)
 
 
 <a name="l00150"></a>  150         { m_settingsFilePath = path; };
 
 
-<a name="l00156"></a>  156         void [[classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]](
+<a name="l00156"></a>  156         void [[setModuleSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]](
 
 
 <a name="l00157"></a>  157         int modnum, const std::string& path
@@ -217,31 +217,31 @@ header
 <a name="l00158"></a>  158         );
 
 
-<a name="l00163"></a>[[classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]]         std::string [[classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]]()
+<a name="l00163"></a>[[163|classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]]         std::string [[getSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]]()
 
 
 <a name="l00164"></a>  164         const { return m_settingsFilePath; };
 
 
-<a name="l00171"></a>  171         std::string [[classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]](int modNum);
+<a name="l00171"></a>  171         std::string [[getSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]](int modNum);
 
 
-<a name="l00181"></a>[[classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]         void [[classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]](
+<a name="l00181"></a>[[181|classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]         void [[setFirmwareConfiguration|classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]](
 
 
-<a name="l00182"></a>  182         int specifier, const [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]] &config
+<a name="l00182"></a>  182         int specifier, const [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]] &config
 
 
 <a name="l00183"></a>  183         ) { m_fwMap[specifier] = config; };
 
 
-<a name="l00193"></a>  193         [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]& [[classDAQ_1_1DDAS_1_1Configuration#a75984310a14ddcb0106d87cb5ae448ec]](int hdwrType);
+<a name="l00193"></a>  193         [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]& [[getFirmwareConfiguration|classDAQ_1_1DDAS_1_1Configuration#a75984310a14ddcb0106d87cb5ae448ec]](int hdwrType);
 
 
-<a name="l00199"></a>  199         void [[classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]](int module, const [[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]& mapping);
+<a name="l00199"></a>  199         void [[setModuleFirmwareMap|classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]](int module, const [[FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]& mapping);
 
 
-<a name="l00208"></a>  208         [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]& [[classDAQ_1_1DDAS_1_1Configuration#a6ad7fd9204aad6e1c298203055f0cc44]](
+<a name="l00208"></a>  208         [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]& [[getModuleFirmwareConfiguration|classDAQ_1_1DDAS_1_1Configuration#a6ad7fd9204aad6e1c298203055f0cc44]](
 
 
 <a name="l00209"></a>  209         int hdwrType, int modnum
@@ -250,31 +250,31 @@ header
 <a name="l00210"></a>  210         );
 
 
-<a name="l00215"></a>[[classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]         [[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]& [[classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]() { return m_fwMap; }
+<a name="l00215"></a>[[215|classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]         [[FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]& [[getDefaultFirmwareMap|classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]() { return m_fwMap; }
 
 
-<a name="l00222"></a>  222         void [[classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]](const std::vector<int>& lengths);
+<a name="l00222"></a>  222         void [[setModuleEventLengths|classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]](const std::vector<int>& lengths);
 
 
-<a name="l00227"></a>[[classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]         std::vector<int> [[classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]()
+<a name="l00227"></a>[[227|classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]         std::vector<int> [[getModuleEventLengths|classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]()
 
 
 <a name="l00228"></a>  228         const { return m_modEvtLengths; };
 
 
-<a name="l00235"></a>  235         void [[classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]](const std::vector<int>& map);
+<a name="l00235"></a>  235         void [[setHardwareMap|classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]](const std::vector<int>& map);
 
 
-<a name="l00240"></a>[[classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]         std::vector<int> [[classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]() const { return m_hardwareMap; };
+<a name="l00240"></a>[[240|classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]         std::vector<int> [[getHardwareMap|classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]() const { return m_hardwareMap; };
 
 
-<a name="l00245"></a>  245         void [[classDAQ_1_1DDAS_1_1Configuration#a219ab53430597daf87dd19d13952e12b]](std::ostream& stream);
+<a name="l00245"></a>  245         void [[print|classDAQ_1_1DDAS_1_1Configuration#a219ab53430597daf87dd19d13952e12b]](std::ostream& stream);
 
 
 <a name="l00255"></a>  255         static std::unique_ptr<Configuration>
 
 
-<a name="l00256"></a>  256         [[classDAQ_1_1DDAS_1_1Configuration#ad8fca81b1e27a331186fd841bbad8f72]](
+<a name="l00256"></a>  256         [[generate|classDAQ_1_1DDAS_1_1Configuration#ad8fca81b1e27a331186fd841bbad8f72]](
 
 
 <a name="l00257"></a>  257         const std::string& fwVsnPath, const std::string& cfgPixiePath
@@ -286,7 +286,7 @@ header
 <a name="l00269"></a>  269         static std::unique_ptr<Configuration>
 
 
-<a name="l00270"></a>  270         [[classDAQ_1_1DDAS_1_1Configuration#ad8fca81b1e27a331186fd841bbad8f72]](
+<a name="l00270"></a>  270         [[generate|classDAQ_1_1DDAS_1_1Configuration#ad8fca81b1e27a331186fd841bbad8f72]](
 
 
 <a name="l00271"></a>  271         const std::string& fwVsnPath, const std::string& cfgPixiePath,
@@ -316,19 +316,19 @@ header
 <a name="l00281"></a>  281 #endif // CONFIGURATION_H
 
 
-[[HardwareRegistry_8h]]
+[[HardwareRegistry.h|HardwareRegistry_8h]]
 
 Defines a namespace used to store information about known DDAS modules.
 
 
-[[classDAQ_1_1DDAS_1_1Configuration]]
+[[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]]
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]]
+[[DAQ::DDAS::Configuration::getSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a0b99fbb4f7b6de17152183a9e188600b]]
 
 std::string getSettingsFilePath() const
 
@@ -337,7 +337,7 @@ Return the path to the .set file.
 **Definition:** Configuration.h:163
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a219ab53430597daf87dd19d13952e12b]]
+[[DAQ::DDAS::Configuration::print|classDAQ_1_1DDAS_1_1Configuration#a219ab53430597daf87dd19d13952e12b]]
 
 void print(std::ostream &stream)
 
@@ -346,7 +346,7 @@ Print brief line of information for cfgPixie16.txt.
 **Definition:** Configuration.cpp:189
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]
+[[DAQ::DDAS::Configuration::getSlotMap|classDAQ_1_1DDAS_1_1Configuration#a2379128e77511d4e571187a20800bb44]]
 
 std::vector< unsigned short > getSlotMap() const
 
@@ -355,7 +355,7 @@ Return the vector containing the filled slots.
 **Definition:** Configuration.h:143
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]]
+[[DAQ::DDAS::Configuration::setModuleFirmwareMap|classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]]
 
 void setModuleFirmwareMap(int module, const FirmwareMap &mapping)
 
@@ -364,7 +364,7 @@ Sets a firmware map specific to a module.
 **Definition:** Configuration.cpp:105
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]
+[[DAQ::DDAS::Configuration::getModuleEventLengths|classDAQ_1_1DDAS_1_1Configuration#a2e5696e707923ecf8434cac8153d21f7]]
 
 std::vector< int > getModuleEventLengths() const
 
@@ -373,7 +373,7 @@ Return a copy of the module event length vector.
 **Definition:** Configuration.h:227
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a43bf0279cd085d064b673213224202a9]]
+[[DAQ::DDAS::Configuration::Configuration|classDAQ_1_1DDAS_1_1Configuration#a43bf0279cd085d064b673213224202a9]]
 
 Configuration(const Configuration &rhs)
 
@@ -382,7 +382,7 @@ Copy constructor.
 **Definition:** Configuration.h:101
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]
+[[DAQ::DDAS::Configuration::setFirmwareConfiguration|classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]
 
 void setFirmwareConfiguration(int specifier, const FirmwareConfiguration &config)
 
@@ -391,7 +391,7 @@ Set the firmware configuration for a hardware type.
 **Definition:** Configuration.h:181
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]
+[[DAQ::DDAS::Configuration::setSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]
 
 void setSettingsFilePath(const std::string &path)
 
@@ -400,14 +400,14 @@ Set the path to the DSP settings file.
 **Definition:** Configuration.h:149
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]
+[[DAQ::DDAS::Configuration::~Configuration|classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]
 
 ~Configuration()=default
 
 Destructor.
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]
+[[DAQ::DDAS::Configuration::getDefaultFirmwareMap|classDAQ_1_1DDAS_1_1Configuration#a631aab52dd3a07420761f8674b968cc9]]
 
 FirmwareMap & getDefaultFirmwareMap()
 
@@ -416,7 +416,7 @@ Return the default map of firmware information.
 **Definition:** Configuration.h:215
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a6ad7fd9204aad6e1c298203055f0cc44]]
+[[DAQ::DDAS::Configuration::getModuleFirmwareConfiguration|classDAQ_1_1DDAS_1_1Configuration#a6ad7fd9204aad6e1c298203055f0cc44]]
 
 FirmwareConfiguration & getModuleFirmwareConfiguration(int hdwrType, int modnum)
 
@@ -425,7 +425,7 @@ Get the module firmware configuration information.
 **Definition:** Configuration.cpp:119
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]
+[[DAQ::DDAS::Configuration::getNumberOfModules|classDAQ_1_1DDAS_1_1Configuration#a6bd890cea5bb80f4050e4462601aa892]]
 
 size_t getNumberOfModules() const
 
@@ -434,7 +434,7 @@ Return the number of modules in the crate.
 **Definition:** Configuration.h:130
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a75984310a14ddcb0106d87cb5ae448ec]]
+[[DAQ::DDAS::Configuration::getFirmwareConfiguration|classDAQ_1_1DDAS_1_1Configuration#a75984310a14ddcb0106d87cb5ae448ec]]
 
 FirmwareConfiguration & getFirmwareConfiguration(int hdwrType)
 
@@ -443,7 +443,7 @@ Retrieve the current firmware specifier for a particular hardware type.
 **Definition:** Configuration.cpp:88
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]]
+[[DAQ::DDAS::Configuration::setHardwareMap|classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]]
 
 void setHardwareMap(const std::vector< int > &map)
 
@@ -452,7 +452,7 @@ Set the hardware map for each module.
 **Definition:** Configuration.cpp:170
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]]
+[[DAQ::DDAS::Configuration::setNumberOfModules|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]]
 
 void setNumberOfModules(size_t size)
 
@@ -461,7 +461,7 @@ Set the number of modules in the crate.
 **Definition:** Configuration.cpp:22
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]]
+[[DAQ::DDAS::Configuration::setModuleSettingsFilePath|classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]]
 
 void setModuleSettingsFilePath(int modnum, const std::string &path)
 
@@ -470,7 +470,7 @@ Set a per-module DSP settings file.
 **Definition:** Configuration.cpp:62
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]]
+[[DAQ::DDAS::Configuration::setModuleEventLengths|classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]]
 
 void setModuleEventLengths(const std::vector< int > &lengths)
 
@@ -479,7 +479,7 @@ Set the lengths of events for each module.
 **Definition:** Configuration.cpp:146
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]]
+[[DAQ::DDAS::Configuration::setSlotMap|classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]]
 
 void setSlotMap(const std::vector< unsigned short > &map)
 
@@ -488,14 +488,14 @@ Assign a new slot map.
 **Definition:** Configuration.cpp:45
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]
+[[DAQ::DDAS::Configuration::Configuration|classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]
 
 Configuration()=default
 
 Constructor.
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]
+[[DAQ::DDAS::Configuration::setCrateId|classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]
 
 void setCrateId(int id)
 
@@ -504,7 +504,7 @@ Set the crate id for the module.
 **Definition:** Configuration.h:115
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]
+[[DAQ::DDAS::Configuration::getCrateId|classDAQ_1_1DDAS_1_1Configuration#ac53d328787ee72520beda14d3aef14e9]]
 
 int getCrateId() const
 
@@ -513,7 +513,7 @@ Return the crate id value.
 **Definition:** Configuration.h:120
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]
+[[DAQ::DDAS::Configuration::getHardwareMap|classDAQ_1_1DDAS_1_1Configuration#ad8a07c20c17f1d849723e4ed540f178a]]
 
 std::vector< int > getHardwareMap() const
 
@@ -522,7 +522,7 @@ Return a copy of the hardware map vector.
 **Definition:** Configuration.h:240
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ad8fca81b1e27a331186fd841bbad8f72]]
+[[DAQ::DDAS::Configuration::generate|classDAQ_1_1DDAS_1_1Configuration#ad8fca81b1e27a331186fd841bbad8f72]]
 
 static std::unique_ptr< Configuration > generate(const std::string &fwVsnPath, const std::string &cfgPixiePath)
 
@@ -531,7 +531,7 @@ Generate a Configuration class object from a firmware version file and cfgPixie1
 **Definition:** Configuration.cpp:205
 
 
-[[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
+[[DAQ::DDAS::FirmwareMap|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
 
 std::map< int, FirmwareConfiguration > FirmwareMap
 
@@ -540,24 +540,24 @@ A map of firmware configurations keyed by the hardware type defined in HardwareR
 **Definition:** Configuration.h:56
 
 
-[[namespaceDAQ]]
+[[DAQ|namespaceDAQ]]
 
 
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
+[[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
 
 Storage for hardware-type firmware/settings paths.
 
 **Definition:** Configuration.h:42
 
 
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]
+[[DAQ::DDAS::FirmwareConfiguration::s_SPFPGAConfigFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]
 
 std::string s_SPFPGAConfigFile
 
 **Definition:** Configuration.h:46
 
 
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]
+[[DAQ::DDAS::FirmwareConfiguration::s_DSPCodeFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]
 
 std::string s_DSPCodeFile
 
@@ -566,14 +566,14 @@ Name of executable DSP code file.
 **Definition:** Configuration.h:47
 
 
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]
+[[DAQ::DDAS::FirmwareConfiguration::s_ComFPGAConfigFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]
 
 std::string s_ComFPGAConfigFile
 
 **Definition:** Configuration.h:44
 
 
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]
+[[DAQ::DDAS::FirmwareConfiguration::s_DSPVarFile|structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]
 
 std::string s_DSPVarFile
 

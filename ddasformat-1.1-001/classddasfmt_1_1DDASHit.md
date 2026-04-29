@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddasfmt**
-- [[classddasfmt_1_1DDASHit]]
+- [[DDASHit|classddasfmt_1_1DDASHit]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddasfmt_1_1DDASHit-members]]
+[[List of all members|classddasfmt_1_1DDASHit-members]]
 
 
-ddasfmt::DDASHit Class Reference[[group__format]]
+ddasfmt::DDASHit Class Reference[[libDDASFormat.so|group__format]]
 
 header
 Encapsulation of a generic DDAS event.  
- [[classddasfmt_1_1DDASHit#details]]
+ [[More...|classddasfmt_1_1DDASHit#details]]
 
 
 `#include <DDASHit.h>`
@@ -221,13 +221,13 @@ Encapsulation of a generic DDAS event.
 Encapsulation of a generic DDAS event.
 
 
-The [[classddasfmt_1_1DDASHit]] class is intended to encapsulate the information that is emitted by the Pixie-16 digitizer for a single event. It contains information for a single channel only. It is generic because it can store data for the 100 MSPS, 250 MSPS, and 500 MSPS Pixie-16 digitizers used at the lab. In general all of these contain the same set of information, however, the meaning of the CFD data is different for each. The [[classddasfmt_1_1DDASHit]] class abstracts these differences away from the user.
+The [[DDASHit|classddasfmt_1_1DDASHit]] class is intended to encapsulate the information that is emitted by the Pixie-16 digitizer for a single event. It contains information for a single channel only. It is generic because it can store data for the 100 MSPS, 250 MSPS, and 500 MSPS Pixie-16 digitizers used at the lab. In general all of these contain the same set of information, however, the meaning of the CFD data is different for each. The [[DDASHit|classddasfmt_1_1DDASHit]] class abstracts these differences away from the user.
 
 
-This class does not provide any parsing capabilities likes its companion class ddasdumper. To fill this with data, you should use the [[classddasfmt_1_1DDASHitUnpacker]] class. Here is how you use it:
+This class does not provide any parsing capabilities likes its companion class ddasdumper. To fill this with data, you should use the [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]] class. Here is how you use it:
 
 
-[[classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]] hit;
+[[DDASHit|classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]] hit;
 
 
 DDASHitUnpacker unpacker;
@@ -236,7 +236,7 @@ DDASHitUnpacker unpacker;
 unpacker.unpack(pData, pData + sizeOfHit, hit);
 
 
-[[classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]]
+[[ddasfmt::DDASHit::DDASHit|classddasfmt_1_1DDASHit#a971a3ad05ccd6a45f8d17d32ef71a771]]
 
 DDASHit()
 
@@ -275,7 +275,7 @@ All member data are zero-initialized.
 Destructor.
 
 
-The destrutor is virtual to ensure proper destruction of objects derived from [[classddasfmt_1_1DDASHit]].
+The destrutor is virtual to ensure proper destruction of objects derived from [[DDASHit|classddasfmt_1_1DDASHit]].
 
 
 ## Member Function Documentation
@@ -1192,8 +1192,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASHit_8h_source]]
-- [[DDASHit_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASHit.h|DDASHit_8h_source]]
+- [[DDASHit.cpp|DDASHit_8cpp]]
 
  contents 
  start footer part 

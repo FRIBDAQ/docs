@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 MPIParameterFarmer.h
 
 header
-[[MPIParameterFarmer_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|MPIParameterFarmer_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,15 +67,15 @@ header
 
 <a name="l00023"></a>   23
 
-<a name="l00024"></a>   24 #include "[[AnalysisRingItems_8h]]"
+<a name="l00024"></a>   24 #include "[[AnalysisRingItems.h|AnalysisRingItems_8h]]"
 
-<a name="l00025"></a>   25 namespace [[namespacefrib]] {
+<a name="l00025"></a>   25 namespace [[frib|namespacefrib]] {
 
 <a name="l00026"></a>   26     namespace analysis {
 
 <a name="l00027"></a>   27         class AbstractApplication;
 
-<a name="l00047"></a>[[classfrib_1_1analysis_1_1CMPIParameterFarmer]]         class [[classfrib_1_1analysis_1_1CMPIParameterFarmer]] {
+<a name="l00047"></a>[[47|classfrib_1_1analysis_1_1CMPIParameterFarmer]]         class [[CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer]] {
 
 <a name="l00048"></a>   48         private:
 
@@ -83,29 +83,29 @@ header
 
 <a name="l00050"></a>   50             char** m_argv;
 
-<a name="l00051"></a>   51             [[classfrib_1_1analysis_1_1AbstractApplication]]& m_App;
+<a name="l00051"></a>   51             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& m_App;
 
 <a name="l00052"></a>   52             int m_nEndsLeft;
 
 <a name="l00053"></a>   53             unsigned m_nMaxParams;
 
-<a name="l00054"></a>   54             [[structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]  m_parameterBuffer;
+<a name="l00054"></a>   54             [[pFRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]  m_parameterBuffer;
 
 <a name="l00055"></a>   55         public:
 
-<a name="l00056"></a>   56             [[classfrib_1_1analysis_1_1CMPIParameterFarmer#a7b082fa8a5609d654dec8683c45b8459]](int argc, char** argv, [[classfrib_1_1analysis_1_1AbstractApplication]]& app);
+<a name="l00056"></a>   56             [[CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer#a7b082fa8a5609d654dec8683c45b8459]](int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& app);
 
-<a name="l00057"></a>   57             virtual [[classfrib_1_1analysis_1_1CMPIParameterFarmer#a487665a04e7297ed18a41f00abfe15ac]]();
+<a name="l00057"></a>   57             virtual [[~CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer#a487665a04e7297ed18a41f00abfe15ac]]();
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>   59             void [[classfrib_1_1analysis_1_1CMPIParameterFarmer#a2340930eaa0e5eb700fba67cf33dec57]]();
+<a name="l00059"></a>   59             void [[operator()|classfrib_1_1analysis_1_1CMPIParameterFarmer#a2340930eaa0e5eb700fba67cf33dec57]]();
 
 <a name="l00060"></a>   60         private:
 
 <a name="l00061"></a>   61             void sendEnd();
 
-<a name="l00062"></a>   62             [[structfrib_1_1analysis_1_1__ParameterItem]] getItem();
+<a name="l00062"></a>   62             [[pParameterItem|structfrib_1_1analysis_1_1__ParameterItem]] getItem();
 
 <a name="l00063"></a>   63         };
 
@@ -119,53 +119,53 @@ header
 
 <a name="l00068"></a>   68 #endif
 
-[[classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[structfrib_1_1analysis_1_1__ParameterItem]]
+[[frib::analysis::_ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]]
 
 **Definition:** AnalysisRingItems.h:71
 
 
-[[structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]
+[[frib::analysis::_FRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]
 
 **Definition:** AnalysisRingItems.h:151
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterFarmer#a2340930eaa0e5eb700fba67cf33dec57]]
+[[frib::analysis::CMPIParameterFarmer::operator()|classfrib_1_1analysis_1_1CMPIParameterFarmer#a2340930eaa0e5eb700fba67cf33dec57]]
 
 void operator()()
 
 **Definition:** MPIParameterFarmer.cpp:62
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterFarmer#a487665a04e7297ed18a41f00abfe15ac]]
+[[frib::analysis::CMPIParameterFarmer::~CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer#a487665a04e7297ed18a41f00abfe15ac]]
 
 virtual ~CMPIParameterFarmer()
 
 **Definition:** MPIParameterFarmer.cpp:49
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterFarmer]]
+[[frib::analysis::CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer]]
 
 **Definition:** MPIParameterFarmer.h:47
 
 
-[[AnalysisRingItems_8h]]
+[[AnalysisRingItems.h|AnalysisRingItems_8h]]
 
 : Defines the analysis specific ring items
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterFarmer#a7b082fa8a5609d654dec8683c45b8459]]
+[[frib::analysis::CMPIParameterFarmer::CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer#a7b082fa8a5609d654dec8683c45b8459]]
 
 CMPIParameterFarmer(int argc, char **argv, AbstractApplication &app)
 
 **Definition:** MPIParameterFarmer.cpp:40
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

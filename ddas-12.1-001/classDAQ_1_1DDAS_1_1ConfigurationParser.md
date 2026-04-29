@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1ConfigurationParser]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]]
 
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[classDAQ_1_1DDAS_1_1ConfigurationParser-members]]
+[[List of all members|classDAQ_1_1DDAS_1_1ConfigurationParser-members]]
 
 
-DAQ::DDAS::ConfigurationParser Class Reference[[group__configuration]]
+DAQ::DDAS::ConfigurationParser Class Reference[[libConfiguration.so|group__configuration]]
 
 header
 A class to parse the contents of the cfgPixie16.txt file.  
- [[classDAQ_1_1DDAS_1_1ConfigurationParser#details]]
+ [[More...|classDAQ_1_1DDAS_1_1ConfigurationParser#details]]
 
 
 `#include <ConfigurationParser.h>`
@@ -94,10 +94,10 @@ where CRATE_ID is a non-negative number, NUM_MODULES is a positive number, SLOT_
 Note the structure shown above reflects changes for issue daqdev/DDAS#106. Each slot specification can have an optional one or two fields: The first optional field is a per slot firmware map file and the second an optional per slot .set file (since optional firmwares may require .set files of a different format).
 
 
-The [[classDAQ_1_1DDAS_1_1ConfigurationParser]] can be used in the following fashion:
+The [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]] can be used in the following fashion:
 
 
-using namespace [[namespaceDAQ_1_1DDAS]];
+using namespace [[DAQ::DDAS|namespaceDAQ_1_1DDAS]];
 
 
 Configuration config;
@@ -112,7 +112,7 @@ std::ifstream configFile("cfgPixie16.txt", std::ios::in);
 parser.parse(configFile, config);
 
 
-[[namespaceDAQ_1_1DDAS]]
+[[DAQ::DDAS|namespaceDAQ_1_1DDAS]]
 
  fragment
 
@@ -170,7 +170,7 @@ Exceptions
 Parses the configuration file line by line, extracting slot information, optional per-module firmware and DSP settings files, and the (default) per-crate DSP settings file. DSP settings files must have the file extension .set for XIA API 2 and either .set or .json for XIA API 3. Exits on any error processing the configuration file.
 
 
-**[[todo#_todo000010]]**(ASC 3/13/24): Whitespace-tolerant comments could be allowed using this trim-and-inspect framework i.e. check that first character of trimmed line is a comment character. For now, anything besides whitespace will throw when parsing the configuration file.
+**[[Todo:|todo#_todo000010]]**(ASC 3/13/24): Whitespace-tolerant comments could be allowed using this trim-and-inspect framework i.e. check that first character of trimmed line is a comment character. For now, anything besides whitespace will throw when parsing the configuration file.
 
 
 
@@ -211,8 +211,8 @@ Slot lines consist of a mandatory slot number, and optional substitute firmware 
 
 ---
 
-The documentation for this class was generated from the following files:- [[ConfigurationParser_8h_source]]
-- [[ConfigurationParser_8cpp]]
+The documentation for this class was generated from the following files:- [[ConfigurationParser.h|ConfigurationParser_8h_source]]
+- [[ConfigurationParser.cpp|ConfigurationParser_8cpp]]
 
  contents 
  start footer part 

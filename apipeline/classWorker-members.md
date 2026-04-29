@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Worker Member List
 
 header
-This is the complete list of members for [[classWorker]], including all inherited members.
+This is the complete list of members for [[Worker|classWorker]], including all inherited members.
 
 
 |  |  |  |

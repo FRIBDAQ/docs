@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Application Member List
 
 header
-This is the complete list of members for [[classApplication]], including all inherited members.
+This is the complete list of members for [[Application|classApplication]], including all inherited members.
 
 
 |  |  |  |

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1fit2Info]]
+- [[fit2Info|structddastoys_1_1fit2Info]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1fit2Info-members]]
+[[List of all members|structddastoys_1_1fit2Info-members]]
 
 
 ddastoys::fit2Info Struct Reference
 
 header
 Full fitting information for the double pulse.  
- [[structddastoys_1_1fit2Info#details]]
+ [[More...|structddastoys_1_1fit2Info#details]]
 
 
 `#include <fit_extensions.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::fit2Info:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::fit2Info:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::fit2Info:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -93,7 +93,7 @@ Full fitting information for the double pulse.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
 
  contents 
  start footer part 

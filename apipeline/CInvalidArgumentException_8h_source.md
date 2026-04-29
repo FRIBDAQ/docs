@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 CInvalidArgumentException.h
@@ -75,7 +75,7 @@ header
 
 <a name="l00023"></a>   23
 
-<a name="l00033"></a>[[classCInvalidArgumentException]] class [[classCInvalidArgumentException]] : public [[classCException]]
+<a name="l00033"></a>[[33|classCInvalidArgumentException]] class [[CInvalidArgumentException|classCInvalidArgumentException]] : public [[CException|classCException]]
 
 <a name="l00034"></a>   34 {
 
@@ -97,21 +97,21 @@ header
 
 <a name="l00043"></a>   43 public:
 
-<a name="l00044"></a>   44     [[classCInvalidArgumentException#aa053afbd23d13a95d77bda82bca7d918]](std::string argument, std::string whybad,
+<a name="l00044"></a>   44     [[CInvalidArgumentException|classCInvalidArgumentException#aa053afbd23d13a95d77bda82bca7d918]](std::string argument, std::string whybad,
 
 <a name="l00045"></a>   45                               std::string wasDoing);
 
-<a name="l00046"></a>   46     [[classCInvalidArgumentException#aa053afbd23d13a95d77bda82bca7d918]](const [[classCInvalidArgumentException]]& rhs);
+<a name="l00046"></a>   46     [[CInvalidArgumentException|classCInvalidArgumentException#aa053afbd23d13a95d77bda82bca7d918]](const [[CInvalidArgumentException|classCInvalidArgumentException]]& rhs);
 
-<a name="l00047"></a>   47     virtual [[classCInvalidArgumentException#aff4278e0b07216890a5d16ed21bb2fef]]();
+<a name="l00047"></a>   47     virtual [[~CInvalidArgumentException|classCInvalidArgumentException#aff4278e0b07216890a5d16ed21bb2fef]]();
 
 <a name="l00048"></a>   48
 
-<a name="l00049"></a>   49     [[classCInvalidArgumentException]]& [[classCInvalidArgumentException#a14d4fc6619f0905e3231cfa5f249d2f3]](const [[classCInvalidArgumentException]]& rhs);
+<a name="l00049"></a>   49     [[CInvalidArgumentException|classCInvalidArgumentException]]& [[operator=|classCInvalidArgumentException#a14d4fc6619f0905e3231cfa5f249d2f3]](const [[CInvalidArgumentException|classCInvalidArgumentException]]& rhs);
 
-<a name="l00050"></a>   50     int [[classCInvalidArgumentException#a3a629aaae631bf2b83a71013b5cbeb9e]](const [[classCInvalidArgumentException]]& rhs) const;
+<a name="l00050"></a>   50     int [[operator==|classCInvalidArgumentException#a3a629aaae631bf2b83a71013b5cbeb9e]](const [[CInvalidArgumentException|classCInvalidArgumentException]]& rhs) const;
 
-<a name="l00051"></a>   51     int [[classCInvalidArgumentException#a63efd7820cbe5cbada635376c2a7edac]](const [[classCInvalidArgumentException]]& rhs) const;
+<a name="l00051"></a>   51     int [[operator!=|classCInvalidArgumentException#a63efd7820cbe5cbada635376c2a7edac]](const [[CInvalidArgumentException|classCInvalidArgumentException]]& rhs) const;
 
 <a name="l00052"></a>   52
 
@@ -119,7 +119,7 @@ header
 
 <a name="l00054"></a>   54
 
-<a name="l00055"></a>   55     virtual const char* [[classCInvalidArgumentException#a07b531e0e9a04a282654d870ae424209]]() const;
+<a name="l00055"></a>   55     virtual const char* [[ReasonText|classCInvalidArgumentException#a07b531e0e9a04a282654d870ae424209]]() const;
 
 <a name="l00056"></a>   56 };
 
@@ -127,52 +127,52 @@ header
 
 <a name="l00058"></a>   58 #endif
 
-[[classCInvalidArgumentException#a63efd7820cbe5cbada635376c2a7edac]]
+[[CInvalidArgumentException::operator!=|classCInvalidArgumentException#a63efd7820cbe5cbada635376c2a7edac]]
 
 int operator!=(const CInvalidArgumentException &rhs) const
 
 **Definition:** CInvalidArgumentException.cpp:90
 
 
-[[classCInvalidArgumentException]]
+[[CInvalidArgumentException|classCInvalidArgumentException]]
 
 **Definition:** CInvalidArgumentException.h:33
 
 
-[[classCInvalidArgumentException#a07b531e0e9a04a282654d870ae424209]]
+[[CInvalidArgumentException::ReasonText|classCInvalidArgumentException#a07b531e0e9a04a282654d870ae424209]]
 
 virtual const char * ReasonText() const
 
 **Definition:** CInvalidArgumentException.cpp:104
 
 
-[[classCInvalidArgumentException#a3a629aaae631bf2b83a71013b5cbeb9e]]
+[[CInvalidArgumentException::operator==|classCInvalidArgumentException#a3a629aaae631bf2b83a71013b5cbeb9e]]
 
 int operator==(const CInvalidArgumentException &rhs) const
 
 **Definition:** CInvalidArgumentException.cpp:77
 
 
-[[classCInvalidArgumentException#aa053afbd23d13a95d77bda82bca7d918]]
+[[CInvalidArgumentException::CInvalidArgumentException|classCInvalidArgumentException#aa053afbd23d13a95d77bda82bca7d918]]
 
 CInvalidArgumentException(std::string argument, std::string whybad, std::string wasDoing)
 
 **Definition:** CInvalidArgumentException.cpp:32
 
 
-[[classCInvalidArgumentException#a14d4fc6619f0905e3231cfa5f249d2f3]]
+[[CInvalidArgumentException::operator=|classCInvalidArgumentException#a14d4fc6619f0905e3231cfa5f249d2f3]]
 
 CInvalidArgumentException & operator=(const CInvalidArgumentException &rhs)
 
 **Definition:** CInvalidArgumentException.cpp:61
 
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 
 
-[[classCInvalidArgumentException#aff4278e0b07216890a5d16ed21bb2fef]]
+[[CInvalidArgumentException::~CInvalidArgumentException|classCInvalidArgumentException#aff4278e0b07216890a5d16ed21bb2fef]]
 
 virtual ~CInvalidArgumentException()
 

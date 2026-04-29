@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 CBootCommand.h
 
 header
-[[CBootCommand_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|CBootCommand_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2 *    This software is Copyright by the Board of Trustees of Michigan
@@ -91,7 +91,7 @@ header
 <a name="l00026"></a>   26
 
 
-<a name="l00027"></a>   27 class [[classCMyEventSegment]];
+<a name="l00027"></a>   27 class [[CMyEventSegment|classCMyEventSegment]];
 
 
 <a name="l00028"></a>   28 class CTCLInterpreter;
@@ -103,7 +103,7 @@ header
 <a name="l00030"></a>   30
 
 
-<a name="l00038"></a>[[classCBootCommand]] class [[classCBootCommand]] : public CTCLObjectProcessor
+<a name="l00038"></a>[[38|classCBootCommand]] class [[CBootCommand|classCBootCommand]] : public CTCLObjectProcessor
 
 
 <a name="l00039"></a>   39 {
@@ -112,7 +112,7 @@ header
 <a name="l00040"></a>   40 private:
 
 
-<a name="l00041"></a>   41     [[classCMyEventSegment]]* m_pSegment;
+<a name="l00041"></a>   41     [[CMyEventSegment|classCMyEventSegment]]* m_pSegment;
 
 
 <a name="l00042"></a>   42
@@ -121,22 +121,22 @@ header
 <a name="l00043"></a>   43 public:
 
 
-<a name="l00050"></a>   50     [[classCBootCommand#ae452f8c096d86e19bfebe36c6e49fcb7]](
+<a name="l00050"></a>   50     [[CBootCommand|classCBootCommand#ae452f8c096d86e19bfebe36c6e49fcb7]](
 
 
-<a name="l00051"></a>   51     CTCLInterpreter& interp, const char* pCmd, [[classCMyEventSegment]]* pSeg
+<a name="l00051"></a>   51     CTCLInterpreter& interp, const char* pCmd, [[CMyEventSegment|classCMyEventSegment]]* pSeg
 
 
 <a name="l00052"></a>   52     );
 
 
-<a name="l00054"></a>   54     virtual [[classCBootCommand#a754153ca87c29bb3a18a4b19ec131ea2]]();
+<a name="l00054"></a>   54     virtual [[~CBootCommand|classCBootCommand#a754153ca87c29bb3a18a4b19ec131ea2]]();
 
 
 <a name="l00055"></a>   55
 
 
-<a name="l00065"></a>   65     virtual int [[classCBootCommand#a4a622a9c6a16938f41dcddf546428d30]](
+<a name="l00065"></a>   65     virtual int [[operator()|classCBootCommand#a4a622a9c6a16938f41dcddf546428d30]](
 
 
 <a name="l00066"></a>   66     CTCLInterpreter& interp, std::vector<CTCLObject>& objv
@@ -154,14 +154,14 @@ header
 <a name="l00070"></a>   70 #endif
 
 
-[[classCBootCommand]]
+[[CBootCommand|classCBootCommand]]
 
 This class implements the ddasboot command. It is added to to the Tcl interpreter that runs ddasreado...
 
 **Definition:** CBootCommand.h:39
 
 
-[[classCBootCommand#a4a622a9c6a16938f41dcddf546428d30]]
+[[CBootCommand::operator()|classCBootCommand#a4a622a9c6a16938f41dcddf546428d30]]
 
 virtual int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
@@ -170,7 +170,7 @@ Gets control when the command is invoked.
 **Definition:** CBootCommand.cpp:47
 
 
-[[classCBootCommand#a754153ca87c29bb3a18a4b19ec131ea2]]
+[[CBootCommand::~CBootCommand|classCBootCommand#a754153ca87c29bb3a18a4b19ec131ea2]]
 
 virtual ~CBootCommand()
 
@@ -179,7 +179,7 @@ Destructor.
 **Definition:** CBootCommand.cpp:39
 
 
-[[classCBootCommand#ae452f8c096d86e19bfebe36c6e49fcb7]]
+[[CBootCommand::CBootCommand|classCBootCommand#ae452f8c096d86e19bfebe36c6e49fcb7]]
 
 CBootCommand(CTCLInterpreter &interp, const char *pCmd, CMyEventSegment *pSeg)
 
@@ -188,7 +188,7 @@ Constructor.
 **Definition:** CBootCommand.cpp:32
 
 
-[[classCMyEventSegment]]
+[[CMyEventSegment|classCMyEventSegment]]
 
 Derived class for DDAS event segments.
 

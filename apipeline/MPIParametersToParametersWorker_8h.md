@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 MPIParametersToParametersWorker.h File Reference
 
 header
-: [[classWorker]] framework for pipeline stage that takes params -> params.  
+: [[Worker|classWorker]] framework for pipeline stage that takes params -> params.  
 [More...](#details)
 
 
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](MPIParametersToParametersWorker_8h__dep__incl.png)
 
 
-[[MPIParametersToParametersWorker_8h_source]]
+[[Go to the source code of this file.|MPIParametersToParametersWorker_8h_source]]
 
 
 |  |  |
@@ -64,7 +64,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-: [[classWorker]] framework for pipeline stage that takes params -> params.
+: [[Worker|classWorker]] framework for pipeline stage that takes params -> params.
 
  contents 
  start footer part 

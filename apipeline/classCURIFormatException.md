@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCURIFormatException-members]]
+[[List of all members|classCURIFormatException-members]]
 
 
 CURIFormatException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CURIFormatException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CURIFormatException:
@@ -51,7 +51,7 @@ Collaboration diagram for CURIFormatException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -111,10 +111,10 @@ Collaboration diagram for CURIFormatException:
 <a name="details"></a>## Detailed Description
 
 
-[[classCURIFormatException]] defines an exception that's thrown when parsing an Universal Resource Identifier (URI). The string indicates a human readable reason for the failure. The error code is always -1. The reason text encodes why the exception was thrown as well as where, e.g.:
+[[CURIFormatException|classCURIFormatException]] defines an exception that's thrown when parsing an Universal Resource Identifier (URI). The string indicates a human readable reason for the failure. The error code is always -1. The reason text encodes why the exception was thrown as well as where, e.g.:
 
 
-URI Format Incorrect: reason : thrown at [[file:line]]
+URI Format Incorrect: reason : thrown at [[file:line|file:line]]
 
 
 where file is almost always something ending in URI.cpp, and line is the line in that file where the actual exception was constructed.
@@ -187,7 +187,7 @@ Return values
 
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
@@ -208,13 +208,13 @@ Return values
 
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[URIFormatException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[URIFormatException.h|URIFormatException_8h_source]]
 - libtclplus/exception/URIFormatException.cpp
 
  contents 

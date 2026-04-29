@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 RangeError.h
@@ -117,7 +117,7 @@ header
 
 <a name="l00045"></a>   45
 
-<a name="l00046"></a>[[classCRangeError]] class [[classCRangeError]]  : public [[classCException]]
+<a name="l00046"></a>[[46|classCRangeError]] class [[CRangeError|classCRangeError]]  : public [[CException|classCException]]
 
 <a name="l00047"></a>   47 {
 
@@ -151,11 +151,11 @@ header
 
 <a name="l00062"></a>   62
 
-<a name="l00063"></a>   63   [[classCRangeError]] (  int nLow,  int nHigh,  int nRequested,
+<a name="l00063"></a>   63   [[CRangeError|classCRangeError]] (  int nLow,  int nHigh,  int nRequested,
 
 <a name="l00064"></a>   64          const char* pDoing) :
 
-<a name="l00065"></a>   65     [[classCException]](pDoing),
+<a name="l00065"></a>   65     [[CException|classCException]](pDoing),
 
 <a name="l00066"></a>   66     m_nLow (nLow),
 
@@ -165,11 +165,11 @@ header
 
 <a name="l00069"></a>   69   { UpdateReason(); }
 
-<a name="l00070"></a>   70   [[classCRangeError]](int nLow, int nHigh, int nRequested,
+<a name="l00070"></a>   70   [[CRangeError|classCRangeError]](int nLow, int nHigh, int nRequested,
 
 <a name="l00071"></a>   71       const std::string& rDoing) :
 
-<a name="l00072"></a>   72     [[classCException]](rDoing),
+<a name="l00072"></a>   72     [[CException|classCException]](rDoing),
 
 <a name="l00073"></a>   73     m_nLow(nLow),
 
@@ -179,7 +179,7 @@ header
 
 <a name="l00076"></a>   76   { UpdateReason(); }
 
-<a name="l00077"></a>   77   virtual ~[[classCRangeError]] ( ) { }       //Destructor
+<a name="l00077"></a>   77   virtual ~[[CRangeError|classCRangeError]] ( ) { }       //Destructor
 
 <a name="l00078"></a>   78
 
@@ -187,9 +187,9 @@ header
 
 <a name="l00080"></a>   80
 
-<a name="l00081"></a>   81   [[classCRangeError]] (const [[classCRangeError]]& aCRangeError )   :
+<a name="l00081"></a>   81   [[CRangeError|classCRangeError]] (const [[CRangeError|classCRangeError]]& aCRangeError )   :
 
-<a name="l00082"></a>   82     [[classCException]] (aCRangeError)
+<a name="l00082"></a>   82     [[CException|classCException]] (aCRangeError)
 
 <a name="l00083"></a>   83   {
 
@@ -209,7 +209,7 @@ header
 
 <a name="l00091"></a>   91
 
-<a name="l00092"></a>   92   [[classCRangeError]] operator= (const [[classCRangeError]]& aCRangeError)
+<a name="l00092"></a>   92   [[CRangeError|classCRangeError]] operator= (const [[CRangeError|classCRangeError]]& aCRangeError)
 
 <a name="l00093"></a>   93   {
 
@@ -239,7 +239,7 @@ header
 
 <a name="l00106"></a>  106
 
-<a name="l00107"></a>  107   int operator== (const [[classCRangeError]]& aCRangeError) const
+<a name="l00107"></a>  107   int operator== (const [[CRangeError|classCRangeError]]& aCRangeError) const
 
 <a name="l00108"></a>  108  {
 
@@ -257,7 +257,7 @@ header
 
 <a name="l00115"></a>  115   }
 
-<a name="l00116"></a>  116   int operator!=  (const [[classCRangeError]]& aCRangeError) const
+<a name="l00116"></a>  116   int operator!=  (const [[CRangeError|classCRangeError]]& aCRangeError) const
 
 <a name="l00117"></a>  117  {
 
@@ -367,12 +367,12 @@ header
 
 <a name="l00170"></a>  170 #endif
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 
 
-[[classCRangeError]]
+[[CRangeError|classCRangeError]]
 
 **Definition:** RangeError.h:46
 

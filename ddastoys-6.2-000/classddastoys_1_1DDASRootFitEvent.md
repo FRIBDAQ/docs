@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1DDASRootFitEvent]]
+- [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[classddastoys_1_1DDASRootFitEvent-members]]
+[[List of all members|classddastoys_1_1DDASRootFitEvent-members]]
 
 
-ddastoys::DDASRootFitEvent Class Reference[[group__ddasrootfitformat]]
+ddastoys::DDASRootFitEvent Class Reference[[libDDASRootFitFormat.so|group__ddasrootfitformat]]
 
 header
 Defines the object that's put in a ROOT TTree for each event.  
- [[classddastoys_1_1DDASRootFitEvent#details]]
+ [[More...|classddastoys_1_1DDASRootFitEvent#details]]
 
 
 `#include <DDASRootFitEvent.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::DDASRootFitEvent:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::DDASRootFitEvent:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::DDASRootFitEvent:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -114,7 +114,7 @@ Collaboration diagram for ddastoys::DDASRootFitEvent:
 Defines the object that's put in a ROOT TTree for each event.
 
 
-An event is just a sequence (vector) of hits. Hits are stored here as pointers to [[classddastoys_1_1DDASRootFitHit]] objects which are hits that are also derived from TObject.
+An event is just a sequence (vector) of hits. Hits are stored here as pointers to [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]] objects which are hits that are also derived from TObject.
 
 NoteThe code assumes that the pointers in m_hits point to dynamically allocated data. Thus the destructor will destroy the hits as well. 
 
@@ -290,8 +290,8 @@ Assignment will:
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASRootFitEvent_8h_source]]
-- [[DDASRootFitEvent_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASRootFitEvent.h|DDASRootFitEvent_8h_source]]
+- [[DDASRootFitEvent.cpp|DDASRootFitEvent_8cpp]]
 
  contents 
  start footer part 

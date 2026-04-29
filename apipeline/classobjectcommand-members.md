@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 objectcommand Member List
 
 header
-This is the complete list of members for [[classobjectcommand]], including all inherited members.
+This is the complete list of members for [[objectcommand|classobjectcommand]], including all inherited members.
 
 
 |  |  |  |

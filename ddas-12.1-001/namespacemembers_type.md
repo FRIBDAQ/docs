@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - FirmwareMap
-  : [[group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
+  : [[DAQ::DDAS|group__configuration#gab57c39c59d29781a083353f2c8d6b040]]
 
  contents 
  start footer part 

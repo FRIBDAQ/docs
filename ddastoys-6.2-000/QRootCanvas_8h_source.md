@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 QRootCanvas.h
 
 header
-[[QRootCanvas_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|QRootCanvas_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -135,13 +135,13 @@ header
 <a name="l00041"></a>   41
 
 
-<a name="l00042"></a>   42 class [[classFitManager]];
+<a name="l00042"></a>   42 class [[FitManager|classFitManager]];
 
 
 <a name="l00043"></a>   43
 
 
-<a name="l00044"></a>[[classQRootCanvas]] class [[classQRootCanvas]] : public QWidget
+<a name="l00044"></a>[[44|classQRootCanvas]] class [[QRootCanvas|classQRootCanvas]] : public QWidget
 
 
 <a name="l00045"></a>   45 {
@@ -156,22 +156,22 @@ header
 <a name="l00060"></a>   60 public:
 
 
-<a name="l00068"></a>   68     [[classQRootCanvas#a6a9e917186adecfde4dc743cf386049f]]([[classFitManager]]* pFitMgr, QWidget* parent = nullptr);
+<a name="l00068"></a>   68     [[QRootCanvas|classQRootCanvas#a6a9e917186adecfde4dc743cf386049f]]([[FitManager|classFitManager]]* pFitMgr, QWidget* parent = nullptr);
 
 
-<a name="l00070"></a>   70     virtual [[classQRootCanvas#a00c908fb6bc5c0c91d1b448cabcb2fc4]]();
+<a name="l00070"></a>   70     virtual [[~QRootCanvas|classQRootCanvas#a00c908fb6bc5c0c91d1b448cabcb2fc4]]();
 
 
 <a name="l00071"></a>   71
 
 
-<a name="l00076"></a>[[classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]     TCanvas* [[classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]() {return m_pCanvas;};
+<a name="l00076"></a>[[76|classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]     TCanvas* [[getCanvas|classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]() {return m_pCanvas;};
 
 
-<a name="l00081"></a>   81     void [[classQRootCanvas#a1455dcb6a5846c46b354f24e40933aa0]](const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00081"></a>   81     void [[drawHit|classQRootCanvas#a1455dcb6a5846c46b354f24e40933aa0]](const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
-<a name="l00083"></a>   83     void [[classQRootCanvas#a14fd250361570746acce8353fb6d2a82]]();
+<a name="l00083"></a>   83     void [[clear|classQRootCanvas#a14fd250361570746acce8353fb6d2a82]]();
 
 
 <a name="l00084"></a>   84
@@ -189,19 +189,19 @@ header
 <a name="l00088"></a>   88
 
 
-<a name="l00093"></a>   93     virtual void [[classQRootCanvas#a3f1392564efd97cf935295f1fdef56fe]](QMouseEvent* e);
+<a name="l00093"></a>   93     virtual void [[mouseMoveEvent|classQRootCanvas#a3f1392564efd97cf935295f1fdef56fe]](QMouseEvent* e);
 
 
-<a name="l00098"></a>   98     virtual void [[classQRootCanvas#a8bd59138c80ffa28a1a06f8eb4200d56]](QMouseEvent* e);
+<a name="l00098"></a>   98     virtual void [[mousePressEvent|classQRootCanvas#a8bd59138c80ffa28a1a06f8eb4200d56]](QMouseEvent* e);
 
 
-<a name="l00103"></a>  103     virtual void [[classQRootCanvas#a5921076f00c65a1b1d8b84231b24dab3]](QMouseEvent* e);
+<a name="l00103"></a>  103     virtual void [[mouseReleaseEvent|classQRootCanvas#a5921076f00c65a1b1d8b84231b24dab3]](QMouseEvent* e);
 
 
-<a name="l00106"></a>  106     virtual void [[classQRootCanvas#a2ff7763fabeca694b727e672ffd90446]](QPaintEvent*);
+<a name="l00106"></a>  106     virtual void [[paintEvent|classQRootCanvas#a2ff7763fabeca694b727e672ffd90446]](QPaintEvent*);
 
 
-<a name="l00109"></a>  109     virtual void [[classQRootCanvas#a6db4f9f81c813ce87ed709968ec9e88b]](QResizeEvent*);
+<a name="l00109"></a>  109     virtual void [[resizeEvent|classQRootCanvas#a6db4f9f81c813ce87ed709968ec9e88b]](QResizeEvent*);
 
 
 <a name="l00110"></a>  110
@@ -210,13 +210,13 @@ header
 <a name="l00111"></a>  111 private:
 
 
-<a name="l00116"></a>  116     void drawTrace(const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00116"></a>  116     void drawTrace(const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
-<a name="l00122"></a>  122     void drawSingleFit(const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00122"></a>  122     void drawSingleFit(const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
-<a name="l00128"></a>  128     void drawDoubleFit(const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00128"></a>  128     void drawDoubleFit(const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
 <a name="l00130"></a>  130     void drawFitLegend();
@@ -228,7 +228,7 @@ header
 <a name="l00132"></a>  132 private:
 
 
-<a name="l00133"></a>  133     [[classFitManager]]* m_pFitManager;
+<a name="l00133"></a>  133     [[FitManager|classFitManager]]* m_pFitManager;
 
 
 <a name="l00134"></a>  134     TCanvas* m_pCanvas;
@@ -255,21 +255,21 @@ header
 <a name="l00141"></a>  141 #endif
 
 
-[[classFitManager]]
+[[FitManager|classFitManager]]
 
 Provides an interface for calculating trace fits using HitExtension fit parameters.
 
 **Definition:** FitManager.h:65
 
 
-[[classQRootCanvas]]
+[[QRootCanvas|classQRootCanvas]]
 
 A ROOT canvas embedded in a Qt application.
 
 **Definition:** QRootCanvas.h:45
 
 
-[[classQRootCanvas#a00c908fb6bc5c0c91d1b448cabcb2fc4]]
+[[QRootCanvas::~QRootCanvas|classQRootCanvas#a00c908fb6bc5c0c91d1b448cabcb2fc4]]
 
 virtual ~QRootCanvas()
 
@@ -278,7 +278,7 @@ Destructor.
 **Definition:** QRootCanvas.cpp:84
 
 
-[[classQRootCanvas#a1455dcb6a5846c46b354f24e40933aa0]]
+[[QRootCanvas::drawHit|classQRootCanvas#a1455dcb6a5846c46b354f24e40933aa0]]
 
 void drawHit(const ddastoys::DDASFitHit &hit)
 
@@ -287,7 +287,7 @@ Draw hit data on the canvas.
 **Definition:** QRootCanvas.cpp:99
 
 
-[[classQRootCanvas#a14fd250361570746acce8353fb6d2a82]]
+[[QRootCanvas::clear|classQRootCanvas#a14fd250361570746acce8353fb6d2a82]]
 
 void clear()
 
@@ -296,7 +296,7 @@ Clear and update the ROOT canvas.
 **Definition:** QRootCanvas.cpp:120
 
 
-[[classQRootCanvas#a2ff7763fabeca694b727e672ffd90446]]
+[[QRootCanvas::paintEvent|classQRootCanvas#a2ff7763fabeca694b727e672ffd90446]]
 
 virtual void paintEvent(QPaintEvent *)
 
@@ -305,7 +305,7 @@ Handle resize events in ROOT.
 **Definition:** QRootCanvas.cpp:204
 
 
-[[classQRootCanvas#a3f1392564efd97cf935295f1fdef56fe]]
+[[QRootCanvas::mouseMoveEvent|classQRootCanvas#a3f1392564efd97cf935295f1fdef56fe]]
 
 virtual void mouseMoveEvent(QMouseEvent *e)
 
@@ -314,7 +314,7 @@ Handle Qt mouse move events on the ROOT canvas.
 **Definition:** QRootCanvas.cpp:135
 
 
-[[classQRootCanvas#a5921076f00c65a1b1d8b84231b24dab3]]
+[[QRootCanvas::mouseReleaseEvent|classQRootCanvas#a5921076f00c65a1b1d8b84231b24dab3]]
 
 virtual void mouseReleaseEvent(QMouseEvent *e)
 
@@ -323,7 +323,7 @@ Handle Qt mouse release events on the ROOT canvas.
 **Definition:** QRootCanvas.cpp:173
 
 
-[[classQRootCanvas#a6a9e917186adecfde4dc743cf386049f]]
+[[QRootCanvas::QRootCanvas|classQRootCanvas#a6a9e917186adecfde4dc743cf386049f]]
 
 QRootCanvas(FitManager *pFitMgr, QWidget *parent=nullptr)
 
@@ -332,7 +332,7 @@ Constructor.
 **Definition:** QRootCanvas.cpp:50
 
 
-[[classQRootCanvas#a6db4f9f81c813ce87ed709968ec9e88b]]
+[[QRootCanvas::resizeEvent|classQRootCanvas#a6db4f9f81c813ce87ed709968ec9e88b]]
 
 virtual void resizeEvent(QResizeEvent *)
 
@@ -341,7 +341,7 @@ Handle paint events in ROOT.
 **Definition:** QRootCanvas.cpp:194
 
 
-[[classQRootCanvas#a8bd59138c80ffa28a1a06f8eb4200d56]]
+[[QRootCanvas::mousePressEvent|classQRootCanvas#a8bd59138c80ffa28a1a06f8eb4200d56]]
 
 virtual void mousePressEvent(QMouseEvent *e)
 
@@ -350,7 +350,7 @@ Handle Qt mouse press events on the ROOT canvas.
 **Definition:** QRootCanvas.cpp:152
 
 
-[[classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]
+[[QRootCanvas::getCanvas|classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]
 
 TCanvas * getCanvas()
 
@@ -359,7 +359,7 @@ Return a pointer to the ROOT canvas.
 **Definition:** QRootCanvas.h:76
 
 
-[[classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCMyBusy-members]]
+[[List of all members|classCMyBusy-members]]
 
 
 CMyBusy Class Reference
 
 header
 Provides a busy command to override the SBS one. There is no concept of "busy" for DDAS systems, so all of these class' functions are no-ops.  
- [[classCMyBusy#details]]
+ [[More...|classCMyBusy#details]]
 
 
 `#include <CMyBusy.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CMyBusy:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMyBusy:
@@ -57,7 +57,7 @@ Collaboration diagram for CMyBusy:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -138,8 +138,8 @@ Do nothing.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyBusy_8h_source]]
-- [[CMyBusy_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyBusy.h|CMyBusy_8h_source]]
+- [[CMyBusy.cpp|CMyBusy_8cpp]]
 
  contents 
  start footer part 

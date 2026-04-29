@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classNullParameters-members]]
+[[List of all members|classNullParameters-members]]
 
 
 NullParameters Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for NullParameters:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for NullParameters:
@@ -48,7 +48,7 @@ Collaboration diagram for NullParameters:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for NullParameters:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testInput_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testInput.cpp|testInput_8cpp]]
 
  contents 
  start footer part 

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1RootHitExtension]]
+- [[RootHitExtension|structddastoys_1_1RootHitExtension]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[structddastoys_1_1RootHitExtension-members]]
+[[List of all members|structddastoys_1_1RootHitExtension-members]]
 
 
 ddastoys::RootHitExtension Struct Reference
 
 header
 The data structure containing the full fit information.  
- [[structddastoys_1_1RootHitExtension#details]]
+ [[More...|structddastoys_1_1RootHitExtension#details]]
 
 
 `#include <RootExtensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::RootHitExtension:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::RootHitExtension:
@@ -67,7 +67,7 @@ Collaboration diagram for ddastoys::RootHitExtension:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -110,7 +110,7 @@ The data structure containing the full fit information.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[RootExtensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[RootExtensions.h|RootExtensions_8h_source]]
 
  contents 
  start footer part 

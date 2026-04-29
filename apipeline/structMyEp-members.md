@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 MyEp Member List
 
 header
-This is the complete list of members for [[structMyEp]], including all inherited members.
+This is the complete list of members for [[MyEp|structMyEp]], including all inherited members.
 
 
 |  |  |  |

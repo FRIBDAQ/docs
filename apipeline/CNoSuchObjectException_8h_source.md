@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 CNoSuchObjectException.h
@@ -83,7 +83,7 @@ header
 
 <a name="l00027"></a>   27
 
-<a name="l00028"></a>[[classCNoSuchObjectException]] class [[classCNoSuchObjectException]] : public [[classCException]]
+<a name="l00028"></a>[[28|classCNoSuchObjectException]] class [[CNoSuchObjectException|classCNoSuchObjectException]] : public [[CException|classCException]]
 
 <a name="l00029"></a>   29 {
 
@@ -95,9 +95,9 @@ header
 
 <a name="l00033"></a>   33
 
-<a name="l00034"></a>   34   [[classCNoSuchObjectException]](const char* pDoing, const char* pName) :
+<a name="l00034"></a>   34   [[CNoSuchObjectException|classCNoSuchObjectException]](const char* pDoing, const char* pName) :
 
-<a name="l00035"></a>   35     [[classCException]](pDoing),
+<a name="l00035"></a>   35     [[CException|classCException]](pDoing),
 
 <a name="l00036"></a>   36     m_sName(pName)
 
@@ -105,9 +105,9 @@ header
 
 <a name="l00038"></a>   38
 
-<a name="l00039"></a>   39   [[classCNoSuchObjectException]](const char* pDoing, const std::string& rName) :
+<a name="l00039"></a>   39   [[CNoSuchObjectException|classCNoSuchObjectException]](const char* pDoing, const std::string& rName) :
 
-<a name="l00040"></a>   40     [[classCException]](pDoing),
+<a name="l00040"></a>   40     [[CException|classCException]](pDoing),
 
 <a name="l00041"></a>   41     m_sName(rName)
 
@@ -115,9 +115,9 @@ header
 
 <a name="l00043"></a>   43
 
-<a name="l00044"></a>   44   [[classCNoSuchObjectException]](const std::string& rDoing, const char* pName) :
+<a name="l00044"></a>   44   [[CNoSuchObjectException|classCNoSuchObjectException]](const std::string& rDoing, const char* pName) :
 
-<a name="l00045"></a>   45     [[classCException]](rDoing),
+<a name="l00045"></a>   45     [[CException|classCException]](rDoing),
 
 <a name="l00046"></a>   46     m_sName(pName)
 
@@ -125,9 +125,9 @@ header
 
 <a name="l00048"></a>   48
 
-<a name="l00049"></a>   49   [[classCNoSuchObjectException]](const std::string& rDoing, const std::string& rName) :
+<a name="l00049"></a>   49   [[CNoSuchObjectException|classCNoSuchObjectException]](const std::string& rDoing, const std::string& rName) :
 
-<a name="l00050"></a>   50     [[classCException]](rDoing),
+<a name="l00050"></a>   50     [[CException|classCException]](rDoing),
 
 <a name="l00051"></a>   51     m_sName(rName)
 
@@ -135,17 +135,17 @@ header
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54   virtual ~[[classCNoSuchObjectException]]() { } // Destructor
+<a name="l00054"></a>   54   virtual ~[[CNoSuchObjectException|classCNoSuchObjectException]]() { } // Destructor
 
 <a name="l00055"></a>   55
 
 <a name="l00056"></a>   56   // Copy constructor
 
-<a name="l00057"></a>   57   [[classCNoSuchObjectException]]
+<a name="l00057"></a>   57   [[CNoSuchObjectException|classCNoSuchObjectException]]
 
-<a name="l00058"></a>   58     (const [[classCNoSuchObjectException]]& aCNoSuchObjectException ) :
+<a name="l00058"></a>   58     (const [[CNoSuchObjectException|classCNoSuchObjectException]]& aCNoSuchObjectException ) :
 
-<a name="l00059"></a>   59     [[classCException]] (aCNoSuchObjectException)
+<a name="l00059"></a>   59     [[CException|classCException]] (aCNoSuchObjectException)
 
 <a name="l00060"></a>   60     {
 
@@ -161,9 +161,9 @@ header
 
 <a name="l00066"></a>   66
 
-<a name="l00067"></a>   67   [[classCNoSuchObjectException]] operator=
+<a name="l00067"></a>   67   [[CNoSuchObjectException|classCNoSuchObjectException]] operator=
 
-<a name="l00068"></a>   68          (const [[classCNoSuchObjectException]]& aCNoSuchObjectException)
+<a name="l00068"></a>   68          (const [[CNoSuchObjectException|classCNoSuchObjectException]]& aCNoSuchObjectException)
 
 <a name="l00069"></a>   69   {
 
@@ -187,7 +187,7 @@ header
 
 <a name="l00079"></a>   79
 
-<a name="l00080"></a>   80   int operator== (const [[classCNoSuchObjectException]]& aCNoSuchObjectException)
+<a name="l00080"></a>   80   int operator== (const [[CNoSuchObjectException|classCNoSuchObjectException]]& aCNoSuchObjectException)
 
 <a name="l00081"></a>   81     {
 
@@ -247,12 +247,12 @@ header
 
 <a name="l00109"></a>  109 #endif
 
-[[classCNoSuchObjectException]]
+[[CNoSuchObjectException|classCNoSuchObjectException]]
 
 **Definition:** CNoSuchObjectException.h:28
 
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 

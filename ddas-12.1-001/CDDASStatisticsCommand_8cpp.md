@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 CDDASStatisticsCommand.cpp File Reference
 
 header
-Implement the statistics command specific to [[namespaceDDASReadout]].  
+Implement the statistics command specific to [[DDASReadout|namespaceDDASReadout]].  
 [More...](#details)
 
 
@@ -58,7 +58,7 @@ Include dependency graph for CDDASStatisticsCommand.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Implement the statistics command specific to [[namespaceDDASReadout]].
+Implement the statistics command specific to [[DDASReadout|namespaceDDASReadout]].
 
  contents 
  start footer part 

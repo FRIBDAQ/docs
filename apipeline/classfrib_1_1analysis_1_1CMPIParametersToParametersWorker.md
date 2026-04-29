@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
+- [[CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
 
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker-members]]
+[[List of all members|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker-members]]
 
 
 frib::analysis::CMPIParametersToParametersWorker Class Referenceabstract
@@ -44,7 +44,7 @@ Inheritance diagram for frib::analysis::CMPIParametersToParametersWorker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -200,8 +200,8 @@ operator() Entry point for the worker. The top level logic is simple: Receive th
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIParametersToParametersWorker_8h_source]]
-- base/[[MPIParametersToParametersWorker_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIParametersToParametersWorker.h|MPIParametersToParametersWorker_8h_source]]
+- base/[[MPIParametersToParametersWorker.cpp|MPIParametersToParametersWorker_8cpp]]
 
  contents 
  start footer part 

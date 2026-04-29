@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CDummyReader Member List
 
 header
-This is the complete list of members for [[classCDummyReader]], including all inherited members.
+This is the complete list of members for [[CDummyReader|classCDummyReader]], including all inherited members.
 
 
 |  |  |  |

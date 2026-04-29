@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 inputtest Member List
 
 header
-This is the complete list of members for [[classinputtest]], including all inherited members.
+This is the complete list of members for [[inputtest|classinputtest]], including all inherited members.
 
 
 |  |  |  |

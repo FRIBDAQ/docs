@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLIdleProcess.h
 
 header
-[[TCLIdleProcess_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|TCLIdleProcess_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -137,7 +137,7 @@ header
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>[[classCTCLIdleProcess]] class [[classCTCLIdleProcess]] : protected [[classCTCLTimer]]
+<a name="l00059"></a>[[59|classCTCLIdleProcess]] class [[CTCLIdleProcess|classCTCLIdleProcess]] : protected [[CTCLTimer|classCTCLTimer]]
 
 <a name="l00060"></a>   60 {
 
@@ -149,19 +149,19 @@ header
 
 <a name="l00064"></a>   64   //
 
-<a name="l00065"></a>   65   [[classCTCLIdleProcess]]([[classCTCLInterpreterObject]]* pInterp) :
+<a name="l00065"></a>   65   [[CTCLIdleProcess|classCTCLIdleProcess]]([[CTCLInterpreterObject|classCTCLInterpreterObject]]* pInterp) :
 
-<a name="l00066"></a>   66     [[classCTCLTimer]](pInterp->getInterpreter()) {}
+<a name="l00066"></a>   66     [[CTCLTimer|classCTCLTimer]](pInterp->getInterpreter()) {}
 
 <a name="l00067"></a>   67
 
-<a name="l00068"></a>   68   [[classCTCLIdleProcess]]([[classCTCLInterpreter]]* pInterp) :
+<a name="l00068"></a>   68   [[CTCLIdleProcess|classCTCLIdleProcess]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp) :
 
-<a name="l00069"></a>   69     [[classCTCLTimer]](pInterp) {}
+<a name="l00069"></a>   69     [[CTCLTimer|classCTCLTimer]](pInterp) {}
 
 <a name="l00070"></a>   70
 
-<a name="l00071"></a>   71   virtual ~[[classCTCLIdleProcess]]() {
+<a name="l00071"></a>   71   virtual ~[[CTCLIdleProcess|classCTCLIdleProcess]]() {
 
 <a name="l00072"></a>   72                 // Timer destructor clears.
 
@@ -173,7 +173,7 @@ header
 
 <a name="l00076"></a>   76 private:
 
-<a name="l00077"></a>   77   [[classCTCLIdleProcess]](const [[classCTCLIdleProcess]]& rRhs);
+<a name="l00077"></a>   77   [[CTCLIdleProcess|classCTCLIdleProcess]](const [[CTCLIdleProcess|classCTCLIdleProcess]]& rRhs);
 
 <a name="l00078"></a>   78 public:
 
@@ -183,7 +183,7 @@ header
 
 <a name="l00081"></a>   81 private:
 
-<a name="l00082"></a>   82   [[classCTCLIdleProcess]]& operator=(const [[classCTCLIdleProcess]]& rRhs);
+<a name="l00082"></a>   82   [[CTCLIdleProcess|classCTCLIdleProcess]]& operator=(const [[CTCLIdleProcess|classCTCLIdleProcess]]& rRhs);
 
 <a name="l00083"></a>   83 public:
 
@@ -193,7 +193,7 @@ header
 
 <a name="l00086"></a>   86
 
-<a name="l00087"></a>   87   int operator==(const [[classCTCLIdleProcess]]& rRhs) {
+<a name="l00087"></a>   87   int operator==(const [[CTCLIdleProcess|classCTCLIdleProcess]]& rRhs) {
 
 <a name="l00088"></a>   88     return CTCLInterpreterObject::operator==(rRhs);
 
@@ -227,22 +227,22 @@ header
 
 <a name="l00103"></a>  103 #endif
 
-[[classCTCLTimer]]
+[[CTCLTimer|classCTCLTimer]]
 
 **Definition:** TCLTimer.h:48
 
 
-[[classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLIdleProcess]]
+[[CTCLIdleProcess|classCTCLIdleProcess]]
 
 **Definition:** TCLIdleProcess.h:59
 

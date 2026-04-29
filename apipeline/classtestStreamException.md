@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classtestStreamException-members]]
+[[List of all members|classtestStreamException-members]]
 
 
 testStreamException Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for testStreamException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for testStreamException:
@@ -47,7 +47,7 @@ Collaboration diagram for testStreamException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

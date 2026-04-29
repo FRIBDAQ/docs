@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[structDDASReadout_1_1ReferenceCountedBuffer]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
 
  top 
 DDASReadout::ReferenceCountedBuffer Member List
 
 header
-This is the complete list of members for [[structDDASReadout_1_1ReferenceCountedBuffer]], including all inherited members.
+This is the complete list of members for [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]], including all inherited members.
 
 
 |  |  |  |

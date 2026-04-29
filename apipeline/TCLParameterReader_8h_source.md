@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 TCLParameterReader.h
 
 header
-[[TCLParameterReader_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|TCLParameterReader_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,63 +67,63 @@ header
 
 <a name="l00023"></a>   23
 
-<a name="l00024"></a>   24 #include "[[ParameterReader_8h]]"
+<a name="l00024"></a>   24 #include "[[ParameterReader.h|ParameterReader_8h]]"
 
 <a name="l00025"></a>   25 #include <TCLObjectProcessor.h>
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 class [[classCTCLInterpreter]];
+<a name="l00027"></a>   27 class [[CTCLInterpreter|classCTCLInterpreter]];
 
 <a name="l00028"></a>   28
 
-<a name="l00029"></a>   29 namespace [[namespacefrib]] {
+<a name="l00029"></a>   29 namespace [[frib|namespacefrib]] {
 
 <a name="l00030"></a>   30     namespace analysis {
 
-<a name="l00051"></a>[[classfrib_1_1analysis_1_1CTCLParameterReader]]         class [[classfrib_1_1analysis_1_1CTCLParameterReader]] : public [[classfrib_1_1analysis_1_1CParameterReader]] {
+<a name="l00051"></a>[[51|classfrib_1_1analysis_1_1CTCLParameterReader]]         class [[CTCLParameterReader|classfrib_1_1analysis_1_1CTCLParameterReader]] : public [[CParameterReader|classfrib_1_1analysis_1_1CParameterReader]] {
 
 <a name="l00052"></a>   52             // nested classes that implement the commands:
 
 <a name="l00053"></a>   53         private:
 
-<a name="l00054"></a>   54             class TreeParameterCommand : public [[classCTCLObjectProcessor]] {
+<a name="l00054"></a>   54             class TreeParameterCommand : public [[CTCLObjectProcessor|classCTCLObjectProcessor]] {
 
 <a name="l00055"></a>   55             public:
 
-<a name="l00056"></a>   56                 TreeParameterCommand([[classCTCLInterpreter]]& interp);
+<a name="l00056"></a>   56                 TreeParameterCommand([[CTCLInterpreter|classCTCLInterpreter]]& interp);
 
-<a name="l00057"></a>   57                 int operator()([[classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
+<a name="l00057"></a>   57                 int operator()([[CTCLInterpreter|classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
 
 <a name="l00058"></a>   58             };
 
-<a name="l00059"></a>   59             class TreeParameterArrayCommand : public [[classCTCLObjectProcessor]] {
+<a name="l00059"></a>   59             class TreeParameterArrayCommand : public [[CTCLObjectProcessor|classCTCLObjectProcessor]] {
 
 <a name="l00060"></a>   60             public:
 
-<a name="l00061"></a>   61                 TreeParameterArrayCommand([[classCTCLInterpreter]]& interp);
+<a name="l00061"></a>   61                 TreeParameterArrayCommand([[CTCLInterpreter|classCTCLInterpreter]]& interp);
 
-<a name="l00062"></a>   62                 int operator()([[classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
+<a name="l00062"></a>   62                 int operator()([[CTCLInterpreter|classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
 
 <a name="l00063"></a>   63             };
 
-<a name="l00064"></a>   64             class TreeVariableCommand : public [[classCTCLObjectProcessor]] {
+<a name="l00064"></a>   64             class TreeVariableCommand : public [[CTCLObjectProcessor|classCTCLObjectProcessor]] {
 
 <a name="l00065"></a>   65             public:
 
-<a name="l00066"></a>   66                 TreeVariableCommand([[classCTCLInterpreter]]& interp);
+<a name="l00066"></a>   66                 TreeVariableCommand([[CTCLInterpreter|classCTCLInterpreter]]& interp);
 
-<a name="l00067"></a>   67                 int operator()([[classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
+<a name="l00067"></a>   67                 int operator()([[CTCLInterpreter|classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
 
 <a name="l00068"></a>   68             };
 
-<a name="l00069"></a>   69             class TreeVariableArrayCommand : public [[classCTCLObjectProcessor]] {
+<a name="l00069"></a>   69             class TreeVariableArrayCommand : public [[CTCLObjectProcessor|classCTCLObjectProcessor]] {
 
 <a name="l00070"></a>   70             public:
 
-<a name="l00071"></a>   71                 TreeVariableArrayCommand([[classCTCLInterpreter]]& interp);
+<a name="l00071"></a>   71                 TreeVariableArrayCommand([[CTCLInterpreter|classCTCLInterpreter]]& interp);
 
-<a name="l00072"></a>   72                 int operator()([[classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
+<a name="l00072"></a>   72                 int operator()([[CTCLInterpreter|classCTCLInterpreter]]& interp, std::vector<CTCLObject>& objv);
 
 <a name="l00073"></a>   73             };
 
@@ -131,13 +131,13 @@ header
 
 <a name="l00075"></a>   75         public:
 
-<a name="l00076"></a>   76             [[classfrib_1_1analysis_1_1CTCLParameterReader#a5f5fb258434932137354283d0a5b06dd]](const char* pFilename);
+<a name="l00076"></a>   76             [[CTCLParameterReader|classfrib_1_1analysis_1_1CTCLParameterReader#a5f5fb258434932137354283d0a5b06dd]](const char* pFilename);
 
-<a name="l00077"></a>   77             virtual void [[classfrib_1_1analysis_1_1CTCLParameterReader#a4a8364f7e8cc35c1d5655d66f28270d6]]();
+<a name="l00077"></a>   77             virtual void [[read|classfrib_1_1analysis_1_1CTCLParameterReader#a4a8364f7e8cc35c1d5655d66f28270d6]]();
 
 <a name="l00078"></a>   78         private:
 
-<a name="l00079"></a>   79             [[classCTCLInterpreter]]* setupInterpreter();
+<a name="l00079"></a>   79             [[CTCLInterpreter|classCTCLInterpreter]]* setupInterpreter();
 
 <a name="l00080"></a>   80         };
 
@@ -153,46 +153,46 @@ header
 
 <a name="l00086"></a>   86 #endif
 
-[[ParameterReader_8h]]
+[[ParameterReader.h|ParameterReader_8h]]
 
 : Reads a parameter/variable definition file
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classfrib_1_1analysis_1_1CTCLParameterReader#a4a8364f7e8cc35c1d5655d66f28270d6]]
+[[frib::analysis::CTCLParameterReader::read|classfrib_1_1analysis_1_1CTCLParameterReader#a4a8364f7e8cc35c1d5655d66f28270d6]]
 
 virtual void read()
 
 **Definition:** TCLParameterReader.cpp:192
 
 
-[[classfrib_1_1analysis_1_1CTCLParameterReader#a5f5fb258434932137354283d0a5b06dd]]
+[[frib::analysis::CTCLParameterReader::CTCLParameterReader|classfrib_1_1analysis_1_1CTCLParameterReader#a5f5fb258434932137354283d0a5b06dd]]
 
 CTCLParameterReader(const char *pFilename)
 
 **Definition:** TCLParameterReader.cpp:179
 
 
-[[classfrib_1_1analysis_1_1CTCLParameterReader]]
+[[frib::analysis::CTCLParameterReader|classfrib_1_1analysis_1_1CTCLParameterReader]]
 
 **Definition:** TCLParameterReader.h:51
 
 
-[[classfrib_1_1analysis_1_1CParameterReader]]
+[[frib::analysis::CParameterReader|classfrib_1_1analysis_1_1CParameterReader]]
 
 **Definition:** ParameterReader.h:32
 
 
-[[classCTCLObjectProcessor]]
+[[CTCLObjectProcessor|classCTCLObjectProcessor]]
 
 **Definition:** TCLObjectProcessor.h:44
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

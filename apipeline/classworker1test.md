@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classworker1test-members]]
+[[List of all members|classworker1test-members]]
 
 
 worker1test Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for worker1test:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for worker1test:
@@ -47,7 +47,7 @@ Collaboration diagram for worker1test:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -91,7 +91,7 @@ Somewhere in all of those items there should be a begin and an end item: because
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[worker1Tests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[worker1Tests.cpp|worker1Tests_8cpp]]
 
  contents 
  start footer part 

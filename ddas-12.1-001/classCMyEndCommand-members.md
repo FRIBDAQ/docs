@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMyEndCommand Member List
 
 header
-This is the complete list of members for [[classCMyEndCommand]], including all inherited members.
+This is the complete list of members for [[CMyEndCommand|classCMyEndCommand]], including all inherited members.
 
 
 |  |  |  |

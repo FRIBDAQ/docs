@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 interpretertest Member List
 
 header
-This is the complete list of members for [[classinterpretertest]], including all inherited members.
+This is the complete list of members for [[interpretertest|classinterpretertest]], including all inherited members.
 
 
 |  |  |  |

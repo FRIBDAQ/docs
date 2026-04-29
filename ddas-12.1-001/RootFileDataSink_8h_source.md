@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
 RootFileDataSink.h
 
 header
-[[RootFileDataSink_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|RootFileDataSink_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2   This software is Copyright by the Board of Trustees of Michigan
@@ -103,7 +103,7 @@ header
 <a name="l00030"></a>   30 class TFile;
 
 
-<a name="l00031"></a>[[namespaceddasfmt]] namespace [[namespaceddasfmt]] {
+<a name="l00031"></a>[[31|namespaceddasfmt]] namespace [[ddasfmt|namespaceddasfmt]] {
 
 
 <a name="l00032"></a>   32     class DDASHitUnpacker;
@@ -112,10 +112,10 @@ header
 <a name="l00033"></a>   33 }
 
 
-<a name="l00034"></a>   34 class [[classDDASRootEvent]]; // Holds the decoded event for output.
+<a name="l00034"></a>   34 class [[DDASRootEvent|classDDASRootEvent]]; // Holds the decoded event for output.
 
 
-<a name="l00035"></a>   35 namespace [[namespaceufmt]] {
+<a name="l00035"></a>   35 namespace [[ufmt|namespaceufmt]] {
 
 
 <a name="l00036"></a>   36     class RingItemFactoryBase;
@@ -130,7 +130,7 @@ header
 <a name="l00039"></a>   39
 
 
-<a name="l00050"></a>[[classRootFileDataSink]] class [[classRootFileDataSink]]
+<a name="l00050"></a>[[50|classRootFileDataSink]] class [[RootFileDataSink|classRootFileDataSink]]
 
 
 <a name="l00051"></a>   51 {
@@ -145,7 +145,7 @@ header
 <a name="l00054"></a>   54     ddasfmt::DDASHitUnpacker*  m_pUnpacker;
 
 
-<a name="l00055"></a>   55     [[classDDASRootEvent]]* m_pEvent;
+<a name="l00055"></a>   55     [[DDASRootEvent|classDDASRootEvent]]* m_pEvent;
 
 
 <a name="l00056"></a>   56     TTree* m_pTree;
@@ -163,7 +163,7 @@ header
 <a name="l00060"></a>   60 public:
 
 
-<a name="l00069"></a>   69     [[classRootFileDataSink#a6ef44701398aaa6fef41a77298fac798]](
+<a name="l00069"></a>   69     [[RootFileDataSink|classRootFileDataSink#a6ef44701398aaa6fef41a77298fac798]](
 
 
 <a name="l00070"></a>   70     ufmt::RingItemFactoryBase* pFactory, const char* fileName,
@@ -175,7 +175,7 @@ header
 <a name="l00072"></a>   72     );
 
 
-<a name="l00074"></a>   74     virtual [[classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]();
+<a name="l00074"></a>   74     virtual [[~RootFileDataSink|classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]();
 
 
 <a name="l00075"></a>   75
@@ -184,10 +184,10 @@ header
 <a name="l00076"></a>   76 public:
 
 
-<a name="l00082"></a>   82     virtual void [[classRootFileDataSink#aba8890f365da6eeb61215107bc6c155f]](const ufmt::CRingItem& item);
+<a name="l00082"></a>   82     virtual void [[putItem|classRootFileDataSink#aba8890f365da6eeb61215107bc6c155f]](const ufmt::CRingItem& item);
 
 
-<a name="l00088"></a>   88     virtual void [[classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]](const void* pData, size_t nBytes);
+<a name="l00088"></a>   88     virtual void [[put|classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]](const void* pData, size_t nBytes);
 
 
 <a name="l00089"></a>   89 };
@@ -199,21 +199,21 @@ header
 <a name="l00091"></a>   91 #endif
 
 
-[[classDDASRootEvent]]
+[[DDASRootEvent|classDDASRootEvent]]
 
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.
 
 **Definition:** DDASRootEvent.h:59
 
 
-[[classRootFileDataSink]]
+[[RootFileDataSink|classRootFileDataSink]]
 
 A ROOT file sink for DDAS data.
 
 **Definition:** RootFileDataSink.h:51
 
 
-[[classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
+[[RootFileDataSink::put|classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
 
 virtual void put(const void *pData, size_t nBytes)
 
@@ -222,7 +222,7 @@ Called to put arbitrary data to the file.
 **Definition:** RootFileDataSink.cpp:181
 
 
-[[classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
+[[RootFileDataSink::~RootFileDataSink|classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
 
 virtual ~RootFileDataSink()
 
@@ -231,7 +231,7 @@ Destructor.
 **Definition:** RootFileDataSink.cpp:86
 
 
-[[classRootFileDataSink#a6ef44701398aaa6fef41a77298fac798]]
+[[RootFileDataSink::RootFileDataSink|classRootFileDataSink#a6ef44701398aaa6fef41a77298fac798]]
 
 RootFileDataSink(ufmt::RingItemFactoryBase *pFactory, const char *fileName, const char *treeName="ddas")
 
@@ -240,7 +240,7 @@ Constructor.
 **Definition:** RootFileDataSink.cpp:54
 
 
-[[classRootFileDataSink#aba8890f365da6eeb61215107bc6c155f]]
+[[RootFileDataSink::putItem|classRootFileDataSink#aba8890f365da6eeb61215107bc6c155f]]
 
 virtual void putItem(const ufmt::CRingItem &item)
 
@@ -249,12 +249,12 @@ Put a ring item to file.
 **Definition:** RootFileDataSink.cpp:102
 
 
-[[namespaceddasfmt]]
+[[ddasfmt|namespaceddasfmt]]
 
 **Definition:** RootFileDataSink.h:31
 
 
-[[namespaceufmt]]
+[[ufmt|namespaceufmt]]
 
 **Definition:** DataSource.h:27
 

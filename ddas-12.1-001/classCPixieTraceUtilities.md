@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCPixieTraceUtilities-members]]
+[[List of all members|classCPixieTraceUtilities-members]]
 
 
-CPixieTraceUtilities Class Reference[[group__utilities]]
+CPixieTraceUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
 
 header
 A class to read and fetch trace data from Pixie-16 modules.  
- [[classCPixieTraceUtilities#details]]
+ [[More...|classCPixieTraceUtilities#details]]
 
 
 `#include <CPixieTraceUtilities.h>`
@@ -63,7 +63,7 @@ A class to read and fetch trace data from Pixie-16 modules.
 This class provides a ctypes-friendly interface to acquire "validated" (traces which are likely to contain a good signal pulse) and unvalidated traces. The class also provides methods to access the trace data.
 
 
-**[[todo#_todo000006]]**Instead of validated traces can we process the trace using the fast filter parameters and wait for a real trigger?
+**[[Todo:|todo#_todo000006]]**Instead of validated traces can we process the trace using the fast filter parameters and wait for a real trigger?
 
 ## Constructor & Destructor Documentation
 
@@ -79,7 +79,7 @@ This class provides a ctypes-friendly interface to acquire "validated" (traces w
 Constructor.
 
 
-The [[classCPixieTraceUtilities]] class has ownership of a [[classCDataGenerator]] object and is responsible for managing it.
+The [[CPixieTraceUtilities|classCPixieTraceUtilities]] class has ownership of a [[CDataGenerator|classCDataGenerator]] object and is responsible for managing it.
 
 
 ## Member Function Documentation
@@ -172,7 +172,7 @@ Return values
 Traces are "validated" (*not* triggered!) if:
 
 1. The max/min value exceeds the median value +/- 10*SD where SD is the standard deviation estimated from the median absolute deviation.
-2. The max/min value differs from the median value by at least m_validAmplitude ADC units. **[[todo#_todo000005]]**(ASC 6/14/24): Improved baseline estimation for validation.
+2. The max/min value differs from the median value by at least m_validAmplitude ADC units. **[[Todo:|todo#_todo000005]]**(ASC 6/14/24): Improved baseline estimation for validation.
 
 
 
@@ -196,8 +196,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieTraceUtilities_8h_source]]
-- [[CPixieTraceUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieTraceUtilities.h|CPixieTraceUtilities_8h_source]]
+- [[CPixieTraceUtilities.cpp|CPixieTraceUtilities_8cpp]]
 
  contents 
  start footer part 

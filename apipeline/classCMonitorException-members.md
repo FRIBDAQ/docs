@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMonitorException Member List
 
 header
-This is the complete list of members for [[classCMonitorException]], including all inherited members.
+This is the complete list of members for [[CMonitorException|classCMonitorException]], including all inherited members.
 
 
 |  |  |  |

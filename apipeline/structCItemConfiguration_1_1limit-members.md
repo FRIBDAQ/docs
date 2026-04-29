@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCItemConfiguration]]
-- [[structCItemConfiguration_1_1limit]]
+- [[CItemConfiguration|classCItemConfiguration]]
+- [[limit|structCItemConfiguration_1_1limit]]
 
  top 
 CItemConfiguration::limit Member List
 
 header
-This is the complete list of members for [[structCItemConfiguration_1_1limit]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration::limit|structCItemConfiguration_1_1limit]], including all inherited members.
 
 
 |  |  |  |

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DataSource Member List
 
 header
-This is the complete list of members for [[classDataSource]], including all inherited members.
+This is the complete list of members for [[DataSource|classDataSource]], including all inherited members.
 
 
 |  |  |  |

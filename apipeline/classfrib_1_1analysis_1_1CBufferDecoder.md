@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CBufferDecoder]]
+- [[CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CBufferDecoder-members]]
+[[List of all members|classfrib_1_1analysis_1_1CBufferDecoder-members]]
 
 
 frib::analysis::CBufferDecoder Class Reference
@@ -273,8 +273,8 @@ setBody Used by the framework to set the value of m_pItem
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[BufferDecoder_8h_source]]
-- spectcl/[[BufferDecoder_8cpp]]
+The documentation for this class was generated from the following files:- spectcl/[[BufferDecoder.h|BufferDecoder_8h_source]]
+- spectcl/[[BufferDecoder.cpp|BufferDecoder_8cpp]]
 
  contents 
  start footer part 

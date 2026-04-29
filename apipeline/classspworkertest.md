@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classspworkertest-members]]
+[[List of all members|classspworkertest-members]]
 
 
 spworkertest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for spworkertest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for spworkertest:
@@ -47,7 +47,7 @@ Collaboration diagram for spworkertest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -90,7 +90,7 @@ Collaboration diagram for spworkertest:
 
 ---
 
-The documentation for this class was generated from the following file:- spectcl/[[workerTest_8cpp]]
+The documentation for this class was generated from the following file:- spectcl/[[workerTest.cpp|workerTest_8cpp]]
 
  contents 
  start footer part 

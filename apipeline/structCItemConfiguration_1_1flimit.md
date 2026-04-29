@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCItemConfiguration]]
-- [[structCItemConfiguration_1_1flimit]]
+- [[CItemConfiguration|classCItemConfiguration]]
+- [[flimit|structCItemConfiguration_1_1flimit]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structCItemConfiguration_1_1flimit-members]]
+[[List of all members|structCItemConfiguration_1_1flimit-members]]
 
 
 CItemConfiguration::flimit Struct Reference
@@ -51,7 +51,7 @@ header
 
 ---
 
-The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration_8h_source]]
+The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|CItemConfiguration_8h_source]]
 
  contents 
  start footer part 

@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIParameterFarmer]]
+- [[CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CMPIParameterFarmer-members]]
+[[List of all members|classfrib_1_1analysis_1_1CMPIParameterFarmer-members]]
 
 
 frib::analysis::CMPIParameterFarmer Class Reference
@@ -115,14 +115,14 @@ Destructor kill the buffer:
 operator()
 
 - Figure out how many workers there are so we can count down m_nEndsLeft.
-- Instantiate a [[classfrib_1_1analysis_1_1CMPITriggerSorter]] to re-order the triggers properly.
+- Instantiate a [[CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter]] to re-order the triggers properly.
 - Accept header/data pairs (or just headers in the case of an end) until all of the workers have sent ends - then flush the sorter and send an end to the outputter.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIParameterFarmer_8h_source]]
+The documentation for this class was generated from the following files:- base/[[MPIParameterFarmer.h|MPIParameterFarmer_8h_source]]
 - base/MPIParameterFarmer.cpp
 
  contents 

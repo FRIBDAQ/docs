@@ -109,7 +109,7 @@ For more information about how to run the `EventEditor` codes please refer to th
 ## Fitting Traces Using the Plugin Libraries
 
 
-For an explanation of how to run the `EventEditor` trace fitting framework, please refer to the DDASToys Manual or the output of the command `$DAQBIN/EventEditor --help` run from a terminal. We will assume that you have installed the latest version of the DDASToys package. In that case, the `DAQBIN` variable must point to an NSCLDAQ version 12.1 or later where the `EventEditor` software is installed. The manual also describes how to run the fitting software at NERSC and configure an analysis pipeline for trace fitting. Notably, the structure of the fit extension appended to each event is defined in the [[fit__extensions_8h]] header.
+For an explanation of how to run the `EventEditor` trace fitting framework, please refer to the DDASToys Manual or the output of the command `$DAQBIN/EventEditor --help` run from a terminal. We will assume that you have installed the latest version of the DDASToys package. In that case, the `DAQBIN` variable must point to an NSCLDAQ version 12.1 or later where the `EventEditor` software is installed. The manual also describes how to run the fitting software at NERSC and configure an analysis pipeline for trace fitting. Notably, the structure of the fit extension appended to each event is defined in the [[fit_extensions.h|fit__extensions_8h]] header.
 
 
 ## Converting Event Files Containing Fits to ROOT Format

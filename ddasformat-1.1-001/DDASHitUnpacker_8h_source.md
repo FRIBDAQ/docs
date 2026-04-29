@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 DDASHitUnpacker.h
 
 header
-[[DDASHitUnpacker_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASHitUnpacker_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -79,7 +79,7 @@ header
 <a name="l00025"></a>   25
 
 
-<a name="l00026"></a>   26 #include "[[DDASHit_8h]]"
+<a name="l00026"></a>   26 #include "[[DDASHit.h|DDASHit_8h]]"
 
 
 <a name="l00027"></a>   27
@@ -97,13 +97,13 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00065"></a>[[classddasfmt_1_1DDASHitUnpacker]]     class [[classddasfmt_1_1DDASHitUnpacker]] {
+<a name="l00065"></a>[[65|classddasfmt_1_1DDASHitUnpacker]]     class [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]] {
 
 
 <a name="l00066"></a>   66     public:
 
 
-<a name="l00074"></a>   74     std::tuple<DDASHit, const uint32_t*> [[classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]](
+<a name="l00074"></a>   74     std::tuple<DDASHit, const uint32_t*> [[unpack|classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]](
 
 
 <a name="l00075"></a>   75         const uint32_t* beg, const uint32_t* sentinel
@@ -112,10 +112,10 @@ header
 <a name="l00076"></a>   76         );
 
 
-<a name="l00090"></a>   90     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]](
+<a name="l00090"></a>   90     const uint32_t* [[unpack|classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]](
 
 
-<a name="l00091"></a>   91         const uint32_t* beg, const uint32_t* sentinel, [[classddasfmt_1_1DDASHit]]& hit
+<a name="l00091"></a>   91         const uint32_t* beg, const uint32_t* sentinel, [[DDASHit|classddasfmt_1_1DDASHit]]& hit
 
 
 <a name="l00092"></a>   92         );
@@ -127,7 +127,7 @@ header
 <a name="l00094"></a>   94     protected:
 
 
-<a name="l00104"></a>  104     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a5b34cf05c7cfa40654a4548e7396dfd0]](
+<a name="l00104"></a>  104     const uint32_t* [[parseBodySize|classddasfmt_1_1DDASHitUnpacker#a5b34cf05c7cfa40654a4548e7396dfd0]](
 
 
 <a name="l00105"></a>  105         const uint32_t* beg, const uint32_t* sentinel
@@ -136,37 +136,37 @@ header
 <a name="l00106"></a>  106         );
 
 
-<a name="l00115"></a>  115     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a4164656ac01513b054d454e69ecf3f32]]([[classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
+<a name="l00115"></a>  115     const uint32_t* [[parseModuleInfo|classddasfmt_1_1DDASHitUnpacker#a4164656ac01513b054d454e69ecf3f32]]([[DDASHit|classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
 
 
-<a name="l00123"></a>  123     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a848062c7e9d5c2312d1b426b19a0b4d8]]([[classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
+<a name="l00123"></a>  123     const uint32_t* [[parseHeaderWord0|classddasfmt_1_1DDASHitUnpacker#a848062c7e9d5c2312d1b426b19a0b4d8]]([[DDASHit|classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
 
 
-<a name="l00130"></a>  130     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#ac8c23a47a192bb6510e9058d4f8a0194]](
+<a name="l00130"></a>  130     const uint32_t* [[parseHeaderWords1And2|classddasfmt_1_1DDASHitUnpacker#ac8c23a47a192bb6510e9058d4f8a0194]](
 
 
-<a name="l00131"></a>  131         [[classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg
+<a name="l00131"></a>  131         [[DDASHit|classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg
 
 
 <a name="l00132"></a>  132         );
 
 
-<a name="l00139"></a>  139     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a251680d0fe2b1c064110db9df664f203]]([[classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
+<a name="l00139"></a>  139     const uint32_t* [[parseHeaderWord3|classddasfmt_1_1DDASHitUnpacker#a251680d0fe2b1c064110db9df664f203]]([[DDASHit|classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
 
 
-<a name="l00147"></a>  147     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a6ddb2612a4d16f5a68ab9a97dd9754d9]]([[classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
+<a name="l00147"></a>  147     const uint32_t* [[parseTraceData|classddasfmt_1_1DDASHitUnpacker#a6ddb2612a4d16f5a68ab9a97dd9754d9]]([[DDASHit|classddasfmt_1_1DDASHit]]& hit, const uint32_t* beg);
 
 
 <a name="l00156"></a>  156     std::tuple<double, uint32_t, uint32_t, uint32_t>
 
 
-<a name="l00157"></a>  157     [[classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]](uint32_t ModMSPS, uint32_t data);
+<a name="l00157"></a>  157     [[parseAndComputeCFD|classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]](uint32_t ModMSPS, uint32_t data);
 
 
-<a name="l00165"></a>  165     double [[classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]]([[classddasfmt_1_1DDASHit]]& hit, uint32_t data);
+<a name="l00165"></a>  165     double [[parseAndComputeCFD|classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]]([[DDASHit|classddasfmt_1_1DDASHit]]& hit, uint32_t data);
 
 
-<a name="l00176"></a>  176     uint64_t [[classddasfmt_1_1DDASHitUnpacker#a8f3f66f1af35ea10741a9d2db05700fc]](
+<a name="l00176"></a>  176     uint64_t [[computeCoarseTime|classddasfmt_1_1DDASHitUnpacker#a8f3f66f1af35ea10741a9d2db05700fc]](
 
 
 <a name="l00177"></a>  177         uint32_t adcFrequency, uint32_t timeLow, uint32_t timeHigh
@@ -175,28 +175,28 @@ header
 <a name="l00178"></a>  178         );
 
 
-<a name="l00186"></a>  186     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a11fa189033f084b166e7f484f847fc6c]](
+<a name="l00186"></a>  186     const uint32_t* [[extractEnergySums|classddasfmt_1_1DDASHitUnpacker#a11fa189033f084b166e7f484f847fc6c]](
 
 
-<a name="l00187"></a>  187         const uint32_t* data, [[classddasfmt_1_1DDASHit]]& hit
+<a name="l00187"></a>  187         const uint32_t* data, [[DDASHit|classddasfmt_1_1DDASHit]]& hit
 
 
 <a name="l00188"></a>  188         );
 
 
-<a name="l00196"></a>  196     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#a5e6b295ede5fe85edaad111f9389b635]](
+<a name="l00196"></a>  196     const uint32_t* [[extractQDC|classddasfmt_1_1DDASHitUnpacker#a5e6b295ede5fe85edaad111f9389b635]](
 
 
-<a name="l00197"></a>  197         const uint32_t* data, [[classddasfmt_1_1DDASHit]]& hit
+<a name="l00197"></a>  197         const uint32_t* data, [[DDASHit|classddasfmt_1_1DDASHit]]& hit
 
 
 <a name="l00198"></a>  198         );
 
 
-<a name="l00206"></a>  206     const uint32_t* [[classddasfmt_1_1DDASHitUnpacker#ae1ef0c0a6f3f2f970b053c2330fec522]](
+<a name="l00206"></a>  206     const uint32_t* [[extractExternalTimestamp|classddasfmt_1_1DDASHitUnpacker#ae1ef0c0a6f3f2f970b053c2330fec522]](
 
 
-<a name="l00207"></a>  207         const uint32_t* data, [[classddasfmt_1_1DDASHit]]& hit
+<a name="l00207"></a>  207         const uint32_t* data, [[DDASHit|classddasfmt_1_1DDASHit]]& hit
 
 
 <a name="l00208"></a>  208         );
@@ -220,19 +220,19 @@ header
 <a name="l00216"></a>  216
 
 
-[[DDASHit_8h]]
+[[DDASHit.h|DDASHit_8h]]
 
 DDASHit class definition.
 
 
-[[classddasfmt_1_1DDASHitUnpacker]]
+[[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]]
 
 Unpacker for DDAS data recorded by NSCLDAQ.
 
 **Definition:** DDASHitUnpacker.h:65
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a11fa189033f084b166e7f484f847fc6c]]
+[[ddasfmt::DDASHitUnpacker::extractEnergySums|classddasfmt_1_1DDASHitUnpacker#a11fa189033f084b166e7f484f847fc6c]]
 
 const uint32_t * extractEnergySums(const uint32_t *data, DDASHit &hit)
 
@@ -241,7 +241,7 @@ Unpack energy sums.
 **Definition:** DDASHitUnpacker.cpp:446
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a251680d0fe2b1c064110db9df664f203]]
+[[ddasfmt::DDASHitUnpacker::parseHeaderWord3|classddasfmt_1_1DDASHitUnpacker#a251680d0fe2b1c064110db9df664f203]]
 
 const uint32_t * parseHeaderWord3(DDASHit &hit, const uint32_t *beg)
 
@@ -250,7 +250,7 @@ Parse word 3 of the Pixie-16 data header.
 **Definition:** DDASHitUnpacker.cpp:275
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]]
+[[ddasfmt::DDASHitUnpacker::parseAndComputeCFD|classddasfmt_1_1DDASHitUnpacker#a2c6ebc937e91c252ff4482b53a7cd3e9]]
 
 std::tuple< double, uint32_t, uint32_t, uint32_t > parseAndComputeCFD(uint32_t ModMSPS, uint32_t data)
 
@@ -259,7 +259,7 @@ Determine the CFD correction to the leading-edge time in nanoseconds from the CF
 **Definition:** DDASHitUnpacker.cpp:317
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a4164656ac01513b054d454e69ecf3f32]]
+[[ddasfmt::DDASHitUnpacker::parseModuleInfo|classddasfmt_1_1DDASHitUnpacker#a4164656ac01513b054d454e69ecf3f32]]
 
 const uint32_t * parseModuleInfo(DDASHit &hit, const uint32_t *beg)
 
@@ -268,7 +268,7 @@ Parse the module identifying information encoded in the hit.
 **Definition:** DDASHitUnpacker.cpp:186
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a5b34cf05c7cfa40654a4548e7396dfd0]]
+[[ddasfmt::DDASHitUnpacker::parseBodySize|classddasfmt_1_1DDASHitUnpacker#a5b34cf05c7cfa40654a4548e7396dfd0]]
 
 const uint32_t * parseBodySize(const uint32_t *beg, const uint32_t *sentinel)
 
@@ -277,7 +277,7 @@ Ensure there is enough data to parse.
 **Definition:** DDASHitUnpacker.cpp:162
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a5e6b295ede5fe85edaad111f9389b635]]
+[[ddasfmt::DDASHitUnpacker::extractQDC|classddasfmt_1_1DDASHitUnpacker#a5e6b295ede5fe85edaad111f9389b635]]
 
 const uint32_t * extractQDC(const uint32_t *data, DDASHit &hit)
 
@@ -286,7 +286,7 @@ Unpack QDC values.
 **Definition:** DDASHitUnpacker.cpp:464
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a6ddb2612a4d16f5a68ab9a97dd9754d9]]
+[[ddasfmt::DDASHitUnpacker::parseTraceData|classddasfmt_1_1DDASHitUnpacker#a6ddb2612a4d16f5a68ab9a97dd9754d9]]
 
 const uint32_t * parseTraceData(DDASHit &hit, const uint32_t *beg)
 
@@ -295,7 +295,7 @@ Unpack the trace data.
 **Definition:** DDASHitUnpacker.cpp:294
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a848062c7e9d5c2312d1b426b19a0b4d8]]
+[[ddasfmt::DDASHitUnpacker::parseHeaderWord0|classddasfmt_1_1DDASHitUnpacker#a848062c7e9d5c2312d1b426b19a0b4d8]]
 
 const uint32_t * parseHeaderWord0(DDASHit &hit, const uint32_t *beg)
 
@@ -304,7 +304,7 @@ Parse the word 0 of the Pixie-16 data header.
 **Definition:** DDASHitUnpacker.cpp:212
 
 
-[[classddasfmt_1_1DDASHitUnpacker#a8f3f66f1af35ea10741a9d2db05700fc]]
+[[ddasfmt::DDASHitUnpacker::computeCoarseTime|classddasfmt_1_1DDASHitUnpacker#a8f3f66f1af35ea10741a9d2db05700fc]]
 
 uint64_t computeCoarseTime(uint32_t adcFrequency, uint32_t timeLow, uint32_t timeHigh)
 
@@ -313,7 +313,7 @@ Compute time in nanoseconds from raw data (no CFD correction).
 **Definition:** DDASHitUnpacker.cpp:415
 
 
-[[classddasfmt_1_1DDASHitUnpacker#ac8c23a47a192bb6510e9058d4f8a0194]]
+[[ddasfmt::DDASHitUnpacker::parseHeaderWords1And2|classddasfmt_1_1DDASHitUnpacker#ac8c23a47a192bb6510e9058d4f8a0194]]
 
 const uint32_t * parseHeaderWords1And2(DDASHit &hit, const uint32_t *beg)
 
@@ -322,7 +322,7 @@ Parse words 1 and 2 of the Pixie-16 data header.
 **Definition:** DDASHitUnpacker.cpp:243
 
 
-[[classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]]
+[[ddasfmt::DDASHitUnpacker::unpack|classddasfmt_1_1DDASHitUnpacker#ade8cd554e2ac02dc79488e5455ef61c9]]
 
 std::tuple< DDASHit, const uint32_t * > unpack(const uint32_t *beg, const uint32_t *sentinel)
 
@@ -331,7 +331,7 @@ Unpack data into a DDASHit.
 **Definition:** DDASHitUnpacker.cpp:147
 
 
-[[classddasfmt_1_1DDASHitUnpacker#ae1ef0c0a6f3f2f970b053c2330fec522]]
+[[ddasfmt::DDASHitUnpacker::extractExternalTimestamp|classddasfmt_1_1DDASHitUnpacker#ae1ef0c0a6f3f2f970b053c2330fec522]]
 
 const uint32_t * extractExternalTimestamp(const uint32_t *data, DDASHit &hit)
 
@@ -340,7 +340,7 @@ Unpack the external timestamp data.
 **Definition:** DDASHitUnpacker.cpp:481
 
 
-[[classddasfmt_1_1DDASHit]]
+[[ddasfmt::DDASHit|classddasfmt_1_1DDASHit]]
 
 Encapsulation of a generic DDAS event.
 

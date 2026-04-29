@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCMyEndCommand]]
-- [[structCMyEndCommand_1_1EndEvent]]
+- [[CMyEndCommand|classCMyEndCommand]]
+- [[EndEvent|structCMyEndCommand_1_1EndEvent]]
 
  top 
 CMyEndCommand::EndEvent Member List
 
 header
-This is the complete list of members for [[structCMyEndCommand_1_1EndEvent]], including all inherited members.
+This is the complete list of members for [[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent]], including all inherited members.
 
 
 |  |  |  |

@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CParameterReader]]
+- [[CParameterReader|classfrib_1_1analysis_1_1CParameterReader]]
 
  top 
 frib::analysis::CParameterReader Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CParameterReader]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CParameterReader|classfrib_1_1analysis_1_1CParameterReader]], including all inherited members.
 
 
 |  |  |  |

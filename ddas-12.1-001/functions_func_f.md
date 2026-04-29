@@ -19,13 +19,13 @@ do not remove this div, it is closed by doxygen!
 ### - f -
 
 - FdDataSource()
-  : [[classFdDataSource#a947ad23ce26c16dc3d8065ba994afa76]]
+  : [[FdDataSource|classFdDataSource#a947ad23ce26c16dc3d8065ba994afa76]]
 - FirmwareVersionFileParser()
-  : [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#ac8a9d1998a1fb0b0f1fa7109e0ebf7bf]]
+  : [[DAQ::DDAS::FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#ac8a9d1998a1fb0b0f1fa7109e0ebf7bf]]
 - free()
-  : [[classDDASReadout_1_1BufferArena#a3232cd2b0992615b7436fe691c3d59aa]]
+  : [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena#a3232cd2b0992615b7436fe691c3d59aa]]
 - freeHit()
-  : [[classDDASReadout_1_1ZeroCopyHit#a18a15c932d4605045f68220e75588a26]]
+  : [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#a18a15c932d4605045f68220e75588a26]]
 
  contents 
  start footer part 

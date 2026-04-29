@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1DDASDataSimulator]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDAQ_1_1DDAS_1_1DDASDataSimulator-members]]
+[[List of all members|classDAQ_1_1DDAS_1_1DDASDataSimulator-members]]
 
 
-DAQ::DDAS::DDASDataSimulator Class Reference[[group__libDDASDataSimulator]]
+DAQ::DDAS::DDASDataSimulator Class Reference[[libDDASDataSimulator.so|group__libDDASDataSimulator]]
 
 header
-Simulates data produced by a [[namespaceDAQ_1_1DDAS]] readout program in user code.  
- [[classDAQ_1_1DDAS_1_1DDASDataSimulator#details]]
+Simulates data produced by a [[DDAS|namespaceDAQ_1_1DDAS]] readout program in user code.  
+ [[More...|classDAQ_1_1DDAS_1_1DDASDataSimulator#details]]
 
 
 `#include <DDASDataSimulator.h>`
@@ -69,10 +69,10 @@ Simulates data produced by a [[namespaceDAQ_1_1DDAS]] readout program in user co
 <a name="details"></a>## Detailed Description
 
 
-Simulates data produced by a [[namespaceDAQ_1_1DDAS]] readout program in user code.
+Simulates data produced by a [[DDAS|namespaceDAQ_1_1DDAS]] readout program in user code.
 
 
-This class provides an interface to simulate the data output by an NSCLDAQ readout program running [[namespaceDAQ_1_1DDAS]] electronics. The ddasfmt::DDASHit class is used to encapsulate the hit information. The `putHit()` method of this class fills an event buffer with the Pixie data payload based on the contents of the passed ddasfmt::DDASHit, including optional data like QDC sums or traces, wraps it in an NSCLDAQ header and writes it to a file data sink.
+This class provides an interface to simulate the data output by an NSCLDAQ readout program running [[DDAS|namespaceDAQ_1_1DDAS]] electronics. The ddasfmt::DDASHit class is used to encapsulate the hit information. The `putHit()` method of this class fills an event buffer with the Pixie data payload based on the contents of the passed ddasfmt::DDASHit, including optional data like QDC sums or traces, wraps it in an NSCLDAQ header and writes it to a file data sink.
 
 
 The output NSCLDAQ data format is specified by the user when they instantiate the class. For completeness, the `beginRun()` and `endRun()` methods will write the expected data format and state change items you would see when starting and stopping a run.
@@ -83,14 +83,14 @@ In general the code uses the information contained within the ddasfmt::DDASHit t
 
 To use this class in your own code:
 
-- Ensure `$DAQINC`, `$DAQROOT`/unifiedformat/include and `$DAQROOT`/ddasformat/include are in the compiler include files search path (add `-I<path>` in e.g., `CXXFLAGS`) and include [[DDASDataSimulator_8h]] and DDASHit.h.
+- Ensure `$DAQINC`, `$DAQROOT`/unifiedformat/include and `$DAQROOT`/ddasformat/include are in the compiler include files search path (add `-I<path>` in e.g., `CXXFLAGS`) and include [[DDASDataSimulator.h|DDASDataSimulator_8h]] and DDASHit.h.
 - Link against the installed DDASDataSimulator.so and DDASFormat.so libraries in `$DAQLIB` and `$DAQROOT`/ddasformat/lib (add `-L<path> -Wl,-rpath=<path>` to `LDFLAGS` and `-l<libname>` to `LDLIBS`).
 - Build your executable with the proper compiler and linker flags described above.
 
 
 Example code to create a complete run with a single event:
 
-#include <[[DDASDataSimulator_8h]]>
+#include <[[DDASDataSimulator.h|DDASDataSimulator_8h]]>
 
 
 #include <DDASHit.h>
@@ -99,19 +99,19 @@ Example code to create a complete run with a single event:
 
 
 
-using namespace [[namespaceDAQ_1_1DDAS]];
+using namespace [[DAQ::DDAS|namespaceDAQ_1_1DDAS]];
 
 
-using namespace [[namespaceddasfmt]];
+using namespace [[ddasfmt|namespaceddasfmt]];
 
 
 
 
 
-int [[qtscope_8cpp#a0ddf1224851353fc92bfbff6f499fa97]] () {
+int [[main|qtscope_8cpp#a0ddf1224851353fc92bfbff6f499fa97]] () {
 
 
-[[classDAQ_1_1DDAS_1_1DDASDataSimulator#a28258b5bb5377db387097a7c7f1b073d]] sim("data.evt", 12);
+[[DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#a28258b5bb5377db387097a7c7f1b073d]] sim("data.evt", 12);
 
 
 DDASHit hit;
@@ -162,12 +162,12 @@ return 0;
 }
 
 
-[[DDASDataSimulator_8h]]
+[[DDASDataSimulator.h|DDASDataSimulator_8h]]
 
 Defines a class to simulate DDAS data recored by NSCLDAQ readout.
 
 
-[[classDAQ_1_1DDAS_1_1DDASDataSimulator#a28258b5bb5377db387097a7c7f1b073d]]
+[[DAQ::DDAS::DDASDataSimulator::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#a28258b5bb5377db387097a7c7f1b073d]]
 
 DDASDataSimulator(std::string fname, int version)
 
@@ -176,15 +176,15 @@ Constructor.
 **Definition:** DDASDataSimulator.cpp:85
 
 
-[[namespaceDAQ_1_1DDAS]]
+[[DAQ::DDAS|namespaceDAQ_1_1DDAS]]
 
 
-[[namespaceddasfmt]]
+[[ddasfmt|namespaceddasfmt]]
 
 **Definition:** RootFileDataSink.h:31
 
 
-[[qtscope_8cpp#a0ddf1224851353fc92bfbff6f499fa97]]
+[[main|qtscope_8cpp#a0ddf1224851353fc92bfbff6f499fa97]]
 
 int main(int argc, char *argv[])
 
@@ -367,8 +367,8 @@ Sets the data buffer based on the size of the hit passed in. Assumes that the in
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASDataSimulator_8h_source]]
-- [[DDASDataSimulator_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASDataSimulator.h|DDASDataSimulator_8h_source]]
+- [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp]]
 
  contents 
  start footer part 

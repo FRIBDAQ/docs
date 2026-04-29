@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 [Classes](#nested-classes)
@@ -40,7 +40,7 @@ This graph shows which files directly or indirectly include this file:
 ![](CEventProcessor_8h__dep__incl.png)
 
 
-[[CEventProcessor_8h_source]]
+[[Go to the source code of this file.|CEventProcessor_8h_source]]
 
 
 |  |  |

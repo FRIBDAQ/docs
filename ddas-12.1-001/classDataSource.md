@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[classDataSource-members]]
+[[List of all members|classDataSource-members]]
 
 
 DataSource Class Referenceabstract
 
 header
 Abstract base class for DDAS data sources.  
- [[classDataSource#details]]
+ [[More...|classDataSource#details]]
 
 
 `#include <DataSource.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for DataSource:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -81,8 +81,8 @@ Abstract base class for DDAS data sources.
 
 Pure abstract data source which uses a factory's ring item getters to provide ring items from a data source. Since the factory provides this, we'll need concrete classes:
 
-- [[classFdDataSource]]: give data from a file descriptor.
-- [[classStreamDataSource]]: give data from a stream. NoteNeither of these data sources supports reading directly from a ring buffer, as the format library is unaware of those NSCLDAQ classes. To read data from a ringbuffer you can create a file descriptor data source and read data from stdin i.e. `ringselector | ddasdumper -`.
+- [[FdDataSource|classFdDataSource]]: give data from a file descriptor.
+- [[StreamDataSource|classStreamDataSource]]: give data from a stream. NoteNeither of these data sources supports reading directly from a ring buffer, as the format library is unaware of those NSCLDAQ classes. To read data from a ringbuffer you can create a file descriptor data source and read data from stdin i.e. `ringselector | ddasdumper -`.
 
 ## Constructor & Destructor Documentation
 
@@ -132,7 +132,7 @@ Pure-virtual method to access a ring item from the data source. Must be implemen
 
 
 ReturnsPointer to the next ring item from the source. 
-Implemented in [[classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]], and [[classFdDataSource#a798fb79377ecc62786e54e2fe74c1c03]].
+Implemented in [[StreamDataSource|classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]], and [[FdDataSource|classFdDataSource#a798fb79377ecc62786e54e2fe74c1c03]].
 
 
 
@@ -170,8 +170,8 @@ Pointer to our ring item factory.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DataSource_8h_source]]
-- [[DataSource_8cpp]]
+The documentation for this class was generated from the following files:- [[DataSource.h|DataSource_8h_source]]
+- [[DataSource.cpp|DataSource_8cpp]]
 
  contents 
  start footer part 

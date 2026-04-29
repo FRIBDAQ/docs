@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classStreamDataSource-members]]
+[[List of all members|classStreamDataSource-members]]
 
 
 StreamDataSource Class Reference
 
 header
 A class taking the input stream as a data source. Most commonly used to construct a data source from an NSCLDAQ event file on disk.  
- [[classStreamDataSource#details]]
+ [[More...|classStreamDataSource#details]]
 
 
 `#include <StreamDataSource.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for StreamDataSource:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for StreamDataSource:
@@ -57,7 +57,7 @@ Collaboration diagram for StreamDataSource:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -156,14 +156,14 @@ Return values
 
 
 
-Implements [[classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].
+Implements [[DataSource|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[StreamDataSource_8h_source]]
-- [[StreamDataSource_8cpp]]
+The documentation for this class was generated from the following files:- [[StreamDataSource.h|StreamDataSource_8h_source]]
+- [[StreamDataSource.cpp|StreamDataSource_8cpp]]
 
  contents 
  start footer part 

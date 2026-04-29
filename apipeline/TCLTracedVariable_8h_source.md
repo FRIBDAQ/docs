@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLTracedVariable.h
@@ -73,27 +73,27 @@ header
 
 <a name="l00022"></a>   22
 
-<a name="l00023"></a>   23 class [[classCTCLInterpreter]];
+<a name="l00023"></a>   23 class [[CTCLInterpreter|classCTCLInterpreter]];
 
-<a name="l00024"></a>   24 class [[classCVariableTraceCallback]];
+<a name="l00024"></a>   24 class [[CVariableTraceCallback|classCVariableTraceCallback]];
 
 <a name="l00025"></a>   25
 
-<a name="l00034"></a>[[classCTCLTracedVariable]] class [[classCTCLTracedVariable]] : public [[classCTCLVariable]]
+<a name="l00034"></a>[[34|classCTCLTracedVariable]] class [[CTCLTracedVariable|classCTCLTracedVariable]] : public [[CTCLVariable|classCTCLVariable]]
 
 <a name="l00035"></a>   35 {
 
 <a name="l00036"></a>   36 private:
 
-<a name="l00037"></a>   37   [[classCVariableTraceCallback]]*    m_pCallback;
+<a name="l00037"></a>   37   [[CVariableTraceCallback|classCVariableTraceCallback]]*    m_pCallback;
 
 <a name="l00038"></a>   38 public:
 
-<a name="l00039"></a>   39   [[classCTCLTracedVariable]]([[classCTCLInterpreter]]*           pInterp,
+<a name="l00039"></a>   39   [[CTCLTracedVariable|classCTCLTracedVariable]]([[CTCLInterpreter|classCTCLInterpreter]]*           pInterp,
 
 <a name="l00040"></a>   40           std::string                Name,
 
-<a name="l00041"></a>   41           [[classCVariableTraceCallback]]&    Trace,
+<a name="l00041"></a>   41           [[CVariableTraceCallback|classCVariableTraceCallback]]&    Trace,
 
 <a name="l00042"></a>   42           int                        flags = (TCL_TRACE_READS  |
 
@@ -101,7 +101,7 @@ header
 
 <a name="l00044"></a>   44                               TCL_TRACE_UNSETS));
 
-<a name="l00045"></a>   45   virtual [[classCTCLTracedVariable#ad199a8b57cc9a2622f1d87efc7e8077c]]();
+<a name="l00045"></a>   45   virtual [[~CTCLTracedVariable|classCTCLTracedVariable#ad199a8b57cc9a2622f1d87efc7e8077c]]();
 
 <a name="l00046"></a>   46
 
@@ -111,13 +111,13 @@ header
 
 <a name="l00049"></a>   49 private:
 
-<a name="l00050"></a>   50   [[classCTCLTracedVariable]](const [[classCTCLTracedVariable]]& rhs);
+<a name="l00050"></a>   50   [[CTCLTracedVariable|classCTCLTracedVariable]](const [[CTCLTracedVariable|classCTCLTracedVariable]]& rhs);
 
-<a name="l00051"></a>   51   [[classCTCLTracedVariable]]& operator=(const [[classCTCLTracedVariable]]& rhs);
+<a name="l00051"></a>   51   [[CTCLTracedVariable|classCTCLTracedVariable]]& operator=(const [[CTCLTracedVariable|classCTCLTracedVariable]]& rhs);
 
-<a name="l00052"></a>   52   int operator==(const [[classCTCLTracedVariable]]& rhs) const;
+<a name="l00052"></a>   52   int operator==(const [[CTCLTracedVariable|classCTCLTracedVariable]]& rhs) const;
 
-<a name="l00053"></a>   53   int operator!=(const [[classCTCLTracedVariable]]& rhs) const;
+<a name="l00053"></a>   53   int operator!=(const [[CTCLTracedVariable|classCTCLTracedVariable]]& rhs) const;
 
 <a name="l00054"></a>   54 public:
 
@@ -127,7 +127,7 @@ header
 
 <a name="l00057"></a>   57
 
-<a name="l00058"></a>   58   [[classCVariableTraceCallback]]& getCallback()
+<a name="l00058"></a>   58   [[CVariableTraceCallback|classCVariableTraceCallback]]& getCallback()
 
 <a name="l00059"></a>   59   {
 
@@ -141,7 +141,7 @@ header
 
 <a name="l00064"></a>   64 public:
 
-<a name="l00065"></a>   65   virtual char* [[classCTCLTracedVariable#a82ea3bce3d1405bde40f04644e9a0cd5]](char* pName, char* pElement, int flags);
+<a name="l00065"></a>   65   virtual char* [[operator()|classCTCLTracedVariable#a82ea3bce3d1405bde40f04644e9a0cd5]](char* pName, char* pElement, int flags);
 
 <a name="l00066"></a>   66
 
@@ -151,36 +151,36 @@ header
 
 <a name="l00069"></a>   69 #endif
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCVariableTraceCallback]]
+[[CVariableTraceCallback|classCVariableTraceCallback]]
 
 **Definition:** VariableTraceCallback.h:23
 
 
-[[classCTCLTracedVariable#a82ea3bce3d1405bde40f04644e9a0cd5]]
+[[CTCLTracedVariable::operator()|classCTCLTracedVariable#a82ea3bce3d1405bde40f04644e9a0cd5]]
 
 virtual char * operator()(char *pName, char *pElement, int flags)
 
 **Definition:** TCLTracedVariable.cpp:73
 
 
-[[classCTCLTracedVariable#ad199a8b57cc9a2622f1d87efc7e8077c]]
+[[CTCLTracedVariable::~CTCLTracedVariable|classCTCLTracedVariable#ad199a8b57cc9a2622f1d87efc7e8077c]]
 
 virtual ~CTCLTracedVariable()
 
 **Definition:** TCLTracedVariable.cpp:51
 
 
-[[classCTCLVariable]]
+[[CTCLVariable|classCTCLVariable]]
 
 **Definition:** TCLVariable.h:50
 
 
-[[classCTCLTracedVariable]]
+[[CTCLTracedVariable|classCTCLTracedVariable]]
 
 **Definition:** TCLTracedVariable.h:34
 

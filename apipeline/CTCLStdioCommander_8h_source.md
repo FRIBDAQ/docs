@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CTCLStdioCommander.h
@@ -79,13 +79,13 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 class [[classCTCLInterpreter]];
+<a name="l00026"></a>   26 class [[CTCLInterpreter|classCTCLInterpreter]];
 
 <a name="l00027"></a>   27
 
 <a name="l00028"></a>   28
 
-<a name="l00040"></a>[[classCTCLStdioCommander]] class [[classCTCLStdioCommander]] : public [[classCTCLChannelCommander]]
+<a name="l00040"></a>[[40|classCTCLStdioCommander]] class [[CTCLStdioCommander|classCTCLStdioCommander]] : public [[CTCLChannelCommander|classCTCLChannelCommander]]
 
 <a name="l00041"></a>   41 {
 
@@ -103,21 +103,21 @@ header
 
 <a name="l00048"></a>   48 public:
 
-<a name="l00049"></a>   49   [[classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]]([[classCTCLInterpreter]]* pInterp);
+<a name="l00049"></a>   49   [[CTCLStdioCommander|classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp);
 
-<a name="l00050"></a>   50   virtual [[classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]();
+<a name="l00050"></a>   50   virtual [[~CTCLStdioCommander|classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]();
 
 <a name="l00051"></a>   51
 
 <a name="l00052"></a>   52 private:
 
-<a name="l00053"></a>   53   [[classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]](const [[classCTCLStdioCommander]]&);
+<a name="l00053"></a>   53   [[CTCLStdioCommander|classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]](const [[CTCLStdioCommander|classCTCLStdioCommander]]&);
 
-<a name="l00054"></a>   54   [[classCTCLStdioCommander]]& operator=(const [[classCTCLStdioCommander]]&);
+<a name="l00054"></a>   54   [[CTCLStdioCommander|classCTCLStdioCommander]]& operator=(const [[CTCLStdioCommander|classCTCLStdioCommander]]&);
 
-<a name="l00055"></a>   55   int operator==(const [[classCTCLStdioCommander]]&) const;
+<a name="l00055"></a>   55   int operator==(const [[CTCLStdioCommander|classCTCLStdioCommander]]&) const;
 
-<a name="l00056"></a>   56   int operator!=(const [[classCTCLStdioCommander]]&) const;
+<a name="l00056"></a>   56   int operator!=(const [[CTCLStdioCommander|classCTCLStdioCommander]]&) const;
 
 <a name="l00057"></a>   57
 
@@ -135,29 +135,29 @@ header
 
 <a name="l00064"></a>   64 #endif
 
-[[classCTCLStdioCommander]]
+[[CTCLStdioCommander|classCTCLStdioCommander]]
 
 **Definition:** CTCLStdioCommander.h:40
 
 
-[[classCTCLChannelCommander]]
+[[CTCLChannelCommander|classCTCLChannelCommander]]
 
 **Definition:** CTCLChannelCommander.h:39
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]]
+[[CTCLStdioCommander::CTCLStdioCommander|classCTCLStdioCommander#a3ea38cad8387256c44cc9a37dda7ce7b]]
 
 CTCLStdioCommander(CTCLInterpreter *pInterp)
 
 **Definition:** CTCLStdioCommander.cpp:37
 
 
-[[classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]
+[[CTCLStdioCommander::~CTCLStdioCommander|classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]
 
 virtual ~CTCLStdioCommander()
 

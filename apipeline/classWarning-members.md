@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Warning Member List
 
 header
-This is the complete list of members for [[classWarning]], including all inherited members.
+This is the complete list of members for [[Warning|classWarning]], including all inherited members.
 
 
 |  |  |  |

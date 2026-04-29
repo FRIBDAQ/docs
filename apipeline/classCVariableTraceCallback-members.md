@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CVariableTraceCallback Member List
 
 header
-This is the complete list of members for [[classCVariableTraceCallback]], including all inherited members.
+This is the complete list of members for [[CVariableTraceCallback|classCVariableTraceCallback]], including all inherited members.
 
 
 |  |  |  |

@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CLanguageTraceCallbacks.h
@@ -73,7 +73,7 @@ header
 
 <a name="l00022"></a>   22
 
-<a name="l00023"></a>   23 class [[classCTCLInterpreter]];
+<a name="l00023"></a>   23 class [[CTCLInterpreter|classCTCLInterpreter]];
 
 <a name="l00024"></a>   24
 
@@ -85,7 +85,7 @@ header
 
 <a name="l00028"></a>   28
 
-<a name="l00033"></a>[[classCLanguageTraceCallback]] class [[classCLanguageTraceCallback]] : public [[classCVariableTraceCallback]]
+<a name="l00033"></a>[[33|classCLanguageTraceCallback]] class [[CLanguageTraceCallback|classCLanguageTraceCallback]] : public [[CVariableTraceCallback|classCVariableTraceCallback]]
 
 <a name="l00034"></a>   34 {
 
@@ -99,15 +99,15 @@ header
 
 <a name="l00039"></a>   39  public:
 
-<a name="l00040"></a>   40   [[classCLanguageTraceCallback#a6d84c8ab8f0b5ea98d738c2e93c8c3f1]](VariableTraceCallback* pCallback,
+<a name="l00040"></a>   40   [[CLanguageTraceCallback|classCLanguageTraceCallback#a6d84c8ab8f0b5ea98d738c2e93c8c3f1]](VariableTraceCallback* pCallback,
 
 <a name="l00041"></a>   41               void*                  pClientData);
 
-<a name="l00042"></a>   42   virtual [[classCLanguageTraceCallback#a1b3572a9bd4330233d6eba7c032858ef]]();
+<a name="l00042"></a>   42   virtual [[~CLanguageTraceCallback|classCLanguageTraceCallback#a1b3572a9bd4330233d6eba7c032858ef]]();
 
 <a name="l00043"></a>   43
 
-<a name="l00044"></a>   44   virtual char* [[classCLanguageTraceCallback#a9b45c6e9b881649e1c1389a16ab94fb7]]([[classCTCLInterpreter]]* pInterp,
+<a name="l00044"></a>   44   virtual char* [[operator()|classCLanguageTraceCallback#a9b45c6e9b881649e1c1389a16ab94fb7]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00045"></a>   45                char*            pVariable,
 
@@ -127,36 +127,36 @@ header
 
 <a name="l00053"></a>   53 #endif
 
-[[classCLanguageTraceCallback]]
+[[CLanguageTraceCallback|classCLanguageTraceCallback]]
 
 **Definition:** CLanguageTraceCallbacks.h:33
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCLanguageTraceCallback#a9b45c6e9b881649e1c1389a16ab94fb7]]
+[[CLanguageTraceCallback::operator()|classCLanguageTraceCallback#a9b45c6e9b881649e1c1389a16ab94fb7]]
 
 virtual char * operator()(CTCLInterpreter *pInterp, char *pVariable, char *pElement, int flags)
 
 **Definition:** CLanguageTraceCallbacks.cpp:48
 
 
-[[classCLanguageTraceCallback#a6d84c8ab8f0b5ea98d738c2e93c8c3f1]]
+[[CLanguageTraceCallback::CLanguageTraceCallback|classCLanguageTraceCallback#a6d84c8ab8f0b5ea98d738c2e93c8c3f1]]
 
 CLanguageTraceCallback(VariableTraceCallback *pCallback, void *pClientData)
 
 **Definition:** CLanguageTraceCallbacks.cpp:20
 
 
-[[classCVariableTraceCallback]]
+[[CVariableTraceCallback|classCVariableTraceCallback]]
 
 **Definition:** VariableTraceCallback.h:23
 
 
-[[classCLanguageTraceCallback#a1b3572a9bd4330233d6eba7c032858ef]]
+[[CLanguageTraceCallback::~CLanguageTraceCallback|classCLanguageTraceCallback#a1b3572a9bd4330233d6eba7c032858ef]]
 
 virtual ~CLanguageTraceCallback()
 

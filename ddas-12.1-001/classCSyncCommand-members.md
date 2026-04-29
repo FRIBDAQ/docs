@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CSyncCommand Member List
 
 header
-This is the complete list of members for [[classCSyncCommand]], including all inherited members.
+This is the complete list of members for [[CSyncCommand|classCSyncCommand]], including all inherited members.
 
 
 |  |  |  |

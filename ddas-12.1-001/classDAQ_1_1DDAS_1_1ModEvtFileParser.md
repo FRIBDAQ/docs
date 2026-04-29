@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1ModEvtFileParser]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDAQ_1_1DDAS_1_1ModEvtFileParser-members]]
+[[List of all members|classDAQ_1_1DDAS_1_1ModEvtFileParser-members]]
 
 
-DAQ::DDAS::ModEvtFileParser Class Reference[[group__configuration]]
+DAQ::DDAS::ModEvtFileParser Class Reference[[libConfiguration.so|group__configuration]]
 
 header
 A parser for the modevtlen.txt file.  
- [[classDAQ_1_1DDAS_1_1ModEvtFileParser#details]]
+ [[More...|classDAQ_1_1DDAS_1_1ModEvtFileParser#details]]
 
 
 `#include <ModEvtFileParser.h>`
@@ -120,8 +120,8 @@ The parser will read in as many lines as the value returned by `config.getNumber
 
 ---
 
-The documentation for this class was generated from the following files:- [[ModEvtFileParser_8h_source]]
-- [[ModEvtFileParser_8cpp]]
+The documentation for this class was generated from the following files:- [[ModEvtFileParser.h|ModEvtFileParser_8h_source]]
+- [[ModEvtFileParser.cpp|ModEvtFileParser_8cpp]]
 
  contents 
  start footer part 

@@ -19,8 +19,8 @@ do not remove this div, it is closed by doxygen!
 ### - h -
 
 - hasChanged()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#ae02584ff616af320ce900789cf761eb0]]
-  , [[classfrib_1_1analysis_1_1CTreeVariable#a9685a5cb0c2e7e17839e319c33269b6b]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#ae02584ff616af320ce900789cf761eb0]]
+  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#a9685a5cb0c2e7e17839e319c33269b6b]]
 
  contents 
  start footer part 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLIdleProcess Member List
 
 header
-This is the complete list of members for [[classCTCLIdleProcess]], including all inherited members.
+This is the complete list of members for [[CTCLIdleProcess|classCTCLIdleProcess]], including all inherited members.
 
 
 |  |  |  |

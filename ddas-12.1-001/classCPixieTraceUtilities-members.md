@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CPixieTraceUtilities Member List
 
 header
-This is the complete list of members for [[classCPixieTraceUtilities]], including all inherited members.
+This is the complete list of members for [[CPixieTraceUtilities|classCPixieTraceUtilities]], including all inherited members.
 
 
 |  |  |  |

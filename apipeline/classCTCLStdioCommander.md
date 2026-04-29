@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLStdioCommander-members]]
+[[List of all members|classCTCLStdioCommander-members]]
 
 
 CTCLStdioCommander Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLStdioCommander:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLStdioCommander:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLStdioCommander:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -118,7 +118,7 @@ Collaboration diagram for CTCLStdioCommander:
 STDIO channel commander is a channel commander that prompts on stdout, and accepts commands on stdin. Registering this in the event loop, and then entering the event loop yields a powerful result, tcl with an event loop running but still accepting commands on stdin (event loop without the vwait command).
 
 
-See also [[classCTCLLiveEventLoop]] which is a class that can set this all up and contains the event loop code itself.
+See also [[CTCLLiveEventLoop|classCTCLLiveEventLoop]] which is a class that can set this all up and contains the event loop code itself.
 
 ## Constructor & Destructor Documentation
 
@@ -161,7 +161,7 @@ Destruction is a placeholder to ensure base class destruction is done.. that's w
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLStdioCommander_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLStdioCommander.h|CTCLStdioCommander_8h_source]]
 - libtclplus/tclplus/CTCLStdioCommander.cpp
 
  contents 

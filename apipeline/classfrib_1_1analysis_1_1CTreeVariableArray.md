@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeVariableArray]]
+- [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classfrib_1_1analysis_1_1CTreeVariableArray-members]]
+[[List of all members|classfrib_1_1analysis_1_1CTreeVariableArray-members]]
 
 
 frib::analysis::CTreeVariableArray Class Reference
@@ -158,7 +158,7 @@ Parameters
 | void frib::analysis::CTreeVariableArray::CopyArray(constCTreeVariableArray&rhs) | void frib::analysis::CTreeVariableArray::CopyArray | ( | constCTreeVariableArray& | rhs | ) |  | protected |
 | void frib::analysis::CTreeVariableArray::CopyArray | ( | constCTreeVariableArray& | rhs | ) |  |
 
-Copys the member elements from a rhs [[classfrib_1_1analysis_1_1CTreeVariableArray]] into the current object. This utility is used both by assignment and copy construction.
+Copys the member elements from a rhs [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]] into the current object. This utility is used both by assignment and copy construction.
 
 Parameters
 |  |  |
@@ -212,7 +212,7 @@ Parameters
 
 Values in the rhs are copied to the values of the LHS.
 
-Noteprecondition is that rhs.size( == this->[[classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]) Else invalid_argument is thrown. 
+Noteprecondition is that rhs.size( == this->[[size()|classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]) Else invalid_argument is thrown. 
 Parameters
 |  |  |
 | --- | --- |
@@ -250,7 +250,7 @@ return the number of elements in the array (could be 0).
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeVariableArray_8h_source]]
+The documentation for this class was generated from the following files:- base/[[TreeVariableArray.h|TreeVariableArray_8h_source]]
 - base/TreeVariableArray.cpp
 
  contents 

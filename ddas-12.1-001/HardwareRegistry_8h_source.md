@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
 
  top 
 HardwareRegistry.h
 
 header
-[[HardwareRegistry_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|HardwareRegistry_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef HARDWAREREGISTRY_H
@@ -40,7 +40,7 @@ header
 <a name="l00009"></a>    9
 
 
-<a name="l00011"></a>   11 namespace [[namespaceDAQ]] {
+<a name="l00011"></a>   11 namespace [[DAQ|namespaceDAQ]] {
 
 
 <a name="l00013"></a>   13     namespace DDAS {
@@ -52,19 +52,19 @@ header
 <a name="l00049"></a>   49     namespace HardwareRegistry {
 
 
-<a name="l00053"></a>[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]         struct [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]] {
+<a name="l00053"></a>[[53|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]         struct [[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]] {
 
 
-<a name="l00054"></a>[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]         int [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]];
+<a name="l00054"></a>[[54|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]         int [[s_adcFrequency|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]];
 
 
-<a name="l00055"></a>[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]         int [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]];
+<a name="l00055"></a>[[55|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]         int [[s_adcResolution|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]];
 
 
-<a name="l00056"></a>[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]         int [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]];
+<a name="l00056"></a>[[56|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]         int [[s_hdwrRevision|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]];
 
 
-<a name="l00058"></a>[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]         double [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]];
+<a name="l00058"></a>[[58|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]         double [[s_clockCalibration|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]];
 
 
 <a name="l00059"></a>   59         };
@@ -73,52 +73,52 @@ header
 <a name="l00060"></a>   60
 
 
-<a name="l00075"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]         enum [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]] {
+<a name="l00075"></a>[[75|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]         enum [[HardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]] {
 
 
-<a name="l00076"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]=1,
+<a name="l00076"></a>[[76|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]         [[RevB_100MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]=1,
 
 
-<a name="l00077"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]=2,
+<a name="l00077"></a>[[77|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]         [[RevC_100MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]=2,
 
 
-<a name="l00078"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]=3,
+<a name="l00078"></a>[[78|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]         [[RevD_100MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]=3,
 
 
-<a name="l00079"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]=4,
+<a name="l00079"></a>[[79|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]         [[RevF_100MHz_14Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]=4,
 
 
-<a name="l00080"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]=5,
+<a name="l00080"></a>[[80|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]         [[RevF_100MHz_16Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]=5,
 
 
-<a name="l00081"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]=6,
+<a name="l00081"></a>[[81|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]         [[RevF_250MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]=6,
 
 
-<a name="l00082"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]=7,
+<a name="l00082"></a>[[82|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]         [[RevF_250MHz_14Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]=7,
 
 
-<a name="l00083"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]=8,
+<a name="l00083"></a>[[83|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]         [[RevF_250MHz_16Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]=8,
 
 
-<a name="l00084"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]=9,
+<a name="l00084"></a>[[84|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]         [[RevF_500MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]=9,
 
 
-<a name="l00085"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]=10,
+<a name="l00085"></a>[[85|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]         [[RevF_500MHz_14Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]=10,
 
 
-<a name="l00086"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]=11,
+<a name="l00086"></a>[[86|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]         [[RevF_500MHz_16Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]=11,
 
 
-<a name="l00087"></a>   87         [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]=0
+<a name="l00087"></a>   87         [[Unknown|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]=0
 
 
-<a name="l00088"></a>[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]         };
+<a name="l00088"></a>[[88|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]         };
 
 
 <a name="l00089"></a>   89
 
 
-<a name="l00090"></a>   90         void [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]](
+<a name="l00090"></a>   90         void [[configureHardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]](
 
 
 <a name="l00091"></a>   91         int type, const HardwareSpecification& spec
@@ -127,16 +127,16 @@ header
 <a name="l00092"></a>   92         );
 
 
-<a name="l00101"></a>  101         HardwareSpecification& [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]](int type);
+<a name="l00101"></a>  101         HardwareSpecification& [[getSpecification|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]](int type);
 
 
-<a name="l00102"></a>  102         void [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]();
+<a name="l00102"></a>  102         void [[resetToDefaults|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]();
 
 
-<a name="l00110"></a>  110         int [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]](int hdwrVersion, int adcFreq, int adcRes);
+<a name="l00110"></a>  110         int [[computeHardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]](int hdwrVersion, int adcFreq, int adcRes);
 
 
-<a name="l00120"></a>  120         int [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]](
+<a name="l00120"></a>  120         int [[createHardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]](
 
 
 <a name="l00121"></a>  121         int hdwrVersion, int adcFreq, int adcRes,
@@ -166,13 +166,13 @@ header
 <a name="l00131"></a>  131
 
 
-<a name="l00139"></a>  139 bool [[HardwareRegistry_8h#a44d347fcad4f2736671d8b2778f9c858]](
+<a name="l00139"></a>  139 bool [[operator==|HardwareRegistry_8h#a44d347fcad4f2736671d8b2778f9c858]](
 
 
-<a name="l00140"></a>  140     const [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]& lhs,
+<a name="l00140"></a>  140     const [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]& lhs,
 
 
-<a name="l00141"></a>  141     const [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]& rhs
+<a name="l00141"></a>  141     const [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]& rhs
 
 
 <a name="l00142"></a>  142     );
@@ -187,7 +187,7 @@ header
 <a name="l00145"></a>  145
 
 
-[[HardwareRegistry_8h#a44d347fcad4f2736671d8b2778f9c858]]
+[[operator==|HardwareRegistry_8h#a44d347fcad4f2736671d8b2778f9c858]]
 
 bool operator==(const DAQ::DDAS::HardwareRegistry::HardwareSpecification &lhs, const DAQ::DDAS::HardwareRegistry::HardwareSpecification &rhs)
 
@@ -196,7 +196,7 @@ Check if two HardwareSpecifications are the same.
 **Definition:** HardwareRegistry.cpp:145
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]]
+[[DAQ::DDAS::HardwareRegistry::getSpecification|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]]
 
 HardwareSpecification & getSpecification(int type)
 
@@ -205,21 +205,21 @@ Retrieve a reference to the current hdwr specification for a hardware type.
 **Definition:** HardwareRegistry.cpp:78
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]]
+[[DAQ::DDAS::HardwareRegistry::configureHardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]]
 
 void configureHardwareType(int type, const HardwareSpecification &spec)
 
 **Definition:** HardwareRegistry.cpp:70
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]
+[[DAQ::DDAS::HardwareRegistry::resetToDefaults|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]
 
 void resetToDefaults()
 
 **Definition:** HardwareRegistry.cpp:94
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]
+[[DAQ::DDAS::HardwareRegistry::HardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]]
 
 HardwareType
 
@@ -228,91 +228,91 @@ The HardwareType enum.
 **Definition:** HardwareRegistry.h:75
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]
+[[DAQ::DDAS::HardwareRegistry::RevF_500MHz_14Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ea63f1f89f6868688ac32409a1b52b3]]
 
 @ RevF_500MHz_14Bit
 
 **Definition:** HardwareRegistry.h:85
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]
+[[DAQ::DDAS::HardwareRegistry::RevF_500MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a1ec814d0308c9172e8b9e376f0fc57bf]]
 
 @ RevF_500MHz_12Bit
 
 **Definition:** HardwareRegistry.h:84
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]
+[[DAQ::DDAS::HardwareRegistry::RevF_100MHz_16Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a34ab70274442684b9db611c7c6274043]]
 
 @ RevF_100MHz_16Bit
 
 **Definition:** HardwareRegistry.h:80
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]
+[[DAQ::DDAS::HardwareRegistry::RevF_250MHz_14Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a35d749137910104653cd03ad399b0664]]
 
 @ RevF_250MHz_14Bit
 
 **Definition:** HardwareRegistry.h:82
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]
+[[DAQ::DDAS::HardwareRegistry::RevF_250MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a3ec455162fa17a2d424708e66165d955]]
 
 @ RevF_250MHz_12Bit
 
 **Definition:** HardwareRegistry.h:81
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]
+[[DAQ::DDAS::HardwareRegistry::RevB_100MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a5aa10af750cac76fff0955e5ff2fde1b]]
 
 @ RevB_100MHz_12Bit
 
 **Definition:** HardwareRegistry.h:76
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]
+[[DAQ::DDAS::HardwareRegistry::RevC_100MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7b575435612a5291354c0b44b0eb2fed]]
 
 @ RevC_100MHz_12Bit
 
 **Definition:** HardwareRegistry.h:77
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]
+[[DAQ::DDAS::HardwareRegistry::RevF_500MHz_16Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a7d98b0a2ed3493325b5fbf5366f72181]]
 
 @ RevF_500MHz_16Bit
 
 **Definition:** HardwareRegistry.h:86
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]
+[[DAQ::DDAS::HardwareRegistry::RevF_100MHz_14Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4a8aed96777f82879aa8da056f6e323d67]]
 
 @ RevF_100MHz_14Bit
 
 **Definition:** HardwareRegistry.h:79
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]
+[[DAQ::DDAS::HardwareRegistry::RevF_250MHz_16Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ab64d79140539258c32122b59ba0601f7]]
 
 @ RevF_250MHz_16Bit
 
 **Definition:** HardwareRegistry.h:83
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]
+[[DAQ::DDAS::HardwareRegistry::RevD_100MHz_12Bit|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4ae83332f7f9697500a19b40e17d1c0ce3]]
 
 @ RevD_100MHz_12Bit
 
 **Definition:** HardwareRegistry.h:78
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]
+[[DAQ::DDAS::HardwareRegistry::Unknown|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4afbb1267a18a3f3960862d2e7d25200f7]]
 
 @ Unknown
 
 **Definition:** HardwareRegistry.h:87
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]
+[[DAQ::DDAS::HardwareRegistry::computeHardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]
 
 int computeHardwareType(int hdwrVersion, int adcFreq, int adcRes)
 
@@ -321,7 +321,7 @@ Compute the hardware type from input specifications.
 **Definition:** HardwareRegistry.cpp:103
 
 
-[[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
+[[DAQ::DDAS::HardwareRegistry::createHardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
 
 int createHardwareType(int hdwrVersion, int adcFreq, int adcRes, double clockCalibration)
 
@@ -330,17 +330,17 @@ Create an enumerated hardware type from input specifications.
 **Definition:** HardwareRegistry.cpp:125
 
 
-[[namespaceDAQ]]
+[[DAQ|namespaceDAQ]]
 
 
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
+[[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
 
 Generic hardware specs for hardware types.
 
 **Definition:** HardwareRegistry.h:53
 
 
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]
+[[DAQ::DDAS::HardwareRegistry::HardwareSpecification::s_hdwrRevision|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]
 
 int s_hdwrRevision
 
@@ -349,7 +349,7 @@ Module hardware revision.
 **Definition:** HardwareRegistry.h:56
 
 
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]
+[[DAQ::DDAS::HardwareRegistry::HardwareSpecification::s_adcFrequency|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]
 
 int s_adcFrequency
 
@@ -358,14 +358,14 @@ Module ADC frequency in MSPS.
 **Definition:** HardwareRegistry.h:54
 
 
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]
+[[DAQ::DDAS::HardwareRegistry::HardwareSpecification::s_clockCalibration|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]
 
 double s_clockCalibration
 
 **Definition:** HardwareRegistry.h:58
 
 
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
+[[DAQ::DDAS::HardwareRegistry::HardwareSpecification::s_adcResolution|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
 
 int s_adcResolution
 

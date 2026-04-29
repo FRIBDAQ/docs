@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
 
  top 
 CPixieSystemUtilities.cpp File Reference
 
 header
-Implementation the Pixie [[namespaceDAQ]] system utilities class.  
+Implementation the Pixie [[DAQ|namespaceDAQ]] system utilities class.  
 [More...](#details)
 
 
@@ -54,7 +54,7 @@ Include dependency graph for CPixieSystemUtilities.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Implementation the Pixie [[namespaceDAQ]] system utilities class.
+Implementation the Pixie [[DAQ|namespaceDAQ]] system utilities class.
 
  contents 
  start footer part 

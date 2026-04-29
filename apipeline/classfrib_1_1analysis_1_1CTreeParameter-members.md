@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeParameter]]
+- [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]
 
  top 
 frib::analysis::CTreeParameter Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CTreeParameter]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]], including all inherited members.
 
 
 |  |  |  |

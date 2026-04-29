@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classMyApp-members]]
+[[List of all members|classMyApp-members]]
 
 
 MyApp Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for MyApp:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for MyApp:
@@ -51,7 +51,7 @@ Collaboration diagram for MyApp:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -192,9 +192,9 @@ worker We open an output file and just put the data we get from the dealer into 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[testInput_8cpp]]
-- base/[[testParinput_8cpp]]
-- base/[[testWorker2_8cpp]]
+The documentation for this class was generated from the following files:- base/[[testInput.cpp|testInput_8cpp]]
+- base/[[testParinput.cpp|testParinput_8cpp]]
+- base/[[testWorker2.cpp|testWorker2_8cpp]]
 - libtclplus/tclplus/TCLTest.cpp
 
  contents 

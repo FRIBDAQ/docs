@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CTCLChannelCommander.h
@@ -79,17 +79,17 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 class [[classCTCLInterpreter]];
+<a name="l00026"></a>   26 class [[CTCLInterpreter|classCTCLInterpreter]];
 
 <a name="l00027"></a>   27
 
-<a name="l00039"></a>[[classCTCLChannelCommander]] class [[classCTCLChannelCommander]]
+<a name="l00039"></a>[[39|classCTCLChannelCommander]] class [[CTCLChannelCommander|classCTCLChannelCommander]]
 
 <a name="l00040"></a>   40 {
 
 <a name="l00041"></a>   41 protected:
 
-<a name="l00042"></a>   42   [[classCTCLInterpreter]]*   m_pInterp;
+<a name="l00042"></a>   42   [[CTCLInterpreter|classCTCLInterpreter]]*   m_pInterp;
 
 <a name="l00043"></a>   43   Tcl_Channel        m_channel;
 
@@ -105,23 +105,23 @@ header
 
 <a name="l00049"></a>   49 public:
 
-<a name="l00050"></a>   50   [[classCTCLChannelCommander#abeac8d18d39e9273ee5526fb41b7519b]]([[classCTCLInterpreter]]* interp,
+<a name="l00050"></a>   50   [[CTCLChannelCommander|classCTCLChannelCommander#abeac8d18d39e9273ee5526fb41b7519b]]([[CTCLInterpreter|classCTCLInterpreter]]* interp,
 
 <a name="l00051"></a>   51                Tcl_Channel      channel);
 
-<a name="l00052"></a>   52   virtual [[classCTCLChannelCommander#aa8f54d07606ad6c360f3f10555ead2c6]]();
+<a name="l00052"></a>   52   virtual [[~CTCLChannelCommander|classCTCLChannelCommander#aa8f54d07606ad6c360f3f10555ead2c6]]();
 
 <a name="l00053"></a>   53
 
 <a name="l00054"></a>   54 private:
 
-<a name="l00055"></a>   55   [[classCTCLChannelCommander#abeac8d18d39e9273ee5526fb41b7519b]](const [[classCTCLChannelCommander]]& rhs);
+<a name="l00055"></a>   55   [[CTCLChannelCommander|classCTCLChannelCommander#abeac8d18d39e9273ee5526fb41b7519b]](const [[CTCLChannelCommander|classCTCLChannelCommander]]& rhs);
 
-<a name="l00056"></a>   56   [[classCTCLChannelCommander]]& operator=(const [[classCTCLChannelCommander]]& rhs);
+<a name="l00056"></a>   56   [[CTCLChannelCommander|classCTCLChannelCommander]]& operator=(const [[CTCLChannelCommander|classCTCLChannelCommander]]& rhs);
 
-<a name="l00057"></a>   57   int operator==(const [[classCTCLChannelCommander]]& rhs) const;
+<a name="l00057"></a>   57   int operator==(const [[CTCLChannelCommander|classCTCLChannelCommander]]& rhs) const;
 
-<a name="l00058"></a>   58   int operator!=(const [[classCTCLChannelCommander]]& rhs) const;
+<a name="l00058"></a>   58   int operator!=(const [[CTCLChannelCommander|classCTCLChannelCommander]]& rhs) const;
 
 <a name="l00059"></a>   59
 
@@ -133,11 +133,11 @@ header
 
 <a name="l00063"></a>   63 public:
 
-<a name="l00064"></a>   64   virtual void [[classCTCLChannelCommander#ad84952a6bb1a977eb22096db5f0a83d3]]();         // Add to Tcl Event loop.
+<a name="l00064"></a>   64   virtual void [[start|classCTCLChannelCommander#ad84952a6bb1a977eb22096db5f0a83d3]]();         // Add to Tcl Event loop.
 
-<a name="l00065"></a>   65   virtual void [[classCTCLChannelCommander#a983642b3e68221f4577577e7a40e3b95]]();          // Remove from event loop.
+<a name="l00065"></a>   65   virtual void [[stop|classCTCLChannelCommander#a983642b3e68221f4577577e7a40e3b95]]();          // Remove from event loop.
 
-<a name="l00066"></a>   66   Tcl_Channel  [[classCTCLChannelCommander#a7f3d388c5732727b6e88e7bed89bc468]]() const;
+<a name="l00066"></a>   66   Tcl_Channel  [[getChannel|classCTCLChannelCommander#a7f3d388c5732727b6e88e7bed89bc468]]() const;
 
 <a name="l00067"></a>   67
 
@@ -147,7 +147,7 @@ header
 
 <a name="l00070"></a>   70 public:
 
-<a name="l00071"></a>   71   static void [[classCTCLChannelCommander#aa480f008ed8f5018268b1ef09df2ee0f]](ClientData pData, int mask);
+<a name="l00071"></a>   71   static void [[inputRelay|classCTCLChannelCommander#aa480f008ed8f5018268b1ef09df2ee0f]](ClientData pData, int mask);
 
 <a name="l00072"></a>   72
 
@@ -155,25 +155,25 @@ header
 
 <a name="l00074"></a>   74
 
-<a name="l00075"></a>   75   virtual void [[classCTCLChannelCommander#af83cd2d38b6fb8fc242303c4273f97e7]]();
+<a name="l00075"></a>   75   virtual void [[onInput|classCTCLChannelCommander#af83cd2d38b6fb8fc242303c4273f97e7]]();
 
-<a name="l00076"></a>   76   virtual void [[classCTCLChannelCommander#adbeddf8c32b2842ad740849bc08750f1]]();
+<a name="l00076"></a>   76   virtual void [[onInputException|classCTCLChannelCommander#adbeddf8c32b2842ad740849bc08750f1]]();
 
-<a name="l00077"></a>   77   virtual void [[classCTCLChannelCommander#aafec1c21cbf1a697f56e3d84b70abd18]]();
+<a name="l00077"></a>   77   virtual void [[onEndFile|classCTCLChannelCommander#aafec1c21cbf1a697f56e3d84b70abd18]]();
 
-<a name="l00078"></a>   78   virtual void [[classCTCLChannelCommander#a7617b283cf33901f4686ac747a9ea343]]();
+<a name="l00078"></a>   78   virtual void [[onCommand|classCTCLChannelCommander#a7617b283cf33901f4686ac747a9ea343]]();
 
-<a name="l00079"></a>   79   virtual void [[classCTCLChannelCommander#a61d2bdbc8ceab654a01e93f8063af807]]();
+<a name="l00079"></a>   79   virtual void [[returnResult|classCTCLChannelCommander#a61d2bdbc8ceab654a01e93f8063af807]]();
 
 <a name="l00080"></a>   80
 
-<a name="l00081"></a>   81   virtual void [[classCTCLChannelCommander#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]();
+<a name="l00081"></a>   81   virtual void [[prompt1|classCTCLChannelCommander#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]();
 
-<a name="l00082"></a>   82   virtual void [[classCTCLChannelCommander#a5532318b1f6dfc170459c1076f7c058e]]();
+<a name="l00082"></a>   82   virtual void [[prompt2|classCTCLChannelCommander#a5532318b1f6dfc170459c1076f7c058e]]();
 
-<a name="l00083"></a>   83   virtual void [[classCTCLChannelCommander#a319902cfe4affa3a2fe47c9ad20f2604]](std::string prompt);
+<a name="l00083"></a>   83   virtual void [[sendPrompt|classCTCLChannelCommander#a319902cfe4affa3a2fe47c9ad20f2604]](std::string prompt);
 
-<a name="l00084"></a>   84   bool [[classCTCLChannelCommander#a8c4c5d5597dfb9b933fd55c70b67419c]]() const;
+<a name="l00084"></a>   84   bool [[stopped|classCTCLChannelCommander#a8c4c5d5597dfb9b933fd55c70b67419c]]() const;
 
 <a name="l00085"></a>   85
 
@@ -201,115 +201,115 @@ header
 
 <a name="l00097"></a>   97 #endif
 
-[[classCTCLChannelCommander#aafec1c21cbf1a697f56e3d84b70abd18]]
+[[CTCLChannelCommander::onEndFile|classCTCLChannelCommander#aafec1c21cbf1a697f56e3d84b70abd18]]
 
 virtual void onEndFile()
 
 **Definition:** CTCLChannelCommander.cpp:229
 
 
-[[classCTCLChannelCommander]]
+[[CTCLChannelCommander|classCTCLChannelCommander]]
 
 **Definition:** CTCLChannelCommander.h:39
 
 
-[[classCTCLChannelCommander#af83cd2d38b6fb8fc242303c4273f97e7]]
+[[CTCLChannelCommander::onInput|classCTCLChannelCommander#af83cd2d38b6fb8fc242303c4273f97e7]]
 
 virtual void onInput()
 
 **Definition:** CTCLChannelCommander.cpp:170
 
 
-[[classCTCLChannelCommander#a5532318b1f6dfc170459c1076f7c058e]]
+[[CTCLChannelCommander::prompt2|classCTCLChannelCommander#a5532318b1f6dfc170459c1076f7c058e]]
 
 virtual void prompt2()
 
 **Definition:** CTCLChannelCommander.cpp:291
 
 
-[[classCTCLChannelCommander#adbeddf8c32b2842ad740849bc08750f1]]
+[[CTCLChannelCommander::onInputException|classCTCLChannelCommander#adbeddf8c32b2842ad740849bc08750f1]]
 
 virtual void onInputException()
 
 **Definition:** CTCLChannelCommander.cpp:219
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLChannelCommander#abeac8d18d39e9273ee5526fb41b7519b]]
+[[CTCLChannelCommander::CTCLChannelCommander|classCTCLChannelCommander#abeac8d18d39e9273ee5526fb41b7519b]]
 
 CTCLChannelCommander(CTCLInterpreter *interp, Tcl_Channel channel)
 
 **Definition:** CTCLChannelCommander.cpp:43
 
 
-[[classCTCLChannelCommander#aa480f008ed8f5018268b1ef09df2ee0f]]
+[[CTCLChannelCommander::inputRelay|classCTCLChannelCommander#aa480f008ed8f5018268b1ef09df2ee0f]]
 
 static void inputRelay(ClientData pData, int mask)
 
 **Definition:** CTCLChannelCommander.cpp:134
 
 
-[[classCTCLChannelCommander#a7f3d388c5732727b6e88e7bed89bc468]]
+[[CTCLChannelCommander::getChannel|classCTCLChannelCommander#a7f3d388c5732727b6e88e7bed89bc468]]
 
 Tcl_Channel getChannel() const
 
 **Definition:** CTCLChannelCommander.cpp:106
 
 
-[[classCTCLChannelCommander#a7617b283cf33901f4686ac747a9ea343]]
+[[CTCLChannelCommander::onCommand|classCTCLChannelCommander#a7617b283cf33901f4686ac747a9ea343]]
 
 virtual void onCommand()
 
 **Definition:** CTCLChannelCommander.cpp:244
 
 
-[[classCTCLChannelCommander#a319902cfe4affa3a2fe47c9ad20f2604]]
+[[CTCLChannelCommander::sendPrompt|classCTCLChannelCommander#a319902cfe4affa3a2fe47c9ad20f2604]]
 
 virtual void sendPrompt(std::string prompt)
 
 **Definition:** CTCLChannelCommander.cpp:304
 
 
-[[classCTCLChannelCommander#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]
+[[CTCLChannelCommander::prompt1|classCTCLChannelCommander#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]
 
 virtual void prompt1()
 
 **Definition:** CTCLChannelCommander.cpp:271
 
 
-[[classCTCLChannelCommander#ad84952a6bb1a977eb22096db5f0a83d3]]
+[[CTCLChannelCommander::start|classCTCLChannelCommander#ad84952a6bb1a977eb22096db5f0a83d3]]
 
 virtual void start()
 
 **Definition:** CTCLChannelCommander.cpp:76
 
 
-[[classCTCLChannelCommander#a8c4c5d5597dfb9b933fd55c70b67419c]]
+[[CTCLChannelCommander::stopped|classCTCLChannelCommander#a8c4c5d5597dfb9b933fd55c70b67419c]]
 
 bool stopped() const
 
 **Definition:** CTCLChannelCommander.cpp:115
 
 
-[[classCTCLChannelCommander#a983642b3e68221f4577577e7a40e3b95]]
+[[CTCLChannelCommander::stop|classCTCLChannelCommander#a983642b3e68221f4577577e7a40e3b95]]
 
 virtual void stop()
 
 **Definition:** CTCLChannelCommander.cpp:92
 
 
-[[classCTCLChannelCommander#a61d2bdbc8ceab654a01e93f8063af807]]
+[[CTCLChannelCommander::returnResult|classCTCLChannelCommander#a61d2bdbc8ceab654a01e93f8063af807]]
 
 virtual void returnResult()
 
 **Definition:** CTCLChannelCommander.cpp:261
 
 
-[[classCTCLChannelCommander#aa8f54d07606ad6c360f3f10555ead2c6]]
+[[CTCLChannelCommander::~CTCLChannelCommander|classCTCLChannelCommander#aa8f54d07606ad6c360f3f10555ead2c6]]
 
 virtual ~CTCLChannelCommander()
 

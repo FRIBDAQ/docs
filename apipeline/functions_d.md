@@ -22,12 +22,12 @@ Here is a list of all documented class members with links to the class documenta
 ### - d -
 
 - dealer()
-  : [[classApplication#a55563d0781e526a1befe8e7b5497110c]]
-  , [[classMyApp#a8a7dff4e6e87f9fdf80034341a53fdc7]]
+  : [[Application|classApplication#a55563d0781e526a1befe8e7b5497110c]]
+  , [[MyApp|classMyApp#a8a7dff4e6e87f9fdf80034341a53fdc7]]
 - DeleteParameters()
-  : [[classfrib_1_1analysis_1_1CTreeParameterArray#a3ef5888cceafb305a704e8c437d5ca6a]]
+  : [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray#a3ef5888cceafb305a704e8c437d5ca6a]]
 - done()
-  : [[classfrib_1_1analysis_1_1CDataReader#ada26f1ac0dad7c88135f70388f6aa9cd]]
+  : [[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader#ada26f1ac0dad7c88135f70388f6aa9cd]]
 
  contents 
  start footer part 

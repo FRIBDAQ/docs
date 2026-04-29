@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - FILENAME_STR_MAXLEN
-  : [[ConfigurationParser_8cpp#a39d6d4439a0696e8d55094282ef9025d]]
+  : [[ConfigurationParser.cpp|ConfigurationParser_8cpp#a39d6d4439a0696e8d55094282ef9025d]]
 
  contents 
  start footer part 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLCommandPackage-members]]
+[[List of all members|classCTCLCommandPackage-members]]
 
 
 CTCLCommandPackage Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLCommandPackage:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLCommandPackage:
@@ -49,7 +49,7 @@ Collaboration diagram for CTCLCommandPackage:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CTCLCommandPackage:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLCommandPackage_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLCommandPackage.h|TCLCommandPackage_8h_source]]
 - libtclplus/tclplus/TCLCommandPackage.cpp
 
  contents 

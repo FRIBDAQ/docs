@@ -19,26 +19,26 @@ do not remove this div, it is closed by doxygen!
 ### - a -
 
 - AbstractApplication()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#a7f7a06f14708d5c85e281da6f0c2d369]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a7f7a06f14708d5c85e281da6f0c2d369]]
 - addCommand()
-  : [[classCTCLObjectPackage#a99d8000df7dc2c57241ec89514c2ca02]]
+  : [[CTCLObjectPackage|classCTCLObjectPackage#a99d8000df7dc2c57241ec89514c2ca02]]
 - addItem()
-  : [[classfrib_1_1analysis_1_1CTriggerSorter#a9ab0b37fe9ee4bb265289c53d4183207]]
+  : [[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter#a9ab0b37fe9ee4bb265289c53d4183207]]
 - addParameter()
-  : [[classCItemConfiguration#a4f1cabebf2c1849dacaf0e38238df20e]]
+  : [[CItemConfiguration|classCItemConfiguration#a4f1cabebf2c1849dacaf0e38238df20e]]
 - addProcessor()
-  : [[classfrib_1_1analysis_1_1CSpecTclWorker#a092db30a0a4c06f372836961663e6c56]]
+  : [[frib::analysis::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#a092db30a0a4c06f372836961663e6c56]]
 - allowConnection()
-  : [[classCTCLServer#a8600cd1e64ac1f07bdfc140510e9a6ba]]
+  : [[CTCLServer|classCTCLServer#a8600cd1e64ac1f07bdfc140510e9a6ba]]
 - AppendElement()
-  : [[classCTCLResult#a01fd2c813410300de092b1aab33300b9]]
-  , [[classCTCLString#a47aab18d4a660e08adf8f9c9e6ba5275]]
+  : [[CTCLResult|classCTCLResult#a01fd2c813410300de092b1aab33300b9]]
+  , [[CTCLString|classCTCLString#a47aab18d4a660e08adf8f9c9e6ba5275]]
 - assignments()
-  : [[classobjects#ac02a285a6a03495844f368392114f5eb]]
+  : [[objects|classobjects#ac02a285a6a03495844f368392114f5eb]]
 - atEof()
-  : [[classCTCLChannel#a9f4b714276d2f283b64fbb975b01e32d]]
+  : [[CTCLChannel|classCTCLChannel#a9f4b714276d2f283b64fbb975b01e32d]]
 - Attach()
-  : [[classCConfigurableObject#aafbbd0bde74e09ab80cdb2563d0bb7f8]]
+  : [[CConfigurableObject|classCConfigurableObject#aafbbd0bde74e09ab80cdb2563d0bb7f8]]
 
  contents 
  start footer part 

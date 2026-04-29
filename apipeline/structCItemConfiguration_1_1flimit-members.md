@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCItemConfiguration]]
-- [[structCItemConfiguration_1_1flimit]]
+- [[CItemConfiguration|classCItemConfiguration]]
+- [[flimit|structCItemConfiguration_1_1flimit]]
 
  top 
 CItemConfiguration::flimit Member List
 
 header
-This is the complete list of members for [[structCItemConfiguration_1_1flimit]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration::flimit|structCItemConfiguration_1_1flimit]], including all inherited members.
 
 
 |  |  |  |

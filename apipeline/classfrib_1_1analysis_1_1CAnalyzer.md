@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CAnalyzer]]
+- [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CAnalyzer-members]]
+[[List of all members|classfrib_1_1analysis_1_1CAnalyzer-members]]
 
 
 frib::analysis::CAnalyzer Class Reference
@@ -69,7 +69,7 @@ header
 This is intended as a stub class to satisfy refernces to the SpecTcl analyzer that, of necessity, SpecTcl event processors will have. Some services are provided to that code (I think) regardless an instance is passed to event processors.
 
 
-Notesome [[classfrib_1_1analysis_1_1CAnalyzer]] methods are missing as they are purely internal to SpecTcl and even the analyzer itself.
+Notesome [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]] methods are missing as they are purely internal to SpecTcl and even the analyzer itself.
 
 ## Constructor & Destructor Documentation
 
@@ -172,8 +172,8 @@ other canonicals.
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[Analyzer_8h_source]]
-- spectcl/[[Analyzer_8cpp]]
+The documentation for this class was generated from the following files:- spectcl/[[Analyzer.h|Analyzer_8h_source]]
+- spectcl/[[Analyzer.cpp|Analyzer_8cpp]]
 
  contents 
  start footer part 

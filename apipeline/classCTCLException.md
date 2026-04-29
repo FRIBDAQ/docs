@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLException-members]]
+[[List of all members|classCTCLException-members]]
 
 
 CTCLException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLException:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -193,7 +193,7 @@ Return values
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLException.h|TCLException_8h_source]]
 - libtclplus/tclplus/TCLException.cpp
 
  contents 

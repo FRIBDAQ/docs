@@ -21,24 +21,24 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
-LinkDef.h File Reference[[group__libddasrootformat]]
+LinkDef.h File Reference[[libddasrootformat.so|group__libddasrootformat]]
 
 header
-Tell rootcling to add our custom classes [[classDDASRootEvent]], [[classDDASRootHit]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.  
+Tell rootcling to add our custom classes [[DDASRootEvent|classDDASRootEvent]], [[DDASRootHit|classDDASRootHit]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.  
 [More...](#details)
 
 
-[[LinkDef_8h_source]]
+[[Go to the source code of this file.|LinkDef_8h_source]]
 
 
 <a name="details"></a>## Detailed Description
 
 
-Tell rootcling to add our custom classes [[classDDASRootEvent]], [[classDDASRootHit]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.
+Tell rootcling to add our custom classes [[DDASRootEvent|classDDASRootEvent]], [[DDASRootHit|classDDASRootHit]] and a std::vector<DDASRootHit*> object to the dictionary. Necessary for I/O of custom classes in ROOT.
 
  contents 
  start footer part 

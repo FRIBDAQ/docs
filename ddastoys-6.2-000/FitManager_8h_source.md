@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 FitManager.h
 
 header
-[[FitManager_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|FitManager_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -135,25 +135,25 @@ header
 <a name="l00056"></a>   56
 
 
-<a name="l00058"></a>[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] enum [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] {
+<a name="l00058"></a>[[58|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] enum [[fitMethod|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] {
 
 
-<a name="l00059"></a>[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]     [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]],
+<a name="l00059"></a>[[59|FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]     [[ANALYTIC|FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]],
 
 
-<a name="l00060"></a>[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]     [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]],
+<a name="l00060"></a>[[60|FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]     [[TEMPLATE|FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]],
 
 
-<a name="l00061"></a>   61     [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
+<a name="l00061"></a>   61     [[ML_INFERENCE|FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
 
 
-<a name="l00062"></a>[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]] };
+<a name="l00062"></a>[[62|FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]] };
 
 
 <a name="l00063"></a>   63
 
 
-<a name="l00064"></a>[[classFitManager]] class [[classFitManager]]
+<a name="l00064"></a>[[64|classFitManager]] class [[FitManager|classFitManager]]
 
 
 <a name="l00065"></a>   65 {
@@ -162,55 +162,55 @@ header
 <a name="l00066"></a>   66 public:
 
 
-<a name="l00068"></a>   68     [[classFitManager#af1d9514ea84fca9a10e101ce432a711e]]();
+<a name="l00068"></a>   68     [[FitManager|classFitManager#af1d9514ea84fca9a10e101ce432a711e]]();
 
 
-<a name="l00070"></a>   70     [[classFitManager#ae91054af3f17061de5d61f0c675eb9ba]]();
+<a name="l00070"></a>   70     [[~FitManager|classFitManager#ae91054af3f17061de5d61f0c675eb9ba]]();
 
 
 <a name="l00071"></a>   71
 
 
-<a name="l00076"></a>   76     void [[classFitManager#a57e90158db0e785ae35757dbb3c47615]](std::string method);
+<a name="l00076"></a>   76     void [[configure|classFitManager#a57e90158db0e785ae35757dbb3c47615]](std::string method);
 
 
-<a name="l00078"></a>   78     void [[classFitManager#a85c6ee590463e4e2608ca5e76c28aa21]]();
+<a name="l00078"></a>   78     void [[readConfigFile|classFitManager#a85c6ee590463e4e2608ca5e76c28aa21]]();
 
 
-<a name="l00080"></a>   80     void [[classFitManager#a727b01ddbe1030484a52204e3f099c5e]]();
+<a name="l00080"></a>   80     void [[readTemplateFile|classFitManager#a727b01ddbe1030484a52204e3f099c5e]]();
 
 
-<a name="l00090"></a>   90     std::vector<double> [[classFitManager#a91d4ae26e9ab9e17c89a465505403e1d]](
+<a name="l00090"></a>   90     std::vector<double> [[getSinglePulseFit|classFitManager#a91d4ae26e9ab9e17c89a465505403e1d]](
 
 
-<a name="l00091"></a>   91     const [[structddastoys_1_1HitExtension]]& ext, unsigned low, unsigned high
+<a name="l00091"></a>   91     const [[ddastoys::HitExtension|structddastoys_1_1HitExtension]]& ext, unsigned low, unsigned high
 
 
 <a name="l00092"></a>   92     );
 
 
-<a name="l00102"></a>  102     std::vector<double> [[classFitManager#aee1ff0d4d0df1925015edc8f1c646275]](
+<a name="l00102"></a>  102     std::vector<double> [[getDoublePulseFit|classFitManager#aee1ff0d4d0df1925015edc8f1c646275]](
 
 
-<a name="l00103"></a>  103     const [[structddastoys_1_1HitExtension]]& ext, unsigned low, unsigned high
+<a name="l00103"></a>  103     const [[ddastoys::HitExtension|structddastoys_1_1HitExtension]]& ext, unsigned low, unsigned high
 
 
 <a name="l00104"></a>  104     );
 
 
-<a name="l00110"></a>  110     unsigned [[classFitManager#a6ce16d6182c18eb657a2f49dc27948e4]](const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00110"></a>  110     unsigned [[getLowFitLimit|classFitManager#a6ce16d6182c18eb657a2f49dc27948e4]](const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
-<a name="l00116"></a>  116     unsigned [[classFitManager#af6c87a551fc75ace39c8f2054b84bc69]](const [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00116"></a>  116     unsigned [[getHighFitLimit|classFitManager#af6c87a551fc75ace39c8f2054b84bc69]](const [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
 <a name="l00117"></a>  117
 
 
-<a name="l00122"></a>[[classFitManager#ab02717d1c735e6f579c3585b56a6412d]]     void [[classFitManager#adb63cc29dd5473b4101cdf9748a0e58f]]([[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] m) { m_method = m; };
+<a name="l00122"></a>[[122|classFitManager#ab02717d1c735e6f579c3585b56a6412d]]     void [[setMethod|classFitManager#adb63cc29dd5473b4101cdf9748a0e58f]]([[fitMethod|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] m) { m_method = m; };
 
 
-<a name="l00127"></a>  127     enum [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] [[classFitManager#ab02717d1c735e6f579c3585b56a6412d]]() { return m_method; };
+<a name="l00127"></a>  127     enum [[fitMethod|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] [[getMethod|classFitManager#ab02717d1c735e6f579c3585b56a6412d]]() { return m_method; };
 
 
 <a name="l00128"></a>  128
@@ -255,10 +255,10 @@ header
 <a name="l00176"></a>  176 private:
 
 
-<a name="l00177"></a>  177     [[classddastoys_1_1Configuration]]* m_pConfig; //<! Configuration file manager.
+<a name="l00177"></a>  177     [[ddastoys::Configuration|classddastoys_1_1Configuration]]* m_pConfig; //<! Configuration file manager.
 
 
-<a name="l00178"></a>  178     [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] m_method;
+<a name="l00178"></a>  178     [[fitMethod|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]] m_method;
 
 
 <a name="l00179"></a>  179     bool m_config;
@@ -276,7 +276,7 @@ header
 <a name="l00183"></a>  183 #endif
 
 
-[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]]
+[[fitMethod|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]]
 
 fitMethod
 
@@ -285,7 +285,7 @@ Fit method enum class.
 **Definition:** FitManager.h:58
 
 
-[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]
+[[ANALYTIC|FitManager_8h#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]
 
 @ ANALYTIC
 
@@ -294,7 +294,7 @@ Analytic fit.
 **Definition:** FitManager.h:59
 
 
-[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]
+[[TEMPLATE|FitManager_8h#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]
 
 @ TEMPLATE
 
@@ -303,7 +303,7 @@ Template fit.
 **Definition:** FitManager.h:60
 
 
-[[FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
+[[ML_INFERENCE|FitManager_8h#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
 
 @ ML_INFERENCE
 
@@ -312,14 +312,14 @@ Machine learning inference fit.
 **Definition:** FitManager.h:61
 
 
-[[classFitManager]]
+[[FitManager|classFitManager]]
 
 Provides an interface for calculating trace fits using HitExtension fit parameters.
 
 **Definition:** FitManager.h:65
 
 
-[[classFitManager#a57e90158db0e785ae35757dbb3c47615]]
+[[FitManager::configure|classFitManager#a57e90158db0e785ae35757dbb3c47615]]
 
 void configure(std::string method)
 
@@ -328,7 +328,7 @@ Configure the fit method settings.
 **Definition:** FitManager.cpp:69
 
 
-[[classFitManager#a6ce16d6182c18eb657a2f49dc27948e4]]
+[[FitManager::getLowFitLimit|classFitManager#a6ce16d6182c18eb657a2f49dc27948e4]]
 
 unsigned getLowFitLimit(const ddastoys::DDASFitHit &hit)
 
@@ -337,7 +337,7 @@ Get the lower limit of the fit range.
 **Definition:** FitManager.cpp:203
 
 
-[[classFitManager#a727b01ddbe1030484a52204e3f099c5e]]
+[[FitManager::readTemplateFile|classFitManager#a727b01ddbe1030484a52204e3f099c5e]]
 
 void readTemplateFile()
 
@@ -346,7 +346,7 @@ Read the template file using the Configuration class.
 **Definition:** FitManager.cpp:125
 
 
-[[classFitManager#a85c6ee590463e4e2608ca5e76c28aa21]]
+[[FitManager::readConfigFile|classFitManager#a85c6ee590463e4e2608ca5e76c28aa21]]
 
 void readConfigFile()
 
@@ -355,7 +355,7 @@ Read the configuration file using the Configuration class.
 **Definition:** FitManager.cpp:106
 
 
-[[classFitManager#a91d4ae26e9ab9e17c89a465505403e1d]]
+[[FitManager::getSinglePulseFit|classFitManager#a91d4ae26e9ab9e17c89a465505403e1d]]
 
 std::vector< double > getSinglePulseFit(const ddastoys::HitExtension &ext, unsigned low, unsigned high)
 
@@ -364,7 +364,7 @@ Create and return a vector of fit values for each trace sample in the fit range.
 **Definition:** FitManager.cpp:140
 
 
-[[classFitManager#ab02717d1c735e6f579c3585b56a6412d]]
+[[FitManager::getMethod|classFitManager#ab02717d1c735e6f579c3585b56a6412d]]
 
 enum fitMethod getMethod()
 
@@ -373,7 +373,7 @@ Get the fitting method.
 **Definition:** FitManager.h:127
 
 
-[[classFitManager#adb63cc29dd5473b4101cdf9748a0e58f]]
+[[FitManager::setMethod|classFitManager#adb63cc29dd5473b4101cdf9748a0e58f]]
 
 void setMethod(fitMethod m)
 
@@ -382,7 +382,7 @@ Set the fitting method.
 **Definition:** FitManager.h:122
 
 
-[[classFitManager#ae91054af3f17061de5d61f0c675eb9ba]]
+[[FitManager::~FitManager|classFitManager#ae91054af3f17061de5d61f0c675eb9ba]]
 
 ~FitManager()
 
@@ -391,7 +391,7 @@ Destructor.
 **Definition:** FitManager.cpp:55
 
 
-[[classFitManager#aee1ff0d4d0df1925015edc8f1c646275]]
+[[FitManager::getDoublePulseFit|classFitManager#aee1ff0d4d0df1925015edc8f1c646275]]
 
 std::vector< double > getDoublePulseFit(const ddastoys::HitExtension &ext, unsigned low, unsigned high)
 
@@ -400,7 +400,7 @@ Create and return a vector of fit values for each trace sample in the fit range.
 **Definition:** FitManager.cpp:172
 
 
-[[classFitManager#af1d9514ea84fca9a10e101ce432a711e]]
+[[FitManager::FitManager|classFitManager#af1d9514ea84fca9a10e101ce432a711e]]
 
 FitManager()
 
@@ -409,7 +409,7 @@ Constructor.
 **Definition:** FitManager.cpp:43
 
 
-[[classFitManager#af6c87a551fc75ace39c8f2054b84bc69]]
+[[FitManager::getHighFitLimit|classFitManager#af6c87a551fc75ace39c8f2054b84bc69]]
 
 unsigned getHighFitLimit(const ddastoys::DDASFitHit &hit)
 
@@ -418,21 +418,21 @@ Get the upper limit of the fit range.
 **Definition:** FitManager.cpp:221
 
 
-[[classddastoys_1_1Configuration]]
+[[ddastoys::Configuration|classddastoys_1_1Configuration]]
 
 Manage fit configuration information.
 
 **Definition:** Configuration.h:68
 
 
-[[classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 
 **Definition:** DDASFitHit.h:46
 
 
-[[structddastoys_1_1HitExtension]]
+[[ddastoys::HitExtension|structddastoys_1_1HitExtension]]
 
 The data structure appended to each fit hit.
 

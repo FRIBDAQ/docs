@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classinputtest-members]]
+[[List of all members|classinputtest-members]]
 
 
 inputtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for inputtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for inputtest:
@@ -47,7 +47,7 @@ Collaboration diagram for inputtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -76,7 +76,7 @@ Collaboration diagram for inputtest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testintests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testintests.cpp|testintests_8cpp]]
 
  contents 
  start footer part 

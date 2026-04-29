@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1FitEditorMLInference]]
+- [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1FitEditorMLInference-members]]
+[[List of all members|classddastoys_1_1FitEditorMLInference-members]]
 
 
 ddastoys::FitEditorMLInference Class Reference
 
 header
 Fit trace data using machine-learning inference with a detector response model defined by the analytic fit functions.  
- [[classddastoys_1_1FitEditorMLInference#details]]
+ [[More...|classddastoys_1_1FitEditorMLInference#details]]
 
 
 `#include <FitEditorMLInference.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::FitEditorMLInference:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::FitEditorMLInference:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::FitEditorMLInference:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -171,7 +171,7 @@ Constructs using move assignment.
 Destructor.
 
 
-Delete the [[classddastoys_1_1Configuration]] object managed by this class.
+Delete the [[Configuration|classddastoys_1_1Configuration]] object managed by this class.
 
 
 ## Member Function Documentation
@@ -223,7 +223,7 @@ Parameters
 
 
 ReturnsFinal segment descriptors.
-This is the hook into the [[classddastoys_1_1FitEditorMLInference]] class. Here we:
+This is the hook into the [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]] class. Here we:
 
 - Parse the fragment into a hit.
 - Produce a IOvec element for the existing hit (without any fit that might have been there).
@@ -280,8 +280,8 @@ ReturnsReference to created object.
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitEditorMLInference_8h_source]]
-- [[FitEditorMLInference_8cpp]]
+The documentation for this class was generated from the following files:- [[FitEditorMLInference.h|FitEditorMLInference_8h_source]]
+- [[FitEditorMLInference.cpp|FitEditorMLInference_8cpp]]
 
  contents 
  start footer part 

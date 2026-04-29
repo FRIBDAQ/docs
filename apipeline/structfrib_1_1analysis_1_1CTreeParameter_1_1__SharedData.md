@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeParameter]]
-- [[structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]
+- [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]
+- [[_SharedData|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData-members]]
+[[List of all members|structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData-members]]
 
 
 frib::analysis::CTreeParameter::_SharedData Struct Reference
@@ -90,7 +90,7 @@ Parameters
 
 ---
 
-The documentation for this struct was generated from the following files:- base/[[TreeParameter_8h_source]]
+The documentation for this struct was generated from the following files:- base/[[TreeParameter.h|TreeParameter_8h_source]]
 - base/TreeParameter.cpp
 
  contents 

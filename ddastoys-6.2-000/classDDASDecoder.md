@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDDASDecoder-members]]
+[[List of all members|classDDASDecoder-members]]
 
 
 DDASDecoder Class Reference
 
 header
 An interactive event processor integrated in the traceview GUI.  
- [[classDDASDecoder#details]]
+ [[More...|classDDASDecoder#details]]
 
 
 `#include <DDASDecoder.h>`
@@ -185,8 +185,8 @@ Skip forward by nevts PHYSICS_EVENTS where nevts is provided as an argument.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASDecoder_8h_source]]
-- [[DDASDecoder_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASDecoder.h|DDASDecoder_8h_source]]
+- [[DDASDecoder.cpp|DDASDecoder_8cpp]]
 
  contents 
  start footer part 

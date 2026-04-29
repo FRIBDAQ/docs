@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCMonitorException-members]]
+[[List of all members|classCMonitorException-members]]
 
 
 CMonitorException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CMonitorException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMonitorException:
@@ -51,7 +51,7 @@ Collaboration diagram for CMonitorException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -195,7 +195,7 @@ Comparison for equality.
 Return the computer usable reason code. This is always -1 in this class.
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
@@ -210,13 +210,13 @@ Reimplemented from [[classCException]].
 Return human readable exception information. See the class description to see what that means.
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[MonitorException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[MonitorException.h|MonitorException_8h_source]]
 - libtclplus/exception/MonitorException.cpp
 
  contents 

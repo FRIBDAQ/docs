@@ -23,37 +23,37 @@ header
 
 
 <a name="letter_C"></a>C
-[[classCEventProcessor]][[classddastoys_1_1CFitEngine]] (ddastoys)[[classddastoys_1_1Configuration]] (ddastoys)[[classCRingItemProcessor]][[classddastoys_1_1analyticfit_1_1CudaFitEngine1]] (ddastoys::analyticfit)[[classddastoys_1_1analyticfit_1_1CudaFitEngine2]] (ddastoys::analyticfit)
+[[CEventProcessor|classCEventProcessor]][[CFitEngine|classddastoys_1_1CFitEngine]] (ddastoys)[[Configuration|classddastoys_1_1Configuration]] (ddastoys)[[CRingItemProcessor|classCRingItemProcessor]][[CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]] (ddastoys::analyticfit)[[CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2]] (ddastoys::analyticfit)
 
 <a name="letter_D"></a>D
-[[classDDASDecoder]][[classddastoys_1_1DDASFitHit]] (ddastoys)[[classddastoys_1_1DDASFitHitUnpacker]] (ddastoys)[[classddastoys_1_1DDASRootFitEvent]] (ddastoys)[[classddastoys_1_1DDASRootFitHit]] (ddastoys)
+[[DDASDecoder|classDDASDecoder]][[DDASFitHit|classddastoys_1_1DDASFitHit]] (ddastoys)[[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]] (ddastoys)[[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]] (ddastoys)[[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]] (ddastoys)
 
 <a name="letter_F"></a>F
-[[structddastoys_1_1fit1Info]] (ddastoys)[[structddastoys_1_1fit2Info]] (ddastoys)[[classddastoys_1_1FitEditorAnalytic]] (ddastoys)[[classddastoys_1_1FitEditorMLInference]] (ddastoys)[[classddastoys_1_1FitEditorTemplate]] (ddastoys)[[classddastoys_1_1analyticfit_1_1FitEngineFactory]] (ddastoys::analyticfit)[[structddastoys_1_1FitInfo]] (ddastoys)[[structddastoys_1_1FitInfoLegacy]] (ddastoys)[[classFitManager]]
+[[fit1Info|structddastoys_1_1fit1Info]] (ddastoys)[[fit2Info|structddastoys_1_1fit2Info]] (ddastoys)[[FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic]] (ddastoys)[[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]] (ddastoys)[[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]] (ddastoys)[[FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory]] (ddastoys::analyticfit)[[FitInfo|structddastoys_1_1FitInfo]] (ddastoys)[[FitInfoLegacy|structddastoys_1_1FitInfoLegacy]] (ddastoys)[[FitManager|classFitManager]]
 
 <a name="letter_G"></a>G
-[[structddastoys_1_1analyticfit_1_1GslFitParameters]] (ddastoys::analyticfit)[[structddastoys_1_1templatefit_1_1GslFitParameters]] (ddastoys::templatefit)
+[[GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]] (ddastoys::analyticfit)[[GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters]] (ddastoys::templatefit)
 
 <a name="letter_H"></a>H
-[[structddastoys_1_1HitExtension]] (ddastoys)[[structddastoys_1_1HitExtensionLegacy]] (ddastoys)
+[[HitExtension|structddastoys_1_1HitExtension]] (ddastoys)[[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]] (ddastoys)
 
 <a name="letter_N"></a>N
-[[structddastoys_1_1nullExtension]] (ddastoys)
+[[nullExtension|structddastoys_1_1nullExtension]] (ddastoys)
 
 <a name="letter_P"></a>P
-[[classProcessToRootSink]][[structddastoys_1_1PulseDescription]] (ddastoys)
+[[ProcessToRootSink|classProcessToRootSink]][[PulseDescription|structddastoys_1_1PulseDescription]] (ddastoys)
 
 <a name="letter_Q"></a>Q
-[[classQHitData]][[classQRootCanvas]][[classQTraceView]]
+[[QHitData|classQHitData]][[QRootCanvas|classQRootCanvas]][[QTraceView|classQTraceView]]
 
 <a name="letter_R"></a>R
-[[classRootFileDataSink]][[structddastoys_1_1RootFit1Info]] (ddastoys)[[structddastoys_1_1RootFit2Info]] (ddastoys)[[structddastoys_1_1RootHitExtension]] (ddastoys)[[structddastoys_1_1RootPulseDescription]] (ddastoys)
+[[RootFileDataSink|classRootFileDataSink]][[RootFit1Info|structddastoys_1_1RootFit1Info]] (ddastoys)[[RootFit2Info|structddastoys_1_1RootFit2Info]] (ddastoys)[[RootHitExtension|structddastoys_1_1RootHitExtension]] (ddastoys)[[RootPulseDescription|structddastoys_1_1RootPulseDescription]] (ddastoys)
 
 <a name="letter_S"></a>S
-[[classddastoys_1_1analyticfit_1_1SerialFitEngine1]] (ddastoys::analyticfit)[[classddastoys_1_1analyticfit_1_1SerialFitEngine2]] (ddastoys::analyticfit)
+[[SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1]] (ddastoys::analyticfit)[[SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2]] (ddastoys::analyticfit)
 
 <a name="letter_T"></a>T
-[[classTraceViewProcessor]]
+[[TraceViewProcessor|classTraceViewProcessor]]
 
  contents 
  start footer part 

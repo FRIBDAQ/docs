@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCItemConfiguration]]
-- [[structCItemConfiguration_1_1__isListParameter]]
+- [[CItemConfiguration|classCItemConfiguration]]
+- [[_isListParameter|structCItemConfiguration_1_1__isListParameter]]
 
  top 
 CItemConfiguration::_isListParameter Member List
 
 header
-This is the complete list of members for [[structCItemConfiguration_1_1__isListParameter]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration::_isListParameter|structCItemConfiguration_1_1__isListParameter]], including all inherited members.
 
 
 |  |  |  |

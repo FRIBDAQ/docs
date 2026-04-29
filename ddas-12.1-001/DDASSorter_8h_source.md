@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 DDASSorter.h
 
 header
-[[DDASSorter_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASSorter_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -106,7 +106,7 @@ header
 <a name="l00031"></a>   31
 
 
-<a name="l00032"></a>   32 namespace [[namespaceDDASReadout]] {
+<a name="l00032"></a>   32 namespace [[DDASReadout|namespaceDDASReadout]] {
 
 
 <a name="l00033"></a>   33     class BufferArena;
@@ -130,13 +130,13 @@ header
 <a name="l00039"></a>   39
 
 
-<a name="l00040"></a>[[DDASSorter_8h#ab0daee56f3f30af491766056724485a4]] typedef struct _RingItemHeader *[[DDASSorter_8h#ab0daee56f3f30af491766056724485a4]];
+<a name="l00040"></a>[[40|DDASSorter_8h#ab0daee56f3f30af491766056724485a4]] typedef struct _RingItemHeader *[[pRingItemHeader|DDASSorter_8h#ab0daee56f3f30af491766056724485a4]];
 
 
 <a name="l00041"></a>   41
 
 
-<a name="l00055"></a>[[classDDASSorter]] class [[classDDASSorter]]
+<a name="l00055"></a>[[55|classDDASSorter]] class [[DDASSorter|classDDASSorter]]
 
 
 <a name="l00056"></a>   56 {
@@ -151,10 +151,10 @@ header
 <a name="l00059"></a>   59     CRingBuffer& m_sink;
 
 
-<a name="l00060"></a>   60     [[classDDASReadout_1_1HitManager]]* m_pHits;
+<a name="l00060"></a>   60     [[DDASReadout::HitManager|classDDASReadout_1_1HitManager]]* m_pHits;
 
 
-<a name="l00061"></a>   61     [[classDDASReadout_1_1BufferArena]]* m_pArena;
+<a name="l00061"></a>   61     [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]]* m_pArena;
 
 
 <a name="l00062"></a>   62     std::deque<DDASReadout::ZeroCopyHit*> m_hits;
@@ -172,16 +172,16 @@ header
 <a name="l00066"></a>   66 public:
 
 
-<a name="l00073"></a>   73     [[classDDASSorter#a1d1772e72726def7d91419055cc0835c]](CRingBuffer& source, CRingBuffer& sink, float window=10.0);
+<a name="l00073"></a>   73     [[DDASSorter|classDDASSorter#a1d1772e72726def7d91419055cc0835c]](CRingBuffer& source, CRingBuffer& sink, float window=10.0);
 
 
-<a name="l00075"></a>   75     [[classDDASSorter#a2bcf5ec2daf58c68fc8fd811da4d7445]]();
+<a name="l00075"></a>   75     [[~DDASSorter|classDDASSorter#a2bcf5ec2daf58c68fc8fd811da4d7445]]();
 
 
 <a name="l00076"></a>   76
 
 
-<a name="l00078"></a>   78     void [[classDDASSorter#a7b8a8e1e10bc8645aa1c1326206dd82e]]();
+<a name="l00078"></a>   78     void [[operator()|classDDASSorter#a7b8a8e1e10bc8645aa1c1326206dd82e]]();
 
 
 <a name="l00079"></a>   79
@@ -193,22 +193,22 @@ header
 <a name="l00085"></a>   85     void processChunk(CRingBufferChunkAccess::Chunk& chunk);
 
 
-<a name="l00090"></a>   90     void outputRingItem([[DDASSorter_8h#ab0daee56f3f30af491766056724485a4]] pItem);
+<a name="l00090"></a>   90     void outputRingItem([[pRingItemHeader|DDASSorter_8h#ab0daee56f3f30af491766056724485a4]] pItem);
 
 
-<a name="l00097"></a>   97     void processHits([[DDASSorter_8h#ab0daee56f3f30af491766056724485a4]] pItem);
+<a name="l00097"></a>   97     void processHits([[pRingItemHeader|DDASSorter_8h#ab0daee56f3f30af491766056724485a4]] pItem);
 
 
 <a name="l00099"></a>   99     void flushHitManager();
 
 
-<a name="l00105"></a>  105     [[classDDASReadout_1_1ZeroCopyHit]]* allocateHit();
+<a name="l00105"></a>  105     [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]* allocateHit();
 
 
-<a name="l00111"></a>  111     void freeHit([[classDDASReadout_1_1ZeroCopyHit]]* pHit);
+<a name="l00111"></a>  111     void freeHit([[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]* pHit);
 
 
-<a name="l00113"></a>  113     void outputHit([[classDDASReadout_1_1ZeroCopyHit]]* pHit);
+<a name="l00113"></a>  113     void outputHit([[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]* pHit);
 
 
 <a name="l00114"></a>  114 };
@@ -220,42 +220,42 @@ header
 <a name="l00116"></a>  116 #endif
 
 
-[[DDASSorter_8h#ab0daee56f3f30af491766056724485a4]]
+[[pRingItemHeader|DDASSorter_8h#ab0daee56f3f30af491766056724485a4]]
 
 struct _RingItemHeader * pRingItemHeader
 
 **Definition:** DDASSorter.h:40
 
 
-[[classDDASReadout_1_1BufferArena]]
+[[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]]
 
 Provides a class for memory management in reference-counted buffers.
 
 **Definition:** BufferArena.h:51
 
 
-[[classDDASReadout_1_1HitManager]]
+[[DDASReadout::HitManager|classDDASReadout_1_1HitManager]]
 
 Collect hits from modules and retains them in a sorted deque.
 
 **Definition:** HitManager.h:49
 
 
-[[classDDASReadout_1_1ZeroCopyHit]]
+[[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]
 
 This class extends RawChannel to produce a raw channel that is zero-copied from a reference counted b...
 
 **Definition:** ZeroCopyHit.h:55
 
 
-[[classDDASSorter]]
+[[DDASSorter|classDDASSorter]]
 
 Class to manage data flow and timestamp ordering.
 
 **Definition:** DDASSorter.h:56
 
 
-[[classDDASSorter#a1d1772e72726def7d91419055cc0835c]]
+[[DDASSorter::DDASSorter|classDDASSorter#a1d1772e72726def7d91419055cc0835c]]
 
 DDASSorter(CRingBuffer &source, CRingBuffer &sink, float window=10.0)
 
@@ -264,7 +264,7 @@ Constructor.
 **Definition:** DDASSorter.cpp:44
 
 
-[[classDDASSorter#a2bcf5ec2daf58c68fc8fd811da4d7445]]
+[[DDASSorter::~DDASSorter|classDDASSorter#a2bcf5ec2daf58c68fc8fd811da4d7445]]
 
 ~DDASSorter()
 
@@ -273,7 +273,7 @@ Destructor.
 **Definition:** DDASSorter.cpp:56
 
 
-[[classDDASSorter#a7b8a8e1e10bc8645aa1c1326206dd82e]]
+[[DDASSorter::operator()|classDDASSorter#a7b8a8e1e10bc8645aa1c1326206dd82e]]
 
 void operator()()
 
@@ -282,7 +282,7 @@ Defines the dataflow of the sorter.
 **Definition:** DDASSorter.cpp:67
 
 
-[[namespaceDDASReadout]]
+[[DDASReadout|namespaceDDASReadout]]
 
 **Definition:** BufferArena.cpp:29
 

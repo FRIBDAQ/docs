@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classProcessToRootSink-members]]
+[[List of all members|classProcessToRootSink-members]]
 
 
 ProcessToRootSink Class Reference
 
 header
-A ring item processeor concrete class that overrides the [[classCRingItemProcessor]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.  
- [[classProcessToRootSink#details]]
+A ring item processeor concrete class that overrides the [[CRingItemProcessor|classCRingItemProcessor]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.  
+ [[More...|classProcessToRootSink#details]]
 
 
 `#include <ProcessToRootSink.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for ProcessToRootSink:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ProcessToRootSink:
@@ -57,7 +57,7 @@ Collaboration diagram for ProcessToRootSink:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -105,7 +105,7 @@ Collaboration diagram for ProcessToRootSink:
 <a name="details"></a>## Detailed Description
 
 
-A ring item processeor concrete class that overrides the [[classCRingItemProcessor]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.
+A ring item processeor concrete class that overrides the [[CRingItemProcessor|classCRingItemProcessor]] base class method to put PHYSICS_EVENTs into a ROOT file data sink.
 
 ## Member Function Documentation
 
@@ -133,14 +133,14 @@ Parameters
 Derived class decides what to do with PHYSICS_EVENT ring items. In this case, we just pass the data to the ROOT file sink and let it handle the rest.
 
 
-Reimplemented from [[classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]].
+Reimplemented from [[CRingItemProcessor|classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[ProcessToRootSink_8h_source]]
-- [[ProcessToRootSink_8cpp]]
+The documentation for this class was generated from the following files:- [[ProcessToRootSink.h|ProcessToRootSink_8h_source]]
+- [[ProcessToRootSink.cpp|ProcessToRootSink_8cpp]]
 
  contents 
  start footer part 

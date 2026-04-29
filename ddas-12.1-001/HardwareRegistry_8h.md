@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
 
  top 
 [Classes](#nested-classes) |
@@ -44,7 +44,7 @@ This graph shows which files directly or indirectly include this file:
 ![](HardwareRegistry_8h__dep__incl.png)
 
 
-[[HardwareRegistry_8h_source]]
+[[Go to the source code of this file.|HardwareRegistry_8h_source]]
 
 
 |  |  |

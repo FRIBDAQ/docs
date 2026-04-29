@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLLiveEventLoop.h
@@ -81,17 +81,17 @@ header
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 class [[classCTCLInterpreter]];
+<a name="l00027"></a>   27 class [[CTCLInterpreter|classCTCLInterpreter]];
 
-<a name="l00028"></a>   28 class [[classCTCLVariable]];
+<a name="l00028"></a>   28 class [[CTCLVariable|classCTCLVariable]];
 
-<a name="l00029"></a>   29 class [[classCTCLStdioCommander]];
+<a name="l00029"></a>   29 class [[CTCLStdioCommander|classCTCLStdioCommander]];
 
 <a name="l00030"></a>   30
 
 <a name="l00031"></a>   31
 
-<a name="l00055"></a>[[classCTCLLiveEventLoop]] class [[classCTCLLiveEventLoop]] {
+<a name="l00055"></a>[[55|classCTCLLiveEventLoop]] class [[CTCLLiveEventLoop|classCTCLLiveEventLoop]] {
 
 <a name="l00056"></a>   56   // private data:
 
@@ -99,15 +99,15 @@ header
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>   59   static [[classCTCLLiveEventLoop]]* m_pTheInstance;
+<a name="l00059"></a>   59   static [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]* m_pTheInstance;
 
-<a name="l00060"></a>   60   [[classCTCLInterpreter]]*         m_pStdinTarget;
+<a name="l00060"></a>   60   [[CTCLInterpreter|classCTCLInterpreter]]*         m_pStdinTarget;
 
 <a name="l00061"></a>   61   bool                     m_isRunning;
 
 <a name="l00062"></a>   62   long                     m_stopLatency;
 
-<a name="l00063"></a>   63   [[classCTCLStdioCommander]]*      m_pEventCommander;
+<a name="l00063"></a>   63   [[CTCLStdioCommander|classCTCLStdioCommander]]*      m_pEventCommander;
 
 <a name="l00064"></a>   64
 
@@ -117,9 +117,9 @@ header
 
 <a name="l00067"></a>   67 private:
 
-<a name="l00068"></a>   68   [[classCTCLLiveEventLoop]]();
+<a name="l00068"></a>   68   [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]();
 
-<a name="l00069"></a>   69   ~[[classCTCLLiveEventLoop]]();
+<a name="l00069"></a>   69   ~[[CTCLLiveEventLoop|classCTCLLiveEventLoop]]();
 
 <a name="l00070"></a>   70
 
@@ -127,13 +127,13 @@ header
 
 <a name="l00072"></a>   72
 
-<a name="l00073"></a>   73   [[classCTCLLiveEventLoop]](const [[classCTCLLiveEventLoop]]&);
+<a name="l00073"></a>   73   [[CTCLLiveEventLoop|classCTCLLiveEventLoop]](const [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]&);
 
-<a name="l00074"></a>   74   [[classCTCLLiveEventLoop]]& operator=(const [[classCTCLLiveEventLoop]]&);
+<a name="l00074"></a>   74   [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]& operator=(const [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]&);
 
-<a name="l00075"></a>   75   int operator==(const [[classCTCLLiveEventLoop]]&) const;
+<a name="l00075"></a>   75   int operator==(const [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]&) const;
 
-<a name="l00076"></a>   76   int operator!=(const [[classCTCLLiveEventLoop]]&) const;
+<a name="l00076"></a>   76   int operator!=(const [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]&) const;
 
 <a name="l00077"></a>   77
 
@@ -143,7 +143,7 @@ header
 
 <a name="l00080"></a>   80 public:
 
-<a name="l00081"></a>   81   static [[classCTCLLiveEventLoop]]*  [[classCTCLLiveEventLoop#afdd8052d562b732550008f0d548d5736]]();
+<a name="l00081"></a>   81   static [[CTCLLiveEventLoop|classCTCLLiveEventLoop]]*  [[getInstance|classCTCLLiveEventLoop#afdd8052d562b732550008f0d548d5736]]();
 
 <a name="l00082"></a>   82
 
@@ -151,17 +151,17 @@ header
 
 <a name="l00084"></a>   84
 
-<a name="l00085"></a>   85   void [[classCTCLLiveEventLoop#aedf7e89ba24ec0e1f1eaa16dabbdd04b]]();                 // Event loop targeting gpApplication's interpreter.
+<a name="l00085"></a>   85   void [[start|classCTCLLiveEventLoop#aedf7e89ba24ec0e1f1eaa16dabbdd04b]]();                 // Event loop targeting gpApplication's interpreter.
 
-<a name="l00086"></a>   86   void [[classCTCLLiveEventLoop#aedf7e89ba24ec0e1f1eaa16dabbdd04b]]([[classCTCLInterpreter]]* pInterp); // Event loop targeting some other interp.
+<a name="l00086"></a>   86   void [[start|classCTCLLiveEventLoop#aedf7e89ba24ec0e1f1eaa16dabbdd04b]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp); // Event loop targeting some other interp.
 
-<a name="l00087"></a>   87   void [[classCTCLLiveEventLoop#a5f3cdb91247196d5b7c0faedb12e30a1]]();
+<a name="l00087"></a>   87   void [[stop|classCTCLLiveEventLoop#a5f3cdb91247196d5b7c0faedb12e30a1]]();
 
 <a name="l00088"></a>   88
 
-<a name="l00089"></a>   89   long [[classCTCLLiveEventLoop#ad48f52b52d1be2960f776da12a8e9665]](long ms);
+<a name="l00089"></a>   89   long [[setStopLatency|classCTCLLiveEventLoop#ad48f52b52d1be2960f776da12a8e9665]](long ms);
 
-<a name="l00090"></a>   90   long [[classCTCLLiveEventLoop#a5773655e6162baf7af59a7222cfbe58e]]() const;
+<a name="l00090"></a>   90   long [[getStopLatency|classCTCLLiveEventLoop#a5773655e6162baf7af59a7222cfbe58e]]() const;
 
 <a name="l00091"></a>   91
 
@@ -187,57 +187,57 @@ header
 
 <a name="l00102"></a>  102 #endif
 
-[[classCTCLStdioCommander]]
+[[CTCLStdioCommander|classCTCLStdioCommander]]
 
 **Definition:** CTCLStdioCommander.h:40
 
 
-[[classCTCLLiveEventLoop#afdd8052d562b732550008f0d548d5736]]
+[[CTCLLiveEventLoop::getInstance|classCTCLLiveEventLoop#afdd8052d562b732550008f0d548d5736]]
 
 static CTCLLiveEventLoop * getInstance()
 
 **Definition:** TCLLiveEventLoop.cpp:56
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLLiveEventLoop#a5f3cdb91247196d5b7c0faedb12e30a1]]
+[[CTCLLiveEventLoop::stop|classCTCLLiveEventLoop#a5f3cdb91247196d5b7c0faedb12e30a1]]
 
 void stop()
 
 **Definition:** TCLLiveEventLoop.cpp:155
 
 
-[[classCTCLLiveEventLoop#ad48f52b52d1be2960f776da12a8e9665]]
+[[CTCLLiveEventLoop::setStopLatency|classCTCLLiveEventLoop#ad48f52b52d1be2960f776da12a8e9665]]
 
 long setStopLatency(long ms)
 
 **Definition:** TCLLiveEventLoop.cpp:185
 
 
-[[classCTCLLiveEventLoop#a5773655e6162baf7af59a7222cfbe58e]]
+[[CTCLLiveEventLoop::getStopLatency|classCTCLLiveEventLoop#a5773655e6162baf7af59a7222cfbe58e]]
 
 long getStopLatency() const
 
 **Definition:** TCLLiveEventLoop.cpp:200
 
 
-[[classCTCLLiveEventLoop#aedf7e89ba24ec0e1f1eaa16dabbdd04b]]
+[[CTCLLiveEventLoop::start|classCTCLLiveEventLoop#aedf7e89ba24ec0e1f1eaa16dabbdd04b]]
 
 void start()
 
 **Definition:** TCLLiveEventLoop.cpp:92
 
 
-[[classCTCLLiveEventLoop]]
+[[CTCLLiveEventLoop|classCTCLLiveEventLoop]]
 
 **Definition:** TCLLiveEventLoop.h:55
 
 
-[[classCTCLVariable]]
+[[CTCLVariable|classCTCLVariable]]
 
 **Definition:** TCLVariable.h:50
 

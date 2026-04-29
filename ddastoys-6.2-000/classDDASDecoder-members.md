@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DDASDecoder Member List
 
 header
-This is the complete list of members for [[classDDASDecoder]], including all inherited members.
+This is the complete list of members for [[DDASDecoder|classDDASDecoder]], including all inherited members.
 
 
 |  |  |  |

@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCMyScaler]]
-- [[structCMyScaler_1_1__Counters]]
+- [[CMyScaler|classCMyScaler]]
+- [[_Counters|structCMyScaler_1_1__Counters]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structCMyScaler_1_1__Counters-members]]
+[[List of all members|structCMyScaler_1_1__Counters-members]]
 
 
 CMyScaler::_Counters Struct Reference
 
 header
 Count raw and accepted triggers.  
- [[structCMyScaler_1_1__Counters#details]]
+ [[More...|structCMyScaler_1_1__Counters#details]]
 
 
 `#include <CMyScaler.h>`
@@ -83,7 +83,7 @@ Raw triggers.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[CMyScaler_8h_source]]
+The documentation for this struct was generated from the following file:- [[CMyScaler.h|CMyScaler_8h_source]]
 
  contents 
  start footer part 

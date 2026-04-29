@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTCLParameterReader]]
+- [[CTCLParameterReader|classfrib_1_1analysis_1_1CTCLParameterReader]]
 
  top 
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CTCLParameterReader-members]]
+[[List of all members|classfrib_1_1analysis_1_1CTCLParameterReader-members]]
 
 
 frib::analysis::CTCLParameterReader Class Reference
@@ -46,7 +46,7 @@ Inheritance diagram for frib::analysis::CTCLParameterReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for frib::analysis::CTCLParameterReader:
@@ -58,7 +58,7 @@ Collaboration diagram for frib::analysis::CTCLParameterReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -134,13 +134,13 @@ read Read the file.
 This should result in a full set of tree parameter and tree variable definitions the user code can link to.
 
 
-Implements [[classfrib_1_1analysis_1_1CParameterReader]].
+Implements [[frib::analysis::CParameterReader|classfrib_1_1analysis_1_1CParameterReader]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TCLParameterReader_8h_source]]
+The documentation for this class was generated from the following files:- base/[[TCLParameterReader.h|TCLParameterReader_8h_source]]
 - base/TCLParameterReader.cpp
 
  contents 

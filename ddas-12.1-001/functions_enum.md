@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - BootType
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]
 
  contents 
  start footer part 

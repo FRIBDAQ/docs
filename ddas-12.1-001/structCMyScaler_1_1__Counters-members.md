@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCMyScaler]]
-- [[structCMyScaler_1_1__Counters]]
+- [[CMyScaler|classCMyScaler]]
+- [[_Counters|structCMyScaler_1_1__Counters]]
 
  top 
 CMyScaler::_Counters Member List
 
 header
-This is the complete list of members for [[structCMyScaler_1_1__Counters]], including all inherited members.
+This is the complete list of members for [[CMyScaler::_Counters|structCMyScaler_1_1__Counters]], including all inherited members.
 
 
 |  |  |  |

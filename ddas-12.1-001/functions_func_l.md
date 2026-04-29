@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - l -
 
 - LoadSetFile()
-  : [[classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]]
+  : [[CPixieSystemUtilities|classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]]
 
  contents 
  start footer part 

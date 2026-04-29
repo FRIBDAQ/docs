@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCDummyReader-members]]
+[[List of all members|classCDummyReader-members]]
 
 
 CDummyReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for CDummyReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CDummyReader:
@@ -48,7 +48,7 @@ Collaboration diagram for CDummyReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for CDummyReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[sortTest_8cpp]]
+The documentation for this class was generated from the following file:- base/[[sortTest.cpp|sortTest_8cpp]]
 
  contents 
  start footer part 

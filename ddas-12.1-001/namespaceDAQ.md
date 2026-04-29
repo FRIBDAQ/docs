@@ -36,7 +36,7 @@ header
 <a name="details"></a>## Detailed Description
 
 
-**[[todo#_todo000012]]**(ASC 9/22/23): Firmware configuration map creates some circular dependencies, as we start including [[Configuration_8h]] and [[HardwareRegistry_8h]] in multiple places. Include guards should handle this but may be nice to redesign things to avoid the multiple inclusions in the first place.
+**[[Todo:|todo#_todo000012]]**(ASC 9/22/23): Firmware configuration map creates some circular dependencies, as we start including [[Configuration.h|Configuration_8h]] and [[HardwareRegistry.h|HardwareRegistry_8h]] in multiple places. Include guards should handle this but may be nice to redesign things to avoid the multiple inclusions in the first place.
 
  contents 
  start footer part 

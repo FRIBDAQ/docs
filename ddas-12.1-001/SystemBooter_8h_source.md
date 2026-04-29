@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_6ee16d49823f5bdfd30ad95b5fce836e]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[booter|dir_6ee16d49823f5bdfd30ad95b5fce836e]]
 
  top 
 SystemBooter.h
 
 header
-[[SystemBooter_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|SystemBooter_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef SYSTEMBOOTER_H
@@ -46,7 +46,7 @@ header
 <a name="l00010"></a>   10
 
 
-<a name="l00012"></a>   12 namespace [[namespaceDAQ]] {
+<a name="l00012"></a>   12 namespace [[DAQ|namespaceDAQ]] {
 
 
 <a name="l00014"></a>   14     namespace DDAS {
@@ -64,7 +64,7 @@ header
 <a name="l00018"></a>   18
 
 
-<a name="l00055"></a>[[classDAQ_1_1DDAS_1_1SystemBooter]]     class [[classDAQ_1_1DDAS_1_1SystemBooter]]
+<a name="l00055"></a>[[55|classDAQ_1_1DDAS_1_1SystemBooter]]     class [[SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter]]
 
 
 <a name="l00056"></a>   56     {
@@ -73,16 +73,16 @@ header
 <a name="l00057"></a>   57     public:
 
 
-<a name="l00059"></a>[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]         enum [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] {
+<a name="l00059"></a>[[59|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]         enum [[BootType|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] {
 
 
-<a name="l00060"></a>[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]         [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]] = 0x7f,
+<a name="l00060"></a>[[60|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]         [[FullBoot|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]] = 0x7f,
 
 
-<a name="l00061"></a>   61         [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]] = 0x70
+<a name="l00061"></a>   61         [[SettingsOnly|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]] = 0x70
 
 
-<a name="l00062"></a>[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]         };
+<a name="l00062"></a>[[62|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]         };
 
 
 <a name="l00063"></a>   63
@@ -103,7 +103,7 @@ header
 <a name="l00072"></a>   72     public:
 
 
-<a name="l00074"></a>   74         [[classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]();
+<a name="l00074"></a>   74         [[SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]();
 
 
 <a name="l00075"></a>   75         /*
@@ -139,31 +139,31 @@ header
 <a name="l00085"></a>   85          */
 
 
-<a name="l00086"></a>   86         void [[classDAQ_1_1DDAS_1_1SystemBooter#a698372a1629e9bfed6dc4d8691b2af40]]([[classDAQ_1_1DDAS_1_1Configuration]]& config, [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] type);
+<a name="l00086"></a>   86         void [[boot|classDAQ_1_1DDAS_1_1SystemBooter#a698372a1629e9bfed6dc4d8691b2af40]]([[Configuration|classDAQ_1_1DDAS_1_1Configuration]]& config, [[BootType|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] type);
 
 
-<a name="l00095"></a>   95         void [[classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]](
+<a name="l00095"></a>   95         void [[bootModuleByIndex|classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]](
 
 
-<a name="l00096"></a>   96         int modIndex, [[classDAQ_1_1DDAS_1_1Configuration]]& config, [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] type
+<a name="l00096"></a>   96         int modIndex, [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]& config, [[BootType|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] type
 
 
 <a name="l00097"></a>   97         );
 
 
-<a name="l00102"></a>  102         void [[classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]](bool enable);
+<a name="l00102"></a>  102         void [[setVerbose|classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]](bool enable);
 
 
-<a name="l00107"></a>[[classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]         bool [[classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]() const { return m_verbose; };
+<a name="l00107"></a>[[107|classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]         bool [[isVerbose|classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]() const { return m_verbose; };
 
 
-<a name="l00113"></a>  113         void [[classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]](unsigned short mode);
+<a name="l00113"></a>  113         void [[setOfflineMode|classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]](unsigned short mode);
 
 
-<a name="l00118"></a>[[classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]         unsigned short [[classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]() const { return m_offlineMode; };
+<a name="l00118"></a>[[118|classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]         unsigned short [[getOfflineMode|classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]() const { return m_offlineMode; };
 
 
-<a name="l00125"></a>  125         void [[classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]([[classDAQ_1_1DDAS_1_1Configuration]] &config);
+<a name="l00125"></a>  125         void [[populateHardwareMap|classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]([[Configuration|classDAQ_1_1DDAS_1_1Configuration]] &config);
 
 
 <a name="l00126"></a>  126
@@ -172,7 +172,7 @@ header
 <a name="l00127"></a>  127     private:
 
 
-<a name="l00135"></a>  135         unsigned int computeBootMask([[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] type);
+<a name="l00135"></a>  135         unsigned int computeBootMask([[BootType|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]] type);
 
 
 <a name="l00144"></a>  144         void logModuleInfo(
@@ -190,7 +190,7 @@ header
 <a name="l00155"></a>  155         void checkFWPathLengths(
 
 
-<a name="l00156"></a>  156         [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]& fwConfig, const size_t maxLen
+<a name="l00156"></a>  156         [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]& fwConfig, const size_t maxLen
 
 
 <a name="l00157"></a>  157         );
@@ -217,21 +217,21 @@ header
 <a name="l00166"></a>  166
 
 
-[[classDAQ_1_1DDAS_1_1Configuration]]
+[[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]]
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter]]
+[[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter]]
 
 Manages the booting process for DDAS.
 
 **Definition:** SystemBooter.h:56
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]
+[[DAQ::DDAS::SystemBooter::populateHardwareMap|classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]
 
 void populateHardwareMap(Configuration &config)
 
@@ -240,7 +240,7 @@ Read and store hardware info from each of the modules in the system.
 **Definition:** SystemBooter.cpp:199
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]]
+[[DAQ::DDAS::SystemBooter::setOfflineMode|classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]]
 
 void setOfflineMode(unsigned short mode)
 
@@ -249,7 +249,7 @@ Enable or disable online boot.
 **Definition:** SystemBooter.cpp:186
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
+[[DAQ::DDAS::SystemBooter::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
 
 SystemBooter()
 
@@ -258,14 +258,14 @@ Constructor.
 **Definition:** SystemBooter.cpp:24
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a698372a1629e9bfed6dc4d8691b2af40]]
+[[DAQ::DDAS::SystemBooter::boot|classDAQ_1_1DDAS_1_1SystemBooter#a698372a1629e9bfed6dc4d8691b2af40]]
 
 void boot(Configuration &config, BootType type)
 
 **Definition:** SystemBooter.cpp:38
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]]
+[[DAQ::DDAS::SystemBooter::bootModuleByIndex|classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]]
 
 void bootModuleByIndex(int modIndex, Configuration &config, BootType type)
 
@@ -274,7 +274,7 @@ Boot a single module.
 **Definition:** SystemBooter.cpp:82
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]
+[[DAQ::DDAS::SystemBooter::isVerbose|classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]
 
 bool isVerbose() const
 
@@ -283,7 +283,7 @@ Return the state of verbosity.
 **Definition:** SystemBooter.h:107
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]]
+[[DAQ::DDAS::SystemBooter::setVerbose|classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]]
 
 void setVerbose(bool enable)
 
@@ -292,7 +292,7 @@ Enable or disable verbose output.
 **Definition:** SystemBooter.cpp:175
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]
+[[DAQ::DDAS::SystemBooter::BootType|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]
 
 BootType
 
@@ -301,7 +301,7 @@ An enum for boot type bitmasks.
 **Definition:** SystemBooter.h:59
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+[[DAQ::DDAS::SystemBooter::FullBoot|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
 
 @ FullBoot
 
@@ -310,7 +310,7 @@ Bitmask for full boot with firmware load.
 **Definition:** SystemBooter.h:60
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]
+[[DAQ::DDAS::SystemBooter::SettingsOnly|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]
 
 @ SettingsOnly
 
@@ -319,7 +319,7 @@ Bitmask for boot with settings only.
 **Definition:** SystemBooter.h:61
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]
+[[DAQ::DDAS::SystemBooter::getOfflineMode|classDAQ_1_1DDAS_1_1SystemBooter#aea725fe660ec0c95a5c174b09e55beef]]
 
 unsigned short getOfflineMode() const
 
@@ -328,10 +328,10 @@ Return the boot mode of the system.
 **Definition:** SystemBooter.h:118
 
 
-[[namespaceDAQ]]
+[[DAQ|namespaceDAQ]]
 
 
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
+[[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
 
 Storage for hardware-type firmware/settings paths.
 

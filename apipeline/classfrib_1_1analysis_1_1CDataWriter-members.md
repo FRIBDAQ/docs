@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CDataWriter]]
+- [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]
 
  top 
 frib::analysis::CDataWriter Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CDataWriter]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CDataWriter|classfrib_1_1analysis_1_1CDataWriter]], including all inherited members.
 
 
 |  |  |  |

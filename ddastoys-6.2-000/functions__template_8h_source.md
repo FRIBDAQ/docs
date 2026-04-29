@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 functions_template.h
 
 header
-[[functions__template_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|functions__template_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -94,7 +94,7 @@ header
 <a name="l00033"></a>   33
 
 
-<a name="l00048"></a>   48     double [[cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]](
+<a name="l00048"></a>   48     double [[singlePulse|cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]](
 
 
 <a name="l00049"></a>   49         double S1, double x1, double C, double x,
@@ -106,7 +106,7 @@ header
 <a name="l00051"></a>   51         );
 
 
-<a name="l00063"></a>   63     double [[cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]](
+<a name="l00063"></a>   63     double [[doublePulse|cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]](
 
 
 <a name="l00064"></a>   64         double S1, double x1, double S2, double x2,
@@ -121,7 +121,7 @@ header
 <a name="l00067"></a>   67         );
 
 
-<a name="l00080"></a>   80     double [[group__template#gadd64c4318f93532106214aa6eec7f67b]](
+<a name="l00080"></a>   80     double [[chiSquare1|group__template#gadd64c4318f93532106214aa6eec7f67b]](
 
 
 <a name="l00081"></a>   81         double S1, double x1, double C,
@@ -136,7 +136,7 @@ header
 <a name="l00084"></a>   84         );
 
 
-<a name="l00099"></a>   99     double [[group__template#gae7c977864847934050f2170c58338f1f]](
+<a name="l00099"></a>   99     double [[chiSquare2|group__template#gae7c977864847934050f2170c58338f1f]](
 
 
 <a name="l00100"></a>  100         double S1, double x1, double S2, double x2, double C,
@@ -166,7 +166,7 @@ header
 <a name="l00109"></a>  109 #endif
 
 
-[[cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]]
+[[singlePulse|cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]]
 
 __host__ __device__ float singlePulse(float A1, float k1, float k2, float x1, float C, float x)
 
@@ -175,7 +175,7 @@ Evaluate the value of a single pulse in accordance with our canonical functional
 **Definition:** cudafit_analytic.cu:225
 
 
-[[cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]]
+[[doublePulse|cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]]
 
 __host__ __device__ float doublePulse(float A1, float k1, float k2, float x1, float A2, float k3, float k4, float x2, float C, float x)
 
@@ -184,7 +184,7 @@ Evaluate the canonical form of a double pulse.
 **Definition:** cudafit_analytic.cu:254
 
 
-[[group__template#gadd64c4318f93532106214aa6eec7f67b]]
+[[ddastoys::templatefit::chiSquare1|group__template#gadd64c4318f93532106214aa6eec7f67b]]
 
 double chiSquare1(double S1, double x1, double C, const std::vector< std::pair< uint16_t, uint16_t > > &points, const std::vector< double > &trace_template)
 
@@ -193,7 +193,7 @@ Computes the chi-square goodness of a specific parameterization of a single puls
 **Definition:** functions_template.cpp:84
 
 
-[[group__template#gae7c977864847934050f2170c58338f1f]]
+[[ddastoys::templatefit::chiSquare2|group__template#gae7c977864847934050f2170c58338f1f]]
 
 double chiSquare2(double S1, double x1, double S2, double x2, double C, const std::vector< std::pair< uint16_t, uint16_t > > &points, const std::vector< double > &trace_template)
 

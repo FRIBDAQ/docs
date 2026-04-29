@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structMyEp-members]]
+[[List of all members|structMyEp-members]]
 
 
 MyEp Struct Reference
@@ -37,7 +37,7 @@ Inheritance diagram for MyEp:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for MyEp:
@@ -51,7 +51,7 @@ Collaboration diagram for MyEp:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -86,7 +86,7 @@ Collaboration diagram for MyEp:
 
 ---
 
-The documentation for this struct was generated from the following file:- spectcl/[[workerTest_8cpp]]
+The documentation for this struct was generated from the following file:- spectcl/[[workerTest.cpp|workerTest_8cpp]]
 
  contents 
  start footer part 

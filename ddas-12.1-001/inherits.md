@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 Class Hierarchy
 
 header
-[[hierarchy]]
+[[Go to the textual class hierarchy|hierarchy]]
 
 |  |
 | --- |

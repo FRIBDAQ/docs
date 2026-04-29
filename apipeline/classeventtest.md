@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classeventtest-members]]
+[[List of all members|classeventtest-members]]
 
 
 eventtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for eventtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for eventtest:
@@ -47,7 +47,7 @@ Collaboration diagram for eventtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

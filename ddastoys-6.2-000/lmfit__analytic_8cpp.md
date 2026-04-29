@@ -99,7 +99,7 @@ ReturnsThe risetime estimate.
 We approximate xmax as 0.9 of maximum and use that ln(9)/(xmax - xhalf) gives k where xhalf is the position of 1/2 height. If we can't find xhalf then we fall back on a guess of 0.1.
 
 
-**[[todo#_todo000005]]**Should allow this fallback value to be an input parameter. 
+**[[Todo:|todo#_todo000005]]**Should allow this fallback value to be an input parameter. 
 NoteFor now assume that the half position is within the AOI and are not correcting for flattops.
 
  contents 

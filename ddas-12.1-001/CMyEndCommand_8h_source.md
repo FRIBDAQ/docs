@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 CMyEndCommand.h
 
 header
-[[CMyEndCommand_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|CMyEndCommand_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef MYEND_H
@@ -55,7 +55,7 @@ header
 <a name="l00013"></a>   13 class CTCLObject;
 
 
-<a name="l00014"></a>   14 class [[classCMyEventSegment]];
+<a name="l00014"></a>   14 class [[CMyEventSegment|classCMyEventSegment]];
 
 
 <a name="l00015"></a>   15 class CExperiment;
@@ -64,7 +64,7 @@ header
 <a name="l00016"></a>   16
 
 
-<a name="l00022"></a>[[classCMyEndCommand]] class [[classCMyEndCommand]] : public CEndCommand
+<a name="l00022"></a>[[22|classCMyEndCommand]] class [[CMyEndCommand|classCMyEndCommand]] : public CEndCommand
 
 
 <a name="l00023"></a>   23 {
@@ -73,13 +73,13 @@ header
 <a name="l00024"></a>   24   public:
 
 
-<a name="l00026"></a>[[structCMyEndCommand_1_1EndEvent]]     struct [[structCMyEndCommand_1_1EndEvent]] {
+<a name="l00026"></a>[[26|structCMyEndCommand_1_1EndEvent]]     struct [[EndEvent|structCMyEndCommand_1_1EndEvent]] {
 
 
-<a name="l00027"></a>[[structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]     Tcl_Event      [[structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]];
+<a name="l00027"></a>[[27|structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]     Tcl_Event      [[s_rawEvent|structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]];
 
 
-<a name="l00028"></a>[[structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]     [[classCMyEndCommand]]* [[structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]];
+<a name="l00028"></a>[[28|structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]     [[CMyEndCommand|classCMyEndCommand]]* [[s_thisPtr|structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]];
 
 
 <a name="l00029"></a>   29     };
@@ -91,7 +91,7 @@ header
 <a name="l00031"></a>   31 private:
 
 
-<a name="l00032"></a>   32     [[classCMyEventSegment]]* m_pSeg;
+<a name="l00032"></a>   32     [[CMyEventSegment|classCMyEventSegment]]* m_pSeg;
 
 
 <a name="l00033"></a>   33     CExperiment*     m_pExp;
@@ -106,16 +106,16 @@ header
 <a name="l00036"></a>   36 public:
 
 
-<a name="l00043"></a>   43     [[classCMyEndCommand#a38240db1238d36737488f4efc7d05461]](
+<a name="l00043"></a>   43     [[CMyEndCommand|classCMyEndCommand#a38240db1238d36737488f4efc7d05461]](
 
 
-<a name="l00044"></a>   44     CTCLInterpreter& interp, [[classCMyEventSegment]]* pSeg, CExperiment* pExp
+<a name="l00044"></a>   44     CTCLInterpreter& interp, [[CMyEventSegment|classCMyEventSegment]]* pSeg, CExperiment* pExp
 
 
 <a name="l00045"></a>   45     );
 
 
-<a name="l00047"></a>   47     [[classCMyEndCommand#a2e34053008620bebb9036c38c302e854]] ();
+<a name="l00047"></a>   47     [[~CMyEndCommand|classCMyEndCommand#a2e34053008620bebb9036c38c302e854]] ();
 
 
 <a name="l00048"></a>   48
@@ -124,16 +124,16 @@ header
 <a name="l00049"></a>   49 private:
 
 
-<a name="l00054"></a>   54     [[classCMyEndCommand#a38240db1238d36737488f4efc7d05461]](const [[classCMyEndCommand]]& rhs);
+<a name="l00054"></a>   54     [[CMyEndCommand|classCMyEndCommand#a38240db1238d36737488f4efc7d05461]](const [[CMyEndCommand|classCMyEndCommand]]& rhs);
 
 
-<a name="l00060"></a>   60     [[classCMyEndCommand]]& operator=(const [[classCMyEndCommand]] &rhs);
+<a name="l00060"></a>   60     [[CMyEndCommand|classCMyEndCommand]]& operator=(const [[CMyEndCommand|classCMyEndCommand]] &rhs);
 
 
-<a name="l00065"></a>   65     int operator==(const [[classCMyEndCommand]]& rhs) const;
+<a name="l00065"></a>   65     int operator==(const [[CMyEndCommand|classCMyEndCommand]]& rhs) const;
 
 
-<a name="l00070"></a>   70     int operator!=(const [[classCMyEndCommand]]& rhs) const;
+<a name="l00070"></a>   70     int operator!=(const [[CMyEndCommand|classCMyEndCommand]]& rhs) const;
 
 
 <a name="l00071"></a>   71
@@ -145,22 +145,22 @@ header
 <a name="l00073"></a>   73 public:
 
 
-<a name="l00074"></a>   74   int [[classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]();
+<a name="l00074"></a>   74   int [[transitionToInactive|classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]();
 
 
-<a name="l00075"></a>   75   int [[classCMyEndCommand#ae91a657c0c31fbedc2e05d1e9f15869a]]();
+<a name="l00075"></a>   75   int [[readOutRemainingData|classCMyEndCommand#ae91a657c0c31fbedc2e05d1e9f15869a]]();
 
 
-<a name="l00076"></a>   76   int [[classCMyEndCommand#a939cf7f6338bfd8e23bd64c33f0a88ba]]();
+<a name="l00076"></a>   76   int [[endRun|classCMyEndCommand#a939cf7f6338bfd8e23bd64c33f0a88ba]]();
 
 
-<a name="l00077"></a>   77   void [[classCMyEndCommand#a07ba29ac57de01068bbf65a9fe96fd3d]]();
+<a name="l00077"></a>   77   void [[rescheduleEndTransition|classCMyEndCommand#a07ba29ac57de01068bbf65a9fe96fd3d]]();
 
 
-<a name="l00078"></a>   78   void [[classCMyEndCommand#affb0a5fe4e1cd88ae68dd8c1d48acb10]]();
+<a name="l00078"></a>   78   void [[rescheduleEndRead|classCMyEndCommand#affb0a5fe4e1cd88ae68dd8c1d48acb10]]();
 
 
-<a name="l00079"></a>   79   virtual int [[classCMyEndCommand#ac95ff84701ba86e6889578fd8b61864e]](
+<a name="l00079"></a>   79   virtual int [[operator()|classCMyEndCommand#ac95ff84701ba86e6889578fd8b61864e]](
 
 
 <a name="l00080"></a>   80       CTCLInterpreter& interp, std::vector<CTCLObject>& objv
@@ -175,10 +175,10 @@ header
 <a name="l00083"></a>   83 protected:
 
 
-<a name="l00084"></a>   84   static int [[classCMyEndCommand#a09112cd8e5b90d673c99f48e340e46f0]](Tcl_Event* pEvt, int flags);
+<a name="l00084"></a>   84   static int [[handleEndRun|classCMyEndCommand#a09112cd8e5b90d673c99f48e340e46f0]](Tcl_Event* pEvt, int flags);
 
 
-<a name="l00085"></a>   85   static int [[classCMyEndCommand#a2cae62d9b4758c30c8ecd0adc8bfcfbd]](Tcl_Event* pEvt, int flags);
+<a name="l00085"></a>   85   static int [[handleReadOutRemainingData|classCMyEndCommand#a2cae62d9b4758c30c8ecd0adc8bfcfbd]](Tcl_Event* pEvt, int flags);
 
 
 <a name="l00086"></a>   86
@@ -190,42 +190,42 @@ header
 <a name="l00088"></a>   88 #endif
 
 
-[[classCMyEndCommand]]
+[[CMyEndCommand|classCMyEndCommand]]
 
 Provides an end command to override the SBS one.
 
 **Definition:** CMyEndCommand.h:23
 
 
-[[classCMyEndCommand#a07ba29ac57de01068bbf65a9fe96fd3d]]
+[[CMyEndCommand::rescheduleEndTransition|classCMyEndCommand#a07ba29ac57de01068bbf65a9fe96fd3d]]
 
 void rescheduleEndTransition()
 
 **Definition:** CMyEndCommand.cpp:277
 
 
-[[classCMyEndCommand#a09112cd8e5b90d673c99f48e340e46f0]]
+[[CMyEndCommand::handleEndRun|classCMyEndCommand#a09112cd8e5b90d673c99f48e340e46f0]]
 
 static int handleEndRun(Tcl_Event *pEvt, int flags)
 
 **Definition:** CMyEndCommand.cpp:316
 
 
-[[classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]
+[[CMyEndCommand::transitionToInactive|classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]
 
 int transitionToInactive()
 
 **Definition:** CMyEndCommand.cpp:53
 
 
-[[classCMyEndCommand#a2cae62d9b4758c30c8ecd0adc8bfcfbd]]
+[[CMyEndCommand::handleReadOutRemainingData|classCMyEndCommand#a2cae62d9b4758c30c8ecd0adc8bfcfbd]]
 
 static int handleReadOutRemainingData(Tcl_Event *pEvt, int flags)
 
 **Definition:** CMyEndCommand.cpp:328
 
 
-[[classCMyEndCommand#a2e34053008620bebb9036c38c302e854]]
+[[CMyEndCommand::~CMyEndCommand|classCMyEndCommand#a2e34053008620bebb9036c38c302e854]]
 
 ~CMyEndCommand()
 
@@ -234,7 +234,7 @@ Destructor.
 **Definition:** CMyEndCommand.cpp:37
 
 
-[[classCMyEndCommand#a38240db1238d36737488f4efc7d05461]]
+[[CMyEndCommand::CMyEndCommand|classCMyEndCommand#a38240db1238d36737488f4efc7d05461]]
 
 CMyEndCommand(CTCLInterpreter &interp, CMyEventSegment *pSeg, CExperiment *pExp)
 
@@ -243,49 +243,49 @@ Constructor.
 **Definition:** CMyEndCommand.cpp:30
 
 
-[[classCMyEndCommand#a939cf7f6338bfd8e23bd64c33f0a88ba]]
+[[CMyEndCommand::endRun|classCMyEndCommand#a939cf7f6338bfd8e23bd64c33f0a88ba]]
 
 int endRun()
 
 **Definition:** CMyEndCommand.cpp:228
 
 
-[[classCMyEndCommand#ac95ff84701ba86e6889578fd8b61864e]]
+[[CMyEndCommand::operator()|classCMyEndCommand#ac95ff84701ba86e6889578fd8b61864e]]
 
 virtual int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
 **Definition:** CMyEndCommand.cpp:298
 
 
-[[classCMyEndCommand#ae91a657c0c31fbedc2e05d1e9f15869a]]
+[[CMyEndCommand::readOutRemainingData|classCMyEndCommand#ae91a657c0c31fbedc2e05d1e9f15869a]]
 
 int readOutRemainingData()
 
 **Definition:** CMyEndCommand.cpp:124
 
 
-[[classCMyEndCommand#affb0a5fe4e1cd88ae68dd8c1d48acb10]]
+[[CMyEndCommand::rescheduleEndRead|classCMyEndCommand#affb0a5fe4e1cd88ae68dd8c1d48acb10]]
 
 void rescheduleEndRead()
 
 **Definition:** CMyEndCommand.cpp:284
 
 
-[[classCMyEventSegment]]
+[[CMyEventSegment|classCMyEventSegment]]
 
 Derived class for DDAS event segments.
 
 **Definition:** CMyEventSegment.h:31
 
 
-[[structCMyEndCommand_1_1EndEvent]]
+[[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent]]
 
 Struct encapsulating the command and Tcl event to end the run.
 
 **Definition:** CMyEndCommand.h:26
 
 
-[[structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]
+[[CMyEndCommand::EndEvent::s_thisPtr|structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]
 
 CMyEndCommand * s_thisPtr
 
@@ -294,7 +294,7 @@ Pointer to this command.
 **Definition:** CMyEndCommand.h:28
 
 
-[[structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]
+[[CMyEndCommand::EndEvent::s_rawEvent|structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]
 
 Tcl_Event s_rawEvent
 

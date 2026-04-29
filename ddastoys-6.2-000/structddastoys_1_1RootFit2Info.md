@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1RootFit2Info]]
+- [[RootFit2Info|structddastoys_1_1RootFit2Info]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[structddastoys_1_1RootFit2Info-members]]
+[[List of all members|structddastoys_1_1RootFit2Info-members]]
 
 
 ddastoys::RootFit2Info Struct Reference
 
 header
 Full fitting information for the double pulse.  
- [[structddastoys_1_1RootFit2Info#details]]
+ [[More...|structddastoys_1_1RootFit2Info#details]]
 
 
 `#include <RootExtensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::RootFit2Info:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::RootFit2Info:
@@ -65,7 +65,7 @@ Collaboration diagram for ddastoys::RootFit2Info:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -104,7 +104,7 @@ Full fitting information for the double pulse.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[RootExtensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[RootExtensions.h|RootExtensions_8h_source]]
 
  contents 
  start footer part 

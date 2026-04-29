@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classQTraceView-members]]
+[[List of all members|classQTraceView-members]]
 
 
 QTraceView Class Reference
 
 header
 Main traceview GUI window.  
- [[classQTraceView#details]]
+ [[More...|classQTraceView#details]]
 
 
 `#include <QTraceView.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for QTraceView:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for QTraceView:
@@ -59,7 +59,7 @@ Collaboration diagram for QTraceView:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -86,8 +86,8 @@ Collaboration diagram for QTraceView:
 Main traceview GUI window.
 
 
-**[[todo#_todo000009]]**(ASC 10/15/24): Probably a project-wide TODO... only the public and Qt signaling interfaces need to be exposed here. I suspect that any helper functions can be make static, which may greatly simplify the class and make compilation easier. 
-**[[todo#_todo000010]]**(ASC 10/16/24): Probably *another* project-wide TODO... avoid constructor initializations which use the new keyword. Can use smart ptrs (preferred?) or simply initialize in the constructor body with the initialization list for all pointer membvers as nullptr. Hopefully improves safety e.g., an exception or other error in the constructor body will (hopefully!) ensure deletion of created objetcs which *may* not happen if new'd in init list. 
+**[[Todo:|todo#_todo000009]]**(ASC 10/15/24): Probably a project-wide TODO... only the public and Qt signaling interfaces need to be exposed here. I suspect that any helper functions can be make static, which may greatly simplify the class and make compilation easier. 
+**[[Todo:|todo#_todo000010]]**(ASC 10/16/24): Probably *another* project-wide TODO... avoid constructor initializations which use the new keyword. Can use smart ptrs (preferred?) or simply initialize in the constructor body with the initialization list for all pointer membvers as nullptr. Hopefully improves safety e.g., an exception or other error in the constructor body will (hopefully!) ensure deletion of created objetcs which *may* not happen if new'd in init list. 
 Main window class for traceview responsible for management and high-level control over the application. Uses Qt's signal and slot framework to communicate between objects. See Qt documentation for details.
 
 ## Constructor & Destructor Documentation
@@ -162,8 +162,8 @@ Primary purpose here is to propagate the state changes to ROOT.
 
 ---
 
-The documentation for this class was generated from the following files:- [[QTraceView_8h_source]]
-- [[QTraceView_8cpp]]
+The documentation for this class was generated from the following files:- [[QTraceView.h|QTraceView_8h_source]]
+- [[QTraceView.cpp|QTraceView_8cpp]]
 
  contents 
  start footer part 

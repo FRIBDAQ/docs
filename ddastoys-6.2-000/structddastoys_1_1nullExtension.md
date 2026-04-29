@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1nullExtension]]
+- [[nullExtension|structddastoys_1_1nullExtension]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1nullExtension-members]]
+[[List of all members|structddastoys_1_1nullExtension-members]]
 
 
 ddastoys::nullExtension Struct Reference
 
 header
 A null fit extension is a single 32-bit word.  
- [[structddastoys_1_1nullExtension#details]]
+ [[More...|structddastoys_1_1nullExtension#details]]
 
 
 `#include <fit_extensions.h>`
@@ -63,7 +63,7 @@ A null fit extension is a single 32-bit word.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
 
  contents 
  start footer part 

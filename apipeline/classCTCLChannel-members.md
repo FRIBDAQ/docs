@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLChannel Member List
 
 header
-This is the complete list of members for [[classCTCLChannel]], including all inherited members.
+This is the complete list of members for [[CTCLChannel|classCTCLChannel]], including all inherited members.
 
 
 |  |  |  |

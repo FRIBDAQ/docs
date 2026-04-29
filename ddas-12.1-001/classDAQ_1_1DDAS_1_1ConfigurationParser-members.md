@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1ConfigurationParser]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]]
 
  top 
 DAQ::DDAS::ConfigurationParser Member List
 
 header
-This is the complete list of members for [[classDAQ_1_1DDAS_1_1ConfigurationParser]], including all inherited members.
+This is the complete list of members for [[DAQ::DDAS::ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]], including all inherited members.
 
 
 |  |  |  |

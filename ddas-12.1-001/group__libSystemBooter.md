@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
 libSystemBooter.so
 
 header
-[[namespaceDAQ_1_1DDAS]] Pixie-16 system booter library.  
+[[DDAS|namespaceDAQ_1_1DDAS]] Pixie-16 system booter library.  
 [More...](#details)
 
 
@@ -37,10 +37,10 @@ header
 <a name="details"></a>## Detailed Description
 
 
-[[namespaceDAQ_1_1DDAS]] Pixie-16 system booter library.
+[[DDAS|namespaceDAQ_1_1DDAS]] Pixie-16 system booter library.
 
 
-A library containing code used by other [[namespaceDAQ_1_1DDAS]] programs which boots Pixie modules and sets hardware configuration for the booted system.
+A library containing code used by other [[DDAS|namespaceDAQ_1_1DDAS]] programs which boots Pixie modules and sets hardware configuration for the booted system.
 
  contents 
  start footer part 

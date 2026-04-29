@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 DDASReadoutMain.h
 
 header
-[[DDASReadoutMain_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASReadoutMain_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -103,7 +103,7 @@ header
 <a name="l00031"></a>   31
 
 
-<a name="l00056"></a>[[classDDASReadoutMain]] class [[classDDASReadoutMain]] : public CReadoutMain
+<a name="l00056"></a>[[56|classDDASReadoutMain]] class [[DDASReadoutMain|classDDASReadoutMain]] : public CReadoutMain
 
 
 <a name="l00057"></a>   57 {
@@ -112,19 +112,19 @@ header
 <a name="l00058"></a>   58 public:
 
 
-<a name="l00063"></a>   63     virtual void [[classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]](CExperiment* pExperiment);
+<a name="l00063"></a>   63     virtual void [[SetupReadout|classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]](CExperiment* pExperiment);
 
 
-<a name="l00068"></a>   68     virtual void [[classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]](CExperiment* pExperiment);
+<a name="l00068"></a>   68     virtual void [[SetupScalers|classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]](CExperiment* pExperiment);
 
 
-<a name="l00074"></a>   74     virtual void [[classDDASReadoutMain#aac788b9d7f37d4d64683ca810861f3bc]](CTCLInterpreter* pInterp);
+<a name="l00074"></a>   74     virtual void [[addCommands|classDDASReadoutMain#aac788b9d7f37d4d64683ca810861f3bc]](CTCLInterpreter* pInterp);
 
 
-<a name="l00080"></a>   80     virtual void [[classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]](CTCLInterpreter* pInterp);
+<a name="l00080"></a>   80     virtual void [[SetupRunVariables|classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]](CTCLInterpreter* pInterp);
 
 
-<a name="l00086"></a>   86     virtual void [[classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]](CTCLInterpreter* pInterp);
+<a name="l00086"></a>   86     virtual void [[SetupStateVariables|classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]](CTCLInterpreter* pInterp);
 
 
 <a name="l00087"></a>   87 };
@@ -136,14 +136,14 @@ header
 <a name="l00089"></a>   89 #endif
 
 
-[[classDDASReadoutMain]]
+[[DDASReadoutMain|classDDASReadoutMain]]
 
 Production readout class for DDAS systems.
 
 **Definition:** DDASReadoutMain.h:57
 
 
-[[classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]]
+[[DDASReadoutMain::SetupRunVariables|classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]]
 
 virtual void SetupRunVariables(CTCLInterpreter *pInterp)
 
@@ -152,7 +152,7 @@ Setup run variables.
 **Definition:** DDASReadoutMain.cpp:218
 
 
-[[classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]]
+[[DDASReadoutMain::SetupScalers|classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]]
 
 virtual void SetupScalers(CExperiment *pExperiment)
 
@@ -161,7 +161,7 @@ Setup the scaler Readout.
 **Definition:** DDASReadoutMain.cpp:145
 
 
-[[classDDASReadoutMain#aac788b9d7f37d4d64683ca810861f3bc]]
+[[DDASReadoutMain::addCommands|classDDASReadoutMain#aac788b9d7f37d4d64683ca810861f3bc]]
 
 virtual void addCommands(CTCLInterpreter *pInterp)
 
@@ -170,7 +170,7 @@ Used to add Tcl commands. See the CTCLObjectProcessor class.
 **Definition:** DDASReadoutMain.cpp:198
 
 
-[[classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
+[[DDASReadoutMain::SetupStateVariables|classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
 
 virtual void SetupStateVariables(CTCLInterpreter *pInterp)
 
@@ -179,7 +179,7 @@ Setup state variables.
 **Definition:** DDASReadoutMain.cpp:240
 
 
-[[classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]]
+[[DDASReadoutMain::SetupReadout|classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]]
 
 virtual void SetupReadout(CExperiment *pExperiment)
 

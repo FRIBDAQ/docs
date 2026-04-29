@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
 
  top 
 DAQ::DDAS::FirmwareConfiguration Member List
 
 header
-This is the complete list of members for [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]], including all inherited members.
+This is the complete list of members for [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]], including all inherited members.
 
 
 |  |  |  |

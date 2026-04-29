@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCMyScaler]]
-- [[structCMyScaler_1_1__Statistics]]
+- [[CMyScaler|classCMyScaler]]
+- [[_Statistics|structCMyScaler_1_1__Statistics]]
 
  top 
 CMyScaler::_Statistics Member List
 
 header
-This is the complete list of members for [[structCMyScaler_1_1__Statistics]], including all inherited members.
+This is the complete list of members for [[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics]], including all inherited members.
 
 
 |  |  |  |

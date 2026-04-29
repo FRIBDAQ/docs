@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CItemConfiguration.h
@@ -89,7 +89,7 @@ header
 
 <a name="l00030"></a>   30
 
-<a name="l00065"></a>[[classCItemConfiguration]] class [[classCItemConfiguration]] {
+<a name="l00065"></a>[[65|classCItemConfiguration]] class [[CItemConfiguration|classCItemConfiguration]] {
 
 <a name="l00066"></a>   66
 
@@ -109,19 +109,19 @@ header
 
 <a name="l00074"></a>   74
 
-<a name="l00075"></a>[[structCItemConfiguration_1_1limit]]   struct  [[structCItemConfiguration_1_1limit]] {
+<a name="l00075"></a>[[75|structCItemConfiguration_1_1limit]]   struct  [[limit|structCItemConfiguration_1_1limit]] {
 
 <a name="l00076"></a>   76     bool   s_checkMe;
 
 <a name="l00077"></a>   77     long    s_value;
 
-<a name="l00078"></a>   78     [[structCItemConfiguration_1_1limit]]() :
+<a name="l00078"></a>   78     [[limit|structCItemConfiguration_1_1limit]]() :
 
 <a name="l00079"></a>   79       s_checkMe(false)
 
 <a name="l00080"></a>   80     {}
 
-<a name="l00081"></a>   81     [[structCItemConfiguration_1_1limit]](long value) :
+<a name="l00081"></a>   81     [[limit|structCItemConfiguration_1_1limit]](long value) :
 
 <a name="l00082"></a>   82       s_checkMe(true),
 
@@ -133,39 +133,39 @@ header
 
 <a name="l00086"></a>   86   typedef std::set<std::string> isEnumParameter;
 
-<a name="l00087"></a>[[structCItemConfiguration_1_1__ListSizeConstraint]]   typedef struct [[structCItemConfiguration_1_1__ListSizeConstraint]] {
+<a name="l00087"></a>[[87|structCItemConfiguration_1_1__ListSizeConstraint]]   typedef struct [[_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]] {
 
-<a name="l00088"></a>   88     [[structCItemConfiguration_1_1limit]] s_atLeast;
+<a name="l00088"></a>   88     [[limit|structCItemConfiguration_1_1limit]] s_atLeast;
 
-<a name="l00089"></a>   89     [[structCItemConfiguration_1_1limit]] s_atMost;
+<a name="l00089"></a>   89     [[limit|structCItemConfiguration_1_1limit]] s_atMost;
 
-<a name="l00090"></a>   90   } [[structCItemConfiguration_1_1__ListSizeConstraint]];
+<a name="l00090"></a>   90   } [[ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]];
 
 <a name="l00091"></a>   91
 
-<a name="l00092"></a>[[structCItemConfiguration_1_1__isListParameter]]   typedef struct [[structCItemConfiguration_1_1__isListParameter]] {
+<a name="l00092"></a>[[92|structCItemConfiguration_1_1__isListParameter]]   typedef struct [[_isListParameter|structCItemConfiguration_1_1__isListParameter]] {
 
-<a name="l00093"></a>   93     [[structCItemConfiguration_1_1__ListSizeConstraint]] s_allowedSize;
+<a name="l00093"></a>   93     [[ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]] s_allowedSize;
 
 <a name="l00094"></a>   94     TypeCheckInfo      s_checker;
 
-<a name="l00095"></a>   95   } [[structCItemConfiguration_1_1__isListParameter]];
+<a name="l00095"></a>   95   } [[isListParameter|structCItemConfiguration_1_1__isListParameter]];
 
 <a name="l00096"></a>   96
 
 <a name="l00097"></a>   97
 
-<a name="l00098"></a>[[structCItemConfiguration_1_1flimit]]   struct  [[structCItemConfiguration_1_1flimit]] {
+<a name="l00098"></a>[[98|structCItemConfiguration_1_1flimit]]   struct  [[flimit|structCItemConfiguration_1_1flimit]] {
 
 <a name="l00099"></a>   99     bool   s_checkMe;
 
 <a name="l00100"></a>  100     float s_value;
 
-<a name="l00101"></a>  101     [[structCItemConfiguration_1_1flimit]]() :
+<a name="l00101"></a>  101     [[flimit|structCItemConfiguration_1_1flimit]]() :
 
 <a name="l00102"></a>  102       s_checkMe(false) {}
 
-<a name="l00103"></a>  103     [[structCItemConfiguration_1_1flimit]](float value) :
+<a name="l00103"></a>  103     [[flimit|structCItemConfiguration_1_1flimit]](float value) :
 
 <a name="l00104"></a>  104       s_checkMe(true),
 
@@ -209,17 +209,17 @@ header
 
 <a name="l00124"></a>  124
 
-<a name="l00125"></a>  125   [[classCItemConfiguration]](std::string name);
+<a name="l00125"></a>  125   [[CItemConfiguration|classCItemConfiguration]](std::string name);
 
-<a name="l00126"></a>  126   [[classCItemConfiguration]](const [[classCItemConfiguration]]& rhs);
+<a name="l00126"></a>  126   [[CItemConfiguration|classCItemConfiguration]](const [[CItemConfiguration|classCItemConfiguration]]& rhs);
 
-<a name="l00127"></a>  127   virtual [[classCItemConfiguration#a5e158bb34f38dbae1c320ecb216526a0]]();
+<a name="l00127"></a>  127   virtual [[~CItemConfiguration|classCItemConfiguration#a5e158bb34f38dbae1c320ecb216526a0]]();
 
-<a name="l00128"></a>  128   [[classCItemConfiguration]]& [[classCItemConfiguration#a749a08150bfc7c102225c78de89f05ac]](const [[classCItemConfiguration]]& rhs);
+<a name="l00128"></a>  128   [[CItemConfiguration|classCItemConfiguration]]& [[operator=|classCItemConfiguration#a749a08150bfc7c102225c78de89f05ac]](const [[CItemConfiguration|classCItemConfiguration]]& rhs);
 
-<a name="l00129"></a>  129   int [[classCItemConfiguration#a124b1e85aadab6f1da8c3b5809fb0fa4]](const [[classCItemConfiguration]]& rhs) const;
+<a name="l00129"></a>  129   int [[operator==|classCItemConfiguration#a124b1e85aadab6f1da8c3b5809fb0fa4]](const [[CItemConfiguration|classCItemConfiguration]]& rhs) const;
 
-<a name="l00130"></a>  130   int [[classCItemConfiguration#a3e3f3b6b07945424cbe9668dba7ac2a8]](const [[classCItemConfiguration]]& rhs) const;
+<a name="l00130"></a>  130   int [[operator!=|classCItemConfiguration#a3e3f3b6b07945424cbe9668dba7ac2a8]](const [[CItemConfiguration|classCItemConfiguration]]& rhs) const;
 
 <a name="l00131"></a>  131
 
@@ -229,11 +229,11 @@ header
 
 <a name="l00134"></a>  134 public:
 
-<a name="l00135"></a>  135   std::string [[classCItemConfiguration#a293f2fadb94f29a78d1d6793b64cd3a0]]() const;
+<a name="l00135"></a>  135   std::string [[getName|classCItemConfiguration#a293f2fadb94f29a78d1d6793b64cd3a0]]() const;
 
-<a name="l00136"></a>  136   std::string [[classCItemConfiguration#af7a21de332edccad1b22b2281de35087]](std::string name) ;
+<a name="l00136"></a>  136   std::string [[cget|classCItemConfiguration#af7a21de332edccad1b22b2281de35087]](std::string name) ;
 
-<a name="l00137"></a>  137   ConfigurationArray [[classCItemConfiguration#af7a21de332edccad1b22b2281de35087]]();
+<a name="l00137"></a>  137   ConfigurationArray [[cget|classCItemConfiguration#af7a21de332edccad1b22b2281de35087]]();
 
 <a name="l00138"></a>  138
 
@@ -241,15 +241,15 @@ header
 
 <a name="l00140"></a>  140
 
-<a name="l00141"></a>  141   int [[classCItemConfiguration#acf41f81234b2e21b5a38483f27f525e2]] (std::string name);
+<a name="l00141"></a>  141   int [[getIntegerParameter|classCItemConfiguration#acf41f81234b2e21b5a38483f27f525e2]] (std::string name);
 
-<a name="l00142"></a>  142   unsigned int [[classCItemConfiguration#a251aaee38c76bfed471e9a0d0a399b08]](std::string name);
+<a name="l00142"></a>  142   unsigned int [[getUnsignedParameter|classCItemConfiguration#a251aaee38c76bfed471e9a0d0a399b08]](std::string name);
 
-<a name="l00143"></a>  143   bool [[classCItemConfiguration#a343b5dd9b8f3cfd5f16f0783aa1f783a]]    (std::string name);
+<a name="l00143"></a>  143   bool [[getBoolParameter|classCItemConfiguration#a343b5dd9b8f3cfd5f16f0783aa1f783a]]    (std::string name);
 
-<a name="l00144"></a>  144   double [[classCItemConfiguration#adcfe6a623bdcf0b38066dcfd8a6a3a14]]   (std::string name);
+<a name="l00144"></a>  144   double [[getFloatParameter|classCItemConfiguration#adcfe6a623bdcf0b38066dcfd8a6a3a14]]   (std::string name);
 
-<a name="l00145"></a>  145   std::vector<int> [[classCItemConfiguration#a8b408716e91d10037ec4ab1f2c656a35]]      (std::string name);
+<a name="l00145"></a>  145   std::vector<int> [[getIntegerList|classCItemConfiguration#a8b408716e91d10037ec4ab1f2c656a35]]      (std::string name);
 
 <a name="l00146"></a>  146
 
@@ -263,13 +263,13 @@ header
 
 <a name="l00151"></a>  151
 
-<a name="l00152"></a>  152   void [[classCItemConfiguration#a4f1cabebf2c1849dacaf0e38238df20e]](std::string name, typeChecker checker, void* arg,
+<a name="l00152"></a>  152   void [[addParameter|classCItemConfiguration#a4f1cabebf2c1849dacaf0e38238df20e]](std::string name, typeChecker checker, void* arg,
 
 <a name="l00153"></a>  153             std::string defaultValue = std::string(""));
 
 <a name="l00154"></a>  154
 
-<a name="l00155"></a>  155   void [[classCItemConfiguration#a8a3371c9830a8a8636209856331b5630]]();
+<a name="l00155"></a>  155   void [[clearConfiguration|classCItemConfiguration#a8a3371c9830a8a8636209856331b5630]]();
 
 <a name="l00156"></a>  156
 
@@ -277,9 +277,9 @@ header
 
 <a name="l00158"></a>  158
 
-<a name="l00159"></a>  159   bool [[classCItemConfiguration#ac890103124696010c51456c42af3c491]](std::string name, std::string value);
+<a name="l00159"></a>  159   bool [[isValid|classCItemConfiguration#ac890103124696010c51456c42af3c491]](std::string name, std::string value);
 
-<a name="l00160"></a>  160   void [[classCItemConfiguration#ade9c586a26f8f667b89bf5b3e2f3c8de]](std::string name, std::string value);
+<a name="l00160"></a>  160   void [[configure|classCItemConfiguration#ade9c586a26f8f667b89bf5b3e2f3c8de]](std::string name, std::string value);
 
 <a name="l00161"></a>  161
 
@@ -289,21 +289,21 @@ header
 
 <a name="l00164"></a>  164
 
-<a name="l00165"></a>  165   static bool [[classCItemConfiguration#a55f2a6f7e8b3e4f0fc0913e8ea3b0b17]](std::string name, std::string value, void* arg);
+<a name="l00165"></a>  165   static bool [[isInteger|classCItemConfiguration#a55f2a6f7e8b3e4f0fc0913e8ea3b0b17]](std::string name, std::string value, void* arg);
 
-<a name="l00166"></a>  166   static bool [[classCItemConfiguration#ac1e6a70a699af510e42cb150af2c4bca]](   std::string name, std::string value, void* arg);
+<a name="l00166"></a>  166   static bool [[isBool|classCItemConfiguration#ac1e6a70a699af510e42cb150af2c4bca]](   std::string name, std::string value, void* arg);
 
-<a name="l00167"></a>  167   static bool [[classCItemConfiguration#a3de7b24a6fd2679f1c16c768654e76b4]](   std::string name, std::string value, void* arg);
+<a name="l00167"></a>  167   static bool [[isEnum|classCItemConfiguration#a3de7b24a6fd2679f1c16c768654e76b4]](   std::string name, std::string value, void* arg);
 
-<a name="l00168"></a>  168   static bool [[classCItemConfiguration#ad4059be8a59987e83c4171cb41525fa3]](  std::string name, std::string value, void* arg);
+<a name="l00168"></a>  168   static bool [[isFloat|classCItemConfiguration#ad4059be8a59987e83c4171cb41525fa3]](  std::string name, std::string value, void* arg);
 
-<a name="l00169"></a>  169   static bool [[classCItemConfiguration#a559a46c3180e43e18e29211b30253378]](   std::string name, std::string value, void* arg);
+<a name="l00169"></a>  169   static bool [[isList|classCItemConfiguration#a559a46c3180e43e18e29211b30253378]](   std::string name, std::string value, void* arg);
 
-<a name="l00170"></a>  170   static bool [[classCItemConfiguration#ae2d964da641591af84caa113ca16a972]](std::string name,std::string value, void* arg);
+<a name="l00170"></a>  170   static bool [[isBoolList|classCItemConfiguration#ae2d964da641591af84caa113ca16a972]](std::string name,std::string value, void* arg);
 
-<a name="l00171"></a>  171   static bool [[classCItemConfiguration#aaca42f05574f4166042680970d69b8d9]](std::string name, std::string value, void* arg);
+<a name="l00171"></a>  171   static bool [[isIntList|classCItemConfiguration#aaca42f05574f4166042680970d69b8d9]](std::string name, std::string value, void* arg);
 
-<a name="l00172"></a>  172   static bool [[classCItemConfiguration#aad4794ac6e1c9434f6dc367fafb0f804]](std::string name, std::string value, void* arg);
+<a name="l00172"></a>  172   static bool [[isStringList|classCItemConfiguration#aad4794ac6e1c9434f6dc367fafb0f804]](std::string name, std::string value, void* arg);
 
 <a name="l00173"></a>  173
 
@@ -327,186 +327,186 @@ header
 
 <a name="l00183"></a>  183 #endif
 
-[[classCItemConfiguration#a5e158bb34f38dbae1c320ecb216526a0]]
+[[CItemConfiguration::~CItemConfiguration|classCItemConfiguration#a5e158bb34f38dbae1c320ecb216526a0]]
 
 virtual ~CItemConfiguration()
 
 **Definition:** CItemConfiguration.cpp:64
 
 
-[[classCItemConfiguration#a559a46c3180e43e18e29211b30253378]]
+[[CItemConfiguration::isList|classCItemConfiguration#a559a46c3180e43e18e29211b30253378]]
 
 static bool isList(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:619
 
 
-[[classCItemConfiguration#acf41f81234b2e21b5a38483f27f525e2]]
+[[CItemConfiguration::getIntegerParameter|classCItemConfiguration#acf41f81234b2e21b5a38483f27f525e2]]
 
 int getIntegerParameter(std::string name)
 
 **Definition:** CItemConfiguration.cpp:193
 
 
-[[classCItemConfiguration#af7a21de332edccad1b22b2281de35087]]
+[[CItemConfiguration::cget|classCItemConfiguration#af7a21de332edccad1b22b2281de35087]]
 
 ConfigurationArray cget()
 
 **Definition:** CItemConfiguration.cpp:157
 
 
-[[classCItemConfiguration#ac890103124696010c51456c42af3c491]]
+[[CItemConfiguration::isValid|classCItemConfiguration#ac890103124696010c51456c42af3c491]]
 
 bool isValid(std::string name, std::string value)
 
 **Definition:** CItemConfiguration.cpp:359
 
 
-[[classCItemConfiguration#a124b1e85aadab6f1da8c3b5809fb0fa4]]
+[[CItemConfiguration::operator==|classCItemConfiguration#a124b1e85aadab6f1da8c3b5809fb0fa4]]
 
 int operator==(const CItemConfiguration &rhs) const
 
 **Definition:** CItemConfiguration.cpp:96
 
 
-[[classCItemConfiguration#aad4794ac6e1c9434f6dc367fafb0f804]]
+[[CItemConfiguration::isStringList|classCItemConfiguration#aad4794ac6e1c9434f6dc367fafb0f804]]
 
 static bool isStringList(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:755
 
 
-[[classCItemConfiguration#a8b408716e91d10037ec4ab1f2c656a35]]
+[[CItemConfiguration::getIntegerList|classCItemConfiguration#a8b408716e91d10037ec4ab1f2c656a35]]
 
 std::vector< int > getIntegerList(std::string name)
 
 **Definition:** CItemConfiguration.cpp:287
 
 
-[[structCItemConfiguration_1_1__isListParameter]]
+[[CItemConfiguration::_isListParameter|structCItemConfiguration_1_1__isListParameter]]
 
 **Definition:** CItemConfiguration.h:92
 
 
-[[classCItemConfiguration#ae2d964da641591af84caa113ca16a972]]
+[[CItemConfiguration::isBoolList|classCItemConfiguration#ae2d964da641591af84caa113ca16a972]]
 
 static bool isBoolList(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:680
 
 
-[[classCItemConfiguration#a55f2a6f7e8b3e4f0fc0913e8ea3b0b17]]
+[[CItemConfiguration::isInteger|classCItemConfiguration#a55f2a6f7e8b3e4f0fc0913e8ea3b0b17]]
 
 static bool isInteger(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:439
 
 
-[[classCItemConfiguration#ac1e6a70a699af510e42cb150af2c4bca]]
+[[CItemConfiguration::isBool|classCItemConfiguration#ac1e6a70a699af510e42cb150af2c4bca]]
 
 static bool isBool(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:489
 
 
-[[classCItemConfiguration#adcfe6a623bdcf0b38066dcfd8a6a3a14]]
+[[CItemConfiguration::getFloatParameter|classCItemConfiguration#adcfe6a623bdcf0b38066dcfd8a6a3a14]]
 
 double getFloatParameter(std::string name)
 
 **Definition:** CItemConfiguration.cpp:263
 
 
-[[classCItemConfiguration#a749a08150bfc7c102225c78de89f05ac]]
+[[CItemConfiguration::operator=|classCItemConfiguration#a749a08150bfc7c102225c78de89f05ac]]
 
 CItemConfiguration & operator=(const CItemConfiguration &rhs)
 
 **Definition:** CItemConfiguration.cpp:83
 
 
-[[classCItemConfiguration#a4f1cabebf2c1849dacaf0e38238df20e]]
+[[CItemConfiguration::addParameter|classCItemConfiguration#a4f1cabebf2c1849dacaf0e38238df20e]]
 
 void addParameter(std::string name, typeChecker checker, void *arg, std::string defaultValue=std::string(""))
 
 **Definition:** CItemConfiguration.cpp:337
 
 
-[[classCItemConfiguration#aaca42f05574f4166042680970d69b8d9]]
+[[CItemConfiguration::isIntList|classCItemConfiguration#aaca42f05574f4166042680970d69b8d9]]
 
 static bool isIntList(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:719
 
 
-[[classCItemConfiguration#a3de7b24a6fd2679f1c16c768654e76b4]]
+[[CItemConfiguration::isEnum|classCItemConfiguration#a3de7b24a6fd2679f1c16c768654e76b4]]
 
 static bool isEnum(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:585
 
 
-[[structCItemConfiguration_1_1flimit]]
+[[CItemConfiguration::flimit|structCItemConfiguration_1_1flimit]]
 
 **Definition:** CItemConfiguration.h:98
 
 
-[[structCItemConfiguration_1_1__ListSizeConstraint]]
+[[CItemConfiguration::_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]]
 
 **Definition:** CItemConfiguration.h:87
 
 
-[[classCItemConfiguration#a8a3371c9830a8a8636209856331b5630]]
+[[CItemConfiguration::clearConfiguration|classCItemConfiguration#a8a3371c9830a8a8636209856331b5630]]
 
 void clearConfiguration()
 
 **Definition:** CItemConfiguration.cpp:413
 
 
-[[classCItemConfiguration#a3e3f3b6b07945424cbe9668dba7ac2a8]]
+[[CItemConfiguration::operator!=|classCItemConfiguration#a3e3f3b6b07945424cbe9668dba7ac2a8]]
 
 int operator!=(const CItemConfiguration &rhs) const
 
 **Definition:** CItemConfiguration.cpp:105
 
 
-[[classCItemConfiguration#a343b5dd9b8f3cfd5f16f0783aa1f783a]]
+[[CItemConfiguration::getBoolParameter|classCItemConfiguration#a343b5dd9b8f3cfd5f16f0783aa1f783a]]
 
 bool getBoolParameter(std::string name)
 
 **Definition:** CItemConfiguration.cpp:241
 
 
-[[structCItemConfiguration_1_1limit]]
+[[CItemConfiguration::limit|structCItemConfiguration_1_1limit]]
 
 **Definition:** CItemConfiguration.h:75
 
 
-[[classCItemConfiguration#ade9c586a26f8f667b89bf5b3e2f3c8de]]
+[[CItemConfiguration::configure|classCItemConfiguration#ade9c586a26f8f667b89bf5b3e2f3c8de]]
 
 void configure(std::string name, std::string value)
 
 **Definition:** CItemConfiguration.cpp:387
 
 
-[[classCItemConfiguration]]
+[[CItemConfiguration|classCItemConfiguration]]
 
 **Definition:** CItemConfiguration.h:65
 
 
-[[classCItemConfiguration#a251aaee38c76bfed471e9a0d0a399b08]]
+[[CItemConfiguration::getUnsignedParameter|classCItemConfiguration#a251aaee38c76bfed471e9a0d0a399b08]]
 
 unsigned int getUnsignedParameter(std::string name)
 
 **Definition:** CItemConfiguration.cpp:213
 
 
-[[classCItemConfiguration#ad4059be8a59987e83c4171cb41525fa3]]
+[[CItemConfiguration::isFloat|classCItemConfiguration#ad4059be8a59987e83c4171cb41525fa3]]
 
 static bool isFloat(std::string name, std::string value, void *arg)
 
 **Definition:** CItemConfiguration.cpp:529
 
 
-[[classCItemConfiguration#a293f2fadb94f29a78d1d6793b64cd3a0]]
+[[CItemConfiguration::getName|classCItemConfiguration#a293f2fadb94f29a78d1d6793b64cd3a0]]
 
 std::string getName() const
 

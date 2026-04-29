@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classresultTest-members]]
+[[List of all members|classresultTest-members]]
 
 
 resultTest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for resultTest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for resultTest:
@@ -47,7 +47,7 @@ Collaboration diagram for resultTest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 [Macros](#define-members) |
@@ -52,7 +52,7 @@ This graph shows which files directly or indirectly include this file:
 ![](StringsToIntegers_8h__dep__incl.png)
 
 
-[[StringsToIntegers_8h_source]]
+[[Go to the source code of this file.|StringsToIntegers_8h_source]]
 
 
 |  |  |

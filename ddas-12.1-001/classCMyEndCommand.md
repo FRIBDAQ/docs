@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
 [Static Protected Member Functions](#pro-static-methods) |
-[[classCMyEndCommand-members]]
+[[List of all members|classCMyEndCommand-members]]
 
 
 CMyEndCommand Class Reference
 
 header
 Provides an end command to override the SBS one.  
- [[classCMyEndCommand#details]]
+ [[More...|classCMyEndCommand#details]]
 
 
 `#include <CMyEndCommand.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for CMyEndCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMyEndCommand:
@@ -59,7 +59,7 @@ Collaboration diagram for CMyEndCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -241,8 +241,8 @@ NoteIf the end run signal is successfully communicated to the module(s), the tra
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyEndCommand_8h_source]]
-- [[CMyEndCommand_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyEndCommand.h|CMyEndCommand_8h_source]]
+- [[CMyEndCommand.cpp|CMyEndCommand_8cpp]]
 
  contents 
  start footer part 

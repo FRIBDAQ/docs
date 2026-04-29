@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[classCConfigurableObject-members]]
+[[List of all members|classCConfigurableObject-members]]
 
 
 CConfigurableObject Class Referenceabstract
@@ -40,7 +40,7 @@ Collaboration diagram for CConfigurableObject:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -86,7 +86,7 @@ The class contains as a protected member, an object of type CItemConfiguration* 
 Copy construction is supported and results in a copy of the item configuration itself.
 
 
-The [[classCItemConfiguration]] member functions:
+The [[CItemConfiguration|classCItemConfiguration]] member functions:
 
 
 - getName
@@ -262,7 +262,7 @@ Equality means the configuration is identical:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CConfigurableObject_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CConfigurableObject.h|CConfigurableObject_8h_source]]
 - libtclplus/tclplus/CConfigurableObject.cpp
 
  contents 

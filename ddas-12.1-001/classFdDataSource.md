@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classFdDataSource-members]]
+[[List of all members|classFdDataSource-members]]
 
 
 FdDataSource Class Reference
 
 header
 A class taking the file descriptor as a data source. Most commonly used to construct a data source from stdin.  
- [[classFdDataSource#details]]
+ [[More...|classFdDataSource#details]]
 
 
 `#include <FdDataSource.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for FdDataSource:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for FdDataSource:
@@ -57,7 +57,7 @@ Collaboration diagram for FdDataSource:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -156,14 +156,14 @@ Return values
 
 
 
-Implements [[classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].
+Implements [[DataSource|classDataSource#aa4b5176de8aa706b8c02e161e290ed24]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[FdDataSource_8h_source]]
-- [[FdDataSource_8cpp]]
+The documentation for this class was generated from the following files:- [[FdDataSource.h|FdDataSource_8h_source]]
+- [[FdDataSource.cpp|FdDataSource_8cpp]]
 
  contents 
  start footer part 

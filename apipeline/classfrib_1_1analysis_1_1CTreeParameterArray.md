@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeParameterArray]]
+- [[CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classfrib_1_1analysis_1_1CTreeParameterArray-members]]
+[[List of all members|classfrib_1_1analysis_1_1CTreeParameterArray-members]]
 
 
 frib::analysis::CTreeParameterArray Class Reference
@@ -275,7 +275,7 @@ Returns number of elements in the array.
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeParameterArray_8h_source]]
+The documentation for this class was generated from the following files:- base/[[TreeParameterArray.h|TreeParameterArray_8h_source]]
 - base/TreeParameterArray.cpp
 
  contents 

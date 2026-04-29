@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLObjectProcessor-members]]
+[[List of all members|classCTCLObjectProcessor-members]]
 
 
 CTCLObjectProcessor Class Referenceabstract
@@ -44,7 +44,7 @@ Inheritance diagram for CTCLObjectProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLObjectProcessor:
@@ -56,7 +56,7 @@ Collaboration diagram for CTCLObjectProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -208,7 +208,7 @@ Return the name of the command. If not registered, it's safe just to return m_Na
 Called when the command is being unregistered. This is overridable, but not necessary. Our default action is to do nothing.
 
 
-Reimplemented in [[classCTCLCompatibilityProcessor#abceaeaf2e5ac8b16675703188ebe7e6e]], and [[classObjectEcho#a235ee0ef9da9fe306234b995e3936c94]].
+Reimplemented in [[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor#abceaeaf2e5ac8b16675703188ebe7e6e]], and [[ObjectEcho|classObjectEcho#a235ee0ef9da9fe306234b995e3936c94]].
 
 
 
@@ -219,7 +219,7 @@ Reimplemented in [[classCTCLCompatibilityProcessor#abceaeaf2e5ac8b16675703188ebe
 | --- | --- | --- | --- | --- |
 | void CTCLObjectProcessor::Register | ( |  | ) |  |
 
-Register this object as an object command. Note that if the command is already registered, we throw a [[classCStateException]].
+Register this object as an object command. Note that if the command is already registered, we throw a [[CStateException|classCStateException]].
 
 
 Exceptions
@@ -344,7 +344,7 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObjectProcessor_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObjectProcessor.h|TCLObjectProcessor_8h_source]]
 - libtclplus/tclplus/TCLObjectProcessor.cpp
 
  contents 

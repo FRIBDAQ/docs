@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 TreeVariableArray.h
@@ -91,7 +91,7 @@ header
 
 <a name="l00034"></a>   34
 
-<a name="l00035"></a>   35 #include "[[TreeVariable_8h]]"
+<a name="l00035"></a>   35 #include "[[TreeVariable.h|TreeVariable_8h]]"
 
 <a name="l00036"></a>   36 #include <string>
 
@@ -103,7 +103,7 @@ header
 
 <a name="l00040"></a>   40
 
-<a name="l00041"></a>   41 namespace [[namespacefrib]] {
+<a name="l00041"></a>   41 namespace [[frib|namespacefrib]] {
 
 <a name="l00042"></a>   42     namespace analysis {
 
@@ -111,7 +111,7 @@ header
 
 <a name="l00044"></a>   44
 
-<a name="l00070"></a>[[classfrib_1_1analysis_1_1CTreeVariableArray]]             class [[classfrib_1_1analysis_1_1CTreeVariableArray]]
+<a name="l00070"></a>[[70|classfrib_1_1analysis_1_1CTreeVariableArray]]             class [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]
 
 <a name="l00071"></a>   71             {
 
@@ -127,43 +127,43 @@ header
 
 <a name="l00083"></a>   83             public:
 
-<a name="l00084"></a>   84               [[classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]]();
+<a name="l00084"></a>   84               [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]]();
 
-<a name="l00085"></a>   85               [[classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]](std::string baseName, double initialValue,
+<a name="l00085"></a>   85               [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]](std::string baseName, double initialValue,
 
-<a name="l00086"></a>   86                          std::string units, unsigned [[classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]], int [[classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]] = 0);
+<a name="l00086"></a>   86                          std::string units, unsigned [[size|classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]], int [[firstIndex|classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]] = 0);
 
-<a name="l00087"></a>   87               [[classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]](std::string baseName, unsigned size, int [[classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]] = 0);
+<a name="l00087"></a>   87               [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]](std::string baseName, unsigned size, int [[firstIndex|classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]] = 0);
 
-<a name="l00088"></a>   88               [[classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]](const [[classfrib_1_1analysis_1_1CTreeVariableArray]]& rhs);
+<a name="l00088"></a>   88               [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]](const [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]& rhs);
 
-<a name="l00089"></a>   89               [[classfrib_1_1analysis_1_1CTreeVariableArray#ae33b013757441b7bb2f191dbbe79dbc4]]();
+<a name="l00089"></a>   89               [[~CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#ae33b013757441b7bb2f191dbbe79dbc4]]();
 
-<a name="l00090"></a>   90               void [[classfrib_1_1analysis_1_1CTreeVariableArray#a22334eadb758d7119b5d57bb819885e3]](std::string baseName, double initialValue,
+<a name="l00090"></a>   90               void [[Initialize|classfrib_1_1analysis_1_1CTreeVariableArray#a22334eadb758d7119b5d57bb819885e3]](std::string baseName, double initialValue,
 
 <a name="l00091"></a>   91                       std::string units, unsigned size, int firstElement);
 
-<a name="l00092"></a>   92               [[classfrib_1_1analysis_1_1CTreeVariable]]& [[classfrib_1_1analysis_1_1CTreeVariableArray#a6d57ef72cdfcdba6a26729a0409a38ed]](int index);
+<a name="l00092"></a>   92               [[CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]& [[operator[]|classfrib_1_1analysis_1_1CTreeVariableArray#a6d57ef72cdfcdba6a26729a0409a38ed]](int index);
 
-<a name="l00093"></a>   93               const [[classfrib_1_1analysis_1_1CTreeVariable]]& [[classfrib_1_1analysis_1_1CTreeVariableArray#a6d57ef72cdfcdba6a26729a0409a38ed]](int index) const;
+<a name="l00093"></a>   93               const [[CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]& [[operator[]|classfrib_1_1analysis_1_1CTreeVariableArray#a6d57ef72cdfcdba6a26729a0409a38ed]](int index) const;
 
-<a name="l00094"></a>   94               [[classfrib_1_1analysis_1_1CTreeVariableArray]]& [[classfrib_1_1analysis_1_1CTreeVariableArray#a3aa869d6b05a0349ca8fe87b6b8eacc5]](const [[classfrib_1_1analysis_1_1CTreeVariableArray]]& rhs);
+<a name="l00094"></a>   94               [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]& [[operator=|classfrib_1_1analysis_1_1CTreeVariableArray#a3aa869d6b05a0349ca8fe87b6b8eacc5]](const [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]& rhs);
 
 <a name="l00095"></a>   95
 
-<a name="l00096"></a>   96               unsigned [[classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]() const;
+<a name="l00096"></a>   96               unsigned [[size|classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]() const;
 
-<a name="l00097"></a>   97               int [[classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]]() const;
+<a name="l00097"></a>   97               int [[firstIndex|classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]]() const;
 
 <a name="l00098"></a>   98
 
 <a name="l00099"></a>   99             protected:
 
-<a name="l00100"></a>  100               void [[classfrib_1_1analysis_1_1CTreeVariableArray#ada3962c3e73a08a314d95d4e69a31808]](std::string basename, unsigned int size,
+<a name="l00100"></a>  100               void [[BuildArray|classfrib_1_1analysis_1_1CTreeVariableArray#ada3962c3e73a08a314d95d4e69a31808]](std::string basename, unsigned int size,
 
-<a name="l00101"></a>  101                       const [[structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]& example);
+<a name="l00101"></a>  101                       const [[CTreeVariable::Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]& example);
 
-<a name="l00102"></a>  102               void [[classfrib_1_1analysis_1_1CTreeVariableArray#a9eebcc991735af82893fc1545d53dd8e]](const [[classfrib_1_1analysis_1_1CTreeVariableArray]]&  rhs);
+<a name="l00102"></a>  102               void [[CopyArray|classfrib_1_1analysis_1_1CTreeVariableArray#a9eebcc991735af82893fc1545d53dd8e]](const [[CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]&  rhs);
 
 <a name="l00103"></a>  103
 
@@ -197,90 +197,90 @@ header
 
 <a name="l00118"></a>  118 #endif
 
-[[structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
+[[frib::analysis::CTreeVariable::_Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
 
 **Definition:** TreeVariable.h:56
 
 
-[[TreeVariable_8h]]
+[[TreeVariable.h|TreeVariable_8h]]
 
 : Define a class that holds variables that steer computations.
 
 
-[[classfrib_1_1analysis_1_1CTreeVariable]]
+[[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]
 
 **Definition:** TreeVariable.h:53
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray]]
+[[frib::analysis::CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray]]
 
 **Definition:** TreeVariableArray.h:70
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]]
+[[frib::analysis::CTreeVariableArray::CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#a2e7cfd802103814552ff903fbf0ef8a5]]
 
 CTreeVariableArray()
 
 **Definition:** TreeVariableArray.cpp:45
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#a3aa869d6b05a0349ca8fe87b6b8eacc5]]
+[[frib::analysis::CTreeVariableArray::operator=|classfrib_1_1analysis_1_1CTreeVariableArray#a3aa869d6b05a0349ca8fe87b6b8eacc5]]
 
 CTreeVariableArray & operator=(const CTreeVariableArray &rhs)
 
 **Definition:** TreeVariableArray.cpp:307
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]]
+[[frib::analysis::CTreeVariableArray::firstIndex|classfrib_1_1analysis_1_1CTreeVariableArray#ad820046331b720060412125f5c031827]]
 
 int firstIndex() const
 
 **Definition:** TreeVariableArray.cpp:336
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#ae33b013757441b7bb2f191dbbe79dbc4]]
+[[frib::analysis::CTreeVariableArray::~CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#ae33b013757441b7bb2f191dbbe79dbc4]]
 
 ~CTreeVariableArray()
 
 **Definition:** TreeVariableArray.cpp:130
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]
+[[frib::analysis::CTreeVariableArray::size|classfrib_1_1analysis_1_1CTreeVariableArray#ac0c617cdbb6e38bbb854d546cb8e5831]]
 
 unsigned size() const
 
 **Definition:** TreeVariableArray.cpp:328
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#ada3962c3e73a08a314d95d4e69a31808]]
+[[frib::analysis::CTreeVariableArray::BuildArray|classfrib_1_1analysis_1_1CTreeVariableArray#ada3962c3e73a08a314d95d4e69a31808]]
 
 void BuildArray(std::string basename, unsigned int size, const CTreeVariable::Definition &example)
 
 **Definition:** TreeVariableArray.cpp:151
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#a6d57ef72cdfcdba6a26729a0409a38ed]]
+[[frib::analysis::CTreeVariableArray::operator[]|classfrib_1_1analysis_1_1CTreeVariableArray#a6d57ef72cdfcdba6a26729a0409a38ed]]
 
 CTreeVariable & operator[](int index)
 
 **Definition:** TreeVariableArray.cpp:278
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#a9eebcc991735af82893fc1545d53dd8e]]
+[[frib::analysis::CTreeVariableArray::CopyArray|classfrib_1_1analysis_1_1CTreeVariableArray#a9eebcc991735af82893fc1545d53dd8e]]
 
 void CopyArray(const CTreeVariableArray &rhs)
 
 **Definition:** TreeVariableArray.cpp:215
 
 
-[[classfrib_1_1analysis_1_1CTreeVariableArray#a22334eadb758d7119b5d57bb819885e3]]
+[[frib::analysis::CTreeVariableArray::Initialize|classfrib_1_1analysis_1_1CTreeVariableArray#a22334eadb758d7119b5d57bb819885e3]]
 
 void Initialize(std::string baseName, double initialValue, std::string units, unsigned size, int firstElement)
 
 **Definition:** TreeVariableArray.cpp:251
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 Class Hierarchy
 
 header
-[[inherits]]
+[[Go to the graphical class hierarchy|inherits]]
 
 
 This inheritance list is sorted roughly, but not completely, alphabetically:

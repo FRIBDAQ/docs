@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 parintest Member List
 
 header
-This is the complete list of members for [[classparintest]], including all inherited members.
+This is the complete list of members for [[parintest|classparintest]], including all inherited members.
 
 
 |  |  |  |

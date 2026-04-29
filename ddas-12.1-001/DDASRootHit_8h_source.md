@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
 DDASRootHit.h
 
 header
-[[DDASRootHit_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASRootHit_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2   This software is Copyright by the Board of Trustees of Michigan
@@ -97,7 +97,7 @@ header
 <a name="l00028"></a>   28
 
 
-<a name="l00074"></a>[[classDDASRootHit]] class [[classDDASRootHit]] : public ddasfmt::DDASHit, public TObject
+<a name="l00074"></a>[[74|classDDASRootHit]] class [[DDASRootHit|classDDASRootHit]] : public ddasfmt::DDASHit, public TObject
 
 
 <a name="l00075"></a>   75 {
@@ -106,10 +106,10 @@ header
 <a name="l00076"></a>   76 public:
 
 
-<a name="l00078"></a>[[classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]     [[classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]() {};
+<a name="l00078"></a>[[78|classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]     [[DDASRootHit|classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]() {};
 
 
-<a name="l00080"></a>[[classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]     [[classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]() {};
+<a name="l00080"></a>[[80|classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]     [[~DDASRootHit|classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]() {};
 
 
 <a name="l00081"></a>   81
@@ -121,7 +121,7 @@ header
 <a name="l00083"></a>   83
 
 
-<a name="l00084"></a>[[classDDASRootHit#a994e88590ff350087e7218326d323375]]     [[classDDASRootHit#a994e88590ff350087e7218326d323375]]([[classDDASRootHit]], 1);
+<a name="l00084"></a>[[84|classDDASRootHit#a994e88590ff350087e7218326d323375]]     [[ClassDef|classDDASRootHit#a994e88590ff350087e7218326d323375]]([[DDASRootHit|classDDASRootHit]], 1);
 
 
 <a name="l00085"></a>   85 };
@@ -133,14 +133,14 @@ header
 <a name="l00089"></a>   89 #endif
 
 
-[[classDDASRootHit]]
+[[DDASRootHit|classDDASRootHit]]
 
 Encapsulation of a generic DDAS hit with added capabilities for writing to ROOT files.
 
 **Definition:** DDASRootHit.h:75
 
 
-[[classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]
+[[DDASRootHit::~DDASRootHit|classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]
 
 ~DDASRootHit()
 
@@ -149,12 +149,12 @@ Default destructor.
 **Definition:** DDASRootHit.h:80
 
 
-[[classDDASRootHit#a994e88590ff350087e7218326d323375]]
+[[DDASRootHit::ClassDef|classDDASRootHit#a994e88590ff350087e7218326d323375]]
 
 ClassDef(DDASRootHit, 1)
 
 
-[[classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]
+[[DDASRootHit::DDASRootHit|classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]
 
 DDASRootHit()
 

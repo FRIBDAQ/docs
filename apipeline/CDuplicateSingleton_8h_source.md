@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 CDuplicateSingleton.h
@@ -79,7 +79,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>[[classCDuplicateSingleton]] class [[classCDuplicateSingleton]]: public [[classCException]]
+<a name="l00026"></a>[[26|classCDuplicateSingleton]] class [[CDuplicateSingleton|classCDuplicateSingleton]]: public [[CException|classCException]]
 
 <a name="l00027"></a>   27 {
 
@@ -91,9 +91,9 @@ header
 
 <a name="l00031"></a>   31
 
-<a name="l00032"></a>   32   [[classCDuplicateSingleton]](const char* pDoing, const char* pName) :
+<a name="l00032"></a>   32   [[CDuplicateSingleton|classCDuplicateSingleton]](const char* pDoing, const char* pName) :
 
-<a name="l00033"></a>   33     [[classCException]](pDoing),
+<a name="l00033"></a>   33     [[CException|classCException]](pDoing),
 
 <a name="l00034"></a>   34     m_sName(pName)
 
@@ -101,9 +101,9 @@ header
 
 <a name="l00036"></a>   36
 
-<a name="l00037"></a>   37   [[classCDuplicateSingleton]](const char* pDoing, const std::string& rName) :
+<a name="l00037"></a>   37   [[CDuplicateSingleton|classCDuplicateSingleton]](const char* pDoing, const std::string& rName) :
 
-<a name="l00038"></a>   38     [[classCException]](pDoing),
+<a name="l00038"></a>   38     [[CException|classCException]](pDoing),
 
 <a name="l00039"></a>   39     m_sName(rName)
 
@@ -111,9 +111,9 @@ header
 
 <a name="l00041"></a>   41
 
-<a name="l00042"></a>   42   [[classCDuplicateSingleton]](const std::string& rDoing, const char* pName) :
+<a name="l00042"></a>   42   [[CDuplicateSingleton|classCDuplicateSingleton]](const std::string& rDoing, const char* pName) :
 
-<a name="l00043"></a>   43     [[classCException]](rDoing),
+<a name="l00043"></a>   43     [[CException|classCException]](rDoing),
 
 <a name="l00044"></a>   44     m_sName(pName)
 
@@ -121,9 +121,9 @@ header
 
 <a name="l00046"></a>   46
 
-<a name="l00047"></a>   47   [[classCDuplicateSingleton]](const std::string& rDoing, const std::string& rName) :
+<a name="l00047"></a>   47   [[CDuplicateSingleton|classCDuplicateSingleton]](const std::string& rDoing, const std::string& rName) :
 
-<a name="l00048"></a>   48     [[classCException]](rDoing),
+<a name="l00048"></a>   48     [[CException|classCException]](rDoing),
 
 <a name="l00049"></a>   49     m_sName(rName)
 
@@ -131,17 +131,17 @@ header
 
 <a name="l00051"></a>   51
 
-<a name="l00052"></a>   52   virtual ~[[classCDuplicateSingleton]]() { } // Destructor
+<a name="l00052"></a>   52   virtual ~[[CDuplicateSingleton|classCDuplicateSingleton]]() { } // Destructor
 
 <a name="l00053"></a>   53
 
 <a name="l00054"></a>   54   // Copy constructor
 
-<a name="l00055"></a>   55   [[classCDuplicateSingleton]]
+<a name="l00055"></a>   55   [[CDuplicateSingleton|classCDuplicateSingleton]]
 
-<a name="l00056"></a>   56     (const [[classCDuplicateSingleton]]& aCDuplicateSingleton ) :
+<a name="l00056"></a>   56     (const [[CDuplicateSingleton|classCDuplicateSingleton]]& aCDuplicateSingleton ) :
 
-<a name="l00057"></a>   57     [[classCException]] (aCDuplicateSingleton)
+<a name="l00057"></a>   57     [[CException|classCException]] (aCDuplicateSingleton)
 
 <a name="l00058"></a>   58     {
 
@@ -157,9 +157,9 @@ header
 
 <a name="l00064"></a>   64
 
-<a name="l00065"></a>   65   [[classCDuplicateSingleton]] operator=
+<a name="l00065"></a>   65   [[CDuplicateSingleton|classCDuplicateSingleton]] operator=
 
-<a name="l00066"></a>   66          (const [[classCDuplicateSingleton]]& aCDuplicateSingleton)
+<a name="l00066"></a>   66          (const [[CDuplicateSingleton|classCDuplicateSingleton]]& aCDuplicateSingleton)
 
 <a name="l00067"></a>   67   {
 
@@ -183,7 +183,7 @@ header
 
 <a name="l00077"></a>   77
 
-<a name="l00078"></a>   78   int operator== (const [[classCDuplicateSingleton]]& aCDuplicateSingleton)
+<a name="l00078"></a>   78   int operator== (const [[CDuplicateSingleton|classCDuplicateSingleton]]& aCDuplicateSingleton)
 
 <a name="l00079"></a>   79     {
 
@@ -241,12 +241,12 @@ header
 
 <a name="l00106"></a>  106 #endif
 
-[[classCDuplicateSingleton]]
+[[CDuplicateSingleton|classCDuplicateSingleton]]
 
 **Definition:** CDuplicateSingleton.h:26
 
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 

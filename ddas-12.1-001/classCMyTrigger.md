@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCMyTrigger-members]]
+[[List of all members|classCMyTrigger-members]]
 
 
 CMyTrigger Class Reference
 
 header
 Trigger class for DDAS.  
- [[classCMyTrigger#details]]
+ [[More...|classCMyTrigger#details]]
 
 
 `#include <CMyTrigger.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CMyTrigger:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMyTrigger:
@@ -57,7 +57,7 @@ Collaboration diagram for CMyTrigger:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -242,8 +242,8 @@ DDAS does not need any further signal as data taking end since this function is 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyTrigger_8h_source]]
-- [[CMyTrigger_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyTrigger.h|CMyTrigger_8h_source]]
+- [[CMyTrigger.cpp|CMyTrigger_8cpp]]
 
  contents 
  start footer part 

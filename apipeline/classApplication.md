@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classApplication-members]]
+[[List of all members|classApplication-members]]
 
 
 Application Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for Application:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for Application:
@@ -48,7 +48,7 @@ Collaboration diagram for Application:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -145,7 +145,7 @@ Collaboration diagram for Application:
 <a name="details"></a>## Detailed Description
 
 
-[[classApplication]] We're going to have rank 0 (dealer) just deal a few passthrough items directly at the Outputter and then send an end.. No worker or farmers are needed.
+[[Application|classApplication]] We're going to have rank 0 (dealer) just deal a few passthrough items directly at the Outputter and then send an end.. No worker or farmers are needed.
 
 ## Member Function Documentation
 
@@ -165,16 +165,16 @@ Collaboration diagram for Application:
 dealer: We just create a few random passthrough ring items for the outputter to send. They don't actually mean anything but they have known contents. and are therefore amenable to testing.
 
 
-Implements [[classfrib_1_1analysis_1_1AbstractApplication]].
+Implements [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[passthruTest_8cpp]]
-- base/[[testOutput_8cpp]]
-- base/[[testWorker1_8cpp]]
-- spectcl/[[spectclTest_8cpp]]
+The documentation for this class was generated from the following files:- base/[[passthruTest.cpp|passthruTest_8cpp]]
+- base/[[testOutput.cpp|testOutput_8cpp]]
+- base/[[testWorker1.cpp|testWorker1_8cpp]]
+- spectcl/[[spectclTest.cpp|spectclTest_8cpp]]
 
  contents 
  start footer part 

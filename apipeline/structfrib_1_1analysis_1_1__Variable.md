@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__Variable]]
+- [[_Variable|structfrib_1_1analysis_1_1__Variable]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1__Variable-members]]
+[[List of all members|structfrib_1_1analysis_1_1__Variable-members]]
 
 
 frib::analysis::_Variable Struct Reference
@@ -55,7 +55,7 @@ Variable data is used to document steering parameters:
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
 
  contents 
  start footer part 

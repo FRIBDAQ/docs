@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__VariableItem]]
+- [[_VariableItem|structfrib_1_1analysis_1_1__VariableItem]]
 
  top 
 frib::analysis::_VariableItem Member List
 
 header
-This is the complete list of members for [[structfrib_1_1analysis_1_1__VariableItem]], including all inherited members.
+This is the complete list of members for [[frib::analysis::_VariableItem|structfrib_1_1analysis_1_1__VariableItem]], including all inherited members.
 
 
 |  |  |  |

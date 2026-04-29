@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]
+- [[CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CMPIRawToParametersWorker-members]]
+[[List of all members|classfrib_1_1analysis_1_1CMPIRawToParametersWorker-members]]
 
 
 frib::analysis::CMPIRawToParametersWorker Class Referenceabstract
@@ -46,7 +46,7 @@ Inheritance diagram for frib::analysis::CMPIRawToParametersWorker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -144,8 +144,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIRawToParametersWorker_8h_source]]
-- base/[[MPIRawToParametersWorker_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIRawToParametersWorker.h|MPIRawToParametersWorker_8h_source]]
+- base/[[MPIRawToParametersWorker.cpp|MPIRawToParametersWorker_8cpp]]
 
  contents 
  start footer part 

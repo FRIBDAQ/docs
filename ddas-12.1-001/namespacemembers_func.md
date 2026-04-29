@@ -17,15 +17,15 @@ do not remove this div, it is closed by doxygen!
 
 
 - computeHardwareType()
-  : [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]
+  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc667cd1e6674cc33c99eb8103769454]]
 - configureHardwareType()
-  : [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]]
+  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a6777f823961ea38f084c1ee6276822d0]]
 - createHardwareType()
-  : [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
+  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#ae4809b9c8bc0df2c5cbe12cb92f2afd4]]
 - getSpecification()
-  : [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]]
+  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a5da07c529204ba2a6c1b7e7073859ec6]]
 - resetToDefaults()
-  : [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]
+  : [[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#a8c2b7192993080085fb2e14bd3d51850]]
 
  contents 
  start footer part 

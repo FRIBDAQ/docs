@@ -54,7 +54,7 @@ A single PXI crate can accommodate up to 208 channels. Some experiments using DD
 
 
 
-If you are new to using DDAS and have not setup a system before, it is highly recommended that you begin with the [[single_crate]].
+If you are new to using DDAS and have not setup a system before, it is highly recommended that you begin with the [[Single-Crate System Setup Guide|single_crate]].
 AttentionThis multi-crate system setup guide is specific to DDAS systems running NSCLDAQ 12 and later, which has a handful of major features which were not part of previous releases:1. The module data readout and sorting processes are decoupled. As a consequence, readout program data sources must be configured in a slightly different manner.
 2. The DDAS codebase has been refactored into NSCLDAQ, there is no need to source a DDAS setup script in e.g., /usr/opt/ddas.
 3. External clock readout has been absorbed into the main readout program. There is no longer a separate version of the DDAS readout for this purpose.
@@ -65,7 +65,7 @@ AttentionThis multi-crate system setup guide is specific to DDAS systems running
 # Components of a DDAS System
 
 
-DDAS data acquisition systems and online analysis rely on several hardware and software components. Most of these are covered in the [[single_crate#sec_singlecrate_components]]. Of course, for a multi-crate system, two or more PXI crates, data-collection computers, and Pixie digitizer cards are required. In addition, you will need:- One Pixie trigger distribution board for each crate in the system.
+DDAS data acquisition systems and online analysis rely on several hardware and software components. Most of these are covered in the [[Single-Crate System Setup Guide|single_crate#sec_singlecrate_components]]. Of course, for a multi-crate system, two or more PXI crates, data-collection computers, and Pixie digitizer cards are required. In addition, you will need:- One Pixie trigger distribution board for each crate in the system.
 - One Category 5 or Category 6 (henceforth "Cat 5" or "Cat 6") cable per crate to distribute the shared clock. There are standard 2-meter Cat 6 cables available from the SDAQ group. For distributed systems where the crates are located far apart, longer cables can be used, though it is important that all cables are the same length to minimize clock phase differences across the crates.
 
 
@@ -83,7 +83,7 @@ Data flow through a multi-crate DDAS system running NSCLDAQ 12. Note the separat
 # Getting Started
 
 
-For brevity's sake, only things which are unique to multi-crate systems are covered here. For a more detailed explanation of the software and configuration files needed by DDAS please refer to the [[single_crate#sec_singlecrate_gettingstarted]].
+For brevity's sake, only things which are unique to multi-crate systems are covered here. For a more detailed explanation of the software and configuration files needed by DDAS please refer to the [[Single-Crate System Setup Guide|single_crate#sec_singlecrate_gettingstarted]].
 ## Loading the PLX Kernel Driver
 
 
@@ -122,13 +122,13 @@ home-directory
                     +--- crate_2.json
 ```
 
-The example crate_1 directory located at `$DAQSHARE`/ddasreadout/crate_1 containing the necessary configuration files can be copied for each crate in your system. It is recommended that you edit the names of the settings files within each directory to reflect the crate of modules using those settings. The configuration files should be edited in the usual way to reflect your setup, again refer to the [[single_crate#sec_singlecrate_gettingstarted]].   
+The example crate_1 directory located at `$DAQSHARE`/ddasreadout/crate_1 containing the necessary configuration files can be copied for each crate in your system. It is recommended that you edit the names of the settings files within each directory to reflect the crate of modules using those settings. The configuration files should be edited in the usual way to reflect your setup, again refer to the [[Single-Crate System Setup Guide|single_crate#sec_singlecrate_gettingstarted]].   
 
 
 # Setting Up a Multi-Crate System
 
 
-This part of the guide will discuss in detail how to setup a multi-crate DDAS system with one or more XIA digitizer cards in each crate. To keep things simple we will assume a two-crate system using a common clock with a clock master and clock receiver. Any additional crates should be configured as clock receiver crates. To get started you must:1. Ensure that there is an SBC or fiber interface in slot 1 of each PXI crate (the most common case). If a fiber interface is used, the fiber must be connected to the interface card and a PCI bridge card on the data-collection computer. The data-collection computers must be connected to the [[namespaceDAQ]] network.
+This part of the guide will discuss in detail how to setup a multi-crate DDAS system with one or more XIA digitizer cards in each crate. To keep things simple we will assume a two-crate system using a common clock with a clock master and clock receiver. Any additional crates should be configured as clock receiver crates. To get started you must:1. Ensure that there is an SBC or fiber interface in slot 1 of each PXI crate (the most common case). If a fiber interface is used, the fiber must be connected to the interface card and a PCI bridge card on the data-collection computer. The data-collection computers must be connected to the [[DAQ|namespaceDAQ]] network.
 2. Install a Pixie module configured as a system clock master in slot 2 of your clock master crate.
 3. Install a Pixie module configured as a chassis clock master in slot 2 of your clock receiver crate.
 4. Ensure all other modules in slots 3-14 of the clock master and clock receiver crates are configured to read the clock from the PXI backplane.
@@ -217,7 +217,7 @@ Note that the `crateID` is different in crate 2's cfgPixie16.txt file. This ID v
 ## Configuring DSP Settings Using QtScope
 
 
-For brevity, refer to [[single_crate#sec_singlecrate_setdpp]] for information on configuring single-channel DSP settings. Note that you must run QtScope on each data collection computer from the crate directory containing the settings for the crate in which that data collection computer is installed.
+For brevity, refer to [[Configuring DSP Settings Using QtScope|single_crate#sec_singlecrate_setdpp]] for information on configuring single-channel DSP settings. Note that you must run QtScope on each data collection computer from the crate directory containing the settings for the crate in which that data collection computer is installed.
 In addition to the channel DSP settings, the module DSP parameters must be set to enable the distribution of the clock and synchronization signals. The clock and synchronization signals are controlled by the Module Control Register B or ModCSRB parameter. ModCSRB is a 32-bit parameter where each bit controls an operation mode of the digitizer module. Some pre-configured ModCSRB settings are available in QtScope that handle the majority of use cases. In the QtScope GUI, click the **[Module DSP]** button on the system toolbar which will bring up the following window:
 ![](module_dsp.PNG)
 The module DSP popup window displayed when clicking the [Module DSP] button.
@@ -227,19 +227,19 @@ Crate configurations are selected by clicking on the radio button to the left of
 # Running ddasReadout Using the ReadoutGUI
 
 
-This section describes how to configure data sources, setup an event builder and run the readout driver for DDAS in a "production-like" mode using the ReadoutGUI. For users familiar with previous versions of FRIBDAQ software, the data-source configuration is done slightly differently in FRIBDAQ 12, reflecting the fact that the module readout and timestamp ordering processes are separated. The `ddasReadout` program allows us to run the module readout and timestamp sorting as if it were a single process. This section has a good deal of overlap with [[single_crate#sec_singlecrate_readoutgui]] for a single-crate system and only important differences will be highlighted here.
+This section describes how to configure data sources, setup an event builder and run the readout driver for DDAS in a "production-like" mode using the ReadoutGUI. For users familiar with previous versions of FRIBDAQ software, the data-source configuration is done slightly differently in FRIBDAQ 12, reflecting the fact that the module readout and timestamp ordering processes are separated. The `ddasReadout` program allows us to run the module readout and timestamp sorting as if it were a single process. This section has a good deal of overlap with [[Running ddasReadout Using the ReadoutGUI|single_crate#sec_singlecrate_readoutgui]] for a single-crate system and only important differences will be highlighted here.
 ## Setting up SSH keys for Password-Less Login
 
 
-Refer to [[single_crate#sec_singlecrate_sshkeys]] in the single-crate tutorial for instructions on configuring password-less login over SSH.
+Refer to [[Setting up SSH keys for Password-Less Login|single_crate#sec_singlecrate_sshkeys]] in the single-crate tutorial for instructions on configuring password-less login over SSH.
 ## Stage Areas and Recording Data
 
 
-Refer to [[single_crate#sec_singlecrate_stagearea]] in the single-crate tutorial for instructions on how to setup a stagearea.
+Refer to [[Stage Areas and Recording Data|single_crate#sec_singlecrate_stagearea]] in the single-crate tutorial for instructions on how to setup a stagearea.
 ## Setting Up the Data Sources
 
 
-Refer to [[single_crate#sec_singlecrate_datasource]] in the single-crate tutorial for instructions on how to set up an SSHPipe data source in the ReadoutGUI. In a multi-crate system, one data source is needed for each crate:
+Refer to [[Setting Up the Data Sources|single_crate#sec_singlecrate_datasource]] in the single-crate tutorial for instructions on how to set up an SSHPipe data source in the ReadoutGUI. In a multi-crate system, one data source is needed for each crate:
 The data source options for crate 1:
 |  |  |
 | --- | --- |
@@ -263,7 +263,7 @@ And similarly for crate 2:
 ## Setting Up the Event Builder
 
 
-The `ReadoutCallouts.tcl` script used to start the event builder is very similar to what is presented in the [[single_crate#sec_singlecrate_evbsetup]] with again, the key difference being the addition of another data source fed into the event builder:
+The `ReadoutCallouts.tcl` script used to start the event builder is very similar to what is presented in the [[single-crate tutorial|single_crate#sec_singlecrate_evbsetup]] with again, the key difference being the addition of another data source fed into the event builder:
 ```
 package require evbcallouts
 
@@ -282,7 +282,7 @@ The data in the event-built ring will look similar to the single-crate data exce
 # Conclusions
 
 
-This concludes the multi-crate setup tutorial. You should now have a good understanding of how to perform the basic steps necessary to configure a multi-crate DDAS system to take data. The modules have many features which are not discussed in detail in this section, including a digital CFD for precision timing, the ability to run complex coincidence triggers, or take additional data such as QDC sums or, more commonly, ADC trace data. Refer to the [[qtscope]] for more information.
+This concludes the multi-crate setup tutorial. You should now have a good understanding of how to perform the basic steps necessary to configure a multi-crate DDAS system to take data. The modules have many features which are not discussed in detail in this section, including a digital CFD for precision timing, the ability to run complex coincidence triggers, or take additional data such as QDC sums or, more commonly, ADC trace data. Refer to the [[QtScope Manual|qtscope]] for more information.
 
  contents
 

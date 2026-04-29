@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
 
  top 
 EventProcessor.h
 
 header
-[[EventProcessor_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|EventProcessor_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -69,7 +69,7 @@ header
 
 <a name="l00024"></a>   24 #include <string>
 
-<a name="l00025"></a>   25 namespace [[namespacefrib]] {
+<a name="l00025"></a>   25 namespace [[frib|namespacefrib]] {
 
 <a name="l00026"></a>   26     namespace analysis {
 
@@ -81,21 +81,21 @@ header
 
 <a name="l00030"></a>   30
 
-<a name="l00037"></a>[[classfrib_1_1analysis_1_1CEventProcessor]]         class [[classfrib_1_1analysis_1_1CEventProcessor]] {
+<a name="l00037"></a>[[37|classfrib_1_1analysis_1_1CEventProcessor]]         class [[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]] {
 
 <a name="l00038"></a>   38         public:
 
-<a name="l00039"></a>   39             virtual ~[[classfrib_1_1analysis_1_1CEventProcessor]]() {}               // for destructor chaining.
+<a name="l00039"></a>   39             virtual ~[[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]() {}               // for destructor chaining.
 
 <a name="l00040"></a>   40
 
 <a name="l00041"></a>   41             virtual Bool_t operator()(const Address_t pEvent,
 
-<a name="l00042"></a>   42                             [[classfrib_1_1analysis_1_1CEvent]]& rEvent,
+<a name="l00042"></a>   42                             [[CEvent|classfrib_1_1analysis_1_1CEvent]]& rEvent,
 
-<a name="l00043"></a>   43                             [[classfrib_1_1analysis_1_1CAnalyzer]]& rAnalyzer,
+<a name="l00043"></a>   43                             [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]& rAnalyzer,
 
-<a name="l00044"></a>   44                             [[classfrib_1_1analysis_1_1CBufferDecoder]]& rDecoder) = 0;
+<a name="l00044"></a>   44                             [[CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]& rDecoder) = 0;
 
 <a name="l00045"></a>   45             virtual Bool_t OnEventSourceOpen(std::string name);
 
@@ -117,27 +117,27 @@ header
 
 <a name="l00054"></a>   54 #endif
 
-[[classfrib_1_1analysis_1_1CAnalyzer]]
+[[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]
 
 **Definition:** Analyzer.h:41
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder]]
+[[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]
 
 **Definition:** BufferDecoder.h:39
 
 
-[[classfrib_1_1analysis_1_1CEvent]]
+[[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]]
 
 **Definition:** Event.h:45
 
 
-[[classfrib_1_1analysis_1_1CEventProcessor]]
+[[frib::analysis::CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]
 
 **Definition:** EventProcessor.h:37
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

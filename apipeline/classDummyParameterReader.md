@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDummyParameterReader-members]]
+[[List of all members|classDummyParameterReader-members]]
 
 
 DummyParameterReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for DummyParameterReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for DummyParameterReader:
@@ -48,7 +48,7 @@ Collaboration diagram for DummyParameterReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -73,8 +73,8 @@ Collaboration diagram for DummyParameterReader:
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[testWorker1_8cpp]]
-- spectcl/[[spectclTest_8cpp]]
+The documentation for this class was generated from the following files:- base/[[testWorker1.cpp|testWorker1_8cpp]]
+- spectcl/[[spectclTest.cpp|spectclTest_8cpp]]
 
  contents 
  start footer part 

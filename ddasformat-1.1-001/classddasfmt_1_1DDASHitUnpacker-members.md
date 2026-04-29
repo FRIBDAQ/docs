@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddasfmt**
-- [[classddasfmt_1_1DDASHitUnpacker]]
+- [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]]
 
  top 
 ddasfmt::DDASHitUnpacker Member List
 
 header
-This is the complete list of members for [[classddasfmt_1_1DDASHitUnpacker]], including all inherited members.
+This is the complete list of members for [[ddasfmt::DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]], including all inherited members.
 
 
 |  |  |  |

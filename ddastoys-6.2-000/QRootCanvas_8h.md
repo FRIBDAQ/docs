@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 [Classes](#nested-classes)
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](QRootCanvas_8h__dep__incl.png)
 
 
-[[QRootCanvas_8h_source]]
+[[Go to the source code of this file.|QRootCanvas_8h_source]]
 
 
 |  |  |

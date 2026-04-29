@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Sum Member List
 
 header
-This is the complete list of members for [[classSum]], including all inherited members.
+This is the complete list of members for [[Sum|classSum]], including all inherited members.
 
 
 |  |  |  |

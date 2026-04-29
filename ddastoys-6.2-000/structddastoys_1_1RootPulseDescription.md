@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1RootPulseDescription]]
+- [[RootPulseDescription|structddastoys_1_1RootPulseDescription]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[structddastoys_1_1RootPulseDescription-members]]
+[[List of all members|structddastoys_1_1RootPulseDescription-members]]
 
 
-ddastoys::RootPulseDescription Struct Reference[[group__ddasrootfitformat]]
+ddastoys::RootPulseDescription Struct Reference[[libDDASRootFitFormat.so|group__ddasrootfitformat]]
 
 header
 Describes a single pulse without an offset.  
- [[structddastoys_1_1RootPulseDescription#details]]
+ [[More...|structddastoys_1_1RootPulseDescription#details]]
 
 
 `#include <RootExtensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::RootPulseDescription:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::RootPulseDescription:
@@ -64,7 +64,7 @@ Collaboration diagram for ddastoys::RootPulseDescription:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -100,7 +100,7 @@ Describes a single pulse without an offset.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[RootExtensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[RootExtensions.h|RootExtensions_8h_source]]
 
  contents 
  start footer part 

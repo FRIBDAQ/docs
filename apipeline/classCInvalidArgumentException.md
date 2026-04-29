@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCInvalidArgumentException-members]]
+[[List of all members|classCInvalidArgumentException-members]]
 
 
 CInvalidArgumentException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CInvalidArgumentException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CInvalidArgumentException:
@@ -51,7 +51,7 @@ Collaboration diagram for CInvalidArgumentException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -207,7 +207,7 @@ Parameters
 
 
 
-Returns[[classCInvalidArgumentException]]& 
+Returns[[CInvalidArgumentException|classCInvalidArgumentException]]& 
 Return values
 |  |  |
 | --- | --- |
@@ -256,13 +256,13 @@ Return values
 
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CInvalidArgumentException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CInvalidArgumentException.h|CInvalidArgumentException_8h_source]]
 - libtclplus/exception/CInvalidArgumentException.cpp
 
  contents 

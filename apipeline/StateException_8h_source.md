@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 StateException.h
@@ -79,7 +79,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00036"></a>[[classCStateException]] class [[classCStateException]] : public [[classCException]]
+<a name="l00036"></a>[[36|classCStateException]] class [[CStateException|classCStateException]] : public [[CException|classCException]]
 
 <a name="l00037"></a>   37 {
 
@@ -93,19 +93,19 @@ header
 
 <a name="l00042"></a>   42
 
-<a name="l00043"></a>   43   [[classCStateException#a5848feead580a75322b14f993d4327e0]](const char* state, const char* allowedStates,
+<a name="l00043"></a>   43   [[CStateException|classCStateException#a5848feead580a75322b14f993d4327e0]](const char* state, const char* allowedStates,
 
 <a name="l00044"></a>   44           const char* pAction);
 
-<a name="l00045"></a>   45   virtual [[classCStateException#a04f86d6f8455d6414b24fd736d7936c6]]();
+<a name="l00045"></a>   45   virtual [[~CStateException|classCStateException#a04f86d6f8455d6414b24fd736d7936c6]]();
 
-<a name="l00046"></a>   46   [[classCStateException#a5848feead580a75322b14f993d4327e0]](const [[classCStateException]]& rhs);
+<a name="l00046"></a>   46   [[CStateException|classCStateException#a5848feead580a75322b14f993d4327e0]](const [[CStateException|classCStateException]]& rhs);
 
-<a name="l00047"></a>   47   [[classCStateException]]& [[classCStateException#acd1f98d499807288a2c6adbf478268a2]](const [[classCStateException]]& rhs);
+<a name="l00047"></a>   47   [[CStateException|classCStateException]]& [[operator=|classCStateException#acd1f98d499807288a2c6adbf478268a2]](const [[CStateException|classCStateException]]& rhs);
 
-<a name="l00048"></a>   48   int [[classCStateException#af2cc207c02f69d3f08378052fa1c8f17]](const [[classCStateException]]& rhs) const;
+<a name="l00048"></a>   48   int [[operator==|classCStateException#af2cc207c02f69d3f08378052fa1c8f17]](const [[CStateException|classCStateException]]& rhs) const;
 
-<a name="l00049"></a>   49   int [[classCStateException#a328e729a450c0877537917639051ce22]](const [[classCStateException]]& rhs) const;
+<a name="l00049"></a>   49   int [[operator!=|classCStateException#a328e729a450c0877537917639051ce22]](const [[CStateException|classCStateException]]& rhs) const;
 
 <a name="l00050"></a>   50
 
@@ -115,9 +115,9 @@ header
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54   virtual const char* [[classCStateException#a23c5a04e385d4a491829208966ae5133]]() const;
+<a name="l00054"></a>   54   virtual const char* [[ReasonText|classCStateException#a23c5a04e385d4a491829208966ae5133]]() const;
 
-<a name="l00055"></a>   55   virtual int [[classCStateException#ada805b53e4ec9d82e1e1c97b14e22ae6]]() const;
+<a name="l00055"></a>   55   virtual int [[ReasonCode|classCStateException#ada805b53e4ec9d82e1e1c97b14e22ae6]]() const;
 
 <a name="l00056"></a>   56
 
@@ -127,59 +127,59 @@ header
 
 <a name="l00059"></a>   59 #endif
 
-[[classCStateException#a23c5a04e385d4a491829208966ae5133]]
+[[CStateException::ReasonText|classCStateException#a23c5a04e385d4a491829208966ae5133]]
 
 virtual const char * ReasonText() const
 
 **Definition:** StateException.cpp:108
 
 
-[[classCStateException#a328e729a450c0877537917639051ce22]]
+[[CStateException::operator!=|classCStateException#a328e729a450c0877537917639051ce22]]
 
 int operator!=(const CStateException &rhs) const
 
 **Definition:** StateException.cpp:93
 
 
-[[classCStateException#a5848feead580a75322b14f993d4327e0]]
+[[CStateException::CStateException|classCStateException#a5848feead580a75322b14f993d4327e0]]
 
 CStateException(const char *state, const char *allowedStates, const char *pAction)
 
 **Definition:** StateException.cpp:34
 
 
-[[classCStateException#af2cc207c02f69d3f08378052fa1c8f17]]
+[[CStateException::operator==|classCStateException#af2cc207c02f69d3f08378052fa1c8f17]]
 
 int operator==(const CStateException &rhs) const
 
 **Definition:** StateException.cpp:83
 
 
-[[classCStateException]]
+[[CStateException|classCStateException]]
 
 **Definition:** StateException.h:36
 
 
-[[classCStateException#acd1f98d499807288a2c6adbf478268a2]]
+[[CStateException::operator=|classCStateException#acd1f98d499807288a2c6adbf478268a2]]
 
 CStateException & operator=(const CStateException &rhs)
 
 **Definition:** StateException.cpp:70
 
 
-[[classCStateException#ada805b53e4ec9d82e1e1c97b14e22ae6]]
+[[CStateException::ReasonCode|classCStateException#ada805b53e4ec9d82e1e1c97b14e22ae6]]
 
 virtual int ReasonCode() const
 
 **Definition:** StateException.cpp:117
 
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 
 
-[[classCStateException#a04f86d6f8455d6414b24fd736d7936c6]]
+[[CStateException::~CStateException|classCStateException#a04f86d6f8455d6414b24fd736d7936c6]]
 
 virtual ~CStateException()
 

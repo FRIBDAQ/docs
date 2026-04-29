@@ -19,13 +19,13 @@ do not remove this div, it is closed by doxygen!
 ### - h -
 
 - handleEndRun()
-  : [[classCMyEndCommand#a09112cd8e5b90d673c99f48e340e46f0]]
+  : [[CMyEndCommand|classCMyEndCommand#a09112cd8e5b90d673c99f48e340e46f0]]
 - handleReadOutRemainingData()
-  : [[classCMyEndCommand#a2cae62d9b4758c30c8ecd0adc8bfcfbd]]
+  : [[CMyEndCommand|classCMyEndCommand#a2cae62d9b4758c30c8ecd0adc8bfcfbd]]
 - haveHit()
-  : [[classDDASReadout_1_1HitManager#a5ca4770daac9520b5bf0659ed2510b08]]
+  : [[DDASReadout::HitManager|classDDASReadout_1_1HitManager#a5ca4770daac9520b5bf0659ed2510b08]]
 - HitManager()
-  : [[classDDASReadout_1_1HitManager#ab5e8b82bd12a513716615a526a86b281]]
+  : [[DDASReadout::HitManager|classDDASReadout_1_1HitManager#ab5e8b82bd12a513716615a526a86b281]]
 
  contents 
  start footer part 

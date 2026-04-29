@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLCommandPackage Member List
 
 header
-This is the complete list of members for [[classCTCLCommandPackage]], including all inherited members.
+This is the complete list of members for [[CTCLCommandPackage|classCTCLCommandPackage]], including all inherited members.
 
 
 |  |  |  |

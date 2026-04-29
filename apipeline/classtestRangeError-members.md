@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 testRangeError Member List
 
 header
-This is the complete list of members for [[classtestRangeError]], including all inherited members.
+This is the complete list of members for [[testRangeError|classtestRangeError]], including all inherited members.
 
 
 |  |  |  |

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMutex Member List
 
 header
-This is the complete list of members for [[classCMutex]], including all inherited members.
+This is the complete list of members for [[CMutex|classCMutex]], including all inherited members.
 
 
 |  |  |  |

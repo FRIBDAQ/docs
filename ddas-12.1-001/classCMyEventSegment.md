@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
-[[classCMyEventSegment-members]]
+[[List of all members|classCMyEventSegment-members]]
 
 
 CMyEventSegment Class Reference
 
 header
 Derived class for DDAS event segments.  
- [[classCMyEventSegment#details]]
+ [[More...|classCMyEventSegment#details]]
 
 
 `#include <CMyEventSegment.h>`
@@ -45,7 +45,7 @@ Inheritance diagram for CMyEventSegment:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMyEventSegment:
@@ -58,7 +58,7 @@ Collaboration diagram for CMyEventSegment:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -155,7 +155,7 @@ Failure to properly construct an event segment occurs if:
 - The CSRA register cannot be read from channel 0 on any of the modules.
 - An custom external timestamp clock calibration is <= 0.
 - There are a mix of external and internal clocks enabled on the same crate.
-  **[[todo#_todo000017]]**(ASC 1/25/24): The assumption that the external timestamp bit for channel 0 is the same as the rest of the module allows some obviously bad configurations to be accepted. This *may* be a QtScope issue too: users should be prevented from enabling the external timestamp on a subset of channels if the readout code doesn't support it.
+  **[[Todo:|todo#_todo000017]]**(ASC 1/25/24): The assumption that the external timestamp bit for channel 0 is the same as the rest of the module allows some obviously bad configurations to be accepted. This *may* be a QtScope issue too: users should be prevented from enabling the external timestamp on a subset of channels if the readout code doesn't support it.
 
 
 
@@ -294,7 +294,7 @@ Initialize the modules recording data in this segment.
 Initialize unless there is an INFINITY_CLOCK environment variable with the value "YES" or the firmware has been loaded recently (no system exit).
 
 NoteThis is not threadsafe as C++ does not require getenv to be thread-safe. 
-**[[todo#_todo000018]]**(ASC 1/25/24): An old comment from (I bet) RF: "paging through the global **environ is probably thread-safe however I'm pretty sure at this point in time there's no other thread doing a getenv()."
+**[[Todo:|todo#_todo000018]]**(ASC 1/25/24): An old comment from (I bet) RF: "paging through the global **environ is probably thread-safe however I'm pretty sure at this point in time there's no other thread doing a getenv()."
 
 
 
@@ -391,14 +391,14 @@ Exceptions
 More or less straight from the XIA Pixie SDK docs: configure the system to run synchronously through the backplane by setting Pixie module parameters. Synchronous running means that the last module ready to take data starts the run in all modules and the first module to end the run stops the run in all modules (SYNCH_WAIT = 1). In synchronous mode, all run timers are cleared at the start of a new run (IN_SYNCH = 0). Once the run has started, IN_SYNCH is automatically set to 1.
 
 
-Removed from [[classCMyEventSegment#a99e7612c75cfb4989647682f348e9c54]] so that this can be called via a command. See the [[classCSyncCommand]] class for details.
+Removed from [[initialize()|classCMyEventSegment#a99e7612c75cfb4989647682f348e9c54]] so that this can be called via a command. See the [[CSyncCommand|classCSyncCommand]] class for details.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyEventSegment_8h_source]]
-- [[CMyEventSegment_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyEventSegment.h|CMyEventSegment_8h_source]]
+- [[CMyEventSegment.cpp|CMyEventSegment_8cpp]]
 
  contents 
  start footer part 

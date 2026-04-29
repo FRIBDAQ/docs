@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLHashTable.h
@@ -653,23 +653,23 @@ header
 
 <a name="l00313"></a>  313 template <class T>
 
-<a name="l00314"></a>[[classCTCLHashTable]] class [[classCTCLHashTable]]
+<a name="l00314"></a>[[314|classCTCLHashTable]] class [[CTCLHashTable|classCTCLHashTable]]
 
 <a name="l00315"></a>  315 {
 
-<a name="l00316"></a>  316   typedef [[classCTCLHashTableItem]] [[classCTCLHashTableItem]],
+<a name="l00316"></a>  316   typedef [[CTCLHashTableItem<T>|classCTCLHashTableItem]] [[CTCLTHashTableItem|classCTCLHashTableItem]],
 
-<a name="l00317"></a>  317                              *[[classCTCLHashTableItem]],
+<a name="l00317"></a>  317                              *[[pCTCLTHashTableItem|classCTCLHashTableItem]],
 
-<a name="l00318"></a>  318                              &[[classCTCLHashTableItem]];
+<a name="l00318"></a>  318                              &[[rCTCLTHashTableItem|classCTCLHashTableItem]];
 
 <a name="l00319"></a>  319
 
-<a name="l00320"></a>  320   typedef [[classCTCLHashTableIterator]] [[classCTCLHashTableIterator]],
+<a name="l00320"></a>  320   typedef [[CTCLHashTableIterator<T>|classCTCLHashTableIterator]] [[CTCLTHashTableIterator|classCTCLHashTableIterator]],
 
-<a name="l00321"></a>  321                                  *[[classCTCLHashTableIterator]],
+<a name="l00321"></a>  321                                  *[[pCTCLTHashTableIterator|classCTCLHashTableIterator]],
 
-<a name="l00322"></a>  322                                  &[[classCTCLHashTableIterator]];
+<a name="l00322"></a>  322                                  &[[rCTCLTHashTableIterator|classCTCLHashTableIterator]];
 
 <a name="l00323"></a>  323
 
@@ -683,7 +683,7 @@ header
 
 <a name="l00328"></a>  328
 
-<a name="l00329"></a>  329   [[classCTCLHashTable]] ()
+<a name="l00329"></a>  329   [[CTCLHashTable|classCTCLHashTable]] ()
 
 <a name="l00330"></a>  330   {
 
@@ -691,7 +691,7 @@ header
 
 <a name="l00332"></a>  332   }
 
-<a name="l00333"></a>  333   virtual ~[[classCTCLHashTable]] ( ) {        //Destructor
+<a name="l00333"></a>  333   virtual ~[[CTCLHashTable|classCTCLHashTable]] ( ) {        //Destructor
 
 <a name="l00334"></a>  334     Tcl_DeleteHashTable(&m_HashTable);
 
@@ -701,7 +701,7 @@ header
 
 <a name="l00337"></a>  337                         // Must be string type keys.
 
-<a name="l00338"></a>  338   [[classCTCLHashTable]] (  Tcl_HashTable am_HashTable  )
+<a name="l00338"></a>  338   [[CTCLHashTable|classCTCLHashTable]] (  Tcl_HashTable am_HashTable  )
 
 <a name="l00339"></a>  339   :   m_HashTable (am_HashTable)
 
@@ -713,7 +713,7 @@ header
 
 <a name="l00343"></a>  343
 
-<a name="l00344"></a>  344   [[classCTCLHashTable]] (const [[classCTCLHashTable]]& aCTCLHashTable )
+<a name="l00344"></a>  344   [[CTCLHashTable|classCTCLHashTable]] (const [[CTCLHashTable|classCTCLHashTable]]& aCTCLHashTable )
 
 <a name="l00345"></a>  345   {   m_HashTable = aCTCLHashTable.m_HashTable;
 
@@ -727,7 +727,7 @@ header
 
 <a name="l00350"></a>  350
 
-<a name="l00351"></a>  351   [[classCTCLHashTable]] operator= (const [[classCTCLHashTable]]& aCTCLHashTable)
+<a name="l00351"></a>  351   [[CTCLHashTable|classCTCLHashTable]] operator= (const [[CTCLHashTable|classCTCLHashTable]]& aCTCLHashTable)
 
 <a name="l00352"></a>  352   {
 
@@ -747,7 +747,7 @@ header
 
 <a name="l00360"></a>  360             //Update to access 1:M associated class attributes
 
-<a name="l00361"></a>  361   int operator== (const [[classCTCLHashTable]]& aCTCLHashTable)
+<a name="l00361"></a>  361   int operator== (const [[CTCLHashTable|classCTCLHashTable]]& aCTCLHashTable)
 
 <a name="l00362"></a>  362   {
 
@@ -911,17 +911,17 @@ header
 
 <a name="l00442"></a>  442
 
-[[classCTCLHashTableIterator]]
+[[CTCLHashTableIterator|classCTCLHashTableIterator]]
 
 **Definition:** TCLHashTableIterator.h:334
 
 
-[[classCTCLHashTableItem]]
+[[CTCLHashTableItem|classCTCLHashTableItem]]
 
 **Definition:** TCLHashTableItem.h:301
 
 
-[[classCTCLHashTable]]
+[[CTCLHashTable|classCTCLHashTable]]
 
 **Definition:** TCLHashTable.h:314
 

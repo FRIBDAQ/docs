@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_1ad96cec73befb7849da500ecefc5069]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[configuration|dir_1ad96cec73befb7849da500ecefc5069]]
 
  top 
 ModEvtFileParser.h
 
 header
-[[ModEvtFileParser_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|ModEvtFileParser_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef MODEVTFILEPARSER_H
@@ -46,7 +46,7 @@ header
 <a name="l00010"></a>   10
 
 
-<a name="l00012"></a>   12 namespace [[namespaceDAQ]] {
+<a name="l00012"></a>   12 namespace [[DAQ|namespaceDAQ]] {
 
 
 <a name="l00014"></a>   14     namespace DDAS {
@@ -61,7 +61,7 @@ header
 <a name="l00017"></a>   17
 
 
-<a name="l00045"></a>[[classDAQ_1_1DDAS_1_1ModEvtFileParser]]     class [[classDAQ_1_1DDAS_1_1ModEvtFileParser]]
+<a name="l00045"></a>[[45|classDAQ_1_1DDAS_1_1ModEvtFileParser]]     class [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]]
 
 
 <a name="l00046"></a>   46     {
@@ -70,10 +70,10 @@ header
 <a name="l00047"></a>   47     public:
 
 
-<a name="l00049"></a>[[classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]         [[classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]() = default;
+<a name="l00049"></a>[[49|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]         [[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]() = default;
 
 
-<a name="l00059"></a>   59         void [[classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]](std::istream& input, [[classDAQ_1_1DDAS_1_1Configuration]]& config);
+<a name="l00059"></a>   59         void [[parse|classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]](std::istream& input, [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]& config);
 
 
 <a name="l00060"></a>   60     };
@@ -97,28 +97,28 @@ header
 <a name="l00068"></a>   68
 
 
-[[classDAQ_1_1DDAS_1_1Configuration]]
+[[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration]]
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[classDAQ_1_1DDAS_1_1ModEvtFileParser]]
+[[DAQ::DDAS::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]]
 
 A parser for the modevtlen.txt file.
 
 **Definition:** ModEvtFileParser.h:46
 
 
-[[classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]
+[[DAQ::DDAS::ModEvtFileParser::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]
 
 ModEvtFileParser()=default
 
 Constructor.
 
 
-[[classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]]
+[[DAQ::DDAS::ModEvtFileParser::parse|classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]]
 
 void parse(std::istream &input, Configuration &config)
 
@@ -127,7 +127,7 @@ Parse and store the contents of the modevtlen.txt file in a configuration object
 **Definition:** ModEvtFileParser.cpp:19
 
 
-[[namespaceDAQ]]
+[[DAQ|namespaceDAQ]]
 
  fragment
 

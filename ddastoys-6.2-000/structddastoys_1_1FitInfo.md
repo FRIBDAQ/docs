@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1FitInfo]]
+- [[FitInfo|structddastoys_1_1FitInfo]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1FitInfo-members]]
+[[List of all members|structddastoys_1_1FitInfo-members]]
 
 
 ddastoys::FitInfo Struct Reference
 
 header
 A fit extension that knows its size.  
- [[structddastoys_1_1FitInfo#details]]
+ [[More...|structddastoys_1_1FitInfo#details]]
 
 
 `#include <fit_extensions.h>`
@@ -53,7 +53,7 @@ Collaboration diagram for ddastoys::FitInfo:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -82,7 +82,7 @@ A fit extension that knows its size.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
 
  contents 
  start footer part 

@@ -38,7 +38,7 @@ Furthermore they are implemented by compatible classes so that porting SpecTcl c
 Parameters in the framework are represented by objects that mimic double precision values. These objects know if they have been assigned to in a given event and, if they are used in the left hand side of a computation before having been used as the target of an assignment they will throw an exception.
 
 
-Individual parameters are represented by a class named [[classfrib_1_1analysis_1_1CTreeParameter]]. Fixed sized arrays arrays of CTreeParameter objects can be created using a [[classfrib_1_1analysis_1_1CTreeParameterArray]] object. Really each element of this array like object is a CTreeParameter object.
+Individual parameters are represented by a class named [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]. Fixed sized arrays arrays of CTreeParameter objects can be created using a [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray]] object. Really each element of this array like object is a CTreeParameter object.
 
 
 The framework supports the ability to:
@@ -99,7 +99,7 @@ Often computations need to be parameterized. For example, when taking a value th
 As with SpecTcl, Tree Variables provide a mechanism to define and use a steering variable and, in the analysis framework, define the value of steering variables externally.
 
 
-A steering variable is represente internally by an instance of [[classfrib_1_1analysis_1_1CTreeVariable]]. This class is implemented to be compatible with the SpecTcl CTreeVariable class. Instances of the class can, in most cases, be used as instances of double in your code. Consider:
+A steering variable is represente internally by an instance of [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]. This class is implemented to be compatible with the SpecTcl CTreeVariable class. Instances of the class can, in most cases, be used as instances of double in your code. Consider:
 
 
 using namespace frib::analysis;
@@ -133,13 +133,13 @@ Note that, as with CTreeParameter, CTreeVariable is named, and several instances
 ## Distributing tree definitions.
 
 
-The framework normally is given a definition file which provides both tree parameter and tree variable definitions. The definition file is read in using a class derived from [[classfrib_1_1analysis_1_1CParameterReader]] that is passed to the application's operator() when the application is started.
+The framework normally is given a definition file which provides both tree parameter and tree variable definitions. The definition file is read in using a class derived from [[frib::analysis::CParameterReader|classfrib_1_1analysis_1_1CParameterReader]] that is passed to the application's operator() when the application is started.
 
 
 Since MPI uses a single program multiple data model of execution, the reader runs in all processes of the parallel application defining a common set of parameters and variables throughout the application.
 
 
-You are free to implement your own CParameterReader class to use whatever format you want for your definition file, or you can use the [[classfrib_1_1analysis_1_1CTCLParameterReader]] class to use the Tcl scripting language to definen your parameters and variables.
+You are free to implement your own CParameterReader class to use whatever format you want for your definition file, or you can use the [[frib::analysis::CTCLParameterReader|classfrib_1_1analysis_1_1CTCLParameterReader]] class to use the Tcl scripting language to definen your parameters and variables.
 
 
 Here's an example of how to do that:
@@ -179,10 +179,10 @@ app(pReader);
 
 }
 
- fragment For information about the Tcl tree parameter reader definition file syntax see [[md_pages_tcldeffile#tcldeffile]]
+ fragment For information about the Tcl tree parameter reader definition file syntax see [[Tcl Definition file.|md_pages_tcldeffile#tcldeffile]]
 
 
-For more about how to build your application class, see [[md_pages_application#appclass]]
+For more about how to build your application class, see [[The Application Class|md_pages_application#appclass]]
 
  contents 
  start footer part 

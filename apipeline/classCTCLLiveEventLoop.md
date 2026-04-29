@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[classCTCLLiveEventLoop-members]]
+[[List of all members|classCTCLLiveEventLoop-members]]
 
 
 CTCLLiveEventLoop Class Reference
@@ -58,7 +58,7 @@ header
 tclsh does not run the Tcl event loop unless, the script blocks. In that case it's not possible to continue processing commands from stdin until the event loop exits. This is not always a desireable situation in the NSCLDAQ. Sometimes we'd like to have events (like timers e.g.) in the background, or socket servers running while being live to events.
 
 
-The [[classCTCLLiveEventLoop]] is a class that can support this operation. It is a singleton class, since A Tcl application can only have a single event loop, however since a Tcl application may have more than one interpreter it is necessary to start the event loop on a specific interpreter. That interpreter is the one that will receive interactive commands. If the interpreter is not passed in when the event loop is started, the interpreter associated with the application is used (gpApplication).
+The [[CTCLLiveEventLoop|classCTCLLiveEventLoop]] is a class that can support this operation. It is a singleton class, since A Tcl application can only have a single event loop, however since a Tcl application may have more than one interpreter it is necessary to start the event loop on a specific interpreter. That interpreter is the one that will receive interactive commands. If the interpreter is not passed in when the event loop is started, the interpreter associated with the application is used (gpApplication).
 
 
 Differnences from tclsh's input loop: prompt1 is: "% " while prompt2 is "-- " if there are no tcl_prompt1/tcl_prompt2 procs defined. If defined, those are honored.
@@ -78,7 +78,7 @@ NOTE: This class is unix specific. It uses file events which are not implemented
 | CTCLLiveEventLoop* CTCLLiveEventLoop::getInstance() | CTCLLiveEventLoop* CTCLLiveEventLoop::getInstance | ( |  | ) |  | static |
 | CTCLLiveEventLoop* CTCLLiveEventLoop::getInstance | ( |  | ) |  |
 
-Return a pointer to the one and only [[classCTCLLiveEventLoop]] object. If this is the first call, the object is created.
+Return a pointer to the one and only [[CTCLLiveEventLoop|classCTCLLiveEventLoop]] object. If this is the first call, the object is created.
 
 
 
@@ -199,7 +199,7 @@ Since serveral mutually unaware actors could be attempting to stop the event loo
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLLiveEventLoop_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLLiveEventLoop.h|TCLLiveEventLoop_8h_source]]
 - libtclplus/tclplus/TCLLiveEventLoop.cpp
 
  contents 

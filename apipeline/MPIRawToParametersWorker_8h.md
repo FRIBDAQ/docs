@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 MPIRawToParametersWorker.h File Reference
 
 header
-: [[classRaw]] events -> Parameter worker skeleton.  
+: [[Raw|classRaw]] events -> Parameter worker skeleton.  
 [More...](#details)
 
 
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](MPIRawToParametersWorker_8h__dep__incl.png)
 
 
-[[MPIRawToParametersWorker_8h_source]]
+[[Go to the source code of this file.|MPIRawToParametersWorker_8h_source]]
 
 
 |  |  |
@@ -64,7 +64,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-: [[classRaw]] events -> Parameter worker skeleton.
+: [[Raw|classRaw]] events -> Parameter worker skeleton.
 
  contents 
  start footer part 

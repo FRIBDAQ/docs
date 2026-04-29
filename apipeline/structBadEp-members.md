@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 BadEp Member List
 
 header
-This is the complete list of members for [[structBadEp]], including all inherited members.
+This is the complete list of members for [[BadEp|structBadEp]], including all inherited members.
 
 
 |  |  |  |

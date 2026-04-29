@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 StreamDataSource Member List
 
 header
-This is the complete list of members for [[classStreamDataSource]], including all inherited members.
+This is the complete list of members for [[StreamDataSource|classStreamDataSource]], including all inherited members.
 
 
 |  |  |  |

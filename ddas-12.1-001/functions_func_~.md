@@ -19,45 +19,45 @@ do not remove this div, it is closed by doxygen!
 ### - ~ -
 
 - ~BufferArena()
-  : [[classDDASReadout_1_1BufferArena#a28d72045521616e3dd7fc88ec3b6e07a]]
+  : [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena#a28d72045521616e3dd7fc88ec3b6e07a]]
 - ~CBootCommand()
-  : [[classCBootCommand#a754153ca87c29bb3a18a4b19ec131ea2]]
+  : [[CBootCommand|classCBootCommand#a754153ca87c29bb3a18a4b19ec131ea2]]
 - ~CDDASStatisticsCommand()
-  : [[classCDDASStatisticsCommand#af3e223386b4655812b4afc4356bdacf6]]
+  : [[CDDASStatisticsCommand|classCDDASStatisticsCommand#af3e223386b4655812b4afc4356bdacf6]]
 - ~CMyBusy()
-  : [[classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]
+  : [[CMyBusy|classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]
 - ~CMyEndCommand()
-  : [[classCMyEndCommand#a2e34053008620bebb9036c38c302e854]]
+  : [[CMyEndCommand|classCMyEndCommand#a2e34053008620bebb9036c38c302e854]]
 - ~CMyEventSegment()
-  : [[classCMyEventSegment#a1ebb8549361bda00bcf4fdbde8e95b3b]]
+  : [[CMyEventSegment|classCMyEventSegment#a1ebb8549361bda00bcf4fdbde8e95b3b]]
 - ~CMyScaler()
-  : [[classCMyScaler#a6070895d1be3c1c7e7023c04add1e2f8]]
+  : [[CMyScaler|classCMyScaler#a6070895d1be3c1c7e7023c04add1e2f8]]
 - ~CMyTrigger()
-  : [[classCMyTrigger#ae707c0d7f054c6f4b500aca7e347785e]]
+  : [[CMyTrigger|classCMyTrigger#ae707c0d7f054c6f4b500aca7e347785e]]
 - ~Configuration()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a5eda82e98f805cfe99be9ad7461ee466]]
 - ~CSyncCommand()
-  : [[classCSyncCommand#ac2696ee814a1cb3e024e2c8c9a6000af]]
+  : [[CSyncCommand|classCSyncCommand#ac2696ee814a1cb3e024e2c8c9a6000af]]
 - ~DataSource()
-  : [[classDataSource#a01b7c981a55b10889f23b300d2273656]]
+  : [[DataSource|classDataSource#a01b7c981a55b10889f23b300d2273656]]
 - ~DDASRootEvent()
-  : [[classDDASRootEvent#a2e2a511a347634478857e22bcfc01842]]
+  : [[DDASRootEvent|classDDASRootEvent#a2e2a511a347634478857e22bcfc01842]]
 - ~DDASRootHit()
-  : [[classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]
+  : [[DDASRootHit|classDDASRootHit#a811079e5915e0c2931b90c1a0b93d9d5]]
 - ~DDASSorter()
-  : [[classDDASSorter#a2bcf5ec2daf58c68fc8fd811da4d7445]]
+  : [[DDASSorter|classDDASSorter#a2bcf5ec2daf58c68fc8fd811da4d7445]]
 - ~FdDataSource()
-  : [[classFdDataSource#a5e0b15340e1cefd66351372843cd78ff]]
+  : [[FdDataSource|classFdDataSource#a5e0b15340e1cefd66351372843cd78ff]]
 - ~RawChannel()
-  : [[structDDASReadout_1_1RawChannel#ac615b7ee7644eb3591b0001bf3ef6dc4]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#ac615b7ee7644eb3591b0001bf3ef6dc4]]
 - ~ReferenceCountedBuffer()
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#aaed8849c1ca6da8d443ee1110456c547]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#aaed8849c1ca6da8d443ee1110456c547]]
 - ~RootFileDataSink()
-  : [[classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
+  : [[RootFileDataSink|classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
 - ~StreamDataSource()
-  : [[classStreamDataSource#a417124525c9c85205eb7407898569f8c]]
+  : [[StreamDataSource|classStreamDataSource#a417124525c9c85205eb7407898569f8c]]
 - ~ZeroCopyHit()
-  : [[classDDASReadout_1_1ZeroCopyHit#a062c144d5c7052fb8bc9a724d32e72c3]]
+  : [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#a062c144d5c7052fb8bc9a724d32e72c3]]
 
  contents 
  start footer part 

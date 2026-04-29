@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeVariable]]
-- [[structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
+- [[CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]
+- [[_Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
 
  top 
 frib::analysis::CTreeVariable::_Definition Member List
 
 header
-This is the complete list of members for [[structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CTreeVariable::_Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]], including all inherited members.
 
 
 |  |  |  |

@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structDAQ_1_1DDAS_1_1FirmwareConfiguration-members]]
+[[List of all members|structDAQ_1_1DDAS_1_1FirmwareConfiguration-members]]
 
 
-DAQ::DDAS::FirmwareConfiguration Struct Reference[[group__configuration]]
+DAQ::DDAS::FirmwareConfiguration Struct Reference[[libConfiguration.so|group__configuration]]
 
 header
 Storage for hardware-type firmware/settings paths.  
- [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#details]]
+ [[More...|structDAQ_1_1DDAS_1_1FirmwareConfiguration#details]]
 
 
 `#include <Configuration.h>`
@@ -61,7 +61,7 @@ Storage for hardware-type firmware/settings paths.
 Storage for hardware-type firmware/settings paths.
 
 
-A simple structure to hold the paths to all firmware/settings files for a specific hardware type. These objects will be stored in a map of the [[classDAQ_1_1DDAS_1_1Configuration]] class and keyed by a hardware type defined in [[HardwareRegistry_8h]]
+A simple structure to hold the paths to all firmware/settings files for a specific hardware type. These objects will be stored in a map of the [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] class and keyed by a hardware type defined in [[HardwareRegistry.h|HardwareRegistry_8h]]
 
 ## Member Data Documentation
 
@@ -113,7 +113,7 @@ Name of signal processing FPGA configuration file.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[Configuration_8h_source]]
+The documentation for this struct was generated from the following file:- [[Configuration.h|Configuration_8h_source]]
 
  contents 
  start footer part 

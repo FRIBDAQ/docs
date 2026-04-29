@@ -91,18 +91,18 @@ The other options are described in the table below:
 # Output Data Format
 
 
-The ddasdumper program unpacks NSCLDAQ PHYSICS_EVENT ring items into [[classDDASRootEvent]] objects which are written to its output file. It does not perform any unpacking for or write any other NSCLDAQ ring item types to disk. The name of the output ROOT file is specified at runtime using the `--fileout` option.
-The output ROOT file contains a single TTree named "ddas." The tree contains a single branch called "rawevents" consisting of [[classDDASRootEvent]] objects. [[classDDASRootEvent]] objects store their channel hit data in a vector of [[classDDASRootHit]] objects. Each [[classDDASRootHit]] object encapsulates all the data contained for a discrete hit in a single digitizer channel: timestamp, energy, additional data like an ADC trace or QDC sums, etc. A single [[classDDASRootEvent]] consists of one or more DDASRootHits. Note that multiple hits coming from the same digitizer channel may appear in a single built event if that channel re-triggers within the event building window set during acquisition.
+The ddasdumper program unpacks NSCLDAQ PHYSICS_EVENT ring items into [[DDASRootEvent|classDDASRootEvent]] objects which are written to its output file. It does not perform any unpacking for or write any other NSCLDAQ ring item types to disk. The name of the output ROOT file is specified at runtime using the `--fileout` option.
+The output ROOT file contains a single TTree named "ddas." The tree contains a single branch called "rawevents" consisting of [[DDASRootEvent|classDDASRootEvent]] objects. [[DDASRootEvent|classDDASRootEvent]] objects store their channel hit data in a vector of [[DDASRootHit|classDDASRootHit]] objects. Each [[DDASRootHit|classDDASRootHit]] object encapsulates all the data contained for a discrete hit in a single digitizer channel: timestamp, energy, additional data like an ADC trace or QDC sums, etc. A single [[DDASRootEvent|classDDASRootEvent]] consists of one or more DDASRootHits. Note that multiple hits coming from the same digitizer channel may appear in a single built event if that channel re-triggers within the event building window set during acquisition.
 # Reading ddasdumper ROOT Output
 
 
-In order to process ddasdumper output, ROOT must know where to look for the headers and library which define the [[classDDASRootEvent]] and [[classDDASRootHit]] classes. The headers `DDASRootEvent.h` and `DDASRootHit.h` are installed in the "usual" NSCLDAQ header path: /usr/opt/daq/MM.mm-eee/include for NSCLDAQ MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQINC` will point to this directory. You must add the `DAQINC` directory to the directories ROOT will search for header files:
+In order to process ddasdumper output, ROOT must know where to look for the headers and library which define the [[DDASRootEvent|classDDASRootEvent]] and [[DDASRootHit|classDDASRootHit]] classes. The headers `DDASRootEvent.h` and `DDASRootHit.h` are installed in the "usual" NSCLDAQ header path: /usr/opt/daq/MM.mm-eee/include for NSCLDAQ MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQINC` will point to this directory. You must add the `DAQINC` directory to the directories ROOT will search for header files:
 ```
 export ROOT_INCLUDE_PATH=${DAQINC}:${ROOT_INCLUDE_PATH}
 
 ```
 
-The shared library `libddasrootformat.so` containing code implementing the [[classDDASRootEvent]] and [[classDDASRootHit]] classes is installed in the "usual" library location: /usr/opt/daq/MM.mm-eee/lib for NSCLDAQ version MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQLIB` will point to this directory. The library can be loaded into the ROOT interpreter on startup:
+The shared library `libddasrootformat.so` containing code implementing the [[DDASRootEvent|classDDASRootEvent]] and [[DDASRootHit|classDDASRootHit]] classes is installed in the "usual" library location: /usr/opt/daq/MM.mm-eee/lib for NSCLDAQ version MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQLIB` will point to this directory. The library can be loaded into the ROOT interpreter on startup:
 <genesis:rawdata >root
 
 
@@ -117,21 +117,21 @@ root [2] TTree* t
 
 root [3] f->GetObject("ddas", t)
 
- fragment At this point you can call the methods of TTree such as `TTree::Print()` to print a summary of the tree contents. Now we need to associate an object with the branch we care about. Because the "rawevents" branch is filled with [[classDDASRootEvent]] objects, we need to create a such an object and associate it with the branch:
-root [4] [[classDDASRootEvent]]* pEvent = new [[classDDASRootEvent]]
+ fragment At this point you can call the methods of TTree such as `TTree::Print()` to print a summary of the tree contents. Now we need to associate an object with the branch we care about. Because the "rawevents" branch is filled with [[DDASRootEvent|classDDASRootEvent]] objects, we need to create a such an object and associate it with the branch:
+root [4] [[DDASRootEvent|classDDASRootEvent]]* pEvent = new [[DDASRootEvent|classDDASRootEvent]]
 
 
 root [5] t->SetBranchAddress("rawevents", &pEvent)
 
 
-[[classDDASRootEvent]]
+[[DDASRootEvent|classDDASRootEvent]]
 
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.
 
 **Definition:** DDASRootEvent.h:59
 
  fragment You can access the data by calling the `TTree::GetEntry()`. As an example, consider the following ROOT macro which loops over the tree entries and histogram the multiplicity using the `DDASRootEvent::GetNHits()` method to extract the number of channel hits per event:
-#include <[[DDASRootEvent_8h]]> // Class defs. (in ROOT_INCLUDE_PATH)
+#include <[[DDASRootEvent.h|DDASRootEvent_8h]]> // Class defs. (in ROOT_INCLUDE_PATH)
 
 
 R__ADD_LIBRARY_PATH($DAQLIB)          // Where our library is installed.
@@ -164,7 +164,7 @@ f->GetObject("ddas", t);
 
 
 
-[[classDDASRootEvent]]* pEvent = new [[classDDASRootEvent]];
+[[DDASRootEvent|classDDASRootEvent]]* pEvent = new [[DDASRootEvent|classDDASRootEvent]];
 
 
 t->SetBranchAddress("rawevents", &pEvent);
@@ -185,7 +185,7 @@ for (long i = 0; i < t->GetEntries(); i++) {
 t->GetEntry(i);
 
 
-h->Fill(pEvent->[[classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]());
+h->Fill(pEvent->[[GetNHits|classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]());
 
 
 }
@@ -200,12 +200,12 @@ h->Draw();
 }
 
 
-[[DDASRootEvent_8h]]
+[[DDASRootEvent.h|DDASRootEvent_8h]]
 
 Defines a class to encapsulate the information in a built DDAS event.
 
 
-[[classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]
+[[DDASRootEvent::GetNHits|classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]
 
 UInt_t GetNHits() const
 

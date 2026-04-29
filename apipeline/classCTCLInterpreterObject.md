@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLInterpreterObject-members]]
+[[List of all members|classCTCLInterpreterObject-members]]
 
 
 CTCLInterpreterObject Class Reference
@@ -59,7 +59,7 @@ Inheritance diagram for CTCLInterpreterObject:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -90,7 +90,7 @@ Inheritance diagram for CTCLInterpreterObject:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLInterpreterObject_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLInterpreterObject.h|TCLInterpreterObject_8h_source]]
 - libtclplus/tclplus/TCLInterpreterObject.cpp
 
  contents 

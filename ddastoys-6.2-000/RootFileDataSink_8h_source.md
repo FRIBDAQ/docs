@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 RootFileDataSink.h
 
 header
-[[RootFileDataSink_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|RootFileDataSink_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -135,7 +135,7 @@ header
 <a name="l00041"></a>   41
 
 
-<a name="l00052"></a>[[classRootFileDataSink]] class [[classRootFileDataSink]] : public CDataSink
+<a name="l00052"></a>[[52|classRootFileDataSink]] class [[RootFileDataSink|classRootFileDataSink]] : public CDataSink
 
 
 <a name="l00053"></a>   53 {
@@ -144,10 +144,10 @@ header
 <a name="l00054"></a>   54 public:
 
 
-<a name="l00062"></a>   62     [[classRootFileDataSink#a2d1b4e6bdf14b8533520409c9dc6631c]](const char* filename, const char* treename="DDASFit");
+<a name="l00062"></a>   62     [[RootFileDataSink|classRootFileDataSink#a2d1b4e6bdf14b8533520409c9dc6631c]](const char* filename, const char* treename="DDASFit");
 
 
-<a name="l00064"></a>   64     virtual [[classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]();
+<a name="l00064"></a>   64     virtual [[~RootFileDataSink|classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]();
 
 
 <a name="l00065"></a>   65
@@ -156,10 +156,10 @@ header
 <a name="l00066"></a>   66 public:
 
 
-<a name="l00071"></a>   71     virtual void [[classRootFileDataSink#abb0d33280ddd69f3cc095c3cba92492b]](const CRingItem& item);
+<a name="l00071"></a>   71     virtual void [[putItem|classRootFileDataSink#abb0d33280ddd69f3cc095c3cba92492b]](const CRingItem& item);
 
 
-<a name="l00077"></a>   77     virtual void [[classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]](const void* pData, size_t nBytes);
+<a name="l00077"></a>   77     virtual void [[put|classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]](const void* pData, size_t nBytes);
 
 
 <a name="l00078"></a>   78
@@ -168,10 +168,10 @@ header
 <a name="l00079"></a>   79 private:
 
 
-<a name="l00080"></a>   80     [[classddastoys_1_1DDASFitHitUnpacker]]* m_pUnpacker;
+<a name="l00080"></a>   80     [[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]* m_pUnpacker;
 
 
-<a name="l00081"></a>   81     [[classddastoys_1_1DDASRootFitEvent]]* m_pTreeEvent;
+<a name="l00081"></a>   81     [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]* m_pTreeEvent;
 
 
 <a name="l00082"></a>   82     TTree* m_pTree;
@@ -192,14 +192,14 @@ header
 <a name="l00087"></a>   87 #endif
 
 
-[[classRootFileDataSink]]
+[[RootFileDataSink|classRootFileDataSink]]
 
 This class knows how to write ROOT files from the ring items created by the fitting program.
 
 **Definition:** RootFileDataSink.h:53
 
 
-[[classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
+[[RootFileDataSink::put|classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
 
 virtual void put(const void *pData, size_t nBytes)
 
@@ -208,7 +208,7 @@ Called to put arbitrary data to the file.
 **Definition:** RootFileDataSink.cpp:134
 
 
-[[classRootFileDataSink#a2d1b4e6bdf14b8533520409c9dc6631c]]
+[[RootFileDataSink::RootFileDataSink|classRootFileDataSink#a2d1b4e6bdf14b8533520409c9dc6631c]]
 
 RootFileDataSink(const char *filename, const char *treename="DDASFit")
 
@@ -217,7 +217,7 @@ Constructor.
 **Definition:** RootFileDataSink.cpp:52
 
 
-[[classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
+[[RootFileDataSink::~RootFileDataSink|classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
 
 virtual ~RootFileDataSink()
 
@@ -226,7 +226,7 @@ Destructor.
 **Definition:** RootFileDataSink.cpp:81
 
 
-[[classRootFileDataSink#abb0d33280ddd69f3cc095c3cba92492b]]
+[[RootFileDataSink::putItem|classRootFileDataSink#abb0d33280ddd69f3cc095c3cba92492b]]
 
 virtual void putItem(const CRingItem &item)
 
@@ -235,14 +235,14 @@ Put a ring item to file.
 **Definition:** RootFileDataSink.cpp:97
 
 
-[[classddastoys_1_1DDASFitHitUnpacker]]
+[[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
 
 Unpack raw hit data from DDAS event files.
 
 **Definition:** DDASFitHitUnpacker.h:62
 
 
-[[classddastoys_1_1DDASRootFitEvent]]
+[[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]
 
 Defines the object that's put in a ROOT TTree for each event.
 

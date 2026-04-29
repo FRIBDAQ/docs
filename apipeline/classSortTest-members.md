@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 SortTest Member List
 
 header
-This is the complete list of members for [[classSortTest]], including all inherited members.
+This is the complete list of members for [[SortTest|classSortTest]], including all inherited members.
 
 
 |  |  |  |

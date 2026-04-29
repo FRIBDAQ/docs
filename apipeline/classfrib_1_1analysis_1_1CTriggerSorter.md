@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTriggerSorter]]
+- [[CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CTriggerSorter-members]]
+[[List of all members|classfrib_1_1analysis_1_1CTriggerSorter-members]]
 
 
 frib::analysis::CTriggerSorter Class Referenceabstract
@@ -46,7 +46,7 @@ Inheritance diagram for frib::analysis::CTriggerSorter:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -67,7 +67,7 @@ Inheritance diagram for frib::analysis::CTriggerSorter:
 <a name="details"></a>## Detailed Description
 
 
-[[classfrib_1_1analysis_1_1CTriggerSorter]] has methods to add parameter ring items which may be out of order and then to emit ring items later in order.
+[[CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]] has methods to add parameter ring items which may be out of order and then to emit ring items later in order.
 
 
 This is implemented in a manner that does not depend on MPI so that ordinary unit tests can be used to verify the operation of the class. The idea is that addItem is called to add items to the sorting system. When one or more items can be emitted (because they have triggers sequential to the last emitted item), emitItem is called with those items.
@@ -143,8 +143,8 @@ if the application operates properly, this should not really do anything as the 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TriggerSorter_8h_source]]
-- base/[[TriggerSorter_8cpp]]
+The documentation for this class was generated from the following files:- base/[[TriggerSorter.h|TriggerSorter_8h_source]]
+- base/[[TriggerSorter.cpp|TriggerSorter_8cpp]]
 
  contents 
  start footer part 

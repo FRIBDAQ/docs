@@ -19,21 +19,21 @@ do not remove this div, it is closed by doxygen!
 ### - p -
 
 - parse()
-  : [[classDAQ_1_1DDAS_1_1ConfigurationParser#a080f00289c3b6c4c69210ae59ed6d628]]
-  , [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]]
-  , [[classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]]
+  : [[DAQ::DDAS::ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser#a080f00289c3b6c4c69210ae59ed6d628]]
+  , [[DAQ::DDAS::FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]]
+  , [[DAQ::DDAS::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#ae8d6f48194941c5b9923f9c26ecbf2ef]]
 - parseSlotLine()
-  : [[classDAQ_1_1DDAS_1_1ConfigurationParser#ad74d0ddf27e33189cc39accf93a91864]]
+  : [[DAQ::DDAS::ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser#ad74d0ddf27e33189cc39accf93a91864]]
 - populateHardwareMap()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a08ee360bc5d740dbb37df6df6998015e]]
 - print()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a219ab53430597daf87dd19d13952e12b]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a219ab53430597daf87dd19d13952e12b]]
 - put()
-  : [[classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
+  : [[RootFileDataSink|classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
 - putHit()
-  : [[classDAQ_1_1DDAS_1_1DDASDataSimulator#ae308c49064df4089db95da875dafc610]]
+  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#ae308c49064df4089db95da875dafc610]]
 - putItem()
-  : [[classRootFileDataSink#aba8890f365da6eeb61215107bc6c155f]]
+  : [[RootFileDataSink|classRootFileDataSink#aba8890f365da6eeb61215107bc6c155f]]
 
  contents 
  start footer part 

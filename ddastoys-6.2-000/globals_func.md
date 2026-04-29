@@ -17,47 +17,47 @@ do not remove this div, it is closed by doxygen!
 
 
 - chiFitness1()
-  : [[cudafit__analytic_8cu#a01116e08731662bf49113e97ada001ef]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a01116e08731662bf49113e97ada001ef]]
 - chiFitness2()
-  : [[cudafit__analytic_8cu#ad008eca1dfb3ed6f79612d959d0ad0ab]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#ad008eca1dfb3ed6f79612d959d0ad0ab]]
 - createEditor()
-  : [[FitEditorAnalytic_8cpp#a5823710a65ef0bb148cff7c682bfd8e0]]
-  , [[FitEditorMLInference_8cpp#aaa4a73397d9bfa97acdbbd5d60b2cdd7]]
-  , [[FitEditorTemplate_8cpp#a2ce99fd3ffd34e26301b8b0746670c12]]
+  : [[FitEditorAnalytic.cpp|FitEditorAnalytic_8cpp#a5823710a65ef0bb148cff7c682bfd8e0]]
+  , [[FitEditorMLInference.cpp|FitEditorMLInference_8cpp#aaa4a73397d9bfa97acdbbd5d60b2cdd7]]
+  , [[FitEditorTemplate.cpp|FitEditorTemplate_8cpp#a2ce99fd3ffd34e26301b8b0746670c12]]
 - d_fitness1()
-  : [[cudafit__analytic_8cu#a78fbfa89e7b83fc2ea2a7e65f2c0da01]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a78fbfa89e7b83fc2ea2a7e65f2c0da01]]
 - d_fitness2()
-  : [[cudafit__analytic_8cu#a9b54457d422df1ecf4f422c4903c0b1b]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a9b54457d422df1ecf4f422c4903c0b1b]]
 - decay()
-  : [[cudafit__analytic_8cu#ad53c1c2be1465b8eafe9b926a680b752]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#ad53c1c2be1465b8eafe9b926a680b752]]
 - doublePulse()
-  : [[cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a7b6549a9395d3f8f40b2f12e790198e6]]
 - estimateK1()
-  : [[lmfit__analytic_8cpp#a282cb59029a978cd191e16f88ccd42a3]]
+  : [[lmfit_analytic.cpp|lmfit__analytic_8cpp#a282cb59029a978cd191e16f88ccd42a3]]
 - h_fitDouble()
-  : [[cudafit__analytic_8cu#a5482cd4de0390a1a23d211ee9d8f671d]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a5482cd4de0390a1a23d211ee9d8f671d]]
 - h_fitSingle()
-  : [[cudafit__analytic_8cu#ab1cbd653db743c1a5bb2c316ff33cef8]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#ab1cbd653db743c1a5bb2c316ff33cef8]]
 - jacobian1()
-  : [[CudaFitEngineAnalytic_8cu#a74c7f8f4f9fbbf729c86b69bddf1f022]]
+  : [[CudaFitEngineAnalytic.cu|CudaFitEngineAnalytic_8cu#a74c7f8f4f9fbbf729c86b69bddf1f022]]
 - jacobian2()
-  : [[CudaFitEngineAnalytic_8cu#ad40fd9b253a8e43081efdb7256683bf3]]
+  : [[CudaFitEngineAnalytic.cu|CudaFitEngineAnalytic_8cu#ad40fd9b253a8e43081efdb7256683bf3]]
 - logistic()
-  : [[cudafit__analytic_8cu#a8ad7a892e2871cb7e23665a5884f6735]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a8ad7a892e2871cb7e23665a5884f6735]]
 - main()
-  : [[traceview_8cpp#a0ddf1224851353fc92bfbff6f499fa97]]
-  , [[eeconverter_8cpp#a3c04138a5bfe5d72780bb7e82a18e627]]
+  : [[traceview.cpp|traceview_8cpp#a0ddf1224851353fc92bfbff6f499fa97]]
+  , [[eeconverter.cpp|eeconverter_8cpp#a3c04138a5bfe5d72780bb7e82a18e627]]
 - pulseAmplitude()
-  : [[functions__analytic_8cpp#a4c15c04ccdd0a70976fbc146e66e8d06]]
+  : [[functions_analytic.cpp|functions__analytic_8cpp#a4c15c04ccdd0a70976fbc146e66e8d06]]
 - residual1()
-  : [[CudaFitEngineAnalytic_8cu#af24b5634521d89be6f24b952b158ba4d]]
+  : [[CudaFitEngineAnalytic.cu|CudaFitEngineAnalytic_8cu#af24b5634521d89be6f24b952b158ba4d]]
 - residual2()
-  : [[CudaFitEngineAnalytic_8cu#a8cb9184ed50b3cfc0b8dea0150e6d34e]]
+  : [[CudaFitEngineAnalytic.cu|CudaFitEngineAnalytic_8cu#a8cb9184ed50b3cfc0b8dea0150e6d34e]]
 - singlePulse()
-  : [[cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]]
+  : [[cudafit_analytic.cu|cudafit__analytic_8cu#a33c26171ad9cfabf1613966d81761eff]]
 - stringListToIntegers()
-  : [[StringsToIntegers_8cpp#a12f737832d6a9e60f6ea206541c26057]]
-  , [[StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]]
+  : [[StringsToIntegers.cpp|StringsToIntegers_8cpp#a12f737832d6a9e60f6ea206541c26057]]
+  , [[StringsToIntegers.h|StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]]
 
  contents 
  start footer part 

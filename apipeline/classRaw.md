@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classRaw-members]]
+[[List of all members|classRaw-members]]
 
 
 Raw Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for Raw:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for Raw:
@@ -48,7 +48,7 @@ Collaboration diagram for Raw:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -66,7 +66,7 @@ Collaboration diagram for Raw:
 
 ---
 
-The documentation for this class was generated from the following file:- spectcl/[[spectclTest_8cpp]]
+The documentation for this class was generated from the following file:- spectcl/[[spectclTest.cpp|spectclTest_8cpp]]
 
  contents 
  start footer part 

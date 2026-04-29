@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
 
  top 
 DAQ::DDAS::FirmwareVersionFileParser Member List
 
 header
-This is the complete list of members for [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]], including all inherited members.
+This is the complete list of members for [[DAQ::DDAS::FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]], including all inherited members.
 
 
 |  |  |  |

@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **templatefit**
-- [[structddastoys_1_1templatefit_1_1GslFitParameters]]
+- [[GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1templatefit_1_1GslFitParameters-members]]
+[[List of all members|structddastoys_1_1templatefit_1_1GslFitParameters-members]]
 
 
-ddastoys::templatefit::GslFitParameters Struct Reference[[group__template]]
+ddastoys::templatefit::GslFitParameters Struct Reference[[libFitEditorTemplate.so|group__template]]
 
 header
 Data passed around the fitting subsystem to Jacobian and function evaluators.  
- [[structddastoys_1_1templatefit_1_1GslFitParameters#details]]
+ [[More...|structddastoys_1_1templatefit_1_1GslFitParameters#details]]
 
 
 `#include <lmfit_template.h>`
@@ -72,7 +72,7 @@ Trace data stored as an (x, y) pair.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[lmfit__template_8h_source]]
+The documentation for this struct was generated from the following file:- [[lmfit_template.h|lmfit__template_8h_source]]
 
  contents 
  start footer part 

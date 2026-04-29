@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-Member [[classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]]  (int argc, char *argv[])
+Member [[CEventProcessor::operator()|classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]]  (int argc, char *argv[])
 (ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits?
 
 
@@ -31,15 +31,15 @@ Member [[classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]]  (int argc, ch
 
 
 
-Class [[classddastoys_1_1analyticfit_1_1CudaFitEngine1]] 
+Class [[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]] 
 (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.  
-Class [[classddastoys_1_1analyticfit_1_1CudaFitEngine2]] 
+Class [[ddastoys::analyticfit::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2]] 
 (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.  
-Member [[classddastoys_1_1FitEditorTemplate#a9cb6dd1e3a1afd3a668b8333833b267b]]  ()
-(ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration_8h]].  
-Member [[lmfit__analytic_8cpp#a282cb59029a978cd191e16f88ccd42a3]]  (int xmax, double C0, const std::vector< uint16_t > &trace)
+Member [[ddastoys::FitEditorTemplate::FitEditorTemplate|classddastoys_1_1FitEditorTemplate#a9cb6dd1e3a1afd3a668b8333833b267b]]  ()
+(ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|Configuration_8h]].  
+Member [[estimateK1|lmfit__analytic_8cpp#a282cb59029a978cd191e16f88ccd42a3]]  (int xmax, double C0, const std::vector< uint16_t > &trace)
 Should allow this fallback value to be an input parameter.  
-Class [[classQTraceView]] 
+Class [[QTraceView|classQTraceView]] 
 (ASC 10/15/24): Probably a project-wide TODO... only the public and Qt signaling interfaces need to be exposed here. I suspect that any helper functions can be make static, which may greatly simplify the class and make compilation easier.
 
 

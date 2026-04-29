@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 DDASDecoder.h
 
 header
-[[DDASDecoder_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASDecoder_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -117,13 +117,13 @@ header
 <a name="l00037"></a>   37
 
 
-<a name="l00038"></a>   38 class [[classTraceViewProcessor]];
+<a name="l00038"></a>   38 class [[TraceViewProcessor|classTraceViewProcessor]];
 
 
 <a name="l00039"></a>   39
 
 
-<a name="l00052"></a>[[classDDASDecoder]] class [[classDDASDecoder]]
+<a name="l00052"></a>[[52|classDDASDecoder]] class [[DDASDecoder|classDDASDecoder]]
 
 
 <a name="l00053"></a>   53 {
@@ -132,31 +132,31 @@ header
 <a name="l00054"></a>   54 public:
 
 
-<a name="l00056"></a>   56     [[classDDASDecoder#a824a8a21443e7c4c5290e84ebcd51ffe]]();
+<a name="l00056"></a>   56     [[DDASDecoder|classDDASDecoder#a824a8a21443e7c4c5290e84ebcd51ffe]]();
 
 
-<a name="l00058"></a>   58     [[classDDASDecoder#afc3917088dae5b8d9ad15ec86c5d2e93]]();
+<a name="l00058"></a>   58     [[~DDASDecoder|classDDASDecoder#afc3917088dae5b8d9ad15ec86c5d2e93]]();
 
 
 <a name="l00059"></a>   59
 
 
-<a name="l00064"></a>   64     void [[classDDASDecoder#acc08971f461ec3e3bf52958f1875e49f]](std::string src);
+<a name="l00064"></a>   64     void [[createDataSource|classDDASDecoder#acc08971f461ec3e3bf52958f1875e49f]](std::string src);
 
 
-<a name="l00070"></a>   70     std::vector<ddastoys::DDASFitHit> [[classDDASDecoder#a96c8eacdd36527949de03280ebc4453c]]();
+<a name="l00070"></a>   70     std::vector<ddastoys::DDASFitHit> [[getEvent|classDDASDecoder#a96c8eacdd36527949de03280ebc4453c]]();
 
 
-<a name="l00079"></a>   79     int [[classDDASDecoder#a81c5d199b821f38114235fc773b49364]](int nevts);
+<a name="l00079"></a>   79     int [[skip|classDDASDecoder#a81c5d199b821f38114235fc773b49364]](int nevts);
 
 
-<a name="l00084"></a>[[classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]     int [[classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]() { return m_count; };
+<a name="l00084"></a>[[84|classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]     int [[getEventCount|classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]() { return m_count; };
 
 
-<a name="l00089"></a>[[classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]     int [[classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]() { return m_count-1; };
+<a name="l00089"></a>[[89|classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]     int [[getEventIndex|classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]() { return m_count-1; };
 
 
-<a name="l00095"></a>   95     std::string [[classDDASDecoder#a309f906601e3de248708be5f3179a7b5]]();
+<a name="l00095"></a>   95     std::string [[getFilePath|classDDASDecoder#a309f906601e3de248708be5f3179a7b5]]();
 
 
 <a name="l00096"></a>   96
@@ -171,7 +171,7 @@ header
 <a name="l00099"></a>   99     CDataSource* m_pSource;
 
 
-<a name="l00100"></a>  100     [[classTraceViewProcessor]]* m_pProcessor;
+<a name="l00100"></a>  100     [[TraceViewProcessor|classTraceViewProcessor]]* m_pProcessor;
 
 
 <a name="l00101"></a>  101     int m_count;
@@ -198,14 +198,14 @@ header
 <a name="l00117"></a>  117 #endif
 
 
-[[classDDASDecoder]]
+[[DDASDecoder|classDDASDecoder]]
 
 An interactive event processor integrated in the traceview GUI.
 
 **Definition:** DDASDecoder.h:53
 
 
-[[classDDASDecoder#a309f906601e3de248708be5f3179a7b5]]
+[[DDASDecoder::getFilePath|classDDASDecoder#a309f906601e3de248708be5f3179a7b5]]
 
 std::string getFilePath()
 
@@ -214,7 +214,7 @@ Return the path of the file data source.
 **Definition:** DDASDecoder.cpp:136
 
 
-[[classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]
+[[DDASDecoder::getEventIndex|classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]
 
 int getEventIndex()
 
@@ -223,7 +223,7 @@ Return the PHYSICS_EVENT index.
 **Definition:** DDASDecoder.h:89
 
 
-[[classDDASDecoder#a81c5d199b821f38114235fc773b49364]]
+[[DDASDecoder::skip|classDDASDecoder#a81c5d199b821f38114235fc773b49364]]
 
 int skip(int nevts)
 
@@ -232,7 +232,7 @@ Skip events in the currently loaded data file.
 **Definition:** DDASDecoder.cpp:119
 
 
-[[classDDASDecoder#a824a8a21443e7c4c5290e84ebcd51ffe]]
+[[DDASDecoder::DDASDecoder|classDDASDecoder#a824a8a21443e7c4c5290e84ebcd51ffe]]
 
 DDASDecoder()
 
@@ -241,7 +241,7 @@ Constructor.
 **Definition:** DDASDecoder.cpp:52
 
 
-[[classDDASDecoder#a96c8eacdd36527949de03280ebc4453c]]
+[[DDASDecoder::getEvent|classDDASDecoder#a96c8eacdd36527949de03280ebc4453c]]
 
 std::vector< ddastoys::DDASFitHit > getEvent()
 
@@ -250,7 +250,7 @@ Get the next unpacked PHYSICS_EVENT.
 **Definition:** DDASDecoder.cpp:94
 
 
-[[classDDASDecoder#acc08971f461ec3e3bf52958f1875e49f]]
+[[DDASDecoder::createDataSource|classDDASDecoder#acc08971f461ec3e3bf52958f1875e49f]]
 
 void createDataSource(std::string src)
 
@@ -259,7 +259,7 @@ Create a file data source from the input string.
 **Definition:** DDASDecoder.cpp:68
 
 
-[[classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]
+[[DDASDecoder::getEventCount|classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]
 
 int getEventCount()
 
@@ -268,7 +268,7 @@ Return the number of PHYSCIS_EVENTs.
 **Definition:** DDASDecoder.h:84
 
 
-[[classDDASDecoder#afc3917088dae5b8d9ad15ec86c5d2e93]]
+[[DDASDecoder::~DDASDecoder|classDDASDecoder#afc3917088dae5b8d9ad15ec86c5d2e93]]
 
 ~DDASDecoder()
 
@@ -277,7 +277,7 @@ Destructor.
 **Definition:** DDASDecoder.cpp:59
 
 
-[[classTraceViewProcessor]]
+[[TraceViewProcessor|classTraceViewProcessor]]
 
 A basic ring item processor.
 

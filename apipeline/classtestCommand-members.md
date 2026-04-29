@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 testCommand Member List
 
 header
-This is the complete list of members for [[classtestCommand]], including all inherited members.
+This is the complete list of members for [[testCommand|classtestCommand]], including all inherited members.
 
 
 |  |  |  |

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1DDASFitHitUnpacker]]
+- [[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1DDASFitHitUnpacker-members]]
+[[List of all members|classddastoys_1_1DDASFitHitUnpacker-members]]
 
 
-ddastoys::DDASFitHitUnpacker Class Reference[[group__unpacker]]
+ddastoys::DDASFitHitUnpacker Class Reference[[libDDASFitHitUnpacker.so|group__unpacker]]
 
 header
 Unpack raw hit data from DDAS event files.  
- [[classddastoys_1_1DDASFitHitUnpacker#details]]
+ [[More...|classddastoys_1_1DDASFitHitUnpacker#details]]
 
 
 `#include <DDASFitHitUnpacker.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::DDASFitHitUnpacker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::DDASFitHitUnpacker:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::DDASFitHitUnpacker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -94,7 +94,7 @@ The DDASHitUnpacker is capable of unpacking raw hits from NSCLDAQ event data whi
 |  |  | DDASFitHit& | hit |
 |  | ) |  |  |
 
-Decode the current event and unpack it into a [[classddastoys_1_1DDASFitHit]].
+Decode the current event and unpack it into a [[DDASFitHit|classddastoys_1_1DDASFitHit]].
 
 
 Parameters
@@ -126,14 +126,14 @@ The decode function:
 The first 32 bits of the body contain the number of 16-bit words in the hit data.
 
 - If this works out equivalent to bodySize - there's no extension.
-- If this is larger, to accommodate data from ringblockdealer or the editor fitting framework, we have the following cases: 1) The extra data is the size of [[structddastoys_1_1HitExtensionLegacy]] - the extra data is an old-style hit extension e.g., from ringblockdealer. 2) The extra data is sizeof(uint32_t) - the extra data is a null extension from the editor fitting framework. 3) The extra data is sizeof(FitInfo) from [[fit__extensions_8h]] - the extra data is a hit extension from the editor fitting framework. 4) Anything else - we don't know how to do with and fail with an error message.
+- If this is larger, to accommodate data from ringblockdealer or the editor fitting framework, we have the following cases: 1) The extra data is the size of [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]] - the extra data is an old-style hit extension e.g., from ringblockdealer. 2) The extra data is sizeof(uint32_t) - the extra data is a null extension from the editor fitting framework. 3) The extra data is sizeof(FitInfo) from [[fit_extensions.h|fit__extensions_8h]] - the extra data is a hit extension from the editor fitting framework. 4) Anything else - we don't know how to do with and fail with an error message.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASFitHitUnpacker_8h_source]]
-- [[DDASFitHitUnpacker_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASFitHitUnpacker.h|DDASFitHitUnpacker_8h_source]]
+- [[DDASFitHitUnpacker.cpp|DDASFitHitUnpacker_8cpp]]
 
  contents 
  start footer part 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 TVATest Member List
 
 header
-This is the complete list of members for [[classTVATest]], including all inherited members.
+This is the complete list of members for [[TVATest|classTVATest]], including all inherited members.
 
 
 |  |  |  |

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 DDASDecoder.h File Reference
 
 header
-Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [[classCEventProcessor]] class but really designed to work interactively with the GUI.  
+Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [[CEventProcessor|classCEventProcessor]] class but really designed to work interactively with the GUI.  
 [More...](#details)
 
 
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASDecoder_8h__dep__incl.png)
 
 
-[[DDASDecoder_8h_source]]
+[[Go to the source code of this file.|DDASDecoder_8h_source]]
 
 
 |  |  |
@@ -63,7 +63,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [[classCEventProcessor]] class but really designed to work interactively with the GUI.
+Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [[CEventProcessor|classCEventProcessor]] class but really designed to work interactively with the GUI.
 
  contents 
  start footer part 

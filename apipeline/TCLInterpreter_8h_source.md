@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLInterpreter.h
@@ -137,13 +137,13 @@ header
 
 <a name="l00055"></a>   55
 
-<a name="l00056"></a>   56 class [[classCTCLObject]];
+<a name="l00056"></a>   56 class [[CTCLObject|classCTCLObject]];
 
 <a name="l00057"></a>   57
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>[[classCTCLInterpreter]] class [[classCTCLInterpreter]]
+<a name="l00059"></a>[[59|classCTCLInterpreter]] class [[CTCLInterpreter|classCTCLInterpreter]]
 
 <a name="l00060"></a>   60 {
 
@@ -157,11 +157,11 @@ header
 
 <a name="l00065"></a>   65
 
-<a name="l00066"></a>   66   [[classCTCLInterpreter]] () :
+<a name="l00066"></a>   66   [[CTCLInterpreter|classCTCLInterpreter]] () :
 
 <a name="l00067"></a>   67     m_pInterpreter(Tcl_CreateInterp())   { }
 
-<a name="l00068"></a>   68   virtual  ~[[classCTCLInterpreter]] ( ) { // Destructor.
+<a name="l00068"></a>   68   virtual  ~[[CTCLInterpreter|classCTCLInterpreter]] ( ) { // Destructor.
 
 <a name="l00069"></a>   69     Tcl_DeleteInterp(m_pInterpreter);
 
@@ -171,7 +171,7 @@ header
 
 <a name="l00072"></a>   72             //Constructor with arguments - Bind to existing interp.
 
-<a name="l00073"></a>   73   [[classCTCLInterpreter]] (  Tcl_Interp* am_pInterpreter  )  :
+<a name="l00073"></a>   73   [[CTCLInterpreter|classCTCLInterpreter]] (  Tcl_Interp* am_pInterpreter  )  :
 
 <a name="l00074"></a>   74     m_pInterpreter (am_pInterpreter)  { }
 
@@ -181,7 +181,7 @@ header
 
 <a name="l00077"></a>   77 private:
 
-<a name="l00078"></a>   78   [[classCTCLInterpreter]] (const [[classCTCLInterpreter]]& aCTCLInterpreter ) ;
+<a name="l00078"></a>   78   [[CTCLInterpreter|classCTCLInterpreter]] (const [[CTCLInterpreter|classCTCLInterpreter]]& aCTCLInterpreter ) ;
 
 <a name="l00079"></a>   79 public:
 
@@ -189,7 +189,7 @@ header
 
 <a name="l00081"></a>   81 private:
 
-<a name="l00082"></a>   82   [[classCTCLInterpreter]] operator= (const [[classCTCLInterpreter]]& aCTCLInterpreter);
+<a name="l00082"></a>   82   [[CTCLInterpreter|classCTCLInterpreter]] operator= (const [[CTCLInterpreter|classCTCLInterpreter]]& aCTCLInterpreter);
 
 <a name="l00083"></a>   83 public:
 
@@ -199,7 +199,7 @@ header
 
 <a name="l00086"></a>   86             //Update to access 1:M associated class attributes
 
-<a name="l00087"></a>   87   int operator== (const [[classCTCLInterpreter]]& aCTCLInterpreter)
+<a name="l00087"></a>   87   int operator== (const [[CTCLInterpreter|classCTCLInterpreter]]& aCTCLInterpreter)
 
 <a name="l00088"></a>   88   {
 
@@ -253,7 +253,7 @@ header
 
 <a name="l00113"></a>  113   std::string Eval (const char* pScript) ;
 
-<a name="l00114"></a>  114   std::string Eval(const [[classCTCLString]]& rScript)  {
+<a name="l00114"></a>  114   std::string Eval(const [[CTCLString|classCTCLString]]& rScript)  {
 
 <a name="l00115"></a>  115     return Eval((const char*)rScript);
 
@@ -273,7 +273,7 @@ header
 
 <a name="l00123"></a>  123   std::string EvalFile (const char* pFilename)   ;
 
-<a name="l00124"></a>  124   std::string EvalFile(const [[classCTCLString]]& rFilename)  {
+<a name="l00124"></a>  124   std::string EvalFile(const [[CTCLString|classCTCLString]]& rFilename)  {
 
 <a name="l00125"></a>  125     return EvalFile((const char*)(rFilename));
 
@@ -291,7 +291,7 @@ header
 
 <a name="l00132"></a>  132   std::string GlobalEval (const char* pScript)   ;
 
-<a name="l00133"></a>  133   std::string GlobalEval (const [[classCTCLString]]& rScript)  {
+<a name="l00133"></a>  133   std::string GlobalEval (const [[CTCLString|classCTCLString]]& rScript)  {
 
 <a name="l00134"></a>  134     return GlobalEval((const char*)rScript);
 
@@ -311,7 +311,7 @@ header
 
 <a name="l00142"></a>  142   std::string RecordAndEval (const char* pScript, TCLPLUS::Bool_t fEval=TCLPLUS::kfFALSE);
 
-<a name="l00143"></a>  143   std::string RecordAndEval(const [[classCTCLString]]& rScript,
+<a name="l00143"></a>  143   std::string RecordAndEval(const [[CTCLString|classCTCLString]]& rScript,
 
 <a name="l00144"></a>  144                 TCLPLUS::Bool_t fEval=TCLPLUS::kfFALSE)  {
 
@@ -335,7 +335,7 @@ header
 
 <a name="l00154"></a>  154   std::string ExprString (const char* pExpression)   ;
 
-<a name="l00155"></a>  155   std::string ExprString(const [[classCTCLString]]& rExpr)  {
+<a name="l00155"></a>  155   std::string ExprString(const [[CTCLString|classCTCLString]]& rExpr)  {
 
 <a name="l00156"></a>  156     return ExprString((const char*)(rExpr));
 
@@ -359,7 +359,7 @@ header
 
 <a name="l00166"></a>  166   }
 
-<a name="l00167"></a>  167   TCLPLUS::Long_t ExprLong (const [[classCTCLString]]& rExpr)  {
+<a name="l00167"></a>  167   TCLPLUS::Long_t ExprLong (const [[CTCLString|classCTCLString]]& rExpr)  {
 
 <a name="l00168"></a>  168     return ExprLong((const char*)(rExpr));
 
@@ -371,7 +371,7 @@ header
 
 <a name="l00172"></a>  172   TCLPLUS::DFloat_t ExprDouble (const char* pExpression)   ;
 
-<a name="l00173"></a>  173   TCLPLUS::DFloat_t ExprDouble (const [[classCTCLString]]& rExpression)  {
+<a name="l00173"></a>  173   TCLPLUS::DFloat_t ExprDouble (const [[CTCLString|classCTCLString]]& rExpression)  {
 
 <a name="l00174"></a>  174     return ExprDouble ((const char*)(rExpression));
 
@@ -389,7 +389,7 @@ header
 
 <a name="l00181"></a>  181   TCLPLUS::Bool_t ExprBoolean (const char*  pExpression)   ;
 
-<a name="l00182"></a>  182   TCLPLUS::Bool_t ExprBoolean (const [[classCTCLString]]& rExpression)  {
+<a name="l00182"></a>  182   TCLPLUS::Bool_t ExprBoolean (const [[CTCLString|classCTCLString]]& rExpression)  {
 
 <a name="l00183"></a>  183     return ExprBoolean((const char*)(rExpression));
 
@@ -407,7 +407,7 @@ header
 
 <a name="l00190"></a>  190   std::string TildeSubst (const char* pFilename) const  ;
 
-<a name="l00191"></a>  191   std::string TildeSubst (const [[classCTCLString]]& rName) const {
+<a name="l00191"></a>  191   std::string TildeSubst (const [[CTCLString|classCTCLString]]& rName) const {
 
 <a name="l00192"></a>  192     return TildeSubst((const char*)(rName));
 
@@ -469,7 +469,7 @@ header
 
 <a name="l00221"></a>  221   }
 
-<a name="l00222"></a>  222   void AddCommand(const [[classCTCLString]]& rCommandName,
+<a name="l00222"></a>  222   void AddCommand(const [[CTCLString|classCTCLString]]& rCommandName,
 
 <a name="l00223"></a>  223           Tcl_CmdProc* pCommandProcessor,
 
@@ -493,7 +493,7 @@ header
 
 <a name="l00233"></a>  233   }
 
-<a name="l00234"></a>  234   void UnregisterCommand (const [[classCTCLString]]& rCommandName) const {
+<a name="l00234"></a>  234   void UnregisterCommand (const [[CTCLString|classCTCLString]]& rCommandName) const {
 
 <a name="l00235"></a>  235     UnregisterCommand((const char*)(rCommandName));
 
@@ -507,7 +507,7 @@ header
 
 <a name="l00240"></a>  240   //
 
-<a name="l00241"></a>  241   Tcl_Channel [[classCTCLInterpreter#a405ccebedf3658a5462dc46353f97745]](
+<a name="l00241"></a>  241   Tcl_Channel [[GetChannel|classCTCLInterpreter#a405ccebedf3658a5462dc46353f97745]](
 
 <a name="l00242"></a>  242     const std::string& rName,
 
@@ -515,7 +515,7 @@ header
 
 <a name="l00244"></a>  244   );
 
-<a name="l00245"></a>  245   std::vector<std::string> [[classCTCLInterpreter#ae78fd7ba41aacabfad93901abc5a7aba]](const std::string& rPattern);
+<a name="l00245"></a>  245   std::vector<std::string> [[GetChannelNames|classCTCLInterpreter#ae78fd7ba41aacabfad93901abc5a7aba]](const std::string& rPattern);
 
 <a name="l00246"></a>  246
 
@@ -547,13 +547,13 @@ header
 
 <a name="l00260"></a>  260
 
-<a name="l00261"></a>  261   void [[classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]](const char* resultString);
+<a name="l00261"></a>  261   void [[setResult|classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]](const char* resultString);
 
-<a name="l00262"></a>  262   void [[classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]](std::string resultString);
+<a name="l00262"></a>  262   void [[setResult|classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]](std::string resultString);
 
-<a name="l00263"></a>  263   void [[classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]](Tcl_Obj*    resultObj);
+<a name="l00263"></a>  263   void [[setResult|classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]](Tcl_Obj*    resultObj);
 
-<a name="l00264"></a>  264   void [[classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]]([[classCTCLObject]]& resultObj);
+<a name="l00264"></a>  264   void [[setResult|classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]]([[CTCLObject|classCTCLObject]]& resultObj);
 
 <a name="l00265"></a>  265 };
 
@@ -565,38 +565,38 @@ header
 
 <a name="l00269"></a>  269 #endif
 
-[[classCTCLInterpreter#a405ccebedf3658a5462dc46353f97745]]
+[[CTCLInterpreter::GetChannel|classCTCLInterpreter#a405ccebedf3658a5462dc46353f97745]]
 
 Tcl_Channel GetChannel(const std::string &rName, TCLPLUS::Int_t *pMode=(TCLPLUS::Int_t *) TCLPLUS::kpNULL)
 
 **Definition:** TCLInterpreter.cpp:599
 
 
-[[classCTCLString]]
+[[CTCLString|classCTCLString]]
 
 **Definition:** TCLString.h:28
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLInterpreter#ae78fd7ba41aacabfad93901abc5a7aba]]
+[[CTCLInterpreter::GetChannelNames|classCTCLInterpreter#ae78fd7ba41aacabfad93901abc5a7aba]]
 
 std::vector< std::string > GetChannelNames(const std::string &rPattern)
 
 **Definition:** TCLInterpreter.cpp:617
 
 
-[[classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]]
+[[CTCLInterpreter::setResult|classCTCLInterpreter#a20b823e9c5f4dabce9becb8278ad4812]]
 
 void setResult(const char *resultString)
 
 **Definition:** TCLInterpreter.cpp:647
 
 
-[[classCTCLObject]]
+[[CTCLObject|classCTCLObject]]
 
 **Definition:** TCLObject.h:50
 

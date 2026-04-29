@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classTraceViewProcessor-members]]
+[[List of all members|classTraceViewProcessor-members]]
 
 
 TraceViewProcessor Class Reference
 
 header
 A basic ring item processor.  
- [[classTraceViewProcessor#details]]
+ [[More...|classTraceViewProcessor#details]]
 
 
 `#include <TraceViewProcessor.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for TraceViewProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TraceViewProcessor:
@@ -57,7 +57,7 @@ Collaboration diagram for TraceViewProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -190,14 +190,14 @@ Parameters
 Break PHYSICS_EVENTs into fragments, convert the fragments into DDASFitHits and append them to the event (just a vector of DDASFitHits).
 
 
-Reimplemented from [[classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]].
+Reimplemented from [[CRingItemProcessor|classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[TraceViewProcessor_8h_source]]
-- [[TraceViewProcessor_8cpp]]
+The documentation for this class was generated from the following files:- [[TraceViewProcessor.h|TraceViewProcessor_8h_source]]
+- [[TraceViewProcessor.cpp|TraceViewProcessor_8cpp]]
 
  contents 
  start footer part 

@@ -45,7 +45,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASHit_8h__dep__incl.png)
 
 
-[[DDASHit_8h_source]]
+[[Go to the source code of this file.|DDASHit_8h_source]]
 
 
 |  |  |

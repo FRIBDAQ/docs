@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CDuplicateSingleton Member List
 
 header
-This is the complete list of members for [[classCDuplicateSingleton]], including all inherited members.
+This is the complete list of members for [[CDuplicateSingleton|classCDuplicateSingleton]], including all inherited members.
 
 
 |  |  |  |

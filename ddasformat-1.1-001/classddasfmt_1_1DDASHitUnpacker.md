@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddasfmt**
-- [[classddasfmt_1_1DDASHitUnpacker]]
+- [[DDASHitUnpacker|classddasfmt_1_1DDASHitUnpacker]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classddasfmt_1_1DDASHitUnpacker-members]]
+[[List of all members|classddasfmt_1_1DDASHitUnpacker-members]]
 
 
-ddasfmt::DDASHitUnpacker Class Reference[[group__ddasfmt]]
+ddasfmt::DDASHitUnpacker Class Reference[[libDDASFormat.so|group__ddasfmt]]
 
 header
 Unpacker for DDAS data recorded by NSCLDAQ.  
- [[classddasfmt_1_1DDASHitUnpacker#details]]
+ [[More...|classddasfmt_1_1DDASHitUnpacker#details]]
 
 
 `#include <DDASHitUnpacker.h>`
@@ -100,7 +100,7 @@ Unpacker for DDAS data recorded by NSCLDAQ.
 This class unpacks NSCLDAQ-formatted Pixie-16 data recorded by a DDAS readout program into DDASHits which encapsulate the information recorded by a single Pixie channel. This is a generic unpacker which can accomodate information from all Pixie-16 digitizer types at FRIB. In general, all of the digitizer outputs contain the same information but importantly the meaning of the CFD data depends on the digitizer type. The unpacker class abstracts this difference away from the user.
 
 
-This class does not provide any parsing capabilities like the ddasdumper. You must create a [[classddasfmt_1_1DDASHit]] object and unpack data into it. Here is how you do that:
+This class does not provide any parsing capabilities like the ddasdumper. You must create a [[DDASHit|classddasfmt_1_1DDASHit]] object and unpack data into it. Here is how you do that:
 
 
 DDASHit hit;
@@ -509,7 +509,7 @@ The 16-bit trace data is stored two samples to one 32-bit word in little-endian.
 |  |  | const uint32_t * | sentinel |
 |  | ) |  |  |
 
-Unpack data into a [[classddasfmt_1_1DDASHit]].
+Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
 
 
 Parameters
@@ -521,7 +521,7 @@ Parameters
 
 
 
-ReturnsTuple of ([[classddasfmt_1_1DDASHit]], nextWord).
+ReturnsTuple of ([[DDASHit|classddasfmt_1_1DDASHit]], nextWord).
 This expects data from a DDAS readout program. It will parse the entire body of the event in a manner that is consistent with the data present. In other words, it uses the sizes of the event encoded in the data to determine when the parsing is complete.
 
 
@@ -539,7 +539,7 @@ While it parses, it stores the results into the data members of the object hit. 
 |  |  | DDASHit& | hit |
 |  | ) |  |  |
 
-Unpack data into a [[classddasfmt_1_1DDASHit]].
+Unpack data into a [[DDASHit|classddasfmt_1_1DDASHit]].
 
 
 Parameters
@@ -571,8 +571,8 @@ While it parses, it stores the results into the data members of the object hit. 
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASHitUnpacker_8h_source]]
-- [[DDASHitUnpacker_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASHitUnpacker.h|DDASHitUnpacker_8h_source]]
+- [[DDASHitUnpacker.cpp|DDASHitUnpacker_8cpp]]
 
  contents 
  start footer part 

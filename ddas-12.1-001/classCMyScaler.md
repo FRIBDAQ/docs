@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 [Classes](#nested-classes) |
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[classCMyScaler-members]]
+[[List of all members|classCMyScaler-members]]
 
 
 CMyScaler Class Reference
 
 header
 Generate scaler data from run statistics.  
- [[classCMyScaler#details]]
+ [[More...|classCMyScaler#details]]
 
 
 `#include <CMyScaler.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for CMyScaler:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMyScaler:
@@ -59,7 +59,7 @@ Collaboration diagram for CMyScaler:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -290,8 +290,8 @@ ReturnsAlways 32 (only for 16-channel cards!)
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyScaler_8h_source]]
-- [[CMyScaler_8cpp]]
+The documentation for this class was generated from the following files:- [[CMyScaler.h|CMyScaler_8h_source]]
+- [[CMyScaler.cpp|CMyScaler_8cpp]]
 
  contents 
  start footer part 

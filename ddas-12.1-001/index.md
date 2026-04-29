@@ -34,21 +34,21 @@ Date7/6/23
 
 Welcome to the documentation page for the FRIB Digital Data Acquisition System (DDAS). DDAS is a fully digital, general purpose data acquisition system consisting of 16-channel Pixie-16 digitizers based on the Compact PCI/PXI standard manufactured by XIA LLC. The Pixie-16 digitizers combine the ability to capture waveform traces for offline analysis with online pulse-shape analysis and spectroscopy.
 The purpose of this site is to have, in one place:1. The information necessary to allow a first-time user to configure, run and analyze data from a DDAS system.
-2. Documentation for DDAS software, [[annotated]] and [[modules]] which the user may encounter while working with DDAS systems or wish to incorporate into their own analysis codes.
+2. Documentation for DDAS software, [[classes|annotated]] and [[libraries|modules]] which the user may encounter while working with DDAS systems or wish to incorporate into their own analysis codes.
 3. Descriptions of the various pieces of hardware available for use in DDAS systems at FRIB.
 
 
 
-Refer to the [[pages]] page to browse the available guides and manual pages.
+Refer to the [[DDAS User Guides|pages]] page to browse the available guides and manual pages.
 DDAS is supported as part of the larger FRIBDAQ software suite. Further information about data acquisition at FRIB can be found on the [FRIBDAQ docs page](https://docs.nscl.msu.edu/daq/newsite/index.php) and as part of the [FRIBDAQ User's Guide](https://docs.nscl.msu.edu/daq/newsite/nscldaq-12.0/index.html). Refer all questions, comments, and concerns to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#).
 # Tutorials
 
 
-A number of tutorials exist to assist users in setting up, configuring, and taking and analyzing data coming from DDAS systems. They can be found by clicking on the User Guides button at the top of the page. Some commonly used tutorials are:- [[single_crate]]
-- [[multi_crate]]
-- [[spectcl]]
-- [[ddasdumper]]
-- [[help_ticket]]
+A number of tutorials exist to assist users in setting up, configuring, and taking and analyzing data coming from DDAS systems. They can be found by clicking on the User Guides button at the top of the page. Some commonly used tutorials are:- [[Single-Crate System Setup Guide|single_crate]]
+- [[Multi-Crate System Setup Guide|multi_crate]]
+- [[Analyzing DDAS Data in SpecTcl|spectcl]]
+- [[ddasdumper: Convert DDAS Data to ROOT Format|ddasdumper]]
+- [[How to Write a Good Help Ticket|help_ticket]]
 
 
 

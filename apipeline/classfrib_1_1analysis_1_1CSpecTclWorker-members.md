@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CSpecTclWorker]]
+- [[CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker]]
 
  top 
 frib::analysis::CSpecTclWorker Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CSpecTclWorker]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker]], including all inherited members.
 
 
 |  |  |  |

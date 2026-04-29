@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 MPITriggerSorter.h
 
 header
-[[MPITriggerSorter_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|MPITriggerSorter_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,7 +67,7 @@ header
 
 <a name="l00024"></a>   24
 
-<a name="l00025"></a>   25 #include "[[TriggerSorter_8h]]"
+<a name="l00025"></a>   25 #include "[[TriggerSorter.h|TriggerSorter_8h]]"
 
 <a name="l00026"></a>   26 #include <mpi.h>
 
@@ -77,11 +77,11 @@ header
 
 <a name="l00029"></a>   29
 
-<a name="l00030"></a>   30 namespace [[namespacefrib]] {
+<a name="l00030"></a>   30 namespace [[frib|namespacefrib]] {
 
 <a name="l00031"></a>   31     namespace analysis {
 
-<a name="l00039"></a>[[classfrib_1_1analysis_1_1CMPITriggerSorter]]         class [[classfrib_1_1analysis_1_1CMPITriggerSorter]] : public [[classfrib_1_1analysis_1_1CTriggerSorter]] {
+<a name="l00039"></a>[[39|classfrib_1_1analysis_1_1CMPITriggerSorter]]         class [[CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter]] : public [[CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]] {
 
 <a name="l00040"></a>   40         private:
 
@@ -97,17 +97,17 @@ header
 
 <a name="l00046"></a>   46         public:
 
-<a name="l00047"></a>   47             [[classfrib_1_1analysis_1_1CMPITriggerSorter#a5afeeeb0ed35db1014931dcb3b5fefca]](
+<a name="l00047"></a>   47             [[CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter#a5afeeeb0ed35db1014931dcb3b5fefca]](
 
 <a name="l00048"></a>   48                 int outputterRank, MPI_Datatype& headers, MPI_Datatype& param
 
 <a name="l00049"></a>   49             );
 
-<a name="l00050"></a>   50             virtual [[classfrib_1_1analysis_1_1CMPITriggerSorter#a0efa7e03c7222406909ef495eceb17f0]]();
+<a name="l00050"></a>   50             virtual [[~CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter#a0efa7e03c7222406909ef495eceb17f0]]();
 
 <a name="l00051"></a>   51
 
-<a name="l00052"></a>   52             virtual void [[classfrib_1_1analysis_1_1CMPITriggerSorter#ae4a9f90f00538528a6a656909a1c9bca]]([[structfrib_1_1analysis_1_1__ParameterItem]] item);
+<a name="l00052"></a>   52             virtual void [[emitItem|classfrib_1_1analysis_1_1CMPITriggerSorter#ae4a9f90f00538528a6a656909a1c9bca]]([[pParameterItem|structfrib_1_1analysis_1_1__ParameterItem]] item);
 
 <a name="l00053"></a>   53         };
 
@@ -123,46 +123,46 @@ header
 
 <a name="l00059"></a>   59 #endif
 
-[[structfrib_1_1analysis_1_1__ParameterItem]]
+[[frib::analysis::_ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]]
 
 **Definition:** AnalysisRingItems.h:71
 
 
-[[TriggerSorter_8h]]
+[[TriggerSorter.h|TriggerSorter_8h]]
 
 : Sort items by triggers that could come in out of order.
 
 
-[[classfrib_1_1analysis_1_1CTriggerSorter]]
+[[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]]
 
 **Definition:** TriggerSorter.h:45
 
 
-[[classfrib_1_1analysis_1_1CMPITriggerSorter#a0efa7e03c7222406909ef495eceb17f0]]
+[[frib::analysis::CMPITriggerSorter::~CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter#a0efa7e03c7222406909ef495eceb17f0]]
 
 virtual ~CMPITriggerSorter()
 
 **Definition:** MPITriggerSorter.cpp:50
 
 
-[[classfrib_1_1analysis_1_1CMPITriggerSorter]]
+[[frib::analysis::CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter]]
 
 **Definition:** MPITriggerSorter.h:39
 
 
-[[classfrib_1_1analysis_1_1CMPITriggerSorter#ae4a9f90f00538528a6a656909a1c9bca]]
+[[frib::analysis::CMPITriggerSorter::emitItem|classfrib_1_1analysis_1_1CMPITriggerSorter#ae4a9f90f00538528a6a656909a1c9bca]]
 
 virtual void emitItem(pParameterItem item)
 
 **Definition:** MPITriggerSorter.cpp:61
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[classfrib_1_1analysis_1_1CMPITriggerSorter#a5afeeeb0ed35db1014931dcb3b5fefca]]
+[[frib::analysis::CMPITriggerSorter::CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter#a5afeeeb0ed35db1014931dcb3b5fefca]]
 
 CMPITriggerSorter(int outputterRank, MPI_Datatype &headers, MPI_Datatype &param)
 

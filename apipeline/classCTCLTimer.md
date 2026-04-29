@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLTimer-members]]
+[[List of all members|classCTCLTimer-members]]
 
 
 CTCLTimer Class Referenceabstract
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLTimer:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLTimer:
@@ -51,7 +51,7 @@ Collaboration diagram for CTCLTimer:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CTCLTimer:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTimer_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTimer.h|TCLTimer_8h_source]]
 - libtclplus/tclplus/TCLTimer.cpp
 
  contents 

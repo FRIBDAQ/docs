@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1Configuration]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[Configuration|classDAQ_1_1DDAS_1_1Configuration]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[classDAQ_1_1DDAS_1_1Configuration-members]]
+[[List of all members|classDAQ_1_1DDAS_1_1Configuration-members]]
 
 
-DAQ::DDAS::Configuration Class Reference[[group__configuration]]
+DAQ::DDAS::Configuration Class Reference[[libConfiguration.so|group__configuration]]
 
 header
 Store the system configuration information needed by Readout.  
- [[classDAQ_1_1DDAS_1_1Configuration#details]]
+ [[More...|classDAQ_1_1DDAS_1_1Configuration#details]]
 
 
 `#include <Configuration.h>`
@@ -131,7 +131,7 @@ Store the system configuration information needed by Readout.
 Store the system configuration information needed by Readout.
 
 
-The [[classDAQ_1_1DDAS_1_1Configuration]] class stores all of the system configuration for a Readout program. It maintains the configuration that is read in from the DDASFirmwareVersion.txt, modevtlen.txt, and cfgPixie16.txt configuration files. The configuration therefore keeps track of the crate id, slot map, setting file path, module event lengths, module count, and all of the available firmware files for each hardware type.
+The [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] class stores all of the system configuration for a Readout program. It maintains the configuration that is read in from the DDASFirmwareVersion.txt, modevtlen.txt, and cfgPixie16.txt configuration files. The configuration therefore keeps track of the crate id, slot map, setting file path, module event lengths, module count, and all of the available firmware files for each hardware type.
 
 
 It can be configured either manually or by passing it as an argument to a `ConfigurationParser::parse()`, `FirmwareVersionFileParser::parse()`, or `ModEvtFileParser::parse()` methods as it is in the Readout programs.
@@ -192,7 +192,7 @@ Destructor.
 |  |  | const std::string & | cfgPixiePath |
 |  | ) |  |  |
 
-Generate a [[classDAQ_1_1DDAS_1_1Configuration]] class object from a firmware version file and cfgPixie16.txt.
+Generate a [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] class object from a firmware version file and cfgPixie16.txt.
 
 
 Parameters
@@ -212,7 +212,7 @@ Exceptions
 
 
 
-ReturnsPointer to the generated [[classDAQ_1_1DDAS_1_1Configuration]] object.
+ReturnsPointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object.
 `std::move()` ensures correct ownership of the returned pointer, though we *may* be able to take advantage of some copy elision here.
 
 
@@ -228,7 +228,7 @@ ReturnsPointer to the generated [[classDAQ_1_1DDAS_1_1Configuration]] object.
 |  |  | const std::string & | modEvtLenPath |
 |  | ) |  |  |
 
-Generate a [[classDAQ_1_1DDAS_1_1Configuration]] class object from a firmware version file and cfgPixie16.txt.
+Generate a [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] class object from a firmware version file and cfgPixie16.txt.
 
 
 Parameters
@@ -249,7 +249,7 @@ Exceptions
 
 
 
-ReturnsPointer to the generated [[classDAQ_1_1DDAS_1_1Configuration]] object.
+ReturnsPointer to the generated [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object.
 `std::move()` ensures correct ownership of the returned pointer, though we *may* be able to take advantage of some copy elision here.
 
 
@@ -509,7 +509,7 @@ Parameters
 
 
 
-Any previous [[structDAQ_1_1DDAS_1_1FirmwareConfiguration]] stored will be replaced by the new configuration. If there is no previous configuration for the hardware type it will be added.
+Any previous [[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]] stored will be replaced by the new configuration. If there is no previous configuration for the hardware type it will be added.
 
 
 
@@ -692,7 +692,7 @@ Exceptions
 It is important for the caller to first call `setNumberOfModules()` before calling this to avoid an exception being thrown. To avoid weird configurations, this ensures that the length of the slot map is the same as the module event length vector at all times. If the user has not set the number of modules previously, this cannot be gauranteed and the method will almost always throw.
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]] config;
+[[Configuration|classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]] config;
 
 
 config.setNumberOfModules(2);
@@ -701,7 +701,7 @@ config.setNumberOfModules(2);
 config.setSlotMap({2, 3});
 
 
-[[classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]
+[[DAQ::DDAS::Configuration::Configuration|classDAQ_1_1DDAS_1_1Configuration#ab48db08a480cbd40c77142e7c3adfa5e]]
 
 Configuration()=default
 
@@ -713,8 +713,8 @@ Constructor.
 
 ---
 
-The documentation for this class was generated from the following files:- [[Configuration_8h_source]]
-- [[Configuration_8cpp]]
+The documentation for this class was generated from the following files:- [[Configuration.h|Configuration_8h_source]]
+- [[Configuration.cpp|Configuration_8cpp]]
 
  contents 
  start footer part 

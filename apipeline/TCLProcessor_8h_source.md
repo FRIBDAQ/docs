@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLProcessor.h
@@ -89,15 +89,15 @@ header
 
 <a name="l00030"></a>   30
 
-<a name="l00031"></a>   31 class [[classCTCLInterpreter]];
+<a name="l00031"></a>   31 class [[CTCLInterpreter|classCTCLInterpreter]];
 
-<a name="l00032"></a>   32 class [[classCTCLResult]];
+<a name="l00032"></a>   32 class [[CTCLResult|classCTCLResult]];
 
-<a name="l00033"></a>   33 class [[classCTCLCompatibilityProcessor]];
+<a name="l00033"></a>   33 class [[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor]];
 
 <a name="l00034"></a>   34
 
-<a name="l00046"></a>[[classCTCLProcessor]] class [[classCTCLProcessor]] : public [[classCTCLInterpreterObject]]
+<a name="l00046"></a>[[46|classCTCLProcessor]] class [[CTCLProcessor|classCTCLProcessor]] : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 <a name="l00047"></a>   47 {
 
@@ -107,7 +107,7 @@ header
 
 <a name="l00050"></a>   50   std::string                  m_Command;      // (initial) Name of the command.
 
-<a name="l00051"></a>   51   [[classCTCLCompatibilityProcessor]]*  m_pObjectProcessor; // Adaptor.
+<a name="l00051"></a>   51   [[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor]]*  m_pObjectProcessor; // Adaptor.
 
 <a name="l00052"></a>   52
 
@@ -115,19 +115,19 @@ header
 
 <a name="l00054"></a>   54 public:
 
-<a name="l00055"></a>   55   [[classCTCLProcessor]](const std::string sCommand, [[classCTCLInterpreter]]* pInterp);
+<a name="l00055"></a>   55   [[CTCLProcessor|classCTCLProcessor]](const std::string sCommand, [[CTCLInterpreter|classCTCLInterpreter]]* pInterp);
 
-<a name="l00056"></a>   56   [[classCTCLProcessor]](const char*       pCommand, [[classCTCLInterpreter]]* pInterp);
+<a name="l00056"></a>   56   [[CTCLProcessor|classCTCLProcessor]](const char*       pCommand, [[CTCLInterpreter|classCTCLInterpreter]]* pInterp);
 
-<a name="l00057"></a>   57   virtual [[classCTCLProcessor#a1ebb80d8f2ae81b6b33e7578649fa30d]]();
+<a name="l00057"></a>   57   virtual [[~CTCLProcessor|classCTCLProcessor#a1ebb80d8f2ae81b6b33e7578649fa30d]]();
 
 <a name="l00058"></a>   58
 
 <a name="l00059"></a>   59 private:
 
-<a name="l00060"></a>   60   [[classCTCLProcessor]](const [[classCTCLProcessor]]& rhs);
+<a name="l00060"></a>   60   [[CTCLProcessor|classCTCLProcessor]](const [[CTCLProcessor|classCTCLProcessor]]& rhs);
 
-<a name="l00061"></a>   61   [[classCTCLProcessor]]& operator=(const [[classCTCLProcessor]]& rhs);
+<a name="l00061"></a>   61   [[CTCLProcessor|classCTCLProcessor]]& operator=(const [[CTCLProcessor|classCTCLProcessor]]& rhs);
 
 <a name="l00062"></a>   62   //
 
@@ -135,9 +135,9 @@ header
 
 <a name="l00064"></a>   64   //
 
-<a name="l00065"></a>   65   int operator==(const [[classCTCLProcessor]]& rhs) const;
+<a name="l00065"></a>   65   int operator==(const [[CTCLProcessor|classCTCLProcessor]]& rhs) const;
 
-<a name="l00066"></a>   66   int operator!=(const [[classCTCLProcessor]]& rhs) const;
+<a name="l00066"></a>   66   int operator!=(const [[CTCLProcessor|classCTCLProcessor]]& rhs) const;
 
 <a name="l00067"></a>   67 public:
 
@@ -151,7 +151,7 @@ header
 
 <a name="l00072"></a>   72
 
-<a name="l00073"></a>   73   std::string [[classCTCLProcessor#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]() const;
+<a name="l00073"></a>   73   std::string [[getCommandName|classCTCLProcessor#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]() const;
 
 <a name="l00074"></a>   74
 
@@ -159,23 +159,23 @@ header
 
 <a name="l00076"></a>   76
 
-<a name="l00077"></a>   77   virtual int operator()([[classCTCLInterpreter]]& rInterpreter,
+<a name="l00077"></a>   77   virtual int operator()([[CTCLInterpreter|classCTCLInterpreter]]& rInterpreter,
 
-<a name="l00078"></a>   78              [[classCTCLResult]]&      rResult,
+<a name="l00078"></a>   78              [[CTCLResult|classCTCLResult]]&      rResult,
 
 <a name="l00079"></a>   79              int argc, char** argv) = 0; // pure.
 
-<a name="l00080"></a>   80   virtual void [[classCTCLProcessor#a9bda5ca8d5f26700a81bedbacbefc7e2]]();
+<a name="l00080"></a>   80   virtual void [[OnDelete|classCTCLProcessor#a9bda5ca8d5f26700a81bedbacbefc7e2]]();
 
 <a name="l00081"></a>   81
 
-<a name="l00082"></a>   82   void [[classCTCLProcessor#a6ab34bbaf69588fa0d0c9faed6ae8b53]]();
+<a name="l00082"></a>   82   void [[Register|classCTCLProcessor#a6ab34bbaf69588fa0d0c9faed6ae8b53]]();
 
 <a name="l00083"></a>   83   void Unregister();
 
-<a name="l00084"></a>   84   void [[classCTCLProcessor#a226cacf0fa6679446e3e605df96f0bfb]]();       // Not really different than register now.
+<a name="l00084"></a>   84   void [[RegisterAll|classCTCLProcessor#a226cacf0fa6679446e3e605df96f0bfb]]();       // Not really different than register now.
 
-<a name="l00085"></a>   85   void [[classCTCLProcessor#a3f386e23c0179afa14b3188ada0d6cd5]]();
+<a name="l00085"></a>   85   void [[UnregisterAll|classCTCLProcessor#a3f386e23c0179afa14b3188ada0d6cd5]]();
 
 <a name="l00086"></a>   86
 
@@ -183,59 +183,59 @@ header
 
 <a name="l00088"></a>   88
 
-<a name="l00089"></a>   89   static  std::string [[classCTCLProcessor#aed951a6fd0793f4ceefc954cdacd9fa9]] (int nArguments,
+<a name="l00089"></a>   89   static  std::string [[ConcatenateParameters|classCTCLProcessor#aed951a6fd0793f4ceefc954cdacd9fa9]] (int nArguments,
 
 <a name="l00090"></a>   90                           char* pArguments[])  ;
 
-<a name="l00091"></a>   91   int [[classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]] (const char* pString, int* pInteger)  ;
+<a name="l00091"></a>   91   int [[ParseInt|classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]] (const char* pString, int* pInteger)  ;
 
-<a name="l00092"></a>   92   int [[classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]] (const std::string& rString, int* pInteger) {
+<a name="l00092"></a>   92   int [[ParseInt|classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]] (const std::string& rString, int* pInteger) {
 
-<a name="l00093"></a>   93     return [[classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]](rString.c_str(), pInteger);
+<a name="l00093"></a>   93     return [[ParseInt|classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]](rString.c_str(), pInteger);
 
 <a name="l00094"></a>   94   }
 
 <a name="l00095"></a>   95
 
-<a name="l00096"></a>   96   int [[classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]] (const char* pString, double* pDouble)  ;
+<a name="l00096"></a>   96   int [[ParseDouble|classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]] (const char* pString, double* pDouble)  ;
 
-<a name="l00097"></a>   97   int [[classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]] (const std::string& rString, double* pDouble) {
+<a name="l00097"></a>   97   int [[ParseDouble|classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]] (const std::string& rString, double* pDouble) {
 
-<a name="l00098"></a>   98     return [[classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]](rString.c_str(), pDouble);
+<a name="l00098"></a>   98     return [[ParseDouble|classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]](rString.c_str(), pDouble);
 
 <a name="l00099"></a>   99   }
 
 <a name="l00100"></a>  100
 
-<a name="l00101"></a>  101   int [[classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]] (const char* pString, TCLPLUS::Bool_t* pBoolean)  ;
+<a name="l00101"></a>  101   int [[ParseBoolean|classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]] (const char* pString, TCLPLUS::Bool_t* pBoolean)  ;
 
-<a name="l00102"></a>  102   int [[classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]] (const std::string& rString, TCLPLUS::Bool_t* pBoolean) {
+<a name="l00102"></a>  102   int [[ParseBoolean|classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]] (const std::string& rString, TCLPLUS::Bool_t* pBoolean) {
 
-<a name="l00103"></a>  103     return [[classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]](rString.c_str(), pBoolean);
+<a name="l00103"></a>  103     return [[ParseBoolean|classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]](rString.c_str(), pBoolean);
 
 <a name="l00104"></a>  104   }
 
 <a name="l00105"></a>  105
 
-<a name="l00106"></a>  106   static int [[classCTCLProcessor#acb90156fa3596d0ce666df2049328374]](std::vector<std::string>& MatchTable,
+<a name="l00106"></a>  106   static int [[MatchKeyword|classCTCLProcessor#acb90156fa3596d0ce666df2049328374]](std::vector<std::string>& MatchTable,
 
 <a name="l00107"></a>  107               const std::string& rValue,
 
 <a name="l00108"></a>  108               int NoMatch = -1);
 
-<a name="l00109"></a>  109   virtual void [[classCTCLProcessor#af98ca1f8e40691f762159480380c3af8]]();    // Called just prior to operator()
+<a name="l00109"></a>  109   virtual void [[preCommand|classCTCLProcessor#af98ca1f8e40691f762159480380c3af8]]();    // Called just prior to operator()
 
-<a name="l00110"></a>  110   virtual void [[classCTCLProcessor#a8d2679eaeb414dcd09b77c44ad474444]]();   // Called on return from operator()
+<a name="l00110"></a>  110   virtual void [[postCommand|classCTCLProcessor#a8d2679eaeb414dcd09b77c44ad474444]]();   // Called on return from operator()
 
-<a name="l00111"></a>  111   virtual void [[classCTCLProcessor#a38b0abc4c038cd96419d5d09542c9ea0]](); // Ditto for OnDelete().
+<a name="l00111"></a>  111   virtual void [[preDelete|classCTCLProcessor#a38b0abc4c038cd96419d5d09542c9ea0]](); // Ditto for OnDelete().
 
-<a name="l00112"></a>  112   virtual void [[classCTCLProcessor#aa51694840711f6aa70fd2bf7b01783b2]]();
+<a name="l00112"></a>  112   virtual void [[postDelete|classCTCLProcessor#aa51694840711f6aa70fd2bf7b01783b2]]();
 
 <a name="l00113"></a>  113
 
-<a name="l00114"></a>  114   [[classCTCLInterpreter]]* Bind([[classCTCLInterpreter]]& binding);
+<a name="l00114"></a>  114   [[CTCLInterpreter|classCTCLInterpreter]]* Bind([[CTCLInterpreter|classCTCLInterpreter]]& binding);
 
-<a name="l00115"></a>  115   [[classCTCLInterpreter]]* Bind([[classCTCLInterpreter]]* binding);
+<a name="l00115"></a>  115   [[CTCLInterpreter|classCTCLInterpreter]]* Bind([[CTCLInterpreter|classCTCLInterpreter]]* binding);
 
 <a name="l00116"></a>  116
 
@@ -259,132 +259,132 @@ header
 
 <a name="l00126"></a>  126 #endif
 
-[[classCTCLProcessor#a6ab34bbaf69588fa0d0c9faed6ae8b53]]
+[[CTCLProcessor::Register|classCTCLProcessor#a6ab34bbaf69588fa0d0c9faed6ae8b53]]
 
 void Register()
 
 **Definition:** TCLProcessor.cpp:94
 
 
-[[classCTCLProcessor#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]
+[[CTCLProcessor::getCommandName|classCTCLProcessor#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]
 
 std::string getCommandName() const
 
 **Definition:** TCLProcessor.cpp:76
 
 
-[[classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]]
+[[CTCLProcessor::ParseBoolean|classCTCLProcessor#aadc9fece0f2e00584f37ea8fe65af532]]
 
 int ParseBoolean(const char *pString, TCLPLUS::Bool_t *pBoolean)
 
 **Definition:** TCLProcessor.cpp:250
 
 
-[[classCTCLResult]]
+[[CTCLResult|classCTCLResult]]
 
 **Definition:** TCLResult.h:55
 
 
-[[classCTCLProcessor#acb90156fa3596d0ce666df2049328374]]
+[[CTCLProcessor::MatchKeyword|classCTCLProcessor#acb90156fa3596d0ce666df2049328374]]
 
 static int MatchKeyword(std::vector< std::string > &MatchTable, const std::string &rValue, int NoMatch=-1)
 
 **Definition:** TCLProcessor.cpp:284
 
 
-[[classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]]
+[[CTCLProcessor::ParseInt|classCTCLProcessor#ae2b61608c369805d06d0de3f3e9ded0f]]
 
 int ParseInt(const char *pString, int *pInteger)
 
 **Definition:** TCLProcessor.cpp:184
 
 
-[[classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]]
+[[CTCLProcessor::ParseDouble|classCTCLProcessor#aa46086a8bda562acabb427a17e80efb9]]
 
 int ParseDouble(const char *pString, double *pDouble)
 
 **Definition:** TCLProcessor.cpp:220
 
 
-[[classCTCLProcessor]]
+[[CTCLProcessor|classCTCLProcessor]]
 
 **Definition:** TCLProcessor.h:46
 
 
-[[classCTCLProcessor#af98ca1f8e40691f762159480380c3af8]]
+[[CTCLProcessor::preCommand|classCTCLProcessor#af98ca1f8e40691f762159480380c3af8]]
 
 virtual void preCommand()
 
 **Definition:** TCLProcessor.cpp:303
 
 
-[[classCTCLProcessor#a8d2679eaeb414dcd09b77c44ad474444]]
+[[CTCLProcessor::postCommand|classCTCLProcessor#a8d2679eaeb414dcd09b77c44ad474444]]
 
 virtual void postCommand()
 
 **Definition:** TCLProcessor.cpp:313
 
 
-[[classCTCLProcessor#a1ebb80d8f2ae81b6b33e7578649fa30d]]
+[[CTCLProcessor::~CTCLProcessor|classCTCLProcessor#a1ebb80d8f2ae81b6b33e7578649fa30d]]
 
 virtual ~CTCLProcessor()
 
 **Definition:** TCLProcessor.cpp:65
 
 
-[[classCTCLProcessor#a226cacf0fa6679446e3e605df96f0bfb]]
+[[CTCLProcessor::RegisterAll|classCTCLProcessor#a226cacf0fa6679446e3e605df96f0bfb]]
 
 void RegisterAll()
 
 **Definition:** TCLProcessor.cpp:109
 
 
-[[classCTCLProcessor#aa51694840711f6aa70fd2bf7b01783b2]]
+[[CTCLProcessor::postDelete|classCTCLProcessor#aa51694840711f6aa70fd2bf7b01783b2]]
 
 virtual void postDelete()
 
 **Definition:** TCLProcessor.cpp:329
 
 
-[[classCTCLProcessor#aed951a6fd0793f4ceefc954cdacd9fa9]]
+[[CTCLProcessor::ConcatenateParameters|classCTCLProcessor#aed951a6fd0793f4ceefc954cdacd9fa9]]
 
 static std::string ConcatenateParameters(int nArguments, char *pArguments[])
 
 **Definition:** TCLProcessor.cpp:155
 
 
-[[classCTCLProcessor#a9bda5ca8d5f26700a81bedbacbefc7e2]]
+[[CTCLProcessor::OnDelete|classCTCLProcessor#a9bda5ca8d5f26700a81bedbacbefc7e2]]
 
 virtual void OnDelete()
 
 **Definition:** TCLProcessor.cpp:85
 
 
-[[classCTCLProcessor#a38b0abc4c038cd96419d5d09542c9ea0]]
+[[CTCLProcessor::preDelete|classCTCLProcessor#a38b0abc4c038cd96419d5d09542c9ea0]]
 
 virtual void preDelete()
 
 **Definition:** TCLProcessor.cpp:321
 
 
-[[classCTCLProcessor#a3f386e23c0179afa14b3188ada0d6cd5]]
+[[CTCLProcessor::UnregisterAll|classCTCLProcessor#a3f386e23c0179afa14b3188ada0d6cd5]]
 
 void UnregisterAll()
 
 **Definition:** TCLProcessor.cpp:118
 
 
-[[classCTCLCompatibilityProcessor]]
+[[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor]]
 
 **Definition:** TCLCompatibilityProcessor.h:47
 

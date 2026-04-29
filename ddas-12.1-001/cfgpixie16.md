@@ -28,7 +28,7 @@ Date7/18/23
 # Introduction
 
 
-The cfgPixie16.txt file is a human-readable configuration file for DDAS systems and is required by the [[qtscope]] and [[readout]] programs at startup to specify which modules exist and how to boot them. It also allows the user to override the default firmware or provide firmware information if it is absent. The cfgPixie16.txt file describes the module slot map and DSP settings file for a single crate. For systems containing more than one DDAS crate, one cfgPixie16.txt file is required for each crate. See the documentation for the [[classDAQ_1_1DDAS_1_1ConfigurationParser]] and [[classDAQ_1_1DDAS_1_1Configuration]] classes which read this file and store information about the system configuration.
+The cfgPixie16.txt file is a human-readable configuration file for DDAS systems and is required by the [[QtScope|qtscope]] and [[ddasReadout|readout]] programs at startup to specify which modules exist and how to boot them. It also allows the user to override the default firmware or provide firmware information if it is absent. The cfgPixie16.txt file describes the module slot map and DSP settings file for a single crate. For systems containing more than one DDAS crate, one cfgPixie16.txt file is required for each crate. See the documentation for the [[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]] and [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] classes which read this file and store information about the system configuration.
 # cfgPixie16.txt Format
 
 

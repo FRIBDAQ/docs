@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DDASSorter Member List
 
 header
-This is the complete list of members for [[classDDASSorter]], including all inherited members.
+This is the complete list of members for [[DDASSorter|classDDASSorter]], including all inherited members.
 
 
 |  |  |  |

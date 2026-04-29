@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CPixieSystemUtilities Member List
 
 header
-This is the complete list of members for [[classCPixieSystemUtilities]], including all inherited members.
+This is the complete list of members for [[CPixieSystemUtilities|classCPixieSystemUtilities]], including all inherited members.
 
 
 |  |  |  |

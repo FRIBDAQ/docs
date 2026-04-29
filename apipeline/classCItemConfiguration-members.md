@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CItemConfiguration Member List
 
 header
-This is the complete list of members for [[classCItemConfiguration]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration|classCItemConfiguration]], including all inherited members.
 
 
 |  |  |  |

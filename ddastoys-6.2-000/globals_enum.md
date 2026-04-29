@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - fitMethod
-  : [[FitManager_8h#aaa6963c10d1ae605801287375f0b2599]]
+  : [[FitManager.h|FitManager_8h#aaa6963c10d1ae605801287375f0b2599]]
 
  contents 
  start footer part 

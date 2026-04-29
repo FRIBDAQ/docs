@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[classddastoys_1_1analyticfit_1_1CudaFitEngine2]]
+- [[CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1analyticfit_1_1CudaFitEngine2-members]]
+[[List of all members|classddastoys_1_1analyticfit_1_1CudaFitEngine2-members]]
 
 
 ddastoys::analyticfit::CudaFitEngine2 Class Reference
 
 header
 CUDA-aware fit engine for analytic double pulse fits.  
- [[classddastoys_1_1analyticfit_1_1CudaFitEngine2#details]]
+ [[More...|classddastoys_1_1analyticfit_1_1CudaFitEngine2#details]]
 
 
 `#include <jacobian_analytic.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::analyticfit::CudaFitEngine2:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::analyticfit::CudaFitEngine2:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::analyticfit::CudaFitEngine2:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -113,7 +113,7 @@ The concept is that each GSL lmfitter can supply a pair of methods: One that com
 Finally a fit factory can generate the appropriate fit engine as desired by the actual fit.
 
 
-**[[todo#_todo000004]]**(ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
+**[[Todo:|todo#_todo000004]]**(ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
 
 ## Constructor & Destructor Documentation
 
@@ -187,7 +187,7 @@ Parameters
 
 
 NoteWe organize the computing into 32 thread blocks because there are 32 thread per warp. 
-Implements [[classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]].
+Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]].
 
 
 
@@ -213,14 +213,14 @@ Parameters
 
 
 
-Implements [[classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].
+Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[jacobian__analytic_8h_source]]
-- [[CudaFitEngineAnalytic_8cu]]
+The documentation for this class was generated from the following files:- [[jacobian_analytic.h|jacobian__analytic_8h_source]]
+- [[CudaFitEngineAnalytic.cu|CudaFitEngineAnalytic_8cu]]
 
  contents 
  start footer part 

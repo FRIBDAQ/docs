@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
 
  top 
 libtclplusdatatypes.h
@@ -176,7 +176,7 @@ header
 
 <a name="l00074"></a>   74
 
-<a name="l00075"></a>   75 namespace [[namespaceTCLPLUS]] {
+<a name="l00075"></a>   75 namespace [[TCLPLUS|namespaceTCLPLUS]] {
 
 <a name="l00076"></a>   76
 
@@ -246,7 +246,7 @@ header
 
 <a name="l00109"></a>  109 #endif
 
-[[namespaceTCLPLUS]]
+[[TCLPLUS|namespaceTCLPLUS]]
 
 **Definition:** libtclplusdatatypes.h:75
 

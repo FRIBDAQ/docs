@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__ParameterDefinitions]]
+- [[_ParameterDefinitions|structfrib_1_1analysis_1_1__ParameterDefinitions]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1__ParameterDefinitions-members]]
+[[List of all members|structfrib_1_1analysis_1_1__ParameterDefinitions-members]]
 
 
 frib::analysis::_ParameterDefinitions Struct Reference
@@ -46,7 +46,7 @@ Collaboration diagram for frib::analysis::_ParameterDefinitions:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -68,7 +68,7 @@ parameter defintion ring item sizeof is not useful.
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
 
  contents 
  start footer part 

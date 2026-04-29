@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLVariable.h
@@ -125,7 +125,7 @@ header
 
 <a name="l00049"></a>   49
 
-<a name="l00050"></a>[[classCTCLVariable]] class [[classCTCLVariable]]  : public [[classCTCLInterpreterObject]]
+<a name="l00050"></a>[[50|classCTCLVariable]] class [[CTCLVariable|classCTCLVariable]]  : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 <a name="l00051"></a>   51 {
 
@@ -143,7 +143,7 @@ header
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>   59   [[classCTCLVariable]]() :
+<a name="l00059"></a>   59   [[CTCLVariable|classCTCLVariable]]() :
 
 <a name="l00060"></a>   60     m_fTracing(false),
 
@@ -161,9 +161,9 @@ header
 
 <a name="l00067"></a>   67
 
-<a name="l00068"></a>   68   [[classCTCLVariable]] (std::string am_sVariable,  TCLPLUS::Bool_t am_fTracing  )  :
+<a name="l00068"></a>   68   [[CTCLVariable|classCTCLVariable]] (std::string am_sVariable,  TCLPLUS::Bool_t am_fTracing  )  :
 
-<a name="l00069"></a>   69     [[classCTCLInterpreterObject]](),
+<a name="l00069"></a>   69     [[CTCLInterpreterObject|classCTCLInterpreterObject]](),
 
 <a name="l00070"></a>   70     m_sVariable (am_sVariable),
 
@@ -171,11 +171,11 @@ header
 
 <a name="l00072"></a>   72   { }
 
-<a name="l00073"></a>   73   [[classCTCLVariable]] ([[classCTCLInterpreter]]* pInterp,
+<a name="l00073"></a>   73   [[CTCLVariable|classCTCLVariable]] ([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00074"></a>   74         std::string am_sVariable,  TCLPLUS::Bool_t am_fTracing  )  :
 
-<a name="l00075"></a>   75     [[classCTCLInterpreterObject]](pInterp),
+<a name="l00075"></a>   75     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp),
 
 <a name="l00076"></a>   76     m_sVariable (am_sVariable),
 
@@ -183,15 +183,15 @@ header
 
 <a name="l00078"></a>   78   { }
 
-<a name="l00079"></a>   79   virtual ~[[classCTCLVariable]]();
+<a name="l00079"></a>   79   virtual ~[[CTCLVariable|classCTCLVariable]]();
 
 <a name="l00080"></a>   80             //Copy constructor
 
 <a name="l00081"></a>   81
 
-<a name="l00082"></a>   82   [[classCTCLVariable]] (const [[classCTCLVariable]]& aCTCLVariable )   :
+<a name="l00082"></a>   82   [[CTCLVariable|classCTCLVariable]] (const [[CTCLVariable|classCTCLVariable]]& aCTCLVariable )   :
 
-<a name="l00083"></a>   83     [[classCTCLInterpreterObject]] (aCTCLVariable),
+<a name="l00083"></a>   83     [[CTCLInterpreterObject|classCTCLInterpreterObject]] (aCTCLVariable),
 
 <a name="l00084"></a>   84     m_sVariable(" "),
 
@@ -209,7 +209,7 @@ header
 
 <a name="l00091"></a>   91
 
-<a name="l00092"></a>   92   [[classCTCLVariable]]& operator= (const [[classCTCLVariable]]& aCTCLVariable)
+<a name="l00092"></a>   92   [[CTCLVariable|classCTCLVariable]]& operator= (const [[CTCLVariable|classCTCLVariable]]& aCTCLVariable)
 
 <a name="l00093"></a>   93   {
 
@@ -231,7 +231,7 @@ header
 
 <a name="l00102"></a>  102
 
-<a name="l00103"></a>  103   int operator== (const [[classCTCLVariable]]& aCTCLVariable) const
+<a name="l00103"></a>  103   int operator== (const [[CTCLVariable|classCTCLVariable]]& aCTCLVariable) const
 
 <a name="l00104"></a>  104  {
 
@@ -359,7 +359,7 @@ header
 
 <a name="l00166"></a>  166 protected:
 
-<a name="l00167"></a>  167   void DoAssign(const [[classCTCLVariable]]& rRhs);
+<a name="l00167"></a>  167   void DoAssign(const [[CTCLVariable|classCTCLVariable]]& rRhs);
 
 <a name="l00168"></a>  168 };
 
@@ -367,17 +367,17 @@ header
 
 <a name="l00170"></a>  170 #endif
 
-[[classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLVariable]]
+[[CTCLVariable|classCTCLVariable]]
 
 **Definition:** TCLVariable.h:50
 

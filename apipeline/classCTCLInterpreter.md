@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLInterpreter-members]]
+[[List of all members|classCTCLInterpreter-members]]
 
 
 CTCLInterpreter Class Reference
@@ -161,7 +161,7 @@ header
 |  |  | TCLPLUS::Int_t * | pMode=(TCLPLUS::Int_t*)TCLPLUS::kpNULL |
 |  | ) |  |  |
 
-GetChannel - Given the name of a Tcl Channel registered with this interpreter, returns a Tcl channel handle. This is a pointer to an opaque structure. It can be used to construct a [[classCTCLChannel]] object.
+GetChannel - Given the name of a Tcl Channel registered with this interpreter, returns a Tcl channel handle. This is a pointer to an opaque structure. It can be used to construct a [[CTCLChannel|classCTCLChannel]] object.
 
 
 Parameters
@@ -259,7 +259,7 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLInterpreter_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLInterpreter.h|TCLInterpreter_8h_source]]
 - libtclplus/tclplus/TCLInterpreter.cpp
 
  contents 

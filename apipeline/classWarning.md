@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classWarning-members]]
+[[List of all members|classWarning-members]]
 
 
 Warning Class Reference
@@ -37,7 +37,7 @@ header
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[base_2Asserts_8h_source]]
+The documentation for this class was generated from the following file:- base/[[Asserts.h|base_2Asserts_8h_source]]
 
  contents 
  start footer part 

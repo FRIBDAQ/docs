@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classinterpretertest-members]]
+[[List of all members|classinterpretertest-members]]
 
 
 interpretertest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for interpretertest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for interpretertest:
@@ -47,7 +47,7 @@ Collaboration diagram for interpretertest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

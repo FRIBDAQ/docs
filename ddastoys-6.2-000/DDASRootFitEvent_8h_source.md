@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 DDASRootFitEvent.h
 
 header
-[[DDASRootFitEvent_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASRootFitEvent_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -114,7 +114,7 @@ header
 <a name="l00035"></a>   35
 
 
-<a name="l00055"></a>[[classddastoys_1_1DDASRootFitEvent]]     class [[classddastoys_1_1DDASRootFitEvent]] : public TObject
+<a name="l00055"></a>[[55|classddastoys_1_1DDASRootFitEvent]]     class [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]] : public TObject
 
 
 <a name="l00056"></a>   56     {
@@ -123,7 +123,7 @@ header
 <a name="l00057"></a>   57     public:
 
 
-<a name="l00058"></a>[[classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]     std::vector<DDASRootFitHit*> [[classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]];
+<a name="l00058"></a>[[58|classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]     std::vector<DDASRootFitHit*> [[m_hits|classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]];
 
 
 <a name="l00059"></a>   59
@@ -138,19 +138,19 @@ header
 <a name="l00062"></a>   62     public:
 
 
-<a name="l00064"></a>   64     [[classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]]();
+<a name="l00064"></a>   64     [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]]();
 
 
-<a name="l00069"></a>   69     [[classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]](const [[classddastoys_1_1DDASRootFitEvent]]& rhs);
+<a name="l00069"></a>   69     [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]](const [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]& rhs);
 
 
-<a name="l00071"></a>   71     [[classddastoys_1_1DDASRootFitEvent#aa7b7813e28483a65926111849bfa2454]]();
+<a name="l00071"></a>   71     [[~DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#aa7b7813e28483a65926111849bfa2454]]();
 
 
 <a name="l00072"></a>   72
 
 
-<a name="l00078"></a>   78     [[classddastoys_1_1DDASRootFitEvent]]& [[classddastoys_1_1DDASRootFitEvent#a7a5be1726e659a5c23cac496f8273828]](const [[classddastoys_1_1DDASRootFitEvent]]& rhs);
+<a name="l00078"></a>   78     [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]& [[operator=|classddastoys_1_1DDASRootFitEvent#a7a5be1726e659a5c23cac496f8273828]](const [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]& rhs);
 
 
 <a name="l00079"></a>   79
@@ -168,16 +168,16 @@ header
 <a name="l00083"></a>   83     public:
 
 
-<a name="l00088"></a>   88     std::vector<DDASRootFitHit*> [[classddastoys_1_1DDASRootFitEvent#af56cbdf673b8f640ba988c796fb860e0]]();
+<a name="l00088"></a>   88     std::vector<DDASRootFitHit*> [[GetData|classddastoys_1_1DDASRootFitEvent#af56cbdf673b8f640ba988c796fb860e0]]();
 
 
-<a name="l00094"></a>   94     Double_t [[classddastoys_1_1DDASRootFitEvent#a4d5a750bd3aefacf3473ef3277f89e57]]() const;
+<a name="l00094"></a>   94     Double_t [[GetFirstTime|classddastoys_1_1DDASRootFitEvent#a4d5a750bd3aefacf3473ef3277f89e57]]() const;
 
 
-<a name="l00100"></a>  100     Double_t [[classddastoys_1_1DDASRootFitEvent#aae0d3c048629c6cf117f05ec1109236c]]() const;
+<a name="l00100"></a>  100     Double_t [[GetLastTime|classddastoys_1_1DDASRootFitEvent#aae0d3c048629c6cf117f05ec1109236c]]() const;
 
 
-<a name="l00106"></a>  106     Double_t [[classddastoys_1_1DDASRootFitEvent#a1b06e06e7460d090b4ba6ecd926c9d13]]() const;
+<a name="l00106"></a>  106     Double_t [[GetTimeWidth|classddastoys_1_1DDASRootFitEvent#a1b06e06e7460d090b4ba6ecd926c9d13]]() const;
 
 
 <a name="l00107"></a>  107
@@ -192,10 +192,10 @@ header
 <a name="l00110"></a>  110     public:
 
 
-<a name="l00117"></a>  117     void [[classddastoys_1_1DDASRootFitEvent#a23226e89110532edc88fb2bbe2931587]](const [[classddastoys_1_1DDASRootFitHit]]& hit);
+<a name="l00117"></a>  117     void [[AddHit|classddastoys_1_1DDASRootFitEvent#a23226e89110532edc88fb2bbe2931587]](const [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]& hit);
 
 
-<a name="l00119"></a>  119     void [[classddastoys_1_1DDASRootFitEvent#a7a956c99486abe61b8a6209e5d912a0e]]();
+<a name="l00119"></a>  119     void [[Reset|classddastoys_1_1DDASRootFitEvent#a7a956c99486abe61b8a6209e5d912a0e]]();
 
 
 <a name="l00120"></a>  120
@@ -207,7 +207,7 @@ header
 <a name="l00122"></a>  122
 
 
-<a name="l00123"></a>  123     ClassDef([[classddastoys_1_1DDASRootFitEvent]], 1)
+<a name="l00123"></a>  123     ClassDef([[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]], 1)
 
 
 <a name="l00124"></a>  124     };
@@ -225,14 +225,14 @@ header
 <a name="l00129"></a>  129 #endif
 
 
-[[classddastoys_1_1DDASRootFitEvent]]
+[[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]
 
 Defines the object that's put in a ROOT TTree for each event.
 
 **Definition:** DDASRootFitEvent.h:56
 
 
-[[classddastoys_1_1DDASRootFitEvent#a1b06e06e7460d090b4ba6ecd926c9d13]]
+[[ddastoys::DDASRootFitEvent::GetTimeWidth|classddastoys_1_1DDASRootFitEvent#a1b06e06e7460d090b4ba6ecd926c9d13]]
 
 Double_t GetTimeWidth() const
 
@@ -241,7 +241,7 @@ Get the time from the last hit in the event.
 **Definition:** DDASRootFitEvent.cpp:99
 
 
-[[classddastoys_1_1DDASRootFitEvent#a23226e89110532edc88fb2bbe2931587]]
+[[ddastoys::DDASRootFitEvent::AddHit|classddastoys_1_1DDASRootFitEvent#a23226e89110532edc88fb2bbe2931587]]
 
 void AddHit(const DDASRootFitHit &hit)
 
@@ -250,7 +250,7 @@ Add a hit to the event.
 **Definition:** DDASRootFitEvent.cpp:105
 
 
-[[classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]]
+[[ddastoys::DDASRootFitEvent::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]]
 
 DDASRootFitEvent()
 
@@ -259,7 +259,7 @@ Constructor.
 **Definition:** DDASRootFitEvent.cpp:33
 
 
-[[classddastoys_1_1DDASRootFitEvent#a4d5a750bd3aefacf3473ef3277f89e57]]
+[[ddastoys::DDASRootFitEvent::GetFirstTime|classddastoys_1_1DDASRootFitEvent#a4d5a750bd3aefacf3473ef3277f89e57]]
 
 Double_t GetFirstTime() const
 
@@ -268,7 +268,7 @@ Get the time from the first hit in the event.
 **Definition:** DDASRootFitEvent.cpp:79
 
 
-[[classddastoys_1_1DDASRootFitEvent#a7a5be1726e659a5c23cac496f8273828]]
+[[ddastoys::DDASRootFitEvent::operator=|classddastoys_1_1DDASRootFitEvent#a7a5be1726e659a5c23cac496f8273828]]
 
 DDASRootFitEvent & operator=(const DDASRootFitEvent &rhs)
 
@@ -277,7 +277,7 @@ Assignment operator.
 **Definition:** DDASRootFitEvent.cpp:60
 
 
-[[classddastoys_1_1DDASRootFitEvent#a7a956c99486abe61b8a6209e5d912a0e]]
+[[ddastoys::DDASRootFitEvent::Reset|classddastoys_1_1DDASRootFitEvent#a7a956c99486abe61b8a6209e5d912a0e]]
 
 void Reset()
 
@@ -286,7 +286,7 @@ Delete the hits and empty the array of hits.
 **Definition:** DDASRootFitEvent.cpp:112
 
 
-[[classddastoys_1_1DDASRootFitEvent#aa7b7813e28483a65926111849bfa2454]]
+[[ddastoys::DDASRootFitEvent::~DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#aa7b7813e28483a65926111849bfa2454]]
 
 ~DDASRootFitEvent()
 
@@ -295,7 +295,7 @@ Destructor.
 **Definition:** DDASRootFitEvent.cpp:47
 
 
-[[classddastoys_1_1DDASRootFitEvent#aae0d3c048629c6cf117f05ec1109236c]]
+[[ddastoys::DDASRootFitEvent::GetLastTime|classddastoys_1_1DDASRootFitEvent#aae0d3c048629c6cf117f05ec1109236c]]
 
 Double_t GetLastTime() const
 
@@ -304,7 +304,7 @@ Get the time from the last hit in the event.
 **Definition:** DDASRootFitEvent.cpp:89
 
 
-[[classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]
+[[ddastoys::DDASRootFitEvent::m_hits|classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]
 
 std::vector< DDASRootFitHit * > m_hits
 
@@ -313,7 +313,7 @@ An event is a vector of hits.
 **Definition:** DDASRootFitEvent.h:58
 
 
-[[classddastoys_1_1DDASRootFitEvent#af56cbdf673b8f640ba988c796fb860e0]]
+[[ddastoys::DDASRootFitEvent::GetData|classddastoys_1_1DDASRootFitEvent#af56cbdf673b8f640ba988c796fb860e0]]
 
 std::vector< DDASRootFitHit * > GetData()
 
@@ -322,7 +322,7 @@ Return the event vector.
 **Definition:** DDASRootFitEvent.cpp:73
 
 
-[[classddastoys_1_1DDASRootFitHit]]
+[[ddastoys::DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]
 
 This class is a ROOT serializable DDAS hit with possible fit data.
 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLCompatibilityProcessor-members]]
+[[List of all members|classCTCLCompatibilityProcessor-members]]
 
 
 CTCLCompatibilityProcessor Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLCompatibilityProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLCompatibilityProcessor:
@@ -53,7 +53,7 @@ Collaboration diagram for CTCLCompatibilityProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -120,7 +120,7 @@ Collaboration diagram for CTCLCompatibilityProcessor:
 <a name="details"></a>## Detailed Description
 
 
-This is an adapter pattern class between object based commands and the classic argc/argv command interface. See the [[classCTCLProcessor]] class for more information. The idea is that a [[classCTCLProcessor]] will contain one of these which will marshall the object interface parameters to the argc/argv interface, create at [[classCTCLResult]] object and then dispatch to the [[classCTCLProcessor]] so that old commands written using the argc/argv interface can continue to work even if Tcl 9.0 deprecates or even eliminates this interface.
+This is an adapter pattern class between object based commands and the classic argc/argv command interface. See the [[CTCLProcessor|classCTCLProcessor]] class for more information. The idea is that a [[CTCLProcessor|classCTCLProcessor]] will contain one of these which will marshall the object interface parameters to the argc/argv interface, create at [[CTCLResult|classCTCLResult]] object and then dispatch to the [[CTCLProcessor|classCTCLProcessor]] so that old commands written using the argc/argv interface can continue to work even if Tcl 9.0 deprecates or even eliminates this interface.
 
 ## Constructor & Destructor Documentation
 
@@ -143,7 +143,7 @@ Parameters
 
 
 
-Notethe [[classCTCLProcessor]] required a two-step construct/register, we enforce that by not allowing the base class constructor to register us.
+Notethe [[CTCLProcessor|classCTCLProcessor]] required a two-step construct/register, we enforce that by not allowing the base class constructor to register us.
 
 
 
@@ -173,7 +173,7 @@ Destruction is all taken care of by the base class destructor.
 Adapt to actual commands command deletion handler.
 
 
-Reimplemented from [[classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]].
+Reimplemented from [[CTCLObjectProcessor|classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]].
 
 
 
@@ -187,7 +187,7 @@ Reimplemented from [[classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]
 |  |  | std::vector<CTCLObject> & | objv |
 |  | ) |  |  |
 
-Called to execute the command. Here's where the serious adaptor work comes in to play. We need to turn the objects passed in to us into an argc/argv pair, and create a [[classCTCLResult]] to give the command we're adapting for.
+Called to execute the command. Here's where the serious adaptor work comes in to play. We need to turn the objects passed in to us into an argc/argv pair, and create a [[CTCLResult|classCTCLResult]] to give the command we're adapting for.
 
 
 Parameters
@@ -208,13 +208,13 @@ Return values
 
 
 
-Implements [[classCTCLObjectProcessor]].
+Implements [[CTCLObjectProcessor|classCTCLObjectProcessor]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLCompatibilityProcessor_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLCompatibilityProcessor.h|TCLCompatibilityProcessor_8h_source]]
 - libtclplus/tclplus/TCLCompatibilityProcessor.cpp
 
  contents 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classSum-members]]
+[[List of all members|classSum-members]]
 
 
 Sum Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for Sum:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for Sum:
@@ -48,7 +48,7 @@ Collaboration diagram for Sum:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -66,7 +66,7 @@ Collaboration diagram for Sum:
 
 ---
 
-The documentation for this class was generated from the following file:- spectcl/[[spectclTest_8cpp]]
+The documentation for this class was generated from the following file:- spectcl/[[spectclTest.cpp|spectclTest_8cpp]]
 
  contents 
  start footer part 

@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__VariableItem]]
+- [[_VariableItem|structfrib_1_1analysis_1_1__VariableItem]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1__VariableItem-members]]
+[[List of all members|structfrib_1_1analysis_1_1__VariableItem-members]]
 
 
 frib::analysis::_VariableItem Struct Reference
@@ -43,7 +43,7 @@ Collaboration diagram for frib::analysis::_VariableItem:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -60,7 +60,7 @@ Collaboration diagram for frib::analysis::_VariableItem:
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
 
  contents 
  start footer part 

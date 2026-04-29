@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 MPIParameterOutput.h
@@ -71,7 +71,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 namespace [[namespacefrib]] {
+<a name="l00026"></a>   26 namespace [[frib|namespacefrib]] {
 
 <a name="l00027"></a>   27     namespace analysis {
 
@@ -79,25 +79,25 @@ header
 
 <a name="l00029"></a>   29     class CDataWriter;
 
-<a name="l00043"></a>[[classfrib_1_1analysis_1_1CMPIParameterOutput]]     class [[classfrib_1_1analysis_1_1CMPIParameterOutput]] {
+<a name="l00043"></a>[[43|classfrib_1_1analysis_1_1CMPIParameterOutput]]     class [[CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]] {
 
 <a name="l00044"></a>   44     private:
 
-<a name="l00045"></a>   45         [[classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
+<a name="l00045"></a>   45         [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
 
-<a name="l00046"></a>   46         [[classfrib_1_1analysis_1_1CDataWriter]]*         m_pWriter;
+<a name="l00046"></a>   46         [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]*         m_pWriter;
 
 <a name="l00047"></a>   47     public:
 
-<a name="l00048"></a>   48         [[classfrib_1_1analysis_1_1CMPIParameterOutput#a6aa8993ddc45415b20ec9491f445b188]]();
+<a name="l00048"></a>   48         [[CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput#a6aa8993ddc45415b20ec9491f445b188]]();
 
-<a name="l00049"></a>   49         virtual [[classfrib_1_1analysis_1_1CMPIParameterOutput#ab9ae2ad645642802330322b67a4af87c]]();
+<a name="l00049"></a>   49         virtual [[~CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput#ab9ae2ad645642802330322b67a4af87c]]();
 
-<a name="l00050"></a>   50         virtual void [[classfrib_1_1analysis_1_1CMPIParameterOutput#aa4e16d2ce40eac0b32cf53b77b5903a2]](int argc, char** argv, [[classfrib_1_1analysis_1_1AbstractApplication]]* app);
+<a name="l00050"></a>   50         virtual void [[operator()|classfrib_1_1analysis_1_1CMPIParameterOutput#aa4e16d2ce40eac0b32cf53b77b5903a2]](int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* app);
 
 <a name="l00051"></a>   51     protected:
 
-<a name="l00052"></a>   52         virtual std::string [[classfrib_1_1analysis_1_1CMPIParameterOutput#a7c914f0f1614b4fdfecf6c25883692ec]](int argc, char** argv);
+<a name="l00052"></a>   52         virtual std::string [[getOutputFile|classfrib_1_1analysis_1_1CMPIParameterOutput#a7c914f0f1614b4fdfecf6c25883692ec]](int argc, char** argv);
 
 <a name="l00053"></a>   53
 
@@ -113,50 +113,50 @@ header
 
 <a name="l00059"></a>   59 #endif
 
-[[classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[classfrib_1_1analysis_1_1CDataWriter]]
+[[frib::analysis::CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]
 
 **Definition:** DataWriter.h:40
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterOutput#aa4e16d2ce40eac0b32cf53b77b5903a2]]
+[[frib::analysis::CMPIParameterOutput::operator()|classfrib_1_1analysis_1_1CMPIParameterOutput#aa4e16d2ce40eac0b32cf53b77b5903a2]]
 
 virtual void operator()(int argc, char **argv, AbstractApplication *app)
 
 **Definition:** MPIParameterOutput.cpp:60
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterOutput]]
+[[frib::analysis::CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]]
 
 **Definition:** MPIParameterOutput.h:43
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterOutput#ab9ae2ad645642802330322b67a4af87c]]
+[[frib::analysis::CMPIParameterOutput::~CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput#ab9ae2ad645642802330322b67a4af87c]]
 
 virtual ~CMPIParameterOutput()
 
 **Definition:** MPIParameterOutput.cpp:45
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterOutput#a7c914f0f1614b4fdfecf6c25883692ec]]
+[[frib::analysis::CMPIParameterOutput::getOutputFile|classfrib_1_1analysis_1_1CMPIParameterOutput#a7c914f0f1614b4fdfecf6c25883692ec]]
 
 virtual std::string getOutputFile(int argc, char **argv)
 
 **Definition:** MPIParameterOutput.cpp:169
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterOutput#a6aa8993ddc45415b20ec9491f445b188]]
+[[frib::analysis::CMPIParameterOutput::CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput#a6aa8993ddc45415b20ec9491f445b188]]
 
 CMPIParameterOutput()
 
 **Definition:** MPIParameterOutput.cpp:36
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLCommandPackage.h
 
 header
-[[TCLCommandPackage_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|TCLCommandPackage_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -141,7 +141,7 @@ header
 
 <a name="l00060"></a>   60
 
-<a name="l00061"></a>[[classCTCLCommandPackage]] class [[classCTCLCommandPackage]]  : public [[classCTCLInterpreterObject]]
+<a name="l00061"></a>[[61|classCTCLCommandPackage]] class [[CTCLCommandPackage|classCTCLCommandPackage]]  : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 <a name="l00062"></a>   62 {
 
@@ -159,27 +159,27 @@ header
 
 <a name="l00069"></a>   69   //
 
-<a name="l00070"></a>   70   [[classCTCLCommandPackage]] ([[classCTCLInterpreter]]* pInterp,
+<a name="l00070"></a>   70   [[CTCLCommandPackage|classCTCLCommandPackage]] ([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00071"></a>   71               const std::string& rSignon=std::string("Unnamed pkg")) :
 
-<a name="l00072"></a>   72     [[classCTCLInterpreterObject]](pInterp),
+<a name="l00072"></a>   72     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp),
 
 <a name="l00073"></a>   73     m_sSignon(rSignon)
 
 <a name="l00074"></a>   74   {}
 
-<a name="l00075"></a>   75   [[classCTCLCommandPackage]]([[classCTCLInterpreter]]* pInterp,
+<a name="l00075"></a>   75   [[CTCLCommandPackage|classCTCLCommandPackage]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00076"></a>   76              const char* pSignon = "Unnamed pkg") :
 
-<a name="l00077"></a>   77     [[classCTCLInterpreterObject]](pInterp),
+<a name="l00077"></a>   77     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp),
 
 <a name="l00078"></a>   78     m_sSignon(pSignon)
 
 <a name="l00079"></a>   79   {}
 
-<a name="l00080"></a>   80   virtual ~[[classCTCLCommandPackage]] ( ) { /* Unregster(); */ }       //Destructor
+<a name="l00080"></a>   80   virtual ~[[CTCLCommandPackage|classCTCLCommandPackage]] ( ) { /* Unregster(); */ }       //Destructor
 
 <a name="l00081"></a>   81
 
@@ -187,9 +187,9 @@ header
 
 <a name="l00083"></a>   83
 
-<a name="l00084"></a>   84   [[classCTCLCommandPackage]] (const [[classCTCLCommandPackage]]& aCTCLCommandPackage )   :
+<a name="l00084"></a>   84   [[CTCLCommandPackage|classCTCLCommandPackage]] (const [[CTCLCommandPackage|classCTCLCommandPackage]]& aCTCLCommandPackage )   :
 
-<a name="l00085"></a>   85     [[classCTCLInterpreterObject]] (aCTCLCommandPackage),
+<a name="l00085"></a>   85     [[CTCLInterpreterObject|classCTCLInterpreterObject]] (aCTCLCommandPackage),
 
 <a name="l00086"></a>   86     m_sSignon(aCTCLCommandPackage.m_sSignon),
 
@@ -203,7 +203,7 @@ header
 
 <a name="l00091"></a>   91
 
-<a name="l00092"></a>   92   [[classCTCLCommandPackage]]& operator= (const [[classCTCLCommandPackage]]& aCTCLCommandPackage)
+<a name="l00092"></a>   92   [[CTCLCommandPackage|classCTCLCommandPackage]]& operator= (const [[CTCLCommandPackage|classCTCLCommandPackage]]& aCTCLCommandPackage)
 
 <a name="l00093"></a>   93   {
 
@@ -227,7 +227,7 @@ header
 
 <a name="l00103"></a>  103
 
-<a name="l00104"></a>  104   int operator== (const [[classCTCLCommandPackage]]& aCTCLCommandPackage)
+<a name="l00104"></a>  104   int operator== (const [[CTCLCommandPackage|classCTCLCommandPackage]]& aCTCLCommandPackage)
 
 <a name="l00105"></a>  105   { return (
 
@@ -301,7 +301,7 @@ header
 
 <a name="l00140"></a>  140
 
-<a name="l00141"></a>  141   void AddProcessor ([[classCTCLProcessor]]* pProcessor) {
+<a name="l00141"></a>  141   void AddProcessor ([[CTCLProcessor|classCTCLProcessor]]* pProcessor) {
 
 <a name="l00142"></a>  142     m_lCommands.push_back(pProcessor);
 
@@ -335,22 +335,22 @@ header
 
 <a name="l00157"></a>  157 #endif
 
-[[classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLProcessor]]
+[[CTCLProcessor|classCTCLProcessor]]
 
 **Definition:** TCLProcessor.h:46
 
 
-[[classCTCLCommandPackage]]
+[[CTCLCommandPackage|classCTCLCommandPackage]]
 
 **Definition:** TCLCommandPackage.h:61
 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 spectest Member List
 
 header
-This is the complete list of members for [[classspectest]], including all inherited members.
+This is the complete list of members for [[spectest|classspectest]], including all inherited members.
 
 
 |  |  |  |

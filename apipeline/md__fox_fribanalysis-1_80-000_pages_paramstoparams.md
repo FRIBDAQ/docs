@@ -26,7 +26,7 @@ header
 # Computing additional parameters
 
 
-Once the raw data are unpacked into an initial set of parameters (see [[md__fox_fribanalysis-1_80-000_pages_rawtoparameters#rawtoparams]]), it is not unusual to need to compute additional parameters at a later time. You can imagine a pipeline of computation that stepwise (and iteratively if necessary) transforms the raw parameters to physically meaningful parameters from the point of view of the experiment and science being extracted from it.
+Once the raw data are unpacked into an initial set of parameters (see [[Raw events to parameters|md__fox_fribanalysis-1_80-000_pages_rawtoparameters#rawtoparams]]), it is not unusual to need to compute additional parameters at a later time. You can imagine a pipeline of computation that stepwise (and iteratively if necessary) transforms the raw parameters to physically meaningful parameters from the point of view of the experiment and science being extracted from it.
 
 
 It would be wasteful to have to modify the raw to parameters stage of processing and decode the raw parameters at every step of this pipline. Therefore, the analysis pipeline supports stages which take, as input, a file of parameter data and, produce as output, another file of parameter data.
@@ -36,17 +36,17 @@ The underlying principles of these stages of the analysis pipeline are very simi
 
 
 - You must use an input stage (dealer) that understands parameter files. This dealer knows how to send information around to the rest of the application that allow the parameters in the input file to be mapped to internal/output file parameters. See
-- You must derive your worker from an [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
+- You must derive your worker from an [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
 - You *must* use tree parameters to represent your parameters internally. You may still use tree variables to steer your computation.
 
 
 The following documentation sections provide more information about how to write compile and run an application that maps input parameters to output parameters:
 
 
-- parametermapping Describes how parameters in the input files are mapped into tree parameters that are defined in the program. This section stresses, as well, the importance of using parameter definition files in addition to any [[classfrib_1_1analysis_1_1CTreeParameter]] and [[classfrib_1_1analysis_1_1CTreeParameterArray]] objects you might create.
-- [[md__fox_fribanalysis-1_80-000_pages_paramparamworker#paramparamworker]] Describes how to build a worker object to perform the computations that make your application work.
-- [[md__fox_fribanalysis-1_80-000_pages_paramparamapp#paramparamapp]] Describes how to derive from [[classfrib_1_1analysis_1_1AbstractApplication]] to string together the components that make up the application.
-- [[md__fox_fribanalysis-1_80-000_pages_paramparamcompileandrun#paramparamcompileandrun]] Describes how to compile and run your program.
+- parametermapping Describes how parameters in the input files are mapped into tree parameters that are defined in the program. This section stresses, as well, the importance of using parameter definition files in addition to any [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]] and [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray]] objects you might create.
+- [[The Parameter to Parmaeter Worker.|md__fox_fribanalysis-1_80-000_pages_paramparamworker#paramparamworker]] Describes how to build a worker object to perform the computations that make your application work.
+- [[Writing the Parameter to Parameter application.|md__fox_fribanalysis-1_80-000_pages_paramparamapp#paramparamapp]] Describes how to derive from [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]] to string together the components that make up the application.
+- [[Compiling and Running Parameter to Parameter Stages|md__fox_fribanalysis-1_80-000_pages_paramparamcompileandrun#paramparamcompileandrun]] Describes how to compile and run your program.
 
 
 Note that since SpecTcl is written to primarily take raw events and convert them into parameters, there is no SpecTcl compatibility layer for this stage of the pipeline as the raw events are not available to this application; Only the parameters extxracted or computed by previous stages of the analysis pipeline.

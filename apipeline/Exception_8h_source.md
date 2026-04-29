@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 Exception.h
@@ -107,7 +107,7 @@ header
 
 <a name="l00040"></a>   40
 
-<a name="l00041"></a>[[classCException]] class [[classCException]]
+<a name="l00041"></a>[[41|classCException]] class [[CException|classCException]]
 
 <a name="l00042"></a>   42 {
 
@@ -125,7 +125,7 @@ header
 
 <a name="l00049"></a>   49
 
-<a name="l00050"></a>   50   virtual ~[[classCException]] ( ) { }       //Destructor
+<a name="l00050"></a>   50   virtual ~[[CException|classCException]] ( ) { }       //Destructor
 
 <a name="l00051"></a>   51
 
@@ -133,9 +133,9 @@ header
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54   [[classCException]] (const char* pszAction  );
+<a name="l00054"></a>   54   [[CException|classCException]] (const char* pszAction  );
 
-<a name="l00055"></a>   55   [[classCException]] (const std::string& rsAction);
+<a name="l00055"></a>   55   [[CException|classCException]] (const std::string& rsAction);
 
 <a name="l00056"></a>   56
 
@@ -143,7 +143,7 @@ header
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>   59   [[classCException]] (const [[classCException]]& aCException );
+<a name="l00059"></a>   59   [[CException|classCException]] (const [[CException|classCException]]& aCException );
 
 <a name="l00060"></a>   60
 
@@ -151,15 +151,15 @@ header
 
 <a name="l00062"></a>   62
 
-<a name="l00063"></a>   63   [[classCException]]& operator= (const [[classCException]]& aCException);
+<a name="l00063"></a>   63   [[CException|classCException]]& operator= (const [[CException|classCException]]& aCException);
 
 <a name="l00064"></a>   64
 
 <a name="l00065"></a>   65             //Operator== Equality Operator
 
-<a name="l00066"></a>   66   int operator== (const [[classCException]]& aCException) const;
+<a name="l00066"></a>   66   int operator== (const [[CException|classCException]]& aCException) const;
 
-<a name="l00067"></a>   67   int operator!= (const [[classCException]]& rException) const{
+<a name="l00067"></a>   67   int operator!= (const [[CException|classCException]]& rException) const{
 
 <a name="l00068"></a>   68     return !(operator==(rException));
 
@@ -217,7 +217,7 @@ header
 
 <a name="l00095"></a>   95
 
-<a name="l00096"></a>   96   virtual void DoAssign(const [[classCException]]& rhs);
+<a name="l00096"></a>   96   virtual void DoAssign(const [[CException|classCException]]& rhs);
 
 <a name="l00097"></a>   97 };
 
@@ -227,7 +227,7 @@ header
 
 <a name="l00100"></a>  100 #endif
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 

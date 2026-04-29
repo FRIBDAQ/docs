@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCSyncCommand-members]]
+[[List of all members|classCSyncCommand-members]]
 
 
 CSyncCommand Class Reference
 
 header
 Provides the ddas_sync command for the ddas readout program.  
- [[classCSyncCommand#details]]
+ [[More...|classCSyncCommand#details]]
 
 
 `#include <CSyncCommand.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CSyncCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CSyncCommand:
@@ -57,7 +57,7 @@ Collaboration diagram for CSyncCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -169,8 +169,8 @@ Return values
 
 ---
 
-The documentation for this class was generated from the following files:- [[CSyncCommand_8h_source]]
-- [[CSyncCommand_8cpp]]
+The documentation for this class was generated from the following files:- [[CSyncCommand.h|CSyncCommand_8h_source]]
+- [[CSyncCommand.cpp|CSyncCommand_8cpp]]
 
  contents 
  start footer part 

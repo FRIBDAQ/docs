@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classRootFileDataSink-members]]
+[[List of all members|classRootFileDataSink-members]]
 
 
 RootFileDataSink Class Reference
 
 header
 A ROOT file sink for DDAS data.  
- [[classRootFileDataSink#details]]
+ [[More...|classRootFileDataSink#details]]
 
 
 `#include <RootFileDataSink.h>`
@@ -180,8 +180,8 @@ The ring item is assumed to consist of a set of fragments. Each fragment contain
 
 ---
 
-The documentation for this class was generated from the following files:- [[RootFileDataSink_8h_source]]
-- [[RootFileDataSink_8cpp]]
+The documentation for this class was generated from the following files:- [[RootFileDataSink.h|RootFileDataSink_8h_source]]
+- [[RootFileDataSink.cpp|RootFileDataSink_8cpp]]
 
  contents 
  start footer part 

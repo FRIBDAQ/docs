@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCMyScaler]]
-- [[structCMyScaler_1_1__Statistics]]
+- [[CMyScaler|classCMyScaler]]
+- [[_Statistics|structCMyScaler_1_1__Statistics]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structCMyScaler_1_1__Statistics-members]]
+[[List of all members|structCMyScaler_1_1__Statistics-members]]
 
 
 CMyScaler::_Statistics Struct Reference
 
 header
 Statistics are counters for cumulative and per-run triggers.  
- [[structCMyScaler_1_1__Statistics#details]]
+ [[More...|structCMyScaler_1_1__Statistics#details]]
 
 
 `#include <CMyScaler.h>`
@@ -49,7 +49,7 @@ Collaboration diagram for CMyScaler::_Statistics:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -96,7 +96,7 @@ Per-run. Cleared on initialize.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[CMyScaler_8h_source]]
+The documentation for this struct was generated from the following file:- [[CMyScaler.h|CMyScaler_8h_source]]
 
  contents 
  start footer part 

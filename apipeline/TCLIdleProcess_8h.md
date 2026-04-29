@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 [Classes](#nested-classes)
@@ -46,7 +46,7 @@ Include dependency graph for TCLIdleProcess.h:
 ![](TCLIdleProcess_8h__incl.png)
 
 
-[[TCLIdleProcess_8h_source]]
+[[Go to the source code of this file.|TCLIdleProcess_8h_source]]
 
 
 |  |  |

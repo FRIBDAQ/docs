@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 DDASBitMasks.h
 
 header
-[[DDASBitMasks_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASBitMasks_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan

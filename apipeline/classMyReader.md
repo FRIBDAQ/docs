@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classMyReader-members]]
+[[List of all members|classMyReader-members]]
 
 
 MyReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for MyReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for MyReader:
@@ -48,7 +48,7 @@ Collaboration diagram for MyReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for MyReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testWorker2_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testWorker2.cpp|testWorker2_8cpp]]
 
  contents 
  start footer part 

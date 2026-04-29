@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[structDDASReadout_1_1RawChannel]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[RawChannel|structDDASReadout_1_1RawChannel]]
 
  top 
 DDASReadout::RawChannel Member List
 
 header
-This is the complete list of members for [[structDDASReadout_1_1RawChannel]], including all inherited members.
+This is the complete list of members for [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel]], including all inherited members.
 
 
 |  |  |  |

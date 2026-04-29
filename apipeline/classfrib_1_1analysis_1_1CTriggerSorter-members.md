@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTriggerSorter]]
+- [[CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]]
 
  top 
 frib::analysis::CTriggerSorter Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CTriggerSorter]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]], including all inherited members.
 
 
 |  |  |  |

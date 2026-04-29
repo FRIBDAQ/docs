@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1FitEditorTemplate]]
+- [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]]
 
  top 
 ddastoys::FitEditorTemplate Member List
 
 header
-This is the complete list of members for [[classddastoys_1_1FitEditorTemplate]], including all inherited members.
+This is the complete list of members for [[ddastoys::FitEditorTemplate|classddastoys_1_1FitEditorTemplate]], including all inherited members.
 
 
 |  |  |  |

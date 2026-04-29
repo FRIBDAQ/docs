@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CStateException Member List
 
 header
-This is the complete list of members for [[classCStateException]], including all inherited members.
+This is the complete list of members for [[CStateException|classCStateException]], including all inherited members.
 
 
 |  |  |  |

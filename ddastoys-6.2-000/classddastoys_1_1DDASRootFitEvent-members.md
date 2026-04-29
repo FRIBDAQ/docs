@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1DDASRootFitEvent]]
+- [[DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]]
 
  top 
 ddastoys::DDASRootFitEvent Member List
 
 header
-This is the complete list of members for [[classddastoys_1_1DDASRootFitEvent]], including all inherited members.
+This is the complete list of members for [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent]], including all inherited members.
 
 
 |  |  |  |

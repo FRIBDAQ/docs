@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
 
  top 
 [Classes](#nested-classes) |
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](CPixieTraceUtilities_8h__dep__incl.png)
 
 
-[[CPixieTraceUtilities_8h_source]]
+[[Go to the source code of this file.|CPixieTraceUtilities_8h_source]]
 
 
 |  |  |

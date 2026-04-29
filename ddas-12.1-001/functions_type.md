@@ -17,11 +17,11 @@ do not remove this div, it is closed by doxygen!
 
 
 - Counters
-  : [[classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]
+  : [[CMyScaler|classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]
 - SlotSpecification
-  : [[classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]]
+  : [[DAQ::DDAS::ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]]
 - Statistics
-  : [[classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]
+  : [[CMyScaler|classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]
 
  contents 
  start footer part 

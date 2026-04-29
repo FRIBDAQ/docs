@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
 StreamDataSource.h
 
 header
-[[StreamDataSource_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|StreamDataSource_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -88,7 +88,7 @@ header
 <a name="l00025"></a>   25
 
 
-<a name="l00026"></a>   26 #include "[[DataSource_8h]]"
+<a name="l00026"></a>   26 #include "[[DataSource.h|DataSource_8h]]"
 
 
 <a name="l00027"></a>   27
@@ -100,7 +100,7 @@ header
 <a name="l00029"></a>   29
 
 
-<a name="l00036"></a>[[classStreamDataSource]] class [[classStreamDataSource]] : public [[classDataSource]]
+<a name="l00036"></a>[[36|classStreamDataSource]] class [[StreamDataSource|classStreamDataSource]] : public [[DataSource|classDataSource]]
 
 
 <a name="l00037"></a>   37 {
@@ -115,13 +115,13 @@ header
 <a name="l00040"></a>   40 public:
 
 
-<a name="l00046"></a>   46     [[classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]](RingItemFactoryBase* pFactory, std::istream& str);
+<a name="l00046"></a>   46     [[StreamDataSource|classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]](RingItemFactoryBase* pFactory, std::istream& str);
 
 
-<a name="l00048"></a>   48     virtual [[classStreamDataSource#a417124525c9c85205eb7407898569f8c]]();
+<a name="l00048"></a>   48     virtual [[~StreamDataSource|classStreamDataSource#a417124525c9c85205eb7407898569f8c]]();
 
 
-<a name="l00055"></a>   55     virtual CRingItem* [[classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]]();
+<a name="l00055"></a>   55     virtual CRingItem* [[getItem|classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]]();
 
 
 <a name="l00056"></a>   56 };
@@ -136,26 +136,26 @@ header
 <a name="l00059"></a>   59 #endif
 
 
-[[DataSource_8h]]
+[[DataSource.h|DataSource_8h]]
 
 Works with factories to provide a data source for undifferentiated ring items.
 
 
-[[classDataSource]]
+[[DataSource|classDataSource]]
 
 Abstract base class for DDAS data sources.
 
 **Definition:** DataSource.h:48
 
 
-[[classStreamDataSource]]
+[[StreamDataSource|classStreamDataSource]]
 
 A class taking the input stream as a data source. Most commonly used to construct a data source from ...
 
 **Definition:** StreamDataSource.h:37
 
 
-[[classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]]
+[[StreamDataSource::getItem|classStreamDataSource#a02bf519172132c894990cf9af7b1f83d]]
 
 virtual CRingItem * getItem()
 
@@ -164,7 +164,7 @@ Get a ring item from the soruce. Implementation of the mandatory interface from 
 **Definition:** StreamDataSource.cpp:36
 
 
-[[classStreamDataSource#a417124525c9c85205eb7407898569f8c]]
+[[StreamDataSource::~StreamDataSource|classStreamDataSource#a417124525c9c85205eb7407898569f8c]]
 
 virtual ~StreamDataSource()
 
@@ -173,7 +173,7 @@ Destructor.
 **Definition:** StreamDataSource.cpp:33
 
 
-[[classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]]
+[[StreamDataSource::StreamDataSource|classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]]
 
 StreamDataSource(RingItemFactoryBase *pFactory, std::istream &str)
 

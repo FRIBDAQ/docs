@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1Configuration]]
+- [[Configuration|classddastoys_1_1Configuration]]
 
  top 
 ddastoys::Configuration Member List
 
 header
-This is the complete list of members for [[classddastoys_1_1Configuration]], including all inherited members.
+This is the complete list of members for [[ddastoys::Configuration|classddastoys_1_1Configuration]], including all inherited members.
 
 
 |  |  |  |

@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 CFitEngine.h
 
 header
-[[CFitEngine_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|CFitEngine_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -103,31 +103,31 @@ header
 <a name="l00034"></a>   34
 
 
-<a name="l00041"></a>[[classddastoys_1_1CFitEngine]]     class [[classddastoys_1_1CFitEngine]] {
+<a name="l00041"></a>[[41|classddastoys_1_1CFitEngine]]     class [[CFitEngine|classddastoys_1_1CFitEngine]] {
 
 
 <a name="l00042"></a>   42     protected:
 
 
-<a name="l00043"></a>[[classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]     std::vector<uint16_t> [[classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]];
+<a name="l00043"></a>[[43|classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]     std::vector<uint16_t> [[x|classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]];
 
 
-<a name="l00044"></a>[[classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]     std::vector<uint16_t> [[classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]];
+<a name="l00044"></a>[[44|classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]     std::vector<uint16_t> [[y|classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]];
 
 
 <a name="l00045"></a>   45     public:
 
 
-<a name="l00050"></a>   50     [[classddastoys_1_1CFitEngine#a02450a79fd6e17ac2f52ddfa9ee07985]](std::vector<std::pair<uint16_t, uint16_t>>& data);
+<a name="l00050"></a>   50     [[CFitEngine|classddastoys_1_1CFitEngine#a02450a79fd6e17ac2f52ddfa9ee07985]](std::vector<std::pair<uint16_t, uint16_t>>& data);
 
 
-<a name="l00052"></a>[[classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]     virtual [[classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]() {}
+<a name="l00052"></a>[[52|classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]     virtual [[~CFitEngine|classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]() {}
 
 
-<a name="l00054"></a>[[classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]]     virtual void [[classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]](const gsl_vector* p,  gsl_matrix *J) = 0;
+<a name="l00054"></a>[[54|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]]     virtual void [[jacobian|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]](const gsl_vector* p,  gsl_matrix *J) = 0;
 
 
-<a name="l00056"></a>[[classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]]     virtual void [[classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]](const gsl_vector* p, gsl_vector* r)  = 0;
+<a name="l00056"></a>[[56|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]]     virtual void [[residuals|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]](const gsl_vector* p, gsl_vector* r)  = 0;
 
 
 <a name="l00057"></a>   57     };
@@ -145,14 +145,14 @@ header
 <a name="l00061"></a>   61 #endif
 
 
-[[classddastoys_1_1CFitEngine]]
+[[ddastoys::CFitEngine|classddastoys_1_1CFitEngine]]
 
 Abstract base class for marshalling data to the fitting subsystems to calculate Jacobian elements and...
 
 **Definition:** CFitEngine.h:41
 
 
-[[classddastoys_1_1CFitEngine#a02450a79fd6e17ac2f52ddfa9ee07985]]
+[[ddastoys::CFitEngine::CFitEngine|classddastoys_1_1CFitEngine#a02450a79fd6e17ac2f52ddfa9ee07985]]
 
 CFitEngine(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
@@ -161,7 +161,7 @@ Constructor.
 **Definition:** CFitEngine.cpp:30
 
 
-[[classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]
+[[ddastoys::CFitEngine::~CFitEngine|classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]
 
 virtual ~CFitEngine()
 
@@ -170,7 +170,7 @@ Destructor.
 **Definition:** CFitEngine.h:52
 
 
-[[classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]
+[[ddastoys::CFitEngine::x|classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]
 
 std::vector< uint16_t > x
 
@@ -179,21 +179,21 @@ Trace x coordinate vector.
 **Definition:** CFitEngine.h:43
 
 
-[[classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]]
+[[ddastoys::CFitEngine::jacobian|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]]
 
 virtual void jacobian(const gsl_vector *p, gsl_matrix *J)=0
 
 Virtual method for calculating the Jacobian matrix.
 
 
-[[classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]]
+[[ddastoys::CFitEngine::residuals|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]]
 
 virtual void residuals(const gsl_vector *p, gsl_vector *r)=0
 
 Virtual method to calculating the residual.
 
 
-[[classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]
+[[ddastoys::CFitEngine::y|classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]
 
 std::vector< uint16_t > y
 

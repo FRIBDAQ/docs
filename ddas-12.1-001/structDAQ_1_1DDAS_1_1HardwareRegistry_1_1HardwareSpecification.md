@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
-- [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]]
+- [[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification-members]]
+[[List of all members|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification-members]]
 
 
 DAQ::DDAS::HardwareRegistry::HardwareSpecification Struct Reference
 
 header
 Generic hardware specs for hardware types.  
- [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#details]]
+ [[More...|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#details]]
 
 
 `#include <HardwareRegistry.h>`
@@ -112,7 +112,7 @@ Module hardware revision.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[HardwareRegistry_8h_source]]
+The documentation for this struct was generated from the following file:- [[HardwareRegistry.h|HardwareRegistry_8h_source]]
 
  contents 
  start footer part 

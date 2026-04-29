@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]]
+- [[_FRIB_MPI_Request_Data|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data-members]]
+[[List of all members|structfrib_1_1analysis_1_1__FRIB__MPI__Request__Data-members]]
 
 
 frib::analysis::_FRIB_MPI_Request_Data Struct Reference
@@ -45,7 +45,7 @@ header
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
 
  contents 
  start footer part 

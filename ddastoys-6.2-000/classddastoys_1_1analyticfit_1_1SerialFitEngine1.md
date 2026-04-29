@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[classddastoys_1_1analyticfit_1_1SerialFitEngine1]]
+- [[SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1analyticfit_1_1SerialFitEngine1-members]]
+[[List of all members|classddastoys_1_1analyticfit_1_1SerialFitEngine1-members]]
 
 
 ddastoys::analyticfit::SerialFitEngine1 Class Reference
 
 header
 Fit engine for analytic single pulse fits.  
- [[classddastoys_1_1analyticfit_1_1SerialFitEngine1#details]]
+ [[More...|classddastoys_1_1analyticfit_1_1SerialFitEngine1#details]]
 
 
 `#include <jacobian_analytic.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::analyticfit::SerialFitEngine1:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::analyticfit::SerialFitEngine1:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::analyticfit::SerialFitEngine1:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -175,7 +175,7 @@ Parameters
 Compute the Jacobian matrix of the fit with respect to current values of the fit parameters. Weights are set to 1.0 and the x, y base class members are the trace data.
 
 
-Implements [[classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]].
+Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]].
 
 
 
@@ -201,14 +201,14 @@ Parameters
 
 
 
-Implements [[classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].
+Implements [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[jacobian__analytic_8h_source]]
-- [[SerialFitEngineAnalytic_8cpp]]
+The documentation for this class was generated from the following files:- [[jacobian_analytic.h|jacobian__analytic_8h_source]]
+- [[SerialFitEngineAnalytic.cpp|SerialFitEngineAnalytic_8cpp]]
 
  contents 
  start footer part 

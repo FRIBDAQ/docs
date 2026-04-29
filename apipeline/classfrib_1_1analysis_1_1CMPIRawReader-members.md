@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIRawReader]]
+- [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]
 
  top 
 frib::analysis::CMPIRawReader Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CMPIRawReader]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]], including all inherited members.
 
 
 |  |  |  |

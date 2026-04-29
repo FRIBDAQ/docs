@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
 
  top 
 BufferDecoder.h
 
 header
-[[BufferDecoder_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|BufferDecoder_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -71,11 +71,11 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 namespace [[namespacefrib]] {
+<a name="l00026"></a>   26 namespace [[frib|namespacefrib]] {
 
 <a name="l00027"></a>   27     namespace analysis {
 
-<a name="l00039"></a>[[classfrib_1_1analysis_1_1CBufferDecoder]]         class [[classfrib_1_1analysis_1_1CBufferDecoder]] {
+<a name="l00039"></a>[[39|classfrib_1_1analysis_1_1CBufferDecoder]]         class [[CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]] {
 
 <a name="l00040"></a>   40         private:
 
@@ -85,43 +85,43 @@ header
 
 <a name="l00043"></a>   43
 
-<a name="l00044"></a>   44             [[classfrib_1_1analysis_1_1CBufferDecoder#a143acb1a3dc811ada607a0784775a8c1]]();
+<a name="l00044"></a>   44             [[CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a143acb1a3dc811ada607a0784775a8c1]]();
 
-<a name="l00045"></a>   45             virtual [[classfrib_1_1analysis_1_1CBufferDecoder#a1647b949b5ada2f1cdbdbfb73608e902]]();
+<a name="l00045"></a>   45             virtual [[~CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a1647b949b5ada2f1cdbdbfb73608e902]]();
 
 <a name="l00046"></a>   46             const Address_t getBuffer();
 
 <a name="l00047"></a>   47
 
-<a name="l00048"></a>   48             virtual const Address_t [[classfrib_1_1analysis_1_1CBufferDecoder#a2b70fbe5fdd1c3aebe64611be20fbabf]]();
+<a name="l00048"></a>   48             virtual const Address_t [[getBody|classfrib_1_1analysis_1_1CBufferDecoder#a2b70fbe5fdd1c3aebe64611be20fbabf]]();
 
-<a name="l00049"></a>   49             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#a7cae3c81fd012e83bb398ac1f2d9e84a]]() ;
+<a name="l00049"></a>   49             virtual UInt_t [[getBodySize|classfrib_1_1analysis_1_1CBufferDecoder#a7cae3c81fd012e83bb398ac1f2d9e84a]]() ;
 
-<a name="l00050"></a>   50             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#a63f817308c2a7fbf07ec9ed4582a3e07]]();
+<a name="l00050"></a>   50             virtual UInt_t [[getRun|classfrib_1_1analysis_1_1CBufferDecoder#a63f817308c2a7fbf07ec9ed4582a3e07]]();
 
-<a name="l00051"></a>   51             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#a9d791e53b5e1701fe65158e7ffb8c9be]]();
+<a name="l00051"></a>   51             virtual UInt_t [[getEntityCount|classfrib_1_1analysis_1_1CBufferDecoder#a9d791e53b5e1701fe65158e7ffb8c9be]]();
 
-<a name="l00052"></a>   52             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#a78922a4cf397f06eb6e6346f30d00a98]]();
+<a name="l00052"></a>   52             virtual UInt_t [[getSequenceNo|classfrib_1_1analysis_1_1CBufferDecoder#a78922a4cf397f06eb6e6346f30d00a98]]();
 
-<a name="l00053"></a>   53             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#a14f749c8ed28c2b46a4141e2eccf7a95]]();
+<a name="l00053"></a>   53             virtual UInt_t [[getLamCount|classfrib_1_1analysis_1_1CBufferDecoder#a14f749c8ed28c2b46a4141e2eccf7a95]]();
 
-<a name="l00054"></a>   54             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#a87e078d3632d0131f4fb3ba0c4def6a7]]();
+<a name="l00054"></a>   54             virtual UInt_t [[getPatternCount|classfrib_1_1analysis_1_1CBufferDecoder#a87e078d3632d0131f4fb3ba0c4def6a7]]();
 
-<a name="l00055"></a>   55             virtual UInt_t [[classfrib_1_1analysis_1_1CBufferDecoder#abf8887f108127d477b8e0bd52b9545e6]]();
+<a name="l00055"></a>   55             virtual UInt_t [[getBufferType|classfrib_1_1analysis_1_1CBufferDecoder#abf8887f108127d477b8e0bd52b9545e6]]();
 
-<a name="l00056"></a>   56             virtual void [[classfrib_1_1analysis_1_1CBufferDecoder#a020dd5bee592733582f68d7234eca75e]](Short_t& Signature16,
+<a name="l00056"></a>   56             virtual void [[getByteOrder|classfrib_1_1analysis_1_1CBufferDecoder#a020dd5bee592733582f68d7234eca75e]](Short_t& Signature16,
 
 <a name="l00057"></a>   57                                       Int_t& Signature32);
 
-<a name="l00058"></a>   58             virtual std::string [[classfrib_1_1analysis_1_1CBufferDecoder#ad2eaf8a80feaf9891e97a43eb6777656]]();
+<a name="l00058"></a>   58             virtual std::string [[getTitle|classfrib_1_1analysis_1_1CBufferDecoder#ad2eaf8a80feaf9891e97a43eb6777656]]();
 
-<a name="l00059"></a>   59             virtual bool [[classfrib_1_1analysis_1_1CBufferDecoder#a09fc61e364669f3ec028741903c27e20]]();     // True if data source must deliver fixed sized blocks.
+<a name="l00059"></a>   59             virtual bool [[blockMode|classfrib_1_1analysis_1_1CBufferDecoder#a09fc61e364669f3ec028741903c27e20]]();     // True if data source must deliver fixed sized blocks.
 
 <a name="l00060"></a>   60             // Used by the framework
 
 <a name="l00061"></a>   61
 
-<a name="l00062"></a>   62             void [[classfrib_1_1analysis_1_1CBufferDecoder#a96f0de1d32695459053b5f7b95bdb73e]](Address_t p);
+<a name="l00062"></a>   62             void [[setBody|classfrib_1_1analysis_1_1CBufferDecoder#a96f0de1d32695459053b5f7b95bdb73e]](Address_t p);
 
 <a name="l00063"></a>   63         };
 
@@ -135,110 +135,110 @@ header
 
 <a name="l00068"></a>   68 #endif
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a63f817308c2a7fbf07ec9ed4582a3e07]]
+[[frib::analysis::CBufferDecoder::getRun|classfrib_1_1analysis_1_1CBufferDecoder#a63f817308c2a7fbf07ec9ed4582a3e07]]
 
 virtual UInt_t getRun()
 
 **Definition:** BufferDecoder.cpp:62
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a96f0de1d32695459053b5f7b95bdb73e]]
+[[frib::analysis::CBufferDecoder::setBody|classfrib_1_1analysis_1_1CBufferDecoder#a96f0de1d32695459053b5f7b95bdb73e]]
 
 void setBody(Address_t p)
 
 **Definition:** BufferDecoder.cpp:145
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a1647b949b5ada2f1cdbdbfb73608e902]]
+[[frib::analysis::CBufferDecoder::~CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a1647b949b5ada2f1cdbdbfb73608e902]]
 
 virtual ~CBufferDecoder()
 
 **Definition:** BufferDecoder.cpp:34
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a14f749c8ed28c2b46a4141e2eccf7a95]]
+[[frib::analysis::CBufferDecoder::getLamCount|classfrib_1_1analysis_1_1CBufferDecoder#a14f749c8ed28c2b46a4141e2eccf7a95]]
 
 virtual UInt_t getLamCount()
 
 **Definition:** BufferDecoder.cpp:88
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a2b70fbe5fdd1c3aebe64611be20fbabf]]
+[[frib::analysis::CBufferDecoder::getBody|classfrib_1_1analysis_1_1CBufferDecoder#a2b70fbe5fdd1c3aebe64611be20fbabf]]
 
 virtual const Address_t getBody()
 
 **Definition:** BufferDecoder.cpp:44
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a78922a4cf397f06eb6e6346f30d00a98]]
+[[frib::analysis::CBufferDecoder::getSequenceNo|classfrib_1_1analysis_1_1CBufferDecoder#a78922a4cf397f06eb6e6346f30d00a98]]
 
 virtual UInt_t getSequenceNo()
 
 **Definition:** BufferDecoder.cpp:78
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a09fc61e364669f3ec028741903c27e20]]
+[[frib::analysis::CBufferDecoder::blockMode|classfrib_1_1analysis_1_1CBufferDecoder#a09fc61e364669f3ec028741903c27e20]]
 
 virtual bool blockMode()
 
 **Definition:** BufferDecoder.cpp:137
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a9d791e53b5e1701fe65158e7ffb8c9be]]
+[[frib::analysis::CBufferDecoder::getEntityCount|classfrib_1_1analysis_1_1CBufferDecoder#a9d791e53b5e1701fe65158e7ffb8c9be]]
 
 virtual UInt_t getEntityCount()
 
 **Definition:** BufferDecoder.cpp:70
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder]]
+[[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder]]
 
 **Definition:** BufferDecoder.h:39
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a020dd5bee592733582f68d7234eca75e]]
+[[frib::analysis::CBufferDecoder::getByteOrder|classfrib_1_1analysis_1_1CBufferDecoder#a020dd5bee592733582f68d7234eca75e]]
 
 virtual void getByteOrder(Short_t &Signature16, Int_t &Signature32)
 
 **Definition:** BufferDecoder.cpp:118
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#abf8887f108127d477b8e0bd52b9545e6]]
+[[frib::analysis::CBufferDecoder::getBufferType|classfrib_1_1analysis_1_1CBufferDecoder#abf8887f108127d477b8e0bd52b9545e6]]
 
 virtual UInt_t getBufferType()
 
 **Definition:** BufferDecoder.cpp:107
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a143acb1a3dc811ada607a0784775a8c1]]
+[[frib::analysis::CBufferDecoder::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a143acb1a3dc811ada607a0784775a8c1]]
 
 CBufferDecoder()
 
 **Definition:** BufferDecoder.cpp:30
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a7cae3c81fd012e83bb398ac1f2d9e84a]]
+[[frib::analysis::CBufferDecoder::getBodySize|classfrib_1_1analysis_1_1CBufferDecoder#a7cae3c81fd012e83bb398ac1f2d9e84a]]
 
 virtual UInt_t getBodySize()
 
 **Definition:** BufferDecoder.cpp:52
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#a87e078d3632d0131f4fb3ba0c4def6a7]]
+[[frib::analysis::CBufferDecoder::getPatternCount|classfrib_1_1analysis_1_1CBufferDecoder#a87e078d3632d0131f4fb3ba0c4def6a7]]
 
 virtual UInt_t getPatternCount()
 
 **Definition:** BufferDecoder.cpp:97
 
 
-[[classfrib_1_1analysis_1_1CBufferDecoder#ad2eaf8a80feaf9891e97a43eb6777656]]
+[[frib::analysis::CBufferDecoder::getTitle|classfrib_1_1analysis_1_1CBufferDecoder#ad2eaf8a80feaf9891e97a43eb6777656]]
 
 virtual std::string getTitle()
 
 **Definition:** BufferDecoder.cpp:130
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

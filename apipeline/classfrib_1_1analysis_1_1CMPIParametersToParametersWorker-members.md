@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
+- [[CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]]
 
  top 
 frib::analysis::CMPIParametersToParametersWorker Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker]], including all inherited members.
 
 
 |  |  |  |

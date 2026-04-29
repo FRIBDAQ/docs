@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CURIFormatException Member List
 
 header
-This is the complete list of members for [[classCURIFormatException]], including all inherited members.
+This is the complete list of members for [[CURIFormatException|classCURIFormatException]], including all inherited members.
 
 
 |  |  |  |

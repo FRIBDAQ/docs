@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1CFitEngine]]
+- [[CFitEngine|classddastoys_1_1CFitEngine]]
 
  top 
 ddastoys::CFitEngine Member List
 
 header
-This is the complete list of members for [[classddastoys_1_1CFitEngine]], including all inherited members.
+This is the complete list of members for [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine]], including all inherited members.
 
 
 |  |  |  |

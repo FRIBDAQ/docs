@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 ErrnoException.h
@@ -115,7 +115,7 @@ header
 
 <a name="l00044"></a>   44
 
-<a name="l00045"></a>[[classCErrnoException]] class [[classCErrnoException]]  : public [[classCException]]
+<a name="l00045"></a>[[45|classCErrnoException]] class [[CErrnoException|classCErrnoException]]  : public [[CException|classCException]]
 
 <a name="l00046"></a>   46 {
 
@@ -131,19 +131,19 @@ header
 
 <a name="l00052"></a>   52
 
-<a name="l00053"></a>   53   [[classCErrnoException]](const char* pszAction) :
+<a name="l00053"></a>   53   [[CErrnoException|classCErrnoException]](const char* pszAction) :
 
 <a name="l00054"></a>   54     m_nErrno(errno),
 
-<a name="l00055"></a>   55     [[classCException]](pszAction) {}
+<a name="l00055"></a>   55     [[CException|classCException]](pszAction) {}
 
-<a name="l00056"></a>   56   [[classCErrnoException]](const std::string& rsAction) :
+<a name="l00056"></a>   56   [[CErrnoException|classCErrnoException]](const std::string& rsAction) :
 
 <a name="l00057"></a>   57     m_nErrno(errno),
 
-<a name="l00058"></a>   58     [[classCException]](rsAction) {}
+<a name="l00058"></a>   58     [[CException|classCException]](rsAction) {}
 
-<a name="l00059"></a>   59   ~[[classCErrnoException]] ( ) { }       //Destructor
+<a name="l00059"></a>   59   ~[[CErrnoException|classCErrnoException]] ( ) { }       //Destructor
 
 <a name="l00060"></a>   60
 
@@ -151,9 +151,9 @@ header
 
 <a name="l00062"></a>   62
 
-<a name="l00063"></a>   63   [[classCErrnoException]] (const [[classCErrnoException]]& aCErrnoException )   :
+<a name="l00063"></a>   63   [[CErrnoException|classCErrnoException]] (const [[CErrnoException|classCErrnoException]]& aCErrnoException )   :
 
-<a name="l00064"></a>   64     [[classCException]] (aCErrnoException)
+<a name="l00064"></a>   64     [[CException|classCException]] (aCErrnoException)
 
 <a name="l00065"></a>   65   {
 
@@ -165,7 +165,7 @@ header
 
 <a name="l00069"></a>   69
 
-<a name="l00070"></a>   70   [[classCErrnoException]]& operator= (const [[classCErrnoException]]& aCErrnoException)
+<a name="l00070"></a>   70   [[CErrnoException|classCErrnoException]]& operator= (const [[CErrnoException|classCErrnoException]]& aCErrnoException)
 
 <a name="l00071"></a>   71   {
 
@@ -185,7 +185,7 @@ header
 
 <a name="l00079"></a>   79
 
-<a name="l00080"></a>   80   int operator== (const [[classCErrnoException]]& aCErrnoException) const
+<a name="l00080"></a>   80   int operator== (const [[CErrnoException|classCErrnoException]]& aCErrnoException) const
 
 <a name="l00081"></a>   81  {
 
@@ -197,7 +197,7 @@ header
 
 <a name="l00085"></a>   85   }
 
-<a name="l00086"></a>   86   int operator!=(const [[classCErrnoException]]& aCErrnoException) const {
+<a name="l00086"></a>   86   int operator!=(const [[CErrnoException|classCErrnoException]]& aCErrnoException) const {
 
 <a name="l00087"></a>   87     return !(this->operator==(aCErrnoException));
 
@@ -279,12 +279,12 @@ header
 
 <a name="l00126"></a>  126
 
-[[classCErrnoException]]
+[[CErrnoException|classCErrnoException]]
 
 **Definition:** ErrnoException.h:45
 
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 

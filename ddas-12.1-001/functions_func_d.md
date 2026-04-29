@@ -19,22 +19,22 @@ do not remove this div, it is closed by doxygen!
 ### - d -
 
 - DataSource()
-  : [[classDataSource#a0e6fb091ec780aa0a0dcdb30a9773533]]
+  : [[DataSource|classDataSource#a0e6fb091ec780aa0a0dcdb30a9773533]]
 - DDASDataSimulator()
-  : [[classDAQ_1_1DDAS_1_1DDASDataSimulator#a28258b5bb5377db387097a7c7f1b073d]]
+  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#a28258b5bb5377db387097a7c7f1b073d]]
 - DDASRootEvent()
-  : [[classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]]
+  : [[DDASRootEvent|classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]]
 - DDASRootHit()
-  : [[classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]
+  : [[DDASRootHit|classDDASRootHit#a9f45b12cc47fc8c46656906a12062f5b]]
 - DDASSorter()
-  : [[classDDASSorter#a1d1772e72726def7d91419055cc0835c]]
+  : [[DDASSorter|classDDASSorter#a1d1772e72726def7d91419055cc0835c]]
 - dereference()
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a0634dd6ccbd92fb64d320e1a10f83cb6]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a0634dd6ccbd92fb64d320e1a10f83cb6]]
 - disable()
-  : [[classCMyEventSegment#a2312995c14eab8bc0bcb43c6936c192a]]
-  , [[classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]
+  : [[CMyEventSegment|classCMyEventSegment#a2312995c14eab8bc0bcb43c6936c192a]]
+  , [[CMyScaler|classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]
 - dumpBuffer()
-  : [[classDAQ_1_1DDAS_1_1DDASDataSimulator#ab4a1e8c26ed9e73a2f9367a5780d733b]]
+  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#ab4a1e8c26ed9e73a2f9367a5780d733b]]
 
  contents 
  start footer part 

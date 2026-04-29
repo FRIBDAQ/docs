@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classccallbacktests-members]]
+[[List of all members|classccallbacktests-members]]
 
 
 ccallbacktests Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for ccallbacktests:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ccallbacktests:
@@ -47,7 +47,7 @@ Collaboration diagram for ccallbacktests:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

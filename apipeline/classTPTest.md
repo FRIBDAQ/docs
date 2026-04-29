@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classTPTest-members]]
+[[List of all members|classTPTest-members]]
 
 
 TPTest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TPTest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TPTest:
@@ -47,7 +47,7 @@ Collaboration diagram for TPTest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -303,7 +303,7 @@ changed
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[treeparamtests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[treeparamtests.cpp|treeparamtests_8cpp]]
 
  contents 
  start footer part 

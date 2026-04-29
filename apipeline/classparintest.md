@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classparintest-members]]
+[[List of all members|classparintest-members]]
 
 
 parintest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for parintest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for parintest:
@@ -47,7 +47,7 @@ Collaboration diagram for parintest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

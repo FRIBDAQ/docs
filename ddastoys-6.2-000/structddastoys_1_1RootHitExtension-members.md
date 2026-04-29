@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1RootHitExtension]]
+- [[RootHitExtension|structddastoys_1_1RootHitExtension]]
 
  top 
 ddastoys::RootHitExtension Member List
 
 header
-This is the complete list of members for [[structddastoys_1_1RootHitExtension]], including all inherited members.
+This is the complete list of members for [[ddastoys::RootHitExtension|structddastoys_1_1RootHitExtension]], including all inherited members.
 
 
 |  |  |  |

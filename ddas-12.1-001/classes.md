@@ -23,37 +23,37 @@ header
 
 
 <a name="letter_B"></a>B
-[[classDDASReadout_1_1BufferArena]] ([[namespaceDDASReadout]])
+[[BufferArena|classDDASReadout_1_1BufferArena]] ([[DDASReadout|namespaceDDASReadout]])
 
 <a name="letter_C"></a>C
-[[classCBootCommand]][[classCDataGenerator]][[classCDDASStatisticsCommand]][[classCMyBusy]][[classCMyEndCommand]][[classCMyEventSegment]][[classCMyScaler]][[classCMyTrigger]][[classDAQ_1_1DDAS_1_1Configuration]] ([[namespaceDAQ_1_1DDAS]])[[classDAQ_1_1DDAS_1_1ConfigurationParser]] ([[namespaceDAQ_1_1DDAS]])[[classCPixieDSPUtilities]][[classCPixieRunUtilities]][[classCPixieSystemUtilities]][[classCPixieTraceUtilities]][[classCSyncCommand]]
+[[CBootCommand|classCBootCommand]][[CDataGenerator|classCDataGenerator]][[CDDASStatisticsCommand|classCDDASStatisticsCommand]][[CMyBusy|classCMyBusy]][[CMyEndCommand|classCMyEndCommand]][[CMyEventSegment|classCMyEventSegment]][[CMyScaler|classCMyScaler]][[CMyTrigger|classCMyTrigger]][[Configuration|classDAQ_1_1DDAS_1_1Configuration]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])[[ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])[[CPixieDSPUtilities|classCPixieDSPUtilities]][[CPixieRunUtilities|classCPixieRunUtilities]][[CPixieSystemUtilities|classCPixieSystemUtilities]][[CPixieTraceUtilities|classCPixieTraceUtilities]][[CSyncCommand|classCSyncCommand]]
 
 <a name="letter_D"></a>D
-[[classDataSource]][[classDAQ_1_1DDAS_1_1DDASDataSimulator]] ([[namespaceDAQ_1_1DDAS]])[[classDDASReadoutMain]][[classDDASRootEvent]][[classDDASRootHit]][[classDDASSorter]]
+[[DataSource|classDataSource]][[DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])[[DDASReadoutMain|classDDASReadoutMain]][[DDASRootEvent|classDDASRootEvent]][[DDASRootHit|classDDASRootHit]][[DDASSorter|classDDASSorter]]
 
 <a name="letter_E"></a>E
-[[structCMyEndCommand_1_1EndEvent]]
+[[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent]]
 
 <a name="letter_F"></a>F
-[[classFdDataSource]][[structDAQ_1_1DDAS_1_1FirmwareConfiguration]] ([[namespaceDAQ_1_1DDAS]])[[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]] ([[namespaceDAQ_1_1DDAS]])
+[[FdDataSource|classFdDataSource]][[FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])[[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
 
 <a name="letter_H"></a>H
-[[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]] ([[namespaceDAQ_1_1DDAS_1_1HardwareRegistry]])[[classDDASReadout_1_1HitManager]] ([[namespaceDDASReadout]])
+[[HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification]] ([[DAQ::DDAS::HardwareRegistry|namespaceDAQ_1_1DDAS_1_1HardwareRegistry]])[[HitManager|classDDASReadout_1_1HitManager]] ([[DDASReadout|namespaceDDASReadout]])
 
 <a name="letter_M"></a>M
-[[classDAQ_1_1DDAS_1_1ModEvtFileParser]] ([[namespaceDAQ_1_1DDAS]])
+[[ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
 
 <a name="letter_R"></a>R
-[[structDDASReadout_1_1RawChannel]] ([[namespaceDDASReadout]])[[structDDASReadout_1_1ReferenceCountedBuffer]] ([[namespaceDDASReadout]])[[classRootFileDataSink]]
+[[RawChannel|structDDASReadout_1_1RawChannel]] ([[DDASReadout|namespaceDDASReadout]])[[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]] ([[DDASReadout|namespaceDDASReadout]])[[RootFileDataSink|classRootFileDataSink]]
 
 <a name="letter_S"></a>S
-[[classStreamDataSource]][[classDAQ_1_1DDAS_1_1SystemBooter]] ([[namespaceDAQ_1_1DDAS]])
+[[StreamDataSource|classStreamDataSource]][[SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter]] ([[DAQ::DDAS|namespaceDAQ_1_1DDAS]])
 
 <a name="letter_Z"></a>Z
-[[classDDASReadout_1_1ZeroCopyHit]] ([[namespaceDDASReadout]])
+[[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] ([[DDASReadout|namespaceDDASReadout]])
 
 <a name="letter__"></a>_
-[[structCMyScaler_1_1__Counters]][[structCMyScaler_1_1__Statistics]]
+[[CMyScaler::_Counters|structCMyScaler_1_1__Counters]][[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics]]
 
  contents 
  start footer part 

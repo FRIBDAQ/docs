@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 spworkertest Member List
 
 header
-This is the complete list of members for [[classspworkertest]], including all inherited members.
+This is the complete list of members for [[spworkertest|classspworkertest]], including all inherited members.
 
 
 |  |  |  |

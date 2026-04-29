@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDummyConfigReader-members]]
+[[List of all members|classDummyConfigReader-members]]
 
 
 DummyConfigReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for DummyConfigReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for DummyConfigReader:
@@ -48,7 +48,7 @@ Collaboration diagram for DummyConfigReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for DummyConfigReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testOutput_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testOutput.cpp|testOutput_8cpp]]
 
  contents 
  start footer part 

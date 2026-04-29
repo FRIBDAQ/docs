@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 CMyBusy.h
 
 header
-[[CMyBusy_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|CMyBusy_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #include <CBusy.h>
@@ -37,7 +37,7 @@ header
 <a name="l00007"></a>    7
 
 
-<a name="l00014"></a>[[classCMyBusy]] class [[classCMyBusy]] : public CBusy
+<a name="l00014"></a>[[14|classCMyBusy]] class [[CMyBusy|classCMyBusy]] : public CBusy
 
 
 <a name="l00015"></a>   15 {
@@ -46,10 +46,10 @@ header
 <a name="l00016"></a>   16 public:
 
 
-<a name="l00017"></a>   17   [[classCMyBusy#a886cbcbf9cd8bb5dcae900a6a519db6a]]();
+<a name="l00017"></a>   17   [[CMyBusy|classCMyBusy#a886cbcbf9cd8bb5dcae900a6a519db6a]]();
 
 
-<a name="l00018"></a>[[classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]   [[classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]() { }
+<a name="l00018"></a>[[18|classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]   [[~CMyBusy|classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]() { }
 
 
 <a name="l00019"></a>   19
@@ -58,23 +58,23 @@ header
 <a name="l00020"></a>   20 public:
 
 
-<a name="l00021"></a>   21     virtual void [[classCMyBusy#abc37d7a3040f7dc03ded1d569a31fcc8]]();
+<a name="l00021"></a>   21     virtual void [[GoBusy|classCMyBusy#abc37d7a3040f7dc03ded1d569a31fcc8]]();
 
 
-<a name="l00022"></a>   22     virtual void [[classCMyBusy#a95c6377a23f4026f112f0c9ed2be4173]]();
+<a name="l00022"></a>   22     virtual void [[GoClear|classCMyBusy#a95c6377a23f4026f112f0c9ed2be4173]]();
 
 
 <a name="l00023"></a>   23 };
 
 
-[[classCMyBusy]]
+[[CMyBusy|classCMyBusy]]
 
 Provides a busy command to override the SBS one. There is no concept of "busy" for DDAS systems,...
 
 **Definition:** CMyBusy.h:15
 
 
-[[classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]
+[[CMyBusy::~CMyBusy|classCMyBusy#a6b671d2d705a204f8a99abcd0be33465]]
 
 ~CMyBusy()
 
@@ -83,7 +83,7 @@ Destructor.
 **Definition:** CMyBusy.h:18
 
 
-[[classCMyBusy#a886cbcbf9cd8bb5dcae900a6a519db6a]]
+[[CMyBusy::CMyBusy|classCMyBusy#a886cbcbf9cd8bb5dcae900a6a519db6a]]
 
 CMyBusy()
 
@@ -92,7 +92,7 @@ Default constructor.
 **Definition:** CMyBusy.cpp:16
 
 
-[[classCMyBusy#a95c6377a23f4026f112f0c9ed2be4173]]
+[[CMyBusy::GoClear|classCMyBusy#a95c6377a23f4026f112f0c9ed2be4173]]
 
 virtual void GoClear()
 
@@ -101,7 +101,7 @@ Do nothing.
 **Definition:** CMyBusy.cpp:24
 
 
-[[classCMyBusy#abc37d7a3040f7dc03ded1d569a31fcc8]]
+[[CMyBusy::GoBusy|classCMyBusy#abc37d7a3040f7dc03ded1d569a31fcc8]]
 
 virtual void GoBusy()
 

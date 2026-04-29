@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__ParameterValue]]
+- [[_ParameterValue|structfrib_1_1analysis_1_1__ParameterValue]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1__ParameterValue-members]]
+[[List of all members|structfrib_1_1analysis_1_1__ParameterValue-members]]
 
 
 frib::analysis::_ParameterValue Struct Reference
@@ -53,7 +53,7 @@ This contains the value of one parameter.
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems_8h_source]]
+The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|AnalysisRingItems_8h_source]]
 
  contents 
  start footer part 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Public Attributes](#pub-attribs) |
-[[structCMutexAttr-members]]
+[[List of all members|structCMutexAttr-members]]
 
 
 CMutexAttr Struct Reference
@@ -79,7 +79,7 @@ Direct encapsulation of a pthread mutex attribute block. We only support the att
 | --- | --- | --- | --- | --- |
 | CMutexAttr::CMutexAttr | ( |  | ) |  |
 
-Construct a [[structCMutexAttr]]&. The member is just initialized and [[classCErrnoException]] thrown if there was an error:
+Construct a [[CMutexAttr|structCMutexAttr]]&. The member is just initialized and [[CErrnoException|classCErrnoException]] thrown if there was an error:
 
 
 
@@ -90,7 +90,7 @@ Construct a [[structCMutexAttr]]&. The member is just initialized and [[classCEr
 | --- | --- | --- | --- | --- |
 | CMutexAttr::~CMutexAttr | ( |  | ) |  |
 
-Destruction just destroys the attribute block, reporting a [[classCErrnoException]] if there's an error:
+Destruction just destroys the attribute block, reporting a [[CErrnoException|classCErrnoException]] if there's an error:
 
 
 ## Member Function Documentation
@@ -170,7 +170,7 @@ Set the mutex attributes to process private. The mutex can only synchronize thre
 
 ---
 
-The documentation for this struct was generated from the following files:- libtclplus/include/tclplus/[[CTCLMutex_8h_source]]
+The documentation for this struct was generated from the following files:- libtclplus/include/tclplus/[[CTCLMutex.h|CTCLMutex_8h_source]]
 - libtclplus/tclplus/CTCLMutex.cpp
 
  contents 

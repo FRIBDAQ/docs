@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCPixieSystemUtilities-members]]
+[[List of all members|classCPixieSystemUtilities-members]]
 
 
-CPixieSystemUtilities Class Reference[[group__utilities]]
+CPixieSystemUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
 
 header
 System manager class for DDAS.  
- [[classCPixieSystemUtilities#details]]
+ [[More...|classCPixieSystemUtilities#details]]
 
 
 `#include <CPixieSystemUtilities.h>`
@@ -75,7 +75,7 @@ System manager class for DDAS.
 System manager class for DDAS.
 
 
-This class manages the Pixie [[namespaceDAQ]] system. It controls loading and saving settings files, booting and exiting, and stores information about the state of the system which can be accessed across the ctypes interface.
+This class manages the Pixie [[DAQ|namespaceDAQ]] system. It controls loading and saving settings files, booting and exiting, and stores information about the state of the system which can be accessed across the ctypes interface.
 
 ## Constructor & Destructor Documentation
 
@@ -323,8 +323,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieSystemUtilities_8h_source]]
-- [[CPixieSystemUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieSystemUtilities.h|CPixieSystemUtilities_8h_source]]
+- [[CPixieSystemUtilities.cpp|CPixieSystemUtilities_8cpp]]
 
  contents 
  start footer part 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCItemConfiguration]]
-- [[structCItemConfiguration_1_1__ListSizeConstraint]]
+- [[CItemConfiguration|classCItemConfiguration]]
+- [[_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]]
 
  top 
 CItemConfiguration::_ListSizeConstraint Member List
 
 header
-This is the complete list of members for [[structCItemConfiguration_1_1__ListSizeConstraint]], including all inherited members.
+This is the complete list of members for [[CItemConfiguration::_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]], including all inherited members.
 
 
 |  |  |  |

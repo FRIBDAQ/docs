@@ -37,7 +37,7 @@ NoteTree parameters are inherently *not* threadsafe.
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[TreeParameter_8h_source]]
+The documentation for this class was generated from the following file:- base/[[TreeParameter.h|TreeParameter_8h_source]]
 
  contents 
  start footer part 

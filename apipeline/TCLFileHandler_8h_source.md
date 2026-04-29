@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLFileHandler.h
@@ -89,7 +89,7 @@ header
 
 <a name="l00031"></a>   31
 
-<a name="l00032"></a>[[classCTCLFileHandler]] class [[classCTCLFileHandler]]  : public [[classCTCLInterpreterObject]]
+<a name="l00032"></a>[[32|classCTCLFileHandler]] class [[CTCLFileHandler|classCTCLFileHandler]]  : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 <a name="l00033"></a>   33 {
 
@@ -103,55 +103,55 @@ header
 
 <a name="l00038"></a>   38
 
-<a name="l00039"></a>   39   [[classCTCLFileHandler]] ([[classCTCLInterpreterObject]]* pInterp,
+<a name="l00039"></a>   39   [[CTCLFileHandler|classCTCLFileHandler]] ([[CTCLInterpreterObject|classCTCLInterpreterObject]]* pInterp,
 
 <a name="l00040"></a>   40            TCLPLUS::UInt_t am_nFid = STDIN_FILENO) :
 
-<a name="l00041"></a>   41     [[classCTCLInterpreterObject]](pInterp->getInterpreter()),
+<a name="l00041"></a>   41     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp->getInterpreter()),
 
 <a name="l00042"></a>   42     m_nFid (am_nFid)
 
 <a name="l00043"></a>   43   { }
 
-<a name="l00044"></a>   44   [[classCTCLFileHandler]]([[classCTCLInterpreterObject]]* pInterp,
+<a name="l00044"></a>   44   [[CTCLFileHandler|classCTCLFileHandler]]([[CTCLInterpreterObject|classCTCLInterpreterObject]]* pInterp,
 
 <a name="l00045"></a>   45           FILE* pFile) :
 
-<a name="l00046"></a>   46     [[classCTCLInterpreterObject]](pInterp->getInterpreter()),
+<a name="l00046"></a>   46     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp->getInterpreter()),
 
 <a name="l00047"></a>   47     m_nFid(fileno(pFile))
 
 <a name="l00048"></a>   48   { }
 
-<a name="l00049"></a>   49   [[classCTCLFileHandler]]([[classCTCLInterpreter]]* pInterp,
+<a name="l00049"></a>   49   [[CTCLFileHandler|classCTCLFileHandler]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00050"></a>   50            TCLPLUS::UInt_t am_nFid = STDIN_FILENO) :
 
-<a name="l00051"></a>   51     [[classCTCLInterpreterObject]](pInterp),
+<a name="l00051"></a>   51     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp),
 
 <a name="l00052"></a>   52     m_nFid(am_nFid)
 
 <a name="l00053"></a>   53   { }
 
-<a name="l00054"></a>   54   [[classCTCLFileHandler]]([[classCTCLInterpreter]]* pInterp,
+<a name="l00054"></a>   54   [[CTCLFileHandler|classCTCLFileHandler]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00055"></a>   55           FILE* pFile) :
 
-<a name="l00056"></a>   56     [[classCTCLInterpreterObject]](pInterp),
+<a name="l00056"></a>   56     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp),
 
 <a name="l00057"></a>   57     m_nFid(fileno(pFile))
 
 <a name="l00058"></a>   58   { }
 
-<a name="l00059"></a>   59   ~[[classCTCLFileHandler]] ( ) {Clear(); }       //Destructor
+<a name="l00059"></a>   59   ~[[CTCLFileHandler|classCTCLFileHandler]] ( ) {Clear(); }       //Destructor
 
 <a name="l00060"></a>   60             //Copy constructor
 
 <a name="l00061"></a>   61
 
-<a name="l00062"></a>   62   [[classCTCLFileHandler]] (const [[classCTCLFileHandler]]& aCTCLFileHandler )   :
+<a name="l00062"></a>   62   [[CTCLFileHandler|classCTCLFileHandler]] (const [[CTCLFileHandler|classCTCLFileHandler]]& aCTCLFileHandler )   :
 
-<a name="l00063"></a>   63     [[classCTCLInterpreterObject]] (aCTCLFileHandler)
+<a name="l00063"></a>   63     [[CTCLInterpreterObject|classCTCLInterpreterObject]] (aCTCLFileHandler)
 
 <a name="l00064"></a>   64   {
 
@@ -167,7 +167,7 @@ header
 
 <a name="l00070"></a>   70
 
-<a name="l00071"></a>   71   [[classCTCLFileHandler]]& operator= (const [[classCTCLFileHandler]]& aCTCLFileHandler)
+<a name="l00071"></a>   71   [[CTCLFileHandler|classCTCLFileHandler]]& operator= (const [[CTCLFileHandler|classCTCLFileHandler]]& aCTCLFileHandler)
 
 <a name="l00072"></a>   72   {
 
@@ -187,7 +187,7 @@ header
 
 <a name="l00080"></a>   80
 
-<a name="l00081"></a>   81   int operator== (const [[classCTCLFileHandler]]& aCTCLFileHandler) const
+<a name="l00081"></a>   81   int operator== (const [[CTCLFileHandler|classCTCLFileHandler]]& aCTCLFileHandler) const
 
 <a name="l00082"></a>   82  { return (
 
@@ -251,17 +251,17 @@ header
 
 <a name="l00112"></a>  112 #endif
 
-[[classCTCLFileHandler]]
+[[CTCLFileHandler|classCTCLFileHandler]]
 
 **Definition:** TCLFileHandler.h:32
 
 
-[[classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 

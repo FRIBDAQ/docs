@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 MyReader Member List
 
 header
-This is the complete list of members for [[classMyReader]], including all inherited members.
+This is the complete list of members for [[MyReader|classMyReader]], including all inherited members.
 
 
 |  |  |  |

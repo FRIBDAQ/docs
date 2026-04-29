@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
 
  top 
 SpecTclTypes.h

@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeVariable]]
-- [[structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
+- [[CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]
+- [[_Definition|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition-members]]
+[[List of all members|structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition-members]]
 
 
 frib::analysis::CTreeVariable::_Definition Struct Reference
@@ -123,8 +123,8 @@ copy constructor
 
 ---
 
-The documentation for this struct was generated from the following files:- base/[[TreeVariable_8h_source]]
-- base/[[TreeVariable_8cpp]]
+The documentation for this struct was generated from the following files:- base/[[TreeVariable.h|TreeVariable_8h_source]]
+- base/[[TreeVariable.cpp|TreeVariable_8cpp]]
 
  contents 
  start footer part 

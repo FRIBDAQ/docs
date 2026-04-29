@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCException-members]]
+[[List of all members|classCException-members]]
 
 
 CException Class Reference
@@ -46,7 +46,7 @@ Inheritance diagram for CException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -87,7 +87,7 @@ Inheritance diagram for CException:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[Exception_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[Exception.h|Exception_8h_source]]
 - libtclplus/exception/Exception.cpp
 
  contents 

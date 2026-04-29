@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser-members]]
+[[List of all members|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser-members]]
 
 
-DAQ::DDAS::FirmwareVersionFileParser Class Reference[[group__configuration]]
+DAQ::DDAS::FirmwareVersionFileParser Class Reference[[libConfiguration.so|group__configuration]]
 
 header
-A parser for the [[namespaceDAQ_1_1DDAS]] firmware specification file.  
- [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#details]]
+A parser for the [[DDAS|namespaceDAQ_1_1DDAS]] firmware specification file.  
+ [[More...|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#details]]
 
 
 `#include <FirmwareVersionFileParser.h>`
@@ -54,13 +54,13 @@ A parser for the [[namespaceDAQ_1_1DDAS]] firmware specification file.
 <a name="details"></a>## Detailed Description
 
 
-A parser for the [[namespaceDAQ_1_1DDAS]] firmware specification file.
+A parser for the [[DDAS|namespaceDAQ_1_1DDAS]] firmware specification file.
 
 
-The [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]] is designed to parse the DDASFirmwareVersions.txt file that is installed by the project. The DDASFirmwareVersions.txt file has two major sections. The top section contains fpga firmware file paths and the bottom section provides the paths to dsp configuration code. The format of this file can be observed in DDASFirmwareVersions.txt.in , which is the template file used by automake to generate the DDASFirmwareVersion.txt file.
+The [[FirmwareVersionFileParser|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser]] is designed to parse the DDASFirmwareVersions.txt file that is installed by the project. The DDASFirmwareVersions.txt file has two major sections. The top section contains fpga firmware file paths and the bottom section provides the paths to dsp configuration code. The format of this file can be observed in DDASFirmwareVersions.txt.in , which is the template file used by automake to generate the DDASFirmwareVersion.txt file.
 
 
-Ultimately, the contents of the DDASFirmwareVersions.txt file will be stored in the [[classDAQ_1_1DDAS_1_1Configuration]] object passed in as an argument to the [[classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]] method. That object will keep a database of the firmware files organized by their associated hardware type.
+Ultimately, the contents of the DDASFirmwareVersions.txt file will be stored in the [[Configuration|classDAQ_1_1DDAS_1_1Configuration]] object passed in as an argument to the [[parse()|classDAQ_1_1DDAS_1_1FirmwareVersionFileParser#a4a4ab2f51be93b48ac5f630e15c5646b]] method. That object will keep a database of the firmware files organized by their associated hardware type.
 
 ## Constructor & Destructor Documentation
 
@@ -121,14 +121,14 @@ Exceptions
 Any firmware configurations that were stored in the configuration object before this will be overwritten with new content.
 
 
-**[[todo#_todo000011]]**(ASC 3/13/24): CFWFileParseError for exceptions.
+**[[Todo:|todo#_todo000011]]**(ASC 3/13/24): CFWFileParseError for exceptions.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[FirmwareVersionFileParser_8h_source]]
-- [[FirmwareVersionFileParser_8cpp]]
+The documentation for this class was generated from the following files:- [[FirmwareVersionFileParser.h|FirmwareVersionFileParser_8h_source]]
+- [[FirmwareVersionFileParser.cpp|FirmwareVersionFileParser_8cpp]]
 
  contents 
  start footer part 

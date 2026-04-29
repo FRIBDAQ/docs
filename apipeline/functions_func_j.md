@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - j -
 
 - join()
-  : [[classCTCLThread#ac71f3baaac1f2798d0df83a03753379d]]
+  : [[CTCLThread|classCTCLThread#ac71f3baaac1f2798d0df83a03753379d]]
 
  contents 
  start footer part 

@@ -19,16 +19,16 @@ do not remove this div, it is closed by doxygen!
 ### - w -
 
 - wait()
-  : [[classCConditionVariable#a1ba7597ce5f1afe5cfd23026ad728900]]
+  : [[CConditionVariable|classCConditionVariable#a1ba7597ce5f1afe5cfd23026ad728900]]
 - worker()
-  : [[classMyApp#a38adff57af78fecf21b79f5a892e9a99]]
-  , [[classSortTest#a606721e85cdf931fd93da729b3d407f2]]
+  : [[MyApp|classMyApp#a38adff57af78fecf21b79f5a892e9a99]]
+  , [[SortTest|classSortTest#a606721e85cdf931fd93da729b3d407f2]]
 - Write()
-  : [[classCTCLChannel#ad2716c4fd8dd102c314cc22bf11dc8c6]]
+  : [[CTCLChannel|classCTCLChannel#ad2716c4fd8dd102c314cc22bf11dc8c6]]
 - writeEvent()
-  : [[classfrib_1_1analysis_1_1CDataWriter#a9828dc67ca5ac86422d8a6011888fa2f]]
+  : [[frib::analysis::CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a9828dc67ca5ac86422d8a6011888fa2f]]
 - writeItem()
-  : [[classfrib_1_1analysis_1_1CDataWriter#ab0466f58da7e1289338fac28bdfe3c44]]
+  : [[frib::analysis::CDataWriter|classfrib_1_1analysis_1_1CDataWriter#ab0466f58da7e1289338fac28bdfe3c44]]
 
  contents 
  start footer part 

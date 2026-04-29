@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[classDDASReadout_1_1HitManager]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[HitManager|classDDASReadout_1_1HitManager]]
 
  top 
 DDASReadout::HitManager Member List
 
 header
-This is the complete list of members for [[classDDASReadout_1_1HitManager]], including all inherited members.
+This is the complete list of members for [[DDASReadout::HitManager|classDDASReadout_1_1HitManager]], including all inherited members.
 
 
 |  |  |  |

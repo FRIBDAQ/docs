@@ -22,11 +22,11 @@ Here is a list of all documented class members with links to the class documenta
 ### - m -
 
 - makeDataTypes()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#aac8252e5e21c448705b6c63d81e302a9]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#aac8252e5e21c448705b6c63d81e302a9]]
 - MatchKeyword()
-  : [[classCTCLProcessor#acb90156fa3596d0ce666df2049328374]]
+  : [[CTCLProcessor|classCTCLProcessor#acb90156fa3596d0ce666df2049328374]]
 - messageHeaderType()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#a5185ccf668ee2098b0786a057e75f5a9]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a5185ccf668ee2098b0786a057e75f5a9]]
 
  contents 
  start footer part 

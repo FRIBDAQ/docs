@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeParameter]]
+- [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]
 
  top 
 [Classes](#nested-classes) |
@@ -31,7 +31,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Static Public Attributes](#pub-static-attribs) |
-[[classfrib_1_1analysis_1_1CTreeParameter-members]]
+[[List of all members|classfrib_1_1analysis_1_1CTreeParameter-members]]
 
 
 frib::analysis::CTreeParameter Class Reference
@@ -46,7 +46,7 @@ Collaboration diagram for frib::analysis::CTreeParameter:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -209,7 +209,7 @@ Collaboration diagram for frib::analysis::CTreeParameter:
 | --- | --- | --- | --- | --- |
 | frib::analysis::CTreeParameter::CTreeParameter | ( |  | ) |  |
 
-Constructors of instances of [[classfrib_1_1analysis_1_1CTreeParameter]]: default constructor Well actually I'd prefer to phase this out, however legacy code that constructed and then initialized might use this:
+Constructors of instances of [[CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter]]: default constructor Well actually I'd prefer to phase this out, however legacy code that constructed and then initialized might use this:
 
 - The name is set empty.
 - the definition point is set null.
@@ -760,7 +760,7 @@ Exceptions
 Static Method implementations: nextEvent
 
 - Increments m_generation.
-- Clears m_scorecard This sufficient to set all tree parameters to invalid and to have an empty event for [[classfrib_1_1analysis_1_1CTreeParameter#af4ee7dd5f48e4cc937980d0a360601ae]].
+- Clears m_scorecard This sufficient to set all tree parameters to invalid and to have an empty event for [[collectEvent()|classfrib_1_1analysis_1_1CTreeParameter#af4ee7dd5f48e4cc937980d0a360601ae]].
 
 
 
@@ -1227,7 +1227,7 @@ Exceptions
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeParameter_8h_source]]
+The documentation for this class was generated from the following files:- base/[[TreeParameter.h|TreeParameter_8h_source]]
 - base/TreeParameter.cpp
 
  contents 

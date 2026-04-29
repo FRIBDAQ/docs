@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[classDDASReadout_1_1ZeroCopyHit]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]
 
  top 
 DDASReadout::ZeroCopyHit Member List
 
 header
-This is the complete list of members for [[classDDASReadout_1_1ZeroCopyHit]], including all inherited members.
+This is the complete list of members for [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]], including all inherited members.
 
 
 |  |  |  |

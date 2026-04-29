@@ -22,15 +22,15 @@ Here is a list of all class members with links to the classes they belong to:
 ### - a -
 
 - AddChannelData()
-  : [[classDDASRootEvent#a2dab895cb0a8aa8cb2f1a6f5a8626749]]
+  : [[DDASRootEvent|classDDASRootEvent#a2dab895cb0a8aa8cb2f1a6f5a8626749]]
 - addCommands()
-  : [[classDDASReadoutMain#aac788b9d7f37d4d64683ca810861f3bc]]
+  : [[DDASReadoutMain|classDDASReadoutMain#aac788b9d7f37d4d64683ca810861f3bc]]
 - addHits()
-  : [[classDDASReadout_1_1HitManager#a35b7f949e1d57122d4c18b2e5c21e5ff]]
+  : [[DDASReadout::HitManager|classDDASReadout_1_1HitManager#a35b7f949e1d57122d4c18b2e5c21e5ff]]
 - AdjustOffsets()
-  : [[classCPixieDSPUtilities#a7de44ef4ae32c87ea62cef0c68859e84]]
+  : [[CPixieDSPUtilities|classCPixieDSPUtilities#a7de44ef4ae32c87ea62cef0c68859e84]]
 - allocate()
-  : [[classDDASReadout_1_1BufferArena#a1e033ab797363a5ecc38647602f1659c]]
+  : [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena#a1e033ab797363a5ecc38647602f1659c]]
 
  contents 
  start footer part 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLVariable-members]]
+[[List of all members|classCTCLVariable-members]]
 
 
 CTCLVariable Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLVariable:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLVariable:
@@ -51,7 +51,7 @@ Collaboration diagram for CTCLVariable:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -126,7 +126,7 @@ Collaboration diagram for CTCLVariable:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLVariable_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLVariable.h|TCLVariable_8h_source]]
 - libtclplus/tclplus/TCLVariable.cpp
 
  contents 

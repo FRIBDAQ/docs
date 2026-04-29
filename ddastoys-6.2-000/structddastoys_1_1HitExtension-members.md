@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1HitExtension]]
+- [[HitExtension|structddastoys_1_1HitExtension]]
 
  top 
 ddastoys::HitExtension Member List
 
 header
-This is the complete list of members for [[structddastoys_1_1HitExtension]], including all inherited members.
+This is the complete list of members for [[ddastoys::HitExtension|structddastoys_1_1HitExtension]], including all inherited members.
 
 
 |  |  |  |

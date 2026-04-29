@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 resultTest Member List
 
 header
-This is the complete list of members for [[classresultTest]], including all inherited members.
+This is the complete list of members for [[resultTest|classresultTest]], including all inherited members.
 
 
 |  |  |  |

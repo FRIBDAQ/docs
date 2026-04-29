@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classMyEcho-members]]
+[[List of all members|classMyEcho-members]]
 
 
 MyEcho Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for MyEcho:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for MyEcho:
@@ -50,7 +50,7 @@ Collaboration diagram for MyEcho:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

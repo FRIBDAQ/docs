@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLPackagedCommand-members]]
+[[List of all members|classCTCLPackagedCommand-members]]
 
 
 CTCLPackagedCommand Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLPackagedCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLPackagedCommand:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLPackagedCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -144,7 +144,7 @@ Collaboration diagram for CTCLPackagedCommand:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLPackagedCommand_8h_source]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLPackagedCommand.h|TCLPackagedCommand_8h_source]]
 
  contents 
  start footer part 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLChannel-members]]
+[[List of all members|classCTCLChannel-members]]
 
 
 CTCLChannel Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLChannel:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLChannel:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLChannel:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -392,7 +392,7 @@ Return values
 
 Special cases:
 
-- If the return value is 0, this means either that the end file was reached or that the channel is in nonblocking mode and had nothing to read. A call to [[classCTCLChannel#a9f4b714276d2f283b64fbb975b01e32d]] will distinguish between these two cases.
+- If the return value is 0, this means either that the end file was reached or that the channel is in nonblocking mode and had nothing to read. A call to [[atEof()|classCTCLChannel#a9f4b714276d2f283b64fbb975b01e32d]] will distinguish between these two cases.
 - The return value can be less than the requested value either because the end file was encountered, or because the encoding of the file required more than 1 byte per character.
 
 
@@ -473,7 +473,7 @@ Notes:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLChannel_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLChannel.h|TCLChannel_8h_source]]
 - libtclplus/tclplus/TCLChannel.cpp
 
  contents 

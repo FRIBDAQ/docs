@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1CFitEngine]]
+- [[CFitEngine|classddastoys_1_1CFitEngine]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[classddastoys_1_1CFitEngine-members]]
+[[List of all members|classddastoys_1_1CFitEngine-members]]
 
 
 ddastoys::CFitEngine Class Referenceabstract
 
 header
 Abstract base class for marshalling data to the fitting subsystems to calculate Jacobian elements and residuals.  
- [[classddastoys_1_1CFitEngine#details]]
+ [[More...|classddastoys_1_1CFitEngine#details]]
 
 
 `#include <CFitEngine.h>`
@@ -53,7 +53,7 @@ Inheritance diagram for ddastoys::CFitEngine:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -116,8 +116,8 @@ Marshall the (x, y) points into the coordinate vectors.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CFitEngine_8h_source]]
-- [[CFitEngine_8cpp]]
+The documentation for this class was generated from the following files:- [[CFitEngine.h|CFitEngine_8h_source]]
+- [[CFitEngine.cpp|CFitEngine_8cpp]]
 
  contents 
  start footer part 

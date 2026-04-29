@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structCMyTriggerSorter-members]]
+[[List of all members|structCMyTriggerSorter-members]]
 
 
 CMyTriggerSorter Struct Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CMyTriggerSorter:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CMyTriggerSorter:
@@ -49,7 +49,7 @@ Collaboration diagram for CMyTriggerSorter:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -77,7 +77,7 @@ Collaboration diagram for CMyTriggerSorter:
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[sorttests_8cpp]]
+The documentation for this struct was generated from the following file:- base/[[sorttests.cpp|sorttests_8cpp]]
 
  contents 
  start footer part 

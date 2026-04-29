@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCEventProcessor-members]]
+[[List of all members|classCEventProcessor-members]]
 
 
 CEventProcessor Class Reference
 
 header
 Define an event processor for DDAS data.  
- [[classCEventProcessor#details]]
+ [[More...|classCEventProcessor#details]]
 
 
 `#include <CEventProcessor.h>`
@@ -54,7 +54,7 @@ Define an event processor for DDAS data.
 Define an event processor for DDAS data.
 
 
-The class defines a functor that can be created and invoked from [[traceview_8cpp#a0ddf1224851353fc92bfbff6f499fa97]] to do the job of processing ring items from a source and handing them off to a data sink.
+The class defines a functor that can be created and invoked from [[main()|traceview_8cpp#a0ddf1224851353fc92bfbff6f499fa97]] to do the job of processing ring items from a source and handing them off to a data sink.
 
 ## Constructor & Destructor Documentation
 
@@ -125,15 +125,15 @@ Here we:
 - Invoke a processor to process the individual ring items.
 
 
-**[[todo#_todo000011]]**(ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits? 
-**[[todo#_todo000012]]**(ASC 3/10/23): To support different NSCLDAQ data formats, we need to read the version string from the args and create an appropriate ring item factory. The ROOT converter should be independent of the data format since we can hand it CPhysicsEventItems from the correct format type.
+**[[Todo:|todo#_todo000011]]**(ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits? 
+**[[Todo:|todo#_todo000012]]**(ASC 3/10/23): To support different NSCLDAQ data formats, we need to read the version string from the args and create an appropriate ring item factory. The ROOT converter should be independent of the data format since we can hand it CPhysicsEventItems from the correct format type.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CEventProcessor_8h_source]]
-- [[CEventProcessor_8cpp]]
+The documentation for this class was generated from the following files:- [[CEventProcessor.h|CEventProcessor_8h_source]]
+- [[CEventProcessor.cpp|CEventProcessor_8cpp]]
 
  contents 
  start footer part 

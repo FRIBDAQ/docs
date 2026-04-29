@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classFitManager-members]]
+[[List of all members|classFitManager-members]]
 
 
 FitManager Class Reference
 
 header
 Provides an interface for calculating trace fits using HitExtension fit parameters.  
- [[classFitManager#details]]
+ [[More...|classFitManager#details]]
 
 
 `#include <FitManager.h>`
@@ -94,7 +94,7 @@ Wrapper class to call fitting functions from either the analytic fit or the temp
 Constructor.
 
 
-The [[classFitManager]] owns a Configuration object used to read settings from configuration files.
+The [[FitManager|classFitManager]] owns a Configuration object used to read settings from configuration files.
 
 
 
@@ -300,8 +300,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitManager_8h_source]]
-- [[FitManager_8cpp]]
+The documentation for this class was generated from the following files:- [[FitManager.h|FitManager_8h_source]]
+- [[FitManager.cpp|FitManager_8cpp]]
 
  contents 
  start footer part 

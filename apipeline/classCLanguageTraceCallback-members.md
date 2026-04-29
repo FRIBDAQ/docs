@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CLanguageTraceCallback Member List
 
 header
-This is the complete list of members for [[classCLanguageTraceCallback]], including all inherited members.
+This is the complete list of members for [[CLanguageTraceCallback|classCLanguageTraceCallback]], including all inherited members.
 
 
 |  |  |  |

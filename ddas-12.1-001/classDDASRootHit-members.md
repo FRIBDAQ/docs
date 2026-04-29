@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DDASRootHit Member List
 
 header
-This is the complete list of members for [[classDDASRootHit]], including all inherited members.
+This is the complete list of members for [[DDASRootHit|classDDASRootHit]], including all inherited members.
 
 
 |  |  |  |

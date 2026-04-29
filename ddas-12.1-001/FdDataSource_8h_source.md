@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
 FdDataSource.h
 
 header
-[[FdDataSource_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|FdDataSource_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -91,19 +91,19 @@ header
 <a name="l00021"></a>   21
 
 
-<a name="l00027"></a>   27 #include "[[DataSource_8h]]"
+<a name="l00027"></a>   27 #include "[[DataSource.h|DataSource_8h]]"
 
 
 <a name="l00028"></a>   28
 
 
-<a name="l00029"></a>   29 using namespace [[namespaceufmt]];
+<a name="l00029"></a>   29 using namespace [[ufmt|namespaceufmt]];
 
 
 <a name="l00030"></a>   30
 
 
-<a name="l00037"></a>[[classFdDataSource]] class [[classFdDataSource]] : public [[classDataSource]]
+<a name="l00037"></a>[[37|classFdDataSource]] class [[FdDataSource|classFdDataSource]] : public [[DataSource|classDataSource]]
 
 
 <a name="l00038"></a>   38 {
@@ -121,10 +121,10 @@ header
 <a name="l00042"></a>   42 public:
 
 
-<a name="l00049"></a>   49     [[classFdDataSource]](RingItemFactoryBase* pFactory, int fd);
+<a name="l00049"></a>   49     [[FdDataSource|classFdDataSource]](RingItemFactoryBase* pFactory, int fd);
 
 
-<a name="l00051"></a>   51     virtual ~[[classFdDataSource]]();
+<a name="l00051"></a>   51     virtual ~[[FdDataSource|classFdDataSource]]();
 
 
 <a name="l00058"></a>   58     virtual CRingItem* getItem();
@@ -139,26 +139,26 @@ header
 <a name="l00061"></a>   61 #endif
 
 
-[[DataSource_8h]]
+[[DataSource.h|DataSource_8h]]
 
 Works with factories to provide a data source for undifferentiated ring items.
 
 
-[[classDataSource]]
+[[DataSource|classDataSource]]
 
 Abstract base class for DDAS data sources.
 
 **Definition:** DataSource.h:48
 
 
-[[classFdDataSource]]
+[[FdDataSource|classFdDataSource]]
 
 A class taking the file descriptor as a data source. Most commonly used to construct a data source fr...
 
 **Definition:** FdDataSource.h:38
 
 
-[[namespaceufmt]]
+[[ufmt|namespaceufmt]]
 
 **Definition:** DataSource.h:27
 

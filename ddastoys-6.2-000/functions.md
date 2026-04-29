@@ -22,384 +22,384 @@ Here is a list of all documented class members with links to the class documenta
 ### - a -
 
 - AddHit()
-  : [[classddastoys_1_1DDASRootFitEvent#a23226e89110532edc88fb2bbe2931587]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a23226e89110532edc88fb2bbe2931587]]
 - amplitude
-  : [[structddastoys_1_1PulseDescription#a7dfe5ec91515520c4ad705aa759b257d]]
+  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#a7dfe5ec91515520c4ad705aa759b257d]]
 
 
 ### - c -
 
 - CEventProcessor()
-  : [[classCEventProcessor#a747299b17063d417d1671b815d7b50fc]]
+  : [[CEventProcessor|classCEventProcessor#a747299b17063d417d1671b815d7b50fc]]
 - CFitEngine()
-  : [[classddastoys_1_1CFitEngine#a02450a79fd6e17ac2f52ddfa9ee07985]]
+  : [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a02450a79fd6e17ac2f52ddfa9ee07985]]
 - changeEvent()
-  : [[classQTraceView#a39b340b97f4e801d6d59437b257572b8]]
+  : [[QTraceView|classQTraceView#a39b340b97f4e801d6d59437b257572b8]]
 - chiSquare
-  : [[structddastoys_1_1fit1Info#a0fd88c11d1366d5c82eb9827dae20c3a]]
-  , [[structddastoys_1_1fit2Info#a416a2b2d7c2328c456d46060373fcb37]]
+  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a0fd88c11d1366d5c82eb9827dae20c3a]]
+  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#a416a2b2d7c2328c456d46060373fcb37]]
 - ClassDef()
-  : [[structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]
-  , [[structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]
-  , [[structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]
-  , [[structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]
+  : [[ddastoys::RootFit1Info|structddastoys_1_1RootFit1Info#a2e53ffcd2bee661d8647fce1180a4e01]]
+  , [[ddastoys::RootFit2Info|structddastoys_1_1RootFit2Info#ad1972696ac61f2c4fffa9f02e5aef3d5]]
+  , [[ddastoys::RootHitExtension|structddastoys_1_1RootHitExtension#aae9ee85f6a445b0b25128c29eef3d09c]]
+  , [[ddastoys::RootPulseDescription|structddastoys_1_1RootPulseDescription#a5a0cdd0030e3aec2e951046d073c83a5]]
 - clear()
-  : [[classQRootCanvas#a14fd250361570746acce8353fb6d2a82]]
+  : [[QRootCanvas|classQRootCanvas#a14fd250361570746acce8353fb6d2a82]]
 - Configuration()
-  : [[classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a296120b5c3d31854b76878414a6281cd]]
 - configure()
-  : [[classFitManager#a57e90158db0e785ae35757dbb3c47615]]
+  : [[FitManager|classFitManager#a57e90158db0e785ae35757dbb3c47615]]
 - createCudaFitEngine1()
-  : [[classddastoys_1_1analyticfit_1_1FitEngineFactory#adfe9c01407a002042a38a45d479976e8]]
+  : [[ddastoys::analyticfit::FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory#adfe9c01407a002042a38a45d479976e8]]
 - createCudaFitEngine2()
-  : [[classddastoys_1_1analyticfit_1_1FitEngineFactory#a16269d888b01355430d8dde44c15075b]]
+  : [[ddastoys::analyticfit::FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory#a16269d888b01355430d8dde44c15075b]]
 - createDataSource()
-  : [[classDDASDecoder#acc08971f461ec3e3bf52958f1875e49f]]
+  : [[DDASDecoder|classDDASDecoder#acc08971f461ec3e3bf52958f1875e49f]]
 - createSerialFitEngine1()
-  : [[classddastoys_1_1analyticfit_1_1FitEngineFactory#a6b14e6f33763fcc24cd42e1f18b2dce2]]
+  : [[ddastoys::analyticfit::FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory#a6b14e6f33763fcc24cd42e1f18b2dce2]]
 - createSerialFitEngine2()
-  : [[classddastoys_1_1analyticfit_1_1FitEngineFactory#af289d3cdac662dad748bacd83a3cb647]]
+  : [[ddastoys::analyticfit::FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory#af289d3cdac662dad748bacd83a3cb647]]
 - CRingItemProcessor()
-  : [[classCRingItemProcessor#a548338280690b7797189885ea41c8e02]]
+  : [[CRingItemProcessor|classCRingItemProcessor#a548338280690b7797189885ea41c8e02]]
 - CudaFitEngine1()
-  : [[classddastoys_1_1analyticfit_1_1CudaFitEngine1#a8129a0b15f4fc6bc1e775e4aa173970c]]
+  : [[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a8129a0b15f4fc6bc1e775e4aa173970c]]
 - CudaFitEngine2()
-  : [[classddastoys_1_1analyticfit_1_1CudaFitEngine2#a88d444932918e4e861a3359601cf11c3]]
+  : [[ddastoys::analyticfit::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a88d444932918e4e861a3359601cf11c3]]
 
 
 ### - d -
 
 - DDASDecoder()
-  : [[classDDASDecoder#a824a8a21443e7c4c5290e84ebcd51ffe]]
+  : [[DDASDecoder|classDDASDecoder#a824a8a21443e7c4c5290e84ebcd51ffe]]
 - DDASFitHit()
-  : [[classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]
 - DDASRootFitEvent()
-  : [[classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a299d029969c6ed8487f82ae695efaddb]]
 - DDASRootFitHit()
-  : [[classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]
+  : [[ddastoys::DDASRootFitHit|classddastoys_1_1DDASRootFitHit#ace1d313dc95d0a43072a4ec8f08bb658]]
 - decayTime
-  : [[structddastoys_1_1PulseDescription#a721c2b83dd1f33cfcd5a039442ff6e83]]
+  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#a721c2b83dd1f33cfcd5a039442ff6e83]]
 - decode()
-  : [[classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]]
+  : [[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]]
 - doubleProb
-  : [[structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]]
+  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ad0f8a09a2a3be5a521acdc56f5891c42]]
 - drawHit()
-  : [[classQRootCanvas#a1455dcb6a5846c46b354f24e40933aa0]]
+  : [[QRootCanvas|classQRootCanvas#a1455dcb6a5846c46b354f24e40933aa0]]
 
 
 ### - f -
 
 - fitChannel()
-  : [[classddastoys_1_1Configuration#a5c5b21cc582e272b2c6f7527da681c99]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a5c5b21cc582e272b2c6f7527da681c99]]
 - FitEditorAnalytic()
-  : [[classddastoys_1_1FitEditorAnalytic#a7acb31121f6fc4bb9487a0a6796080a6]]
+  : [[ddastoys::FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic#a7acb31121f6fc4bb9487a0a6796080a6]]
 - FitEditorMLInference()
-  : [[classddastoys_1_1FitEditorMLInference#a471e3f88230c6f6515aab43788c8645d]]
+  : [[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a471e3f88230c6f6515aab43788c8645d]]
 - FitEditorTemplate()
-  : [[classddastoys_1_1FitEditorTemplate#a2da6cad5246f3d284d52f8233deef313]]
+  : [[ddastoys::FitEditorTemplate|classddastoys_1_1FitEditorTemplate#a2da6cad5246f3d284d52f8233deef313]]
 - FitInfo()
-  : [[structddastoys_1_1FitInfo#af1ba3e561df65f66a0000a142db07fad]]
+  : [[ddastoys::FitInfo|structddastoys_1_1FitInfo#af1ba3e561df65f66a0000a142db07fad]]
 - FitInfoLegacy()
-  : [[structddastoys_1_1FitInfoLegacy#a55bfcd0a28ff7b1f566135df1ff02791]]
+  : [[ddastoys::FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a55bfcd0a28ff7b1f566135df1ff02791]]
 - FitManager()
-  : [[classFitManager#af1d9514ea84fca9a10e101ce432a711e]]
+  : [[FitManager|classFitManager#af1d9514ea84fca9a10e101ce432a711e]]
 - fitStatus
-  : [[structddastoys_1_1fit1Info#a8dc20c4c1d52a7e5120ad1761c5ed949]]
-  , [[structddastoys_1_1fit2Info#aab25a88a6dce9c050ead9c72ba263b3b]]
+  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a8dc20c4c1d52a7e5120ad1761c5ed949]]
+  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#aab25a88a6dce9c050ead9c72ba263b3b]]
 - free()
-  : [[classddastoys_1_1FitEditorAnalytic#a456ae3d7ce567242612a9046904cfd9a]]
-  , [[classddastoys_1_1FitEditorMLInference#a3f9483cecb40afec96c5f4fd2147ad6f]]
-  , [[classddastoys_1_1FitEditorTemplate#a499912a2b7a9d3d228d0e997d1b7419c]]
+  : [[ddastoys::FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic#a456ae3d7ce567242612a9046904cfd9a]]
+  , [[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a3f9483cecb40afec96c5f4fd2147ad6f]]
+  , [[ddastoys::FitEditorTemplate|classddastoys_1_1FitEditorTemplate#a499912a2b7a9d3d228d0e997d1b7419c]]
 
 
 ### - g -
 
 - getCanvas()
-  : [[classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]
+  : [[QRootCanvas|classQRootCanvas#aedef0de1cb7808ce90b37dd833b0c4f3]]
 - GetData()
-  : [[classddastoys_1_1DDASRootFitEvent#af56cbdf673b8f640ba988c796fb860e0]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#af56cbdf673b8f640ba988c796fb860e0]]
 - getDoublePulseFit()
-  : [[classFitManager#aee1ff0d4d0df1925015edc8f1c646275]]
+  : [[FitManager|classFitManager#aee1ff0d4d0df1925015edc8f1c646275]]
 - getEvent()
-  : [[classDDASDecoder#a96c8eacdd36527949de03280ebc4453c]]
+  : [[DDASDecoder|classDDASDecoder#a96c8eacdd36527949de03280ebc4453c]]
 - getEventCount()
-  : [[classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]
+  : [[DDASDecoder|classDDASDecoder#adad1a4f8da31e2cbd3a8296f0e833c69]]
 - getEventIndex()
-  : [[classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]
+  : [[DDASDecoder|classDDASDecoder#a7c11c15d61a8c970d0cdfab5d7533c75]]
 - getExtension()
-  : [[classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]
 - getFilePath()
-  : [[classDDASDecoder#a309f906601e3de248708be5f3179a7b5]]
+  : [[DDASDecoder|classDDASDecoder#a309f906601e3de248708be5f3179a7b5]]
 - GetFirstTime()
-  : [[classddastoys_1_1DDASRootFitEvent#a4d5a750bd3aefacf3473ef3277f89e57]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a4d5a750bd3aefacf3473ef3277f89e57]]
 - getFitLimits()
-  : [[classddastoys_1_1Configuration#ae8a8ffe8a8763e39e860eb2662279d39]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#ae8a8ffe8a8763e39e860eb2662279d39]]
 - getHighFitLimit()
-  : [[classFitManager#af6c87a551fc75ace39c8f2054b84bc69]]
+  : [[FitManager|classFitManager#af6c87a551fc75ace39c8f2054b84bc69]]
 - GetLastTime()
-  : [[classddastoys_1_1DDASRootFitEvent#aae0d3c048629c6cf117f05ec1109236c]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#aae0d3c048629c6cf117f05ec1109236c]]
 - getLowFitLimit()
-  : [[classFitManager#a6ce16d6182c18eb657a2f49dc27948e4]]
+  : [[FitManager|classFitManager#a6ce16d6182c18eb657a2f49dc27948e4]]
 - getMethod()
-  : [[classFitManager#ab02717d1c735e6f579c3585b56a6412d]]
+  : [[FitManager|classFitManager#ab02717d1c735e6f579c3585b56a6412d]]
 - getModelList()
-  : [[classddastoys_1_1Configuration#a34a7d73e00be6fc04d187978dff4ae09]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a34a7d73e00be6fc04d187978dff4ae09]]
 - getModelPath()
-  : [[classddastoys_1_1Configuration#a94db3f175b98b8af0afca4f072d6c93a]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a94db3f175b98b8af0afca4f072d6c93a]]
 - getSaturationValue()
-  : [[classddastoys_1_1Configuration#af2455da9bfc9671d6e7f5a36b95d0d27]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#af2455da9bfc9671d6e7f5a36b95d0d27]]
 - getSinglePulseFit()
-  : [[classFitManager#a91d4ae26e9ab9e17c89a465505403e1d]]
+  : [[FitManager|classFitManager#a91d4ae26e9ab9e17c89a465505403e1d]]
 - getTemplate()
-  : [[classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a0777249dcb4ca51f0eaf6db924a9290b]]
 - getTemplateAlignPoint()
-  : [[classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]
 - GetTimeWidth()
-  : [[classddastoys_1_1DDASRootFitEvent#a1b06e06e7460d090b4ba6ecd926c9d13]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a1b06e06e7460d090b4ba6ecd926c9d13]]
 - getUnpackedHits()
-  : [[classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]
+  : [[TraceViewProcessor|classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]
 
 
 ### - h -
 
 - hasExtension()
-  : [[classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]
 - HitExtension()
-  : [[structddastoys_1_1HitExtension#ac8751242514b0198b362a02023fe9479]]
+  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ac8751242514b0198b362a02023fe9479]]
 
 
 ### - i -
 
 - iterations
-  : [[structddastoys_1_1fit1Info#a284e564281fe171e1fd567dc7fe86192]]
-  , [[structddastoys_1_1fit2Info#ab8686d8462ece209d2e552a298eda764]]
+  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a284e564281fe171e1fd567dc7fe86192]]
+  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#ab8686d8462ece209d2e552a298eda764]]
 
 
 ### - j -
 
 - jacobian()
-  : [[classddastoys_1_1analyticfit_1_1CudaFitEngine1#a4f2749dc5b790598ad73d131104c92bf]]
-  , [[classddastoys_1_1analyticfit_1_1CudaFitEngine2#a59480ccd2761639a782db66df8af0d2b]]
-  , [[classddastoys_1_1analyticfit_1_1SerialFitEngine1#a24723626242f1694379c0f8af26d175d]]
-  , [[classddastoys_1_1analyticfit_1_1SerialFitEngine2#a77e0e4a467fa2bb413ddb0c94c7da644]]
-  , [[classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]]
+  : [[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a4f2749dc5b790598ad73d131104c92bf]]
+  , [[ddastoys::analyticfit::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a59480ccd2761639a782db66df8af0d2b]]
+  , [[ddastoys::analyticfit::SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a24723626242f1694379c0f8af26d175d]]
+  , [[ddastoys::analyticfit::SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a77e0e4a467fa2bb413ddb0c94c7da644]]
+  , [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a96d60c77a96448db9fa01871070b0ef6]]
 
 
 ### - m -
 
 - m_hits
-  : [[classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#abeec01aa1c0823c73e97906be94740bb]]
 - mouseMoveEvent()
-  : [[classQRootCanvas#a3f1392564efd97cf935295f1fdef56fe]]
+  : [[QRootCanvas|classQRootCanvas#a3f1392564efd97cf935295f1fdef56fe]]
 - mousePressEvent()
-  : [[classQRootCanvas#a8bd59138c80ffa28a1a06f8eb4200d56]]
+  : [[QRootCanvas|classQRootCanvas#a8bd59138c80ffa28a1a06f8eb4200d56]]
 - mouseReleaseEvent()
-  : [[classQRootCanvas#a5921076f00c65a1b1d8b84231b24dab3]]
+  : [[QRootCanvas|classQRootCanvas#a5921076f00c65a1b1d8b84231b24dab3]]
 
 
 ### - n -
 
 - nullExtension()
-  : [[structddastoys_1_1nullExtension#ae2fdd115094befd4c3d0485573105426]]
+  : [[ddastoys::nullExtension|structddastoys_1_1nullExtension#ae2fdd115094befd4c3d0485573105426]]
 
 
 ### - o -
 
 - offset
-  : [[structddastoys_1_1fit1Info#a28fcfa9a811b677edba81832655506a3]]
-  , [[structddastoys_1_1fit2Info#a08e5d4968217ec0bc94a3f9c54a926b2]]
+  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#a28fcfa9a811b677edba81832655506a3]]
+  , [[ddastoys::fit2Info|structddastoys_1_1fit2Info#a08e5d4968217ec0bc94a3f9c54a926b2]]
 - onePulseFit
-  : [[structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]]
-  , [[structddastoys_1_1HitExtensionLegacy#ad8818a1b170c3d7035e02c8aa0871f6b]]
+  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ad472ad612d4caf1b2b40cd6d26e0d128]]
+  , [[ddastoys::HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy#ad8818a1b170c3d7035e02c8aa0871f6b]]
 - operator()()
-  : [[classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]]
-  , [[classddastoys_1_1FitEditorAnalytic#a37a0c73bc2428d947b5b40081e2e5515]]
-  , [[classddastoys_1_1FitEditorMLInference#aec80def3c2a2c6afd708cacce02740e0]]
-  , [[classddastoys_1_1FitEditorTemplate#aa0dfaceb9026a15282a2c9a3fbd05de7]]
+  : [[CEventProcessor|classCEventProcessor#a28600238d0e8cf1e5fa853316ade86e8]]
+  , [[ddastoys::FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic#a37a0c73bc2428d947b5b40081e2e5515]]
+  , [[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference#aec80def3c2a2c6afd708cacce02740e0]]
+  , [[ddastoys::FitEditorTemplate|classddastoys_1_1FitEditorTemplate#aa0dfaceb9026a15282a2c9a3fbd05de7]]
 - operator=()
-  : [[classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]]
-  , [[classddastoys_1_1DDASRootFitEvent#a7a5be1726e659a5c23cac496f8273828]]
-  , [[classddastoys_1_1DDASRootFitHit#a04e3fb03b975599f2d52c84e32b2590c]]
-  , [[classddastoys_1_1FitEditorAnalytic#a93223d4d66d506bda46e1b9205bd076d]]
-  , [[classddastoys_1_1FitEditorMLInference#ae894239167365ade91a86defa3b991af]]
-  , [[classddastoys_1_1FitEditorTemplate#aa346a3f71dade61199111d19164bcbb4]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]]
+  , [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a7a5be1726e659a5c23cac496f8273828]]
+  , [[ddastoys::DDASRootFitHit|classddastoys_1_1DDASRootFitHit#a04e3fb03b975599f2d52c84e32b2590c]]
+  , [[ddastoys::FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic#a93223d4d66d506bda46e1b9205bd076d]]
+  , [[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference#ae894239167365ade91a86defa3b991af]]
+  , [[ddastoys::FitEditorTemplate|classddastoys_1_1FitEditorTemplate#aa346a3f71dade61199111d19164bcbb4]]
 
 
 ### - p -
 
 - paintEvent()
-  : [[classQRootCanvas#a2ff7763fabeca694b727e672ffd90446]]
+  : [[QRootCanvas|classQRootCanvas#a2ff7763fabeca694b727e672ffd90446]]
 - position
-  : [[structddastoys_1_1PulseDescription#acac1ce0792a5923da20ffa74eb66691b]]
+  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#acac1ce0792a5923da20ffa74eb66691b]]
 - processEvent()
-  : [[classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]]
-  , [[classProcessToRootSink#acab9912362d68ca3e291e13e91828b21]]
-  , [[classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]]
+  : [[CRingItemProcessor|classCRingItemProcessor#aa7d9e38db85c6914baf0ea2b6862876f]]
+  , [[ProcessToRootSink|classProcessToRootSink#acab9912362d68ca3e291e13e91828b21]]
+  , [[TraceViewProcessor|classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]]
 - processEventCount()
-  : [[classCRingItemProcessor#ad40e90e2379274cdeba3b6e3684ea2cd]]
-  , [[classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]]
+  : [[CRingItemProcessor|classCRingItemProcessor#ad40e90e2379274cdeba3b6e3684ea2cd]]
+  , [[TraceViewProcessor|classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]]
 - processFormat()
-  : [[classCRingItemProcessor#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]]
+  : [[CRingItemProcessor|classCRingItemProcessor#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]]
 - processGlomParams()
-  : [[classCRingItemProcessor#a4fe9f6a8d52479dffbfd386b2eddd549]]
-  , [[classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]]
+  : [[CRingItemProcessor|classCRingItemProcessor#a4fe9f6a8d52479dffbfd386b2eddd549]]
+  , [[TraceViewProcessor|classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]]
 - processScalerItem()
-  : [[classCRingItemProcessor#a6effcf50a659f796abde459f4f9e741c]]
-  , [[classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]]
+  : [[CRingItemProcessor|classCRingItemProcessor#a6effcf50a659f796abde459f4f9e741c]]
+  , [[TraceViewProcessor|classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]]
 - processStateChangeItem()
-  : [[classCRingItemProcessor#afeae63a1f87299dbd7f7d36d49b4f375]]
+  : [[CRingItemProcessor|classCRingItemProcessor#afeae63a1f87299dbd7f7d36d49b4f375]]
 - processTextItem()
-  : [[classCRingItemProcessor#aae9b288e73a47f55fb84b183568c3c10]]
-  , [[classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]]
+  : [[CRingItemProcessor|classCRingItemProcessor#aae9b288e73a47f55fb84b183568c3c10]]
+  , [[TraceViewProcessor|classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]]
 - ProcessToRootSink()
-  : [[classProcessToRootSink#a269c5c0a814c978586f1e07942e61b85]]
+  : [[ProcessToRootSink|classProcessToRootSink#a269c5c0a814c978586f1e07942e61b85]]
 - processUnknownItemType()
-  : [[classCRingItemProcessor#af6296575a22ec026da72c9571b88f8b7]]
+  : [[CRingItemProcessor|classCRingItemProcessor#af6296575a22ec026da72c9571b88f8b7]]
 - pulse
-  : [[structddastoys_1_1fit1Info#afd4c01f18493324850b22dae9be64207]]
+  : [[ddastoys::fit1Info|structddastoys_1_1fit1Info#afd4c01f18493324850b22dae9be64207]]
 - pulses
-  : [[structddastoys_1_1fit2Info#a410768c2c76b361c08ed4ce7fee931d7]]
+  : [[ddastoys::fit2Info|structddastoys_1_1fit2Info#a410768c2c76b361c08ed4ce7fee931d7]]
 - put()
-  : [[classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
+  : [[RootFileDataSink|classRootFileDataSink#a227d894ea1dbccad820d4520918e3703]]
 - putItem()
-  : [[classRootFileDataSink#abb0d33280ddd69f3cc095c3cba92492b]]
+  : [[RootFileDataSink|classRootFileDataSink#abb0d33280ddd69f3cc095c3cba92492b]]
 
 
 ### - q -
 
 - QHitData()
-  : [[classQHitData#a65c4dfc15cd4a67f832d493e51a8347b]]
+  : [[QHitData|classQHitData#a65c4dfc15cd4a67f832d493e51a8347b]]
 - QRootCanvas()
-  : [[classQRootCanvas#a6a9e917186adecfde4dc743cf386049f]]
+  : [[QRootCanvas|classQRootCanvas#a6a9e917186adecfde4dc743cf386049f]]
 - QTraceView()
-  : [[classQTraceView#a229f3b9498e8d2a84ed741716f942b95]]
+  : [[QTraceView|classQTraceView#a229f3b9498e8d2a84ed741716f942b95]]
 
 
 ### - r -
 
 - readConfigFile()
-  : [[classddastoys_1_1Configuration#a731fab1b2b73567986bbbfbd84c1d4ca]]
-  , [[classFitManager#a85c6ee590463e4e2608ca5e76c28aa21]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a731fab1b2b73567986bbbfbd84c1d4ca]]
+  , [[FitManager|classFitManager#a85c6ee590463e4e2608ca5e76c28aa21]]
 - readTemplateFile()
-  : [[classddastoys_1_1Configuration#a8552c1df16585bc30cbc4706f62a3e62]]
-  , [[classFitManager#a727b01ddbe1030484a52204e3f099c5e]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a8552c1df16585bc30cbc4706f62a3e62]]
+  , [[FitManager|classFitManager#a727b01ddbe1030484a52204e3f099c5e]]
 - Reset()
-  : [[classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]
-  , [[classddastoys_1_1DDASRootFitEvent#a7a956c99486abe61b8a6209e5d912a0e]]
-  , [[classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]
+  , [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#a7a956c99486abe61b8a6209e5d912a0e]]
+  , [[ddastoys::DDASRootFitHit|classddastoys_1_1DDASRootFitHit#a7e84085f97d9d990bac1c2aeaa49a226]]
 - residuals()
-  : [[classddastoys_1_1analyticfit_1_1CudaFitEngine1#a85042242da59ca044ae70cdca1e36cb5]]
-  , [[classddastoys_1_1analyticfit_1_1CudaFitEngine2#a1db08004bd6f37f8f62861a8a311b30e]]
-  , [[classddastoys_1_1analyticfit_1_1SerialFitEngine1#ad8c1242fa432745d0eee0d703f82aedc]]
-  , [[classddastoys_1_1analyticfit_1_1SerialFitEngine2#a58399e52f404f4e3398c9140c0d168a8]]
-  , [[classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]]
+  : [[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a85042242da59ca044ae70cdca1e36cb5]]
+  , [[ddastoys::analyticfit::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a1db08004bd6f37f8f62861a8a311b30e]]
+  , [[ddastoys::analyticfit::SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#ad8c1242fa432745d0eee0d703f82aedc]]
+  , [[ddastoys::analyticfit::SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a58399e52f404f4e3398c9140c0d168a8]]
+  , [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#abe25c7b7ff9be5e5cd2ab16567189e1d]]
 - resizeEvent()
-  : [[classQRootCanvas#a6db4f9f81c813ce87ed709968ec9e88b]]
+  : [[QRootCanvas|classQRootCanvas#a6db4f9f81c813ce87ed709968ec9e88b]]
 - RootFileDataSink()
-  : [[classRootFileDataSink#a2d1b4e6bdf14b8533520409c9dc6631c]]
+  : [[RootFileDataSink|classRootFileDataSink#a2d1b4e6bdf14b8533520409c9dc6631c]]
 
 
 ### - s -
 
 - s_extension
-  : [[structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]]
-  , [[structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]]
+  : [[ddastoys::FitInfo|structddastoys_1_1FitInfo#ab4df0bef19cd96b6d820eda09a8335bd]]
+  , [[ddastoys::FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a68daf0aace67e3d0d68bdc2dc0ab224c]]
 - s_pPoints
-  : [[structddastoys_1_1analyticfit_1_1GslFitParameters#a74d95f9de0e68a0cb7ca66d098097483]]
-  , [[structddastoys_1_1templatefit_1_1GslFitParameters#acd151d24c51b61c3678d95c47fdaba2d]]
+  : [[ddastoys::analyticfit::GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters#a74d95f9de0e68a0cb7ca66d098097483]]
+  , [[ddastoys::templatefit::GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters#acd151d24c51b61c3678d95c47fdaba2d]]
 - s_pTraceTemplate
-  : [[structddastoys_1_1templatefit_1_1GslFitParameters#ac996fd1b4706cfdb54a9853d76d69e96]]
+  : [[ddastoys::templatefit::GslFitParameters|structddastoys_1_1templatefit_1_1GslFitParameters#ac996fd1b4706cfdb54a9853d76d69e96]]
 - s_size
-  : [[structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]]
-  , [[structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]]
-  , [[structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]]
+  : [[ddastoys::FitInfo|structddastoys_1_1FitInfo#a933eb810c178d4b7cb549dda3a8016b5]]
+  , [[ddastoys::FitInfoLegacy|structddastoys_1_1FitInfoLegacy#a59b4dad564ab68abeaa1fae377e8388b]]
+  , [[ddastoys::nullExtension|structddastoys_1_1nullExtension#ac7ed35466cd7270c72d3c885d112537e]]
 - SerialFitEngine1()
-  : [[classddastoys_1_1analyticfit_1_1SerialFitEngine1#a8845508f89df90aca7ddb0752b59307f]]
+  : [[ddastoys::analyticfit::SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a8845508f89df90aca7ddb0752b59307f]]
 - SerialFitEngine2()
-  : [[classddastoys_1_1analyticfit_1_1SerialFitEngine2#a1ea9c546facd9dea6fba18e304f6f3bb]]
+  : [[ddastoys::analyticfit::SerialFitEngine2|classddastoys_1_1analyticfit_1_1SerialFitEngine2#a1ea9c546facd9dea6fba18e304f6f3bb]]
 - setExtension()
-  : [[classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]]
 - setFitMethod()
-  : [[classQHitData#a0b920a0b541e39ea7d2c6ad1b4dda3d5]]
+  : [[QHitData|classQHitData#a0b920a0b541e39ea7d2c6ad1b4dda3d5]]
 - setMethod()
-  : [[classFitManager#adb63cc29dd5473b4101cdf9748a0e58f]]
+  : [[FitManager|classFitManager#adb63cc29dd5473b4101cdf9748a0e58f]]
 - singleProb
-  : [[structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]]
+  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#ae1733006eeaa8b605c88dd1968961869]]
 - skip()
-  : [[classDDASDecoder#a81c5d199b821f38114235fc773b49364]]
+  : [[DDASDecoder|classDDASDecoder#a81c5d199b821f38114235fc773b49364]]
 - steepness
-  : [[structddastoys_1_1PulseDescription#afd9eb234ef215507bb9aaffce6f2744f]]
+  : [[ddastoys::PulseDescription|structddastoys_1_1PulseDescription#afd9eb234ef215507bb9aaffce6f2744f]]
 
 
 ### - t -
 
 - TraceViewProcessor()
-  : [[classTraceViewProcessor#a05cfc0bbc640942445352d0ded2b5420]]
+  : [[TraceViewProcessor|classTraceViewProcessor#a05cfc0bbc640942445352d0ded2b5420]]
 - twoPulseFit
-  : [[structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]]
-  , [[structddastoys_1_1HitExtensionLegacy#a34ae6f42360bc20948d7ef037bf90d44]]
+  : [[ddastoys::HitExtension|structddastoys_1_1HitExtension#abf671f97d05cff5d6ee87ebc9e6d86c2]]
+  , [[ddastoys::HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy#a34ae6f42360bc20948d7ef037bf90d44]]
 
 
 ### - u -
 
 - update()
-  : [[classQHitData#ac5d326f7f77d3b8888ce275ead700307]]
+  : [[QHitData|classQHitData#ac5d326f7f77d3b8888ce275ead700307]]
 
 
 ### - x -
 
 - x
-  : [[classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]
+  : [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a382447bdd280558a0ee6914b7dcbd34e]]
 
 
 ### - y -
 
 - y
-  : [[classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]
+  : [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#aebae9a8493cdbf588dfab78d31dad638]]
 
 
 ### - ~ -
 
 - ~CEventProcessor()
-  : [[classCEventProcessor#ab26433d9692ac374be3f55c8065b2aef]]
+  : [[CEventProcessor|classCEventProcessor#ab26433d9692ac374be3f55c8065b2aef]]
 - ~CFitEngine()
-  : [[classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]
+  : [[ddastoys::CFitEngine|classddastoys_1_1CFitEngine#a181d0de9a2695a0aeb50f63098901d74]]
 - ~Configuration()
-  : [[classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]
+  : [[ddastoys::Configuration|classddastoys_1_1Configuration#a4bdd35e30389892e1afb3fc09208dbc9]]
 - ~CRingItemProcessor()
-  : [[classCRingItemProcessor#a4be9670039452778f73e545d9bcfc3e6]]
+  : [[CRingItemProcessor|classCRingItemProcessor#a4be9670039452778f73e545d9bcfc3e6]]
 - ~CudaFitEngine1()
-  : [[classddastoys_1_1analyticfit_1_1CudaFitEngine1#a05ac41954e926579449ed4236939d27d]]
+  : [[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1#a05ac41954e926579449ed4236939d27d]]
 - ~CudaFitEngine2()
-  : [[classddastoys_1_1analyticfit_1_1CudaFitEngine2#a8174e72f7fdd7ad2039223605080e5a2]]
+  : [[ddastoys::analyticfit::CudaFitEngine2|classddastoys_1_1analyticfit_1_1CudaFitEngine2#a8174e72f7fdd7ad2039223605080e5a2]]
 - ~DDASDecoder()
-  : [[classDDASDecoder#afc3917088dae5b8d9ad15ec86c5d2e93]]
+  : [[DDASDecoder|classDDASDecoder#afc3917088dae5b8d9ad15ec86c5d2e93]]
 - ~DDASFitHit()
-  : [[classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]
+  : [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]
 - ~DDASRootFitEvent()
-  : [[classddastoys_1_1DDASRootFitEvent#aa7b7813e28483a65926111849bfa2454]]
+  : [[ddastoys::DDASRootFitEvent|classddastoys_1_1DDASRootFitEvent#aa7b7813e28483a65926111849bfa2454]]
 - ~FitEditorAnalytic()
-  : [[classddastoys_1_1FitEditorAnalytic#a2118e5f50d0abb0296e2fafeecfc4502]]
+  : [[ddastoys::FitEditorAnalytic|classddastoys_1_1FitEditorAnalytic#a2118e5f50d0abb0296e2fafeecfc4502]]
 - ~FitEditorMLInference()
-  : [[classddastoys_1_1FitEditorMLInference#a5e1af5690f9cdf346de91868d40968c2]]
+  : [[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference#a5e1af5690f9cdf346de91868d40968c2]]
 - ~FitEditorTemplate()
-  : [[classddastoys_1_1FitEditorTemplate#aad6abd6ebbc7fc86a4f4fe9873dcb6c6]]
+  : [[ddastoys::FitEditorTemplate|classddastoys_1_1FitEditorTemplate#aad6abd6ebbc7fc86a4f4fe9873dcb6c6]]
 - ~FitManager()
-  : [[classFitManager#ae91054af3f17061de5d61f0c675eb9ba]]
+  : [[FitManager|classFitManager#ae91054af3f17061de5d61f0c675eb9ba]]
 - ~ProcessToRootSink()
-  : [[classProcessToRootSink#aba24da509dff1f2cce59b9ee8d4b868a]]
+  : [[ProcessToRootSink|classProcessToRootSink#aba24da509dff1f2cce59b9ee8d4b868a]]
 - ~QHitData()
-  : [[classQHitData#af3b2f2bde9994ea22ee2d0ac9477f493]]
+  : [[QHitData|classQHitData#af3b2f2bde9994ea22ee2d0ac9477f493]]
 - ~QRootCanvas()
-  : [[classQRootCanvas#a00c908fb6bc5c0c91d1b448cabcb2fc4]]
+  : [[QRootCanvas|classQRootCanvas#a00c908fb6bc5c0c91d1b448cabcb2fc4]]
 - ~QTraceView()
-  : [[classQTraceView#a80d1eca0f99941ee814c08550749c9d1]]
+  : [[QTraceView|classQTraceView#a80d1eca0f99941ee814c08550749c9d1]]
 - ~RootFileDataSink()
-  : [[classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
+  : [[RootFileDataSink|classRootFileDataSink#a3f326bab62a24915d799c663a51ea713]]
 - ~SerialFitEngine1()
-  : [[classddastoys_1_1analyticfit_1_1SerialFitEngine1#a40e41bfee2c232521b3583b927a1c3c3]]
+  : [[ddastoys::analyticfit::SerialFitEngine1|classddastoys_1_1analyticfit_1_1SerialFitEngine1#a40e41bfee2c232521b3583b927a1c3c3]]
 - ~TraceViewProcessor()
-  : [[classTraceViewProcessor#a67e2cd54a75e28537b036aefffcf6a2b]]
+  : [[TraceViewProcessor|classTraceViewProcessor#a67e2cd54a75e28537b036aefffcf6a2b]]
 
  contents 
  start footer part 

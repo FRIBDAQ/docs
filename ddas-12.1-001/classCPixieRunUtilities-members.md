@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CPixieRunUtilities Member List
 
 header
-This is the complete list of members for [[classCPixieRunUtilities]], including all inherited members.
+This is the complete list of members for [[CPixieRunUtilities|classCPixieRunUtilities]], including all inherited members.
 
 
 |  |  |  |

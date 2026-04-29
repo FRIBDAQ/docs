@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classQHitData-members]]
+[[List of all members|classQHitData-members]]
 
 
 QHitData Class Reference
 
 header
 Widget for managing hit information when interating with the GUI.  
- [[classQHitData#details]]
+ [[More...|classQHitData#details]]
 
 
 `#include <QHitData.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for QHitData:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for QHitData:
@@ -57,7 +57,7 @@ Collaboration diagram for QHitData:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -110,7 +110,7 @@ Parameters
 
 
 
-Constructs [[classQHitData]] widgets and defines their layout. This class does not manage the [[classFitManager]] object.
+Constructs [[QHitData|classQHitData]] widgets and defines their layout. This class does not manage the [[FitManager|classFitManager]] object.
 
 
 
@@ -124,7 +124,7 @@ Constructs [[classQHitData]] widgets and defines their layout. This class does n
 Destructor.
 
 
-Destruction of [[classFitManager]] is left to the caller which owns it.
+Destruction of [[FitManager|classFitManager]] is left to the caller which owns it.
 
 
 ## Member Function Documentation
@@ -180,8 +180,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[QHitData_8h_source]]
-- [[QHitData_8cpp]]
+The documentation for this class was generated from the following files:- [[QHitData.h|QHitData_8h_source]]
+- [[QHitData.cpp|QHitData_8cpp]]
 
  contents 
  start footer part 

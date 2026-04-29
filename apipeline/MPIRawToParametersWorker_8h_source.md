@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 MPIRawToParametersWorker.h
 
 header
-[[MPIRawToParametersWorker_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|MPIRawToParametersWorker_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -75,7 +75,7 @@ header
 
 <a name="l00027"></a>   27
 
-<a name="l00028"></a>   28 namespace [[namespacefrib]] {
+<a name="l00028"></a>   28 namespace [[frib|namespacefrib]] {
 
 <a name="l00029"></a>   29     namespace analysis {
 
@@ -89,27 +89,27 @@ header
 
 <a name="l00034"></a>   34         typedef struct _FRIB_MPI_Parameter_Value FRIB_MPI_Parameter_Value;
 
-<a name="l00067"></a>[[classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]         class [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker]] {
+<a name="l00067"></a>[[67|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]         class [[CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]] {
 
-<a name="l00068"></a>   68             [[classfrib_1_1analysis_1_1AbstractApplication]]& m_App;
+<a name="l00068"></a>   68             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& m_App;
 
 <a name="l00069"></a>   69             int          m_rank;
 
-<a name="l00070"></a>   70             [[structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]* m_pParameterBuffer;
+<a name="l00070"></a>   70             [[FRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]* m_pParameterBuffer;
 
 <a name="l00071"></a>   71             size_t       m_paramBufferSize;
 
 <a name="l00072"></a>   72         public:
 
-<a name="l00073"></a>   73             [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#aff53c2f12054e393131cb4b9fea297b0]]([[classfrib_1_1analysis_1_1AbstractApplication]]& App);
+<a name="l00073"></a>   73             [[CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#aff53c2f12054e393131cb4b9fea297b0]]([[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& App);
 
-<a name="l00074"></a>   74             virtual [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#a63e68aeb99164d97490120af12049ad2]]();
+<a name="l00074"></a>   74             virtual [[~CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#a63e68aeb99164d97490120af12049ad2]]();
 
-<a name="l00075"></a>   75             virtual void [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#ad5f4ca21f243f98d0ed3dc29da46c6a7]](int argc, char** argv);
+<a name="l00075"></a>   75             virtual void [[operator()|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#ad5f4ca21f243f98d0ed3dc29da46c6a7]](int argc, char** argv);
 
 <a name="l00076"></a>   76             virtual void initializeUserCode(
 
-<a name="l00077"></a>   77                 int argc, char** argv, [[classfrib_1_1analysis_1_1AbstractApplication]]& pApp
+<a name="l00077"></a>   77                 int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]& pApp
 
 <a name="l00078"></a>   78             ) {}
 
@@ -119,7 +119,7 @@ header
 
 <a name="l00081"></a>   81             void requestData();
 
-<a name="l00082"></a>   82             void getHeader([[structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]& header);
+<a name="l00082"></a>   82             void getHeader([[FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]& header);
 
 <a name="l00083"></a>   83             void getData(void* pData, size_t nBytes);
 
@@ -143,48 +143,48 @@ header
 
 <a name="l00093"></a>   93 #endif
 
-[[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#aff53c2f12054e393131cb4b9fea297b0]]
+[[frib::analysis::CMPIRawToParametersWorker::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#aff53c2f12054e393131cb4b9fea297b0]]
 
 CMPIRawToParametersWorker(AbstractApplication &App)
 
 **Definition:** MPIRawToParametersWorker.cpp:38
 
 
-[[classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]
+[[frib::analysis::_FRIB_MPI_Parameter_Value|structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value]]
 
 **Definition:** AnalysisRingItems.h:151
 
 
-[[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#a63e68aeb99164d97490120af12049ad2]]
+[[frib::analysis::CMPIRawToParametersWorker::~CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#a63e68aeb99164d97490120af12049ad2]]
 
 virtual ~CMPIRawToParametersWorker()
 
 **Definition:** MPIRawToParametersWorker.cpp:48
 
 
-[[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#ad5f4ca21f243f98d0ed3dc29da46c6a7]]
+[[frib::analysis::CMPIRawToParametersWorker::operator()|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#ad5f4ca21f243f98d0ed3dc29da46c6a7]]
 
 virtual void operator()(int argc, char **argv)
 
 **Definition:** MPIRawToParametersWorker.cpp:62
 
 
-[[structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]
+[[frib::analysis::_FRIB_MPI_Message_Header|structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header]]
 
 **Definition:** AnalysisRingItems.h:136
 
 
-[[classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]
+[[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]]
 
 **Definition:** MPIRawToParametersWorker.h:67
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1PulseDescription]]
+- [[PulseDescription|structddastoys_1_1PulseDescription]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1PulseDescription-members]]
+[[List of all members|structddastoys_1_1PulseDescription-members]]
 
 
 ddastoys::PulseDescription Struct Reference
 
 header
 Describes a single pulse without an offset.  
- [[structddastoys_1_1PulseDescription#details]]
+ [[More...|structddastoys_1_1PulseDescription#details]]
 
 
 `#include <fit_extensions.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::PulseDescription:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -77,7 +77,7 @@ Describes a single pulse without an offset.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
 
  contents 
  start footer part 

@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1FitEditorMLInference]]
+- [[FitEditorMLInference|classddastoys_1_1FitEditorMLInference]]
 
  top 
 ddastoys::FitEditorMLInference Member List
 
 header
-This is the complete list of members for [[classddastoys_1_1FitEditorMLInference]], including all inherited members.
+This is the complete list of members for [[ddastoys::FitEditorMLInference|classddastoys_1_1FitEditorMLInference]], including all inherited members.
 
 
 |  |  |  |

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCErrnoException-members]]
+[[List of all members|classCErrnoException-members]]
 
 
 CErrnoException Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CErrnoException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CErrnoException:
@@ -49,7 +49,7 @@ Collaboration diagram for CErrnoException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -108,7 +108,7 @@ Collaboration diagram for CErrnoException:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[ErrnoException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[ErrnoException.h|ErrnoException_8h_source]]
 - libtclplus/exception/ErrnoException.cpp
 
  contents 

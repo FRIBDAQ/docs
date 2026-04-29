@@ -45,7 +45,7 @@ This graph shows which files directly or indirectly include this file:
 ![](FitEditorAnalytic_8h__dep__incl.png)
 
 
-[[FitEditorAnalytic_8h_source]]
+[[Go to the source code of this file.|FitEditorAnalytic_8h_source]]
 
 
 |  |  |

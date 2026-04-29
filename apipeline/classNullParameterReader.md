@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classNullParameterReader-members]]
+[[List of all members|classNullParameterReader-members]]
 
 
 NullParameterReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for NullParameterReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for NullParameterReader:
@@ -48,7 +48,7 @@ Collaboration diagram for NullParameterReader:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -73,7 +73,7 @@ Collaboration diagram for NullParameterReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testParinput_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testParinput.cpp|testParinput_8cpp]]
 
  contents 
  start footer part 

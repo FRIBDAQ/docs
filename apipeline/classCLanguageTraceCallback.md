@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCLanguageTraceCallback-members]]
+[[List of all members|classCLanguageTraceCallback-members]]
 
 
 CLanguageTraceCallback Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CLanguageTraceCallback:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CLanguageTraceCallback:
@@ -51,7 +51,7 @@ Collaboration diagram for CLanguageTraceCallback:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -128,13 +128,13 @@ Parameters
 
 
 NoteIf the user tried to trick us by providing a null function pointer, we raise that as a TCL error. 
-Implements [[classCVariableTraceCallback]].
+Implements [[CVariableTraceCallback|classCVariableTraceCallback]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CLanguageTraceCallbacks_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CLanguageTraceCallbacks.h|CLanguageTraceCallbacks_8h_source]]
 - libtclplus/tclplus/CLanguageTraceCallbacks.cpp
 
  contents 

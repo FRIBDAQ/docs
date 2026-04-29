@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIRawReader]]
+- [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CMPIRawReader-members]]
+[[List of all members|classfrib_1_1analysis_1_1CMPIRawReader-members]]
 
 
 frib::analysis::CMPIRawReader Class Reference
@@ -100,8 +100,8 @@ operator() This is the functiuonal entry point:
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIRawReader_8h_source]]
-- base/[[MPIRawReader_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIRawReader.h|MPIRawReader_8h_source]]
+- base/[[MPIRawReader.cpp|MPIRawReader_8cpp]]
 
  contents 
  start footer part 

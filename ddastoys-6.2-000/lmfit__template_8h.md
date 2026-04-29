@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](lmfit__template_8h__dep__incl.png)
 
 
-[[lmfit__template_8h_source]]
+[[Go to the source code of this file.|lmfit__template_8h_source]]
 
 
 |  |  |

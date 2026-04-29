@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
 DataSource.cpp File Reference
 
 header
-Implementation of the non pure vir. methods of [[classDataSource]].  
+Implementation of the non pure vir. methods of [[DataSource|classDataSource]].  
 [More...](#details)
 
 
@@ -44,7 +44,7 @@ Include dependency graph for DataSource.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Implementation of the non pure vir. methods of [[classDataSource]].
+Implementation of the non pure vir. methods of [[DataSource|classDataSource]].
 
  contents 
  start footer part 

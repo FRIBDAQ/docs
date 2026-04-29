@@ -22,14 +22,14 @@ Here is a list of all class members with links to the classes they belong to:
 ### - i -
 
 - initialize()
-  : [[classCMyEventSegment#a99e7612c75cfb4989647682f348e9c54]]
-  , [[classCMyScaler#a3a509d3a55d3dd555357b5f0345b61b2]]
+  : [[CMyEventSegment|classCMyEventSegment#a99e7612c75cfb4989647682f348e9c54]]
+  , [[CMyScaler|classCMyScaler#a3a509d3a55d3dd555357b5f0345b61b2]]
 - Initialize()
-  : [[classCMyTrigger#ada58ec7c0b8aee0171b5142d790c29b4]]
+  : [[CMyTrigger|classCMyTrigger#ada58ec7c0b8aee0171b5142d790c29b4]]
 - isReferenced()
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#aebc8761a4e8521576c0ec30f921a19ac]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#aebc8761a4e8521576c0ec30f921a19ac]]
 - isVerbose()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a87348e50088ccee9eb5d200e2d991c5c]]
 
  contents 
  start footer part 

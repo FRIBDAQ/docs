@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[structfrib_1_1analysis_1_1__ParameterItem]]
+- [[_ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]]
 
  top 
 frib::analysis::_ParameterItem Member List
 
 header
-This is the complete list of members for [[structfrib_1_1analysis_1_1__ParameterItem]], including all inherited members.
+This is the complete list of members for [[frib::analysis::_ParameterItem|structfrib_1_1analysis_1_1__ParameterItem]], including all inherited members.
 
 
 |  |  |  |

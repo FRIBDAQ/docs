@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLResult-members]]
+[[List of all members|classCTCLResult-members]]
 
 
 CTCLResult Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLResult:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLResult:
@@ -53,7 +53,7 @@ Collaboration diagram for CTCLResult:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -188,7 +188,7 @@ Collaboration diagram for CTCLResult:
 <a name="details"></a>## Detailed Description
 
 
-Encapsulates an interpreter result. We derive this from a [[classCTCLObject]] in order to have the full expressive power of that class when building up the result string. The idea is that at construction the interpreter result will be reset or optionally our object loaded with its current value. Command processors will produce their result string here and then either at destruction time or explicitly, we will commit our contents to the result.
+Encapsulates an interpreter result. We derive this from a [[CTCLObject|classCTCLObject]] in order to have the full expressive power of that class when building up the result string. The idea is that at construction the interpreter result will be reset or optionally our object loaded with its current value. Command processors will produce their result string here and then either at destruction time or explicitly, we will commit our contents to the result.
 
 ## Constructor & Destructor Documentation
 
@@ -203,7 +203,7 @@ Encapsulates an interpreter result. We derive this from a [[classCTCLObject]] in
 |  |  | bool | reset=true |
 |  | ) |  |  |
 
-Constructs a [[classCTCLResult]]... Results are always bound to an interpreter...therefore our constructor requires an interpreter.
+Constructs a [[CTCLResult|classCTCLResult]]... Results are always bound to an interpreter...therefore our constructor requires an interpreter.
 
 Parameters
 |  |  |
@@ -311,7 +311,7 @@ Parameters
 
 
 
-Returns[[classCTCLResult]]& 
+Returns[[CTCLResult|classCTCLResult]]& 
 Return values
 |  |  |
 | --- | --- |
@@ -357,7 +357,7 @@ equality - comparisons are always true if the interpreters are the sam as there 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLResult_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLResult.h|TCLResult_8h_source]]
 - libtclplus/tclplus/TCLResult.cpp
 
  contents 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CConditionAttributes Member List
 
 header
-This is the complete list of members for [[structCConditionAttributes]], including all inherited members.
+This is the complete list of members for [[CConditionAttributes|structCConditionAttributes]], including all inherited members.
 
 
 |  |  |  |

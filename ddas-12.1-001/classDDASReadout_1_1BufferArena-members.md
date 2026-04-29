@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[classDDASReadout_1_1BufferArena]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[BufferArena|classDDASReadout_1_1BufferArena]]
 
  top 
 DDASReadout::BufferArena Member List
 
 header
-This is the complete list of members for [[classDDASReadout_1_1BufferArena]], including all inherited members.
+This is the complete list of members for [[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]], including all inherited members.
 
 
 |  |  |  |

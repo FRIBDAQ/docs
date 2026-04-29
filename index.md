@@ -1,7 +1,7 @@
 The FRIBDAQ (previously known as NSCLDAQ) software described in this documentation is licensed for
      use by the MSU Board of trustees under the GNU Public Licesne
 
-     see [[ http://www.gnu.org/licenses/gpl.txt]]
+     see [[http://www.gnu.org/licenses/gpl.txt| http://www.gnu.org/licenses/gpl.txt]]
      for terms and conditions
 
 
@@ -13,7 +13,7 @@ Other, open source, software is re-distributed with permission of the
 # DAQ presentations
 
 
-- [[nscldaqtofribdaq.pdf]]
+- [[Research Seminar 01/12/23|nscldaqtofribdaq.pdf]]
 
 
 # Containerized FRIBDAQ
@@ -29,14 +29,14 @@ Beginning with the deployment of Debian-10 (buster) at the NSCL/FRIB,
 
 
 
-- [[container-instructions.pdf]] for
+- [[Here are instructions|container-instructions.pdf]] for
         using the 
   	container environments we created at the FRIB.
 - Containerized environments also provide a simplified installation
         of FRIBDAQ software for external
-        users.[[DAQFromContainers.pdf]] describes how to
+        users.[[This document|DAQFromContainers.pdf]] describes how to
   	install a containerized FRIBDAQ.
-- [[extending-containers.pdf]] for
+- [[Here are instructions|extending-containers.pdf]] for
   	extending the containers we provide.
 
 
@@ -59,13 +59,15 @@ FRIBDAQ is a winner of the Sourceforge community choice award
 
 As you can imagine, FRIBDAQ is a large package with many utilities. Indeed 
      a lot of time has been spent documenting its capabilities. For more 
-     details, please continue reading the [[nscldaq-11.0/index]] of the FRIBDAQ 11.0 comprehensive documentation. That should get 
+     details, please continue reading the [[user's 
+     guide|nscldaq-11.0/index]] of the FRIBDAQ 11.0 comprehensive documentation. That should get 
      your feet wet.
 
 
-- [[nscldaq-11.3/index]]
-- [[cookbook/index]]
-- [[daqformat/index]]
+- [[## Proceed to User's
+  	      Guide|nscldaq-11.3/index]]
+- [[## FRIBDAQ Cookbook recipes|cookbook/index]]
+- [[## Library to decode FRIBDAQ data from several versions|daqformat/index]]
 
 
 # What is SpecTcl?
@@ -80,23 +82,33 @@ SpecTcl is for analysis what FRIBDAQ is for dataflow. SpecTcl is a C++
 SpecTcl is a winner of the SourceForge community choice award.
 
 
-- [[spectcl-5.0/UserGuide/index]](Added June 13, 2017)
-- [[spectcl/cmdref/index]] (Updated October 21, 2025)
-- [[spectcl/pgmguide/index]] (Updated October 21, 2025)
-- [[spectcl/pgmref/index]] (Updated October 21, 2025)
-- [[spectcl-5.0/DDAS/index]]
-- [[specbatch/index]]
-- [[spectcl/restdocs/index]] (Updated October 21, 2025)
-- [[parallel/index]]
-- [[qtpy/index]]
-- [[genx/index]]
-- [[spectcl-5.0/python/index]]
-- [[rootxamine/index]]
-- [[spectcldb/index]]
+- [[User guide for
+  	      5.0|spectcl-5.0/UserGuide/index]](Added June 13, 2017)
+- [[SpecTcl command
+  	      reference|spectcl/cmdref/index]] (Updated October 21, 2025)
+- [[Programming guide for
+  	      7.0|spectcl/pgmguide/index]] (Updated October 21, 2025)
+- [[Programming reference for
+  	7.0|spectcl/pgmref/index]] (Updated October 21, 2025)
+- [[SpecTcl tools for DDAS
+  	      (5.0-10 and later)|spectcl-5.0/DDAS/index]]
+- [[SpecTcl Batch and parallel SpecTcl
+  	    (5.2 and later)|specbatch/index]]
+- [[Documentation for SpecTcl's REST-like interface|spectcl/restdocs/index]] (Updated October 21, 2025)
+- [[Parallel SpecTcl (version 7.0+)|parallel/index]]
+- [[CutiePie (QtPy) Python-based displayer for
+              SpecTcl 5.13-000|qtpy/index]]
+- [[Genx framework independent analysis|genx/index]]
+- [[SpecTcl Python scripting
+  	    interface (5.3-000 and later).|spectcl-5.0/python/index]]
+- [[SpecTcl 5.10-006 introduces
+  	    how to get a Root interpreter that knows about the
+  	    spectra in a SpecTcl display (Xamine) shared memory.|rootxamine/index]]
+- [[SpecTcl Sqlite3 store|spectcldb/index]]
   	    (SpecTcl 5.3 and later), provides an Sqlite3 based store for
   	    SpecTcl objects and pre-processed event data.
-- [[vmusbspectcl/index]]
-- [[mvlcspectcl/index]]
+- [[Using SpecTcl with VMUSBReadout|vmusbspectcl/index]]
+- [[Using SpecTcl with data from fribdaq-readout (MVLC contoller)|mvlcspectcl/index]]
 - SpecTcl Plugin documentation
 
 
@@ -109,7 +121,7 @@ The FRIB Analysis Pipeline models analysis of data from experiments
 	 for stages of that pipeline.
 
 Documentation for the current version of this software is available
-	 at [[apipeline/index]]
+	 at [[The FRIB Analysis Pipeline|apipeline/index]]
 	 pages.   Installation of versions of this software is available
 	 within the container filesystems from Buster on at
 	  /usr/opt/frib-analysis/.
@@ -127,11 +139,11 @@ The Digital Data Acquisition System (DDAS) is a lab-supported data acquisition
       FRIBDAQ.
 
 
-- [[ddas-12.1-001/index]]
-  Note that this guide is specific to FRIBDAQ 12.0 and later; for legacy DDAS, see the [[ddas-1.1/index]]
-- [[ddasformat-1.1-001/index]]
-- [[ddastoys-6.2-000/index]]
-- [[pixie16/Pixie16_UserManual.pdf]]
+- [[## Proceed to User's Guide|ddas-12.1-001/index]]
+  Note that this guide is specific to FRIBDAQ 12.0 and later; for legacy DDAS, see the [[Legacy User's Guide|ddas-1.1/index]]
+- [[DDAS Data Format in FRIBDAQ|ddasformat-1.1-001/index]]
+- [[DDASToys Documentation|ddastoys-6.2-000/index]]
+- [[PIXIE 16 hardware Manual|pixie16/Pixie16_UserManual.pdf]]
 
 
 # FRIBDAQ Support for GET electronics
@@ -143,7 +155,7 @@ The GET (Generalized Electronics for TPCs) is a high density electronics
    GET Micro-TCA crates. See:
 
 
-### [[../get/index]]
+### [[See the NSCLCDAQ GET documentation|../get/index]]
 
 
 # Rustogrammer a new histogramer
@@ -156,4 +168,4 @@ Rustogrammer is a new histograming package written in rust and portable
       to SpecTcl to the desktop.
 
       See
-      [[rustogramer/index]]
+      [[The comprehensive documentation|rustogramer/index]]

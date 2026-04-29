@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCDataGenerator-members]]
+[[List of all members|classCDataGenerator-members]]
 
 
-CDataGenerator Class Reference[[group__utilities]]
+CDataGenerator Class Reference[[libPixieUtilities.so|group__utilities]]
 
 header
 A class to generate test pulse, run, and baseline data for offline operation of QtScope.  
- [[classCDataGenerator#details]]
+ [[More...|classCDataGenerator#details]]
 
 
 `#include <CDataGenerator.h>`
@@ -177,8 +177,8 @@ Params are a pointer to the start of the data storage and a size, as is done in 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CDataGenerator_8h_source]]
-- [[CDataGenerator_8cpp]]
+The documentation for this class was generated from the following files:- [[CDataGenerator.h|CDataGenerator_8h_source]]
+- [[CDataGenerator.cpp|CDataGenerator_8cpp]]
 
  contents 
  start footer part 

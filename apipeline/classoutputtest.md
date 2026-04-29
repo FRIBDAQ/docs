@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classoutputtest-members]]
+[[List of all members|classoutputtest-members]]
 
 
 outputtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for outputtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for outputtest:
@@ -47,7 +47,7 @@ Collaboration diagram for outputtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -78,7 +78,7 @@ Collaboration diagram for outputtest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testouttests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testouttests.cpp|testouttests_8cpp]]
 
  contents 
  start footer part 

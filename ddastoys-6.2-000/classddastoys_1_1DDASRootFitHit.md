@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1DDASRootFitHit]]
+- [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1DDASRootFitHit-members]]
+[[List of all members|classddastoys_1_1DDASRootFitHit-members]]
 
 
-ddastoys::DDASRootFitHit Class Reference[[group__ddasrootfitformat]]
+ddastoys::DDASRootFitHit Class Reference[[libDDASRootFitFormat.so|group__ddasrootfitformat]]
 
 header
 This class is a ROOT serializable DDAS hit with possible fit data.  
- [[classddastoys_1_1DDASRootFitHit#details]]
+ [[More...|classddastoys_1_1DDASRootFitHit#details]]
 
 
 `#include <DDASRootFitHit.h>`
@@ -51,7 +51,7 @@ Inheritance diagram for ddastoys::DDASRootFitHit:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::DDASRootFitHit:
@@ -66,7 +66,7 @@ Collaboration diagram for ddastoys::DDASRootFitHit:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -117,7 +117,7 @@ Collaboration diagram for ddastoys::DDASRootFitHit:
 This class is a ROOT serializable DDAS hit with possible fit data.
 
 
-This is a very, very simple class. It inherits from [[classddastoys_1_1DDASFitHit]] and ROOT's TObject class and adds a ROOT `ClassDef()` macro.
+This is a very, very simple class. It inherits from [[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]] and ROOT's TObject class and adds a ROOT `ClassDef()` macro.
 
 ## Constructor & Destructor Documentation
 
@@ -162,7 +162,7 @@ Parameters
 
 
 Returns*this. 
-NoteThis is the "normal" way we'll get data. Default construction and then assignment from a decoded [[classddastoys_1_1DDASFitHit]].
+NoteThis is the "normal" way we'll get data. Default construction and then assignment from a decoded [[DDASFitHit|classddastoys_1_1DDASFitHit]].
 
 
 
@@ -173,7 +173,7 @@ NoteThis is the "normal" way we'll get data. Default construction and then assig
 | --- | --- | --- | --- | --- | --- |
 | DDASRootFitHit& ddastoys::DDASRootFitHit::operator= | ( | constDDASRootFitHit& | rhs | ) |  |
 
-Assignment from another [[classddastoys_1_1DDASRootFitHit]].
+Assignment from another [[DDASRootFitHit|classddastoys_1_1DDASRootFitHit]].
 
 
 Parameters
@@ -190,8 +190,8 @@ Returns*this.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASRootFitHit_8h_source]]
-- [[DDASRootFitHit_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASRootFitHit.h|DDASRootFitHit_8h_source]]
+- [[DDASRootFitHit.cpp|DDASRootFitHit_8cpp]]
 
  contents 
  start footer part 

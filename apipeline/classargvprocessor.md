@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classargvprocessor-members]]
+[[List of all members|classargvprocessor-members]]
 
 
 argvprocessor Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for argvprocessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for argvprocessor:
@@ -47,7 +47,7 @@ Collaboration diagram for argvprocessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

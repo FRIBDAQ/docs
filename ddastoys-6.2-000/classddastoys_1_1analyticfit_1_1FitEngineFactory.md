@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[classddastoys_1_1analyticfit_1_1FitEngineFactory]]
+- [[FitEngineFactory|classddastoys_1_1analyticfit_1_1FitEngineFactory]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1analyticfit_1_1FitEngineFactory-members]]
+[[List of all members|classddastoys_1_1analyticfit_1_1FitEngineFactory-members]]
 
 
 ddastoys::analyticfit::FitEngineFactory Class Reference
 
 header
 Factory for creating fit serial and Cuda-enabled fit engines.  
- [[classddastoys_1_1analyticfit_1_1FitEngineFactory#details]]
+ [[More...|classddastoys_1_1analyticfit_1_1FitEngineFactory#details]]
 
 
 `#include <jacobian_analytic.h>`
@@ -156,7 +156,7 @@ ReturnsPointer to the created fit engine object.
 
 ---
 
-The documentation for this class was generated from the following file:- [[jacobian__analytic_8h_source]]
+The documentation for this class was generated from the following file:- [[jacobian_analytic.h|jacobian__analytic_8h_source]]
 
  contents 
  start footer part 

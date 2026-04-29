@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 VariableTraceCallback.h
@@ -57,17 +57,17 @@ header
 
 <a name="l00014"></a>   14
 
-<a name="l00015"></a>   15 class [[classCTCLInterpreter]];
+<a name="l00015"></a>   15 class [[CTCLInterpreter|classCTCLInterpreter]];
 
 <a name="l00016"></a>   16
 
-<a name="l00023"></a>[[classCVariableTraceCallback]] class [[classCVariableTraceCallback]]
+<a name="l00023"></a>[[23|classCVariableTraceCallback]] class [[CVariableTraceCallback|classCVariableTraceCallback]]
 
 <a name="l00024"></a>   24 {
 
 <a name="l00025"></a>   25  public:
 
-<a name="l00026"></a>   26   virtual char* operator()([[classCTCLInterpreter]]* pInterp,
+<a name="l00026"></a>   26   virtual char* operator()([[CTCLInterpreter|classCTCLInterpreter]]* pInterp,
 
 <a name="l00027"></a>   27                char* pVariable,
 
@@ -81,12 +81,12 @@ header
 
 <a name="l00032"></a>   32 #endif
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCVariableTraceCallback]]
+[[CVariableTraceCallback|classCVariableTraceCallback]]
 
 **Definition:** VariableTraceCallback.h:23
 

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1FitEditorTemplate]]
+- [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1FitEditorTemplate-members]]
+[[List of all members|classddastoys_1_1FitEditorTemplate-members]]
 
 
-ddastoys::FitEditorTemplate Class Reference[[group__template]]
+ddastoys::FitEditorTemplate Class Reference[[libFitEditorTemplate.so|group__template]]
 
 header
 Fit trace data with the template fitting functions.  
- [[classddastoys_1_1FitEditorTemplate#details]]
+ [[More...|classddastoys_1_1FitEditorTemplate#details]]
 
 
 `#include <FitEditorTemplate.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::FitEditorTemplate:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::FitEditorTemplate:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::FitEditorTemplate:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -119,7 +119,7 @@ Constructor.
 Sets up the configuration manager to parse config files and manage configuration data. Read the fit configuration file and the template file on creation.
 
 
-**[[todo#_todo000002]]**(ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration_8h]].
+**[[Todo:|todo#_todo000002]]**(ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|Configuration_8h]].
 
 
 
@@ -174,7 +174,7 @@ Constructs using move assignment.
 Destructor.
 
 
-Delete the [[classddastoys_1_1Configuration]] object managed by this class.
+Delete the [[Configuration|classddastoys_1_1Configuration]] object managed by this class.
 
 
 ## Member Function Documentation
@@ -226,7 +226,7 @@ Parameters
 
 
 ReturnsFinal segment descriptors.
-This is the hook into the [[classddastoys_1_1FitEditorTemplate]] class. Here we:
+This is the hook into the [[FitEditorTemplate|classddastoys_1_1FitEditorTemplate]] class. Here we:
 
 - Parse the fragment into a hit.
 - Produce a IOvec element for the existing hit (without any fit that might have been there).
@@ -285,8 +285,8 @@ ReturnsReference to created object.
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitEditorTemplate_8h_source]]
-- [[FitEditorTemplate_8cpp]]
+The documentation for this class was generated from the following files:- [[FitEditorTemplate.h|FitEditorTemplate_8h_source]]
+- [[FitEditorTemplate.cpp|FitEditorTemplate_8cpp]]
 
  contents 
  start footer part 

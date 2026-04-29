@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classMyWorker-members]]
+[[List of all members|classMyWorker-members]]
 
 
 MyWorker Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for MyWorker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for MyWorker:
@@ -48,7 +48,7 @@ Collaboration diagram for MyWorker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -84,7 +84,7 @@ Collaboration diagram for MyWorker:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testWorker2_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testWorker2.cpp|testWorker2_8cpp]]
 
  contents 
  start footer part 

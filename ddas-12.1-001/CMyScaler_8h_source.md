@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 CMyScaler.h
 
 header
-[[CMyScaler_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|CMyScaler_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef MYSCALER_H
@@ -55,7 +55,7 @@ header
 <a name="l00013"></a>   13
 
 
-<a name="l00047"></a>[[classCMyScaler]] class [[classCMyScaler]] : public CScaler
+<a name="l00047"></a>[[47|classCMyScaler]] class [[CMyScaler|classCMyScaler]] : public CScaler
 
 
 <a name="l00048"></a>   48 {
@@ -64,28 +64,28 @@ header
 <a name="l00049"></a>   49 public:
 
 
-<a name="l00051"></a>[[structCMyScaler_1_1__Counters]]     typedef struct [[structCMyScaler_1_1__Counters]] {
+<a name="l00051"></a>[[51|structCMyScaler_1_1__Counters]]     typedef struct [[_Counters|structCMyScaler_1_1__Counters]] {
 
 
-<a name="l00052"></a>[[structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]         size_t [[structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]];
+<a name="l00052"></a>[[52|structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]         size_t [[s_nTriggers|structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]];
 
 
-<a name="l00053"></a>[[structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]         size_t [[structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]];
+<a name="l00053"></a>[[53|structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]         size_t [[s_nAcceptedTriggers|structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]];
 
 
-<a name="l00054"></a>[[classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]     } [[classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]];
+<a name="l00054"></a>[[54|classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]     } [[Counters|classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]];
 
 
-<a name="l00056"></a>[[structCMyScaler_1_1__Statistics]]     typedef struct [[structCMyScaler_1_1__Statistics]] {
+<a name="l00056"></a>[[56|structCMyScaler_1_1__Statistics]]     typedef struct [[_Statistics|structCMyScaler_1_1__Statistics]] {
 
 
-<a name="l00057"></a>[[structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]         [[structCMyScaler_1_1__Counters]] [[structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]];
+<a name="l00057"></a>[[57|structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]         [[CMyScaler::Counters|structCMyScaler_1_1__Counters]] [[s_cumulative|structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]];
 
 
-<a name="l00058"></a>[[structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]         [[structCMyScaler_1_1__Counters]] [[structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]];
+<a name="l00058"></a>[[58|structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]         [[CMyScaler::Counters|structCMyScaler_1_1__Counters]] [[s_perRun|structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]];
 
 
-<a name="l00059"></a>[[classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]     } [[classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]];
+<a name="l00059"></a>[[59|classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]     } [[Statistics|classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]];
 
 
 <a name="l00060"></a>   60
@@ -109,7 +109,7 @@ header
 <a name="l00066"></a>   66     std::vector<uint32_t> m_scalers;
 
 
-<a name="l00067"></a>   67     [[classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]] m_statistics;
+<a name="l00067"></a>   67     [[Statistics|classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]] m_statistics;
 
 
 <a name="l00068"></a>   68
@@ -118,31 +118,31 @@ header
 <a name="l00069"></a>   69 public:
 
 
-<a name="l00075"></a>   75     [[classCMyScaler#abad930f12c999f15ddcbcfbc3d9b0fd9]](unsigned short mod, unsigned short crate);
+<a name="l00075"></a>   75     [[CMyScaler|classCMyScaler#abad930f12c999f15ddcbcfbc3d9b0fd9]](unsigned short mod, unsigned short crate);
 
 
-<a name="l00077"></a>   77     [[classCMyScaler#a6070895d1be3c1c7e7023c04add1e2f8]]();
+<a name="l00077"></a>   77     [[~CMyScaler|classCMyScaler#a6070895d1be3c1c7e7023c04add1e2f8]]();
 
 
 <a name="l00078"></a>   78
 
 
-<a name="l00080"></a>   80     virtual void [[classCMyScaler#a3a509d3a55d3dd555357b5f0345b61b2]]();
+<a name="l00080"></a>   80     virtual void [[initialize|classCMyScaler#a3a509d3a55d3dd555357b5f0345b61b2]]();
 
 
-<a name="l00085"></a>   85     virtual std::vector<uint32_t> [[classCMyScaler#a649a7e49363555ed4ccefb340cb26d01]]();
+<a name="l00085"></a>   85     virtual std::vector<uint32_t> [[read|classCMyScaler#a649a7e49363555ed4ccefb340cb26d01]]();
 
 
-<a name="l00087"></a>[[classCMyScaler#ad54a784dd8105bdb5ae9e9a4cb299ee0]]     virtual void [[classCMyScaler#ad54a784dd8105bdb5ae9e9a4cb299ee0]]() {};
+<a name="l00087"></a>[[87|classCMyScaler#ad54a784dd8105bdb5ae9e9a4cb299ee0]]     virtual void [[clear|classCMyScaler#ad54a784dd8105bdb5ae9e9a4cb299ee0]]() {};
 
 
-<a name="l00091"></a>[[classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]     virtual void [[classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]() {};
+<a name="l00091"></a>[[91|classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]     virtual void [[disable|classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]() {};
 
 
-<a name="l00096"></a>[[classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]     virtual unsigned int [[classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]() { return 32; };
+<a name="l00096"></a>[[96|classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]     virtual unsigned int [[size|classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]() { return 32; };
 
 
-<a name="l00101"></a>[[classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]     const [[structCMyScaler_1_1__Statistics]]& [[classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]() const { return m_statistics; }
+<a name="l00101"></a>[[101|classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]     const [[Statistics|structCMyScaler_1_1__Statistics]]& [[getStatistics|classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]() const { return m_statistics; }
 
 
 <a name="l00102"></a>  102
@@ -151,7 +151,7 @@ header
 <a name="l00103"></a>  103 private:
 
 
-<a name="l00104"></a>  104   void clearCounters([[classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]& c);
+<a name="l00104"></a>  104   void clearCounters([[Counters|classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]& c);
 
 
 <a name="l00105"></a>  105 };
@@ -163,14 +163,14 @@ header
 <a name="l00107"></a>  107 #endif
 
 
-[[classCMyScaler]]
+[[CMyScaler|classCMyScaler]]
 
 Generate scaler data from run statistics.
 
 **Definition:** CMyScaler.h:48
 
 
-[[classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]
+[[CMyScaler::size|classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]
 
 virtual unsigned int size()
 
@@ -179,14 +179,14 @@ Return the size of the scaler data.
 **Definition:** CMyScaler.h:96
 
 
-[[classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]
+[[CMyScaler::Counters|classCMyScaler#a2ae54cf0d3acd3424286fa333195b576]]
 
 struct CMyScaler::_Counters Counters
 
 Count raw and accepted triggers.
 
 
-[[classCMyScaler#a3a509d3a55d3dd555357b5f0345b61b2]]
+[[CMyScaler::initialize|classCMyScaler#a3a509d3a55d3dd555357b5f0345b61b2]]
 
 virtual void initialize()
 
@@ -195,7 +195,7 @@ Zero the per-run statistics and counters.
 **Definition:** CMyScaler.cpp:36
 
 
-[[classCMyScaler#a6070895d1be3c1c7e7023c04add1e2f8]]
+[[CMyScaler::~CMyScaler|classCMyScaler#a6070895d1be3c1c7e7023c04add1e2f8]]
 
 ~CMyScaler()
 
@@ -204,7 +204,7 @@ Destructor.
 **Definition:** CMyScaler.cpp:32
 
 
-[[classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]
+[[CMyScaler::getStatistics|classCMyScaler#a63c1f7fb299d451d520bc6377e1668db]]
 
 const Statistics & getStatistics() const
 
@@ -213,7 +213,7 @@ Get the run statistics.
 **Definition:** CMyScaler.h:101
 
 
-[[classCMyScaler#a649a7e49363555ed4ccefb340cb26d01]]
+[[CMyScaler::read|classCMyScaler#a649a7e49363555ed4ccefb340cb26d01]]
 
 virtual std::vector< uint32_t > read()
 
@@ -222,7 +222,7 @@ Read scalar data from a module.
 **Definition:** CMyScaler.cpp:56
 
 
-[[classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]
+[[CMyScaler::disable|classCMyScaler#a9d0c5185f0511a9c45112f19317e007d]]
 
 virtual void disable()
 
@@ -231,14 +231,14 @@ Disable. Scalars do not need to be disabled at the end of a run.
 **Definition:** CMyScaler.h:91
 
 
-[[classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]
+[[CMyScaler::Statistics|classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]
 
 struct CMyScaler::_Statistics Statistics
 
 Statistics are counters for cumulative and per-run triggers.
 
 
-[[classCMyScaler#abad930f12c999f15ddcbcfbc3d9b0fd9]]
+[[CMyScaler::CMyScaler|classCMyScaler#abad930f12c999f15ddcbcfbc3d9b0fd9]]
 
 CMyScaler(unsigned short mod, unsigned short crate)
 
@@ -247,7 +247,7 @@ Constructor.
 **Definition:** CMyScaler.cpp:19
 
 
-[[classCMyScaler#ad54a784dd8105bdb5ae9e9a4cb299ee0]]
+[[CMyScaler::clear|classCMyScaler#ad54a784dd8105bdb5ae9e9a4cb299ee0]]
 
 virtual void clear()
 
@@ -256,14 +256,14 @@ Cannot clear with Pixies. Does nothing.
 **Definition:** CMyScaler.h:87
 
 
-[[structCMyScaler_1_1__Counters]]
+[[CMyScaler::_Counters|structCMyScaler_1_1__Counters]]
 
 Count raw and accepted triggers.
 
 **Definition:** CMyScaler.h:51
 
 
-[[structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]
+[[CMyScaler::_Counters::s_nTriggers|structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]
 
 size_t s_nTriggers
 
@@ -272,7 +272,7 @@ Raw triggers.
 **Definition:** CMyScaler.h:52
 
 
-[[structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]
+[[CMyScaler::_Counters::s_nAcceptedTriggers|structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]
 
 size_t s_nAcceptedTriggers
 
@@ -281,14 +281,14 @@ Accepted triggers (i.e. by the FPGA).
 **Definition:** CMyScaler.h:53
 
 
-[[structCMyScaler_1_1__Statistics]]
+[[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics]]
 
 Statistics are counters for cumulative and per-run triggers.
 
 **Definition:** CMyScaler.h:56
 
 
-[[structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]
+[[CMyScaler::_Statistics::s_perRun|structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]
 
 CMyScaler::Counters s_perRun
 
@@ -297,7 +297,7 @@ Per-run. Cleared on initialize.
 **Definition:** CMyScaler.h:58
 
 
-[[structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]
+[[CMyScaler::_Statistics::s_cumulative|structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]
 
 CMyScaler::Counters s_cumulative
 

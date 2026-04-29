@@ -22,9 +22,9 @@ Here is a list of all class members with links to the classes they belong to:
 ### - w -
 
 - WriteChanPar()
-  : [[classCPixieDSPUtilities#a8e071b4b5ef48b43657c872996409c90]]
+  : [[CPixieDSPUtilities|classCPixieDSPUtilities#a8e071b4b5ef48b43657c872996409c90]]
 - WriteModPar()
-  : [[classCPixieDSPUtilities#ac6242792fb8839bc6f1d0306b4df28eb]]
+  : [[CPixieDSPUtilities|classCPixieDSPUtilities#ac6242792fb8839bc6f1d0306b4df28eb]]
 
  contents 
  start footer part 

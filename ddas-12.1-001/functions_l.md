@@ -22,7 +22,7 @@ Here is a list of all class members with links to the classes they belong to:
 ### - l -
 
 - LoadSetFile()
-  : [[classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]]
+  : [[CPixieSystemUtilities|classCPixieSystemUtilities#a7abb978776e7de015681fc24eb290cd9]]
 
  contents 
  start footer part 

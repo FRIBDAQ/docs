@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[classCConditionVariable-members]]
+[[List of all members|classCConditionVariable-members]]
 
 
 CConditionVariable Class Reference
@@ -267,7 +267,7 @@ Same as above, but with a bare Pthread mutex.
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLConditionVariable_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLConditionVariable.h|CTCLConditionVariable_8h_source]]
 - libtclplus/tclplus/CTCLConditionVariable.cpp
 
  contents 

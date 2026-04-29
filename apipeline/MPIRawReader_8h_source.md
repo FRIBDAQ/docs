@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 MPIRawReader.h
 
 header
-[[MPIRawReader_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|MPIRawReader_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -73,15 +73,15 @@ header
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 namespace [[namespacefrib]] {
+<a name="l00027"></a>   27 namespace [[frib|namespacefrib]] {
 
 <a name="l00028"></a>   28     namespace analysis {
 
 <a name="l00029"></a>   29         class CDataReader;
 
-<a name="l00030"></a>[[classMPIRawReader]]         class AbstractApplication;
+<a name="l00030"></a>[[30|classMPIRawReader]]         class AbstractApplication;
 
-<a name="l00052"></a>[[classfrib_1_1analysis_1_1CMPIRawReader]]         class [[classfrib_1_1analysis_1_1CMPIRawReader]] {
+<a name="l00052"></a>[[52|classfrib_1_1analysis_1_1CMPIRawReader]]         class [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]] {
 
 <a name="l00053"></a>   53         private:
 
@@ -89,9 +89,9 @@ header
 
 <a name="l00055"></a>   55             char** m_argv;
 
-<a name="l00056"></a>   56             [[classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
+<a name="l00056"></a>   56             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
 
-<a name="l00057"></a>   57             [[classfrib_1_1analysis_1_1CDataReader]]* m_pReader;
+<a name="l00057"></a>   57             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]* m_pReader;
 
 <a name="l00058"></a>   58             unsigned     m_nBlockSize;
 
@@ -99,23 +99,23 @@ header
 
 <a name="l00060"></a>   60         public:
 
-<a name="l00061"></a>   61             [[classfrib_1_1analysis_1_1CMPIRawReader#a21d667bc54e64fc0dae965d23c3a16e0]](int argc, char** argv, [[classfrib_1_1analysis_1_1AbstractApplication]]* pApp);
+<a name="l00061"></a>   61             [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader#a21d667bc54e64fc0dae965d23c3a16e0]](int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp);
 
-<a name="l00062"></a>   62             virtual [[classfrib_1_1analysis_1_1CMPIRawReader#a6722587cda7f1bdd38c66340304ff398]]();
+<a name="l00062"></a>   62             virtual [[~CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader#a6722587cda7f1bdd38c66340304ff398]]();
 
 <a name="l00063"></a>   63         private:
 
-<a name="l00064"></a>   64             [[classfrib_1_1analysis_1_1CMPIRawReader#a21d667bc54e64fc0dae965d23c3a16e0]](const [[classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
+<a name="l00064"></a>   64             [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader#a21d667bc54e64fc0dae965d23c3a16e0]](const [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
 
-<a name="l00065"></a>   65             [[classfrib_1_1analysis_1_1CMPIRawReader]]& operator=(const [[classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
+<a name="l00065"></a>   65             [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]& operator=(const [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
 
-<a name="l00066"></a>   66             int operator==(const [[classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
+<a name="l00066"></a>   66             int operator==(const [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
 
-<a name="l00067"></a>   67             int operator!=(const [[classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
+<a name="l00067"></a>   67             int operator!=(const [[CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]& rhs);
 
 <a name="l00068"></a>   68         public:
 
-<a name="l00069"></a>   69             void [[classfrib_1_1analysis_1_1CMPIRawReader#aeda3263f81671d4def39376af79804fe]]();
+<a name="l00069"></a>   69             void [[operator()|classfrib_1_1analysis_1_1CMPIRawReader#aeda3263f81671d4def39376af79804fe]]();
 
 <a name="l00070"></a>   70         private:
 
@@ -157,43 +157,43 @@ header
 
 <a name="l00089"></a>   89
 
-[[classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[classfrib_1_1analysis_1_1CDataReader]]
+[[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader]]
 
 **Definition:** DataReader.h:60
 
 
-[[classfrib_1_1analysis_1_1CMPIRawReader#aeda3263f81671d4def39376af79804fe]]
+[[frib::analysis::CMPIRawReader::operator()|classfrib_1_1analysis_1_1CMPIRawReader#aeda3263f81671d4def39376af79804fe]]
 
 void operator()()
 
 **Definition:** MPIRawReader.cpp:64
 
 
-[[classfrib_1_1analysis_1_1CMPIRawReader#a6722587cda7f1bdd38c66340304ff398]]
+[[frib::analysis::CMPIRawReader::~CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader#a6722587cda7f1bdd38c66340304ff398]]
 
 virtual ~CMPIRawReader()
 
 **Definition:** MPIRawReader.cpp:53
 
 
-[[classfrib_1_1analysis_1_1CMPIRawReader]]
+[[frib::analysis::CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader]]
 
 **Definition:** MPIRawReader.h:52
 
 
-[[classfrib_1_1analysis_1_1CMPIRawReader#a21d667bc54e64fc0dae965d23c3a16e0]]
+[[frib::analysis::CMPIRawReader::CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader#a21d667bc54e64fc0dae965d23c3a16e0]]
 
 CMPIRawReader(int argc, char **argv, AbstractApplication *pApp)
 
 **Definition:** MPIRawReader.cpp:39
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

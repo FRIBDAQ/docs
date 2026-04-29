@@ -22,21 +22,21 @@ Here is a list of all class members with links to the classes they belong to:
 ### - b -
 
 - BeginBaselineRun()
-  : [[classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]]
+  : [[CPixieRunUtilities|classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]]
 - BeginHistogramRun()
-  : [[classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]]
+  : [[CPixieRunUtilities|classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]]
 - beginRun()
-  : [[classDAQ_1_1DDAS_1_1DDASDataSimulator#affe4b9dd31894fb781c79f84ec99de0e]]
+  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#affe4b9dd31894fb781c79f84ec99de0e]]
 - boot()
-  : [[classCMyEventSegment#a5571cb64dea73ace65397665eb33fe6b]]
+  : [[CMyEventSegment|classCMyEventSegment#a5571cb64dea73ace65397665eb33fe6b]]
 - Boot()
-  : [[classCPixieSystemUtilities#aff3ae5dd4308ff50585274391eafa475]]
+  : [[CPixieSystemUtilities|classCPixieSystemUtilities#aff3ae5dd4308ff50585274391eafa475]]
 - boot()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#a698372a1629e9bfed6dc4d8691b2af40]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a698372a1629e9bfed6dc4d8691b2af40]]
 - bootModuleByIndex()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a73b8f6e3d902c20a0cc70865272ad79f]]
 - BootType
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338]]
 
  contents 
  start footer part 

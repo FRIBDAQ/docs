@@ -43,7 +43,7 @@ The comutation of these trigger numbers is overlapped with the request - that is
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[MPIRawReader_8h_source]]
+The documentation for this class was generated from the following file:- base/[[MPIRawReader.h|MPIRawReader_8h_source]]
 
  contents 
  start footer part 

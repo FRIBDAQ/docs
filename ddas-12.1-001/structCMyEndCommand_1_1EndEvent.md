@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCMyEndCommand]]
-- [[structCMyEndCommand_1_1EndEvent]]
+- [[CMyEndCommand|classCMyEndCommand]]
+- [[EndEvent|structCMyEndCommand_1_1EndEvent]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structCMyEndCommand_1_1EndEvent-members]]
+[[List of all members|structCMyEndCommand_1_1EndEvent-members]]
 
 
 CMyEndCommand::EndEvent Struct Reference
 
 header
 Struct encapsulating the command and Tcl event to end the run.  
- [[structCMyEndCommand_1_1EndEvent#details]]
+ [[More...|structCMyEndCommand_1_1EndEvent#details]]
 
 
 `#include <CMyEndCommand.h>`
@@ -50,7 +50,7 @@ Collaboration diagram for CMyEndCommand::EndEvent:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -97,7 +97,7 @@ Pointer to this command.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[CMyEndCommand_8h_source]]
+The documentation for this struct was generated from the following file:- [[CMyEndCommand.h|CMyEndCommand_8h_source]]
 
  contents 
  start footer part 

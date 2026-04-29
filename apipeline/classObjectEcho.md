@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classObjectEcho-members]]
+[[List of all members|classObjectEcho-members]]
 
 
 ObjectEcho Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for ObjectEcho:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ObjectEcho:
@@ -50,7 +50,7 @@ Collaboration diagram for ObjectEcho:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -132,7 +132,7 @@ Collaboration diagram for ObjectEcho:
 Called when the command is being unregistered. This is overridable, but not necessary. Our default action is to do nothing.
 
 
-Reimplemented from [[classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]].
+Reimplemented from [[CTCLObjectProcessor|classCTCLObjectProcessor#a3bb43c6ecbdf32cb1187cb17de8d7923]].
 
 
 

@@ -31,7 +31,7 @@ Furthermore a SpecTcl jacket allows you to easily port SpecTcl event processors 
 Many experiments go through the same set of initial analysis steps:
 
 
-- [[classRaw]] events are processed to produce a set of parameters. This processing can be a simple decoding of the data or involve more complex operations such as digital signal processing on digitizer waveforms saved in each event.
+- [[Raw|classRaw]] events are processed to produce a set of parameters. This processing can be a simple decoding of the data or involve more complex operations such as digital signal processing on digitizer waveforms saved in each event.
 - Decoded parameters may be further processed to produce physically meaningful values. For example ADC values can be turned ito energies by applying some parameterized calibration function to the raw value. Opening angles might be computed between hits in two parts of a detector system etc.
 - Parameter data is binned into histograms. This may involve applying complex conditions across several parameters to determine if a histogram should be incremented from its underlying parameters in any event. This is the sort of thing that SpecTcl does well.
 - Information is extracted from histoigrams and used as input when writing papers about the experiment.
@@ -71,20 +71,20 @@ These experiments can still take advantage of parallelism in two ways:
 ### Where to go for more information:
 
 
-- [[md_pages_treeparameterinfo#treeparams]] Internal parameter representation
-- [[md_pages_treeparameterinfo#treevars]] Steering variables.
-- [[md_pages_application#appclass]]
-- [[md_pages_treeparameterinfo#treereader]] Parameter Definition reader
-- [[md_pages_rawtoparameters#rawtoparams]]- [[md_pages_rawtoparameters#rawtoparamworker]]
-  - [[md_pages_rawtoparameters#rawtoparamapp]]
-  - [[md_pages_rawtoparameters#rawtoparammain]]
-  - [[md_pages_paramfileformat#paramfileformat]]
-  - [[md_pages_spectclworker#spectclworker]]
-  - [[md_pages_buildandrunraw#compileandrunrawtoparams]]
+- [[Parameter Representation|md_pages_treeparameterinfo#treeparams]] Internal parameter representation
+- [[Tree Variables|md_pages_treeparameterinfo#treevars]] Steering variables.
+- [[The Application Class|md_pages_application#appclass]]
+- [[Distributing tree definitions.|md_pages_treeparameterinfo#treereader]] Parameter Definition reader
+- [[Raw events to parameters|md_pages_rawtoparameters#rawtoparams]]- [[Writing the Raw to parameter worker.|md_pages_rawtoparameters#rawtoparamworker]]
+  - [[Writing the application|md_pages_rawtoparameters#rawtoparamapp]]
+  - [[Writing the main program.|md_pages_rawtoparameters#rawtoparammain]]
+  - [[Parameter file format.|md_pages_paramfileformat#paramfileformat]]
+  - [[SpecTcl compatibility software|md_pages_spectclworker#spectclworker]]
+  - [[Compiling and running the application|md_pages_buildandrunraw#compileandrunrawtoparams]]
 - paramstoparams- parametermapping
-  - [[md_pages_paramparamworker#paramparamworker]]
-  - [[md_pages_paramparamapp#paramparamapp]] The parameter to parameter application.
-  - [[md_pages_paramparamcompileandrun#paramparamcompileandrun]] compiling and running parameter to parameter stages of the pipeline.
+  - [[The Parameter to Parmaeter Worker.|md_pages_paramparamworker#paramparamworker]]
+  - [[Writing the Parameter to Parameter application.|md_pages_paramparamapp#paramparamapp]] The parameter to parameter application.
+  - [[Compiling and Running Parameter to Parameter Stages|md_pages_paramparamcompileandrun#paramparamcompileandrun]] compiling and running parameter to parameter stages of the pipeline.
 
  contents 
  start footer part 

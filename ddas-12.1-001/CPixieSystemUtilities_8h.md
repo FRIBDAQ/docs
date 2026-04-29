@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
 
  top 
 [Classes](#nested-classes) |
@@ -32,7 +32,7 @@ do not remove this div, it is closed by doxygen!
 CPixieSystemUtilities.h File Reference
 
 header
-Defines a class for managing the state of Pixie [[namespaceDAQ]] systems and a ctypes interface for the class.  
+Defines a class for managing the state of Pixie [[DAQ|namespaceDAQ]] systems and a ctypes interface for the class.  
 [More...](#details)
 
 
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](CPixieSystemUtilities_8h__dep__incl.png)
 
 
-[[CPixieSystemUtilities_8h_source]]
+[[Go to the source code of this file.|CPixieSystemUtilities_8h_source]]
 
 
 |  |  |
@@ -102,7 +102,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-Defines a class for managing the state of Pixie [[namespaceDAQ]] systems and a ctypes interface for the class.
+Defines a class for managing the state of Pixie [[DAQ|namespaceDAQ]] systems and a ctypes interface for the class.
 
 ## Function Documentation
 

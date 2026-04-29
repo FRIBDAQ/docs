@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[structddastoys_1_1analyticfit_1_1GslFitParameters]]
+- [[GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1analyticfit_1_1GslFitParameters-members]]
+[[List of all members|structddastoys_1_1analyticfit_1_1GslFitParameters-members]]
 
 
-ddastoys::analyticfit::GslFitParameters Struct Reference[[group__analytic]]
+ddastoys::analyticfit::GslFitParameters Struct Reference[[libFitEditorAnalytic.so|group__analytic]]
 
 header
 Data passed around the fitting subsystem to Jacobian and function evaluators.  
- [[structddastoys_1_1analyticfit_1_1GslFitParameters#details]]
+ [[More...|structddastoys_1_1analyticfit_1_1GslFitParameters#details]]
 
 
 `#include <lmfit_analytic.h>`
@@ -69,7 +69,7 @@ Data points. Pair is (x, y).
 
 ---
 
-The documentation for this struct was generated from the following file:- [[lmfit__analytic_8h_source]]
+The documentation for this struct was generated from the following file:- [[lmfit_analytic.h|lmfit__analytic_8h_source]]
 
  contents 
  start footer part 

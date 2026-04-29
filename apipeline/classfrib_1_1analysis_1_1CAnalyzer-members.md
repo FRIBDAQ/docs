@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CAnalyzer]]
+- [[CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]]
 
  top 
 frib::analysis::CAnalyzer Member List
 
 header
-This is the complete list of members for [[classfrib_1_1analysis_1_1CAnalyzer]], including all inherited members.
+This is the complete list of members for [[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer]], including all inherited members.
 
 
 |  |  |  |

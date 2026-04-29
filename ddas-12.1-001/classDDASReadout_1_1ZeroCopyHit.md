@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[classDDASReadout_1_1ZeroCopyHit]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDDASReadout_1_1ZeroCopyHit-members]]
+[[List of all members|classDDASReadout_1_1ZeroCopyHit-members]]
 
 
 DDASReadout::ZeroCopyHit Class Reference
 
 header
-This class extends [[structDDASReadout_1_1RawChannel]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.  
- [[classDDASReadout_1_1ZeroCopyHit#details]]
+This class extends [[RawChannel|structDDASReadout_1_1RawChannel]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.  
+ [[More...|classDDASReadout_1_1ZeroCopyHit#details]]
 
 
 `#include <ZeroCopyHit.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for DDASReadout::ZeroCopyHit:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for DDASReadout::ZeroCopyHit:
@@ -62,7 +62,7 @@ Collaboration diagram for DDASReadout::ZeroCopyHit:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -167,10 +167,10 @@ Collaboration diagram for DDASReadout::ZeroCopyHit:
 <a name="details"></a>## Detailed Description
 
 
-This class extends [[structDDASReadout_1_1RawChannel]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.
+This class extends [[RawChannel|structDDASReadout_1_1RawChannel]] to produce a raw channel that is zero-copied from a reference counted buffer that comes from a buffer arena. This is a key data structure in the zero-copy DDAS readout.
 
 
-This acts like a [[structDDASReadout_1_1RawChannel]], but on destruction, if it is the last reference to the buffer, returns it to the arena from whence it came.
+This acts like a [[RawChannel|structDDASReadout_1_1RawChannel]], but on destruction, if it is the last reference to the buffer, returns it to the arena from whence it came.
 
 
 Copy construction and assignment are supported with appropriate semantics to handle proper reference counting.
@@ -297,7 +297,7 @@ Parameters
 
 
 
-ReturnsReference to [[classDDASReadout_1_1ZeroCopyHit]] object.
+ReturnsReference to [[ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit]] object.
 Dereference, copy in, reference.
 
 
@@ -333,8 +333,8 @@ If the hit is associated with a zero copy buffer, the reference is released firs
 
 ---
 
-The documentation for this class was generated from the following files:- [[ZeroCopyHit_8h_source]]
-- [[ZeroCopyHit_8cpp]]
+The documentation for this class was generated from the following files:- [[ZeroCopyHit.h|ZeroCopyHit_8h_source]]
+- [[ZeroCopyHit.cpp|ZeroCopyHit_8cpp]]
 
  contents 
  start footer part 

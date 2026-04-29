@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
 
  top 
 [Classes](#nested-classes)
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](BufferDecoder_8h__dep__incl.png)
 
 
-[[BufferDecoder_8h_source]]
+[[Go to the source code of this file.|BufferDecoder_8h_source]]
 
 
 |  |  |

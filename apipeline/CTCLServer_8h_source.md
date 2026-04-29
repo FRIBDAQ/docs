@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CTCLServer.h
@@ -77,13 +77,13 @@ header
 
 <a name="l00024"></a>   24
 
-<a name="l00025"></a>   25 class [[classCTCLInterpreter]];
+<a name="l00025"></a>   25 class [[CTCLInterpreter|classCTCLInterpreter]];
 
-<a name="l00026"></a>   26 class [[classCTCLTcpServerInstance]];
+<a name="l00026"></a>   26 class [[CTCLTcpServerInstance|classCTCLTcpServerInstance]];
 
 <a name="l00027"></a>   27
 
-<a name="l00048"></a>[[classCTCLServer]] class [[classCTCLServer]]
+<a name="l00048"></a>[[48|classCTCLServer]] class [[CTCLServer|classCTCLServer]]
 
 <a name="l00049"></a>   49 {
 
@@ -91,7 +91,7 @@ header
 
 <a name="l00051"></a>   51 private:
 
-<a name="l00052"></a>   52   [[classCTCLInterpreter]]*               m_pInterpreter;
+<a name="l00052"></a>   52   [[CTCLInterpreter|classCTCLInterpreter]]*               m_pInterpreter;
 
 <a name="l00053"></a>   53   int                            m_nPort;
 
@@ -107,21 +107,21 @@ header
 
 <a name="l00059"></a>   59 public:
 
-<a name="l00060"></a>   60   [[classCTCLServer#a0794a68c597681bd8977e4efb3903447]]([[classCTCLInterpreter]]* pInterp, int port);
+<a name="l00060"></a>   60   [[CTCLServer|classCTCLServer#a0794a68c597681bd8977e4efb3903447]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp, int port);
 
-<a name="l00061"></a>   61   virtual [[classCTCLServer#ad45fe491767f7b96dfb8a55d8013906f]]();
+<a name="l00061"></a>   61   virtual [[~CTCLServer|classCTCLServer#ad45fe491767f7b96dfb8a55d8013906f]]();
 
 <a name="l00062"></a>   62
 
 <a name="l00063"></a>   63 private:
 
-<a name="l00064"></a>   64   [[classCTCLServer#a0794a68c597681bd8977e4efb3903447]](const [[classCTCLServer]]&);
+<a name="l00064"></a>   64   [[CTCLServer|classCTCLServer#a0794a68c597681bd8977e4efb3903447]](const [[CTCLServer|classCTCLServer]]&);
 
-<a name="l00065"></a>   65   [[classCTCLServer]]& operator=(const [[classCTCLServer]]&);
+<a name="l00065"></a>   65   [[CTCLServer|classCTCLServer]]& operator=(const [[CTCLServer|classCTCLServer]]&);
 
-<a name="l00066"></a>   66   int operator==(const [[classCTCLServer]]&) const;
+<a name="l00066"></a>   66   int operator==(const [[CTCLServer|classCTCLServer]]&) const;
 
-<a name="l00067"></a>   67   int operator!=(const [[classCTCLServer]]&) const;
+<a name="l00067"></a>   67   int operator!=(const [[CTCLServer|classCTCLServer]]&) const;
 
 <a name="l00068"></a>   68
 
@@ -145,15 +145,15 @@ header
 
 <a name="l00078"></a>   78 public:
 
-<a name="l00079"></a>   79   void [[classCTCLServer#a4d01ccacba658b8d6b79156dc53b6f44]]([[classCTCLTcpServerInstance]]* pInstance);
+<a name="l00079"></a>   79   void [[instanceExit|classCTCLServer#a4d01ccacba658b8d6b79156dc53b6f44]]([[CTCLTcpServerInstance|classCTCLTcpServerInstance]]* pInstance);
 
-<a name="l00080"></a>   80   void [[classCTCLServer#a8d315be128577c518ccd6e9264dba768]]();
+<a name="l00080"></a>   80   void [[shutdown|classCTCLServer#a8d315be128577c518ccd6e9264dba768]]();
 
 <a name="l00081"></a>   81
 
 <a name="l00082"></a>   82 protected:
 
-<a name="l00083"></a>   83   void [[classCTCLServer#af00ce7a5f44a046d8d296fe8a904e91a]](Tcl_Channel connection,
+<a name="l00083"></a>   83   void [[onConnection|classCTCLServer#af00ce7a5f44a046d8d296fe8a904e91a]](Tcl_Channel connection,
 
 <a name="l00084"></a>   84                 std::string host);
 
@@ -163,11 +163,11 @@ header
 
 <a name="l00087"></a>   87
 
-<a name="l00088"></a>   88   virtual bool [[classCTCLServer#a8600cd1e64ac1f07bdfc140510e9a6ba]](Tcl_Channel   connection,
+<a name="l00088"></a>   88   virtual bool [[allowConnection|classCTCLServer#a8600cd1e64ac1f07bdfc140510e9a6ba]](Tcl_Channel   connection,
 
 <a name="l00089"></a>   89                    std::string   hostname);
 
-<a name="l00090"></a>   90   virtual [[classCTCLTcpServerInstance]]* [[classCTCLServer#a1db2dd888ccad93329c82bc48250fe41]](Tcl_Channel connection,
+<a name="l00090"></a>   90   virtual [[CTCLTcpServerInstance|classCTCLTcpServerInstance]]* [[createInstance|classCTCLServer#a1db2dd888ccad93329c82bc48250fe41]](Tcl_Channel connection,
 
 <a name="l00091"></a>   91                         std::string hostname);
 
@@ -181,64 +181,64 @@ header
 
 <a name="l00096"></a>   96 #endif
 
-[[classCTCLServer#ad45fe491767f7b96dfb8a55d8013906f]]
+[[CTCLServer::~CTCLServer|classCTCLServer#ad45fe491767f7b96dfb8a55d8013906f]]
 
 virtual ~CTCLServer()
 
 **Definition:** CTCLServer.cpp:57
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLServer#a8600cd1e64ac1f07bdfc140510e9a6ba]]
+[[CTCLServer::allowConnection|classCTCLServer#a8600cd1e64ac1f07bdfc140510e9a6ba]]
 
 virtual bool allowConnection(Tcl_Channel connection, std::string hostname)
 
 **Definition:** CTCLServer.cpp:178
 
 
-[[classCTCLServer#a0794a68c597681bd8977e4efb3903447]]
+[[CTCLServer::CTCLServer|classCTCLServer#a0794a68c597681bd8977e4efb3903447]]
 
 CTCLServer(CTCLInterpreter *pInterp, int port)
 
 **Definition:** CTCLServer.cpp:39
 
 
-[[classCTCLServer]]
+[[CTCLServer|classCTCLServer]]
 
 **Definition:** CTCLServer.h:48
 
 
-[[classCTCLServer#af00ce7a5f44a046d8d296fe8a904e91a]]
+[[CTCLServer::onConnection|classCTCLServer#af00ce7a5f44a046d8d296fe8a904e91a]]
 
 void onConnection(Tcl_Channel connection, std::string host)
 
 **Definition:** CTCLServer.cpp:150
 
 
-[[classCTCLTcpServerInstance]]
+[[CTCLTcpServerInstance|classCTCLTcpServerInstance]]
 
 **Definition:** CTCLTcpServerInstance.h:39
 
 
-[[classCTCLServer#a4d01ccacba658b8d6b79156dc53b6f44]]
+[[CTCLServer::instanceExit|classCTCLServer#a4d01ccacba658b8d6b79156dc53b6f44]]
 
 void instanceExit(CTCLTcpServerInstance *pInstance)
 
 **Definition:** CTCLServer.cpp:103
 
 
-[[classCTCLServer#a1db2dd888ccad93329c82bc48250fe41]]
+[[CTCLServer::createInstance|classCTCLServer#a1db2dd888ccad93329c82bc48250fe41]]
 
 virtual CTCLTcpServerInstance * createInstance(Tcl_Channel connection, std::string hostname)
 
 **Definition:** CTCLServer.cpp:201
 
 
-[[classCTCLServer#a8d315be128577c518ccd6e9264dba768]]
+[[CTCLServer::shutdown|classCTCLServer#a8d315be128577c518ccd6e9264dba768]]
 
 void shutdown()
 

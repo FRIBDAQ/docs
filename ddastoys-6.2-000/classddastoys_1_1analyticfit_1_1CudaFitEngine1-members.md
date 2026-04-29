@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[classddastoys_1_1analyticfit_1_1CudaFitEngine1]]
+- [[CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]]
 
  top 
 ddastoys::analyticfit::CudaFitEngine1 Member List
 
 header
-This is the complete list of members for [[classddastoys_1_1analyticfit_1_1CudaFitEngine1]], including all inherited members.
+This is the complete list of members for [[ddastoys::analyticfit::CudaFitEngine1|classddastoys_1_1analyticfit_1_1CudaFitEngine1]], including all inherited members.
 
 
 |  |  |  |

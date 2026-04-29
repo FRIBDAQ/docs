@@ -22,120 +22,120 @@ Here is a list of all class members with links to the classes they belong to:
 ### - s -
 
 - s_adcFrequency
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]
 - s_adcResolution
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
 - s_chanid
-  : [[structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]]
 - s_channelLength
-  : [[structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]]
 - s_clockCalibration
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]
 - s_ComFPGAConfigFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]
 - s_cumulative
-  : [[structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]
+  : [[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]
 - s_data
-  : [[structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]]
 - s_DSPCodeFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]
 - s_DSPVarFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]
 - s_hdwrRevision
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]
 - s_moduleType
-  : [[structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]]
 - s_nAcceptedTriggers
-  : [[structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]
+  : [[CMyScaler::_Counters|structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]
 - s_nTriggers
-  : [[structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]
+  : [[CMyScaler::_Counters|structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]
 - s_ownData
-  : [[structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]]
 - s_ownDataSize
-  : [[structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]]
 - s_pData
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]
 - s_perRun
-  : [[structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]
+  : [[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]
 - s_rawEvent
-  : [[structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]
+  : [[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]
 - s_references
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]]
 - s_size
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]]
 - s_SPFPGAConfigFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]
 - s_thisPtr
-  : [[structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]
+  : [[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]
 - s_time
-  : [[structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]]
 - SaveSetFile()
-  : [[classCPixieSystemUtilities#ab5ff3257d6aaf462560d38cdb8d5f231]]
+  : [[CPixieSystemUtilities|classCPixieSystemUtilities#ab5ff3257d6aaf462560d38cdb8d5f231]]
 - SetBootMode()
-  : [[classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]]
+  : [[CPixieSystemUtilities|classCPixieSystemUtilities#acec2d34a276b14ef68d40b83627a036e]]
 - setBuffer()
-  : [[classDAQ_1_1DDAS_1_1DDASDataSimulator#a5e231bfb36f6ede27696b20f6d9cdd13]]
+  : [[DAQ::DDAS::DDASDataSimulator|classDAQ_1_1DDAS_1_1DDASDataSimulator#a5e231bfb36f6ede27696b20f6d9cdd13]]
 - SetChannel()
-  : [[structDDASReadout_1_1RawChannel#a1143576edf8acc08fcf55ca351e6e3de]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a1143576edf8acc08fcf55ca351e6e3de]]
 - setCrateId()
-  : [[classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#abc9ffcb5294d509e27def905d5ec8d57]]
 - setData()
-  : [[structDDASReadout_1_1RawChannel#aadfa560d832709ff5f65b94d578fb309]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#aadfa560d832709ff5f65b94d578fb309]]
 - setFactory()
-  : [[classDataSource#a6480bdb02e863710e5ff73ab32e94496]]
+  : [[DataSource|classDataSource#a6480bdb02e863710e5ff73ab32e94496]]
 - setFirmwareConfiguration()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a46417511db33f3e6bf584e03a2067bb7]]
 - setHardwareMap()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a87ed54b5b3f74edf3c85ded475382bdb]]
 - setHit()
-  : [[classDDASReadout_1_1ZeroCopyHit#a99b2e6e216650aa4af52071e115872a3]]
+  : [[DDASReadout::ZeroCopyHit|classDDASReadout_1_1ZeroCopyHit#a99b2e6e216650aa4af52071e115872a3]]
 - SetLength()
-  : [[structDDASReadout_1_1RawChannel#afb067fdd1cf2842d8f38aeaa2e129c85]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#afb067fdd1cf2842d8f38aeaa2e129c85]]
 - setModuleEventLengths()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a9f76deb7e880bf2d5fe10f64f986fd82]]
 - setModuleFirmwareMap()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a2790739e59e2f726e2178324f64845d9]]
 - setModuleSettingsFilePath()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a8ac12b10b6ec720b13713b51410f4a51]]
 - setNumberOfModules()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a8802ca55988847ea8153b0edc8ec47d5]]
 - setOfflineMode()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a12e7e42d870c6d0ea58622d408afb1b8]]
 - setSettingsFilePath()
-  : [[classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#a4d16ff3b59fa8d8f28ae7c14516406cf]]
 - setSlotMap()
-  : [[classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]]
+  : [[DAQ::DDAS::Configuration|classDAQ_1_1DDAS_1_1Configuration#ab19e8cae4cc819ef7ea0e88fa0d310e1]]
 - SetTime()
-  : [[structDDASReadout_1_1RawChannel#a1025dc1b3de71acff62887e169de761d]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a1025dc1b3de71acff62887e169de761d]]
 - SettingsOnly
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]
 - setup()
-  : [[classCMyTrigger#a359e115dd24af2b2879b4b47d04b11ae]]
+  : [[CMyTrigger|classCMyTrigger#a359e115dd24af2b2879b4b47d04b11ae]]
 - SetupReadout()
-  : [[classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]]
+  : [[DDASReadoutMain|classDDASReadoutMain#ab5b601d4fd5a87735fba02149c549d55]]
 - SetupRunVariables()
-  : [[classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]]
+  : [[DDASReadoutMain|classDDASReadoutMain#a30e365f2ed0910727a37d2210196b2ad]]
 - SetupScalers()
-  : [[classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]]
+  : [[DDASReadoutMain|classDDASReadoutMain#a7a92356d7d50e48b4df50bcc4a94b86f]]
 - SetupStateVariables()
-  : [[classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
+  : [[DDASReadoutMain|classDDASReadoutMain#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
 - SetUseGenerator()
-  : [[classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]
-  , [[classCPixieTraceUtilities#a79730a6c8c0f129a335a7b7d91de4d64]]
+  : [[CPixieRunUtilities|classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]
+  , [[CPixieTraceUtilities|classCPixieTraceUtilities#a79730a6c8c0f129a335a7b7d91de4d64]]
 - setVerbose()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#aa41fc9915a1418e939ac02742e9d92c9]]
 - size()
-  : [[classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]
+  : [[CMyScaler|classCMyScaler#a1a769f5be39d228ca3f3099e10e5714b]]
 - SlotSpecification
-  : [[classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]]
+  : [[DAQ::DDAS::ConfigurationParser|classDAQ_1_1DDAS_1_1ConfigurationParser#a8f7acc2482bd0280246daf7e0a4faa72]]
 - Statistics
-  : [[classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]
+  : [[CMyScaler|classCMyScaler#aa7065a44508bff8e60877be6e4ea4197]]
 - StreamDataSource()
-  : [[classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]]
+  : [[StreamDataSource|classStreamDataSource#ab0b4d3d4a1dd0af58dc79c43256161cb]]
 - synchronize()
-  : [[classCMyEventSegment#a26f54f7782fe9d27e22480324b0b4c92]]
+  : [[CMyEventSegment|classCMyEventSegment#a26f54f7782fe9d27e22480324b0b4c92]]
 - SystemBooter()
-  : [[classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
+  : [[DAQ::DDAS::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
 
  contents 
  start footer part 

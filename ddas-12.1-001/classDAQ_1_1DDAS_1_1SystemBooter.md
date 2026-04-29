@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDAQ]]
-- [[namespaceDAQ_1_1DDAS]]
-- [[classDAQ_1_1DDAS_1_1SystemBooter]]
+- [[DAQ|namespaceDAQ]]
+- [[DDAS|namespaceDAQ_1_1DDAS]]
+- [[SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter]]
 
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[classDAQ_1_1DDAS_1_1SystemBooter-members]]
+[[List of all members|classDAQ_1_1DDAS_1_1SystemBooter-members]]
 
 
-DAQ::DDAS::SystemBooter Class Reference[[group__libSystemBooter]]
+DAQ::DDAS::SystemBooter Class Reference[[libSystemBooter.so|group__libSystemBooter]]
 
 header
-Manages the booting process for [[namespaceDAQ_1_1DDAS]].  
- [[classDAQ_1_1DDAS_1_1SystemBooter#details]]
+Manages the booting process for [[DDAS|namespaceDAQ_1_1DDAS]].  
+ [[More...|classDAQ_1_1DDAS_1_1SystemBooter#details]]
 
 
 `#include <SystemBooter.h>`
@@ -81,13 +81,13 @@ Manages the booting process for [[namespaceDAQ_1_1DDAS]].
 <a name="details"></a>## Detailed Description
 
 
-Manages the booting process for [[namespaceDAQ_1_1DDAS]].
+Manages the booting process for [[DDAS|namespaceDAQ_1_1DDAS]].
 
 
 All Readout and slow controls programs rely on this class to boot the system. There are two separate boot types: FullBoot and SettingsOnly. The former loads firmware and settings into the system while the latter just loads the settings. The basic usage pattern is demonstrated below.
 
 
-using namespace [[namespaceDAQ_1_1DDAS]];
+using namespace [[DAQ::DDAS|namespaceDAQ_1_1DDAS]];
 
 
 unique_ptr<Configuration> pConfig = Configuration::generator(
@@ -99,13 +99,13 @@ unique_ptr<Configuration> pConfig = Configuration::generator(
 );
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]] booter;
+[[SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]] booter;
 
 
-booter.boot(*pConfig, [[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]);
+booter.boot(*pConfig, [[SystemBooter::FullBoot|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]);
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
+[[DAQ::DDAS::SystemBooter::SystemBooter|classDAQ_1_1DDAS_1_1SystemBooter#a2082507639ed8ccc366104e8b0f56200]]
 
 SystemBooter()
 
@@ -114,7 +114,7 @@ Constructor.
 **Definition:** SystemBooter.cpp:24
 
 
-[[classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+[[DAQ::DDAS::SystemBooter::FullBoot|classDAQ_1_1DDAS_1_1SystemBooter#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
 
 @ FullBoot
 
@@ -123,7 +123,7 @@ Bitmask for full boot with firmware load.
 **Definition:** SystemBooter.h:60
 
 
-[[namespaceDAQ_1_1DDAS]]
+[[DAQ::DDAS|namespaceDAQ_1_1DDAS]]
 
  fragment One should realize that this does not handle any of the logic regarding when and when not to synchronize or load firmware. External logic to this class will determine whether the system should load the firmware or not. Synchronization is unrelated to the boot process besides the fact that a firmware load could ruin synchronization.
 
@@ -178,7 +178,7 @@ Enables verbose output by default.
 |  |  | BootType | type |
 |  | ) |  |  |
 
-Provided a configuration, all modules will be booted. The configuration contains the firmware files for each hardware type, the slot map, and the number of modules. During the course of booting, the hardware will be queried as well to determine the the serial number, revision, ADC frequency, and resolution. The revision, adc frequency, and resolution will all be parsed and the information will be stored in the configuration as a [[namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]].
+Provided a configuration, all modules will be booted. The configuration contains the firmware files for each hardware type, the slot map, and the number of modules. During the course of booting, the hardware will be queried as well to determine the the serial number, revision, ADC frequency, and resolution. The revision, adc frequency, and resolution will all be parsed and the information will be stored in the configuration as a [[HardwareRegistry::HardwareType|namespaceDAQ_1_1DDAS_1_1HardwareRegistry#acc5358e9e3cf609ca7ec2d8210b59fb4]].
 
 
 
@@ -277,7 +277,7 @@ Exceptions
 To retrieve information about all of the modules in the system, Pixie16ReadModuleInfo is called for each module index. The resulting revision number, ADC bits, and ADC frequency is printed (if verbose output enabled) and the hardware mapping is stored in the configuration that was passed in.
 
 
-**[[todo#_todo000007]]**(ASC 12/14/23): For the API transition we want to read the module_config struct. We may not even need to log it (just put them in a vector)
+**[[Todo:|todo#_todo000007]]**(ASC 12/14/23): For the API transition we want to read the module_config struct. We may not even need to log it (just put them in a vector)
 
 
 
@@ -328,8 +328,8 @@ By default, the output verbosity setting is enabled. If it is disabled, there wi
 
 ---
 
-The documentation for this class was generated from the following files:- [[SystemBooter_8h_source]]
-- [[SystemBooter_8cpp]]
+The documentation for this class was generated from the following files:- [[SystemBooter.h|SystemBooter_8h_source]]
+- [[SystemBooter.cpp|SystemBooter_8cpp]]
 
  contents 
  start footer part 

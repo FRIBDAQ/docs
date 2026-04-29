@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CTCLTcpServerInstance.h
@@ -81,21 +81,21 @@ header
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 class [[classCTCLServer]];
+<a name="l00027"></a>   27 class [[CTCLServer|classCTCLServer]];
 
-<a name="l00028"></a>   28 class [[classCTCLInterpreter]];
+<a name="l00028"></a>   28 class [[CTCLInterpreter|classCTCLInterpreter]];
 
 <a name="l00029"></a>   29
 
 <a name="l00030"></a>   30
 
-<a name="l00039"></a>[[classCTCLTcpServerInstance]] class [[classCTCLTcpServerInstance]] : public [[classCTCLChannelCommander]]
+<a name="l00039"></a>[[39|classCTCLTcpServerInstance]] class [[CTCLTcpServerInstance|classCTCLTcpServerInstance]] : public [[CTCLChannelCommander|classCTCLChannelCommander]]
 
 <a name="l00040"></a>   40 {
 
 <a name="l00041"></a>   41 private:
 
-<a name="l00042"></a>   42   [[classCTCLServer]]*     m_pListener;
+<a name="l00042"></a>   42   [[CTCLServer|classCTCLServer]]*     m_pListener;
 
 <a name="l00043"></a>   43
 
@@ -103,25 +103,25 @@ header
 
 <a name="l00045"></a>   45 public:
 
-<a name="l00046"></a>   46   [[classCTCLTcpServerInstance#ac072dd3aeb7406e3385ea7d68fc8d653]]([[classCTCLInterpreter]]*  pInterp,
+<a name="l00046"></a>   46   [[CTCLTcpServerInstance|classCTCLTcpServerInstance#ac072dd3aeb7406e3385ea7d68fc8d653]]([[CTCLInterpreter|classCTCLInterpreter]]*  pInterp,
 
 <a name="l00047"></a>   47             Tcl_Channel       connection,
 
-<a name="l00048"></a>   48             [[classCTCLServer]]*       pServer);
+<a name="l00048"></a>   48             [[CTCLServer|classCTCLServer]]*       pServer);
 
-<a name="l00049"></a>   49   virtual [[classCTCLTcpServerInstance#a0c40e4cd94da312062f39c7e861bebf7]]();
+<a name="l00049"></a>   49   virtual [[~CTCLTcpServerInstance|classCTCLTcpServerInstance#a0c40e4cd94da312062f39c7e861bebf7]]();
 
 <a name="l00050"></a>   50
 
 <a name="l00051"></a>   51 private:
 
-<a name="l00052"></a>   52   [[classCTCLTcpServerInstance#ac072dd3aeb7406e3385ea7d68fc8d653]](const [[classCTCLTcpServerInstance]]&);
+<a name="l00052"></a>   52   [[CTCLTcpServerInstance|classCTCLTcpServerInstance#ac072dd3aeb7406e3385ea7d68fc8d653]](const [[CTCLTcpServerInstance|classCTCLTcpServerInstance]]&);
 
-<a name="l00053"></a>   53   [[classCTCLTcpServerInstance]]& operator=(const [[classCTCLTcpServerInstance]]&);
+<a name="l00053"></a>   53   [[CTCLTcpServerInstance|classCTCLTcpServerInstance]]& operator=(const [[CTCLTcpServerInstance|classCTCLTcpServerInstance]]&);
 
-<a name="l00054"></a>   54   int operator==(const [[classCTCLTcpServerInstance]]&) const;
+<a name="l00054"></a>   54   int operator==(const [[CTCLTcpServerInstance|classCTCLTcpServerInstance]]&) const;
 
-<a name="l00055"></a>   55   int operator!=(const [[classCTCLTcpServerInstance]]&) const;
+<a name="l00055"></a>   55   int operator!=(const [[CTCLTcpServerInstance|classCTCLTcpServerInstance]]&) const;
 
 <a name="l00056"></a>   56
 
@@ -131,9 +131,9 @@ header
 
 <a name="l00059"></a>   59 public:
 
-<a name="l00060"></a>   60   virtual void [[classCTCLTcpServerInstance#a3b9d392f4d54f196904547990e642d68]]();
+<a name="l00060"></a>   60   virtual void [[onEndFile|classCTCLTcpServerInstance#a3b9d392f4d54f196904547990e642d68]]();
 
-<a name="l00061"></a>   61   virtual void [[classCTCLTcpServerInstance#a3ec4aca2a91bafb9115f76620f85b922]]();
+<a name="l00061"></a>   61   virtual void [[returnResult|classCTCLTcpServerInstance#a3ec4aca2a91bafb9115f76620f85b922]]();
 
 <a name="l00062"></a>   62
 
@@ -143,48 +143,48 @@ header
 
 <a name="l00065"></a>   65 #endif
 
-[[classCTCLChannelCommander]]
+[[CTCLChannelCommander|classCTCLChannelCommander]]
 
 **Definition:** CTCLChannelCommander.h:39
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[classCTCLTcpServerInstance#a3b9d392f4d54f196904547990e642d68]]
+[[CTCLTcpServerInstance::onEndFile|classCTCLTcpServerInstance#a3b9d392f4d54f196904547990e642d68]]
 
 virtual void onEndFile()
 
 **Definition:** CTCLTcpServerInstance.cpp:57
 
 
-[[classCTCLServer]]
+[[CTCLServer|classCTCLServer]]
 
 **Definition:** CTCLServer.h:48
 
 
-[[classCTCLTcpServerInstance]]
+[[CTCLTcpServerInstance|classCTCLTcpServerInstance]]
 
 **Definition:** CTCLTcpServerInstance.h:39
 
 
-[[classCTCLTcpServerInstance#a0c40e4cd94da312062f39c7e861bebf7]]
+[[CTCLTcpServerInstance::~CTCLTcpServerInstance|classCTCLTcpServerInstance#a0c40e4cd94da312062f39c7e861bebf7]]
 
 virtual ~CTCLTcpServerInstance()
 
 **Definition:** CTCLTcpServerInstance.cpp:46
 
 
-[[classCTCLTcpServerInstance#a3ec4aca2a91bafb9115f76620f85b922]]
+[[CTCLTcpServerInstance::returnResult|classCTCLTcpServerInstance#a3ec4aca2a91bafb9115f76620f85b922]]
 
 virtual void returnResult()
 
 **Definition:** CTCLTcpServerInstance.cpp:71
 
 
-[[classCTCLTcpServerInstance#ac072dd3aeb7406e3385ea7d68fc8d653]]
+[[CTCLTcpServerInstance::CTCLTcpServerInstance|classCTCLTcpServerInstance#ac072dd3aeb7406e3385ea7d68fc8d653]]
 
 CTCLTcpServerInstance(CTCLInterpreter *pInterp, Tcl_Channel connection, CTCLServer *pServer)
 

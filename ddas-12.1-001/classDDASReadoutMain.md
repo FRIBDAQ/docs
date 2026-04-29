@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDDASReadoutMain-members]]
+[[List of all members|classDDASReadoutMain-members]]
 
 
 DDASReadoutMain Class Reference
 
 header
 Production readout class for DDAS systems.  
- [[classDDASReadoutMain#details]]
+ [[More...|classDDASReadoutMain#details]]
 
 
 `#include <DDASReadoutMain.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for DDASReadoutMain:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for DDASReadoutMain:
@@ -57,7 +57,7 @@ Collaboration diagram for DDASReadoutMain:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -86,7 +86,7 @@ Collaboration diagram for DDASReadoutMain:
 Production readout class for DDAS systems.
 
 
-[[classDDASReadoutMain]] is the 'application' class for the production readout software for DDAS systems i.e. systems utilizing XIA digitizer modules. The application class has overridden and implemented several member functions from the CReadoutMain base class for use in this application.
+[[DDASReadoutMain|classDDASReadoutMain]] is the 'application' class for the production readout software for DDAS systems i.e. systems utilizing XIA digitizer modules. The application class has overridden and implemented several member functions from the CReadoutMain base class for use in this application.
 
 
 These are:
@@ -146,7 +146,7 @@ Parameters
 
 
 
-This function must define the trigger as well as the response of the program to triggers. A trigger is an object that describes when an event happens. Triggers are objects derived from CEventTrigger. In this case we use the [[classCMyTrigger]] class to define the trigger object.
+This function must define the trigger as well as the response of the program to triggers. A trigger is an object that describes when an event happens. Triggers are objects derived from CEventTrigger. In this case we use the [[CMyTrigger|classCMyTrigger]] class to define the trigger object.
 
 
 NoteThis function is incompatible with the pre-10.0 software in that for the 10.0 software, there was a default trigger that did useful stuff. The default trigger for this version is a NULL trigger (a trigger that never happens). You *must* create a trigger object and register it with the experiment object via its EstablishTrigger member funtion else you'll never get any events.
@@ -232,8 +232,8 @@ See also: SetupRunVariables
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASReadoutMain_8h_source]]
-- [[DDASReadoutMain_8cpp]]
+The documentation for this class was generated from the following files:- [[DDASReadoutMain.h|DDASReadoutMain_8h_source]]
+- [[DDASReadoutMain.cpp|DDASReadoutMain_8cpp]]
 
  contents 
  start footer part 

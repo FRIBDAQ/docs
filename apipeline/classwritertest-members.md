@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 writertest Member List
 
 header
-This is the complete list of members for [[classwritertest]], including all inherited members.
+This is the complete list of members for [[writertest|classwritertest]], including all inherited members.
 
 
 |  |  |  |

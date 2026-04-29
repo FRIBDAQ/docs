@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classtestErrnoException-members]]
+[[List of all members|classtestErrnoException-members]]
 
 
 testErrnoException Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for testErrnoException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for testErrnoException:
@@ -47,7 +47,7 @@ Collaboration diagram for testErrnoException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

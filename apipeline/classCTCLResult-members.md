@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLResult Member List
 
 header
-This is the complete list of members for [[classCTCLResult]], including all inherited members.
+This is the complete list of members for [[CTCLResult|classCTCLResult]], including all inherited members.
 
 
 |  |  |  |

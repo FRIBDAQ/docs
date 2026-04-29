@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](Configuration_8h__dep__incl.png)
 
 
-[[Configuration_8h_source]]
+[[Go to the source code of this file.|Configuration_8h_source]]
 
 
 |  |  |

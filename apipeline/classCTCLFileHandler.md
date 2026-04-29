@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[classCTCLFileHandler-members]]
+[[List of all members|classCTCLFileHandler-members]]
 
 
 CTCLFileHandler Class Referenceabstract
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLFileHandler:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLFileHandler:
@@ -49,7 +49,7 @@ Collaboration diagram for CTCLFileHandler:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CTCLFileHandler:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLFileHandler_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLFileHandler.h|TCLFileHandler_8h_source]]
 - libtclplus/tclplus/TCLFileHandler.cpp
 
  contents 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLApplication-members]]
+[[List of all members|classCTCLApplication-members]]
 
 
 CTCLApplication Class Referenceabstract
@@ -38,7 +38,7 @@ Inheritance diagram for CTCLApplication:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLApplication:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLApplication:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -144,7 +144,7 @@ Get the thread for the interpreter/application:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLApplication_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLApplication.h|TCLApplication_8h_source]]
 - libtclplus/tclplus/TCLApplication.cpp
 
  contents 

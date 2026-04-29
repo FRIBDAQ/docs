@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1fit2Info]]
+- [[fit2Info|structddastoys_1_1fit2Info]]
 
  top 
 ddastoys::fit2Info Member List
 
 header
-This is the complete list of members for [[structddastoys_1_1fit2Info]], including all inherited members.
+This is the complete list of members for [[ddastoys::fit2Info|structddastoys_1_1fit2Info]], including all inherited members.
 
 
 |  |  |  |

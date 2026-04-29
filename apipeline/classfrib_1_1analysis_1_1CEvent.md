@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CEvent]]
+- [[CEvent|classfrib_1_1analysis_1_1CEvent]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CEvent-members]]
+[[List of all members|classfrib_1_1analysis_1_1CEvent-members]]
 
 
 frib::analysis::CEvent Class Reference
@@ -70,7 +70,7 @@ header
 <a name="details"></a>## Detailed Description
 
 
-This is an important class in SpecTcl. It holds the event that event processors generate from the raw data or other event processor results. As much as possible we'll try to implement this in a sensible way. Specifically, if an index already has a tree parameter assigned to it, we'll use that tree parameter as a target for references into the CEventObject. If there is no [[classTreeParameter]] we'll generate one named 'unamed.n' where .n is the index into the array referenced. This is not recommended as by the time this happens the outputter will arleady have output the Treeparameter definitions.
+This is an important class in SpecTcl. It holds the event that event processors generate from the raw data or other event processor results. As much as possible we'll try to implement this in a sensible way. Specifically, if an index already has a tree parameter assigned to it, we'll use that tree parameter as a target for references into the CEventObject. If there is no [[TreeParameter|classTreeParameter]] we'll generate one named 'unamed.n' where .n is the index into the array referenced. This is not recommended as by the time this happens the outputter will arleady have output the Treeparameter definitions.
 
 ## Constructor & Destructor Documentation
 
@@ -161,7 +161,7 @@ operator[] Indexing the revent is mostly as simple as providing the index to the
 
 - If the index does not exist a new tree parameter is created.
 - If the index is not in the scoreboard it's added.  nParam - index into the parameter vector. ReturnsCParameterValue& where CParameterValue is just a double. 
-  NoteSince we don't touch the underlying tree parameter and its shared data, isValid isn't going to work on this That's ok because there's no isValid in CParameterValue anymore. We strongly suggest the use of CTreeParameters and not [[classfrib_1_1analysis_1_1CEvent]] as targets of the unpacking.
+  NoteSince we don't touch the underlying tree parameter and its shared data, isValid isn't going to work on this That's ok because there's no isValid in CParameterValue anymore. We strongly suggest the use of CTreeParameters and not [[CEvent|classfrib_1_1analysis_1_1CEvent]] as targets of the unpacking.
 
 
 
@@ -172,14 +172,14 @@ operator[] Indexing the revent is mostly as simple as providing the index to the
 | --- | --- | --- | --- | --- |
 | UInt_t frib::analysis::CEvent::size | ( |  | ) |  |
 
-[[classfrib_1_1analysis_1_1CEvent#a8bc1ac684176615ea7742d37125d7037]] Size of the event array.
+[[size()|classfrib_1_1analysis_1_1CEvent#a8bc1ac684176615ea7742d37125d7037]] Size of the event array.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[Event_8h_source]]
-- spectcl/[[Event_8cpp]]
+The documentation for this class was generated from the following files:- spectcl/[[Event.h|Event_8h_source]]
+- spectcl/[[Event.cpp|Event_8cpp]]
 
  contents 
  start footer part 

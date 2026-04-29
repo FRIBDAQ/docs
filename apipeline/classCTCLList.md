@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLList-members]]
+[[List of all members|classCTCLList-members]]
 
 
 CTCLList Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLList:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLList:
@@ -49,7 +49,7 @@ Collaboration diagram for CTCLList:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -110,8 +110,8 @@ Collaboration diagram for CTCLList:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLList_8h_source]]
-- libtclplus/tclplus/[[TCLList_8cpp]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLList.h|TCLList_8h_source]]
+- libtclplus/tclplus/[[TCLList.cpp|TCLList_8cpp]]
 
  contents 
  start footer part 

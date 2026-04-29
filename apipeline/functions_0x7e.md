@@ -22,81 +22,81 @@ Here is a list of all documented class members with links to the class documenta
 ### - ~ -
 
 - ~AbstractApplication()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#adf5af96182e880bd6012c2d6aa520715]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#adf5af96182e880bd6012c2d6aa520715]]
 - ~CAnalyzer()
-  : [[classfrib_1_1analysis_1_1CAnalyzer#a4f42d45808cedf2fbcddf8c0ad56ae10]]
+  : [[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer#a4f42d45808cedf2fbcddf8c0ad56ae10]]
 - ~CBufferDecoder()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a1647b949b5ada2f1cdbdbfb73608e902]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a1647b949b5ada2f1cdbdbfb73608e902]]
 - ~CConditionVariable()
-  : [[classCConditionVariable#a5cf56f16f6405f52d50b19dccdc1d2c9]]
+  : [[CConditionVariable|classCConditionVariable#a5cf56f16f6405f52d50b19dccdc1d2c9]]
 - ~CDataReader()
-  : [[classfrib_1_1analysis_1_1CDataReader#ae44460bd7253028cc43c5e4c69b5eb0b]]
+  : [[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader#ae44460bd7253028cc43c5e4c69b5eb0b]]
 - ~CDataWriter()
-  : [[classfrib_1_1analysis_1_1CDataWriter#a9bb5c9ba8c7c865f18eb68a6232ef36b]]
+  : [[frib::analysis::CDataWriter|classfrib_1_1analysis_1_1CDataWriter#a9bb5c9ba8c7c865f18eb68a6232ef36b]]
 - ~CEvent()
-  : [[classfrib_1_1analysis_1_1CEvent#aa6f5c9b0d8df3da12c19faa66f45e62e]]
+  : [[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent#aa6f5c9b0d8df3da12c19faa66f45e62e]]
 - ~CInvalidArgumentException()
-  : [[classCInvalidArgumentException#aff4278e0b07216890a5d16ed21bb2fef]]
+  : [[CInvalidArgumentException|classCInvalidArgumentException#aff4278e0b07216890a5d16ed21bb2fef]]
 - ~CItemConfiguration()
-  : [[classCItemConfiguration#a5e158bb34f38dbae1c320ecb216526a0]]
+  : [[CItemConfiguration|classCItemConfiguration#a5e158bb34f38dbae1c320ecb216526a0]]
 - ~CLanguageTraceCallback()
-  : [[classCLanguageTraceCallback#a1b3572a9bd4330233d6eba7c032858ef]]
+  : [[CLanguageTraceCallback|classCLanguageTraceCallback#a1b3572a9bd4330233d6eba7c032858ef]]
 - ~CMPIParameterDealer()
-  : [[classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]
+  : [[frib::analysis::CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]
 - ~CMPIParameterFarmer()
-  : [[classfrib_1_1analysis_1_1CMPIParameterFarmer#a487665a04e7297ed18a41f00abfe15ac]]
+  : [[frib::analysis::CMPIParameterFarmer|classfrib_1_1analysis_1_1CMPIParameterFarmer#a487665a04e7297ed18a41f00abfe15ac]]
 - ~CMPIParameterOutput()
-  : [[classfrib_1_1analysis_1_1CMPIParameterOutput#ab9ae2ad645642802330322b67a4af87c]]
+  : [[frib::analysis::CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput#ab9ae2ad645642802330322b67a4af87c]]
 - ~CMPIParametersToParametersWorker()
-  : [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a7bb18d7ab9d09bc811ac2167d0593c17]]
+  : [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a7bb18d7ab9d09bc811ac2167d0593c17]]
 - ~CMPIRawReader()
-  : [[classfrib_1_1analysis_1_1CMPIRawReader#a6722587cda7f1bdd38c66340304ff398]]
+  : [[frib::analysis::CMPIRawReader|classfrib_1_1analysis_1_1CMPIRawReader#a6722587cda7f1bdd38c66340304ff398]]
 - ~CMPIRawToParametersWorker()
-  : [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker#a63e68aeb99164d97490120af12049ad2]]
+  : [[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker#a63e68aeb99164d97490120af12049ad2]]
 - ~CMPITriggerSorter()
-  : [[classfrib_1_1analysis_1_1CMPITriggerSorter#a0efa7e03c7222406909ef495eceb17f0]]
+  : [[frib::analysis::CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter#a0efa7e03c7222406909ef495eceb17f0]]
 - ~CMutex()
-  : [[classCMutex#a43fa2c418e6ec1ede656c8b9c4767494]]
+  : [[CMutex|classCMutex#a43fa2c418e6ec1ede656c8b9c4767494]]
 - ~CMutexAttr()
-  : [[structCMutexAttr#adb5192e6b59e34ef7063b0b4ff597af6]]
+  : [[CMutexAttr|structCMutexAttr#adb5192e6b59e34ef7063b0b4ff597af6]]
 - ~CSpecTclWorker()
-  : [[classfrib_1_1analysis_1_1CSpecTclWorker#af6cb9ee0de85a97b1d616513e7cd6c3a]]
+  : [[frib::analysis::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#af6cb9ee0de85a97b1d616513e7cd6c3a]]
 - ~CStateException()
-  : [[classCStateException#a04f86d6f8455d6414b24fd736d7936c6]]
+  : [[CStateException|classCStateException#a04f86d6f8455d6414b24fd736d7936c6]]
 - ~CTCLChannel()
-  : [[classCTCLChannel#a95dd4eac914d62235a257c99e73ad996]]
+  : [[CTCLChannel|classCTCLChannel#a95dd4eac914d62235a257c99e73ad996]]
 - ~CTCLChannelCommander()
-  : [[classCTCLChannelCommander#aa8f54d07606ad6c360f3f10555ead2c6]]
+  : [[CTCLChannelCommander|classCTCLChannelCommander#aa8f54d07606ad6c360f3f10555ead2c6]]
 - ~CTCLCompatibilityProcessor()
-  : [[classCTCLCompatibilityProcessor#ab59b0d24eed6b7e23e6de3948a0d5bec]]
+  : [[CTCLCompatibilityProcessor|classCTCLCompatibilityProcessor#ab59b0d24eed6b7e23e6de3948a0d5bec]]
 - ~CTCLObjectProcessor()
-  : [[classCTCLObjectProcessor#a1b9dc2b8115c0d67a7e26ebaa694b5a8]]
+  : [[CTCLObjectProcessor|classCTCLObjectProcessor#a1b9dc2b8115c0d67a7e26ebaa694b5a8]]
 - ~CTCLPackagedObjectProcessor()
-  : [[classCTCLPackagedObjectProcessor#a8704544c0a9d68aa4028a00cca957ad5]]
+  : [[CTCLPackagedObjectProcessor|classCTCLPackagedObjectProcessor#a8704544c0a9d68aa4028a00cca957ad5]]
 - ~CTCLProcessor()
-  : [[classCTCLProcessor#a1ebb80d8f2ae81b6b33e7578649fa30d]]
+  : [[CTCLProcessor|classCTCLProcessor#a1ebb80d8f2ae81b6b33e7578649fa30d]]
 - ~CTCLResult()
-  : [[classCTCLResult#ab308cffd7d7c2dfb85870b3b02234deb]]
+  : [[CTCLResult|classCTCLResult#ab308cffd7d7c2dfb85870b3b02234deb]]
 - ~CTCLServer()
-  : [[classCTCLServer#ad45fe491767f7b96dfb8a55d8013906f]]
+  : [[CTCLServer|classCTCLServer#ad45fe491767f7b96dfb8a55d8013906f]]
 - ~CTCLStdioCommander()
-  : [[classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]
+  : [[CTCLStdioCommander|classCTCLStdioCommander#ad9ef7268d1306b9b8633f33cb69d2f1b]]
 - ~CTCLTcpServerInstance()
-  : [[classCTCLTcpServerInstance#a0c40e4cd94da312062f39c7e861bebf7]]
+  : [[CTCLTcpServerInstance|classCTCLTcpServerInstance#a0c40e4cd94da312062f39c7e861bebf7]]
 - ~CTCLThread()
-  : [[classCTCLThread#ac9f46789468a29ac0e90be1a82948f7a]]
+  : [[CTCLThread|classCTCLThread#ac9f46789468a29ac0e90be1a82948f7a]]
 - ~CTCLTracedVariable()
-  : [[classCTCLTracedVariable#ad199a8b57cc9a2622f1d87efc7e8077c]]
+  : [[CTCLTracedVariable|classCTCLTracedVariable#ad199a8b57cc9a2622f1d87efc7e8077c]]
 - ~CTreeParameter()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#a4704c41ccdbeeafcdb4e40a3dcda4b4e]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a4704c41ccdbeeafcdb4e40a3dcda4b4e]]
 - ~CTreeParameterArray()
-  : [[classfrib_1_1analysis_1_1CTreeParameterArray#a064ce4cfe082fb6ce2b0e1cb5c228cfc]]
+  : [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray#a064ce4cfe082fb6ce2b0e1cb5c228cfc]]
 - ~CTreeVariable()
-  : [[classfrib_1_1analysis_1_1CTreeVariable#aef74005a52d919d428751b28b8ffe496]]
+  : [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#aef74005a52d919d428751b28b8ffe496]]
 - ~CTreeVariableArray()
-  : [[classfrib_1_1analysis_1_1CTreeVariableArray#ae33b013757441b7bb2f191dbbe79dbc4]]
+  : [[frib::analysis::CTreeVariableArray|classfrib_1_1analysis_1_1CTreeVariableArray#ae33b013757441b7bb2f191dbbe79dbc4]]
 - ~CTriggerSorter()
-  : [[classfrib_1_1analysis_1_1CTriggerSorter#a293115c2fe7b7a84147fbccd3b4e1331]]
+  : [[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter#a293115c2fe7b7a84147fbccd3b4e1331]]
 
  contents 
  start footer part 

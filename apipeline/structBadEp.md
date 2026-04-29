@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[structBadEp-members]]
+[[List of all members|structBadEp-members]]
 
 
 BadEp Struct Reference
@@ -36,7 +36,7 @@ Inheritance diagram for BadEp:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for BadEp:
@@ -48,7 +48,7 @@ Collaboration diagram for BadEp:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -65,7 +65,7 @@ Collaboration diagram for BadEp:
 
 ---
 
-The documentation for this struct was generated from the following file:- spectcl/[[workerTest_8cpp]]
+The documentation for this struct was generated from the following file:- spectcl/[[workerTest.cpp|workerTest_8cpp]]
 
  contents 
  start footer part 

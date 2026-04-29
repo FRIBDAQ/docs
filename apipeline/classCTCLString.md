@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLString-members]]
+[[List of all members|classCTCLString-members]]
 
 
 CTCLString Class Reference
@@ -136,7 +136,7 @@ Parameters
 
 
 
-Returns[[classCTCLString]]& 
+Returns[[CTCLString|classCTCLString]]& 
 Return values
 |  |  |
 | --- | --- |
@@ -165,7 +165,7 @@ Parameters
 
 
 
-Returns[[classCTCLString]]& 
+Returns[[CTCLString|classCTCLString]]& 
 Return values
 |  |  |
 | --- | --- |
@@ -175,7 +175,7 @@ Return values
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLString_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLString.h|TCLString_8h_source]]
 - libtclplus/tclplus/TCLString.cpp
 
  contents 

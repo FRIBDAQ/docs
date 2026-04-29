@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classpassthrutest-members]]
+[[List of all members|classpassthrutest-members]]
 
 
 passthrutest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for passthrutest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for passthrutest:
@@ -47,7 +47,7 @@ Collaboration diagram for passthrutest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -70,7 +70,7 @@ Collaboration diagram for passthrutest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testPassthru_8cpp]]
+The documentation for this class was generated from the following file:- base/[[testPassthru.cpp|testPassthru_8cpp]]
 
  contents 
  start footer part 

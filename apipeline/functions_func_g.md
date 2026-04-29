@@ -19,122 +19,122 @@ do not remove this div, it is closed by doxygen!
 ### - g -
 
 - getArgc()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#ab22b8c43f7372537ec1d697f5e7e12a7]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#ab22b8c43f7372537ec1d697f5e7e12a7]]
 - getArgv()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#afe10b3e1eb7b1db14eba96b2f66ebaac]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#afe10b3e1eb7b1db14eba96b2f66ebaac]]
 - getBins()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#aed1a62acebf1e4c5c31871f61a20b9ff]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#aed1a62acebf1e4c5c31871f61a20b9ff]]
 - getBlock()
-  : [[classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]]
+  : [[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]]
 - getBody()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a2b70fbe5fdd1c3aebe64611be20fbabf]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a2b70fbe5fdd1c3aebe64611be20fbabf]]
 - getBodySize()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a7cae3c81fd012e83bb398ac1f2d9e84a]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a7cae3c81fd012e83bb398ac1f2d9e84a]]
 - getBoolParameter()
-  : [[classCItemConfiguration#a343b5dd9b8f3cfd5f16f0783aa1f783a]]
+  : [[CItemConfiguration|classCItemConfiguration#a343b5dd9b8f3cfd5f16f0783aa1f783a]]
 - getBufferType()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#abf8887f108127d477b8e0bd52b9545e6]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#abf8887f108127d477b8e0bd52b9545e6]]
 - getByteOrder()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a020dd5bee592733582f68d7234eca75e]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a020dd5bee592733582f68d7234eca75e]]
 - getChannel()
-  : [[classCTCLChannelCommander#a7f3d388c5732727b6e88e7bed89bc468]]
+  : [[CTCLChannelCommander|classCTCLChannelCommander#a7f3d388c5732727b6e88e7bed89bc468]]
 - GetChannel()
-  : [[classCTCLInterpreter#a405ccebedf3658a5462dc46353f97745]]
+  : [[CTCLInterpreter|classCTCLInterpreter#a405ccebedf3658a5462dc46353f97745]]
 - GetChannelNames()
-  : [[classCTCLInterpreter#ae78fd7ba41aacabfad93901abc5a7aba]]
+  : [[CTCLInterpreter|classCTCLInterpreter#ae78fd7ba41aacabfad93901abc5a7aba]]
 - getCommandName()
-  : [[classCTCLProcessor#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]
+  : [[CTCLProcessor|classCTCLProcessor#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]
 - getDecoder()
-  : [[classfrib_1_1analysis_1_1CAnalyzer#aad8826aebadee6d0ddbf5ffb87a5e6e5]]
+  : [[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer#aad8826aebadee6d0ddbf5ffb87a5e6e5]]
 - getDefinitions()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#a096f7b50387e60c244980f6a1328f6ce]]
-  , [[classfrib_1_1analysis_1_1CTreeVariable#ab4bda3a85e63c3d73eed6095c94a7577]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a096f7b50387e60c244980f6a1328f6ce]]
+  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#ab4bda3a85e63c3d73eed6095c94a7577]]
 - getDopeVector()
-  : [[classfrib_1_1analysis_1_1CEvent#aed7a49b319c3f139f2699145f307ce1d]]
+  : [[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent#aed7a49b319c3f139f2699145f307ce1d]]
 - GetEncoding()
-  : [[classCTCLChannel#ae8773009047643e7875da9a023de3a84]]
+  : [[CTCLChannel|classCTCLChannel#ae8773009047643e7875da9a023de3a84]]
 - getEntityCount()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a9d791e53b5e1701fe65158e7ffb8c9be]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a9d791e53b5e1701fe65158e7ffb8c9be]]
 - getEvent()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#a47954cf33d99ffcfd5ed0267b211907d]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a47954cf33d99ffcfd5ed0267b211907d]]
 - getEventThreshold()
-  : [[classfrib_1_1analysis_1_1CAnalyzer#af744930b3fdd9a075427f516709f81ac]]
+  : [[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer#af744930b3fdd9a075427f516709f81ac]]
 - getFloatParameter()
-  : [[classCItemConfiguration#adcfe6a623bdcf0b38066dcfd8a6a3a14]]
+  : [[CItemConfiguration|classCItemConfiguration#adcfe6a623bdcf0b38066dcfd8a6a3a14]]
 - getId()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#ab654767114326936c1be727e0501fef6]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#ab654767114326936c1be727e0501fef6]]
 - getInc()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#adf102ebcfc113e4e6fb78d017ee362f5]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#adf102ebcfc113e4e6fb78d017ee362f5]]
 - getInfo()
-  : [[classCTCLObjectProcessor#ad466df918560696433e233a4f3ae3844]]
+  : [[CTCLObjectProcessor|classCTCLObjectProcessor#ad466df918560696433e233a4f3ae3844]]
 - getInputFilename()
-  : [[classfrib_1_1analysis_1_1CSpecTclWorker#a6f33396a8ce46b81894b4ded7de60a17]]
+  : [[frib::analysis::CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker#a6f33396a8ce46b81894b4ded7de60a17]]
 - getInstance()
-  : [[classCTCLLiveEventLoop#afdd8052d562b732550008f0d548d5736]]
+  : [[CTCLLiveEventLoop|classCTCLLiveEventLoop#afdd8052d562b732550008f0d548d5736]]
 - getIntegerList()
-  : [[classCItemConfiguration#a8b408716e91d10037ec4ab1f2c656a35]]
+  : [[CItemConfiguration|classCItemConfiguration#a8b408716e91d10037ec4ab1f2c656a35]]
 - getIntegerParameter()
-  : [[classCItemConfiguration#acf41f81234b2e21b5a38483f27f525e2]]
+  : [[CItemConfiguration|classCItemConfiguration#acf41f81234b2e21b5a38483f27f525e2]]
 - getLamCount()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a14f749c8ed28c2b46a4141e2eccf7a95]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a14f749c8ed28c2b46a4141e2eccf7a95]]
 - getListElements()
-  : [[classCTCLObject#aaaad89dd3eaf3f8072b8926b6c3fd117]]
+  : [[CTCLObject|classCTCLObject#aaaad89dd3eaf3f8072b8926b6c3fd117]]
 - getName()
-  : [[classCConfigurableObject#a27193bd8b235f3f2401e89ba4f43b348]]
-  , [[classCItemConfiguration#a293f2fadb94f29a78d1d6793b64cd3a0]]
-  , [[classCTCLObjectProcessor#aa834a508ae9e48d9eaa96617c3a5f0a4]]
-  , [[classfrib_1_1analysis_1_1CTreeParameter#a4e33f320d42074dc302adac64ee48656]]
-  , [[classfrib_1_1analysis_1_1CTreeVariable#a55f6f61dba41c42c158665f19b4e37ec]]
+  : [[CConfigurableObject|classCConfigurableObject#a27193bd8b235f3f2401e89ba4f43b348]]
+  , [[CItemConfiguration|classCItemConfiguration#a293f2fadb94f29a78d1d6793b64cd3a0]]
+  , [[CTCLObjectProcessor|classCTCLObjectProcessor#aa834a508ae9e48d9eaa96617c3a5f0a4]]
+  , [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a4e33f320d42074dc302adac64ee48656]]
+  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#a55f6f61dba41c42c158665f19b4e37ec]]
 - getNames()
-  : [[classfrib_1_1analysis_1_1CTreeVariable#aa89229d3d9d30dc8763c5178d2bc8971]]
+  : [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#aa89229d3d9d30dc8763c5178d2bc8971]]
 - getOutputFile()
-  : [[classfrib_1_1analysis_1_1CMPIParameterOutput#a7c914f0f1614b4fdfecf6c25883692ec]]
+  : [[frib::analysis::CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput#a7c914f0f1614b4fdfecf6c25883692ec]]
 - getPackage()
-  : [[classCTCLPackagedObjectProcessor#a8a1e68a10499e29a19a0c423d417d1c8]]
+  : [[CTCLPackagedObjectProcessor|classCTCLPackagedObjectProcessor#a8a1e68a10499e29a19a0c423d417d1c8]]
 - getParametersInEvent()
-  : [[classfrib_1_1analysis_1_1CAnalyzer#a509049f2ad5f14d05b3c882de2062e16]]
+  : [[frib::analysis::CAnalyzer|classfrib_1_1analysis_1_1CAnalyzer#a509049f2ad5f14d05b3c882de2062e16]]
 - getPatternCount()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a87e078d3632d0131f4fb3ba0c4def6a7]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a87e078d3632d0131f4fb3ba0c4def6a7]]
 - getProgramArguments()
-  : [[classCTCLApplication#a5067209bd356af56d6b66d04aceecb3c]]
+  : [[CTCLApplication|classCTCLApplication#a5067209bd356af56d6b66d04aceecb3c]]
 - getRange()
-  : [[classCTCLObject#a2bd426580e66abaaefb685cac5b4444c]]
+  : [[CTCLObject|classCTCLObject#a2bd426580e66abaaefb685cac5b4444c]]
 - getRequest()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#aba659c2561ee078e0b4969d770f8d011]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#aba659c2561ee078e0b4969d770f8d011]]
 - getRun()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a63f817308c2a7fbf07ec9ed4582a3e07]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a63f817308c2a7fbf07ec9ed4582a3e07]]
 - getScoreboard()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#abefb8699922575955baca9d7aab9585d]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#abefb8699922575955baca9d7aab9585d]]
 - getSequenceNo()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#a78922a4cf397f06eb6e6346f30d00a98]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#a78922a4cf397f06eb6e6346f30d00a98]]
 - getStart()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#a1cd97e843b216fc90508dcfbe967989a]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a1cd97e843b216fc90508dcfbe967989a]]
 - getStop()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#ae6b65dd1ef24e45d2f0167040c20c2dc]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#ae6b65dd1ef24e45d2f0167040c20c2dc]]
 - getStopLatency()
-  : [[classCTCLLiveEventLoop#a5773655e6162baf7af59a7222cfbe58e]]
+  : [[CTCLLiveEventLoop|classCTCLLiveEventLoop#a5773655e6162baf7af59a7222cfbe58e]]
 - getString()
-  : [[classCTCLResult#a4d1001f148cfa182206d6b681896980c]]
+  : [[CTCLResult|classCTCLResult#a4d1001f148cfa182206d6b681896980c]]
 - getThread()
-  : [[classCTCLApplication#aef856e10505416d4058da94e84adfed8]]
+  : [[CTCLApplication|classCTCLApplication#aef856e10505416d4058da94e84adfed8]]
 - getTitle()
-  : [[classfrib_1_1analysis_1_1CBufferDecoder#ad2eaf8a80feaf9891e97a43eb6777656]]
+  : [[frib::analysis::CBufferDecoder|classfrib_1_1analysis_1_1CBufferDecoder#ad2eaf8a80feaf9891e97a43eb6777656]]
 - getTraceback()
-  : [[classCTCLException#ae9596fec984c3731ff5938f3a1c2eca7]]
+  : [[CTCLException|classCTCLException#ae9596fec984c3731ff5938f3a1c2eca7]]
 - getType()
-  : [[structCMutexAttr#a6149de737aa03c77553c5139e634b69d]]
+  : [[CMutexAttr|structCMutexAttr#a6149de737aa03c77553c5139e634b69d]]
 - getUnit()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#aa08aa3aab539dd9490ae44891e7b3f3c]]
-  , [[classfrib_1_1analysis_1_1CTreeVariable#a159bf3d07834a6c0238b8fa31f8868d3]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#aa08aa3aab539dd9490ae44891e7b3f3c]]
+  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#a159bf3d07834a6c0238b8fa31f8868d3]]
 - getUnsignedParameter()
-  : [[classCItemConfiguration#a251aaee38c76bfed471e9a0d0a399b08]]
+  : [[CItemConfiguration|classCItemConfiguration#a251aaee38c76bfed471e9a0d0a399b08]]
 - getValue()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#a28f75682ecbe9a047b780735acfe960e]]
-  , [[classfrib_1_1analysis_1_1CTreeVariable#af2ef569aa449b742c53ca59b47ae80f0]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#a28f75682ecbe9a047b780735acfe960e]]
+  , [[frib::analysis::CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable#af2ef569aa449b742c53ca59b47ae80f0]]
 - getVariable()
-  : [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a948829243569a872126e90a27d06075d]]
+  : [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a948829243569a872126e90a27d06075d]]
 - getVariableNames()
-  : [[classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a1aa237b408f975337ef7031e70e1dc5b]]
+  : [[frib::analysis::CMPIParametersToParametersWorker|classfrib_1_1analysis_1_1CMPIParametersToParametersWorker#a1aa237b408f975337ef7031e70e1dc5b]]
 
  contents 
  start footer part 

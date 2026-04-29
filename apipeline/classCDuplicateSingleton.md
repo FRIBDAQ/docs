@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCDuplicateSingleton-members]]
+[[List of all members|classCDuplicateSingleton-members]]
 
 
 CDuplicateSingleton Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CDuplicateSingleton:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CDuplicateSingleton:
@@ -49,7 +49,7 @@ Collaboration diagram for CDuplicateSingleton:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CDuplicateSingleton:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CDuplicateSingleton_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CDuplicateSingleton.h|CDuplicateSingleton_8h_source]]
 - libtclplus/exception/CDuplicateSingleton.cpp
 
  contents 

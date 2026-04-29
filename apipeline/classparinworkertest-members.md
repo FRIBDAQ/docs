@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 parinworkertest Member List
 
 header
-This is the complete list of members for [[classparinworkertest]], including all inherited members.
+This is the complete list of members for [[parinworkertest|classparinworkertest]], including all inherited members.
 
 
 |  |  |  |

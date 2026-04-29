@@ -36,7 +36,7 @@ This graph shows which files directly or indirectly include this file:
 ![](CRingItemProcessor_8h__dep__incl.png)
 
 
-[[CRingItemProcessor_8h_source]]
+[[Go to the source code of this file.|CRingItemProcessor_8h_source]]
 
 
 |  |  |

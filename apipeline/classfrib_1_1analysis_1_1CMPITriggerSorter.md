@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPITriggerSorter]]
+- [[CMPITriggerSorter|classfrib_1_1analysis_1_1CMPITriggerSorter]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CMPITriggerSorter-members]]
+[[List of all members|classfrib_1_1analysis_1_1CMPITriggerSorter-members]]
 
 
 frib::analysis::CMPITriggerSorter Class Reference
@@ -42,7 +42,7 @@ Inheritance diagram for frib::analysis::CMPITriggerSorter:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for frib::analysis::CMPITriggerSorter:
@@ -54,7 +54,7 @@ Collaboration diagram for frib::analysis::CMPITriggerSorter:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -141,14 +141,14 @@ Parameters
 
 
 Noteitem will be deleted after we no longer need its data. 
-Implements [[classfrib_1_1analysis_1_1CTriggerSorter]].
+Implements [[frib::analysis::CTriggerSorter|classfrib_1_1analysis_1_1CTriggerSorter]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPITriggerSorter_8h_source]]
-- base/[[MPITriggerSorter_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPITriggerSorter.h|MPITriggerSorter_8h_source]]
+- base/[[MPITriggerSorter.cpp|MPITriggerSorter_8cpp]]
 
  contents 
  start footer part 

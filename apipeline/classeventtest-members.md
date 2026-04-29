@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 eventtest Member List
 
 header
-This is the complete list of members for [[classeventtest]], including all inherited members.
+This is the complete list of members for [[eventtest|classeventtest]], including all inherited members.
 
 
 |  |  |  |

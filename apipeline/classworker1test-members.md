@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 worker1test Member List
 
 header
-This is the complete list of members for [[classworker1test]], including all inherited members.
+This is the complete list of members for [[worker1test|classworker1test]], including all inherited members.
 
 
 |  |  |  |

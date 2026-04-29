@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 outputtest Member List
 
 header
-This is the complete list of members for [[classoutputtest]], including all inherited members.
+This is the complete list of members for [[outputtest|classoutputtest]], including all inherited members.
 
 
 |  |  |  |

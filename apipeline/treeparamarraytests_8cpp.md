@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 [Classes](#nested-classes) |
@@ -32,7 +32,7 @@ do not remove this div, it is closed by doxygen!
 treeparamarraytests.cpp File Reference
 
 header
-: Tests [[classfrib_1_1analysis_1_1CTreeParameterArray]]
+: Tests [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray]]
 [More...](#details)
 
 
@@ -79,7 +79,7 @@ Include dependency graph for treeparamarraytests.cpp:
 <a name="details"></a>## Detailed Description
 
 
-: Tests [[classfrib_1_1analysis_1_1CTreeParameterArray]]
+: Tests [[frib::analysis::CTreeParameterArray|classfrib_1_1analysis_1_1CTreeParameterArray]]
 
  contents 
  start footer part 

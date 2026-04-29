@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classTVTest-members]]
+[[List of all members|classTVTest-members]]
 
 
 TVTest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TVTest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TVTest:
@@ -47,7 +47,7 @@ Collaboration diagram for TVTest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -176,7 +176,7 @@ Collaboration diagram for TVTest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[treevariabletests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[treevariabletests.cpp|treevariabletests_8cpp]]
 
  contents 
  start footer part 

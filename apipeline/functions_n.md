@@ -22,9 +22,9 @@ Here is a list of all documented class members with links to the class documenta
 ### - n -
 
 - nextEvent()
-  : [[classfrib_1_1analysis_1_1CTreeParameter#ac76200d9964c0d7e683876b46fc4d863]]
+  : [[frib::analysis::CTreeParameter|classfrib_1_1analysis_1_1CTreeParameter#ac76200d9964c0d7e683876b46fc4d863]]
 - numWorkers()
-  : [[classfrib_1_1analysis_1_1AbstractApplication#a769d6d2c41df55f6cb9608a22ab15502]]
+  : [[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication#a769d6d2c41df55f6cb9608a22ab15502]]
 
  contents 
  start footer part 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classobjects-members]]
+[[List of all members|classobjects-members]]
 
 
 objects Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for objects:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for objects:
@@ -47,7 +47,7 @@ Collaboration diagram for objects:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

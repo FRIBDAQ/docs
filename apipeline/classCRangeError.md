@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCRangeError-members]]
+[[List of all members|classCRangeError-members]]
 
 
 CRangeError Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for CRangeError:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CRangeError:
@@ -50,7 +50,7 @@ Collaboration diagram for CRangeError:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -125,7 +125,7 @@ Collaboration diagram for CRangeError:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[RangeError_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[RangeError.h|RangeError_8h_source]]
 - libtclplus/exception/RangeError.cpp
 
  contents 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DDASRootEvent Member List
 
 header
-This is the complete list of members for [[classDDASRootEvent]], including all inherited members.
+This is the complete list of members for [[DDASRootEvent|classDDASRootEvent]], including all inherited members.
 
 
 |  |  |  |

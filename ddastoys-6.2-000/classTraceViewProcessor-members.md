@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 TraceViewProcessor Member List
 
 header
-This is the complete list of members for [[classTraceViewProcessor]], including all inherited members.
+This is the complete list of members for [[TraceViewProcessor|classTraceViewProcessor]], including all inherited members.
 
 
 |  |  |  |

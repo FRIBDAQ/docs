@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CMPIParameterOutput]]
+- [[CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classfrib_1_1analysis_1_1CMPIParameterOutput-members]]
+[[List of all members|classfrib_1_1analysis_1_1CMPIParameterOutput-members]]
 
 
 frib::analysis::CMPIParameterOutput Class Reference
@@ -57,11 +57,11 @@ header
 <a name="details"></a>## Detailed Description
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterOutput]] This object can be used as is as an MPI Output process. It accepts data as pairs of messages:
+[[CMPIParameterOutput|classfrib_1_1analysis_1_1CMPIParameterOutput]] This object can be used as is as an MPI Output process. It accepts data as pairs of messages:
 
 
 - FRIB_MPI_Parameter_MessageHeader which describes the following parameters
-- FRIB_MPI_Parameter_Value array which contain the parameters themselves. It uses a [[classfrib_1_1analysis_1_1CDataWriter]] to output the data it receives. Pretty simple beast really. If run under something derived as an abstract application class, it will have access to the parameter definitions and the data writer will write those and the variable definitions to file.
+- FRIB_MPI_Parameter_Value array which contain the parameters themselves. It uses a [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]] to output the data it receives. Pretty simple beast really. If run under something derived as an abstract application class, it will have access to the parameter definitions and the data writer will write those and the variable definitions to file.
 
 ## Constructor & Destructor Documentation
 
@@ -135,8 +135,8 @@ operator() Called to run the process:
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIParameterOutput_8h_source]]
-- base/[[MPIParameterOutput_8cpp]]
+The documentation for this class was generated from the following files:- base/[[MPIParameterOutput.h|MPIParameterOutput_8h_source]]
+- base/[[MPIParameterOutput.cpp|MPIParameterOutput_8cpp]]
 
  contents 
  start footer part 

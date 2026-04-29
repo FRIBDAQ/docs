@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classTclThreadTests-members]]
+[[List of all members|classTclThreadTests-members]]
 
 
 TclThreadTests Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TclThreadTests:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TclThreadTests:
@@ -47,7 +47,7 @@ Collaboration diagram for TclThreadTests:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -76,7 +76,7 @@ Collaboration diagram for TclThreadTests:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/tclplus/[[threadtests_8cpp]]
+The documentation for this class was generated from the following file:- libtclplus/tclplus/[[threadtests.cpp|threadtests_8cpp]]
 
  contents 
  start footer part 

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 QRootCanvas Member List
 
 header
-This is the complete list of members for [[classQRootCanvas]], including all inherited members.
+This is the complete list of members for [[QRootCanvas|classQRootCanvas]], including all inherited members.
 
 
 |  |  |  |

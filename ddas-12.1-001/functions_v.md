@@ -22,7 +22,7 @@ Here is a list of all class members with links to the classes they belong to:
 ### - v -
 
 - Validate()
-  : [[structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a4f954ae86246843a4ebbd2ef113ebbdf]]
 
  contents 
  start footer part 

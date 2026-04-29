@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLFileHandler Member List
 
 header
-This is the complete list of members for [[classCTCLFileHandler]], including all inherited members.
+This is the complete list of members for [[CTCLFileHandler|classCTCLFileHandler]], including all inherited members.
 
 
 |  |  |  |

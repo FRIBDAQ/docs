@@ -17,55 +17,55 @@ do not remove this div, it is closed by doxygen!
 
 
 - m_pFactory
-  : [[classDataSource#a6f0912454e4f3444260ed98272d3b7d5]]
+  : [[DataSource|classDataSource#a6f0912454e4f3444260ed98272d3b7d5]]
 - s_adcFrequency
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a78c9c299f87a5797a1141a5c6d0b3cfc]]
 - s_adcResolution
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
 - s_chanid
-  : [[structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a501cd8167cec55226136d15f95f16e20]]
 - s_channelLength
-  : [[structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a743cf78929046df7979c98c2ce54d246]]
 - s_clockCalibration
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a94922506cc2854d2deac058ed92db50e]]
 - s_ComFPGAConfigFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a92250055e14814cf465ab933cc2ab579]]
 - s_cumulative
-  : [[structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]
+  : [[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics#aa712426d765ab374d044b27b39c67964]]
 - s_data
-  : [[structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#afd457d4da3c346e4477362f63b1c332d]]
 - s_DSPCodeFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a7c26c07d865362925aa6adeca751a644]]
 - s_DSPVarFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#adf5f7ca8f9268e6e828616f150d4cc7e]]
 - s_hdwrRevision
-  : [[structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]
+  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification#a178a1b2fb109e65c47c9714dd0a2e37a]]
 - s_moduleType
-  : [[structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#af937289721f5495c31218fafbba551fe]]
 - s_nAcceptedTriggers
-  : [[structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]
+  : [[CMyScaler::_Counters|structCMyScaler_1_1__Counters#ada890d9bc24667438baee0ab25258c83]]
 - s_nTriggers
-  : [[structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]
+  : [[CMyScaler::_Counters|structCMyScaler_1_1__Counters#aa278d0d93aec033957cae8e47962bd50]]
 - s_ownData
-  : [[structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a14ce9fb1311750d3fbac1615f85af16e]]
 - s_ownDataSize
-  : [[structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#acc8e94d864512ee4a620494967758f6c]]
 - s_pData
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a012df4ee5f2e5f4ca90c3d562c90db92]]
 - s_perRun
-  : [[structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]
+  : [[CMyScaler::_Statistics|structCMyScaler_1_1__Statistics#a0f5c295406e0c5dc5468528fe73b8356]]
 - s_rawEvent
-  : [[structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]
+  : [[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent#a2dc48a2e258de03ae8102782cc514c73]]
 - s_references
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a0298089bbe30665745d6cdad36fbce56]]
 - s_size
-  : [[structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]]
+  : [[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer#a562a56d236c091e6cc67d6dbe50e3add]]
 - s_SPFPGAConfigFile
-  : [[structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]
+  : [[DAQ::DDAS::FirmwareConfiguration|structDAQ_1_1DDAS_1_1FirmwareConfiguration#a6d011c5537bcf7e14de6e5eac8b436d6]]
 - s_thisPtr
-  : [[structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]
+  : [[CMyEndCommand::EndEvent|structCMyEndCommand_1_1EndEvent#a23f8d23c227b70a8b7a5e58dcc80fa10]]
 - s_time
-  : [[structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#a99390756b2ad85cd0533216f5d818ee0]]
 
  contents 
  start footer part 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9334a42c99d1a98f3e5901fa69a667c5]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[qtscope|dir_9334a42c99d1a98f3e5901fa69a667c5]]
 
  top 
 CPixieRunUtilities.h
 
 header
-[[CPixieRunUtilities_8h]]<a name="l00001"></a>    1
+[[Go to the documentation of this file.|CPixieRunUtilities_8h]]<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef CPIXIERUNUTILITIES_H
@@ -46,7 +46,7 @@ header
 <a name="l00011"></a>   11
 
 
-<a name="l00026"></a>[[classCPixieRunUtilities]] class [[classCPixieRunUtilities]]
+<a name="l00026"></a>[[26|classCPixieRunUtilities]] class [[CPixieRunUtilities|classCPixieRunUtilities]]
 
 
 <a name="l00027"></a>   27 {
@@ -79,46 +79,46 @@ header
 <a name="l00038"></a>   38 public:
 
 
-<a name="l00040"></a>   40     [[classCPixieRunUtilities#a8fb74d1fa0e0b0bffdd1eebedf611710]]();
+<a name="l00040"></a>   40     [[CPixieRunUtilities|classCPixieRunUtilities#a8fb74d1fa0e0b0bffdd1eebedf611710]]();
 
 
 <a name="l00041"></a>   41
 
 
-<a name="l00050"></a>   50     int [[classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]](int module);
+<a name="l00050"></a>   50     int [[BeginHistogramRun|classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]](int module);
 
 
-<a name="l00058"></a>   58     int [[classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]](int module);
+<a name="l00058"></a>   58     int [[EndHistogramRun|classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]](int module);
 
 
-<a name="l00067"></a>   67     int [[classCPixieRunUtilities#a544f4e67d9c2c318b025b9977854ba2c]](int module, int channel);
+<a name="l00067"></a>   67     int [[ReadHistogram|classCPixieRunUtilities#a544f4e67d9c2c318b025b9977854ba2c]](int module, int channel);
 
 
 <a name="l00068"></a>   68
 
 
-<a name="l00074"></a>   74     int [[classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]](int module);
+<a name="l00074"></a>   74     int [[BeginBaselineRun|classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]](int module);
 
 
-<a name="l00081"></a>   81     int [[classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]](int module);
+<a name="l00081"></a>   81     int [[EndBaselineRun|classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]](int module);
 
 
-<a name="l00091"></a>   91     int [[classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]](int module, int channel);
+<a name="l00091"></a>   91     int [[ReadBaseline|classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]](int module, int channel);
 
 
-<a name="l00099"></a>   99     int [[classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]](int module);
+<a name="l00099"></a>   99     int [[ReadModuleStats|classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]](int module);
 
 
-<a name="l00104"></a>[[classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]     unsigned int* [[classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]() { return m_histogram.data(); };
+<a name="l00104"></a>[[104|classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]     unsigned int* [[GetHistogramData|classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]() { return m_histogram.data(); };
 
 
-<a name="l00109"></a>[[classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]     unsigned int* [[classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]() { return m_baseline.data(); };
+<a name="l00109"></a>[[109|classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]     unsigned int* [[GetBaselineData|classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]() { return m_baseline.data(); };
 
 
-<a name="l00114"></a>[[classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]     bool [[classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]() { return m_runActive; };
+<a name="l00114"></a>[[114|classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]     bool [[GetRunActive|classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]() { return m_runActive; };
 
 
-<a name="l00119"></a>[[classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]     void [[classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]](bool mode) { m_useGenerator = mode; };
+<a name="l00119"></a>[[119|classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]     void [[SetUseGenerator|classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]](bool mode) { m_useGenerator = mode; };
 
 
 <a name="l00120"></a>  120
@@ -139,13 +139,13 @@ header
 <a name="l00132"></a>  132 extern "C" {
 
 
-<a name="l00134"></a>[[CPixieRunUtilities_8h#a412cad88a6c1187ed29c967ba680fc9e]]     [[classCPixieRunUtilities]]* [[CPixieRunUtilities_8h#a412cad88a6c1187ed29c967ba680fc9e]]()
+<a name="l00134"></a>[[134|CPixieRunUtilities_8h#a412cad88a6c1187ed29c967ba680fc9e]]     [[CPixieRunUtilities|classCPixieRunUtilities]]* [[CPixieRunUtilities_new|CPixieRunUtilities_8h#a412cad88a6c1187ed29c967ba680fc9e]]()
 
 
 <a name="l00135"></a>  135     {
 
 
-<a name="l00136"></a>  136     return new [[classCPixieRunUtilities]]();
+<a name="l00136"></a>  136     return new [[CPixieRunUtilities|classCPixieRunUtilities]]();
 
 
 <a name="l00137"></a>  137     }
@@ -154,10 +154,10 @@ header
 <a name="l00138"></a>  138
 
 
-<a name="l00140"></a>[[CPixieRunUtilities_8h#a221e426b815917448a333009d3fc6d75]]     int [[CPixieRunUtilities_8h#a221e426b815917448a333009d3fc6d75]](
+<a name="l00140"></a>[[140|CPixieRunUtilities_8h#a221e426b815917448a333009d3fc6d75]]     int [[CPixieRunUtilities_BeginHistogramRun|CPixieRunUtilities_8h#a221e426b815917448a333009d3fc6d75]](
 
 
-<a name="l00141"></a>  141     [[classCPixieRunUtilities]]* utils, int mod
+<a name="l00141"></a>  141     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod
 
 
 <a name="l00142"></a>  142     )
@@ -166,16 +166,16 @@ header
 <a name="l00143"></a>  143     {
 
 
-<a name="l00144"></a>  144     return utils->[[classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]](mod);
+<a name="l00144"></a>  144     return utils->[[BeginHistogramRun|classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]](mod);
 
 
 <a name="l00145"></a>  145     }
 
 
-<a name="l00147"></a>[[CPixieRunUtilities_8h#a25c2f0a1e31c645254707ae5dbb9cc65]]     int [[CPixieRunUtilities_8h#a25c2f0a1e31c645254707ae5dbb9cc65]](
+<a name="l00147"></a>[[147|CPixieRunUtilities_8h#a25c2f0a1e31c645254707ae5dbb9cc65]]     int [[CPixieRunUtilities_EndHistogramRun|CPixieRunUtilities_8h#a25c2f0a1e31c645254707ae5dbb9cc65]](
 
 
-<a name="l00148"></a>  148     [[classCPixieRunUtilities]]* utils, int mod
+<a name="l00148"></a>  148     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod
 
 
 <a name="l00149"></a>  149     )
@@ -184,16 +184,16 @@ header
 <a name="l00150"></a>  150     {
 
 
-<a name="l00151"></a>  151     return utils->[[classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]](mod);
+<a name="l00151"></a>  151     return utils->[[EndHistogramRun|classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]](mod);
 
 
 <a name="l00152"></a>  152     }
 
 
-<a name="l00154"></a>[[CPixieRunUtilities_8h#a99a8e37dc54d441d29949d821ab2bcbe]]     int [[CPixieRunUtilities_8h#a99a8e37dc54d441d29949d821ab2bcbe]](
+<a name="l00154"></a>[[154|CPixieRunUtilities_8h#a99a8e37dc54d441d29949d821ab2bcbe]]     int [[CPixieRunUtilities_ReadHistogram|CPixieRunUtilities_8h#a99a8e37dc54d441d29949d821ab2bcbe]](
 
 
-<a name="l00155"></a>  155     [[classCPixieRunUtilities]]* utils, int mod, int chan
+<a name="l00155"></a>  155     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod, int chan
 
 
 <a name="l00156"></a>  156     )
@@ -202,7 +202,7 @@ header
 <a name="l00157"></a>  157     {
 
 
-<a name="l00158"></a>  158     return utils->[[classCPixieRunUtilities#a544f4e67d9c2c318b025b9977854ba2c]](mod, chan);
+<a name="l00158"></a>  158     return utils->[[ReadHistogram|classCPixieRunUtilities#a544f4e67d9c2c318b025b9977854ba2c]](mod, chan);
 
 
 <a name="l00159"></a>  159     }
@@ -211,10 +211,10 @@ header
 <a name="l00160"></a>  160
 
 
-<a name="l00162"></a>[[CPixieRunUtilities_8h#af8ba1e22fdf56af3cd62b0ad9be50f5d]]     int [[CPixieRunUtilities_8h#af8ba1e22fdf56af3cd62b0ad9be50f5d]](
+<a name="l00162"></a>[[162|CPixieRunUtilities_8h#af8ba1e22fdf56af3cd62b0ad9be50f5d]]     int [[CPixieRunUtilities_BeginBaselineRun|CPixieRunUtilities_8h#af8ba1e22fdf56af3cd62b0ad9be50f5d]](
 
 
-<a name="l00163"></a>  163     [[classCPixieRunUtilities]]* utils, int mod
+<a name="l00163"></a>  163     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod
 
 
 <a name="l00164"></a>  164     )
@@ -223,28 +223,28 @@ header
 <a name="l00165"></a>  165     {
 
 
-<a name="l00166"></a>  166     return utils->[[classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]](mod);
+<a name="l00166"></a>  166     return utils->[[BeginBaselineRun|classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]](mod);
 
 
 <a name="l00167"></a>  167     }
 
 
-<a name="l00169"></a>[[CPixieRunUtilities_8h#ab4128b167a93c8f1d299d0932309e3c0]]     int [[CPixieRunUtilities_8h#ab4128b167a93c8f1d299d0932309e3c0]]([[classCPixieRunUtilities]]* utils, int mod)
+<a name="l00169"></a>[[169|CPixieRunUtilities_8h#ab4128b167a93c8f1d299d0932309e3c0]]     int [[CPixieRunUtilities_EndBaselineRun|CPixieRunUtilities_8h#ab4128b167a93c8f1d299d0932309e3c0]]([[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod)
 
 
 <a name="l00170"></a>  170     {
 
 
-<a name="l00171"></a>  171     return utils->[[classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]](mod);
+<a name="l00171"></a>  171     return utils->[[EndBaselineRun|classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]](mod);
 
 
 <a name="l00172"></a>  172     }
 
 
-<a name="l00174"></a>[[CPixieRunUtilities_8h#af6c49b5848ef765419f9c942effee84d]]     int [[CPixieRunUtilities_8h#af6c49b5848ef765419f9c942effee84d]](
+<a name="l00174"></a>[[174|CPixieRunUtilities_8h#af6c49b5848ef765419f9c942effee84d]]     int [[CPixieRunUtilities_ReadBaseline|CPixieRunUtilities_8h#af6c49b5848ef765419f9c942effee84d]](
 
 
-<a name="l00175"></a>  175     [[classCPixieRunUtilities]]* utils, int mod, int chan
+<a name="l00175"></a>  175     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod, int chan
 
 
 <a name="l00176"></a>  176     )
@@ -253,7 +253,7 @@ header
 <a name="l00177"></a>  177     {
 
 
-<a name="l00178"></a>  178     return utils->[[classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]](mod, chan);
+<a name="l00178"></a>  178     return utils->[[ReadBaseline|classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]](mod, chan);
 
 
 <a name="l00179"></a>  179     }
@@ -262,22 +262,22 @@ header
 <a name="l00180"></a>  180
 
 
-<a name="l00182"></a>[[CPixieRunUtilities_8h#a930b815db7735ebf7b198ef3fc1602f7]]     int [[CPixieRunUtilities_8h#a930b815db7735ebf7b198ef3fc1602f7]]([[classCPixieRunUtilities]]* utils, int mod)
+<a name="l00182"></a>[[182|CPixieRunUtilities_8h#a930b815db7735ebf7b198ef3fc1602f7]]     int [[CPixieRunUtilities_ReadModuleStats|CPixieRunUtilities_8h#a930b815db7735ebf7b198ef3fc1602f7]]([[CPixieRunUtilities|classCPixieRunUtilities]]* utils, int mod)
 
 
 <a name="l00183"></a>  183     {
 
 
-<a name="l00184"></a>  184     return utils->[[classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]](mod);
+<a name="l00184"></a>  184     return utils->[[ReadModuleStats|classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]](mod);
 
 
 <a name="l00185"></a>  185     }
 
 
-<a name="l00187"></a>[[CPixieRunUtilities_8h#a118b0f2400fc7140aa987ffd8ffc0cc5]]     unsigned int* [[CPixieRunUtilities_8h#a118b0f2400fc7140aa987ffd8ffc0cc5]](
+<a name="l00187"></a>[[187|CPixieRunUtilities_8h#a118b0f2400fc7140aa987ffd8ffc0cc5]]     unsigned int* [[CPixieRunUtilities_GetHistogramData|CPixieRunUtilities_8h#a118b0f2400fc7140aa987ffd8ffc0cc5]](
 
 
-<a name="l00188"></a>  188     [[classCPixieRunUtilities]]* utils
+<a name="l00188"></a>  188     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils
 
 
 <a name="l00189"></a>  189     )
@@ -286,40 +286,40 @@ header
 <a name="l00190"></a>  190     {
 
 
-<a name="l00191"></a>  191     return utils->[[classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]();
+<a name="l00191"></a>  191     return utils->[[GetHistogramData|classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]();
 
 
 <a name="l00192"></a>  192     }
 
 
-<a name="l00194"></a>[[CPixieRunUtilities_8h#afcccbf71771c6a8a8bf17c6aaaf589fd]]     unsigned int* [[CPixieRunUtilities_8h#afcccbf71771c6a8a8bf17c6aaaf589fd]]([[classCPixieRunUtilities]]* utils)
+<a name="l00194"></a>[[194|CPixieRunUtilities_8h#afcccbf71771c6a8a8bf17c6aaaf589fd]]     unsigned int* [[CPixieRunUtilities_GetBaselineData|CPixieRunUtilities_8h#afcccbf71771c6a8a8bf17c6aaaf589fd]]([[CPixieRunUtilities|classCPixieRunUtilities]]* utils)
 
 
 <a name="l00195"></a>  195     {
 
 
-<a name="l00196"></a>  196     return utils->[[classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]();
+<a name="l00196"></a>  196     return utils->[[GetBaselineData|classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]();
 
 
 <a name="l00197"></a>  197     }
 
 
-<a name="l00199"></a>[[CPixieRunUtilities_8h#a9e8e644bb6176f2a9d3bdbc725528695]]     bool [[CPixieRunUtilities_8h#a9e8e644bb6176f2a9d3bdbc725528695]]([[classCPixieRunUtilities]]* utils)
+<a name="l00199"></a>[[199|CPixieRunUtilities_8h#a9e8e644bb6176f2a9d3bdbc725528695]]     bool [[CPixieRunUtilities_GetRunActive|CPixieRunUtilities_8h#a9e8e644bb6176f2a9d3bdbc725528695]]([[CPixieRunUtilities|classCPixieRunUtilities]]* utils)
 
 
 <a name="l00200"></a>  200     {
 
 
-<a name="l00201"></a>  201     return utils->[[classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]();
+<a name="l00201"></a>  201     return utils->[[GetRunActive|classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]();
 
 
 <a name="l00202"></a>  202     }
 
 
-<a name="l00204"></a>[[CPixieRunUtilities_8h#a35e5b9a33933ac0e51594ff9039df420]]     void [[CPixieRunUtilities_8h#a35e5b9a33933ac0e51594ff9039df420]](
+<a name="l00204"></a>[[204|CPixieRunUtilities_8h#a35e5b9a33933ac0e51594ff9039df420]]     void [[CPixieRunUtilities_SetUseGenerator|CPixieRunUtilities_8h#a35e5b9a33933ac0e51594ff9039df420]](
 
 
-<a name="l00205"></a>  205     [[classCPixieRunUtilities]]* utils, bool mode
+<a name="l00205"></a>  205     [[CPixieRunUtilities|classCPixieRunUtilities]]* utils, bool mode
 
 
 <a name="l00206"></a>  206     )
@@ -328,7 +328,7 @@ header
 <a name="l00207"></a>  207     {
 
 
-<a name="l00208"></a>  208     return utils->[[classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]](mode);
+<a name="l00208"></a>  208     return utils->[[SetUseGenerator|classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]](mode);
 
 
 <a name="l00209"></a>  209     }
@@ -337,7 +337,7 @@ header
 <a name="l00210"></a>  210
 
 
-<a name="l00212"></a>[[CPixieRunUtilities_8h#a6742556b43261ad1f5d8e66ac4b0c0f9]]     void [[CPixieRunUtilities_8h#a6742556b43261ad1f5d8e66ac4b0c0f9]]([[classCPixieRunUtilities]]* utils)
+<a name="l00212"></a>[[212|CPixieRunUtilities_8h#a6742556b43261ad1f5d8e66ac4b0c0f9]]     void [[CPixieRunUtilities_delete|CPixieRunUtilities_8h#a6742556b43261ad1f5d8e66ac4b0c0f9]]([[CPixieRunUtilities|classCPixieRunUtilities]]* utils)
 
 
 <a name="l00213"></a>  213     {
@@ -367,7 +367,7 @@ header
 <a name="l00221"></a>  221 #endif
 
 
-[[CPixieRunUtilities_8h#a118b0f2400fc7140aa987ffd8ffc0cc5]]
+[[CPixieRunUtilities_GetHistogramData|CPixieRunUtilities_8h#a118b0f2400fc7140aa987ffd8ffc0cc5]]
 
 unsigned int * CPixieRunUtilities_GetHistogramData(CPixieRunUtilities *utils)
 
@@ -376,7 +376,7 @@ Wrapper to marshall the histogram data.
 **Definition:** CPixieRunUtilities.h:187
 
 
-[[CPixieRunUtilities_8h#a221e426b815917448a333009d3fc6d75]]
+[[CPixieRunUtilities_BeginHistogramRun|CPixieRunUtilities_8h#a221e426b815917448a333009d3fc6d75]]
 
 int CPixieRunUtilities_BeginHistogramRun(CPixieRunUtilities *utils, int mod)
 
@@ -385,7 +385,7 @@ Wrapper to begin a list-mode histogram data run.
 **Definition:** CPixieRunUtilities.h:140
 
 
-[[CPixieRunUtilities_8h#a25c2f0a1e31c645254707ae5dbb9cc65]]
+[[CPixieRunUtilities_EndHistogramRun|CPixieRunUtilities_8h#a25c2f0a1e31c645254707ae5dbb9cc65]]
 
 int CPixieRunUtilities_EndHistogramRun(CPixieRunUtilities *utils, int mod)
 
@@ -394,7 +394,7 @@ Wrapper to end a list-mode histogram data run.
 **Definition:** CPixieRunUtilities.h:147
 
 
-[[CPixieRunUtilities_8h#a35e5b9a33933ac0e51594ff9039df420]]
+[[CPixieRunUtilities_SetUseGenerator|CPixieRunUtilities_8h#a35e5b9a33933ac0e51594ff9039df420]]
 
 void CPixieRunUtilities_SetUseGenerator(CPixieRunUtilities *utils, bool mode)
 
@@ -403,7 +403,7 @@ Wrapper to setup the offline data generator.
 **Definition:** CPixieRunUtilities.h:204
 
 
-[[CPixieRunUtilities_8h#a412cad88a6c1187ed29c967ba680fc9e]]
+[[CPixieRunUtilities_new|CPixieRunUtilities_8h#a412cad88a6c1187ed29c967ba680fc9e]]
 
 CPixieRunUtilities * CPixieRunUtilities_new()
 
@@ -412,7 +412,7 @@ Wrapper for the class constructor.
 **Definition:** CPixieRunUtilities.h:134
 
 
-[[CPixieRunUtilities_8h#a6742556b43261ad1f5d8e66ac4b0c0f9]]
+[[CPixieRunUtilities_delete|CPixieRunUtilities_8h#a6742556b43261ad1f5d8e66ac4b0c0f9]]
 
 void CPixieRunUtilities_delete(CPixieRunUtilities *utils)
 
@@ -421,7 +421,7 @@ Wrapper for the class constructor.
 **Definition:** CPixieRunUtilities.h:212
 
 
-[[CPixieRunUtilities_8h#a930b815db7735ebf7b198ef3fc1602f7]]
+[[CPixieRunUtilities_ReadModuleStats|CPixieRunUtilities_8h#a930b815db7735ebf7b198ef3fc1602f7]]
 
 int CPixieRunUtilities_ReadModuleStats(CPixieRunUtilities *utils, int mod)
 
@@ -430,7 +430,7 @@ Wrapper to read run statistics from the module.
 **Definition:** CPixieRunUtilities.h:182
 
 
-[[CPixieRunUtilities_8h#a99a8e37dc54d441d29949d821ab2bcbe]]
+[[CPixieRunUtilities_ReadHistogram|CPixieRunUtilities_8h#a99a8e37dc54d441d29949d821ab2bcbe]]
 
 int CPixieRunUtilities_ReadHistogram(CPixieRunUtilities *utils, int mod, int chan)
 
@@ -439,7 +439,7 @@ Wrapper to read histogram data.
 **Definition:** CPixieRunUtilities.h:154
 
 
-[[CPixieRunUtilities_8h#a9e8e644bb6176f2a9d3bdbc725528695]]
+[[CPixieRunUtilities_GetRunActive|CPixieRunUtilities_8h#a9e8e644bb6176f2a9d3bdbc725528695]]
 
 bool CPixieRunUtilities_GetRunActive(CPixieRunUtilities *utils)
 
@@ -448,7 +448,7 @@ Wrapper to get the run active status.
 **Definition:** CPixieRunUtilities.h:199
 
 
-[[CPixieRunUtilities_8h#ab4128b167a93c8f1d299d0932309e3c0]]
+[[CPixieRunUtilities_EndBaselineRun|CPixieRunUtilities_8h#ab4128b167a93c8f1d299d0932309e3c0]]
 
 int CPixieRunUtilities_EndBaselineRun(CPixieRunUtilities *utils, int mod)
 
@@ -457,7 +457,7 @@ Wrapper to end a baseline data run.
 **Definition:** CPixieRunUtilities.h:169
 
 
-[[CPixieRunUtilities_8h#af6c49b5848ef765419f9c942effee84d]]
+[[CPixieRunUtilities_ReadBaseline|CPixieRunUtilities_8h#af6c49b5848ef765419f9c942effee84d]]
 
 int CPixieRunUtilities_ReadBaseline(CPixieRunUtilities *utils, int mod, int chan)
 
@@ -466,7 +466,7 @@ Wrapper to read the baseline data.
 **Definition:** CPixieRunUtilities.h:174
 
 
-[[CPixieRunUtilities_8h#af8ba1e22fdf56af3cd62b0ad9be50f5d]]
+[[CPixieRunUtilities_BeginBaselineRun|CPixieRunUtilities_8h#af8ba1e22fdf56af3cd62b0ad9be50f5d]]
 
 int CPixieRunUtilities_BeginBaselineRun(CPixieRunUtilities *utils, int mod)
 
@@ -475,7 +475,7 @@ Wrapper to begin a baseline data run.
 **Definition:** CPixieRunUtilities.h:162
 
 
-[[CPixieRunUtilities_8h#afcccbf71771c6a8a8bf17c6aaaf589fd]]
+[[CPixieRunUtilities_GetBaselineData|CPixieRunUtilities_8h#afcccbf71771c6a8a8bf17c6aaaf589fd]]
 
 unsigned int * CPixieRunUtilities_GetBaselineData(CPixieRunUtilities *utils)
 
@@ -484,14 +484,14 @@ Wrapper to marshall the baseline data.
 **Definition:** CPixieRunUtilities.h:194
 
 
-[[classCPixieRunUtilities]]
+[[CPixieRunUtilities|classCPixieRunUtilities]]
 
 Manage list-mode histogram and baseline runs for a Pixie-16 system.
 
 **Definition:** CPixieRunUtilities.h:27
 
 
-[[classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]]
+[[CPixieRunUtilities::EndHistogramRun|classCPixieRunUtilities#a0f7657098ea3adc47ea9cd965721c5cf]]
 
 int EndHistogramRun(int module)
 
@@ -500,7 +500,7 @@ End a histogram (MCA) run for a single module. Assumes module synchronization is
 **Definition:** CPixieRunUtilities.cpp:109
 
 
-[[classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]]
+[[CPixieRunUtilities::ReadModuleStats|classCPixieRunUtilities#a19fa0a8525fe5f0b2b166d6565ab82f8]]
 
 int ReadModuleStats(int module)
 
@@ -509,7 +509,7 @@ Read statistics for a single module after a run is ended.
 **Definition:** CPixieRunUtilities.cpp:295
 
 
-[[classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]
+[[CPixieRunUtilities::SetUseGenerator|classCPixieRunUtilities#a2b2c255fd29626dcd5f06576caa05776]]
 
 void SetUseGenerator(bool mode)
 
@@ -518,7 +518,7 @@ Set the use of the generator for offline data.
 **Definition:** CPixieRunUtilities.h:119
 
 
-[[classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]]
+[[CPixieRunUtilities::EndBaselineRun|classCPixieRunUtilities#a2b754a86c9b3ff3b65da06a9d41de135]]
 
 int EndBaselineRun(int module)
 
@@ -527,7 +527,7 @@ int EndBaselineRun(int module)
 **Definition:** CPixieRunUtilities.cpp:232
 
 
-[[classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]]
+[[CPixieRunUtilities::BeginHistogramRun|classCPixieRunUtilities#a4d622c7bee62e0f5802f36b3aece9092]]
 
 int BeginHistogramRun(int module)
 
@@ -536,7 +536,7 @@ Begin a histogram (MCA) run for a single module. Explicitly sets module synchron
 **Definition:** CPixieRunUtilities.cpp:42
 
 
-[[classCPixieRunUtilities#a544f4e67d9c2c318b025b9977854ba2c]]
+[[CPixieRunUtilities::ReadHistogram|classCPixieRunUtilities#a544f4e67d9c2c318b025b9977854ba2c]]
 
 int ReadHistogram(int module, int channel)
 
@@ -545,7 +545,7 @@ Read energy histogram from single channel.
 **Definition:** CPixieRunUtilities.cpp:166
 
 
-[[classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]
+[[CPixieRunUtilities::GetBaselineData|classCPixieRunUtilities#a593941ce31042a5f366df9f469ae164c]]
 
 unsigned int * GetBaselineData()
 
@@ -554,7 +554,7 @@ Get the baseline run data.
 **Definition:** CPixieRunUtilities.h:109
 
 
-[[classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]
+[[CPixieRunUtilities::GetHistogramData|classCPixieRunUtilities#a6778f8255f2a578f3f930f2653d84cb7]]
 
 unsigned int * GetHistogramData()
 
@@ -563,7 +563,7 @@ Get the histogram data from a list-mode run.
 **Definition:** CPixieRunUtilities.h:104
 
 
-[[classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]]
+[[CPixieRunUtilities::ReadBaseline|classCPixieRunUtilities#a79b38f0d9f30e60206024ad920e76dde]]
 
 int ReadBaseline(int module, int channel)
 
@@ -572,7 +572,7 @@ Acquire baselines and read baseline data from a single channel.
 **Definition:** CPixieRunUtilities.cpp:252
 
 
-[[classCPixieRunUtilities#a8fb74d1fa0e0b0bffdd1eebedf611710]]
+[[CPixieRunUtilities::CPixieRunUtilities|classCPixieRunUtilities#a8fb74d1fa0e0b0bffdd1eebedf611710]]
 
 CPixieRunUtilities()
 
@@ -581,7 +581,7 @@ Constructor.
 **Definition:** CPixieRunUtilities.cpp:25
 
 
-[[classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]]
+[[CPixieRunUtilities::BeginBaselineRun|classCPixieRunUtilities#abfea0ef62e8bd5826752ad4267bf8fe2]]
 
 int BeginBaselineRun(int module)
 
@@ -590,7 +590,7 @@ Begin a baseline run.
 **Definition:** CPixieRunUtilities.cpp:214
 
 
-[[classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]
+[[CPixieRunUtilities::GetRunActive|classCPixieRunUtilities#ade882c72a71afa6cf76d1d14ff9a11e0]]
 
 bool GetRunActive()
 

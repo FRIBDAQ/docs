@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CConfigurableObject Member List
 
 header
-This is the complete list of members for [[classCConfigurableObject]], including all inherited members.
+This is the complete list of members for [[CConfigurableObject|classCConfigurableObject]], including all inherited members.
 
 
 |  |  |  |

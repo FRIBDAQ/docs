@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[classCTCLObjectPackage-members]]
+[[List of all members|classCTCLObjectPackage-members]]
 
 
 CTCLObjectPackage Class Reference
@@ -53,7 +53,7 @@ header
 <a name="details"></a>## Detailed Description
 
 
-A TCL Object Package contains functionality that may be shared by a set of related TCL commands...where the commands are implemented via [[classCTCLPackagedObjectProcessor]] objects.
+A TCL Object Package contains functionality that may be shared by a set of related TCL commands...where the commands are implemented via [[CTCLPackagedObjectProcessor|classCTCLPackagedObjectProcessor]] objects.
 
 
 This is normally a base class.
@@ -116,7 +116,7 @@ Return values
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObjectPackage_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObjectPackage.h|TCLObjectPackage_8h_source]]
 - libtclplus/tclplus/TCLObjectPackage.cpp
 
  contents 

@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CEventProcessor]]
+- [[CEventProcessor|classfrib_1_1analysis_1_1CEventProcessor]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CEventProcessor-members]]
+[[List of all members|classfrib_1_1analysis_1_1CEventProcessor-members]]
 
 
 frib::analysis::CEventProcessor Class Referenceabstract
@@ -48,7 +48,7 @@ Inheritance diagram for frib::analysis::CEventProcessor:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -70,7 +70,7 @@ Base class for ports of SpecTcl event processors into the paralle analysis frame
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[EventProcessor_8h_source]]
+The documentation for this class was generated from the following files:- spectcl/[[EventProcessor.h|EventProcessor_8h_source]]
 - spectcl/EventProcessor.cpp
 
  contents 

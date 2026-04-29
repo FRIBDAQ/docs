@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[classTestTracer-members]]
+[[List of all members|classTestTracer-members]]
 
 
 TestTracer Class Reference
 
 header
 Test trace class.  
- [[classTestTracer#details]]
+ [[More...|classTestTracer#details]]
 
 
 Inheritance diagram for TestTracer:
@@ -41,7 +41,7 @@ Inheritance diagram for TestTracer:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TestTracer:
@@ -54,7 +54,7 @@ Collaboration diagram for TestTracer:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |

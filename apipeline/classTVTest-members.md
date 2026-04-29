@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 TVTest Member List
 
 header
-This is the complete list of members for [[classTVTest]], including all inherited members.
+This is the complete list of members for [[TVTest|classTVTest]], including all inherited members.
 
 
 |  |  |  |

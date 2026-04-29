@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1HitExtension]]
+- [[HitExtension|structddastoys_1_1HitExtension]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1HitExtension-members]]
+[[List of all members|structddastoys_1_1HitExtension-members]]
 
 
 ddastoys::HitExtension Struct Reference
 
 header
 The data structure appended to each fit hit.  
- [[structddastoys_1_1HitExtension#details]]
+ [[More...|structddastoys_1_1HitExtension#details]]
 
 
 `#include <fit_extensions.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::HitExtension:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::HitExtension:
@@ -65,7 +65,7 @@ Collaboration diagram for ddastoys::HitExtension:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -129,7 +129,7 @@ NoteSingle- and double-pulse probabilities are set to 0 since the old-style exte
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
 
  contents 
  start footer part 

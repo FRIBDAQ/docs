@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classTVATest-members]]
+[[List of all members|classTVATest-members]]
 
 
 TVATest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TVATest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TVATest:
@@ -47,7 +47,7 @@ Collaboration diagram for TVATest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -84,7 +84,7 @@ Collaboration diagram for TVATest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[treevararraytests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[treevararraytests.cpp|treevararraytests_8cpp]]
 
  contents 
  start footer part 

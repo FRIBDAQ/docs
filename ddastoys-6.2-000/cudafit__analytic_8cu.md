@@ -418,7 +418,7 @@ ReturnsLogistic function evaluated at x.
 Evaluate the value of a single pulse in accordance with our canonical functional form.
 
 
-The form is a sigmoid rise with an exponential decay that sits on top of a constant offset. The exponential decay is turned on with [[group__analytic#gab8955e8a8a70e7c53a8ee2ccb5173d4e]] above when x > the rise point of the sigmoid.
+The form is a sigmoid rise with an exponential decay that sits on top of a constant offset. The exponential decay is turned on with [[switchOn()|group__analytic#gab8955e8a8a70e7c53a8ee2ccb5173d4e]] above when x > the rise point of the sigmoid.
 
 
 Parameters

@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classQRootCanvas-members]]
+[[List of all members|classQRootCanvas-members]]
 
 
 QRootCanvas Class Reference
 
 header
 A ROOT canvas embedded in a Qt application.  
- [[classQRootCanvas#details]]
+ [[More...|classQRootCanvas#details]]
 
 
 Inheritance diagram for QRootCanvas:
@@ -42,7 +42,7 @@ Inheritance diagram for QRootCanvas:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for QRootCanvas:
@@ -55,7 +55,7 @@ Collaboration diagram for QRootCanvas:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -130,7 +130,7 @@ Parameters
 
 
 
-Construct a QWidget and register it with the ROOT graphics backend. The canvas does not own the [[classFitManager]] object.
+Construct a QWidget and register it with the ROOT graphics backend. The canvas does not own the [[FitManager|classFitManager]] object.
 
 
 ## Member Function Documentation
@@ -225,8 +225,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- [[QRootCanvas_8h_source]]
-- [[QRootCanvas_8cpp]]
+The documentation for this class was generated from the following files:- [[QRootCanvas.h|QRootCanvas_8h_source]]
+- [[QRootCanvas.cpp|QRootCanvas_8cpp]]
 
  contents 
  start footer part 

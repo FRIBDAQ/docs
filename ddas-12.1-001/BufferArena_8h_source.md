@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_9ad3e8fcfa94677d694c5b48d5640f86]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[readout|dir_9ad3e8fcfa94677d694c5b48d5640f86]]
 
  top 
 BufferArena.h
 
 header
-[[BufferArena_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|BufferArena_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -100,7 +100,7 @@ header
 <a name="l00029"></a>   29
 
 
-<a name="l00031"></a>   31 namespace [[namespaceDDASReadout]] {
+<a name="l00031"></a>   31 namespace [[DDASReadout|namespaceDDASReadout]] {
 
 
 <a name="l00032"></a>   32
@@ -112,7 +112,7 @@ header
 <a name="l00034"></a>   34
 
 
-<a name="l00051"></a>[[classDDASReadout_1_1BufferArena]]     class [[classDDASReadout_1_1BufferArena]] {
+<a name="l00051"></a>[[51|classDDASReadout_1_1BufferArena]]     class [[BufferArena|classDDASReadout_1_1BufferArena]] {
 
 
 <a name="l00052"></a>   52     private:
@@ -127,16 +127,16 @@ header
 <a name="l00055"></a>   55     public:
 
 
-<a name="l00057"></a>   57     virtual [[classDDASReadout_1_1BufferArena#a28d72045521616e3dd7fc88ec3b6e07a]]();
+<a name="l00057"></a>   57     virtual [[~BufferArena|classDDASReadout_1_1BufferArena#a28d72045521616e3dd7fc88ec3b6e07a]]();
 
 
 <a name="l00058"></a>   58
 
 
-<a name="l00065"></a>   65     [[structDDASReadout_1_1ReferenceCountedBuffer]]* [[classDDASReadout_1_1BufferArena#a1e033ab797363a5ecc38647602f1659c]](size_t nBytes);
+<a name="l00065"></a>   65     [[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]* [[allocate|classDDASReadout_1_1BufferArena#a1e033ab797363a5ecc38647602f1659c]](size_t nBytes);
 
 
-<a name="l00070"></a>   70     void [[classDDASReadout_1_1BufferArena#a3232cd2b0992615b7436fe691c3d59aa]]([[structDDASReadout_1_1ReferenceCountedBuffer]]* pBuffer);
+<a name="l00070"></a>   70     void [[free|classDDASReadout_1_1BufferArena#a3232cd2b0992615b7436fe691c3d59aa]]([[ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]* pBuffer);
 
 
 <a name="l00071"></a>   71
@@ -157,14 +157,14 @@ header
 <a name="l00076"></a>   76 #endif
 
 
-[[classDDASReadout_1_1BufferArena]]
+[[DDASReadout::BufferArena|classDDASReadout_1_1BufferArena]]
 
 Provides a class for memory management in reference-counted buffers.
 
 **Definition:** BufferArena.h:51
 
 
-[[classDDASReadout_1_1BufferArena#a1e033ab797363a5ecc38647602f1659c]]
+[[DDASReadout::BufferArena::allocate|classDDASReadout_1_1BufferArena#a1e033ab797363a5ecc38647602f1659c]]
 
 ReferenceCountedBuffer * allocate(size_t nBytes)
 
@@ -173,7 +173,7 @@ Allocate and return a buffer.
 **Definition:** BufferArena.cpp:51
 
 
-[[classDDASReadout_1_1BufferArena#a28d72045521616e3dd7fc88ec3b6e07a]]
+[[DDASReadout::BufferArena::~BufferArena|classDDASReadout_1_1BufferArena#a28d72045521616e3dd7fc88ec3b6e07a]]
 
 virtual ~BufferArena()
 
@@ -182,7 +182,7 @@ Destructor.
 **Definition:** BufferArena.cpp:37
 
 
-[[classDDASReadout_1_1BufferArena#a3232cd2b0992615b7436fe691c3d59aa]]
+[[DDASReadout::BufferArena::free|classDDASReadout_1_1BufferArena#a3232cd2b0992615b7436fe691c3d59aa]]
 
 void free(ReferenceCountedBuffer *pBuffer)
 
@@ -191,12 +191,12 @@ Returns a buffer to the pool.
 **Definition:** BufferArena.cpp:67
 
 
-[[namespaceDDASReadout]]
+[[DDASReadout|namespaceDDASReadout]]
 
 **Definition:** BufferArena.cpp:29
 
 
-[[structDDASReadout_1_1ReferenceCountedBuffer]]
+[[DDASReadout::ReferenceCountedBuffer|structDDASReadout_1_1ReferenceCountedBuffer]]
 
 A reference-counted buffer with dynamic storage.
 

@@ -4,7 +4,7 @@
 # Miscellaneous
 
 
-[[gretinauserdocs.pdf]]
+[[Gretina at the NSCL|gretinauserdocs.pdf]]
 
 
-[[Conversion_Specifications.v2.pdf]]
+[[Data Format Conversion Specification|Conversion_Specifications.v2.pdf]]

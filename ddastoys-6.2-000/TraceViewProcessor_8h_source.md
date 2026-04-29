@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_618b423c2be057087b8e9298ecdc31ba]]
+- [[TraceView|dir_618b423c2be057087b8e9298ecdc31ba]]
 
  top 
 TraceViewProcessor.h
 
 header
-[[TraceViewProcessor_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|TraceViewProcessor_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -84,7 +84,7 @@ header
 <a name="l00024"></a>   24
 
 
-<a name="l00025"></a>   25 #include <[[CRingItemProcessor_8h]]>
+<a name="l00025"></a>   25 #include <[[CRingItemProcessor.h|CRingItemProcessor_8h]]>
 
 
 <a name="l00026"></a>   26
@@ -138,7 +138,7 @@ header
 <a name="l00042"></a>   42
 
 
-<a name="l00056"></a>[[classTraceViewProcessor]] class [[classTraceViewProcessor]] : public [[classCRingItemProcessor]]
+<a name="l00056"></a>[[56|classTraceViewProcessor]] class [[TraceViewProcessor|classTraceViewProcessor]] : public [[CRingItemProcessor|classCRingItemProcessor]]
 
 
 <a name="l00057"></a>   57 {
@@ -147,10 +147,10 @@ header
 <a name="l00058"></a>   58 public:
 
 
-<a name="l00060"></a>   60     [[classTraceViewProcessor#a05cfc0bbc640942445352d0ded2b5420]]();
+<a name="l00060"></a>   60     [[TraceViewProcessor|classTraceViewProcessor#a05cfc0bbc640942445352d0ded2b5420]]();
 
 
-<a name="l00062"></a>   62     virtual [[classTraceViewProcessor#a67e2cd54a75e28537b036aefffcf6a2b]]();
+<a name="l00062"></a>   62     virtual [[~TraceViewProcessor|classTraceViewProcessor#a67e2cd54a75e28537b036aefffcf6a2b]]();
 
 
 <a name="l00063"></a>   63
@@ -162,7 +162,7 @@ header
 <a name="l00065"></a>   65
 
 
-<a name="l00070"></a>   70     virtual void [[classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]](CPhysicsEventItem& item);
+<a name="l00070"></a>   70     virtual void [[processEvent|classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]](CPhysicsEventItem& item);
 
 
 <a name="l00071"></a>   71
@@ -174,22 +174,22 @@ header
 <a name="l00073"></a>   73
 
 
-<a name="l00075"></a>[[classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]]     virtual void [[classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]](CRingScalerItem&) { return; };
+<a name="l00075"></a>[[75|classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]]     virtual void [[processScalerItem|classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]](CRingScalerItem&) { return; };
 
 
-<a name="l00077"></a>[[classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]]     virtual void [[classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]](CRingTextItem&) { return; };
+<a name="l00077"></a>[[77|classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]]     virtual void [[processTextItem|classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]](CRingTextItem&) { return; };
 
 
-<a name="l00079"></a>[[classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]]     virtual void [[classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]](CRingPhysicsEventCountItem&) { return; };
+<a name="l00079"></a>[[79|classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]]     virtual void [[processEventCount|classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]](CRingPhysicsEventCountItem&) { return; };
 
 
-<a name="l00081"></a>[[classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]]     virtual void [[classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]](CGlomParameters&) { return; };
+<a name="l00081"></a>[[81|classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]]     virtual void [[processGlomParams|classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]](CGlomParameters&) { return; };
 
 
 <a name="l00082"></a>   82
 
 
-<a name="l00087"></a>[[classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]     std::vector<ddastoys::DDASFitHit> [[classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]() {return m_hits;};
+<a name="l00087"></a>[[87|classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]     std::vector<ddastoys::DDASFitHit> [[getUnpackedHits|classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]() {return m_hits;};
 
 
 <a name="l00088"></a>   88
@@ -198,7 +198,7 @@ header
 <a name="l00089"></a>   89 private:
 
 
-<a name="l00090"></a>   90     [[classddastoys_1_1DDASFitHitUnpacker]]* m_pUnpacker;
+<a name="l00090"></a>   90     [[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]* m_pUnpacker;
 
 
 <a name="l00091"></a>   91     std::vector<ddastoys::DDASFitHit> m_hits;
@@ -213,26 +213,26 @@ header
 <a name="l00094"></a>   94 #endif
 
 
-[[CRingItemProcessor_8h]]
+[[CRingItemProcessor.h|CRingItemProcessor_8h]]
 
 Defines an abstract base class for ring item processing.
 
 
-[[classCRingItemProcessor]]
+[[CRingItemProcessor|classCRingItemProcessor]]
 
 Abstract base class to support type-independent ring-item processing.
 
 **Definition:** CRingItemProcessor.h:48
 
 
-[[classTraceViewProcessor]]
+[[TraceViewProcessor|classTraceViewProcessor]]
 
 A basic ring item processor.
 
 **Definition:** TraceViewProcessor.h:57
 
 
-[[classTraceViewProcessor#a05cfc0bbc640942445352d0ded2b5420]]
+[[TraceViewProcessor::TraceViewProcessor|classTraceViewProcessor#a05cfc0bbc640942445352d0ded2b5420]]
 
 TraceViewProcessor()
 
@@ -241,7 +241,7 @@ Constructor.
 **Definition:** TraceViewProcessor.cpp:44
 
 
-[[classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]
+[[TraceViewProcessor::getUnpackedHits|classTraceViewProcessor#a49595ce4677548698bf603e8ce04f862]]
 
 std::vector< ddastoys::DDASFitHit > getUnpackedHits()
 
@@ -250,7 +250,7 @@ Return the unpacked event data.
 **Definition:** TraceViewProcessor.h:87
 
 
-[[classTraceViewProcessor#a67e2cd54a75e28537b036aefffcf6a2b]]
+[[TraceViewProcessor::~TraceViewProcessor|classTraceViewProcessor#a67e2cd54a75e28537b036aefffcf6a2b]]
 
 virtual ~TraceViewProcessor()
 
@@ -259,7 +259,7 @@ Destructor.
 **Definition:** TraceViewProcessor.cpp:54
 
 
-[[classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]]
+[[TraceViewProcessor::processTextItem|classTraceViewProcessor#a6bf4c66f539bbf3db00e7e041f92fa44]]
 
 virtual void processTextItem(CRingTextItem &)
 
@@ -268,7 +268,7 @@ Text ring items are ignored.
 **Definition:** TraceViewProcessor.h:77
 
 
-[[classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]]
+[[TraceViewProcessor::processGlomParams|classTraceViewProcessor#a8c2a0744afcfe95457cd1b26b84e5e48]]
 
 virtual void processGlomParams(CGlomParameters &)
 
@@ -277,7 +277,7 @@ GlomParameters ring items are ignored.
 **Definition:** TraceViewProcessor.h:81
 
 
-[[classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]]
+[[TraceViewProcessor::processEvent|classTraceViewProcessor#a9258fb90d1e63d1efebf842f57c868dc]]
 
 virtual void processEvent(CPhysicsEventItem &item)
 
@@ -286,7 +286,7 @@ Process physics events.
 **Definition:** TraceViewProcessor.cpp:66
 
 
-[[classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]]
+[[TraceViewProcessor::processEventCount|classTraceViewProcessor#abe06f276641d6aa2245e462d50634f1c]]
 
 virtual void processEventCount(CRingPhysicsEventCountItem &)
 
@@ -295,7 +295,7 @@ PhysicsEventCount ring items are ignored.
 **Definition:** TraceViewProcessor.h:79
 
 
-[[classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]]
+[[TraceViewProcessor::processScalerItem|classTraceViewProcessor#ad1ed7b77567e835c025d075127cbc5bc]]
 
 virtual void processScalerItem(CRingScalerItem &)
 
@@ -304,7 +304,7 @@ Scaler ring items are ignored.
 **Definition:** TraceViewProcessor.h:75
 
 
-[[classddastoys_1_1DDASFitHitUnpacker]]
+[[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
 
 Unpack raw hit data from DDAS event files.
 

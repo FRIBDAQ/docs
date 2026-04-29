@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[classDDASReadout_1_1BufferArena]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[BufferArena|classDDASReadout_1_1BufferArena]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classDDASReadout_1_1BufferArena-members]]
+[[List of all members|classDDASReadout_1_1BufferArena-members]]
 
 
 DDASReadout::BufferArena Class Reference
 
 header
 Provides a class for memory management in reference-counted buffers.  
- [[classDDASReadout_1_1BufferArena#details]]
+ [[More...|classDDASReadout_1_1BufferArena#details]]
 
 
 `#include <BufferArena.h>`
@@ -136,8 +136,8 @@ NoteThis is only legal if the buffer is not referenced.
 
 ---
 
-The documentation for this class was generated from the following files:- [[BufferArena_8h_source]]
-- [[BufferArena_8cpp]]
+The documentation for this class was generated from the following files:- [[BufferArena.h|BufferArena_8h_source]]
+- [[BufferArena.cpp|BufferArena_8cpp]]
 
  contents 
  start footer part 

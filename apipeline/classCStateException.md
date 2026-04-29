@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCStateException-members]]
+[[List of all members|classCStateException-members]]
 
 
 CStateException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CStateException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CStateException:
@@ -51,7 +51,7 @@ Collaboration diagram for CStateException:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -203,7 +203,7 @@ Equality comparison... if base class and reason text are the same.
 Reason code is always meaningless so we return a -1.
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
@@ -227,13 +227,13 @@ Return values
 
 
 
-Reimplemented from [[classCException]].
+Reimplemented from [[CException|classCException]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[StateException_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[StateException.h|StateException_8h_source]]
 - libtclplus/exception/StateException.cpp
 
  contents 

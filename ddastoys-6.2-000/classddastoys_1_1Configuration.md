@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1Configuration]]
+- [[Configuration|classddastoys_1_1Configuration]]
 
  top 
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1Configuration-members]]
+[[List of all members|classddastoys_1_1Configuration-members]]
 
 
-ddastoys::Configuration Class Reference[[group__analytic]] | [[group__template]] | [[group__mlinference]]
+ddastoys::Configuration Class Reference[[libFitEditorAnalytic.so|group__analytic]] | [[libFitEditorTemplate.so|group__template]] | [[libFitEditorMLInfernence.so|group__mlinference]]
 
 header
 Manage fit configuration information.  
- [[classddastoys_1_1Configuration#details]]
+ [[More...|classddastoys_1_1Configuration#details]]
 
 
 `#include <Configuration.h>`
@@ -295,8 +295,8 @@ Lines in the configuration file can be empty or have as their first non-blank ch
 
 ---
 
-The documentation for this class was generated from the following files:- [[Configuration_8h_source]]
-- [[Configuration_8cpp]]
+The documentation for this class was generated from the following files:- [[Configuration.h|Configuration_8h_source]]
+- [[Configuration.cpp|Configuration_8cpp]]
 
  contents 
  start footer part 

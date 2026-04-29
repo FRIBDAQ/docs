@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 Asserts.h
@@ -81,13 +81,13 @@ header
 
 <a name="l00027"></a>   27
 
-<a name="l00028"></a>[[classWarning]] class [[classWarning]] {
+<a name="l00028"></a>[[28|classWarning]] class [[Warning|classWarning]] {
 
 <a name="l00029"></a>   29
 
 <a name="l00030"></a>   30 public:
 
-<a name="l00031"></a>   31   [[classWarning]](std::string message) {
+<a name="l00031"></a>   31   [[Warning|classWarning]](std::string message) {
 
 <a name="l00032"></a>   32     std::cerr << message << std::endl;
 
@@ -101,7 +101,7 @@ header
 
 <a name="l00037"></a>   37 #endif
 
-[[classWarning]]
+[[Warning|classWarning]]
 
 **Definition:** Asserts.h:28
 

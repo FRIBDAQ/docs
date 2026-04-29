@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[structddastoys_1_1analyticfit_1_1GslFitParameters]]
+- [[GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]]
 
  top 
 ddastoys::analyticfit::GslFitParameters Member List
 
 header
-This is the complete list of members for [[structddastoys_1_1analyticfit_1_1GslFitParameters]], including all inherited members.
+This is the complete list of members for [[ddastoys::analyticfit::GslFitParameters|structddastoys_1_1analyticfit_1_1GslFitParameters]], including all inherited members.
 
 
 |  |  |  |

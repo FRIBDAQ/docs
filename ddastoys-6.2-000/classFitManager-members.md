@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 FitManager Member List
 
 header
-This is the complete list of members for [[classFitManager]], including all inherited members.
+This is the complete list of members for [[FitManager|classFitManager]], including all inherited members.
 
 
 |  |  |  |

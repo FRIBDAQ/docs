@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 mutextests Member List
 
 header
-This is the complete list of members for [[classmutextests]], including all inherited members.
+This is the complete list of members for [[mutextests|classmutextests]], including all inherited members.
 
 
 |  |  |  |

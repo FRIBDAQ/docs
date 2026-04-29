@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLTimer.h
@@ -121,7 +121,7 @@ header
 
 <a name="l00047"></a>   47
 
-<a name="l00048"></a>[[classCTCLTimer]] class [[classCTCLTimer]]  : public [[classCTCLInterpreterObject]]
+<a name="l00048"></a>[[48|classCTCLTimer]] class [[CTCLTimer|classCTCLTimer]]  : public [[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 <a name="l00049"></a>   49 {
 
@@ -139,9 +139,9 @@ header
 
 <a name="l00056"></a>   56
 
-<a name="l00057"></a>   57   [[classCTCLTimer]] () :
+<a name="l00057"></a>   57   [[CTCLTimer|classCTCLTimer]] () :
 
-<a name="l00058"></a>   58     [[classCTCLInterpreterObject]](),
+<a name="l00058"></a>   58     [[CTCLInterpreterObject|classCTCLInterpreterObject]](),
 
 <a name="l00059"></a>   59     m_tToken(0),
 
@@ -151,9 +151,9 @@ header
 
 <a name="l00062"></a>   62   { }
 
-<a name="l00063"></a>   63   [[classCTCLTimer]]([[classCTCLInterpreter]]* pInterp, TCLPLUS::UInt_t nMsec = 0) :
+<a name="l00063"></a>   63   [[CTCLTimer|classCTCLTimer]]([[CTCLInterpreter|classCTCLInterpreter]]* pInterp, TCLPLUS::UInt_t nMsec = 0) :
 
-<a name="l00064"></a>   64     [[classCTCLInterpreterObject]](pInterp),
+<a name="l00064"></a>   64     [[CTCLInterpreterObject|classCTCLInterpreterObject]](pInterp),
 
 <a name="l00065"></a>   65     m_tToken(0),
 
@@ -163,7 +163,7 @@ header
 
 <a name="l00068"></a>   68   {}
 
-<a name="l00069"></a>   69   virtual ~[[classCTCLTimer]] ( ) {
+<a name="l00069"></a>   69   virtual ~[[CTCLTimer|classCTCLTimer]] ( ) {
 
 <a name="l00070"></a>   70     Clear();
 
@@ -177,7 +177,7 @@ header
 
 <a name="l00075"></a>   75 private:
 
-<a name="l00076"></a>   76   [[classCTCLTimer]] (const [[classCTCLTimer]]& aCTCLTimer );
+<a name="l00076"></a>   76   [[CTCLTimer|classCTCLTimer]] (const [[CTCLTimer|classCTCLTimer]]& aCTCLTimer );
 
 <a name="l00077"></a>   77
 
@@ -185,13 +185,13 @@ header
 
 <a name="l00079"></a>   79
 
-<a name="l00080"></a>   80   [[classCTCLTimer]]& operator= (const [[classCTCLTimer]]& aCTCLTimer);
+<a name="l00080"></a>   80   [[CTCLTimer|classCTCLTimer]]& operator= (const [[CTCLTimer|classCTCLTimer]]& aCTCLTimer);
 
 <a name="l00081"></a>   81
 
 <a name="l00082"></a>   82             //Operator== Equality Operator [ makes no sense ]
 
-<a name="l00083"></a>   83   int operator== (const [[classCTCLTimer]]& aCTCLTimer);
+<a name="l00083"></a>   83   int operator== (const [[CTCLTimer|classCTCLTimer]]& aCTCLTimer);
 
 <a name="l00084"></a>   84
 
@@ -295,17 +295,17 @@ header
 
 <a name="l00134"></a>  134
 
-[[classCTCLTimer]]
+[[CTCLTimer|classCTCLTimer]]
 
 **Definition:** TCLTimer.h:48
 
 
-[[classCTCLInterpreterObject]]
+[[CTCLInterpreterObject|classCTCLInterpreterObject]]
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[classCTCLInterpreter]]
+[[CTCLInterpreter|classCTCLInterpreter]]
 
 **Definition:** TCLInterpreter.h:59
 

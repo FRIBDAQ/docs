@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 DDASReadoutMain Member List
 
 header
-This is the complete list of members for [[classDDASReadoutMain]], including all inherited members.
+This is the complete list of members for [[DDASReadoutMain|classDDASReadoutMain]], including all inherited members.
 
 
 |  |  |  |

@@ -22,7 +22,7 @@ Here is a list of all documented class members with links to the class documenta
 ### - j -
 
 - join()
-  : [[classCTCLThread#ac71f3baaac1f2798d0df83a03753379d]]
+  : [[CTCLThread|classCTCLThread#ac71f3baaac1f2798d0df83a03753379d]]
 
  contents 
  start footer part 

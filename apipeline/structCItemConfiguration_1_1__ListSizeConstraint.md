@@ -21,12 +21,12 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[classCItemConfiguration]]
-- [[structCItemConfiguration_1_1__ListSizeConstraint]]
+- [[CItemConfiguration|classCItemConfiguration]]
+- [[_ListSizeConstraint|structCItemConfiguration_1_1__ListSizeConstraint]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structCItemConfiguration_1_1__ListSizeConstraint-members]]
+[[List of all members|structCItemConfiguration_1_1__ListSizeConstraint-members]]
 
 
 CItemConfiguration::_ListSizeConstraint Struct Reference
@@ -41,7 +41,7 @@ Collaboration diagram for CItemConfiguration::_ListSizeConstraint:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -56,7 +56,7 @@ Collaboration diagram for CItemConfiguration::_ListSizeConstraint:
 
 ---
 
-The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration_8h_source]]
+The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|CItemConfiguration_8h_source]]
 
  contents 
  start footer part 

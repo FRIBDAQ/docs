@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CInvalidArgumentException Member List
 
 header
-This is the complete list of members for [[classCInvalidArgumentException]], including all inherited members.
+This is the complete list of members for [[CInvalidArgumentException|classCInvalidArgumentException]], including all inherited members.
 
 
 |  |  |  |

@@ -45,7 +45,7 @@ Date5/17/24
 # Introduction
 
 
-NSCLDAQ supports a wide variety of data acquisition hardware which use different data formats. Even for a single piece of [[namespaceDAQ]] hardware data payloads may vary experiment to experiment based on which features of the digitizers are used. For example the Pixie data payload structure depends on whether trace data, QDC sums, etc. are enabled. For this reason, there is no pre-compiled version of SpecTcl provided to deal with DDAS data. Rather there are two unpackers that are provided by SpecTcl, DAQ::DDAS::DDASUnpacker and DAQ::DDAS::DDASBuiltUnpacker. The difference between the two is that the latter unpacks data that has been built with the NSCLDAQ event builder. In most applications you will be looking at event-built data. The unpackers provide a consistent interface for interacting with the DDAS data. In this tutorial, you will learn how to incorporate an unpacker and some simple custom code into your SpecTcl application. We will assume event-built data for the remainder of this tutorial.
+NSCLDAQ supports a wide variety of data acquisition hardware which use different data formats. Even for a single piece of [[DAQ|namespaceDAQ]] hardware data payloads may vary experiment to experiment based on which features of the digitizers are used. For example the Pixie data payload structure depends on whether trace data, QDC sums, etc. are enabled. For this reason, there is no pre-compiled version of SpecTcl provided to deal with DDAS data. Rather there are two unpackers that are provided by SpecTcl, DAQ::DDAS::DDASUnpacker and DAQ::DDAS::DDASBuiltUnpacker. The difference between the two is that the latter unpacks data that has been built with the NSCLDAQ event builder. In most applications you will be looking at event-built data. The unpackers provide a consistent interface for interacting with the DDAS data. In this tutorial, you will learn how to incorporate an unpacker and some simple custom code into your SpecTcl application. We will assume event-built data for the remainder of this tutorial.
 NoteIf you are not working with event-built data, use the DAQ::DDAS::DDASUnpacker rather than DAQ::DDAS::DDASBuiltUnpacker. Everything else should remain the same.
 The source code for the example discussed in this tutorial can be found at PREFIX/VERSION/DDASSkel/ where PREFIX is the installation prefix path and VERSION is some SpecTcl version 5.14 or later. On FRIB computer systems the PREFIX path is most likely /usr/opt/spectcl. The user does not have deal with the low-level raw data when building a SpecTcl. Rather, they just need to implement a class that uses the unpacked DDAS data to set tree parameters for histogramming. In this way, the user is isolated from the details of the DDAS data structure. In any case, let's get down to business constructing a tailored SpecTcl.
 NoteYou should never need to write your own DDAS event parser. We provide tools for this for SpecTcl and for other raw data.
@@ -59,11 +59,11 @@ cd mySpecTcl
 
 ```
 
-You can make and run this example code right away. But, in the interest of learning, we will take a step back and try to understand what the DDAS SpecTcl skeleton is doing and how it is structured. We'll start with the raw data processing stage which utilizes the unpacker we mentioned in [[spectcl#sec_spectcl_intro]].
+You can make and run this example code right away. But, in the interest of learning, we will take a step back and try to understand what the DDAS SpecTcl skeleton is doing and how it is structured. We'll start with the raw data processing stage which utilizes the unpacker we mentioned in [[Introduction|spectcl#sec_spectcl_intro]].
 ## Using the DDAS Unpacker
 
 
-The provided unpackers understand how to navigate the fragments of DDAS data and unpack the event fragments into "hits." Each hit is represented by a DAQ::DDAS::DDASHit object. In addition to time and energy, and potentially traces or other data, this object identifies the channel the hit comes from by its crate, slot, and channel ID. Using the unpacker is a matter of defining the set of parameters you want your system to produce. Each channel minimally produces a timestamp and an energy. Users then provide the software to map the data in the vector of DAQ::DDAS::DDASHits extracted from the event into specific SpecTcl parameters. We'll take a closer look at this when we discuss the [[spectcl#sec_spectcl_mapper]].
+The provided unpackers understand how to navigate the fragments of DDAS data and unpack the event fragments into "hits." Each hit is represented by a DAQ::DDAS::DDASHit object. In addition to time and energy, and potentially traces or other data, this object identifies the channel the hit comes from by its crate, slot, and channel ID. Using the unpacker is a matter of defining the set of parameters you want your system to produce. Each channel minimally produces a timestamp and an energy. Users then provide the software to map the data in the vector of DAQ::DDAS::DDASHits extracted from the event into specific SpecTcl parameters. We'll take a closer look at this when we discuss the [[parameter mapper|spectcl#sec_spectcl_mapper]].
 ## Constructing the Parameter Tree
 
 
@@ -748,7 +748,7 @@ Now we can take a look at how to incorporate these event processors into a SpecT
 
 
 
-using namespace [[namespaceDAQ_1_1DDAS]];
+using namespace [[DAQ::DDAS|namespaceDAQ_1_1DDAS]];
 
 
 
@@ -829,7 +829,7 @@ RegisterEventProcessor(calibrator, "Cal");
 }
 
 
-[[namespaceDAQ_1_1DDAS]]
+[[DAQ::DDAS|namespaceDAQ_1_1DDAS]]
 
  fragment There are a few things to discuss here. The first is that this source file must include the headers which define the parameter structure and event processors that you use in your application (the Makefile must also have a rule to build and link the object files associated with these classes, see the comments in the Makefile for details). Finally, we instantiate the parameters and event processors we'll use in the global scope, with the event processors declared using the static keyword. Finally, we create the analysis pipeline by registering the two event processors described in the previous sections.
 Event processors are run in the order which they are registered. Both event processors maintain a reference to the same MyParameters object. The unpacker stage sets the values of the raw parameters which are used by the calibration stage to derive and set values for the calibrated parameters. In this way the output of one event processing stage can be passed along to the next stage.

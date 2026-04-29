@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_6514a8425036055b37d1cc9ce7dc44e6]]
-- [[dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
+- [[ddas|dir_6514a8425036055b37d1cc9ce7dc44e6]]
+- [[ddasdumper|dir_3bbf1c6b836d16f0cd5f6a50630f820c]]
 
  top 
 DDASRootEvent.h
 
 header
-[[DDASRootEvent_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASRootEvent_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2   This software is Copyright by the Board of Trustees of Michigan
@@ -97,13 +97,13 @@ header
 <a name="l00028"></a>   28
 
 
-<a name="l00029"></a>   29 class [[classDDASRootHit]];
+<a name="l00029"></a>   29 class [[DDASRootHit|classDDASRootHit]];
 
 
 <a name="l00030"></a>   30
 
 
-<a name="l00058"></a>[[classDDASRootEvent]] class [[classDDASRootEvent]] : public TObject
+<a name="l00058"></a>[[58|classDDASRootEvent]] class [[DDASRootEvent|classDDASRootEvent]] : public TObject
 
 
 <a name="l00059"></a>   59 {
@@ -121,40 +121,40 @@ header
 <a name="l00063"></a>   63 public:
 
 
-<a name="l00065"></a>   65     [[classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]]();
+<a name="l00065"></a>   65     [[DDASRootEvent|classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]]();
 
 
-<a name="l00067"></a>   67     [[classDDASRootEvent#a2e2a511a347634478857e22bcfc01842]]();
+<a name="l00067"></a>   67     [[~DDASRootEvent|classDDASRootEvent#a2e2a511a347634478857e22bcfc01842]]();
 
 
 <a name="l00068"></a>   68
 
 
-<a name="l00073"></a>   73     [[classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]](const [[classDDASRootEvent]]& obj);
+<a name="l00073"></a>   73     [[DDASRootEvent|classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]](const [[DDASRootEvent|classDDASRootEvent]]& obj);
 
 
-<a name="l00079"></a>   79     [[classDDASRootEvent]]& [[classDDASRootEvent#a12148b0d52540c3dd16b821a71465ef6]](const [[classDDASRootEvent]]& obj);
+<a name="l00079"></a>   79     [[DDASRootEvent|classDDASRootEvent]]& [[operator=|classDDASRootEvent#a12148b0d52540c3dd16b821a71465ef6]](const [[DDASRootEvent|classDDASRootEvent]]& obj);
 
 
-<a name="l00084"></a>[[classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]     std::vector<DDASRootHit*>& [[classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]() { return m_data;}
+<a name="l00084"></a>[[84|classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]     std::vector<DDASRootHit*>& [[GetData|classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]() { return m_data;}
 
 
-<a name="l00089"></a>[[classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]     UInt_t [[classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]() const { return m_data.size(); }
+<a name="l00089"></a>[[89|classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]     UInt_t [[GetNHits|classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]() const { return m_data.size(); }
 
 
-<a name="l00094"></a>   94     void [[classDDASRootEvent#a2dab895cb0a8aa8cb2f1a6f5a8626749]]([[classDDASRootHit]]* channel);
+<a name="l00094"></a>   94     void [[AddChannelData|classDDASRootEvent#a2dab895cb0a8aa8cb2f1a6f5a8626749]]([[DDASRootHit|classDDASRootHit]]* channel);
 
 
-<a name="l00099"></a>   99     Double_t [[classDDASRootEvent#abb0d65e6507f4b6e32eabf39501a294f]]() const;
+<a name="l00099"></a>   99     Double_t [[GetFirstTime|classDDASRootEvent#abb0d65e6507f4b6e32eabf39501a294f]]() const;
 
 
-<a name="l00104"></a>  104     Double_t [[classDDASRootEvent#a1355ada3cc269a9a1fa83e794de86c25]]() const;
+<a name="l00104"></a>  104     Double_t [[GetLastTime|classDDASRootEvent#a1355ada3cc269a9a1fa83e794de86c25]]() const;
 
 
-<a name="l00106"></a>  106     Double_t [[classDDASRootEvent#aa388c0f4fb6f3343507dbfd8128f0b05]]() const;
+<a name="l00106"></a>  106     Double_t [[GetTimeWidth|classDDASRootEvent#aa388c0f4fb6f3343507dbfd8128f0b05]]() const;
 
 
-<a name="l00108"></a>  108     void [[classDDASRootEvent#abdf1f5f95961215b37ff949376ddd4c6]]();
+<a name="l00108"></a>  108     void [[Reset|classDDASRootEvent#abdf1f5f95961215b37ff949376ddd4c6]]();
 
 
 <a name="l00109"></a>  109
@@ -166,7 +166,7 @@ header
 <a name="l00111"></a>  111
 
 
-<a name="l00112"></a>[[classDDASRootEvent#ae3dd29462b7a17222258fee1f9939001]]     [[classDDASRootEvent#ae3dd29462b7a17222258fee1f9939001]]([[classDDASRootEvent]], 1);
+<a name="l00112"></a>[[112|classDDASRootEvent#ae3dd29462b7a17222258fee1f9939001]]     [[ClassDef|classDDASRootEvent#ae3dd29462b7a17222258fee1f9939001]]([[DDASRootEvent|classDDASRootEvent]], 1);
 
 
 <a name="l00113"></a>  113 };
@@ -178,14 +178,14 @@ header
 <a name="l00117"></a>  117 #endif
 
 
-[[classDDASRootEvent]]
+[[DDASRootEvent|classDDASRootEvent]]
 
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.
 
 **Definition:** DDASRootEvent.h:59
 
 
-[[classDDASRootEvent#a12148b0d52540c3dd16b821a71465ef6]]
+[[DDASRootEvent::operator=|classDDASRootEvent#a12148b0d52540c3dd16b821a71465ef6]]
 
 DDASRootEvent & operator=(const DDASRootEvent &obj)
 
@@ -194,7 +194,7 @@ Assignment operator.
 **Definition:** DDASRootEvent.cpp:54
 
 
-[[classDDASRootEvent#a1355ada3cc269a9a1fa83e794de86c25]]
+[[DDASRootEvent::GetLastTime|classDDASRootEvent#a1355ada3cc269a9a1fa83e794de86c25]]
 
 Double_t GetLastTime() const
 
@@ -203,7 +203,7 @@ Get timestamp of last channel datum.
 **Definition:** DDASRootEvent.cpp:112
 
 
-[[classDDASRootEvent#a2dab895cb0a8aa8cb2f1a6f5a8626749]]
+[[DDASRootEvent::AddChannelData|classDDASRootEvent#a2dab895cb0a8aa8cb2f1a6f5a8626749]]
 
 void AddChannelData(DDASRootHit *channel)
 
@@ -212,7 +212,7 @@ Append channel data to event.
 **Definition:** DDASRootEvent.cpp:85
 
 
-[[classDDASRootEvent#a2e2a511a347634478857e22bcfc01842]]
+[[DDASRootEvent::~DDASRootEvent|classDDASRootEvent#a2e2a511a347634478857e22bcfc01842]]
 
 ~DDASRootEvent()
 
@@ -221,7 +221,7 @@ Destructor.
 **Definition:** DDASRootEvent.cpp:74
 
 
-[[classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]
+[[DDASRootEvent::GetData|classDDASRootEvent#a54d38f4a024608bfee0a03aabff46bad]]
 
 std::vector< DDASRootHit * > & GetData()
 
@@ -230,7 +230,7 @@ Access internal, extensible array of channel data.
 **Definition:** DDASRootEvent.h:84
 
 
-[[classDDASRootEvent#aa388c0f4fb6f3343507dbfd8128f0b05]]
+[[DDASRootEvent::GetTimeWidth|classDDASRootEvent#aa388c0f4fb6f3343507dbfd8128f0b05]]
 
 Double_t GetTimeWidth() const
 
@@ -239,7 +239,7 @@ Get time difference between first and last channel data.
 **Definition:** DDASRootEvent.cpp:127
 
 
-[[classDDASRootEvent#abb0d65e6507f4b6e32eabf39501a294f]]
+[[DDASRootEvent::GetFirstTime|classDDASRootEvent#abb0d65e6507f4b6e32eabf39501a294f]]
 
 Double_t GetFirstTime() const
 
@@ -248,7 +248,7 @@ Get timestamp of first channel datum.
 **Definition:** DDASRootEvent.cpp:96
 
 
-[[classDDASRootEvent#abdf1f5f95961215b37ff949376ddd4c6]]
+[[DDASRootEvent::Reset|classDDASRootEvent#abdf1f5f95961215b37ff949376ddd4c6]]
 
 void Reset()
 
@@ -257,7 +257,7 @@ Clear data vector and reset the event.
 **Definition:** DDASRootEvent.cpp:137
 
 
-[[classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]]
+[[DDASRootEvent::DDASRootEvent|classDDASRootEvent#ac57f401c1dd4d62f70df10acd7004c80]]
 
 DDASRootEvent()
 
@@ -266,7 +266,7 @@ Default constructor.
 **Definition:** DDASRootEvent.cpp:28
 
 
-[[classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]
+[[DDASRootEvent::GetNHits|classDDASRootEvent#ade6501418738819754194cd3945c4d0b]]
 
 UInt_t GetNHits() const
 
@@ -275,12 +275,12 @@ Return the number of hits in this event.
 **Definition:** DDASRootEvent.h:89
 
 
-[[classDDASRootEvent#ae3dd29462b7a17222258fee1f9939001]]
+[[DDASRootEvent::ClassDef|classDDASRootEvent#ae3dd29462b7a17222258fee1f9939001]]
 
 ClassDef(DDASRootEvent, 1)
 
 
-[[classDDASRootHit]]
+[[DDASRootHit|classDDASRootHit]]
 
 Encapsulation of a generic DDAS hit with added capabilities for writing to ROOT files.
 

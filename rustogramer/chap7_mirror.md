@@ -8,69 +8,69 @@ Provide site root to javascript
  Hide / unhide sidebar before it is displayed 
 
 
-1. [[chapter_1]]
-2. 1. [[chap1_1]]
-3. [[chapter_2]]
-4. 1. [[chap2_1]]
-   2. [[chap2_2]]
-5. [[chapter_3]]
-6. [[chapter_4]]
-7. 1. [[chap4_1]]
-   2. [[chap4_2]]
-   3. [[chap4_3]]
-   4. [[chap4_4]]
-   5. [[chap4_bindsets]]
-   6. [[chap4_5]]
-   7. [[chap4_6]]
-   8. [[chap4_filters]]
-   9. [[chap4_7]]
-   10. [[chap4_8]]
-8. [[chapter_5]]
-9. [[chapter_6]]
-10. 1. [[chap6_1]]
-   2. [[chap6_2]]
-11. [[chapter7]]
-12. 1. [[chap7_1]]
-   2. [[chap7_2]]
-   3. 1. [[chap7_2_responses]]
-      2. [[chap7_2_parameter]]
-      3. [[chap7_2_rawparameter]]
-      4. [[chap7_2_gates]]
-      5. [[chap7_2_spectrum]]
-      6. [[chap7_2_attach]]
-      7. [[chap7_2_analyze]]
-      8. [[chap7_2_apply]]
-      9. [[chap7_2_ungate]]
-      10. [[chap7_2_channel]]
-      11. [[chap7_2_evbunpack]]
-      12. [[chap7_2_filter]]
-      13. [[chap7_2_fit]]
-      14. [[chap7_2_fold]]
-      15. [[chap7_2_integrate]]
-      16. [[chap7_2_shmem]]
-      17. [[chap7_2_sbind]]
-      18. [[chap7_2_ubind]]
-      19. [[chap7_2_mirror]]
-      20. [[chap7_2_pman]]
-      21. [[chap7_2_project]]
-      22. [[chap7_2_pseudo]]
-      23. [[chap7_2_roottree]]
-      24. [[chap7_2_script]]
-      25. [[chap7_2_treevariable]]
-      26. [[chap7_2_version]]
-      27. [[chap7_2_exit]]
-      28. [[chap7_2_ringformat]]
-      29. [[chap7_2_specstats]]
-      30. [[chap7_2_swrite]]
-      31. [[chap7_2_sread]]
-      32. [[chap7_2_trace]]
-   4. [[chap7_mirror]]
-   5. [[chap7_3]]
-   6. [[chap7_4]]
-   7. [[chap7_5]]
-   8. [[chap7_6]]
-   9. [[chap7_7]]
-13. [[apppendix_1]]
+1. [[**1.** Chapter 1 - Introduction|chapter_1]]
+2. 1. [[**1.1.** How to use this book|chap1_1]]
+3. [[**2.** Chapter 2 - Preparing data for Rustogramer|chapter_2]]
+4. 1. [[**2.1.** The FRIB analysis pipeline|chap2_1]]
+   2. [[**2.2.** Format of data Rustogramer accepts|chap2_2]]
+5. [[**3.** Chapter 3 - Running Rustogramer|chapter_3]]
+6. [[**4.** Chapter 4 - Using the Rustogramer GUI|chapter_4]]
+7. 1. [[**4.1.** The Spectra Tab|chap4_1]]
+   2. [[**4.2.** The Parameters Tab|chap4_2]]
+   3. [[**4.3.** The Variables Tab|chap4_3]]
+   4. [[**4.4.** The Gate Tab|chap4_4]]
+   5. [[**4.5.** The BindSets Tab|chap4_bindsets]]
+   6. [[**4.6.** The File Menu|chap4_5]]
+   7. [[**4.7.** The Data Source Menu|chap4_6]]
+   8. [[**4.8.** The Filters Menu|chap4_filters]]
+   9. [[**4.9.** The Spectra Menu|chap4_7]]
+   10. [[**4.10.** The Gate Menu|chap4_8]]
+8. [[**5.** Chapter 5 - Using CutiePie to display histograms|chapter_5]]
+9. [[**6.** Chapter 6 - the REST interface|chapter_6]]
+10. 1. [[**6.1.** Tcl REST interface|chap6_1]]
+   2. [[**6.2.** Python REST interface|chap6_2]]
+11. [[**7.** Chapter 7 - Reference material|chapter7]]
+12. 1. [[**7.1.** Command Line Options|chap7_1]]
+   2. [[**7.2.** REST requests and responses|chap7_2]]
+   3. 1. [[**7.2.1.** Response format|chap7_2_responses]]
+      2. [[**7.2.2.** /spectcl/parameter requests|chap7_2_parameter]]
+      3. [[**7.2.3.** /spectcl/rawparameter requests|chap7_2_rawparameter]]
+      4. [[**7.2.4.** /spectcl/gate requests|chap7_2_gates]]
+      5. [[**7.2.5.** /spectcl/spectrum requests|chap7_2_spectrum]]
+      6. [[**7.2.6.** /spectcl/attach requests|chap7_2_attach]]
+      7. [[**7.2.7.** /spectcl/analyze requests|chap7_2_analyze]]
+      8. [[**7.2.8.** /spectcl/apply requests|chap7_2_apply]]
+      9. [[**7.2.9.** /spectcl/ungate requests|chap7_2_ungate]]
+      10. [[**7.2.10.** /spectcl/channel requests|chap7_2_channel]]
+      11. [[**7.2.11.** /spectcl/evbunpack requests|chap7_2_evbunpack]]
+      12. [[**7.2.12.** /spectcl/filter requests|chap7_2_filter]]
+      13. [[**7.2.13.** /spectcl/fit requests|chap7_2_fit]]
+      14. [[**7.2.14.** /spectcl/fold requests|chap7_2_fold]]
+      15. [[**7.2.15.** /spectcl/integrate requests|chap7_2_integrate]]
+      16. [[**7.2.16.** /spectcl/shmem requests|chap7_2_shmem]]
+      17. [[**7.2.17.** /spectcl/sbind requests|chap7_2_sbind]]
+      18. [[**7.2.18.** /spectcl/unbind requests|chap7_2_ubind]]
+      19. [[**7.2.19.** /spectcl/mirror requests|chap7_2_mirror]]
+      20. [[**7.2.20.** /spectcl/pman requests|chap7_2_pman]]
+      21. [[**7.2.21.** /spectcl/project requests|chap7_2_project]]
+      22. [[**7.2.22.** /spectcl/psuedo requests|chap7_2_pseudo]]
+      23. [[**7.2.23.** /spectcl/rootree requests|chap7_2_roottree]]
+      24. [[**7.2.24.** /spectcl/script requests|chap7_2_script]]
+      25. [[**7.2.25.** /spectcl/treevariable requests|chap7_2_treevariable]]
+      26. [[**7.2.26.** /spectcl/version requests|chap7_2_version]]
+      27. [[**7.2.27.** /spectcl/exit requests|chap7_2_exit]]
+      28. [[**7.2.28.** /spectcl/ringformat requests|chap7_2_ringformat]]
+      29. [[**7.2.29.** /spectcl/specstats requests|chap7_2_specstats]]
+      30. [[**7.2.30.** /spectcl/swrite requests|chap7_2_swrite]]
+      31. [[**7.2.31.** /spectcl/sread requests|chap7_2_sread]]
+      32. [[**7.2.32.** /spectcl/trace requests|chap7_2_trace]]
+   4. [[**7.3.** Shared memory Mirror service|chap7_mirror]]
+   5. [[**7.4.** Tcl REST reference|chap7_3]]
+   6. [[**7.5.** Python REST reference|chap7_4]]
+   7. [[**7.6.** Looking at the Rustogramer internals documentation|chap7_5]]
+   8. [[**7.7.** Schema of configuration files|chap7_6]]
+   9. [[**7.8.** Format of JSON Spectrum contents files|chap7_7]]
+13. [[**8.** Appendix I - Installing Rustogramer|apppendix_1]]
 
 
 
@@ -98,7 +98,7 @@ Provide site root to javascript
 # Rustogramer User Guide
 
 
-[[print]]
+[[**|print]]
 
 
 
@@ -113,7 +113,7 @@ Shared memory provides low overhead, high speed access to the display memory of 
 The mirror service, provided by both SpecTcl and Rustogramer allow software that is not necessarily running in the same system access to this shared memory in an efficient manner.
 
 
-In Linux systems, mirror clients operate by registering a local shared memory region with the server, and setting up a network pipeline to refresh the contents of that local shared memory from the server's shared memory.  Subsequent clients are able to detect, via the [[./chap7_2-mirror]] ReST rquest if a shared memory  mirror has already been set up and, if so, simply connect the requesting process to that mirror.
+In Linux systems, mirror clients operate by registering a local shared memory region with the server, and setting up a network pipeline to refresh the contents of that local shared memory from the server's shared memory.  Subsequent clients are able to detect, via the [[/spectcl/mirror|./chap7_2-mirror]] ReST rquest if a shared memory  mirror has already been set up and, if so, simply connect the requesting process to that mirror.
 
 
 This section will document:
@@ -190,7 +190,7 @@ namespace Mirror {
 
 
 Which is appropriate for SYSV shared memory keys, however, within the SpecTcl and Rustogramer mirror servers it can be any length to accomodate shared memory information for other types of shared memory systems.  See the
-documentation of [[./chap7_2_mirror]], and [[./chap7_2_shmem]] for information about:
+documentation of [[/spectcl/mirror|./chap7_2_mirror]], and [[/spectcl/shmem|./chap7_2_shmem]] for information about:
 
 
 1. How to obtain the shared memory keys that are in use.
@@ -218,14 +218,14 @@ The payloads of these messages are just the memory contents.  For a **MSG_TYPE_F
 Client software will need to use both the ReST an Mirror services as the ReST API provides informational data the client will need.
 
 
-- The first thing a client should do is make a ReST request of [[./chap7_2_mirror]] and see if the list of existing mirrors includes one for the local host.  Note that hosts may appear in the mirror list in many ways so you may need to do DNS requests to resolve the the host names in the returned data to IP addresses and compare those with the IP addresse(s) of the local system.   If a match is found the client should use the shmkey to map to the shared memory and return the pointer to the application.
+- The first thing a client should do is make a ReST request of [[/spectcl/mirror|./chap7_2_mirror]] and see if the list of existing mirrors includes one for the local host.  Note that hosts may appear in the mirror list in many ways so you may need to do DNS requests to resolve the the host names in the returned data to IP addresses and compare those with the IP addresse(s) of the local system.   If a match is found the client should use the shmkey to map to the shared memory and return the pointer to the application.
 - If it is necessary to create a shared memory region, the client will need to use the
   - Form a persistent connection to the mirror server.
-  - use  [[./chap7_2_shmem]] to learn the size of the server's display memory.
+  - use  [[/spectcl/shmem/size|./chap7_2_shmem]] to learn the size of the server's display memory.
   - Create a shared memory region of that size.
   - Send a **MSG_TYPE_SHMINFO** message to the mirror server.
   - Periodically send **MSG_TYPE_REQUEST_UPDATE** messages to the mirror server and use its response to to update the contents of the mirror.  Note tha the first update request should be sent and processed prior to returning the pointer to the mirror to the application code so that the shared memory has the correct contents prior to use.  You are guaranteed that first update response will be a **MSG_TYPE_FULL_UPDATE**
-  - Maintain a connection to the mirror server as long as the mirror is required.  This is important because once the connection is closed, the mirror server will forget about the remote mirror as far as its replise to [[./chap7_2_mirror]].
+  - Maintain a connection to the mirror server as long as the mirror is required.  This is important because once the connection is closed, the mirror server will forget about the remote mirror as far as its replise to [[/spectcl/mirror|./chap7_2_mirror]].
 
 
 ## [Client software](#client-software)
@@ -242,7 +242,7 @@ SpecTcl and Cutiepie provide mirror client software.
 
 
 The simplest way, in Linux to set up a mirror is to use the
-`$SpecTclHome/bin/mirrorclient` program.  If necessary, it will setup and maintain a mirror.  Your programs, can then use the [[./chap7_2_mirror]] ReST service to locate the shared memory of the mirror and map it. The mirrorclient program takes care of updating the mirror periodically.  It has the following command options:
+`$SpecTclHome/bin/mirrorclient` program.  If necessary, it will setup and maintain a mirror.  Your programs, can then use the [[/spectcl/mirror|./chap7_2_mirror]] ReST service to locate the shared memory of the mirror and map it. The mirrorclient program takes care of updating the mirror periodically.  It has the following command options:
 
 
 - **--host** - Mandatory - the value of this option should be the host in wich the histogram server (SpecTcl or Rustogramer) is running
@@ -371,13 +371,13 @@ Then calling `Memory::getMemory(....)` is safe to call more than once, if needed
 
 
  Mobile navigation buttons 
-[[chap7_2_trace]]
-[[chap7_3]]
+[[**|chap7_2_trace]]
+[[**|chap7_3]]
 
 
 
-[[chap7_2_trace]]
-[[chap7_3]]
+[[**|chap7_2_trace]]
+[[**|chap7_3]]
 
 
 

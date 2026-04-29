@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - n -
 
 - nextHit()
-  : [[classDDASReadout_1_1HitManager#ae2d8aba51a3945b5eee126d13d405654]]
+  : [[DDASReadout::HitManager|classDDASReadout_1_1HitManager#ae2d8aba51a3945b5eee126d13d405654]]
 
  contents 
  start footer part 

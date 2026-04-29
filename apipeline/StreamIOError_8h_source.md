@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_606be0c095146ea0038c0fba572d628a]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[exception|dir_606be0c095146ea0038c0fba572d628a]]
 
  top 
 StreamIOError.h
@@ -129,7 +129,7 @@ header
 
 <a name="l00050"></a>   50
 
-<a name="l00051"></a>[[classCStreamIOError]] class [[classCStreamIOError]]  : public [[classCException]]
+<a name="l00051"></a>[[51|classCStreamIOError]] class [[CStreamIOError|classCStreamIOError]]  : public [[CException|classCException]]
 
 <a name="l00052"></a>   52 {
 
@@ -165,11 +165,11 @@ header
 
 <a name="l00068"></a>   68
 
-<a name="l00069"></a>   69   [[classCStreamIOError]](IoStreamConditions eReason,
+<a name="l00069"></a>   69   [[CStreamIOError|classCStreamIOError]](IoStreamConditions eReason,
 
 <a name="l00070"></a>   70          const char* pDoing, std::ios& rStream) :
 
-<a name="l00071"></a>   71     [[classCException]](pDoing),
+<a name="l00071"></a>   71     [[CException|classCException]](pDoing),
 
 <a name="l00072"></a>   72     m_eReason(eReason),
 
@@ -179,11 +179,11 @@ header
 
 <a name="l00075"></a>   75
 
-<a name="l00076"></a>   76   [[classCStreamIOError]](IoStreamConditions eReason,
+<a name="l00076"></a>   76   [[CStreamIOError|classCStreamIOError]](IoStreamConditions eReason,
 
 <a name="l00077"></a>   77       const std::string&  rDoing, std::ios& rStream) :
 
-<a name="l00078"></a>   78     [[classCException]](rDoing),
+<a name="l00078"></a>   78     [[CException|classCException]](rDoing),
 
 <a name="l00079"></a>   79     m_eReason(eReason),
 
@@ -195,7 +195,7 @@ header
 
 <a name="l00083"></a>   83
 
-<a name="l00084"></a>   84    ~[[classCStreamIOError]] ( )  // Destructor
+<a name="l00084"></a>   84    ~[[CStreamIOError|classCStreamIOError]] ( )  // Destructor
 
 <a name="l00085"></a>   85   { }
 
@@ -205,9 +205,9 @@ header
 
 <a name="l00088"></a>   88
 
-<a name="l00089"></a>   89   [[classCStreamIOError]] (const [[classCStreamIOError]]& aCStreamIOError )   :
+<a name="l00089"></a>   89   [[CStreamIOError|classCStreamIOError]] (const [[CStreamIOError|classCStreamIOError]]& aCStreamIOError )   :
 
-<a name="l00090"></a>   90     [[classCException]] (aCStreamIOError),
+<a name="l00090"></a>   90     [[CException|classCException]] (aCStreamIOError),
 
 <a name="l00091"></a>   91     m_eReason(aCStreamIOError.m_eReason),
 
@@ -229,7 +229,7 @@ header
 
 <a name="l00100"></a>  100 private:
 
-<a name="l00101"></a>  101   [[classCStreamIOError]]& operator= (const [[classCStreamIOError]]& aCStreamIOError);
+<a name="l00101"></a>  101   [[CStreamIOError|classCStreamIOError]]& operator= (const [[CStreamIOError|classCStreamIOError]]& aCStreamIOError);
 
 <a name="l00102"></a>  102 public:
 
@@ -243,7 +243,7 @@ header
 
 <a name="l00107"></a>  107   //
 
-<a name="l00108"></a>  108   int operator== (const [[classCStreamIOError]]& aCStreamIOError) const  {
+<a name="l00108"></a>  108   int operator== (const [[CStreamIOError|classCStreamIOError]]& aCStreamIOError) const  {
 
 <a name="l00109"></a>  109     return ( CException::operator==(aCStreamIOError)              &&
 
@@ -255,7 +255,7 @@ header
 
 <a name="l00113"></a>  113   }
 
-<a name="l00114"></a>  114   int operator!=(const [[classCStreamIOError]]& aCStreamIOError) const  {
+<a name="l00114"></a>  114   int operator!=(const [[CStreamIOError|classCStreamIOError]]& aCStreamIOError) const  {
 
 <a name="l00115"></a>  115     return !(this->operator==(aCStreamIOError));
 
@@ -331,12 +331,12 @@ header
 
 <a name="l00151"></a>  151 #endif
 
-[[classCStreamIOError]]
+[[CStreamIOError|classCStreamIOError]]
 
 **Definition:** StreamIOError.h:51
 
 
-[[classCException]]
+[[CException|classCException]]
 
 **Definition:** Exception.h:41
 

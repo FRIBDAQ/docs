@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CTreeVariable]]
+- [[CTreeVariable|classfrib_1_1analysis_1_1CTreeVariable]]
 
  top 
 [Classes](#nested-classes) |
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[classfrib_1_1analysis_1_1CTreeVariable-members]]
+[[List of all members|classfrib_1_1analysis_1_1CTreeVariable-members]]
 
 
 frib::analysis::CTreeVariable Class Reference
@@ -142,7 +142,7 @@ A tree variable is something that looks like a double value. It has additional m
 - A name
 - Units of measure
 - Knowledge that the value has changed.
-- Knowledge that is metadata has changed. Furthermore, as with [[classTreeParameter]]'s two tree variables with the same name will map to the same underlying value and metadata.
+- Knowledge that is metadata has changed. Furthermore, as with [[TreeParameter|classTreeParameter]]'s two tree variables with the same name will map to the same underlying value and metadata.
 
 
 In normal computational use, the values of treevariables wold get established via an exteranl mechanism, such as a script and the computation would then use the value of these variables to steer computation. An example use case might be the production of a calibrated parameter from a raw parameter and some calibration coefficients that represent the fit of an estimate of the calibration function to some polynomial.
@@ -642,8 +642,8 @@ Returnsbool - if the value changed.
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeVariable_8h_source]]
-- base/[[TreeVariable_8cpp]]
+The documentation for this class was generated from the following files:- base/[[TreeVariable.h|TreeVariable_8h_source]]
+- base/[[TreeVariable.cpp|TreeVariable_8cpp]]
 
  contents 
  start footer part 

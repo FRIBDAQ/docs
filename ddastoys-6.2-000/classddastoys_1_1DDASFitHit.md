@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[classddastoys_1_1DDASFitHit]]
+- [[DDASFitHit|classddastoys_1_1DDASFitHit]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classddastoys_1_1DDASFitHit-members]]
+[[List of all members|classddastoys_1_1DDASFitHit-members]]
 
 
 ddastoys::DDASFitHit Class Reference
 
 header
 Encapsulates data for DDAS hits that may have fitted traces.  
- [[classddastoys_1_1DDASFitHit#details]]
+ [[More...|classddastoys_1_1DDASFitHit#details]]
 
 
 `#include <DDASFitHit.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::DDASFitHit:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for ddastoys::DDASFitHit:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::DDASFitHit:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -186,7 +186,7 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following file:- [[DDASFitHit_8h_source]]
+The documentation for this class was generated from the following file:- [[DDASFitHit.h|DDASFitHit_8h_source]]
 
  contents 
  start footer part 

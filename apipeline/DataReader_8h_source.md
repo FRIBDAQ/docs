@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 DataReader.h
 
 header
-[[DataReader_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DataReader_8h]]<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -71,11 +71,11 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 namespace [[namespacefrib]] {
+<a name="l00026"></a>   26 namespace [[frib|namespacefrib]] {
 
 <a name="l00027"></a>   27     namespace analysis {
 
-<a name="l00060"></a>[[classfrib_1_1analysis_1_1CDataReader]]         class [[classfrib_1_1analysis_1_1CDataReader]] {
+<a name="l00060"></a>[[60|classfrib_1_1analysis_1_1CDataReader]]         class [[CDataReader|classfrib_1_1analysis_1_1CDataReader]] {
 
 <a name="l00061"></a>   61         private:
 
@@ -113,7 +113,7 @@ header
 
 <a name="l00078"></a>   78
 
-<a name="l00079"></a>[[structfrib_1_1analysis_1_1CDataReader_1_1__Result]]             typedef struct [[structfrib_1_1analysis_1_1CDataReader_1_1__Result]] {
+<a name="l00079"></a>[[79|structfrib_1_1analysis_1_1CDataReader_1_1__Result]]             typedef struct [[_Result|structfrib_1_1analysis_1_1CDataReader_1_1__Result]] {
 
 <a name="l00080"></a>   80                 std::size_t s_nbytes;
 
@@ -121,33 +121,33 @@ header
 
 <a name="l00082"></a>   82                 const void* s_pData;
 
-<a name="l00083"></a>   83             } [[structfrib_1_1analysis_1_1CDataReader_1_1__Result]], *[[structfrib_1_1analysis_1_1CDataReader_1_1__Result]];
+<a name="l00083"></a>   83             } [[Result|structfrib_1_1analysis_1_1CDataReader_1_1__Result]], *[[pResult|structfrib_1_1analysis_1_1CDataReader_1_1__Result]];
 
 <a name="l00084"></a>   84         public:
 
-<a name="l00085"></a>   85             [[classfrib_1_1analysis_1_1CDataReader]](const char* pFilename, std::size_t bufferSize);
+<a name="l00085"></a>   85             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]](const char* pFilename, std::size_t bufferSize);
 
-<a name="l00086"></a>   86             [[classfrib_1_1analysis_1_1CDataReader]](int fd,  std::size_t bufferSize);
+<a name="l00086"></a>   86             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]](int fd,  std::size_t bufferSize);
 
-<a name="l00087"></a>   87             virtual [[classfrib_1_1analysis_1_1CDataReader#ae44460bd7253028cc43c5e4c69b5eb0b]]();
+<a name="l00087"></a>   87             virtual [[~CDataReader|classfrib_1_1analysis_1_1CDataReader#ae44460bd7253028cc43c5e4c69b5eb0b]]();
 
 <a name="l00088"></a>   88
 
 <a name="l00089"></a>   89         private:
 
-<a name="l00090"></a>   90             [[classfrib_1_1analysis_1_1CDataReader]](const [[classfrib_1_1analysis_1_1CDataReader]]& rhs);
+<a name="l00090"></a>   90             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]](const [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]& rhs);
 
-<a name="l00091"></a>   91             [[classfrib_1_1analysis_1_1CDataReader]]& operator=(const [[classfrib_1_1analysis_1_1CDataReader]]& rhs);
+<a name="l00091"></a>   91             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]& operator=(const [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]& rhs);
 
-<a name="l00092"></a>   92             int operator==(const [[classfrib_1_1analysis_1_1CDataReader]]& rhs);
+<a name="l00092"></a>   92             int operator==(const [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]& rhs);
 
-<a name="l00093"></a>   93             int operator!=(const [[classfrib_1_1analysis_1_1CDataReader]]& rhs);
+<a name="l00093"></a>   93             int operator!=(const [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]& rhs);
 
 <a name="l00094"></a>   94         public:
 
-<a name="l00095"></a>   95             [[structfrib_1_1analysis_1_1CDataReader_1_1__Result]] [[classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]](std::size_t maxbytes);
+<a name="l00095"></a>   95             [[Result|structfrib_1_1analysis_1_1CDataReader_1_1__Result]] [[getBlock|classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]](std::size_t maxbytes);
 
-<a name="l00096"></a>   96             void [[classfrib_1_1analysis_1_1CDataReader#ada26f1ac0dad7c88135f70388f6aa9cd]]();
+<a name="l00096"></a>   96             void [[done|classfrib_1_1analysis_1_1CDataReader#ada26f1ac0dad7c88135f70388f6aa9cd]]();
 
 <a name="l00097"></a>   97         private:
 
@@ -169,38 +169,38 @@ header
 
 <a name="l00106"></a>  106 #endif
 
-[[classfrib_1_1analysis_1_1CDataReader]]
+[[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader]]
 
 **Definition:** DataReader.h:60
 
 
-[[structfrib_1_1analysis_1_1CDataReader_1_1__Result]]
+[[frib::analysis::CDataReader::_Result|structfrib_1_1analysis_1_1CDataReader_1_1__Result]]
 
 **Definition:** DataReader.h:79
 
 
-[[classfrib_1_1analysis_1_1CDataReader#ae44460bd7253028cc43c5e4c69b5eb0b]]
+[[frib::analysis::CDataReader::~CDataReader|classfrib_1_1analysis_1_1CDataReader#ae44460bd7253028cc43c5e4c69b5eb0b]]
 
 virtual ~CDataReader()
 
 **Definition:** DataReader.cpp:79
 
 
-[[classfrib_1_1analysis_1_1CDataReader#ada26f1ac0dad7c88135f70388f6aa9cd]]
+[[frib::analysis::CDataReader::done|classfrib_1_1analysis_1_1CDataReader#ada26f1ac0dad7c88135f70388f6aa9cd]]
 
 void done()
 
 **Definition:** DataReader.cpp:115
 
 
-[[classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]]
+[[frib::analysis::CDataReader::getBlock|classfrib_1_1analysis_1_1CDataReader#ad59897cfd7aa0d0bda1f4f9ccf67f90a]]
 
 Result getBlock(std::size_t maxbytes)
 
 **Definition:** DataReader.cpp:91
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 

@@ -17,25 +17,25 @@ do not remove this div, it is closed by doxygen!
 
 
 - CFD_100_MSPS_MASK
-  : [[DDASDataSimulator_8cpp#a60ad102ec9ec37fd80667e478d386f9d]]
+  : [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp#a60ad102ec9ec37fd80667e478d386f9d]]
 - CFD_250_MSPS_MASK
-  : [[DDASDataSimulator_8cpp#ae8fd459ebc84b078888bd26e2a70d2cf]]
+  : [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp#ae8fd459ebc84b078888bd26e2a70d2cf]]
 - CFD_500_MSPS_MASK
-  : [[DDASDataSimulator_8cpp#acd6323973013b322e32e2a04acb1725b]]
+  : [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp#acd6323973013b322e32e2a04acb1725b]]
 - gpTCLApplication
-  : [[DDASReadoutMain_8cpp#a0a55eac25fc9e9b854ace6c606c69669]]
+  : [[DDASReadoutMain.cpp|DDASReadoutMain_8cpp#a0a55eac25fc9e9b854ace6c606c69669]]
 - LOWER_TS_BIT_MASK
-  : [[DDASDataSimulator_8cpp#a253f2320a2a890f2f72256bd9fc4b698]]
+  : [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp#a253f2320a2a890f2f72256bd9fc4b698]]
 - MAX_MODULES_PER_CRATE
-  : [[CMyEventSegment_8h#abf3dcfb241ffb10110f915719769dbf9]]
+  : [[CMyEventSegment.h|CMyEventSegment_8h#abf3dcfb241ffb10110f915719769dbf9]]
 - PIXIE_MAX_ENERGY
-  : [[DDASDataSimulator_8cpp#ae8dd2171a4241ba5e60d13d6881155b0]]
+  : [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp#ae8dd2171a4241ba5e60d13d6881155b0]]
 - scalerModules
-  : [[DDASReadoutMain_8cpp#a6d9a9ecbb3da77dce1f351c836d8c660]]
+  : [[DDASReadoutMain.cpp|DDASReadoutMain_8cpp#a6d9a9ecbb3da77dce1f351c836d8c660]]
 - TRIGGER_TIMEOUT_SECS
-  : [[CMyTrigger_8cpp#a07c69d08957693cfe3a0f85b793a02f3]]
+  : [[CMyTrigger.cpp|CMyTrigger_8cpp#a07c69d08957693cfe3a0f85b793a02f3]]
 - UPPER_TS_BIT_MASK
-  : [[DDASDataSimulator_8cpp#a8fdb2cce0d488e2c0f2551669d695d39]]
+  : [[DDASDataSimulator.cpp|DDASDataSimulator_8cpp#a8fdb2cce0d488e2c0f2551669d695d39]]
 
  contents 
  start footer part 

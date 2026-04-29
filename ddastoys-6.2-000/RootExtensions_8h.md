@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 RootExtensions.h File Reference
 
 header
-Provide streamable versions of the event extensions defined in [[fit__extensions_8h]].  
+Provide streamable versions of the event extensions defined in [[fit_extensions.h|fit__extensions_8h]].  
 [More...](#details)
 
 
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](RootExtensions_8h__dep__incl.png)
 
 
-[[RootExtensions_8h_source]]
+[[Go to the source code of this file.|RootExtensions_8h_source]]
 
 
 |  |  |
@@ -72,7 +72,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-Provide streamable versions of the event extensions defined in [[fit__extensions_8h]].
+Provide streamable versions of the event extensions defined in [[fit_extensions.h|fit__extensions_8h]].
 
 
 These structs mirror those having to do with the fit extensions to DDAS data, but they support ROOT serialization and, therefore, can be put into ROOT files/tree leaves.

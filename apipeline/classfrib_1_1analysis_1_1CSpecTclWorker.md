@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CSpecTclWorker]]
+- [[CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CSpecTclWorker-members]]
+[[List of all members|classfrib_1_1analysis_1_1CSpecTclWorker-members]]
 
 
 frib::analysis::CSpecTclWorker Class Reference
@@ -45,7 +45,7 @@ Inheritance diagram for frib::analysis::CSpecTclWorker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for frib::analysis::CSpecTclWorker:
@@ -57,7 +57,7 @@ Collaboration diagram for frib::analysis::CSpecTclWorker:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -91,7 +91,7 @@ Collaboration diagram for frib::analysis::CSpecTclWorker:
 <a name="details"></a>## Detailed Description
 
 
-The generic parallel processing framework supports a worker class that can have its function call operator (operator()) invoked for each ring item in a work block. [[classfrib_1_1analysis_1_1CSpecTclWorker]] extends this class to provide an analysis pipeline much like SpecTcl for ported EventProcessors.
+The generic parallel processing framework supports a worker class that can have its function call operator (operator()) invoked for each ring item in a work block. [[CSpecTclWorker|classfrib_1_1analysis_1_1CSpecTclWorker]] extends this class to provide an analysis pipeline much like SpecTcl for ported EventProcessors.
 
 
 The point is to provde the capability to import unpacking/analysis code from SpecTcl easily into this framework drastically speeding up the initial processing of event data.
@@ -206,7 +206,7 @@ Parameters
 
 
 
-Reimplemented from [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker]].
+Reimplemented from [[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]].
 
 
 
@@ -277,14 +277,14 @@ Parameters
 
 
 
-Implements [[classfrib_1_1analysis_1_1CMPIRawToParametersWorker]].
+Implements [[frib::analysis::CMPIRawToParametersWorker|classfrib_1_1analysis_1_1CMPIRawToParametersWorker]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[SpecTclWorker_8h_source]]
-- spectcl/[[SpecTclWorker_8cpp]]
+The documentation for this class was generated from the following files:- spectcl/[[SpecTclWorker.h|SpecTclWorker_8h_source]]
+- spectcl/[[SpecTclWorker.cpp|SpecTclWorker_8cpp]]
 
  contents 
  start footer part 

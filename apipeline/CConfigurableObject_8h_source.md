@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CConfigurableObject.h
@@ -79,7 +79,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00053"></a>[[classCConfigurableObject]] class [[classCConfigurableObject]]
+<a name="l00053"></a>[[53|classCConfigurableObject]] class [[CConfigurableObject|classCConfigurableObject]]
 
 <a name="l00054"></a>   54 {
 
@@ -87,7 +87,7 @@ header
 
 <a name="l00056"></a>   56 protected:
 
-<a name="l00057"></a>   57   [[classCItemConfiguration]]* m_pConfiguration;
+<a name="l00057"></a>   57   [[CItemConfiguration|classCItemConfiguration]]* m_pConfiguration;
 
 <a name="l00058"></a>   58 private:
 
@@ -101,19 +101,19 @@ header
 
 <a name="l00063"></a>   63 public:
 
-<a name="l00064"></a>   64   [[classCConfigurableObject]]();
+<a name="l00064"></a>   64   [[CConfigurableObject|classCConfigurableObject]]();
 
-<a name="l00065"></a>   65   [[classCConfigurableObject]](const [[classCConfigurableObject]]& rhs);
+<a name="l00065"></a>   65   [[CConfigurableObject|classCConfigurableObject]](const [[CConfigurableObject|classCConfigurableObject]]& rhs);
 
-<a name="l00066"></a>   66   virtual ~[[classCConfigurableObject]]();
+<a name="l00066"></a>   66   virtual ~[[CConfigurableObject|classCConfigurableObject]]();
 
 <a name="l00067"></a>   67
 
-<a name="l00068"></a>   68   [[classCConfigurableObject]]& [[classCConfigurableObject#a1633f75662cacd25932d7faad9f3fd95]](const [[classCConfigurableObject]]& rsh);
+<a name="l00068"></a>   68   [[CConfigurableObject|classCConfigurableObject]]& [[operator=|classCConfigurableObject#a1633f75662cacd25932d7faad9f3fd95]](const [[CConfigurableObject|classCConfigurableObject]]& rsh);
 
-<a name="l00069"></a>   69   int [[classCConfigurableObject#afdfb2e07b41f1167ec8d9d9f1f8addb7]](const [[classCConfigurableObject]]& rhs) const;
+<a name="l00069"></a>   69   int [[operator==|classCConfigurableObject#afdfb2e07b41f1167ec8d9d9f1f8addb7]](const [[CConfigurableObject|classCConfigurableObject]]& rhs) const;
 
-<a name="l00070"></a>   70   int [[classCConfigurableObject#ae4645f7e507cf6fa2ec6deed2c85bbe4]](const [[classCConfigurableObject]]& rhs) const;
+<a name="l00070"></a>   70   int [[operator!=|classCConfigurableObject#ae4645f7e507cf6fa2ec6deed2c85bbe4]](const [[CConfigurableObject|classCConfigurableObject]]& rhs) const;
 
 <a name="l00071"></a>   71
 
@@ -121,7 +121,7 @@ header
 
 <a name="l00073"></a>   73
 
-<a name="l00074"></a>   74   void [[classCConfigurableObject#aafbbd0bde74e09ab80cdb2563d0bb7f8]]([[classCItemConfiguration]]* pConfiguration, bool dynamic = true);
+<a name="l00074"></a>   74   void [[Attach|classCConfigurableObject#aafbbd0bde74e09ab80cdb2563d0bb7f8]]([[CItemConfiguration|classCItemConfiguration]]* pConfiguration, bool dynamic = true);
 
 <a name="l00075"></a>   75
 
@@ -129,7 +129,7 @@ header
 
 <a name="l00077"></a>   77
 
-<a name="l00078"></a>   78   void [[classCConfigurableObject#a30d2aad9cd8ac76e163419d53fa69b2f]](std::string name, std::string value);
+<a name="l00078"></a>   78   void [[configure|classCConfigurableObject#a30d2aad9cd8ac76e163419d53fa69b2f]](std::string name, std::string value);
 
 <a name="l00079"></a>   79
 
@@ -137,11 +137,11 @@ header
 
 <a name="l00081"></a>   81
 
-<a name="l00082"></a>   82   std::string [[classCConfigurableObject#a27193bd8b235f3f2401e89ba4f43b348]]() const;
+<a name="l00082"></a>   82   std::string [[getName|classCConfigurableObject#a27193bd8b235f3f2401e89ba4f43b348]]() const;
 
-<a name="l00083"></a>   83   std::string [[classCConfigurableObject#a8b96c54742c2dfe96347db83b7793b93]](std::string name);
+<a name="l00083"></a>   83   std::string [[cget|classCConfigurableObject#a8b96c54742c2dfe96347db83b7793b93]](std::string name);
 
-<a name="l00084"></a>   84   CItemConfiguration::ConfigurationArray [[classCConfigurableObject#a8b96c54742c2dfe96347db83b7793b93]]();
+<a name="l00084"></a>   84   CItemConfiguration::ConfigurationArray [[cget|classCConfigurableObject#a8b96c54742c2dfe96347db83b7793b93]]();
 
 <a name="l00085"></a>   85
 
@@ -169,59 +169,59 @@ header
 
 <a name="l00097"></a>   97 #endif
 
-[[classCConfigurableObject#a1633f75662cacd25932d7faad9f3fd95]]
+[[CConfigurableObject::operator=|classCConfigurableObject#a1633f75662cacd25932d7faad9f3fd95]]
 
 CConfigurableObject & operator=(const CConfigurableObject &rsh)
 
 **Definition:** CConfigurableObject.cpp:53
 
 
-[[classCConfigurableObject#a8b96c54742c2dfe96347db83b7793b93]]
+[[CConfigurableObject::cget|classCConfigurableObject#a8b96c54742c2dfe96347db83b7793b93]]
 
 CItemConfiguration::ConfigurationArray cget()
 
 **Definition:** CConfigurableObject.cpp:179
 
 
-[[classCConfigurableObject#afdfb2e07b41f1167ec8d9d9f1f8addb7]]
+[[CConfigurableObject::operator==|classCConfigurableObject#afdfb2e07b41f1167ec8d9d9f1f8addb7]]
 
 int operator==(const CConfigurableObject &rhs) const
 
 **Definition:** CConfigurableObject.cpp:71
 
 
-[[classCConfigurableObject#a30d2aad9cd8ac76e163419d53fa69b2f]]
+[[CConfigurableObject::configure|classCConfigurableObject#a30d2aad9cd8ac76e163419d53fa69b2f]]
 
 void configure(std::string name, std::string value)
 
 **Definition:** CConfigurableObject.cpp:136
 
 
-[[classCConfigurableObject#ae4645f7e507cf6fa2ec6deed2c85bbe4]]
+[[CConfigurableObject::operator!=|classCConfigurableObject#ae4645f7e507cf6fa2ec6deed2c85bbe4]]
 
 int operator!=(const CConfigurableObject &rhs) const
 
 **Definition:** CConfigurableObject.cpp:92
 
 
-[[classCConfigurableObject#aafbbd0bde74e09ab80cdb2563d0bb7f8]]
+[[CConfigurableObject::Attach|classCConfigurableObject#aafbbd0bde74e09ab80cdb2563d0bb7f8]]
 
 void Attach(CItemConfiguration *pConfiguration, bool dynamic=true)
 
 **Definition:** CConfigurableObject.cpp:113
 
 
-[[classCConfigurableObject]]
+[[CConfigurableObject|classCConfigurableObject]]
 
 **Definition:** CConfigurableObject.h:53
 
 
-[[classCItemConfiguration]]
+[[CItemConfiguration|classCItemConfiguration]]
 
 **Definition:** CItemConfiguration.h:65
 
 
-[[classCConfigurableObject#a27193bd8b235f3f2401e89ba4f43b348]]
+[[CConfigurableObject::getName|classCConfigurableObject#a27193bd8b235f3f2401e89ba4f43b348]]
 
 std::string getName() const
 

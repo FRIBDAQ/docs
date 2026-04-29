@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CRangeError Member List
 
 header
-This is the complete list of members for [[classCRangeError]], including all inherited members.
+This is the complete list of members for [[CRangeError|classCRangeError]], including all inherited members.
 
 
 |  |  |  |

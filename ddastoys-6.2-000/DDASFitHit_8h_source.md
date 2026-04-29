@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 DDASFitHit.h
 
 header
-[[DDASFitHit_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASFitHit_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -94,7 +94,7 @@ header
 <a name="l00031"></a>   31
 
 
-<a name="l00032"></a>   32 #include "[[fit__extensions_8h]]" // Defines HitExtension.
+<a name="l00032"></a>   32 #include "[[fit_extensions.h|fit__extensions_8h]]" // Defines HitExtension.
 
 
 <a name="l00033"></a>   33
@@ -106,7 +106,7 @@ header
 <a name="l00035"></a>   35
 
 
-<a name="l00045"></a>[[classddastoys_1_1DDASFitHit]]     class [[classddastoys_1_1DDASFitHit]] : public ddasfmt::DDASHit
+<a name="l00045"></a>[[45|classddastoys_1_1DDASFitHit]]     class [[DDASFitHit|classddastoys_1_1DDASFitHit]] : public ddasfmt::DDASHit
 
 
 <a name="l00046"></a>   46     {
@@ -118,7 +118,7 @@ header
 <a name="l00048"></a>   48     bool m_haveExtension;
 
 
-<a name="l00049"></a>   49     [[structddastoys_1_1HitExtension]] m_extension;
+<a name="l00049"></a>   49     [[HitExtension|structddastoys_1_1HitExtension]] m_extension;
 
 
 <a name="l00050"></a>   50
@@ -127,16 +127,16 @@ header
 <a name="l00051"></a>   51     public:
 
 
-<a name="l00052"></a>[[classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]     [[classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]() { [[classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]](); }
+<a name="l00052"></a>[[52|classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]     [[DDASFitHit|classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]() { [[Reset|classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]](); }
 
 
-<a name="l00053"></a>[[classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]     virtual [[classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]() {}
+<a name="l00053"></a>[[53|classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]     virtual [[~DDASFitHit|classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]() {}
 
 
 <a name="l00054"></a>   54
 
 
-<a name="l00062"></a>[[classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]]     [[classddastoys_1_1DDASFitHit]]& [[classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]](const [[classddastoys_1_1DDASFitHit]]& rhs) {
+<a name="l00062"></a>[[62|classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]]     [[DDASFitHit|classddastoys_1_1DDASFitHit]]& [[operator=|classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]](const [[DDASFitHit|classddastoys_1_1DDASFitHit]]& rhs) {
 
 
 <a name="l00063"></a>   63         if (this != &rhs) {
@@ -148,13 +148,13 @@ header
 <a name="l00065"></a>   65         m_haveExtension = false;
 
 
-<a name="l00066"></a>   66         if (rhs.[[classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]()) {
+<a name="l00066"></a>   66         if (rhs.[[hasExtension|classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]()) {
 
 
-<a name="l00067"></a>   67             auto ext = rhs.[[classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]();
+<a name="l00067"></a>   67             auto ext = rhs.[[getExtension|classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]();
 
 
-<a name="l00068"></a>   68             [[classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]](ext);
+<a name="l00068"></a>   68             [[setExtension|classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]](ext);
 
 
 <a name="l00069"></a>   69         }
@@ -172,7 +172,7 @@ header
 <a name="l00073"></a>   73
 
 
-<a name="l00075"></a>[[classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]     void [[classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]() {
+<a name="l00075"></a>[[75|classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]     void [[Reset|classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]() {
 
 
 <a name="l00076"></a>   76         m_haveExtension = false;
@@ -184,7 +184,7 @@ header
 <a name="l00078"></a>   78     }
 
 
-<a name="l00083"></a>[[classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]]     void [[classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]](const [[structddastoys_1_1HitExtension]]& extension) {
+<a name="l00083"></a>[[83|classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]]     void [[setExtension|classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]](const [[HitExtension|structddastoys_1_1HitExtension]]& extension) {
 
 
 <a name="l00084"></a>   84         m_extension = extension;
@@ -196,10 +196,10 @@ header
 <a name="l00086"></a>   86     }
 
 
-<a name="l00091"></a>[[classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]     bool [[classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]() const { return m_haveExtension; }
+<a name="l00091"></a>[[91|classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]     bool [[hasExtension|classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]() const { return m_haveExtension; }
 
 
-<a name="l00097"></a>[[classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]     const [[structddastoys_1_1HitExtension]]& [[classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]() const {
+<a name="l00097"></a>[[97|classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]     const [[HitExtension|structddastoys_1_1HitExtension]]& [[getExtension|classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]() const {
 
 
 <a name="l00098"></a>   98         if (m_haveExtension) {
@@ -241,14 +241,14 @@ header
 <a name="l00110"></a>  110 #endif
 
 
-[[classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 
 **Definition:** DDASFitHit.h:46
 
 
-[[classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]
+[[ddastoys::DDASFitHit::DDASFitHit|classddastoys_1_1DDASFitHit#a0ddd5cb81d22fed4b5b809f6430d3e70]]
 
 DDASFitHit()
 
@@ -257,7 +257,7 @@ Constructor.
 **Definition:** DDASFitHit.h:52
 
 
-[[classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]]
+[[ddastoys::DDASFitHit::operator=|classddastoys_1_1DDASFitHit#a240de08cae824ee0edeeb0f4e3c393fe]]
 
 DDASFitHit & operator=(const DDASFitHit &rhs)
 
@@ -266,7 +266,7 @@ Assignment operator.
 **Definition:** DDASFitHit.h:62
 
 
-[[classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]
+[[ddastoys::DDASFitHit::getExtension|classddastoys_1_1DDASFitHit#a365128a35aff0d4f0dcec79c39083268]]
 
 const HitExtension & getExtension() const
 
@@ -275,7 +275,7 @@ Get the extension data from the current hit.
 **Definition:** DDASFitHit.h:97
 
 
-[[classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]]
+[[ddastoys::DDASFitHit::setExtension|classddastoys_1_1DDASFitHit#a8c7124dcc6f40c2f438b6bad05349bb8]]
 
 void setExtension(const HitExtension &extension)
 
@@ -284,7 +284,7 @@ Set the hit extension information for this hit.
 **Definition:** DDASFitHit.h:83
 
 
-[[classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]
+[[ddastoys::DDASFitHit::hasExtension|classddastoys_1_1DDASFitHit#acf05ecde500b65de5759725c72f1c97c]]
 
 bool hasExtension() const
 
@@ -293,7 +293,7 @@ Check whether hit has a fit extension.
 **Definition:** DDASFitHit.h:91
 
 
-[[classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]
+[[ddastoys::DDASFitHit::Reset|classddastoys_1_1DDASFitHit#aee57232cf1dfc4c45dc5113dbd375845]]
 
 void Reset()
 
@@ -302,7 +302,7 @@ Reset the hit information.
 **Definition:** DDASFitHit.h:75
 
 
-[[classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]
+[[ddastoys::DDASFitHit::~DDASFitHit|classddastoys_1_1DDASFitHit#afa93b3294b55127a648d80ce805cb4f6]]
 
 virtual ~DDASFitHit()
 
@@ -311,12 +311,12 @@ Destructor.
 **Definition:** DDASFitHit.h:53
 
 
-[[fit__extensions_8h]]
+[[fit_extensions.h|fit__extensions_8h]]
 
 Define structs used by fitting functions and to extend DDAS hits.
 
 
-[[structddastoys_1_1HitExtension]]
+[[ddastoys::HitExtension|structddastoys_1_1HitExtension]]
 
 The data structure appended to each fit hit.
 

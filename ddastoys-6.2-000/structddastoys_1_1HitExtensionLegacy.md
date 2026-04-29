@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[structddastoys_1_1HitExtensionLegacy]]
+- [[HitExtensionLegacy|structddastoys_1_1HitExtensionLegacy]]
 
  top 
 [Public Attributes](#pub-attribs) |
-[[structddastoys_1_1HitExtensionLegacy-members]]
+[[List of all members|structddastoys_1_1HitExtensionLegacy-members]]
 
 
 ddastoys::HitExtensionLegacy Struct Reference
 
 header
 Legacy data structure appended to each fit hit. This is the hit extension struct for DDASToys pre-6.0-000.  
- [[structddastoys_1_1HitExtensionLegacy#details]]
+ [[More...|structddastoys_1_1HitExtensionLegacy#details]]
 
 
 `#include <fit_extensions.h>`
@@ -51,7 +51,7 @@ Collaboration diagram for ddastoys::HitExtensionLegacy:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -73,7 +73,7 @@ Legacy data structure appended to each fit hit. This is the hit extension struct
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit__extensions_8h_source]]
+The documentation for this struct was generated from the following file:- [[fit_extensions.h|fit__extensions_8h_source]]
 
  contents 
  start footer part 

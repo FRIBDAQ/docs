@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCStreamIOError-members]]
+[[List of all members|classCStreamIOError-members]]
 
 
 CStreamIOError Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for CStreamIOError:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CStreamIOError:
@@ -50,7 +50,7 @@ Collaboration diagram for CStreamIOError:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -119,7 +119,7 @@ Collaboration diagram for CStreamIOError:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[StreamIOError_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[[StreamIOError.h|StreamIOError_8h_source]]
 - libtclplus/exception/StreamIOError.cpp
 
  contents 

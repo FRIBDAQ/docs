@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 readertest Member List
 
 header
-This is the complete list of members for [[classreadertest]], including all inherited members.
+This is the complete list of members for [[readertest|classreadertest]], including all inherited members.
 
 
 |  |  |  |

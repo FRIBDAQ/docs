@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classmutextests-members]]
+[[List of all members|classmutextests-members]]
 
 
 mutextests Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for mutextests:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for mutextests:
@@ -47,7 +47,7 @@ Collaboration diagram for mutextests:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -68,7 +68,7 @@ Collaboration diagram for mutextests:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/tclplus/[[mutextests_8cpp]]
+The documentation for this class was generated from the following file:- libtclplus/tclplus/[[mutextests.cpp|mutextests_8cpp]]
 
  contents 
  start footer part 

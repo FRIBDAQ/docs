@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 CTCLMutex.h
@@ -79,29 +79,29 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00033"></a>[[structCMutexAttr]] struct [[structCMutexAttr]]
+<a name="l00033"></a>[[33|structCMutexAttr]] struct [[CMutexAttr|structCMutexAttr]]
 
 <a name="l00034"></a>   34 {
 
 <a name="l00035"></a>   35   pthread_mutexattr_t  m_attributes;
 
-<a name="l00036"></a>   36   [[structCMutexAttr#ac23655fb77bf81b789f88000d55870b7]]();
+<a name="l00036"></a>   36   [[CMutexAttr|structCMutexAttr#ac23655fb77bf81b789f88000d55870b7]]();
 
-<a name="l00037"></a>   37   [[structCMutexAttr#adb5192e6b59e34ef7063b0b4ff597af6]]();
+<a name="l00037"></a>   37   [[~CMutexAttr|structCMutexAttr#adb5192e6b59e34ef7063b0b4ff597af6]]();
 
 <a name="l00038"></a>   38
 
-<a name="l00039"></a>   39   void [[structCMutexAttr#abfb55a90ca6802b6c909115618e2fca7]]();
+<a name="l00039"></a>   39   void [[setShared|structCMutexAttr#abfb55a90ca6802b6c909115618e2fca7]]();
 
-<a name="l00040"></a>   40   void [[structCMutexAttr#a3412160d2fc1f5dc7afb043fc03f926a]]();
+<a name="l00040"></a>   40   void [[setUnshared|structCMutexAttr#a3412160d2fc1f5dc7afb043fc03f926a]]();
 
-<a name="l00041"></a>   41   bool [[structCMutexAttr#a518e1e66b2ac202e5549c5a6b6d34bd6]]();
+<a name="l00041"></a>   41   bool [[isShareable|structCMutexAttr#a518e1e66b2ac202e5549c5a6b6d34bd6]]();
 
 <a name="l00042"></a>   42
 
-<a name="l00043"></a>   43   void [[structCMutexAttr#a53bbc0a28899cb742ea2575ac6001447]](int type);
+<a name="l00043"></a>   43   void [[setType|structCMutexAttr#a53bbc0a28899cb742ea2575ac6001447]](int type);
 
-<a name="l00044"></a>   44   int [[structCMutexAttr#a6149de737aa03c77553c5139e634b69d]]();
+<a name="l00044"></a>   44   int [[getType|structCMutexAttr#a6149de737aa03c77553c5139e634b69d]]();
 
 <a name="l00045"></a>   45
 
@@ -113,7 +113,7 @@ header
 
 <a name="l00049"></a>   49
 
-<a name="l00054"></a>[[classCMutex]] class [[classCMutex]]
+<a name="l00054"></a>[[54|classCMutex]] class [[CMutex|classCMutex]]
 
 <a name="l00055"></a>   55 {
 
@@ -125,25 +125,25 @@ header
 
 <a name="l00059"></a>   59 public:
 
-<a name="l00060"></a>   60   [[classCMutex]]();
+<a name="l00060"></a>   60   [[CMutex|classCMutex]]();
 
-<a name="l00061"></a>   61   [[classCMutex]](pthread_mutexattr_t& attributes);
+<a name="l00061"></a>   61   [[CMutex|classCMutex]](pthread_mutexattr_t& attributes);
 
-<a name="l00062"></a>   62   [[classCMutex]]([[structCMutexAttr]]&          attributes);
+<a name="l00062"></a>   62   [[CMutex|classCMutex]]([[CMutexAttr|structCMutexAttr]]&          attributes);
 
-<a name="l00063"></a>   63   virtual ~[[classCMutex]]();
+<a name="l00063"></a>   63   virtual ~[[CMutex|classCMutex]]();
 
 <a name="l00064"></a>   64
 
 <a name="l00065"></a>   65 private:
 
-<a name="l00066"></a>   66   [[classCMutex]](const [[classCMutex]]&);
+<a name="l00066"></a>   66   [[CMutex|classCMutex]](const [[CMutex|classCMutex]]&);
 
-<a name="l00067"></a>   67   [[classCMutex]]& operator=(const [[classCMutex]]&);
+<a name="l00067"></a>   67   [[CMutex|classCMutex]]& operator=(const [[CMutex|classCMutex]]&);
 
-<a name="l00068"></a>   68   int operator==(const [[classCMutex]]&) const;
+<a name="l00068"></a>   68   int operator==(const [[CMutex|classCMutex]]&) const;
 
-<a name="l00069"></a>   69   int operator!=(const [[classCMutex]]&) const;
+<a name="l00069"></a>   69   int operator!=(const [[CMutex|classCMutex]]&) const;
 
 <a name="l00070"></a>   70
 
@@ -177,25 +177,25 @@ header
 
 <a name="l00085"></a>   85
 
-<a name="l00093"></a>[[classCriticalSection]] class [[classCriticalSection]] {
+<a name="l00093"></a>[[93|classCriticalSection]] class [[CriticalSection|classCriticalSection]] {
 
 <a name="l00094"></a>   94 private:
 
-<a name="l00095"></a>   95     [[classCMutex]]& m_mutex;
+<a name="l00095"></a>   95     [[CMutex|classCMutex]]& m_mutex;
 
 <a name="l00096"></a>   96 public:
 
-<a name="l00097"></a>   97     [[classCriticalSection]]([[classCMutex]]& mutex) : m_mutex(mutex)
+<a name="l00097"></a>   97     [[CriticalSection|classCriticalSection]]([[CMutex|classCMutex]]& mutex) : m_mutex(mutex)
 
 <a name="l00098"></a>   98     {
 
-<a name="l00099"></a>   99         m_mutex.[[classCMutex#abd23a5d6ff20790854f0483812a1101b]]();
+<a name="l00099"></a>   99         m_mutex.[[lock|classCMutex#abd23a5d6ff20790854f0483812a1101b]]();
 
 <a name="l00100"></a>  100     }
 
-<a name="l00101"></a>  101     ~[[classCriticalSection]]() {
+<a name="l00101"></a>  101     ~[[CriticalSection|classCriticalSection]]() {
 
-<a name="l00102"></a>  102         m_mutex.[[classCMutex#a889a2c611edc8c7ab0250e87c891ae0a]]();
+<a name="l00102"></a>  102         m_mutex.[[unlock|classCMutex#a889a2c611edc8c7ab0250e87c891ae0a]]();
 
 <a name="l00103"></a>  103     }
 
@@ -205,9 +205,9 @@ header
 
 <a name="l00106"></a>  106
 
-<a name="l00107"></a>  107 using [[classCMutex]] = [[classCMutex]];
+<a name="l00107"></a>  107 using [[CTCLMutex|classCMutex]] = [[CMutex|classCMutex]];
 
-<a name="l00108"></a>  108 using [[structCMutexAttr]] = [[structCMutexAttr#ac23655fb77bf81b789f88000d55870b7]];
+<a name="l00108"></a>  108 using [[CTCLMutexAttr|structCMutexAttr]] = [[CMutexAttr|structCMutexAttr#ac23655fb77bf81b789f88000d55870b7]];
 
 <a name="l00109"></a>  109
 
@@ -217,78 +217,78 @@ header
 
 <a name="l00112"></a>  112 #endif
 
-[[structCMutexAttr]]
+[[CMutexAttr|structCMutexAttr]]
 
 **Definition:** CTCLMutex.h:33
 
 
-[[structCMutexAttr#abfb55a90ca6802b6c909115618e2fca7]]
+[[CMutexAttr::setShared|structCMutexAttr#abfb55a90ca6802b6c909115618e2fca7]]
 
 void setShared()
 
 **Definition:** CTCLMutex.cpp:52
 
 
-[[structCMutexAttr#a6149de737aa03c77553c5139e634b69d]]
+[[CMutexAttr::getType|structCMutexAttr#a6149de737aa03c77553c5139e634b69d]]
 
 int getType()
 
 **Definition:** CTCLMutex.cpp:102
 
 
-[[classCMutex]]
+[[CMutex|classCMutex]]
 
 **Definition:** CTCLMutex.h:54
 
 
-[[classCriticalSection]]
+[[CriticalSection|classCriticalSection]]
 
 **Definition:** CTCLMutex.h:93
 
 
-[[structCMutexAttr#a53bbc0a28899cb742ea2575ac6001447]]
+[[CMutexAttr::setType|structCMutexAttr#a53bbc0a28899cb742ea2575ac6001447]]
 
 void setType(int type)
 
 **Definition:** CTCLMutex.cpp:92
 
 
-[[classCMutex#abd23a5d6ff20790854f0483812a1101b]]
+[[CMutex::lock|classCMutex#abd23a5d6ff20790854f0483812a1101b]]
 
 void lock()
 
 **Definition:** CTCLMutex.cpp:162
 
 
-[[structCMutexAttr#ac23655fb77bf81b789f88000d55870b7]]
+[[CMutexAttr::CMutexAttr|structCMutexAttr#ac23655fb77bf81b789f88000d55870b7]]
 
 CMutexAttr()
 
 **Definition:** CTCLMutex.cpp:31
 
 
-[[classCMutex#a889a2c611edc8c7ab0250e87c891ae0a]]
+[[CMutex::unlock|classCMutex#a889a2c611edc8c7ab0250e87c891ae0a]]
 
 void unlock()
 
 **Definition:** CTCLMutex.cpp:184
 
 
-[[structCMutexAttr#a518e1e66b2ac202e5549c5a6b6d34bd6]]
+[[CMutexAttr::isShareable|structCMutexAttr#a518e1e66b2ac202e5549c5a6b6d34bd6]]
 
 bool isShareable()
 
 **Definition:** CTCLMutex.cpp:75
 
 
-[[structCMutexAttr#a3412160d2fc1f5dc7afb043fc03f926a]]
+[[CMutexAttr::setUnshared|structCMutexAttr#a3412160d2fc1f5dc7afb043fc03f926a]]
 
 void setUnshared()
 
 **Definition:** CTCLMutex.cpp:63
 
 
-[[structCMutexAttr#adb5192e6b59e34ef7063b0b4ff597af6]]
+[[CMutexAttr::~CMutexAttr|structCMutexAttr#adb5192e6b59e34ef7063b0b4ff597af6]]
 
 ~CMutexAttr()
 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classsorttest-members]]
+[[List of all members|classsorttest-members]]
 
 
 sorttest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for sorttest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for sorttest:
@@ -47,7 +47,7 @@ Collaboration diagram for sorttest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -82,7 +82,7 @@ Collaboration diagram for sorttest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[sorttests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[sorttests.cpp|sorttests_8cpp]]
 
  contents 
  start footer part 

@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[namespaceDDASReadout]]
-- [[structDDASReadout_1_1RawChannel]]
+- [[DDASReadout|namespaceDDASReadout]]
+- [[RawChannel|structDDASReadout_1_1RawChannel]]
 
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Public Attributes](#pub-attribs) |
-[[structDDASReadout_1_1RawChannel-members]]
+[[List of all members|structDDASReadout_1_1RawChannel-members]]
 
 
 DDASReadout::RawChannel Struct Reference
 
 header
 A struct containing a pointer to a hit and its properties.  
- [[structDDASReadout_1_1RawChannel#details]]
+ [[More...|structDDASReadout_1_1RawChannel#details]]
 
 
 `#include <RawChannel.h>`
@@ -51,7 +51,7 @@ Inheritance diagram for DDASReadout::RawChannel:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -521,7 +521,7 @@ Return values
 Retains rough compatibility with the old channel class.
 
 
-**[[todo#_todo000023]]**(ASC 1/23/24): An old and somewhat cryptic comment about "hating 
+**[[Todo:|todo#_todo000023]]**(ASC 1/23/24): An old and somewhat cryptic comment about "hating 
 the output" but maintaining it for compatibility. Perhaps because we write to stderr and return 1 instead of raising an exception?
 
 
@@ -608,8 +608,8 @@ Extracted time, possibly calibrated.
 
 ---
 
-The documentation for this struct was generated from the following files:- [[RawChannel_8h_source]]
-- [[RawChannel_8cpp]]
+The documentation for this struct was generated from the following files:- [[RawChannel.h|RawChannel_8h_source]]
+- [[RawChannel.cpp|RawChannel_8cpp]]
 
  contents 
  start footer part 

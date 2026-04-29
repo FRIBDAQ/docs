@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 QHitData Member List
 
 header
-This is the complete list of members for [[classQHitData]], including all inherited members.
+This is the complete list of members for [[QHitData|classQHitData]], including all inherited members.
 
 
 |  |  |  |

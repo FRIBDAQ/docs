@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 DDASFitHitUnpacker.h
 
 header
-[[DDASFitHitUnpacker_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|DDASFitHitUnpacker_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -100,7 +100,7 @@ header
 <a name="l00033"></a>   33
 
 
-<a name="l00061"></a>[[classddastoys_1_1DDASFitHitUnpacker]]     class [[classddastoys_1_1DDASFitHitUnpacker]] : public ddasfmt::DDASHitUnpacker
+<a name="l00061"></a>[[61|classddastoys_1_1DDASFitHitUnpacker]]     class [[DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]] : public ddasfmt::DDASHitUnpacker
 
 
 <a name="l00062"></a>   62     {
@@ -109,7 +109,7 @@ header
 <a name="l00063"></a>   63     public:
 
 
-<a name="l00075"></a>   75     const void* [[classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]](const void* p, [[classddastoys_1_1DDASFitHit]]& hit);
+<a name="l00075"></a>   75     const void* [[decode|classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]](const void* p, [[DDASFitHit|classddastoys_1_1DDASFitHit]]& hit);
 
 
 <a name="l00076"></a>   76     };
@@ -127,14 +127,14 @@ header
 <a name="l00082"></a>   82 #endif
 
 
-[[classddastoys_1_1DDASFitHitUnpacker]]
+[[ddastoys::DDASFitHitUnpacker|classddastoys_1_1DDASFitHitUnpacker]]
 
 Unpack raw hit data from DDAS event files.
 
 **Definition:** DDASFitHitUnpacker.h:62
 
 
-[[classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]]
+[[ddastoys::DDASFitHitUnpacker::decode|classddastoys_1_1DDASFitHitUnpacker#a79a9e2d9267c8036fef746f45ef4c4d7]]
 
 const void * decode(const void *p, DDASFitHit &hit)
 
@@ -143,7 +143,7 @@ Decode the current event and unpack it into a DDASFitHit.
 **Definition:** DDASFitHitUnpacker.cpp:61
 
 
-[[classddastoys_1_1DDASFitHit]]
+[[ddastoys::DDASFitHit|classddastoys_1_1DDASFitHit]]
 
 Encapsulates data for DDAS hits that may have fitted traces.
 

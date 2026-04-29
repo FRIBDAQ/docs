@@ -19,9 +19,9 @@ do not remove this div, it is closed by doxygen!
 ### - m -
 
 - ModEvtFileParser()
-  : [[classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]
+  : [[DAQ::DDAS::ModEvtFileParser|classDAQ_1_1DDAS_1_1ModEvtFileParser#a7dd35f49151edd3d540eb518f9b27b8f]]
 - moduleCalibration()
-  : [[structDDASReadout_1_1RawChannel#af2be5fd58d780069deb9fe27b3cb9edf]]
+  : [[DDASReadout::RawChannel|structDDASReadout_1_1RawChannel#af2be5fd58d780069deb9fe27b3cb9edf]]
 
  contents 
  start footer part 

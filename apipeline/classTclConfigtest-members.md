@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 TclConfigtest Member List
 
 header
-This is the complete list of members for [[classTclConfigtest]], including all inherited members.
+This is the complete list of members for [[TclConfigtest|classTclConfigtest]], including all inherited members.
 
 
 |  |  |  |

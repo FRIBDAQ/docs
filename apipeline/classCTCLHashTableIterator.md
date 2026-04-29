@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classCTCLHashTableIterator-members]]
+[[List of all members|classCTCLHashTableIterator-members]]
 
 
 CTCLHashTableIterator< T > Class Template Reference
@@ -70,7 +70,7 @@ header
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLHashTableIterator_8h_source]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLHashTableIterator.h|TCLHashTableIterator_8h_source]]
 
  contents 
  start footer part 

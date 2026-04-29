@@ -33,7 +33,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASBitMasks_8h__dep__incl.png)
 
 
-[[DDASBitMasks_8h_source]]
+[[Go to the source code of this file.|DDASBitMasks_8h_source]]
 
 
 <a name="details"></a>## Detailed Description

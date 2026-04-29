@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
 libDDASDataSimulator.so
 
 header
-Data simulation library for [[namespaceDAQ_1_1DDAS]].  
+Data simulation library for [[DDAS|namespaceDAQ_1_1DDAS]].  
 [More...](#details)
 
 
@@ -37,10 +37,10 @@ Data simulation library for [[namespaceDAQ_1_1DDAS]].
 <a name="details"></a>## Detailed Description
 
 
-Data simulation library for [[namespaceDAQ_1_1DDAS]].
+Data simulation library for [[DDAS|namespaceDAQ_1_1DDAS]].
 
 
-The [[namespaceDAQ_1_1DDAS]] data simulation library allows users to write NSCLDAQ event data with DDAS-style payloads to disk from any external program e.g., Geant4.
+The [[DDAS|namespaceDAQ_1_1DDAS]] data simulation library allows users to write NSCLDAQ event data with DDAS-style payloads to disk from any external program e.g., Geant4.
 
  contents 
  start footer part 

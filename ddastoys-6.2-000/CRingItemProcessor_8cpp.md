@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CRingItemProcessor.cpp File Reference
 
 header
-Default implementation of the the [[classCRingItemProcessor]] class methods.  
+Default implementation of the the [[CRingItemProcessor|classCRingItemProcessor]] class methods.  
 [More...](#details)
 
 
@@ -63,7 +63,7 @@ Include dependency graph for CRingItemProcessor.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Default implementation of the the [[classCRingItemProcessor]] class methods.
+Default implementation of the the [[CRingItemProcessor|classCRingItemProcessor]] class methods.
 
  contents 
  start footer part 

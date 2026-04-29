@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCDDASStatisticsCommand-members]]
+[[List of all members|classCDDASStatisticsCommand-members]]
 
 
 CDDASStatisticsCommand Class Reference
 
 header
 Provides a statistics command processor that overrides the SBS one.  
- [[classCDDASStatisticsCommand#details]]
+ [[More...|classCDDASStatisticsCommand#details]]
 
 
 `#include <CDDASStatisticsCommand.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CDDASStatisticsCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CDDASStatisticsCommand:
@@ -57,7 +57,7 @@ Collaboration diagram for CDDASStatisticsCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -80,7 +80,7 @@ Collaboration diagram for CDDASStatisticsCommand:
 Provides a statistics command processor that overrides the SBS one.
 
 
-We need to override because the concept of a trigger within DDAS is completely different than the triggering used to invoke the readouts. For DDAS readout, the triggering information comes from the module pseudo scalers. Thus we'll function by grabbing byte statistics from [[classCMyEventSegment]] and trigger information from the collection of [[classCMyScaler]] objects.
+We need to override because the concept of a trigger within DDAS is completely different than the triggering used to invoke the readouts. For DDAS readout, the triggering information comes from the module pseudo scalers. Thus we'll function by grabbing byte statistics from [[CMyEventSegment|classCMyEventSegment]] and trigger information from the collection of [[CMyScaler|classCMyScaler]] objects.
 
 ## Constructor & Destructor Documentation
 
@@ -157,8 +157,8 @@ Return values
 
 ---
 
-The documentation for this class was generated from the following files:- [[CDDASStatisticsCommand_8h_source]]
-- [[CDDASStatisticsCommand_8cpp]]
+The documentation for this class was generated from the following files:- [[CDDASStatisticsCommand.h|CDDASStatisticsCommand_8h_source]]
+- [[CDDASStatisticsCommand.cpp|CDDASStatisticsCommand_8cpp]]
 
  contents 
  start footer part 

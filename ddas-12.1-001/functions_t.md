@@ -22,9 +22,9 @@ Here is a list of all class members with links to the classes they belong to:
 ### - t -
 
 - teardown()
-  : [[classCMyTrigger#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]
+  : [[CMyTrigger|classCMyTrigger#ac3eb7d812ea45ad17e7ac1a8db9c6f66]]
 - transitionToInactive()
-  : [[classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]
+  : [[CMyEndCommand|classCMyEndCommand#a19de43c3e32ac03b60071e07000de510]]
 
  contents 
  start footer part 

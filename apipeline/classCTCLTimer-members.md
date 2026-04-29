@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLTimer Member List
 
 header
-This is the complete list of members for [[classCTCLTimer]], including all inherited members.
+This is the complete list of members for [[CTCLTimer|classCTCLTimer]], including all inherited members.
 
 
 |  |  |  |

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMyScaler Member List
 
 header
-This is the complete list of members for [[classCMyScaler]], including all inherited members.
+This is the complete list of members for [[CMyScaler|classCMyScaler]], including all inherited members.
 
 
 |  |  |  |

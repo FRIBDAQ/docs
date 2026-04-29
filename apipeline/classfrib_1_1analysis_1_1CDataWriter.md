@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[classfrib_1_1analysis_1_1CDataWriter]]
+- [[CDataWriter|classfrib_1_1analysis_1_1CDataWriter]]
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classfrib_1_1analysis_1_1CDataWriter-members]]
+[[List of all members|classfrib_1_1analysis_1_1CDataWriter-members]]
 
 
 frib::analysis::CDataWriter Class Reference
@@ -143,8 +143,8 @@ Parameters
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[DataWriter_8h_source]]
-- base/[[DataWriter_8cpp]]
+The documentation for this class was generated from the following files:- base/[[DataWriter.h|DataWriter_8h_source]]
+- base/[[DataWriter.cpp|DataWriter_8cpp]]
 
  contents 
  start footer part 

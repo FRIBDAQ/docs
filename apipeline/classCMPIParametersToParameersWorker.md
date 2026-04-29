@@ -46,7 +46,7 @@ The worker than requests and gets parameter data. Using the mappings previously 
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[MPIParametersToParametersWorker_8h_source]]
+The documentation for this class was generated from the following file:- base/[[MPIParametersToParametersWorker.h|MPIParametersToParametersWorker_8h_source]]
 
  contents 
  start footer part 

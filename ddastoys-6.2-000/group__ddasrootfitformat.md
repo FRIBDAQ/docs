@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
 libDDASRootFitFormat.so
 
 header
-ROOT data format and classes. Basically a ROOT-ized [[classddastoys_1_1DDASFitHit]] and [[fit__extensions_8h]].  
+ROOT data format and classes. Basically a ROOT-ized [[DDASFitHit|classddastoys_1_1DDASFitHit]] and [[fit_extensions.h|fit__extensions_8h]].  
 [More...](#details)
 
 
@@ -43,7 +43,7 @@ ROOT data format and classes. Basically a ROOT-ized [[classddastoys_1_1DDASFitHi
 <a name="details"></a>## Detailed Description
 
 
-ROOT data format and classes. Basically a ROOT-ized [[classddastoys_1_1DDASFitHit]] and [[fit__extensions_8h]].
+ROOT data format and classes. Basically a ROOT-ized [[DDASFitHit|classddastoys_1_1DDASFitHit]] and [[fit_extensions.h|fit__extensions_8h]].
 
  contents 
  start footer part 

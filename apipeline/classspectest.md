@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classspectest-members]]
+[[List of all members|classspectest-members]]
 
 
 spectest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for spectest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for spectest:
@@ -47,7 +47,7 @@ Collaboration diagram for spectest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -70,7 +70,7 @@ Collaboration diagram for spectest:
 
 ---
 
-The documentation for this class was generated from the following file:- spectcl/[[testSpecTcl_8cpp]]
+The documentation for this class was generated from the following file:- spectcl/[[testSpecTcl.cpp|testSpecTcl_8cpp]]
 
  contents 
  start footer part 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCTCLTracedVariable-members]]
+[[List of all members|classCTCLTracedVariable-members]]
 
 
 CTCLTracedVariable Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLTracedVariable:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CTCLTracedVariable:
@@ -53,7 +53,7 @@ Collaboration diagram for CTCLTracedVariable:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -133,7 +133,7 @@ Collaboration diagram for CTCLTracedVariable:
 <a name="details"></a>## Detailed Description
 
 
-This class is an extension of the [[classCTCLVariable]] class designed to make dealing with tracing somewhat simpler. The class will contain a 'trace callback' object which is dispatched to by the trace handler. Thus, in theory, in stead of having a ton of derived CTCLVariables, you'll hopefully only have a few [[classCVariableTraceCallback]] objects. The characteristics of the trace are set up at construction time and remain fixed for the lifetime of an object.
+This class is an extension of the [[CTCLVariable|classCTCLVariable]] class designed to make dealing with tracing somewhat simpler. The class will contain a 'trace callback' object which is dispatched to by the trace handler. Thus, in theory, in stead of having a ton of derived CTCLVariables, you'll hopefully only have a few [[CVariableTraceCallback|classCVariableTraceCallback]] objects. The characteristics of the trace are set up at construction time and remain fixed for the lifetime of an object.
 
 ## Constructor & Destructor Documentation
 
@@ -187,13 +187,13 @@ Return values
 
 
 
-Reimplemented from [[classCTCLVariable]].
+Reimplemented from [[CTCLVariable|classCTCLVariable]].
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTracedVariable_8h_source]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTracedVariable.h|TCLTracedVariable_8h_source]]
 - libtclplus/tclplus/TCLTracedVariable.cpp
 
  contents 

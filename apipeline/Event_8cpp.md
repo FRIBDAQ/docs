@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_18495d4159aaa38323f4c7ea9307a4f7]]
+- [[spectcl|dir_18495d4159aaa38323f4c7ea9307a4f7]]
 
  top 
 Event.cpp File Reference
 
 header
-: Implement [[classfrib_1_1analysis_1_1CEvent]]
+: Implement [[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]]
 [More...](#details)
 
 
@@ -47,7 +47,7 @@ Include dependency graph for Event.cpp:
 <a name="details"></a>## Detailed Description
 
 
-: Implement [[classfrib_1_1analysis_1_1CEvent]]
+: Implement [[frib::analysis::CEvent|classfrib_1_1analysis_1_1CEvent]]
 
  contents 
  start footer part 

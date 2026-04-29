@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classTPATest-members]]
+[[List of all members|classTPATest-members]]
 
 
 TPATest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TPATest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TPATest:
@@ -47,7 +47,7 @@ Collaboration diagram for TPATest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -97,7 +97,7 @@ Collaboration diagram for TPATest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[treeparamarraytests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[treeparamarraytests.cpp|treeparamarraytests_8cpp]]
 
  contents 
  start footer part 

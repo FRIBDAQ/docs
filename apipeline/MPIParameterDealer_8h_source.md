@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_e914ee4d4a44400f1fdb170cb4ead18a]]
+- [[base|dir_e914ee4d4a44400f1fdb170cb4ead18a]]
 
  top 
 MPIParameterDealer.h
@@ -67,13 +67,13 @@ header
 
 <a name="l00023"></a>   23 #include <stddef.h>
 
-<a name="l00024"></a>   24 #include <[[DataReader_8h]]>
+<a name="l00024"></a>   24 #include <[[DataReader.h|DataReader_8h]]>
 
 <a name="l00025"></a>   25 #include <mpi.h>
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 namespace [[namespacefrib]] {
+<a name="l00027"></a>   27 namespace [[frib|namespacefrib]] {
 
 <a name="l00028"></a>   28     namespace analysis {
 
@@ -83,7 +83,7 @@ header
 
 <a name="l00031"></a>   31
 
-<a name="l00067"></a>[[classfrib_1_1analysis_1_1CMPIParameterDealer]]         class [[classfrib_1_1analysis_1_1CMPIParameterDealer]] {
+<a name="l00067"></a>[[67|classfrib_1_1analysis_1_1CMPIParameterDealer]]         class [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]] {
 
 <a name="l00068"></a>   68         private:
 
@@ -91,9 +91,9 @@ header
 
 <a name="l00070"></a>   70             char** m_argv;
 
-<a name="l00071"></a>   71             [[classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
+<a name="l00071"></a>   71             [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* m_pApp;
 
-<a name="l00072"></a>   72             [[classfrib_1_1analysis_1_1CDataReader]]* m_pReader;
+<a name="l00072"></a>   72             [[CDataReader|classfrib_1_1analysis_1_1CDataReader]]* m_pReader;
 
 <a name="l00073"></a>   73             unsigned     m_nBlockSize;
 
@@ -103,23 +103,23 @@ header
 
 <a name="l00076"></a>   76         public:
 
-<a name="l00077"></a>   77             [[classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]](int argc, char** argv, [[classfrib_1_1analysis_1_1AbstractApplication]]* pApp);
+<a name="l00077"></a>   77             [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]](int argc, char** argv, [[AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]* pApp);
 
-<a name="l00078"></a>   78             virtual [[classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]();
+<a name="l00078"></a>   78             virtual [[~CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]();
 
 <a name="l00079"></a>   79         private:
 
-<a name="l00080"></a>   80             [[classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]](const [[classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00080"></a>   80             [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]](const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
 
-<a name="l00081"></a>   81             [[classfrib_1_1analysis_1_1CMPIParameterDealer]]& operator=(const [[classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00081"></a>   81             [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& operator=(const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
 
-<a name="l00082"></a>   82             int operator==(const [[classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00082"></a>   82             int operator==(const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
 
-<a name="l00083"></a>   83             int operator!=(const [[classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
+<a name="l00083"></a>   83             int operator!=(const [[CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]& rhs);
 
 <a name="l00084"></a>   84         public:
 
-<a name="l00085"></a>   85             void [[classfrib_1_1analysis_1_1CMPIParameterDealer#a394eb31b747676ba17c78cc18be5ee47]]();
+<a name="l00085"></a>   85             void [[operator()|classfrib_1_1analysis_1_1CMPIParameterDealer#a394eb31b747676ba17c78cc18be5ee47]]();
 
 <a name="l00086"></a>   86         private:
 
@@ -165,46 +165,46 @@ header
 
 <a name="l00107"></a>  107 #endif
 
-[[classfrib_1_1analysis_1_1AbstractApplication]]
+[[frib::analysis::AbstractApplication|classfrib_1_1analysis_1_1AbstractApplication]]
 
 **Definition:** AbstractApplication.h:102
 
 
-[[classfrib_1_1analysis_1_1CDataReader]]
+[[frib::analysis::CDataReader|classfrib_1_1analysis_1_1CDataReader]]
 
 **Definition:** DataReader.h:60
 
 
-[[DataReader_8h]]
+[[DataReader.h|DataReader_8h]]
 
 : Read data from a file and present it to the caller.
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterDealer#a394eb31b747676ba17c78cc18be5ee47]]
+[[frib::analysis::CMPIParameterDealer::operator()|classfrib_1_1analysis_1_1CMPIParameterDealer#a394eb31b747676ba17c78cc18be5ee47]]
 
 void operator()()
 
 **Definition:** MPIParameterDealer.cpp:61
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterDealer]]
+[[frib::analysis::CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer]]
 
 **Definition:** MPIParameterDealer.h:67
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]
+[[frib::analysis::CMPIParameterDealer::~CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#af62ea3bf71902d300876ff9e123d3613]]
 
 virtual ~CMPIParameterDealer()
 
 **Definition:** MPIParameterDealer.cpp:52
 
 
-[[namespacefrib]]
+[[frib|namespacefrib]]
 
 **Definition:** AbstractApplication.cpp:30
 
 
-[[classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]]
+[[frib::analysis::CMPIParameterDealer::CMPIParameterDealer|classfrib_1_1analysis_1_1CMPIParameterDealer#aca747949ab88386475e1d12d03a45452]]
 
 CMPIParameterDealer(int argc, char **argv, AbstractApplication *pApp)
 

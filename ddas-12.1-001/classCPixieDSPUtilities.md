@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCPixieDSPUtilities-members]]
+[[List of all members|classCPixieDSPUtilities-members]]
 
 
-CPixieDSPUtilities Class Reference[[group__utilities]]
+CPixieDSPUtilities Class Reference[[libPixieUtilities.so|group__utilities]]
 
 header
 Read and writes both channel-level and module-level DSP settings.  
- [[classCPixieDSPUtilities#details]]
+ [[More...|classCPixieDSPUtilities#details]]
 
 
 `#include <CPixieDSPUtilities.h>`
@@ -255,8 +255,8 @@ Module parameters are unsigned ints. For a list of parameters and their units, s
 
 ---
 
-The documentation for this class was generated from the following files:- [[CPixieDSPUtilities_8h_source]]
-- [[CPixieDSPUtilities_8cpp]]
+The documentation for this class was generated from the following files:- [[CPixieDSPUtilities.h|CPixieDSPUtilities_8h_source]]
+- [[CPixieDSPUtilities.cpp|CPixieDSPUtilities_8cpp]]
 
  contents 
  start footer part 

@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
+- [[EEConverter|dir_04a3fafa7c4b2a9dfdb897dd54125b19]]
 
  top 
 StringsToIntegers.h
 
 header
-[[StringsToIntegers_8h]]<a name="l00001"></a>    1 /*
+[[Go to the documentation of this file.|StringsToIntegers_8h]]<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -138,7 +138,7 @@ header
 <a name="l00043"></a>   43
 
 
-<a name="l00053"></a>[[StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]] std::vector<int> [[StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]](std::string items);
+<a name="l00053"></a>[[53|StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]] std::vector<int> [[stringListToIntegers|StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]](std::string items);
 
 
 <a name="l00054"></a>   54
@@ -147,7 +147,7 @@ header
 <a name="l00055"></a>   55 #endif
 
 
-[[StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]]
+[[stringListToIntegers|StringsToIntegers_8h#a1b37778bab08e28b15eab26452de3ddb]]
 
 std::vector< int > stringListToIntegers(std::string items)
 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classtestCommand-members]]
+[[List of all members|classtestCommand-members]]
 
 
 testCommand Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for testCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for testCommand:
@@ -52,7 +52,7 @@ Collaboration diagram for testCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -147,7 +147,7 @@ Collaboration diagram for testCommand:
 Default initialize is null. The derived class can override this however:
 
 
-Reimplemented from [[classCTCLPackagedObjectProcessor#a94fc3403370d17a1762cf286ec71ef96]].
+Reimplemented from [[CTCLPackagedObjectProcessor|classCTCLPackagedObjectProcessor#a94fc3403370d17a1762cf286ec71ef96]].
 
 
 

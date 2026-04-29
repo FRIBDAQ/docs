@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[classTclConfigtest-members]]
+[[List of all members|classTclConfigtest-members]]
 
 
 TclConfigtest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TclConfigtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for TclConfigtest:
@@ -47,7 +47,7 @@ Collaboration diagram for TclConfigtest:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -87,7 +87,7 @@ Collaboration diagram for TclConfigtest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[tclconfigtests_8cpp]]
+The documentation for this class was generated from the following file:- base/[[tclconfigtests.cpp|tclconfigtests_8cpp]]
 
  contents 
  start footer part 

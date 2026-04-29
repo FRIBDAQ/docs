@@ -28,8 +28,8 @@
 <gcse:search></gcse:search>
 
 
-- [[home]]
-- [[tutorials]]
-- [[reference]]
-- [[download]]
-- [[faq]]
+- [[Home|home]]
+- [[Tutorials|tutorials]]
+- [[Reference|reference]]
+- [[Download|download]]
+- [[FAQ|faq]]

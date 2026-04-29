@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[classCBootCommand-members]]
+[[List of all members|classCBootCommand-members]]
 
 
 CBootCommand Class Reference
 
 header
 This class implements the ddasboot command. It is added to to the Tcl interpreter that runs ddasreadout so that the DDAS modules can be booted on-demand rather than every time the Readout program starts.  
- [[classCBootCommand#details]]
+ [[More...|classCBootCommand#details]]
 
 
 `#include <CBootCommand.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CBootCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 Collaboration diagram for CBootCommand:
@@ -57,7 +57,7 @@ Collaboration diagram for CBootCommand:
 
 
 
-[[[graph_legend]]]
+[[[legend|graph_legend]]]
 
 
 |  |  |
@@ -158,8 +158,8 @@ Ensures there are no additional command parameters. Invokes the segments's boot 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CBootCommand_8h_source]]
-- [[CBootCommand_8cpp]]
+The documentation for this class was generated from the following files:- [[CBootCommand.h|CBootCommand_8h_source]]
+- [[CBootCommand.cpp|CBootCommand_8cpp]]
 
  contents 
  start footer part 

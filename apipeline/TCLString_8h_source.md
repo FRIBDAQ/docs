@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
-- [[dir_916a1320d72df91b2427bdb1c4bfd305]]
-- [[dir_adcafb5ceb560ba729c79a378a2d6426]]
+- [[libtclplus|dir_4b82a50f27f43da3ef4ad81c5c8f36d1]]
+- [[include|dir_916a1320d72df91b2427bdb1c4bfd305]]
+- [[tclplus|dir_adcafb5ceb560ba729c79a378a2d6426]]
 
  top 
 TCLString.h
@@ -81,7 +81,7 @@ header
 
 <a name="l00027"></a>   27
 
-<a name="l00028"></a>[[classCTCLString]] class [[classCTCLString]]
+<a name="l00028"></a>[[28|classCTCLString]] class [[CTCLString|classCTCLString]]
 
 <a name="l00029"></a>   29 {
 
@@ -95,13 +95,13 @@ header
 
 <a name="l00034"></a>   34
 
-<a name="l00035"></a>   35   [[classCTCLString]] ()    {
+<a name="l00035"></a>   35   [[CTCLString|classCTCLString]] ()    {
 
 <a name="l00036"></a>   36     Tcl_DStringInit(&m_String);
 
 <a name="l00037"></a>   37   }
 
-<a name="l00038"></a>   38   ~[[classCTCLString]] () {
+<a name="l00038"></a>   38   ~[[CTCLString|classCTCLString]] () {
 
 <a name="l00039"></a>   39   Tcl_DStringFree(&m_String);
 
@@ -113,7 +113,7 @@ header
 
 <a name="l00043"></a>   43
 
-<a name="l00044"></a>   44   [[classCTCLString]] (const char* pString  )
+<a name="l00044"></a>   44   [[CTCLString|classCTCLString]] (const char* pString  )
 
 <a name="l00045"></a>   45    {
 
@@ -123,7 +123,7 @@ header
 
 <a name="l00048"></a>   48    }
 
-<a name="l00049"></a>   49   [[classCTCLString]](const std::string& rString) {
+<a name="l00049"></a>   49   [[CTCLString|classCTCLString]](const std::string& rString) {
 
 <a name="l00050"></a>   50     Tcl_DStringInit(&m_String);
 
@@ -131,7 +131,7 @@ header
 
 <a name="l00052"></a>   52   }
 
-<a name="l00053"></a>   53   [[classCTCLString]](const Tcl_DString& rString) {
+<a name="l00053"></a>   53   [[CTCLString|classCTCLString]](const Tcl_DString& rString) {
 
 <a name="l00054"></a>   54     Tcl_DStringInit(&m_String);
 
@@ -145,7 +145,7 @@ header
 
 <a name="l00059"></a>   59
 
-<a name="l00060"></a>   60   [[classCTCLString]] (const [[classCTCLString]]& aCTCLString )
+<a name="l00060"></a>   60   [[CTCLString|classCTCLString]] (const [[CTCLString|classCTCLString]]& aCTCLString )
 
 <a name="l00061"></a>   61   {
 
@@ -161,7 +161,7 @@ header
 
 <a name="l00067"></a>   67
 
-<a name="l00068"></a>   68   [[classCTCLString]]& operator= (const [[classCTCLString]]& aCTCLString)
+<a name="l00068"></a>   68   [[CTCLString|classCTCLString]]& operator= (const [[CTCLString|classCTCLString]]& aCTCLString)
 
 <a name="l00069"></a>   69   {
 
@@ -181,7 +181,7 @@ header
 
 <a name="l00077"></a>   77
 
-<a name="l00078"></a>   78   int operator== (const [[classCTCLString]]& aCTCLString)
+<a name="l00078"></a>   78   int operator== (const [[CTCLString|classCTCLString]]& aCTCLString)
 
 <a name="l00079"></a>   79   {
 
@@ -191,13 +191,13 @@ header
 
 <a name="l00082"></a>   82   }
 
-<a name="l00083"></a>   83   int operator!= (const [[classCTCLString]]& aCTCLString) {
+<a name="l00083"></a>   83   int operator!= (const [[CTCLString|classCTCLString]]& aCTCLString) {
 
 <a name="l00084"></a>   84     return !(operator==(aCTCLString));
 
 <a name="l00085"></a>   85   }
 
-<a name="l00086"></a>   86   int operator> (const [[classCTCLString]]& aCTCLString) {
+<a name="l00086"></a>   86   int operator> (const [[CTCLString|classCTCLString]]& aCTCLString) {
 
 <a name="l00087"></a>   87     return(strcmp(Tcl_DStringValue(&m_String),
 
@@ -207,7 +207,7 @@ header
 
 <a name="l00090"></a>   90   }
 
-<a name="l00091"></a>   91   int operator< (const [[classCTCLString]]& aCTCLString) {
+<a name="l00091"></a>   91   int operator< (const [[CTCLString|classCTCLString]]& aCTCLString) {
 
 <a name="l00092"></a>   92     return(strcmp(Tcl_DStringValue(&m_String),
 
@@ -217,13 +217,13 @@ header
 
 <a name="l00095"></a>   95   }
 
-<a name="l00096"></a>   96   int operator>=(const [[classCTCLString]]& aCTCLString) {
+<a name="l00096"></a>   96   int operator>=(const [[CTCLString|classCTCLString]]& aCTCLString) {
 
 <a name="l00097"></a>   97     return (operator>(aCTCLString) || operator==(aCTCLString));
 
 <a name="l00098"></a>   98   }
 
-<a name="l00099"></a>   99   int operator<=(const [[classCTCLString]]& aCTCLString) {
+<a name="l00099"></a>   99   int operator<=(const [[CTCLString|classCTCLString]]& aCTCLString) {
 
 <a name="l00100"></a>  100     return (operator<(aCTCLString) || operator==(aCTCLString));
 
@@ -267,25 +267,25 @@ header
 
 <a name="l00120"></a>  120   //
 
-<a name="l00121"></a>  121   [[classCTCLString]]& Append (const std::string& rString, TCLPLUS::Int_t nLength=-1) {
+<a name="l00121"></a>  121   [[CTCLString|classCTCLString]]& Append (const std::string& rString, TCLPLUS::Int_t nLength=-1) {
 
 <a name="l00122"></a>  122     return Append(rString.c_str(), nLength);
 
 <a name="l00123"></a>  123   }
 
-<a name="l00124"></a>  124   [[classCTCLString]]& Append (const [[classCTCLString]]&  rString, TCLPLUS::Int_t nLength=-1) {
+<a name="l00124"></a>  124   [[CTCLString|classCTCLString]]& Append (const [[CTCLString|classCTCLString]]&  rString, TCLPLUS::Int_t nLength=-1) {
 
 <a name="l00125"></a>  125     return Append(Tcl_DStringValue(&rString.m_String), nLength);
 
 <a name="l00126"></a>  126   }
 
-<a name="l00127"></a>  127   [[classCTCLString]]& Append (Tcl_DString&       pString, TCLPLUS::Int_t nLength=-1) {
+<a name="l00127"></a>  127   [[CTCLString|classCTCLString]]& Append (Tcl_DString&       pString, TCLPLUS::Int_t nLength=-1) {
 
 <a name="l00128"></a>  128     return Append(Tcl_DStringValue(&pString), nLength);
 
 <a name="l00129"></a>  129   }
 
-<a name="l00130"></a>  130   [[classCTCLString]]& Append (const char*        pString, TCLPLUS::Int_t nLength=-1);
+<a name="l00130"></a>  130   [[CTCLString|classCTCLString]]& Append (const char*        pString, TCLPLUS::Int_t nLength=-1);
 
 <a name="l00131"></a>  131   //
 
@@ -293,29 +293,29 @@ header
 
 <a name="l00133"></a>  133   //
 
-<a name="l00134"></a>  134   [[classCTCLString]]& AppendElement (const Tcl_DString*      pRhs) {
+<a name="l00134"></a>  134   [[CTCLString|classCTCLString]]& AppendElement (const Tcl_DString*      pRhs) {
 
 <a name="l00135"></a>  135     return AppendElement(Tcl_DStringValue(pRhs));
 
 <a name="l00136"></a>  136   }
 
-<a name="l00137"></a>  137   [[classCTCLString]]& AppendElement (const [[classCTCLString]]&       rRhs) {
+<a name="l00137"></a>  137   [[CTCLString|classCTCLString]]& AppendElement (const [[CTCLString|classCTCLString]]&       rRhs) {
 
 <a name="l00138"></a>  138     return AppendElement(Tcl_DStringValue(&rRhs.m_String));
 
 <a name="l00139"></a>  139   }
 
-<a name="l00140"></a>  140   [[classCTCLString]]& AppendElement (const std::string&      rRhs) {
+<a name="l00140"></a>  140   [[CTCLString|classCTCLString]]& AppendElement (const std::string&      rRhs) {
 
 <a name="l00141"></a>  141     return AppendElement(rRhs.c_str());
 
 <a name="l00142"></a>  142   }
 
-<a name="l00143"></a>  143   [[classCTCLString]]& AppendElement (const char*             pRhs);
+<a name="l00143"></a>  143   [[CTCLString|classCTCLString]]& AppendElement (const char*             pRhs);
 
-<a name="l00144"></a>  144   [[classCTCLString]]& AppendElement(TCLPLUS::DFloat_t value, const char* pFormat = "%f");
+<a name="l00144"></a>  144   [[CTCLString|classCTCLString]]& AppendElement(TCLPLUS::DFloat_t value, const char* pFormat = "%f");
 
-<a name="l00145"></a>  145   [[classCTCLString]]& AppendElement(long value, const char* pFormat = "%i");
+<a name="l00145"></a>  145   [[CTCLString|classCTCLString]]& AppendElement(long value, const char* pFormat = "%i");
 
 <a name="l00146"></a>  146   //
 
@@ -323,13 +323,13 @@ header
 
 <a name="l00148"></a>  148   //
 
-<a name="l00149"></a>  149   [[classCTCLString]]& StartSublist ()  ;
+<a name="l00149"></a>  149   [[CTCLString|classCTCLString]]& StartSublist ()  ;
 
-<a name="l00150"></a>  150   [[classCTCLString]]& EndSublist ()  ;
+<a name="l00150"></a>  150   [[CTCLString|classCTCLString]]& EndSublist ()  ;
 
 <a name="l00151"></a>  151   TCLPLUS::UInt_t  Length () const ;
 
-<a name="l00152"></a>  152   [[classCTCLString]]& Truncate (TCLPLUS::UInt_t nNewLength)  ;
+<a name="l00152"></a>  152   [[CTCLString|classCTCLString]]& Truncate (TCLPLUS::UInt_t nNewLength)  ;
 
 <a name="l00153"></a>  153   TCLPLUS::Bool_t isCommand () const  ;
 
@@ -347,7 +347,7 @@ header
 
 <a name="l00160"></a>  160   }
 
-<a name="l00161"></a>  161   TCLPLUS::Bool_t Match (const [[classCTCLString]]& rPattern) const {
+<a name="l00161"></a>  161   TCLPLUS::Bool_t Match (const [[CTCLString|classCTCLString]]& rPattern) const {
 
 <a name="l00162"></a>  162     return Match(Tcl_DStringValue(&rPattern.m_String));
 
@@ -373,13 +373,13 @@ header
 
 <a name="l00173"></a>  173   }
 
-<a name="l00174"></a>  174   [[classCTCLString]]& operator+= (const [[classCTCLString]]& rRhs) {
+<a name="l00174"></a>  174   [[CTCLString|classCTCLString]]& operator+= (const [[CTCLString|classCTCLString]]& rRhs) {
 
 <a name="l00175"></a>  175     return Append(rRhs);
 
 <a name="l00176"></a>  176   }
 
-<a name="l00177"></a>  177   [[classCTCLString]] operator+ (const [[classCTCLString]]& rRhs) ;
+<a name="l00177"></a>  177   [[CTCLString|classCTCLString]] operator+ (const [[CTCLString|classCTCLString]]& rRhs) ;
 
 <a name="l00178"></a>  178
 
@@ -389,7 +389,7 @@ header
 
 <a name="l00181"></a>  181 protected:
 
-<a name="l00182"></a>  182   void DoAssign(const [[classCTCLString]]& rRhs);
+<a name="l00182"></a>  182   void DoAssign(const [[CTCLString|classCTCLString]]& rRhs);
 
 <a name="l00183"></a>  183
 
@@ -399,7 +399,7 @@ header
 
 <a name="l00186"></a>  186 #endif
 
-[[classCTCLString]]
+[[CTCLString|classCTCLString]]
 
 **Definition:** TCLString.h:28
 
