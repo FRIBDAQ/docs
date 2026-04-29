@@ -60,7 +60,7 @@ As you can imagine, FRIBDAQ is a large package with many utilities. Indeed
      your feet wet.
 
 
-- [[nscldaq-11.3/index]]
+- [[https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/index.md]]
 - [[cookbook/index]]
 - [[daqformat/index]]
 
