@@ -60,9 +60,9 @@ As you can imagine, FRIBDAQ is a large package with many utilities. Indeed
      your feet wet.
 
 
-- [[nscldaq-11.3/index]]
-- [[cookbook/index]]
-- [[daqformat/index]]
+- [[https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/index.md]]
+- [[https://github.com/FRIBDAQ/docs/tree/main/cookbook/index.md]]
+- [[https://github.com/FRIBDAQ/docs/tree/main/daqformat/index.md]]
 
 
 # What is SpecTcl?
