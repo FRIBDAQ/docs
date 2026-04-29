@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_ParameterDefintion|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]]
+- [_ParameterDefintion](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md)
 
  top 
 frib::analysis::_ParameterDefintion Member List
 
 header
-This is the complete list of members for [[frib::analysis::_ParameterDefintion|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::_ParameterDefintion](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterDefintion.md), including all inherited members.
 
 
 |  |  |  |

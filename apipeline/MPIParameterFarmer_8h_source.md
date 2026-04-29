@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 MPIParameterFarmer.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterFarmer_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterFarmer_8h.md)<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -67,15 +67,15 @@ header
 
 <a name="l00023"></a>   23
 
-<a name="l00024"></a>   24 #include "[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md]]"
+<a name="l00024"></a>   24 #include "[AnalysisRingItems.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md)"
 
-<a name="l00025"></a>   25 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
+<a name="l00025"></a>   25 namespace [frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md) {
 
 <a name="l00026"></a>   26     namespace analysis {
 
 <a name="l00027"></a>   27         class AbstractApplication;
 
-<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md]]         class [[CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md]] {
+<a name="l00047"></a>[47](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md)         class [CMPIParameterFarmer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md) {
 
 <a name="l00048"></a>   48         private:
 
@@ -83,29 +83,29 @@ header
 
 <a name="l00050"></a>   50             char** m_argv;
 
-<a name="l00051"></a>   51             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& m_App;
+<a name="l00051"></a>   51             [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)& m_App;
 
 <a name="l00052"></a>   52             int m_nEndsLeft;
 
 <a name="l00053"></a>   53             unsigned m_nMaxParams;
 
-<a name="l00054"></a>   54             [[pFRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]]  m_parameterBuffer;
+<a name="l00054"></a>   54             [pFRIB_MPI_Parameter_Value](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md)  m_parameterBuffer;
 
 <a name="l00055"></a>   55         public:
 
-<a name="l00056"></a>   56             [[CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a7b082fa8a5609d654dec8683c45b8459]](int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& app);
+<a name="l00056"></a>   56             [CMPIParameterFarmer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a7b082fa8a5609d654dec8683c45b8459)(int argc, char** argv, [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)& app);
 
-<a name="l00057"></a>   57             virtual [[~CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a487665a04e7297ed18a41f00abfe15ac]]();
+<a name="l00057"></a>   57             virtual [~CMPIParameterFarmer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a487665a04e7297ed18a41f00abfe15ac)();
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>   59             void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a2340930eaa0e5eb700fba67cf33dec57]]();
+<a name="l00059"></a>   59             void [operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a2340930eaa0e5eb700fba67cf33dec57)();
 
 <a name="l00060"></a>   60         private:
 
 <a name="l00061"></a>   61             void sendEnd();
 
-<a name="l00062"></a>   62             [[pParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]] getItem();
+<a name="l00062"></a>   62             [pParameterItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md) getItem();
 
 <a name="l00063"></a>   63         };
 
@@ -119,53 +119,53 @@ header
 
 <a name="l00068"></a>   68 #endif
 
-[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
+[frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::_ParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]]
+[frib::analysis::_ParameterItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md)
 
 **Definition:** AnalysisRingItems.h:71
 
 
-[[frib::analysis::_FRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]]
+[frib::analysis::_FRIB_MPI_Parameter_Value](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md)
 
 **Definition:** AnalysisRingItems.h:151
 
 
-[[frib::analysis::CMPIParameterFarmer::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a2340930eaa0e5eb700fba67cf33dec57]]
+[frib::analysis::CMPIParameterFarmer::operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a2340930eaa0e5eb700fba67cf33dec57)
 
 void operator()()
 
 **Definition:** MPIParameterFarmer.cpp:62
 
 
-[[frib::analysis::CMPIParameterFarmer::~CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a487665a04e7297ed18a41f00abfe15ac]]
+[frib::analysis::CMPIParameterFarmer::~CMPIParameterFarmer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a487665a04e7297ed18a41f00abfe15ac)
 
 virtual ~CMPIParameterFarmer()
 
 **Definition:** MPIParameterFarmer.cpp:49
 
 
-[[frib::analysis::CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md]]
+[frib::analysis::CMPIParameterFarmer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md)
 
 **Definition:** MPIParameterFarmer.h:47
 
 
-[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md]]
+[AnalysisRingItems.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md)
 
 : Defines the analysis specific ring items
 
 
-[[frib::analysis::CMPIParameterFarmer::CMPIParameterFarmer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a7b082fa8a5609d654dec8683c45b8459]]
+[frib::analysis::CMPIParameterFarmer::CMPIParameterFarmer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterFarmer.md#a7b082fa8a5609d654dec8683c45b8459)
 
 CMPIParameterFarmer(int argc, char **argv, AbstractApplication &app)
 
 **Definition:** MPIParameterFarmer.cpp:40
 
 
-[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
+[frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md)
 
 **Definition:** AbstractApplication.cpp:30
 

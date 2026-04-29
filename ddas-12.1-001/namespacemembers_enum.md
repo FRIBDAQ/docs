@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - HardwareType
-  : [[DAQ::DDAS::HardwareRegistry|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4]]
+  : [DAQ::DDAS::HardwareRegistry](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4)
 
  contents 
  start footer part 

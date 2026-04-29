@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException-members.md)
 
 
 CURIFormatException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CURIFormatException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CURIFormatException:
@@ -51,7 +51,7 @@ Collaboration diagram for CURIFormatException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -111,10 +111,10 @@ Collaboration diagram for CURIFormatException:
 <a name="details"></a>## Detailed Description
 
 
-[[CURIFormatException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md]] defines an exception that's thrown when parsing an Universal Resource Identifier (URI). The string indicates a human readable reason for the failure. The error code is always -1. The reason text encodes why the exception was thrown as well as where, e.g.:
+[CURIFormatException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCURIFormatException.md) defines an exception that's thrown when parsing an Universal Resource Identifier (URI). The string indicates a human readable reason for the failure. The error code is always -1. The reason text encodes why the exception was thrown as well as where, e.g.:
 
 
-URI Format Incorrect: reason : thrown at [[file:line|https://github.com/FRIBDAQ/docs/tree/main/apipeline/file:line.md]]
+URI Format Incorrect: reason : thrown at [file:line](https://github.com/FRIBDAQ/docs/tree/main/apipeline/file:line.md)
 
 
 where file is almost always something ending in URI.cpp, and line is the line in that file where the actual exception was constructed.
@@ -187,7 +187,7 @@ Equality comparison.. all the members must be the same.
   | -1 |  |
 
 
-Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
+Reimplemented from [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md).
 
 
 
@@ -208,13 +208,13 @@ Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipel
   | Return | the full text of the error |
 
 
-Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
+Reimplemented from [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[URIFormatException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/URIFormatException_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[URIFormatException.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/URIFormatException_8h_source.md)
 - libtclplus/exception/URIFormatException.cpp
 
  contents 

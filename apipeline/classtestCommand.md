@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestCommand-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestCommand-members.md)
 
 
 testCommand Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for testCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for testCommand:
@@ -52,7 +52,7 @@ Collaboration diagram for testCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -147,7 +147,7 @@ Collaboration diagram for testCommand:
 Default initialize is null. The derived class can override this however:
 
 
-Reimplemented from [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96]].
+Reimplemented from [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96).
 
 
 

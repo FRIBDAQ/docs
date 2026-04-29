@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[exception|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_606be0c095146ea0038c0fba572d628a.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [exception](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_606be0c095146ea0038c0fba572d628a.md)
 
  top 
 StateException.h
@@ -79,7 +79,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00036"></a>[[36|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]] class [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]] : public [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
+<a name="l00036"></a>[36](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md) class [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md) : public [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md)
 
 <a name="l00037"></a>   37 {
 
@@ -93,19 +93,19 @@ header
 
 <a name="l00042"></a>   42
 
-<a name="l00043"></a>   43   [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a5848feead580a75322b14f993d4327e0]](const char* state, const char* allowedStates,
+<a name="l00043"></a>   43   [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a5848feead580a75322b14f993d4327e0)(const char* state, const char* allowedStates,
 
 <a name="l00044"></a>   44           const char* pAction);
 
-<a name="l00045"></a>   45   virtual [[~CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a04f86d6f8455d6414b24fd736d7936c6]]();
+<a name="l00045"></a>   45   virtual [~CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a04f86d6f8455d6414b24fd736d7936c6)();
 
-<a name="l00046"></a>   46   [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a5848feead580a75322b14f993d4327e0]](const [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]]& rhs);
+<a name="l00046"></a>   46   [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a5848feead580a75322b14f993d4327e0)(const [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md)& rhs);
 
-<a name="l00047"></a>   47   [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#acd1f98d499807288a2c6adbf478268a2]](const [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]]& rhs);
+<a name="l00047"></a>   47   [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#acd1f98d499807288a2c6adbf478268a2)(const [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md)& rhs);
 
-<a name="l00048"></a>   48   int [[operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#af2cc207c02f69d3f08378052fa1c8f17]](const [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]]& rhs) const;
+<a name="l00048"></a>   48   int [operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#af2cc207c02f69d3f08378052fa1c8f17)(const [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md)& rhs) const;
 
-<a name="l00049"></a>   49   int [[operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a328e729a450c0877537917639051ce22]](const [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]]& rhs) const;
+<a name="l00049"></a>   49   int [operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a328e729a450c0877537917639051ce22)(const [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md)& rhs) const;
 
 <a name="l00050"></a>   50
 
@@ -115,9 +115,9 @@ header
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54   virtual const char* [[ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a23c5a04e385d4a491829208966ae5133]]() const;
+<a name="l00054"></a>   54   virtual const char* [ReasonText](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a23c5a04e385d4a491829208966ae5133)() const;
 
-<a name="l00055"></a>   55   virtual int [[ReasonCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#ada805b53e4ec9d82e1e1c97b14e22ae6]]() const;
+<a name="l00055"></a>   55   virtual int [ReasonCode](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#ada805b53e4ec9d82e1e1c97b14e22ae6)() const;
 
 <a name="l00056"></a>   56
 
@@ -127,59 +127,59 @@ header
 
 <a name="l00059"></a>   59 #endif
 
-[[CStateException::ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a23c5a04e385d4a491829208966ae5133]]
+[CStateException::ReasonText](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a23c5a04e385d4a491829208966ae5133)
 
 virtual const char * ReasonText() const
 
 **Definition:** StateException.cpp:108
 
 
-[[CStateException::operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a328e729a450c0877537917639051ce22]]
+[CStateException::operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a328e729a450c0877537917639051ce22)
 
 int operator!=(const CStateException &rhs) const
 
 **Definition:** StateException.cpp:93
 
 
-[[CStateException::CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a5848feead580a75322b14f993d4327e0]]
+[CStateException::CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a5848feead580a75322b14f993d4327e0)
 
 CStateException(const char *state, const char *allowedStates, const char *pAction)
 
 **Definition:** StateException.cpp:34
 
 
-[[CStateException::operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#af2cc207c02f69d3f08378052fa1c8f17]]
+[CStateException::operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#af2cc207c02f69d3f08378052fa1c8f17)
 
 int operator==(const CStateException &rhs) const
 
 **Definition:** StateException.cpp:83
 
 
-[[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]]
+[CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md)
 
 **Definition:** StateException.h:36
 
 
-[[CStateException::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#acd1f98d499807288a2c6adbf478268a2]]
+[CStateException::operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#acd1f98d499807288a2c6adbf478268a2)
 
 CStateException & operator=(const CStateException &rhs)
 
 **Definition:** StateException.cpp:70
 
 
-[[CStateException::ReasonCode|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#ada805b53e4ec9d82e1e1c97b14e22ae6]]
+[CStateException::ReasonCode](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#ada805b53e4ec9d82e1e1c97b14e22ae6)
 
 virtual int ReasonCode() const
 
 **Definition:** StateException.cpp:117
 
 
-[[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
+[CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md)
 
 **Definition:** Exception.h:41
 
 
-[[CStateException::~CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a04f86d6f8455d6414b24fd736d7936c6]]
+[CStateException::~CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md#a04f86d6f8455d6414b24fd736d7936c6)
 
 virtual ~CStateException()
 

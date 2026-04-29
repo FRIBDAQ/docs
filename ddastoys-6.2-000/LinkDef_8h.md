@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
+- [EEConverter](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md)
 
  top 
 LinkDef.h File Reference
@@ -31,7 +31,7 @@ Defines the linkages to supply to root.
 [More...](#details)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/LinkDef_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/LinkDef_8h_source.md)
 
 
 <a name="details"></a>## Detailed Description

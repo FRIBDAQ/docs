@@ -22,384 +22,384 @@ Here is a list of all documented class members with links to the class documenta
 ### - a -
 
 - AddHit()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a23226e89110532edc88fb2bbe2931587]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a23226e89110532edc88fb2bbe2931587)
 - amplitude
-  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a7dfe5ec91515520c4ad705aa759b257d]]
+  : [ddastoys::PulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a7dfe5ec91515520c4ad705aa759b257d)
 
 
 ### - c -
 
 - CEventProcessor()
-  : [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a747299b17063d417d1671b815d7b50fc]]
+  : [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a747299b17063d417d1671b815d7b50fc)
 - CFitEngine()
-  : [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a02450a79fd6e17ac2f52ddfa9ee07985]]
+  : [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a02450a79fd6e17ac2f52ddfa9ee07985)
 - changeEvent()
-  : [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a39b340b97f4e801d6d59437b257572b8]]
+  : [QTraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a39b340b97f4e801d6d59437b257572b8)
 - chiSquare
-  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a0fd88c11d1366d5c82eb9827dae20c3a]]
-  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a416a2b2d7c2328c456d46060373fcb37]]
+  : [ddastoys::fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a0fd88c11d1366d5c82eb9827dae20c3a)
+  , [ddastoys::fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a416a2b2d7c2328c456d46060373fcb37)
 - ClassDef()
-  : [[ddastoys::RootFit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01]]
-  , [[ddastoys::RootFit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5]]
-  , [[ddastoys::RootHitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c]]
-  , [[ddastoys::RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5]]
+  : [ddastoys::RootFit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01)
+  , [ddastoys::RootFit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5)
+  , [ddastoys::RootHitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c)
+  , [ddastoys::RootPulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5)
 - clear()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a14fd250361570746acce8353fb6d2a82]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a14fd250361570746acce8353fb6d2a82)
 - Configuration()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a296120b5c3d31854b76878414a6281cd]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a296120b5c3d31854b76878414a6281cd)
 - configure()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a57e90158db0e785ae35757dbb3c47615]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a57e90158db0e785ae35757dbb3c47615)
 - createCudaFitEngine1()
-  : [[ddastoys::analyticfit::FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#adfe9c01407a002042a38a45d479976e8]]
+  : [ddastoys::analyticfit::FitEngineFactory](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#adfe9c01407a002042a38a45d479976e8)
 - createCudaFitEngine2()
-  : [[ddastoys::analyticfit::FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a16269d888b01355430d8dde44c15075b]]
+  : [ddastoys::analyticfit::FitEngineFactory](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a16269d888b01355430d8dde44c15075b)
 - createDataSource()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#acc08971f461ec3e3bf52958f1875e49f]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#acc08971f461ec3e3bf52958f1875e49f)
 - createSerialFitEngine1()
-  : [[ddastoys::analyticfit::FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a6b14e6f33763fcc24cd42e1f18b2dce2]]
+  : [ddastoys::analyticfit::FitEngineFactory](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#a6b14e6f33763fcc24cd42e1f18b2dce2)
 - createSerialFitEngine2()
-  : [[ddastoys::analyticfit::FitEngineFactory|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#af289d3cdac662dad748bacd83a3cb647]]
+  : [ddastoys::analyticfit::FitEngineFactory](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1FitEngineFactory.md#af289d3cdac662dad748bacd83a3cb647)
 - CRingItemProcessor()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a548338280690b7797189885ea41c8e02]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a548338280690b7797189885ea41c8e02)
 - CudaFitEngine1()
-  : [[ddastoys::analyticfit::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a8129a0b15f4fc6bc1e775e4aa173970c]]
+  : [ddastoys::analyticfit::CudaFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a8129a0b15f4fc6bc1e775e4aa173970c)
 - CudaFitEngine2()
-  : [[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a88d444932918e4e861a3359601cf11c3]]
+  : [ddastoys::analyticfit::CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a88d444932918e4e861a3359601cf11c3)
 
 
 ### - d -
 
 - DDASDecoder()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a824a8a21443e7c4c5290e84ebcd51ffe]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a824a8a21443e7c4c5290e84ebcd51ffe)
 - DDASFitHit()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a0ddd5cb81d22fed4b5b809f6430d3e70]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a0ddd5cb81d22fed4b5b809f6430d3e70)
 - DDASRootFitEvent()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a299d029969c6ed8487f82ae695efaddb]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a299d029969c6ed8487f82ae695efaddb)
 - DDASRootFitHit()
-  : [[ddastoys::DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#ace1d313dc95d0a43072a4ec8f08bb658]]
+  : [ddastoys::DDASRootFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#ace1d313dc95d0a43072a4ec8f08bb658)
 - decayTime
-  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a721c2b83dd1f33cfcd5a039442ff6e83]]
+  : [ddastoys::PulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#a721c2b83dd1f33cfcd5a039442ff6e83)
 - decode()
-  : [[ddastoys::DDASFitHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md#a79a9e2d9267c8036fef746f45ef4c4d7]]
+  : [ddastoys::DDASFitHitUnpacker](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHitUnpacker.md#a79a9e2d9267c8036fef746f45ef4c4d7)
 - doubleProb
-  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42]]
+  : [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad0f8a09a2a3be5a521acdc56f5891c42)
 - drawHit()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a1455dcb6a5846c46b354f24e40933aa0]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a1455dcb6a5846c46b354f24e40933aa0)
 
 
 ### - f -
 
 - fitChannel()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a5c5b21cc582e272b2c6f7527da681c99]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a5c5b21cc582e272b2c6f7527da681c99)
 - FitEditorAnalytic()
-  : [[ddastoys::FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a7acb31121f6fc4bb9487a0a6796080a6]]
+  : [ddastoys::FitEditorAnalytic](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a7acb31121f6fc4bb9487a0a6796080a6)
 - FitEditorMLInference()
-  : [[ddastoys::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a471e3f88230c6f6515aab43788c8645d]]
+  : [ddastoys::FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a471e3f88230c6f6515aab43788c8645d)
 - FitEditorTemplate()
-  : [[ddastoys::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a2da6cad5246f3d284d52f8233deef313]]
+  : [ddastoys::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a2da6cad5246f3d284d52f8233deef313)
 - FitInfo()
-  : [[ddastoys::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#af1ba3e561df65f66a0000a142db07fad]]
+  : [ddastoys::FitInfo](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#af1ba3e561df65f66a0000a142db07fad)
 - FitInfoLegacy()
-  : [[ddastoys::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a55bfcd0a28ff7b1f566135df1ff02791]]
+  : [ddastoys::FitInfoLegacy](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a55bfcd0a28ff7b1f566135df1ff02791)
 - FitManager()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af1d9514ea84fca9a10e101ce432a711e]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af1d9514ea84fca9a10e101ce432a711e)
 - fitStatus
-  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a8dc20c4c1d52a7e5120ad1761c5ed949]]
-  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#aab25a88a6dce9c050ead9c72ba263b3b]]
+  : [ddastoys::fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a8dc20c4c1d52a7e5120ad1761c5ed949)
+  , [ddastoys::fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#aab25a88a6dce9c050ead9c72ba263b3b)
 - free()
-  : [[ddastoys::FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a456ae3d7ce567242612a9046904cfd9a]]
-  , [[ddastoys::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a3f9483cecb40afec96c5f4fd2147ad6f]]
-  , [[ddastoys::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a499912a2b7a9d3d228d0e997d1b7419c]]
+  : [ddastoys::FitEditorAnalytic](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a456ae3d7ce567242612a9046904cfd9a)
+  , [ddastoys::FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a3f9483cecb40afec96c5f4fd2147ad6f)
+  , [ddastoys::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a499912a2b7a9d3d228d0e997d1b7419c)
 
 
 ### - g -
 
 - getCanvas()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3)
 - GetData()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#af56cbdf673b8f640ba988c796fb860e0]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#af56cbdf673b8f640ba988c796fb860e0)
 - getDoublePulseFit()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#aee1ff0d4d0df1925015edc8f1c646275]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#aee1ff0d4d0df1925015edc8f1c646275)
 - getEvent()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a96c8eacdd36527949de03280ebc4453c]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a96c8eacdd36527949de03280ebc4453c)
 - getEventCount()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#adad1a4f8da31e2cbd3a8296f0e833c69]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#adad1a4f8da31e2cbd3a8296f0e833c69)
 - getEventIndex()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a7c11c15d61a8c970d0cdfab5d7533c75]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a7c11c15d61a8c970d0cdfab5d7533c75)
 - getExtension()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a365128a35aff0d4f0dcec79c39083268]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a365128a35aff0d4f0dcec79c39083268)
 - getFilePath()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a309f906601e3de248708be5f3179a7b5]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a309f906601e3de248708be5f3179a7b5)
 - GetFirstTime()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a4d5a750bd3aefacf3473ef3277f89e57]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a4d5a750bd3aefacf3473ef3277f89e57)
 - getFitLimits()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#ae8a8ffe8a8763e39e860eb2662279d39]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#ae8a8ffe8a8763e39e860eb2662279d39)
 - getHighFitLimit()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af6c87a551fc75ace39c8f2054b84bc69]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af6c87a551fc75ace39c8f2054b84bc69)
 - GetLastTime()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#aae0d3c048629c6cf117f05ec1109236c]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#aae0d3c048629c6cf117f05ec1109236c)
 - getLowFitLimit()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a6ce16d6182c18eb657a2f49dc27948e4]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a6ce16d6182c18eb657a2f49dc27948e4)
 - getMethod()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d)
 - getModelList()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a34a7d73e00be6fc04d187978dff4ae09]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a34a7d73e00be6fc04d187978dff4ae09)
 - getModelPath()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a94db3f175b98b8af0afca4f072d6c93a]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a94db3f175b98b8af0afca4f072d6c93a)
 - getSaturationValue()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#af2455da9bfc9671d6e7f5a36b95d0d27]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#af2455da9bfc9671d6e7f5a36b95d0d27)
 - getSinglePulseFit()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a91d4ae26e9ab9e17c89a465505403e1d]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a91d4ae26e9ab9e17c89a465505403e1d)
 - getTemplate()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a0777249dcb4ca51f0eaf6db924a9290b]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a0777249dcb4ca51f0eaf6db924a9290b)
 - getTemplateAlignPoint()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#aa18ac16c06c1ee9b6f2a48b4bfe99deb]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#aa18ac16c06c1ee9b6f2a48b4bfe99deb)
 - GetTimeWidth()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a1b06e06e7460d090b4ba6ecd926c9d13]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a1b06e06e7460d090b4ba6ecd926c9d13)
 - getUnpackedHits()
-  : [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a49595ce4677548698bf603e8ce04f862]]
+  : [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a49595ce4677548698bf603e8ce04f862)
 
 
 ### - h -
 
 - hasExtension()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#acf05ecde500b65de5759725c72f1c97c]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#acf05ecde500b65de5759725c72f1c97c)
 - HitExtension()
-  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ac8751242514b0198b362a02023fe9479]]
+  : [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ac8751242514b0198b362a02023fe9479)
 
 
 ### - i -
 
 - iterations
-  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a284e564281fe171e1fd567dc7fe86192]]
-  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#ab8686d8462ece209d2e552a298eda764]]
+  : [ddastoys::fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a284e564281fe171e1fd567dc7fe86192)
+  , [ddastoys::fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#ab8686d8462ece209d2e552a298eda764)
 
 
 ### - j -
 
 - jacobian()
-  : [[ddastoys::analyticfit::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a4f2749dc5b790598ad73d131104c92bf]]
-  , [[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a59480ccd2761639a782db66df8af0d2b]]
-  , [[ddastoys::analyticfit::SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a24723626242f1694379c0f8af26d175d]]
-  , [[ddastoys::analyticfit::SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a77e0e4a467fa2bb413ddb0c94c7da644]]
-  , [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6]]
+  : [ddastoys::analyticfit::CudaFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a4f2749dc5b790598ad73d131104c92bf)
+  , [ddastoys::analyticfit::CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a59480ccd2761639a782db66df8af0d2b)
+  , [ddastoys::analyticfit::SerialFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a24723626242f1694379c0f8af26d175d)
+  , [ddastoys::analyticfit::SerialFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a77e0e4a467fa2bb413ddb0c94c7da644)
+  , [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6)
 
 
 ### - m -
 
 - m_hits
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#abeec01aa1c0823c73e97906be94740bb]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#abeec01aa1c0823c73e97906be94740bb)
 - mouseMoveEvent()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a3f1392564efd97cf935295f1fdef56fe]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a3f1392564efd97cf935295f1fdef56fe)
 - mousePressEvent()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a8bd59138c80ffa28a1a06f8eb4200d56]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a8bd59138c80ffa28a1a06f8eb4200d56)
 - mouseReleaseEvent()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a5921076f00c65a1b1d8b84231b24dab3]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a5921076f00c65a1b1d8b84231b24dab3)
 
 
 ### - n -
 
 - nullExtension()
-  : [[ddastoys::nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ae2fdd115094befd4c3d0485573105426]]
+  : [ddastoys::nullExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ae2fdd115094befd4c3d0485573105426)
 
 
 ### - o -
 
 - offset
-  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a28fcfa9a811b677edba81832655506a3]]
-  , [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a08e5d4968217ec0bc94a3f9c54a926b2]]
+  : [ddastoys::fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#a28fcfa9a811b677edba81832655506a3)
+  , [ddastoys::fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a08e5d4968217ec0bc94a3f9c54a926b2)
 - onePulseFit
-  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128]]
-  , [[ddastoys::HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#ad8818a1b170c3d7035e02c8aa0871f6b]]
+  : [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ad472ad612d4caf1b2b40cd6d26e0d128)
+  , [ddastoys::HitExtensionLegacy](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#ad8818a1b170c3d7035e02c8aa0871f6b)
 - operator()()
-  : [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a28600238d0e8cf1e5fa853316ade86e8]]
-  , [[ddastoys::FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a37a0c73bc2428d947b5b40081e2e5515]]
-  , [[ddastoys::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#aec80def3c2a2c6afd708cacce02740e0]]
-  , [[ddastoys::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa0dfaceb9026a15282a2c9a3fbd05de7]]
+  : [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a28600238d0e8cf1e5fa853316ade86e8)
+  , [ddastoys::FitEditorAnalytic](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a37a0c73bc2428d947b5b40081e2e5515)
+  , [ddastoys::FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#aec80def3c2a2c6afd708cacce02740e0)
+  , [ddastoys::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa0dfaceb9026a15282a2c9a3fbd05de7)
 - operator=()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a240de08cae824ee0edeeb0f4e3c393fe]]
-  , [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a7a5be1726e659a5c23cac496f8273828]]
-  , [[ddastoys::DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a04e3fb03b975599f2d52c84e32b2590c]]
-  , [[ddastoys::FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a93223d4d66d506bda46e1b9205bd076d]]
-  , [[ddastoys::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#ae894239167365ade91a86defa3b991af]]
-  , [[ddastoys::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a240de08cae824ee0edeeb0f4e3c393fe)
+  , [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a7a5be1726e659a5c23cac496f8273828)
+  , [ddastoys::DDASRootFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a04e3fb03b975599f2d52c84e32b2590c)
+  , [ddastoys::FitEditorAnalytic](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a93223d4d66d506bda46e1b9205bd076d)
+  , [ddastoys::FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#ae894239167365ade91a86defa3b991af)
+  , [ddastoys::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4)
 
 
 ### - p -
 
 - paintEvent()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a2ff7763fabeca694b727e672ffd90446]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a2ff7763fabeca694b727e672ffd90446)
 - position
-  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#acac1ce0792a5923da20ffa74eb66691b]]
+  : [ddastoys::PulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#acac1ce0792a5923da20ffa74eb66691b)
 - processEvent()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f]]
-  , [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#acab9912362d68ca3e291e13e91828b21]]
-  , [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a9258fb90d1e63d1efebf842f57c868dc]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f)
+  , [ProcessToRootSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#acab9912362d68ca3e291e13e91828b21)
+  , [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a9258fb90d1e63d1efebf842f57c868dc)
 - processEventCount()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#ad40e90e2379274cdeba3b6e3684ea2cd]]
-  , [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#abe06f276641d6aa2245e462d50634f1c]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#ad40e90e2379274cdeba3b6e3684ea2cd)
+  , [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#abe06f276641d6aa2245e462d50634f1c)
 - processFormat()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a9b2d8e6e3cfd1eeb34f92f168ecc4e37]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a9b2d8e6e3cfd1eeb34f92f168ecc4e37)
 - processGlomParams()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4fe9f6a8d52479dffbfd386b2eddd549]]
-  , [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a8c2a0744afcfe95457cd1b26b84e5e48]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4fe9f6a8d52479dffbfd386b2eddd549)
+  , [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a8c2a0744afcfe95457cd1b26b84e5e48)
 - processScalerItem()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a6effcf50a659f796abde459f4f9e741c]]
-  , [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#ad1ed7b77567e835c025d075127cbc5bc]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a6effcf50a659f796abde459f4f9e741c)
+  , [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#ad1ed7b77567e835c025d075127cbc5bc)
 - processStateChangeItem()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#afeae63a1f87299dbd7f7d36d49b4f375]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#afeae63a1f87299dbd7f7d36d49b4f375)
 - processTextItem()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aae9b288e73a47f55fb84b183568c3c10]]
-  , [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a6bf4c66f539bbf3db00e7e041f92fa44]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aae9b288e73a47f55fb84b183568c3c10)
+  , [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a6bf4c66f539bbf3db00e7e041f92fa44)
 - ProcessToRootSink()
-  : [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#a269c5c0a814c978586f1e07942e61b85]]
+  : [ProcessToRootSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#a269c5c0a814c978586f1e07942e61b85)
 - processUnknownItemType()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#af6296575a22ec026da72c9571b88f8b7]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#af6296575a22ec026da72c9571b88f8b7)
 - pulse
-  : [[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#afd4c01f18493324850b22dae9be64207]]
+  : [ddastoys::fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md#afd4c01f18493324850b22dae9be64207)
 - pulses
-  : [[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a410768c2c76b361c08ed4ce7fee931d7]]
+  : [ddastoys::fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md#a410768c2c76b361c08ed4ce7fee931d7)
 - put()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#a227d894ea1dbccad820d4520918e3703]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#a227d894ea1dbccad820d4520918e3703)
 - putItem()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#abb0d33280ddd69f3cc095c3cba92492b]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#abb0d33280ddd69f3cc095c3cba92492b)
 
 
 ### - q -
 
 - QHitData()
-  : [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#a65c4dfc15cd4a67f832d493e51a8347b]]
+  : [QHitData](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#a65c4dfc15cd4a67f832d493e51a8347b)
 - QRootCanvas()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6a9e917186adecfde4dc743cf386049f]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6a9e917186adecfde4dc743cf386049f)
 - QTraceView()
-  : [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a229f3b9498e8d2a84ed741716f942b95]]
+  : [QTraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a229f3b9498e8d2a84ed741716f942b95)
 
 
 ### - r -
 
 - readConfigFile()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a731fab1b2b73567986bbbfbd84c1d4ca]]
-  , [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a85c6ee590463e4e2608ca5e76c28aa21]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a731fab1b2b73567986bbbfbd84c1d4ca)
+  , [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a85c6ee590463e4e2608ca5e76c28aa21)
 - readTemplateFile()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a8552c1df16585bc30cbc4706f62a3e62]]
-  , [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a727b01ddbe1030484a52204e3f099c5e]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a8552c1df16585bc30cbc4706f62a3e62)
+  , [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a727b01ddbe1030484a52204e3f099c5e)
 - Reset()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#aee57232cf1dfc4c45dc5113dbd375845]]
-  , [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a7a956c99486abe61b8a6209e5d912a0e]]
-  , [[ddastoys::DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a7e84085f97d9d990bac1c2aeaa49a226]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#aee57232cf1dfc4c45dc5113dbd375845)
+  , [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#a7a956c99486abe61b8a6209e5d912a0e)
+  , [ddastoys::DDASRootFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md#a7e84085f97d9d990bac1c2aeaa49a226)
 - residuals()
-  : [[ddastoys::analyticfit::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a85042242da59ca044ae70cdca1e36cb5]]
-  , [[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a1db08004bd6f37f8f62861a8a311b30e]]
-  , [[ddastoys::analyticfit::SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#ad8c1242fa432745d0eee0d703f82aedc]]
-  , [[ddastoys::analyticfit::SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a58399e52f404f4e3398c9140c0d168a8]]
-  , [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d]]
+  : [ddastoys::analyticfit::CudaFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a85042242da59ca044ae70cdca1e36cb5)
+  , [ddastoys::analyticfit::CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a1db08004bd6f37f8f62861a8a311b30e)
+  , [ddastoys::analyticfit::SerialFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#ad8c1242fa432745d0eee0d703f82aedc)
+  , [ddastoys::analyticfit::SerialFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a58399e52f404f4e3398c9140c0d168a8)
+  , [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d)
 - resizeEvent()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6db4f9f81c813ce87ed709968ec9e88b]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6db4f9f81c813ce87ed709968ec9e88b)
 - RootFileDataSink()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#a2d1b4e6bdf14b8533520409c9dc6631c]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#a2d1b4e6bdf14b8533520409c9dc6631c)
 
 
 ### - s -
 
 - s_extension
-  : [[ddastoys::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd]]
-  , [[ddastoys::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c]]
+  : [ddastoys::FitInfo](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#ab4df0bef19cd96b6d820eda09a8335bd)
+  , [ddastoys::FitInfoLegacy](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a68daf0aace67e3d0d68bdc2dc0ab224c)
 - s_pPoints
-  : [[ddastoys::analyticfit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#a74d95f9de0e68a0cb7ca66d098097483]]
-  , [[ddastoys::templatefit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md#acd151d24c51b61c3678d95c47fdaba2d]]
+  : [ddastoys::analyticfit::GslFitParameters](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#a74d95f9de0e68a0cb7ca66d098097483)
+  , [ddastoys::templatefit::GslFitParameters](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md#acd151d24c51b61c3678d95c47fdaba2d)
 - s_pTraceTemplate
-  : [[ddastoys::templatefit::GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md#ac996fd1b4706cfdb54a9853d76d69e96]]
+  : [ddastoys::templatefit::GslFitParameters](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1templatefit_1_1GslFitParameters.md#ac996fd1b4706cfdb54a9853d76d69e96)
 - s_size
-  : [[ddastoys::FitInfo|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5]]
-  , [[ddastoys::FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b]]
-  , [[ddastoys::nullExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e]]
+  : [ddastoys::FitInfo](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfo.md#a933eb810c178d4b7cb549dda3a8016b5)
+  , [ddastoys::FitInfoLegacy](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#a59b4dad564ab68abeaa1fae377e8388b)
+  , [ddastoys::nullExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1nullExtension.md#ac7ed35466cd7270c72d3c885d112537e)
 - SerialFitEngine1()
-  : [[ddastoys::analyticfit::SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a8845508f89df90aca7ddb0752b59307f]]
+  : [ddastoys::analyticfit::SerialFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a8845508f89df90aca7ddb0752b59307f)
 - SerialFitEngine2()
-  : [[ddastoys::analyticfit::SerialFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a1ea9c546facd9dea6fba18e304f6f3bb]]
+  : [ddastoys::analyticfit::SerialFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine2.md#a1ea9c546facd9dea6fba18e304f6f3bb)
 - setExtension()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a8c7124dcc6f40c2f438b6bad05349bb8]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#a8c7124dcc6f40c2f438b6bad05349bb8)
 - setFitMethod()
-  : [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#a0b920a0b541e39ea7d2c6ad1b4dda3d5]]
+  : [QHitData](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#a0b920a0b541e39ea7d2c6ad1b4dda3d5)
 - setMethod()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#adb63cc29dd5473b4101cdf9748a0e58f]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#adb63cc29dd5473b4101cdf9748a0e58f)
 - singleProb
-  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869]]
+  : [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#ae1733006eeaa8b605c88dd1968961869)
 - skip()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a81c5d199b821f38114235fc773b49364]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#a81c5d199b821f38114235fc773b49364)
 - steepness
-  : [[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#afd9eb234ef215507bb9aaffce6f2744f]]
+  : [ddastoys::PulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md#afd9eb234ef215507bb9aaffce6f2744f)
 
 
 ### - t -
 
 - TraceViewProcessor()
-  : [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a05cfc0bbc640942445352d0ded2b5420]]
+  : [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a05cfc0bbc640942445352d0ded2b5420)
 - twoPulseFit
-  : [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2]]
-  , [[ddastoys::HitExtensionLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#a34ae6f42360bc20948d7ef037bf90d44]]
+  : [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md#abf671f97d05cff5d6ee87ebc9e6d86c2)
+  , [ddastoys::HitExtensionLegacy](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtensionLegacy.md#a34ae6f42360bc20948d7ef037bf90d44)
 
 
 ### - u -
 
 - update()
-  : [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#ac5d326f7f77d3b8888ce275ead700307]]
+  : [QHitData](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#ac5d326f7f77d3b8888ce275ead700307)
 
 
 ### - x -
 
 - x
-  : [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e]]
+  : [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e)
 
 
 ### - y -
 
 - y
-  : [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638]]
+  : [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638)
 
 
 ### - ~ -
 
 - ~CEventProcessor()
-  : [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#ab26433d9692ac374be3f55c8065b2aef]]
+  : [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#ab26433d9692ac374be3f55c8065b2aef)
 - ~CFitEngine()
-  : [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74]]
+  : [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74)
 - ~Configuration()
-  : [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a4bdd35e30389892e1afb3fc09208dbc9]]
+  : [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md#a4bdd35e30389892e1afb3fc09208dbc9)
 - ~CRingItemProcessor()
-  : [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4be9670039452778f73e545d9bcfc3e6]]
+  : [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#a4be9670039452778f73e545d9bcfc3e6)
 - ~CudaFitEngine1()
-  : [[ddastoys::analyticfit::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a05ac41954e926579449ed4236939d27d]]
+  : [ddastoys::analyticfit::CudaFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#a05ac41954e926579449ed4236939d27d)
 - ~CudaFitEngine2()
-  : [[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a8174e72f7fdd7ad2039223605080e5a2]]
+  : [ddastoys::analyticfit::CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md#a8174e72f7fdd7ad2039223605080e5a2)
 - ~DDASDecoder()
-  : [[DDASDecoder|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#afc3917088dae5b8d9ad15ec86c5d2e93]]
+  : [DDASDecoder](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#afc3917088dae5b8d9ad15ec86c5d2e93)
 - ~DDASFitHit()
-  : [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#afa93b3294b55127a648d80ce805cb4f6]]
+  : [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md#afa93b3294b55127a648d80ce805cb4f6)
 - ~DDASRootFitEvent()
-  : [[ddastoys::DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#aa7b7813e28483a65926111849bfa2454]]
+  : [ddastoys::DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#aa7b7813e28483a65926111849bfa2454)
 - ~FitEditorAnalytic()
-  : [[ddastoys::FitEditorAnalytic|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a2118e5f50d0abb0296e2fafeecfc4502]]
+  : [ddastoys::FitEditorAnalytic](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorAnalytic.md#a2118e5f50d0abb0296e2fafeecfc4502)
 - ~FitEditorMLInference()
-  : [[ddastoys::FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a5e1af5690f9cdf346de91868d40968c2]]
+  : [ddastoys::FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#a5e1af5690f9cdf346de91868d40968c2)
 - ~FitEditorTemplate()
-  : [[ddastoys::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aad6abd6ebbc7fc86a4f4fe9873dcb6c6]]
+  : [ddastoys::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aad6abd6ebbc7fc86a4f4fe9873dcb6c6)
 - ~FitManager()
-  : [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ae91054af3f17061de5d61f0c675eb9ba]]
+  : [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ae91054af3f17061de5d61f0c675eb9ba)
 - ~ProcessToRootSink()
-  : [[ProcessToRootSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#aba24da509dff1f2cce59b9ee8d4b868a]]
+  : [ProcessToRootSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classProcessToRootSink.md#aba24da509dff1f2cce59b9ee8d4b868a)
 - ~QHitData()
-  : [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#af3b2f2bde9994ea22ee2d0ac9477f493]]
+  : [QHitData](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#af3b2f2bde9994ea22ee2d0ac9477f493)
 - ~QRootCanvas()
-  : [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a00c908fb6bc5c0c91d1b448cabcb2fc4]]
+  : [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a00c908fb6bc5c0c91d1b448cabcb2fc4)
 - ~QTraceView()
-  : [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a80d1eca0f99941ee814c08550749c9d1]]
+  : [QTraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md#a80d1eca0f99941ee814c08550749c9d1)
 - ~RootFileDataSink()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#a3f326bab62a24915d799c663a51ea713]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classRootFileDataSink.md#a3f326bab62a24915d799c663a51ea713)
 - ~SerialFitEngine1()
-  : [[ddastoys::analyticfit::SerialFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a40e41bfee2c232521b3583b927a1c3c3]]
+  : [ddastoys::analyticfit::SerialFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1SerialFitEngine1.md#a40e41bfee2c232521b3583b927a1c3c3)
 - ~TraceViewProcessor()
-  : [[TraceViewProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a67e2cd54a75e28537b036aefffcf6a2b]]
+  : [TraceViewProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#a67e2cd54a75e28537b036aefffcf6a2b)
 
  contents 
  start footer part 

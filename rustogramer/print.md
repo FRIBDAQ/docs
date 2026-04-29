@@ -8,69 +8,69 @@ Provide site root to javascript
  Hide / unhide sidebar before it is displayed 
 
 
-1. [[**1.** Chapter 1 - Introduction|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_1.md]]
-2. 1. [[**1.1.** How to use this book|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap1_1.md]]
-3. [[**2.** Chapter 2 - Preparing data for Rustogramer|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_2.md]]
-4. 1. [[**2.1.** The FRIB analysis pipeline|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md]]
-   2. [[**2.2.** Format of data Rustogramer accepts|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_2.md]]
-5. [[**3.** Chapter 3 - Running Rustogramer|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md]]
-6. [[**4.** Chapter 4 - Using the Rustogramer GUI|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_4.md]]
-7. 1. [[**4.1.** The Spectra Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md]]
-   2. [[**4.2.** The Parameters Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_2.md]]
-   3. [[**4.3.** The Variables Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_3.md]]
-   4. [[**4.4.** The Gate Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md]]
-   5. [[**4.5.** The BindSets Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md]]
-   6. [[**4.6.** The File Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md]]
-   7. [[**4.7.** The Data Source Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md]]
-   8. [[**4.8.** The Filters Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md]]
-   9. [[**4.9.** The Spectra Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md]]
-   10. [[**4.10.** The Gate Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md]]
-8. [[**5.** Chapter 5 - Using CutiePie to display histograms|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_5.md]]
-9. [[**6.** Chapter 6 - the REST interface|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_6.md]]
-10. 1. [[**6.1.** Tcl REST interface|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md]]
-   2. [[**6.2.** Python REST interface|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md]]
-11. [[**7.** Chapter 7 - Reference material|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter7.md]]
-12. 1. [[**7.1.** Command Line Options|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_1.md]]
-   2. [[**7.2.** REST requests and responses|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2.md]]
-   3. 1. [[**7.2.1.** Response format|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_responses.md]]
-      2. [[**7.2.2.** /spectcl/parameter requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md]]
-      3. [[**7.2.3.** /spectcl/rawparameter requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md]]
-      4. [[**7.2.4.** /spectcl/gate requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md]]
-      5. [[**7.2.5.** /spectcl/spectrum requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md]]
-      6. [[**7.2.6.** /spectcl/attach requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md]]
-      7. [[**7.2.7.** /spectcl/analyze requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md]]
-      8. [[**7.2.8.** /spectcl/apply requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md]]
-      9. [[**7.2.9.** /spectcl/ungate requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ungate.md]]
-      10. [[**7.2.10.** /spectcl/channel requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md]]
-      11. [[**7.2.11.** /spectcl/evbunpack requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md]]
-      12. [[**7.2.12.** /spectcl/filter requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md]]
-      13. [[**7.2.13.** /spectcl/fit requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md]]
-      14. [[**7.2.14.** /spectcl/fold requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md]]
-      15. [[**7.2.15.** /spectcl/integrate requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_integrate.md]]
-      16. [[**7.2.16.** /spectcl/shmem requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md]]
-      17. [[**7.2.17.** /spectcl/sbind requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md]]
-      18. [[**7.2.18.** /spectcl/unbind requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md]]
-      19. [[**7.2.19.** /spectcl/mirror requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_mirror.md]]
-      20. [[**7.2.20.** /spectcl/pman requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md]]
-      21. [[**7.2.21.** /spectcl/project requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_project.md]]
-      22. [[**7.2.22.** /spectcl/psuedo requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md]]
-      23. [[**7.2.23.** /spectcl/rootree requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md]]
-      24. [[**7.2.24.** /spectcl/script requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_script.md]]
-      25. [[**7.2.25.** /spectcl/treevariable requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md]]
-      26. [[**7.2.26.** /spectcl/version requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_version.md]]
-      27. [[**7.2.27.** /spectcl/exit requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_exit.md]]
-      28. [[**7.2.28.** /spectcl/ringformat requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ringformat.md]]
-      29. [[**7.2.29.** /spectcl/specstats requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_specstats.md]]
-      30. [[**7.2.30.** /spectcl/swrite requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_swrite.md]]
-      31. [[**7.2.31.** /spectcl/sread requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sread.md]]
-      32. [[**7.2.32.** /spectcl/trace requests|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md]]
-   4. [[**7.3.** Shared memory Mirror service|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md]]
-   5. [[**7.4.** Tcl REST reference|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md]]
-   6. [[**7.5.** Python REST reference|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md]]
-   7. [[**7.6.** Looking at the Rustogramer internals documentation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_5.md]]
-   8. [[**7.7.** Schema of configuration files|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md]]
-   9. [[**7.8.** Format of JSON Spectrum contents files|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_7.md]]
-13. [[**8.** Appendix I - Installing Rustogramer|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/apppendix_1.md]]
+1. [**1.** Chapter 1 - Introduction](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_1.md)
+2. 1. [**1.1.** How to use this book](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap1_1.md)
+3. [**2.** Chapter 2 - Preparing data for Rustogramer](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_2.md)
+4. 1. [**2.1.** The FRIB analysis pipeline](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md)
+   2. [**2.2.** Format of data Rustogramer accepts](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_2.md)
+5. [**3.** Chapter 3 - Running Rustogramer](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md)
+6. [**4.** Chapter 4 - Using the Rustogramer GUI](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_4.md)
+7. 1. [**4.1.** The Spectra Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md)
+   2. [**4.2.** The Parameters Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_2.md)
+   3. [**4.3.** The Variables Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_3.md)
+   4. [**4.4.** The Gate Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md)
+   5. [**4.5.** The BindSets Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md)
+   6. [**4.6.** The File Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md)
+   7. [**4.7.** The Data Source Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md)
+   8. [**4.8.** The Filters Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md)
+   9. [**4.9.** The Spectra Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md)
+   10. [**4.10.** The Gate Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md)
+8. [**5.** Chapter 5 - Using CutiePie to display histograms](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_5.md)
+9. [**6.** Chapter 6 - the REST interface](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_6.md)
+10. 1. [**6.1.** Tcl REST interface](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md)
+   2. [**6.2.** Python REST interface](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md)
+11. [**7.** Chapter 7 - Reference material](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter7.md)
+12. 1. [**7.1.** Command Line Options](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_1.md)
+   2. [**7.2.** REST requests and responses](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2.md)
+   3. 1. [**7.2.1.** Response format](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_responses.md)
+      2. [**7.2.2.** /spectcl/parameter requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md)
+      3. [**7.2.3.** /spectcl/rawparameter requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md)
+      4. [**7.2.4.** /spectcl/gate requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md)
+      5. [**7.2.5.** /spectcl/spectrum requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md)
+      6. [**7.2.6.** /spectcl/attach requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md)
+      7. [**7.2.7.** /spectcl/analyze requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md)
+      8. [**7.2.8.** /spectcl/apply requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md)
+      9. [**7.2.9.** /spectcl/ungate requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ungate.md)
+      10. [**7.2.10.** /spectcl/channel requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md)
+      11. [**7.2.11.** /spectcl/evbunpack requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md)
+      12. [**7.2.12.** /spectcl/filter requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md)
+      13. [**7.2.13.** /spectcl/fit requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md)
+      14. [**7.2.14.** /spectcl/fold requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md)
+      15. [**7.2.15.** /spectcl/integrate requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_integrate.md)
+      16. [**7.2.16.** /spectcl/shmem requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md)
+      17. [**7.2.17.** /spectcl/sbind requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md)
+      18. [**7.2.18.** /spectcl/unbind requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md)
+      19. [**7.2.19.** /spectcl/mirror requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_mirror.md)
+      20. [**7.2.20.** /spectcl/pman requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md)
+      21. [**7.2.21.** /spectcl/project requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_project.md)
+      22. [**7.2.22.** /spectcl/psuedo requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md)
+      23. [**7.2.23.** /spectcl/rootree requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md)
+      24. [**7.2.24.** /spectcl/script requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_script.md)
+      25. [**7.2.25.** /spectcl/treevariable requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md)
+      26. [**7.2.26.** /spectcl/version requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_version.md)
+      27. [**7.2.27.** /spectcl/exit requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_exit.md)
+      28. [**7.2.28.** /spectcl/ringformat requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ringformat.md)
+      29. [**7.2.29.** /spectcl/specstats requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_specstats.md)
+      30. [**7.2.30.** /spectcl/swrite requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_swrite.md)
+      31. [**7.2.31.** /spectcl/sread requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sread.md)
+      32. [**7.2.32.** /spectcl/trace requests](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md)
+   4. [**7.3.** Shared memory Mirror service](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md)
+   5. [**7.4.** Tcl REST reference](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md)
+   6. [**7.5.** Python REST reference](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md)
+   7. [**7.6.** Looking at the Rustogramer internals documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_5.md)
+   8. [**7.7.** Schema of configuration files](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md)
+   9. [**7.8.** Format of JSON Spectrum contents files](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_7.md)
+13. [**8.** Appendix I - Installing Rustogramer](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/apppendix_1.md)
 
 
 
@@ -98,7 +98,7 @@ Provide site root to javascript
 # Rustogramer User Guide
 
 
-[[**|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/print.md]]
+[**](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/print.md)
 
 
 
@@ -189,7 +189,7 @@ The event processing pipeline then ran each time you processed an event file to 
 
 
 Rustogramer expects the processing that was done by the NSCLSpecTcl event processing pipeline to be done by an external program *that only runs once on each event file*.
-While you can do this processing any way you want; we recommend you use the FRIB analysis pipeline as described [[here|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap2_1.md]] to create the processed event data files expected by Rustogramer (as a side note, beginning with  version 5.13, NSCLSpecTcl can also take these files as input and bypass the event processing pipeline to go straight to histograming).
+While you can do this processing any way you want; we recommend you use the FRIB analysis pipeline as described [here](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap2_1.md) to create the processed event data files expected by Rustogramer (as a side note, beginning with  version 5.13, NSCLSpecTcl can also take these files as input and bypass the event processing pipeline to go straight to histograming).
 
 
 The FRIB analysis pipeline supports:
@@ -211,7 +211,7 @@ This document describes how to use the FRIB analysis pipeline to create data set
 This section will walk through a simple example that uses the FRIB event processing pipeline (from now on called the pipeline for brevity) to decode some data from a fixed format event.
 
 
-The key point is that the pipeline processes raw events from some file (e.g. event data acquired at the FRIB) to a simple self-describing data set that Rustogramr can understand without any further processing.  In [[the next section|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap2_2.md]], we'll describe the format of the data expected by Rustogramer so that, if you want, you can use whatever other method you want to prepare your data.
+The key point is that the pipeline processes raw events from some file (e.g. event data acquired at the FRIB) to a simple self-describing data set that Rustogramr can understand without any further processing.  In [the next section](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap2_2.md), we'll describe the format of the data expected by Rustogramer so that, if you want, you can use whatever other method you want to prepare your data.
 
 
 Our example is going to show how to take event data which are stored in fixed length, fixed format events and use the pipeline to produce a rustogramer data-set.
@@ -300,7 +300,7 @@ The worker class will be given events to decode.  When you run the program you c
 If you alread have an event processing pipeline from NSCLSpecTcl, you might want to look at [SpecTcl compatibility software](https://docs.nscl.msu.edu/daq/newsite/apipeline/md_pages_spectclworker.html#spectclworker) in the FRIB pipeline documentation.
 
 
-We're going to ignore that.  Workers that decode raw event data are derived from the `frib::analysis::CMPIRawToParametersWorker`class. Our worker has to construct in a way that it can bind some of its data to the parameters defined in the [[previous section|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md#preparing-the-parameter-definition-file]].  We then must override `unpackData` which actually unpacks a raw event into the parameters.
+We're going to ignore that.  Workers that decode raw event data are derived from the `frib::analysis::CMPIRawToParametersWorker`class. Our worker has to construct in a way that it can bind some of its data to the parameters defined in the [previous section](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md#preparing-the-parameter-definition-file).  We then must override `unpackData` which actually unpacks a raw event into the parameters.
 
 
 We're going to assume that the input data are NSCLDAQ-11 ring items.  We're also going to assume that each ring item has a body header.  The pipeline ensures that `unpackData` only receives `PHYSICS_EVENT` ring items, the ring items that contain raw event data.
@@ -341,7 +341,7 @@ The numbered comments refer to the points below:
 1. The `AnalysisRingItems.h` header defines the shape of ring items as well as the types of the new ring items the pipeline creates in the output file.
 2. All of the pipeline names are encapsulated in the `frib::analsyis` namespace.  For simplicity we bring those names into the file namespace.  In a more complex application you might want to defer this action to the implementation of this class.
 3. The `CTreeParameterArray` class represents a binding between an array like object (implements indexing) of real number like objects and names.  We'll bind this to the names of the paramters we made in our
-   [[parameter definition file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md#preparing-the-parameter-definition-file]]
+   [parameter definition file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md#preparing-the-parameter-definition-file)
 4. The constructor simply initializes the `m_pParams` member data to point to a tree parameter array object that has the same base name we used in the `treeparameterarray` command in our parameter definition file.   This is all that's needed to bind this to those parameters.  Note that bindings to parameters are many-to-one; that is you can bind more than one variable to the same name.  This can be convenient when you compose your worker class with components objects.
 
 
@@ -509,7 +509,7 @@ Refer to the numbered comments above when reading the list of descriptions below
 7. The implementation of the dealer process simply instantiates an `MPIRawReader` and runs it by invoking its `operator()`.  Raw readers are appropriate for any type of ring item file.  Note that parameter files are also composed of ring items so you can use this reader if you are writing a parameter file to parameter file pipeline.  The only difference, in that case, is that the worker class must be derived from the base class `CMPIParametersToParametersWorker` which will select parameter items and fill any parameters (`CTreeParameter` or `CTreeParameterArray` elements) from those events.
 8. The farmer just instantiates a `CMPIParameterFarmer` and runs it.
 9. The outputter instantiates a `CMPIParameterrOutput` object which knows how to write parameter files and runs it.  If you know how, you can create an outputter that writes data in some other format.
-10. The worker, method is called in each worker process. We instantiate the custom worker that we wrote in the [[The worker class|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md#the-worker-class]] section above.
+10. The worker, method is called in each worker process. We instantiate the custom worker that we wrote in the [The worker class](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md#the-worker-class) section above.
 11. The next bit of business is writing the `main` function.  It is important to note that main is run in each of the proceses that make up the MPI applications.
 12. We need four parameters, as described above. If we don't getting, we describe how we really should be run.  Note that this will be output for each of the processes.  If you only want one of them to  output this, you can also conditionalize on the rank of the process being 0 (see [MPI_Comm_rank](https://www.mpich.org/static/docs/v3.3/www3/MPI_Comm_rank.html))
 13. Next an application object is instantiated.  When the `operator()` of this is called analysis will start.
@@ -766,10 +766,10 @@ In practice, `version` in the path above would be a rustogramer version string o
 
 Before you take this approach note that you'll need to assign port numbers that are unique system wide.  That means you must avoid port numbers used by other instances of rustogramer you run in your system as well *those run by other users*.  This can be very difficult and is why we recommend that
 you use the NSCLDAQ port manager to assign and advertise services.  See
-[[the next section|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md#using-the-port-manager-to-assign-server-port-values]] below for a description of this process and the prerequisites it requires.
+[the next section](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md#using-the-port-manager-to-assign-server-port-values) below for a description of this process and the prerequisites it requires.
 
 
-The rustogramer command is in the `bin` directory of the rustogramer installation tree and is named `rustogrammer` (note  the doubled m). The command accepts serveral options that are described fully in [[Command Line Options|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_1.md]].  To run with manuall assigned ports you'll need:
+The rustogramer command is in the `bin` directory of the rustogramer installation tree and is named `rustogrammer` (note  the doubled m). The command accepts serveral options that are described fully in [Command Line Options](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_1.md).  To run with manuall assigned ports you'll need:
 
 
 - `--shm-mbytes` (which can be abbreviated `-s`).  The value that follows this option are the number of megabytes of shared spectrum memory rustogramer will create.  Note that you must have sufficient disk quota in your home directory to support the creation of the shared memory file.  If not specified, this defaults to `32`
@@ -808,7 +808,7 @@ You still must take care that for every instance of rustogramer *you* run within
 
 
 You can specify service names using the `--rest-service` and `--mirror-service` command line options rather than the `---rest-port` and `--mirror-port` options described in
-[[Using hard coded values|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md#running-rustogramer-with-hard-coded-server-port-values]] above.
+[Using hard coded values](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md#running-rustogramer-with-hard-coded-server-port-values) above.
 There are no default values for these options.  Supplying these options will override any port values you may have otherwise specified.  Here's a sample command line:
 
 
@@ -847,7 +847,7 @@ If `graham` looks up the port `RG_REST` he'll get the port his rustogramer rserv
 # [Chapter 4 - Using the Rustogramer GUI](#chapter-4---using-the-rustogramer-gui)
 
 
-Rustogramer suplies a sample GUI that is based on the NSCLSpecTcl treegui with, what I think are, some improvements in how objects are creatd. The GUI is a sample of a REST client written in Python against the [[Python Rest API|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap6_2.md]].
+Rustogramer suplies a sample GUI that is based on the NSCLSpecTcl treegui with, what I think are, some improvements in how objects are creatd. The GUI is a sample of a REST client written in Python against the [Python Rest API](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap6_2.md).
 
 
 If the envirionment variable `RUST_TOP` is defined to point to the top installation directory of Rustogramer, you can run the gui as follows:
@@ -879,28 +879,28 @@ Prior to describing each of the user interface elements let's look at a few feat
 
 - The menubar at the top of the window provides access to operations that are not as frequent as those available on the main window.  Note that the contents of the menubar depends on the actual application the GUI is connectec to.
 - The tabs below the menu-bar provide access to the sections of functionality of the GUI.  Note that the set of tabs will, again, depend on the application the GUI is connected to.   For example, Rustogramer does not have TreeVariable like functionality as that capability is pushed back onto the code that prepares data-sets.  If connected to SpecTcl, however, a `Variables` tab will be present.
-- Below the Tabs are controls for the things that Tab manages.  In the figure above, the `Spectra` tab is selected and shows a tabbed notebook that allows you to create and edit the definitions of Spectra as well as a filtered list of spectra and their applications.  More about this tab in the documentation [[the spectra tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md]]
+- Below the Tabs are controls for the things that Tab manages.  In the figure above, the `Spectra` tab is selected and shows a tabbed notebook that allows you to create and edit the definitions of Spectra as well as a filtered list of spectra and their applications.  More about this tab in the documentation [the spectra tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md)
 - Note that the only thing the `Help` menu provides is information about the program (the `About` menu command).
 
 
 For information about the contents of each tab:
 
 
-- [[The `Spectra` Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md]]
-- [[The `Parameters` Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_2.md]]
-- [[The `Variables` Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_3.md]] (SpecTcl only).
-- [[The `Gate` Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_4.md]]
-- [[The `BindSets` Tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_bindsets.md]]
+- [The `Spectra` Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md)
+- [The `Parameters` Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_2.md)
+- [The `Variables` Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_3.md) (SpecTcl only).
+- [The `Gate` Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_4.md)
+- [The `BindSets` Tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_bindsets.md)
 
 
 For information about the Menus:
 
 
-- [[The `File` Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_5.md]]
-- [[The `Data Source` Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_6.md]]
-- [[The `Filters` Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_filters.md]] (SpecTcl only).
-- [[The `Spectra` Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_7.md]]
-- [[The `Gate` Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_8.md]]
+- [The `File` Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_5.md)
+- [The `Data Source` Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_6.md)
+- [The `Filters` Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_filters.md) (SpecTcl only).
+- [The `Spectra` Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_7.md)
+- [The `Gate` Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_8.md)
 
 
 The rustogramer GUI is now included in SpecTcl (as of version 7.0).  To use it you'll need to setup the ReST server as described in the CutiePie documentation.  You can then start the GUI from `SpecTclRC.tcl`
@@ -939,7 +939,7 @@ The button bar contains the controls show below:
 
 
 The button bar works in conjunction with selected spectra in the spectrum listing
-(see [[The Spectrum Listing|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#the-spectrum-listing]]).
+(see [The Spectrum Listing](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#the-spectrum-listing)).
 
 
 As we will see in the section that describes the spectrum listing, you can select any number of spectra in the list.
@@ -991,7 +991,7 @@ You can also stretch the column widths to match your needs.
 
 
 You can select any number of spectra simultaneously and selection regions need not be contiguous.  The selected spectra are operated on by the buttons in the
-[[Button bar|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#the-button-bar]]
+[Button bar](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#the-button-bar)
 
 
 ## [The Spectrum editors.](#the-spectrum-editors)
@@ -1013,17 +1013,17 @@ The set of editors (tabs) will depend on the spectrum types that are supported b
 The subsections below will describe each of the spectrum types and their editors:
 
 
-- [[1D spectrum editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#1-d-spectrum]]
-- [[2D Spectrum editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#2-d-spectrum]]
-- [[Summary Spectra|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#summary-spectrum]]
-- [[Gamma 1D spectra|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#gamma-1-d-spectrum]]
-- [[Gamma 2D spectrum editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#gamma-2-d-spectrum]]
-- [[Gamma Deluxe spectrum editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#particle-gamma-spectrum]]
-- [[2d Sum Spectrum|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#2-d-sum-spectrum]]
-- [[Projection Spectra|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#projection-spectra]]
-- [[Strip charts|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#strip-charts]]
-- [[Bit mask spectra|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#bit-mask-parameters]]
-- [[Gamma summary spectra|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#gamma-summary-spectra]]
+- [1D spectrum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#1-d-spectrum)
+- [2D Spectrum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#2-d-spectrum)
+- [Summary Spectra](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#summary-spectrum)
+- [Gamma 1D spectra](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#gamma-1-d-spectrum)
+- [Gamma 2D spectrum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#gamma-2-d-spectrum)
+- [Gamma Deluxe spectrum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#particle-gamma-spectrum)
+- [2d Sum Spectrum](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#2-d-sum-spectrum)
+- [Projection Spectra](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#projection-spectra)
+- [Strip charts](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#strip-charts)
+- [Bit mask spectra](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#bit-mask-parameters)
+- [Gamma summary spectra](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#gamma-summary-spectra)
 
 
 ### [1-D Spectrum](#1-d-spectrum)
@@ -1050,7 +1050,7 @@ The `Array?` checkbox allows you to create a group of spectra very quickliy.  Su
 ![2D Spectrum Editor](./images/spectrum-2d.png)
 
 
-The mechanics of this editor are very similar to those of the [[1D editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#1-d-spectrum]].  Select X and Y axis parameters from the pulldowns associated with each axis, ensure the axis specifications for the X and Y axes are what you want, provide a spectrum name and click `Create/Replace` to create the spectrum or overwrite (after confirmation) an exising spectrum with the same name.
+The mechanics of this editor are very similar to those of the [1D editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#1-d-spectrum).  Select X and Y axis parameters from the pulldowns associated with each axis, ensure the axis specifications for the X and Y axes are what you want, provide a spectrum name and click `Create/Replace` to create the spectrum or overwrite (after confirmation) an exising spectrum with the same name.
 
 
 ### [Summary Spectrum:](#summary-spectrum)
@@ -1117,7 +1117,7 @@ The editor, therefore looks like:
 
 
 The mechanics of using this editor are the same as using the editor for a
-[[summary spectrum|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#summary-spectrum]], however:  There are two editable parameter lists. Having selected a parameter you can put it in either the X or Y parameters list depending on which of the arrow buttons you click.
+[summary spectrum](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#summary-spectrum), however:  There are two editable parameter lists. Having selected a parameter you can put it in either the X or Y parameters list depending on which of the arrow buttons you click.
 
 
 ### [2-D Sum spectrum](#2-d-sum-spectrum)
@@ -1129,7 +1129,7 @@ The mechanics of using this editor are the same as using the editor for a
 Suppose, for example, the X parameters are x1, x2 and the y parameters are y1 and y2.  If all four parameters are present, then two channels will be incremented.  One at the values of x1, y1 and the other at x2, y2.
 
 
-The editor is identical, however to the [[Gamma Deluxe editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#particle-gamma-spectrum]]:
+The editor is identical, however to the [Gamma Deluxe editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#particle-gamma-spectrum):
 
 
 ![2d sum editor](./images/spectrum-gd.png)
@@ -1218,7 +1218,7 @@ Each parameter optionally has the following metadata:
 - `Units` The units of measure of the parameter.
 
 
-Modifying these metadata will modify the axis definitions that the GUI will suggest for spectra you define with the [[Spectrua tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md]].
+Modifying these metadata will modify the axis definitions that the GUI will suggest for spectra you define with the [Spectrua tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md).
 
 
 Let's have a look at the `Parameters` tab:
@@ -1262,7 +1262,7 @@ This tab is only available with SpecTcl.  The Variables GUI looks like this:
 ![Variables tab](./images/variables_tab.png)
 
 
-The controls on this tab are similar to those on the [[Parameters tab|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_2.md]].   The only differences are:
+The controls on this tab are similar to those on the [Parameters tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_2.md).   The only differences are:
 
 
 - The only data associated with a variable are its value and units of measure.
@@ -1338,15 +1338,15 @@ You might wonder how you can edit a condition to change its type.   Simply edit 
 The sections below describe the various types of condition editors:
 
 
-- [[Slice editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#slice-conditions]]
-- [[Contour editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#contour-condition]]
-- [[And and Or editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#and-and-or-conditions]]
-- [[Not editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#not-conditions]]
-- [[Band editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#band-conditions]]
-- [[Gamma band and contour editors|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#gamma-bands-and-contours]]
-- [[Gamma slice editor|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#gamma-slice-conditions]]
-- [[Bit mask conditions|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#bit-mask-conditions]]
-- [[True/false conditions|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#true-and-false-conditions]]
+- [Slice editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#slice-conditions)
+- [Contour editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#contour-condition)
+- [And and Or editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#and-and-or-conditions)
+- [Not editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#not-conditions)
+- [Band editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#band-conditions)
+- [Gamma band and contour editors](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#gamma-bands-and-contours)
+- [Gamma slice editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#gamma-slice-conditions)
+- [Bit mask conditions](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#bit-mask-conditions)
+- [True/false conditions](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#true-and-false-conditions)
 
 
 ## [Slice conditions](#slice-conditions)
@@ -1450,7 +1450,7 @@ Fill in the name of the condition at the top, select the dependent condtion from
 ## [Band Conditions](#band-conditions)
 
 
-Band conditions are similar to [[Contour conditions|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#contour-condition]].  The difference is the meaning of the points accepted.  For a contour condition, one needs at least three points to define a closed figure and events where the parameters are inside the closed figure make the condition true.  For band conditions, you need at least two points and the condition is true for events that make points below at least one line segment.  Note that if you define a polyline with backtracking, this means that points lower than the highest segment the point is above rules.
+Band conditions are similar to [Contour conditions](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md#contour-condition).  The difference is the meaning of the points accepted.  For a contour condition, one needs at least three points to define a closed figure and events where the parameters are inside the closed figure make the condition true.  For band conditions, you need at least two points and the condition is true for events that make points below at least one line segment.  Note that if you define a polyline with backtracking, this means that points lower than the highest segment the point is above rules.
 
 
 The band editor looks, and functions exactly like the contour editor:
@@ -1593,12 +1593,12 @@ If you have loaded a bindset, its name and description are loaded into the label
 The buttons are in logical rather than visual order:
 
 
-- [[New...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#new-bindset]] - makes a new bindset.
-- [[Edit Selecteed...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#edit-bindset]] - edits the selected bindeset.
+- [New...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#new-bindset) - makes a new bindset.
+- [Edit Selecteed...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#edit-bindset) - edits the selected bindeset.
 - Load Selected - Loads the selected bindset in to shared memory after first unbinding any spectra that are there.
 - Add Selected - Attempts to add the selected bindest to those in shared memory.
-- [[Save as selected...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#save-selected]] - Save the currently bound spectra to the selected bindset
-- [[Save as new...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#save-new]] - Save the currently bound spectra to a new bindset.
+- [Save as selected...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#save-selected) - Save the currently bound spectra to the selected bindset
+- [Save as new...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#save-new) - Save the currently bound spectra to a new bindset.
 - Bind All - attempts to  bind all defined spectra to the display memory.
 - Update (spectra) - updates the spectra known to the bindset editors from the histogramer
 
@@ -1631,7 +1631,7 @@ When you are happy with the bindset you've created, click the Ok button.  To abo
 
 
 The `Edit Selected...` button also pops up the bind set editor described in
-the [[New bind set|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#new-bindset]] section.  However, the editor is first populated with the
+the [New bind set](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md#new-bindset) section.  However, the editor is first populated with the
 name and description of the selectged bind set. The right list box is populated with the spectra in the bind set and those spectra do not appear in the source list.
 
 
@@ -1658,20 +1658,20 @@ The file menu provides access to various file related operations.  The available
 Here's the exhaustive list of operations the File menu can perform.  IF a menu item is only available in SpecTcl or Rustogramer that is noted:
 
 
-- [[Save...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save]]
-- [[Save Treevariables...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save-treevariables]] (SpecTcl only)
-- [[Save Spectrum contents...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save-spectrum-contents]]
-- [[Load...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-load]]
-- [[Read spectrum contents...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-read-spectrum-contents]]
-- [[Source Tcl Script...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-source-tcl-script]] (SpecTcl only)
-- [[Exit|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-exit]]
-- [[Stop Histogramer|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-stop-histogramer]] (Rustogramer only)
+- [Save...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save)
+- [Save Treevariables...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save-treevariables) (SpecTcl only)
+- [Save Spectrum contents...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save-spectrum-contents)
+- [Load...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-load)
+- [Read spectrum contents...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-read-spectrum-contents)
+- [Source Tcl Script...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-source-tcl-script) (SpecTcl only)
+- [Exit](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-exit)
+- [Stop Histogramer](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-stop-histogramer) (Rustogramer only)
 
 
 ## [File->Save...](#file-save)
 
 
-This menu item saves the cofiguration in an SQLite3 database file.  The schema for these files closely follows the SpecTcl database storage schema and is described in [[Schema of configuration files|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md]].  You will be prompted for a filename and the following will be saved:
+This menu item saves the cofiguration in an SQLite3 database file.  The schema for these files closely follows the SpecTcl database storage schema and is described in [Schema of configuration files](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md).  You will be prompted for a filename and the following will be saved:
 
 
 - Parameter definitions and their metadata.
@@ -1684,7 +1684,7 @@ This menu item saves the cofiguration in an SQLite3 database file.  The schema f
 ## [File->Save Treevariables...](#file-save-treevariables)
 
 
-SpecTcl only can save tree variable definitions to an Sqlite3 data base file.  The schema for that file is the same as for the file saved by the [[Save configuration|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save]] operation, however only the tables germane to tree parameter definitions are populated.
+SpecTcl only can save tree variable definitions to an Sqlite3 data base file.  The schema for that file is the same as for the file saved by the [Save configuration](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save) operation, however only the tables germane to tree parameter definitions are populated.
 
 
 ## [File->Save spectrum contents...](#file-save-spectrum-contents)
@@ -1704,7 +1704,7 @@ The radio buttons on the bottom select the file format.  The following file form
 
 - ASCII this is SpecTcl ASCII format.
 - Binary (SpecTcl only) this is legacy Smaug format.
-- [[JSON is Java Object Script Notation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md]] (click the link for format details).
+- [JSON is Java Object Script Notation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md) (click the link for format details).
 
 
 Note that spectra are actually saved *by the server* not by the GUI.  This means that this operation will only work properly if the GUI is run on a system that shares the same file system as the server.
@@ -1719,7 +1719,7 @@ A more subtle case is if, on a desktop, you are running the GUI natively but rus
 ## [File->Load...](#file-load)
 
 
-Loads a configuration file from an [[SQlite3 databas file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md]] into the server.   It is the GUI that interprets the database file contents.   After being prompted for the name a file, parameter definitions will be loaded from that file. You'll be prompted for what to do with duplicate spectrum definitions:
+Loads a configuration file from an [SQlite3 databas file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md) into the server.   It is the GUI that interprets the database file contents.   After being prompted for the name a file, parameter definitions will be loaded from that file. You'll be prompted for what to do with duplicate spectrum definitions:
 
 
 ![Load dialog](./images/load_dialog.png)
@@ -1752,7 +1752,7 @@ This dialog allows you to describe how spectra read from file will be loaded by 
   - `Save as snapshots` - spectra will be created as snapshots which means they will never increment as  new data are processed.
   - `Replace Spectra` with same names - If unchecked new unique names will be used to avoid collisions with existing spectra.  If checked, any exising spectrum with the same name as one in file will be deleted.
   - `Bind to display memory` - IF checked, the spectra are bound into display memory. If not, they are held local to the histogram server and can't be visualized until they are bound later.
-- File format; as described in [[File->Save spectrum contents...|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save-spectrum-contents]], the format of the file that is being read.
+- File format; as described in [File->Save spectrum contents...](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-save-spectrum-contents), the format of the file that is being read.
 
 
 ## [File->Source Tcl Script...](#file-source-tcl-script)
@@ -1764,7 +1764,7 @@ This option is only available  to SpecTcl servers.  As with spectrum contents fi
 ## [File->Exit](#file-exit)
 
 
-After prompting if you are sure, exits the GUI.  Note that in general the server continues to run and you can connect to it again later with a new GUI instance.  For Rustogramer, see, however [[File->Stop Histogramer|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-stop-histogramer]] below.
+After prompting if you are sure, exits the GUI.  Note that in general the server continues to run and you can connect to it again later with a new GUI instance.  For Rustogramer, see, however [File->Stop Histogramer](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md#file-stop-histogramer) below.
 
 
 ## [File->Stop Histogramer](#file-stop-histogramer)
@@ -1781,13 +1781,13 @@ This is only available if the server is Rustogramer. After prompting if you are 
 The data source menu allows you to attach data sources of various sorts to the histogram server.  Some source types are not (yet?) available to Rustogramer.
 
 
-- [[Online|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-online]]  (SpecTcl only) Select an NSCLDAQ helper (e.g. rinselector) and take data from an online system.
-- [[File|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-file]]  Take data from a file.  Note that as of SpecTcl version 5.13-002,  SpecTcl can analyze data from a parameter file prepared for Rustogramer as well as from raw event files.
-- [[Pipe|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-pipe]] (SpecTcl only) Read data from an arbitrary helper program.
-- [[Cluster File|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-cluster-file]] (SpecTcl 5.14 and later only) Use a file to drive analysis from several event files.
-- [[Filter file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-filter-file]] (SpecTcl only) take data from a filter file.
-- [[Detach|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-detach]] Stop analyzing data from the current data source.
-- [[Abort Cluster File|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-abort-cluster-file]] (SpecTcl only) abort an in progress cluster file.
+- [Online](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-online)  (SpecTcl only) Select an NSCLDAQ helper (e.g. rinselector) and take data from an online system.
+- [File](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-file)  Take data from a file.  Note that as of SpecTcl version 5.13-002,  SpecTcl can analyze data from a parameter file prepared for Rustogramer as well as from raw event files.
+- [Pipe](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-pipe) (SpecTcl only) Read data from an arbitrary helper program.
+- [Cluster File](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-cluster-file) (SpecTcl 5.14 and later only) Use a file to drive analysis from several event files.
+- [Filter file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-filter-file) (SpecTcl only) take data from a filter file.
+- [Detach](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-detach) Stop analyzing data from the current data source.
+- [Abort Cluster File](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-abort-cluster-file) (SpecTcl only) abort an in progress cluster file.
 
 
 Notes on cluster file processing.  The SpecTcl REST handlers to support cluster files (added in SpecTcl 5.14) depend on software that is part of the Tree GUI to function.  cluster file processing may fail in the server if the tree GUi is not being used.
@@ -1796,7 +1796,7 @@ Notes on cluster file processing.  The SpecTcl REST handlers to support cluster 
 ## [Data Source->Online (SpecTcl Only)](#data-source-online-spectcl-only)
 
 
-The `Data Source->Online` menu command allows you to get data from an online data source.  Really this is just the same as a Pipe data source (see [[Data Source->Pipe|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-pipe]] below), however additional options  are automatically added to the *helper program* by the GUI.  These options make the attachment suitable for online data taking by ensuring the server does not limit the data flow if its analysis cannot keep up with the data rates.
+The `Data Source->Online` menu command allows you to get data from an online data source.  Really this is just the same as a Pipe data source (see [Data Source->Pipe](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-pipe) below), however additional options  are automatically added to the *helper program* by the GUI.  These options make the attachment suitable for online data taking by ensuring the server does not limit the data flow if its analysis cannot keep up with the data rates.
 
 
 WHen you select this option, you will see the following dialog:
@@ -1906,12 +1906,12 @@ Cluster file processing is not yet implemented in the GUI see [#168](https://git
 # [The Filters Menu (SpecTcl Only).](#the-filters-menu-spectcl-only)
 
 
-As we have described in [[our documentation of the Data Source->Filter file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_6.md#data-source-filter-file-spectcl-only]] menu  SpecTcl an write filtered event data files.  See that section for more information about what filter files are and pointers to SpecTcl documentation on filter files.   The `Filters` menu provides:
+As we have described in [our documentation of the Data Source->Filter file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_6.md#data-source-filter-file-spectcl-only) menu  SpecTcl an write filtered event data files.  See that section for more information about what filter files are and pointers to SpecTcl documentation on filter files.   The `Filters` menu provides:
 
 
-- The ability to create filters via a [[filter wizard|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#filter-filter-wizard]].
-- The ability to [[control which filters are enabled|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#filter-enabledisable-filters]]; enabled filters write data.
-- Another menu entry to [[attach a filter file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#filter-read-filter-files]] for analyais.
+- The ability to create filters via a [filter wizard](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#filter-filter-wizard).
+- The ability to [control which filters are enabled](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#filter-enabledisable-filters); enabled filters write data.
+- Another menu entry to [attach a filter file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#filter-read-filter-files) for analyais.
 
 
 Note again, that these menu entries are only available with SpecTcl and on rustogramer, the Filter menu itself will ont be present.
@@ -1923,10 +1923,10 @@ Note again, that these menu entries are only available with SpecTcl and on rusto
 Creating a filter is a multi-step process.  The filter wizard leads you through the process of:
 
 
-- [[Naming the filter|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#naming-the-filter]]
-- [[Selecting, if desired, a gate|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#selecting-the-filter-gate]] to determine which events are written to the  filter file.
-- [[Choosing the parameters|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#selecting-the-parameters-to-output]] to write for each event that makes the gate true.
-- [[Choosing the file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#choosing-the-output-file]] to which filter data will be written and whether the filter should be created
+- [Naming the filter](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#naming-the-filter)
+- [Selecting, if desired, a gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#selecting-the-filter-gate) to determine which events are written to the  filter file.
+- [Choosing the parameters](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#selecting-the-parameters-to-output) to write for each event that makes the gate true.
+- [Choosing the file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md#choosing-the-output-file) to which filter data will be written and whether the filter should be created
   enabled.
 
 
@@ -2007,7 +2007,7 @@ The table has a line per filter.  The left column are filter names and the right
 
 
 This menu command allows you to attach a filter file.  THe mechanics of this are described in
-the [[Data Source Menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-filter-file-spectcl-only]].
+the [Data Source Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md#data-source-filter-file-spectcl-only).
 
 
 
@@ -2019,26 +2019,26 @@ Many of the items on the `Spectra` menu are available on the `Spectra` tab and `
 THey are grouped here to make it unecessary to switch tabs to access them:
 
 
-- [[Save spectrum contents.|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#save-spectrum-contents]]
-- [[Read spectrum file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#read-spectrum-file]]
-- [[Clear All|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#clear-all]]
-- [[Create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#create]]
-- [[Delete|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#delete]]
-- [[Apply Gate|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#apply-gate]]
+- [Save spectrum contents.](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#save-spectrum-contents)
+- [Read spectrum file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#read-spectrum-file)
+- [Clear All](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#clear-all)
+- [Create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#create)
+- [Delete](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#delete)
+- [Apply Gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md#apply-gate)
 
 
 ## [Save Spectrum Contents.](#save-spectrum-contents)
 
 
 This allows you to save the contents of one or more spectra to file.
-See [[The file  menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_5.md#file-save-spectrum-contents]] for a description of the user interface behind this.
+See [The file  menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_5.md#file-save-spectrum-contents) for a description of the user interface behind this.
 
 
 ## [Read Spectrum File](#read-spectrum-file)
 
 
 Allows you to read a file that contains the contents of one or more spectra.  See
-[[The file maneu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_5.md#file-read-spectrum-contents]] for a description of the user interface behind this.
+[The file maneu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_5.md#file-read-spectrum-contents) for a description of the user interface behind this.
 
 
 ## [Clear all](#clear-all)
@@ -2050,7 +2050,7 @@ Clears the contents of all spectra.  All spectrum channels are set to zero.
 ## [Create](#create)
 
 
-Allows you to create one or more spectra.  The spectrum editor tabbed widget is displayed.  When you are done creating the spectra you want, click `Ok` to dismiss the dialog.  A section of the Spectra Tab page describes how to use the [[spectrum editors|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md#the-spectrum-editors]]
+Allows you to create one or more spectra.  The spectrum editor tabbed widget is displayed.  When you are done creating the spectra you want, click `Ok` to dismiss the dialog.  A section of the Spectra Tab page describes how to use the [spectrum editors](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md#the-spectrum-editors)
 
 
 ## [Delete](#delete)
@@ -2068,7 +2068,7 @@ Simply select spectra (you can select more than one at a time). And click the `>
 Improvements are planned to the spectrum selection  see issue [#170](https://github.com/FRIBDAQ/rustogrammer/issues/170)
 
 
-You can achieve the same effect in the Spectra tab using the [[Delete Button|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md#the-button-bar]] on the Spectra tab button bar after selecting the spectra you want deleted from the spectrum listing in that tab.
+You can achieve the same effect in the Spectra tab using the [Delete Button](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_1.md#the-button-bar) on the Spectra tab button bar after selecting the spectra you want deleted from the spectrum listing in that tab.
 
 
 ## [Apply Gate](#apply-gate)
@@ -2091,9 +2091,9 @@ Select the condition on the left and select however many spectra you want (selec
 Allows you to perform the folowing operations on gates.
 
 
-- [[Create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md#create-gates]] one or more gates
-- [[Apply a gate|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md#apply-gate]] to one or more spectra.
-- [[Delete|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md#delete-gate]] a gate.
+- [Create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md#create-gates) one or more gates
+- [Apply a gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md#apply-gate) to one or more spectra.
+- [Delete](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md#delete-gate) a gate.
 
 
 ## [Create gates](#create-gates)
@@ -2106,13 +2106,13 @@ Selecting this brings up the tabbed window of the gate editors:
 
 
 Use it to create as many gates as you want then dismiss it with the `Ok` button.
-See the various gate editor descriptions in the [[Gate Tab documentation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_4.md]]
+See the various gate editor descriptions in the [Gate Tab documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_4.md)
 
 
 ## [Apply gate](#apply-gate-1)
 
 
-This functionality is the same as that in [[the Spectrum menu|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_7.md#apply-gate]]
+This functionality is the same as that in [the Spectrum menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_7.md#apply-gate)
 
 
 ## [Delete gate](#delete-gate)
@@ -2175,11 +2175,11 @@ For CutiePie user documentation see [The FRIB documentation page on CutiePie](ht
 Rustogramer has no interactive interface baked into it.  It *does* provide a REST-like interface/API to which user interface programs can use.  There are two language bindings to this interface:
 
 
-- [[Tcl|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap6_1.md]] which you can use to create/port GUIs using Tcl/Tk
-- [[Python|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap6_2.md]]  which also includes a sample fully featured [[GUI|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chapter_4.md]]
+- [Tcl](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap6_1.md) which you can use to create/port GUIs using Tcl/Tk
+- [Python](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap6_2.md)  which also includes a sample fully featured [GUI](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chapter_4.md)
 
 
-To be clear, these are client side APIs.  If you are interested in contributing a binding for another language, [[here is documentation for tha requests and responses|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2.md]]
+To be clear, these are client side APIs.  If you are interested in contributing a binding for another language, [here is documentation for tha requests and responses](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2.md)
 
 
 
@@ -2242,7 +2242,7 @@ navigate to `HKEY_CURRENT_USER\Environment`  Choose `Edit->New expandable string
 ## [Using The low level client.](#using-the-low-level-client)
 
 
-Once you are set up to add the package path for the Tcl REST clients to your scripts.  You can use the low leve client.  See the [[Tcl REST reference|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_3.md]] for reference material.  In this section we're just going to give a brief overview of the package and how to use it.
+Once you are set up to add the package path for the Tcl REST clients to your scripts.  You can use the low leve client.  See the [Tcl REST reference](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_3.md) for reference material.  In this section we're just going to give a brief overview of the package and how to use it.
 
 
 The Tcl low level client is implemented in an object oriented manner.  You instantiate a client object and then issue it subcommands to get the server to do things.  It's important to note that the client does not attempt to connect with the server until it is asked to interact with it and each interaction, therefore involes a new connection to the server.
@@ -2303,7 +2303,7 @@ Refer to the numbered comments above when reading the remarks below
 
 
 The high level client implements much of the SpecTcl command set on top of the
-[[low level Tcl REST client|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md#using-the-low-level-client]].  To use it you must:
+[low level Tcl REST client](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md#using-the-low-level-client).  To use it you must:
 
 
 1. Pull the SpecTclRestCommand package into your script.
@@ -2347,7 +2347,7 @@ foreach param [treeparameter -list] {
 As before we assume that somewhere above the script shown, the script defines tclrest_dir to point to the package installation directory.
 
 
-1. The `SpecTclRestCommand::initialize` command sets the connection parameters for the pacakge.  The parameters correspond in turn to the `-host` and `-port` option values to the constructor for the `SZpecTclRestClient` described in the [[previous section|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md#using-the-low-level-client]].
+1. The `SpecTclRestCommand::initialize` command sets the connection parameters for the pacakge.  The parameters correspond in turn to the `-host` and `-port` option values to the constructor for the `SZpecTclRestClient` described in the [previous section](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md#using-the-low-level-client).
    Note that a third optional parameter, which defaults to `0` is used as the value for the `-debug` option.  This allows you to run the high level package with debugging output enabled on the low level package.
 2. The `version` command in SpecTcl and the `SpecTclRestCommand` package provides the version of the histogramer.  This line simply outputs it.
 3. The loop below iterates over the output of the `treeparameter -list` command.  This command, in SpecTcl and the `SpecTclRestCommand` package provides a list of information about parmeters and their metadata.  A REST endpoint is also defined for rustogramer that is identical to the one provided by SpecTcl that provides the same information for all parameters it knows about (you can think of all Rustogramer parameters as treeparameters in the SpecTcl sense of the word).
@@ -2508,7 +2508,7 @@ if __name__ == '__main__':
 ```
 
 
-1. We've extracted the program fragment that shows how to extend the import path [[from the previous section|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md#extending-the-import-path-and-importing-the-module]] into the function `extedn_path` here we call that in the main program.
+1. We've extracted the program fragment that shows how to extend the import path [from the previous section](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md#extending-the-import-path-and-importing-the-module) into the function `extedn_path` here we call that in the main program.
 2. This imports the names we need from the `rustogramer_client` module.
 3. These are the connection parameters we will use.
 4. Our code all runs in a try block so  that we can catch any exceptions raised by the client object, output them and exit.  If you want a bit more error granularity, you can encapsulate each client request in a `try/except` block, however that can make the code look a bit unwieldy.
@@ -2531,13 +2531,13 @@ if __name__ == '__main__':
 This chapter contains reference material:
 
 
-- [[Rustogramer command line options|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_1.md]]
-- [[REST requests and responses|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2.md]]
-- [[Tcl REST API reference|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_3.md]]
-- [[Python REST API reference|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_4.md]]
-- [[Pointer to the Rustogramer internals documentation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_5.md]]
-- [[GUI configurationfile schema|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md]]
-- [[Schema of JSON Spectrum contents files|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md]]
+- [Rustogramer command line options](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_1.md)
+- [REST requests and responses](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2.md)
+- [Tcl REST API reference](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_3.md)
+- [Python REST API reference](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_4.md)
+- [Pointer to the Rustogramer internals documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_5.md)
+- [GUI configurationfile schema](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md)
+- [Schema of JSON Spectrum contents files](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md)
 
 
 
@@ -2649,7 +2649,7 @@ The number of request families is large.   Refer to the sidebar table of content
 ## [Other notes:](#other-notes)
 
 
-- The client, when making requests of SpecTcl must be able to accept data with `Content-Encoding: deflate` as this is used in the resonses to the [[`spectrum/contents` request|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_spectrum.md#spectclspectrumcontents]].
+- The client, when making requests of SpecTcl must be able to accept data with `Content-Encoding: deflate` as this is used in the resonses to the [`spectrum/contents` request](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_spectrum.md#spectclspectrumcontents).
 
 
 
@@ -2743,14 +2743,14 @@ The base URI for these, after the `protocol//host:port` stuff is `/spectcl/param
 Several operations are supported on parameters:
 
 
-- [[`/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterlist]] - lists the parameters and their properties.
-- [[`/edit`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameteredit]] - Modifies the metadata associated with a parameter.
-- [[`/promote`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterpromote]] - Promote a raw parameter to a tree parameter.
-- [[`/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparametercreate]] - Create a new parameter (Rustogramer only)
-- [[`/listnew`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterlistnew]] - lists parameters that have modified metadata.
-- [[`/check`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparametercheck]] - Checks the modified state of parameters.
-- [[`/uncheck`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameteruncheck]] - Turns off the modified state of parameters.
-- [[`/version`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterversion]] - Provides version information about the capabilities of the parameter system (earlier versions of the SpecTcl `treeparameter` did not support the `-create` operation).
+- [`/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterlist) - lists the parameters and their properties.
+- [`/edit`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameteredit) - Modifies the metadata associated with a parameter.
+- [`/promote`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterpromote) - Promote a raw parameter to a tree parameter.
+- [`/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparametercreate) - Create a new parameter (Rustogramer only)
+- [`/listnew`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterlistnew) - lists parameters that have modified metadata.
+- [`/check`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparametercheck) - Checks the modified state of parameters.
+- [`/uncheck`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameteruncheck) - Turns off the modified state of parameters.
+- [`/version`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameterversion) - Provides version information about the capabilities of the parameter system (earlier versions of the SpecTcl `treeparameter` did not support the `-create` operation).
 
 
 ## [/spectcl/parameter/list](#spectclparameterlist)
@@ -2889,7 +2889,7 @@ Failure return for both Rustogramer and SpecTcl
 In SpecTcl, there is a distinction between parameters with metadata (tree parameters) and parameters without metadata (raw parameters). In Rustogramer all parameters have metadata.  For
 
 
-- Rustogramer - this is equivalent to the [[/spectcl/parameter/edit|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameteredit]] operation.
+- Rustogramer - this is equivalent to the [/spectcl/parameter/edit](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md#spectclparameteredit) operation.
 - SpecTcl - this makes a treeparameter from a raw parameter.
 
 
@@ -3146,7 +3146,7 @@ Generic response with the stringified version number in the **detail** field
 
 
 For Rustogramer, the requests in this URI domain map to similar requests in the
-[[/spectcl/parameter|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md]] domain.  For SpecTcl, however for historical reasons, there is a difference between a raw parameter and a tree parameter.
+[/spectcl/parameter](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md) domain.  For SpecTcl, however for historical reasons, there is a difference between a raw parameter and a tree parameter.
 
 
 Originally tree parameters were  a contributed package written by Daniel Bazin.  Later, due to its utility, tree parameters were incorporated into supported SpecTcl code.  However a distinction does exist, internally between tree parameters and the original raw parameters, which may not be mapped to tree paramters.
@@ -3158,15 +3158,15 @@ In SpecTcl, therefor, these URIs manipulate raw parameters without affecting any
 The requests include:
 
 
-- [[`/spectcl/rawparameter/new`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md#spectclrawparameternew]] (Rustogramer maps this to [[`/spectcl/parameter/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md#spectclparametercreate]]).  SpecTcl creates a new raw parameter.
-- [[`/spectcl/rawparameter/delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md#spectclrawparameterdelete]] (Rustogramer implements this).  This deletes an existing (raw) parameter.
-- [[`/spectcl/rawparameter/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md#spectclrawparameterlist]] (Rustogramer maps this to [[`spectcl/parameter/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md#spectclparameterlist]])
+- [`/spectcl/rawparameter/new`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md#spectclrawparameternew) (Rustogramer maps this to [`/spectcl/parameter/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md#spectclparametercreate)).  SpecTcl creates a new raw parameter.
+- [`/spectcl/rawparameter/delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md#spectclrawparameterdelete) (Rustogramer implements this).  This deletes an existing (raw) parameter.
+- [`/spectcl/rawparameter/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md#spectclrawparameterlist) (Rustogramer maps this to [`spectcl/parameter/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md#spectclparameterlist))
 
 
 ## [/spectcl/rawparameter/new](#spectclrawparameternew)
 
 
-Creates a new raw parameter.  Note that in Rustogramer, this is forwarded to the handler for [[`/spectcl/parameter/new`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md#spectclparametercreate]]. Refer to that documentation.  This section documents how this URI is implemented for SpecTcl.
+Creates a new raw parameter.  Note that in Rustogramer, this is forwarded to the handler for [`/spectcl/parameter/new`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_parameter.md#spectclparametercreate). Refer to that documentation.  This section documents how this URI is implemented for SpecTcl.
 
 
 ### [Query parameters](#query-parameters-8)
@@ -3324,9 +3324,9 @@ The /spectcl/gate domain or URIs provides the ability to manipulate gates (rusto
 URIs include:
 
 
-- [[`/spectcl/gate/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md#spectclgatelist]] - lists defined conditions.
-- [[`/spectcl/gate/delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md#spectclgatedelete]] - Delets a condition
-- [[`/spectcl/gate/edit`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md#spectclgateedit]] - Create or modify a condition.
+- [`/spectcl/gate/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md#spectclgatelist) - lists defined conditions.
+- [`/spectcl/gate/delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md#spectclgatedelete) - Delets a condition
+- [`/spectcl/gate/edit`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_gates.md#spectclgateedit) - Create or modify a condition.
 
 
 ## [/spectcl/gate/list](#spectclgatelist)
@@ -3577,11 +3577,11 @@ Will be returned.
 Requests from this domain manipulate spectra defined in Rustogramer (and SpecTcl).  The URI's in this domain are:
 
 
-- [[`/spectcl/spectrum/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumlist]]  List spectra.
-- [[`/spectcl/spectrum/delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumdelete]] Delete an existing spectrum.
-- [[`/spectcl/spectrum/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumcreate]] Create a new spectrum.
-- [[`/spectcl/spectrum/contents`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumcontents]] Get the contents (channel values) of a spectrum.
-- [[`/spectcl/spectrum/zero`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumzero]] Clear the contents of spectra.
+- [`/spectcl/spectrum/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumlist)  List spectra.
+- [`/spectcl/spectrum/delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumdelete) Delete an existing spectrum.
+- [`/spectcl/spectrum/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumcreate) Create a new spectrum.
+- [`/spectcl/spectrum/contents`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumcontents) Get the contents (channel values) of a spectrum.
+- [`/spectcl/spectrum/zero`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md#spectclspectrumzero) Clear the contents of spectra.
 
 
 ## [/spectcl/spectrum/list](#spectclspectrumlist)
@@ -4030,9 +4030,9 @@ The response is a generic response.
 This set of URIs manipulates the attachment of a data source to the server.  The following URIs are provided:
 
 
-- [[`/spectcl/attach/attach`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md#spectclattachattach]] attaches a data source to the server. Note that any previously attached source is detached.
-- [[`/spectcl/attach/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md#spectclattachlist]] describes the data source attached tot he server.
-- [[`/spectcl/attach/detach`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md#spectclattachdetach]] detaches the current data source.
+- [`/spectcl/attach/attach`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md#spectclattachattach) attaches a data source to the server. Note that any previously attached source is detached.
+- [`/spectcl/attach/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md#spectclattachlist) describes the data source attached tot he server.
+- [`/spectcl/attach/detach`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md#spectclattachdetach) detaches the current data source.
 
 
 ## [/spectcl/attach/attach](#spectclattachattach)
@@ -4162,9 +4162,9 @@ Success:
 This family of URIs control data analysis.
 
 
-- [[`/spectcl/analyze/start`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md#spectclanalyzestart]] Starts analysis
-- [[`/spectcl/analyze/stop`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md#spectclanalyzestop]] Stops analysis
-- [[`/spectcl/analyze/size`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md#spectclanalyzesize]] Sets the event chunksize for Rustogramer.
+- [`/spectcl/analyze/start`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md#spectclanalyzestart) Starts analysis
+- [`/spectcl/analyze/stop`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md#spectclanalyzestop) Stops analysis
+- [`/spectcl/analyze/size`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md#spectclanalyzesize) Sets the event chunksize for Rustogramer.
 
 
 ## [/spectcl/analyze/start](#spectclanalyzestart)
@@ -4244,9 +4244,9 @@ Conditions are only useful when applied to a spectrum.  When a condition/gate is
 The `/spectcl/apply` domain of URIs allow you to apply unapply and list applications:
 
 
-- [[`/spectcl/apply/apply`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md#spectclapplyapply]] - Applies a gate/condition to one or more spectra.
-- [[`/spectcl/apply/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md#spectclapplylist]] - Produces a list of gates applied to spectra.
-- [[`/spectcl/ungate`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md#spectclungate]] - Removes any gate a spectrum has.
+- [`/spectcl/apply/apply`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md#spectclapplyapply) - Applies a gate/condition to one or more spectra.
+- [`/spectcl/apply/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md#spectclapplylist) - Produces a list of gates applied to spectra.
+- [`/spectcl/ungate`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md#spectclungate) - Removes any gate a spectrum has.
 
 
 ## [/spectcl/apply/apply](#spectclapplyapply)
@@ -4353,7 +4353,7 @@ Here's an error return from SpecTcl attempting to ungate a spectrum `event.raw.0
 # [/spectcl/ungate requests](#spectclungate-requests)
 
 
-See [[the apply documentation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_apply.md#spectclungate]]
+See [the apply documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_apply.md#spectclungate)
 
 
 
@@ -4364,8 +4364,8 @@ See [[the apply documentation|https://github.com/FRIBDAQ/docs/tree/main/rustogra
 The requests in this domain support accessing single channels of a spectrum:
 
 
-- [[/spectcl/channel/set|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md#spectclchannelset]] allows you to set the value of a channel.
-- [[/spectcl/channel/get|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md#spectclchannelget]] provides the value of a channel
+- [/spectcl/channel/set](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md#spectclchannelset) allows you to set the value of a channel.
+- [/spectcl/channel/get](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md#spectclchannelget) provides the value of a channel
 
 
 ## [/spectcl/channel/set](#spectclchannelset)
@@ -4494,15 +4494,15 @@ Failure (no such spectrum):
 # [/spectcl/evbunpack requests](#spectclevbunpack-requests)
 
 
-This domain of URIs is only available in SpecTcl.  It works with the dynamic event processing pipeline to configure an event processor that can be used with data that was emitted from the FRIB/NSCLDAQ event builder.   The idea is that you can use the [[pipline manager|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_pman.md]] to create event processing pipelines which you then associated with specific source ids using  this set of URIs.
+This domain of URIs is only available in SpecTcl.  It works with the dynamic event processing pipeline to configure an event processor that can be used with data that was emitted from the FRIB/NSCLDAQ event builder.   The idea is that you can use the [pipline manager](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_pman.md) to create event processing pipelines which you then associated with specific source ids using  this set of URIs.
 
 
 Operations supported are:
 
 
-- [[/spectcl/evbunpack/create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpackcreate]] - Creating an event processor with pipeline slots for source ids.
-- [[/spectcl/evbunpack/add|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpackadd]] - Associate an existing event processing pipeline with an source id.
-- [[/spectcl/evbunpack/list|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpacklist]] - list the event builder event processors that have been created by this command.
+- [/spectcl/evbunpack/create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpackcreate) - Creating an event processor with pipeline slots for source ids.
+- [/spectcl/evbunpack/add](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpackadd) - Associate an existing event processing pipeline with an source id.
+- [/spectcl/evbunpack/list](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpacklist) - list the event builder event processors that have been created by this command.
 
 
 For more information and background, see the **evbunpack** command in the
@@ -4559,7 +4559,7 @@ Associates an exiting, registered event processor with a source-id.  Events with
 All parameters are mandatory.
 
 
-- **evpname**  (string) - Name of an event processor made via e.g. [[/spectcl/evbunpack/create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpackadd]].
+- **evpname**  (string) - Name of an event processor made via e.g. [/spectcl/evbunpack/create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md#spectclevbunpackadd).
 - **source** (unsigned) - Source id that will be associated with the next parameter.
 - **pipe** (string) - Name of a registered event processor that will be run to process fragments from **source** in each event.  Note this is a badly named parameter.
 
@@ -4644,14 +4644,14 @@ This domain of URIs is only supported by SpecTcl.  If attempted with Rustogramer
 Are returned where `<specific>` is the specific request and is one of:
 
 
-- [[`new`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilternew]] - Which SpecTcl uses to create a new filter.
-- [[`delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterdelete]] - which delets an existing filter.
-- [[`enable`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterenable]] - which enables an existing filter to write it's subset of data for future events.
-- [[`disable`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterdisable]] - which disables an existing filter so that it will no longher write events.
-- [[`regate`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterregate]] - which associates a different gate with an existing filter, changing the subset of events that will be written by the filter (when enabled).
-- [[`file`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterfile]] - Which specifies a file on which filtered data will be written.
-- [[`list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterlist]] - which lists filters and their properties.
-- [[`format`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterformat]] - which specifies an output format for a filter.
+- [`new`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilternew) - Which SpecTcl uses to create a new filter.
+- [`delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterdelete) - which delets an existing filter.
+- [`enable`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterenable) - which enables an existing filter to write it's subset of data for future events.
+- [`disable`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterdisable) - which disables an existing filter so that it will no longher write events.
+- [`regate`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterregate) - which associates a different gate with an existing filter, changing the subset of events that will be written by the filter (when enabled).
+- [`file`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterfile) - Which specifies a file on which filtered data will be written.
+- [`list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterlist) - which lists filters and their properties.
+- [`format`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterformat) - which specifies an output format for a filter.
 
 
 This family of URIs is a front end to the SpecTcl **filter** command documented in the
@@ -4797,7 +4797,7 @@ Falure form:
 ## [/spectcl/filter/enable](#spectclfilterenable)
 
 
-Enables a filter to write events.  Once a file has been associated with a filter it can be enabled to write events to that file. See also [[/disable|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterdisable]]
+Enables a filter to write events.  Once a file has been associated with a filter it can be enabled to write events to that file. See also [/disable](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterdisable)
 
 
 ### [Query parameters](#query-parameters-35)
@@ -4998,7 +4998,7 @@ Lists filters and their properties.
 - **file** (string) - File to which the filter writes its events. This could be an empty string if the filters is not yet associated with a file.
 - **parameters** (array of strings) - Name of the parameters written to the filter for each event it writes.
 - **enabled** (string) - Either `enabled` or `disabled` depending on the filter enabled status.
-- **format** (string) - The format with which the filter is written. See [[format|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterformat]] for more information about this.
+- **format** (string) - The format with which the filter is written. See [format](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md#spectclfilterformat) for more information about this.
 
 
 #### [Sample Responses.](#sample-responses-36)
@@ -5094,11 +5094,11 @@ See the [SpecTcl command reference](https://docs.nscl.msu.edu/daq/newsite/spectc
 The `/spectcl/fit` domain of URIs provides the following operations:
 
 
-- [[`/spectcl/fit/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitcreate]] - create a new SpecTcl fit object.
-- [[`/spectcl/fit/update`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitupdate]] - Computes fit parameter values on current histogram data.
-- [[`/spectcl/fit/delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitdelete]] - Delete a spectcl fit object.
-- [[`/spectcl/fit/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitlist]] - List one or more fits providing each fit's current function parameterization.
-- [[`/spectcl/fit/proc`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#specclfitproc]] - Returns a Tcl proc that can be used to evaluate the fit at any point.
+- [`/spectcl/fit/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitcreate) - create a new SpecTcl fit object.
+- [`/spectcl/fit/update`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitupdate) - Computes fit parameter values on current histogram data.
+- [`/spectcl/fit/delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitdelete) - Delete a spectcl fit object.
+- [`/spectcl/fit/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#spectclfitlist) - List one or more fits providing each fit's current function parameterization.
+- [`/spectcl/fit/proc`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md#specclfitproc) - Returns a Tcl proc that can be used to evaluate the fit at any point.
 
 
 ## [/spectcl/fit/create](#spectclfitcreate)
@@ -5336,9 +5336,9 @@ A fold is like a conditiont that, when applied to a  g1 spectrum, will increment
 The following operations are defined on folds:
 
 
-- [[`/spectcl/fold/apply`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md#spectclfoldapply]] - Apply a condition as a fold to a spectrum
-- [[`/spectcl/fold/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md#spectclfoldlist]] - List the folds.
-- [[`/spectcl/fold/remove`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md#spectclfoldremove]] - Remove a fold.
+- [`/spectcl/fold/apply`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md#spectclfoldapply) - Apply a condition as a fold to a spectrum
+- [`/spectcl/fold/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md#spectclfoldlist) - List the folds.
+- [`/spectcl/fold/remove`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md#spectclfoldremove) - Remove a fold.
 
 
 ## [/spectcl/fold/apply](#spectclfoldapply)
@@ -5661,9 +5661,9 @@ Returns information about the shared Spectrum shared memory. Both SpecTcl and Ru
 The following URIs are supported in this domain:
 
 
-- [[`/spectcl/shmem/key`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md#spectclshmemkey]] Get shared memory attachment information
-- [[`/spectcl/shmem/size`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md#spectclshmemsize]] Get the total size of the shared memory region.
-- [[`spectcl/shmem/variables`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md#spectclshmemvariables]] Provide the values of some "interesting" shared memory variables.
+- [`/spectcl/shmem/key`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md#spectclshmemkey) Get shared memory attachment information
+- [`/spectcl/shmem/size`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md#spectclshmemsize) Get the total size of the shared memory region.
+- [`spectcl/shmem/variables`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md#spectclshmemvariables) Provide the values of some "interesting" shared memory variables.
 
 
 ## [/spectcl/shmem/key](#spectclshmemkey)
@@ -5875,11 +5875,11 @@ Note that `sbind` has its origins in the original SpecTcl where the more natural
 The `/spectcl/sbind` URI domain has the follwing URIs:
 
 
-- [[`/spectcl/sbind/all`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindall]] - Bind all spectra to display memory.
-- [[`/spectcl/sbind/sbind`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindsbind]] - Bind a single spectrum to the display.
-- [[`/spectcl/sbind/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindlist]] - List th current bindings.
-- [[`/spectcl/sbind/set_update`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindset_update]] Rustogramer only, specifies the number of seconds between updates to the shared memory.
-- [[`/spectcl/sbind/get_update`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindget_update]] Rustogramer only, returns the shared memory refresh rate.
+- [`/spectcl/sbind/all`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindall) - Bind all spectra to display memory.
+- [`/spectcl/sbind/sbind`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindsbind) - Bind a single spectrum to the display.
+- [`/spectcl/sbind/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindlist) - List th current bindings.
+- [`/spectcl/sbind/set_update`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindset_update) Rustogramer only, specifies the number of seconds between updates to the shared memory.
+- [`/spectcl/sbind/get_update`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md#spectclsbindget_update) Rustogramer only, returns the shared memory refresh rate.
 
 
 ## [/spectcl/sbind/all](#spectclsbindall)
@@ -6087,15 +6087,15 @@ The spectrum  memory is refreshed every `2` seconds.
 # [/spectcl/unbind requests](#spectclunbind-requests)
 
 
-For more information about spectrum binding, see [[`/spectcl/sbind`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_sbind.md]].
+For more information about spectrum binding, see [`/spectcl/sbind`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_sbind.md).
 
 
 This domain of URIs supports a few methods for unbinding spectra.
 
 
-- [[`/spectcl/unbind/byname`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md#spectclunbindbyname]] - Unbind given the name of a spectrum.
-- [[`/spectcl/unbind/byid`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md#spectclunbindbyid]] - (SpecTcl only) - by spectrum id.
-- [[`/spectcl/unbind/all`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md#spectclunbindall]]  - Unbind all spectra.]
+- [`/spectcl/unbind/byname`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md#spectclunbindbyname) - Unbind given the name of a spectrum.
+- [`/spectcl/unbind/byid`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md#spectclunbindbyid) - (SpecTcl only) - by spectrum id.
+- [`/spectcl/unbind/all`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md#spectclunbindall)  - Unbind all spectra.]
 
 
 ## [/spectcl/unbind/byname](#spectclunbindbyname)
@@ -6217,7 +6217,7 @@ A generic response is returned.
 # [Shared memory Mirror service](#shared-memory-mirror-service)
 
 
-SpecTcl maintains a list of all of the mirror clients that have registered with it.  See the [[reference documentation about the mirror server|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_mirror.md]] for more information about the mirror server protocol in general and mirror registration specifically.
+SpecTcl maintains a list of all of the mirror clients that have registered with it.  See the [reference documentation about the mirror server](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_mirror.md) for more information about the mirror server protocol in general and mirror registration specifically.
 
 
 The registration of a mirror client provides the host on which the client runs and the shared memory it created.  SpecTcl's mirror client application and API use this to share mirrored shared memories between clients.   The mirror client either establishes a new mirror, if one does not yet exist for the host, or maps to the existing mirror if there already is one.
@@ -6245,7 +6245,7 @@ The **detail** is an array of structs where each struct describes a mirror regis
 
 
 - **host** (string) - DNS name or IP address in dotted notation of the host maintaining a mirror.
-- **shmkey** (string) - Shared memory identifier.  See the [[shmem requests for information about this|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_shmem.md]]
+- **shmkey** (string) - Shared memory identifier.  See the [shmem requests for information about this](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_shmem.md)
 
 
 #### [Sample Responses.](#sample-responses-57)
@@ -6285,16 +6285,16 @@ The requests in this URI domain provide support for dynamically composing event 
 The following URIs are supported:
 
 
-- [[`/spectcl/pman/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmancreate]] - Create a new, empty, event processing pipeline.
-- [[`/spectcl/pman/ls`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanls]] - List just the names of the event procesing pipelines currently defined.
-- [[`/spectcl/pman/current`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmancurrent]] - Return the  currently selected pipeline.
-- [[`/spectcl/pman/lsall`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanlsall]] - List processing pipelines and the event processors in them.
-- [[`/spectcl/pman/lsevp`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanlsevp]] - Lists the names of the event processors.
-- [[`/spectcl/pman/use`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanuse]] - Select the current event processing pipeline.
-- [[`/spectcl/pman/add`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanadd]] - Add an event processor to the end of an event processing pipeline.
-- [[`/spectcl/pman/rm`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanrm]] - Remove an event processor from a pipeline.
-- [[`/spectcl/pman/clear`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanclear]] - Remove all event processors from a pipe.
-- [[`/spectcl/pman/clone`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanclone]] - Create a duplicat of an existing pipeline.
+- [`/spectcl/pman/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmancreate) - Create a new, empty, event processing pipeline.
+- [`/spectcl/pman/ls`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanls) - List just the names of the event procesing pipelines currently defined.
+- [`/spectcl/pman/current`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmancurrent) - Return the  currently selected pipeline.
+- [`/spectcl/pman/lsall`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanlsall) - List processing pipelines and the event processors in them.
+- [`/spectcl/pman/lsevp`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanlsevp) - Lists the names of the event processors.
+- [`/spectcl/pman/use`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanuse) - Select the current event processing pipeline.
+- [`/spectcl/pman/add`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanadd) - Add an event processor to the end of an event processing pipeline.
+- [`/spectcl/pman/rm`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanrm) - Remove an event processor from a pipeline.
+- [`/spectcl/pman/clear`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanclear) - Remove all event processors from a pipe.
+- [`/spectcl/pman/clone`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanclone) - Create a duplicat of an existing pipeline.
 
 
 ## [/spectcl/pman/create](#spectclpmancreate)
@@ -6357,7 +6357,7 @@ From SpecTcl failure: j
 ## [/spectcl/pman/ls](#spectclpmanls)
 
 
-Lists just the names of the pipelines. To get more information, see  [[/spectcl/pman/lsall|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanlsall]].
+Lists just the names of the pipelines. To get more information, see  [/spectcl/pman/lsall](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md#spectclpmanlsall).
 
 
 ### [Query parameters](#query-parameters-62)
@@ -6987,9 +6987,9 @@ See the **psuedo** command documented in the [SpecTcl Command Reference](https:/
 The following URIs manipulate pseudo parameters:
 
 
-- [[`/spectcl/pseudo/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md#spectclpseudocreate]] - Create a new pseudo parameter.
-- [[`/spectcl/pseudo/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md#spectclpseudolist]] - List the properties of pseudo parameters.
-- [[`/spectcl/pseudo/delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md#spectclpseudodelete]] - Delete an exising pseudo parameter.
+- [`/spectcl/pseudo/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md#spectclpseudocreate) - Create a new pseudo parameter.
+- [`/spectcl/pseudo/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md#spectclpseudolist) - List the properties of pseudo parameters.
+- [`/spectcl/pseudo/delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md#spectclpseudodelete) - Delete an exising pseudo parameter.
 
 
 ## [/spectcl/pseudo/create](#spectclpseudocreate)
@@ -7204,9 +7204,9 @@ unless otherwise noted (e.g. for reponses from SpecTcl that are not generic resp
 SpecTcl, supports the following URIs:
 
 
-- [[`/spectcl/roottree/create`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md#spectclroottreecreate]] - Makes a new root tree.
-- [[`/spectcl/roottree/delete`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md#spectclroottreedelete]] - Delete an existing root tree.
-- [[`/spectcl/roottree/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md#spectclroottreelist]] - List root trees and their properties.
+- [`/spectcl/roottree/create`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md#spectclroottreecreate) - Makes a new root tree.
+- [`/spectcl/roottree/delete`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md#spectclroottreedelete) - Delete an existing root tree.
+- [`/spectcl/roottree/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md#spectclroottreelist) - List root trees and their properties.
 
 
 For more information about root tree support in SpecTcl, see the `roottree` command in the
@@ -7471,11 +7471,11 @@ Other return types are noted in the individual request documentation.
 The domain provides the following URIs.
 
 
-- [[`/spectcl/treevariable/list`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablelist]] - List tree variables and their properties.
-- [[`/spectcl/treevariable/set`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariableset]] - Set new value and units for a tree variable.
-- [[`/spectcl/treevariable/check`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablecheck]] - See if the changed flag is set for the tree variable.
-- [[`/spectcl/treevariable/setchanged`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablesetchanged]] - Set the changed flag for a treevariable.
-- [[`/spectcl/treevariable/firetraces`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablefiretraces]] - Fire the traces for a set of tree variables, allowin scripts and UI elements that care about the variable to know about changes.
+- [`/spectcl/treevariable/list`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablelist) - List tree variables and their properties.
+- [`/spectcl/treevariable/set`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariableset) - Set new value and units for a tree variable.
+- [`/spectcl/treevariable/check`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablecheck) - See if the changed flag is set for the tree variable.
+- [`/spectcl/treevariable/setchanged`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablesetchanged) - Set the changed flag for a treevariable.
+- [`/spectcl/treevariable/firetraces`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md#spectcltreevariablefiretraces) - Fire the traces for a set of tree variables, allowin scripts and UI elements that care about the variable to know about changes.
 
 
 In SpecTcl, tree variables are bound to Tcl variables as linked variables.  the set operation changes the value of the linked variable.  In general, for scripts which have traces set o the variable, traces must be explicitly fired (`/spectcl/treevariablefiretraces`) for those traces to execute.  Tk GUi elements that bind to variables will, behind the scenes, establish traces and therefore traces must be fired for those elements to update visually.  The units metadata are kept separate from the Tcl interpreter and is only known to it through the `treevariable -list` command.
@@ -8006,7 +8006,7 @@ Provides access to the SpecTcl `swrite` command to write the contents of spectra
 - **format** (string) - Required.  Format in which the file should be written.   Valid format strings are:
   - `ascii` - SpecTcl ASCII format.  This is supported by both SpecTcl and Rustogramer.
   - `binary` - SMAUG binary format.  This is a binary format that should be considered deprecated.
-  - `json` - JavaScript Object Notation.  This is supportd by Rustogramer and SpecTcl after version 5.13-012.  For a description of the JSON see [[Format of JSON Spectrum contents files|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md]].
+  - `json` - JavaScript Object Notation.  This is supportd by Rustogramer and SpecTcl after version 5.13-012.  For a description of the JSON see [Format of JSON Spectrum contents files](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md).
 - **spectrum** (string) - Requires at least one.  Each occurance of this query parameters adds a spectrum to the list of spectra that will be written to file.
 
 
@@ -8083,7 +8083,7 @@ Requests that a spectrum contenst file be read.  Note that since it is the serve
 - **format** (string) - Required.  Format in which the file should be written.   Valid format strings are:
   - `ascii` - SpecTcl ASCII format.  This is supported by both SpecTcl and Rustogramer.
   - `binary` - SMAUG binary format.  This is a binary format that should be considered deprecated.
-  - `json` - JavaScript Object Notation.  This is supportd by Rustogramer and SpecTcl after version 5.13-012.  For a description of the JSON see [[Format of JSON Spectrum contents files|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md]].
+  - `json` - JavaScript Object Notation.  This is supportd by Rustogramer and SpecTcl after version 5.13-012.  For a description of the JSON see [Format of JSON Spectrum contents files](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md).
 - **snapshot** (boolean) - Optional defaults to true.  If true spectra read from file are made as snapshot spectra. This means they will not increment:
   - In SpecTcl snapshot spectra are spectra that are wrapped in a special container object that refuses to increment the spectrum.
   - In Rustogramer snapshot spectra are just gated on a special `False` gate.
@@ -8158,9 +8158,9 @@ Under ordinary circumstances, a ReST client that wants to be informed of changes
 Traces are a scheme that reduces this load.  Traces are a mechanism that allow applications to be informed of changes to the analysis configuration.  The application:
 
 
-- Establishes a trace using [[`/spectcl/trace/establish`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish]].  This declares the desire for a client to use the trace system.  The server returns a token the client should use in subsequent trace requests.
-- Periodically, the client asks for changes since the last time it asked for changes using [[`/spectcl/trace/fetch`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracefetch]] supplying its token.
-- When the client exits, it ideally issues [[`/spectcl/trace/done`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracedone]] providing its token.  All resources associted with this token are released and the token is rendered invalid.
+- Establishes a trace using [`/spectcl/trace/establish`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish).  This declares the desire for a client to use the trace system.  The server returns a token the client should use in subsequent trace requests.
+- Periodically, the client asks for changes since the last time it asked for changes using [`/spectcl/trace/fetch`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracefetch) supplying its token.
+- When the client exits, it ideally issues [`/spectcl/trace/done`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracedone) providing its token.  All resources associted with this token are released and the token is rendered invalid.
 
 
 As the server runs, changes in parameter, spectrum, condition and condition application are queued for each token.  You might be concerned that these queues can grow without bound if clients either stop polling without doing a done, or just exit in error due to program errors.  That is a valid concern.
@@ -8172,9 +8172,9 @@ When tracing is established, the client must, therefore pass a retention time wh
 Both SpecTcl and Rustogramer support traces.  As described above:
 
 
-- [[`/spectcl/trace/establish`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish]] is requested first to associated a token with the clietn, and create a trace queue for the client with a retention time.
-- [[`/spectcl/trace/fetch`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracefetch]] - fetches the trace records that have been queued for the client since the last time this request was issued that are not older than the retention time.
-- [[`/spectcl/trace/done`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracedone]]  is issued by the client to indicate that it is done using the trace subsystem (usually clients issue this as part of their exit code).
+- [`/spectcl/trace/establish`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish) is requested first to associated a token with the clietn, and create a trace queue for the client with a retention time.
+- [`/spectcl/trace/fetch`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracefetch) - fetches the trace records that have been queued for the client since the last time this request was issued that are not older than the retention time.
+- [`/spectcl/trace/done`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltracedone)  is issued by the client to indicate that it is done using the trace subsystem (usually clients issue this as part of their exit code).
 
 
 ## [/spectcl/trace/establish](#spectcltraceestablish)
@@ -8222,7 +8222,7 @@ Fetch the traces associated with the client.  This is destructive in the sense t
 ### [Query parameters](#query-parameters-90)
 
 
-- **token** - Value of the token gotten from [[`/spectcl/trace/establish`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish]].
+- **token** - Value of the token gotten from [`/spectcl/trace/establish`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish).
 
 
 ### [Response format detail](#response-format-detail-82)
@@ -8287,7 +8287,7 @@ Stop accumulating trces for a specific client.
 ### [Query parameters](#query-parameters-91)
 
 
-- **token** (unsigned) - Mandatory - the token returned when requesting [[`/spectcl/trace/establish`|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish]].
+- **token** (unsigned) - Mandatory - the token returned when requesting [`/spectcl/trace/establish`](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md#spectcltraceestablish).
 
 
 ### [Response format detail](#response-format-detail-83)
@@ -8320,14 +8320,14 @@ Shared memory provides low overhead, high speed access to the display memory of 
 The mirror service, provided by both SpecTcl and Rustogramer allow software that is not necessarily running in the same system access to this shared memory in an efficient manner.
 
 
-In Linux systems, mirror clients operate by registering a local shared memory region with the server, and setting up a network pipeline to refresh the contents of that local shared memory from the server's shared memory.  Subsequent clients are able to detect, via the [[/spectcl/mirror|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2-mirror.md]] ReST rquest if a shared memory  mirror has already been set up and, if so, simply connect the requesting process to that mirror.
+In Linux systems, mirror clients operate by registering a local shared memory region with the server, and setting up a network pipeline to refresh the contents of that local shared memory from the server's shared memory.  Subsequent clients are able to detect, via the [/spectcl/mirror](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2-mirror.md) ReST rquest if a shared memory  mirror has already been set up and, if so, simply connect the requesting process to that mirror.
 
 
 This section will document:
 
 
-- [[The network application level protocol|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#network-messages]] the client and server exchange with each other.
-- [[The SpecTcl client C++ software available|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#client-software]] for your application.
+- [The network application level protocol](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#network-messages) the client and server exchange with each other.
+- [The SpecTcl client C++ software available](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#client-software) for your application.
 
 
 The actual structure of the shared memory is outside the scope of this document, however the SpecTcl header `xamineDataTypes.h` provides that information.
@@ -8397,7 +8397,7 @@ namespace Mirror {
 
 
 Which is appropriate for SYSV shared memory keys, however, within the SpecTcl and Rustogramer mirror servers it can be any length to accomodate shared memory information for other types of shared memory systems.  See the
-documentation of [[/spectcl/mirror|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md]], and [[/spectcl/shmem|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_shmem.md]] for information about:
+documentation of [/spectcl/mirror](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md), and [/spectcl/shmem](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_shmem.md) for information about:
 
 
 1. How to obtain the shared memory keys that are in use.
@@ -8425,14 +8425,14 @@ The payloads of these messages are just the memory contents.  For a **MSG_TYPE_F
 Client software will need to use both the ReST an Mirror services as the ReST API provides informational data the client will need.
 
 
-- The first thing a client should do is make a ReST request of [[/spectcl/mirror|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md]] and see if the list of existing mirrors includes one for the local host.  Note that hosts may appear in the mirror list in many ways so you may need to do DNS requests to resolve the the host names in the returned data to IP addresses and compare those with the IP addresse(s) of the local system.   If a match is found the client should use the shmkey to map to the shared memory and return the pointer to the application.
+- The first thing a client should do is make a ReST request of [/spectcl/mirror](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md) and see if the list of existing mirrors includes one for the local host.  Note that hosts may appear in the mirror list in many ways so you may need to do DNS requests to resolve the the host names in the returned data to IP addresses and compare those with the IP addresse(s) of the local system.   If a match is found the client should use the shmkey to map to the shared memory and return the pointer to the application.
 - If it is necessary to create a shared memory region, the client will need to use the
   - Form a persistent connection to the mirror server.
-  - use  [[/spectcl/shmem/size|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_shmem.md]] to learn the size of the server's display memory.
+  - use  [/spectcl/shmem/size](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_shmem.md) to learn the size of the server's display memory.
   - Create a shared memory region of that size.
   - Send a **MSG_TYPE_SHMINFO** message to the mirror server.
   - Periodically send **MSG_TYPE_REQUEST_UPDATE** messages to the mirror server and use its response to to update the contents of the mirror.  Note tha the first update request should be sent and processed prior to returning the pointer to the mirror to the application code so that the shared memory has the correct contents prior to use.  You are guaranteed that first update response will be a **MSG_TYPE_FULL_UPDATE**
-  - Maintain a connection to the mirror server as long as the mirror is required.  This is important because once the connection is closed, the mirror server will forget about the remote mirror as far as its replise to [[/spectcl/mirror|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md]].
+  - Maintain a connection to the mirror server as long as the mirror is required.  This is important because once the connection is closed, the mirror server will forget about the remote mirror as far as its replise to [/spectcl/mirror](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md).
 
 
 ## [Client software](#client-software)
@@ -8441,15 +8441,15 @@ Client software will need to use both the ReST an Mirror services as the ReST AP
 SpecTcl and Cutiepie provide mirror client software.
 
 
-- SpecTcl provides a [[mirrorclient|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#the-mirrorclient-program]] application (Linux only)
-- Both SpecTcl and CutiePie provide a [[mirror client library|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#the-mirror-client-library]] for programs to use (Linux and Windows)
+- SpecTcl provides a [mirrorclient](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#the-mirrorclient-program) application (Linux only)
+- Both SpecTcl and CutiePie provide a [mirror client library](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#the-mirror-client-library) for programs to use (Linux and Windows)
 
 
 ### [The mirrorclient program.](#the-mirrorclient-program)
 
 
 The simplest way, in Linux to set up a mirror is to use the
-`$SpecTclHome/bin/mirrorclient` program.  If necessary, it will setup and maintain a mirror.  Your programs, can then use the [[/spectcl/mirror|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md]] ReST service to locate the shared memory of the mirror and map it. The mirrorclient program takes care of updating the mirror periodically.  It has the following command options:
+`$SpecTclHome/bin/mirrorclient` program.  If necessary, it will setup and maintain a mirror.  Your programs, can then use the [/spectcl/mirror](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_mirror.md) ReST service to locate the shared memory of the mirror and map it. The mirrorclient program takes care of updating the mirror periodically.  It has the following command options:
 
 
 - **--host** - Mandatory - the value of this option should be the host in wich the histogram server (SpecTcl or Rustogramer) is running
@@ -8458,7 +8458,7 @@ The simplest way, in Linux to set up a mirror is to use the
 - **--user** - Optional - the name of the user that is running the histogram server.  This defaults to your login name on the client system.
 
 
-Note that once the mirror client program has been run and is maintaining a mirror shared memory, the  [[mirror client library|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#the-mirror-client-library]]  can be used to get a pointer to the mirror in your program.
+Note that once the mirror client program has been run and is maintaining a mirror shared memory, the  [mirror client library](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md#the-mirror-client-library)  can be used to get a pointer to the mirror in your program.
 
 
 ### [The mirror client library.](#the-mirror-client-library)
@@ -8583,8 +8583,8 @@ Then calling `Memory::getMemory(....)` is safe to call more than once, if needed
 Rustogramer installs a Tcl REST API in the /share/restclients/Tcl subdirectory of the installation tree Linux and in the restclients\Tcl directory on windows. To use the packages in that directory add it to the Tcl Library search path.  Two packages are provided:
 
 
-- [[SpecTclRESTClient|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#low-level-package]] - a low level obejct oriented interface.
-- [[SpecTclRestCommand|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#spectcl-command-simulation]] Simulation of SpecTcl commands using the low level REST client software.
+- [SpecTclRESTClient](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#low-level-package) - a low level obejct oriented interface.
+- [SpecTclRestCommand](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#spectcl-command-simulation) Simulation of SpecTcl commands using the low level REST client software.
 
 
 There two ways to get the appropriate subdirectory added to your package search path.  The first is to define
@@ -8982,7 +8982,7 @@ Tcl list of dicts.  Each dict in the  list decribes a fit with the following key
 - *spectrum* - Name of the spectrum the fit is defined on.
 - *type*  - Type of fit.
 - *low*, *high*  Limits of the fit in bins.
-- *parameters*  Dict containing fit parameters computed by the most recent update request.  THe keys in this dict will depend on the fit type, however all fits should provide a **chisquare** key to asess the goodness of the fit.  See the [[Fit ReST request|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_fit.md]] for more information.
+- *parameters*  Dict containing fit parameters computed by the most recent update request.  THe keys in this dict will depend on the fit type, however all fits should provide a **chisquare** key to asess the goodness of the fit.  See the [Fit ReST request](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_2_fit.md) for more information.
 
 
 ### [$client fitProc](#client-fitproc)
@@ -9178,7 +9178,7 @@ $client spectrum clear pattern
 ### [Parameters](#parameters-17)
 
 
-- *pattern* Required glob pattern.  Spectra which match this pattern are cleared.  There is no default, See, however [[spectrumClearAll|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#spectrumClearAll]] below.  Making pattern required supports clearing individual spectra.
+- *pattern* Required glob pattern.  Spectra which match this pattern are cleared.  There is no default, See, however [spectrumClearAll](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#spectrumClearAll) below.  Making pattern required supports clearing individual spectra.
 
 
 Examples:
@@ -9551,7 +9551,7 @@ Reset the modified flag.
 ### [Description](#description-28)
 
 
-Unsets the changed flag of the tree parmaeter (see) [[treeparameterCheck|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-treeparametercheck]] above.
+Unsets the changed flag of the tree parmaeter (see) [treeparameterCheck](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-treeparametercheck) above.
 
 
 ### [Returns](#returns-29)
@@ -9749,7 +9749,7 @@ Create an event filter (SpecTcl).
 SpecTcl filters allow the rapid re-analysis of data subsets.  Data are subsetted by parameters (only some parameters need be written to a filter) and category (only events that make a gate true are written to a filter).  Filter event files, like parameter files are self-describing and do not need to be decoded by user code.  As the decode process is often the most time expensive part of running SpecTcl, analyzing a filter file, even one that contains the entire data-set is significantly faster than analyzing a raw data file.
 
 
-This operation creates a new filter defining its name, the condition which must be met to write an event to the filter and a list of parameters that will be written.  Once created a filter must still be [[associated with an output file|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-filterfile]] and [[enabled|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-filterenable]]for it to write data.
+This operation creates a new filter defining its name, the condition which must be met to write an event to the filter and a list of parameters that will be written.  Once created a filter must still be [associated with an output file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-filterfile) and [enabled](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-filterenable)for it to write data.
 
 
 ### [Returns](#returns-36)
@@ -10559,7 +10559,7 @@ None
 ### [Description](#description-61)
 
 
-Returns the shared memory update period.  See also [[shm_set|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-shmupdate_set]].
+Returns the shared memory update period.  See also [shm_set](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-shmupdate_set).
 
 
 ### [Returns](#returns-63)
@@ -11001,7 +11001,7 @@ List the names of all of the event processing pipelines (SpecTcl Only).
 ### [Description](#description-76)
 
 
-Lists the names (only) of all of the registered event processing pipelines.  Pipelines can be registered programmatically or at run time via [[pmanCreate|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-pmancreate]], or in user C++ code.
+Lists the names (only) of all of the registered event processing pipelines.  Pipelines can be registered programmatically or at run time via [pmanCreate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-pmancreate), or in user C++ code.
 
 
 ### [Returns](#returns-79)
@@ -11297,7 +11297,7 @@ Register an event processor to handle a source id for a an event builder unpacke
 ### [Parameters](#parameters-91)
 
 
-- *name*  - name of the event build event processor created with [[evbCreate|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-evbcreate]] above.
+- *name*  - name of the event build event processor created with [evbCreate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-evbcreate) above.
 - *source* - Integer source id the processor will handle.
 - *processor* - Name of an event processor that will handle that source id.
 
@@ -11337,7 +11337,7 @@ Lists the event builder event processors (SpecTcl only).
 ### [Description](#description-88)
 
 
-Lists the event builder event processors (Those reated via [[evbCreate|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-evbcreate]]) with names that match the pattern.
+Lists the event builder event processors (Those reated via [evbCreate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-evbcreate)) with names that match the pattern.
 
 
 ### [Returns](#returns-91)
@@ -11441,8 +11441,8 @@ Therefore, tracing in Rustogramer and SpecTcl works as follows:
 
 
 1. A client registers interest in trace data by invoking the traceEstablish request.
-2. Periodically, the client polls for new traces by invoking the [[traceFetch|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracefetch]] request.
-3. When no longer interested in trace data (e.g. on exit) the client performs a [[traceDone|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracedone]] request.
+2. Periodically, the client polls for new traces by invoking the [traceFetch](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracefetch) request.
+3. When no longer interested in trace data (e.g. on exit) the client performs a [traceDone](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracedone) request.
 
 
 Clients that have established an interest in traces are given a token to use when polling for traces and when declaring they are done with traces.  In order to prevent the queued trace data from growing without bound if a client never does a traceDone request or  just does not perform traceFetch requests, the ReST server associates a *retention time* with each client/token.  When new trace data arrives, any queued trace data older than a client's retention time is removed fromt he queue.
@@ -11455,7 +11455,7 @@ Therefore the client should set *retention* to a value significantly larger than
 
 
 An integer trace token that should be used to identify iteself when performing
-[[tracFetch|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracefetch]] and [[traceDone|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracedone]] requests.
+[tracFetch](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracefetch) and [traceDone](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-tracedone) requests.
 
 
 Note it is possible for a cilent to outlast a server.  When that happens, the trace token will be invalid and an attemp to do a traceFetch will fail.   What to do at that point depends on the client.  It could re-establish its concept of the server's state and do another traceEstablish or, more usually exit.
@@ -11470,7 +11470,7 @@ Mark no longer interested in trace data.
 ### [Parameters](#parameters-96)
 
 
-- *token*  - The client token returned from [[traceEstablish|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-traceestablish]].
+- *token*  - The client token returned from [traceEstablish](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-traceestablish).
 
 
 ### [Description](#description-92)
@@ -11494,13 +11494,13 @@ Fetch client trace data
 ### [Parameters](#parameters-97)
 
 
-- *token* - the token gotten from [[traceEstablish|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-traceestablish]].
+- *token* - the token gotten from [traceEstablish](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-traceestablish).
 
 
 ### [Description](#description-93)
 
 
-Returns any trace data since the last invokation of traceFetch on this token.  Note that if the time since the last poll was longer than the retention period specified on [[traceEstablish|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-traceestablish]] some traces may be lost.
+Returns any trace data since the last invokation of traceFetch on this token.  Note that if the time since the last poll was longer than the retention period specified on [traceEstablish](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#client-traceestablish) some traces may be lost.
 
 
 ### [Returns](#returns-96)
@@ -11551,8 +11551,8 @@ Applications that are meant to run locally in the SpecTcl interpreter can also b
 This section:
 
 
-- Shows how to [[start up an application that use  SpecTcl command simulation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#how-to-get-started-with-an-existing-application]] and
-- [[Describes the set of supported commands|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#support-for-spectcl-commands]] as well as which ones are not supported by Rustogramer.
+- Shows how to [start up an application that use  SpecTcl command simulation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#how-to-get-started-with-an-existing-application) and
+- [Describes the set of supported commands](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#support-for-spectcl-commands) as well as which ones are not supported by Rustogramer.
 
 
 ### [How to get started with an existing application.](#how-to-get-started-with-an-existing-application)
@@ -11628,7 +11628,7 @@ This wrapping assumes that
 - The application's package name is `APP_PACKAGE`
 
 
-much of the code below is identical to that of the [[previous example|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#wrapping-an-application-using-source]].
+much of the code below is identical to that of the [previous example](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md#wrapping-an-application-using-source).
 
 
 ```tcl
@@ -11770,21 +11770,21 @@ Note that the proc `updateTraces` above will run for the number of milliseconds 
 
 
 Rustogramer also provides a Python ReST client.  This is an object oriented wrapper for the ReST requests supported by Rustogramer and SpecTcl.  In fact, the
-[[GUI|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chapter_4.md]] uses this ReST client library.
+[GUI](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chapter_4.md) uses this ReST client library.
 
 
 This section provides:
 
 
-- Recipies for [[Importing the ReST client|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#importing-the-client]] on Linux and windows.
-- [[Reference for the RustogramerException|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramerexception-reference]] exception class.
-- [[Reference for the rustogramer|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramer-client-reference]] client class.
+- Recipies for [Importing the ReST client](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#importing-the-client) on Linux and windows.
+- [Reference for the RustogramerException](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramerexception-reference) exception class.
+- [Reference for the rustogramer](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramer-client-reference) client class.
 
 
 ## [Importing the client](#importing-the-client)
 
 
-The issue to consider for being able to import the Python ReST is how to set up the import path given the installation base of the Rustogrammer package.  This is because the winddows and linux installer install these in different subdirectories.  Here is sample code that should work in both Windows and Linux to locate and import both the [[RustogramerException|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramerexception-reference]] exception class and the [[client class|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramer-client-reference]]:
+The issue to consider for being able to import the Python ReST is how to set up the import path given the installation base of the Rustogrammer package.  This is because the winddows and linux installer install these in different subdirectories.  Here is sample code that should work in both Windows and Linux to locate and import both the [RustogramerException](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramerexception-reference) exception class and the [client class](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramer-client-reference):
 
 
 The code below assumes the environment variable RG_ROOT contains the top level installation directory for rustogramer.
@@ -11850,7 +11850,7 @@ except RustogramerException as e:
 ## [Rustogramer Client Reference](#rustogramer-client-reference)
 
 
-The `rustogramer_client.rustogramer` class is the client for rustogramer's ReST interface.  Instantiating it provides a client object.  Invoking the methods of that object results in transactions.  Failing transactions raise a [[RustogramerException|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramerexception-reference]] which, if not caught results in program termination.
+The `rustogramer_client.rustogramer` class is the client for rustogramer's ReST interface.  Instantiating it provides a client object.  Invoking the methods of that object results in transactions.  Failing transactions raise a [RustogramerException](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rustogramerexception-reference) which, if not caught results in program termination.
 
 
 - `debug`The rustogramer class provides this class variable to turn on debugging.  This is initialized to `False` if set to be True, the class will output the URIs of the requests it makes. For example
@@ -13208,7 +13208,7 @@ Modify the metadata for an existing parameter.
 
 
 - *name* (string) - name of the parameter.
-- *properties* (dict) - Properties to modify.  See [[parameter_create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_create]] for a description of this parameter.
+- *properties* (dict) - Properties to modify.  See [parameter_create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_create) for a description of this parameter.
 
 
 #### [Returns](#returns-151)
@@ -13230,7 +13230,7 @@ Given a raw parameter promotes it to a tree parameter.  This is only meaningful 
 
 
 - *name* (string) - Name of the parameter.
-- *properties* (dict) - Metadata for the parameter.  See [[parameter_create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_create]] for a description of the metadata keys.
+- *properties* (dict) - Metadata for the parameter.  See [parameter_create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_create) for a description of the metadata keys.
 
 
 #### [Returns](#returns-152)
@@ -13248,7 +13248,7 @@ Nothing useful.
 Returns the check flag for a parameter.  If a parameter's metadata has bee modified, the check flag is set.  This is so that when saving state one can limit the parameter state saved to only those parameters whose definitions have changed at run-time.
 
 
-See also [[parameter_uncheck|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_uncheck]]
+See also [parameter_uncheck](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_uncheck)
 
 
 #### [Parameters](#parameters-154)
@@ -13269,7 +13269,7 @@ See also [[parameter_uncheck|https://github.com/FRIBDAQ/docs/tree/main/rustogram
 #### [Description](#description-151)
 
 
-Unsets the parameter's check flag.  See [[parameter_check|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_check]] for a description of this flag.
+Unsets the parameter's check flag.  See [parameter_check](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_check) for a description of this flag.
 
 
 #### [Parameters](#parameters-155)
@@ -13290,10 +13290,10 @@ Nothing useful.
 #### [Description](#description-152)
 
 
-Create a raw parameter.  This is really different from [[parameter_create|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_create]] only for SpecTcl.  Creates a parameter definition and metadata for a parameter that is *not* a tree parameter.  For SpecTcl, this is an important distinction because these parameters:
+Create a raw parameter.  This is really different from [parameter_create](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_create) only for SpecTcl.  Creates a parameter definition and metadata for a parameter that is *not* a tree parameter.  For SpecTcl, this is an important distinction because these parameters:
 
 
-- Are invisible to [[parameter_list|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_list]], however see [[rawparameter_list_by_name|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rawparameter_list_by_name]] below.
+- Are invisible to [parameter_list](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#parameter_list), however see [rawparameter_list_by_name](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rawparameter_list_by_name) below.
 - Cannot be bound via a `CTreeParameter` object but only accessed programmatically via an index in `CEvent`.
 
 
@@ -13364,7 +13364,7 @@ List the properties of a parameter given it sid.
 #### [Returns](#returns-157)
 
 
-Same as for [[rawparameter_list_byname|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rawparamter_list_byname]].
+Same as for [rawparameter_list_byname](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#rawparamter_list_byname).
 
 
 ### [ringformat_set](#ringformat_set)
@@ -13520,7 +13520,7 @@ None
 
 
 Rustogramer only. Return the spectrum shared memory refresh peiord.
-See [[sbind_set_update_period|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#sbind_set_update_period]] for a description of this value.
+See [sbind_set_update_period](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#sbind_set_update_period) for a description of this value.
 
 
 #### [Parameters](#parameters-165)
@@ -13563,7 +13563,7 @@ Nothing useful.
 
 
 Unbinds a set of spectra from the display shared memory given their spctrum is.  It is preferred to use
-[[unbind_by_names|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#unbind_by_names]].
+[unbind_by_names](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#unbind_by_names).
 
 
 #### [Parameters](#parameters-167)
@@ -13798,7 +13798,7 @@ Create a simple 2-d specturm.  This is  a spectrum of type `2`.  These spectra h
 - *xbins* (unsigned > 0) - Number of bins on the x axis.
 - *ylow*, *yhigh (float) - Low and high limits of the y axis.
 - *ybins* (unsigned > 0) - Number of bins on the Y axis.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-174)
@@ -13823,7 +13823,7 @@ Creates a multiply incremented 1-d spectrum, also called a 1d gamma spectrum.   
 - *parameters* (iterable) - iterable of strings containing the names of the parameters to histogram.
 - *xlow*, *xhigh* (float) - low and high x axis limits.  The y axis is the counts axis.
 - *bins* (unsigned > 0) - Number of bins on the X axis.
-- *chantype* (string) - data type for bins.  See [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for more information about this parameter.
+- *chantype* (string) - data type for bins.  See [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for more information about this parameter.
 
 
 #### [Returns](#returns-175)
@@ -13853,7 +13853,7 @@ If the spectrum is folded, then this increment is for all pairs of parameters th
 - *xbins* (unsigned > 0) - Number of bins on the x axis.
 - *ylow*, *yhigh (float) - Low and high limits of the y axis.
 - *ybins* (unsigned > 0) - Number of bins on the Y axis.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-176)
@@ -13884,7 +13884,7 @@ Suppose, for example, the x parameters are `x1`, `x2`, `x3`, and the Y parameter
 - *xbins* (unsigned > 0) - Number of bins on the x axis.
 - *ylow*, *yhigh (float) - Low and high limits of the y axis.
 - *ybins* (unsigned > 0) - Number of bins on the Y axis.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-177)
@@ -13912,7 +13912,7 @@ If an event makes the gate for that axis true and has parameters `p1, p3, p5` th
 - *parameters* (iterable) - Each element of the iterable is a string, parameter name.  The first element is assigned to x axis bin 0, the second to x axis bin 1 and so on.
 - *low*, *high* (float) - Y axis low and high limits.
 - *bins* (unsigned > 0) - number of Y axis bins.  The number of x axis bins is `len(parameters)`.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 Note that it is the Y axis that is specified.  The X axis is determined by the *parameter* argument and is defined as between 0 and `len(parameters)` with `len(parameters)` bins.
@@ -13946,7 +13946,7 @@ Suppose, for example, we have x parameters (`x1,x2,x3,x4,x5`) and y parameters (
 - *xbins* (unsigned > 0) - Number of bins on the x axis.
 - *ylow*, *yhigh (float) - Low and high limits of the y axis.
 - *ybins* (unsigned > 0) - Number of bins on the Y axis.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-179)
@@ -13978,7 +13978,7 @@ The effect, for monotonic time parameters is that of a strip chart recorder.  No
 - *vertical* (string) -the value parameter name.
 - *low*, *high*, (floats) - initial X axis limits.
 - *bins* (unsigned > 0) - the number of x axis bins.  This remains invariant as the spectrum shifts.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-180)
@@ -14002,7 +14002,7 @@ Create a bitmask spectrum (`b`).  The parameter for this spectrum type is taken 
 - *name* (string) - name of the spectrum.
 - *parameter* (string) - name of the parameter to be histogramed.
 - *bits* (unsigned > 0) - The number of bits in  the parameter.  The axis is then defined with a low of 0, a high if *bits* with *bits* bins.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-181)
@@ -14027,7 +14027,7 @@ Create a *gamma summary* spectrum (type `gs`).  This spectrum can be thought of 
 - *parameters* (iterable) - Each iteration returns an iterable containing the parameters for an x bin.
 - *ylow*, *yhigh* (floats) - Y axis low/high limits.
 - *ybins* (unsigned > 0) - Number of y axis bins.
-- *chantype* (string) - Channel type specification see [[spectrum_create1d|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d]] for a description of this argument.
+- *chantype* (string) - Channel type specification see [spectrum_create1d](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_create1d) for a description of this argument.
 
 
 #### [Returns](#returns-182)
@@ -14103,7 +14103,7 @@ Read spectrum from a file.  Several file formats are supported:
 
 
 - `ascii` format is the SpecTcl ASCII file format and is supported by both SpecTcl and Rustogramer.
-- `json` format is an ASCII JavaScript Object Notation format.  The schema for that is defined [[later in this reference material|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md]].  This format was developed for Rustogramer and retrofitted in to SpecTcl begininng with version 5.13.
+- `json` format is an ASCII JavaScript Object Notation format.  The schema for that is defined [later in this reference material](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_7.md).  This format was developed for Rustogramer and retrofitted in to SpecTcl begininng with version 5.13.
 - `binary` format is a binary format developed by Steven Hanchar many, many years ago and was the spectrum format of the SMAUG analysis program he wrote.  This is only supported by SpecTcl.
 
 
@@ -14134,14 +14134,14 @@ Nothing
 #### [Description](#description-183)
 
 
-Write spectra to file.  See [[spectrum_read|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_read]] for the supported file formats.
+Write spectra to file.  See [spectrum_read](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_read) for the supported file formats.
 
 
 #### [Parameters](#parameters-187)
 
 
 - *filename* (string) - Path to the file to write. Note that this path must make sense in the context of the server as it is the entity that actually does the write.
-- *format* (string) - File format.  see [[spectrum_read|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_read]] for the file formats.
+- *format* (string) - File format.  see [spectrum_read](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#spectrum_read) for the file formats.
 - *spectra* (iterable) - Strings that specify the names of the spectra to write to the file.
 
 
@@ -14662,10 +14662,10 @@ Establish interest in traces and begin accumulation of trace information.  Trace
 - Associates a minimum lifetime for events in the trace queues.
 
 
-When traceable events happen, they are queued in all of the trace queues, and events that are older than the retention time associated with a queue are pruned out of that queue.  This pruning ensures that if a tracing program exits without invoking [[trace_done|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_done]], the data in its trace queue will not grow without bounds.
+When traceable events happen, they are queued in all of the trace queues, and events that are older than the retention time associated with a queue are pruned out of that queue.  This pruning ensures that if a tracing program exits without invoking [trace_done](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_done), the data in its trace queue will not grow without bounds.
 
 
-When done tracing or about to exit, a program should invoke [[trace_done|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_done]] to release the storage associated with the token and destroy the trace queue.  From time to time, the client should invoke [[trace_fetch|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_fetch]] to obtain the contents of the trace queue.  This should be done more often than the retention period else events can be missed.
+When done tracing or about to exit, a program should invoke [trace_done](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_done) to release the storage associated with the token and destroy the trace queue.  From time to time, the client should invoke [trace_fetch](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_fetch) to obtain the contents of the trace queue.  This should be done more often than the retention period else events can be missed.
 
 
 #### [Parameters](#parameters-209)
@@ -14678,7 +14678,7 @@ When done tracing or about to exit, a program should invoke [[trace_done|https:/
 
 
 **detail** Is an unsigned integer called the *trace token* it should be used as the *token* argument for both
-[[trace_done|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_done]] and [[trace_fetch|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_fetch]].
+[trace_done](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_done) and [trace_fetch](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_fetch).
 
 
 ### [trace_done](#trace_done)
@@ -14693,7 +14693,7 @@ Stop saving trace data for the client identified with the trace token.  Once thi
 #### [Parameters](#parameters-210)
 
 
-- *token* (unsigned) - Token returned from the call to [[trace_establish|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_establish]].
+- *token* (unsigned) - Token returned from the call to [trace_establish](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_establish).
 
 
 #### [Returns](#returns-209)
@@ -14714,7 +14714,7 @@ Destructively fetches the contents of a client's trace queue.  Once fetched, the
 #### [Parameters](#parameters-211)
 
 
-- *token* (unsigned) - Token returned from the call to [[trace_establish|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_establish]].
+- *token* (unsigned) - Token returned from the call to [trace_establish](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#trace_establish).
 
 
 #### [Returns](#returns-210)
@@ -14814,7 +14814,7 @@ Nothing
 #### [Description](#description-210)
 
 
-SpecTcl only.  Return the value of the treevariable check flag.  This is set to be true by the [[treevariable_setchanged|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#treevariable_setchanged]] method.  Normally this flag is set when a tree variable is modified.  It allows state change methods to filter the saved tree variable state to only the tree variables that actually changed.
+SpecTcl only.  Return the value of the treevariable check flag.  This is set to be true by the [treevariable_setchanged](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#treevariable_setchanged) method.  Normally this flag is set when a tree variable is modified.  It allows state change methods to filter the saved tree variable state to only the tree variables that actually changed.
 
 
 #### [Parameters](#parameters-214)
@@ -14835,7 +14835,7 @@ SpecTcl only.  Return the value of the treevariable check flag.  This is set to 
 #### [Description](#description-211)
 
 
-SpecTcl only Sets the changed/check flag.  see [[treevariable_check|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#treevariable_check]] for more information aobu this flag.
+SpecTcl only Sets the changed/check flag.  see [treevariable_check](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md#treevariable_check) for more information aobu this flag.
 
 
 #### [Parameters](#parameters-215)
@@ -14957,7 +14957,7 @@ Furthermore, this documentation is also installed at:
 Configuration files are saved by rustogramer in Sqlite3 databases.  Sqlite3 data bases are a single file relational database.  SpecTcl and Rustogramer are both able to recover the analysis configuration from these database files.
 
 
-This section documents the database schema of those files.  Note that [[SpecTcl schema additions|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectcl-schema-additions]] describes the section of the scheme that is only used by SpecTcl.
+This section documents the database schema of those files.  Note that [SpecTcl schema additions](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectcl-schema-additions) describes the section of the scheme that is only used by SpecTcl.
 
 
 This section assumes that you have a basic understanding of relational databases.
@@ -15014,7 +15014,7 @@ The fields in this table are:
 
 
 - *id* - Primary key.  Tables which refer to parameter definitions will use this as the foreign key.
-- *save_id - Foreign key to the [[save_sets|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets]] table.  This is the value of the primary key of the row in that table that identifies which save set this parmaeter definition belongs to.
+- *save_id - Foreign key to the [save_sets](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets) table.  This is the value of the primary key of the row in that table that identifies which save set this parmaeter definition belongs to.
 - *name* - Name of the parameter.
 - *number* - Parameter id used internally to SpecTcl and Rustogramer's histograming engines.
 - *low* - Suggested low axis limit
@@ -15048,7 +15048,7 @@ CREATE TABLE IF NOT EXISTS spectrum_defs
 
 
 - *id* - is the row's primary key.  Parts of the definition in other tables that refer to this spectrum will have the row's primary key as a foreign key.
-- *save_id* - is a foreign key into the [[save_sets|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets]] table. This identifies which save set this definition belongs to.
+- *save_id* - is a foreign key into the [save_sets](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets) table. This identifies which save set this definition belongs to.
 - *name* - is the name of the spectrum being defined.
 - *type* - is the textual type of the spectrum being defined.
 - *datatype* - is the bin data-type of the spectrum being defined.  Note that when recovering configuration written by e.g. Rustogramer in SpecTcl (or the other way around), the restoration code may not honor this datatype as the set of bin datatypes supported by the two programs is disjoint (f64 for rustogramer, and long, short, byte for SpecTcl).
@@ -15075,7 +15075,7 @@ CREATE TABLE IF NOT EXISTS axis_defs
 
 
 - *id* - is the primary key of the row.
-- *spectrum_id* is a foreign key into the [[spectrum_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions]] table indicating which spectrum this axis belongs to.  In a spectrum with two axes, as desdribed above, the one with the smaller value for *id* will be the X axis.
+- *spectrum_id* is a foreign key into the [spectrum_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions) table indicating which spectrum this axis belongs to.  In a spectrum with two axes, as desdribed above, the one with the smaller value for *id* will be the X axis.
 - *low* - Axis low limit.
 - *high* - Axis high limit.
 - *bins* number of bins on the axis.
@@ -15098,8 +15098,8 @@ The set of tables that describe the spectrum parameters reflect the evolution of
 
 
 - *id* - is the primary key of a row in this table.
-- *spectrum_id* is a foreign key from [[spectrum_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions]] wich indicates the spectrum this parameter belongs to.
-- *parameter_id* is a foreign key from [[parameter_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#parameter-definitions]] indicating the parameter.
+- *spectrum_id* is a foreign key from [spectrum_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions) wich indicates the spectrum this parameter belongs to.
+- *parameter_id* is a foreign key from [parameter_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#parameter-definitions) indicating the parameter.
 
 
 To give an idea of how this all hangs together, here's SQL that can grab the names of the X parameters required by the spectrum:
@@ -15122,7 +15122,7 @@ Where
 - :spectrum  -is a saved query parameter that is the name of a specturm.
 
 
-Note how the joins are used to link the rows in the *spectrum_x_params* tables to the [[spectrum_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions]] and [[parameter_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#parameter-definitions]] tables via the foreign keys in *spectrum_x_params*
+Note how the joins are used to link the rows in the *spectrum_x_params* tables to the [spectrum_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions) and [parameter_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#parameter-definitions) tables via the foreign keys in *spectrum_x_params*
 
 
 ### [Condition definitions](#condition-definitions)
@@ -15146,7 +15146,7 @@ CREATE TABLE IF NOT EXISTS gate_defs
 
 
 - *id* - is the gate definition primary key.  This is a foreign key in all of the remaining tables in the Gate schema, tying rows back to the specific condition they describe.
-- *saveset_id* - Foreign key from [[save_sets|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets]] indicating the save set this definition belongw to.
+- *saveset_id* - Foreign key from [save_sets](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets) indicating the save set this definition belongw to.
 - *name* - name of the condition.
 - *type* - condition type code.
 
@@ -15169,7 +15169,7 @@ CREATE TABLE IF NOT EXISTS gate_points
 
 
 - *id* - is the primary key of the point.
-- *gate_id* is a foreign key that contains the primary key of the row in the [[gate_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions]] table of the gate this point belongs to.
+- *gate_id* is a foreign key that contains the primary key of the row in the [gate_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions) table of the gate this point belongs to.
 - *x*, *y*  - are the coordinates of a point.  In the case of a 1-d gate (e.g. a slice), only the *x* coordinate is used and the first point is the low limit, the second the high limit of the acceptance region.
 
 
@@ -15190,8 +15190,8 @@ CREATE TABLE IF NOT EXISTS gate_parameters
 
 
 - *id* the primary key of the row.
-- *parent_gate* - A foreign key that identifies which gate in [[gate_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions]] this parameter belongs to.
-- *parameter_id - A foreign key that identifies which parameter in [[parameter_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#parameter-definitions]] this parameter identifies.
+- *parent_gate* - A foreign key that identifies which gate in [gate_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions) this parameter belongs to.
+- *parameter_id - A foreign key that identifies which parameter in [parameter_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#parameter-definitions) this parameter identifies.
 
 
 #### [Condition dependent gates](#condition-dependent-gates)
@@ -15212,8 +15212,8 @@ Compound conditions, depend on other previously defined condtions. This table pr
 
 
 - *id* - the row's primary key.
-- *parent_gate* - A foreign key into [[gate_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions]] identifying which condition, this condition is a component of.
-- *child_gate* - A foreign key into [[gate_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions]] identifying a condition the condition indicated by *parent_gate* depends on.
+- *parent_gate* - A foreign key into [gate_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions) identifying which condition, this condition is a component of.
+- *child_gate* - A foreign key into [gate_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions) identifying a condition the condition indicated by *parent_gate* depends on.
 
 
 #### [Condition bit masks](#condition-bit-masks)
@@ -15233,7 +15233,7 @@ CREATE TABLE IF NOT EXISTS gate_masks
 
 
 - *id* - primary key of the row.
-- *parent_gate* - foreign key  in [[gate_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions]] identifying which condition this mask belongs to.
+- *parent_gate* - foreign key  in [gate_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions) identifying which condition this mask belongs to.
 - *mask* - The bit mask itself.
 
 
@@ -15258,8 +15258,8 @@ Where
 
 
 - *id* - is the row primary key.
-- *spectrum_id* is a foreign key into [[spectrum_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions]] indicating the spectrum that is being gated.
-- *gate_id* is a foreign key into [[gate_defs|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions]] indicating which condition is the gate.
+- *spectrum_id* is a foreign key into [spectrum_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#spectrum-definitions) indicating the spectrum that is being gated.
+- *gate_id* is a foreign key into [gate_defs](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#condition-definitions) indicating which condition is the gate.
 
 
 ## [SpecTcl Schema Additions](#spectcl-schema-additions)
@@ -15282,7 +15282,7 @@ CREATE TABLE IF NOT EXISTS treevariables
 
 
 - *id* - is the row primary key.
-- *save_id* is a foreign key to [[save_sets|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets]] which indicates the save set that this definition belongs to.
+- *save_id* is a foreign key to [save_sets](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md#save-sets) which indicates the save set that this definition belongs to.
 - *name* - is the name of a tree variable.
 - *value* - nIs the value of the variable.
 - *units* - is the units of measure of the variable.
@@ -15657,7 +15657,7 @@ To install from binaries
 
 - Grab the distribution approprate to your system.
 - Unwrap the tarball using tar xzf ....
-- Follow the instructions in [[Doing the installation|https://github.com/FRIBDAQ/docs/tree/main/rustogramer/apppendix_1.md#doing-the-installation]] above.
+- Follow the instructions in [Doing the installation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/apppendix_1.md#doing-the-installation) above.
 
 
 

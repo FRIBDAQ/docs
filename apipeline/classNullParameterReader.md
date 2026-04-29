@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classNullParameterReader-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classNullParameterReader-members.md)
 
 
 NullParameterReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for NullParameterReader:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for NullParameterReader:
@@ -48,7 +48,7 @@ Collaboration diagram for NullParameterReader:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -73,7 +73,7 @@ Collaboration diagram for NullParameterReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testParinput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testParinput_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[testParinput.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/testParinput_8cpp.md)
 
  contents 
  start footer part 

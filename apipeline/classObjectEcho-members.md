@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 ObjectEcho Member List
 
 header
-This is the complete list of members for [[ObjectEcho|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classObjectEcho.md]], including all inherited members.
+This is the complete list of members for [ObjectEcho](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classObjectEcho.md), including all inherited members.
 
 
 |  |  |  |

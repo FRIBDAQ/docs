@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMyTriggerSorter-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMyTriggerSorter-members.md)
 
 
 CMyTriggerSorter Struct Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CMyTriggerSorter:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CMyTriggerSorter:
@@ -49,7 +49,7 @@ Collaboration diagram for CMyTriggerSorter:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -77,7 +77,7 @@ Collaboration diagram for CMyTriggerSorter:
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[sorttests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/sorttests_8cpp.md]]
+The documentation for this struct was generated from the following file:- base/[sorttests.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/sorttests_8cpp.md)
 
  contents 
  start footer part 

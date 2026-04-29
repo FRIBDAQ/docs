@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 MPIRawToParametersWorker.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawToParametersWorker_8h.md)<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -75,7 +75,7 @@ header
 
 <a name="l00027"></a>   27
 
-<a name="l00028"></a>   28 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
+<a name="l00028"></a>   28 namespace [frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md) {
 
 <a name="l00029"></a>   29     namespace analysis {
 
@@ -89,27 +89,27 @@ header
 
 <a name="l00034"></a>   34         typedef struct _FRIB_MPI_Parameter_Value FRIB_MPI_Parameter_Value;
 
-<a name="l00067"></a>[[67|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]]         class [[CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]] {
+<a name="l00067"></a>[67](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md)         class [CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md) {
 
-<a name="l00068"></a>   68             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& m_App;
+<a name="l00068"></a>   68             [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)& m_App;
 
 <a name="l00069"></a>   69             int          m_rank;
 
-<a name="l00070"></a>   70             [[FRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]]* m_pParameterBuffer;
+<a name="l00070"></a>   70             [FRIB_MPI_Parameter_Value](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md)* m_pParameterBuffer;
 
 <a name="l00071"></a>   71             size_t       m_paramBufferSize;
 
 <a name="l00072"></a>   72         public:
 
-<a name="l00073"></a>   73             [[CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#aff53c2f12054e393131cb4b9fea297b0]]([[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& App);
+<a name="l00073"></a>   73             [CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#aff53c2f12054e393131cb4b9fea297b0)([AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)& App);
 
-<a name="l00074"></a>   74             virtual [[~CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#a63e68aeb99164d97490120af12049ad2]]();
+<a name="l00074"></a>   74             virtual [~CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#a63e68aeb99164d97490120af12049ad2)();
 
-<a name="l00075"></a>   75             virtual void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#ad5f4ca21f243f98d0ed3dc29da46c6a7]](int argc, char** argv);
+<a name="l00075"></a>   75             virtual void [operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#ad5f4ca21f243f98d0ed3dc29da46c6a7)(int argc, char** argv);
 
 <a name="l00076"></a>   76             virtual void initializeUserCode(
 
-<a name="l00077"></a>   77                 int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]& pApp
+<a name="l00077"></a>   77                 int argc, char** argv, [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)& pApp
 
 <a name="l00078"></a>   78             ) {}
 
@@ -119,7 +119,7 @@ header
 
 <a name="l00081"></a>   81             void requestData();
 
-<a name="l00082"></a>   82             void getHeader([[FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]]& header);
+<a name="l00082"></a>   82             void getHeader([FRIB_MPI_Message_Header](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md)& header);
 
 <a name="l00083"></a>   83             void getData(void* pData, size_t nBytes);
 
@@ -143,48 +143,48 @@ header
 
 <a name="l00093"></a>   93 #endif
 
-[[frib::analysis::CMPIRawToParametersWorker::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#aff53c2f12054e393131cb4b9fea297b0]]
+[frib::analysis::CMPIRawToParametersWorker::CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#aff53c2f12054e393131cb4b9fea297b0)
 
 CMPIRawToParametersWorker(AbstractApplication &App)
 
 **Definition:** MPIRawToParametersWorker.cpp:38
 
 
-[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
+[frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::_FRIB_MPI_Parameter_Value|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md]]
+[frib::analysis::_FRIB_MPI_Parameter_Value](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Parameter__Value.md)
 
 **Definition:** AnalysisRingItems.h:151
 
 
-[[frib::analysis::CMPIRawToParametersWorker::~CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#a63e68aeb99164d97490120af12049ad2]]
+[frib::analysis::CMPIRawToParametersWorker::~CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#a63e68aeb99164d97490120af12049ad2)
 
 virtual ~CMPIRawToParametersWorker()
 
 **Definition:** MPIRawToParametersWorker.cpp:48
 
 
-[[frib::analysis::CMPIRawToParametersWorker::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#ad5f4ca21f243f98d0ed3dc29da46c6a7]]
+[frib::analysis::CMPIRawToParametersWorker::operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md#ad5f4ca21f243f98d0ed3dc29da46c6a7)
 
 virtual void operator()(int argc, char **argv)
 
 **Definition:** MPIRawToParametersWorker.cpp:62
 
 
-[[frib::analysis::_FRIB_MPI_Message_Header|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md]]
+[frib::analysis::_FRIB_MPI_Message_Header](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__Message__Header.md)
 
 **Definition:** AnalysisRingItems.h:136
 
 
-[[frib::analysis::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]]
+[frib::analysis::CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md)
 
 **Definition:** MPIRawToParametersWorker.h:67
 
 
-[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
+[frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md)
 
 **Definition:** AbstractApplication.cpp:30
 

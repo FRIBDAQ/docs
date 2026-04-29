@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
-- [[_isListParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__isListParameter.md]]
+- [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md)
+- [_isListParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__isListParameter.md)
 
  top 
 CItemConfiguration::_isListParameter Member List
 
 header
-This is the complete list of members for [[CItemConfiguration::_isListParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__isListParameter.md]], including all inherited members.
+This is the complete list of members for [CItemConfiguration::_isListParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__isListParameter.md), including all inherited members.
 
 
 |  |  |  |

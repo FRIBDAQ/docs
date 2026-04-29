@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTPTest-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTPTest-members.md)
 
 
 TPTest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TPTest:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for TPTest:
@@ -47,7 +47,7 @@ Collaboration diagram for TPTest:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -303,7 +303,7 @@ changed
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[treeparamtests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/treeparamtests_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[treeparamtests.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/treeparamtests_8cpp.md)
 
  contents 
  start footer part 

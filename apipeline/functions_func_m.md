@@ -19,11 +19,11 @@ do not remove this div, it is closed by doxygen!
 ### - m -
 
 - makeDataTypes()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aac8252e5e21c448705b6c63d81e302a9]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aac8252e5e21c448705b6c63d81e302a9)
 - MatchKeyword()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#acb90156fa3596d0ce666df2049328374]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#acb90156fa3596d0ce666df2049328374)
 - messageHeaderType()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a5185ccf668ee2098b0786a057e75f5a9]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a5185ccf668ee2098b0786a057e75f5a9)
 
  contents 
  start footer part 

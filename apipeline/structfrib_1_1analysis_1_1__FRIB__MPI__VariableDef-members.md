@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_FRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]]
+- [_FRIB_MPI_VariableDef](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md)
 
  top 
 frib::analysis::_FRIB_MPI_VariableDef Member List
 
 header
-This is the complete list of members for [[frib::analysis::_FRIB_MPI_VariableDef|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::_FRIB_MPI_VariableDef](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__FRIB__MPI__VariableDef.md), including all inherited members.
 
 
 |  |  |  |

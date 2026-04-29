@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter-members.md)
 
 
 DDASSorter Class Reference
 
 header
 Class to manage data flow and timestamp ordering.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#details)
 
 
 `#include <DDASSorter.h>`
@@ -54,7 +54,7 @@ Class to manage data flow and timestamp ordering.
 Class to manage data flow and timestamp ordering.
 
 
-The [[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md]] class processes ring items:
+The [DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md) class processes ring items:
 
 - Non event ring items are just passed on through.
 - Event items are parsed for hits which are added to the hit manager.
@@ -120,8 +120,8 @@ Get data from CRingBufferChunkAccess and call processChunk to process it.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASSorter.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h_source.md]]
-- [[DDASSorter.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8cpp.md]]
+The documentation for this class was generated from the following files:- [DDASSorter.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h_source.md)
+- [DDASSorter.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8cpp.md)
 
  contents 
  start footer part 

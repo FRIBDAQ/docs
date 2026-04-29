@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 CSyncCommand.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CSyncCommand_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CSyncCommand_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2 *    This software is Copyright by the Board of Trustees of Michigan
@@ -103,13 +103,13 @@ header
 <a name="l00030"></a>   30 class CTCLObject;
 
 
-<a name="l00031"></a>   31 class [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]];
+<a name="l00031"></a>   31 class [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md);
 
 
 <a name="l00032"></a>   32
 
 
-<a name="l00045"></a>[[45|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md]] class [[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md]] : public CTCLObjectProcessor
+<a name="l00045"></a>[45](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md) class [CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md) : public CTCLObjectProcessor
 
 
 <a name="l00046"></a>   46 {
@@ -118,7 +118,7 @@ header
 <a name="l00047"></a>   47 private:
 
 
-<a name="l00048"></a>   48     [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]*  m_pSegment;
+<a name="l00048"></a>   48     [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)*  m_pSegment;
 
 
 <a name="l00049"></a>   49
@@ -127,16 +127,16 @@ header
 <a name="l00050"></a>   50 public:
 
 
-<a name="l00056"></a>   56     [[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#a42adbc35a1418add47e48098665055be]](CTCLInterpreter& interp, [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]* pSeg);
+<a name="l00056"></a>   56     [CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#a42adbc35a1418add47e48098665055be)(CTCLInterpreter& interp, [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)* pSeg);
 
 
-<a name="l00058"></a>   58     virtual [[~CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#ac2696ee814a1cb3e024e2c8c9a6000af]]();
+<a name="l00058"></a>   58     virtual [~CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#ac2696ee814a1cb3e024e2c8c9a6000af)();
 
 
 <a name="l00059"></a>   59
 
 
-<a name="l00068"></a>   68     int [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#aa64fc2bc631ee8394a6434c816fd10ca]](CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
+<a name="l00068"></a>   68     int [operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#aa64fc2bc631ee8394a6434c816fd10ca)(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
 
 
 <a name="l00069"></a>   69 };
@@ -148,21 +148,21 @@ header
 <a name="l00071"></a>   71 #endif
 
 
-[[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]
+[CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)
 
 Derived class for DDAS event segments.
 
 **Definition:** CMyEventSegment.h:31
 
 
-[[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md]]
+[CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md)
 
 Provides the ddas_sync command for the ddas readout program.
 
 **Definition:** CSyncCommand.h:46
 
 
-[[CSyncCommand::CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#a42adbc35a1418add47e48098665055be]]
+[CSyncCommand::CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#a42adbc35a1418add47e48098665055be)
 
 CSyncCommand(CTCLInterpreter &interp, CMyEventSegment *pSeg)
 
@@ -171,7 +171,7 @@ Constructor.
 **Definition:** CSyncCommand.cpp:37
 
 
-[[CSyncCommand::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#aa64fc2bc631ee8394a6434c816fd10ca]]
+[CSyncCommand::operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#aa64fc2bc631ee8394a6434c816fd10ca)
 
 int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
@@ -180,7 +180,7 @@ Gets control when the command is invoked.
 **Definition:** CSyncCommand.cpp:54
 
 
-[[CSyncCommand::~CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#ac2696ee814a1cb3e024e2c8c9a6000af]]
+[CSyncCommand::~CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#ac2696ee814a1cb3e024e2c8c9a6000af)
 
 virtual ~CSyncCommand()
 

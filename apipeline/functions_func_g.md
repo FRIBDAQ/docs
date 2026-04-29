@@ -19,122 +19,122 @@ do not remove this div, it is closed by doxygen!
 ### - g -
 
 - getArgc()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ab22b8c43f7372537ec1d697f5e7e12a7]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ab22b8c43f7372537ec1d697f5e7e12a7)
 - getArgv()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#afe10b3e1eb7b1db14eba96b2f66ebaac]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#afe10b3e1eb7b1db14eba96b2f66ebaac)
 - getBins()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aed1a62acebf1e4c5c31871f61a20b9ff]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aed1a62acebf1e4c5c31871f61a20b9ff)
 - getBlock()
-  : [[frib::analysis::CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md#ad59897cfd7aa0d0bda1f4f9ccf67f90a]]
+  : [frib::analysis::CDataReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md#ad59897cfd7aa0d0bda1f4f9ccf67f90a)
 - getBody()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a2b70fbe5fdd1c3aebe64611be20fbabf]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a2b70fbe5fdd1c3aebe64611be20fbabf)
 - getBodySize()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a7cae3c81fd012e83bb398ac1f2d9e84a]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a7cae3c81fd012e83bb398ac1f2d9e84a)
 - getBoolParameter()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a343b5dd9b8f3cfd5f16f0783aa1f783a]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a343b5dd9b8f3cfd5f16f0783aa1f783a)
 - getBufferType()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#abf8887f108127d477b8e0bd52b9545e6]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#abf8887f108127d477b8e0bd52b9545e6)
 - getByteOrder()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a020dd5bee592733582f68d7234eca75e]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a020dd5bee592733582f68d7234eca75e)
 - getChannel()
-  : [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7f3d388c5732727b6e88e7bed89bc468]]
+  : [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7f3d388c5732727b6e88e7bed89bc468)
 - GetChannel()
-  : [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md#a405ccebedf3658a5462dc46353f97745]]
+  : [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md#a405ccebedf3658a5462dc46353f97745)
 - GetChannelNames()
-  : [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md#ae78fd7ba41aacabfad93901abc5a7aba]]
+  : [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md#ae78fd7ba41aacabfad93901abc5a7aba)
 - getCommandName()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#abe35e0e56b7ac9f1aae3fb1c28db1a1c]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#abe35e0e56b7ac9f1aae3fb1c28db1a1c)
 - getDecoder()
-  : [[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#aad8826aebadee6d0ddbf5ffb87a5e6e5]]
+  : [frib::analysis::CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#aad8826aebadee6d0ddbf5ffb87a5e6e5)
 - getDefinitions()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a096f7b50387e60c244980f6a1328f6ce]]
-  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#ab4bda3a85e63c3d73eed6095c94a7577]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a096f7b50387e60c244980f6a1328f6ce)
+  , [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#ab4bda3a85e63c3d73eed6095c94a7577)
 - getDopeVector()
-  : [[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#aed7a49b319c3f139f2699145f307ce1d]]
+  : [frib::analysis::CEvent](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#aed7a49b319c3f139f2699145f307ce1d)
 - GetEncoding()
-  : [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae8773009047643e7875da9a023de3a84]]
+  : [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae8773009047643e7875da9a023de3a84)
 - getEntityCount()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a9d791e53b5e1701fe65158e7ffb8c9be]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a9d791e53b5e1701fe65158e7ffb8c9be)
 - getEvent()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a47954cf33d99ffcfd5ed0267b211907d]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a47954cf33d99ffcfd5ed0267b211907d)
 - getEventThreshold()
-  : [[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#af744930b3fdd9a075427f516709f81ac]]
+  : [frib::analysis::CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#af744930b3fdd9a075427f516709f81ac)
 - getFloatParameter()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#adcfe6a623bdcf0b38066dcfd8a6a3a14]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#adcfe6a623bdcf0b38066dcfd8a6a3a14)
 - getId()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab654767114326936c1be727e0501fef6]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab654767114326936c1be727e0501fef6)
 - getInc()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#adf102ebcfc113e4e6fb78d017ee362f5]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#adf102ebcfc113e4e6fb78d017ee362f5)
 - getInfo()
-  : [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#ad466df918560696433e233a4f3ae3844]]
+  : [CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#ad466df918560696433e233a4f3ae3844)
 - getInputFilename()
-  : [[frib::analysis::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a6f33396a8ce46b81894b4ded7de60a17]]
+  : [frib::analysis::CSpecTclWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a6f33396a8ce46b81894b4ded7de60a17)
 - getInstance()
-  : [[CTCLLiveEventLoop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md#afdd8052d562b732550008f0d548d5736]]
+  : [CTCLLiveEventLoop](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md#afdd8052d562b732550008f0d548d5736)
 - getIntegerList()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a8b408716e91d10037ec4ab1f2c656a35]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a8b408716e91d10037ec4ab1f2c656a35)
 - getIntegerParameter()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#acf41f81234b2e21b5a38483f27f525e2]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#acf41f81234b2e21b5a38483f27f525e2)
 - getLamCount()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a14f749c8ed28c2b46a4141e2eccf7a95]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a14f749c8ed28c2b46a4141e2eccf7a95)
 - getListElements()
-  : [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#aaaad89dd3eaf3f8072b8926b6c3fd117]]
+  : [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#aaaad89dd3eaf3f8072b8926b6c3fd117)
 - getName()
-  : [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a27193bd8b235f3f2401e89ba4f43b348]]
-  , [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a293f2fadb94f29a78d1d6793b64cd3a0]]
-  , [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa834a508ae9e48d9eaa96617c3a5f0a4]]
-  , [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a4e33f320d42074dc302adac64ee48656]]
-  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a55f6f61dba41c42c158665f19b4e37ec]]
+  : [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a27193bd8b235f3f2401e89ba4f43b348)
+  , [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a293f2fadb94f29a78d1d6793b64cd3a0)
+  , [CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#aa834a508ae9e48d9eaa96617c3a5f0a4)
+  , [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a4e33f320d42074dc302adac64ee48656)
+  , [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a55f6f61dba41c42c158665f19b4e37ec)
 - getNames()
-  : [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#aa89229d3d9d30dc8763c5178d2bc8971]]
+  : [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#aa89229d3d9d30dc8763c5178d2bc8971)
 - getOutputFile()
-  : [[frib::analysis::CMPIParameterOutput|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md#a7c914f0f1614b4fdfecf6c25883692ec]]
+  : [frib::analysis::CMPIParameterOutput](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md#a7c914f0f1614b4fdfecf6c25883692ec)
 - getPackage()
-  : [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8a1e68a10499e29a19a0c423d417d1c8]]
+  : [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8a1e68a10499e29a19a0c423d417d1c8)
 - getParametersInEvent()
-  : [[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a509049f2ad5f14d05b3c882de2062e16]]
+  : [frib::analysis::CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a509049f2ad5f14d05b3c882de2062e16)
 - getPatternCount()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a87e078d3632d0131f4fb3ba0c4def6a7]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a87e078d3632d0131f4fb3ba0c4def6a7)
 - getProgramArguments()
-  : [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#a5067209bd356af56d6b66d04aceecb3c]]
+  : [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#a5067209bd356af56d6b66d04aceecb3c)
 - getRange()
-  : [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a2bd426580e66abaaefb685cac5b4444c]]
+  : [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a2bd426580e66abaaefb685cac5b4444c)
 - getRequest()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aba659c2561ee078e0b4969d770f8d011]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#aba659c2561ee078e0b4969d770f8d011)
 - getRun()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a63f817308c2a7fbf07ec9ed4582a3e07]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a63f817308c2a7fbf07ec9ed4582a3e07)
 - getScoreboard()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#abefb8699922575955baca9d7aab9585d]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#abefb8699922575955baca9d7aab9585d)
 - getSequenceNo()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a78922a4cf397f06eb6e6346f30d00a98]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#a78922a4cf397f06eb6e6346f30d00a98)
 - getStart()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a1cd97e843b216fc90508dcfbe967989a]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a1cd97e843b216fc90508dcfbe967989a)
 - getStop()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae6b65dd1ef24e45d2f0167040c20c2dc]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ae6b65dd1ef24e45d2f0167040c20c2dc)
 - getStopLatency()
-  : [[CTCLLiveEventLoop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md#a5773655e6162baf7af59a7222cfbe58e]]
+  : [CTCLLiveEventLoop](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md#a5773655e6162baf7af59a7222cfbe58e)
 - getString()
-  : [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a4d1001f148cfa182206d6b681896980c]]
+  : [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a4d1001f148cfa182206d6b681896980c)
 - getThread()
-  : [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#aef856e10505416d4058da94e84adfed8]]
+  : [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#aef856e10505416d4058da94e84adfed8)
 - getTitle()
-  : [[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#ad2eaf8a80feaf9891e97a43eb6777656]]
+  : [frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md#ad2eaf8a80feaf9891e97a43eb6777656)
 - getTraceback()
-  : [[CTCLException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md#ae9596fec984c3731ff5938f3a1c2eca7]]
+  : [CTCLException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException.md#ae9596fec984c3731ff5938f3a1c2eca7)
 - getType()
-  : [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a6149de737aa03c77553c5139e634b69d]]
+  : [CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a6149de737aa03c77553c5139e634b69d)
 - getUnit()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aa08aa3aab539dd9490ae44891e7b3f3c]]
-  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a159bf3d07834a6c0238b8fa31f8868d3]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#aa08aa3aab539dd9490ae44891e7b3f3c)
+  , [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a159bf3d07834a6c0238b8fa31f8868d3)
 - getUnsignedParameter()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a251aaee38c76bfed471e9a0d0a399b08]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a251aaee38c76bfed471e9a0d0a399b08)
 - getValue()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a28f75682ecbe9a047b780735acfe960e]]
-  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#af2ef569aa449b742c53ca59b47ae80f0]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a28f75682ecbe9a047b780735acfe960e)
+  , [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#af2ef569aa449b742c53ca59b47ae80f0)
 - getVariable()
-  : [[frib::analysis::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a948829243569a872126e90a27d06075d]]
+  : [frib::analysis::CMPIParametersToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a948829243569a872126e90a27d06075d)
 - getVariableNames()
-  : [[frib::analysis::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a1aa237b408f975337ef7031e70e1dc5b]]
+  : [frib::analysis::CMPIParametersToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a1aa237b408f975337ef7031e70e1dc5b)
 
  contents 
  start footer part 

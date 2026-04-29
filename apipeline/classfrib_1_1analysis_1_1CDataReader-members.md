@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]
+- [CDataReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md)
 
  top 
 frib::analysis::CDataReader Member List
 
 header
-This is the complete list of members for [[frib::analysis::CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::CDataReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md), including all inherited members.
 
 
 |  |  |  |

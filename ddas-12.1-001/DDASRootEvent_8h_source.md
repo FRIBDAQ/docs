@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [ddasdumper](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md)
 
  top 
 DDASRootEvent.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2   This software is Copyright by the Board of Trustees of Michigan
@@ -97,13 +97,13 @@ header
 <a name="l00028"></a>   28
 
 
-<a name="l00029"></a>   29 class [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]];
+<a name="l00029"></a>   29 class [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md);
 
 
 <a name="l00030"></a>   30
 
 
-<a name="l00058"></a>[[58|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] class [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] : public TObject
+<a name="l00058"></a>[58](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) class [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) : public TObject
 
 
 <a name="l00059"></a>   59 {
@@ -121,40 +121,40 @@ header
 <a name="l00063"></a>   63 public:
 
 
-<a name="l00065"></a>   65     [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ac57f401c1dd4d62f70df10acd7004c80]]();
+<a name="l00065"></a>   65     [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ac57f401c1dd4d62f70df10acd7004c80)();
 
 
-<a name="l00067"></a>   67     [[~DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2e2a511a347634478857e22bcfc01842]]();
+<a name="l00067"></a>   67     [~DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2e2a511a347634478857e22bcfc01842)();
 
 
 <a name="l00068"></a>   68
 
 
-<a name="l00073"></a>   73     [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ac57f401c1dd4d62f70df10acd7004c80]](const [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]& obj);
+<a name="l00073"></a>   73     [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ac57f401c1dd4d62f70df10acd7004c80)(const [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)& obj);
 
 
-<a name="l00079"></a>   79     [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a12148b0d52540c3dd16b821a71465ef6]](const [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]& obj);
+<a name="l00079"></a>   79     [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a12148b0d52540c3dd16b821a71465ef6)(const [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)& obj);
 
 
-<a name="l00084"></a>[[84|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad]]     std::vector<DDASRootHit*>& [[GetData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad]]() { return m_data;}
+<a name="l00084"></a>[84](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad)     std::vector<DDASRootHit*>& [GetData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad)() { return m_data;}
 
 
-<a name="l00089"></a>[[89|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b]]     UInt_t [[GetNHits|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b]]() const { return m_data.size(); }
+<a name="l00089"></a>[89](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b)     UInt_t [GetNHits](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b)() const { return m_data.size(); }
 
 
-<a name="l00094"></a>   94     void [[AddChannelData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2dab895cb0a8aa8cb2f1a6f5a8626749]]([[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]]* channel);
+<a name="l00094"></a>   94     void [AddChannelData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2dab895cb0a8aa8cb2f1a6f5a8626749)([DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md)* channel);
 
 
-<a name="l00099"></a>   99     Double_t [[GetFirstTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abb0d65e6507f4b6e32eabf39501a294f]]() const;
+<a name="l00099"></a>   99     Double_t [GetFirstTime](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abb0d65e6507f4b6e32eabf39501a294f)() const;
 
 
-<a name="l00104"></a>  104     Double_t [[GetLastTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a1355ada3cc269a9a1fa83e794de86c25]]() const;
+<a name="l00104"></a>  104     Double_t [GetLastTime](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a1355ada3cc269a9a1fa83e794de86c25)() const;
 
 
-<a name="l00106"></a>  106     Double_t [[GetTimeWidth|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#aa388c0f4fb6f3343507dbfd8128f0b05]]() const;
+<a name="l00106"></a>  106     Double_t [GetTimeWidth](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#aa388c0f4fb6f3343507dbfd8128f0b05)() const;
 
 
-<a name="l00108"></a>  108     void [[Reset|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abdf1f5f95961215b37ff949376ddd4c6]]();
+<a name="l00108"></a>  108     void [Reset](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abdf1f5f95961215b37ff949376ddd4c6)();
 
 
 <a name="l00109"></a>  109
@@ -166,7 +166,7 @@ header
 <a name="l00111"></a>  111
 
 
-<a name="l00112"></a>[[112|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ae3dd29462b7a17222258fee1f9939001]]     [[ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ae3dd29462b7a17222258fee1f9939001]]([[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]], 1);
+<a name="l00112"></a>[112](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ae3dd29462b7a17222258fee1f9939001)     [ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ae3dd29462b7a17222258fee1f9939001)([DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md), 1);
 
 
 <a name="l00113"></a>  113 };
@@ -178,14 +178,14 @@ header
 <a name="l00117"></a>  117 #endif
 
 
-[[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]
+[DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)
 
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.
 
 **Definition:** DDASRootEvent.h:59
 
 
-[[DDASRootEvent::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a12148b0d52540c3dd16b821a71465ef6]]
+[DDASRootEvent::operator=](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a12148b0d52540c3dd16b821a71465ef6)
 
 DDASRootEvent & operator=(const DDASRootEvent &obj)
 
@@ -194,7 +194,7 @@ Assignment operator.
 **Definition:** DDASRootEvent.cpp:54
 
 
-[[DDASRootEvent::GetLastTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a1355ada3cc269a9a1fa83e794de86c25]]
+[DDASRootEvent::GetLastTime](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a1355ada3cc269a9a1fa83e794de86c25)
 
 Double_t GetLastTime() const
 
@@ -203,7 +203,7 @@ Get timestamp of last channel datum.
 **Definition:** DDASRootEvent.cpp:112
 
 
-[[DDASRootEvent::AddChannelData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2dab895cb0a8aa8cb2f1a6f5a8626749]]
+[DDASRootEvent::AddChannelData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2dab895cb0a8aa8cb2f1a6f5a8626749)
 
 void AddChannelData(DDASRootHit *channel)
 
@@ -212,7 +212,7 @@ Append channel data to event.
 **Definition:** DDASRootEvent.cpp:85
 
 
-[[DDASRootEvent::~DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2e2a511a347634478857e22bcfc01842]]
+[DDASRootEvent::~DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2e2a511a347634478857e22bcfc01842)
 
 ~DDASRootEvent()
 
@@ -221,7 +221,7 @@ Destructor.
 **Definition:** DDASRootEvent.cpp:74
 
 
-[[DDASRootEvent::GetData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad]]
+[DDASRootEvent::GetData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a54d38f4a024608bfee0a03aabff46bad)
 
 std::vector< DDASRootHit * > & GetData()
 
@@ -230,7 +230,7 @@ Access internal, extensible array of channel data.
 **Definition:** DDASRootEvent.h:84
 
 
-[[DDASRootEvent::GetTimeWidth|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#aa388c0f4fb6f3343507dbfd8128f0b05]]
+[DDASRootEvent::GetTimeWidth](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#aa388c0f4fb6f3343507dbfd8128f0b05)
 
 Double_t GetTimeWidth() const
 
@@ -239,7 +239,7 @@ Get time difference between first and last channel data.
 **Definition:** DDASRootEvent.cpp:127
 
 
-[[DDASRootEvent::GetFirstTime|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abb0d65e6507f4b6e32eabf39501a294f]]
+[DDASRootEvent::GetFirstTime](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abb0d65e6507f4b6e32eabf39501a294f)
 
 Double_t GetFirstTime() const
 
@@ -248,7 +248,7 @@ Get timestamp of first channel datum.
 **Definition:** DDASRootEvent.cpp:96
 
 
-[[DDASRootEvent::Reset|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abdf1f5f95961215b37ff949376ddd4c6]]
+[DDASRootEvent::Reset](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abdf1f5f95961215b37ff949376ddd4c6)
 
 void Reset()
 
@@ -257,7 +257,7 @@ Clear data vector and reset the event.
 **Definition:** DDASRootEvent.cpp:137
 
 
-[[DDASRootEvent::DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ac57f401c1dd4d62f70df10acd7004c80]]
+[DDASRootEvent::DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ac57f401c1dd4d62f70df10acd7004c80)
 
 DDASRootEvent()
 
@@ -266,7 +266,7 @@ Default constructor.
 **Definition:** DDASRootEvent.cpp:28
 
 
-[[DDASRootEvent::GetNHits|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b]]
+[DDASRootEvent::GetNHits](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b)
 
 UInt_t GetNHits() const
 
@@ -275,12 +275,12 @@ Return the number of hits in this event.
 **Definition:** DDASRootEvent.h:89
 
 
-[[DDASRootEvent::ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ae3dd29462b7a17222258fee1f9939001]]
+[DDASRootEvent::ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ae3dd29462b7a17222258fee1f9939001)
 
 ClassDef(DDASRootEvent, 1)
 
 
-[[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]]
+[DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md)
 
 Encapsulation of a generic DDAS hit with added capabilities for writing to ROOT files.
 

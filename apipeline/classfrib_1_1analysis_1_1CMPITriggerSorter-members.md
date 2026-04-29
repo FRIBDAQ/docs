@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPITriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md]]
+- [CMPITriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md)
 
  top 
 frib::analysis::CMPITriggerSorter Member List
 
 header
-This is the complete list of members for [[frib::analysis::CMPITriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::CMPITriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md), including all inherited members.
 
 
 |  |  |  |

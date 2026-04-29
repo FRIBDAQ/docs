@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Reverse Member List
 
 header
-This is the complete list of members for [[Reverse|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md]], including all inherited members.
+This is the complete list of members for [Reverse](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md), including all inherited members.
 
 
 |  |  |  |

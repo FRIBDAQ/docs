@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData-members.md)
 
 
 QHitData Class Reference
 
 header
 Widget for managing hit information when interating with the GUI.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md#details)
 
 
 `#include <QHitData.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for QHitData:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 Collaboration diagram for QHitData:
@@ -57,7 +57,7 @@ Collaboration diagram for QHitData:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 |  |  |
@@ -108,7 +108,7 @@ Constructor.
   | parent | Pointer to QWidget parent object (optional). |
 
 
-Constructs [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md]] widgets and defines their layout. This class does not manage the [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]] object.
+Constructs [QHitData](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQHitData.md) widgets and defines their layout. This class does not manage the [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md) object.
 
 
 
@@ -122,7 +122,7 @@ Constructs [[QHitData|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000
 Destructor.
 
 
-Destruction of [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]] is left to the caller which owns it.
+Destruction of [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md) is left to the caller which owns it.
 
 
 ## Member Function Documentation
@@ -174,8 +174,8 @@ Update hit data and enable printing of fit information to stdout if the hit has 
 
 ---
 
-The documentation for this class was generated from the following files:- [[QHitData.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QHitData_8h_source.md]]
-- [[QHitData.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QHitData_8cpp.md]]
+The documentation for this class was generated from the following files:- [QHitData.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QHitData_8h_source.md)
+- [QHitData.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QHitData_8cpp.md)
 
  contents 
  start footer part 

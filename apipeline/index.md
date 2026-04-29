@@ -31,7 +31,7 @@ Furthermore a SpecTcl jacket allows you to easily port SpecTcl event processors 
 Many experiments go through the same set of initial analysis steps:
 
 
-- [[Raw|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classRaw.md]] events are processed to produce a set of parameters. This processing can be a simple decoding of the data or involve more complex operations such as digital signal processing on digitizer waveforms saved in each event.
+- [Raw](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classRaw.md) events are processed to produce a set of parameters. This processing can be a simple decoding of the data or involve more complex operations such as digital signal processing on digitizer waveforms saved in each event.
 - Decoded parameters may be further processed to produce physically meaningful values. For example ADC values can be turned ito energies by applying some parameterized calibration function to the raw value. Opening angles might be computed between hits in two parts of a detector system etc.
 - Parameter data is binned into histograms. This may involve applying complex conditions across several parameters to determine if a histogram should be incremented from its underlying parameters in any event. This is the sort of thing that SpecTcl does well.
 - Information is extracted from histoigrams and used as input when writing papers about the experiment.
@@ -71,20 +71,20 @@ These experiments can still take advantage of parallelism in two ways:
 ### Where to go for more information:
 
 
-- [[Parameter Representation|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_treeparameterinfo.md#treeparams]] Internal parameter representation
-- [[Tree Variables|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_treeparameterinfo.md#treevars]] Steering variables.
-- [[The Application Class|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_application.md#appclass]]
-- [[Distributing tree definitions.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_treeparameterinfo.md#treereader]] Parameter Definition reader
-- [[Raw events to parameters|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparams]]- [[Writing the Raw to parameter worker.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparamworker]]
-  - [[Writing the application|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparamapp]]
-  - [[Writing the main program.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparammain]]
-  - [[Parameter file format.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramfileformat.md#paramfileformat]]
-  - [[SpecTcl compatibility software|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_spectclworker.md#spectclworker]]
-  - [[Compiling and running the application|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_buildandrunraw.md#compileandrunrawtoparams]]
+- [Parameter Representation](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_treeparameterinfo.md#treeparams) Internal parameter representation
+- [Tree Variables](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_treeparameterinfo.md#treevars) Steering variables.
+- [The Application Class](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_application.md#appclass)
+- [Distributing tree definitions.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_treeparameterinfo.md#treereader) Parameter Definition reader
+- [Raw events to parameters](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparams)- [Writing the Raw to parameter worker.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparamworker)
+  - [Writing the application](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparamapp)
+  - [Writing the main program.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_rawtoparameters.md#rawtoparammain)
+  - [Parameter file format.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramfileformat.md#paramfileformat)
+  - [SpecTcl compatibility software](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_spectclworker.md#spectclworker)
+  - [Compiling and running the application](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_buildandrunraw.md#compileandrunrawtoparams)
 - paramstoparams- parametermapping
-  - [[The Parameter to Parmaeter Worker.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramparamworker.md#paramparamworker]]
-  - [[Writing the Parameter to Parameter application.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramparamapp.md#paramparamapp]] The parameter to parameter application.
-  - [[Compiling and Running Parameter to Parameter Stages|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramparamcompileandrun.md#paramparamcompileandrun]] compiling and running parameter to parameter stages of the pipeline.
+  - [The Parameter to Parmaeter Worker.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramparamworker.md#paramparamworker)
+  - [Writing the Parameter to Parameter application.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramparamapp.md#paramparamapp) The parameter to parameter application.
+  - [Compiling and Running Parameter to Parameter Stages](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md_pages_paramparamcompileandrun.md#paramparamcompileandrun) compiling and running parameter to parameter stages of the pipeline.
 
  contents 
  start footer part 

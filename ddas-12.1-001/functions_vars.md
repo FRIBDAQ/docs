@@ -17,55 +17,55 @@ do not remove this div, it is closed by doxygen!
 
 
 - m_pFactory
-  : [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6f0912454e4f3444260ed98272d3b7d5]]
+  : [DataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a6f0912454e4f3444260ed98272d3b7d5)
 - s_adcFrequency
-  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#a78c9c299f87a5797a1141a5c6d0b3cfc]]
+  : [DAQ::DDAS::HardwareRegistry::HardwareSpecification](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#a78c9c299f87a5797a1141a5c6d0b3cfc)
 - s_adcResolution
-  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#ae0fb0d5514937c46ff03c8cb03dcf9f4]]
+  : [DAQ::DDAS::HardwareRegistry::HardwareSpecification](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#ae0fb0d5514937c46ff03c8cb03dcf9f4)
 - s_chanid
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a501cd8167cec55226136d15f95f16e20]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a501cd8167cec55226136d15f95f16e20)
 - s_channelLength
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a743cf78929046df7979c98c2ce54d246]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a743cf78929046df7979c98c2ce54d246)
 - s_clockCalibration
-  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#a94922506cc2854d2deac058ed92db50e]]
+  : [DAQ::DDAS::HardwareRegistry::HardwareSpecification](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#a94922506cc2854d2deac058ed92db50e)
 - s_ComFPGAConfigFile
-  : [[DAQ::DDAS::FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#a92250055e14814cf465ab933cc2ab579]]
+  : [DAQ::DDAS::FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#a92250055e14814cf465ab933cc2ab579)
 - s_cumulative
-  : [[CMyScaler::_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964]]
+  : [CMyScaler::_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964)
 - s_data
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afd457d4da3c346e4477362f63b1c332d]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#afd457d4da3c346e4477362f63b1c332d)
 - s_DSPCodeFile
-  : [[DAQ::DDAS::FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#a7c26c07d865362925aa6adeca751a644]]
+  : [DAQ::DDAS::FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#a7c26c07d865362925aa6adeca751a644)
 - s_DSPVarFile
-  : [[DAQ::DDAS::FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#adf5f7ca8f9268e6e828616f150d4cc7e]]
+  : [DAQ::DDAS::FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#adf5f7ca8f9268e6e828616f150d4cc7e)
 - s_hdwrRevision
-  : [[DAQ::DDAS::HardwareRegistry::HardwareSpecification|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#a178a1b2fb109e65c47c9714dd0a2e37a]]
+  : [DAQ::DDAS::HardwareRegistry::HardwareSpecification](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md#a178a1b2fb109e65c47c9714dd0a2e37a)
 - s_moduleType
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af937289721f5495c31218fafbba551fe]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af937289721f5495c31218fafbba551fe)
 - s_nAcceptedTriggers
-  : [[CMyScaler::_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83]]
+  : [CMyScaler::_Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83)
 - s_nTriggers
-  : [[CMyScaler::_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50]]
+  : [CMyScaler::_Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50)
 - s_ownData
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a14ce9fb1311750d3fbac1615f85af16e]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a14ce9fb1311750d3fbac1615f85af16e)
 - s_ownDataSize
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acc8e94d864512ee4a620494967758f6c]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#acc8e94d864512ee4a620494967758f6c)
 - s_pData
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a012df4ee5f2e5f4ca90c3d562c90db92)
 - s_perRun
-  : [[CMyScaler::_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356]]
+  : [CMyScaler::_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356)
 - s_rawEvent
-  : [[CMyEndCommand::EndEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73]]
+  : [CMyEndCommand::EndEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73)
 - s_references
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0298089bbe30665745d6cdad36fbce56]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a0298089bbe30665745d6cdad36fbce56)
 - s_size
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a562a56d236c091e6cc67d6dbe50e3add]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a562a56d236c091e6cc67d6dbe50e3add)
 - s_SPFPGAConfigFile
-  : [[DAQ::DDAS::FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#a6d011c5537bcf7e14de6e5eac8b436d6]]
+  : [DAQ::DDAS::FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#a6d011c5537bcf7e14de6e5eac8b436d6)
 - s_thisPtr
-  : [[CMyEndCommand::EndEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10]]
+  : [CMyEndCommand::EndEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10)
 - s_time
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a99390756b2ad85cd0533216f5d818ee0]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a99390756b2ad85cd0533216f5d818ee0)
 
  contents 
  start footer part 

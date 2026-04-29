@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 CMyEndCommand.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8h.md]]<a name="l00001"></a>    1
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8h.md)<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef MYEND_H
@@ -55,7 +55,7 @@ header
 <a name="l00013"></a>   13 class CTCLObject;
 
 
-<a name="l00014"></a>   14 class [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]];
+<a name="l00014"></a>   14 class [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md);
 
 
 <a name="l00015"></a>   15 class CExperiment;
@@ -64,7 +64,7 @@ header
 <a name="l00016"></a>   16
 
 
-<a name="l00022"></a>[[22|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]] class [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]] : public CEndCommand
+<a name="l00022"></a>[22](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md) class [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md) : public CEndCommand
 
 
 <a name="l00023"></a>   23 {
@@ -73,13 +73,13 @@ header
 <a name="l00024"></a>   24   public:
 
 
-<a name="l00026"></a>[[26|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md]]     struct [[EndEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md]] {
+<a name="l00026"></a>[26](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md)     struct [EndEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md) {
 
 
-<a name="l00027"></a>[[27|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73]]     Tcl_Event      [[s_rawEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73]];
+<a name="l00027"></a>[27](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73)     Tcl_Event      [s_rawEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73);
 
 
-<a name="l00028"></a>[[28|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10]]     [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]* [[s_thisPtr|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10]];
+<a name="l00028"></a>[28](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10)     [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)* [s_thisPtr](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10);
 
 
 <a name="l00029"></a>   29     };
@@ -91,7 +91,7 @@ header
 <a name="l00031"></a>   31 private:
 
 
-<a name="l00032"></a>   32     [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]* m_pSeg;
+<a name="l00032"></a>   32     [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)* m_pSeg;
 
 
 <a name="l00033"></a>   33     CExperiment*     m_pExp;
@@ -106,16 +106,16 @@ header
 <a name="l00036"></a>   36 public:
 
 
-<a name="l00043"></a>   43     [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a38240db1238d36737488f4efc7d05461]](
+<a name="l00043"></a>   43     [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a38240db1238d36737488f4efc7d05461)(
 
 
-<a name="l00044"></a>   44     CTCLInterpreter& interp, [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]* pSeg, CExperiment* pExp
+<a name="l00044"></a>   44     CTCLInterpreter& interp, [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)* pSeg, CExperiment* pExp
 
 
 <a name="l00045"></a>   45     );
 
 
-<a name="l00047"></a>   47     [[~CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2e34053008620bebb9036c38c302e854]] ();
+<a name="l00047"></a>   47     [~CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2e34053008620bebb9036c38c302e854) ();
 
 
 <a name="l00048"></a>   48
@@ -124,16 +124,16 @@ header
 <a name="l00049"></a>   49 private:
 
 
-<a name="l00054"></a>   54     [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a38240db1238d36737488f4efc7d05461]](const [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]& rhs);
+<a name="l00054"></a>   54     [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a38240db1238d36737488f4efc7d05461)(const [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)& rhs);
 
 
-<a name="l00060"></a>   60     [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]& operator=(const [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]] &rhs);
+<a name="l00060"></a>   60     [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)& operator=(const [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md) &rhs);
 
 
-<a name="l00065"></a>   65     int operator==(const [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]& rhs) const;
+<a name="l00065"></a>   65     int operator==(const [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)& rhs) const;
 
 
-<a name="l00070"></a>   70     int operator!=(const [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]& rhs) const;
+<a name="l00070"></a>   70     int operator!=(const [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)& rhs) const;
 
 
 <a name="l00071"></a>   71
@@ -145,22 +145,22 @@ header
 <a name="l00073"></a>   73 public:
 
 
-<a name="l00074"></a>   74   int [[transitionToInactive|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a19de43c3e32ac03b60071e07000de510]]();
+<a name="l00074"></a>   74   int [transitionToInactive](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a19de43c3e32ac03b60071e07000de510)();
 
 
-<a name="l00075"></a>   75   int [[readOutRemainingData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ae91a657c0c31fbedc2e05d1e9f15869a]]();
+<a name="l00075"></a>   75   int [readOutRemainingData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ae91a657c0c31fbedc2e05d1e9f15869a)();
 
 
-<a name="l00076"></a>   76   int [[endRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a939cf7f6338bfd8e23bd64c33f0a88ba]]();
+<a name="l00076"></a>   76   int [endRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a939cf7f6338bfd8e23bd64c33f0a88ba)();
 
 
-<a name="l00077"></a>   77   void [[rescheduleEndTransition|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a07ba29ac57de01068bbf65a9fe96fd3d]]();
+<a name="l00077"></a>   77   void [rescheduleEndTransition](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a07ba29ac57de01068bbf65a9fe96fd3d)();
 
 
-<a name="l00078"></a>   78   void [[rescheduleEndRead|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#affb0a5fe4e1cd88ae68dd8c1d48acb10]]();
+<a name="l00078"></a>   78   void [rescheduleEndRead](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#affb0a5fe4e1cd88ae68dd8c1d48acb10)();
 
 
-<a name="l00079"></a>   79   virtual int [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ac95ff84701ba86e6889578fd8b61864e]](
+<a name="l00079"></a>   79   virtual int [operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ac95ff84701ba86e6889578fd8b61864e)(
 
 
 <a name="l00080"></a>   80       CTCLInterpreter& interp, std::vector<CTCLObject>& objv
@@ -175,10 +175,10 @@ header
 <a name="l00083"></a>   83 protected:
 
 
-<a name="l00084"></a>   84   static int [[handleEndRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a09112cd8e5b90d673c99f48e340e46f0]](Tcl_Event* pEvt, int flags);
+<a name="l00084"></a>   84   static int [handleEndRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a09112cd8e5b90d673c99f48e340e46f0)(Tcl_Event* pEvt, int flags);
 
 
-<a name="l00085"></a>   85   static int [[handleReadOutRemainingData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2cae62d9b4758c30c8ecd0adc8bfcfbd]](Tcl_Event* pEvt, int flags);
+<a name="l00085"></a>   85   static int [handleReadOutRemainingData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2cae62d9b4758c30c8ecd0adc8bfcfbd)(Tcl_Event* pEvt, int flags);
 
 
 <a name="l00086"></a>   86
@@ -190,42 +190,42 @@ header
 <a name="l00088"></a>   88 #endif
 
 
-[[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]
+[CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)
 
 Provides an end command to override the SBS one.
 
 **Definition:** CMyEndCommand.h:23
 
 
-[[CMyEndCommand::rescheduleEndTransition|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a07ba29ac57de01068bbf65a9fe96fd3d]]
+[CMyEndCommand::rescheduleEndTransition](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a07ba29ac57de01068bbf65a9fe96fd3d)
 
 void rescheduleEndTransition()
 
 **Definition:** CMyEndCommand.cpp:277
 
 
-[[CMyEndCommand::handleEndRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a09112cd8e5b90d673c99f48e340e46f0]]
+[CMyEndCommand::handleEndRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a09112cd8e5b90d673c99f48e340e46f0)
 
 static int handleEndRun(Tcl_Event *pEvt, int flags)
 
 **Definition:** CMyEndCommand.cpp:316
 
 
-[[CMyEndCommand::transitionToInactive|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a19de43c3e32ac03b60071e07000de510]]
+[CMyEndCommand::transitionToInactive](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a19de43c3e32ac03b60071e07000de510)
 
 int transitionToInactive()
 
 **Definition:** CMyEndCommand.cpp:53
 
 
-[[CMyEndCommand::handleReadOutRemainingData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2cae62d9b4758c30c8ecd0adc8bfcfbd]]
+[CMyEndCommand::handleReadOutRemainingData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2cae62d9b4758c30c8ecd0adc8bfcfbd)
 
 static int handleReadOutRemainingData(Tcl_Event *pEvt, int flags)
 
 **Definition:** CMyEndCommand.cpp:328
 
 
-[[CMyEndCommand::~CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2e34053008620bebb9036c38c302e854]]
+[CMyEndCommand::~CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2e34053008620bebb9036c38c302e854)
 
 ~CMyEndCommand()
 
@@ -234,7 +234,7 @@ Destructor.
 **Definition:** CMyEndCommand.cpp:37
 
 
-[[CMyEndCommand::CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a38240db1238d36737488f4efc7d05461]]
+[CMyEndCommand::CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a38240db1238d36737488f4efc7d05461)
 
 CMyEndCommand(CTCLInterpreter &interp, CMyEventSegment *pSeg, CExperiment *pExp)
 
@@ -243,49 +243,49 @@ Constructor.
 **Definition:** CMyEndCommand.cpp:30
 
 
-[[CMyEndCommand::endRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a939cf7f6338bfd8e23bd64c33f0a88ba]]
+[CMyEndCommand::endRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a939cf7f6338bfd8e23bd64c33f0a88ba)
 
 int endRun()
 
 **Definition:** CMyEndCommand.cpp:228
 
 
-[[CMyEndCommand::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ac95ff84701ba86e6889578fd8b61864e]]
+[CMyEndCommand::operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ac95ff84701ba86e6889578fd8b61864e)
 
 virtual int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
 **Definition:** CMyEndCommand.cpp:298
 
 
-[[CMyEndCommand::readOutRemainingData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ae91a657c0c31fbedc2e05d1e9f15869a]]
+[CMyEndCommand::readOutRemainingData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ae91a657c0c31fbedc2e05d1e9f15869a)
 
 int readOutRemainingData()
 
 **Definition:** CMyEndCommand.cpp:124
 
 
-[[CMyEndCommand::rescheduleEndRead|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#affb0a5fe4e1cd88ae68dd8c1d48acb10]]
+[CMyEndCommand::rescheduleEndRead](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#affb0a5fe4e1cd88ae68dd8c1d48acb10)
 
 void rescheduleEndRead()
 
 **Definition:** CMyEndCommand.cpp:284
 
 
-[[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]
+[CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)
 
 Derived class for DDAS event segments.
 
 **Definition:** CMyEventSegment.h:31
 
 
-[[CMyEndCommand::EndEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md]]
+[CMyEndCommand::EndEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md)
 
 Struct encapsulating the command and Tcl event to end the run.
 
 **Definition:** CMyEndCommand.h:26
 
 
-[[CMyEndCommand::EndEvent::s_thisPtr|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10]]
+[CMyEndCommand::EndEvent::s_thisPtr](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a23f8d23c227b70a8b7a5e58dcc80fa10)
 
 CMyEndCommand * s_thisPtr
 
@@ -294,7 +294,7 @@ Pointer to this command.
 **Definition:** CMyEndCommand.h:28
 
 
-[[CMyEndCommand::EndEvent::s_rawEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73]]
+[CMyEndCommand::EndEvent::s_rawEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#a2dc48a2e258de03ae8102782cc514c73)
 
 Tcl_Event s_rawEvent
 

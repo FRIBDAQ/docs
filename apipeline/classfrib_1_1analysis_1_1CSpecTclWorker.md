@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md]]
+- [CSpecTclWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker-members.md)
 
 
 frib::analysis::CSpecTclWorker Class Reference
@@ -45,7 +45,7 @@ Inheritance diagram for frib::analysis::CSpecTclWorker:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for frib::analysis::CSpecTclWorker:
@@ -57,7 +57,7 @@ Collaboration diagram for frib::analysis::CSpecTclWorker:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -91,7 +91,7 @@ Collaboration diagram for frib::analysis::CSpecTclWorker:
 <a name="details"></a>## Detailed Description
 
 
-The generic parallel processing framework supports a worker class that can have its function call operator (operator()) invoked for each ring item in a work block. [[CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md]] extends this class to provide an analysis pipeline much like SpecTcl for ported EventProcessors.
+The generic parallel processing framework supports a worker class that can have its function call operator (operator()) invoked for each ring item in a work block. [CSpecTclWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md) extends this class to provide an analysis pipeline much like SpecTcl for ported EventProcessors.
 
 
 The point is to provde the capability to import unpacking/analysis code from SpecTcl easily into this framework drastically speeding up the initial processing of event data.
@@ -203,7 +203,7 @@ initializeUserCode Use getInputFilename to get the name of the input file and ca
   | app | - application reference. |
 
 
-Reimplemented from [[frib::analysis::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]].
+Reimplemented from [frib::analysis::CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md).
 
 
 
@@ -268,14 +268,14 @@ unpackData Called for each ring item. Invokes the event processor pipeline eleme
   | pData | - pointer to the ring item. |
 
 
-Implements [[frib::analysis::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]].
+Implements [frib::analysis::CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[SpecTclWorker.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/SpecTclWorker_8h_source.md]]
-- spectcl/[[SpecTclWorker.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/SpecTclWorker_8cpp.md]]
+The documentation for this class was generated from the following files:- spectcl/[SpecTclWorker.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/SpecTclWorker_8h_source.md)
+- spectcl/[SpecTclWorker.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/SpecTclWorker_8cpp.md)
 
  contents 
  start footer part 

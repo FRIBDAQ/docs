@@ -19,16 +19,16 @@ do not remove this div, it is closed by doxygen!
 ### - w -
 
 - wait()
-  : [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md#a1ba7597ce5f1afe5cfd23026ad728900]]
+  : [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md#a1ba7597ce5f1afe5cfd23026ad728900)
 - worker()
-  : [[MyApp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyApp.md#a38adff57af78fecf21b79f5a892e9a99]]
-  , [[SortTest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classSortTest.md#a606721e85cdf931fd93da729b3d407f2]]
+  : [MyApp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyApp.md#a38adff57af78fecf21b79f5a892e9a99)
+  , [SortTest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classSortTest.md#a606721e85cdf931fd93da729b3d407f2)
 - Write()
-  : [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ad2716c4fd8dd102c314cc22bf11dc8c6]]
+  : [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ad2716c4fd8dd102c314cc22bf11dc8c6)
 - writeEvent()
-  : [[frib::analysis::CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a9828dc67ca5ac86422d8a6011888fa2f]]
+  : [frib::analysis::CDataWriter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#a9828dc67ca5ac86422d8a6011888fa2f)
 - writeItem()
-  : [[frib::analysis::CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#ab0466f58da7e1289338fac28bdfe3c44]]
+  : [frib::analysis::CDataWriter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md#ab0466f58da7e1289338fac28bdfe3c44)
 
  contents 
  start footer part 

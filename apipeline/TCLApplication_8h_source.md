@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLApplication.h
@@ -107,7 +107,7 @@ header
 
 <a name="l00040"></a>   40
 
-<a name="l00041"></a>[[41|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]] class [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]]  : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+<a name="l00041"></a>[41](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md) class [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md)  : public [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 <a name="l00042"></a>   42 {
 
@@ -121,11 +121,11 @@ header
 
 <a name="l00047"></a>   47
 
-<a name="l00048"></a>   48   [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#ac03ac227764742c8a2ea1f16681e3517]] ();
+<a name="l00048"></a>   48   [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#ac03ac227764742c8a2ea1f16681e3517) ();
 
 <a name="l00049"></a>   49                                   // is linked.
 
-<a name="l00050"></a>   50   ~[[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]] ( ) { }       //Destructor
+<a name="l00050"></a>   50   ~[CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md) ( ) { }       //Destructor
 
 <a name="l00051"></a>   51
 
@@ -135,9 +135,9 @@ header
 
 <a name="l00054"></a>   54
 
-<a name="l00055"></a>   55   [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#ac03ac227764742c8a2ea1f16681e3517]] (const [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]]& aCTCLApplication )   :
+<a name="l00055"></a>   55   [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#ac03ac227764742c8a2ea1f16681e3517) (const [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md)& aCTCLApplication )   :
 
-<a name="l00056"></a>   56     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] (aCTCLApplication)
+<a name="l00056"></a>   56     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) (aCTCLApplication)
 
 <a name="l00057"></a>   57   {
 
@@ -151,7 +151,7 @@ header
 
 <a name="l00062"></a>   62
 
-<a name="l00063"></a>   63   [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]]& operator= (const [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]]& aCTCLApplication)
+<a name="l00063"></a>   63   [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md)& operator= (const [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md)& aCTCLApplication)
 
 <a name="l00064"></a>   64   {
 
@@ -171,7 +171,7 @@ header
 
 <a name="l00072"></a>   72
 
-<a name="l00073"></a>   73   int operator== (const [[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]]& aCTCLApplication)
+<a name="l00073"></a>   73   int operator== (const [CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md)& aCTCLApplication)
 
 <a name="l00074"></a>   74   {
 
@@ -191,11 +191,11 @@ header
 
 <a name="l00082"></a>   82
 
-<a name="l00083"></a>   83   void [[getProgramArguments|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#a5067209bd356af56d6b66d04aceecb3c]](int& argc, char**& argv);
+<a name="l00083"></a>   83   void [getProgramArguments](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#a5067209bd356af56d6b66d04aceecb3c)(int& argc, char**& argv);
 
 <a name="l00084"></a>   84
 
-<a name="l00085"></a>   85   Tcl_ThreadId [[getThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#aef856e10505416d4058da94e84adfed8]]() const;
+<a name="l00085"></a>   85   Tcl_ThreadId [getThread](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#aef856e10505416d4058da94e84adfed8)() const;
 
 <a name="l00086"></a>   86
 
@@ -205,31 +205,31 @@ header
 
 <a name="l00089"></a>   89 #endif
 
-[[CTCLApplication::getProgramArguments|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#a5067209bd356af56d6b66d04aceecb3c]]
+[CTCLApplication::getProgramArguments](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#a5067209bd356af56d6b66d04aceecb3c)
 
 void getProgramArguments(int &argc, char **&argv)
 
 **Definition:** TCLApplication.cpp:154
 
 
-[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md]]
+[CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md)
 
 **Definition:** TCLApplication.h:41
 
 
-[[CTCLApplication::getThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#aef856e10505416d4058da94e84adfed8]]
+[CTCLApplication::getThread](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#aef856e10505416d4058da94e84adfed8)
 
 Tcl_ThreadId getThread() const
 
 **Definition:** TCLApplication.cpp:164
 
 
-[[CTCLApplication::CTCLApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#ac03ac227764742c8a2ea1f16681e3517]]
+[CTCLApplication::CTCLApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLApplication.md#ac03ac227764742c8a2ea1f16681e3517)
 
 CTCLApplication()
 

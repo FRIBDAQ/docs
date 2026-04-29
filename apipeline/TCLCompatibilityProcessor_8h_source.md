@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLCompatibilityProcessor.h
@@ -87,15 +87,15 @@ header
 
 <a name="l00029"></a>   29
 
-<a name="l00030"></a>   30 class [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]];
+<a name="l00030"></a>   30 class [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md);
 
-<a name="l00031"></a>   31 class [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]];
+<a name="l00031"></a>   31 class [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md);
 
-<a name="l00032"></a>   32 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
+<a name="l00032"></a>   32 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);
 
 <a name="l00033"></a>   33
 
-<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]] class [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]] : public [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]
+<a name="l00047"></a>[47](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md) class [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md) : public [CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md)
 
 <a name="l00048"></a>   48 {
 
@@ -105,7 +105,7 @@ header
 
 <a name="l00051"></a>   51
 
-<a name="l00052"></a>   52   [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]]& m_ActualCommand;
+<a name="l00052"></a>   52   [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)& m_ActualCommand;
 
 <a name="l00053"></a>   53
 
@@ -115,9 +115,9 @@ header
 
 <a name="l00056"></a>   56
 
-<a name="l00057"></a>   57   [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#a2c78f91d6e2be970550bf676b6bb12f1]]([[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]]& actualCommand);
+<a name="l00057"></a>   57   [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#a2c78f91d6e2be970550bf676b6bb12f1)([CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)& actualCommand);
 
-<a name="l00058"></a>   58   virtual [[~CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ab59b0d24eed6b7e23e6de3948a0d5bec]]();
+<a name="l00058"></a>   58   virtual [~CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ab59b0d24eed6b7e23e6de3948a0d5bec)();
 
 <a name="l00059"></a>   59
 
@@ -125,13 +125,13 @@ header
 
 <a name="l00061"></a>   61 private:
 
-<a name="l00062"></a>   62   [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#a2c78f91d6e2be970550bf676b6bb12f1]](const [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]& rhs);
+<a name="l00062"></a>   62   [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#a2c78f91d6e2be970550bf676b6bb12f1)(const [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md)& rhs);
 
-<a name="l00063"></a>   63   [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]& operator=(const [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]& rhs);
+<a name="l00063"></a>   63   [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md)& operator=(const [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md)& rhs);
 
-<a name="l00064"></a>   64   int operator==(const [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]& rhs) const;
+<a name="l00064"></a>   64   int operator==(const [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md)& rhs) const;
 
-<a name="l00065"></a>   65   int operator!=(const [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]& rhs) const;
+<a name="l00065"></a>   65   int operator!=(const [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md)& rhs) const;
 
 <a name="l00066"></a>   66 public:
 
@@ -141,11 +141,11 @@ header
 
 <a name="l00069"></a>   69 public:
 
-<a name="l00070"></a>   70   virtual int [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ae25f04c8bf0f229cd652148e611b354c]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& interp,
+<a name="l00070"></a>   70   virtual int [operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ae25f04c8bf0f229cd652148e611b354c)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)& interp,
 
 <a name="l00071"></a>   71              std::vector<CTCLObject>& objv);
 
-<a name="l00072"></a>   72   virtual void [[onUnregister|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#abceaeaf2e5ac8b16675703188ebe7e6e]]();
+<a name="l00072"></a>   72   virtual void [onUnregister](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#abceaeaf2e5ac8b16675703188ebe7e6e)();
 
 <a name="l00073"></a>   73
 
@@ -155,55 +155,55 @@ header
 
 <a name="l00076"></a>   76 #endif
 
-[[CTCLCompatibilityProcessor::onUnregister|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#abceaeaf2e5ac8b16675703188ebe7e6e]]
+[CTCLCompatibilityProcessor::onUnregister](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#abceaeaf2e5ac8b16675703188ebe7e6e)
 
 virtual void onUnregister()
 
 **Definition:** TCLCompatibilityProcessor.cpp:104
 
 
-[[CTCLCompatibilityProcessor::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ae25f04c8bf0f229cd652148e611b354c]]
+[CTCLCompatibilityProcessor::operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ae25f04c8bf0f229cd652148e611b354c)
 
 virtual int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
 **Definition:** TCLCompatibilityProcessor.cpp:67
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]
+[CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md)
 
 **Definition:** TCLObjectProcessor.h:44
 
 
-[[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]]
+[CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)
 
 **Definition:** TCLProcessor.h:46
 
 
-[[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]
+[CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md)
 
 **Definition:** TCLObject.h:50
 
 
-[[CTCLCompatibilityProcessor::~CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ab59b0d24eed6b7e23e6de3948a0d5bec]]
+[CTCLCompatibilityProcessor::~CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#ab59b0d24eed6b7e23e6de3948a0d5bec)
 
 virtual ~CTCLCompatibilityProcessor()
 
 **Definition:** TCLCompatibilityProcessor.cpp:48
 
 
-[[CTCLCompatibilityProcessor::CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#a2c78f91d6e2be970550bf676b6bb12f1]]
+[CTCLCompatibilityProcessor::CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#a2c78f91d6e2be970550bf676b6bb12f1)
 
 CTCLCompatibilityProcessor(CTCLProcessor &actualCommand)
 
 **Definition:** TCLCompatibilityProcessor.cpp:38
 
 
-[[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md]]
+[CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md)
 
 **Definition:** TCLCompatibilityProcessor.h:47
 

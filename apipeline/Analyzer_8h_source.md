@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
+- [spectcl](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md)
 
  top 
 Analyzer.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/Analyzer_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/Analyzer_8h.md)<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -69,7 +69,7 @@ header
 
 <a name="l00024"></a>   24
 
-<a name="l00025"></a>   25 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
+<a name="l00025"></a>   25 namespace [frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md) {
 
 <a name="l00026"></a>   26     namespace analysis {
 
@@ -79,7 +79,7 @@ header
 
 <a name="l00029"></a>   29
 
-<a name="l00041"></a>[[41|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]         class [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]] {
+<a name="l00041"></a>[41](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)         class [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md) {
 
 <a name="l00042"></a>   42         private:
 
@@ -87,35 +87,35 @@ header
 
 <a name="l00044"></a>   44         public:
 
-<a name="l00045"></a>   45             [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4]]();
+<a name="l00045"></a>   45             [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4)();
 
-<a name="l00046"></a>   46             virtual [[~CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a4f42d45808cedf2fbcddf8c0ad56ae10]]();
+<a name="l00046"></a>   46             virtual [~CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a4f42d45808cedf2fbcddf8c0ad56ae10)();
 
-<a name="l00047"></a>   47             [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4]](UInt_t am_nParametersInEvent,
+<a name="l00047"></a>   47             [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4)(UInt_t am_nParametersInEvent,
 
 <a name="l00048"></a>   48                   UInt_t nThreshold = CAnalyzer::m_nDefaultEventThreshold);
 
-<a name="l00049"></a>   49             [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4]](const [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]& aCAnalyzer);
+<a name="l00049"></a>   49             [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4)(const [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)& aCAnalyzer);
 
 <a name="l00050"></a>   50
 
 <a name="l00051"></a>   51             // Operator= Assignment Operator
 
-<a name="l00052"></a>   52             [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a7eb5e3504c5af3ff9570d5c8b15bb3dd]](const [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]& aCAnalyzer);
+<a name="l00052"></a>   52             [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a7eb5e3504c5af3ff9570d5c8b15bb3dd)(const [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)& aCAnalyzer);
 
-<a name="l00053"></a>   53             int operator==(const [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]& aCAnalyzer);
+<a name="l00053"></a>   53             int operator==(const [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)& aCAnalyzer);
 
-<a name="l00054"></a>   54             int operator!=(const [[CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]& aCAnalyzer);
+<a name="l00054"></a>   54             int operator!=(const [CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)& aCAnalyzer);
 
-<a name="l00055"></a>   55             UInt_t [[getEventThreshold|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#af744930b3fdd9a075427f516709f81ac]]() const;
+<a name="l00055"></a>   55             UInt_t [getEventThreshold](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#af744930b3fdd9a075427f516709f81ac)() const;
 
-<a name="l00056"></a>   56             UInt_t [[getParametersInEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a509049f2ad5f14d05b3c882de2062e16]]() const;
+<a name="l00056"></a>   56             UInt_t [getParametersInEvent](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a509049f2ad5f14d05b3c882de2062e16)() const;
 
 <a name="l00057"></a>   57
 
-<a name="l00058"></a>   58             [[CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]* [[getDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#aad8826aebadee6d0ddbf5ffb87a5e6e5]]();
+<a name="l00058"></a>   58             [CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md)* [getDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#aad8826aebadee6d0ddbf5ffb87a5e6e5)();
 
-<a name="l00059"></a>   59             void [[entityNotDone|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a9a98e85cf7d1dfc4969bd074902bf290]]();
+<a name="l00059"></a>   59             void [entityNotDone](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a9a98e85cf7d1dfc4969bd074902bf290)();
 
 <a name="l00060"></a>   60
 
@@ -131,66 +131,66 @@ header
 
 <a name="l00066"></a>   66 #endif
 
-[[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md]]
+[frib::analysis::CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md)
 
 **Definition:** Analyzer.h:41
 
 
-[[frib::analysis::CAnalyzer::getDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#aad8826aebadee6d0ddbf5ffb87a5e6e5]]
+[frib::analysis::CAnalyzer::getDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#aad8826aebadee6d0ddbf5ffb87a5e6e5)
 
 CBufferDecoder * getDecoder()
 
 **Definition:** Analyzer.cpp:73
 
 
-[[frib::analysis::CAnalyzer::getEventThreshold|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#af744930b3fdd9a075427f516709f81ac]]
+[frib::analysis::CAnalyzer::getEventThreshold](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#af744930b3fdd9a075427f516709f81ac)
 
 UInt_t getEventThreshold() const
 
 **Definition:** Analyzer.cpp:57
 
 
-[[frib::analysis::CAnalyzer::getParametersInEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a509049f2ad5f14d05b3c882de2062e16]]
+[frib::analysis::CAnalyzer::getParametersInEvent](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a509049f2ad5f14d05b3c882de2062e16)
 
 UInt_t getParametersInEvent() const
 
 **Definition:** Analyzer.cpp:65
 
 
-[[frib::analysis::CAnalyzer::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a7eb5e3504c5af3ff9570d5c8b15bb3dd]]
+[frib::analysis::CAnalyzer::operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a7eb5e3504c5af3ff9570d5c8b15bb3dd)
 
 CAnalyzer & operator=(const CAnalyzer &aCAnalyzer)
 
 **Definition:** Analyzer.cpp:48
 
 
-[[frib::analysis::CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]
+[frib::analysis::CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md)
 
 **Definition:** BufferDecoder.h:39
 
 
-[[frib::analysis::CAnalyzer::entityNotDone|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a9a98e85cf7d1dfc4969bd074902bf290]]
+[frib::analysis::CAnalyzer::entityNotDone](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a9a98e85cf7d1dfc4969bd074902bf290)
 
 void entityNotDone()
 
 **Definition:** Analyzer.cpp:88
 
 
-[[frib::analysis::CAnalyzer::~CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a4f42d45808cedf2fbcddf8c0ad56ae10]]
+[frib::analysis::CAnalyzer::~CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a4f42d45808cedf2fbcddf8c0ad56ae10)
 
 virtual ~CAnalyzer()
 
 **Definition:** Analyzer.cpp:42
 
 
-[[frib::analysis::CAnalyzer::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4]]
+[frib::analysis::CAnalyzer::CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a17ab4939f6d1e22b463485c05eef14b4)
 
 CAnalyzer()
 
 **Definition:** Analyzer.cpp:33
 
 
-[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
+[frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md)
 
 **Definition:** AbstractApplication.cpp:30
 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex-members.md)
 
 
 CMutex Class Reference
@@ -158,7 +158,7 @@ Unlock the mutex:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLMutex.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLMutex_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[CTCLMutex.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLMutex_8h_source.md)
 - libtclplus/tclplus/CTCLMutex.cpp
 
  contents 

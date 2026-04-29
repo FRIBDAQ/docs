@@ -36,7 +36,7 @@ In order to write an application you'll need to accomplish the tasks in this che
 
 
 - [ ] Write the worker code for your application.
-- [ ] Derive a concrete application from the [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]] abstract base class.
+- [ ] Derive a concrete application from the [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md) abstract base class.
 - [ ] Compile/link your program specifying the correct flags to find the library headers and shared objects that make up the framework.
 - [ ] Use **mpirun** to run your application specifying the desired number of processes to run (and hence the number of workers).
 
@@ -50,13 +50,13 @@ The worker process must request work items from the dealer process. Work items a
 When an input event has been operated on, the resulting set of tree parameters must be forwarded to the farmer, the next stage of the process.
 
 
-All of this requires intimate knowledge of the messaging protocols and data formats for the application when, in reality, you'd really just like to write the event decode code. Fortunately there are a pair of worker program templates you can use. The first: [[frib::analysis::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]] requires only that you fill in a method that operates on a single ring item to fill in the tree parameters that you want to output. This will be describe in this section.
+All of this requires intimate knowledge of the messaging protocols and data formats for the application when, in reality, you'd really just like to write the event decode code. Fortunately there are a pair of worker program templates you can use. The first: [frib::analysis::CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md) requires only that you fill in a method that operates on a single ring item to fill in the tree parameters that you want to output. This will be describe in this section.
 
 
-The second worker; [[frib::analysis::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md]] is designed to make it simple to port SpecTcl analysis pipelines into this parallel framework. This will be described elsehwere ( [[SpecTcl compatibility software|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md__fox_fribanalysis-1_80-000_pages_spectclworker.md#spectclworker]] ).
+The second worker; [frib::analysis::CSpecTclWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md) is designed to make it simple to port SpecTcl analysis pipelines into this parallel framework. This will be described elsehwere ( [SpecTcl compatibility software](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md__fox_fribanalysis-1_80-000_pages_spectclworker.md#spectclworker) ).
 
 
-[[frib::analysis::CMPIRawToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md]] is an abstract base class with a single pure virtual method: **unpackData**, called for each raw event, and an optional virtual method **initializeUserCode** which is called once before the first event is received.
+[frib::analysis::CMPIRawToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawToParametersWorker.md) is an abstract base class with a single pure virtual method: **unpackData**, called for each raw event, and an optional virtual method **initializeUserCode** which is called once before the first event is received.
 
 
 The example below shows how to derive a class from CMPIRawToParametersWorker that unpacks event ring items that contain fixed length events with 16 words that should be unpacked sequentially into a tree parameter array named **parameters**.
@@ -173,13 +173,13 @@ In order to produce a raw to parameter unpacker in the framework you need to pro
 - [ ] Has a dealer that read in the raw event file.
 - [ ] Has a farmer that reorders paramter data.
 - [ ] Has an outputter for parameter data.
-- [ ] Uses your `MyWorker` class written above in [[Writing the Raw to parameter worker.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md__fox_fribanalysis-1_80-000_pages_rawtoparameters.md#rawtoparamworker]]
+- [ ] Uses your `MyWorker` class written above in [Writing the Raw to parameter worker.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md__fox_fribanalysis-1_80-000_pages_rawtoparameters.md#rawtoparamworker)
 
 
 Fortunately the framework library provides code for all but the worker which we wrote.
 
 
-The framework dealer: [[frib::analysis::CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]] reads and deals out data from an event file. The outputter: [[frib::analysis::CMPIParameterOutput|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md]] similarly writes a parameter output file.
+The framework dealer: [frib::analysis::CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md) reads and deals out data from an event file. The outputter: [frib::analysis::CMPIParameterOutput](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md) similarly writes a parameter output file.
 
 
 One concern both of these classes face is how to get the input and output files. Both provide a virtual method; `getInputFile` in the case of CMPIRawReader and `getOutputFile` in the case of CMPIParameterOutput that take as arguments the `argc` and `argv` parameters defining the command line parameters passed to the application and return a string filename path.
@@ -206,7 +206,7 @@ Will set:
 The default implementation of CMPIRawReader::getInputFile will return `argv[1]` while the default implementation of CMPIParameterOutput will return `argv[2]` If this is not suitable then you'll need to derive subclasses that replace these default implementations.
 
 
-Let's get started. We need to derive a sublcass from [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]] that implements the `dealer` `farmer` `outputter` and `worker` classes. For this application, we'll assume that the default file getters are just fine:
+Let's get started. We need to derive a sublcass from [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md) that implements the `dealer` `farmer` `outputter` and `worker` classes. For this application, we'll assume that the default file getters are just fine:
 
 
 #include <AbstractApplication.h>

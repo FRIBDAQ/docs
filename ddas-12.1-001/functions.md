@@ -22,15 +22,15 @@ Here is a list of all class members with links to the classes they belong to:
 ### - a -
 
 - AddChannelData()
-  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2dab895cb0a8aa8cb2f1a6f5a8626749]]
+  : [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2dab895cb0a8aa8cb2f1a6f5a8626749)
 - addCommands()
-  : [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#aac788b9d7f37d4d64683ca810861f3bc]]
+  : [DDASReadoutMain](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#aac788b9d7f37d4d64683ca810861f3bc)
 - addHits()
-  : [[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a35b7f949e1d57122d4c18b2e5c21e5ff]]
+  : [DDASReadout::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a35b7f949e1d57122d4c18b2e5c21e5ff)
 - AdjustOffsets()
-  : [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84]]
+  : [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84)
 - allocate()
-  : [[DDASReadout::BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md#a1e033ab797363a5ecc38647602f1659c]]
+  : [DDASReadout::BufferArena](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md#a1e033ab797363a5ecc38647602f1659c)
 
  contents 
  start footer part 

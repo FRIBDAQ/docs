@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 [Classes](#nested-classes) |
@@ -32,7 +32,7 @@ do not remove this div, it is closed by doxygen!
 treeparamarraytests.cpp File Reference
 
 header
-: Tests [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md]]
+: Tests [frib::analysis::CTreeParameterArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md)
 [More...](#details)
 
 
@@ -79,7 +79,7 @@ Include dependency graph for treeparamarraytests.cpp:
 <a name="details"></a>## Detailed Description
 
 
-: Tests [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md]]
+: Tests [frib::analysis::CTreeParameterArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md)
 
  contents 
  start footer part 

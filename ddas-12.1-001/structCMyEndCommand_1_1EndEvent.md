@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md]]
-- [[EndEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md]]
+- [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md)
+- [EndEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md)
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent-members.md)
 
 
 CMyEndCommand::EndEvent Struct Reference
 
 header
 Struct encapsulating the command and Tcl event to end the run.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyEndCommand_1_1EndEvent.md#details)
 
 
 `#include <CMyEndCommand.h>`
@@ -50,7 +50,7 @@ Collaboration diagram for CMyEndCommand::EndEvent:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -97,7 +97,7 @@ Pointer to this command.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[CMyEndCommand.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8h_source.md]]
+The documentation for this struct was generated from the following file:- [CMyEndCommand.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8h_source.md)
 
  contents 
  start footer part 

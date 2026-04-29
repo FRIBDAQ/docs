@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md]]
+- [CudaFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1-members.md)
 
 
 ddastoys::analyticfit::CudaFitEngine1 Class Reference
 
 header
 CUDA-aware fit engine for analytic single pulse fits.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md#details)
 
 
 `#include <jacobian_analytic.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::analyticfit::CudaFitEngine1:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 Collaboration diagram for ddastoys::analyticfit::CudaFitEngine1:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::analyticfit::CudaFitEngine1:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 |  |  |
@@ -113,7 +113,7 @@ The concept is that each GSL lmfitter can supply a pair of methods: One that com
 Finally a fit factory can generate the appropriate fit engine as desired by the actual fit.
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000003]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000003)**
   (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
 
 ## Constructor & Destructor Documentation
@@ -174,7 +174,7 @@ Invoke the kernal to do the pointwise parallel Jacobian computation.
 We use a Y size of 32 and x size of npts+31/32. That is one warp wide.
 
 
-Implements [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6]].
+Implements [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6).
 
 
 
@@ -198,14 +198,14 @@ Triggers a pointwise parallel residual kernel in the device and impedance matche
   | r | Residual vector. |
 
 
-Implements [[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d]].
+Implements [ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[jacobian_analytic.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/jacobian__analytic_8h_source.md]]
-- [[CudaFitEngineAnalytic.cu|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CudaFitEngineAnalytic_8cu.md]]
+The documentation for this class was generated from the following files:- [jacobian_analytic.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/jacobian__analytic_8h_source.md)
+- [CudaFitEngineAnalytic.cu](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CudaFitEngineAnalytic_8cu.md)
 
  contents 
  start footer part 

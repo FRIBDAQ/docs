@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException-members.md)
 
 
 CStateException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CStateException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CStateException:
@@ -51,7 +51,7 @@ Collaboration diagram for CStateException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -203,7 +203,7 @@ Equality comparison... if base class and reason text are the same.
 Reason code is always meaningless so we return a -1.
 
 
-Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
+Reimplemented from [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md).
 
 
 
@@ -227,13 +227,13 @@ Return the reason for the exception. This was stored at construction time in m_R
   | m_Reason.c_str() |  |
 
 
-Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
+Reimplemented from [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[StateException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/StateException_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[StateException.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/StateException_8h_source.md)
 - libtclplus/exception/StateException.cpp
 
  contents 

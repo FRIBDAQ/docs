@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
 libDDASDataSimulator.so
 
 header
-Data simulation library for [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]].  
+Data simulation library for [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md).  
 [More...](#details)
 
 
@@ -37,10 +37,10 @@ Data simulation library for [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/dda
 <a name="details"></a>## Detailed Description
 
 
-Data simulation library for [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]].
+Data simulation library for [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md).
 
 
-The [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] data simulation library allows users to write NSCLDAQ event data with DDAS-style payloads to disk from any external program e.g., Geant4.
+The [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md) data simulation library allows users to write NSCLDAQ event data with DDAS-style payloads to disk from any external program e.g., Geant4.
 
  contents 
  start footer part 

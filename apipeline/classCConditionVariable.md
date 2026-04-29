@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable-members.md)
 
 
 CConditionVariable Class Reference
@@ -265,7 +265,7 @@ Same as above, but with a bare Pthread mutex.
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLConditionVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLConditionVariable_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[CTCLConditionVariable.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLConditionVariable_8h_source.md)
 - libtclplus/tclplus/CTCLConditionVariable.cpp
 
  contents 

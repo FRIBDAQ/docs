@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classevttclsh-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classevttclsh-members.md)
 
 
 evttclsh Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for evttclsh:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for evttclsh:
@@ -50,7 +50,7 @@ Collaboration diagram for evttclsh:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |

@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLString Member List
 
 header
-This is the complete list of members for [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md]], including all inherited members.
+This is the complete list of members for [CTCLString](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md), including all inherited members.
 
 
 |  |  |  |

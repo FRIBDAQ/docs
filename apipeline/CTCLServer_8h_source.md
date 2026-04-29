@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 CTCLServer.h
@@ -77,13 +77,13 @@ header
 
 <a name="l00024"></a>   24
 
-<a name="l00025"></a>   25 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
+<a name="l00025"></a>   25 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);
 
-<a name="l00026"></a>   26 class [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]];
+<a name="l00026"></a>   26 class [CTCLTcpServerInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md);
 
 <a name="l00027"></a>   27
 
-<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]] class [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]
+<a name="l00048"></a>[48](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md) class [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)
 
 <a name="l00049"></a>   49 {
 
@@ -91,7 +91,7 @@ header
 
 <a name="l00051"></a>   51 private:
 
-<a name="l00052"></a>   52   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]*               m_pInterpreter;
+<a name="l00052"></a>   52   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)*               m_pInterpreter;
 
 <a name="l00053"></a>   53   int                            m_nPort;
 
@@ -107,21 +107,21 @@ header
 
 <a name="l00059"></a>   59 public:
 
-<a name="l00060"></a>   60   [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a0794a68c597681bd8977e4efb3903447]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp, int port);
+<a name="l00060"></a>   60   [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a0794a68c597681bd8977e4efb3903447)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp, int port);
 
-<a name="l00061"></a>   61   virtual [[~CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#ad45fe491767f7b96dfb8a55d8013906f]]();
+<a name="l00061"></a>   61   virtual [~CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#ad45fe491767f7b96dfb8a55d8013906f)();
 
 <a name="l00062"></a>   62
 
 <a name="l00063"></a>   63 private:
 
-<a name="l00064"></a>   64   [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a0794a68c597681bd8977e4efb3903447]](const [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]&);
+<a name="l00064"></a>   64   [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a0794a68c597681bd8977e4efb3903447)(const [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)&);
 
-<a name="l00065"></a>   65   [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]& operator=(const [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]&);
+<a name="l00065"></a>   65   [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)& operator=(const [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)&);
 
-<a name="l00066"></a>   66   int operator==(const [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]&) const;
+<a name="l00066"></a>   66   int operator==(const [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)&) const;
 
-<a name="l00067"></a>   67   int operator!=(const [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]&) const;
+<a name="l00067"></a>   67   int operator!=(const [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)&) const;
 
 <a name="l00068"></a>   68
 
@@ -145,15 +145,15 @@ header
 
 <a name="l00078"></a>   78 public:
 
-<a name="l00079"></a>   79   void [[instanceExit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a4d01ccacba658b8d6b79156dc53b6f44]]([[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]]* pInstance);
+<a name="l00079"></a>   79   void [instanceExit](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a4d01ccacba658b8d6b79156dc53b6f44)([CTCLTcpServerInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md)* pInstance);
 
-<a name="l00080"></a>   80   void [[shutdown|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8d315be128577c518ccd6e9264dba768]]();
+<a name="l00080"></a>   80   void [shutdown](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8d315be128577c518ccd6e9264dba768)();
 
 <a name="l00081"></a>   81
 
 <a name="l00082"></a>   82 protected:
 
-<a name="l00083"></a>   83   void [[onConnection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#af00ce7a5f44a046d8d296fe8a904e91a]](Tcl_Channel connection,
+<a name="l00083"></a>   83   void [onConnection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#af00ce7a5f44a046d8d296fe8a904e91a)(Tcl_Channel connection,
 
 <a name="l00084"></a>   84                 std::string host);
 
@@ -163,11 +163,11 @@ header
 
 <a name="l00087"></a>   87
 
-<a name="l00088"></a>   88   virtual bool [[allowConnection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8600cd1e64ac1f07bdfc140510e9a6ba]](Tcl_Channel   connection,
+<a name="l00088"></a>   88   virtual bool [allowConnection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8600cd1e64ac1f07bdfc140510e9a6ba)(Tcl_Channel   connection,
 
 <a name="l00089"></a>   89                    std::string   hostname);
 
-<a name="l00090"></a>   90   virtual [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]]* [[createInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a1db2dd888ccad93329c82bc48250fe41]](Tcl_Channel connection,
+<a name="l00090"></a>   90   virtual [CTCLTcpServerInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md)* [createInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a1db2dd888ccad93329c82bc48250fe41)(Tcl_Channel connection,
 
 <a name="l00091"></a>   91                         std::string hostname);
 
@@ -181,64 +181,64 @@ header
 
 <a name="l00096"></a>   96 #endif
 
-[[CTCLServer::~CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#ad45fe491767f7b96dfb8a55d8013906f]]
+[CTCLServer::~CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#ad45fe491767f7b96dfb8a55d8013906f)
 
 virtual ~CTCLServer()
 
 **Definition:** CTCLServer.cpp:57
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLServer::allowConnection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8600cd1e64ac1f07bdfc140510e9a6ba]]
+[CTCLServer::allowConnection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8600cd1e64ac1f07bdfc140510e9a6ba)
 
 virtual bool allowConnection(Tcl_Channel connection, std::string hostname)
 
 **Definition:** CTCLServer.cpp:178
 
 
-[[CTCLServer::CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a0794a68c597681bd8977e4efb3903447]]
+[CTCLServer::CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a0794a68c597681bd8977e4efb3903447)
 
 CTCLServer(CTCLInterpreter *pInterp, int port)
 
 **Definition:** CTCLServer.cpp:39
 
 
-[[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md]]
+[CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md)
 
 **Definition:** CTCLServer.h:48
 
 
-[[CTCLServer::onConnection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#af00ce7a5f44a046d8d296fe8a904e91a]]
+[CTCLServer::onConnection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#af00ce7a5f44a046d8d296fe8a904e91a)
 
 void onConnection(Tcl_Channel connection, std::string host)
 
 **Definition:** CTCLServer.cpp:150
 
 
-[[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]]
+[CTCLTcpServerInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md)
 
 **Definition:** CTCLTcpServerInstance.h:39
 
 
-[[CTCLServer::instanceExit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a4d01ccacba658b8d6b79156dc53b6f44]]
+[CTCLServer::instanceExit](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a4d01ccacba658b8d6b79156dc53b6f44)
 
 void instanceExit(CTCLTcpServerInstance *pInstance)
 
 **Definition:** CTCLServer.cpp:103
 
 
-[[CTCLServer::createInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a1db2dd888ccad93329c82bc48250fe41]]
+[CTCLServer::createInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a1db2dd888ccad93329c82bc48250fe41)
 
 virtual CTCLTcpServerInstance * createInstance(Tcl_Channel connection, std::string hostname)
 
 **Definition:** CTCLServer.cpp:201
 
 
-[[CTCLServer::shutdown|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8d315be128577c518ccd6e9264dba768]]
+[CTCLServer::shutdown](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8d315be128577c518ccd6e9264dba768)
 
 void shutdown()
 

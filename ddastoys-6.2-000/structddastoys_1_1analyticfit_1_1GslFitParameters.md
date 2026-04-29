@@ -23,18 +23,18 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[GslFitParameters|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md]]
+- [GslFitParameters](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md)
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters-members.md)
 
 
-ddastoys::analyticfit::GslFitParameters Struct Reference[[libFitEditorAnalytic.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md]]
+ddastoys::analyticfit::GslFitParameters Struct Reference[libFitEditorAnalytic.so](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md)
 
 header
 Data passed around the fitting subsystem to Jacobian and function evaluators.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1analyticfit_1_1GslFitParameters.md#details)
 
 
 `#include <lmfit_analytic.h>`
@@ -69,7 +69,7 @@ Data points. Pair is (x, y).
 
 ---
 
-The documentation for this struct was generated from the following file:- [[lmfit_analytic.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/lmfit__analytic_8h_source.md]]
+The documentation for this struct was generated from the following file:- [lmfit_analytic.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/lmfit__analytic_8h_source.md)
 
  contents 
  start footer part 

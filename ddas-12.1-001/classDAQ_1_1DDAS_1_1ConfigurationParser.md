@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
-- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
-- [[ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md]]
+- [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
+- [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
+- [ConfigurationParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md)
 
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser-members.md)
 
 
-DAQ::DDAS::ConfigurationParser Class Reference[[libConfiguration.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md]]
+DAQ::DDAS::ConfigurationParser Class Reference[libConfiguration.so](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md)
 
 header
 A class to parse the contents of the cfgPixie16.txt file.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#details)
 
 
 `#include <ConfigurationParser.h>`
@@ -94,10 +94,10 @@ where CRATE_ID is a non-negative number, NUM_MODULES is a positive number, SLOT_
 Note the structure shown above reflects changes for issue daqdev/DDAS#106. Each slot specification can have an optional one or two fields: The first optional field is a per slot firmware map file and the second an optional per slot .set file (since optional firmwares may require .set files of a different format).
 
 
-The [[ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md]] can be used in the following fashion:
+The [ConfigurationParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md) can be used in the following fashion:
 
 
-using namespace [[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]];
+using namespace [DAQ::DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md);
 
 
 Configuration config;
@@ -112,7 +112,7 @@ std::ifstream configFile("cfgPixie16.txt", std::ios::in);
 parser.parse(configFile, config);
 
 
-[[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+[DAQ::DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
 
  fragment
 
@@ -166,7 +166,7 @@ Parse the contents of the cfgPixie16.txt file.
 Parses the configuration file line by line, extracting slot information, optional per-module firmware and DSP settings files, and the (default) per-crate DSP settings file. DSP settings files must have the file extension .set for XIA API 2 and either .set or .json for XIA API 3. Exits on any error processing the configuration file.
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000010]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000010)**
   (ASC 3/13/24): Whitespace-tolerant comments could be allowed using this trim-and-inspect framework i.e. check that first character of trimmed line is a comment character. For now, anything besides whitespace will throw when parsing the configuration file.
 
 
@@ -206,8 +206,8 @@ Slot lines consist of a mandatory slot number, and optional substitute firmware 
 
 ---
 
-The documentation for this class was generated from the following files:- [[ConfigurationParser.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8h_source.md]]
-- [[ConfigurationParser.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8cpp.md]]
+The documentation for this class was generated from the following files:- [ConfigurationParser.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8h_source.md)
+- [ConfigurationParser.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8cpp.md)
 
  contents 
  start footer part 

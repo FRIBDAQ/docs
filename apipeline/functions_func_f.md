@@ -19,15 +19,15 @@ do not remove this div, it is closed by doxygen!
 ### - f -
 
 - farmer()
-  : [[SortTest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classSortTest.md#aae9cc755ce503f9699087bd5883b4356]]
+  : [SortTest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classSortTest.md#aae9cc755ce503f9699087bd5883b4356)
 - firstIndex()
-  : [[frib::analysis::CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827]]
+  : [frib::analysis::CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827)
 - Flush()
-  : [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae4c4e2a5a4295307bccbe5704e14d957]]
+  : [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae4c4e2a5a4295307bccbe5704e14d957)
 - flush()
-  : [[frib::analysis::CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a36693571b3cd711315ba9eb2204e4622]]
+  : [frib::analysis::CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a36693571b3cd711315ba9eb2204e4622)
 - forwardPassThrough()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a942e121cd877b6bff95c57c0a010cdc1]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a942e121cd877b6bff95c57c0a010cdc1)
 
  contents 
  start footer part 

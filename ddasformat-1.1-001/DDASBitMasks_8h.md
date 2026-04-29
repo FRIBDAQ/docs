@@ -33,7 +33,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASBitMasks_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASBitMasks_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASBitMasks_8h_source.md)
 
 
 <a name="details"></a>## Detailed Description

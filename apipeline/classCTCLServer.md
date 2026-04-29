@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer-members.md)
 
 
 CTCLServer Class Reference
@@ -75,7 +75,7 @@ Hooks exist for an authentication mechanism via the allowConnection virtual meth
 |  |  | int | port |
 |  | ) |  |  |
 
-Construct the module and set up the listener. The listener is set up using Tcl_OpenTcpServer errors are reported as a [[CErrnoException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCErrnoException.md]] using Tcl_GetErrno to get and set the errno variable.
+Construct the module and set up the listener. The listener is set up using Tcl_OpenTcpServer errors are reported as a [CErrnoException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCErrnoException.md) using Tcl_GetErrno to get and set the errno variable.
 
 - Parameters
   |  |  |
@@ -93,7 +93,7 @@ Construct the module and set up the listener. The listener is set up using Tcl_O
 | CTCLServer::~CTCLServer() | CTCLServer::~CTCLServer | ( |  | ) |  | virtual |
 | CTCLServer::~CTCLServer | ( |  | ) |  |
 
-Destruction does a [[shutdown()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8d315be128577c518ccd6e9264dba768]].
+Destruction does a [shutdown()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8d315be128577c518ccd6e9264dba768).
 
 
 ## Member Function Documentation
@@ -144,7 +144,7 @@ This can be overridden to implement a security policy for connections.
 |  |  | std::string | hostname |
 |  | ) |  |  |
 
-Create the default server instance object type ([[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]]) and return it. This can be overridden in subclasses if a different type is required.
+Create the default server instance object type ([CTCLTcpServerInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md)) and return it. This can be overridden in subclasses if a different type is required.
 
 - Parameters
   |  |  |
@@ -184,7 +184,7 @@ Called by a server instance when its exiting. The server instance is removed fro
 |  |  | std::string | host |
 |  | ) |  |  |
 
-This is called on a connection. In order to support creating subclasses of [[CTCLTcpServerInstance|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md]], we will actually create the server with the virtual member createInstance, so this class can be subclassed, and that member overriden. (strategy pattern). The pointer to the resulting object is isnerted in the m_seerverInstnaces list.
+This is called on a connection. In order to support creating subclasses of [CTCLTcpServerInstance](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTcpServerInstance.md), we will actually create the server with the virtual member createInstance, so this class can be subclassed, and that member overriden. (strategy pattern). The pointer to the resulting object is isnerted in the m_seerverInstnaces list.
 
 - Parameters
   |  |  |
@@ -207,7 +207,7 @@ Called to shutdown the server. All instance servers are destroyed. In so doing, 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLServer.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLServer_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[CTCLServer.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLServer_8h_source.md)
 - libtclplus/tclplus/CTCLServer.cpp
 
  contents 

@@ -19,45 +19,45 @@ do not remove this div, it is closed by doxygen!
 ### - ~ -
 
 - ~BufferArena()
-  : [[DDASReadout::BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md#a28d72045521616e3dd7fc88ec3b6e07a]]
+  : [DDASReadout::BufferArena](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md#a28d72045521616e3dd7fc88ec3b6e07a)
 - ~CBootCommand()
-  : [[CBootCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md#a754153ca87c29bb3a18a4b19ec131ea2]]
+  : [CBootCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md#a754153ca87c29bb3a18a4b19ec131ea2)
 - ~CDDASStatisticsCommand()
-  : [[CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af3e223386b4655812b4afc4356bdacf6]]
+  : [CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af3e223386b4655812b4afc4356bdacf6)
 - ~CMyBusy()
-  : [[CMyBusy|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md#a6b671d2d705a204f8a99abcd0be33465]]
+  : [CMyBusy](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyBusy.md#a6b671d2d705a204f8a99abcd0be33465)
 - ~CMyEndCommand()
-  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2e34053008620bebb9036c38c302e854]]
+  : [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2e34053008620bebb9036c38c302e854)
 - ~CMyEventSegment()
-  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b]]
+  : [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b)
 - ~CMyScaler()
-  : [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a6070895d1be3c1c7e7023c04add1e2f8]]
+  : [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a6070895d1be3c1c7e7023c04add1e2f8)
 - ~CMyTrigger()
-  : [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ae707c0d7f054c6f4b500aca7e347785e]]
+  : [CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ae707c0d7f054c6f4b500aca7e347785e)
 - ~Configuration()
-  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a5eda82e98f805cfe99be9ad7461ee466]]
+  : [DAQ::DDAS::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a5eda82e98f805cfe99be9ad7461ee466)
 - ~CSyncCommand()
-  : [[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#ac2696ee814a1cb3e024e2c8c9a6000af]]
+  : [CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#ac2696ee814a1cb3e024e2c8c9a6000af)
 - ~DataSource()
-  : [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a01b7c981a55b10889f23b300d2273656]]
+  : [DataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#a01b7c981a55b10889f23b300d2273656)
 - ~DDASRootEvent()
-  : [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2e2a511a347634478857e22bcfc01842]]
+  : [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a2e2a511a347634478857e22bcfc01842)
 - ~DDASRootHit()
-  : [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5]]
+  : [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5)
 - ~DDASSorter()
-  : [[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a2bcf5ec2daf58c68fc8fd811da4d7445]]
+  : [DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a2bcf5ec2daf58c68fc8fd811da4d7445)
 - ~FdDataSource()
-  : [[FdDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md#a5e0b15340e1cefd66351372843cd78ff]]
+  : [FdDataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md#a5e0b15340e1cefd66351372843cd78ff)
 - ~RawChannel()
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ac615b7ee7644eb3591b0001bf3ef6dc4]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#ac615b7ee7644eb3591b0001bf3ef6dc4)
 - ~ReferenceCountedBuffer()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aaed8849c1ca6da8d443ee1110456c547]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aaed8849c1ca6da8d443ee1110456c547)
 - ~RootFileDataSink()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#a3f326bab62a24915d799c663a51ea713]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#a3f326bab62a24915d799c663a51ea713)
 - ~StreamDataSource()
-  : [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#a417124525c9c85205eb7407898569f8c]]
+  : [StreamDataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#a417124525c9c85205eb7407898569f8c)
 - ~ZeroCopyHit()
-  : [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a062c144d5c7052fb8bc9a724d32e72c3]]
+  : [DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a062c144d5c7052fb8bc9a724d32e72c3)
 
  contents 
  start footer part 

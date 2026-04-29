@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[FitInfoLegacy|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md]]
+- [FitInfoLegacy](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy-members.md)
 
 
 ddastoys::FitInfoLegacy Struct Reference
 
 header
 Legacy fit extension that knows its size. This is the fit info struct for DDASToys pre-6.0-000.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1FitInfoLegacy.md#details)
 
 
 `#include <fit_extensions.h>`
@@ -53,7 +53,7 @@ Collaboration diagram for ddastoys::FitInfoLegacy:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 |  |  |
@@ -82,7 +82,7 @@ Legacy fit extension that knows its size. This is the fit info struct for DDASTo
 
 ---
 
-The documentation for this struct was generated from the following file:- [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h_source.md]]
+The documentation for this struct was generated from the following file:- [fit_extensions.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h_source.md)
 
  contents 
  start footer part 

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[TraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md]]
+- [TraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md)
 
  top 
 [Classes](#nested-classes)
@@ -30,7 +30,7 @@ do not remove this div, it is closed by doxygen!
 DDASDecoder.h File Reference
 
 header
-Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md]] class but really designed to work interactively with the GUI.  
+Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md) class but really designed to work interactively with the GUI.  
 [More...](#details)
 
 
@@ -49,7 +49,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASDecoder_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASDecoder_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASDecoder_8h_source.md)
 
 
 |  |  |
@@ -63,7 +63,7 @@ This graph shows which files directly or indirectly include this file:
 <a name="details"></a>## Detailed Description
 
 
-Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md]] class but really designed to work interactively with the GUI.
+Define an event proessor for reading ring items from a source, in this case a file. Very similar to the [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md) class but really designed to work interactively with the GUI.
 
  contents 
  start footer part 

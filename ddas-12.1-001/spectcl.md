@@ -49,7 +49,7 @@ header
 # Introduction
 
 
-  NSCLDAQ supports a wide variety of data acquisition hardware which use different data formats. Even for a single piece of [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] hardware data payloads may vary experiment to experiment based on which features of the digitizers are used. For example the Pixie data payload structure depends on whether trace data, QDC sums, etc. are enabled. For this reason, there is no pre-compiled version of SpecTcl provided to deal with DDAS data. Rather there are two unpackers that are provided by SpecTcl, DAQ::DDAS::DDASUnpacker and DAQ::DDAS::DDASBuiltUnpacker. The difference between the two is that the latter unpacks data that has been built with the NSCLDAQ event builder. In most applications you will be looking at event-built data. The unpackers provide a consistent interface for interacting with the DDAS data. In this tutorial, you will learn how to incorporate an unpacker and some simple custom code into your SpecTcl application. We will assume event-built data for the remainder of this tutorial.
+  NSCLDAQ supports a wide variety of data acquisition hardware which use different data formats. Even for a single piece of [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md) hardware data payloads may vary experiment to experiment based on which features of the digitizers are used. For example the Pixie data payload structure depends on whether trace data, QDC sums, etc. are enabled. For this reason, there is no pre-compiled version of SpecTcl provided to deal with DDAS data. Rather there are two unpackers that are provided by SpecTcl, DAQ::DDAS::DDASUnpacker and DAQ::DDAS::DDASBuiltUnpacker. The difference between the two is that the latter unpacks data that has been built with the NSCLDAQ event builder. In most applications you will be looking at event-built data. The unpackers provide a consistent interface for interacting with the DDAS data. In this tutorial, you will learn how to incorporate an unpacker and some simple custom code into your SpecTcl application. We will assume event-built data for the remainder of this tutorial.
 
 - Note
   If you are not working with event-built data, use the DAQ::DDAS::DDASUnpacker rather than DAQ::DDAS::DDASBuiltUnpacker. Everything else should remain the same.
@@ -70,12 +70,12 @@ cd mySpecTcl
 
 ```
 
-  You can make and run this example code right away. But, in the interest of learning, we will take a step back and try to understand what the DDAS SpecTcl skeleton is doing and how it is structured. We'll start with the raw data processing stage which utilizes the unpacker we mentioned in [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/spectcl.md#sec_spectcl_intro]].
+  You can make and run this example code right away. But, in the interest of learning, we will take a step back and try to understand what the DDAS SpecTcl skeleton is doing and how it is structured. We'll start with the raw data processing stage which utilizes the unpacker we mentioned in [Introduction](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/spectcl.md#sec_spectcl_intro).
 
 ## Using the DDAS Unpacker
 
 
-  The provided unpackers understand how to navigate the fragments of DDAS data and unpack the event fragments into "hits." Each hit is represented by a DAQ::DDAS::DDASHit object. In addition to time and energy, and potentially traces or other data, this object identifies the channel the hit comes from by its crate, slot, and channel ID. Using the unpacker is a matter of defining the set of parameters you want your system to produce. Each channel minimally produces a timestamp and an energy. Users then provide the software to map the data in the vector of DAQ::DDAS::DDASHits extracted from the event into specific SpecTcl parameters. We'll take a closer look at this when we discuss the [[parameter mapper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/spectcl.md#sec_spectcl_mapper]].
+  The provided unpackers understand how to navigate the fragments of DDAS data and unpack the event fragments into "hits." Each hit is represented by a DAQ::DDAS::DDASHit object. In addition to time and energy, and potentially traces or other data, this object identifies the channel the hit comes from by its crate, slot, and channel ID. Using the unpacker is a matter of defining the set of parameters you want your system to produce. Each channel minimally produces a timestamp and an energy. Users then provide the software to map the data in the vector of DAQ::DDAS::DDASHits extracted from the event into specific SpecTcl parameters. We'll take a closer look at this when we discuss the [parameter mapper](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/spectcl.md#sec_spectcl_mapper).
 
 ## Constructing the Parameter Tree
 
@@ -784,7 +784,7 @@ return kfTRUE;
 
 
 
-using namespace [[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]];
+using namespace [DAQ::DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md);
 
 
 
@@ -865,7 +865,7 @@ RegisterEventProcessor(calibrator, "Cal");
 }
 
 
-[[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+[DAQ::DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
 
  fragment   There are a few things to discuss here. The first is that this source file must include the headers which define the parameter structure and event processors that you use in your application (the Makefile must also have a rule to build and link the object files associated with these classes, see the comments in the Makefile for details). Finally, we instantiate the parameters and event processors we'll use in the global scope, with the event processors declared using the static keyword. Finally, we create the analysis pipeline by registering the two event processors described in the previous sections.
 

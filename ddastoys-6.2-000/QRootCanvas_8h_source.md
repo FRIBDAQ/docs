@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[TraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md]]
+- [TraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md)
 
  top 
 QRootCanvas.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QRootCanvas_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QRootCanvas_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -135,13 +135,13 @@ header
 <a name="l00041"></a>   41
 
 
-<a name="l00042"></a>   42 class [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]];
+<a name="l00042"></a>   42 class [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md);
 
 
 <a name="l00043"></a>   43
 
 
-<a name="l00044"></a>[[44|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]] class [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]] : public QWidget
+<a name="l00044"></a>[44](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md) class [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md) : public QWidget
 
 
 <a name="l00045"></a>   45 {
@@ -156,22 +156,22 @@ header
 <a name="l00060"></a>   60 public:
 
 
-<a name="l00068"></a>   68     [[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6a9e917186adecfde4dc743cf386049f]]([[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]* pFitMgr, QWidget* parent = nullptr);
+<a name="l00068"></a>   68     [QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6a9e917186adecfde4dc743cf386049f)([FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md)* pFitMgr, QWidget* parent = nullptr);
 
 
-<a name="l00070"></a>   70     virtual [[~QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a00c908fb6bc5c0c91d1b448cabcb2fc4]]();
+<a name="l00070"></a>   70     virtual [~QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a00c908fb6bc5c0c91d1b448cabcb2fc4)();
 
 
 <a name="l00071"></a>   71
 
 
-<a name="l00076"></a>[[76|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3]]     TCanvas* [[getCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3]]() {return m_pCanvas;};
+<a name="l00076"></a>[76](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3)     TCanvas* [getCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3)() {return m_pCanvas;};
 
 
-<a name="l00081"></a>   81     void [[drawHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a1455dcb6a5846c46b354f24e40933aa0]](const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
+<a name="l00081"></a>   81     void [drawHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a1455dcb6a5846c46b354f24e40933aa0)(const [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)& hit);
 
 
-<a name="l00083"></a>   83     void [[clear|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a14fd250361570746acce8353fb6d2a82]]();
+<a name="l00083"></a>   83     void [clear](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a14fd250361570746acce8353fb6d2a82)();
 
 
 <a name="l00084"></a>   84
@@ -189,19 +189,19 @@ header
 <a name="l00088"></a>   88
 
 
-<a name="l00093"></a>   93     virtual void [[mouseMoveEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a3f1392564efd97cf935295f1fdef56fe]](QMouseEvent* e);
+<a name="l00093"></a>   93     virtual void [mouseMoveEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a3f1392564efd97cf935295f1fdef56fe)(QMouseEvent* e);
 
 
-<a name="l00098"></a>   98     virtual void [[mousePressEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a8bd59138c80ffa28a1a06f8eb4200d56]](QMouseEvent* e);
+<a name="l00098"></a>   98     virtual void [mousePressEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a8bd59138c80ffa28a1a06f8eb4200d56)(QMouseEvent* e);
 
 
-<a name="l00103"></a>  103     virtual void [[mouseReleaseEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a5921076f00c65a1b1d8b84231b24dab3]](QMouseEvent* e);
+<a name="l00103"></a>  103     virtual void [mouseReleaseEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a5921076f00c65a1b1d8b84231b24dab3)(QMouseEvent* e);
 
 
-<a name="l00106"></a>  106     virtual void [[paintEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a2ff7763fabeca694b727e672ffd90446]](QPaintEvent*);
+<a name="l00106"></a>  106     virtual void [paintEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a2ff7763fabeca694b727e672ffd90446)(QPaintEvent*);
 
 
-<a name="l00109"></a>  109     virtual void [[resizeEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6db4f9f81c813ce87ed709968ec9e88b]](QResizeEvent*);
+<a name="l00109"></a>  109     virtual void [resizeEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6db4f9f81c813ce87ed709968ec9e88b)(QResizeEvent*);
 
 
 <a name="l00110"></a>  110
@@ -210,13 +210,13 @@ header
 <a name="l00111"></a>  111 private:
 
 
-<a name="l00116"></a>  116     void drawTrace(const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
+<a name="l00116"></a>  116     void drawTrace(const [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)& hit);
 
 
-<a name="l00122"></a>  122     void drawSingleFit(const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
+<a name="l00122"></a>  122     void drawSingleFit(const [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)& hit);
 
 
-<a name="l00128"></a>  128     void drawDoubleFit(const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
+<a name="l00128"></a>  128     void drawDoubleFit(const [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)& hit);
 
 
 <a name="l00130"></a>  130     void drawFitLegend();
@@ -228,7 +228,7 @@ header
 <a name="l00132"></a>  132 private:
 
 
-<a name="l00133"></a>  133     [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]* m_pFitManager;
+<a name="l00133"></a>  133     [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md)* m_pFitManager;
 
 
 <a name="l00134"></a>  134     TCanvas* m_pCanvas;
@@ -255,21 +255,21 @@ header
 <a name="l00141"></a>  141 #endif
 
 
-[[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]
+[FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md)
 
 Provides an interface for calculating trace fits using HitExtension fit parameters.
 
 **Definition:** FitManager.h:65
 
 
-[[QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md]]
+[QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md)
 
 A ROOT canvas embedded in a Qt application.
 
 **Definition:** QRootCanvas.h:45
 
 
-[[QRootCanvas::~QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a00c908fb6bc5c0c91d1b448cabcb2fc4]]
+[QRootCanvas::~QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a00c908fb6bc5c0c91d1b448cabcb2fc4)
 
 virtual ~QRootCanvas()
 
@@ -278,7 +278,7 @@ Destructor.
 **Definition:** QRootCanvas.cpp:84
 
 
-[[QRootCanvas::drawHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a1455dcb6a5846c46b354f24e40933aa0]]
+[QRootCanvas::drawHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a1455dcb6a5846c46b354f24e40933aa0)
 
 void drawHit(const ddastoys::DDASFitHit &hit)
 
@@ -287,7 +287,7 @@ Draw hit data on the canvas.
 **Definition:** QRootCanvas.cpp:99
 
 
-[[QRootCanvas::clear|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a14fd250361570746acce8353fb6d2a82]]
+[QRootCanvas::clear](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a14fd250361570746acce8353fb6d2a82)
 
 void clear()
 
@@ -296,7 +296,7 @@ Clear and update the ROOT canvas.
 **Definition:** QRootCanvas.cpp:120
 
 
-[[QRootCanvas::paintEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a2ff7763fabeca694b727e672ffd90446]]
+[QRootCanvas::paintEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a2ff7763fabeca694b727e672ffd90446)
 
 virtual void paintEvent(QPaintEvent *)
 
@@ -305,7 +305,7 @@ Handle resize events in ROOT.
 **Definition:** QRootCanvas.cpp:204
 
 
-[[QRootCanvas::mouseMoveEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a3f1392564efd97cf935295f1fdef56fe]]
+[QRootCanvas::mouseMoveEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a3f1392564efd97cf935295f1fdef56fe)
 
 virtual void mouseMoveEvent(QMouseEvent *e)
 
@@ -314,7 +314,7 @@ Handle Qt mouse move events on the ROOT canvas.
 **Definition:** QRootCanvas.cpp:135
 
 
-[[QRootCanvas::mouseReleaseEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a5921076f00c65a1b1d8b84231b24dab3]]
+[QRootCanvas::mouseReleaseEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a5921076f00c65a1b1d8b84231b24dab3)
 
 virtual void mouseReleaseEvent(QMouseEvent *e)
 
@@ -323,7 +323,7 @@ Handle Qt mouse release events on the ROOT canvas.
 **Definition:** QRootCanvas.cpp:173
 
 
-[[QRootCanvas::QRootCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6a9e917186adecfde4dc743cf386049f]]
+[QRootCanvas::QRootCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6a9e917186adecfde4dc743cf386049f)
 
 QRootCanvas(FitManager *pFitMgr, QWidget *parent=nullptr)
 
@@ -332,7 +332,7 @@ Constructor.
 **Definition:** QRootCanvas.cpp:50
 
 
-[[QRootCanvas::resizeEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6db4f9f81c813ce87ed709968ec9e88b]]
+[QRootCanvas::resizeEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a6db4f9f81c813ce87ed709968ec9e88b)
 
 virtual void resizeEvent(QResizeEvent *)
 
@@ -341,7 +341,7 @@ Handle paint events in ROOT.
 **Definition:** QRootCanvas.cpp:194
 
 
-[[QRootCanvas::mousePressEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a8bd59138c80ffa28a1a06f8eb4200d56]]
+[QRootCanvas::mousePressEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#a8bd59138c80ffa28a1a06f8eb4200d56)
 
 virtual void mousePressEvent(QMouseEvent *e)
 
@@ -350,7 +350,7 @@ Handle Qt mouse press events on the ROOT canvas.
 **Definition:** QRootCanvas.cpp:152
 
 
-[[QRootCanvas::getCanvas|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3]]
+[QRootCanvas::getCanvas](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQRootCanvas.md#aedef0de1cb7808ce90b37dd833b0c4f3)
 
 TCanvas * getCanvas()
 
@@ -359,7 +359,7 @@ Return a pointer to the ROOT canvas.
 **Definition:** QRootCanvas.h:76
 
 
-[[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]
+[ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)
 
 Encapsulates data for DDAS hits that may have fitted traces.
 

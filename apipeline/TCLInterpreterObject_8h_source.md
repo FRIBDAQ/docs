@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLInterpreterObject.h
@@ -113,17 +113,17 @@ header
 
 <a name="l00043"></a>   43
 
-<a name="l00044"></a>   44 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];      // Forward reference to interpreter.
+<a name="l00044"></a>   44 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);      // Forward reference to interpreter.
 
 <a name="l00045"></a>   45
 
-<a name="l00046"></a>[[46|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] class [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+<a name="l00046"></a>[46](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) class [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 <a name="l00047"></a>   47 {
 
 <a name="l00048"></a>   48
 
-<a name="l00049"></a>   49   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* m_pInterpreter;
+<a name="l00049"></a>   49   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* m_pInterpreter;
 
 <a name="l00050"></a>   50
 
@@ -133,11 +133,11 @@ header
 
 <a name="l00053"></a>   53
 
-<a name="l00054"></a>   54   [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] () : m_pInterpreter(0)
+<a name="l00054"></a>   54   [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) () : m_pInterpreter(0)
 
 <a name="l00055"></a>   55   { }
 
-<a name="l00056"></a>   56   virtual  ~[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] ( ) { }       //Destructor
+<a name="l00056"></a>   56   virtual  ~[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) ( ) { }       //Destructor
 
 <a name="l00057"></a>   57
 
@@ -145,7 +145,7 @@ header
 
 <a name="l00059"></a>   59
 
-<a name="l00060"></a>   60   [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp ) :
+<a name="l00060"></a>   60   [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp ) :
 
 <a name="l00061"></a>   61     m_pInterpreter(pInterp)
 
@@ -157,7 +157,7 @@ header
 
 <a name="l00065"></a>   65
 
-<a name="l00066"></a>   66   [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] (const [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]& aCTCLInterpreterObject )
+<a name="l00066"></a>   66   [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) (const [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)& aCTCLInterpreterObject )
 
 <a name="l00067"></a>   67   {
 
@@ -171,9 +171,9 @@ header
 
 <a name="l00072"></a>   72
 
-<a name="l00073"></a>   73   [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]& operator=
+<a name="l00073"></a>   73   [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)& operator=
 
-<a name="l00074"></a>   74                         (const [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]& aCTCLInterpreterObject)
+<a name="l00074"></a>   74                         (const [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)& aCTCLInterpreterObject)
 
 <a name="l00075"></a>   75   {
 
@@ -191,7 +191,7 @@ header
 
 <a name="l00082"></a>   82
 
-<a name="l00083"></a>   83   int operator== (const [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]& aCTCLInterpreterObject) const
+<a name="l00083"></a>   83   int operator== (const [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)& aCTCLInterpreterObject) const
 
 <a name="l00084"></a>   84  {
 
@@ -205,7 +205,7 @@ header
 
 <a name="l00089"></a>   89                        //Get accessor function for 1:1 association
 
-<a name="l00090"></a>   90   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* getInterpreter() const
+<a name="l00090"></a>   90   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* getInterpreter() const
 
 <a name="l00091"></a>   91  {
 
@@ -217,13 +217,13 @@ header
 
 <a name="l00095"></a>   95
 
-<a name="l00096"></a>   96   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* Bind ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]& rBinding){
+<a name="l00096"></a>   96   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* Bind ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)& rBinding){
 
 <a name="l00097"></a>   97     return Bind(&rBinding);
 
 <a name="l00098"></a>   98   }
 
-<a name="l00099"></a>   99   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* Bind ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pBinding);
+<a name="l00099"></a>   99   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* Bind ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pBinding);
 
 <a name="l00100"></a>  100   //
 
@@ -233,9 +233,9 @@ header
 
 <a name="l00103"></a>  103 protected:
 
-<a name="l00104"></a>  104   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* AssertIfNotBound() {
+<a name="l00104"></a>  104   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* AssertIfNotBound() {
 
-<a name="l00105"></a>  105     [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp = getInterpreter();
+<a name="l00105"></a>  105     [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp = getInterpreter();
 
 <a name="l00106"></a>  106     assert(pInterp != TCLPLUS::kpNULL);
 
@@ -251,12 +251,12 @@ header
 
 <a name="l00112"></a>  112 #endif
 
-[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 

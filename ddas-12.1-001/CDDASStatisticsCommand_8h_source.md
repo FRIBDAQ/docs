@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 CDDASStatisticsCommand.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDDASStatisticsCommand_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDDASStatisticsCommand_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -100,10 +100,10 @@ header
 <a name="l00029"></a>   29
 
 
-<a name="l00030"></a>   30 class [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]];
+<a name="l00030"></a>   30 class [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md);
 
 
-<a name="l00031"></a>   31 class [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]];
+<a name="l00031"></a>   31 class [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md);
 
 
 <a name="l00032"></a>   32
@@ -118,7 +118,7 @@ header
 <a name="l00035"></a>   35
 
 
-<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md]] class [[CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md]] : public CTCLObjectProcessor
+<a name="l00048"></a>[48](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md) class [CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md) : public CTCLObjectProcessor
 
 
 <a name="l00049"></a>   49 {
@@ -127,7 +127,7 @@ header
 <a name="l00050"></a>   50 private:
 
 
-<a name="l00051"></a>   51     [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]*        m_pEventSegment;
+<a name="l00051"></a>   51     [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)*        m_pEventSegment;
 
 
 <a name="l00052"></a>   52     std::vector<CMyScaler*>& m_Scalers;
@@ -139,10 +139,10 @@ header
 <a name="l00054"></a>   54 public:
 
 
-<a name="l00064"></a>   64     [[CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#a83fb2c4e99e9a76ff2a806d8b8354ad8]](
+<a name="l00064"></a>   64     [CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#a83fb2c4e99e9a76ff2a806d8b8354ad8)(
 
 
-<a name="l00065"></a>   65         CTCLInterpreter& interp, const char* command, [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]* pSeg,
+<a name="l00065"></a>   65         CTCLInterpreter& interp, const char* command, [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)* pSeg,
 
 
 <a name="l00066"></a>   66         std::vector<CMyScaler*>& scalers
@@ -151,13 +151,13 @@ header
 <a name="l00067"></a>   67     );
 
 
-<a name="l00069"></a>   69     virtual [[~CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af3e223386b4655812b4afc4356bdacf6]]();
+<a name="l00069"></a>   69     virtual [~CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af3e223386b4655812b4afc4356bdacf6)();
 
 
 <a name="l00070"></a>   70
 
 
-<a name="l00080"></a>   80     int [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af4f816f11727bfe7207d5a19b470db8d]](CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
+<a name="l00080"></a>   80     int [operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af4f816f11727bfe7207d5a19b470db8d)(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
 
 
 <a name="l00081"></a>   81
@@ -196,14 +196,14 @@ header
 <a name="l00110"></a>  110 #endif
 
 
-[[CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md]]
+[CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md)
 
 Provides a statistics command processor that overrides the SBS one.
 
 **Definition:** CDDASStatisticsCommand.h:49
 
 
-[[CDDASStatisticsCommand::CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#a83fb2c4e99e9a76ff2a806d8b8354ad8]]
+[CDDASStatisticsCommand::CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#a83fb2c4e99e9a76ff2a806d8b8354ad8)
 
 CDDASStatisticsCommand(CTCLInterpreter &interp, const char *command, CMyEventSegment *pSeg, std::vector< CMyScaler * > &scalers)
 
@@ -212,7 +212,7 @@ Constructor.
 **Definition:** CDDASStatisticsCommand.cpp:36
 
 
-[[CDDASStatisticsCommand::~CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af3e223386b4655812b4afc4356bdacf6]]
+[CDDASStatisticsCommand::~CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af3e223386b4655812b4afc4356bdacf6)
 
 virtual ~CDDASStatisticsCommand()
 
@@ -221,7 +221,7 @@ Destructor.
 **Definition:** CDDASStatisticsCommand.cpp:44
 
 
-[[CDDASStatisticsCommand::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af4f816f11727bfe7207d5a19b470db8d]]
+[CDDASStatisticsCommand::operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af4f816f11727bfe7207d5a19b470db8d)
 
 int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
@@ -230,14 +230,14 @@ Called to execute the Tcl command.
 **Definition:** CDDASStatisticsCommand.cpp:48
 
 
-[[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]
+[CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)
 
 Derived class for DDAS event segments.
 
 **Definition:** CMyEventSegment.h:31
 
 
-[[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
+[CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md)
 
 Generate scaler data from run statistics.
 

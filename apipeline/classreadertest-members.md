@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 readertest Member List
 
 header
-This is the complete list of members for [[readertest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classreadertest.md]], including all inherited members.
+This is the complete list of members for [readertest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classreadertest.md), including all inherited members.
 
 
 |  |  |  |

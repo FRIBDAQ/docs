@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Raw Member List
 
 header
-This is the complete list of members for [[Raw|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classRaw.md]], including all inherited members.
+This is the complete list of members for [Raw](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classRaw.md), including all inherited members.
 
 
 |  |  |  |

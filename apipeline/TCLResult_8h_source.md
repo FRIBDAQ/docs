@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLResult.h
@@ -117,7 +117,7 @@ header
 
 <a name="l00045"></a>   45
 
-<a name="l00055"></a>[[55|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]] class [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]  : public [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]
+<a name="l00055"></a>[55](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md) class [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)  : public [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md)
 
 <a name="l00056"></a>   56 {
 
@@ -129,19 +129,19 @@ header
 
 <a name="l00060"></a>   60
 
-<a name="l00061"></a>   61   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7376054000f14796a40a462c144038e6]] ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp, bool reset=true );
+<a name="l00061"></a>   61   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7376054000f14796a40a462c144038e6) ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp, bool reset=true );
 
-<a name="l00062"></a>   62   virtual [[~CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ab308cffd7d7c2dfb85870b3b02234deb]] ( );
+<a name="l00062"></a>   62   virtual [~CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ab308cffd7d7c2dfb85870b3b02234deb) ( );
 
-<a name="l00063"></a>   63   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7376054000f14796a40a462c144038e6]] (const [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& aCTCLResult );
+<a name="l00063"></a>   63   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7376054000f14796a40a462c144038e6) (const [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& aCTCLResult );
 
-<a name="l00064"></a>   64   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4]](const [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& aCTCLResult);
+<a name="l00064"></a>   64   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4)(const [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& aCTCLResult);
 
-<a name="l00065"></a>   65   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4]](const char* rhs);
+<a name="l00065"></a>   65   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4)(const char* rhs);
 
-<a name="l00066"></a>   66   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4]](std::string    rhs) {
+<a name="l00066"></a>   66   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4)(std::string    rhs) {
 
-<a name="l00067"></a>   67     return [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4]](rhs.c_str());
+<a name="l00067"></a>   67     return [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4)(rhs.c_str());
 
 <a name="l00068"></a>   68   }
 
@@ -151,9 +151,9 @@ header
 
 <a name="l00071"></a>   71
 
-<a name="l00072"></a>   72   int [[operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a2e2bbf7ff6137e9a349406f19f74de14]](const [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& aCTCLResult) ;
+<a name="l00072"></a>   72   int [operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a2e2bbf7ff6137e9a349406f19f74de14)(const [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& aCTCLResult) ;
 
-<a name="l00073"></a>   73   int [[operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7c41f6ec18d7e57b4aee787263da91f7]](const [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& rhs);
+<a name="l00073"></a>   73   int [operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7c41f6ec18d7e57b4aee787263da91f7)(const [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& rhs);
 
 <a name="l00074"></a>   74
 
@@ -175,11 +175,11 @@ header
 
 <a name="l00083"></a>   83
 
-<a name="l00084"></a>   84   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& [[operator+=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3]](const char* pString);
+<a name="l00084"></a>   84   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& [operator+=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3)(const char* pString);
 
-<a name="l00085"></a>   85   [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]& [[operator+=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3]](const std::string& rString) {
+<a name="l00085"></a>   85   [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)& [operator+=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3)(const std::string& rString) {
 
-<a name="l00086"></a>   86     return [[operator+=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3]](rString.c_str());
+<a name="l00086"></a>   86     return [operator+=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3)(rString.c_str());
 
 <a name="l00087"></a>   87   }
 
@@ -193,15 +193,15 @@ header
 
 <a name="l00092"></a>   92 public:
 
-<a name="l00093"></a>   93   void [[Clear|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a87d5d3bb9eb0dc943581c57055c2f048]] ()  ;
+<a name="l00093"></a>   93   void [Clear](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a87d5d3bb9eb0dc943581c57055c2f048) ()  ;
 
-<a name="l00094"></a>   94   void [[AppendElement|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9]] (const char* pString)  ; // Base class +=
+<a name="l00094"></a>   94   void [AppendElement](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9) (const char* pString)  ; // Base class +=
 
-<a name="l00095"></a>   95   void [[AppendElement|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9]] (const std::string& rString); // Base class +=
+<a name="l00095"></a>   95   void [AppendElement](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9) (const std::string& rString); // Base class +=
 
-<a name="l00096"></a>   96   void [[commit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a280c7d8b48d3bc7b99808e66f8d25712]]() const;      // Commit this -> Result.
+<a name="l00096"></a>   96   void [commit](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a280c7d8b48d3bc7b99808e66f8d25712)() const;      // Commit this -> Result.
 
-<a name="l00097"></a>   97   std::string [[getString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a4d1001f148cfa182206d6b681896980c]]();      // Commit and return the result.
+<a name="l00097"></a>   97   std::string [getString](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a4d1001f148cfa182206d6b681896980c)();      // Commit and return the result.
 
 <a name="l00098"></a>   98
 
@@ -215,85 +215,85 @@ header
 
 <a name="l00103"></a>  103 #endif
 
-[[CTCLResult::operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a2e2bbf7ff6137e9a349406f19f74de14]]
+[CTCLResult::operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a2e2bbf7ff6137e9a349406f19f74de14)
 
 int operator==(const CTCLResult &aCTCLResult)
 
 **Definition:** TCLResult.cpp:127
 
 
-[[CTCLResult::operator+=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3]]
+[CTCLResult::operator+=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ac56951e264866c64bf3e418653fb94b3)
 
 CTCLResult & operator+=(const char *pString)
 
 **Definition:** TCLResult.cpp:154
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLResult::getString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a4d1001f148cfa182206d6b681896980c]]
+[CTCLResult::getString](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a4d1001f148cfa182206d6b681896980c)
 
 std::string getString()
 
 **Definition:** TCLResult.cpp:204
 
 
-[[CTCLResult::operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7c41f6ec18d7e57b4aee787263da91f7]]
+[CTCLResult::operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7c41f6ec18d7e57b4aee787263da91f7)
 
 int operator!=(const CTCLResult &rhs)
 
 **Definition:** TCLResult.cpp:136
 
 
-[[CTCLResult::commit|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a280c7d8b48d3bc7b99808e66f8d25712]]
+[CTCLResult::commit](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a280c7d8b48d3bc7b99808e66f8d25712)
 
 void commit() const
 
 **Definition:** TCLResult.cpp:193
 
 
-[[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]]
+[CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md)
 
 **Definition:** TCLResult.h:55
 
 
-[[CTCLResult::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4]]
+[CTCLResult::operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ad73168e4f0b77a45f8629cb8273ddfb4)
 
 CTCLResult & operator=(const CTCLResult &aCTCLResult)
 
 **Definition:** TCLResult.cpp:102
 
 
-[[CTCLResult::Clear|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a87d5d3bb9eb0dc943581c57055c2f048]]
+[CTCLResult::Clear](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a87d5d3bb9eb0dc943581c57055c2f048)
 
 void Clear()
 
 **Definition:** TCLResult.cpp:165
 
 
-[[CTCLResult::CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7376054000f14796a40a462c144038e6]]
+[CTCLResult::CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a7376054000f14796a40a462c144038e6)
 
 CTCLResult(CTCLInterpreter *pInterp, bool reset=true)
 
 **Definition:** TCLResult.cpp:62
 
 
-[[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]]
+[CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md)
 
 **Definition:** TCLObject.h:50
 
 
-[[CTCLResult::~CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ab308cffd7d7c2dfb85870b3b02234deb]]
+[CTCLResult::~CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#ab308cffd7d7c2dfb85870b3b02234deb)
 
 virtual ~CTCLResult()
 
 **Definition:** TCLResult.cpp:78
 
 
-[[CTCLResult::AppendElement|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9]]
+[CTCLResult::AppendElement](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9)
 
 void AppendElement(const char *pString)
 

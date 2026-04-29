@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CConditionAttributes Member List
 
 header
-This is the complete list of members for [[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]], including all inherited members.
+This is the complete list of members for [CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md), including all inherited members.
 
 
 |  |  |  |

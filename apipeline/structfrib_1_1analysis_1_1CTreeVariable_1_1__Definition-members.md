@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md]]
-- [[_Definition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md]]
+- [CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md)
+- [_Definition](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md)
 
  top 
 frib::analysis::CTreeVariable::_Definition Member List
 
 header
-This is the complete list of members for [[frib::analysis::CTreeVariable::_Definition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::CTreeVariable::_Definition](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md), including all inherited members.
 
 
 |  |  |  |

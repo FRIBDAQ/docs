@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CItemConfiguration Member List
 
 header
-This is the complete list of members for [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]], including all inherited members.
+This is the complete list of members for [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md), including all inherited members.
 
 
 |  |  |  |

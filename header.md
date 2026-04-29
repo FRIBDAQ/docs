@@ -28,8 +28,8 @@
 <gcse:search></gcse:search>
 
 
-- [[Home|https://github.com/FRIBDAQ/docs/tree/main/home.md]]
-- [[Tutorials|https://github.com/FRIBDAQ/docs/tree/main/tutorials.md]]
-- [[Reference|https://github.com/FRIBDAQ/docs/tree/main/reference.md]]
-- [[Download|https://github.com/FRIBDAQ/docs/tree/main/download.md]]
-- [[FAQ|https://github.com/FRIBDAQ/docs/tree/main/faq.md]]
+- [Home](https://github.com/FRIBDAQ/docs/tree/main/home.md)
+- [Tutorials](https://github.com/FRIBDAQ/docs/tree/main/tutorials.md)
+- [Reference](https://github.com/FRIBDAQ/docs/tree/main/reference.md)
+- [Download](https://github.com/FRIBDAQ/docs/tree/main/download.md)
+- [FAQ](https://github.com/FRIBDAQ/docs/tree/main/faq.md)

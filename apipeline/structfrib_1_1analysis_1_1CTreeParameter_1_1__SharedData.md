@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]
-- [[_SharedData|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md]]
+- [CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md)
+- [_SharedData](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeParameter_1_1__SharedData-members.md)
 
 
 frib::analysis::CTreeParameter::_SharedData Struct Reference
@@ -90,7 +90,7 @@ implement CTreeParameter::SharedData constructor:
 
 ---
 
-The documentation for this struct was generated from the following files:- base/[[TreeParameter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h_source.md]]
+The documentation for this struct was generated from the following files:- base/[TreeParameter.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h_source.md)
 - base/TreeParameter.cpp
 
  contents 

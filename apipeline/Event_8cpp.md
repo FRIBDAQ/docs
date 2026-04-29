@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
+- [spectcl](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md)
 
  top 
 Event.cpp File Reference
 
 header
-: Implement [[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]
+: Implement [frib::analysis::CEvent](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md)
 [More...](#details)
 
 
@@ -47,7 +47,7 @@ Include dependency graph for Event.cpp:
 <a name="details"></a>## Detailed Description
 
 
-: Implement [[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md]]
+: Implement [frib::analysis::CEvent](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md)
 
  contents 
  start footer part 

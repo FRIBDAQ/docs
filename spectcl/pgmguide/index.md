@@ -6,133 +6,133 @@
 ---
 
 - **Table of Contents**
-- 1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c13.md]]
-- 2. [[The SpecTcl processing model.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c73.md]]
-- 3. [[The SpecTcl event processing pipeline.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md]]
-  - 3.1. [[Event Processors|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN123]]
-  - 3.2. [[Setting up an event analysis pipeline (the simple version)|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x601.md]]
-  - 3.3. [[Playing back filter data|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x710.md]]
-  - 3.4. [["Using the callout analysis framework|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md]]
-    - 3.4.1. [[The Struture of the callout analysis software|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN764]]
-    - 3.4.2. [[Using the callout analysis software to maintain scaler information|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN954]]
-- 4. [[The SpecTcl API|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1068.md]]
-  - 4.1. [[The API and the parameter dictionary|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1068.md#sec.api.parameters]]
-  - 4.2. [[The API and the spectrum dictionary|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md]]
-  - 4.3. [[The API and the gates dictionary|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md]]
-  - 4.4. [[The API and the event processing pipeline|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md]]
-  - 4.5. [[The API and the event sink pipeline|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1492.md]]
-  - 4.6. [[The API and SpecTcl Objects.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1510.md]]
-- 5. [[The SpecTcl event sink pipeline.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md]]
-- 6. [[libTcl++ and adding commands to SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md]]
-- 7. [[Extending SpecTcl spectrum file formats|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1836.md]]
-  - 7.1. [[SpecTcl's spectrum file format infrastructure|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1836.md#AEN1850]]
-  - 7.2. [[Adding a file format to SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1873.md]]
-  - 7.3. [[Adding a CSV file format to spectrum read/write|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md]]
-- 8. [[Extending SpecTcl's filter file formats|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md]]
-  - 8.1. [[Filter formatting objects.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#sec.filterformatobjects]]
-  - 8.2. [[Example filter formatter.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md]]
-- 9. [[Extending the set of SpecTcl fit types.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md]]
-  - 9.1. [[Classes and objects of the fitting subsystem.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2392]]
-  - 9.2. [[Adding a new fit type|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2801.md]]
-- 10. [[Interfacing SpecTcl with data from other data acquisition systems.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md]]
-  - 10.1. [[The classes involved in getting data from source to analyzer|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN2845]]
-  - 10.2. [[Step by step recipe for adding support for a new data format|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3851.md]]
-  - 10.3. [[Worked example for supporting a new data format|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md]]
-- 11. [[SpecTcl plugins|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4069.md]]
-  - 11.1. [[Writing and publishing compiled Tcl packages|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4069.md#AEN4086]]
-  - 11.2. [[Distributing the `SomeDaqBufferDecoder` as a plugin|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4160.md]]
-- 12. [[Dynamic processing pipelines|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4359.md]]
-  - 12.1. [[Creating and registering event processors.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4359.md#AEN4380]]
-  - 12.2. [[Using the **pman** command to create and select pipelines|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4406.md]]
-- 13. [[Capturing waveform data for display|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4450.md]]
-  - 13.1. [[Programmatically creating and using waveform objects|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4450.md#AEN4457]]
-  - 13.2. [[Scripting the creation of waveforms and using them|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4507.md]]
+- 1. [Introduction](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c13.md)
+- 2. [The SpecTcl processing model.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c73.md)
+- 3. [The SpecTcl event processing pipeline.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md)
+  - 3.1. [Event Processors](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN123)
+  - 3.2. [Setting up an event analysis pipeline (the simple version)](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x601.md)
+  - 3.3. [Playing back filter data](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x710.md)
+  - 3.4. ["Using the callout analysis framework](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md)
+    - 3.4.1. [The Struture of the callout analysis software](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN764)
+    - 3.4.2. [Using the callout analysis software to maintain scaler information](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN954)
+- 4. [The SpecTcl API](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1068.md)
+  - 4.1. [The API and the parameter dictionary](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1068.md#sec.api.parameters)
+  - 4.2. [The API and the spectrum dictionary](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md)
+  - 4.3. [The API and the gates dictionary](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md)
+  - 4.4. [The API and the event processing pipeline](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md)
+  - 4.5. [The API and the event sink pipeline](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1492.md)
+  - 4.6. [The API and SpecTcl Objects.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1510.md)
+- 5. [The SpecTcl event sink pipeline.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md)
+- 6. [libTcl++ and adding commands to SpecTcl](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md)
+- 7. [Extending SpecTcl spectrum file formats](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1836.md)
+  - 7.1. [SpecTcl's spectrum file format infrastructure](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1836.md#AEN1850)
+  - 7.2. [Adding a file format to SpecTcl](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1873.md)
+  - 7.3. [Adding a CSV file format to spectrum read/write](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md)
+- 8. [Extending SpecTcl's filter file formats](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md)
+  - 8.1. [Filter formatting objects.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#sec.filterformatobjects)
+  - 8.2. [Example filter formatter.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md)
+- 9. [Extending the set of SpecTcl fit types.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md)
+  - 9.1. [Classes and objects of the fitting subsystem.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2392)
+  - 9.2. [Adding a new fit type](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2801.md)
+- 10. [Interfacing SpecTcl with data from other data acquisition systems.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md)
+  - 10.1. [The classes involved in getting data from source to analyzer](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN2845)
+  - 10.2. [Step by step recipe for adding support for a new data format](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3851.md)
+  - 10.3. [Worked example for supporting a new data format](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md)
+- 11. [SpecTcl plugins](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4069.md)
+  - 11.1. [Writing and publishing compiled Tcl packages](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4069.md#AEN4086)
+  - 11.2. [Distributing the `SomeDaqBufferDecoder` as a plugin](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4160.md)
+- 12. [Dynamic processing pipelines](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4359.md)
+  - 12.1. [Creating and registering event processors.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4359.md#AEN4380)
+  - 12.2. [Using the **pman** command to create and select pipelines](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4406.md)
+- 13. [Capturing waveform data for display](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4450.md)
+  - 13.1. [Programmatically creating and using waveform objects](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4450.md#AEN4457)
+  - 13.2. [Scripting the creation of waveforms and using them](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4507.md)
 
 - **List of Figures**
-- 2-1. [[SpecTcl processing model|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c73.md#fig.processingmodel]]
-- 10-1. [[SpecTcl event decode process|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN2828]]
+- 2-1. [SpecTcl processing model](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c73.md#fig.processingmodel)
+- 10-1. [SpecTcl event decode process](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN2828)
 
 - **List of Examples**
-- 3-1. [[CEventProcessor definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN130]]
-- 3-2. [[Our event processor header.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN367]]
-- 3-3. [[Constructor for `MyEventProcessor`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN375]]
-- 3-4. [[`OnAttach`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN389]]
-- 3-5. [[OnInitialize - Set up the tree parameters.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN425]]
-- 3-6. [[State transition processing|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN450]]
-- 3-7. [[Event processor `operator() method.`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN500]]
-- 3-8. [[Event processor `OnOther`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN545]]
-- 3-9. [[`OnEventSourceOpen` and `OnEventSourceEOF`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN596]]
-- 3-10. [[SpecTcl Makefile modifications|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x601.md#AEN650]]
-- 3-11. [[Creating a static event processing pipeline|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x601.md#AEN702]]
-- 3-12. [[Event analysis pipeline for filters.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x710.md#AEN752]]
-- 3-13. [[Idea of the callback analysis framework|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN769]]
-- 3-14. [[onStateChange method signature|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN802]]
-- 3-15. [[onScalers callback signagure|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN853]]
-- 3-16. [[The onStringLists method signature|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN902]]
-- 3-17. [[onEvent method signature|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN939]]
-- 3-18. [[Using the Scaler callback analysis class|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN967]]
-- 4-1. [[Using the API to access parameter definitions|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1068.md#AEN1136]]
-- 4-2. [[The projection class header|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1204]]
-- 4-3. [[Header for an event processor that fills in a spectrum.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1250]]
-- 4-4. [[FillImage event processor constructor|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1256]]
-- 4-5. [[`FillImage::operator()` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1273]]
-- 4-6. [[`GateProcessor` header.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1341]]
-- 4-7. [[`GateProcessor` constructor implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1348]]
-- 4-8. [[`GateProcessor::OnInitialize` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1355]]
-- 4-9. [[`GateProcessor::operator()` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1396]]
-- 4-10. [[Class to switch event analysis pipelines|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1428]]
-- 4-11. [[EVPSwitcher constructor and destrutor|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1439]]
-- 4-12. [[`EVPSwitcher::save` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1457]]
-- 4-13. [[`EVPSwitcher::restore` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1472]]
-- 4-14. [[`EVPSwitcher::useFilterProcessor` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1487]]
-- 4-15. [[Listing the event sink pipeline elements|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1492.md#AEN1505]]
-- 5-1. [[Event sink processor header|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md#AEN1604]]
-- 5-2. [[EventCounter constructor implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md#AEN1613]]
-- 5-3. [[`EventCounter::operator()` implemntation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md#AEN1618]]
-- 6-1. [[Definition file for event processor switcher.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1718]]
-- 6-2. [[`EVPSwitchCommand` constructor implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1740]]
-- 6-3. [[Implementation of `EVPSwitchCommand::operator()`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1757]]
-- 6-4. [[Implementation of subcommand processors|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1814]]
-- 7-1. [[`CSVSpectrumFormatter` header|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN1903]]
-- 7-2. [[Implementation of `writeScanline` method.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN1924]]
-- 7-3. [[`CSVSpectrumFormatter::Write` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN1944]]
-- 7-4. [[`CSVSpectrumFormatter::Read` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN2021]]
-- 8-1. [[`CFilterOutputStage` class definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#AEN2102]]
-- 8-2. [[`CFilterOutputStageCreator` specification|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#AEN2209]]
-- 8-3. [[`CFilterOutputStageFactory` definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#AEN2256]]
-- 8-4. [[Definition of `CSVFilterOutputStage`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2322]]
-- 8-5. [[Implementation of `open` and `close` for `CSVFilterOutputStage`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2331]]
-- 8-6. [[Implementing `CSVFilterOutputStage::DescribeEvent`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2344]]
-- 8-7. [[Implementing `CSVFilterOutputStage::operator()`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2353]]
-- 8-8. [[Implmenting `CSVFilterOutputStage::type`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2359]]
-- 8-9. [[Definition of `CSVFilterOutputStageCreator`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2364]]
-- 8-10. [[Implementation of `CSVFilterOutputStage`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2371]]
-- 9-1. [[`CFit` class definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2401]]
-- 9-2. [[`CFitFactory` class definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2650]]
-- 9-3. [[`CFitCreator` class definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2765]]
-- 10-1. [[`CFile` class definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN2892]]
-- 10-2. [[`CAnalyzer` base class definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3094]]
-- 10-3. [[The `CBufferDecoder` abstract base class|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3390]]
-- 10-4. [[BufferTranslator.h important bits:|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3656]]
-- 10-5. [[`CCreator` definition|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3844]]
-- 10-6. [[Structure of data from SomeDaqSystem|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN3898]]
-- 10-7. [[`SomeDaqBufferDecoder` header.|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN3906]]
-- 10-8. [[`SomeDaqBufferDecoder::operator()` implementation|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN3957]]
-- 10-9. [[Implementation of `SomeDaqBufferDecoder::stateChange`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4001]]
-- 10-10. [[Implementation of `SomeDaqBufferDecoder::scaler`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4009]]
-- 10-11. [[Implementation of `SomeDaqBufferDecoder::event`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4017]]
-- 10-12. [[Implementation of `SomeDaqBufferDecoder::other`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4023]]
-- 10-13. [[Implementation of `SomeDaqBufferDecoder::translateItemType`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4030]]
-- 10-14. [[Trivial getter implementations|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4040]]
-- 10-15. [[Not as trivial getters:|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4044]]
-- 10-16. [[Header for `SomeDaqDecoderCreator`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4053]]
-- 10-17. [[Implementation of `SomeDaqDecoderCreator`|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4061]]
-- 11-1. [[Plugin initialization for the sample daq decoder plugin|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4160.md#AEN4179]]
-- 11-2. [[Makefile that can produce the plugin|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4160.md#AEN4270]]
-- 12-1. [[Creating and registering|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4359.md#AEN4384]]
-- 12-2. [[Using the **pman** SpecTcl command|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4406.md#AEN4419]]
-- 13-1. [[Programmatically creating and filling a waveform|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4450.md#wf1.example]]
-- 13-2. [[Scrdipting waveform objects|https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4507.md#AEN4514]]
+- 3-1. [CEventProcessor definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN130)
+- 3-2. [Our event processor header.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN367)
+- 3-3. [Constructor for `MyEventProcessor`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN375)
+- 3-4. [`OnAttach`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN389)
+- 3-5. [OnInitialize - Set up the tree parameters.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN425)
+- 3-6. [State transition processing](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN450)
+- 3-7. [Event processor `operator() method.`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN500)
+- 3-8. [Event processor `OnOther`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN545)
+- 3-9. [`OnEventSourceOpen` and `OnEventSourceEOF`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md#AEN596)
+- 3-10. [SpecTcl Makefile modifications](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x601.md#AEN650)
+- 3-11. [Creating a static event processing pipeline](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x601.md#AEN702)
+- 3-12. [Event analysis pipeline for filters.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x710.md#AEN752)
+- 3-13. [Idea of the callback analysis framework](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN769)
+- 3-14. [onStateChange method signature](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN802)
+- 3-15. [onScalers callback signagure](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN853)
+- 3-16. [The onStringLists method signature](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN902)
+- 3-17. [onEvent method signature](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN939)
+- 3-18. [Using the Scaler callback analysis class](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x757.md#AEN967)
+- 4-1. [Using the API to access parameter definitions](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1068.md#AEN1136)
+- 4-2. [The projection class header](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1204)
+- 4-3. [Header for an event processor that fills in a spectrum.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1250)
+- 4-4. [FillImage event processor constructor](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1256)
+- 4-5. [`FillImage::operator()` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md#AEN1273)
+- 4-6. [`GateProcessor` header.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1341)
+- 4-7. [`GateProcessor` constructor implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1348)
+- 4-8. [`GateProcessor::OnInitialize` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1355)
+- 4-9. [`GateProcessor::operator()` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1306.md#AEN1396)
+- 4-10. [Class to switch event analysis pipelines](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1428)
+- 4-11. [EVPSwitcher constructor and destrutor](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1439)
+- 4-12. [`EVPSwitcher::save` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1457)
+- 4-13. [`EVPSwitcher::restore` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1472)
+- 4-14. [`EVPSwitcher::useFilterProcessor` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1421.md#AEN1487)
+- 4-15. [Listing the event sink pipeline elements](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1492.md#AEN1505)
+- 5-1. [Event sink processor header](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md#AEN1604)
+- 5-2. [EventCounter constructor implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md#AEN1613)
+- 5-3. [`EventCounter::operator()` implemntation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1539.md#AEN1618)
+- 6-1. [Definition file for event processor switcher.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1718)
+- 6-2. [`EVPSwitchCommand` constructor implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1740)
+- 6-3. [Implementation of `EVPSwitchCommand::operator()`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1757)
+- 6-4. [Implementation of subcommand processors](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c1622.md#AEN1814)
+- 7-1. [`CSVSpectrumFormatter` header](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN1903)
+- 7-2. [Implementation of `writeScanline` method.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN1924)
+- 7-3. [`CSVSpectrumFormatter::Write` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN1944)
+- 7-4. [`CSVSpectrumFormatter::Read` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1895.md#AEN2021)
+- 8-1. [`CFilterOutputStage` class definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#AEN2102)
+- 8-2. [`CFilterOutputStageCreator` specification](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#AEN2209)
+- 8-3. [`CFilterOutputStageFactory` definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2080.md#AEN2256)
+- 8-4. [Definition of `CSVFilterOutputStage`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2322)
+- 8-5. [Implementation of `open` and `close` for `CSVFilterOutputStage`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2331)
+- 8-6. [Implementing `CSVFilterOutputStage::DescribeEvent`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2344)
+- 8-7. [Implementing `CSVFilterOutputStage::operator()`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2353)
+- 8-8. [Implmenting `CSVFilterOutputStage::type`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2359)
+- 8-9. [Definition of `CSVFilterOutputStageCreator`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2364)
+- 8-10. [Implementation of `CSVFilterOutputStage`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x2310.md#AEN2371)
+- 9-1. [`CFit` class definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2401)
+- 9-2. [`CFitFactory` class definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2650)
+- 9-3. [`CFitCreator` class definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2382.md#AEN2765)
+- 10-1. [`CFile` class definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN2892)
+- 10-2. [`CAnalyzer` base class definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3094)
+- 10-3. [The `CBufferDecoder` abstract base class](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3390)
+- 10-4. [BufferTranslator.h important bits:](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3656)
+- 10-5. [`CCreator` definition](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c2824.md#AEN3844)
+- 10-6. [Structure of data from SomeDaqSystem](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN3898)
+- 10-7. [`SomeDaqBufferDecoder` header.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN3906)
+- 10-8. [`SomeDaqBufferDecoder::operator()` implementation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN3957)
+- 10-9. [Implementation of `SomeDaqBufferDecoder::stateChange`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4001)
+- 10-10. [Implementation of `SomeDaqBufferDecoder::scaler`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4009)
+- 10-11. [Implementation of `SomeDaqBufferDecoder::event`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4017)
+- 10-12. [Implementation of `SomeDaqBufferDecoder::other`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4023)
+- 10-13. [Implementation of `SomeDaqBufferDecoder::translateItemType`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4030)
+- 10-14. [Trivial getter implementations](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4040)
+- 10-15. [Not as trivial getters:](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4044)
+- 10-16. [Header for `SomeDaqDecoderCreator`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4053)
+- 10-17. [Implementation of `SomeDaqDecoderCreator`](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x3867.md#AEN4061)
+- 11-1. [Plugin initialization for the sample daq decoder plugin](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4160.md#AEN4179)
+- 11-2. [Makefile that can produce the plugin](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4160.md#AEN4270)
+- 12-1. [Creating and registering](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4359.md#AEN4384)
+- 12-2. [Using the **pman** SpecTcl command](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4406.md#AEN4419)
+- 13-1. [Programmatically creating and filling a waveform](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c4450.md#wf1.example)
+- 13-2. [Scrdipting waveform objects](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4507.md#AEN4514)
 
 ---
 

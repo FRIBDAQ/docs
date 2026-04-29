@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - FILENAME_STR_MAXLEN
-  : [[ConfigurationParser.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8cpp.md#a39d6d4439a0696e8d55094282ef9025d]]
+  : [ConfigurationParser.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8cpp.md#a39d6d4439a0696e8d55094282ef9025d)
 
  contents 
  start footer part 

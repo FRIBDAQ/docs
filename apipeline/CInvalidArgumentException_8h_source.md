@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[exception|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_606be0c095146ea0038c0fba572d628a.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [exception](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_606be0c095146ea0038c0fba572d628a.md)
 
  top 
 CInvalidArgumentException.h
@@ -75,7 +75,7 @@ header
 
 <a name="l00023"></a>   23
 
-<a name="l00033"></a>[[33|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]] class [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]] : public [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
+<a name="l00033"></a>[33](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md) class [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md) : public [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md)
 
 <a name="l00034"></a>   34 {
 
@@ -97,21 +97,21 @@ header
 
 <a name="l00043"></a>   43 public:
 
-<a name="l00044"></a>   44     [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aa053afbd23d13a95d77bda82bca7d918]](std::string argument, std::string whybad,
+<a name="l00044"></a>   44     [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aa053afbd23d13a95d77bda82bca7d918)(std::string argument, std::string whybad,
 
 <a name="l00045"></a>   45                               std::string wasDoing);
 
-<a name="l00046"></a>   46     [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aa053afbd23d13a95d77bda82bca7d918]](const [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]& rhs);
+<a name="l00046"></a>   46     [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aa053afbd23d13a95d77bda82bca7d918)(const [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md)& rhs);
 
-<a name="l00047"></a>   47     virtual [[~CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aff4278e0b07216890a5d16ed21bb2fef]]();
+<a name="l00047"></a>   47     virtual [~CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aff4278e0b07216890a5d16ed21bb2fef)();
 
 <a name="l00048"></a>   48
 
-<a name="l00049"></a>   49     [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a14d4fc6619f0905e3231cfa5f249d2f3]](const [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]& rhs);
+<a name="l00049"></a>   49     [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a14d4fc6619f0905e3231cfa5f249d2f3)(const [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md)& rhs);
 
-<a name="l00050"></a>   50     int [[operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a3a629aaae631bf2b83a71013b5cbeb9e]](const [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]& rhs) const;
+<a name="l00050"></a>   50     int [operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a3a629aaae631bf2b83a71013b5cbeb9e)(const [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md)& rhs) const;
 
-<a name="l00051"></a>   51     int [[operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a63efd7820cbe5cbada635376c2a7edac]](const [[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]& rhs) const;
+<a name="l00051"></a>   51     int [operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a63efd7820cbe5cbada635376c2a7edac)(const [CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md)& rhs) const;
 
 <a name="l00052"></a>   52
 
@@ -119,7 +119,7 @@ header
 
 <a name="l00054"></a>   54
 
-<a name="l00055"></a>   55     virtual const char* [[ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a07b531e0e9a04a282654d870ae424209]]() const;
+<a name="l00055"></a>   55     virtual const char* [ReasonText](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a07b531e0e9a04a282654d870ae424209)() const;
 
 <a name="l00056"></a>   56 };
 
@@ -127,52 +127,52 @@ header
 
 <a name="l00058"></a>   58 #endif
 
-[[CInvalidArgumentException::operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a63efd7820cbe5cbada635376c2a7edac]]
+[CInvalidArgumentException::operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a63efd7820cbe5cbada635376c2a7edac)
 
 int operator!=(const CInvalidArgumentException &rhs) const
 
 **Definition:** CInvalidArgumentException.cpp:90
 
 
-[[CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md]]
+[CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md)
 
 **Definition:** CInvalidArgumentException.h:33
 
 
-[[CInvalidArgumentException::ReasonText|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a07b531e0e9a04a282654d870ae424209]]
+[CInvalidArgumentException::ReasonText](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a07b531e0e9a04a282654d870ae424209)
 
 virtual const char * ReasonText() const
 
 **Definition:** CInvalidArgumentException.cpp:104
 
 
-[[CInvalidArgumentException::operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a3a629aaae631bf2b83a71013b5cbeb9e]]
+[CInvalidArgumentException::operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a3a629aaae631bf2b83a71013b5cbeb9e)
 
 int operator==(const CInvalidArgumentException &rhs) const
 
 **Definition:** CInvalidArgumentException.cpp:77
 
 
-[[CInvalidArgumentException::CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aa053afbd23d13a95d77bda82bca7d918]]
+[CInvalidArgumentException::CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aa053afbd23d13a95d77bda82bca7d918)
 
 CInvalidArgumentException(std::string argument, std::string whybad, std::string wasDoing)
 
 **Definition:** CInvalidArgumentException.cpp:32
 
 
-[[CInvalidArgumentException::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a14d4fc6619f0905e3231cfa5f249d2f3]]
+[CInvalidArgumentException::operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#a14d4fc6619f0905e3231cfa5f249d2f3)
 
 CInvalidArgumentException & operator=(const CInvalidArgumentException &rhs)
 
 **Definition:** CInvalidArgumentException.cpp:61
 
 
-[[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]]
+[CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md)
 
 **Definition:** Exception.h:41
 
 
-[[CInvalidArgumentException::~CInvalidArgumentException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aff4278e0b07216890a5d16ed21bb2fef]]
+[CInvalidArgumentException::~CInvalidArgumentException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCInvalidArgumentException.md#aff4278e0b07216890a5d16ed21bb2fef)
 
 virtual ~CInvalidArgumentException()
 

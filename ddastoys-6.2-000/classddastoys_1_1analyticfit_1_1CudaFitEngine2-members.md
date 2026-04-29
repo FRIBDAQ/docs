@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **ddastoys**
 - **analyticfit**
-- [[CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]]
+- [CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md)
 
  top 
 ddastoys::analyticfit::CudaFitEngine2 Member List
 
 header
-This is the complete list of members for [[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]], including all inherited members.
+This is the complete list of members for [ddastoys::analyticfit::CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md), including all inherited members.
 
 
 |  |  |  |

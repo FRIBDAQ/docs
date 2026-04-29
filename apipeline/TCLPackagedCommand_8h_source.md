@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLPackagedCommand.h
@@ -101,7 +101,7 @@ header
 
 <a name="l00037"></a>   37 #ifndef TCLCOMMANDPACKAGE_H
 
-<a name="l00038"></a>   38 #include "[[TCLCommandPackage.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLCommandPackage_8h.md]]"
+<a name="l00038"></a>   38 #include "[TCLCommandPackage.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLCommandPackage_8h.md)"
 
 <a name="l00039"></a>   39 #endif
 
@@ -119,13 +119,13 @@ header
 
 <a name="l00046"></a>   46
 
-<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]] class [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]   : public [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]]
+<a name="l00047"></a>[47](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md) class [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)   : public [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)
 
 <a name="l00048"></a>   48 {
 
 <a name="l00049"></a>   49
 
-<a name="l00050"></a>   50   [[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md]]& m_rMyPackage;
+<a name="l00050"></a>   50   [CTCLCommandPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md)& m_rMyPackage;
 
 <a name="l00051"></a>   51
 
@@ -135,27 +135,27 @@ header
 
 <a name="l00054"></a>   54             //Constructor with arguments
 
-<a name="l00055"></a>   55   [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]] (const std::string& sCommand, [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00055"></a>   55   [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md) (const std::string& sCommand, [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
-<a name="l00056"></a>   56                [[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md]]& rPackage) :
+<a name="l00056"></a>   56                [CTCLCommandPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md)& rPackage) :
 
-<a name="l00057"></a>   57     [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]](sCommand, pInterp),
+<a name="l00057"></a>   57     [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)(sCommand, pInterp),
 
 <a name="l00058"></a>   58     m_rMyPackage(rPackage)
 
 <a name="l00059"></a>   59   { }
 
-<a name="l00060"></a>   60   [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]] (const char* pCommand, [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00060"></a>   60   [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md) (const char* pCommand, [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
-<a name="l00061"></a>   61                [[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md]]& rPackage) :
+<a name="l00061"></a>   61                [CTCLCommandPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md)& rPackage) :
 
-<a name="l00062"></a>   62     [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]](pCommand, pInterp),
+<a name="l00062"></a>   62     [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)(pCommand, pInterp),
 
 <a name="l00063"></a>   63     m_rMyPackage(rPackage)
 
 <a name="l00064"></a>   64   { }
 
-<a name="l00065"></a>   65    ~[[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]] ( ) { }       //Destructor
+<a name="l00065"></a>   65    ~[CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md) ( ) { }       //Destructor
 
 <a name="l00066"></a>   66
 
@@ -163,7 +163,7 @@ header
 
 <a name="l00068"></a>   68 private:
 
-<a name="l00069"></a>   69   [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]] (const [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]& aCTCLPackagedCommand ) ;
+<a name="l00069"></a>   69   [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md) (const [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)& aCTCLPackagedCommand ) ;
 
 <a name="l00070"></a>   70 public:
 
@@ -171,13 +171,13 @@ header
 
 <a name="l00072"></a>   72 private:
 
-<a name="l00073"></a>   73   [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]& operator=
+<a name="l00073"></a>   73   [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)& operator=
 
-<a name="l00074"></a>   74       (const [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]& aCTCLPackagedCommand);
+<a name="l00074"></a>   74       (const [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)& aCTCLPackagedCommand);
 
-<a name="l00075"></a>   75   int operator==(const [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]& rhs) const;
+<a name="l00075"></a>   75   int operator==(const [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)& rhs) const;
 
-<a name="l00076"></a>   76   int operator!=(const [[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]& rhs) const;
+<a name="l00076"></a>   76   int operator!=(const [CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)& rhs) const;
 
 <a name="l00077"></a>   77 public:
 
@@ -189,7 +189,7 @@ header
 
 <a name="l00081"></a>   81                        //Get accessor function for 1:1 association
 
-<a name="l00082"></a>   82   [[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md]]& getMyPackage()
+<a name="l00082"></a>   82   [CTCLCommandPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md)& getMyPackage()
 
 <a name="l00083"></a>   83   {
 
@@ -203,7 +203,7 @@ header
 
 <a name="l00088"></a>   88 public:
 
-<a name="l00089"></a>   89   void setMyPackage ([[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md]]& am_rMyPackage)
+<a name="l00089"></a>   89   void setMyPackage ([CTCLCommandPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md)& am_rMyPackage)
 
 <a name="l00090"></a>   90   {
 
@@ -221,27 +221,27 @@ header
 
 <a name="l00097"></a>   97 #endif
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[TCLCommandPackage.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLCommandPackage_8h.md]]
+[TCLCommandPackage.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLCommandPackage_8h.md)
 
 :
 
 
-[[CTCLPackagedCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md]]
+[CTCLPackagedCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedCommand.md)
 
 **Definition:** TCLPackagedCommand.h:47
 
 
-[[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]]
+[CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md)
 
 **Definition:** TCLProcessor.h:46
 
 
-[[CTCLCommandPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md]]
+[CTCLCommandPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCommandPackage.md)
 
 **Definition:** TCLCommandPackage.h:61
 

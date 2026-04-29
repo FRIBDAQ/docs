@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
-- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
-- [[FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]]
+- [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
+- [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
+- [FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md)
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration-members.md)
 
 
-DAQ::DDAS::FirmwareConfiguration Struct Reference[[libConfiguration.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md]]
+DAQ::DDAS::FirmwareConfiguration Struct Reference[libConfiguration.so](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md)
 
 header
 Storage for hardware-type firmware/settings paths.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md#details)
 
 
 `#include <Configuration.h>`
@@ -61,7 +61,7 @@ Storage for hardware-type firmware/settings paths.
 Storage for hardware-type firmware/settings paths.
 
 
-A simple structure to hold the paths to all firmware/settings files for a specific hardware type. These objects will be stored in a map of the [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] class and keyed by a hardware type defined in [[HardwareRegistry.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md]]
+A simple structure to hold the paths to all firmware/settings files for a specific hardware type. These objects will be stored in a map of the [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) class and keyed by a hardware type defined in [HardwareRegistry.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md)
 
 ## Member Data Documentation
 
@@ -113,7 +113,7 @@ Name of signal processing FPGA configuration file.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h_source.md]]
+The documentation for this struct was generated from the following file:- [Configuration.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h_source.md)
 
  contents 
  start footer part 

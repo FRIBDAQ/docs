@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 TclThreadTests Member List
 
 header
-This is the complete list of members for [[TclThreadTests|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclThreadTests.md]], including all inherited members.
+This is the complete list of members for [TclThreadTests](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclThreadTests.md), including all inherited members.
 
 
 |  |  |  |

@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 VariableTraceCallback.h
@@ -57,17 +57,17 @@ header
 
 <a name="l00014"></a>   14
 
-<a name="l00015"></a>   15 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
+<a name="l00015"></a>   15 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);
 
 <a name="l00016"></a>   16
 
-<a name="l00023"></a>[[23|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]] class [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]]
+<a name="l00023"></a>[23](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md) class [CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md)
 
 <a name="l00024"></a>   24 {
 
 <a name="l00025"></a>   25  public:
 
-<a name="l00026"></a>   26   virtual char* operator()([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00026"></a>   26   virtual char* operator()([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00027"></a>   27                char* pVariable,
 
@@ -81,12 +81,12 @@ header
 
 <a name="l00032"></a>   32 #endif
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]]
+[CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md)
 
 **Definition:** VariableTraceCallback.h:23
 

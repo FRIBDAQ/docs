@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
-- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
-- [[FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]]
+- [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
+- [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
+- [FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md)
 
  top 
 DAQ::DDAS::FirmwareConfiguration Member List
 
 header
-This is the complete list of members for [[DAQ::DDAS::FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]], including all inherited members.
+This is the complete list of members for [DAQ::DDAS::FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md), including all inherited members.
 
 
 |  |  |  |

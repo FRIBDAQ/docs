@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator-members.md)
 
 
-CDataGenerator Class Reference[[libPixieUtilities.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__utilities.md]]
+CDataGenerator Class Reference[libPixieUtilities.so](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__utilities.md)
 
 header
 A class to generate test pulse, run, and baseline data for offline operation of QtScope.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDataGenerator.md#details)
 
 
 `#include <CDataGenerator.h>`
@@ -169,8 +169,8 @@ Params are a pointer to the start of the data storage and a size, as is done in 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CDataGenerator.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDataGenerator_8h_source.md]]
-- [[CDataGenerator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDataGenerator_8cpp.md]]
+The documentation for this class was generated from the following files:- [CDataGenerator.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDataGenerator_8h_source.md)
+- [CDataGenerator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CDataGenerator_8cpp.md)
 
  contents 
  start footer part 

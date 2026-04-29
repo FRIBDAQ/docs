@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[TraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md]]
+- [TraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md)
 
  top 
 FitManager.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -135,25 +135,25 @@ header
 <a name="l00056"></a>   56
 
 
-<a name="l00058"></a>[[58|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]] enum [[fitMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]] {
+<a name="l00058"></a>[58](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599) enum [fitMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599) {
 
 
-<a name="l00059"></a>[[59|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]     [[ANALYTIC|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]],
+<a name="l00059"></a>[59](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48)     [ANALYTIC](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48),
 
 
-<a name="l00060"></a>[[60|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]     [[TEMPLATE|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]],
+<a name="l00060"></a>[60](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9)     [TEMPLATE](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9),
 
 
-<a name="l00061"></a>   61     [[ML_INFERENCE|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
+<a name="l00061"></a>   61     [ML_INFERENCE](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857)
 
 
-<a name="l00062"></a>[[62|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]] };
+<a name="l00062"></a>[62](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857) };
 
 
 <a name="l00063"></a>   63
 
 
-<a name="l00064"></a>[[64|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]] class [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]
+<a name="l00064"></a>[64](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md) class [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md)
 
 
 <a name="l00065"></a>   65 {
@@ -162,55 +162,55 @@ header
 <a name="l00066"></a>   66 public:
 
 
-<a name="l00068"></a>   68     [[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af1d9514ea84fca9a10e101ce432a711e]]();
+<a name="l00068"></a>   68     [FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af1d9514ea84fca9a10e101ce432a711e)();
 
 
-<a name="l00070"></a>   70     [[~FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ae91054af3f17061de5d61f0c675eb9ba]]();
+<a name="l00070"></a>   70     [~FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ae91054af3f17061de5d61f0c675eb9ba)();
 
 
 <a name="l00071"></a>   71
 
 
-<a name="l00076"></a>   76     void [[configure|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a57e90158db0e785ae35757dbb3c47615]](std::string method);
+<a name="l00076"></a>   76     void [configure](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a57e90158db0e785ae35757dbb3c47615)(std::string method);
 
 
-<a name="l00078"></a>   78     void [[readConfigFile|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a85c6ee590463e4e2608ca5e76c28aa21]]();
+<a name="l00078"></a>   78     void [readConfigFile](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a85c6ee590463e4e2608ca5e76c28aa21)();
 
 
-<a name="l00080"></a>   80     void [[readTemplateFile|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a727b01ddbe1030484a52204e3f099c5e]]();
+<a name="l00080"></a>   80     void [readTemplateFile](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a727b01ddbe1030484a52204e3f099c5e)();
 
 
-<a name="l00090"></a>   90     std::vector<double> [[getSinglePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a91d4ae26e9ab9e17c89a465505403e1d]](
+<a name="l00090"></a>   90     std::vector<double> [getSinglePulseFit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a91d4ae26e9ab9e17c89a465505403e1d)(
 
 
-<a name="l00091"></a>   91     const [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]& ext, unsigned low, unsigned high
+<a name="l00091"></a>   91     const [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md)& ext, unsigned low, unsigned high
 
 
 <a name="l00092"></a>   92     );
 
 
-<a name="l00102"></a>  102     std::vector<double> [[getDoublePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#aee1ff0d4d0df1925015edc8f1c646275]](
+<a name="l00102"></a>  102     std::vector<double> [getDoublePulseFit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#aee1ff0d4d0df1925015edc8f1c646275)(
 
 
-<a name="l00103"></a>  103     const [[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]& ext, unsigned low, unsigned high
+<a name="l00103"></a>  103     const [ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md)& ext, unsigned low, unsigned high
 
 
 <a name="l00104"></a>  104     );
 
 
-<a name="l00110"></a>  110     unsigned [[getLowFitLimit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a6ce16d6182c18eb657a2f49dc27948e4]](const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
+<a name="l00110"></a>  110     unsigned [getLowFitLimit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a6ce16d6182c18eb657a2f49dc27948e4)(const [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)& hit);
 
 
-<a name="l00116"></a>  116     unsigned [[getHighFitLimit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af6c87a551fc75ace39c8f2054b84bc69]](const [[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]& hit);
+<a name="l00116"></a>  116     unsigned [getHighFitLimit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af6c87a551fc75ace39c8f2054b84bc69)(const [ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)& hit);
 
 
 <a name="l00117"></a>  117
 
 
-<a name="l00122"></a>[[122|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d]]     void [[setMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#adb63cc29dd5473b4101cdf9748a0e58f]]([[fitMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]] m) { m_method = m; };
+<a name="l00122"></a>[122](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d)     void [setMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#adb63cc29dd5473b4101cdf9748a0e58f)([fitMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599) m) { m_method = m; };
 
 
-<a name="l00127"></a>  127     enum [[fitMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]] [[getMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d]]() { return m_method; };
+<a name="l00127"></a>  127     enum [fitMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599) [getMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d)() { return m_method; };
 
 
 <a name="l00128"></a>  128
@@ -255,10 +255,10 @@ header
 <a name="l00176"></a>  176 private:
 
 
-<a name="l00177"></a>  177     [[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]* m_pConfig; //<! Configuration file manager.
+<a name="l00177"></a>  177     [ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md)* m_pConfig; //<! Configuration file manager.
 
 
-<a name="l00178"></a>  178     [[fitMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]] m_method;
+<a name="l00178"></a>  178     [fitMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599) m_method;
 
 
 <a name="l00179"></a>  179     bool m_config;
@@ -276,7 +276,7 @@ header
 <a name="l00183"></a>  183 #endif
 
 
-[[fitMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]]
+[fitMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599)
 
 fitMethod
 
@@ -285,7 +285,7 @@ Fit method enum class.
 **Definition:** FitManager.h:58
 
 
-[[ANALYTIC|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48]]
+[ANALYTIC](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599a9aba04f90a41ed8dda446936b5999b48)
 
 @ ANALYTIC
 
@@ -294,7 +294,7 @@ Analytic fit.
 **Definition:** FitManager.h:59
 
 
-[[TEMPLATE|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9]]
+[TEMPLATE](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599aa8784a60589c30a252c265b610d2e0a9)
 
 @ TEMPLATE
 
@@ -303,7 +303,7 @@ Template fit.
 **Definition:** FitManager.h:60
 
 
-[[ML_INFERENCE|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857]]
+[ML_INFERENCE](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599ac071a59dd2832c755bce07fd8d919857)
 
 @ ML_INFERENCE
 
@@ -312,14 +312,14 @@ Machine learning inference fit.
 **Definition:** FitManager.h:61
 
 
-[[FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md]]
+[FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md)
 
 Provides an interface for calculating trace fits using HitExtension fit parameters.
 
 **Definition:** FitManager.h:65
 
 
-[[FitManager::configure|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a57e90158db0e785ae35757dbb3c47615]]
+[FitManager::configure](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a57e90158db0e785ae35757dbb3c47615)
 
 void configure(std::string method)
 
@@ -328,7 +328,7 @@ Configure the fit method settings.
 **Definition:** FitManager.cpp:69
 
 
-[[FitManager::getLowFitLimit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a6ce16d6182c18eb657a2f49dc27948e4]]
+[FitManager::getLowFitLimit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a6ce16d6182c18eb657a2f49dc27948e4)
 
 unsigned getLowFitLimit(const ddastoys::DDASFitHit &hit)
 
@@ -337,7 +337,7 @@ Get the lower limit of the fit range.
 **Definition:** FitManager.cpp:203
 
 
-[[FitManager::readTemplateFile|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a727b01ddbe1030484a52204e3f099c5e]]
+[FitManager::readTemplateFile](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a727b01ddbe1030484a52204e3f099c5e)
 
 void readTemplateFile()
 
@@ -346,7 +346,7 @@ Read the template file using the Configuration class.
 **Definition:** FitManager.cpp:125
 
 
-[[FitManager::readConfigFile|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a85c6ee590463e4e2608ca5e76c28aa21]]
+[FitManager::readConfigFile](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a85c6ee590463e4e2608ca5e76c28aa21)
 
 void readConfigFile()
 
@@ -355,7 +355,7 @@ Read the configuration file using the Configuration class.
 **Definition:** FitManager.cpp:106
 
 
-[[FitManager::getSinglePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a91d4ae26e9ab9e17c89a465505403e1d]]
+[FitManager::getSinglePulseFit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#a91d4ae26e9ab9e17c89a465505403e1d)
 
 std::vector< double > getSinglePulseFit(const ddastoys::HitExtension &ext, unsigned low, unsigned high)
 
@@ -364,7 +364,7 @@ Create and return a vector of fit values for each trace sample in the fit range.
 **Definition:** FitManager.cpp:140
 
 
-[[FitManager::getMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d]]
+[FitManager::getMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ab02717d1c735e6f579c3585b56a6412d)
 
 enum fitMethod getMethod()
 
@@ -373,7 +373,7 @@ Get the fitting method.
 **Definition:** FitManager.h:127
 
 
-[[FitManager::setMethod|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#adb63cc29dd5473b4101cdf9748a0e58f]]
+[FitManager::setMethod](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#adb63cc29dd5473b4101cdf9748a0e58f)
 
 void setMethod(fitMethod m)
 
@@ -382,7 +382,7 @@ Set the fitting method.
 **Definition:** FitManager.h:122
 
 
-[[FitManager::~FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ae91054af3f17061de5d61f0c675eb9ba]]
+[FitManager::~FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#ae91054af3f17061de5d61f0c675eb9ba)
 
 ~FitManager()
 
@@ -391,7 +391,7 @@ Destructor.
 **Definition:** FitManager.cpp:55
 
 
-[[FitManager::getDoublePulseFit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#aee1ff0d4d0df1925015edc8f1c646275]]
+[FitManager::getDoublePulseFit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#aee1ff0d4d0df1925015edc8f1c646275)
 
 std::vector< double > getDoublePulseFit(const ddastoys::HitExtension &ext, unsigned low, unsigned high)
 
@@ -400,7 +400,7 @@ Create and return a vector of fit values for each trace sample in the fit range.
 **Definition:** FitManager.cpp:172
 
 
-[[FitManager::FitManager|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af1d9514ea84fca9a10e101ce432a711e]]
+[FitManager::FitManager](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af1d9514ea84fca9a10e101ce432a711e)
 
 FitManager()
 
@@ -409,7 +409,7 @@ Constructor.
 **Definition:** FitManager.cpp:43
 
 
-[[FitManager::getHighFitLimit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af6c87a551fc75ace39c8f2054b84bc69]]
+[FitManager::getHighFitLimit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classFitManager.md#af6c87a551fc75ace39c8f2054b84bc69)
 
 unsigned getHighFitLimit(const ddastoys::DDASFitHit &hit)
 
@@ -418,21 +418,21 @@ Get the upper limit of the fit range.
 **Definition:** FitManager.cpp:221
 
 
-[[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]
+[ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md)
 
 Manage fit configuration information.
 
 **Definition:** Configuration.h:68
 
 
-[[ddastoys::DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]]
+[ddastoys::DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md)
 
 Encapsulates data for DDAS hits that may have fitted traces.
 
 **Definition:** DDASFitHit.h:46
 
 
-[[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]
+[ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md)
 
 The data structure appended to each fit hit.
 

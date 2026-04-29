@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classWarning-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classWarning-members.md)
 
 
 Warning Class Reference
@@ -37,7 +37,7 @@ header
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[Asserts.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/base_2Asserts_8h_source.md]]
+The documentation for this class was generated from the following file:- base/[Asserts.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/base_2Asserts_8h_source.md)
 
  contents 
  start footer part 

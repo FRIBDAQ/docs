@@ -26,7 +26,7 @@ header
 parametermapping Input to Internal Parameter Mapping.
 
 
-[[Application|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication.md]] parameters are created by instantiating tree parameters or tree parameter arrays. For example:
+[Application](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication.md) parameters are created by instantiating tree parameters or tree parameter arrays. For example:
 
 
 #include <TreeParameter.h>
@@ -60,7 +60,7 @@ When a parameter is defined (and CTreeParameterArray is just a collection of par
 Within the application if two parameters have the same name, the tree parameter module will ensure that they map to the same id and, therefore, point to the same storage. Across applications, however, there is no assurance that parameters with the same name will be assigned the same id.
 
 
-Each parameter file, however begins with an frib::analysis::ParameterDefinitions ring item. That item provides the name/id correspondence used by the application that wrote the file. It is produced using the parameter definitions that are created by the [[frib::analysis::CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]] object used by the application.
+Each parameter file, however begins with an frib::analysis::ParameterDefinitions ring item. That item provides the name/id correspondence used by the application that wrote the file. It is produced using the parameter definitions that are created by the [frib::analysis::CParameterReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md) object used by the application.
 
 
 The parameter to parameter framework provides this information to the worker objects allowing them to create a map between parameter ids it will receive in events and parameters defined within the application. This mapping is expressed as a flat vector of file parameter id to CTreeParameter* objects and therefore has a lookup time of O(1).
@@ -69,10 +69,10 @@ The parameter to parameter framework provides this information to the worker obj
 So as long as you define parameters in your application with the same names as those in the file, the framework will know how to transparently load the application parameters from each event's parameters. This is done transparently to user written code.
 
 
-Each application has a parameter file reader. The parameter file reader defines a set of tree parameters and tree variables. Users of [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]] must derive a parameter reader from [[frib::analysis::CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]] and pass that to the function call operator (`operator()`) of the application. The parameter reader is used in all ranks to define a set of parameters. It is also, unless you take special steps, the only mechanism the outputter has to know which parameters are defined and, therefore how to write its parameter definition ring item.
+Each application has a parameter file reader. The parameter file reader defines a set of tree parameters and tree variables. Users of [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md) must derive a parameter reader from [frib::analysis::CParameterReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md) and pass that to the function call operator (`operator()`) of the application. The parameter reader is used in all ranks to define a set of parameters. It is also, unless you take special steps, the only mechanism the outputter has to know which parameters are defined and, therefore how to write its parameter definition ring item.
 
 
-If you like, you can makee use of the [[frib::analysis::CTCLParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTCLParameterReader.md]] which allows you to use Tcl formatted output files that are descrbed in [[Parameter file format.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/md__fox_fribanalysis-1_80-000_pages_paramfileformat.md#paramfileformat]]
+If you like, you can makee use of the [frib::analysis::CTCLParameterReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTCLParameterReader.md) which allows you to use Tcl formatted output files that are descrbed in [Parameter file format.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/md__fox_fribanalysis-1_80-000_pages_paramfileformat.md#paramfileformat)
 
 
 Since these are interpreted in an extended Tcl interpreter you can use e.g. the `source` command to stack the parameter definitions of previous stages of the analysis pipeline up. For example, suppose the raw parameter unpacker used

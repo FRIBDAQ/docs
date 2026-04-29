@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink-members.md)
 
 
 RootFileDataSink Class Reference
 
 header
 A ROOT file sink for DDAS data.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#details)
 
 
 `#include <RootFileDataSink.h>`
@@ -172,8 +172,8 @@ The ring item is assumed to consist of a set of fragments. Each fragment contain
 
 ---
 
-The documentation for this class was generated from the following files:- [[RootFileDataSink.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RootFileDataSink_8h_source.md]]
-- [[RootFileDataSink.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RootFileDataSink_8cpp.md]]
+The documentation for this class was generated from the following files:- [RootFileDataSink.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RootFileDataSink_8h_source.md)
+- [RootFileDataSink.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RootFileDataSink_8cpp.md)
 
  contents 
  start footer part 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[qtscope|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [qtscope](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md)
 
  top 
 CPixieTraceUtilities.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md]]<a name="l00001"></a>    1
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md)<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef CPIXIETRACEUTILITIES_H
@@ -46,7 +46,7 @@ header
 <a name="l00011"></a>   11
 
 
-<a name="l00030"></a>[[30|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]] class [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]
+<a name="l00030"></a>[30](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md) class [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)
 
 
 <a name="l00031"></a>   31 {
@@ -70,22 +70,22 @@ header
 <a name="l00037"></a>   37 public:
 
 
-<a name="l00039"></a>   39     [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#af709feb0addcf24a4c2b97ceefbe6861]]();
+<a name="l00039"></a>   39     [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#af709feb0addcf24a4c2b97ceefbe6861)();
 
 
 <a name="l00040"></a>   40
 
 
-<a name="l00051"></a>   51     int [[ReadTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e]](int module, int channel);
+<a name="l00051"></a>   51     int [ReadTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e)(int module, int channel);
 
 
-<a name="l00060"></a>   60     int [[ReadFastTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a]](int module, int channel);
+<a name="l00060"></a>   60     int [ReadFastTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a)(int module, int channel);
 
 
-<a name="l00065"></a>[[65|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac]]     unsigned short* [[GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac]]() {return m_trace.data();}
+<a name="l00065"></a>[65](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac)     unsigned short* [GetTraceData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac)() {return m_trace.data();}
 
 
-<a name="l00070"></a>[[70|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64]]     void [[SetUseGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64]](bool mode) {m_useGenerator = mode;}
+<a name="l00070"></a>[70](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64)     void [SetUseGenerator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64)(bool mode) {m_useGenerator = mode;}
 
 
 <a name="l00071"></a>   71
@@ -112,22 +112,22 @@ header
 <a name="l00099"></a>   99 extern "C" {
 
 
-<a name="l00101"></a>[[101|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a]]     [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]* [[CPixieTraceUtilities_new|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a]]()
+<a name="l00101"></a>[101](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a)     [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)* [CPixieTraceUtilities_new](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a)()
 
 
 <a name="l00102"></a>  102     {
 
 
-<a name="l00103"></a>  103     return new [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]();
+<a name="l00103"></a>  103     return new [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)();
 
 
 <a name="l00104"></a>  104     }
 
 
-<a name="l00106"></a>[[106|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5]]     int [[CPixieTraceUtilities_ReadTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5]](
+<a name="l00106"></a>[106](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5)     int [CPixieTraceUtilities_ReadTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5)(
 
 
-<a name="l00107"></a>  107     [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]* utils, int mod, int chan
+<a name="l00107"></a>  107     [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)* utils, int mod, int chan
 
 
 <a name="l00108"></a>  108     )
@@ -136,16 +136,16 @@ header
 <a name="l00109"></a>  109     {
 
 
-<a name="l00110"></a>  110     return utils->[[ReadTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e]](mod, chan);
+<a name="l00110"></a>  110     return utils->[ReadTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e)(mod, chan);
 
 
 <a name="l00111"></a>  111     }
 
 
-<a name="l00113"></a>[[113|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689]]     int [[CPixieTraceUtilities_ReadFastTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689]](
+<a name="l00113"></a>[113](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689)     int [CPixieTraceUtilities_ReadFastTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689)(
 
 
-<a name="l00114"></a>  114     [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]* utils, int mod, int chan
+<a name="l00114"></a>  114     [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)* utils, int mod, int chan
 
 
 <a name="l00115"></a>  115     )
@@ -154,16 +154,16 @@ header
 <a name="l00116"></a>  116     {
 
 
-<a name="l00117"></a>  117     return utils->[[ReadFastTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a]](mod, chan);
+<a name="l00117"></a>  117     return utils->[ReadFastTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a)(mod, chan);
 
 
 <a name="l00118"></a>  118     }
 
 
-<a name="l00120"></a>[[120|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2]]     unsigned short* [[CPixieTraceUtilities_GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2]](
+<a name="l00120"></a>[120](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2)     unsigned short* [CPixieTraceUtilities_GetTraceData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2)(
 
 
-<a name="l00121"></a>  121     [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]* utils
+<a name="l00121"></a>  121     [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)* utils
 
 
 <a name="l00122"></a>  122     )
@@ -172,16 +172,16 @@ header
 <a name="l00123"></a>  123     {
 
 
-<a name="l00124"></a>  124     return utils->[[GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac]]();
+<a name="l00124"></a>  124     return utils->[GetTraceData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac)();
 
 
 <a name="l00125"></a>  125     }
 
 
-<a name="l00127"></a>[[127|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b]]     void [[CPixieTraceUtilities_SetUseGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b]](
+<a name="l00127"></a>[127](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b)     void [CPixieTraceUtilities_SetUseGenerator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b)(
 
 
-<a name="l00128"></a>  128     [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]* utils, bool mode
+<a name="l00128"></a>  128     [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)* utils, bool mode
 
 
 <a name="l00129"></a>  129     )
@@ -190,7 +190,7 @@ header
 <a name="l00130"></a>  130     {
 
 
-<a name="l00131"></a>  131     return utils->[[SetUseGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64]](mode);
+<a name="l00131"></a>  131     return utils->[SetUseGenerator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64)(mode);
 
 
 <a name="l00132"></a>  132     }
@@ -199,7 +199,7 @@ header
 <a name="l00133"></a>  133
 
 
-<a name="l00135"></a>[[135|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c]]     void [[CPixieTraceUtilities_delete|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c]]([[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]* utils)
+<a name="l00135"></a>[135](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c)     void [CPixieTraceUtilities_delete](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c)([CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)* utils)
 
 
 <a name="l00136"></a>  136     {
@@ -229,7 +229,7 @@ header
 <a name="l00144"></a>  144 #endif
 
 
-[[CPixieTraceUtilities_new|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a]]
+[CPixieTraceUtilities_new](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a)
 
 CPixieTraceUtilities * CPixieTraceUtilities_new()
 
@@ -238,7 +238,7 @@ Wrapper for the class constructor.
 **Definition:** CPixieTraceUtilities.h:101
 
 
-[[CPixieTraceUtilities_delete|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c]]
+[CPixieTraceUtilities_delete](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c)
 
 void CPixieTraceUtilities_delete(CPixieTraceUtilities *utils)
 
@@ -247,7 +247,7 @@ Wrapper for the class destructor.
 **Definition:** CPixieTraceUtilities.h:135
 
 
-[[CPixieTraceUtilities_ReadFastTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689]]
+[CPixieTraceUtilities_ReadFastTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689)
 
 int CPixieTraceUtilities_ReadFastTrace(CPixieTraceUtilities *utils, int mod, int chan)
 
@@ -256,7 +256,7 @@ Wrapper for reading an unvalidated trace.
 **Definition:** CPixieTraceUtilities.h:113
 
 
-[[CPixieTraceUtilities_ReadTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5]]
+[CPixieTraceUtilities_ReadTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5)
 
 int CPixieTraceUtilities_ReadTrace(CPixieTraceUtilities *utils, int mod, int chan)
 
@@ -265,7 +265,7 @@ Wrapper for reading a validated trace.
 **Definition:** CPixieTraceUtilities.h:106
 
 
-[[CPixieTraceUtilities_SetUseGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b]]
+[CPixieTraceUtilities_SetUseGenerator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b)
 
 void CPixieTraceUtilities_SetUseGenerator(CPixieTraceUtilities *utils, bool mode)
 
@@ -274,7 +274,7 @@ Wrapper to set generator use.
 **Definition:** CPixieTraceUtilities.h:127
 
 
-[[CPixieTraceUtilities_GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2]]
+[CPixieTraceUtilities_GetTraceData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2)
 
 unsigned short * CPixieTraceUtilities_GetTraceData(CPixieTraceUtilities *utils)
 
@@ -283,14 +283,14 @@ Wrapper to get trace data.
 **Definition:** CPixieTraceUtilities.h:120
 
 
-[[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md]]
+[CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md)
 
 A class to read and fetch trace data from Pixie-16 modules.
 
 **Definition:** CPixieTraceUtilities.h:31
 
 
-[[CPixieTraceUtilities::ReadFastTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a]]
+[CPixieTraceUtilities::ReadFastTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a)
 
 int ReadFastTrace(int module, int channel)
 
@@ -299,7 +299,7 @@ Read a validated ADC trace from single channel.
 **Definition:** CPixieTraceUtilities.cpp:98
 
 
-[[CPixieTraceUtilities::GetTraceData|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac]]
+[CPixieTraceUtilities::GetTraceData](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a16213d143d9718616864fda4068290ac)
 
 unsigned short * GetTraceData()
 
@@ -308,7 +308,7 @@ Return the trace data.
 **Definition:** CPixieTraceUtilities.h:65
 
 
-[[CPixieTraceUtilities::ReadTrace|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e]]
+[CPixieTraceUtilities::ReadTrace](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e)
 
 int ReadTrace(int module, int channel)
 
@@ -317,7 +317,7 @@ Read a validated ADC trace from single channel.
 **Definition:** CPixieTraceUtilities.cpp:39
 
 
-[[CPixieTraceUtilities::SetUseGenerator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64]]
+[CPixieTraceUtilities::SetUseGenerator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a79730a6c8c0f129a335a7b7d91de4d64)
 
 void SetUseGenerator(bool mode)
 
@@ -326,7 +326,7 @@ Set the flag for offline mode using the data generator.
 **Definition:** CPixieTraceUtilities.h:70
 
 
-[[CPixieTraceUtilities::CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#af709feb0addcf24a4c2b97ceefbe6861]]
+[CPixieTraceUtilities::CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#af709feb0addcf24a4c2b97ceefbe6861)
 
 CPixieTraceUtilities()
 

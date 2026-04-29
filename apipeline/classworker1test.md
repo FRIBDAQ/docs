@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classworker1test-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classworker1test-members.md)
 
 
 worker1test Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for worker1test:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for worker1test:
@@ -47,7 +47,7 @@ Collaboration diagram for worker1test:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -91,7 +91,7 @@ Somewhere in all of those items there should be a begin and an end item: because
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[worker1Tests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/worker1Tests_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[worker1Tests.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/worker1Tests_8cpp.md)
 
  contents 
  start footer part 

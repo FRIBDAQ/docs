@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_ParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]]
+- [_ParameterItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md)
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem-members.md)
 
 
 frib::analysis::_ParameterItem Struct Reference
@@ -43,7 +43,7 @@ Collaboration diagram for frib::analysis::_ParameterItem:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -62,7 +62,7 @@ Collaboration diagram for frib::analysis::_ParameterItem:
 
 ---
 
-The documentation for this struct was generated from the following file:- base/[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h_source.md]]
+The documentation for this struct was generated from the following file:- base/[AnalysisRingItems.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h_source.md)
 
  contents 
  start footer part 

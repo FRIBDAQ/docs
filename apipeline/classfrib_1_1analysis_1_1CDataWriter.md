@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]]
+- [CDataWriter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter-members.md)
 
 
 frib::analysis::CDataWriter Class Reference
@@ -143,8 +143,8 @@ writeItem Write a non-event item – this is just a passthrough item.
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[DataWriter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataWriter_8h_source.md]]
-- base/[[DataWriter.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataWriter_8cpp.md]]
+The documentation for this class was generated from the following files:- base/[DataWriter.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataWriter_8h_source.md)
+- base/[DataWriter.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/DataWriter_8cpp.md)
 
  contents 
  start footer part 

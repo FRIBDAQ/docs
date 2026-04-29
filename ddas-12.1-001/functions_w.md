@@ -22,9 +22,9 @@ Here is a list of all class members with links to the classes they belong to:
 ### - w -
 
 - WriteChanPar()
-  : [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90]]
+  : [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90)
 - WriteModPar()
-  : [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb]]
+  : [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb)
 
  contents 
  start footer part 

@@ -17,9 +17,9 @@ do not remove this div, it is closed by doxygen!
 
 
 - pRingItemHeader
-  : [[DDASSorter.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]]
+  : [DDASSorter.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4)
 - Registry
-  : [[HardwareRegistry.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8cpp.md#ac22094b1eef40bd04e302d1dc2161134]]
+  : [HardwareRegistry.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8cpp.md#ac22094b1eef40bd04e302d1dc2161134)
 
  contents 
  start footer part 

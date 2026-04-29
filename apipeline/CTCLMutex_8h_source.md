@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 CTCLMutex.h
@@ -79,29 +79,29 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00033"></a>[[33|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]] struct [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]]
+<a name="l00033"></a>[33](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md) struct [CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md)
 
 <a name="l00034"></a>   34 {
 
 <a name="l00035"></a>   35   pthread_mutexattr_t  m_attributes;
 
-<a name="l00036"></a>   36   [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#ac23655fb77bf81b789f88000d55870b7]]();
+<a name="l00036"></a>   36   [CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#ac23655fb77bf81b789f88000d55870b7)();
 
-<a name="l00037"></a>   37   [[~CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#adb5192e6b59e34ef7063b0b4ff597af6]]();
+<a name="l00037"></a>   37   [~CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#adb5192e6b59e34ef7063b0b4ff597af6)();
 
 <a name="l00038"></a>   38
 
-<a name="l00039"></a>   39   void [[setShared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#abfb55a90ca6802b6c909115618e2fca7]]();
+<a name="l00039"></a>   39   void [setShared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#abfb55a90ca6802b6c909115618e2fca7)();
 
-<a name="l00040"></a>   40   void [[setUnshared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a3412160d2fc1f5dc7afb043fc03f926a]]();
+<a name="l00040"></a>   40   void [setUnshared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a3412160d2fc1f5dc7afb043fc03f926a)();
 
-<a name="l00041"></a>   41   bool [[isShareable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a518e1e66b2ac202e5549c5a6b6d34bd6]]();
+<a name="l00041"></a>   41   bool [isShareable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a518e1e66b2ac202e5549c5a6b6d34bd6)();
 
 <a name="l00042"></a>   42
 
-<a name="l00043"></a>   43   void [[setType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a53bbc0a28899cb742ea2575ac6001447]](int type);
+<a name="l00043"></a>   43   void [setType](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a53bbc0a28899cb742ea2575ac6001447)(int type);
 
-<a name="l00044"></a>   44   int [[getType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a6149de737aa03c77553c5139e634b69d]]();
+<a name="l00044"></a>   44   int [getType](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a6149de737aa03c77553c5139e634b69d)();
 
 <a name="l00045"></a>   45
 
@@ -113,7 +113,7 @@ header
 
 <a name="l00049"></a>   49
 
-<a name="l00054"></a>[[54|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]] class [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]
+<a name="l00054"></a>[54](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md) class [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)
 
 <a name="l00055"></a>   55 {
 
@@ -125,25 +125,25 @@ header
 
 <a name="l00059"></a>   59 public:
 
-<a name="l00060"></a>   60   [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]();
+<a name="l00060"></a>   60   [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)();
 
-<a name="l00061"></a>   61   [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]](pthread_mutexattr_t& attributes);
+<a name="l00061"></a>   61   [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)(pthread_mutexattr_t& attributes);
 
-<a name="l00062"></a>   62   [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]([[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]]&          attributes);
+<a name="l00062"></a>   62   [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)([CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md)&          attributes);
 
-<a name="l00063"></a>   63   virtual ~[[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]();
+<a name="l00063"></a>   63   virtual ~[CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)();
 
 <a name="l00064"></a>   64
 
 <a name="l00065"></a>   65 private:
 
-<a name="l00066"></a>   66   [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]](const [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]&);
+<a name="l00066"></a>   66   [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)(const [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)&);
 
-<a name="l00067"></a>   67   [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]& operator=(const [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]&);
+<a name="l00067"></a>   67   [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)& operator=(const [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)&);
 
-<a name="l00068"></a>   68   int operator==(const [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]&) const;
+<a name="l00068"></a>   68   int operator==(const [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)&) const;
 
-<a name="l00069"></a>   69   int operator!=(const [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]&) const;
+<a name="l00069"></a>   69   int operator!=(const [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)&) const;
 
 <a name="l00070"></a>   70
 
@@ -177,25 +177,25 @@ header
 
 <a name="l00085"></a>   85
 
-<a name="l00093"></a>[[93|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]] class [[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]] {
+<a name="l00093"></a>[93](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md) class [CriticalSection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md) {
 
 <a name="l00094"></a>   94 private:
 
-<a name="l00095"></a>   95     [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]& m_mutex;
+<a name="l00095"></a>   95     [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)& m_mutex;
 
 <a name="l00096"></a>   96 public:
 
-<a name="l00097"></a>   97     [[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]]([[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]& mutex) : m_mutex(mutex)
+<a name="l00097"></a>   97     [CriticalSection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md)([CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)& mutex) : m_mutex(mutex)
 
 <a name="l00098"></a>   98     {
 
-<a name="l00099"></a>   99         m_mutex.[[lock|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#abd23a5d6ff20790854f0483812a1101b]]();
+<a name="l00099"></a>   99         m_mutex.[lock](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#abd23a5d6ff20790854f0483812a1101b)();
 
 <a name="l00100"></a>  100     }
 
-<a name="l00101"></a>  101     ~[[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]]() {
+<a name="l00101"></a>  101     ~[CriticalSection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md)() {
 
-<a name="l00102"></a>  102         m_mutex.[[unlock|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#a889a2c611edc8c7ab0250e87c891ae0a]]();
+<a name="l00102"></a>  102         m_mutex.[unlock](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#a889a2c611edc8c7ab0250e87c891ae0a)();
 
 <a name="l00103"></a>  103     }
 
@@ -205,9 +205,9 @@ header
 
 <a name="l00106"></a>  106
 
-<a name="l00107"></a>  107 using [[CTCLMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]] = [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]];
+<a name="l00107"></a>  107 using [CTCLMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md) = [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md);
 
-<a name="l00108"></a>  108 using [[CTCLMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]] = [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#ac23655fb77bf81b789f88000d55870b7]];
+<a name="l00108"></a>  108 using [CTCLMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md) = [CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#ac23655fb77bf81b789f88000d55870b7);
 
 <a name="l00109"></a>  109
 
@@ -217,78 +217,78 @@ header
 
 <a name="l00112"></a>  112 #endif
 
-[[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md]]
+[CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md)
 
 **Definition:** CTCLMutex.h:33
 
 
-[[CMutexAttr::setShared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#abfb55a90ca6802b6c909115618e2fca7]]
+[CMutexAttr::setShared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#abfb55a90ca6802b6c909115618e2fca7)
 
 void setShared()
 
 **Definition:** CTCLMutex.cpp:52
 
 
-[[CMutexAttr::getType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a6149de737aa03c77553c5139e634b69d]]
+[CMutexAttr::getType](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a6149de737aa03c77553c5139e634b69d)
 
 int getType()
 
 **Definition:** CTCLMutex.cpp:102
 
 
-[[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]
+[CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)
 
 **Definition:** CTCLMutex.h:54
 
 
-[[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]]
+[CriticalSection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md)
 
 **Definition:** CTCLMutex.h:93
 
 
-[[CMutexAttr::setType|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a53bbc0a28899cb742ea2575ac6001447]]
+[CMutexAttr::setType](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a53bbc0a28899cb742ea2575ac6001447)
 
 void setType(int type)
 
 **Definition:** CTCLMutex.cpp:92
 
 
-[[CMutex::lock|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#abd23a5d6ff20790854f0483812a1101b]]
+[CMutex::lock](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#abd23a5d6ff20790854f0483812a1101b)
 
 void lock()
 
 **Definition:** CTCLMutex.cpp:162
 
 
-[[CMutexAttr::CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#ac23655fb77bf81b789f88000d55870b7]]
+[CMutexAttr::CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#ac23655fb77bf81b789f88000d55870b7)
 
 CMutexAttr()
 
 **Definition:** CTCLMutex.cpp:31
 
 
-[[CMutex::unlock|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#a889a2c611edc8c7ab0250e87c891ae0a]]
+[CMutex::unlock](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#a889a2c611edc8c7ab0250e87c891ae0a)
 
 void unlock()
 
 **Definition:** CTCLMutex.cpp:184
 
 
-[[CMutexAttr::isShareable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a518e1e66b2ac202e5549c5a6b6d34bd6]]
+[CMutexAttr::isShareable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a518e1e66b2ac202e5549c5a6b6d34bd6)
 
 bool isShareable()
 
 **Definition:** CTCLMutex.cpp:75
 
 
-[[CMutexAttr::setUnshared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a3412160d2fc1f5dc7afb043fc03f926a]]
+[CMutexAttr::setUnshared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a3412160d2fc1f5dc7afb043fc03f926a)
 
 void setUnshared()
 
 **Definition:** CTCLMutex.cpp:63
 
 
-[[CMutexAttr::~CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#adb5192e6b59e34ef7063b0b4ff597af6]]
+[CMutexAttr::~CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#adb5192e6b59e34ef7063b0b4ff597af6)
 
 ~CMutexAttr()
 

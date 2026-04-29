@@ -19,41 +19,41 @@ do not remove this div, it is closed by doxygen!
 ### - r -
 
 - RawChannel()
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a741e7d89b955cb5d6396b7f439f1ec41]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#a741e7d89b955cb5d6396b7f439f1ec41)
 - read()
-  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#ad3ea387bf91b2e1c4cfdf23f7f7ec408]]
-  , [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a649a7e49363555ed4ccefb340cb26d01]]
+  : [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#ad3ea387bf91b2e1c4cfdf23f7f7ec408)
+  , [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a649a7e49363555ed4ccefb340cb26d01)
 - ReadBaseline()
-  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a79b38f0d9f30e60206024ad920e76dde]]
+  : [CPixieRunUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a79b38f0d9f30e60206024ad920e76dde)
 - ReadChanPar()
-  : [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27]]
+  : [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27)
 - ReadFastTrace()
-  : [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a]]
+  : [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a0fbae710c9999d45b8069fce5bfef65a)
 - ReadHistogram()
-  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a544f4e67d9c2c318b025b9977854ba2c]]
+  : [CPixieRunUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a544f4e67d9c2c318b025b9977854ba2c)
 - ReadModPar()
-  : [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188]]
+  : [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188)
 - ReadModuleStats()
-  : [[CPixieRunUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a19fa0a8525fe5f0b2b166d6565ab82f8]]
+  : [CPixieRunUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieRunUtilities.md#a19fa0a8525fe5f0b2b166d6565ab82f8)
 - readOutRemainingData()
-  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ae91a657c0c31fbedc2e05d1e9f15869a]]
+  : [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ae91a657c0c31fbedc2e05d1e9f15869a)
 - ReadTrace()
-  : [[CPixieTraceUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e]]
+  : [CPixieTraceUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieTraceUtilities.md#a45d0a2124baff32e797db2d8e4eed36e)
 - reference()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aa8ede74dfe55cd27669f335bac81359e]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aa8ede74dfe55cd27669f335bac81359e)
 - ReferenceCountedBuffer()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#adbbc7a8b65896f07baaff75788d93d12]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#adbbc7a8b65896f07baaff75788d93d12)
 - rescheduleEndRead()
-  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#affb0a5fe4e1cd88ae68dd8c1d48acb10]]
+  : [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#affb0a5fe4e1cd88ae68dd8c1d48acb10)
 - rescheduleEndTransition()
-  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a07ba29ac57de01068bbf65a9fe96fd3d]]
+  : [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a07ba29ac57de01068bbf65a9fe96fd3d)
 - Reset()
-  : [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#aa7cb649cc7f7dfcf1ec36967f88f4f34]]
-  , [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abdf1f5f95961215b37ff949376ddd4c6]]
+  : [CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#aa7cb649cc7f7dfcf1ec36967f88f4f34)
+  , [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#abdf1f5f95961215b37ff949376ddd4c6)
 - resize()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a722efd4bbd7606db005600a3f482abc5]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a722efd4bbd7606db005600a3f482abc5)
 - RootFileDataSink()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#a6ef44701398aaa6fef41a77298fac798]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#a6ef44701398aaa6fef41a77298fac798)
 
  contents 
  start footer part 

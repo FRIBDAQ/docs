@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestRangeError-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestRangeError-members.md)
 
 
 testRangeError Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for testRangeError:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for testRangeError:
@@ -47,7 +47,7 @@ Collaboration diagram for testRangeError:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |

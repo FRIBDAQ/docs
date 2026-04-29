@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [ddasdumper](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md)
 
  top 
 DataSource.cpp File Reference
 
 header
-Implementation of the non pure vir. methods of [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]].  
+Implementation of the non pure vir. methods of [DataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md).  
 [More...](#details)
 
 
@@ -44,7 +44,7 @@ Include dependency graph for DataSource.cpp:
 <a name="details"></a>## Detailed Description
 
 
-Implementation of the non pure vir. methods of [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md]].
+Implementation of the non pure vir. methods of [DataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md).
 
  contents 
  start footer part 

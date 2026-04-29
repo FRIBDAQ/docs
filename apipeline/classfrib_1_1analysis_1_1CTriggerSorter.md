@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md]]
+- [CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter-members.md)
 
 
 frib::analysis::CTriggerSorter Class Referenceabstract
@@ -46,7 +46,7 @@ Inheritance diagram for frib::analysis::CTriggerSorter:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -67,7 +67,7 @@ Inheritance diagram for frib::analysis::CTriggerSorter:
 <a name="details"></a>## Detailed Description
 
 
-[[CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md]] has methods to add parameter ring items which may be out of order and then to emit ring items later in order.
+[CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md) has methods to add parameter ring items which may be out of order and then to emit ring items later in order.
 
 
 This is implemented in a manner that does not depend on MPI so that ordinary unit tests can be used to verify the operation of the class. The idea is that addItem is called to add items to the sorting system. When one or more items can be emitted (because they have triggers sequential to the last emitted item), emitItem is called with those items.
@@ -145,8 +145,8 @@ flush flush all elements of m_items -> emitItem
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TriggerSorter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TriggerSorter_8h_source.md]]
-- base/[[TriggerSorter.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TriggerSorter_8cpp.md]]
+The documentation for this class was generated from the following files:- base/[TriggerSorter.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TriggerSorter_8h_source.md)
+- base/[TriggerSorter.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TriggerSorter_8cpp.md)
 
  contents 
  start footer part 

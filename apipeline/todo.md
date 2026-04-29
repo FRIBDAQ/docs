@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-- Member [[CItemConfiguration::isIntList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#aaca42f05574f4166042680970d69b8d9]]  (std::string name, std::string value, void *arg)
+- Member [CItemConfiguration::isIntList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#aaca42f05574f4166042680970d69b8d9)  (std::string name, std::string value, void *arg)
 
   Extend the parameter to us to supply optional limit information.
 

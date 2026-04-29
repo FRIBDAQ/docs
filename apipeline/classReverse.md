@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse-members.md)
 
 
 Reverse Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for Reverse:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for Reverse:
@@ -50,7 +50,7 @@ Collaboration diagram for Reverse:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -156,7 +156,7 @@ Collaboration diagram for Reverse:
 Called when the command is being deleted. The default action is to do nothing.
 
 
-Reimplemented from [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a9bda5ca8d5f26700a81bedbacbefc7e2]].
+Reimplemented from [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a9bda5ca8d5f26700a81bedbacbefc7e2).
 
 
 
@@ -171,7 +171,7 @@ Reimplemented from [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/api
 This is a hook that can be overiddent by derived classes. It is called just after the execution of operator()... success or failure.
 
 
-Reimplemented from [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a8d2679eaeb414dcd09b77c44ad474444]].
+Reimplemented from [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a8d2679eaeb414dcd09b77c44ad474444).
 
 
 
@@ -186,7 +186,7 @@ Reimplemented from [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/api
 This is a hook that can be overridden by derived classes. It is called just prior to the execution of operator().
 
 
-Reimplemented from [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#af98ca1f8e40691f762159480380c3af8]].
+Reimplemented from [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#af98ca1f8e40691f762159480380c3af8).
 
 
 

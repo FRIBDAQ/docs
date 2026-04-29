@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyWorker-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyWorker-members.md)
 
 
 MyWorker Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for MyWorker:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for MyWorker:
@@ -48,7 +48,7 @@ Collaboration diagram for MyWorker:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -84,7 +84,7 @@ Collaboration diagram for MyWorker:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testWorker2.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testWorker2_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[testWorker2.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/testWorker2_8cpp.md)
 
  contents 
  start footer part 

@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [ddasdumper](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md)
 
  top 
 [Classes](#nested-classes)
@@ -50,7 +50,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASRootEvent_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h_source.md)
 
 
 |  |  |

@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 FitEditorTemplate.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorTemplate_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorTemplate_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -112,7 +112,7 @@ header
 <a name="l00037"></a>   37
 
 
-<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]     class [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]] : public CBuiltRingItemEditor::BodyEditor
+<a name="l00053"></a>[53](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)     class [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md) : public CBuiltRingItemEditor::BodyEditor
 
 
 <a name="l00054"></a>   54     {
@@ -121,28 +121,28 @@ header
 <a name="l00055"></a>   55     public:
 
 
-<a name="l00057"></a>   57     [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b]]();
+<a name="l00057"></a>   57     [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b)();
 
 
-<a name="l00062"></a>   62     [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b]](const [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]& rhs);
+<a name="l00062"></a>   62     [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b)(const [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)& rhs);
 
 
-<a name="l00067"></a>   67     [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b]]([[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]&& rhs) noexcept;
+<a name="l00067"></a>   67     [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b)([FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)&& rhs) noexcept;
 
 
 <a name="l00068"></a>   68
 
 
-<a name="l00074"></a>   74     [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4]](const [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]& rhs);
+<a name="l00074"></a>   74     [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4)(const [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)& rhs);
 
 
-<a name="l00080"></a>   80     [[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4]]([[FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]&& rhs) noexcept;
+<a name="l00080"></a>   80     [FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4)([FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)&& rhs) noexcept;
 
 
 <a name="l00081"></a>   81
 
 
-<a name="l00083"></a>   83     virtual [[~FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aad6abd6ebbc7fc86a4f4fe9873dcb6c6]]();
+<a name="l00083"></a>   83     virtual [~FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aad6abd6ebbc7fc86a4f4fe9873dcb6c6)();
 
 
 <a name="l00084"></a>   84
@@ -154,7 +154,7 @@ header
 <a name="l00086"></a>   86     public:
 
 
-<a name="l00096"></a>   96     virtual std::vector<CBuiltRingItemEditor::BodySegment> [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa0dfaceb9026a15282a2c9a3fbd05de7]](
+<a name="l00096"></a>   96     virtual std::vector<CBuiltRingItemEditor::BodySegment> [operator()](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa0dfaceb9026a15282a2c9a3fbd05de7)(
 
 
 <a name="l00097"></a>   97         pRingItemHeader pHdr, pBodyHeader pBHdr, size_t bodySize,
@@ -166,7 +166,7 @@ header
 <a name="l00099"></a>   99         );
 
 
-<a name="l00104"></a>  104     virtual void [[free|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a499912a2b7a9d3d228d0e997d1b7419c]](iovec& e);
+<a name="l00104"></a>  104     virtual void [free](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a499912a2b7a9d3d228d0e997d1b7419c)(iovec& e);
 
 
 <a name="l00105"></a>  105
@@ -190,7 +190,7 @@ header
 <a name="l00120"></a>  120     private:
 
 
-<a name="l00121"></a>  121     [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]* m_pConfig;
+<a name="l00121"></a>  121     [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md)* m_pConfig;
 
 
 <a name="l00122"></a>  122     std::vector<double> m_template;
@@ -214,21 +214,21 @@ header
 <a name="l00130"></a>  130 #endif
 
 
-[[ddastoys::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]]
+[ddastoys::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md)
 
 Manage fit configuration information.
 
 **Definition:** Configuration.h:68
 
 
-[[ddastoys::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md]]
+[ddastoys::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md)
 
 Fit trace data with the template fitting functions.
 
 **Definition:** FitEditorTemplate.h:54
 
 
-[[ddastoys::FitEditorTemplate::free|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a499912a2b7a9d3d228d0e997d1b7419c]]
+[ddastoys::FitEditorTemplate::free](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a499912a2b7a9d3d228d0e997d1b7419c)
 
 virtual void free(iovec &e)
 
@@ -237,7 +237,7 @@ Free the dynamic fit extension descriptor(s).
 **Definition:** FitEditorTemplate.cpp:221
 
 
-[[ddastoys::FitEditorTemplate::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b]]
+[ddastoys::FitEditorTemplate::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b)
 
 FitEditorTemplate()
 
@@ -246,7 +246,7 @@ Constructor.
 **Definition:** FitEditorTemplate.cpp:42
 
 
-[[ddastoys::FitEditorTemplate::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa0dfaceb9026a15282a2c9a3fbd05de7]]
+[ddastoys::FitEditorTemplate::operator()](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa0dfaceb9026a15282a2c9a3fbd05de7)
 
 virtual std::vector< CBuiltRingItemEditor::BodySegment > operator()(pRingItemHeader pHdr, pBodyHeader pBHdr, size_t bodySize, void *pBody)
 
@@ -255,7 +255,7 @@ Perform the fit and create a fit extension for a single fragment.
 **Definition:** FitEditorTemplate.cpp:134
 
 
-[[ddastoys::FitEditorTemplate::operator=|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4]]
+[ddastoys::FitEditorTemplate::operator=](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aa346a3f71dade61199111d19164bcbb4)
 
 FitEditorTemplate & operator=(const FitEditorTemplate &rhs)
 
@@ -264,7 +264,7 @@ Copy assignment operator.
 **Definition:** FitEditorTemplate.cpp:89
 
 
-[[ddastoys::FitEditorTemplate::~FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aad6abd6ebbc7fc86a4f4fe9873dcb6c6]]
+[ddastoys::FitEditorTemplate::~FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#aad6abd6ebbc7fc86a4f4fe9873dcb6c6)
 
 virtual ~FitEditorTemplate()
 

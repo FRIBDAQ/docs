@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structBadEp-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structBadEp-members.md)
 
 
 BadEp Struct Reference
@@ -36,7 +36,7 @@ Inheritance diagram for BadEp:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for BadEp:
@@ -48,7 +48,7 @@ Collaboration diagram for BadEp:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -65,7 +65,7 @@ Collaboration diagram for BadEp:
 
 ---
 
-The documentation for this struct was generated from the following file:- spectcl/[[workerTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/workerTest_8cpp.md]]
+The documentation for this struct was generated from the following file:- spectcl/[workerTest.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/workerTest_8cpp.md)
 
  contents 
  start footer part 

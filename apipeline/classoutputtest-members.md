@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 outputtest Member List
 
 header
-This is the complete list of members for [[outputtest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classoutputtest.md]], including all inherited members.
+This is the complete list of members for [outputtest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classoutputtest.md), including all inherited members.
 
 
 |  |  |  |

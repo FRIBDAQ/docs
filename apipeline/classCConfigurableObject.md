@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject-members.md)
 
 
 CConfigurableObject Class Referenceabstract
@@ -40,7 +40,7 @@ Collaboration diagram for CConfigurableObject:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -86,7 +86,7 @@ The class contains as a protected member, an object of type CItemConfiguration* 
 Copy construction is supported and results in a copy of the item configuration itself.
 
 
-The [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]] member functions:
+The [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md) member functions:
 
 
 - getName
@@ -261,7 +261,7 @@ Equality means the configuration is identical:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CConfigurableObject.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CConfigurableObject_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[CConfigurableObject.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CConfigurableObject_8h_source.md)
 - libtclplus/tclplus/CConfigurableObject.cpp
 
  contents 

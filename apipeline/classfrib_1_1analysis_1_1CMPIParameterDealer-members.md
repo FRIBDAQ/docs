@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]]
+- [CMPIParameterDealer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md)
 
  top 
 frib::analysis::CMPIParameterDealer Member List
 
 header
-This is the complete list of members for [[frib::analysis::CMPIParameterDealer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::CMPIParameterDealer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterDealer.md), including all inherited members.
 
 
 |  |  |  |

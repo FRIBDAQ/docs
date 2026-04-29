@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder-members.md)
 
 
 DDASDecoder Class Reference
 
 header
 An interactive event processor integrated in the traceview GUI.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classDDASDecoder.md#details)
 
 
 `#include <DDASDecoder.h>`
@@ -188,8 +188,8 @@ Skip forward by nevts PHYSICS_EVENTS where nevts is provided as an argument.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASDecoder.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASDecoder_8h_source.md]]
-- [[DDASDecoder.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASDecoder_8cpp.md]]
+The documentation for this class was generated from the following files:- [DDASDecoder.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASDecoder_8h_source.md)
+- [DDASDecoder.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASDecoder_8cpp.md)
 
  contents 
  start footer part 

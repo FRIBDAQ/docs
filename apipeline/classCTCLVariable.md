@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable-members.md)
 
 
 CTCLVariable Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLVariable:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLVariable:
@@ -51,7 +51,7 @@ Collaboration diagram for CTCLVariable:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -126,7 +126,7 @@ Collaboration diagram for CTCLVariable:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLVariable_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLVariable.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLVariable_8h_source.md)
 - libtclplus/tclplus/TCLVariable.cpp
 
  contents 

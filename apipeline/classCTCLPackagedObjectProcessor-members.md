@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLPackagedObjectProcessor Member List
 
 header
-This is the complete list of members for [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]], including all inherited members.
+This is the complete list of members for [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md), including all inherited members.
 
 
 |  |  |  |

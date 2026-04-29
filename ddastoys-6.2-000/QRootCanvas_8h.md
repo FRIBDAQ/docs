@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[TraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md]]
+- [TraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_618b423c2be057087b8e9298ecdc31ba.md)
 
  top 
 [Classes](#nested-classes)
@@ -51,7 +51,7 @@ This graph shows which files directly or indirectly include this file:
 ![](QRootCanvas_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QRootCanvas_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/QRootCanvas_8h_source.md)
 
 
 |  |  |

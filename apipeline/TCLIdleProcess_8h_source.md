@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLIdleProcess.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLIdleProcess_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLIdleProcess_8h.md)<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -137,7 +137,7 @@ header
 
 <a name="l00058"></a>   58
 
-<a name="l00059"></a>[[59|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]] class [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]] : protected [[CTCLTimer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md]]
+<a name="l00059"></a>[59](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md) class [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md) : protected [CTCLTimer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md)
 
 <a name="l00060"></a>   60 {
 
@@ -149,19 +149,19 @@ header
 
 <a name="l00064"></a>   64   //
 
-<a name="l00065"></a>   65   [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]([[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]* pInterp) :
+<a name="l00065"></a>   65   [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)([CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)* pInterp) :
 
-<a name="l00066"></a>   66     [[CTCLTimer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md]](pInterp->getInterpreter()) {}
+<a name="l00066"></a>   66     [CTCLTimer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md)(pInterp->getInterpreter()) {}
 
 <a name="l00067"></a>   67
 
-<a name="l00068"></a>   68   [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp) :
+<a name="l00068"></a>   68   [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp) :
 
-<a name="l00069"></a>   69     [[CTCLTimer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md]](pInterp) {}
+<a name="l00069"></a>   69     [CTCLTimer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md)(pInterp) {}
 
 <a name="l00070"></a>   70
 
-<a name="l00071"></a>   71   virtual ~[[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]() {
+<a name="l00071"></a>   71   virtual ~[CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)() {
 
 <a name="l00072"></a>   72                 // Timer destructor clears.
 
@@ -173,7 +173,7 @@ header
 
 <a name="l00076"></a>   76 private:
 
-<a name="l00077"></a>   77   [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]](const [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]& rRhs);
+<a name="l00077"></a>   77   [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)(const [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)& rRhs);
 
 <a name="l00078"></a>   78 public:
 
@@ -183,7 +183,7 @@ header
 
 <a name="l00081"></a>   81 private:
 
-<a name="l00082"></a>   82   [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]& operator=(const [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]& rRhs);
+<a name="l00082"></a>   82   [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)& operator=(const [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)& rRhs);
 
 <a name="l00083"></a>   83 public:
 
@@ -193,7 +193,7 @@ header
 
 <a name="l00086"></a>   86
 
-<a name="l00087"></a>   87   int operator==(const [[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]& rRhs) {
+<a name="l00087"></a>   87   int operator==(const [CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)& rRhs) {
 
 <a name="l00088"></a>   88     return CTCLInterpreterObject::operator==(rRhs);
 
@@ -227,22 +227,22 @@ header
 
 <a name="l00103"></a>  103 #endif
 
-[[CTCLTimer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md]]
+[CTCLTimer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTimer.md)
 
 **Definition:** TCLTimer.h:48
 
 
-[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLIdleProcess|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md]]
+[CTCLIdleProcess](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess.md)
 
 **Definition:** TCLIdleProcess.h:59
 

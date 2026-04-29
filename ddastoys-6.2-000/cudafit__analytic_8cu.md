@@ -416,7 +416,7 @@ A logistic function is a function with a sigmoidal shape. We use it to fit the r
 Evaluate the value of a single pulse in accordance with our canonical functional form.
 
 
-The form is a sigmoid rise with an exponential decay that sits on top of a constant offset. The exponential decay is turned on with [[switchOn()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gab8955e8a8a70e7c53a8ee2ccb5173d4e]] above when x > the rise point of the sigmoid.
+The form is a sigmoid rise with an exponential decay that sits on top of a constant offset. The exponential decay is turned on with [switchOn()](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__analytic.md#gab8955e8a8a70e7c53a8ee2ccb5173d4e) above when x > the rise point of the sigmoid.
 
 
 - Parameters

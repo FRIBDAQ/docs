@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource-members.md)
 
 
 StreamDataSource Class Reference
 
 header
 A class taking the input stream as a data source. Most commonly used to construct a data source from an NSCLDAQ event file on disk.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#details)
 
 
 `#include <StreamDataSource.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for StreamDataSource:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 Collaboration diagram for StreamDataSource:
@@ -57,7 +57,7 @@ Collaboration diagram for StreamDataSource:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -156,14 +156,14 @@ Get a ring item from the soruce. Implementation of the mandatory interface from 
   | nullptr | If none. |
 
 
-Implements [[DataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24]].
+Implements [DataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#aa4b5176de8aa706b8c02e161e290ed24).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[StreamDataSource.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/StreamDataSource_8h_source.md]]
-- [[StreamDataSource.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/StreamDataSource_8cpp.md]]
+The documentation for this class was generated from the following files:- [StreamDataSource.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/StreamDataSource_8h_source.md)
+- [StreamDataSource.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/StreamDataSource_8cpp.md)
 
  contents 
  start footer part 

@@ -17,11 +17,11 @@ do not remove this div, it is closed by doxygen!
 
 
 - Counters
-  : [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576]]
+  : [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576)
 - SlotSpecification
-  : [[DAQ::DDAS::ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a8f7acc2482bd0280246daf7e0a4faa72]]
+  : [DAQ::DDAS::ConfigurationParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a8f7acc2482bd0280246daf7e0a4faa72)
 - Statistics
-  : [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197]]
+  : [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197)
 
  contents 
  start footer part 

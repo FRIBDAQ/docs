@@ -22,26 +22,26 @@ Here is a list of all documented class members with links to the class documenta
 ### - a -
 
 - AbstractApplication()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a7f7a06f14708d5c85e281da6f0c2d369]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a7f7a06f14708d5c85e281da6f0c2d369)
 - addCommand()
-  : [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md#a99d8000df7dc2c57241ec89514c2ca02]]
+  : [CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md#a99d8000df7dc2c57241ec89514c2ca02)
 - addItem()
-  : [[frib::analysis::CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a9ab0b37fe9ee4bb265289c53d4183207]]
+  : [frib::analysis::CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a9ab0b37fe9ee4bb265289c53d4183207)
 - addParameter()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a4f1cabebf2c1849dacaf0e38238df20e]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a4f1cabebf2c1849dacaf0e38238df20e)
 - addProcessor()
-  : [[frib::analysis::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a092db30a0a4c06f372836961663e6c56]]
+  : [frib::analysis::CSpecTclWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#a092db30a0a4c06f372836961663e6c56)
 - allowConnection()
-  : [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8600cd1e64ac1f07bdfc140510e9a6ba]]
+  : [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a8600cd1e64ac1f07bdfc140510e9a6ba)
 - AppendElement()
-  : [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9]]
-  , [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md#a47aab18d4a660e08adf8f9c9e6ba5275]]
+  : [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md#a01fd2c813410300de092b1aab33300b9)
+  , [CTCLString](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md#a47aab18d4a660e08adf8f9c9e6ba5275)
 - assignments()
-  : [[objects|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classobjects.md#ac02a285a6a03495844f368392114f5eb]]
+  : [objects](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classobjects.md#ac02a285a6a03495844f368392114f5eb)
 - atEof()
-  : [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d]]
+  : [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d)
 - Attach()
-  : [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#aafbbd0bde74e09ab80cdb2563d0bb7f8]]
+  : [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#aafbbd0bde74e09ab80cdb2563d0bb7f8)
 
  contents 
  start footer part 

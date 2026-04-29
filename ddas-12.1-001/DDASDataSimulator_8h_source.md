@@ -21,15 +21,15 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[utilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_d931a22623696a5d7336a5069a782699.md]]
-- [[simulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_012a31d9d824d7c04849b434774f896a.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [utilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_d931a22623696a5d7336a5069a782699.md)
+- [simulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_012a31d9d824d7c04849b434774f896a.md)
 
  top 
 DDASDataSimulator.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -101,7 +101,7 @@ header
 <a name="l00029"></a>   29
 
 
-<a name="l00030"></a>   30 namespace [[ddasfmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceddasfmt.md]] {
+<a name="l00030"></a>   30 namespace [ddasfmt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceddasfmt.md) {
 
 
 <a name="l00031"></a>   31     class DDASHit;
@@ -110,7 +110,7 @@ header
 <a name="l00032"></a>   32 }
 
 
-<a name="l00033"></a>   33 namespace [[ufmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md]] {
+<a name="l00033"></a>   33 namespace [ufmt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md) {
 
 
 <a name="l00034"></a>   34     class RingItemFactoryBase;
@@ -122,7 +122,7 @@ header
 <a name="l00036"></a>   36
 
 
-<a name="l00037"></a>   37 namespace [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] {
+<a name="l00037"></a>   37 namespace [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md) {
 
 
 <a name="l00038"></a>   38     namespace DDAS {
@@ -131,7 +131,7 @@ header
 <a name="l00039"></a>   39
 
 
-<a name="l00119"></a>[[119|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md]]     class [[DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md]]
+<a name="l00119"></a>[119](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md)     class [DDASDataSimulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md)
 
 
 <a name="l00120"></a>  120     {
@@ -164,19 +164,19 @@ header
 <a name="l00129"></a>  129     public:
 
 
-<a name="l00136"></a>  136         [[DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a28258b5bb5377db387097a7c7f1b073d]](std::string fname, int version);
+<a name="l00136"></a>  136         [DDASDataSimulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a28258b5bb5377db387097a7c7f1b073d)(std::string fname, int version);
 
 
 <a name="l00137"></a>  137
 
 
-<a name="l00142"></a>  142         void [[beginRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#affe4b9dd31894fb781c79f84ec99de0e]]();
+<a name="l00142"></a>  142         void [beginRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#affe4b9dd31894fb781c79f84ec99de0e)();
 
 
-<a name="l00147"></a>  147         void [[endRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a7d65d28b4381eade37631991d590e1f1]]();
+<a name="l00147"></a>  147         void [endRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a7d65d28b4381eade37631991d590e1f1)();
 
 
-<a name="l00160"></a>  160         void [[putHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ae308c49064df4089db95da875dafc610]](
+<a name="l00160"></a>  160         void [putHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ae308c49064df4089db95da875dafc610)(
 
 
 <a name="l00161"></a>  161         const ddasfmt::DDASHit& hit, int sourceID=0,
@@ -191,13 +191,13 @@ header
 <a name="l00164"></a>  164
 
 
-<a name="l00169"></a>  169         void [[setBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a5e231bfb36f6ede27696b20f6d9cdd13]](const ddasfmt::DDASHit& hit);
+<a name="l00169"></a>  169         void [setBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a5e231bfb36f6ede27696b20f6d9cdd13)(const ddasfmt::DDASHit& hit);
 
 
-<a name="l00175"></a>[[175|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd]]         std::vector<uint32_t> [[getBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd]]() { return m_evtBuf; }
+<a name="l00175"></a>[175](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd)         std::vector<uint32_t> [getBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd)() { return m_evtBuf; }
 
 
-<a name="l00177"></a>  177         void [[dumpBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ab4a1e8c26ed9e73a2f9367a5780d733b]]();
+<a name="l00177"></a>  177         void [dumpBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ab4a1e8c26ed9e73a2f9367a5780d733b)();
 
 
 <a name="l00178"></a>  178
@@ -275,14 +275,14 @@ header
 <a name="l00270"></a>  270 #endif
 
 
-[[DAQ::DDAS::DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md]]
+[DAQ::DDAS::DDASDataSimulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md)
 
 Simulates data produced by a DDAS readout program in user code.
 
 **Definition:** DDASDataSimulator.h:120
 
 
-[[DAQ::DDAS::DDASDataSimulator::DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a28258b5bb5377db387097a7c7f1b073d]]
+[DAQ::DDAS::DDASDataSimulator::DDASDataSimulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a28258b5bb5377db387097a7c7f1b073d)
 
 DDASDataSimulator(std::string fname, int version)
 
@@ -291,7 +291,7 @@ Constructor.
 **Definition:** DDASDataSimulator.cpp:85
 
 
-[[DAQ::DDAS::DDASDataSimulator::setBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a5e231bfb36f6ede27696b20f6d9cdd13]]
+[DAQ::DDAS::DDASDataSimulator::setBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a5e231bfb36f6ede27696b20f6d9cdd13)
 
 void setBuffer(const ddasfmt::DDASHit &hit)
 
@@ -300,7 +300,7 @@ Set the data buffer from a DDASHit.
 **Definition:** DDASDataSimulator.cpp:227
 
 
-[[DAQ::DDAS::DDASDataSimulator::endRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a7d65d28b4381eade37631991d590e1f1]]
+[DAQ::DDAS::DDASDataSimulator::endRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#a7d65d28b4381eade37631991d590e1f1)
 
 void endRun()
 
@@ -309,7 +309,7 @@ End a simulated run.
 **Definition:** DDASDataSimulator.cpp:139
 
 
-[[DAQ::DDAS::DDASDataSimulator::dumpBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ab4a1e8c26ed9e73a2f9367a5780d733b]]
+[DAQ::DDAS::DDASDataSimulator::dumpBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ab4a1e8c26ed9e73a2f9367a5780d733b)
 
 void dumpBuffer()
 
@@ -318,7 +318,7 @@ Formatted dump of data buffer to stdout.
 **Definition:** DDASDataSimulator.cpp:277
 
 
-[[DAQ::DDAS::DDASDataSimulator::getBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd]]
+[DAQ::DDAS::DDASDataSimulator::getBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ac0cc6c8da4900e73929d5eca21e8a2fd)
 
 std::vector< uint32_t > getBuffer()
 
@@ -327,7 +327,7 @@ Get the data buffer.
 **Definition:** DDASDataSimulator.h:175
 
 
-[[DAQ::DDAS::DDASDataSimulator::putHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ae308c49064df4089db95da875dafc610]]
+[DAQ::DDAS::DDASDataSimulator::putHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ae308c49064df4089db95da875dafc610)
 
 void putHit(const ddasfmt::DDASHit &hit, int sourceID=0, bool useExtTS=false, double cal=0.0)
 
@@ -336,7 +336,7 @@ Write a hit to the output file. This is the normal way users will add simulated 
 **Definition:** DDASDataSimulator.cpp:178
 
 
-[[DAQ::DDAS::DDASDataSimulator::beginRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#affe4b9dd31894fb781c79f84ec99de0e]]
+[DAQ::DDAS::DDASDataSimulator::beginRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#affe4b9dd31894fb781c79f84ec99de0e)
 
 void beginRun()
 
@@ -345,15 +345,15 @@ Begin a simulated run.
 **Definition:** DDASDataSimulator.cpp:101
 
 
-[[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
+[DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
 
 
-[[ddasfmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceddasfmt.md]]
+[ddasfmt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceddasfmt.md)
 
 **Definition:** RootFileDataSink.h:31
 
 
-[[ufmt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md]]
+[ufmt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceufmt.md)
 
 **Definition:** DataSource.h:27
 

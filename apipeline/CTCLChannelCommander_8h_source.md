@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 CTCLChannelCommander.h
@@ -79,17 +79,17 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00026"></a>   26 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
+<a name="l00026"></a>   26 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);
 
 <a name="l00027"></a>   27
 
-<a name="l00039"></a>[[39|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]] class [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]
+<a name="l00039"></a>[39](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md) class [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)
 
 <a name="l00040"></a>   40 {
 
 <a name="l00041"></a>   41 protected:
 
-<a name="l00042"></a>   42   [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]*   m_pInterp;
+<a name="l00042"></a>   42   [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)*   m_pInterp;
 
 <a name="l00043"></a>   43   Tcl_Channel        m_channel;
 
@@ -105,23 +105,23 @@ header
 
 <a name="l00049"></a>   49 public:
 
-<a name="l00050"></a>   50   [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#abeac8d18d39e9273ee5526fb41b7519b]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* interp,
+<a name="l00050"></a>   50   [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#abeac8d18d39e9273ee5526fb41b7519b)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* interp,
 
 <a name="l00051"></a>   51                Tcl_Channel      channel);
 
-<a name="l00052"></a>   52   virtual [[~CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa8f54d07606ad6c360f3f10555ead2c6]]();
+<a name="l00052"></a>   52   virtual [~CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa8f54d07606ad6c360f3f10555ead2c6)();
 
 <a name="l00053"></a>   53
 
 <a name="l00054"></a>   54 private:
 
-<a name="l00055"></a>   55   [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#abeac8d18d39e9273ee5526fb41b7519b]](const [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]& rhs);
+<a name="l00055"></a>   55   [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#abeac8d18d39e9273ee5526fb41b7519b)(const [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)& rhs);
 
-<a name="l00056"></a>   56   [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]& operator=(const [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]& rhs);
+<a name="l00056"></a>   56   [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)& operator=(const [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)& rhs);
 
-<a name="l00057"></a>   57   int operator==(const [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]& rhs) const;
+<a name="l00057"></a>   57   int operator==(const [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)& rhs) const;
 
-<a name="l00058"></a>   58   int operator!=(const [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]& rhs) const;
+<a name="l00058"></a>   58   int operator!=(const [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)& rhs) const;
 
 <a name="l00059"></a>   59
 
@@ -133,11 +133,11 @@ header
 
 <a name="l00063"></a>   63 public:
 
-<a name="l00064"></a>   64   virtual void [[start|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ad84952a6bb1a977eb22096db5f0a83d3]]();         // Add to Tcl Event loop.
+<a name="l00064"></a>   64   virtual void [start](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ad84952a6bb1a977eb22096db5f0a83d3)();         // Add to Tcl Event loop.
 
-<a name="l00065"></a>   65   virtual void [[stop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a983642b3e68221f4577577e7a40e3b95]]();          // Remove from event loop.
+<a name="l00065"></a>   65   virtual void [stop](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a983642b3e68221f4577577e7a40e3b95)();          // Remove from event loop.
 
-<a name="l00066"></a>   66   Tcl_Channel  [[getChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7f3d388c5732727b6e88e7bed89bc468]]() const;
+<a name="l00066"></a>   66   Tcl_Channel  [getChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7f3d388c5732727b6e88e7bed89bc468)() const;
 
 <a name="l00067"></a>   67
 
@@ -147,7 +147,7 @@ header
 
 <a name="l00070"></a>   70 public:
 
-<a name="l00071"></a>   71   static void [[inputRelay|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa480f008ed8f5018268b1ef09df2ee0f]](ClientData pData, int mask);
+<a name="l00071"></a>   71   static void [inputRelay](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa480f008ed8f5018268b1ef09df2ee0f)(ClientData pData, int mask);
 
 <a name="l00072"></a>   72
 
@@ -155,25 +155,25 @@ header
 
 <a name="l00074"></a>   74
 
-<a name="l00075"></a>   75   virtual void [[onInput|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#af83cd2d38b6fb8fc242303c4273f97e7]]();
+<a name="l00075"></a>   75   virtual void [onInput](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#af83cd2d38b6fb8fc242303c4273f97e7)();
 
-<a name="l00076"></a>   76   virtual void [[onInputException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#adbeddf8c32b2842ad740849bc08750f1]]();
+<a name="l00076"></a>   76   virtual void [onInputException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#adbeddf8c32b2842ad740849bc08750f1)();
 
-<a name="l00077"></a>   77   virtual void [[onEndFile|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aafec1c21cbf1a697f56e3d84b70abd18]]();
+<a name="l00077"></a>   77   virtual void [onEndFile](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aafec1c21cbf1a697f56e3d84b70abd18)();
 
-<a name="l00078"></a>   78   virtual void [[onCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7617b283cf33901f4686ac747a9ea343]]();
+<a name="l00078"></a>   78   virtual void [onCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7617b283cf33901f4686ac747a9ea343)();
 
-<a name="l00079"></a>   79   virtual void [[returnResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a61d2bdbc8ceab654a01e93f8063af807]]();
+<a name="l00079"></a>   79   virtual void [returnResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a61d2bdbc8ceab654a01e93f8063af807)();
 
 <a name="l00080"></a>   80
 
-<a name="l00081"></a>   81   virtual void [[prompt1|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]();
+<a name="l00081"></a>   81   virtual void [prompt1](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4)();
 
-<a name="l00082"></a>   82   virtual void [[prompt2|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a5532318b1f6dfc170459c1076f7c058e]]();
+<a name="l00082"></a>   82   virtual void [prompt2](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a5532318b1f6dfc170459c1076f7c058e)();
 
-<a name="l00083"></a>   83   virtual void [[sendPrompt|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a319902cfe4affa3a2fe47c9ad20f2604]](std::string prompt);
+<a name="l00083"></a>   83   virtual void [sendPrompt](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a319902cfe4affa3a2fe47c9ad20f2604)(std::string prompt);
 
-<a name="l00084"></a>   84   bool [[stopped|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a8c4c5d5597dfb9b933fd55c70b67419c]]() const;
+<a name="l00084"></a>   84   bool [stopped](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a8c4c5d5597dfb9b933fd55c70b67419c)() const;
 
 <a name="l00085"></a>   85
 
@@ -201,115 +201,115 @@ header
 
 <a name="l00097"></a>   97 #endif
 
-[[CTCLChannelCommander::onEndFile|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aafec1c21cbf1a697f56e3d84b70abd18]]
+[CTCLChannelCommander::onEndFile](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aafec1c21cbf1a697f56e3d84b70abd18)
 
 virtual void onEndFile()
 
 **Definition:** CTCLChannelCommander.cpp:229
 
 
-[[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md]]
+[CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md)
 
 **Definition:** CTCLChannelCommander.h:39
 
 
-[[CTCLChannelCommander::onInput|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#af83cd2d38b6fb8fc242303c4273f97e7]]
+[CTCLChannelCommander::onInput](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#af83cd2d38b6fb8fc242303c4273f97e7)
 
 virtual void onInput()
 
 **Definition:** CTCLChannelCommander.cpp:170
 
 
-[[CTCLChannelCommander::prompt2|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a5532318b1f6dfc170459c1076f7c058e]]
+[CTCLChannelCommander::prompt2](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a5532318b1f6dfc170459c1076f7c058e)
 
 virtual void prompt2()
 
 **Definition:** CTCLChannelCommander.cpp:291
 
 
-[[CTCLChannelCommander::onInputException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#adbeddf8c32b2842ad740849bc08750f1]]
+[CTCLChannelCommander::onInputException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#adbeddf8c32b2842ad740849bc08750f1)
 
 virtual void onInputException()
 
 **Definition:** CTCLChannelCommander.cpp:219
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLChannelCommander::CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#abeac8d18d39e9273ee5526fb41b7519b]]
+[CTCLChannelCommander::CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#abeac8d18d39e9273ee5526fb41b7519b)
 
 CTCLChannelCommander(CTCLInterpreter *interp, Tcl_Channel channel)
 
 **Definition:** CTCLChannelCommander.cpp:43
 
 
-[[CTCLChannelCommander::inputRelay|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa480f008ed8f5018268b1ef09df2ee0f]]
+[CTCLChannelCommander::inputRelay](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa480f008ed8f5018268b1ef09df2ee0f)
 
 static void inputRelay(ClientData pData, int mask)
 
 **Definition:** CTCLChannelCommander.cpp:134
 
 
-[[CTCLChannelCommander::getChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7f3d388c5732727b6e88e7bed89bc468]]
+[CTCLChannelCommander::getChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7f3d388c5732727b6e88e7bed89bc468)
 
 Tcl_Channel getChannel() const
 
 **Definition:** CTCLChannelCommander.cpp:106
 
 
-[[CTCLChannelCommander::onCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7617b283cf33901f4686ac747a9ea343]]
+[CTCLChannelCommander::onCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a7617b283cf33901f4686ac747a9ea343)
 
 virtual void onCommand()
 
 **Definition:** CTCLChannelCommander.cpp:244
 
 
-[[CTCLChannelCommander::sendPrompt|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a319902cfe4affa3a2fe47c9ad20f2604]]
+[CTCLChannelCommander::sendPrompt](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a319902cfe4affa3a2fe47c9ad20f2604)
 
 virtual void sendPrompt(std::string prompt)
 
 **Definition:** CTCLChannelCommander.cpp:304
 
 
-[[CTCLChannelCommander::prompt1|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]
+[CTCLChannelCommander::prompt1](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4)
 
 virtual void prompt1()
 
 **Definition:** CTCLChannelCommander.cpp:271
 
 
-[[CTCLChannelCommander::start|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ad84952a6bb1a977eb22096db5f0a83d3]]
+[CTCLChannelCommander::start](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ad84952a6bb1a977eb22096db5f0a83d3)
 
 virtual void start()
 
 **Definition:** CTCLChannelCommander.cpp:76
 
 
-[[CTCLChannelCommander::stopped|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a8c4c5d5597dfb9b933fd55c70b67419c]]
+[CTCLChannelCommander::stopped](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a8c4c5d5597dfb9b933fd55c70b67419c)
 
 bool stopped() const
 
 **Definition:** CTCLChannelCommander.cpp:115
 
 
-[[CTCLChannelCommander::stop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a983642b3e68221f4577577e7a40e3b95]]
+[CTCLChannelCommander::stop](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a983642b3e68221f4577577e7a40e3b95)
 
 virtual void stop()
 
 **Definition:** CTCLChannelCommander.cpp:92
 
 
-[[CTCLChannelCommander::returnResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a61d2bdbc8ceab654a01e93f8063af807]]
+[CTCLChannelCommander::returnResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a61d2bdbc8ceab654a01e93f8063af807)
 
 virtual void returnResult()
 
 **Definition:** CTCLChannelCommander.cpp:261
 
 
-[[CTCLChannelCommander::~CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa8f54d07606ad6c360f3f10555ead2c6]]
+[CTCLChannelCommander::~CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa8f54d07606ad6c360f3f10555ead2c6)
 
 virtual ~CTCLChannelCommander()
 

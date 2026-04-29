@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]
+- [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray-members.md)
 
 
 frib::analysis::CTreeVariableArray Class Reference
@@ -161,7 +161,7 @@ Builds up the new array.
 | void frib::analysis::CTreeVariableArray::CopyArray(constCTreeVariableArray&rhs) | void frib::analysis::CTreeVariableArray::CopyArray | ( | constCTreeVariableArray& | rhs | ) |  | protected |
 | void frib::analysis::CTreeVariableArray::CopyArray | ( | constCTreeVariableArray& | rhs | ) |  |
 
-Copys the member elements from a rhs [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]] into the current object. This utility is used both by assignment and copy construction.
+Copys the member elements from a rhs [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md) into the current object. This utility is used both by assignment and copy construction.
 
 - Parameters
   |  |  |
@@ -216,7 +216,7 @@ Intended for use with a variable array that was default constructed.Any existing
 Values in the rhs are copied to the values of the LHS.
 
 - Note
-  precondition is that rhs.size( == this->[[size()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831]]) Else invalid_argument is thrown.
+  precondition is that rhs.size( == this->[size()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831)) Else invalid_argument is thrown.
 
 - Parameters
   |  |  |
@@ -255,7 +255,7 @@ return the number of elements in the array (could be 0).
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeVariableArray.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariableArray_8h_source.md]]
+The documentation for this class was generated from the following files:- base/[TreeVariableArray.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariableArray_8h_source.md)
 - base/TreeVariableArray.cpp
 
  contents 

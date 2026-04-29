@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]]
+- [FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference-members.md)
 
 
 ddastoys::FitEditorMLInference Class Reference
 
 header
 Fit trace data using machine-learning inference with a detector response model defined by the analytic fit functions.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md#details)
 
 
 `#include <FitEditorMLInference.h>`
@@ -49,7 +49,7 @@ Inheritance diagram for ddastoys::FitEditorMLInference:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 Collaboration diagram for ddastoys::FitEditorMLInference:
@@ -62,7 +62,7 @@ Collaboration diagram for ddastoys::FitEditorMLInference:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 |  |  |
@@ -169,7 +169,7 @@ Constructs using move assignment.
 Destructor.
 
 
-Delete the [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md]] object managed by this class.
+Delete the [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1Configuration.md) object managed by this class.
 
 
 ## Member Function Documentation
@@ -221,7 +221,7 @@ Perform the fit and create a fit extension for a single fragment.
 - Returns
   Final segment descriptors.
 
-This is the hook into the [[FitEditorMLInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md]] class. Here we:
+This is the hook into the [FitEditorMLInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorMLInference.md) class. Here we:
 
 - Parse the fragment into a hit.
 - Produce a IOvec element for the existing hit (without any fit that might have been there).
@@ -276,8 +276,8 @@ Move assignment operator.
 
 ---
 
-The documentation for this class was generated from the following files:- [[FitEditorMLInference.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorMLInference_8h_source.md]]
-- [[FitEditorMLInference.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorMLInference_8cpp.md]]
+The documentation for this class was generated from the following files:- [FitEditorMLInference.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorMLInference_8h_source.md)
+- [FitEditorMLInference.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitEditorMLInference_8cpp.md)
 
  contents 
  start footer part 

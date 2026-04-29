@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 interpretertest Member List
 
 header
-This is the complete list of members for [[interpretertest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classinterpretertest.md]], including all inherited members.
+This is the complete list of members for [interpretertest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classinterpretertest.md), including all inherited members.
 
 
 |  |  |  |

@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException-members.md)
 
 
 CMonitorException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CMonitorException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CMonitorException:
@@ -51,7 +51,7 @@ Collaboration diagram for CMonitorException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -195,7 +195,7 @@ Comparison for equality.
 Return the computer usable reason code. This is always -1 in this class.
 
 
-Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
+Reimplemented from [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md).
 
 
 
@@ -210,13 +210,13 @@ Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipel
 Return human readable exception information. See the class description to see what that means.
 
 
-Reimplemented from [[CException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md]].
+Reimplemented from [CException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCException.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[MonitorException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MonitorException_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[MonitorException.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MonitorException_8h_source.md)
 - libtclplus/exception/MonitorException.cpp
 
  contents 

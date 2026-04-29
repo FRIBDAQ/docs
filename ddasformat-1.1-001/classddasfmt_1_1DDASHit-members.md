@@ -22,13 +22,13 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddasfmt**
-- [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]
+- [DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md)
 
  top 
 ddasfmt::DDASHit Member List
 
 header
-This is the complete list of members for [[ddasfmt::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]], including all inherited members.
+This is the complete list of members for [ddasfmt::DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md), including all inherited members.
 
 
 |  |  |  |

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classpassthrutest-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classpassthrutest-members.md)
 
 
 passthrutest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for passthrutest:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for passthrutest:
@@ -47,7 +47,7 @@ Collaboration diagram for passthrutest:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -70,7 +70,7 @@ Collaboration diagram for passthrutest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[testPassthru.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testPassthru_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[testPassthru.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/testPassthru_8cpp.md)
 
  contents 
  start footer part 

@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
+- [EEConverter](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md)
 
  top 
 RootExtensions.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootExtensions_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/RootExtensions_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -90,7 +90,7 @@ header
 <a name="l00032"></a>   32
 
 
-<a name="l00033"></a>   33 #include <[[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]]>
+<a name="l00033"></a>   33 #include <[fit_extensions.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md)>
 
 
 <a name="l00034"></a>   34 #include <TObject.h>
@@ -105,13 +105,13 @@ header
 <a name="l00038"></a>   38
 
 
-<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]]     struct [[RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]] : public [[PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]], public TObject
+<a name="l00048"></a>[48](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md)     struct [RootPulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md) : public [PulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md), public TObject
 
 
 <a name="l00049"></a>   49     {
 
 
-<a name="l00051"></a>[[51|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5]]     [[ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5]]([[RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]], 1);
+<a name="l00051"></a>[51](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5)     [ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5)([RootPulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md), 1);
 
 
 <a name="l00052"></a>   52     };
@@ -120,13 +120,13 @@ header
 <a name="l00053"></a>   53
 
 
-<a name="l00058"></a>[[58|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md]]     struct [[RootFit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md]] : public [[fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]], public TObject
+<a name="l00058"></a>[58](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md)     struct [RootFit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md) : public [fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md), public TObject
 
 
 <a name="l00059"></a>   59     {
 
 
-<a name="l00061"></a>[[61|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01]]     [[ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01]]([[RootFit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md]], 1);
+<a name="l00061"></a>[61](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01)     [ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01)([RootFit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md), 1);
 
 
 <a name="l00062"></a>   62     };
@@ -135,13 +135,13 @@ header
 <a name="l00063"></a>   63
 
 
-<a name="l00068"></a>[[68|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md]]     struct [[RootFit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md]] : public [[fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]], public TObject
+<a name="l00068"></a>[68](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md)     struct [RootFit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md) : public [fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md), public TObject
 
 
 <a name="l00069"></a>   69     {
 
 
-<a name="l00071"></a>[[71|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5]]     [[ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5]]([[RootFit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md]], 1);
+<a name="l00071"></a>[71](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5)     [ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5)([RootFit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md), 1);
 
 
 <a name="l00072"></a>   72     };
@@ -153,13 +153,13 @@ header
 <a name="l00074"></a>   74
 
 
-<a name="l00079"></a>[[79|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md]]     struct [[RootHitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md]] : public [[HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]], public TObject
+<a name="l00079"></a>[79](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md)     struct [RootHitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md) : public [HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md), public TObject
 
 
 <a name="l00080"></a>   80     {
 
 
-<a name="l00082"></a>[[82|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c]]     [[ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c]]([[RootHitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md]], 1);
+<a name="l00082"></a>[82](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c)     [ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c)([RootHitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md), 1);
 
 
 <a name="l00083"></a>   83     };
@@ -177,89 +177,89 @@ header
 <a name="l00089"></a>   89 #endif
 
 
-[[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]]
+[fit_extensions.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md)
 
 Define structs used by fitting functions and to extend DDAS hits.
 
 
-[[ddastoys::HitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md]]
+[ddastoys::HitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1HitExtension.md)
 
 The data structure appended to each fit hit.
 
 **Definition:** fit_extensions.h:82
 
 
-[[ddastoys::PulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md]]
+[ddastoys::PulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1PulseDescription.md)
 
 Describes a single pulse without an offset.
 
 **Definition:** fit_extensions.h:37
 
 
-[[ddastoys::RootFit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md]]
+[ddastoys::RootFit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md)
 
 Full fitting information for the single pulse.
 
 **Definition:** RootExtensions.h:59
 
 
-[[ddastoys::RootFit1Info::ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01]]
+[ddastoys::RootFit1Info::ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit1Info.md#a2e53ffcd2bee661d8647fce1180a4e01)
 
 ClassDef(RootFit1Info, 1)
 
 Required for inheritence from TObject.
 
 
-[[ddastoys::RootFit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md]]
+[ddastoys::RootFit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md)
 
 Full fitting information for the double pulse.
 
 **Definition:** RootExtensions.h:69
 
 
-[[ddastoys::RootFit2Info::ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5]]
+[ddastoys::RootFit2Info::ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootFit2Info.md#ad1972696ac61f2c4fffa9f02e5aef3d5)
 
 ClassDef(RootFit2Info, 1)
 
 Required for inheritence from TObject.
 
 
-[[ddastoys::RootHitExtension|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md]]
+[ddastoys::RootHitExtension](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md)
 
 The data structure containing the full fit information.
 
 **Definition:** RootExtensions.h:80
 
 
-[[ddastoys::RootHitExtension::ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c]]
+[ddastoys::RootHitExtension::ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootHitExtension.md#aae9ee85f6a445b0b25128c29eef3d09c)
 
 ClassDef(RootHitExtension, 1)
 
 Required for inheritence from TObject.
 
 
-[[ddastoys::RootPulseDescription|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md]]
+[ddastoys::RootPulseDescription](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md)
 
 Describes a single pulse without an offset.
 
 **Definition:** RootExtensions.h:49
 
 
-[[ddastoys::RootPulseDescription::ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5]]
+[ddastoys::RootPulseDescription::ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1RootPulseDescription.md#a5a0cdd0030e3aec2e951046d073c83a5)
 
 ClassDef(RootPulseDescription, 1)
 
 Required for inheritence from TObject.
 
 
-[[ddastoys::fit1Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md]]
+[ddastoys::fit1Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit1Info.md)
 
 Full fitting information for the single pulse.
 
 **Definition:** fit_extensions.h:48
 
 
-[[ddastoys::fit2Info|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md]]
+[ddastoys::fit2Info](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/structddastoys_1_1fit2Info.md)
 
 Full fitting information for the double pulse.
 

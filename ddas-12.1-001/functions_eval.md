@@ -17,9 +17,9 @@ do not remove this div, it is closed by doxygen!
 
 
 - FullBoot
-  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+  : [DAQ::DDAS::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6)
 - SettingsOnly
-  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]
+  : [DAQ::DDAS::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae)
 
  contents 
  start footer part 

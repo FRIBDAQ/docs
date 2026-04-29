@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[EEConverter|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md]]
+- [EEConverter](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/dir_04a3fafa7c4b2a9dfdb897dd54125b19.md)
 
  top 
 StringsToIntegers.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -138,7 +138,7 @@ header
 <a name="l00043"></a>   43
 
 
-<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md#a1b37778bab08e28b15eab26452de3ddb]] std::vector<int> [[stringListToIntegers|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md#a1b37778bab08e28b15eab26452de3ddb]](std::string items);
+<a name="l00053"></a>[53](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md#a1b37778bab08e28b15eab26452de3ddb) std::vector<int> [stringListToIntegers](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md#a1b37778bab08e28b15eab26452de3ddb)(std::string items);
 
 
 <a name="l00054"></a>   54
@@ -147,7 +147,7 @@ header
 <a name="l00055"></a>   55 #endif
 
 
-[[stringListToIntegers|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md#a1b37778bab08e28b15eab26452de3ddb]]
+[stringListToIntegers](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/StringsToIntegers_8h.md#a1b37778bab08e28b15eab26452de3ddb)
 
 std::vector< int > stringListToIntegers(std::string items)
 

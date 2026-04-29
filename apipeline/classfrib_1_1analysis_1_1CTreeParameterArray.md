@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md]]
+- [CTreeParameterArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray-members.md)
 
 
 frib::analysis::CTreeParameterArray Class Reference
@@ -279,7 +279,7 @@ Returns number of elements in the array.
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeParameterArray.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameterArray_8h_source.md]]
+The documentation for this class was generated from the following files:- base/[TreeParameterArray.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameterArray_8h_source.md)
 - base/TreeParameterArray.cpp
 
  contents 

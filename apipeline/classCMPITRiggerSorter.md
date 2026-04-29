@@ -34,7 +34,7 @@ Specializes the CTriggerSorter class so that emitItem method pushes items to an 
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[MPITriggerSorter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPITriggerSorter_8h_source.md]]
+The documentation for this class was generated from the following file:- base/[MPITriggerSorter.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPITriggerSorter_8h_source.md)
 
  contents 
  start footer part 

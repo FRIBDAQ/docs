@@ -17,7 +17,7 @@ do not remove this div, it is closed by doxygen!
 
 
 - fitMethod
-  : [[FitManager.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599]]
+  : [FitManager.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/FitManager_8h.md#aaa6963c10d1ae605801287375f0b2599)
 
  contents 
  start footer part 

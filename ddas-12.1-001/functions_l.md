@@ -22,7 +22,7 @@ Here is a list of all class members with links to the classes they belong to:
 ### - l -
 
 - LoadSetFile()
-  : [[CPixieSystemUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a7abb978776e7de015681fc24eb290cd9]]
+  : [CPixieSystemUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieSystemUtilities.md#a7abb978776e7de015681fc24eb290cd9)
 
  contents 
  start footer part 

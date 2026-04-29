@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyEcho-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyEcho-members.md)
 
 
 MyEcho Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for MyEcho:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for MyEcho:
@@ -50,7 +50,7 @@ Collaboration diagram for MyEcho:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |

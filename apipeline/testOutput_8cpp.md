@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 [Classes](#nested-classes) |
@@ -32,7 +32,7 @@ do not remove this div, it is closed by doxygen!
 testOutput.cpp File Reference
 
 header
-: Test the [[MPIParameterOutput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8cpp.md]]
+: Test the [MPIParameterOutput.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8cpp.md)
 [More...](#details)
 
 
@@ -99,7 +99,7 @@ Include dependency graph for testOutput.cpp:
 <a name="details"></a>## Detailed Description
 
 
-: Test the [[MPIParameterOutput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8cpp.md]]
+: Test the [MPIParameterOutput.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8cpp.md)
 
 
 - Build an MPI applicationusing MPIParameterOutput as the outputter.

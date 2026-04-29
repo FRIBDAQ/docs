@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 MPIRawReader.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawReader_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawReader_8h.md)<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -73,15 +73,15 @@ header
 
 <a name="l00026"></a>   26
 
-<a name="l00027"></a>   27 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
+<a name="l00027"></a>   27 namespace [frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md) {
 
 <a name="l00028"></a>   28     namespace analysis {
 
 <a name="l00029"></a>   29         class CDataReader;
 
-<a name="l00030"></a>[[30|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMPIRawReader.md]]         class AbstractApplication;
+<a name="l00030"></a>[30](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMPIRawReader.md)         class AbstractApplication;
 
-<a name="l00052"></a>[[52|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]         class [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]] {
+<a name="l00052"></a>[52](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)         class [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md) {
 
 <a name="l00053"></a>   53         private:
 
@@ -89,9 +89,9 @@ header
 
 <a name="l00055"></a>   55             char** m_argv;
 
-<a name="l00056"></a>   56             [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* m_pApp;
+<a name="l00056"></a>   56             [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)* m_pApp;
 
-<a name="l00057"></a>   57             [[CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]* m_pReader;
+<a name="l00057"></a>   57             [CDataReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md)* m_pReader;
 
 <a name="l00058"></a>   58             unsigned     m_nBlockSize;
 
@@ -99,23 +99,23 @@ header
 
 <a name="l00060"></a>   60         public:
 
-<a name="l00061"></a>   61             [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a21d667bc54e64fc0dae965d23c3a16e0]](int argc, char** argv, [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]* pApp);
+<a name="l00061"></a>   61             [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a21d667bc54e64fc0dae965d23c3a16e0)(int argc, char** argv, [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)* pApp);
 
-<a name="l00062"></a>   62             virtual [[~CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a6722587cda7f1bdd38c66340304ff398]]();
+<a name="l00062"></a>   62             virtual [~CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a6722587cda7f1bdd38c66340304ff398)();
 
 <a name="l00063"></a>   63         private:
 
-<a name="l00064"></a>   64             [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a21d667bc54e64fc0dae965d23c3a16e0]](const [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]& rhs);
+<a name="l00064"></a>   64             [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a21d667bc54e64fc0dae965d23c3a16e0)(const [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)& rhs);
 
-<a name="l00065"></a>   65             [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]& operator=(const [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]& rhs);
+<a name="l00065"></a>   65             [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)& operator=(const [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)& rhs);
 
-<a name="l00066"></a>   66             int operator==(const [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]& rhs);
+<a name="l00066"></a>   66             int operator==(const [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)& rhs);
 
-<a name="l00067"></a>   67             int operator!=(const [[CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]& rhs);
+<a name="l00067"></a>   67             int operator!=(const [CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)& rhs);
 
 <a name="l00068"></a>   68         public:
 
-<a name="l00069"></a>   69             void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#aeda3263f81671d4def39376af79804fe]]();
+<a name="l00069"></a>   69             void [operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#aeda3263f81671d4def39376af79804fe)();
 
 <a name="l00070"></a>   70         private:
 
@@ -157,43 +157,43 @@ header
 
 <a name="l00089"></a>   89
 
-[[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
+[frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)
 
 **Definition:** AbstractApplication.h:102
 
 
-[[frib::analysis::CDataReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md]]
+[frib::analysis::CDataReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataReader.md)
 
 **Definition:** DataReader.h:60
 
 
-[[frib::analysis::CMPIRawReader::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#aeda3263f81671d4def39376af79804fe]]
+[frib::analysis::CMPIRawReader::operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#aeda3263f81671d4def39376af79804fe)
 
 void operator()()
 
 **Definition:** MPIRawReader.cpp:64
 
 
-[[frib::analysis::CMPIRawReader::~CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a6722587cda7f1bdd38c66340304ff398]]
+[frib::analysis::CMPIRawReader::~CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a6722587cda7f1bdd38c66340304ff398)
 
 virtual ~CMPIRawReader()
 
 **Definition:** MPIRawReader.cpp:53
 
 
-[[frib::analysis::CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md]]
+[frib::analysis::CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md)
 
 **Definition:** MPIRawReader.h:52
 
 
-[[frib::analysis::CMPIRawReader::CMPIRawReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a21d667bc54e64fc0dae965d23c3a16e0]]
+[frib::analysis::CMPIRawReader::CMPIRawReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIRawReader.md#a21d667bc54e64fc0dae965d23c3a16e0)
 
 CMPIRawReader(int argc, char **argv, AbstractApplication *pApp)
 
 **Definition:** MPIRawReader.cpp:39
 
 
-[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
+[frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md)
 
 **Definition:** AbstractApplication.cpp:30
 

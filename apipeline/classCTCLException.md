@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLException-members.md)
 
 
 CTCLException Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLException:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLException:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -195,7 +195,7 @@ Return the command traceback given an interpreter (static).
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLException.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLException_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLException.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLException_8h_source.md)
 - libtclplus/tclplus/TCLException.cpp
 
  contents 

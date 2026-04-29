@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
-- [[BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]
+- [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md)
+- [BufferArena](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena-members.md)
 
 
 DDASReadout::BufferArena Class Reference
 
 header
 Provides a class for memory management in reference-counted buffers.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md#details)
 
 
 `#include <BufferArena.h>`
@@ -135,8 +135,8 @@ Returns a buffer to the pool.
 
 ---
 
-The documentation for this class was generated from the following files:- [[BufferArena.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/BufferArena_8h_source.md]]
-- [[BufferArena.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/BufferArena_8cpp.md]]
+The documentation for this class was generated from the following files:- [BufferArena.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/BufferArena_8h_source.md)
+- [BufferArena.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/BufferArena_8cpp.md)
 
  contents 
  start footer part 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 DDASSorter.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -106,7 +106,7 @@ header
 <a name="l00031"></a>   31
 
 
-<a name="l00032"></a>   32 namespace [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] {
+<a name="l00032"></a>   32 namespace [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md) {
 
 
 <a name="l00033"></a>   33     class BufferArena;
@@ -130,13 +130,13 @@ header
 <a name="l00039"></a>   39
 
 
-<a name="l00040"></a>[[40|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]] typedef struct _RingItemHeader *[[pRingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]];
+<a name="l00040"></a>[40](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4) typedef struct _RingItemHeader *[pRingItemHeader](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4);
 
 
 <a name="l00041"></a>   41
 
 
-<a name="l00055"></a>[[55|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md]] class [[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md]]
+<a name="l00055"></a>[55](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md) class [DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md)
 
 
 <a name="l00056"></a>   56 {
@@ -151,10 +151,10 @@ header
 <a name="l00059"></a>   59     CRingBuffer& m_sink;
 
 
-<a name="l00060"></a>   60     [[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]]* m_pHits;
+<a name="l00060"></a>   60     [DDASReadout::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md)* m_pHits;
 
 
-<a name="l00061"></a>   61     [[DDASReadout::BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]* m_pArena;
+<a name="l00061"></a>   61     [DDASReadout::BufferArena](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md)* m_pArena;
 
 
 <a name="l00062"></a>   62     std::deque<DDASReadout::ZeroCopyHit*> m_hits;
@@ -172,16 +172,16 @@ header
 <a name="l00066"></a>   66 public:
 
 
-<a name="l00073"></a>   73     [[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a1d1772e72726def7d91419055cc0835c]](CRingBuffer& source, CRingBuffer& sink, float window=10.0);
+<a name="l00073"></a>   73     [DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a1d1772e72726def7d91419055cc0835c)(CRingBuffer& source, CRingBuffer& sink, float window=10.0);
 
 
-<a name="l00075"></a>   75     [[~DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a2bcf5ec2daf58c68fc8fd811da4d7445]]();
+<a name="l00075"></a>   75     [~DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a2bcf5ec2daf58c68fc8fd811da4d7445)();
 
 
 <a name="l00076"></a>   76
 
 
-<a name="l00078"></a>   78     void [[operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a7b8a8e1e10bc8645aa1c1326206dd82e]]();
+<a name="l00078"></a>   78     void [operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a7b8a8e1e10bc8645aa1c1326206dd82e)();
 
 
 <a name="l00079"></a>   79
@@ -193,22 +193,22 @@ header
 <a name="l00085"></a>   85     void processChunk(CRingBufferChunkAccess::Chunk& chunk);
 
 
-<a name="l00090"></a>   90     void outputRingItem([[pRingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]] pItem);
+<a name="l00090"></a>   90     void outputRingItem([pRingItemHeader](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4) pItem);
 
 
-<a name="l00097"></a>   97     void processHits([[pRingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]] pItem);
+<a name="l00097"></a>   97     void processHits([pRingItemHeader](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4) pItem);
 
 
 <a name="l00099"></a>   99     void flushHitManager();
 
 
-<a name="l00105"></a>  105     [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]* allocateHit();
+<a name="l00105"></a>  105     [DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md)* allocateHit();
 
 
-<a name="l00111"></a>  111     void freeHit([[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]* pHit);
+<a name="l00111"></a>  111     void freeHit([DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md)* pHit);
 
 
-<a name="l00113"></a>  113     void outputHit([[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]* pHit);
+<a name="l00113"></a>  113     void outputHit([DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md)* pHit);
 
 
 <a name="l00114"></a>  114 };
@@ -220,42 +220,42 @@ header
 <a name="l00116"></a>  116 #endif
 
 
-[[pRingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]]
+[pRingItemHeader](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4)
 
 struct _RingItemHeader * pRingItemHeader
 
 **Definition:** DDASSorter.h:40
 
 
-[[DDASReadout::BufferArena|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md]]
+[DDASReadout::BufferArena](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1BufferArena.md)
 
 Provides a class for memory management in reference-counted buffers.
 
 **Definition:** BufferArena.h:51
 
 
-[[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]]
+[DDASReadout::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md)
 
 Collect hits from modules and retains them in a sorted deque.
 
 **Definition:** HitManager.h:49
 
 
-[[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]
+[DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md)
 
 This class extends RawChannel to produce a raw channel that is zero-copied from a reference counted b...
 
 **Definition:** ZeroCopyHit.h:55
 
 
-[[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md]]
+[DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md)
 
 Class to manage data flow and timestamp ordering.
 
 **Definition:** DDASSorter.h:56
 
 
-[[DDASSorter::DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a1d1772e72726def7d91419055cc0835c]]
+[DDASSorter::DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a1d1772e72726def7d91419055cc0835c)
 
 DDASSorter(CRingBuffer &source, CRingBuffer &sink, float window=10.0)
 
@@ -264,7 +264,7 @@ Constructor.
 **Definition:** DDASSorter.cpp:44
 
 
-[[DDASSorter::~DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a2bcf5ec2daf58c68fc8fd811da4d7445]]
+[DDASSorter::~DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a2bcf5ec2daf58c68fc8fd811da4d7445)
 
 ~DDASSorter()
 
@@ -273,7 +273,7 @@ Destructor.
 **Definition:** DDASSorter.cpp:56
 
 
-[[DDASSorter::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a7b8a8e1e10bc8645aa1c1326206dd82e]]
+[DDASSorter::operator()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a7b8a8e1e10bc8645aa1c1326206dd82e)
 
 void operator()()
 
@@ -282,7 +282,7 @@ Defines the dataflow of the sorter.
 **Definition:** DDASSorter.cpp:67
 
 
-[[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
+[DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md)
 
 **Definition:** BufferArena.cpp:29
 

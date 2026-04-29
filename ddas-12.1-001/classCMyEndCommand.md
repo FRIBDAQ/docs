@@ -23,14 +23,14 @@ do not remove this div, it is closed by doxygen!
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
 [Static Protected Member Functions](#pro-static-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand-members.md)
 
 
 CMyEndCommand Class Reference
 
 header
 Provides an end command to override the SBS one.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#details)
 
 
 `#include <CMyEndCommand.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for CMyEndCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 Collaboration diagram for CMyEndCommand:
@@ -59,7 +59,7 @@ Collaboration diagram for CMyEndCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -242,8 +242,8 @@ Stop run in the director module (module #0) – a SYNC interrupt should be gener
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyEndCommand.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8h_source.md]]
-- [[CMyEndCommand.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8cpp.md]]
+The documentation for this class was generated from the following files:- [CMyEndCommand.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8h_source.md)
+- [CMyEndCommand.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEndCommand_8cpp.md)
 
  contents 
  start footer part 

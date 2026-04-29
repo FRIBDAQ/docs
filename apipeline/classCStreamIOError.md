@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStreamIOError-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStreamIOError-members.md)
 
 
 CStreamIOError Class Reference
@@ -38,7 +38,7 @@ Inheritance diagram for CStreamIOError:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CStreamIOError:
@@ -50,7 +50,7 @@ Collaboration diagram for CStreamIOError:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -119,7 +119,7 @@ Collaboration diagram for CStreamIOError:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[StreamIOError.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/StreamIOError_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[StreamIOError.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/StreamIOError_8h_source.md)
 - libtclplus/exception/StreamIOError.cpp
 
  contents 

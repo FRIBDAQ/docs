@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
 libDDASRootFitFormat.so
 
 header
-ROOT data format and classes. Basically a ROOT-ized [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]] and [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]].  
+ROOT data format and classes. Basically a ROOT-ized [DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md) and [fit_extensions.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md).  
 [More...](#details)
 
 
@@ -43,7 +43,7 @@ ROOT data format and classes. Basically a ROOT-ized [[DDASFitHit|https://github.
 <a name="details"></a>## Detailed Description
 
 
-ROOT data format and classes. Basically a ROOT-ized [[DDASFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md]] and [[fit_extensions.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md]].
+ROOT data format and classes. Basically a ROOT-ized [DDASFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASFitHit.md) and [fit_extensions.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/fit__extensions_8h.md).
 
  contents 
  start footer part 

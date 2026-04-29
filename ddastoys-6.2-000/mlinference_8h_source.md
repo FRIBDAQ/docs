@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 mlinference.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/mlinference_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/mlinference_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -112,7 +112,7 @@ header
 <a name="l00038"></a>   38
 
 
-<a name="l00052"></a>   52     void [[performInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__mlinference.md#ga2225a2049f9ca999e4a9dc364892a3ff]](
+<a name="l00052"></a>   52     void [performInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__mlinference.md#ga2225a2049f9ca999e4a9dc364892a3ff)(
 
 
 <a name="l00053"></a>   53         FitInfo* pResult,
@@ -142,7 +142,7 @@ header
 <a name="l00062"></a>   62 #endif
 
 
-[[ddastoys::mlinference::performInference|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__mlinference.md#ga2225a2049f9ca999e4a9dc364892a3ff]]
+[ddastoys::mlinference::performInference](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__mlinference.md#ga2225a2049f9ca999e4a9dc364892a3ff)
 
 void performInference(FitInfo *pResult, std::vector< uint16_t > &trace, unsigned saturation, torch::jit::script::Module &module)
 

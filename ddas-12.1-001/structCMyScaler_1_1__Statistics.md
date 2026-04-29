@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
-- [[_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]]
+- [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md)
+- [_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md)
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics-members.md)
 
 
 CMyScaler::_Statistics Struct Reference
 
 header
 Statistics are counters for cumulative and per-run triggers.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#details)
 
 
 `#include <CMyScaler.h>`
@@ -49,7 +49,7 @@ Collaboration diagram for CMyScaler::_Statistics:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -96,7 +96,7 @@ Per-run. Cleared on initialize.
 
 ---
 
-The documentation for this struct was generated from the following file:- [[CMyScaler.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8h_source.md]]
+The documentation for this struct was generated from the following file:- [CMyScaler.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8h_source.md)
 
  contents 
  start footer part 

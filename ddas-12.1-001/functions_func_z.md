@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - z -
 
 - ZeroCopyHit()
-  : [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7]]
+  : [DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7)
 
  contents 
  start footer part 

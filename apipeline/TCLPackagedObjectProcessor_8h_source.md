@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLPackagedObjectProcessor.h
@@ -85,19 +85,19 @@ header
 
 <a name="l00028"></a>   28
 
-<a name="l00029"></a>   29 class [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md]];
+<a name="l00029"></a>   29 class [CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md);
 
-<a name="l00030"></a>   30 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
+<a name="l00030"></a>   30 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);
 
 <a name="l00031"></a>   31
 
-<a name="l00042"></a>[[42|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]] class [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]] : public [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]
+<a name="l00042"></a>[42](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md) class [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md) : public [CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md)
 
 <a name="l00043"></a>   43 {
 
 <a name="l00044"></a>   44 private:
 
-<a name="l00045"></a>   45   [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md]]*   m_package;
+<a name="l00045"></a>   45   [CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md)*   m_package;
 
 <a name="l00046"></a>   46
 
@@ -107,13 +107,13 @@ header
 
 <a name="l00049"></a>   49 public:
 
-<a name="l00050"></a>   50   [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a37d94d243a6c2c37652874645ebf3070]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]&  interp,
+<a name="l00050"></a>   50   [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a37d94d243a6c2c37652874645ebf3070)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)&  interp,
 
 <a name="l00051"></a>   51                   std::string       command,
 
 <a name="l00052"></a>   52                   bool              registerMe = true);
 
-<a name="l00053"></a>   53   virtual [[~CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8704544c0a9d68aa4028a00cca957ad5]]();
+<a name="l00053"></a>   53   virtual [~CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8704544c0a9d68aa4028a00cca957ad5)();
 
 <a name="l00054"></a>   54
 
@@ -123,13 +123,13 @@ header
 
 <a name="l00057"></a>   57 private:
 
-<a name="l00058"></a>   58   [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a37d94d243a6c2c37652874645ebf3070]](const [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]]& rhs);
+<a name="l00058"></a>   58   [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a37d94d243a6c2c37652874645ebf3070)(const [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md)& rhs);
 
-<a name="l00059"></a>   59   [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]]& operator=(const [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]]& rhs);
+<a name="l00059"></a>   59   [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md)& operator=(const [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md)& rhs);
 
-<a name="l00060"></a>   60   int operator==(const [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]]& rhs);
+<a name="l00060"></a>   60   int operator==(const [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md)& rhs);
 
-<a name="l00061"></a>   61   int operator!=(const [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]]& rhs);
+<a name="l00061"></a>   61   int operator!=(const [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md)& rhs);
 
 <a name="l00062"></a>   62
 
@@ -143,13 +143,13 @@ header
 
 <a name="l00067"></a>   67 public:
 
-<a name="l00068"></a>   68   void [[onAttach|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8121f55148b1eee77ee4316f034af1a1]]([[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md]]* package);
+<a name="l00068"></a>   68   void [onAttach](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8121f55148b1eee77ee4316f034af1a1)([CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md)* package);
 
 <a name="l00069"></a>   69 protected:
 
-<a name="l00070"></a>   70   [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md]]*  [[getPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8a1e68a10499e29a19a0c423d417d1c8]]();
+<a name="l00070"></a>   70   [CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md)*  [getPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8a1e68a10499e29a19a0c423d417d1c8)();
 
-<a name="l00071"></a>   71   virtual void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96]]();
+<a name="l00071"></a>   71   virtual void [Initialize](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96)();
 
 <a name="l00072"></a>   72
 
@@ -159,57 +159,57 @@ header
 
 <a name="l00075"></a>   75 #endif
 
-[[CTCLPackagedObjectProcessor::onAttach|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8121f55148b1eee77ee4316f034af1a1]]
+[CTCLPackagedObjectProcessor::onAttach](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8121f55148b1eee77ee4316f034af1a1)
 
 void onAttach(CTCLObjectPackage *package)
 
 **Definition:** TCLPackagedObjectProcessor.cpp:50
 
 
-[[CTCLPackagedObjectProcessor::~CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8704544c0a9d68aa4028a00cca957ad5]]
+[CTCLPackagedObjectProcessor::~CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8704544c0a9d68aa4028a00cca957ad5)
 
 virtual ~CTCLPackagedObjectProcessor()
 
 **Definition:** TCLPackagedObjectProcessor.cpp:38
 
 
-[[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md]]
+[CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md)
 
 **Definition:** TCLPackagedObjectProcessor.h:42
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]]
+[CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md)
 
 **Definition:** TCLObjectProcessor.h:44
 
 
-[[CTCLPackagedObjectProcessor::CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a37d94d243a6c2c37652874645ebf3070]]
+[CTCLPackagedObjectProcessor::CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a37d94d243a6c2c37652874645ebf3070)
 
 CTCLPackagedObjectProcessor(CTCLInterpreter &interp, std::string command, bool registerMe=true)
 
 **Definition:** TCLPackagedObjectProcessor.cpp:28
 
 
-[[CTCLPackagedObjectProcessor::getPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8a1e68a10499e29a19a0c423d417d1c8]]
+[CTCLPackagedObjectProcessor::getPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a8a1e68a10499e29a19a0c423d417d1c8)
 
 CTCLObjectPackage * getPackage()
 
 **Definition:** TCLPackagedObjectProcessor.cpp:62
 
 
-[[CTCLPackagedObjectProcessor::Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96]]
+[CTCLPackagedObjectProcessor::Initialize](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96)
 
 virtual void Initialize()
 
 **Definition:** TCLPackagedObjectProcessor.cpp:71
 
 
-[[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md]]
+[CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md)
 
 **Definition:** TCLObjectPackage.h:36
 

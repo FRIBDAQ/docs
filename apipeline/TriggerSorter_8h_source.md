@@ -21,13 +21,13 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 TriggerSorter.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TriggerSorter_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TriggerSorter_8h.md)<a name="l00001"></a>    1 /*
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
 
@@ -69,15 +69,15 @@ header
 
 <a name="l00024"></a>   24 #include <cstdint>
 
-<a name="l00025"></a>   25 #include <[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md]]>
+<a name="l00025"></a>   25 #include <[AnalysisRingItems.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md)>
 
 <a name="l00026"></a>   26 #include <map>
 
-<a name="l00027"></a>   27 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
+<a name="l00027"></a>   27 namespace [frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md) {
 
 <a name="l00028"></a>   28     namespace analysis {
 
-<a name="l00045"></a>[[45|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md]]         class [[CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md]] {
+<a name="l00045"></a>[45](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md)         class [CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md) {
 
 <a name="l00046"></a>   46         private:
 
@@ -87,17 +87,17 @@ header
 
 <a name="l00049"></a>   49         public:
 
-<a name="l00050"></a>   50             [[CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a4217016984a1587df3402f82141f82b3]]();
+<a name="l00050"></a>   50             [CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a4217016984a1587df3402f82141f82b3)();
 
-<a name="l00051"></a>   51             virtual [[~CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a293115c2fe7b7a84147fbccd3b4e1331]]();
+<a name="l00051"></a>   51             virtual [~CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a293115c2fe7b7a84147fbccd3b4e1331)();
 
 <a name="l00052"></a>   52
 
-<a name="l00053"></a>   53             void [[addItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a9ab0b37fe9ee4bb265289c53d4183207]]([[pParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]] item);
+<a name="l00053"></a>   53             void [addItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a9ab0b37fe9ee4bb265289c53d4183207)([pParameterItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md) item);
 
-<a name="l00054"></a>   54             void [[flush|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a36693571b3cd711315ba9eb2204e4622]]();
+<a name="l00054"></a>   54             void [flush](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a36693571b3cd711315ba9eb2204e4622)();
 
-<a name="l00055"></a>   55             virtual void emitItem([[pParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]] item) = 0;
+<a name="l00055"></a>   55             virtual void emitItem([pParameterItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md) item) = 0;
 
 <a name="l00056"></a>   56         };
 
@@ -109,50 +109,50 @@ header
 
 <a name="l00060"></a>   60 #endif
 
-[[frib::analysis::_ParameterItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md]]
+[frib::analysis::_ParameterItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__ParameterItem.md)
 
 **Definition:** AnalysisRingItems.h:71
 
 
-[[frib::analysis::CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md]]
+[frib::analysis::CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md)
 
 **Definition:** TriggerSorter.h:45
 
 
-[[frib::analysis::CTriggerSorter::addItem|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a9ab0b37fe9ee4bb265289c53d4183207]]
+[frib::analysis::CTriggerSorter::addItem](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a9ab0b37fe9ee4bb265289c53d4183207)
 
 void addItem(pParameterItem item)
 
 **Definition:** TriggerSorter.cpp:65
 
 
-[[AnalysisRingItems.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md]]
+[AnalysisRingItems.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/AnalysisRingItems_8h.md)
 
 : Defines the analysis specific ring items
 
 
-[[frib::analysis::CTriggerSorter::CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a4217016984a1587df3402f82141f82b3]]
+[frib::analysis::CTriggerSorter::CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a4217016984a1587df3402f82141f82b3)
 
 CTriggerSorter()
 
 **Definition:** TriggerSorter.cpp:31
 
 
-[[frib::analysis::CTriggerSorter::~CTriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a293115c2fe7b7a84147fbccd3b4e1331]]
+[frib::analysis::CTriggerSorter::~CTriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a293115c2fe7b7a84147fbccd3b4e1331)
 
 virtual ~CTriggerSorter()
 
 **Definition:** TriggerSorter.cpp:46
 
 
-[[frib::analysis::CTriggerSorter::flush|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a36693571b3cd711315ba9eb2204e4622]]
+[frib::analysis::CTriggerSorter::flush](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTriggerSorter.md#a36693571b3cd711315ba9eb2204e4622)
 
 void flush()
 
 **Definition:** TriggerSorter.cpp:98
 
 
-[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
+[frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md)
 
 **Definition:** AbstractApplication.cpp:30
 

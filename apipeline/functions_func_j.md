@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 ### - j -
 
 - join()
-  : [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#ac71f3baaac1f2798d0df83a03753379d]]
+  : [CTCLThread](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#ac71f3baaac1f2798d0df83a03753379d)
 
  contents 
  start footer part 

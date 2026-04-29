@@ -19,21 +19,21 @@ do not remove this div, it is closed by doxygen!
 ### - p -
 
 - parse()
-  : [[DAQ::DDAS::ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a080f00289c3b6c4c69210ae59ed6d628]]
-  , [[DAQ::DDAS::FirmwareVersionFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md#a4a4ab2f51be93b48ac5f630e15c5646b]]
-  , [[DAQ::DDAS::ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#ae8d6f48194941c5b9923f9c26ecbf2ef]]
+  : [DAQ::DDAS::ConfigurationParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#a080f00289c3b6c4c69210ae59ed6d628)
+  , [DAQ::DDAS::FirmwareVersionFileParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md#a4a4ab2f51be93b48ac5f630e15c5646b)
+  , [DAQ::DDAS::ModEvtFileParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#ae8d6f48194941c5b9923f9c26ecbf2ef)
 - parseSlotLine()
-  : [[DAQ::DDAS::ConfigurationParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#ad74d0ddf27e33189cc39accf93a91864]]
+  : [DAQ::DDAS::ConfigurationParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ConfigurationParser.md#ad74d0ddf27e33189cc39accf93a91864)
 - populateHardwareMap()
-  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a08ee360bc5d740dbb37df6df6998015e]]
+  : [DAQ::DDAS::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a08ee360bc5d740dbb37df6df6998015e)
 - print()
-  : [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a219ab53430597daf87dd19d13952e12b]]
+  : [DAQ::DDAS::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#a219ab53430597daf87dd19d13952e12b)
 - put()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#a227d894ea1dbccad820d4520918e3703]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#a227d894ea1dbccad820d4520918e3703)
 - putHit()
-  : [[DAQ::DDAS::DDASDataSimulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ae308c49064df4089db95da875dafc610]]
+  : [DAQ::DDAS::DDASDataSimulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1DDASDataSimulator.md#ae308c49064df4089db95da875dafc610)
 - putItem()
-  : [[RootFileDataSink|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#aba8890f365da6eeb61215107bc6c155f]]
+  : [RootFileDataSink](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classRootFileDataSink.md#aba8890f365da6eeb61215107bc6c155f)
 
  contents 
  start footer part 

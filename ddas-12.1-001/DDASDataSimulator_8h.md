@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[utilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_d931a22623696a5d7336a5069a782699.md]]
-- [[simulator|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_012a31d9d824d7c04849b434774f896a.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [utilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_d931a22623696a5d7336a5069a782699.md)
+- [simulator](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_012a31d9d824d7c04849b434774f896a.md)
 
  top 
 [Classes](#nested-classes) |
@@ -56,7 +56,7 @@ This graph shows which files directly or indirectly include this file:
 ![](DDASDataSimulator_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8h_source.md)
 
 
 |  |  |

@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
-- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
-- [[SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md]]
+- [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
+- [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
+- [SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md)
 
  top 
 [Public Types](#pub-types) |
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter-members.md)
 
 
-DAQ::DDAS::SystemBooter Class Reference[[libSystemBooter.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__libSystemBooter.md]]
+DAQ::DDAS::SystemBooter Class Reference[libSystemBooter.so](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__libSystemBooter.md)
 
 header
-Manages the booting process for [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]].  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#details]]
+Manages the booting process for [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md).  
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#details)
 
 
 `#include <SystemBooter.h>`
@@ -81,13 +81,13 @@ Manages the booting process for [[DDAS|https://github.com/FRIBDAQ/docs/tree/main
 <a name="details"></a>## Detailed Description
 
 
-Manages the booting process for [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]].
+Manages the booting process for [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md).
 
 
 All Readout and slow controls programs rely on this class to boot the system. There are two separate boot types: FullBoot and SettingsOnly. The former loads firmware and settings into the system while the latter just loads the settings. The basic usage pattern is demonstrated below.
 
 
-using namespace [[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]];
+using namespace [DAQ::DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md);
 
 
 unique_ptr<Configuration> pConfig = Configuration::generator(
@@ -99,13 +99,13 @@ unique_ptr<Configuration> pConfig = Configuration::generator(
 );
 
 
-[[SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200]] booter;
+[SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200) booter;
 
 
-booter.boot(*pConfig, [[SystemBooter::FullBoot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]);
+booter.boot(*pConfig, [SystemBooter::FullBoot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6));
 
 
-[[DAQ::DDAS::SystemBooter::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200]]
+[DAQ::DDAS::SystemBooter::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200)
 
 SystemBooter()
 
@@ -114,7 +114,7 @@ Constructor.
 **Definition:** SystemBooter.cpp:24
 
 
-[[DAQ::DDAS::SystemBooter::FullBoot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+[DAQ::DDAS::SystemBooter::FullBoot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6)
 
 @ FullBoot
 
@@ -123,7 +123,7 @@ Bitmask for full boot with firmware load.
 **Definition:** SystemBooter.h:60
 
 
-[[DAQ::DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
+[DAQ::DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
 
  fragment One should realize that this does not handle any of the logic regarding when and when not to synchronize or load firmware. External logic to this class will determine whether the system should load the firmware or not. Synchronization is unrelated to the boot process besides the fact that a firmware load could ruin synchronization.
 
@@ -178,7 +178,7 @@ Enables verbose output by default.
 |  |  | BootType | type |
 |  | ) |  |  |
 
-Provided a configuration, all modules will be booted. The configuration contains the firmware files for each hardware type, the slot map, and the number of modules. During the course of booting, the hardware will be queried as well to determine the the serial number, revision, ADC frequency, and resolution. The revision, adc frequency, and resolution will all be parsed and the information will be stored in the configuration as a [[HardwareRegistry::HardwareType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4]].
+Provided a configuration, all modules will be booted. The configuration contains the firmware files for each hardware type, the slot map, and the number of modules. During the course of booting, the hardware will be queried as well to determine the the serial number, revision, ADC frequency, and resolution. The revision, adc frequency, and resolution will all be parsed and the information will be stored in the configuration as a [HardwareRegistry::HardwareType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS_1_1HardwareRegistry.md#acc5358e9e3cf609ca7ec2d8210b59fb4).
 
 
 
@@ -271,7 +271,7 @@ Read and store hardware info from each of the modules in the system.
 To retrieve information about all of the modules in the system, Pixie16ReadModuleInfo is called for each module index. The resulting revision number, ADC bits, and ADC frequency is printed (if verbose output enabled) and the hardware mapping is stored in the configuration that was passed in.
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000007]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000007)**
   (ASC 12/14/23): For the API transition we want to read the module_config struct. We may not even need to log it (just put them in a vector)
 
 
@@ -321,8 +321,8 @@ By default, the output verbosity setting is enabled. If it is disabled, there wi
 
 ---
 
-The documentation for this class was generated from the following files:- [[SystemBooter.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h_source.md]]
-- [[SystemBooter.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8cpp.md]]
+The documentation for this class was generated from the following files:- [SystemBooter.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h_source.md)
+- [SystemBooter.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8cpp.md)
 
  contents 
  start footer part 

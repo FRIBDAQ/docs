@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 sortouttest Member List
 
 header
-This is the complete list of members for [[sortouttest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classsortouttest.md]], including all inherited members.
+This is the complete list of members for [sortouttest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classsortouttest.md), including all inherited members.
 
 
 |  |  |  |

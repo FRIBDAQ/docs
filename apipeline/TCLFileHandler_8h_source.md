@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLFileHandler.h
@@ -89,7 +89,7 @@ header
 
 <a name="l00031"></a>   31
 
-<a name="l00032"></a>[[32|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]] class [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]  : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+<a name="l00032"></a>[32](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md) class [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)  : public [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 <a name="l00033"></a>   33 {
 
@@ -103,55 +103,55 @@ header
 
 <a name="l00038"></a>   38
 
-<a name="l00039"></a>   39   [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]] ([[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]* pInterp,
+<a name="l00039"></a>   39   [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md) ([CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)* pInterp,
 
 <a name="l00040"></a>   40            TCLPLUS::UInt_t am_nFid = STDIN_FILENO) :
 
-<a name="l00041"></a>   41     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](pInterp->getInterpreter()),
+<a name="l00041"></a>   41     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)(pInterp->getInterpreter()),
 
 <a name="l00042"></a>   42     m_nFid (am_nFid)
 
 <a name="l00043"></a>   43   { }
 
-<a name="l00044"></a>   44   [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]([[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]* pInterp,
+<a name="l00044"></a>   44   [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)([CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)* pInterp,
 
 <a name="l00045"></a>   45           FILE* pFile) :
 
-<a name="l00046"></a>   46     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](pInterp->getInterpreter()),
+<a name="l00046"></a>   46     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)(pInterp->getInterpreter()),
 
 <a name="l00047"></a>   47     m_nFid(fileno(pFile))
 
 <a name="l00048"></a>   48   { }
 
-<a name="l00049"></a>   49   [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00049"></a>   49   [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00050"></a>   50            TCLPLUS::UInt_t am_nFid = STDIN_FILENO) :
 
-<a name="l00051"></a>   51     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](pInterp),
+<a name="l00051"></a>   51     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)(pInterp),
 
 <a name="l00052"></a>   52     m_nFid(am_nFid)
 
 <a name="l00053"></a>   53   { }
 
-<a name="l00054"></a>   54   [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00054"></a>   54   [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00055"></a>   55           FILE* pFile) :
 
-<a name="l00056"></a>   56     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](pInterp),
+<a name="l00056"></a>   56     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)(pInterp),
 
 <a name="l00057"></a>   57     m_nFid(fileno(pFile))
 
 <a name="l00058"></a>   58   { }
 
-<a name="l00059"></a>   59   ~[[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]] ( ) {Clear(); }       //Destructor
+<a name="l00059"></a>   59   ~[CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md) ( ) {Clear(); }       //Destructor
 
 <a name="l00060"></a>   60             //Copy constructor
 
 <a name="l00061"></a>   61
 
-<a name="l00062"></a>   62   [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]] (const [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]& aCTCLFileHandler )   :
+<a name="l00062"></a>   62   [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md) (const [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)& aCTCLFileHandler )   :
 
-<a name="l00063"></a>   63     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]] (aCTCLFileHandler)
+<a name="l00063"></a>   63     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md) (aCTCLFileHandler)
 
 <a name="l00064"></a>   64   {
 
@@ -167,7 +167,7 @@ header
 
 <a name="l00070"></a>   70
 
-<a name="l00071"></a>   71   [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]& operator= (const [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]& aCTCLFileHandler)
+<a name="l00071"></a>   71   [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)& operator= (const [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)& aCTCLFileHandler)
 
 <a name="l00072"></a>   72   {
 
@@ -187,7 +187,7 @@ header
 
 <a name="l00080"></a>   80
 
-<a name="l00081"></a>   81   int operator== (const [[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]& aCTCLFileHandler) const
+<a name="l00081"></a>   81   int operator== (const [CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)& aCTCLFileHandler) const
 
 <a name="l00082"></a>   82  { return (
 
@@ -251,17 +251,17 @@ header
 
 <a name="l00112"></a>  112 #endif
 
-[[CTCLFileHandler|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md]]
+[CTCLFileHandler](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLFileHandler.md)
 
 **Definition:** TCLFileHandler.h:32
 
 
-[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 

@@ -22,14 +22,14 @@ Here is a list of all class members with links to the classes they belong to:
 ### - i -
 
 - initialize()
-  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a99e7612c75cfb4989647682f348e9c54]]
-  , [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a3a509d3a55d3dd555357b5f0345b61b2]]
+  : [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a99e7612c75cfb4989647682f348e9c54)
+  , [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a3a509d3a55d3dd555357b5f0345b61b2)
 - Initialize()
-  : [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ada58ec7c0b8aee0171b5142d790c29b4]]
+  : [CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#ada58ec7c0b8aee0171b5142d790c29b4)
 - isReferenced()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aebc8761a4e8521576c0ec30f921a19ac]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#aebc8761a4e8521576c0ec30f921a19ac)
 - isVerbose()
-  : [[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c]]
+  : [DAQ::DDAS::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c)
 
  contents 
  start footer part 

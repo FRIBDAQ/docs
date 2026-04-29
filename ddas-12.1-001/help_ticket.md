@@ -32,14 +32,14 @@ header
 # How To Ask For Help
 
 
-  For most issues, bug reports, etc. the best way to get help is to use the SDAQ ticketing system. To create a ticket, send an email to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#). For on-call support during an experiment, tell the control room that there is a [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] issue and they will call the appropriate people.
+  For most issues, bug reports, etc. the best way to get help is to use the SDAQ ticketing system. To create a ticket, send an email to [daqhe.nosp@m.lp@f.nosp@m.rib.m.nosp@m.su.e.nosp@m.du](#). For on-call support during an experiment, tell the control room that there is a [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md) issue and they will call the appropriate people.
 
 # Submitting a Good Help Ticket
 
 
   A good help ticket should provide context for the action being performed, messages or errors reported by the software being run, and any steps taken to troubleshoot the issue. If the problem is repeatable, the conditions which trigger the error should be spelled out as precisely as possible.
 
-  As an example, lets consider a user "Bob" who is trying to convert an event file to ROOT format using the [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper.md]] program. Bob has an event file called run-1234-00.evt which he knows was taken last week using NSCLDAQ 11.3-034. He wants to convert to ROOT format using the ddasdumper program from NSCLDAQ version 12.1-xiaapi4 but the program exits without generating any output:
+  As an example, lets consider a user "Bob" who is trying to convert an event file to ROOT format using the [ddasdumper](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper.md) program. Bob has an event file called run-1234-00.evt which he knows was taken last week using NSCLDAQ 11.3-034. He wants to convert to ROOT format using the ddasdumper program from NSCLDAQ version 12.1-xiaapi4 but the program exits without generating any output:
 
 ```
 <genesis:rawdata >. /usr/opt/daq/12.1-xiaapi4/daqsetup.bash
@@ -71,7 +71,7 @@ ddasdumper main caught a C++ exception: Unable to dump a data format item... lik
 "I have a data file run-1234-00.evt which was recorded using NSCLDAQ version 11.3-034. I am trying to convert the file to ROOT format using the ddasdumper from NSCLDAQ version 12.1-xiaapi4. No output ROOT file is produced, and I see the following message:
 
 
-$DAQBIN/ddasdumper -s [[file:///scratch/chester/rawdata/run-1234-00.evt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/file:///scratch/chester/rawdata/run-1234-00.evt.md]] -f run-1234-00.root ddasdumper main caught a C++ exception: Unable to dump a data format item... likely you've specified the wrong –nscldaq-format
+$DAQBIN/ddasdumper -s [file:///scratch/chester/rawdata/run-1234-00.evt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/file:///scratch/chester/rawdata/run-1234-00.evt.md) -f run-1234-00.root ddasdumper main caught a C++ exception: Unable to dump a data format item... likely you've specified the wrong –nscldaq-format
 
 
 ---

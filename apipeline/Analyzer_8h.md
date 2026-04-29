@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[spectcl|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md]]
+- [spectcl](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_18495d4159aaa38323f4c7ea9307a4f7.md)
 
  top 
 [Classes](#nested-classes)
@@ -47,7 +47,7 @@ This graph shows which files directly or indirectly include this file:
 ![](Analyzer_8h__dep__incl.png)
 
 
-[[Go to the source code of this file.|https://github.com/FRIBDAQ/docs/tree/main/apipeline/Analyzer_8h_source.md]]
+[Go to the source code of this file.](https://github.com/FRIBDAQ/docs/tree/main/apipeline/Analyzer_8h_source.md)
 
 
 |  |  |

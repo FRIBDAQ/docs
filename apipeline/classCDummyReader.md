@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCDummyReader-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCDummyReader-members.md)
 
 
 CDummyReader Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for CDummyReader:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CDummyReader:
@@ -48,7 +48,7 @@ Collaboration diagram for CDummyReader:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -71,7 +71,7 @@ Collaboration diagram for CDummyReader:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[sortTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/sortTest_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[sortTest.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/sortTest_8cpp.md)
 
  contents 
  start footer part 

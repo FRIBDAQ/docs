@@ -99,7 +99,7 @@ Estimate a value for the steepness parameter of the rising side of the pulse.
 We approximate xmax as 0.9 of maximum and use that ln(9)/(xmax - xhalf) gives k where xhalf is the position of 1/2 height. If we can't find xhalf then we fall back on a guess of 0.1.
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000005]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000005)**
   Should allow this fallback value to be an input parameter.
 
 - Note

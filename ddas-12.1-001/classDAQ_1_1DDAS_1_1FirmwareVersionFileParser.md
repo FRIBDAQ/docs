@@ -21,20 +21,20 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
-- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
-- [[FirmwareVersionFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md]]
+- [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
+- [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
+- [FirmwareVersionFileParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser-members.md)
 
 
-DAQ::DDAS::FirmwareVersionFileParser Class Reference[[libConfiguration.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md]]
+DAQ::DDAS::FirmwareVersionFileParser Class Reference[libConfiguration.so](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md)
 
 header
-A parser for the [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] firmware specification file.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md#details]]
+A parser for the [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md) firmware specification file.  
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md#details)
 
 
 `#include <FirmwareVersionFileParser.h>`
@@ -54,13 +54,13 @@ A parser for the [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/
 <a name="details"></a>## Detailed Description
 
 
-A parser for the [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] firmware specification file.
+A parser for the [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md) firmware specification file.
 
 
-The [[FirmwareVersionFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md]] is designed to parse the DDASFirmwareVersions.txt file that is installed by the project. The DDASFirmwareVersions.txt file has two major sections. The top section contains fpga firmware file paths and the bottom section provides the paths to dsp configuration code. The format of this file can be observed in DDASFirmwareVersions.txt.in , which is the template file used by automake to generate the DDASFirmwareVersion.txt file.
+The [FirmwareVersionFileParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md) is designed to parse the DDASFirmwareVersions.txt file that is installed by the project. The DDASFirmwareVersions.txt file has two major sections. The top section contains fpga firmware file paths and the bottom section provides the paths to dsp configuration code. The format of this file can be observed in DDASFirmwareVersions.txt.in , which is the template file used by automake to generate the DDASFirmwareVersion.txt file.
 
 
-Ultimately, the contents of the DDASFirmwareVersions.txt file will be stored in the [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] object passed in as an argument to the [[parse()|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md#a4a4ab2f51be93b48ac5f630e15c5646b]] method. That object will keep a database of the firmware files organized by their associated hardware type.
+Ultimately, the contents of the DDASFirmwareVersions.txt file will be stored in the [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) object passed in as an argument to the [parse()](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1FirmwareVersionFileParser.md#a4a4ab2f51be93b48ac5f630e15c5646b) method. That object will keep a database of the firmware files organized by their associated hardware type.
 
 ## Constructor & Destructor Documentation
 
@@ -117,15 +117,15 @@ Main entry point for parsing DDASFirmwareVersions.txt.
 Any firmware configurations that were stored in the configuration object before this will be overwritten with new content.
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000011]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000011)**
   (ASC 3/13/24): CFWFileParseError for exceptions.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[FirmwareVersionFileParser.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/FirmwareVersionFileParser_8h_source.md]]
-- [[FirmwareVersionFileParser.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/FirmwareVersionFileParser_8cpp.md]]
+The documentation for this class was generated from the following files:- [FirmwareVersionFileParser.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/FirmwareVersionFileParser_8h_source.md)
+- [FirmwareVersionFileParser.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/FirmwareVersionFileParser_8cpp.md)
 
  contents 
  start footer part 

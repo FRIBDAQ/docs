@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLObject Member List
 
 header
-This is the complete list of members for [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md]], including all inherited members.
+This is the complete list of members for [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md), including all inherited members.
 
 
 |  |  |  |

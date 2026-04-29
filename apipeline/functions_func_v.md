@@ -19,9 +19,9 @@ do not remove this div, it is closed by doxygen!
 ### - v -
 
 - valueChanged()
-  : [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#ae8224437546cdbc78538b51fd338cba1]]
+  : [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#ae8224437546cdbc78538b51fd338cba1)
 - variableDefType()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#abf5850ea1d16538a27fbc3f98377ec90]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#abf5850ea1d16538a27fbc3f98377ec90)
 
  contents 
  start footer part 

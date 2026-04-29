@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger-members.md)
 
 
 CMyTrigger Class Reference
 
 header
 Trigger class for DDAS.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#details)
 
 
 `#include <CMyTrigger.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CMyTrigger:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 Collaboration diagram for CMyTrigger:
@@ -57,7 +57,7 @@ Collaboration diagram for CMyTrigger:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -241,8 +241,8 @@ DDAS does not need any further signal as data taking end since this function is 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CMyTrigger.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8h_source.md]]
-- [[CMyTrigger.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8cpp.md]]
+The documentation for this class was generated from the following files:- [CMyTrigger.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8h_source.md)
+- [CMyTrigger.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8cpp.md)
 
  contents 
  start footer part 

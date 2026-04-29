@@ -21,19 +21,19 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
-- [[HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]]
+- [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md)
+- [HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager-members.md)
 
 
 DDASReadout::HitManager Class Reference
 
 header
 Collect hits from modules and retains them in a sorted deque.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#details)
 
 
 `#include <HitManager.h>`
@@ -153,8 +153,8 @@ On exit, if a hit is returned it has been popped off the deque.
 
 ---
 
-The documentation for this class was generated from the following files:- [[HitManager.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HitManager_8h_source.md]]
-- [[HitManager.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HitManager_8cpp.md]]
+The documentation for this class was generated from the following files:- [HitManager.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HitManager_8h_source.md)
+- [HitManager.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HitManager_8cpp.md)
 
  contents 
  start footer part 

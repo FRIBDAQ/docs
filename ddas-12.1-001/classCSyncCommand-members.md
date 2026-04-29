@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CSyncCommand Member List
 
 header
-This is the complete list of members for [[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md]], including all inherited members.
+This is the complete list of members for [CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md), including all inherited members.
 
 
 |  |  |  |

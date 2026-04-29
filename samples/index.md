@@ -22,7 +22,7 @@
 
 [CAEN V775](http://docs.nscl.msu.edu/daq/samples/CAEN%20V775/V775.htm)  
 
-    CAEN V785 [[web|https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs.md]] or [[printable (pdf)|https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/caenv785Sample.pdf.md]]  
+    CAEN V785 [web](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs.md) or [printable (pdf)](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/caenv785Sample.pdf.md)  
 
 [CAEN V792](http://docs.nscl.msu.edu/daq/samples/CAEN%20V792/V792.htm)  
 

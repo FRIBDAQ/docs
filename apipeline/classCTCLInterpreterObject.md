@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject-members.md)
 
 
 CTCLInterpreterObject Class Reference
@@ -59,7 +59,7 @@ Inheritance diagram for CTCLInterpreterObject:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -90,7 +90,7 @@ Inheritance diagram for CTCLInterpreterObject:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLInterpreterObject.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLInterpreterObject_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLInterpreterObject.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLInterpreterObject_8h_source.md)
 - libtclplus/tclplus/TCLInterpreterObject.cpp
 
  contents 

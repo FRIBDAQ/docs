@@ -102,21 +102,21 @@ $DAQBIN/ringselector --source=tcp://localhost/myring | $DAQBIN/ddasdumper --sour
 # Output Data Format
 
 
-  The ddasdumper program unpacks NSCLDAQ PHYSICS_EVENT ring items into [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] objects which are written to its output file. It does not perform any unpacking for or write any other NSCLDAQ ring item types to disk. The name of the output ROOT file is specified at runtime using the `--fileout` option.
+  The ddasdumper program unpacks NSCLDAQ PHYSICS_EVENT ring items into [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) objects which are written to its output file. It does not perform any unpacking for or write any other NSCLDAQ ring item types to disk. The name of the output ROOT file is specified at runtime using the `--fileout` option.
 
-  The output ROOT file contains a single TTree named "ddas." The tree contains a single branch called "rawevents" consisting of [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] objects. [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] objects store their channel hit data in a vector of [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] objects. Each [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] object encapsulates all the data contained for a discrete hit in a single digitizer channel: timestamp, energy, additional data like an ADC trace or QDC sums, etc. A single [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] consists of one or more DDASRootHits. Note that multiple hits coming from the same digitizer channel may appear in a single built event if that channel re-triggers within the event building window set during acquisition.
+  The output ROOT file contains a single TTree named "ddas." The tree contains a single branch called "rawevents" consisting of [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) objects. [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) objects store their channel hit data in a vector of [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md) objects. Each [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md) object encapsulates all the data contained for a discrete hit in a single digitizer channel: timestamp, energy, additional data like an ADC trace or QDC sums, etc. A single [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) consists of one or more DDASRootHits. Note that multiple hits coming from the same digitizer channel may appear in a single built event if that channel re-triggers within the event building window set during acquisition.
 
 # Reading ddasdumper ROOT Output
 
 
-  In order to process ddasdumper output, ROOT must know where to look for the headers and library which define the [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] and [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] classes. The headers `DDASRootEvent.h` and `DDASRootHit.h` are installed in the "usual" NSCLDAQ header path: /usr/opt/daq/MM.mm-eee/include for NSCLDAQ MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQINC` will point to this directory. You must add the `DAQINC` directory to the directories ROOT will search for header files:
+  In order to process ddasdumper output, ROOT must know where to look for the headers and library which define the [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) and [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md) classes. The headers `DDASRootEvent.h` and `DDASRootHit.h` are installed in the "usual" NSCLDAQ header path: /usr/opt/daq/MM.mm-eee/include for NSCLDAQ MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQINC` will point to this directory. You must add the `DAQINC` directory to the directories ROOT will search for header files:
 
 ```
 export ROOT_INCLUDE_PATH=${DAQINC}:${ROOT_INCLUDE_PATH}
 
 ```
 
-  The shared library `libddasrootformat.so` containing code implementing the [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] and [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] classes is installed in the "usual" library location: /usr/opt/daq/MM.mm-eee/lib for NSCLDAQ version MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQLIB` will point to this directory. The library can be loaded into the ROOT interpreter on startup:
+  The shared library `libddasrootformat.so` containing code implementing the [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) and [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md) classes is installed in the "usual" library location: /usr/opt/daq/MM.mm-eee/lib for NSCLDAQ version MM.mm-eee; after sourcing the appropriate `daqsetup.bash` script, the environment variable `DAQLIB` will point to this directory. The library can be loaded into the ROOT interpreter on startup:
 
 <genesis:rawdata >root
 
@@ -133,15 +133,15 @@ root [2] TTree* t
 
 root [3] f->GetObject("ddas", t)
 
- fragment   At this point you can call the methods of TTree such as `TTree::Print()` to print a summary of the tree contents. Now we need to associate an object with the branch we care about. Because the "rawevents" branch is filled with [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]] objects, we need to create a such an object and associate it with the branch:
+ fragment   At this point you can call the methods of TTree such as `TTree::Print()` to print a summary of the tree contents. Now we need to associate an object with the branch we care about. Because the "rawevents" branch is filled with [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md) objects, we need to create a such an object and associate it with the branch:
 
-root [4] [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]* pEvent = new [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]
+root [4] [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)* pEvent = new [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)
 
 
 root [5] t->SetBranchAddress("rawevents", &pEvent)
 
 
-[[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]
+[DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)
 
 Encapsulates a built DDAS event with added capabilities for writing to ROOT files.
 
@@ -149,7 +149,7 @@ Encapsulates a built DDAS event with added capabilities for writing to ROOT file
 
  fragment   You can access the data by calling the `TTree::GetEntry()`. As an example, consider the following ROOT macro which loops over the tree entries and histogram the multiplicity using the `DDASRootEvent::GetNHits()` method to extract the number of channel hits per event:
 
-#include <[[DDASRootEvent.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h.md]]> // Class defs. (in ROOT_INCLUDE_PATH)
+#include <[DDASRootEvent.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h.md)> // Class defs. (in ROOT_INCLUDE_PATH)
 
 
 R__ADD_LIBRARY_PATH($DAQLIB)          // Where our library is installed.
@@ -182,7 +182,7 @@ f->GetObject("ddas", t);
 
 
 
-[[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]]* pEvent = new [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md]];
+[DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md)* pEvent = new [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md);
 
 
 t->SetBranchAddress("rawevents", &pEvent);
@@ -203,7 +203,7 @@ for (long i = 0; i < t->GetEntries(); i++) {
 t->GetEntry(i);
 
 
-h->Fill(pEvent->[[GetNHits|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b]]());
+h->Fill(pEvent->[GetNHits](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b)());
 
 
 }
@@ -218,12 +218,12 @@ h->Draw();
 }
 
 
-[[DDASRootEvent.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h.md]]
+[DDASRootEvent.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootEvent_8h.md)
 
 Defines a class to encapsulate the information in a built DDAS event.
 
 
-[[DDASRootEvent::GetNHits|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b]]
+[DDASRootEvent::GetNHits](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#ade6501418738819754194cd3945c4d0b)
 
 UInt_t GetNHits() const
 

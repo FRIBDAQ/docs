@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 MyApp Member List
 
 header
-This is the complete list of members for [[MyApp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyApp.md]], including all inherited members.
+This is the complete list of members for [MyApp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classMyApp.md), including all inherited members.
 
 
 |  |  |  |

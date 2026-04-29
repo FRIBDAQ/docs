@@ -19,7 +19,7 @@ do not remove this div, it is closed by doxygen!
 CFitEngine.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CFitEngine_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CFitEngine_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -103,31 +103,31 @@ header
 <a name="l00034"></a>   34
 
 
-<a name="l00041"></a>[[41|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]     class [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]] {
+<a name="l00041"></a>[41](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md)     class [CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md) {
 
 
 <a name="l00042"></a>   42     protected:
 
 
-<a name="l00043"></a>[[43|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e]]     std::vector<uint16_t> [[x|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e]];
+<a name="l00043"></a>[43](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e)     std::vector<uint16_t> [x](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e);
 
 
-<a name="l00044"></a>[[44|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638]]     std::vector<uint16_t> [[y|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638]];
+<a name="l00044"></a>[44](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638)     std::vector<uint16_t> [y](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638);
 
 
 <a name="l00045"></a>   45     public:
 
 
-<a name="l00050"></a>   50     [[CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a02450a79fd6e17ac2f52ddfa9ee07985]](std::vector<std::pair<uint16_t, uint16_t>>& data);
+<a name="l00050"></a>   50     [CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a02450a79fd6e17ac2f52ddfa9ee07985)(std::vector<std::pair<uint16_t, uint16_t>>& data);
 
 
-<a name="l00052"></a>[[52|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74]]     virtual [[~CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74]]() {}
+<a name="l00052"></a>[52](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74)     virtual [~CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74)() {}
 
 
-<a name="l00054"></a>[[54|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6]]     virtual void [[jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6]](const gsl_vector* p,  gsl_matrix *J) = 0;
+<a name="l00054"></a>[54](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6)     virtual void [jacobian](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6)(const gsl_vector* p,  gsl_matrix *J) = 0;
 
 
-<a name="l00056"></a>[[56|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d]]     virtual void [[residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d]](const gsl_vector* p, gsl_vector* r)  = 0;
+<a name="l00056"></a>[56](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d)     virtual void [residuals](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d)(const gsl_vector* p, gsl_vector* r)  = 0;
 
 
 <a name="l00057"></a>   57     };
@@ -145,14 +145,14 @@ header
 <a name="l00061"></a>   61 #endif
 
 
-[[ddastoys::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md]]
+[ddastoys::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md)
 
 Abstract base class for marshalling data to the fitting subsystems to calculate Jacobian elements and...
 
 **Definition:** CFitEngine.h:41
 
 
-[[ddastoys::CFitEngine::CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a02450a79fd6e17ac2f52ddfa9ee07985]]
+[ddastoys::CFitEngine::CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a02450a79fd6e17ac2f52ddfa9ee07985)
 
 CFitEngine(std::vector< std::pair< uint16_t, uint16_t >> &data)
 
@@ -161,7 +161,7 @@ Constructor.
 **Definition:** CFitEngine.cpp:30
 
 
-[[ddastoys::CFitEngine::~CFitEngine|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74]]
+[ddastoys::CFitEngine::~CFitEngine](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a181d0de9a2695a0aeb50f63098901d74)
 
 virtual ~CFitEngine()
 
@@ -170,7 +170,7 @@ Destructor.
 **Definition:** CFitEngine.h:52
 
 
-[[ddastoys::CFitEngine::x|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e]]
+[ddastoys::CFitEngine::x](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a382447bdd280558a0ee6914b7dcbd34e)
 
 std::vector< uint16_t > x
 
@@ -179,21 +179,21 @@ Trace x coordinate vector.
 **Definition:** CFitEngine.h:43
 
 
-[[ddastoys::CFitEngine::jacobian|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6]]
+[ddastoys::CFitEngine::jacobian](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#a96d60c77a96448db9fa01871070b0ef6)
 
 virtual void jacobian(const gsl_vector *p, gsl_matrix *J)=0
 
 Virtual method for calculating the Jacobian matrix.
 
 
-[[ddastoys::CFitEngine::residuals|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d]]
+[ddastoys::CFitEngine::residuals](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#abe25c7b7ff9be5e5cd2ab16567189e1d)
 
 virtual void residuals(const gsl_vector *p, gsl_vector *r)=0
 
 Virtual method to calculating the residual.
 
 
-[[ddastoys::CFitEngine::y|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638]]
+[ddastoys::CFitEngine::y](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1CFitEngine.md#aebae9a8493cdbf588dfab78d31dad638)
 
 std::vector< uint16_t > y
 

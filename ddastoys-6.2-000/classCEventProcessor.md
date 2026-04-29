@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor-members.md)
 
 
 CEventProcessor Class Reference
 
 header
 Define an event processor for DDAS data.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#details)
 
 
 `#include <CEventProcessor.h>`
@@ -54,7 +54,7 @@ Define an event processor for DDAS data.
 Define an event processor for DDAS data.
 
 
-The class defines a functor that can be created and invoked from [[main()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/traceview_8cpp.md#a0ddf1224851353fc92bfbff6f499fa97]] to do the job of processing ring items from a source and handing them off to a data sink.
+The class defines a functor that can be created and invoked from [main()](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/traceview_8cpp.md#a0ddf1224851353fc92bfbff6f499fa97) to do the job of processing ring items from a source and handing them off to a data sink.
 
 ## Constructor & Destructor Documentation
 
@@ -121,18 +121,18 @@ Here we:
 - Invoke a processor to process the individual ring items.
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000011]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000011)**
   (ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits?
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000012]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/todo.md#_todo000012)**
   (ASC 3/10/23): To support different NSCLDAQ data formats, we need to read the version string from the args and create an appropriate ring item factory. The ROOT converter should be independent of the data format since we can hand it CPhysicsEventItems from the correct format type.
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CEventProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CEventProcessor_8h_source.md]]
-- [[CEventProcessor.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CEventProcessor_8cpp.md]]
+The documentation for this class was generated from the following files:- [CEventProcessor.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CEventProcessor_8h_source.md)
+- [CEventProcessor.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/CEventProcessor_8cpp.md)
 
  contents 
  start footer part 

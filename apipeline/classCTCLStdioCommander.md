@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLStdioCommander-members.md)
 
 
 CTCLStdioCommander Class Reference
@@ -39,7 +39,7 @@ Inheritance diagram for CTCLStdioCommander:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLStdioCommander:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLStdioCommander:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -118,7 +118,7 @@ Collaboration diagram for CTCLStdioCommander:
 STDIO channel commander is a channel commander that prompts on stdout, and accepts commands on stdin. Registering this in the event loop, and then entering the event loop yields a powerful result, tcl with an event loop running but still accepting commands on stdin (event loop without the vwait command).
 
 
-See also [[CTCLLiveEventLoop|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md]] which is a class that can set this all up and contains the event loop code itself.
+See also [CTCLLiveEventLoop](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLLiveEventLoop.md) which is a class that can set this all up and contains the event loop code itself.
 
 ## Constructor & Destructor Documentation
 
@@ -161,7 +161,7 @@ Destruction is a placeholder to ensure base class destruction is done.. that's w
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[CTCLStdioCommander.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLStdioCommander_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[CTCLStdioCommander.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CTCLStdioCommander_8h_source.md)
 - libtclplus/tclplus/CTCLStdioCommander.cpp
 
  contents 

@@ -43,7 +43,7 @@ The comutation of these trigger numbers is overlapped with the request - that is
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[MPIRawReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawReader_8h_source.md]]
+The documentation for this class was generated from the following file:- base/[MPIRawReader.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIRawReader_8h_source.md)
 
  contents 
  start footer part 

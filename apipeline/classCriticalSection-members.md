@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CriticalSection Member List
 
 header
-This is the complete list of members for [[CriticalSection|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md]], including all inherited members.
+This is the complete list of members for [CriticalSection](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCriticalSection.md), including all inherited members.
 
 
 |  |  |  |

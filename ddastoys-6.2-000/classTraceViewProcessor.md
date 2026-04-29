@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor-members.md)
 
 
 TraceViewProcessor Class Reference
 
 header
 A basic ring item processor.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classTraceViewProcessor.md#details)
 
 
 `#include <TraceViewProcessor.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for TraceViewProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 Collaboration diagram for TraceViewProcessor:
@@ -57,7 +57,7 @@ Collaboration diagram for TraceViewProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 |  |  |
@@ -189,14 +189,14 @@ Process physics events.
 Break PHYSICS_EVENTs into fragments, convert the fragments into DDASFitHits and append them to the event (just a vector of DDASFitHits).
 
 
-Reimplemented from [[CRingItemProcessor|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f]].
+Reimplemented from [CRingItemProcessor](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCRingItemProcessor.md#aa7d9e38db85c6914baf0ea2b6862876f).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- [[TraceViewProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/TraceViewProcessor_8h_source.md]]
-- [[TraceViewProcessor.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/TraceViewProcessor_8cpp.md]]
+The documentation for this class was generated from the following files:- [TraceViewProcessor.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/TraceViewProcessor_8h_source.md)
+- [TraceViewProcessor.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/TraceViewProcessor_8cpp.md)
 
  contents 
  start footer part 

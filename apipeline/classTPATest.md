@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTPATest-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTPATest-members.md)
 
 
 TPATest Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for TPATest:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for TPATest:
@@ -47,7 +47,7 @@ Collaboration diagram for TPATest:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -97,7 +97,7 @@ Collaboration diagram for TPATest:
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[treeparamarraytests.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/treeparamarraytests_8cpp.md]]
+The documentation for this class was generated from the following file:- base/[treeparamarraytests.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/treeparamarraytests_8cpp.md)
 
  contents 
  start footer part 

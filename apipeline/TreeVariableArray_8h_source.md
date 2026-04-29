@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[base|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md]]
+- [base](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_e914ee4d4a44400f1fdb170cb4ead18a.md)
 
  top 
 TreeVariableArray.h
@@ -91,7 +91,7 @@ header
 
 <a name="l00034"></a>   34
 
-<a name="l00035"></a>   35 #include "[[TreeVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h.md]]"
+<a name="l00035"></a>   35 #include "[TreeVariable.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h.md)"
 
 <a name="l00036"></a>   36 #include <string>
 
@@ -103,7 +103,7 @@ header
 
 <a name="l00040"></a>   40
 
-<a name="l00041"></a>   41 namespace [[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]] {
+<a name="l00041"></a>   41 namespace [frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md) {
 
 <a name="l00042"></a>   42     namespace analysis {
 
@@ -111,7 +111,7 @@ header
 
 <a name="l00044"></a>   44
 
-<a name="l00070"></a>[[70|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]             class [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]
+<a name="l00070"></a>[70](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)             class [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)
 
 <a name="l00071"></a>   71             {
 
@@ -127,43 +127,43 @@ header
 
 <a name="l00083"></a>   83             public:
 
-<a name="l00084"></a>   84               [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5]]();
+<a name="l00084"></a>   84               [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5)();
 
-<a name="l00085"></a>   85               [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5]](std::string baseName, double initialValue,
+<a name="l00085"></a>   85               [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5)(std::string baseName, double initialValue,
 
-<a name="l00086"></a>   86                          std::string units, unsigned [[size|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831]], int [[firstIndex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827]] = 0);
+<a name="l00086"></a>   86                          std::string units, unsigned [size](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831), int [firstIndex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827) = 0);
 
-<a name="l00087"></a>   87               [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5]](std::string baseName, unsigned size, int [[firstIndex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827]] = 0);
+<a name="l00087"></a>   87               [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5)(std::string baseName, unsigned size, int [firstIndex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827) = 0);
 
-<a name="l00088"></a>   88               [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5]](const [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]& rhs);
+<a name="l00088"></a>   88               [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5)(const [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)& rhs);
 
-<a name="l00089"></a>   89               [[~CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ae33b013757441b7bb2f191dbbe79dbc4]]();
+<a name="l00089"></a>   89               [~CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ae33b013757441b7bb2f191dbbe79dbc4)();
 
-<a name="l00090"></a>   90               void [[Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a22334eadb758d7119b5d57bb819885e3]](std::string baseName, double initialValue,
+<a name="l00090"></a>   90               void [Initialize](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a22334eadb758d7119b5d57bb819885e3)(std::string baseName, double initialValue,
 
 <a name="l00091"></a>   91                       std::string units, unsigned size, int firstElement);
 
-<a name="l00092"></a>   92               [[CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md]]& [[operator[]|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a6d57ef72cdfcdba6a26729a0409a38ed]](int index);
+<a name="l00092"></a>   92               [CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md)& [operator[]](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a6d57ef72cdfcdba6a26729a0409a38ed)(int index);
 
-<a name="l00093"></a>   93               const [[CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md]]& [[operator[]|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a6d57ef72cdfcdba6a26729a0409a38ed]](int index) const;
+<a name="l00093"></a>   93               const [CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md)& [operator[]](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a6d57ef72cdfcdba6a26729a0409a38ed)(int index) const;
 
-<a name="l00094"></a>   94               [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a3aa869d6b05a0349ca8fe87b6b8eacc5]](const [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]& rhs);
+<a name="l00094"></a>   94               [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a3aa869d6b05a0349ca8fe87b6b8eacc5)(const [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)& rhs);
 
 <a name="l00095"></a>   95
 
-<a name="l00096"></a>   96               unsigned [[size|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831]]() const;
+<a name="l00096"></a>   96               unsigned [size](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831)() const;
 
-<a name="l00097"></a>   97               int [[firstIndex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827]]() const;
+<a name="l00097"></a>   97               int [firstIndex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827)() const;
 
 <a name="l00098"></a>   98
 
 <a name="l00099"></a>   99             protected:
 
-<a name="l00100"></a>  100               void [[BuildArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ada3962c3e73a08a314d95d4e69a31808]](std::string basename, unsigned int size,
+<a name="l00100"></a>  100               void [BuildArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ada3962c3e73a08a314d95d4e69a31808)(std::string basename, unsigned int size,
 
-<a name="l00101"></a>  101                       const [[CTreeVariable::Definition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md]]& example);
+<a name="l00101"></a>  101                       const [CTreeVariable::Definition](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md)& example);
 
-<a name="l00102"></a>  102               void [[CopyArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a9eebcc991735af82893fc1545d53dd8e]](const [[CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]&  rhs);
+<a name="l00102"></a>  102               void [CopyArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a9eebcc991735af82893fc1545d53dd8e)(const [CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)&  rhs);
 
 <a name="l00103"></a>  103
 
@@ -197,90 +197,90 @@ header
 
 <a name="l00118"></a>  118 #endif
 
-[[frib::analysis::CTreeVariable::_Definition|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md]]
+[frib::analysis::CTreeVariable::_Definition](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1CTreeVariable_1_1__Definition.md)
 
 **Definition:** TreeVariable.h:56
 
 
-[[TreeVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h.md]]
+[TreeVariable.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeVariable_8h.md)
 
 : Define a class that holds variables that steer computations.
 
 
-[[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md]]
+[frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md)
 
 **Definition:** TreeVariable.h:53
 
 
-[[frib::analysis::CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md]]
+[frib::analysis::CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md)
 
 **Definition:** TreeVariableArray.h:70
 
 
-[[frib::analysis::CTreeVariableArray::CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5]]
+[frib::analysis::CTreeVariableArray::CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a2e7cfd802103814552ff903fbf0ef8a5)
 
 CTreeVariableArray()
 
 **Definition:** TreeVariableArray.cpp:45
 
 
-[[frib::analysis::CTreeVariableArray::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a3aa869d6b05a0349ca8fe87b6b8eacc5]]
+[frib::analysis::CTreeVariableArray::operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a3aa869d6b05a0349ca8fe87b6b8eacc5)
 
 CTreeVariableArray & operator=(const CTreeVariableArray &rhs)
 
 **Definition:** TreeVariableArray.cpp:307
 
 
-[[frib::analysis::CTreeVariableArray::firstIndex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827]]
+[frib::analysis::CTreeVariableArray::firstIndex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ad820046331b720060412125f5c031827)
 
 int firstIndex() const
 
 **Definition:** TreeVariableArray.cpp:336
 
 
-[[frib::analysis::CTreeVariableArray::~CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ae33b013757441b7bb2f191dbbe79dbc4]]
+[frib::analysis::CTreeVariableArray::~CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ae33b013757441b7bb2f191dbbe79dbc4)
 
 ~CTreeVariableArray()
 
 **Definition:** TreeVariableArray.cpp:130
 
 
-[[frib::analysis::CTreeVariableArray::size|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831]]
+[frib::analysis::CTreeVariableArray::size](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ac0c617cdbb6e38bbb854d546cb8e5831)
 
 unsigned size() const
 
 **Definition:** TreeVariableArray.cpp:328
 
 
-[[frib::analysis::CTreeVariableArray::BuildArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ada3962c3e73a08a314d95d4e69a31808]]
+[frib::analysis::CTreeVariableArray::BuildArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#ada3962c3e73a08a314d95d4e69a31808)
 
 void BuildArray(std::string basename, unsigned int size, const CTreeVariable::Definition &example)
 
 **Definition:** TreeVariableArray.cpp:151
 
 
-[[frib::analysis::CTreeVariableArray::operator[]|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a6d57ef72cdfcdba6a26729a0409a38ed]]
+[frib::analysis::CTreeVariableArray::operator[]](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a6d57ef72cdfcdba6a26729a0409a38ed)
 
 CTreeVariable & operator[](int index)
 
 **Definition:** TreeVariableArray.cpp:278
 
 
-[[frib::analysis::CTreeVariableArray::CopyArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a9eebcc991735af82893fc1545d53dd8e]]
+[frib::analysis::CTreeVariableArray::CopyArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a9eebcc991735af82893fc1545d53dd8e)
 
 void CopyArray(const CTreeVariableArray &rhs)
 
 **Definition:** TreeVariableArray.cpp:215
 
 
-[[frib::analysis::CTreeVariableArray::Initialize|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a22334eadb758d7119b5d57bb819885e3]]
+[frib::analysis::CTreeVariableArray::Initialize](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a22334eadb758d7119b5d57bb819885e3)
 
 void Initialize(std::string baseName, double initialValue, std::string units, unsigned size, int firstElement)
 
 **Definition:** TreeVariableArray.cpp:251
 
 
-[[frib|https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md]]
+[frib](https://github.com/FRIBDAQ/docs/tree/main/apipeline/namespacefrib.md)
 
 **Definition:** AbstractApplication.cpp:30
 

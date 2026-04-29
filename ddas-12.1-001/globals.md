@@ -22,172 +22,172 @@ Here is a list of all file members with links to the files they belong to:
 ### - c -
 
 - CCSRA_EXTTSENA_MASK()
-  : [[CMyEventSegment.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8cpp.md#a43cfb710fadde1a91015cdd26be12ee0]]
+  : [CMyEventSegment.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8cpp.md#a43cfb710fadde1a91015cdd26be12ee0)
 - CFD_100_MSPS_MASK
-  : [[DDASDataSimulator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#a60ad102ec9ec37fd80667e478d386f9d]]
+  : [DDASDataSimulator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#a60ad102ec9ec37fd80667e478d386f9d)
 - CFD_250_MSPS_MASK
-  : [[DDASDataSimulator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#ae8fd459ebc84b078888bd26e2a70d2cf]]
+  : [DDASDataSimulator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#ae8fd459ebc84b078888bd26e2a70d2cf)
 - CFD_500_MSPS_MASK
-  : [[DDASDataSimulator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#acd6323973013b322e32e2a04acb1725b]]
+  : [DDASDataSimulator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#acd6323973013b322e32e2a04acb1725b)
 - CPixieDSPUtilities_AdjustOffsets()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e)
 - CPixieDSPUtilities_delete()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54)
 - CPixieDSPUtilities_new()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9)
 - CPixieDSPUtilities_ReadChanPar()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a)
 - CPixieDSPUtilities_ReadModPar()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246)
 - CPixieDSPUtilities_WriteChanPar()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768)
 - CPixieDSPUtilities_WriteModPar()
-  : [[CPixieDSPUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6]]
+  : [CPixieDSPUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6)
 - CPixieRunUtilities_BeginBaselineRun()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#af8ba1e22fdf56af3cd62b0ad9be50f5d]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#af8ba1e22fdf56af3cd62b0ad9be50f5d)
 - CPixieRunUtilities_BeginHistogramRun()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a221e426b815917448a333009d3fc6d75]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a221e426b815917448a333009d3fc6d75)
 - CPixieRunUtilities_delete()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a6742556b43261ad1f5d8e66ac4b0c0f9]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a6742556b43261ad1f5d8e66ac4b0c0f9)
 - CPixieRunUtilities_EndBaselineRun()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#ab4128b167a93c8f1d299d0932309e3c0]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#ab4128b167a93c8f1d299d0932309e3c0)
 - CPixieRunUtilities_EndHistogramRun()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a25c2f0a1e31c645254707ae5dbb9cc65]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a25c2f0a1e31c645254707ae5dbb9cc65)
 - CPixieRunUtilities_GetBaselineData()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#afcccbf71771c6a8a8bf17c6aaaf589fd]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#afcccbf71771c6a8a8bf17c6aaaf589fd)
 - CPixieRunUtilities_GetHistogramData()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a118b0f2400fc7140aa987ffd8ffc0cc5]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a118b0f2400fc7140aa987ffd8ffc0cc5)
 - CPixieRunUtilities_GetRunActive()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a9e8e644bb6176f2a9d3bdbc725528695]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a9e8e644bb6176f2a9d3bdbc725528695)
 - CPixieRunUtilities_new()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a412cad88a6c1187ed29c967ba680fc9e]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a412cad88a6c1187ed29c967ba680fc9e)
 - CPixieRunUtilities_ReadBaseline()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#af6c49b5848ef765419f9c942effee84d]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#af6c49b5848ef765419f9c942effee84d)
 - CPixieRunUtilities_ReadHistogram()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a99a8e37dc54d441d29949d821ab2bcbe]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a99a8e37dc54d441d29949d821ab2bcbe)
 - CPixieRunUtilities_ReadModuleStats()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a930b815db7735ebf7b198ef3fc1602f7]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a930b815db7735ebf7b198ef3fc1602f7)
 - CPixieRunUtilities_SetUseGenerator()
-  : [[CPixieRunUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a35e5b9a33933ac0e51594ff9039df420]]
+  : [CPixieRunUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieRunUtilities_8h.md#a35e5b9a33933ac0e51594ff9039df420)
 - CPixieSystemUtilities_Boot()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ad5b72cbabc65dd242cd2c1b3d2c276d1]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ad5b72cbabc65dd242cd2c1b3d2c276d1)
 - CPixieSystemUtilities_delete()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a249c9fb47c2aba2142380ee307026ed2]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a249c9fb47c2aba2142380ee307026ed2)
 - CPixieSystemUtilities_ExitSystem()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a8bae80680eb26577cb921845485cca69]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a8bae80680eb26577cb921845485cca69)
 - CPixieSystemUtilities_GetBootMode()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a2434d667ccd452f6c4471b5366c0f716]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a2434d667ccd452f6c4471b5366c0f716)
 - CPixieSystemUtilities_GetBootStatus()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a3b97f36a0e18a49023d575cf793fa560]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a3b97f36a0e18a49023d575cf793fa560)
 - CPixieSystemUtilities_GetModuleMSPS()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aca8bd0d11c27ced3e85b7f1cf4d6b20d]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aca8bd0d11c27ced3e85b7f1cf4d6b20d)
 - CPixieSystemUtilities_GetNumModules()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa0b739e664a7940a6cc6508e4e46f385]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa0b739e664a7940a6cc6508e4e46f385)
 - CPixieSystemUtilities_LoadSetFile()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa47e2a16eac93a72cb17a5f7f9402bfa]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aa47e2a16eac93a72cb17a5f7f9402bfa)
 - CPixieSystemUtilities_new()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ae2a352b1c38fc0c9c929203adaabec31]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#ae2a352b1c38fc0c9c929203adaabec31)
 - CPixieSystemUtilities_SaveSetFile()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a7a59ad34efc3744f5aaaf095a7f402d7]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#a7a59ad34efc3744f5aaaf095a7f402d7)
 - CPixieSystemUtilities_SetBootMode()
-  : [[CPixieSystemUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aff5a98724a090b4f37a389d875686ec8]]
+  : [CPixieSystemUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieSystemUtilities_8h.md#aff5a98724a090b4f37a389d875686ec8)
 - CPixieTraceUtilities_delete()
-  : [[CPixieTraceUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c]]
+  : [CPixieTraceUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a25b6d2dca8975bfd6454f21cca1e7e1c)
 - CPixieTraceUtilities_GetTraceData()
-  : [[CPixieTraceUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2]]
+  : [CPixieTraceUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#ac7c3896e2a06f5de2d4c93e6e4449ba2)
 - CPixieTraceUtilities_new()
-  : [[CPixieTraceUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a]]
+  : [CPixieTraceUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a0a18d90019ae6d7320fe957248a95f3a)
 - CPixieTraceUtilities_ReadFastTrace()
-  : [[CPixieTraceUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689]]
+  : [CPixieTraceUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a3451c39b042dce477b997849c5160689)
 - CPixieTraceUtilities_ReadTrace()
-  : [[CPixieTraceUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5]]
+  : [CPixieTraceUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a87b9fe56f84b48968ff362f8089c2cf5)
 - CPixieTraceUtilities_SetUseGenerator()
-  : [[CPixieTraceUtilities.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b]]
+  : [CPixieTraceUtilities.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieTraceUtilities_8h.md#a991cf9affe51e217480503e0795dd47b)
 
 
 ### - f -
 
 - FILENAME_STR_MAXLEN
-  : [[ConfigurationParser.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8cpp.md#a39d6d4439a0696e8d55094282ef9025d]]
+  : [ConfigurationParser.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ConfigurationParser_8cpp.md#a39d6d4439a0696e8d55094282ef9025d)
 
 
 ### - g -
 
 - gpTCLApplication
-  : [[DDASReadoutMain.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#a0a55eac25fc9e9b854ace6c606c69669]]
+  : [DDASReadoutMain.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#a0a55eac25fc9e9b854ace6c606c69669)
 
 
 ### - l -
 
 - LOWER_TS_BIT_MASK
-  : [[DDASDataSimulator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#a253f2320a2a890f2f72256bd9fc4b698]]
+  : [DDASDataSimulator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#a253f2320a2a890f2f72256bd9fc4b698)
 
 
 ### - m -
 
 - main()
-  : [[qtscope.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_8cpp.md#a0ddf1224851353fc92bfbff6f499fa97]]
-  , [[ddasdumper.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper_8cpp.md#a0ddf1224851353fc92bfbff6f499fa97]]
-  , [[ddasSort.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasSort_8cpp.md#a3c04138a5bfe5d72780bb7e82a18e627]]
+  : [qtscope.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_8cpp.md#a0ddf1224851353fc92bfbff6f499fa97)
+  , [ddasdumper.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper_8cpp.md#a0ddf1224851353fc92bfbff6f499fa97)
+  , [ddasSort.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasSort_8cpp.md#a3c04138a5bfe5d72780bb7e82a18e627)
 - makeDataSource()
-  : [[ddasdumper.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper_8cpp.md#a8dab76f159e268547ead83216ab6e295]]
+  : [ddasdumper.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper_8cpp.md#a8dab76f159e268547ead83216ab6e295)
 - makeExclusionList()
-  : [[ddasdumper.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper_8cpp.md#a2fe49a6278b9dd751b7de9a28cc084ec]]
+  : [ddasdumper.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper_8cpp.md#a2fe49a6278b9dd751b7de9a28cc084ec)
 - MAX_MODULES_PER_CRATE
-  : [[CMyEventSegment.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9]]
+  : [CMyEventSegment.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9)
 - MODREVBITMSPS_EXTCLK_BIT()
-  : [[CMyEventSegment.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8cpp.md#a918f02f677893411086008003194a807]]
+  : [CMyEventSegment.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8cpp.md#a918f02f677893411086008003194a807)
 - myeventsegment()
-  : [[DDASReadoutMain.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#af0679cf89dc71abfa7b144c1ccd904df]]
+  : [DDASReadoutMain.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#af0679cf89dc71abfa7b144c1ccd904df)
 - mytrigger()
-  : [[DDASReadoutMain.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#a843710c4ed719c4c4d91cc6f187cc8d4]]
+  : [DDASReadoutMain.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#a843710c4ed719c4c4d91cc6f187cc8d4)
 
 
 ### - o -
 
 - operator<()
-  : [[RawChannel.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md#a54cfd566a9b0ddf284bb5ac7927501f3]]
-  , [[RawChannel.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#a54cfd566a9b0ddf284bb5ac7927501f3]]
+  : [RawChannel.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md#a54cfd566a9b0ddf284bb5ac7927501f3)
+  , [RawChannel.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#a54cfd566a9b0ddf284bb5ac7927501f3)
 - operator==()
-  : [[HardwareRegistry.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8cpp.md#adc70aeb7f5bc652ce834dfc571905acf]]
-  , [[HardwareRegistry.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md#a44d347fcad4f2736671d8b2778f9c858]]
-  , [[RawChannel.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md#adca0b3900d6a1c11b6d8422f951ec3d4]]
-  , [[RawChannel.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#adca0b3900d6a1c11b6d8422f951ec3d4]]
+  : [HardwareRegistry.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8cpp.md#adc70aeb7f5bc652ce834dfc571905acf)
+  , [HardwareRegistry.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md#a44d347fcad4f2736671d8b2778f9c858)
+  , [RawChannel.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md#adca0b3900d6a1c11b6d8422f951ec3d4)
+  , [RawChannel.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#adca0b3900d6a1c11b6d8422f951ec3d4)
 - operator>()
-  : [[RawChannel.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md#ad61e97e883c94b4a748a94a712d9dba3]]
-  , [[RawChannel.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#ad61e97e883c94b4a748a94a712d9dba3]]
+  : [RawChannel.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8cpp.md#ad61e97e883c94b4a748a94a712d9dba3)
+  , [RawChannel.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/RawChannel_8h.md#ad61e97e883c94b4a748a94a712d9dba3)
 
 
 ### - p -
 
 - PIXIE_MAX_ENERGY
-  : [[DDASDataSimulator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#ae8dd2171a4241ba5e60d13d6881155b0]]
+  : [DDASDataSimulator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#ae8dd2171a4241ba5e60d13d6881155b0)
 - pRingItemHeader
-  : [[DDASSorter.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4]]
+  : [DDASSorter.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASSorter_8h.md#ab0daee56f3f30af491766056724485a4)
 
 
 ### - r -
 
 - Registry
-  : [[HardwareRegistry.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8cpp.md#ac22094b1eef40bd04e302d1dc2161134]]
+  : [HardwareRegistry.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8cpp.md#ac22094b1eef40bd04e302d1dc2161134)
 
 
 ### - s -
 
 - scalerModules
-  : [[DDASReadoutMain.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#a6d9a9ecbb3da77dce1f351c836d8c660]]
+  : [DDASReadoutMain.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8cpp.md#a6d9a9ecbb3da77dce1f351c836d8c660)
 
 
 ### - t -
 
 - TRIGGER_TIMEOUT_SECS
-  : [[CMyTrigger.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8cpp.md#a07c69d08957693cfe3a0f85b793a02f3]]
+  : [CMyTrigger.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyTrigger_8cpp.md#a07c69d08957693cfe3a0f85b793a02f3)
 
 
 ### - u -
 
 - UPPER_TS_BIT_MASK
-  : [[DDASDataSimulator.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#a8fdb2cce0d488e2c0f2551669d695d39]]
+  : [DDASDataSimulator.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASDataSimulator_8cpp.md#a8fdb2cce0d488e2c0f2551669d695d39)
 
  contents 
  start footer part 

@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]
+- [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md)
 
  top 
 frib::analysis::CEventProcessor Member List
 
 header
-This is the complete list of members for [[frib::analysis::CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md), including all inherited members.
 
 
 |  |  |  |

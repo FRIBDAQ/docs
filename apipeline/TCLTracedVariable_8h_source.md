@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLTracedVariable.h
@@ -73,27 +73,27 @@ header
 
 <a name="l00022"></a>   22
 
-<a name="l00023"></a>   23 class [[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]];
+<a name="l00023"></a>   23 class [CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md);
 
-<a name="l00024"></a>   24 class [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]];
+<a name="l00024"></a>   24 class [CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md);
 
 <a name="l00025"></a>   25
 
-<a name="l00034"></a>[[34|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]] class [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]] : public [[CTCLVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md]]
+<a name="l00034"></a>[34](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md) class [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md) : public [CTCLVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md)
 
 <a name="l00035"></a>   35 {
 
 <a name="l00036"></a>   36 private:
 
-<a name="l00037"></a>   37   [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]]*    m_pCallback;
+<a name="l00037"></a>   37   [CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md)*    m_pCallback;
 
 <a name="l00038"></a>   38 public:
 
-<a name="l00039"></a>   39   [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]*           pInterp,
+<a name="l00039"></a>   39   [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)*           pInterp,
 
 <a name="l00040"></a>   40           std::string                Name,
 
-<a name="l00041"></a>   41           [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]]&    Trace,
+<a name="l00041"></a>   41           [CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md)&    Trace,
 
 <a name="l00042"></a>   42           int                        flags = (TCL_TRACE_READS  |
 
@@ -101,7 +101,7 @@ header
 
 <a name="l00044"></a>   44                               TCL_TRACE_UNSETS));
 
-<a name="l00045"></a>   45   virtual [[~CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#ad199a8b57cc9a2622f1d87efc7e8077c]]();
+<a name="l00045"></a>   45   virtual [~CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#ad199a8b57cc9a2622f1d87efc7e8077c)();
 
 <a name="l00046"></a>   46
 
@@ -111,13 +111,13 @@ header
 
 <a name="l00049"></a>   49 private:
 
-<a name="l00050"></a>   50   [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]](const [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]& rhs);
+<a name="l00050"></a>   50   [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)(const [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)& rhs);
 
-<a name="l00051"></a>   51   [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]& operator=(const [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]& rhs);
+<a name="l00051"></a>   51   [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)& operator=(const [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)& rhs);
 
-<a name="l00052"></a>   52   int operator==(const [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]& rhs) const;
+<a name="l00052"></a>   52   int operator==(const [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)& rhs) const;
 
-<a name="l00053"></a>   53   int operator!=(const [[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]& rhs) const;
+<a name="l00053"></a>   53   int operator!=(const [CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)& rhs) const;
 
 <a name="l00054"></a>   54 public:
 
@@ -127,7 +127,7 @@ header
 
 <a name="l00057"></a>   57
 
-<a name="l00058"></a>   58   [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]]& getCallback()
+<a name="l00058"></a>   58   [CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md)& getCallback()
 
 <a name="l00059"></a>   59   {
 
@@ -141,7 +141,7 @@ header
 
 <a name="l00064"></a>   64 public:
 
-<a name="l00065"></a>   65   virtual char* [[operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#a82ea3bce3d1405bde40f04644e9a0cd5]](char* pName, char* pElement, int flags);
+<a name="l00065"></a>   65   virtual char* [operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#a82ea3bce3d1405bde40f04644e9a0cd5)(char* pName, char* pElement, int flags);
 
 <a name="l00066"></a>   66
 
@@ -151,36 +151,36 @@ header
 
 <a name="l00069"></a>   69 #endif
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]]
+[CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md)
 
 **Definition:** VariableTraceCallback.h:23
 
 
-[[CTCLTracedVariable::operator()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#a82ea3bce3d1405bde40f04644e9a0cd5]]
+[CTCLTracedVariable::operator()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#a82ea3bce3d1405bde40f04644e9a0cd5)
 
 virtual char * operator()(char *pName, char *pElement, int flags)
 
 **Definition:** TCLTracedVariable.cpp:73
 
 
-[[CTCLTracedVariable::~CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#ad199a8b57cc9a2622f1d87efc7e8077c]]
+[CTCLTracedVariable::~CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md#ad199a8b57cc9a2622f1d87efc7e8077c)
 
 virtual ~CTCLTracedVariable()
 
 **Definition:** TCLTracedVariable.cpp:51
 
 
-[[CTCLVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md]]
+[CTCLVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md)
 
 **Definition:** TCLVariable.h:50
 
 
-[[CTCLTracedVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md]]
+[CTCLTracedVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable.md)
 
 **Definition:** TCLTracedVariable.h:34
 

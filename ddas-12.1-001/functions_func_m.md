@@ -19,9 +19,9 @@ do not remove this div, it is closed by doxygen!
 ### - m -
 
 - ModEvtFileParser()
-  : [[DAQ::DDAS::ModEvtFileParser|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#a7dd35f49151edd3d540eb518f9b27b8f]]
+  : [DAQ::DDAS::ModEvtFileParser](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1ModEvtFileParser.md#a7dd35f49151edd3d540eb518f9b27b8f)
 - moduleCalibration()
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af2be5fd58d780069deb9fe27b3cb9edf]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#af2be5fd58d780069deb9fe27b3cb9edf)
 
  contents 
  start footer part 

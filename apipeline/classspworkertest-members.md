@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 spworkertest Member List
 
 header
-This is the complete list of members for [[spworkertest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classspworkertest.md]], including all inherited members.
+This is the complete list of members for [spworkertest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classspworkertest.md), including all inherited members.
 
 
 |  |  |  |

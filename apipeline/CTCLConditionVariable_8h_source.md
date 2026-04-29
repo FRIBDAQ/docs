@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 CTCLConditionVariable.h
@@ -87,11 +87,11 @@ header
 
 <a name="l00029"></a>   29
 
-<a name="l00030"></a>   30 class [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]];
+<a name="l00030"></a>   30 class [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md);
 
 <a name="l00031"></a>   31
 
-<a name="l00036"></a>[[36|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]] struct [[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]]
+<a name="l00036"></a>[36](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md) struct [CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md)
 
 <a name="l00037"></a>   37 {
 
@@ -99,17 +99,17 @@ header
 
 <a name="l00039"></a>   39
 
-<a name="l00040"></a>   40   [[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]]();
+<a name="l00040"></a>   40   [CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md)();
 
-<a name="l00041"></a>   41   ~[[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]]();
+<a name="l00041"></a>   41   ~[CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md)();
 
 <a name="l00042"></a>   42
 
-<a name="l00043"></a>   43   void [[setShared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#a93c95c18eaa57646c0f3e26190deaba9]]();
+<a name="l00043"></a>   43   void [setShared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#a93c95c18eaa57646c0f3e26190deaba9)();
 
-<a name="l00044"></a>   44   void [[setUnshared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#afea8b7611971efc438e2ccbaa4fe8c58]]();
+<a name="l00044"></a>   44   void [setUnshared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#afea8b7611971efc438e2ccbaa4fe8c58)();
 
-<a name="l00045"></a>   45   bool [[isShared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#aaa22f2f891cf69f407640462ae09485a]]();
+<a name="l00045"></a>   45   bool [isShared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#aaa22f2f891cf69f407640462ae09485a)();
 
 <a name="l00046"></a>   46
 
@@ -119,7 +119,7 @@ header
 
 <a name="l00049"></a>   49
 
-<a name="l00054"></a>[[54|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]] class [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]
+<a name="l00054"></a>[54](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md) class [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)
 
 <a name="l00055"></a>   55 {
 
@@ -131,23 +131,23 @@ header
 
 <a name="l00059"></a>   59 public:
 
-<a name="l00060"></a>   60   [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]();
+<a name="l00060"></a>   60   [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)();
 
-<a name="l00061"></a>   61   [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]](pthread_condattr_t& attr);
+<a name="l00061"></a>   61   [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)(pthread_condattr_t& attr);
 
-<a name="l00062"></a>   62   [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]([[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]]& attr);
+<a name="l00062"></a>   62   [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)([CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md)& attr);
 
-<a name="l00063"></a>   63   virtual ~[[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]();
+<a name="l00063"></a>   63   virtual ~[CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)();
 
 <a name="l00064"></a>   64 private:
 
-<a name="l00065"></a>   65   [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]](const [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]& rhs);
+<a name="l00065"></a>   65   [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)(const [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)& rhs);
 
-<a name="l00066"></a>   66   [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]& operator=(const [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]& rhs);
+<a name="l00066"></a>   66   [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)& operator=(const [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)& rhs);
 
-<a name="l00067"></a>   67   int operator==(const [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]& rhs) const;
+<a name="l00067"></a>   67   int operator==(const [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)& rhs) const;
 
-<a name="l00068"></a>   68   int operator!=(const [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]& rhs) const;
+<a name="l00068"></a>   68   int operator!=(const [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)& rhs) const;
 
 <a name="l00069"></a>   69
 
@@ -163,7 +163,7 @@ header
 
 <a name="l00075"></a>   75
 
-<a name="l00076"></a>   76   bool timedwait([[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]& mutex,
+<a name="l00076"></a>   76   bool timedwait([CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)& mutex,
 
 <a name="l00077"></a>   77          const struct timespec* abstime);
 
@@ -173,7 +173,7 @@ header
 
 <a name="l00080"></a>   80
 
-<a name="l00081"></a>   81   bool timedwait([[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]& mutex,
+<a name="l00081"></a>   81   bool timedwait([CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)& mutex,
 
 <a name="l00082"></a>   82          int     milliseconds);
 
@@ -183,7 +183,7 @@ header
 
 <a name="l00085"></a>   85
 
-<a name="l00086"></a>   86   void wait([[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]& mutex);
+<a name="l00086"></a>   86   void wait([CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)& mutex);
 
 <a name="l00087"></a>   87   void wait(pthread_mutex_t* mutex);
 
@@ -207,42 +207,42 @@ header
 
 <a name="l00097"></a>   97
 
-<a name="l00098"></a>   98 using [[CTCLConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]] = [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]];
+<a name="l00098"></a>   98 using [CTCLConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md) = [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md);
 
-<a name="l00099"></a>   99 using [[CTCLConditionVariableAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]] = [[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]];
+<a name="l00099"></a>   99 using [CTCLConditionVariableAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md) = [CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md);
 
 <a name="l00100"></a>  100 #endif
 
-[[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md]]
+[CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md)
 
 **Definition:** CTCLConditionVariable.h:54
 
 
-[[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md]]
+[CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md)
 
 **Definition:** CTCLMutex.h:54
 
 
-[[CConditionAttributes::setShared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#a93c95c18eaa57646c0f3e26190deaba9]]
+[CConditionAttributes::setShared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#a93c95c18eaa57646c0f3e26190deaba9)
 
 void setShared()
 
 **Definition:** CTCLConditionVariable.cpp:46
 
 
-[[CConditionAttributes::isShared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#aaa22f2f891cf69f407640462ae09485a]]
+[CConditionAttributes::isShared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#aaa22f2f891cf69f407640462ae09485a)
 
 bool isShared()
 
 **Definition:** CTCLConditionVariable.cpp:68
 
 
-[[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md]]
+[CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md)
 
 **Definition:** CTCLConditionVariable.h:36
 
 
-[[CConditionAttributes::setUnshared|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#afea8b7611971efc438e2ccbaa4fe8c58]]
+[CConditionAttributes::setUnshared](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#afea8b7611971efc438e2ccbaa4fe8c58)
 
 void setUnshared()
 

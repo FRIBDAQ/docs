@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CMPIParameterOutput|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md]]
+- [CMPIParameterOutput](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput-members.md)
 
 
 frib::analysis::CMPIParameterOutput Class Reference
@@ -57,11 +57,11 @@ header
 <a name="details"></a>## Detailed Description
 
 
-[[CMPIParameterOutput|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md]] This object can be used as is as an MPI Output process. It accepts data as pairs of messages:
+[CMPIParameterOutput](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParameterOutput.md) This object can be used as is as an MPI Output process. It accepts data as pairs of messages:
 
 
 - FRIB_MPI_Parameter_MessageHeader which describes the following parameters
-- FRIB_MPI_Parameter_Value array which contain the parameters themselves. It uses a [[CDataWriter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md]] to output the data it receives. Pretty simple beast really. If run under something derived as an abstract application class, it will have access to the parameter definitions and the data writer will write those and the variable definitions to file.
+- FRIB_MPI_Parameter_Value array which contain the parameters themselves. It uses a [CDataWriter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CDataWriter.md) to output the data it receives. Pretty simple beast really. If run under something derived as an abstract application class, it will have access to the parameter definitions and the data writer will write those and the variable definitions to file.
 
 ## Constructor & Destructor Documentation
 
@@ -135,8 +135,8 @@ operator() Called to run the process:
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[MPIParameterOutput.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8h_source.md]]
-- base/[[MPIParameterOutput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8cpp.md]]
+The documentation for this class was generated from the following files:- base/[MPIParameterOutput.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8h_source.md)
+- base/[MPIParameterOutput.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParameterOutput_8cpp.md)
 
  contents 
  start footer part 

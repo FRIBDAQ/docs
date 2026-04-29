@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTestTracer-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTestTracer-members.md)
 
 
 TestTracer Class Reference
 
 header
 Test trace class.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTestTracer.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTestTracer.md#details)
 
 
 Inheritance diagram for TestTracer:
@@ -41,7 +41,7 @@ Inheritance diagram for TestTracer:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for TestTracer:
@@ -54,7 +54,7 @@ Collaboration diagram for TestTracer:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |

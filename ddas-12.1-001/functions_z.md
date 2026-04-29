@@ -22,7 +22,7 @@ Here is a list of all class members with links to the classes they belong to:
 ### - z -
 
 - ZeroCopyHit()
-  : [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7]]
+  : [DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#af8eceddf06d97552bb787f16d8e973c7)
 
  contents 
  start footer part 

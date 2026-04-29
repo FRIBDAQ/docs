@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]
+- [CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md)
 
  top 
 [Classes](#nested-classes) |
@@ -31,7 +31,7 @@ do not remove this div, it is closed by doxygen!
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
 [Static Public Attributes](#pub-static-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter-members.md)
 
 
 frib::analysis::CTreeParameter Class Reference
@@ -46,7 +46,7 @@ Collaboration diagram for frib::analysis::CTreeParameter:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -209,7 +209,7 @@ Collaboration diagram for frib::analysis::CTreeParameter:
 | --- | --- | --- | --- | --- |
 | frib::analysis::CTreeParameter::CTreeParameter | ( |  | ) |  |
 
-Constructors of instances of [[CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md]]: default constructor Well actually I'd prefer to phase this out, however legacy code that constructed and then initialized might use this:
+Constructors of instances of [CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md): default constructor Well actually I'd prefer to phase this out, however legacy code that constructed and then initialized might use this:
 
 - The name is set empty.
 - the definition point is set null.
@@ -786,7 +786,7 @@ isValid
 Static Method implementations: nextEvent
 
 - Increments m_generation.
-- Clears m_scorecard This sufficient to set all tree parameters to invalid and to have an empty event for [[collectEvent()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#af4ee7dd5f48e4cc937980d0a360601ae]].
+- Clears m_scorecard This sufficient to set all tree parameters to invalid and to have an empty event for [collectEvent()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#af4ee7dd5f48e4cc937980d0a360601ae).
 
 
 
@@ -1245,7 +1245,7 @@ setValue Set the parameter to a new value and do the book-keeping needed to ensu
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TreeParameter.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h_source.md]]
+The documentation for this class was generated from the following files:- base/[TreeParameter.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TreeParameter_8h_source.md)
 - base/TreeParameter.cpp
 
  contents 

@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 CConfigurableObject.h
@@ -79,7 +79,7 @@ header
 
 <a name="l00025"></a>   25
 
-<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]] class [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]
+<a name="l00053"></a>[53](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md) class [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)
 
 <a name="l00054"></a>   54 {
 
@@ -87,7 +87,7 @@ header
 
 <a name="l00056"></a>   56 protected:
 
-<a name="l00057"></a>   57   [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]* m_pConfiguration;
+<a name="l00057"></a>   57   [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md)* m_pConfiguration;
 
 <a name="l00058"></a>   58 private:
 
@@ -101,19 +101,19 @@ header
 
 <a name="l00063"></a>   63 public:
 
-<a name="l00064"></a>   64   [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]();
+<a name="l00064"></a>   64   [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)();
 
-<a name="l00065"></a>   65   [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]](const [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]& rhs);
+<a name="l00065"></a>   65   [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)(const [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)& rhs);
 
-<a name="l00066"></a>   66   virtual ~[[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]();
+<a name="l00066"></a>   66   virtual ~[CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)();
 
 <a name="l00067"></a>   67
 
-<a name="l00068"></a>   68   [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]& [[operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a1633f75662cacd25932d7faad9f3fd95]](const [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]& rsh);
+<a name="l00068"></a>   68   [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)& [operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a1633f75662cacd25932d7faad9f3fd95)(const [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)& rsh);
 
-<a name="l00069"></a>   69   int [[operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#afdfb2e07b41f1167ec8d9d9f1f8addb7]](const [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]& rhs) const;
+<a name="l00069"></a>   69   int [operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#afdfb2e07b41f1167ec8d9d9f1f8addb7)(const [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)& rhs) const;
 
-<a name="l00070"></a>   70   int [[operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#ae4645f7e507cf6fa2ec6deed2c85bbe4]](const [[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]& rhs) const;
+<a name="l00070"></a>   70   int [operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#ae4645f7e507cf6fa2ec6deed2c85bbe4)(const [CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)& rhs) const;
 
 <a name="l00071"></a>   71
 
@@ -121,7 +121,7 @@ header
 
 <a name="l00073"></a>   73
 
-<a name="l00074"></a>   74   void [[Attach|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#aafbbd0bde74e09ab80cdb2563d0bb7f8]]([[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]* pConfiguration, bool dynamic = true);
+<a name="l00074"></a>   74   void [Attach](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#aafbbd0bde74e09ab80cdb2563d0bb7f8)([CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md)* pConfiguration, bool dynamic = true);
 
 <a name="l00075"></a>   75
 
@@ -129,7 +129,7 @@ header
 
 <a name="l00077"></a>   77
 
-<a name="l00078"></a>   78   void [[configure|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a30d2aad9cd8ac76e163419d53fa69b2f]](std::string name, std::string value);
+<a name="l00078"></a>   78   void [configure](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a30d2aad9cd8ac76e163419d53fa69b2f)(std::string name, std::string value);
 
 <a name="l00079"></a>   79
 
@@ -137,11 +137,11 @@ header
 
 <a name="l00081"></a>   81
 
-<a name="l00082"></a>   82   std::string [[getName|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a27193bd8b235f3f2401e89ba4f43b348]]() const;
+<a name="l00082"></a>   82   std::string [getName](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a27193bd8b235f3f2401e89ba4f43b348)() const;
 
-<a name="l00083"></a>   83   std::string [[cget|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a8b96c54742c2dfe96347db83b7793b93]](std::string name);
+<a name="l00083"></a>   83   std::string [cget](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a8b96c54742c2dfe96347db83b7793b93)(std::string name);
 
-<a name="l00084"></a>   84   CItemConfiguration::ConfigurationArray [[cget|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a8b96c54742c2dfe96347db83b7793b93]]();
+<a name="l00084"></a>   84   CItemConfiguration::ConfigurationArray [cget](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a8b96c54742c2dfe96347db83b7793b93)();
 
 <a name="l00085"></a>   85
 
@@ -169,59 +169,59 @@ header
 
 <a name="l00097"></a>   97 #endif
 
-[[CConfigurableObject::operator=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a1633f75662cacd25932d7faad9f3fd95]]
+[CConfigurableObject::operator=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a1633f75662cacd25932d7faad9f3fd95)
 
 CConfigurableObject & operator=(const CConfigurableObject &rsh)
 
 **Definition:** CConfigurableObject.cpp:53
 
 
-[[CConfigurableObject::cget|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a8b96c54742c2dfe96347db83b7793b93]]
+[CConfigurableObject::cget](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a8b96c54742c2dfe96347db83b7793b93)
 
 CItemConfiguration::ConfigurationArray cget()
 
 **Definition:** CConfigurableObject.cpp:179
 
 
-[[CConfigurableObject::operator==|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#afdfb2e07b41f1167ec8d9d9f1f8addb7]]
+[CConfigurableObject::operator==](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#afdfb2e07b41f1167ec8d9d9f1f8addb7)
 
 int operator==(const CConfigurableObject &rhs) const
 
 **Definition:** CConfigurableObject.cpp:71
 
 
-[[CConfigurableObject::configure|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a30d2aad9cd8ac76e163419d53fa69b2f]]
+[CConfigurableObject::configure](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a30d2aad9cd8ac76e163419d53fa69b2f)
 
 void configure(std::string name, std::string value)
 
 **Definition:** CConfigurableObject.cpp:136
 
 
-[[CConfigurableObject::operator!=|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#ae4645f7e507cf6fa2ec6deed2c85bbe4]]
+[CConfigurableObject::operator!=](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#ae4645f7e507cf6fa2ec6deed2c85bbe4)
 
 int operator!=(const CConfigurableObject &rhs) const
 
 **Definition:** CConfigurableObject.cpp:92
 
 
-[[CConfigurableObject::Attach|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#aafbbd0bde74e09ab80cdb2563d0bb7f8]]
+[CConfigurableObject::Attach](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#aafbbd0bde74e09ab80cdb2563d0bb7f8)
 
 void Attach(CItemConfiguration *pConfiguration, bool dynamic=true)
 
 **Definition:** CConfigurableObject.cpp:113
 
 
-[[CConfigurableObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md]]
+[CConfigurableObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md)
 
 **Definition:** CConfigurableObject.h:53
 
 
-[[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
+[CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md)
 
 **Definition:** CItemConfiguration.h:65
 
 
-[[CConfigurableObject::getName|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a27193bd8b235f3f2401e89ba4f43b348]]
+[CConfigurableObject::getName](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConfigurableObject.md#a27193bd8b235f3f2401e89ba4f43b348)
 
 std::string getName() const
 

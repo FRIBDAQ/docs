@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CTCLHashTableItem< T > Member List
 
 header
-This is the complete list of members for [[CTCLHashTableItem< T >|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLHashTableItem.md]], including all inherited members.
+This is the complete list of members for [CTCLHashTableItem< T >](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLHashTableItem.md), including all inherited members.
 
 
 |  |  |  |

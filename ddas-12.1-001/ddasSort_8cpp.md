@@ -21,8 +21,8 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 [Functions](#func-members)
@@ -89,13 +89,13 @@ Main program to sort DDAS hits.
 Entry point to the sorter: process comand line arguments, instantiates and invokes the application class with appropriate parameters.
 
 
-In order to get best performance from [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]], sorting of the resulting hits has been pushed downstream. This program reads ring items that consist of multiple hits from boards and outputs ring items that consist of single hits from all boards in an experiment sorted by time. Ring item bodies we take as input look like:
+In order to get best performance from [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md), sorting of the resulting hits has been pushed downstream. This program reads ring items that consist of multiple hits from boards and outputs ring items that consist of single hits from all boards in an experiment sorted by time. Ring item bodies we take as input look like:
 
 
 +---------------------------------------------------—+ | Size of the body in 16 bit words (uint32_t) | +---------------------------------------------------—+ | Module ID uint32_t (note bit 21 says use ext clock) | +---------------------------------------------------—+ | Clock scale factor (double precision) | +---------------------------------------------------—+ | Hit 1, Hit 2, ... | | ... |
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000019]]**
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000019)**
   (ASC 3/18/24): Sometimes the sorter fails to create its sort ring. In my attempts to resurrect the sorter tests, I had some issues making multiple `createAndProduce` calls from within the same function. Here it had better be making that call only once. Is this more reliable if I call `CRingBuffer::create()` and `new CRingBuffer()` similar to whats done in sortertests.cpp?
 
  contents 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 HitManager.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HitManager_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HitManager_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -100,7 +100,7 @@ header
 <a name="l00030"></a>   30
 
 
-<a name="l00032"></a>   32 namespace [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] {
+<a name="l00032"></a>   32 namespace [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md) {
 
 
 <a name="l00033"></a>   33     class ZeroCopyHit;
@@ -112,7 +112,7 @@ header
 <a name="l00035"></a>   35
 
 
-<a name="l00048"></a>[[48|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]]     class [[HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]]
+<a name="l00048"></a>[48](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md)     class [HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md)
 
 
 <a name="l00049"></a>   49     {
@@ -133,19 +133,19 @@ header
 <a name="l00055"></a>   55     public:
 
 
-<a name="l00060"></a>   60     [[HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ab5e8b82bd12a513716615a526a86b281]](uint64_t window);
+<a name="l00060"></a>   60     [HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ab5e8b82bd12a513716615a526a86b281)(uint64_t window);
 
 
-<a name="l00066"></a>   66     void [[addHits|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a35b7f949e1d57122d4c18b2e5c21e5ff]](std::deque<DDASReadout::ZeroCopyHit*>& newHits);
+<a name="l00066"></a>   66     void [addHits](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a35b7f949e1d57122d4c18b2e5c21e5ff)(std::deque<DDASReadout::ZeroCopyHit*>& newHits);
 
 
-<a name="l00071"></a>   71     bool [[haveHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a5ca4770daac9520b5bf0659ed2510b08]]();
+<a name="l00071"></a>   71     bool [haveHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a5ca4770daac9520b5bf0659ed2510b08)();
 
 
 <a name="l00072"></a>   72
 
 
-<a name="l00078"></a>   78     [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]* [[nextHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ae2d8aba51a3945b5eee126d13d405654]]();
+<a name="l00078"></a>   78     [DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md)* [nextHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ae2d8aba51a3945b5eee126d13d405654)();
 
 
 <a name="l00079"></a>   79
@@ -178,14 +178,14 @@ header
 <a name="l00098"></a>   98 #endif
 
 
-[[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md]]
+[DDASReadout::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md)
 
 Collect hits from modules and retains them in a sorted deque.
 
 **Definition:** HitManager.h:49
 
 
-[[DDASReadout::HitManager::addHits|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a35b7f949e1d57122d4c18b2e5c21e5ff]]
+[DDASReadout::HitManager::addHits](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a35b7f949e1d57122d4c18b2e5c21e5ff)
 
 void addHits(std::deque< DDASReadout::ZeroCopyHit * > &newHits)
 
@@ -194,7 +194,7 @@ Adds a new set of hits to the m_sortedHits deque maintaining total ordering by c
 **Definition:** HitManager.cpp:40
 
 
-[[DDASReadout::HitManager::haveHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a5ca4770daac9520b5bf0659ed2510b08]]
+[DDASReadout::HitManager::haveHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a5ca4770daac9520b5bf0659ed2510b08)
 
 bool haveHit()
 
@@ -203,7 +203,7 @@ Returns true if there's at least one hit that can be output.
 **Definition:** HitManager.cpp:51
 
 
-[[DDASReadout::HitManager::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ab5e8b82bd12a513716615a526a86b281]]
+[DDASReadout::HitManager::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ab5e8b82bd12a513716615a526a86b281)
 
 HitManager(uint64_t window)
 
@@ -212,7 +212,7 @@ Constructor.
 **Definition:** HitManager.cpp:32
 
 
-[[DDASReadout::HitManager::nextHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ae2d8aba51a3945b5eee126d13d405654]]
+[DDASReadout::HitManager::nextHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ae2d8aba51a3945b5eee126d13d405654)
 
 DDASReadout::ZeroCopyHit * nextHit()
 
@@ -221,14 +221,14 @@ Get the next hit from the queue.
 **Definition:** HitManager.cpp:67
 
 
-[[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md]]
+[DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md)
 
 This class extends RawChannel to produce a raw channel that is zero-copied from a reference counted b...
 
 **Definition:** ZeroCopyHit.h:55
 
 
-[[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]]
+[DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md)
 
 **Definition:** BufferArena.cpp:29
 

@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
-- [[_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]]
+- [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md)
+- [_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md)
 
  top 
 CMyScaler::_Statistics Member List
 
 header
-This is the complete list of members for [[CMyScaler::_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]], including all inherited members.
+This is the complete list of members for [CMyScaler::_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md), including all inherited members.
 
 
 |  |  |  |

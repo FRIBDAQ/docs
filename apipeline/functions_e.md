@@ -22,18 +22,18 @@ Here is a list of all documented class members with links to the class documenta
 ### - e -
 
 - emitItem()
-  : [[frib::analysis::CMPITriggerSorter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md#ae4a9f90f00538528a6a656909a1c9bca]]
+  : [frib::analysis::CMPITriggerSorter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPITriggerSorter.md#ae4a9f90f00538528a6a656909a1c9bca)
 - end()
-  : [[CTCLObjectPackage|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md#a19201809c0241fa4f4339390e2c918c3]]
-  , [[frib::analysis::CEvent|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a560e4fc205d43bff0b31a5457d62ff48]]
-  , [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#a38f2009678172de68500f4fae436a57e]]
-  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a7a5810cec37486ad9d4a583fe2ec3578]]
+  : [CTCLObjectPackage](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectPackage.md#a19201809c0241fa4f4339390e2c918c3)
+  , [frib::analysis::CEvent](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEvent.md#a560e4fc205d43bff0b31a5457d62ff48)
+  , [frib::analysis::CTreeParameterArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#a38f2009678172de68500f4fae436a57e)
+  , [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a7a5810cec37486ad9d4a583fe2ec3578)
 - entityNotDone()
-  : [[frib::analysis::CAnalyzer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a9a98e85cf7d1dfc4969bd074902bf290]]
+  : [frib::analysis::CAnalyzer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CAnalyzer.md#a9a98e85cf7d1dfc4969bd074902bf290)
 - exitHandler()
-  : [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3018ec9579cfa628351538cbc9ecce6b]]
+  : [CTCLThread](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3018ec9579cfa628351538cbc9ecce6b)
 - exitRequested()
-  : [[CTCLThread|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3e640ce2a031df97a39021266a8b217f]]
+  : [CTCLThread](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLThread.md#a3e640ce2a031df97a39021266a8b217f)
 
  contents 
  start footer part 

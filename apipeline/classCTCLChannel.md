@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel-members.md)
 
 
 CTCLChannel Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLChannel:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLChannel:
@@ -52,7 +52,7 @@ Collaboration diagram for CTCLChannel:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -384,7 +384,7 @@ This is done because in general there's no way for the caller to know a-priori h
 
 Special cases:
 
-- If the return value is 0, this means either that the end file was reached or that the channel is in nonblocking mode and had nothing to read. A call to [[atEof()|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d]] will distinguish between these two cases.
+- If the return value is 0, this means either that the end file was reached or that the channel is in nonblocking mode and had nothing to read. A call to [atEof()](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d) will distinguish between these two cases.
 - The return value can be less than the requested value either because the end file was encountered, or because the encoding of the file required more than 1 byte per character.
 
 
@@ -463,7 +463,7 @@ Notes:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLChannel.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLChannel_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLChannel.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLChannel_8h_source.md)
 - libtclplus/tclplus/TCLChannel.cpp
 
  contents 

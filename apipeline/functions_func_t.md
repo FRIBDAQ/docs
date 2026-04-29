@@ -19,13 +19,13 @@ do not remove this div, it is closed by doxygen!
 ### - t -
 
 - throwMPIError()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a80527bacc6595b44b24eaab256b64046]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a80527bacc6595b44b24eaab256b64046)
 - timedwait()
-  : [[CConditionVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md#ab4e64edfbef80485a236c95b163f0a16]]
+  : [CConditionVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCConditionVariable.md#ab4e64edfbef80485a236c95b163f0a16)
 - treeparamarray_2()
-  : [[TclConfigtest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclConfigtest.md#afa4c0452688023fb36888ac9852f9de6]]
+  : [TclConfigtest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTclConfigtest.md#afa4c0452688023fb36888ac9852f9de6)
 - trylock()
-  : [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#add2d5d7ba3dd1b7e4440d83b122eda2e]]
+  : [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#add2d5d7ba3dd1b7e4440d83b122eda2e)
 
  contents 
  start footer part 

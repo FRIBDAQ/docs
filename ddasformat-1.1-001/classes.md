@@ -24,8 +24,8 @@ header
 
 - <a name="letter_D"></a>D
 
-  [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] (ddasfmt)
-  [[DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md]] (ddasfmt)
+  [DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md) (ddasfmt)
+  [DDASHitUnpacker](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md) (ddasfmt)
 
  contents 
  start footer part 

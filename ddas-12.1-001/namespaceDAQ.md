@@ -36,8 +36,8 @@ header
 <a name="details"></a>## Detailed Description
 
 
-- **[[Todo:|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000012]]**
-  (ASC 9/22/23): Firmware configuration map creates some circular dependencies, as we start including [[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md]] and [[HardwareRegistry.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md]] in multiple places. Include guards should handle this but may be nice to redesign things to avoid the multiple inclusions in the first place.
+- **[Todo:](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/todo.md#_todo000012)**
+  (ASC 9/22/23): Firmware configuration map creates some circular dependencies, as we start including [Configuration.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md) and [HardwareRegistry.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/HardwareRegistry_8h.md) in multiple places. Include guards should handle this but may be nice to redesign things to avoid the multiple inclusions in the first place.
 
  contents 
  start footer part 

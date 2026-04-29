@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CEventProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md]]
+- [CEventProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CEventProcessor-members.md)
 
 
 frib::analysis::CEventProcessor Class Referenceabstract
@@ -48,7 +48,7 @@ Inheritance diagram for frib::analysis::CEventProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -70,7 +70,7 @@ Base class for ports of SpecTcl event processors into the paralle analysis frame
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[EventProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/EventProcessor_8h_source.md]]
+The documentation for this class was generated from the following files:- spectcl/[EventProcessor.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/EventProcessor_8h_source.md)
 - spectcl/EventProcessor.cpp
 
  contents 

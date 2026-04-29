@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand-members.md)
 
 
 CSyncCommand Class Reference
 
 header
 Provides the ddas_sync command for the ddas readout program.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#details)
 
 
 `#include <CSyncCommand.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CSyncCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 Collaboration diagram for CSyncCommand:
@@ -57,7 +57,7 @@ Collaboration diagram for CSyncCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -166,8 +166,8 @@ Gets control when the command is invoked.
 
 ---
 
-The documentation for this class was generated from the following files:- [[CSyncCommand.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CSyncCommand_8h_source.md]]
-- [[CSyncCommand.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CSyncCommand_8cpp.md]]
+The documentation for this class was generated from the following files:- [CSyncCommand.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CSyncCommand_8h_source.md)
+- [CSyncCommand.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CSyncCommand_8cpp.md)
 
  contents 
  start footer part 

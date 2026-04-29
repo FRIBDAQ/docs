@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 CMyEventSegment.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md]]<a name="l00001"></a>    1
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md)<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef CMYEVENTSEGMENT_H
@@ -52,22 +52,22 @@ header
 <a name="l00012"></a>   12
 
 
-<a name="l00013"></a>   13 #include <[[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md]]>
+<a name="l00013"></a>   13 #include <[Configuration.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md)>
 
 
-<a name="l00014"></a>   14 #include <[[SystemBooter.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h.md]]>
+<a name="l00014"></a>   14 #include <[SystemBooter.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h.md)>
 
 
 <a name="l00015"></a>   15
 
 
-<a name="l00016"></a>[[16|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9]] const int [[MAX_MODULES_PER_CRATE|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9]] = 13;
+<a name="l00016"></a>[16](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9) const int [MAX_MODULES_PER_CRATE](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9) = 13;
 
 
 <a name="l00017"></a>   17
 
 
-<a name="l00018"></a>   18 class [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]];
+<a name="l00018"></a>   18 class [CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md);
 
 
 <a name="l00019"></a>   19 class CExperiment;
@@ -76,7 +76,7 @@ header
 <a name="l00020"></a>   20
 
 
-<a name="l00030"></a>[[30|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]] class [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]] : public CEventSegment
+<a name="l00030"></a>[30](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md) class [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md) : public CEventSegment
 
 
 <a name="l00031"></a>   31 {
@@ -181,13 +181,13 @@ header
 <a name="l00089"></a>   89     std::vector<int> m_modEvtLens;
 
 
-<a name="l00092"></a>   92     unsigned int m_modRevBitMSPSWord[[[MAX_MODULES_PER_CRATE|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9]]];
+<a name="l00092"></a>   92     unsigned int m_modRevBitMSPSWord[[MAX_MODULES_PER_CRATE](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9)];
 
 
-<a name="l00095"></a>   95     double m_modClockCal[[[MAX_MODULES_PER_CRATE|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9]]];
+<a name="l00095"></a>   95     double m_modClockCal[[MAX_MODULES_PER_CRATE](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9)];
 
 
-<a name="l00096"></a>   96     [[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] m_config;
+<a name="l00096"></a>   96     [DAQ::DDAS::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) m_config;
 
 
 <a name="l00097"></a>   97     bool m_systemInitialized;
@@ -196,7 +196,7 @@ header
 <a name="l00098"></a>   98     bool m_firmwareLoadedRecently;
 
 
-<a name="l00099"></a>   99     [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]]* m_pTrigger;
+<a name="l00099"></a>   99     [CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md)* m_pTrigger;
 
 
 <a name="l00100"></a>  100     CExperiment* m_pExperiment;
@@ -223,13 +223,13 @@ header
 <a name="l00107"></a>  107 public:
 
 
-<a name="l00113"></a>  113     [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]([[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]] *trig, CExperiment& exp);
+<a name="l00113"></a>  113     [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)([CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md) *trig, CExperiment& exp);
 
 
-<a name="l00118"></a>[[118|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a4edd0f31cb0f21dcb87d34523dcabae7]]     [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a4edd0f31cb0f21dcb87d34523dcabae7]](); // For unit testing only!!
+<a name="l00118"></a>[118](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a4edd0f31cb0f21dcb87d34523dcabae7)     [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a4edd0f31cb0f21dcb87d34523dcabae7)(); // For unit testing only!!
 
 
-<a name="l00120"></a>[[120|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b]]  [[~CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b]]();
+<a name="l00120"></a>[120](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b)  [~CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b)();
 
 
 <a name="l00121"></a>  121
@@ -262,7 +262,7 @@ header
 <a name="l00142"></a>  142
 
 
-<a name="l00147"></a>[[147|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371]]     size_t [[GetNumberOfModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371]]() { return m_nModules; }
+<a name="l00147"></a>[147](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371)     size_t [GetNumberOfModules](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371)() { return m_nModules; }
 
 
 <a name="l00152"></a>  152     int GetCrateID() const;
@@ -280,7 +280,7 @@ header
 <a name="l00168"></a>  168     void boot(
 
 
-<a name="l00169"></a>  169     [[DAQ::DDAS::SystemBooter::BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]] = [[DAQ::DDAS::SystemBooter::FullBoot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+<a name="l00169"></a>  169     [DAQ::DDAS::SystemBooter::BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338) = [DAQ::DDAS::SystemBooter::FullBoot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6)
 
 
 <a name="l00170"></a>  170     );
@@ -289,7 +289,7 @@ header
 <a name="l00171"></a>  171
 
 
-<a name="l00176"></a>[[176|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53]]     std::pair<size_t, size_t>[[getStatistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53]]() {
+<a name="l00176"></a>[176](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53)     std::pair<size_t, size_t>[getStatistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53)() {
 
 
 <a name="l00177"></a>  177     return std::pair<size_t, size_t>(m_nCumulativeBytes, m_nBytesPerRun);
@@ -307,7 +307,7 @@ header
 <a name="l00181"></a>  181 #endif
 
 
-[[MAX_MODULES_PER_CRATE|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9]]
+[MAX_MODULES_PER_CRATE](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyEventSegment_8h.md#abf3dcfb241ffb10110f915719769dbf9)
 
 const int MAX_MODULES_PER_CRATE
 
@@ -316,38 +316,38 @@ A full crate is 13 modules.
 **Definition:** CMyEventSegment.h:16
 
 
-[[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md]]
+[Configuration.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h.md)
 
 Defines a class for storing system configuration information.
 
 
-[[SystemBooter.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h.md]]
+[SystemBooter.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h.md)
 
 Defines a class to manage the booting process for DDAS.
 
 
-[[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md]]
+[CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md)
 
 Derived class for DDAS event segments.
 
 **Definition:** CMyEventSegment.h:31
 
 
-[[CMyEventSegment::~CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b]]
+[CMyEventSegment::~CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a1ebb8549361bda00bcf4fdbde8e95b3b)
 
 ~CMyEventSegment()
 
 Destructor.
 
 
-[[CMyEventSegment::CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a4edd0f31cb0f21dcb87d34523dcabae7]]
+[CMyEventSegment::CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a4edd0f31cb0f21dcb87d34523dcabae7)
 
 CMyEventSegment()
 
 Default constructor.
 
 
-[[CMyEventSegment::getStatistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53]]
+[CMyEventSegment::getStatistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a575080123e05c7193b4033b164573d53)
 
 std::pair< size_t, size_t > getStatistics()
 
@@ -356,7 +356,7 @@ Get the cumulative and current run statistics.
 **Definition:** CMyEventSegment.h:176
 
 
-[[CMyEventSegment::GetNumberOfModules|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371]]
+[CMyEventSegment::GetNumberOfModules](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a9321893c5fd93985932b6a7925a5e371)
 
 size_t GetNumberOfModules()
 
@@ -365,21 +365,21 @@ Get the number of modules in the crate.
 **Definition:** CMyEventSegment.h:147
 
 
-[[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md]]
+[CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md)
 
 Trigger class for DDAS.
 
 **Definition:** CMyTrigger.h:24
 
 
-[[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]
+[DAQ::DDAS::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md)
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[DAQ::DDAS::SystemBooter::BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]]
+[DAQ::DDAS::SystemBooter::BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338)
 
 BootType
 
@@ -388,7 +388,7 @@ An enum for boot type bitmasks.
 **Definition:** SystemBooter.h:59
 
 
-[[DAQ::DDAS::SystemBooter::FullBoot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+[DAQ::DDAS::SystemBooter::FullBoot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6)
 
 @ FullBoot
 

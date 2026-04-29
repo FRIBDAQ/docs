@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString-members.md)
 
 
 CTCLString Class Reference
@@ -135,7 +135,7 @@ Append a double as an element of a string.
 
 
 - Returns
-  [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md]]&
+  [CTCLString](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md)&
 
 - Return values
   |  |  |
@@ -164,7 +164,7 @@ Append an integer as element of a list
 
 
 - Returns
-  [[CTCLString|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md]]&
+  [CTCLString](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLString.md)&
 
 - Return values
   |  |  |
@@ -175,7 +175,7 @@ Append an integer as element of a list
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLString.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLString_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLString.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLString_8h_source.md)
 - libtclplus/tclplus/TCLString.cpp
 
  contents 

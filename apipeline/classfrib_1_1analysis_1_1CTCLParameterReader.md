@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CTCLParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTCLParameterReader.md]]
+- [CTCLParameterReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTCLParameterReader.md)
 
  top 
 [Classes](#nested-classes) |
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTCLParameterReader-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTCLParameterReader-members.md)
 
 
 frib::analysis::CTCLParameterReader Class Reference
@@ -46,7 +46,7 @@ Inheritance diagram for frib::analysis::CTCLParameterReader:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for frib::analysis::CTCLParameterReader:
@@ -58,7 +58,7 @@ Collaboration diagram for frib::analysis::CTCLParameterReader:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -135,13 +135,13 @@ read Read the file.
 This should result in a full set of tree parameter and tree variable definitions the user code can link to.
 
 
-Implements [[frib::analysis::CParameterReader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md]].
+Implements [frib::analysis::CParameterReader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CParameterReader.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[TCLParameterReader.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLParameterReader_8h_source.md]]
+The documentation for this class was generated from the following files:- base/[TCLParameterReader.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLParameterReader_8h_source.md)
 - base/TCLParameterReader.cpp
 
  contents 

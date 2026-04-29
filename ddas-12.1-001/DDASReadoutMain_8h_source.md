@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 DDASReadoutMain.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASReadoutMain_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2     This software is Copyright by the Board of Trustees of Michigan
@@ -103,7 +103,7 @@ header
 <a name="l00031"></a>   31
 
 
-<a name="l00056"></a>[[56|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md]] class [[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md]] : public CReadoutMain
+<a name="l00056"></a>[56](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md) class [DDASReadoutMain](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md) : public CReadoutMain
 
 
 <a name="l00057"></a>   57 {
@@ -112,19 +112,19 @@ header
 <a name="l00058"></a>   58 public:
 
 
-<a name="l00063"></a>   63     virtual void [[SetupReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab5b601d4fd5a87735fba02149c549d55]](CExperiment* pExperiment);
+<a name="l00063"></a>   63     virtual void [SetupReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab5b601d4fd5a87735fba02149c549d55)(CExperiment* pExperiment);
 
 
-<a name="l00068"></a>   68     virtual void [[SetupScalers|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a7a92356d7d50e48b4df50bcc4a94b86f]](CExperiment* pExperiment);
+<a name="l00068"></a>   68     virtual void [SetupScalers](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a7a92356d7d50e48b4df50bcc4a94b86f)(CExperiment* pExperiment);
 
 
-<a name="l00074"></a>   74     virtual void [[addCommands|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#aac788b9d7f37d4d64683ca810861f3bc]](CTCLInterpreter* pInterp);
+<a name="l00074"></a>   74     virtual void [addCommands](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#aac788b9d7f37d4d64683ca810861f3bc)(CTCLInterpreter* pInterp);
 
 
-<a name="l00080"></a>   80     virtual void [[SetupRunVariables|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a30e365f2ed0910727a37d2210196b2ad]](CTCLInterpreter* pInterp);
+<a name="l00080"></a>   80     virtual void [SetupRunVariables](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a30e365f2ed0910727a37d2210196b2ad)(CTCLInterpreter* pInterp);
 
 
-<a name="l00086"></a>   86     virtual void [[SetupStateVariables|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab43867a7009e1ab68f0e8f2f34d6e1c0]](CTCLInterpreter* pInterp);
+<a name="l00086"></a>   86     virtual void [SetupStateVariables](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab43867a7009e1ab68f0e8f2f34d6e1c0)(CTCLInterpreter* pInterp);
 
 
 <a name="l00087"></a>   87 };
@@ -136,14 +136,14 @@ header
 <a name="l00089"></a>   89 #endif
 
 
-[[DDASReadoutMain|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md]]
+[DDASReadoutMain](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md)
 
 Production readout class for DDAS systems.
 
 **Definition:** DDASReadoutMain.h:57
 
 
-[[DDASReadoutMain::SetupRunVariables|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a30e365f2ed0910727a37d2210196b2ad]]
+[DDASReadoutMain::SetupRunVariables](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a30e365f2ed0910727a37d2210196b2ad)
 
 virtual void SetupRunVariables(CTCLInterpreter *pInterp)
 
@@ -152,7 +152,7 @@ Setup run variables.
 **Definition:** DDASReadoutMain.cpp:218
 
 
-[[DDASReadoutMain::SetupScalers|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a7a92356d7d50e48b4df50bcc4a94b86f]]
+[DDASReadoutMain::SetupScalers](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#a7a92356d7d50e48b4df50bcc4a94b86f)
 
 virtual void SetupScalers(CExperiment *pExperiment)
 
@@ -161,7 +161,7 @@ Setup the scaler Readout.
 **Definition:** DDASReadoutMain.cpp:145
 
 
-[[DDASReadoutMain::addCommands|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#aac788b9d7f37d4d64683ca810861f3bc]]
+[DDASReadoutMain::addCommands](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#aac788b9d7f37d4d64683ca810861f3bc)
 
 virtual void addCommands(CTCLInterpreter *pInterp)
 
@@ -170,7 +170,7 @@ Used to add Tcl commands. See the CTCLObjectProcessor class.
 **Definition:** DDASReadoutMain.cpp:198
 
 
-[[DDASReadoutMain::SetupStateVariables|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab43867a7009e1ab68f0e8f2f34d6e1c0]]
+[DDASReadoutMain::SetupStateVariables](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab43867a7009e1ab68f0e8f2f34d6e1c0)
 
 virtual void SetupStateVariables(CTCLInterpreter *pInterp)
 
@@ -179,7 +179,7 @@ Setup state variables.
 **Definition:** DDASReadoutMain.cpp:240
 
 
-[[DDASReadoutMain::SetupReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab5b601d4fd5a87735fba02149c549d55]]
+[DDASReadoutMain::SetupReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadoutMain.md#ab5b601d4fd5a87735fba02149c549d55)
 
 virtual void SetupReadout(CExperiment *pExperiment)
 

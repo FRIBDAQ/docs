@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLTracedVariable-members.md)
 
 
 CTCLTracedVariable Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLTracedVariable:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLTracedVariable:
@@ -53,7 +53,7 @@ Collaboration diagram for CTCLTracedVariable:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -133,7 +133,7 @@ Collaboration diagram for CTCLTracedVariable:
 <a name="details"></a>## Detailed Description
 
 
-This class is an extension of the [[CTCLVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md]] class designed to make dealing with tracing somewhat simpler. The class will contain a 'trace callback' object which is dispatched to by the trace handler. Thus, in theory, in stead of having a ton of derived CTCLVariables, you'll hopefully only have a few [[CVariableTraceCallback|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md]] objects. The characteristics of the trace are set up at construction time and remain fixed for the lifetime of an object.
+This class is an extension of the [CTCLVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md) class designed to make dealing with tracing somewhat simpler. The class will contain a 'trace callback' object which is dispatched to by the trace handler. Thus, in theory, in stead of having a ton of derived CTCLVariables, you'll hopefully only have a few [CVariableTraceCallback](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCVariableTraceCallback.md) objects. The characteristics of the trace are set up at construction time and remain fixed for the lifetime of an object.
 
 ## Constructor & Destructor Documentation
 
@@ -185,13 +185,13 @@ Function call operator.. This is called in response to the trace fire.
   | not | null - Pointer to an error message string, the access will fail with an error, and this string will represent the error |
 
 
-Reimplemented from [[CTCLVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md]].
+Reimplemented from [CTCLVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLVariable.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLTracedVariable.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLTracedVariable_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLTracedVariable.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLTracedVariable_8h_source.md)
 - libtclplus/tclplus/TCLTracedVariable.cpp
 
  contents 

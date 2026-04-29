@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication-members.md)
 
 
 Application Class Reference
@@ -36,7 +36,7 @@ Inheritance diagram for Application:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for Application:
@@ -48,7 +48,7 @@ Collaboration diagram for Application:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -145,7 +145,7 @@ Collaboration diagram for Application:
 <a name="details"></a>## Detailed Description
 
 
-[[Application|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication.md]] We're going to have rank 0 (dealer) just deal a few passthrough items directly at the Outputter and then send an end.. No worker or farmers are needed.
+[Application](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classApplication.md) We're going to have rank 0 (dealer) just deal a few passthrough items directly at the Outputter and then send an end.. No worker or farmers are needed.
 
 ## Member Function Documentation
 
@@ -165,16 +165,16 @@ Collaboration diagram for Application:
 dealer: We just create a few random passthrough ring items for the outputter to send. They don't actually mean anything but they have known contents. and are therefore amenable to testing.
 
 
-Implements [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]].
+Implements [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[passthruTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/passthruTest_8cpp.md]]
-- base/[[testOutput.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testOutput_8cpp.md]]
-- base/[[testWorker1.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/testWorker1_8cpp.md]]
-- spectcl/[[spectclTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/spectclTest_8cpp.md]]
+The documentation for this class was generated from the following files:- base/[passthruTest.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/passthruTest_8cpp.md)
+- base/[testOutput.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/testOutput_8cpp.md)
+- base/[testWorker1.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/testWorker1_8cpp.md)
+- spectcl/[spectclTest.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/spectclTest_8cpp.md)
 
  contents 
  start footer part 

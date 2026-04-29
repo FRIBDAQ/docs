@@ -21,21 +21,21 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
-- [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]]
-- [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]
+- [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
+- [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md)
+- [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Static Public Member Functions](#pub-static-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration-members.md)
 
 
-DAQ::DDAS::Configuration Class Reference[[libConfiguration.so|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md]]
+DAQ::DDAS::Configuration Class Reference[libConfiguration.so](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/group__configuration.md)
 
 header
 Store the system configuration information needed by Readout.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#details)
 
 
 `#include <Configuration.h>`
@@ -131,7 +131,7 @@ Store the system configuration information needed by Readout.
 Store the system configuration information needed by Readout.
 
 
-The [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] class stores all of the system configuration for a Readout program. It maintains the configuration that is read in from the DDASFirmwareVersion.txt, modevtlen.txt, and cfgPixie16.txt configuration files. The configuration therefore keeps track of the crate id, slot map, setting file path, module event lengths, module count, and all of the available firmware files for each hardware type.
+The [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) class stores all of the system configuration for a Readout program. It maintains the configuration that is read in from the DDASFirmwareVersion.txt, modevtlen.txt, and cfgPixie16.txt configuration files. The configuration therefore keeps track of the crate id, slot map, setting file path, module event lengths, module count, and all of the available firmware files for each hardware type.
 
 
 It can be configured either manually or by passing it as an argument to a `ConfigurationParser::parse()`, `FirmwareVersionFileParser::parse()`, or `ModEvtFileParser::parse()` methods as it is in the Readout programs.
@@ -192,7 +192,7 @@ Destructor.
 |  |  | const std::string & | cfgPixiePath |
 |  | ) |  |  |
 
-Generate a [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] class object from a firmware version file and cfgPixie16.txt.
+Generate a [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) class object from a firmware version file and cfgPixie16.txt.
 
 
 - Parameters
@@ -209,7 +209,7 @@ Generate a [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-0
 
 
 - Returns
-  Pointer to the generated [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] object.
+  Pointer to the generated [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) object.
 
 `std::move()` ensures correct ownership of the returned pointer, though we *may* be able to take advantage of some copy elision here.
 
@@ -226,7 +226,7 @@ Generate a [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-0
 |  |  | const std::string & | modEvtLenPath |
 |  | ) |  |  |
 
-Generate a [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] class object from a firmware version file and cfgPixie16.txt.
+Generate a [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) class object from a firmware version file and cfgPixie16.txt.
 
 
 - Parameters
@@ -244,7 +244,7 @@ Generate a [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-0
 
 
 - Returns
-  Pointer to the generated [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] object.
+  Pointer to the generated [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) object.
 
 `std::move()` ensures correct ownership of the returned pointer, though we *may* be able to take advantage of some copy elision here.
 
@@ -504,7 +504,7 @@ Set the firmware configuration for a hardware type.
   | config | The new configuration. |
 
 
-Any previous [[FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]] stored will be replaced by the new configuration. If there is no previous configuration for the hardware type it will be added.
+Any previous [FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md) stored will be replaced by the new configuration. If there is no previous configuration for the hardware type it will be added.
 
 
 
@@ -669,7 +669,7 @@ Assign a new slot map.
 It is important for the caller to first call `setNumberOfModules()` before calling this to avoid an exception being thrown. To avoid weird configurations, this ensures that the length of the slot map is the same as the module event length vector at all times. If the user has not set the number of modules previously, this cannot be gauranteed and the method will almost always throw.
 
 
-[[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ab48db08a480cbd40c77142e7c3adfa5e]] config;
+[Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ab48db08a480cbd40c77142e7c3adfa5e) config;
 
 
 config.setNumberOfModules(2);
@@ -678,7 +678,7 @@ config.setNumberOfModules(2);
 config.setSlotMap({2, 3});
 
 
-[[DAQ::DDAS::Configuration::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ab48db08a480cbd40c77142e7c3adfa5e]]
+[DAQ::DDAS::Configuration::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md#ab48db08a480cbd40c77142e7c3adfa5e)
 
 Configuration()=default
 
@@ -690,8 +690,8 @@ Constructor.
 
 ---
 
-The documentation for this class was generated from the following files:- [[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h_source.md]]
-- [[Configuration.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8cpp.md]]
+The documentation for this class was generated from the following files:- [Configuration.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8h_source.md)
+- [Configuration.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/Configuration_8cpp.md)
 
  contents 
  start footer part 

@@ -23,12 +23,12 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md]]
+- [AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication-members.md)
 
 
 frib::analysis::AbstractApplication Class Referenceabstract
@@ -47,7 +47,7 @@ Inheritance diagram for frib::analysis::AbstractApplication:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -450,8 +450,8 @@ variableDefType
 
 ---
 
-The documentation for this class was generated from the following files:- base/[[AbstractApplication.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/AbstractApplication_8h_source.md]]
-- spectcl/[[workerTest.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/workerTest_8cpp.md]]
+The documentation for this class was generated from the following files:- base/[AbstractApplication.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/AbstractApplication_8h_source.md)
+- spectcl/[workerTest.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/workerTest_8cpp.md)
 - AbstractApplication.cpp
 
  contents 

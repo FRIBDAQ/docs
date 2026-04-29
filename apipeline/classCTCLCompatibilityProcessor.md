@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor-members.md)
 
 
 CTCLCompatibilityProcessor Class Reference
@@ -40,7 +40,7 @@ Inheritance diagram for CTCLCompatibilityProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLCompatibilityProcessor:
@@ -53,7 +53,7 @@ Collaboration diagram for CTCLCompatibilityProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -120,7 +120,7 @@ Collaboration diagram for CTCLCompatibilityProcessor:
 <a name="details"></a>## Detailed Description
 
 
-This is an adapter pattern class between object based commands and the classic argc/argv command interface. See the [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]] class for more information. The idea is that a [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]] will contain one of these which will marshall the object interface parameters to the argc/argv interface, create at [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]] object and then dispatch to the [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]] so that old commands written using the argc/argv interface can continue to work even if Tcl 9.0 deprecates or even eliminates this interface.
+This is an adapter pattern class between object based commands and the classic argc/argv command interface. See the [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md) class for more information. The idea is that a [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md) will contain one of these which will marshall the object interface parameters to the argc/argv interface, create at [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md) object and then dispatch to the [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md) so that old commands written using the argc/argv interface can continue to work even if Tcl 9.0 deprecates or even eliminates this interface.
 
 ## Constructor & Destructor Documentation
 
@@ -142,7 +142,7 @@ Construct the object. The assumption is that the CTCL processor is constructed '
 
 
 - Note
-  the [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md]] required a two-step construct/register, we enforce that by not allowing the base class constructor to register us.
+  the [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md) required a two-step construct/register, we enforce that by not allowing the base class constructor to register us.
 
 
 
@@ -172,7 +172,7 @@ Destruction is all taken care of by the base class destructor.
 Adapt to actual commands command deletion handler.
 
 
-Reimplemented from [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a3bb43c6ecbdf32cb1187cb17de8d7923]].
+Reimplemented from [CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md#a3bb43c6ecbdf32cb1187cb17de8d7923).
 
 
 
@@ -186,7 +186,7 @@ Reimplemented from [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/ma
 |  |  | std::vector<CTCLObject> & | objv |
 |  | ) |  |  |
 
-Called to execute the command. Here's where the serious adaptor work comes in to play. We need to turn the objects passed in to us into an argc/argv pair, and create a [[CTCLResult|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md]] to give the command we're adapting for.
+Called to execute the command. Here's where the serious adaptor work comes in to play. We need to turn the objects passed in to us into an argc/argv pair, and create a [CTCLResult](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLResult.md) to give the command we're adapting for.
 
 
 - Parameters
@@ -205,13 +205,13 @@ Called to execute the command. Here's where the serious adaptor work comes in to
   | from | m_ActualCommand->operator() |
 
 
-Implements [[CTCLObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md]].
+Implements [CTCLObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor.md).
 
 
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLCompatibilityProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLCompatibilityProcessor_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLCompatibilityProcessor.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLCompatibilityProcessor_8h_source.md)
 - libtclplus/tclplus/TCLCompatibilityProcessor.cpp
 
  contents 

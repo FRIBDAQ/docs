@@ -23,13 +23,13 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[_RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]]
+- [_RingItemHeader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md)
 
  top 
 frib::analysis::_RingItemHeader Member List
 
 header
-This is the complete list of members for [[frib::analysis::_RingItemHeader|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md]], including all inherited members.
+This is the complete list of members for [frib::analysis::_RingItemHeader](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structfrib_1_1analysis_1_1__RingItemHeader.md), including all inherited members.
 
 
 |  |  |  |

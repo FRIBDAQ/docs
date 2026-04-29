@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[booter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6ee16d49823f5bdfd30ad95b5fce836e.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [booter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6ee16d49823f5bdfd30ad95b5fce836e.md)
 
  top 
 SystemBooter.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h.md]]<a name="l00001"></a>    1
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SystemBooter_8h.md)<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef SYSTEMBOOTER_H
@@ -46,7 +46,7 @@ header
 <a name="l00010"></a>   10
 
 
-<a name="l00012"></a>   12 namespace [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] {
+<a name="l00012"></a>   12 namespace [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md) {
 
 
 <a name="l00014"></a>   14     namespace DDAS {
@@ -64,7 +64,7 @@ header
 <a name="l00018"></a>   18
 
 
-<a name="l00055"></a>[[55|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md]]     class [[SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md]]
+<a name="l00055"></a>[55](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md)     class [SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md)
 
 
 <a name="l00056"></a>   56     {
@@ -73,16 +73,16 @@ header
 <a name="l00057"></a>   57     public:
 
 
-<a name="l00059"></a>[[59|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]]         enum [[BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]] {
+<a name="l00059"></a>[59](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338)         enum [BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338) {
 
 
-<a name="l00060"></a>[[60|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]         [[FullBoot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]] = 0x7f,
+<a name="l00060"></a>[60](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6)         [FullBoot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6) = 0x7f,
 
 
-<a name="l00061"></a>   61         [[SettingsOnly|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]] = 0x70
+<a name="l00061"></a>   61         [SettingsOnly](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae) = 0x70
 
 
-<a name="l00062"></a>[[62|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]         };
+<a name="l00062"></a>[62](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae)         };
 
 
 <a name="l00063"></a>   63
@@ -103,7 +103,7 @@ header
 <a name="l00072"></a>   72     public:
 
 
-<a name="l00074"></a>   74         [[SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200]]();
+<a name="l00074"></a>   74         [SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200)();
 
 
 <a name="l00075"></a>   75         /*
@@ -139,31 +139,31 @@ header
 <a name="l00085"></a>   85          */
 
 
-<a name="l00086"></a>   86         void [[boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a698372a1629e9bfed6dc4d8691b2af40]]([[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]& config, [[BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]] type);
+<a name="l00086"></a>   86         void [boot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a698372a1629e9bfed6dc4d8691b2af40)([Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md)& config, [BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338) type);
 
 
-<a name="l00095"></a>   95         void [[bootModuleByIndex|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a73b8f6e3d902c20a0cc70865272ad79f]](
+<a name="l00095"></a>   95         void [bootModuleByIndex](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a73b8f6e3d902c20a0cc70865272ad79f)(
 
 
-<a name="l00096"></a>   96         int modIndex, [[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]& config, [[BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]] type
+<a name="l00096"></a>   96         int modIndex, [Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md)& config, [BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338) type
 
 
 <a name="l00097"></a>   97         );
 
 
-<a name="l00102"></a>  102         void [[setVerbose|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aa41fc9915a1418e939ac02742e9d92c9]](bool enable);
+<a name="l00102"></a>  102         void [setVerbose](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aa41fc9915a1418e939ac02742e9d92c9)(bool enable);
 
 
-<a name="l00107"></a>[[107|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c]]         bool [[isVerbose|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c]]() const { return m_verbose; };
+<a name="l00107"></a>[107](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c)         bool [isVerbose](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c)() const { return m_verbose; };
 
 
-<a name="l00113"></a>  113         void [[setOfflineMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a12e7e42d870c6d0ea58622d408afb1b8]](unsigned short mode);
+<a name="l00113"></a>  113         void [setOfflineMode](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a12e7e42d870c6d0ea58622d408afb1b8)(unsigned short mode);
 
 
-<a name="l00118"></a>[[118|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef]]         unsigned short [[getOfflineMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef]]() const { return m_offlineMode; };
+<a name="l00118"></a>[118](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef)         unsigned short [getOfflineMode](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef)() const { return m_offlineMode; };
 
 
-<a name="l00125"></a>  125         void [[populateHardwareMap|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a08ee360bc5d740dbb37df6df6998015e]]([[Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]] &config);
+<a name="l00125"></a>  125         void [populateHardwareMap](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a08ee360bc5d740dbb37df6df6998015e)([Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md) &config);
 
 
 <a name="l00126"></a>  126
@@ -172,7 +172,7 @@ header
 <a name="l00127"></a>  127     private:
 
 
-<a name="l00135"></a>  135         unsigned int computeBootMask([[BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]] type);
+<a name="l00135"></a>  135         unsigned int computeBootMask([BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338) type);
 
 
 <a name="l00144"></a>  144         void logModuleInfo(
@@ -190,7 +190,7 @@ header
 <a name="l00155"></a>  155         void checkFWPathLengths(
 
 
-<a name="l00156"></a>  156         [[FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]]& fwConfig, const size_t maxLen
+<a name="l00156"></a>  156         [FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md)& fwConfig, const size_t maxLen
 
 
 <a name="l00157"></a>  157         );
@@ -217,21 +217,21 @@ header
 <a name="l00166"></a>  166
 
 
-[[DAQ::DDAS::Configuration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md]]
+[DAQ::DDAS::Configuration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1Configuration.md)
 
 Store the system configuration information needed by Readout.
 
 **Definition:** Configuration.h:81
 
 
-[[DAQ::DDAS::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md]]
+[DAQ::DDAS::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md)
 
 Manages the booting process for DDAS.
 
 **Definition:** SystemBooter.h:56
 
 
-[[DAQ::DDAS::SystemBooter::populateHardwareMap|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a08ee360bc5d740dbb37df6df6998015e]]
+[DAQ::DDAS::SystemBooter::populateHardwareMap](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a08ee360bc5d740dbb37df6df6998015e)
 
 void populateHardwareMap(Configuration &config)
 
@@ -240,7 +240,7 @@ Read and store hardware info from each of the modules in the system.
 **Definition:** SystemBooter.cpp:199
 
 
-[[DAQ::DDAS::SystemBooter::setOfflineMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a12e7e42d870c6d0ea58622d408afb1b8]]
+[DAQ::DDAS::SystemBooter::setOfflineMode](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a12e7e42d870c6d0ea58622d408afb1b8)
 
 void setOfflineMode(unsigned short mode)
 
@@ -249,7 +249,7 @@ Enable or disable online boot.
 **Definition:** SystemBooter.cpp:186
 
 
-[[DAQ::DDAS::SystemBooter::SystemBooter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200]]
+[DAQ::DDAS::SystemBooter::SystemBooter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a2082507639ed8ccc366104e8b0f56200)
 
 SystemBooter()
 
@@ -258,14 +258,14 @@ Constructor.
 **Definition:** SystemBooter.cpp:24
 
 
-[[DAQ::DDAS::SystemBooter::boot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a698372a1629e9bfed6dc4d8691b2af40]]
+[DAQ::DDAS::SystemBooter::boot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a698372a1629e9bfed6dc4d8691b2af40)
 
 void boot(Configuration &config, BootType type)
 
 **Definition:** SystemBooter.cpp:38
 
 
-[[DAQ::DDAS::SystemBooter::bootModuleByIndex|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a73b8f6e3d902c20a0cc70865272ad79f]]
+[DAQ::DDAS::SystemBooter::bootModuleByIndex](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a73b8f6e3d902c20a0cc70865272ad79f)
 
 void bootModuleByIndex(int modIndex, Configuration &config, BootType type)
 
@@ -274,7 +274,7 @@ Boot a single module.
 **Definition:** SystemBooter.cpp:82
 
 
-[[DAQ::DDAS::SystemBooter::isVerbose|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c]]
+[DAQ::DDAS::SystemBooter::isVerbose](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#a87348e50088ccee9eb5d200e2d991c5c)
 
 bool isVerbose() const
 
@@ -283,7 +283,7 @@ Return the state of verbosity.
 **Definition:** SystemBooter.h:107
 
 
-[[DAQ::DDAS::SystemBooter::setVerbose|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aa41fc9915a1418e939ac02742e9d92c9]]
+[DAQ::DDAS::SystemBooter::setVerbose](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aa41fc9915a1418e939ac02742e9d92c9)
 
 void setVerbose(bool enable)
 
@@ -292,7 +292,7 @@ Enable or disable verbose output.
 **Definition:** SystemBooter.cpp:175
 
 
-[[DAQ::DDAS::SystemBooter::BootType|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338]]
+[DAQ::DDAS::SystemBooter::BootType](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338)
 
 BootType
 
@@ -301,7 +301,7 @@ An enum for boot type bitmasks.
 **Definition:** SystemBooter.h:59
 
 
-[[DAQ::DDAS::SystemBooter::FullBoot|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6]]
+[DAQ::DDAS::SystemBooter::FullBoot](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa6fec9c47cf3fc469d6452d306dc99e6)
 
 @ FullBoot
 
@@ -310,7 +310,7 @@ Bitmask for full boot with firmware load.
 **Definition:** SystemBooter.h:60
 
 
-[[DAQ::DDAS::SystemBooter::SettingsOnly|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae]]
+[DAQ::DDAS::SystemBooter::SettingsOnly](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#ad55f5f6ba5b889434e45e9eab8268338aa9566b8a68f9704f61be5ec0d7eb50ae)
 
 @ SettingsOnly
 
@@ -319,7 +319,7 @@ Bitmask for boot with settings only.
 **Definition:** SystemBooter.h:61
 
 
-[[DAQ::DDAS::SystemBooter::getOfflineMode|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef]]
+[DAQ::DDAS::SystemBooter::getOfflineMode](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDAQ_1_1DDAS_1_1SystemBooter.md#aea725fe660ec0c95a5c174b09e55beef)
 
 unsigned short getOfflineMode() const
 
@@ -328,10 +328,10 @@ Return the boot mode of the system.
 **Definition:** SystemBooter.h:118
 
 
-[[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]]
+[DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md)
 
 
-[[DAQ::DDAS::FirmwareConfiguration|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md]]
+[DAQ::DDAS::FirmwareConfiguration](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDAQ_1_1DDAS_1_1FirmwareConfiguration.md)
 
 Storage for hardware-type firmware/settings paths.
 

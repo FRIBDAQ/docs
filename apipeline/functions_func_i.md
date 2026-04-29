@@ -19,45 +19,45 @@ do not remove this div, it is closed by doxygen!
 ### - i -
 
 - Initialize()
-  : [[CTCLPackagedObjectProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96]]
-  , [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851]]
-  , [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#ac38caac5623f8fcf8fedd7e7f83e2ea0]]
-  , [[frib::analysis::CTreeVariableArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a22334eadb758d7119b5d57bb819885e3]]
-  , [[testCommand|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestCommand.md#a6f085e980b062a895cf423e1c2c4aa9e]]
+  : [CTCLPackagedObjectProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLPackagedObjectProcessor.md#a94fc3403370d17a1762cf286ec71ef96)
+  , [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#ab730f7001fdf31c77160fa68bf4d0851)
+  , [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#ac38caac5623f8fcf8fedd7e7f83e2ea0)
+  , [frib::analysis::CTreeVariableArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariableArray.md#a22334eadb758d7119b5d57bb819885e3)
+  , [testCommand](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classtestCommand.md#a6f085e980b062a895cf423e1c2c4aa9e)
 - initializeUserCode()
-  : [[frib::analysis::CSpecTclWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ad9c1c74b18539fedd0e670dbb41fc8e8]]
+  : [frib::analysis::CSpecTclWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CSpecTclWorker.md#ad9c1c74b18539fedd0e670dbb41fc8e8)
 - inputRelay()
-  : [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa480f008ed8f5018268b1ef09df2ee0f]]
+  : [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#aa480f008ed8f5018268b1ef09df2ee0f)
 - instanceExit()
-  : [[CTCLServer|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a4d01ccacba658b8d6b79156dc53b6f44]]
+  : [CTCLServer](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLServer.md#a4d01ccacba658b8d6b79156dc53b6f44)
 - isBool()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ac1e6a70a699af510e42cb150af2c4bca]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ac1e6a70a699af510e42cb150af2c4bca)
 - isBoolList()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ae2d964da641591af84caa113ca16a972]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ae2d964da641591af84caa113ca16a972)
 - isBound()
-  : [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a718aa03c7bfa70113e92cb447819981b]]
-  , [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#aa80597d5060a47eb3fba3972f2715e22]]
+  : [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a718aa03c7bfa70113e92cb447819981b)
+  , [frib::analysis::CTreeParameterArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#aa80597d5060a47eb3fba3972f2715e22)
 - isEnum()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a3de7b24a6fd2679f1c16c768654e76b4]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a3de7b24a6fd2679f1c16c768654e76b4)
 - isFloat()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ad4059be8a59987e83c4171cb41525fa3]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ad4059be8a59987e83c4171cb41525fa3)
 - isInteger()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a55f2a6f7e8b3e4f0fc0913e8ea3b0b17]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a55f2a6f7e8b3e4f0fc0913e8ea3b0b17)
 - isIntList()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#aaca42f05574f4166042680970d69b8d9]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#aaca42f05574f4166042680970d69b8d9)
 - isList()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a559a46c3180e43e18e29211b30253378]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#a559a46c3180e43e18e29211b30253378)
 - isShareable()
-  : [[CMutexAttr|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a518e1e66b2ac202e5549c5a6b6d34bd6]]
+  : [CMutexAttr](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCMutexAttr.md#a518e1e66b2ac202e5549c5a6b6d34bd6)
 - isShared()
-  : [[CConditionAttributes|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#aaa22f2f891cf69f407640462ae09485a]]
+  : [CConditionAttributes](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCConditionAttributes.md#aaa22f2f891cf69f407640462ae09485a)
 - isStringList()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#aad4794ac6e1c9434f6dc367fafb0f804]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#aad4794ac6e1c9434f6dc367fafb0f804)
 - isValid()
-  : [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ac890103124696010c51456c42af3c491]]
-  , [[frib::analysis::CTreeParameter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a827fcff24007d9667681be6e907d330a]]
+  : [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md#ac890103124696010c51456c42af3c491)
+  , [frib::analysis::CTreeParameter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameter.md#a827fcff24007d9667681be6e907d330a)
 - iteration()
-  : [[TPATest|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTPATest.md#a8b0f066df4ef28b728365e2261a182a2]]
+  : [TPATest](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classTPATest.md#a8b0f066df4ef28b728365e2261a182a2)
 
  contents 
  start footer part 

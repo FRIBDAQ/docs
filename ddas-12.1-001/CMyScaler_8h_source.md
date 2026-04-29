@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9ad3e8fcfa94677d694c5b48d5640f86.md)
 
  top 
 CMyScaler.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8h.md]]<a name="l00001"></a>    1
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CMyScaler_8h.md)<a name="l00001"></a>    1
 
 
 <a name="l00006"></a>    6 #ifndef MYSCALER_H
@@ -55,7 +55,7 @@ header
 <a name="l00013"></a>   13
 
 
-<a name="l00047"></a>[[47|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]] class [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]] : public CScaler
+<a name="l00047"></a>[47](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md) class [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md) : public CScaler
 
 
 <a name="l00048"></a>   48 {
@@ -64,28 +64,28 @@ header
 <a name="l00049"></a>   49 public:
 
 
-<a name="l00051"></a>[[51|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]]     typedef struct [[_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]] {
+<a name="l00051"></a>[51](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md)     typedef struct [_Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md) {
 
 
-<a name="l00052"></a>[[52|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50]]         size_t [[s_nTriggers|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50]];
+<a name="l00052"></a>[52](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50)         size_t [s_nTriggers](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50);
 
 
-<a name="l00053"></a>[[53|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83]]         size_t [[s_nAcceptedTriggers|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83]];
+<a name="l00053"></a>[53](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83)         size_t [s_nAcceptedTriggers](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83);
 
 
-<a name="l00054"></a>[[54|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576]]     } [[Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576]];
+<a name="l00054"></a>[54](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576)     } [Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576);
 
 
-<a name="l00056"></a>[[56|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]]     typedef struct [[_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]] {
+<a name="l00056"></a>[56](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md)     typedef struct [_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md) {
 
 
-<a name="l00057"></a>[[57|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964]]         [[CMyScaler::Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]] [[s_cumulative|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964]];
+<a name="l00057"></a>[57](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964)         [CMyScaler::Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md) [s_cumulative](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964);
 
 
-<a name="l00058"></a>[[58|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356]]         [[CMyScaler::Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]] [[s_perRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356]];
+<a name="l00058"></a>[58](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356)         [CMyScaler::Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md) [s_perRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356);
 
 
-<a name="l00059"></a>[[59|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197]]     } [[Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197]];
+<a name="l00059"></a>[59](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197)     } [Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197);
 
 
 <a name="l00060"></a>   60
@@ -109,7 +109,7 @@ header
 <a name="l00066"></a>   66     std::vector<uint32_t> m_scalers;
 
 
-<a name="l00067"></a>   67     [[Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197]] m_statistics;
+<a name="l00067"></a>   67     [Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197) m_statistics;
 
 
 <a name="l00068"></a>   68
@@ -118,31 +118,31 @@ header
 <a name="l00069"></a>   69 public:
 
 
-<a name="l00075"></a>   75     [[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#abad930f12c999f15ddcbcfbc3d9b0fd9]](unsigned short mod, unsigned short crate);
+<a name="l00075"></a>   75     [CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#abad930f12c999f15ddcbcfbc3d9b0fd9)(unsigned short mod, unsigned short crate);
 
 
-<a name="l00077"></a>   77     [[~CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a6070895d1be3c1c7e7023c04add1e2f8]]();
+<a name="l00077"></a>   77     [~CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a6070895d1be3c1c7e7023c04add1e2f8)();
 
 
 <a name="l00078"></a>   78
 
 
-<a name="l00080"></a>   80     virtual void [[initialize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a3a509d3a55d3dd555357b5f0345b61b2]]();
+<a name="l00080"></a>   80     virtual void [initialize](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a3a509d3a55d3dd555357b5f0345b61b2)();
 
 
-<a name="l00085"></a>   85     virtual std::vector<uint32_t> [[read|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a649a7e49363555ed4ccefb340cb26d01]]();
+<a name="l00085"></a>   85     virtual std::vector<uint32_t> [read](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a649a7e49363555ed4ccefb340cb26d01)();
 
 
-<a name="l00087"></a>[[87|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#ad54a784dd8105bdb5ae9e9a4cb299ee0]]     virtual void [[clear|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#ad54a784dd8105bdb5ae9e9a4cb299ee0]]() {};
+<a name="l00087"></a>[87](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#ad54a784dd8105bdb5ae9e9a4cb299ee0)     virtual void [clear](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#ad54a784dd8105bdb5ae9e9a4cb299ee0)() {};
 
 
-<a name="l00091"></a>[[91|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a9d0c5185f0511a9c45112f19317e007d]]     virtual void [[disable|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a9d0c5185f0511a9c45112f19317e007d]]() {};
+<a name="l00091"></a>[91](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a9d0c5185f0511a9c45112f19317e007d)     virtual void [disable](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a9d0c5185f0511a9c45112f19317e007d)() {};
 
 
-<a name="l00096"></a>[[96|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b]]     virtual unsigned int [[size|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b]]() { return 32; };
+<a name="l00096"></a>[96](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b)     virtual unsigned int [size](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b)() { return 32; };
 
 
-<a name="l00101"></a>[[101|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db]]     const [[Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]]& [[getStatistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db]]() const { return m_statistics; }
+<a name="l00101"></a>[101](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db)     const [Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md)& [getStatistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db)() const { return m_statistics; }
 
 
 <a name="l00102"></a>  102
@@ -151,7 +151,7 @@ header
 <a name="l00103"></a>  103 private:
 
 
-<a name="l00104"></a>  104   void clearCounters([[Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576]]& c);
+<a name="l00104"></a>  104   void clearCounters([Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576)& c);
 
 
 <a name="l00105"></a>  105 };
@@ -163,14 +163,14 @@ header
 <a name="l00107"></a>  107 #endif
 
 
-[[CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md]]
+[CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md)
 
 Generate scaler data from run statistics.
 
 **Definition:** CMyScaler.h:48
 
 
-[[CMyScaler::size|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b]]
+[CMyScaler::size](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a1a769f5be39d228ca3f3099e10e5714b)
 
 virtual unsigned int size()
 
@@ -179,14 +179,14 @@ Return the size of the scaler data.
 **Definition:** CMyScaler.h:96
 
 
-[[CMyScaler::Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576]]
+[CMyScaler::Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a2ae54cf0d3acd3424286fa333195b576)
 
 struct CMyScaler::_Counters Counters
 
 Count raw and accepted triggers.
 
 
-[[CMyScaler::initialize|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a3a509d3a55d3dd555357b5f0345b61b2]]
+[CMyScaler::initialize](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a3a509d3a55d3dd555357b5f0345b61b2)
 
 virtual void initialize()
 
@@ -195,7 +195,7 @@ Zero the per-run statistics and counters.
 **Definition:** CMyScaler.cpp:36
 
 
-[[CMyScaler::~CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a6070895d1be3c1c7e7023c04add1e2f8]]
+[CMyScaler::~CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a6070895d1be3c1c7e7023c04add1e2f8)
 
 ~CMyScaler()
 
@@ -204,7 +204,7 @@ Destructor.
 **Definition:** CMyScaler.cpp:32
 
 
-[[CMyScaler::getStatistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db]]
+[CMyScaler::getStatistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a63c1f7fb299d451d520bc6377e1668db)
 
 const Statistics & getStatistics() const
 
@@ -213,7 +213,7 @@ Get the run statistics.
 **Definition:** CMyScaler.h:101
 
 
-[[CMyScaler::read|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a649a7e49363555ed4ccefb340cb26d01]]
+[CMyScaler::read](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a649a7e49363555ed4ccefb340cb26d01)
 
 virtual std::vector< uint32_t > read()
 
@@ -222,7 +222,7 @@ Read scalar data from a module.
 **Definition:** CMyScaler.cpp:56
 
 
-[[CMyScaler::disable|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a9d0c5185f0511a9c45112f19317e007d]]
+[CMyScaler::disable](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#a9d0c5185f0511a9c45112f19317e007d)
 
 virtual void disable()
 
@@ -231,14 +231,14 @@ Disable. Scalars do not need to be disabled at the end of a run.
 **Definition:** CMyScaler.h:91
 
 
-[[CMyScaler::Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197]]
+[CMyScaler::Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#aa7065a44508bff8e60877be6e4ea4197)
 
 struct CMyScaler::_Statistics Statistics
 
 Statistics are counters for cumulative and per-run triggers.
 
 
-[[CMyScaler::CMyScaler|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#abad930f12c999f15ddcbcfbc3d9b0fd9]]
+[CMyScaler::CMyScaler](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#abad930f12c999f15ddcbcfbc3d9b0fd9)
 
 CMyScaler(unsigned short mod, unsigned short crate)
 
@@ -247,7 +247,7 @@ Constructor.
 **Definition:** CMyScaler.cpp:19
 
 
-[[CMyScaler::clear|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#ad54a784dd8105bdb5ae9e9a4cb299ee0]]
+[CMyScaler::clear](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyScaler.md#ad54a784dd8105bdb5ae9e9a4cb299ee0)
 
 virtual void clear()
 
@@ -256,14 +256,14 @@ Cannot clear with Pixies. Does nothing.
 **Definition:** CMyScaler.h:87
 
 
-[[CMyScaler::_Counters|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md]]
+[CMyScaler::_Counters](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md)
 
 Count raw and accepted triggers.
 
 **Definition:** CMyScaler.h:51
 
 
-[[CMyScaler::_Counters::s_nTriggers|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50]]
+[CMyScaler::_Counters::s_nTriggers](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#aa278d0d93aec033957cae8e47962bd50)
 
 size_t s_nTriggers
 
@@ -272,7 +272,7 @@ Raw triggers.
 **Definition:** CMyScaler.h:52
 
 
-[[CMyScaler::_Counters::s_nAcceptedTriggers|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83]]
+[CMyScaler::_Counters::s_nAcceptedTriggers](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Counters.md#ada890d9bc24667438baee0ab25258c83)
 
 size_t s_nAcceptedTriggers
 
@@ -281,14 +281,14 @@ Accepted triggers (i.e. by the FPGA).
 **Definition:** CMyScaler.h:53
 
 
-[[CMyScaler::_Statistics|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md]]
+[CMyScaler::_Statistics](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md)
 
 Statistics are counters for cumulative and per-run triggers.
 
 **Definition:** CMyScaler.h:56
 
 
-[[CMyScaler::_Statistics::s_perRun|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356]]
+[CMyScaler::_Statistics::s_perRun](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#a0f5c295406e0c5dc5468528fe73b8356)
 
 CMyScaler::Counters s_perRun
 
@@ -297,7 +297,7 @@ Per-run. Cleared on initialize.
 **Definition:** CMyScaler.h:58
 
 
-[[CMyScaler::_Statistics::s_cumulative|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964]]
+[CMyScaler::_Statistics::s_cumulative](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structCMyScaler_1_1__Statistics.md#aa712426d765ab374d044b27b39c67964)
 
 CMyScaler::Counters s_cumulative
 

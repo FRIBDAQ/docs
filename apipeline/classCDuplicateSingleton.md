@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCDuplicateSingleton-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCDuplicateSingleton-members.md)
 
 
 CDuplicateSingleton Class Reference
@@ -37,7 +37,7 @@ Inheritance diagram for CDuplicateSingleton:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CDuplicateSingleton:
@@ -49,7 +49,7 @@ Collaboration diagram for CDuplicateSingleton:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -112,7 +112,7 @@ Collaboration diagram for CDuplicateSingleton:
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/exception/[[CDuplicateSingleton.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CDuplicateSingleton_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/exception/[CDuplicateSingleton.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CDuplicateSingleton_8h_source.md)
 - libtclplus/exception/CDuplicateSingleton.cpp
 
  contents 

@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
 libSystemBooter.so
 
 header
-[[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] Pixie-16 system booter library.  
+[DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md) Pixie-16 system booter library.  
 [More...](#details)
 
 
@@ -37,10 +37,10 @@ header
 <a name="details"></a>## Detailed Description
 
 
-[[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] Pixie-16 system booter library.
+[DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md) Pixie-16 system booter library.
 
 
-A library containing code used by other [[DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md]] programs which boots Pixie modules and sets hardware configuration for the booted system.
+A library containing code used by other [DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ_1_1DDAS.md) programs which boots Pixie modules and sets hardware configuration for the booted system.
 
  contents 
  start footer part 

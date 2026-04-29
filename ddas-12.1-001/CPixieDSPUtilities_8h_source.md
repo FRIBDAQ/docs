@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[qtscope|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [qtscope](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_9334a42c99d1a98f3e5901fa69a667c5.md)
 
  top 
 CPixieDSPUtilities.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md]]<a name="l00001"></a>    1
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md)<a name="l00001"></a>    1
 
 
 <a name="l00007"></a>    7 #ifndef CPIXIEDSPUTILITIES_H
@@ -40,7 +40,7 @@ header
 <a name="l00009"></a>    9
 
 
-<a name="l00024"></a>[[24|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]] class [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]
+<a name="l00024"></a>[24](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md) class [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)
 
 
 <a name="l00025"></a>   25 {
@@ -49,19 +49,19 @@ header
 <a name="l00026"></a>   26 public:
 
 
-<a name="l00034"></a>   34     int [[AdjustOffsets|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84]](int module);
+<a name="l00034"></a>   34     int [AdjustOffsets](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84)(int module);
 
 
-<a name="l00045"></a>   45     int [[WriteChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90]](int module, int channel, char* paramName, double value);
+<a name="l00045"></a>   45     int [WriteChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90)(int module, int channel, char* paramName, double value);
 
 
-<a name="l00056"></a>   56     int [[ReadChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27]](int module, int channel, char* paramName, double& value);
+<a name="l00056"></a>   56     int [ReadChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27)(int module, int channel, char* paramName, double& value);
 
 
-<a name="l00066"></a>   66     int [[WriteModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb]](int module, char* paramName, unsigned int value);
+<a name="l00066"></a>   66     int [WriteModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb)(int module, char* paramName, unsigned int value);
 
 
-<a name="l00076"></a>   76     int [[ReadModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188]](int module, char* paramName, unsigned int& value);
+<a name="l00076"></a>   76     int [ReadModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188)(int module, char* paramName, unsigned int& value);
 
 
 <a name="l00077"></a>   77 };
@@ -73,13 +73,13 @@ header
 <a name="l00081"></a>   81 extern "C" {
 
 
-<a name="l00083"></a>[[83|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9]]     [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* [[CPixieDSPUtilities_new|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9]]()
+<a name="l00083"></a>[83](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9)     [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* [CPixieDSPUtilities_new](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9)()
 
 
 <a name="l00084"></a>   84     {
 
 
-<a name="l00085"></a>   85     return new [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]();
+<a name="l00085"></a>   85     return new [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)();
 
 
 <a name="l00086"></a>   86     }
@@ -88,10 +88,10 @@ header
 <a name="l00087"></a>   87
 
 
-<a name="l00089"></a>[[89|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e]]     int [[CPixieDSPUtilities_AdjustOffsets|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e]](
+<a name="l00089"></a>[89](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e)     int [CPixieDSPUtilities_AdjustOffsets](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e)(
 
 
-<a name="l00090"></a>   90     [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* utils, int mod
+<a name="l00090"></a>   90     [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* utils, int mod
 
 
 <a name="l00091"></a>   91     )
@@ -100,16 +100,16 @@ header
 <a name="l00092"></a>   92     {
 
 
-<a name="l00093"></a>   93     return utils->[[AdjustOffsets|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84]](mod);
+<a name="l00093"></a>   93     return utils->[AdjustOffsets](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84)(mod);
 
 
 <a name="l00094"></a>   94     }
 
 
-<a name="l00096"></a>[[96|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768]]     int [[CPixieDSPUtilities_WriteChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768]](
+<a name="l00096"></a>[96](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768)     int [CPixieDSPUtilities_WriteChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768)(
 
 
-<a name="l00097"></a>   97     [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* utils, int mod, int chan, char* pName, double val
+<a name="l00097"></a>   97     [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* utils, int mod, int chan, char* pName, double val
 
 
 <a name="l00098"></a>   98     )
@@ -118,16 +118,16 @@ header
 <a name="l00099"></a>   99     {
 
 
-<a name="l00100"></a>  100     return utils->[[WriteChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90]](mod, chan, pName, val);
+<a name="l00100"></a>  100     return utils->[WriteChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90)(mod, chan, pName, val);
 
 
 <a name="l00101"></a>  101     }
 
 
-<a name="l00103"></a>[[103|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a]]     int [[CPixieDSPUtilities_ReadChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a]](
+<a name="l00103"></a>[103](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a)     int [CPixieDSPUtilities_ReadChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a)(
 
 
-<a name="l00104"></a>  104     [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* utils, int mod, int chan, char* pName, double& val
+<a name="l00104"></a>  104     [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* utils, int mod, int chan, char* pName, double& val
 
 
 <a name="l00105"></a>  105     )
@@ -136,16 +136,16 @@ header
 <a name="l00106"></a>  106     {
 
 
-<a name="l00107"></a>  107     return utils->[[ReadChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27]](mod, chan, pName, val);
+<a name="l00107"></a>  107     return utils->[ReadChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27)(mod, chan, pName, val);
 
 
 <a name="l00108"></a>  108     }
 
 
-<a name="l00110"></a>[[110|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6]]     int [[CPixieDSPUtilities_WriteModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6]](
+<a name="l00110"></a>[110](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6)     int [CPixieDSPUtilities_WriteModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6)(
 
 
-<a name="l00111"></a>  111     [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* utils, int mod, char* pName, unsigned int val
+<a name="l00111"></a>  111     [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* utils, int mod, char* pName, unsigned int val
 
 
 <a name="l00112"></a>  112     )
@@ -154,16 +154,16 @@ header
 <a name="l00113"></a>  113     {
 
 
-<a name="l00114"></a>  114     return utils->[[WriteModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb]](mod, pName, val);
+<a name="l00114"></a>  114     return utils->[WriteModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb)(mod, pName, val);
 
 
 <a name="l00115"></a>  115     }
 
 
-<a name="l00117"></a>[[117|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246]]     int [[CPixieDSPUtilities_ReadModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246]](
+<a name="l00117"></a>[117](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246)     int [CPixieDSPUtilities_ReadModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246)(
 
 
-<a name="l00118"></a>  118     [[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* utils, int mod, char* pName, unsigned int& val
+<a name="l00118"></a>  118     [CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* utils, int mod, char* pName, unsigned int& val
 
 
 <a name="l00119"></a>  119     )
@@ -172,7 +172,7 @@ header
 <a name="l00120"></a>  120     {
 
 
-<a name="l00121"></a>  121     return utils->[[ReadModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188]](mod, pName, val);
+<a name="l00121"></a>  121     return utils->[ReadModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188)(mod, pName, val);
 
 
 <a name="l00122"></a>  122     }
@@ -181,7 +181,7 @@ header
 <a name="l00123"></a>  123
 
 
-<a name="l00125"></a>[[125|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54]]     void [[CPixieDSPUtilities_delete|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54]]([[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]* utils)
+<a name="l00125"></a>[125](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54)     void [CPixieDSPUtilities_delete](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54)([CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)* utils)
 
 
 <a name="l00126"></a>  126     {
@@ -211,7 +211,7 @@ header
 <a name="l00134"></a>  134 #endif
 
 
-[[CPixieDSPUtilities_ReadModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246]]
+[CPixieDSPUtilities_ReadModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0b375ff46a8dddf2a8efe87fe9342246)
 
 int CPixieDSPUtilities_ReadModPar(CPixieDSPUtilities *utils, int mod, char *pName, unsigned int &val)
 
@@ -220,7 +220,7 @@ Wrapper to read a module parameter.
 **Definition:** CPixieDSPUtilities.h:117
 
 
-[[CPixieDSPUtilities_delete|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54]]
+[CPixieDSPUtilities_delete](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0c78a5226e74c2d3a160c3baf8907f54)
 
 void CPixieDSPUtilities_delete(CPixieDSPUtilities *utils)
 
@@ -229,7 +229,7 @@ Wrapper for the class destructor.
 **Definition:** CPixieDSPUtilities.h:125
 
 
-[[CPixieDSPUtilities_AdjustOffsets|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e]]
+[CPixieDSPUtilities_AdjustOffsets](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a0f73d172fe069a16b6fdfd64d8bb8e7e)
 
 int CPixieDSPUtilities_AdjustOffsets(CPixieDSPUtilities *utils, int mod)
 
@@ -238,7 +238,7 @@ Wrapper to adjust DC offsets.
 **Definition:** CPixieDSPUtilities.h:89
 
 
-[[CPixieDSPUtilities_WriteChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768]]
+[CPixieDSPUtilities_WriteChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a29e60cc6379b0d666a965183afb0a768)
 
 int CPixieDSPUtilities_WriteChanPar(CPixieDSPUtilities *utils, int mod, int chan, char *pName, double val)
 
@@ -247,7 +247,7 @@ Wrapper to write a channel parameter.
 **Definition:** CPixieDSPUtilities.h:96
 
 
-[[CPixieDSPUtilities_WriteModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6]]
+[CPixieDSPUtilities_WriteModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a51fc211563f3a7d54784e5e0f60b95d6)
 
 int CPixieDSPUtilities_WriteModPar(CPixieDSPUtilities *utils, int mod, char *pName, unsigned int val)
 
@@ -256,7 +256,7 @@ Wrapper to write a module parameter.
 **Definition:** CPixieDSPUtilities.h:110
 
 
-[[CPixieDSPUtilities_new|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9]]
+[CPixieDSPUtilities_new](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#a72dc21e325ba1614e7144b27e15ca7d9)
 
 CPixieDSPUtilities * CPixieDSPUtilities_new()
 
@@ -265,7 +265,7 @@ Wrapper for the class constructor.
 **Definition:** CPixieDSPUtilities.h:83
 
 
-[[CPixieDSPUtilities_ReadChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a]]
+[CPixieDSPUtilities_ReadChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CPixieDSPUtilities_8h.md#ad57dfeaf70a1c412f993e0dd21236d3a)
 
 int CPixieDSPUtilities_ReadChanPar(CPixieDSPUtilities *utils, int mod, int chan, char *pName, double &val)
 
@@ -274,14 +274,14 @@ Wrapper to read a channel parameter.
 **Definition:** CPixieDSPUtilities.h:103
 
 
-[[CPixieDSPUtilities|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md]]
+[CPixieDSPUtilities](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md)
 
 Read and writes both channel-level and module-level DSP settings.
 
 **Definition:** CPixieDSPUtilities.h:25
 
 
-[[CPixieDSPUtilities::ReadModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188]]
+[CPixieDSPUtilities::ReadModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a058c2d47e0019531b3ed975c755d6188)
 
 int ReadModPar(int module, char *paramName, unsigned int &value)
 
@@ -290,7 +290,7 @@ Read a module parameter for a single module.
 **Definition:** CPixieDSPUtilities.cpp:121
 
 
-[[CPixieDSPUtilities::AdjustOffsets|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84]]
+[CPixieDSPUtilities::AdjustOffsets](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a7de44ef4ae32c87ea62cef0c68859e84)
 
 int AdjustOffsets(int module)
 
@@ -299,7 +299,7 @@ Adjust DC offsets of all channels for a single module.
 **Definition:** CPixieDSPUtilities.cpp:16
 
 
-[[CPixieDSPUtilities::ReadChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27]]
+[CPixieDSPUtilities::ReadChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a843d1b309480687872f044d5fcb2da27)
 
 int ReadChanPar(int module, int channel, char *paramName, double &value)
 
@@ -308,7 +308,7 @@ Read a channel parameter for a single channel.
 **Definition:** CPixieDSPUtilities.cpp:67
 
 
-[[CPixieDSPUtilities::WriteChanPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90]]
+[CPixieDSPUtilities::WriteChanPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#a8e071b4b5ef48b43657c872996409c90)
 
 int WriteChanPar(int module, int channel, char *paramName, double value)
 
@@ -317,7 +317,7 @@ Write a channel parameter for a single channel.
 **Definition:** CPixieDSPUtilities.cpp:40
 
 
-[[CPixieDSPUtilities::WriteModPar|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb]]
+[CPixieDSPUtilities::WriteModPar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCPixieDSPUtilities.md#ac6242792fb8839bc6f1d0306b4df28eb)
 
 int WriteModPar(int module, char *paramName, unsigned int value)
 

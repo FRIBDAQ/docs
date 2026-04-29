@@ -22,19 +22,19 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddastoys**
-- [[DDASRootFitEvent|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md]]
+- [DDASRootFitEvent](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md)
 
  top 
 [Public Member Functions](#pub-methods) |
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent-members.md)
 
 
-ddastoys::DDASRootFitEvent Class Reference[[libDDASRootFitFormat.so|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__ddasrootfitformat.md]]
+ddastoys::DDASRootFitEvent Class Reference[libDDASRootFitFormat.so](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/group__ddasrootfitformat.md)
 
 header
 Defines the object that's put in a ROOT TTree for each event.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitEvent.md#details)
 
 
 `#include <DDASRootFitEvent.h>`
@@ -50,7 +50,7 @@ Inheritance diagram for ddastoys::DDASRootFitEvent:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 Collaboration diagram for ddastoys::DDASRootFitEvent:
@@ -63,7 +63,7 @@ Collaboration diagram for ddastoys::DDASRootFitEvent:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/graph_legend.md)]
 
 
 |  |  |
@@ -114,7 +114,7 @@ Collaboration diagram for ddastoys::DDASRootFitEvent:
 Defines the object that's put in a ROOT TTree for each event.
 
 
-An event is just a sequence (vector) of hits. Hits are stored here as pointers to [[DDASRootFitHit|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md]] objects which are hits that are also derived from TObject.
+An event is just a sequence (vector) of hits. Hits are stored here as pointers to [DDASRootFitHit](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1DDASRootFitHit.md) objects which are hits that are also derived from TObject.
 
 - Note
   The code assumes that the pointers in m_hits point to dynamically allocated data. Thus the destructor will destroy the hits as well.
@@ -297,8 +297,8 @@ Assignment will:
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASRootFitEvent.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitEvent_8h_source.md]]
-- [[DDASRootFitEvent.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitEvent_8cpp.md]]
+The documentation for this class was generated from the following files:- [DDASRootFitEvent.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitEvent_8h_source.md)
+- [DDASRootFitEvent.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/DDASRootFitEvent_8cpp.md)
 
  contents 
  start footer part 

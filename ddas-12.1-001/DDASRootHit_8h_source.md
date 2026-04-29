@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[ddas|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md]]
-- [[ddasdumper|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md]]
+- [ddas](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_6514a8425036055b37d1cc9ce7dc44e6.md)
+- [ddasdumper](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dir_3bbf1c6b836d16f0cd5f6a50630f820c.md)
 
  top 
 DDASRootHit.h
 
 header
-[[Go to the documentation of this file.|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootHit_8h.md]]<a name="l00001"></a>    1 /*
+[Go to the documentation of this file.](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DDASRootHit_8h.md)<a name="l00001"></a>    1 /*
 
 
 <a name="l00002"></a>    2   This software is Copyright by the Board of Trustees of Michigan
@@ -97,7 +97,7 @@ header
 <a name="l00028"></a>   28
 
 
-<a name="l00074"></a>[[74|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] class [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]] : public ddasfmt::DDASHit, public TObject
+<a name="l00074"></a>[74](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md) class [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md) : public ddasfmt::DDASHit, public TObject
 
 
 <a name="l00075"></a>   75 {
@@ -106,10 +106,10 @@ header
 <a name="l00076"></a>   76 public:
 
 
-<a name="l00078"></a>[[78|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a9f45b12cc47fc8c46656906a12062f5b]]     [[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a9f45b12cc47fc8c46656906a12062f5b]]() {};
+<a name="l00078"></a>[78](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a9f45b12cc47fc8c46656906a12062f5b)     [DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a9f45b12cc47fc8c46656906a12062f5b)() {};
 
 
-<a name="l00080"></a>[[80|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5]]     [[~DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5]]() {};
+<a name="l00080"></a>[80](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5)     [~DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5)() {};
 
 
 <a name="l00081"></a>   81
@@ -121,7 +121,7 @@ header
 <a name="l00083"></a>   83
 
 
-<a name="l00084"></a>[[84|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a994e88590ff350087e7218326d323375]]     [[ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a994e88590ff350087e7218326d323375]]([[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]], 1);
+<a name="l00084"></a>[84](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a994e88590ff350087e7218326d323375)     [ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a994e88590ff350087e7218326d323375)([DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md), 1);
 
 
 <a name="l00085"></a>   85 };
@@ -133,14 +133,14 @@ header
 <a name="l00089"></a>   89 #endif
 
 
-[[DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md]]
+[DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md)
 
 Encapsulation of a generic DDAS hit with added capabilities for writing to ROOT files.
 
 **Definition:** DDASRootHit.h:75
 
 
-[[DDASRootHit::~DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5]]
+[DDASRootHit::~DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a811079e5915e0c2931b90c1a0b93d9d5)
 
 ~DDASRootHit()
 
@@ -149,12 +149,12 @@ Default destructor.
 **Definition:** DDASRootHit.h:80
 
 
-[[DDASRootHit::ClassDef|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a994e88590ff350087e7218326d323375]]
+[DDASRootHit::ClassDef](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a994e88590ff350087e7218326d323375)
 
 ClassDef(DDASRootHit, 1)
 
 
-[[DDASRootHit::DDASRootHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a9f45b12cc47fc8c46656906a12062f5b]]
+[DDASRootHit::DDASRootHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootHit.md#a9f45b12cc47fc8c46656906a12062f5b)
 
 DDASRootHit()
 

@@ -23,11 +23,11 @@ do not remove this div, it is closed by doxygen!
 
 - **frib**
 - **analysis**
-- [[CBufferDecoder|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md]]
+- [CBufferDecoder](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CBufferDecoder-members.md)
 
 
 frib::analysis::CBufferDecoder Class Reference
@@ -280,8 +280,8 @@ setBody Used by the framework to set the value of m_pItem
 
 ---
 
-The documentation for this class was generated from the following files:- spectcl/[[BufferDecoder.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/BufferDecoder_8h_source.md]]
-- spectcl/[[BufferDecoder.cpp|https://github.com/FRIBDAQ/docs/tree/main/apipeline/BufferDecoder_8cpp.md]]
+The documentation for this class was generated from the following files:- spectcl/[BufferDecoder.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/BufferDecoder_8h_source.md)
+- spectcl/[BufferDecoder.cpp](https://github.com/FRIBDAQ/docs/tree/main/apipeline/BufferDecoder_8cpp.md)
 
  contents 
  start footer part 

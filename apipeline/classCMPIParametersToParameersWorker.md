@@ -46,7 +46,7 @@ The worker than requests and gets parameter data. Using the mappings previously 
 
 ---
 
-The documentation for this class was generated from the following file:- base/[[MPIParametersToParametersWorker.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParametersToParametersWorker_8h_source.md]]
+The documentation for this class was generated from the following file:- base/[MPIParametersToParametersWorker.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/MPIParametersToParametersWorker_8h_source.md)
 
  contents 
  start footer part 

@@ -22,18 +22,18 @@ do not remove this div, it is closed by doxygen!
 
 
 - **ddasfmt**
-- [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]]
+- [DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md)
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit-members.md)
 
 
-ddasfmt::DDASHit Class Reference[[libDDASFormat.so|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/group__format.md]]
+ddasfmt::DDASHit Class Reference[libDDASFormat.so](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/group__format.md)
 
 header
 Encapsulation of a generic DDAS event.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#details)
 
 
 `#include <DDASHit.h>`
@@ -221,13 +221,13 @@ Encapsulation of a generic DDAS event.
 Encapsulation of a generic DDAS event.
 
 
-The [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] class is intended to encapsulate the information that is emitted by the Pixie-16 digitizer for a single event. It contains information for a single channel only. It is generic because it can store data for the 100 MSPS, 250 MSPS, and 500 MSPS Pixie-16 digitizers used at the lab. In general all of these contain the same set of information, however, the meaning of the CFD data is different for each. The [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]] class abstracts these differences away from the user.
+The [DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md) class is intended to encapsulate the information that is emitted by the Pixie-16 digitizer for a single event. It contains information for a single channel only. It is generic because it can store data for the 100 MSPS, 250 MSPS, and 500 MSPS Pixie-16 digitizers used at the lab. In general all of these contain the same set of information, however, the meaning of the CFD data is different for each. The [DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md) class abstracts these differences away from the user.
 
 
-This class does not provide any parsing capabilities likes its companion class ddasdumper. To fill this with data, you should use the [[DDASHitUnpacker|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md]] class. Here is how you use it:
+This class does not provide any parsing capabilities likes its companion class ddasdumper. To fill this with data, you should use the [DDASHitUnpacker](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHitUnpacker.md) class. Here is how you use it:
 
 
-[[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771]] hit;
+[DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771) hit;
 
 
 DDASHitUnpacker unpacker;
@@ -236,7 +236,7 @@ DDASHitUnpacker unpacker;
 unpacker.unpack(pData, pData + sizeOfHit, hit);
 
 
-[[ddasfmt::DDASHit::DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771]]
+[ddasfmt::DDASHit::DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md#a971a3ad05ccd6a45f8d17d32ef71a771)
 
 DDASHit()
 
@@ -275,7 +275,7 @@ All member data are zero-initialized.
 Destructor.
 
 
-The destrutor is virtual to ensure proper destruction of objects derived from [[DDASHit|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md]].
+The destrutor is virtual to ensure proper destruction of objects derived from [DDASHit](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/classddasfmt_1_1DDASHit.md).
 
 
 ## Member Function Documentation
@@ -1214,8 +1214,8 @@ Set the ADC trace length.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DDASHit.h|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHit_8h_source.md]]
-- [[DDASHit.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHit_8cpp.md]]
+The documentation for this class was generated from the following files:- [DDASHit.h](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHit_8h_source.md)
+- [DDASHit.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/DDASHit_8cpp.md)
 
  contents 
  start footer part 

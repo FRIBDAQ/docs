@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLList.h
@@ -115,7 +115,7 @@ header
 
 <a name="l00044"></a>   44
 
-<a name="l00045"></a>[[45|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]] class [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]  : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+<a name="l00045"></a>[45](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md) class [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)  : public [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 <a name="l00046"></a>   46 {
 
@@ -129,15 +129,15 @@ header
 
 <a name="l00051"></a>   51
 
-<a name="l00052"></a>   52   [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]] ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp) :
+<a name="l00052"></a>   52   [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md) ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp) :
 
-<a name="l00053"></a>   53     [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]](pInterp),
+<a name="l00053"></a>   53     [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)(pInterp),
 
 <a name="l00054"></a>   54     m_pList(0)
 
 <a name="l00055"></a>   55   { }
 
-<a name="l00056"></a>   56   ~[[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]() { delete []m_pList; };       //Destructor
+<a name="l00056"></a>   56   ~[CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)() { delete []m_pList; };       //Destructor
 
 <a name="l00057"></a>   57
 
@@ -145,9 +145,9 @@ header
 
 <a name="l00059"></a>   59
 
-<a name="l00060"></a>   60   [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]] ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp, const char* am_pList  );
+<a name="l00060"></a>   60   [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md) ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp, const char* am_pList  );
 
-<a name="l00061"></a>   61   [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]] ([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp, const std::string& rList);
+<a name="l00061"></a>   61   [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md) ([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp, const std::string& rList);
 
 <a name="l00062"></a>   62
 
@@ -155,7 +155,7 @@ header
 
 <a name="l00064"></a>   64
 
-<a name="l00065"></a>   65   [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]] (const [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& aCTCLList ) {
+<a name="l00065"></a>   65   [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md) (const [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)& aCTCLList ) {
 
 <a name="l00066"></a>   66     DoAssign(aCTCLList);
 
@@ -173,7 +173,7 @@ header
 
 <a name="l00073"></a>   73             //Update to access 1:M associated class attributes
 
-<a name="l00074"></a>   74   [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& operator= (const [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& aCTCLList) {
+<a name="l00074"></a>   74   [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)& operator= (const [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)& aCTCLList) {
 
 <a name="l00075"></a>   75     if(this != &aCTCLList) {
 
@@ -197,9 +197,9 @@ header
 
 <a name="l00085"></a>   85             //Update to access 1:M associated class attributes
 
-<a name="l00086"></a>   86   int operator== (const [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& aCTCLList);
+<a name="l00086"></a>   86   int operator== (const [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)& aCTCLList);
 
-<a name="l00087"></a>   87   int operator!= (const [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& aCTCLList) {
+<a name="l00087"></a>   87   int operator!= (const [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)& aCTCLList) {
 
 <a name="l00088"></a>   88     return !(operator==(aCTCLList));
 
@@ -259,7 +259,7 @@ header
 
 <a name="l00116"></a>  116 protected:
 
-<a name="l00117"></a>  117   void DoAssign(const [[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]& rRhs);
+<a name="l00117"></a>  117   void DoAssign(const [CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)& rRhs);
 
 <a name="l00118"></a>  118
 
@@ -269,17 +269,17 @@ header
 
 <a name="l00121"></a>  121 #endif
 
-[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLList|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md]]
+[CTCLList](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLList.md)
 
 **Definition:** TCLList.h:45
 

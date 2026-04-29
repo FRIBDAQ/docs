@@ -22,7 +22,7 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Member Functions](#pro-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObjectProcessor-members.md)
 
 
 CTCLObjectProcessor Class Referenceabstract
@@ -44,7 +44,7 @@ Inheritance diagram for CTCLObjectProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLObjectProcessor:
@@ -56,7 +56,7 @@ Collaboration diagram for CTCLObjectProcessor:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -208,7 +208,7 @@ Return the name of the command. If not registered, it's safe just to return m_Na
 Called when the command is being unregistered. This is overridable, but not necessary. Our default action is to do nothing.
 
 
-Reimplemented in [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#abceaeaf2e5ac8b16675703188ebe7e6e]], and [[ObjectEcho|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classObjectEcho.md#a235ee0ef9da9fe306234b995e3936c94]].
+Reimplemented in [CTCLCompatibilityProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLCompatibilityProcessor.md#abceaeaf2e5ac8b16675703188ebe7e6e), and [ObjectEcho](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classObjectEcho.md#a235ee0ef9da9fe306234b995e3936c94).
 
 
 
@@ -219,7 +219,7 @@ Reimplemented in [[CTCLCompatibilityProcessor|https://github.com/FRIBDAQ/docs/tr
 | --- | --- | --- | --- | --- |
 | void CTCLObjectProcessor::Register | ( |  | ) |  |
 
-Register this object as an object command. Note that if the command is already registered, we throw a [[CStateException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md]].
+Register this object as an object command. Note that if the command is already registered, we throw a [CStateException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCStateException.md).
 
 
 - Exceptions
@@ -344,7 +344,7 @@ Unregister the command object from a specific command name
 
 ---
 
-The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[[TCLObjectProcessor.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLObjectProcessor_8h_source.md]]
+The documentation for this class was generated from the following files:- libtclplus/include/tclplus/[TCLObjectProcessor.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLObjectProcessor_8h_source.md)
 - libtclplus/tclplus/TCLObjectProcessor.cpp
 
  contents 

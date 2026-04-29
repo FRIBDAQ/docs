@@ -22,14 +22,14 @@ do not remove this div, it is closed by doxygen!
  top 
 [Public Member Functions](#pub-methods) |
 [Protected Attributes](#pro-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource-members.md)
 
 
 DataSource Class Referenceabstract
 
 header
 Abstract base class for DDAS data sources.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDataSource.md#details)
 
 
 `#include <DataSource.h>`
@@ -46,7 +46,7 @@ Inheritance diagram for DataSource:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -81,8 +81,8 @@ Abstract base class for DDAS data sources.
 
 Pure abstract data source which uses a factory's ring item getters to provide ring items from a data source. Since the factory provides this, we'll need concrete classes:
 
-- [[FdDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md]]: give data from a file descriptor.
-- [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md]]: give data from a stream. - Note
+- [FdDataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md): give data from a file descriptor.
+- [StreamDataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md): give data from a stream. - Note
     Neither of these data sources supports reading directly from a ring buffer, as the format library is unaware of those NSCLDAQ classes. To read data from a ringbuffer you can create a file descriptor data source and read data from stdin i.e. `ringselector | ddasdumper -`.
 
 ## Constructor & Destructor Documentation
@@ -135,7 +135,7 @@ Pure-virtual method to access a ring item from the data source. Must be implemen
 - Returns
   Pointer to the next ring item from the source.
 
-Implemented in [[StreamDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#a02bf519172132c894990cf9af7b1f83d]], and [[FdDataSource|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md#a798fb79377ecc62786e54e2fe74c1c03]].
+Implemented in [StreamDataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classStreamDataSource.md#a02bf519172132c894990cf9af7b1f83d), and [FdDataSource](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classFdDataSource.md#a798fb79377ecc62786e54e2fe74c1c03).
 
 
 
@@ -173,8 +173,8 @@ Pointer to our ring item factory.
 
 ---
 
-The documentation for this class was generated from the following files:- [[DataSource.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DataSource_8h_source.md]]
-- [[DataSource.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DataSource_8cpp.md]]
+The documentation for this class was generated from the following files:- [DataSource.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DataSource_8h_source.md)
+- [DataSource.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/DataSource_8cpp.md)
 
  contents 
  start footer part 

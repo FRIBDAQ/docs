@@ -23,28 +23,28 @@ do not remove this div, it is closed by doxygen!
 Todo List
 
 header
-- Member [[CEventProcessor::operator()|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a28600238d0e8cf1e5fa853316ade86e8]]  (int argc, char *argv[])
+- Member [CEventProcessor::operator()](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classCEventProcessor.md#a28600238d0e8cf1e5fa853316ade86e8)  (int argc, char *argv[])
 
   (ASC 1/20/23): Awkward way to process the sample and exclude types. Can we return a vector of uint16_t or whatever the CDataSourceFactory wants? Item type codes are uint32_t so why are we mixing between signed/unsigned ints and different bits?
   (ASC 3/10/23): To support different NSCLDAQ data formats, we need to read the version string from the args and create an appropriate ring item factory. The ROOT converter should be independent of the data format since we can hand it CPhysicsEventItems from the correct format type.
 
-- Class [[ddastoys::analyticfit::CudaFitEngine1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md]]
+- Class [ddastoys::analyticfit::CudaFitEngine1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine1.md)
 
   (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
 
-- Class [[ddastoys::analyticfit::CudaFitEngine2|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md]]
+- Class [ddastoys::analyticfit::CudaFitEngine2](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1analyticfit_1_1CudaFitEngine2.md)
 
   (ASC 10/30/23): Manages some device pointers. Not copyable, and most likely is not ever copied. But we can make it safe.
 
-- Member [[ddastoys::FitEditorTemplate::FitEditorTemplate|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b]]  ()
+- Member [ddastoys::FitEditorTemplate::FitEditorTemplate](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classddastoys_1_1FitEditorTemplate.md#a9cb6dd1e3a1afd3a668b8333833b267b)  ()
 
-  (ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [[Configuration.h|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/Configuration_8h.md]].
+  (ASC 9/17/24): Define a per-channel template. Requires getting the template for a crate/slot/channel combo rather than one template for the entire analysis. See comments in [Configuration.h](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/Configuration_8h.md).
 
-- Member [[estimateK1|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/lmfit__analytic_8cpp.md#a282cb59029a978cd191e16f88ccd42a3]]  (int xmax, double C0, const std::vector< uint16_t > &trace)
+- Member [estimateK1](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/lmfit__analytic_8cpp.md#a282cb59029a978cd191e16f88ccd42a3)  (int xmax, double C0, const std::vector< uint16_t > &trace)
 
   Should allow this fallback value to be an input parameter.
 
-- Class [[QTraceView|https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md]]
+- Class [QTraceView](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/classQTraceView.md)
 
   (ASC 10/15/24): Probably a project-wide TODO... only the public and Qt signaling interfaces need to be exposed here. I suspect that any helper functions can be make static, which may greatly simplify the class and make compilation easier.
   (ASC 10/16/24): Probably *another* project-wide TODO... avoid constructor initializations which use the new keyword. Can use smart ptrs (preferred?) or simply initialize in the constructor body with the initialization list for all pointer membvers as nullptr. Hopefully improves safety e.g., an exception or other error in the constructor body will (hopefully!) ensure deletion of created objetcs which *may* not happen if new'd in init list.

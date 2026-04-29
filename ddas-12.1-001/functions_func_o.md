@@ -19,28 +19,28 @@ do not remove this div, it is closed by doxygen!
 ### - o -
 
 - onBegin()
-  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a2b5c3a694210a002fc8e880c723658bc]]
+  : [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a2b5c3a694210a002fc8e880c723658bc)
 - onEnd()
-  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#ae7edc9b40909df1ec3b6a00e32e8e9f4]]
+  : [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#ae7edc9b40909df1ec3b6a00e32e8e9f4)
 - onResume()
-  : [[CMyEventSegment|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a45441d0d3e68f16a7e36341fed828f33]]
+  : [CMyEventSegment](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEventSegment.md#a45441d0d3e68f16a7e36341fed828f33)
 - operator uint16_t *()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a4f284be984881859cff2dd85824b6054]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a4f284be984881859cff2dd85824b6054)
 - operator uint32_t *()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a1b28cb8c11fa71aed1887bf80bba7cdf]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a1b28cb8c11fa71aed1887bf80bba7cdf)
 - operator uint8_t *()
-  : [[DDASReadout::ReferenceCountedBuffer|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a6a510e20879031db1db900ab6c589fee]]
+  : [DDASReadout::ReferenceCountedBuffer](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1ReferenceCountedBuffer.md#a6a510e20879031db1db900ab6c589fee)
 - operator()()
-  : [[CBootCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md#a4a622a9c6a16938f41dcddf546428d30]]
-  , [[CDDASStatisticsCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af4f816f11727bfe7207d5a19b470db8d]]
-  , [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ac95ff84701ba86e6889578fd8b61864e]]
-  , [[CMyTrigger|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#afc50f0c6df8768b719ec8566654731f8]]
-  , [[CSyncCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#aa64fc2bc631ee8394a6434c816fd10ca]]
-  , [[DDASSorter|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a7b8a8e1e10bc8645aa1c1326206dd82e]]
+  : [CBootCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md#a4a622a9c6a16938f41dcddf546428d30)
+  , [CDDASStatisticsCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCDDASStatisticsCommand.md#af4f816f11727bfe7207d5a19b470db8d)
+  , [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#ac95ff84701ba86e6889578fd8b61864e)
+  , [CMyTrigger](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyTrigger.md#afc50f0c6df8768b719ec8566654731f8)
+  , [CSyncCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCSyncCommand.md#aa64fc2bc631ee8394a6434c816fd10ca)
+  , [DDASSorter](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASSorter.md#a7b8a8e1e10bc8645aa1c1326206dd82e)
 - operator=()
-  : [[DDASReadout::RawChannel|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#abf5e54d19345538acd16a563afb80eca]]
-  , [[DDASReadout::ZeroCopyHit|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a36e954dcc2d4cba32b1f1c7bf3acf00c]]
-  , [[DDASRootEvent|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a12148b0d52540c3dd16b821a71465ef6]]
+  : [DDASReadout::RawChannel](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/structDDASReadout_1_1RawChannel.md#abf5e54d19345538acd16a563afb80eca)
+  , [DDASReadout::ZeroCopyHit](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1ZeroCopyHit.md#a36e954dcc2d4cba32b1f1c7bf3acf00c)
+  , [DDASRootEvent](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASRootEvent.md#a12148b0d52540c3dd16b821a71465ef6)
 
  contents 
  start footer part 

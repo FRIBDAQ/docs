@@ -6,94 +6,94 @@
 ---
 
 - **Table of Contents**
-- 1. [[Introduction|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c18.md]]
-- 2. [[Creating a Readout program from scratch|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c38.md]]
-  - 2.1. [[Obtaining the readout skeleton|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c38.md#AEN58]]
-  - 2.2. [[Creating an event segment|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md]]
-  - 2.3. [[Creating scaler banks and scaler modules|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md]]
-  - 2.4. [[Tying the pieces together|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md]]
-    - 2.4.1. [[Specifying the event trigger.|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN509]]
-    - 2.4.2. [[Specifying what is read out by an event trigger|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN536]]
-    - 2.4.3. [[Specifying the scaler readout|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN604]]
-  - 2.5. [[Editing and using the Makefile|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x641.md]]
-- 3. [[Creating a Readout program from a spectrodaq production readout program|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md]]
-  - 3.1. [[Obtaining a copy of the RingDaq readout skeleton|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md#AEN673]]
-  - 3.2. [[Porting existing event segments to RingDaq|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md]]
-  - 3.3. [[Registering event segments with Skeleton.cpp|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x962.md]]
-  - 3.4. [[Porting scaler readout to RingDaq|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md]]
-  - 3.5. [[Modifying the Makefile|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1066.md]]
-- 4. [[Creating a Readout program from a spectrodaq classic readout program|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md]]
-  - 4.1. [[Obtaining the RingDaq skeleton.|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md#AEN1103]]
-  - 4.2. [[Modifications to skeleton.cpp|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md]]
-  - 4.3. [[Writing the adaptors.|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md]]
-    - 4.3.1. [[Wrapping skeleton.cpp in a `CEventSegment`|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1281]]
-    - 4.3.2. [[Wrapping skeleton.cpp in a `CScaler`|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1438]]
-  - 4.4. [[Modifications to Skeleton.cpp|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md]]
-  - 4.5. [[Modifying the Makefile|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1707.md]]
-- 5. [[Analyzing ring buffer data with SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md]]
-  - 5.1. [[Event processor modifications|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md#AEN1738]]
-  - 5.2. [[Attaching to a ring buffer data source|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1800.md]]
-    - 5.2.1. [[RingDaq event files|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1800.md#AEN1880]]
-- A. [[Format of Ring bufffer DAQ event files|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a1889.md]]
-- B. [[User written triggers|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2057.md]]
-- C. [[Compatibility mode utilities|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md]]
+- 1. [Introduction](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c18.md)
+- 2. [Creating a Readout program from scratch](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c38.md)
+  - 2.1. [Obtaining the readout skeleton](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c38.md#AEN58)
+  - 2.2. [Creating an event segment](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md)
+  - 2.3. [Creating scaler banks and scaler modules](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md)
+  - 2.4. [Tying the pieces together](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md)
+    - 2.4.1. [Specifying the event trigger.](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN509)
+    - 2.4.2. [Specifying what is read out by an event trigger](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN536)
+    - 2.4.3. [Specifying the scaler readout](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN604)
+  - 2.5. [Editing and using the Makefile](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x641.md)
+- 3. [Creating a Readout program from a spectrodaq production readout program](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md)
+  - 3.1. [Obtaining a copy of the RingDaq readout skeleton](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md#AEN673)
+  - 3.2. [Porting existing event segments to RingDaq](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md)
+  - 3.3. [Registering event segments with Skeleton.cpp](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x962.md)
+  - 3.4. [Porting scaler readout to RingDaq](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md)
+  - 3.5. [Modifying the Makefile](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1066.md)
+- 4. [Creating a Readout program from a spectrodaq classic readout program](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md)
+  - 4.1. [Obtaining the RingDaq skeleton.](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md#AEN1103)
+  - 4.2. [Modifications to skeleton.cpp](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md)
+  - 4.3. [Writing the adaptors.](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md)
+    - 4.3.1. [Wrapping skeleton.cpp in a `CEventSegment`](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1281)
+    - 4.3.2. [Wrapping skeleton.cpp in a `CScaler`](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1438)
+  - 4.4. [Modifications to Skeleton.cpp](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md)
+  - 4.5. [Modifying the Makefile](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1707.md)
+- 5. [Analyzing ring buffer data with SpecTcl](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md)
+  - 5.1. [Event processor modifications](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md#AEN1738)
+  - 5.2. [Attaching to a ring buffer data source](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1800.md)
+    - 5.2.1. [RingDaq event files](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1800.md#AEN1880)
+- A. [Format of Ring bufffer DAQ event files](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a1889.md)
+- B. [User written triggers](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2057.md)
+- C. [Compatibility mode utilities](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md)
 
 - **List of Examples**
-- 2-1. [[Getting the skeleton|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c38.md#AEN62]]
-- 2-2. [[Simple Event Segment Header|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN165]]
-- 2-3. [[Event segment front matter|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN200]]
-- 2-4. [[Event segment constructor and destructor|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN223]]
-- 2-5. [[Event segment `initialize` implementation|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN238]]
-- 2-6. [[Event segment `clear` implementation|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN256]]
-- 2-7. [[Event segment `read` method implementation|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN261]]
-- 2-8. [[Using a compound event segment|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN312]]
-- 2-9. [[Using `CEventPacket`|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN327]]
-- 2-10. [[`CScaler` header|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN386]]
-- 2-11. [[`CSIS3820Scaler` implementation includes section|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN414]]
-- 2-12. [[`CSIS3820Scaler` constructor/destructor|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN419]]
-- 2-13. [[`CSIS3820Scaler` initialize/clear methods|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN436]]
-- 2-14. [[`CSIS3820Scaler` read|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN463]]
-- 2-15. [[Creating a scaler bank|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN489]]
-- 2-16. [[Sepcifying the trigger/busy|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN516]]
-- 2-17. [[Adding event segments to the experiment|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN558]]
-- 2-18. [[Setting up scaler readout|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN612]]
-- 2-19. [[Makefile modifications|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x641.md#AEN651]]
-- 3-1. [[Getting the skeleton|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md#AEN680]]
-- 3-2. [[SPDAQ Production readout event segment header|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN866]]
-- 3-3. [[SPDAQ production readout event segment implementation|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN869]]
-- 3-4. [[Porting the event segment to RingDaq|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN873]]
-- 3-5. [[Porting the Event segment to RingDaq II|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN898]]
-- 3-6. [[Porting the Event segment to RingDaq II|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN922]]
-- 3-7. [[Setting up triggers and registering an event segment|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x962.md#AEN985]]
-- 3-8. [[Production readout scaler class (header)|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1007]]
-- 3-9. [[Production readout scaler class (implementation)|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1011]]
-- 3-10. [[SPDAQ Scaler to Ring Buffer (I)|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1028]]
-- 3-11. [[SPDAQ Scaler to Ring Buffer (II)|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1036]]
-- 3-12. [[Registering scaler  objects with RingDaq|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1052]]
-- 4-1. [[Getting the skeleton|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md#AEN1110]]
-- 4-2. [[Adding existing readout files:|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md#AEN1143]]
-- 4-3. [[A readout classic `readevt`|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1169]]
-- 4-4. [[skeleton.cpp modified for RingDaq|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1200]]
-- 4-5. [[Classic readout using CopyIn|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1223]]
-- 4-6. [[Converting Classic readout with local buffers to RingDaq|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1252]]
-- 4-7. [[Header for event segment adapator to readout classic|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1383]]
-- 4-8. [[Implementation for the event segment adaptor to readout classic|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1397]]
-- 4-9. [[Scaler adapter header|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1528]]
-- 4-10. [[Trival methods of the scaler adapter|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1550]]
-- 4-11. [[Adapting the scaler readout|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1598]]
-- 4-12. [[Sepcifying the trigger/busy|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md#AEN1639]]
-- 4-13. [[Registering a `CTraditionalEventSegment`|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md#AEN1661]]
-- 4-14. [[Registering the scaler adapter with readout|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md#AEN1677]]
-- 5-1. [[SpecTcl event processor boilerplate|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md#AEN1741]]
-- 5-2. [[SpecTcl event processor boilerplate for RingDAQ|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md#AEN1773]]
-- 5-3. [[Proc to connect SpecTcl to a ring buffer data source|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1800.md#AEN1859]]
-- A-1. [[Item type codes|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a1889.md#AEN1901]]
-- B-1. [[CAEN data ready trigger header|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2057.md#AEN2101]]
-- B-2. [[CAEN data ready trigger implementation|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2057.md#AEN2104]]
-- C-1. [[Writing event data in SPDAQ format|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2126]]
-- C-2. [[Piping SPDAQ formatted event data to SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2135]]
-- C-3. [[Running spectcldaq.server in an Spdaq system.|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2149]]
-- C-4. [[SpecTcl pipe data source using spectcldaq.server|https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2156]]
+- 2-1. [Getting the skeleton](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c38.md#AEN62)
+- 2-2. [Simple Event Segment Header](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN165)
+- 2-3. [Event segment front matter](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN200)
+- 2-4. [Event segment constructor and destructor](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN223)
+- 2-5. [Event segment `initialize` implementation](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN238)
+- 2-6. [Event segment `clear` implementation](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN256)
+- 2-7. [Event segment `read` method implementation](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN261)
+- 2-8. [Using a compound event segment](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN312)
+- 2-9. [Using `CEventPacket`](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x89.md#AEN327)
+- 2-10. [`CScaler` header](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN386)
+- 2-11. [`CSIS3820Scaler` implementation includes section](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN414)
+- 2-12. [`CSIS3820Scaler` constructor/destructor](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN419)
+- 2-13. [`CSIS3820Scaler` initialize/clear methods](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN436)
+- 2-14. [`CSIS3820Scaler` read](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN463)
+- 2-15. [Creating a scaler bank](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x340.md#AEN489)
+- 2-16. [Sepcifying the trigger/busy](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN516)
+- 2-17. [Adding event segments to the experiment](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN558)
+- 2-18. [Setting up scaler readout](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x495.md#AEN612)
+- 2-19. [Makefile modifications](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x641.md#AEN651)
+- 3-1. [Getting the skeleton](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md#AEN680)
+- 3-2. [SPDAQ Production readout event segment header](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN866)
+- 3-3. [SPDAQ production readout event segment implementation](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN869)
+- 3-4. [Porting the event segment to RingDaq](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN873)
+- 3-5. [Porting the Event segment to RingDaq II](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN898)
+- 3-6. [Porting the Event segment to RingDaq II](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x707.md#AEN922)
+- 3-7. [Setting up triggers and registering an event segment](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x962.md#AEN985)
+- 3-8. [Production readout scaler class (header)](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1007)
+- 3-9. [Production readout scaler class (implementation)](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1011)
+- 3-10. [SPDAQ Scaler to Ring Buffer (I)](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1028)
+- 3-11. [SPDAQ Scaler to Ring Buffer (II)](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1036)
+- 3-12. [Registering scaler  objects with RingDaq](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md#AEN1052)
+- 4-1. [Getting the skeleton](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md#AEN1110)
+- 4-2. [Adding existing readout files:](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1077.md#AEN1143)
+- 4-3. [A readout classic `readevt`](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1169)
+- 4-4. [skeleton.cpp modified for RingDaq](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1200)
+- 4-5. [Classic readout using CopyIn](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1223)
+- 4-6. [Converting Classic readout with local buffers to RingDaq](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1153.md#AEN1252)
+- 4-7. [Header for event segment adapator to readout classic](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1383)
+- 4-8. [Implementation for the event segment adaptor to readout classic](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1397)
+- 4-9. [Scaler adapter header](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1528)
+- 4-10. [Trival methods of the scaler adapter](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1550)
+- 4-11. [Adapting the scaler readout](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1274.md#AEN1598)
+- 4-12. [Sepcifying the trigger/busy](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md#AEN1639)
+- 4-13. [Registering a `CTraditionalEventSegment`](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md#AEN1661)
+- 4-14. [Registering the scaler adapter with readout](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1618.md#AEN1677)
+- 5-1. [SpecTcl event processor boilerplate](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md#AEN1741)
+- 5-2. [SpecTcl event processor boilerplate for RingDAQ](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c1719.md#AEN1773)
+- 5-3. [Proc to connect SpecTcl to a ring buffer data source](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1800.md#AEN1859)
+- A-1. [Item type codes](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a1889.md#AEN1901)
+- B-1. [CAEN data ready trigger header](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2057.md#AEN2101)
+- B-2. [CAEN data ready trigger implementation](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2057.md#AEN2104)
+- C-1. [Writing event data in SPDAQ format](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2126)
+- C-2. [Piping SPDAQ formatted event data to SpecTcl](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2135)
+- C-3. [Running spectcldaq.server in an Spdaq system.](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2149)
+- C-4. [SpecTcl pipe data source using spectcldaq.server](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2156)
 
 ---
 

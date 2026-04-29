@@ -19,31 +19,31 @@ do not remove this div, it is closed by doxygen!
 ### - p -
 
 - parameterDefType()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a0493e974efd48b09f07c5411e7bf802d]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a0493e974efd48b09f07c5411e7bf802d)
 - parameterHeaderDataType()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ae6372b441eac110cc1bc77088a67a2f5]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#ae6372b441eac110cc1bc77088a67a2f5)
 - parameterValueDataType()
-  : [[frib::analysis::AbstractApplication|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a148b53c78f9259570554bc659fdded85]]
+  : [frib::analysis::AbstractApplication](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1AbstractApplication.md#a148b53c78f9259570554bc659fdded85)
 - ParseBoolean()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#aadc9fece0f2e00584f37ea8fe65af532]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#aadc9fece0f2e00584f37ea8fe65af532)
 - ParseDouble()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#aa46086a8bda562acabb427a17e80efb9]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#aa46086a8bda562acabb427a17e80efb9)
 - ParseInt()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#ae2b61608c369805d06d0de3f3e9ded0f]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#ae2b61608c369805d06d0de3f3e9ded0f)
 - postCommand()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a8d2679eaeb414dcd09b77c44ad474444]]
-  , [[Reverse|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#a272c1777ee49cb371dc0b7275da36dc3]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a8d2679eaeb414dcd09b77c44ad474444)
+  , [Reverse](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#a272c1777ee49cb371dc0b7275da36dc3)
 - postDelete()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#aa51694840711f6aa70fd2bf7b01783b2]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#aa51694840711f6aa70fd2bf7b01783b2)
 - preCommand()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#af98ca1f8e40691f762159480380c3af8]]
-  , [[Reverse|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#aaf8be85be7e0621c6030e48a7bad73a3]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#af98ca1f8e40691f762159480380c3af8)
+  , [Reverse](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classReverse.md#aaf8be85be7e0621c6030e48a7bad73a3)
 - preDelete()
-  : [[CTCLProcessor|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a38b0abc4c038cd96419d5d09542c9ea0]]
+  : [CTCLProcessor](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLProcessor.md#a38b0abc4c038cd96419d5d09542c9ea0)
 - prompt1()
-  : [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4]]
+  : [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#ae0d0e4783a4f7c8ecf82801d8c36c2e4)
 - prompt2()
-  : [[CTCLChannelCommander|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a5532318b1f6dfc170459c1076f7c058e]]
+  : [CTCLChannelCommander](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannelCommander.md#a5532318b1f6dfc170459c1076f7c058e)
 
  contents 
  start footer part 

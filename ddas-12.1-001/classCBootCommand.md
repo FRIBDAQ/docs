@@ -21,14 +21,14 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand-members.md)
 
 
 CBootCommand Class Reference
 
 header
 This class implements the ddasboot command. It is added to to the Tcl interpreter that runs ddasreadout so that the DDAS modules can be booted on-demand rather than every time the Readout program starts.  
- [[More...|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md#details]]
+ [More...](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCBootCommand.md#details)
 
 
 `#include <CBootCommand.h>`
@@ -44,7 +44,7 @@ Inheritance diagram for CBootCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 Collaboration diagram for CBootCommand:
@@ -57,7 +57,7 @@ Collaboration diagram for CBootCommand:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/graph_legend.md)]
 
 
 |  |  |
@@ -156,8 +156,8 @@ Ensures there are no additional command parameters. Invokes the segments's boot 
 
 ---
 
-The documentation for this class was generated from the following files:- [[CBootCommand.h|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CBootCommand_8h_source.md]]
-- [[CBootCommand.cpp|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CBootCommand_8cpp.md]]
+The documentation for this class was generated from the following files:- [CBootCommand.h](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CBootCommand_8h_source.md)
+- [CBootCommand.cpp](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/CBootCommand_8cpp.md)
 
  contents 
  start footer part 

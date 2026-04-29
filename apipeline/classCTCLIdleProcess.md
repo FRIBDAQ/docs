@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
  top 
 [Public Member Functions](#pub-methods) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLIdleProcess-members.md)
 
 
 CTCLIdleProcess Class Referenceabstract
@@ -37,7 +37,7 @@ Inheritance diagram for CTCLIdleProcess:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 Collaboration diagram for CTCLIdleProcess:
@@ -50,7 +50,7 @@ Collaboration diagram for CTCLIdleProcess:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -118,7 +118,7 @@ Collaboration diagram for CTCLIdleProcess:
 
 ---
 
-The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[[TCLIdleProcess.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLIdleProcess_8h_source.md]]
+The documentation for this class was generated from the following file:- libtclplus/include/tclplus/[TCLIdleProcess.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/TCLIdleProcess_8h_source.md)
 
  contents 
  start footer part 

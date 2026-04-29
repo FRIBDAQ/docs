@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 CMonitorException Member List
 
 header
-This is the complete list of members for [[CMonitorException|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md]], including all inherited members.
+This is the complete list of members for [CMonitorException](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMonitorException.md), including all inherited members.
 
 
 |  |  |  |

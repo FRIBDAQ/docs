@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 Sum Member List
 
 header
-This is the complete list of members for [[Sum|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classSum.md]], including all inherited members.
+This is the complete list of members for [Sum](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classSum.md), including all inherited members.
 
 
 |  |  |  |

@@ -22,13 +22,13 @@ Here is a list of all class members with links to the classes they belong to:
 ### - h -
 
 - handleEndRun()
-  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a09112cd8e5b90d673c99f48e340e46f0]]
+  : [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a09112cd8e5b90d673c99f48e340e46f0)
 - handleReadOutRemainingData()
-  : [[CMyEndCommand|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2cae62d9b4758c30c8ecd0adc8bfcfbd]]
+  : [CMyEndCommand](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classCMyEndCommand.md#a2cae62d9b4758c30c8ecd0adc8bfcfbd)
 - haveHit()
-  : [[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a5ca4770daac9520b5bf0659ed2510b08]]
+  : [DDASReadout::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#a5ca4770daac9520b5bf0659ed2510b08)
 - HitManager()
-  : [[DDASReadout::HitManager|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ab5e8b82bd12a513716615a526a86b281]]
+  : [DDASReadout::HitManager](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/classDDASReadout_1_1HitManager.md#ab5e8b82bd12a513716615a526a86b281)
 
  contents 
  start footer part 

@@ -21,12 +21,12 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[CItemConfiguration|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md]]
-- [[_ListSizeConstraint|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__ListSizeConstraint.md]]
+- [CItemConfiguration](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCItemConfiguration.md)
+- [_ListSizeConstraint](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__ListSizeConstraint.md)
 
  top 
 [Public Attributes](#pub-attribs) |
-[[List of all members|https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__ListSizeConstraint-members.md]]
+[List of all members](https://github.com/FRIBDAQ/docs/tree/main/apipeline/structCItemConfiguration_1_1__ListSizeConstraint-members.md)
 
 
 CItemConfiguration::_ListSizeConstraint Struct Reference
@@ -41,7 +41,7 @@ Collaboration diagram for CItemConfiguration::_ListSizeConstraint:
 
 
 
-[[[legend|https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md]]]
+[[legend](https://github.com/FRIBDAQ/docs/tree/main/apipeline/graph_legend.md)]
 
 
 |  |  |
@@ -56,7 +56,7 @@ Collaboration diagram for CItemConfiguration::_ListSizeConstraint:
 
 ---
 
-The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[[CItemConfiguration.h|https://github.com/FRIBDAQ/docs/tree/main/apipeline/CItemConfiguration_8h_source.md]]
+The documentation for this struct was generated from the following file:- libtclplus/include/tclplus/[CItemConfiguration.h](https://github.com/FRIBDAQ/docs/tree/main/apipeline/CItemConfiguration_8h_source.md)
 
  contents 
  start footer part 

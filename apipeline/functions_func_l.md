@@ -19,19 +19,19 @@ do not remove this div, it is closed by doxygen!
 ### - l -
 
 - lindex()
-  : [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a14e8e0b4fa61d6a2582962f0b29c9cae]]
+  : [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a14e8e0b4fa61d6a2582962f0b29c9cae)
 - llength()
-  : [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#acfcfdd68b043831aeda21dc80a1becc1]]
+  : [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#acfcfdd68b043831aeda21dc80a1becc1)
 - loadVariable()
-  : [[frib::analysis::CMPIParametersToParametersWorker|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a84cccc26f3c0efc21da0ec6f36daaa7a]]
+  : [frib::analysis::CMPIParametersToParametersWorker](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CMPIParametersToParametersWorker.md#a84cccc26f3c0efc21da0ec6f36daaa7a)
 - lock()
-  : [[CMutex|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#abd23a5d6ff20790854f0483812a1101b]]
+  : [CMutex](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCMutex.md#abd23a5d6ff20790854f0483812a1101b)
 - lookupDefinition()
-  : [[frib::analysis::CTreeVariable|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a1fabdd0e2c096e55b71d4b94385c8c43]]
+  : [frib::analysis::CTreeVariable](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeVariable.md#a1fabdd0e2c096e55b71d4b94385c8c43)
 - lowIndex()
-  : [[frib::analysis::CTreeParameterArray|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#a2d68803c7cd6b895a3ea568f7bcffe47]]
+  : [frib::analysis::CTreeParameterArray](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classfrib_1_1analysis_1_1CTreeParameterArray.md#a2d68803c7cd6b895a3ea568f7bcffe47)
 - lreplace()
-  : [[CTCLObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a5076bf1bd7925bb817b8a55da5f37619]]
+  : [CTCLObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLObject.md#a5076bf1bd7925bb817b8a55da5f37619)
 
  contents 
  start footer part 

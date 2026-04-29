@@ -62,12 +62,12 @@ header
 
 - First, an overview of the components of a single crate DDAS system are given.
 - Second, we provide a guide to setting up the hardware. A pulser will be used as a signal source.
-- The configuration files for the [[system|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md]] and [[expected event length|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md]] required by DDAS are described.
-- [[QtScope|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md]] will be used to obtain an initial parameter setup.
-- We will set up a [[readout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/readout.md]] so that data can be taken from the sample setup. We'll also look at a dump of the data from the simple setup with and without waveforms.
+- The configuration files for the [system](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md) and [expected event length](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md) required by DDAS are described.
+- [QtScope](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md) will be used to obtain an initial parameter setup.
+- We will set up a [readout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/readout.md) so that data can be taken from the sample setup. We'll also look at a dump of the data from the simple setup with and without waveforms.
 - We'll show how to set up the ReadoutGUI and event builder so that data can be taken, built into events, recorded, and made available for online analysis.
 - We will set up a simple SpecTcl tailoring for data with and without waveforms.
-- We will import the data into ROOT so that offline analysis can [[proceed with that tool|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper.md]].
+- We will import the data into ROOT so that offline analysis can [proceed with that tool](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ddasdumper.md).
 
 
 - Attention
@@ -155,11 +155,11 @@ home-directory
                     +--- crate_1.json
 ```
 
-  An example crate_1 directory which can be copied to your system can be found at `$DAQSHARE`/ddasreadout/crate_1. This example directory contains the necessary configuration files to run a DDAS system. The files are:- cfgPixie16.txt - Indicates where modules are installed in the crates and points to a parameter settings file containing their DSP settings. See the documentation for this file [[here|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md]].
-  - modevtlen.txt - Describes the number of 32-bit words in a hit for each module. See the documentation for this file [[here|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md]].
+  An example crate_1 directory which can be copied to your system can be found at `$DAQSHARE`/ddasreadout/crate_1. This example directory contains the necessary configuration files to run a DDAS system. The files are:- cfgPixie16.txt - Indicates where modules are installed in the crates and points to a parameter settings file containing their DSP settings. See the documentation for this file [here](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md).
+  - modevtlen.txt - Describes the number of 32-bit words in a hit for each module. See the documentation for this file [here](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md).
   - crate_1.json - An XIA API 4 parameter settings file.
 
-  See the documentation for the [[cfgPixie16.txt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md]] and [[modevtlen.txt|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md]] files for more information.
+  See the documentation for the [cfgPixie16.txt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md) and [modevtlen.txt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md) files for more information.
 
 - Note
   While `$DAQSHARE`/ddasreadout/crate_1 contains a valid set of configuration files for DDAS, there is no guarantee that the configuration files or settings file in the example directory are correct for any given system. You will may need to edit all of these files in order to get your system running correctly. Typical changes are:- cfgPixie16.txt must be modified to reflect the layout of modules in your crate. The path to the settings file must be correct.
@@ -169,7 +169,7 @@ home-directory
 # Setting Up a Single-Crate System
 
 
-  This part of the guide will discuss in detail how to setup a single-crate DDAS system with a single XIA digitizer card. You must:1. Ensure that there is an SBC or fiber interface in slot 1 of the PXI crate (the most common case). If a fiber interface is used, the fiber must be connected to the interface card and a PCI bridge card on the data-collection computer. The data-collection computer must be connected to the [[DAQ|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md]] network.
+  This part of the guide will discuss in detail how to setup a single-crate DDAS system with a single XIA digitizer card. You must:1. Ensure that there is an SBC or fiber interface in slot 1 of the PXI crate (the most common case). If a fiber interface is used, the fiber must be connected to the interface card and a PCI bridge card on the data-collection computer. The data-collection computer must be connected to the [DAQ](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDAQ.md) network.
   2. Install a Pixie module configured as a clock master in slot 2 of your crate.
   3. Attach signals to the digitizer inputs. One of the nice things about digital data acquisition modules is that only minimal signal conditioning is required and the modules themselves handle triggering. For this tutorial we're going to take singles data. The modules actually support very sophisticated internal triggering modes as well as cross-module trigger processing via a front-panel trigger bus.
   4. Configure your DSP settings.
@@ -223,7 +223,7 @@ home-directory
 The QtScope GUI state on startup. Note that most GUI elements besides [Boot system], [About], and [Exit] on the system toolbar are disabled.
 
 
-  The QtScope GUI will launch. See the [[QtScope documentation|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md]] for more details, only the basics are covered in this guide. Most features of the GUI are inaccessible (grayed out) until the modules have been booted. To boot the modules, click the **[Boot system]** button. QtScope will print some information on the terminal where it was launched. A successful boot will look something like:
+  The QtScope GUI will launch. See the [QtScope documentation](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md) for more details, only the basics are covered in this guide. Most features of the GUI are inaccessible (grayed out) until the modules have been booted. To boot the modules, click the **[Boot system]** button. QtScope will print some information on the terminal where it was launched. A successful boot will look something like:
 
 ```
 ------------------------
@@ -291,7 +291,7 @@ A raw pulser trace captured by QtScope with correctly configured polarity and DC
 ### Configuring the Trigger Filter
 
 
-  Next we will configure the trigger settings for our test signal. Open the channel DSP manager window and select the TriggerFilter tab. This tab contains the DSP settings which parameterize the trapezoidal filter used to construct a leading-edge trigger for the input signal. An in-depth discussion of trapezoidal filters and other pulse-processing methods are beyond the scope of this guide; for more information refer to [[Further Reading|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_reading]].
+  Next we will configure the trigger settings for our test signal. Open the channel DSP manager window and select the TriggerFilter tab. This tab contains the DSP settings which parameterize the trapezoidal filter used to construct a leading-edge trigger for the input signal. An in-depth discussion of trapezoidal filters and other pulse-processing methods are beyond the scope of this guide; for more information refer to [Further Reading](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_reading).
 
   Our test signal has a fixed amplitude and pulse shape and very little noise. Note that in general only some (or none!) of these things may be true. We will use a triangular filter with a risetime of 100 ns and a gap of 0 ns. The triangular filter is simply a special case of a trapezoidal filter with a gap equal to 0. The value of the trigger threshold must be set such that we can trigger on the input test pulse; because we have a fixed-height pulse, there is not much to do here: We set the trigger to have a risetime of 100 ns, gap of 0 ns, and a threshold of 50. Once the settings are applied, note that the channel DSP GUI reports a trigger risetime of 104 ns: the filter parameter values must be an integer number of FPGA clock cycles and are automatically rounded to a valid value if they are not. Because the 250 MSPS modules use a 125 MHz FPGA, the filter lengths must be an integer multiple of 8 ns.
 
@@ -369,13 +369,13 @@ An energy spectrum for our test pulse acquired with good energy DSP settings. No
 # Taking Data With DDASReadout
 
 
-  Now that you have a good settings file, you can take data using a readout program. In this section we will:- Run [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]], the module readout code for DDAS,
+  Now that you have a good settings file, you can take data using a readout program. In this section we will:- Run [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md), the module readout code for DDAS,
   - Run the NSCLDAQ dumper program to look at raw event data,
   - Take a bit of data and describe its format.
 
-  Full documentation for the readout program is available [[here|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/readout.md]].
+  Full documentation for the readout program is available [here](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/readout.md).
 
-  The DDAS readout programs do not need to be modified. They use a set of configuration files that are expected to live in the current working directory when readout is run. These files were discussed in [[Configuration Files Needed by NSCL DDAS|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_config]]. In the previous step you should have generated a new settings file and edited your cfgPixie16.txt file if necessary. The modevtlen.txt file must be edited to reflect the size of the events we expect coming from each module. We are using only a single module and not taking waveforms or any other additional data from that module. Since the modevtlen.txt file format is simply the size of an event, in 32-bit words, from each digitizer's channels, one digitizer per line, in the same order as the cfgPixie16.txt file, the contents of this file should be:
+  The DDAS readout programs do not need to be modified. They use a set of configuration files that are expected to live in the current working directory when readout is run. These files were discussed in [Configuration Files Needed by NSCL DDAS](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_config). In the previous step you should have generated a new settings file and edited your cfgPixie16.txt file if necessary. The modevtlen.txt file must be edited to reflect the size of the events we expect coming from each module. We are using only a single module and not taking waveforms or any other additional data from that module. Since the modevtlen.txt file format is simply the size of an event, in 32-bit words, from each digitizer's channels, one digitizer per line, in the same order as the cfgPixie16.txt file, the contents of this file should be:
 
 ```
 4
@@ -438,7 +438,7 @@ $DAQBIN/dumper --count=50
 ## Taking Data and Looking at the Format
 
 
-  Start taking data with [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] by switching back to the window where it is running. Type `begin` at the command prompt (the `%` character). The dumper window should output a lot of text and the dumper should exit back to the shell. Once the dumper exits you can stop data taking by typing `end` in the terminal window where the [[DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md]] program is running. Typing `exit` will close the readout program.
+  Start taking data with [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md) by switching back to the window where it is running. Type `begin` at the command prompt (the `%` character). The dumper window should output a lot of text and the dumper should exit back to the shell. Once the dumper exits you can stop data taking by typing `end` in the terminal window where the [DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/namespaceDDASReadout.md) program is running. Typing `exit` will close the readout program.
 
   Lets take a closer look at the dumped event data. The actual contents of the event we analyze may be different from what you see in your test, we are only interested in explaining the structure of the event at this time.
 
@@ -575,7 +575,7 @@ The SSHPipe data source configuration prompt. The fields in this interface are u
 | Command line options | Options for running the readout driver code.I used: -readouthost spdaq05 -readoutring 0400x_raw_1 -sorthost spdaq05 -sortring 0400x_sort_1 -cratedir /user/0400x/ddas_xiatest/readout/crate_1 |
 
 
-  Click the `Start` button to start your data source. A new tab should pop up on the ReadoutGUI for your SSHPipe data source. This tab is used to capture and display messages on stdout and stderr for the readout driver. If you select this tab you should see, among other things, the same boot information you have seen previously in [[Taking Data With DDASReadout|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_readout]].
+  Click the `Start` button to start your data source. A new tab should pop up on the ReadoutGUI for your SSHPipe data source. This tab is used to capture and display messages on stdout and stderr for the readout driver. If you select this tab you should see, among other things, the same boot information you have seen previously in [Taking Data With DDASReadout](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_readout).
 
   Let's check that this all works. You can run the `dumper` as follows:
 
@@ -695,12 +695,12 @@ eb23 0011 0000 3aa4 0142 0000
 # Analyzing Data With SpecTcl
 
 
-  SpecTcl is the lab-supported framework for analyzing data online. DDAS comes with some tools to use in unpacking DDAS data within the context of SpecTcl, DAQ::DDAS::DDASUnpacker and DAQ::DDAS::DDASBuiltUnpacker. These both provide support for parsing the raw data of DDAS for you. It is in your best interest to leverage these tools rather than writing your own unpacker. To learn how to use the DAQ::DDAS::DDASBuiltUnpacker in your SpecTcl, please refer to [[Analyzing DDAS Data in SpecTcl|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/spectcl.md]].
+  SpecTcl is the lab-supported framework for analyzing data online. DDAS comes with some tools to use in unpacking DDAS data within the context of SpecTcl, DAQ::DDAS::DDASUnpacker and DAQ::DDAS::DDASBuiltUnpacker. These both provide support for parsing the raw data of DDAS for you. It is in your best interest to leverage these tools rather than writing your own unpacker. To learn how to use the DAQ::DDAS::DDASBuiltUnpacker in your SpecTcl, please refer to [Analyzing DDAS Data in SpecTcl](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/spectcl.md).
 
 # Conclusions
 
 
-  This concludes the single-crate setup tutorial. You should now have a good understanding of how to perform the basic steps necessary to configure a simple DDAS system to take data. The modules have many features which are not discussed in detail in this section, including a digital CFD for precision timing, the ability to run complex coincidence triggers, or take additional data such as QDC sums or, more commonly, ADC trace data. Refer to the [[QtScope Manual|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md]] for more information.
+  This concludes the single-crate setup tutorial. You should now have a good understanding of how to perform the basic steps necessary to configure a simple DDAS system to take data. The modules have many features which are not discussed in detail in this section, including a digital CFD for precision timing, the ability to run complex coincidence triggers, or take additional data such as QDC sums or, more commonly, ADC trace data. Refer to the [QtScope Manual](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md) for more information.
 
 # Further Reading
 
@@ -711,7 +711,7 @@ eb23 0011 0000 3aa4 0142 0000
 # Appendix A: Data Format
 
 
-  This section describes the bit fields present in words of a DDAS event. This information is supplemental to the description provided in [[Taking Data and Looking at the Format|https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_takedata]]. Values in the table below refer to the first and second lines of the following event:
+  This section describes the bit fields present in words of a DDAS event. This information is supplemental to the description provided in [Taking Data and Looking at the Format](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/single_crate.md#sec_singlecrate_takedata). Values in the table below refer to the first and second lines of the following event:
 
 ```
 ...

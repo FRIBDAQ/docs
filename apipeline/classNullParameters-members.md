@@ -23,7 +23,7 @@ do not remove this div, it is closed by doxygen!
 NullParameters Member List
 
 header
-This is the complete list of members for [[NullParameters|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classNullParameters.md]], including all inherited members.
+This is the complete list of members for [NullParameters](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classNullParameters.md), including all inherited members.
 
 
 |  |  |  |

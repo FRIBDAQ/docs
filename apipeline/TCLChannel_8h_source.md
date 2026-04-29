@@ -21,9 +21,9 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md]]
-- [[include|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md]]
-- [[tclplus|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md]]
+- [libtclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_4b82a50f27f43da3ef4ad81c5c8f36d1.md)
+- [include](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_916a1320d72df91b2427bdb1c4bfd305.md)
+- [tclplus](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_adcafb5ceb560ba729c79a378a2d6426.md)
 
  top 
 TCLChannel.h
@@ -89,7 +89,7 @@ header
 
 <a name="l00030"></a>   30
 
-<a name="l00066"></a>[[66|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]] class [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]] : public [[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+<a name="l00066"></a>[66](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md) class [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md) : public [CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 <a name="l00067"></a>   67 {
 
@@ -117,7 +117,7 @@ header
 
 <a name="l00079"></a>   79
 
-<a name="l00080"></a>   80   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00080"></a>   80   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00081"></a>   81           std::string      Filename,
 
@@ -125,7 +125,7 @@ header
 
 <a name="l00083"></a>   83           int              permissions) ;
 
-<a name="l00084"></a>   84   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00084"></a>   84   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00085"></a>   85           int              argc,
 
@@ -133,13 +133,13 @@ header
 
 <a name="l00087"></a>   87           int              flags);
 
-<a name="l00088"></a>   88   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00088"></a>   88   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00089"></a>   89           int              port,
 
 <a name="l00090"></a>   90           std::string      host) ;
 
-<a name="l00091"></a>   91   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00091"></a>   91   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00092"></a>   92           int              port,
 
@@ -147,13 +147,13 @@ header
 
 <a name="l00094"></a>   94           ClientData       AppData) ;
 
-<a name="l00095"></a>   95   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]]([[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]* pInterp,
+<a name="l00095"></a>   95   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)([CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)* pInterp,
 
 <a name="l00096"></a>   96           Tcl_Channel      Channel);
 
-<a name="l00097"></a>   97   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]](const [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]]& rhs);
+<a name="l00097"></a>   97   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)(const [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md)& rhs);
 
-<a name="l00098"></a>   98   virtual [[~CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a95dd4eac914d62235a257c99e73ad996]]();
+<a name="l00098"></a>   98   virtual [~CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a95dd4eac914d62235a257c99e73ad996)();
 
 <a name="l00099"></a>   99
 
@@ -165,13 +165,13 @@ header
 
 <a name="l00103"></a>  103 private:
 
-<a name="l00104"></a>  104   [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]]& operator=(const [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]]& rhs);
+<a name="l00104"></a>  104   [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md)& operator=(const [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md)& rhs);
 
 <a name="l00105"></a>  105
 
-<a name="l00106"></a>  106   int operator==(const [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]]& rhs) const;
+<a name="l00106"></a>  106   int operator==(const [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md)& rhs) const;
 
-<a name="l00107"></a>  107   int operator!=(const [[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]]& rhs) const;
+<a name="l00107"></a>  107   int operator!=(const [CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md)& rhs) const;
 
 <a name="l00108"></a>  108 public:
 
@@ -219,46 +219,46 @@ header
 
 <a name="l00130"></a>  130 public:
 
-<a name="l00131"></a>  131   int [[Read|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a85519b45b4f80b3b610ce50ca7414ba5]]( void** pData, int nChars);
+<a name="l00131"></a>  131   int [Read](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a85519b45b4f80b3b610ce50ca7414ba5)( void** pData, int nChars);
 
-<a name="l00132"></a>  132   int [[Write|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ad2716c4fd8dd102c314cc22bf11dc8c6]](const void* pData, int nBytes);
+<a name="l00132"></a>  132   int [Write](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ad2716c4fd8dd102c314cc22bf11dc8c6)(const void* pData, int nBytes);
 
 <a name="l00133"></a>  133
 
-<a name="l00134"></a>  134   bool [[atEof|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d]]();
+<a name="l00134"></a>  134   bool [atEof](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d)();
 
-<a name="l00135"></a>  135   void [[Flush|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae4c4e2a5a4295307bccbe5704e14d957]]();
+<a name="l00135"></a>  135   void [Flush](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae4c4e2a5a4295307bccbe5704e14d957)();
 
-<a name="l00136"></a>  136   void [[Close|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a3530b66bf350f14621a0cd5bc65dc47f]]();
+<a name="l00136"></a>  136   void [Close](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a3530b66bf350f14621a0cd5bc65dc47f)();
 
-<a name="l00137"></a>  137   void [[Register|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#af55ae3947c01fd3cdf59a7113945f946]]();
+<a name="l00137"></a>  137   void [Register](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#af55ae3947c01fd3cdf59a7113945f946)();
 
-<a name="l00138"></a>  138   void [[SetEncoding|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ac315ad4f7a78c1e416c9b28338990eff]](std::string Name);
+<a name="l00138"></a>  138   void [SetEncoding](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ac315ad4f7a78c1e416c9b28338990eff)(std::string Name);
 
-<a name="l00139"></a>  139   std::string [[GetEncoding|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae8773009047643e7875da9a023de3a84]]();
+<a name="l00139"></a>  139   std::string [GetEncoding](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae8773009047643e7875da9a023de3a84)();
 
 <a name="l00140"></a>  140 };
 
 <a name="l00141"></a>  141 #endif
 
-[[CTCLChannel::CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf]]
+[CTCLChannel::CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a7c544a30b1ba554f6e55b7be542e42bf)
 
 CTCLChannel(CTCLInterpreter *pInterp, std::string Filename, const char *pMode, int permissions)
 
 Construct file channel.
 
 
-[[CTCLInterpreterObject|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md]]
+[CTCLInterpreterObject](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreterObject.md)
 
 **Definition:** TCLInterpreterObject.h:46
 
 
-[[CTCLInterpreter|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md]]
+[CTCLInterpreter](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLInterpreter.md)
 
 **Definition:** TCLInterpreter.h:59
 
 
-[[CTCLChannel::Register|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#af55ae3947c01fd3cdf59a7113945f946]]
+[CTCLChannel::Register](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#af55ae3947c01fd3cdf59a7113945f946)
 
 void Register()
 
@@ -267,19 +267,19 @@ Expose channel name to scripts (dangerous!!)
 **Definition:** TCLChannel.cpp:381
 
 
-[[CTCLChannel::GetEncoding|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae8773009047643e7875da9a023de3a84]]
+[CTCLChannel::GetEncoding](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae8773009047643e7875da9a023de3a84)
 
 std::string GetEncoding()
 
 **Definition:** TCLChannel.cpp:401
 
 
-[[CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md]]
+[CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md)
 
 **Definition:** TCLChannel.h:66
 
 
-[[CTCLChannel::atEof|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d]]
+[CTCLChannel::atEof](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a9f4b714276d2f283b64fbb975b01e32d)
 
 bool atEof()
 
@@ -288,14 +288,14 @@ True if EOF on channel.
 **Definition:** TCLChannel.cpp:343
 
 
-[[CTCLChannel::SetEncoding|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ac315ad4f7a78c1e416c9b28338990eff]]
+[CTCLChannel::SetEncoding](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ac315ad4f7a78c1e416c9b28338990eff)
 
 void SetEncoding(std::string Name)
 
 **Definition:** TCLChannel.cpp:391
 
 
-[[CTCLChannel::Close|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a3530b66bf350f14621a0cd5bc65dc47f]]
+[CTCLChannel::Close](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a3530b66bf350f14621a0cd5bc65dc47f)
 
 void Close()
 
@@ -304,14 +304,14 @@ Close channel (dangerous!!!).
 **Definition:** TCLChannel.cpp:362
 
 
-[[CTCLChannel::~CTCLChannel|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a95dd4eac914d62235a257c99e73ad996]]
+[CTCLChannel::~CTCLChannel](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a95dd4eac914d62235a257c99e73ad996)
 
 virtual ~CTCLChannel()
 
 **Definition:** TCLChannel.cpp:254
 
 
-[[CTCLChannel::Read|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a85519b45b4f80b3b610ce50ca7414ba5]]
+[CTCLChannel::Read](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#a85519b45b4f80b3b610ce50ca7414ba5)
 
 int Read(void **pData, int nChars)
 
@@ -320,7 +320,7 @@ Read data from the channel.
 **Definition:** TCLChannel.cpp:291
 
 
-[[CTCLChannel::Flush|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae4c4e2a5a4295307bccbe5704e14d957]]
+[CTCLChannel::Flush](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ae4c4e2a5a4295307bccbe5704e14d957)
 
 void Flush()
 
@@ -329,7 +329,7 @@ Flush channel data buffers.
 **Definition:** TCLChannel.cpp:352
 
 
-[[CTCLChannel::Write|https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ad2716c4fd8dd102c314cc22bf11dc8c6]]
+[CTCLChannel::Write](https://github.com/FRIBDAQ/docs/tree/main/apipeline/classCTCLChannel.md#ad2716c4fd8dd102c314cc22bf11dc8c6)
 
 int Write(const void *pData, int nBytes)
 

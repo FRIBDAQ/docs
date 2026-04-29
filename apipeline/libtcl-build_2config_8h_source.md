@@ -21,7 +21,7 @@ do not remove this div, it is closed by doxygen!
 
 
 
-- [[libtcl-build|https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_ecbba944e590eeed521afbccae1a4d20.md]]
+- [libtcl-build](https://github.com/FRIBDAQ/docs/tree/main/apipeline/dir_ecbba944e590eeed521afbccae1a4d20.md)
 
  top 
 config.h
