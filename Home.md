@@ -1,3 +1,3 @@
 ## Contents
 
-- [[FRIBintra - DAQ Documentation|fribintra-daq-documentation.md]]
+- [[FRIBintra - DAQ Documentation|https://github.com/FRIBDAQ/docs/blob/main/fribintra-daq-documentation.md]]
