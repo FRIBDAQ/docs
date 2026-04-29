@@ -76,24 +76,23 @@ SpecTcl is for analysis what FRIBDAQ is for dataflow. SpecTcl is a C++
     SpecTcl is a winner of the SourceForge community choice award.
 
 
-- [[spectcl-5.0/UserGuide/index]](Added June 13, 2017)
-- [[spectcl/cmdref/index]] (Updated October 21, 2025)
-- [[spectcl/pgmguide/index]] (Updated October 21, 2025)
-- [[spectcl/pgmref/index]] (Updated October 21, 2025)
-- [[spectcl-5.0/DDAS/index]]
-- [[specbatch/index]]
-- [[spectcl/restdocs/index]] (Updated October 21, 2025)
-- [[parallel/index]]
-- [[qtpy/index]]
-- [[genx/index]]
-- [[spectcl-5.0/python/index]]
-- [[rootxamine/index]]
-- [[spectcldb/index]]
+- [User guide](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/index,md)(Added June 13, 2017)
+- [SpecTcl command reference](https://github.com/FRIBDAQ/docs/tree/main/spectcl/cmdref/index.md) (Updated October 21, 2025)
+- [Programming guide for SpecTcl 7.0](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/index.md) (Updated October 21, 2025)
+- [Programming reference for SpecTcl 7.0](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/index.md) (Updated October 21, 2025)
+- [SpecTcl tools for DDAS (5.0-10 and later)](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/index.md)
+- [SpecTcl Batch and parallel SpecTcl (5.2 and later)](https://github.com/FRIBDAQ/docs/tree/main/specbatch/index.md)
+- [Documentation for SpecTcl's REST-like interface](https://github.com/FRIBDAQ/docs/tree/main/spectcl/restdocs/index,md) (Updated October 21, 2025)
+- [Parallel SpecTcl (version 7.0+)](https://github.com/FRIBDAQ/docs/tree/main/parallel/index.md)
+- [CutiePie (QtPy) Python-based displayer for SpecTcl 5.13-000](https://github.com/FRIBDAQ/docs/tree/main/qtpy/index.md)
+- [Genx framework independent analysis](https://github.com/FRIBDAQ/docs/tree/main/genx/index.md)
+- [SpecTcl Python scripting interface (5.3-000 and later)](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/index.md)
+- [SpecTcl 5.10-006 introduces how to get a Root interpreter that knows about the spectra in a SpecTcl display (Xamine) shared memory](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/index.md)
+- [SpecTcl Sqlite3 store](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/index.md)
   	    (SpecTcl 5.3 and later), provides an Sqlite3 based store for
   	    SpecTcl objects and pre-processed event data.
-- [[vmusbspectcl/index]]
-- [[mvlcspectcl/index]]
-- SpecTcl Plugin documentation
+- [Using SpecTcl with VMUSBReadout](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/index.md)
+- [Using SpecTcl with data from fribdaq-readout (MVLC contoller)](https://github.com/FRIBDAQ/docs/tree/main/mvlcspectcl/index.md)
 
 
 # FRIB Analysis Pipeline
