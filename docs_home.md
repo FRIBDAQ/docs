@@ -56,13 +56,13 @@ FRIBDAQ is a winner of the Sourceforge community choice award
 
 As you can imagine, FRIBDAQ is a large package with many utilities. Indeed 
      a lot of time has been spent documenting its capabilities. For more 
-     details, please continue reading the [[nscldaq-11.0/index]] of the FRIBDAQ 11.0 comprehensive documentation. That should get 
+     details, please continue reading the [User guide](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/index.md) of the FRIBDAQ 11.3 comprehensive documentation. That should get 
      your feet wet.
 
 
-- [[https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/index.md]]
-- [[cookbook/index]]
-- [[daqformat/index]]
+- [User guide](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/index.md)
+- [Cookbook](https://github.com/FRIBDAQ/docs/tree/main/cookbook/index.md)
+- [Format decoder](https://github.com/FRIBDAQ/docs/tree/main/daqformat/index.md)
 
 
 # What is SpecTcl?
