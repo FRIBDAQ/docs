@@ -1,0 +1,41 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_stop"></a>stop
+
+<a name="AEN82536"></a>## Name
+
+stop -- Stop data sources
+
+<a name="AEN82539"></a>## Synopsis
+
+**proc ::*providername*::stop *sourceId* {
+...
+}
+          **
+
+<a name="AEN82544"></a>## DESCRIPTION
+
+Called to stop the data source identified by
+            `sourceId`.
+            The `sourceId` parameter is
+            the value of the sourceid dict element passed to the
+            [[r82461]]
+            command.
+
+r
+            Once this command is executed, the data source provider should invalidate
+            the `sourceId`, and take whatever steps are needed
+            to release any resources the data source has used.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| check | Up | begin |

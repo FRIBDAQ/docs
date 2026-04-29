@@ -1,0 +1,94 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.stateclient"></a>stateclient
+
+<a name="AEN88382"></a>## Name
+
+stateclient -- REST client of manager state machine
+
+<a name="AEN88385"></a>## Synopsis
+
+```
+package require stateclient
+
+set obj [StateClient objname ?options...?]
+$obj configure optname value ...
+set state [$obj currentState]
+set successors [$obj nextStates]
+set actual [$obj transition desired]
+$obj kill
+
+$obj destroy
+
+      
+```
+
+<a name="AEN88387"></a>## DESCRIPTION
+
+The stateclient package provides a
+            **snit::type** class that serves as a client to the
+            DAQ manager's state machine REST server domain.  The client hides
+            package presents a simple to use interface that completely hides
+            the process of service location, request formation and reply
+            decoding.
+
+<a name="AEN88392"></a>## OPTIONS
+
+The following options can be provided either at construction time
+         or later on via the `configure` method.
+         Each rest request performs service discovery and connects to the
+         server.  Therefore it is possible to dynamically switch the target
+         of a client object by reconfiguring the connection information.
+
+Note that the service name discovered defaults to
+         DAQManager.  It can be modified by setting
+         the `::clientutils::SERVICE`  variable to the
+         desired service name.
+
+
+
+`-host` DNS-nameThe DNS host name or IP address of the system on which
+                  the manager is running
+
+`-user` usernameThe username of the user that started the server.
+
+<a name="AEN88410"></a>## METHODS
+
+Constructed  `StateClient ` objects have the following
+         methods:
+
+
+
+`configure` option value...Modifies the value of one or more options.  The parameters
+                  to this method are a sequence of option names followed by
+                  new values for that option.  See OPTIONS
+                  above for a list of the legal options.
+
+`currentState`Returns the textual name of the current state.
+
+`nextStates`Returns a list of textual state names that can be
+                  reached by transitioning from the current state.
+
+`transition` `newstate`Attempts a tranisition to the `newstate`.
+                  The method call blocks until the server has completed its
+                  transition.  At that time the state of the system is returned.
+                  Note that it is possible the state transition will fail
+                  and that may result in a return value other than
+                  `newstate`.
+
+`kill`Request that the server exit. Note that the server will
+                  first attempt to transition into the SHUTDOWN
+                  state.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| auth | Up | programstatusclient |

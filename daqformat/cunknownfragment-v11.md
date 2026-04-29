@@ -1,0 +1,61 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6896"></a>CUnknownFragment (v11)
+
+<a name="AEN6900"></a>## Name
+
+CUnknownFragment (v11) -- Event buider fragments with non ringitem payloads.
+
+<a name="AEN6903"></a>## Synopsis
+
+```
+#include <v11/CUnknownFragment.h>
+
+namespace v11 {
+
+class CUnknownFragment : public ::CUnknownFragment
+{
+    
+public:
+    CUnknownFragment(uint64_t timestamp, uint32_t sourceid, uint32_t barrier,
+                     uint32_t size, void* pPayload);
+    virtual const void*  getBodyPointer() const;
+    virtual void* getBodyPointer();
+    virtual bool hasBodyHeader() const;
+    virtual void* getBodyHeader() const;
+    virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0) ;
+    
+
+    std::string typeName() const;
+    virtual std::string toString() const;
+    
+};
+
+}
+
+
+                
+```
+
+<a name="AEN6905"></a>## DESCRIPTION
+
+The way to think about this item is as a
+                    `CRingFragmentItem` whose payload
+                    is not know to be a ring item itself.  It has all of the
+                    same methods with all the same meanings as tha class, however
+                    the item type is
+                    v11::EVB_UNKNOWN_PAYLOAD.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingTextItem (v11) | Up | NSCLDAQ Version 12 format |

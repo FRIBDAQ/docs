@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN732"></a>CDataDistributor
+
+<a name="AEN736"></a>## Name
+
+CDataDistributor -- Data Distribution base class.
+
+<a name="AEN739"></a>## Synopsis
+
+```
+#include <CDataDistributor>
+class CDataDistributor
+{
+public:
+    virtual ~CDataDistributor() {}
+    virtual void handleData(std::pair<size_t, void*>& info) = 0;
+};
+
+
+                    
+```
+
+<a name="AEN741"></a>## DESCRIPTION
+
+This  class is documented in case you want to
+                        write additional methods to dispose of data that has
+                        been gotten from a batch SpecTcl data source.
+                        Concrete subclasses must implement a single method;
+                        `handleData` which takes, as a
+                        parameter, a pair gotten from the data getter's
+                        `read` method.  This pair contains
+                        the size and pointer to the block of data to handle.
+                        When this method returns, there must be no further need
+                        to reference that storage (it can be freed if desired).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDataGetter | Up | MPITcl |

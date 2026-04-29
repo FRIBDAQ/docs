@@ -1,0 +1,154 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.DaqPortManager"></a>DaqPortManager
+
+<a name="AEN15138"></a>## Name
+
+TCP/IP service port manager. -- Manage TCP/IP service ports and advertise their allocations
+
+<a name="AEN15141"></a>## Synopsis
+
+**tclsh DaqPortManager *options...*
+**
+
+<a name="AEN15145"></a>## DESCRIPTION
+
+DaqPortManager  is  a  persistent  server that should be run at system startup
+       time.  The program manages a block of TCP/IP ports.   Clients connect  to  the
+       server  to  request  ports  as well as to ask the server to return the current
+       port assignments.
+
+Command options (see OPTIONS) describe how th eprogram starts up.  The command
+       options  allow  the user to define the block of ports that will be managed, to
+       determine which port the port manager itself will listen  on  for  connections
+       and  to define where the software will writ its log file.  Several other files
+       are maintained by the program (see FILES).
+
+<a name="AEN15149"></a>## OPTIONS
+
+
+
+`-ports` *range*Defines the range of ports that will be managed by the
+                    port manager program.  This should be specified as a pair
+                    of integer number separated by a - (dash).
+                    e.g. 30001-31000.  If not provided defaults
+                    to 30001-31000.
+
+`-listen` *port*Defines the port on which the port manager itself will listen for
+                    connections.  This defaults to 30000.  The port manager
+                    is itself a server.  Most of the software that connects to it assumes the
+                    default port will be used to communicate with it, therefore, changing this
+                    value will most likely require other changes elsewhere in the NSCLDAQ software
+
+`-log` *logfile*The  `-log` switch  is followed by a path to a file
+               that will be used to
+              log the server's actions.  The server logs  connections,  port  allocations,
+              port allocation failures, port releases and illegal requests by
+              clients.  The default log file is
+              /var/log/nscldaq/portmanager.log
+
+`-usagefile` *usagefilename*The
+                    `-usagefile`
+                    switch is followed by a path to a file that will be used
+              to  hold  the  instantaneous  port usage.  This file can be examined to
+              show the current port usage. Each line in this file is a three  element
+              TCL  list of port, application and user for an allocated port.   If the
+              `-usagefile` switch is not provided, the server defaults to
+              /var/tmp/daqportmgr/ports.txt.
+
+<a name="AEN15185"></a>## PROTOCOL
+
+The server protocol is quite simple. Once connected, two transactions are recognized.
+       Each transaction is requested by the client  and  fulfilled  by  the
+       server.   Requests are a single line (terminated with a \n) and
+       cann be one of the following:
+
+
+
+**GIMME *appname user*****GIMME**  requests the server allocate a port.  When allocated, the server
+              will believe that the  port  is  allocated  to  the  application  named
+              appname run by the user user. If successful, the server replies:
+
+
+
+OK portnumWhere  the  OK  indicates  success and the
+                            portnum is the number of the
+                            port allocated.
+
+FAIL reasonIndicates a failure where reason is a TCL quoted
+                            item describing why the port could not  be
+                            allocated.
+
+Once a client has allocated a port it must hold a persistent connection to the
+       server.  When a client owning ports drops this connection its ports are  freed
+       by  the  server.  While  possibly inconvenient, this protocol prevents clients
+       from accidently holding on to ports past exit.
+
+LISTRequests that the server list port usage.  The server will issue
+                  a multiline reply to this request.  The first line will be of the form:
+
+
+
+OK nWhere  n  is  the number of ports that are currently allocated.   The n
+              lines that follow each consists of a 3 element TCL list  containing  in
+              order,  the  port number, the application name and the name of the user
+              that is running the application.   Note  that  if  there  are  multiple
+              instances  of  the  same application run by the same user, They will be
+              qualified by appending an underscore and an application  instance  num?
+              ber.
+
+<a name="AEN15216"></a>## EXAMPLES
+
+```
+           tclsh8.4 /usr/opt/daq/current/bin/DaqPortManager -ports 31000-40000 &    
+        
+```
+
+Starts  the  port  manager listening on port 30000 managing ports in the range
+       31000 through 40000.  The port manager is run in the background as a daemon process.
+
+<a name="AEN15220"></a>## FILES
+
+The server maintains:
+
+```
+       /var/run/nscldaq/daqportmgr.pid  - contains the port manager#033;s process id.
+       /var/log/nscldaq/portmanager.log - Default logfile
+       /var/tmp/daqportmgr/listen.port  - Contains the listen port for the server.
+       /var/tmp/daqportmgr/ports.txt    - Default port usage file.
+        
+```
+
+<a name="AEN15224"></a>## KNOWN DEFECTS
+
+The server should be able to default to listen on the  service  daqportmgr  in
+       /etc/services if present before falling back on port 30000
+
+The  !uniquification!  of  the  application name for the LIST command may vary
+       from query to query as applications drop out.
+
+Only connections to/from "localhost" are considered local.   The  server  does
+       not  bother  to  determine if any other sources are local even though they may
+       be.
+
+If multiple instances of the port manager are run, only last one started  will
+       be listed in /var/run/nscldaq/daqportmgr.pid
+
+<a name="AEN15231"></a>## SEE ALSO
+
+[[r23764]]
+[[r23919]]
+[[r68678]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 1tcl | Up | tclserver |

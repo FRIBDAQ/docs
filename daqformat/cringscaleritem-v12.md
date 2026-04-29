@@ -1,0 +1,218 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN8608"></a>CRingScalerItem (v12)
+
+<a name="AEN8612"></a>## Name
+
+CRingScalerItem (v12) -- Encapsulate scaler data
+
+<a name="AEN8615"></a>## Synopsis
+
+```
+#include <v12/CRingScalerItem.h>
+
+
+namespace v12 {
+
+class CRingScalerItem : public ::CRingScalerItem
+{
+
+  // Constructors and canonicals.:
+
+public:
+  CRingScalerItem(size_t numScalers);
+  CRingScalerItem(uint32_t startTime,
+		  uint32_t stopTime,
+		  time_t   timestamp,
+		  std::vector<uint32_t> scalers,
+                  bool                  isIncremental = true,
+                  uint32_t              timeOffsetDivisor = 1);
+  CRingScalerItem(uint64_t eventTimestamp, uint32_t source, uint32_t barrier,
+                  uint32_t startTime,
+		  uint32_t stopTime,
+		  time_t   timestamp,
+		  std::vector<uint32_t> scalers,
+                  uint32_t timeDivisor = 1, bool incremental=true);
+
+  virtual void     setStartTime(uint32_t startTime);
+  virtual uint32_t getStartTime() const;
+  virtual float    computeStartTime() const;
+  
+  virtual void     setEndTime(uint32_t endTime);
+  virtual uint32_t getEndTime() const;
+  virtual float    computeEndTime() const;
+
+  virtual uint32_t getTimeDivisor() const;
+
+  virtual void     setTimestamp(time_t stamp);
+  virtual time_t   getTimestamp() const;
+  
+  virtual bool isIncremental() const;
+
+  virtual void     setScaler(uint32_t channel, uint32_t value) ;
+  virtual uint32_t getScaler(uint32_t channel) const ;
+  virtual std::vector<uint32_t> getScalers() const;
+
+  virtual uint32_t getScalerCount() const;
+  virtual uint32_t getOriginalSourceId() const;
+
+  virtual std::string typeName() const;
+  virtual std::string toString() const;
+  
+  virtual size_t getBodySize()    const;
+  virtual const void*  getBodyPointer() const;
+  virtual void*  getBodyPointer();
+
+  virtual bool hasBodyHeader() const;
+  virtual void* getBodyHeader() const;
+  virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                     uint32_t barrierType = 0);
+  virtual uint64_t getEventTimestamp() const;
+  virtual uint32_t getSourceId() const;
+  virtual uint32_t getBarrierType() const;
+
+};
+   
+}         
+
+                    
+```
+
+<a name="AEN8617"></a>## DESCRIPTION
+
+Encapsulates data from NSCLDAQ readout framework periodic
+                        scaler reads.  In NSCLDAQ-12, these items also include
+                        information about the original data source id.  This allows
+                        downstream analysis to properly analyze these data or for
+                        these data to be properly analyzed from file.
+
+<a name="AEN8620"></a>## METHODS
+
+
+
+`  CRingScalerItem(size_t  numScalers);`Constructs a scaler item large enough to hold
+                            `numScalers` 32 bit scaler counters.
+                            The start/stop time offsets are both set to
+                            0 as are the scaler values.
+                            The time divisor is initialized to 1
+                            and the clock time is set to the time at which
+                            the item was constructed.
+
+`  CRingScalerItem(uint32_t  startTime, uint32_t  stopTime,, time_t    timestamp, std::vector<uint32_t>  scalers,, bool  isIncremental = true, uint32_t  sid = 0, uint32_t   timeOffsetDivisor = 1);`Fully constructs a scaler item.  The scaler values
+                            are passed in via the `scalers`
+                            parameter.  The size of that vector determines
+                            the number of scalers the item will hold.
+
+The interval start and stop offsets are given
+                            by `startTime` and
+                            `stopTime` respecively.
+                            The optional `timeOffsetDivisor`
+                            parameter provides the number of ticks in these
+                            offset values per second providing support for
+                            sub-second time resolution.
+
+THe clock time is provided by
+                            `timestamp`.
+
+If `isIncremental` is false,
+                            the counts are assumed to accumulate for the length
+                            of the run.  Otherwise the counts in the scalers are
+                            assumed to represent the counts over the interval
+                            defined by `startTime`
+                            through `stopTime`.
+
+The `sid` is used to initialize
+                            the source id field of the body header for this item.
+                            The timestamp is initialized to a value that asks the
+                            event builder to assign a timestap to the item.
+                            The barrier type of the body header is set to
+                            0 (no barrier).
+
+The original source id field in the body is also set
+                            to `sid`.  This allows downstream
+                            software to properly attribute the source if this item
+                            after the event builder re-writes the body header.
+
+` virtual void      setStartTime(uint32_t  startTime);`Sets the offset into the run at which the scaler counting
+                            interval began.
+
+` const virtual uint32_t  getStartTime() ();`Returns the offset into the run at which the
+                            scaler counting began.  See next method, however.
+
+` virtual float     computeStartTime();`Uses the scaler interval start offset and the
+                            counting divisor to compute the start time offset
+                            in seconds.
+
+` virtual void      setEndTime(uint32_t  endTime);`Sets the offset into the run of the end of the
+                            scaler counting interval
+
+` const virtual uint32_t  getEndTime();`Returns the offset into the run at which the scaler
+                            counting interval ended.  See, however the next
+                            method.
+
+` const virtual float     computeEndTime();`Using the end offset and the offset divisor computes
+                            and returns the number of seconds into the run at
+                            which the scaler counting interval ended.
+
+` const virtual uint32_t  getTimeDivisor();`Returns the number of ticks in the start and end
+                            time offsets that correspond to a second.
+
+` virtual void      setTimestamp(time_t  stamp);`Sets the clock time associated with the item
+                            to be `stamp`.
+
+` const virtual time_t    getTimestamp();`Returns the clock time associated with the item.
+
+` virtual bool  isIncremental();`If the scalers are cleared after each read, this
+                            returns true, if they are allowed
+                            to accumulate across counting intervals, this returns
+                            false
+
+` virtual void      setScaler(uint32_t  channel, uint32_t  value);`Sets the counts for the scaler  selected by
+                            `channel` to
+                            `value`. If `channel`
+                            is out of range an `std::out_of_range`
+                            exception is thrown.
+
+` const virtual uint32_t  getScaler(uint32_t  channel);`Returs the value of the scaler selected by
+                            `channel`.  If
+                            `channel` is out of range a
+                            `std::out_of_range`
+                            exception is thrown.
+
+` const virtual std::vector<uint32_t>  getScalers();`Returns a vector containing the values of the scaler
+                            counts in the item.
+
+` const virtual uint32_t  getScalerCount();`Returns the number of scalers in the item.
+
+`  const  virtual uint32_t  getOriginalSourceId();`Returns the original source id field from the item.
+                            Analysis software should use this to determine the
+                            actual source of the data in this item as the
+                            source id in the body header is prone to be overwritten
+                            by the event builder (the reason for introducing this
+                            field).
+
+` const virtual void*  getBodyHeader();`Returns a pointer to the item's body header
+                            or nullptr if it does not have one.
+
+` virtual void  setBodyHeader(   uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType = 0);`Sets new values for the body header of the item
+                            if it already has one or creates a new one if it does not.
+
+` const virtual std::string  typeName();`Returns a string that identifies the type of the item:
+                            Scaler
+
+` const virtual std::string  toString();`Returns a string that details the contents of the
+                            item.  This is used by e.g. **dumper**
+                            to produce a formated dump of a stream of ring items.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingPhysicsEventCountItem (v12) | Up | CRingStateChangeItem (v12) |

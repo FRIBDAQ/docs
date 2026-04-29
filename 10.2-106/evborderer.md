@@ -1,0 +1,354 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_evborderer"></a>EvbOrderer
+
+<a name="AEN9788"></a>## Name
+
+EvbOrderer -- Event orderer compiled commands.
+
+<a name="AEN9791"></a>## Synopsis
+
+**package require EvbOrderer
+            **
+
+**EVB::inputStats
+                **
+
+**EVB::outputStats *get | clear*
+**
+
+**EVB::dlatestats
+                **
+
+**EVB::onDataLate *?newScript?*
+**
+
+**EVB::barrierTrace *sub-command ?script?*
+**
+
+**EVB::source *?socket id1...?*
+**
+
+**EVB::deadsource *id*
+**
+
+**EVB::reviveSocket *socket*
+**
+
+**EVB::flushqueues
+                **
+
+**EVB::reset
+                **
+
+**EVB::barrierstats 
+                **
+
+**EVB::config set *name value*
+**
+
+**EVB::config get *name*
+**
+
+<a name="AEN9828"></a>## DESCRIPTION
+
+This package supplies the commands that influence the behavior
+                of the compiled fragment handling code.  Several of the
+                commands in this package are not generally intended for
+                application use.  These will be pointed out.  Other commands
+                are available to allow the user to tailor the event builder monitor
+                displays they might want to create.
+
+For the comprehensive description of the commands supplied
+            by this package see COMMANDS below.
+
+<a name="AEN9832"></a>## COMMANDS
+
+
+
+**        EVB::inputStats
+                        **
+
+Returns information about input queue statistics.
+                        The data are returned as a list.  The elements of the
+                        list are in order:
+
+
+
+- The oldest timestamp of all the
+                                      in-flight fragments the input queues.
+- The newest timestamp of all the
+                                  in-flight fragments in the input queues.
+- The total number of in-flight fragments
+                                      over all input queues.
+- A list of elements for each source queue.
+                                      Each element of this list is itself a sublist
+                                      that contains in order, the source id,
+                                      the number of fragments in the queue
+                                      (depth) and the oldest fragment in the queue.
+
+
+**        EVB::outputStats *get | clear*
+**
+
+The operation of this command depends on its subcommand.
+                        If the first command word after the command is
+                        clear the output queue counters held
+                        by the compiled code are all cleared.
+
+If the second word of this command is get
+                        The command
+                        returns statistics about the fragments that have been
+                        removed from the input queues.  Note that a fragment gets
+                        removed from an input queue because it is known how to order
+                        it into the output of the event builder.
+
+The return value of this command is a list that
+                        contains in order:
+
+
+
+- Total number of fragments de-queued for
+                                      transmission.
+- Statistics for each input queue.  This is
+                                      a list of two element sublists.  The first
+                                      element of each sublist is the source id.
+                                      The second element is the number
+                                      of fragments that have been de-queued from
+                                      this input queue.
+
+
+**        EVB::dlatestats
+                        **
+
+Returns statistics about the data late fragments.
+                        A fragment is considered late if dequeueing it is
+                        gauranteed to create an error in the total ordering of
+                        the output fragments.  Normally fragments are only
+                        emitted after they have been either held in the queues
+                        for some minimum time or when there are fragments
+                        in all input queues.  If a data source is slow
+                        sending fragments fragments may arrive with timestamps
+                        that are smaller than the fragments that have already
+                        been emitted.
+
+A large number of data late cases implies you
+                        should change the event building window.  See
+                        the **config** command below
+                        for a description of how to do this.
+
+The return value of this command is a list with the
+                        following elements on it in order:
+
+
+
+- Total number of data late fragments.
+- Worst case data late (biggest difference
+                              between the arrival time of the late fragment and
+                              the end of the window in which it should have been
+                              emitted.
+- Per data source dta liate counts.  This is
+                                  a list of two element lists containnig the
+                                  data source id and the number of late fragments
+                                  it emitted.  Only data sources that have been
+                                  late are represented in this list (no zeroes).
+- Per source worst case late time differences.
+                                  For each source that has exhibited at least one
+                                  data late condition, this list has a two element
+                                  sublist containing the source id and the worst
+                                  case time difference.
+
+**        EVB::onDataLate *?newScript?*
+**
+
+This command allows you to provide a script that can be
+                        notified of a data late condition.
+
+If `newScript` is supplied,
+                        it replaces any existing data late handler script.
+                        If `newScript` is empty
+                        any prior script is removed and there will be no
+                        data late script handler.  If `newScript`
+                        is not supplied, no change to the script is performed.
+                        Regardless, the command returns handler script
+                        (possibly empty) as it was prior to executing the command.
+                        This allows you to support multiple scripts by implementing
+                        a chaining mechanism.
+
+When a handler script is called the following items
+                        are appended to it:
+
+
+
+- The source ide of the source that is at fault.
+- The timestamp of th source
+- The most recent timestamp seen
+- A binary byte array containing the
+                                      fragment body.  You can use
+                                      **binary scan** to retrieve
+                                      elements from this item.
+
+
+**        EVB::barrierTrace *sub-command ?script?*
+**
+
+Allows you to establish a script that is executed when
+                        a barrier occurs.  The *sub-command*
+                        indicates whether the trace is for
+                        complete or incomplete>
+                        barriers.
+
+If the sub-command is complete the
+                        trace on complete barriers is queried or modified.
+                        A complete barrier is one for which all sources contribute
+                        a barrier event fragment within the timeout.  It is not
+                        necessary that all barrier fragments be of the same type.
+                        If they are not, this case is called a
+                        *heterogeneous barrier*.
+
+If the sub-command is incomplete the
+                        trace on incomplete barriers is queried or modified.
+                        An incomplete barrier is one or which at least one data
+                        source did not contribute a barrier fragment within the
+                        sorting time window.
+
+In all cases, if the script is an empty string the
+                        corresponding barrier event will no longer have a script
+                        attached to it.  If the script is omitted completely,
+                        the trace is not changed.  All versions of the command
+                        return the selected trace script as it was prior
+                        to the command.
+
+Complete barrier scripts have appended to them a list
+                        of pairs.  Each pair contains a data source id and
+                        the barrier type for that source id.  Incomplete barrier
+                        scripts have two argument appended to them. The first
+                        is the same as what is appended to complete barrier
+                        scripts (but only for the source ids that actually
+                        contributed a barrier fragment), the second is
+                        a list of the sources that were missing from the
+                        barrier event.
+
+**        EVB::source *?socket id1...?*
+**
+
+Creates new source queues associated with a socket.
+                        This is normally not intended to be used by application
+                        code.  `socket` is a file descriptor
+                        open on a client socket.  `id1..`
+                        are source ids.  An input queue is created for each
+                        source id and bound to the socket.  Note that
+                        you must be *very* careful using
+                        this in applications since creating sources that don't
+                        exist can result in incomplete barriers if you are using
+                        barriers.
+
+If the `socket` and
+                        `source` are not supplied the
+                        command returns the list of source ids..
+
+**        EVB::deadsource *id*
+**
+
+Marks the event source `id` as dead.
+                        A dead source is not expected to participate in any
+                        barrier events.  A dead source will become alive again
+                        if it's client contributes any data for that source.
+                        Sources can also be resurrected if **revieSocket**
+                        is called on the socket to which they are bound.
+
+**        EVB::reviveSocket *socket*
+**
+
+Revies a socket.  All of the event sources associated with
+                        that socket are marked alive again.
+
+**        EVB::flushqueues
+                        **
+
+Flushes the contents of all queues to the output.
+                        This can be called when you are pretty certain there
+                        won't be any more data in the near future (e.g. the
+                        run just ended).  The command causes all remaining
+                        in-flight data to be sorted and output.  If you don't call
+                        this it doesn't really matter, the time window will
+                        eventually ensure the data are output.
+
+**        EVB::reset
+                        **
+
+Resets timestamps back to the initial state.  This
+                        needs to be done if there's something that can cause
+                        the event sources to reset their timstamps as part of their
+                        synchronization process.
+
+**        EVB::barrierstats 
+                        **
+
+Returns the barrier statistics.  The barrier statistics
+                        consist of a two element list.  The
+                        first element describes complete barriers and
+                        is in turn a list containing in order:
+
+
+
+- The total number of barriers encountered
+- The number of homgeneous barriers
+- The number of heterogeneous barriers.
+- The number of fragments of each barrier type
+                                  This is a list of pairs of barrier type
+                                  and number of fragments of that type.
+- Statistics by event source, which is a list
+                                  each item of which is a list containning
+                                  in order The source id, the numbder of
+                                  barrier fragments seen from this source and
+                                  a list of pairs containning fragment type
+                                  and number of associated fragments of that type.
+
+The second element describes the incomplete barriers.
+                        This is a list whose elements are in order:
+
+
+
+- Number of incomplete barriers
+- Number of homgeneous incomplete barriers
+- Number of heterogenous incomplete barriers
+- A list of pairs containing barrier type and
+                                  the number of times it occurs.
+- Source statistics which are a list of pairs.
+                                  Each pair is a source id and the number of times
+                                  it was absent from a barrier.
+
+**        EVB::config set *name value*
+**
+
+Sets a configuration variable.  `name`
+                        determines which configuration variable will be modified
+                        and `value` provides the new value.
+
+Currently the only supported configuration name is
+                        window which sets the time window
+                        in which fragments are accumulated before builds can
+                        occur.
+
+**        EVB::config get *name*
+**
+
+Returns the value of a configuration parameter
+                        `name`.  The
+                        only name supported at this time is
+                        window which returns the build time
+                        window.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Observer | Up | 1tcl |

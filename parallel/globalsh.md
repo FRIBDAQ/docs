@@ -1,0 +1,99 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN779"></a>Globals.h
+
+<a name="AEN783"></a>## Name
+
+Globals.h -- Describe MPI specific definitions in Globals.h
+
+<a name="AEN786"></a>## Synopsis
+
+```
+#include <config.h>
+...
+#ifdef WITH_MPI
+#include <mpi.h>
+#endif
+...
+                    ...
+extern bool                gMPIParallel;      
+
+#ifdef WITH_MPI
+
+extern MPI_Comm                  gRingItemComm;  
+extern MPI_Comm                  gXamineGateComm;
+#endif
+
+
+#define MPI_ROOT_RANK   0
+#define MPI_EVENT_SINK_RANK 1
+#define MPI_FIRST_WORKER_RANK 2
+
+#ifndef MPI_TCL_TAG
+#define MPI_TCL_TAG 1                
+#endif
+#define MPI_TRACE_RELAY_TAG 2        
+#define MPI_RING_ITEM_TAG 3          
+                    ...
+                    
+```
+
+<a name="AEN788"></a>## Description
+
+The SpecTcl header Globals.h, which is installed in the
+                        include of the SpecTcl installation tree, provides
+                        several definitions that are generally useful for SpecTcl in the MPI environment.
+
+The include for config.h is shown because, if 
+                        SpecTcl was built with MPI support the configure script will define
+                        the pre-processor symbol WITH_MPI.  This can be used
+                        to conditionalize the compilation of code and definitions that depend on 
+                        the installation of a version of MPI and the use of an MPI compiler driver.
+
+The items defined are:
+
+
+
+gMPIParallelThis boolean is defined to be true at run time
+                                if the program has been built with MPI support *and*
+                                is running as an MPI parallel program.
+
+gRingItemCommThis item is only defined if SpecTcl was built with MPI parallel
+                                support.  It is the communicator used to send ring items
+                                to the ring item pump.
+
+gXamineGateCCommThis item is only defined if SpecTcl was built with MPI parallel
+                                support.  It is the communicator used to send gate definitions
+                                to the Xamine Gate pump.
+
+MPI_ROOT_RANKThis preprocessor definition is the world communicator rank
+                                of the root process.
+
+MPI_EVENT_SINK_RANKThis preprocessor definition is the world communicator rank of the
+                                process that runs the event sink pipeline.
+
+MPI_FIRST_WORKER_RANKThis preprocessor definition is the world communicator rank
+                                of the lowest ranked process that runs the analysis pipeline;
+                                that is worker processes.
+
+MPI_TCL_TAGThis preprocessor definition is the MPI tag used on messages
+                                sent to the Tcl pump.  It is also defined in TclPump.h
+
+MPI_TRACE_RELAY_TAGThis preprocessor definition is the MPI tag used on gate trace messages sent 
+                                to the gate trace pump.
+
+MPI_RING_ITEM_TAGThis preprocessor defintion is the MPI tag used on Ring item messages sent to
+                                the ring item pump.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mpiSpecTcl  reference material | Up | TclPump.h |

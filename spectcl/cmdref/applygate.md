@@ -1,0 +1,151 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.applycommand"></a>applygate
+
+<a name="AEN22"></a>## Name
+
+applygate -- Apply gates to spectra and show which are applied.
+
+<a name="AEN25"></a>## Synopsis
+
+|  |  |
+| --- | --- |
+|  | Note change in command |
+|  | Prior to SpecTcl version 7.0, this command wasapply. 
+                That, however conflicted with a Tcl Core command of the same name that
+                was introduced in Tcl 8.5.  Therefore with SpecTcl 7.0 and later,
+                this command is namedapplygateto disambiguate it 
+                from the Tcl coreapplycommand. |
+
+**applygate *gatename spectrum1 ?spectrum2...?*
+**
+
+**applygate `-list`  ?*pattern*
+**
+
+<a name="AEN39"></a>## DESCRIPTION
+
+The **applygate** command applies a gate to one or more
+            spectra or, if given the `-list` option lists spectra
+            and the gates applied to them.
+
+Application of a gate requires at least two command parameters.
+            The first is the name of a gate.  The remaining parametrs are the names
+            of spectra to which that gate will be applied.  Once a gate has been
+            applied to a spectrum it can only be incremented for events
+            that satisfy the gate.
+
+The `-list` option can accept an optional pattern
+            parameter.  The pattern parameter accepts glob wild card characters.
+            If not provided, * is used.
+
+<a name="AEN48"></a>## OPTIONS
+
+
+
+`-list`Instead of applying a gate to one or more spectra, the
+                        presence of this option lists the spectra and the
+                        gates applied to them.
+
+<a name="AEN56"></a>## OUTPUT
+
+A successful **applygate** command
+            only produces meaningful output if the `-list` option
+            is used.  In that case, the output is a
+            list with a two element sublist for each defined spectrum that
+            matches the pattern parameter (recall that if no pattern is provided,
+            the patternd defaults to * which matches
+            everything).
+            The first element of that list is the name of the spectrum. The second
+            element of the list is a four element list containing in order:
+            The name of the applied gate, the gate id, the gate type code and
+            the gate definition string.  The contents of the gate definition
+            string vary depending on the gate type.
+
+<a name="AEN62"></a>## EXAMPLES
+
+<a name="AEN64"></a>**Example 1. Applying a gate to a single spectrum**
+
+**applygate neutrons pid
+            **
+
+The example above applies the gate named neutrons
+            to the single spectrum named pid
+
+<a name="AEN71"></a>**Example 2. Applying a gate to several spectra**
+
+**applygate alphas energy1 energy2 energy3 energy4
+            **
+
+Applies the gate named alpha to four spectra
+            named:
+            energy1,
+            energy2,
+            energy3 andenergy4.
+
+<a name="AEN81"></a>**Example 3. Listing gates applied to all spectra**
+
+**applygate -list
+            **
+
+Results in a list with a two element sublist for each defined spectrum.
+            The first element of that list is the name of the spectrum. The second
+            element of the list is a four element list containing in order:
+            The name of the applied gate, the gate id, the gate type code and
+            the gate definition string.  The contents of the gate definition
+            string vary depending on the gate type.
+
+Suppose the neutrons and alphas
+            gates are both slices.  The output might look something like:
+
+<a name="AEN89"></a>```
+{pid {neutrons 0 s {time {1700.00 1800.00}}}}
+{energy1 {alphas 1 s {pid {1200.00 1350.00}}}}
+{energy2 {alphas 1 s {pid {1200.00 1350.00}}}}
+{energy3 {alphas 1 s {pid {1200.00 1350.00}}}}
+{energy4 {alphas 1 s {pid {1200.00 1350.00}}}}
+            
+```
+
+Note that all spectra have an applied gate.  The gate may, however be
+            a T gate, which is always satisfied.  For example:
+
+<a name="AEN93"></a>```
+... {ungated-spectrum {-TRUE= 0 T {}}} ...
+            
+```
+
+<a name="AEN95"></a>**Example 4. Using a filter to list gate applications**
+
+**applygate -list e*                    
+                **
+
+For the spectra and application of the previous example, this will
+            return:
+
+<a name="AEN100"></a>```
+{energy1 {alphas 1 s {pid {1200.00 1350.00}}}}
+{energy2 {alphas 1 s {pid {1200.00 1350.00}}}}
+{energy3 {alphas 1 s {pid {1200.00 1350.00}}}}
+{energy4 {alphas 1 s {pid {1200.00 1350.00}}}}
+            
+```
+
+<a name="AEN102"></a>## SEE ALSO
+
+
+
+- [[r1428]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl Commands | Up | attach |

@@ -1,0 +1,248 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.parametercommand"></a>parameter
+
+<a name="AEN1866"></a>## Name
+
+parameter -- Define, list and delete parameter definitions
+
+<a name="AEN1869"></a>## Synopsis
+
+**parameter `?-new?` name id ?**  [resolution | resolution {low high units} | ?units?]
+
+**parameter -list ?`-byid`?
+            **  [*?pattern?* | `-id` *id*]
+
+**parameter -delete                
+            **  [*name* | `-id` *id*]
+
+<a name="AEN1894"></a>## DESCRIPTION
+
+Manipulates the SpecTcl parameter dictionary.
+
+SpecTcl maintains a parameter dictionary. The parameter
+            dictionary creates a correspondence between elements in the Event
+            dynamic array and named parameters which are used to create spectra.
+            Each parameter has the following properties:
+
+
+
+- A Name, which can be used to refer to the parameter when constructing spectra.
+- An Id which represents the offset into the parameter "array"
+                      (`rEvent`) at which the parameter will be
+                      placed (offsets number from zero).
+- Optional scale information describing the parameter's valid
+                      range of values and a mapping between that and a real world
+                      coordinate system as well as units of measure.
+
+<a name="AEN1906"></a>## OPTIONS
+
+The first option on the **paramter** command is like
+            a command ensemble keyword.  It selects the operation the
+            **paramter** command will perform.  This section
+            will explore those options:
+
+
+
+**            parameter `?-new?` name id ?**  [resolution | resolution {low high units} | ?units?]
+
+The `-new` option is the default for
+                         the **parameter** command if no option
+                         is provided on the command line.  It creates a new
+                         parameter definition.
+
+The primary purpose of parameter definitions are assign
+                        names to specific indices of the event's parameter array
+                        like object.  This object is filled in by SpecTcl's
+                        application specific code in the event processing pipeline.
+
+The names assigned by **parameter** can
+                        then be used later to define spectra, gates and other
+                        SpecTcl parameter dependent objects.  Originally,
+                        SpecTcl parameters were only integer values and were
+                        designed to be values from digitizers that had some
+                        fixed number of bits.  Over the years, and with the
+                        introduction by Daniel Bazin of the tree parameter package,
+                        it became clear that this was an overly restrictive
+                        definition.
+
+Now, parameters in SpecTcl are double precision floating
+                        point variables.   In systems with IEEE floating,
+                        this provides a sufficient number of bits of mantissa
+                        that integer parameters can still be faithfully
+                        represented.
+
+Unfortunately, this step-by-step evolution, coupled
+                        with the strong desire to maintain backwards compatibility
+                        with user script has led to a rather confusing set of
+                        options for parameter definition.
+
+All parameter definitions must provide a parameter
+                        `name` and a `id`.
+                        Note that using the tree parameter package allows
+                        SpecTcl to assign the id.
+
+The simplest form of the parameter command is:
+
+**parameter ?`-new`? *name id resolution*
+**
+
+This creates a parameter that is intended to be an integer
+                        with `resolution` bits of resolution.
+                        Thus the range of the parameter is assumed to be from
+                        0 to 2**`resolution`-1 inclusive.
+
+**parameter ?`-new`? *name id resolution {low high units}*
+**
+
+As an intermediate between integer and floating parameters,
+                        SpecTcl supported, and still supports, scaled integer
+                        paramers.  These are integer parameters that map
+                        linearly into some floating point range.
+
+The form of the **parameter** command
+                        above,
+                        defines a parameter with range defined as in the first
+                        form of the command, but whose values are assumed to
+                        linearly map to some real coordinate line in the range
+                        [low,high].  The command parameters
+                        `low` and `high`
+                        are floating point values.  The parameter is also
+                        assumed to have
+                        `units` (e.g. cm or MeV) described
+                        by the string unit.  Parameter of this sort are called
+                        mapped parameters and are useful when building histograms
+                        of simple calibrated parameters.
+
+**parameter ?`-new`? *name id ?units?*
+**
+
+Defines a  real parameter has an arbitrary range, and
+                        optional `units`.
+                        The `units`  parameter is a string
+                         that represents the units of the parameter (e.g. "MeV")
+
+**            parameter -list ?`-byid`?
+                        **  [*?pattern?* | `-id` *id*]
+
+Returns a list of the parameter definitions. If the
+                        optional `-byid` switch is included, the
+                        parameters are sorted by Id number. Otherwise the list
+                        is alphabetical by parameter name. The output is in a
+                        form which makes processing by other Tcl commands and
+                        scripts easy.
+
+The parameters listed can be filtered.  If
+                        `-id` is not present, the
+                        optional `pattern` parameter
+                        is a glob pattern. Only names matching this pattern
+                        will be listed.  If the `pattern`
+                        is not supplied, it defaults to *
+                        which matches all parameter names.
+
+If the `-id` option is present, the next
+                        parameter is mandatory and must be the paramter
+                        `id`
+                        of the parameter you want listed.
+
+The output is a Tcl List of definitions.
+                        Each element of the list is itself a list that describes
+                        one parameter.  In order to make the processing of this
+                        list simple, all parameter definitions have the
+                        following elements (in order):
+
+
+
+nameThe name of the parameter.  Use this name
+                                    to refer to the parameter in SpecTcl
+                                    commands that need a parameter.
+
+idThe id of the parameter.  In this case the
+                                    id has some significance.  It is the index
+                                    into the `rEvent` array like
+                                    object at which the event processing pipeline
+                                    will store this parameter.
+
+Note that tree parameters make this quite a
+                                    bit easier to deal with but in the end,
+                                    what SpecTcl's histogramming kernels see are
+                                    an array like object of parameters.
+
+infoInformation about the parameter in a three
+                                    element sublist of lowlim,
+                                    hilim and units.
+                                    The actual contents and meaning of these three
+                                    items depends on how the parameter was defined.
+
+For an integer mapped parameter,
+                                    lowlimthis is the low
+                                    limit of the range represented by the parameter.
+                                    This is empty for real parameters. For
+                                    parameters that are integer unmapped, this
+                                    will be zero.
+
+For an integer mapped parameter,
+                                    hilim is the high limit
+                                    of the range represented by the parameter.
+                                    This is empty for real parameters.  For
+                                    unmapped integer parameters, this is just derived
+                                    from the paramter's resolution.
+
+units is just the
+                                    units that were specified when creating
+                                    the parameter.  If the units were not specified,
+                                    this will just be an empty string.
+
+**            parameter -delete                
+                        **  [*name* | `-id` *id*]
+
+Deletes a parameter definition. Note that when objects that
+                        depend on a parameter are created (e.g. spectra), a
+                        binding is statically done to the slot in the
+                        `rEvent` the parameter is assigned to.
+                        This means these objects will continue to function.
+                        What they do when listed depends on the type of object.
+
+If the `-id` is not present on the
+                        command, the `name` specifies the
+                        name of the parameter to delete.  If
+                        `-id` is supplied, then `id`
+                        is the id of the parameter whose definition is deleted.
+
+<a name="AEN2026"></a>## EXAMPLES
+
+<a name="AEN2028"></a>**Example 1. Creating a 12 bit 'integer' parameter**
+
+```
+parameter De1 0 12                 
+            
+```
+
+<a name="AEN2032"></a>**Example 2. Creating a real valued parameter with units in mm**
+
+```
+parameter position 2 mm
+            
+```
+
+<a name="AEN2036"></a>## SEE ALSO
+
+
+
+- [[r774]]
+- [[r2051]]
+- [[r2411]]
+- [[r1422]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| integrate | Up | pseudo |

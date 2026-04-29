@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 13. mvlcgenerate and using the Mesytec MVLC VME controller | Next |
+
+
+---
+
+# <a name="AEN8038"></a>13.7. XLM-72 based modlues
+
+Several devices supported by FRIB/NSCLDAQ are based on the XLM-72 FPGA based
+            module.  In the FRIB, in order to allow each module to be interchanged,
+            the firmware for these modules is not loaded from PROM but loaded
+            into the SRAM.  The FPGA is then told to load its firmware from SRAM and
+            initiate operations.
+
+The offline nature of mvlcgenerate means that you have two  choices for how
+            to handle the firmware for these devices:
+
+
+
+- Load the firmware at the start of data taking. This can be
+                      time consuming but will work.
+- Load the firmware external to data taking and don't load
+                      the firmware ever again, as long as power is maintained on the crate.
+
+We support both modes of operation. The program
+            [[r24203]]
+            describes a program that can load an XLM-72's firmware over the MVLC.
+            Each of the XLM support modules, in addition to providing an option
+            to provide the name of the firmware file, provides a 
+            `-load-firmware` option which, when true, produces
+            code to load the firmware each time data taking starts.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mvlclist | Up | simple-setups |

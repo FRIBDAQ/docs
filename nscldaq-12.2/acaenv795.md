@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN104908"></a>ACAENV795
+
+<a name="AEN104912"></a>## Name
+
+ACAENV785 -- Tcl Driver for CAEN V785 fixed initialization
+
+<a name="AEN104915"></a>## Synopsis
+
+```
+package require ACAENV785
+ACAENV785 device-name
+
+addtcldriver create device-stackname -ensemble device-name
+        
+```
+
+<a name="AEN104920"></a>## DESCRIPTION
+
+**ACAENV785** provides a Tcl driver that has a fixed initialization of the 
+            CAEN V785 module.  I believe this was written originally by Scott Williams for the REA3 beamline
+            diagnostics box and initialization
+            does not set the module up to do any zero suppression.  Thus, you can expect the data from the module
+            to include all channels fromt he module as well as the standard header and trailer for any 
+            event in which the module received a gate.
+
+The **adc** is more flexible and recommended for use instead.  This driver is 
+            provided only to support legacy applications.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ACAENV1290 | Up | ACrdcXLM72 |

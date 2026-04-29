@@ -1,0 +1,94 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN748"></a>Chapter 4. NSCLDAQ Manager subsystem (new in 12.0)
+
+As the FRIB begins operating, security concerns are moving the laboratory
+    away from employing a single experiment account from which an experiment is
+    run.  Instead, with the NSCLDAQ manager subystem, the persistent software
+    in an experiment can be run by a single account but controlled by
+    users logged in to
+    accounts.
+
+This chapter provides a description of this facility and how to use it.
+    The chapter references man pages and reference information where appropriate.
+
+The sections in the chapter are organized as follows:
+
+
+
+- [[c748#sec.mgr.intro]]
+          Provides introductory information that's useful for understanding the
+          remainder of the presentation.
+- [[x787]]
+            Describes the objects the DAQ manager controls and how to configure
+            them.
+- [[x1216]]
+            Describes how to run the manager and how to run an experiment using
+            the manager.
+- [[x1399]]
+            Describes what you need to do to prepare your NSCLDAQ Readout programs
+            to run under control of the manager.  Reference material describes
+            the REST protocol non NSCLDAQ Readout programs must implement to
+            participate in experiments run by the manager.
+- [[x1661]]
+            Describes how to use the NSCLDAQ event builder with the manager.
+
+# <a name="sec.mgr.intro"></a>4.1. Introduction
+
+The NSCLDAQ experiment manager, or *manager* as
+        we'll call it in the remainder of this document, is a persistent server
+        that can manage the persistent software in an experiment.  Below,
+        the term *advertised*, in the context of network
+        services means that these services are registered with the
+        NSCLDAQ port manager.
+
+The manager uses a configuration database, stored in an SQLite3 database
+        file to drive its actions.  It provides an advertised REST interface
+        that allows local or remote clients to interact with it at run time.
+        It also provides an advertised port which allows clients to monitor
+        the output and error streams of programs run by the manager.
+
+The use of ports advertised with the port manager allows the manager
+        to be identified by clients by supplying the host in which the manager
+        is running and the user that started it.
+
+In an experiment that uses the manager, the life cycle of its use looks
+        a bit like this:
+
+
+
+- Create and populate a configuration database that describes the
+                entities the manager will control.  Several GUI based tools are
+                provided to support this process, and a well defined API exists
+                to support the creation of additional tools.
+- As the experiment begins, select a system in which the manager
+                 is run and start it up.  The only information you have to pass
+                 to the manager is the location of its configuration database.
+                 The manager will run for the
+                 duration of the experiment.  Command line tools support starting
+                 the experiment and shutting it down.
+- Use GUI clients to interact with the manager during the run.
+                Typically these clients will include ouput monitors, and run
+                control panels, as well as optional event builder statistics monitors
+  The clients are written to allow more than one instance of each
+              control panel to run at any time allowing the experiment to be
+              controlled from e.g. within the vaults for setup and testing and
+              out in the counting areas when running with beam.
+
+Note that the manager has been written to understand singularity containers
+        and to start them as needed to run persistent software within containers.
+        More about that in
+        [[x787]].
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Ring Item Types | Up | Managed Objects and Configuration |

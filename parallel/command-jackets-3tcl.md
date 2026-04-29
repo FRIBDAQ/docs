@@ -1,0 +1,30 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Appendix A. mpiSpecTcl  reference material | Next |
+
+
+---
+
+# <a name="AEN887"></a>A.2. Command jackets (3tcl)
+
+**Table of Contents**[[r893]] -- Jacket a command that runs in all ranks[[r948]] -- Jacket a command that runs in other ranks[[r998]] -- Wrap a packaged command that will execute in all processes[[r1052]] -- Jacket packagted commands to run in all but he root.
+
+This section provides reference information for command jacket classes. 
+                These classes are used to wrap objects derived from `CTCLObjectProcesor`.
+                They replace the wrapped command and, when invoked, broadcast the command string to
+                processes running the Tcl pump.  Note that if the program is not run in the
+                MPI environment, these wrappers simply delegate to the wrapped command.
+
+While command syntax summaries are given, the detailed description of each command is not.
+                Refer to the SpecTcl command reference for that information.
+
+You should therefore wrap SpecTcl command extensiouns in these classes irregardless
+                of the environment and MPI support.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mpiSpecTcl  reference material | Up | CMPITclCommandAll |

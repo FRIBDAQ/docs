@@ -1,0 +1,53 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.bcnaf"></a>Chapter 17. Command line access to CAMAC via the SBS interface
+
+CAMAC is physically interfaced to the VME via either the
+        CES CBD 8210 branch highway driver, or the Wiener VC32/CC32 board set.
+        This chapter describes a mechanism for doing single CAMAC operations
+        on a CAMAC crate.  This mechanism can be incorporated into shell scripts
+        to do low level control.
+
+|  |  |
+| --- | --- |
+|  | WARNING! |
+|  | The CES CBD8210 interface is no longer being manufactured
+            you should not choose it for use in new developments. |
+
+shell command support for CAMAC operations is provided in the form of
+        three Tcl scripts:
+
+
+
+1. **cesbcnaf** - performs a single camac
+                   operation via a CES CBD8210
+2. **wienerebcnaf** - performs a single CAMAC oepration
+                   via a VC32/CC32 board set.
+3. **bcnaf** - performs a single CAMAC command
+                   allowing you to choose which interface is to be used.
+
+
+To make use of the command above, you should add the bin
+        subdirectory of your NSCLDAQ installation to your path.  This is done by
+        adding the following to your .bashrc:
+
+<a name="AEN6907"></a>```
+export PATH=$PATH:$DAQROOT/bin
+        
+```
+
+Where `DAQROOT` is the top level directory of the NSCLDAQ
+        installation you are using (e.g. /usr/opt/daq/10.0).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| commands | Up | utilities |

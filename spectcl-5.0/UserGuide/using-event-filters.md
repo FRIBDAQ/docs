@@ -1,0 +1,105 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.filters"></a>Chapter 4. Using event filters
+
+Event filters are a SpecTcl object that can drastically improve performance
+            if your analysis requires several passes over the data and/or
+            progressively reduces the set of parameters and events you care about.
+            Performance is improved by writing an event file that can usually
+            be decoded much more efficiently than most raw event files.
+
+This chapter:
+
+
+
+- Describes exactly what a filter is.
+- Describes the **filter** command and how to
+                      use it to create and manipulate filters.
+- Describes what you have to do to the event processing
+                      pipeline to read/process filter files.
+
+A filter is a list of parameters, an output file and a gate.
+            When a filter is specified and enabled (filters can be
+            enabled or disabled), for every event that satisies the gate, the
+            parameters specified by the filter are written to disk.  The
+            output format is one which is self describing and easy to process
+            back ito parameters.
+
+The **filter** command creates and manipulates filters.
+            Making a filter usable is a multi step operation:
+
+
+
+1. The filter must be created, specifying the gate that will
+                       determine which events are output (note you can use a
+                       True gate to output all events), and
+                       the set of parametesr to be output.
+2. The filter must be associated with an output file.  This
+                       is the file to which the filter will write event data.
+3. The filter must be enabled.
+
+Note that the filter does not respect run boundaries.  It's up to you
+            or your  analysis script to disable a filter attach to a diferent
+            file and re-enable as desired.  This allows the data from several
+            runs to be collected into a filter if desired.  This is an intentional
+            design choice.
+
+To create a filter:
+
+<a name="AEN889"></a>```
+-new
+```
+
+
+
+`name`Is the name given to the filter.  In all subsequent
+                        commands, this name must be used to select this filter.
+
+`gate`Name of the gate that determines which events produce
+                        output.  To output all events you can use a
+                        True gate.
+
+`parameters`This is a well formed Tcl list of the names of the
+                        parameters to output to file for each event that
+                        satisfies the `gate`.  See
+                        [[c1035]]
+                        for information about how to script SpecTcl so that you
+                        don't have to type this in.  See
+                        [[c2006]]
+                        for a description of the SpecTcl default user interface
+                        whih includes a GUI for defining and manipulating filters.
+
+Once the filter has been created it must be associated with an output
+            file:
+
+<a name="AEN915"></a>```
+-file
+```
+
+`filename` is the file to which filter data will
+            be written (any existing file is overwritten).  `filtername`
+            is the name of the filter that will write that file.
+
+Once the filter is defined and connected with a file, enabling
+            the filter will cause it to output events that satisfy its gate
+            until it is disabled or SpecTcl exited:
+
+<a name="AEN924"></a>```
+-enable
+```
+
+For a complete description of the **filter** command,
+            see the command reference.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Data sources |  | SpecTcl's startup process |

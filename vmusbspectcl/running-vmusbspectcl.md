@@ -1,0 +1,78 @@
+|  |  |  |
+| --- | --- | --- |
+| VMUSBSpecTcl |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN175"></a>Chapter 4. Running VMUSBSpecTcl
+
+Beginning with SpecTcl version 3.3-009 VMUSBSpecTcl is installed
+            in the bin directory of the SpecTcl installation
+            tree.  If you don't need to modify it, you can run it directly
+            from that location.
+
+VMUSBSpecTcl is run just like any other SpecTcl.  Some additions
+            to your SpecTclRC.tcl file are required
+            to load and process your desired configuration file.
+            The Tcl code fragment below shows how to do this:
+
+<a name="AEN181"></a>```
+##
+# Configure the VM-USB unpacker software:
+#
+# You should probably change the code below to
+# load the configuration file of your choice.
+#
+
+set daqconfig [file join ~ config daqconfig.tcl]; # default config file.
+
+lappend auto_path [file join $SpecTclHome TclLibs]
+package require vmusbsetup
+
+vmusbConfig $daqconfig
+
+            
+```
+
+This example unconditionally uses
+            ~/config/daqconfig.tcl as the configuration filename.
+            You should probably substitute some other mechanism.  Two that I have used
+            are to
+
+
+
+1. Remove the definition of daqconfig above and put it
+                           in SpecTclInit.tcl then you can
+                           select a configuration file by editing the relatively short
+                           SpecTclInit.tcl file.
+2. Set `daqconfig` from a call to
+                           **tk_getOpenfile**.  **tk_getOpenFile**
+                           is a Tk utility that opens a file chooser dialog and
+                           returns the path to the file chosen from that
+                           dialog.
+                           [http://www.tcl.tk/man/tcl8.5/TkCmd/getOpenFile.htm](http://www.tcl.tk/man/tcl8.5/TkCmd/getOpenFile.htm)
+                           describes this command and gives an example of its use.
+
+
+To summarize, the key points are that your
+            SpecTclRC.tcl file should
+
+
+
+- Figure out the name of the configuration file you
+                      want to use.
+- Add the SpecTcl Tcl package library directory to the
+                      `auto_path`.
+- Load the vmusbsetup package via
+                      **package require**
+- Invoke the **vmusbConfig** command passing
+                      it the name of your configuration file.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extending VMUSBSpecTcl |  | Reference information |

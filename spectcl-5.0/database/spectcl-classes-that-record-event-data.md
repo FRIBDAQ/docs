@@ -1,0 +1,147 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN597"></a>Chapter 4. SpecTcl classes that record event data
+
+The database can hold event and scaler data associated
+            with a run. These data are placed in a saveset. SpecTcl
+            records at most one run per saveset and includes in that
+            save set, the analysis conditions in effect at the time
+            the run was analyzed.
+
+This also allows data from a run to be recorded more than
+            once, using differing analysis configurations.
+
+This section describes the classes used by SpecTcl
+            to record event data.  Note that in most cases, you don't
+            need to use these classes.  They are instantiated
+            by the SpecTcl database GUI and automatically
+            placed in the analysis and data sink piplines as
+            requested.
+
+These classes are organized into two layers.
+            The lowest layer provides an interface between
+            runs and the database API.  The upper layer provides
+            an interface between SpecTcl's flow of control
+            and the lower layer.
+
+The lower layer's header is CDBEvents.h.
+            The upper layer's header is Events.h.
+
+# <a name="AEN606"></a>4.1. Lower layer of SpecTcl's event recording/playback code.
+
+The lower layer of SpecTcl's event recording
+                and playback system consists of a pair of classes.
+                `CDBEventWriter`, as the
+                name implies, is used to record unpacked parameters and
+                scalers to the database.
+                `CDBEventPlayer`, as its name
+                implies is used to read event data back from the
+                database for a run in a save set.
+                `CDBEventPlayer` only reads
+                event data.  It does not read scaler data. The
+                Tcl SpecTcl interface, however, has a mechanism
+                to test for the existence of scaler data and recover
+                it for a run in a saveset.
+
+`CDBEventWriter`
+                the following methods of interest:
+
+
+
+` void  beginRun(const RingItem*  pStateTransition = );`This method must be the first one called
+                        to start recording a run. It provides
+                        a ring item, which must be a
+                        BEGIN_RUN item.
+                        It records information about the run
+                        and the start time of the run
+                        using data in the ring item.
+
+This method handles multiple begin runs
+                        (as happens in event built data) by only
+                        saving information from the first
+                        call.
+
+` void  endRun(const RingItem*    pStateTransition = );`This method should be called when
+                        end of run rinng items are available.
+                        Note that the code is able to detect
+                        multiple ends per run (as will be the
+                        case in event built data) and, as with
+                        the `beginRun`
+                        call only saves information from the first one.
+
+` void  scaler(const RingItem*    pScaler = );`The `pScaler` parameter
+                         must be a PERIODIC_SCALER ring item.
+                         I is added to the scaler readouts for the run.
+
+` void  event(CEvent*       pEvent = );`Adds an event to the database. Note that
+                        events are added in bunches for the sake of
+                        efficiency.  The bunch size is set at
+                        construction time and has a default value
+                        that's believed to be reasonable.
+
+The `pEvent` is a pointer
+                        to the object that contains unpacked data from
+                        SpecTcl.
+
+` void  setAutoSaveSpectra(const std::vector<std::string>& spectra = );`The SpecTcl code that manages saving events to the database
+                        provides the capability for automatically saving the contents
+                        of a set of spectra at the end of the run.
+                        THese spectra are referred to as
+                        *autosaved spectra*.
+
+This method sets the names of the spectra that will be
+                        autosaved from `spectra`.
+                        Any spectra previously deisgnated as autosaved
+                        are no longer autosaved (unless they are in the
+                        `spectra` parameter).
+
+` void  addAutoSaveSpectrum(const char*  name = );`Adds the spectrum named by `name`
+                        to the list of autosaved spectra.  Existing autosaved
+                        spectra are not removed from the list.
+
+` void  removeAutoSaveSpectrum(const char*  name = );`If the spectrum named `name`
+                        is in the auto saved list, it is removed from
+                        that list.  All other spectra in that list
+                        are not affected.
+
+` std::vector<RunInfo>  listRuns();`Returns information about all runs saved in the
+                        database. The run information includes the
+                        name of the saveset it was recorded in.
+
+` CDBEventPlayer* playRun(int run = );`Locates the first saveset that has the
+                        requested `run` recorded in it
+                        and creates a playback object for that
+                        run.
+
+See the description of `CDBEventPlayer`.
+
+To play back data the low level code supplies
+                a `CDBEventPlayer`. This
+                is constructed on a saveset and  the run number
+                of a save set that's known to be stored in
+                that saveset.
+
+The following methods are then available:
+
+
+
+` const SpecTclDB::SaveSet::Event&  next();`Returns a reference to the next event in the
+                        run.  This will be an empty event if you attempt
+                        to read past the last event. Note that
+                        the writer class does not write empty events to the
+                        database.
+
+` const std::string  getTitle();`Returns the run's title string.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The SpecTclDB::SaveSet class. |  | Upper layer of SpecTcl's event recording/playback code. |

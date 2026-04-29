@@ -1,0 +1,73 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1137"></a>3.16. Access to the treeevariable command (new in 5.5)
+
+URLs of the following form list the tree variables:
+
+<a name="AEN1140"></a>**http://host:port/spectcl/treevariable/list
+            **
+
+The detail attribute of the returned JSON object
+            is an array of objects.  Each object describes a tree variable
+            and has the following attributes:
+
+
+
+nameName of the treevariable.
+
+valueCurrent value of the treevariable.
+
+unitsUnits of measure of the tree variable.  Note that if this
+                    is an empty string the variable should be assumed to be
+                    unitless.
+
+Tree variable values may be changed as well as their units:
+
+<a name="AEN1162"></a>**http://host:port/spectcl/treevariable/set?name=varname&value=newvalue&units=newunits
+            **
+
+Note that the units are not optional just as they are not optional for
+            the underlying SpecTcl **treevariable -set** command.
+
+Treevariables have a flag that indicates if they have been modified
+            in the life of the SpecTcl run.  This flag is normally used to
+            limit the amount of information that must be saved in files that
+            capture the SpecTcl analysis state.  This flag can be interrogated:
+
+<a name="AEN1168"></a>**http://host:port/spectcl/treevariable/check?name=varname                
+            **
+
+The detail attribute of the returned JSON object
+            is 0 if the variable has not been changed and
+            1 if it has.
+
+It is possible for user interfaces to directly set the changed flag
+            above.  This is done with URLS of the following form:
+
+<a name="AEN1176"></a>**http://host:port/spectcl/treevariable/setchanged?name=varname
+            **
+
+Finally, there are cases where it's important to fire Tcl traces
+            associated with tree variables.  This can be done as follows:
+
+<a name="AEN1180"></a>**http://host:port/spectcl/treevariable/firetraces[?pattern=glob-pattern]
+            **
+
+For these URL's, *glob-pattern* is
+            a GLOB pattern used to filter which traces are fired. Only variables
+            whose names match that pattern will have their traces fired.
+            Note that if not supplied the pattern defaults to *
+            which matches all variable names.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Spectrum Underflow and Overflow Statistics (new in 5.5) | Up | Accessing the filter command (New in 5.5 |

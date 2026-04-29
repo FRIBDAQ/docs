@@ -1,0 +1,326 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3061"></a>DBSpectrum
+
+<a name="AEN3065"></a>## Name
+
+DBSpectrum -- Encapsulate Spectrum definitions.
+
+<a name="AEN3068"></a>## Synopsis
+
+```
+namespace SpecTclDB {
+    class DBSpectrum {
+    public:
+        
+        struct ChannelSpec {
+            int  s_x;
+            int  s_y;
+            int  s_value;
+        };
+        
+        struct BaseInfo {
+            int         s_id;       
+            int         s_saveset;  
+            std::string s_name;
+            std::string s_type;
+            std::string s_dataType;
+        };
+        typedef std::vector<int> Parameters;
+        struct Axis {
+            int      s_id;
+            double   s_low;
+            double   s_high;
+            int      s_bins;   
+        };
+        typedef std::vector<Axis> Axes;
+        
+        struct Info {
+            BaseInfo   s_base;
+            Parameters s_parameters;
+            Axes       s_axes;
+        };
+        public:
+            static bool exists(CSqlite& connection, int sid, const char* name);
+            static DBSpectrum* create(
+                CSqlite& connection, int sid, const char* name, const char* type,
+                const std::vector<const char*>& parameterNames,
+                const Axes& axes,
+                const char* datatype="long"
+            );
+            static std::vector<DBSpectrum*> list(CSqlite& connection, int sid);
+
+        public:
+            DBSpectrum(CSqlite& connection, int sid, const char* name);
+
+            const Info& getInfo() const;
+            std::vector<std::string> getParameterNames();
+            void storeValues(const std::vector<ChannelSpec>& data);
+            std::vector<ChannelSpec>  getValues();
+            bool hasStoredChannels();
+        
+        
+
+    };
+}                                         // namespace SpecTclDB.
+
+                    
+```
+
+<a name="AEN3070"></a>## DESCRIPTION
+
+`SpecTclDB::DBSpectrum`
+                      encapsulates spectrum definitions in a database.
+                      It contains data cached from the database that
+                      describes the spectrum, and provides services
+                      for clients.  Note that the intended client for
+                      most of these services is
+                      `SpecTclDB::SaveSet`.
+
+<a name="AEN3075"></a>## METHODS
+
+Most of these methods are not intended for
+                        general public use but are exported for
+                        `SpecTclDB::SaveSet`.
+
+
+
+` static bool  exists(CSqlite&  connection = , int  sid = , const char*  name = );`Checks for the existence of a spectrum
+                                definition in a saveset
+                                by `name`.
+                                `connection` is the
+                                connection to the database, and
+                                `sid` is the primary
+                                key of the save set.
+
+If the saveset designated by
+                                `sid` has a spectrum
+                                defined named `name`,
+                                the method returns true.
+                                If not false is returned.
+                                Errors will throw exceptions that are subclasses
+                                of `std::exception`.
+
+` static DBSpectrum*  create(CSqlite&  connection = , int  sid = , const char*  name = , const char*  type = , const std::vector<const char*>&  parameterNames = , const Axes&  axes = , const char*  datatype = "long");`Creates a new spectrum definition in the
+                                save set with the primary key `sid`
+                                in the database connected via
+                                `connection`.
+                                The spectrum will be named `name`
+                                and have a type given by `type`.
+
+Each spectrum requires a set of
+                                `parameterNames`
+                                that specify the parameters that the spectrum
+                                uses to compute how or if it is incremented for
+                                each event. The parameter names must correspond
+                                to parameter definitions that are already
+                                in the saveset.  Each spectrum type will
+                                require a specific number of parameter defintions.
+                                See the SpecTcl user guide and command reference
+                                for more.
+
+Spectra have either one or two axis specifications.
+                                These are passed in as `axes`.
+                                The data type
+                                SpecTclDB::DBSpectrum::Axes
+                                used to pass these is described in
+                                DATA TYPES below.
+
+Bins in a spectrum have a data type. By default
+                                this type is long.
+                                If you supply a data type it must be one of
+                                long; 32 bit bins,
+                                word; 16 bit bins or
+                                byte; 8 bit bins.
+
+` static std::vector<DBSpectrum*>  list(CSqlite&  connection = , int  sid = );`Lists the spectrum definitions in the
+                                saveset indicated by the primary key
+                                `sid` in the
+                                database connected to `connection`.
+                                The result is a vector of
+                                pointers to
+                                `SpecTclDB::DBSpectrum`
+                                objects.  Those objects wrap all of the
+                                spectrum definitions in the saveset.
+                                The objects are dynamically created.
+                                When the program no longer needs them it
+                                should pass the pointers to delete.
+
+`  DBSpectrum(CSqlite&  connection = , int  sid = , const char*  name = );`Looks up the spectrum `name`
+                                in the saveset `sid`
+                                in the database `connection`.
+                                Construction wraps the object arond the
+                                spectrum if found.  If not found a
+                                `std::invalid_argument`
+                                exception is thrown.
+
+` const const Info&  getInfo();`Database information about the spectrum
+                                is cached in an
+                                SpecTclDB::DBSpectrum::Info
+                                struct.  This returns a const reference to that
+                                struct.  Note that the shape of this structure
+                                is documented in
+                                `DATA TYPES` below.
+
+` std::vector<std::string>  getParameterNames();`Returns the names of the parameters the spectrum
+                                depends on.  The spectrum's parameter dependencies
+                                are stored as foreign keys into the table
+                                that defines the parameter.  This convenience
+                                function converts those parameter ids into
+                                their names and returns them.  The vector
+                                order will be the same as that used when
+                                defining the spectrum (parameter order is important).
+
+` bool  hasStoredChannels();`In addition to spectrum definitions, channel
+                                data (the contents of a spectrum) can
+                                be stored in a saveset. This method]
+                                returns true if the
+                                spectrum represented by this object has
+                                channel data stored.  If not,
+                                false is returned instead.
+
+` void  storeValues(const std::vector<ChannelSpec>&  data = );`Stores channel data for a spectrum. Note that
+                                any previously stored channel data are replaced.
+                                Thus multiple calls are not cumulative.
+                                The SpecTclDB::DBSpectrum::ChannelSpec
+                                datatype used to describe the contents of a channel
+                                is described in DATA TYPES.
+
+` std::vector<ChannelSpec>   getValues();`Returns any channel data stored for this
+                                spectrum.
+
+<a name="AEN3248"></a>## DATA TYPES
+
+`SpecTclDB::DBSpectrum`
+                        exports several data types.
+
+<a name="AEN3252"></a>### SpecTclDB::DBSpectrum::ChannelSpec
+
+This type is used to describe channel values.
+                            The assumption is that for the biggest spectra (large 2-d)
+                            data are sparse.  Therefore, only non-zero channels
+                            need to be stored.  Each non zero channel
+                            is described by a
+                            SpecTclDB::DBSpectrum::ChannelSpec struct
+                            which has the following fields:
+
+
+
+int `s_x`X channel coordinate of the data. This is always
+                                    present
+
+ int ` s_y`Y channel  coordinate of the data. This is
+                                    only used for 2d spectra.  It is ignored
+                                    for 1-d spectra.
+
+int  `s_value`The value in the channel. Usually, this is nonzero.
+                                    Note that
+                                    A program  may try to save a spectrum that is
+                                    empty. If that is the case, in order to ensure there
+                                    is detectable channel data, it is
+                                    useful to store a single channel
+                                    (does not matter which) with no counts
+                                    in it.  In that case,
+                                    `s_value`
+*can* be zero.
+
+<a name="AEN3278"></a>### SpecTclDB::DBSpectrum::Axis
+
+The Axis data type is a struct that
+                            defines a spectrum axis.  A vector of
+                            Axis is the datatype
+                            Axes.  The fields of an
+                            Axis struct are as follows:
+
+
+
+int`s_id`This field is ignored when an Axis
+                                    is used to create a spectrum. When it is
+                                    part of the cached data
+                                    (see SpecTclDB::DBSpectrum::Info below),
+                                    it contains the primary key of the axis
+                                    in the table of axes.
+
+double`s_low`Contains the lowest value on the axis.
+
+double`s_high`Contains the highest value on the axis.
+
+int  `s_bins`Contains the number of bins into which
+                                    the axis is subdivided.
+
+<a name="AEN3312"></a>### SpecTclDB::DBSpectrum::Info
+
+The SpecTclDB::DBSpectrum::Info
+                            contains data that is cached from the database
+                            when a `SpecTclDB::DBSpectrum`
+                            is wrapped around a spectrum definition.
+                            It is a struct that consists of three elements:
+
+
+
+BaseInfo `s_base`Contains information that identifies the
+                                        spectrum and its type. See below
+                                        for a description of it.
+
+Parameters `s_parameters`Contains the ordered vector of parameters
+                                        this spectrum depends on.  The
+                                        SpecTclDB::DBSpectrum::Parameters
+                                        data type is just a vector of integers.
+                                        The vector contents are the primary keys of
+                                        entries in the parameters table.
+
+Axes`s_axes`Contains the ordered descriptions of all
+                                        of the free axes of the spectrum.
+                                        See above for a description of the
+                                        SpecTclDB::DBSpectrum::Axes
+                                        data types.
+
+Where the SpecTclDB::DBSpectrum::BaseInfo
+                            type is a struct that provides basic identification
+                            of the spectrum.
+                            SpecTclDB::DBSpectrum::BaseInfo has
+                            the follwing fields:
+
+
+
+int `s_id`Spectrum definitions are spread over several
+                                    tables.   One table, however is the
+                                    root of all spectrum tables. This field
+                                    is the primary key of the spectrum definition
+                                    from this table.
+
+See the [[x6432#AEN6432]]
+                                    for more information about how the database
+                                    tables are structured.
+
+int `s_saveset`Each spectrum definition belongs to a save set.
+                                    This member is the primary key of the saveset
+                                    this spectrum definition belongs to.
+
+std::string `s_name;`Contains the name of the spectrum.
+
+std::string `s_type`Contains the spectrum type string. You might
+                                    expect this to be a key that's used to
+                                    lookup the actual type in a secondary table.
+                                    That would constrain spectrum types and make
+                                    it harder to adapt the database to other,
+                                    non-SpecTcl applications.  Therefore
+                                    this field is free text.
+
+std::string` s_dataType`This string contains the channel data type
+                                    specification. It too is a free text field
+                                    to allow for expansion outside of
+                                    SpecTcl.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DBParameter | Up | DBGate |

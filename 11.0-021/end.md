@@ -1,0 +1,36 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_end"></a>end
+
+<a name="AEN55169"></a>## Name
+
+end -- End a Data Taking Run
+
+<a name="AEN55172"></a>## Synopsis
+
+**                proc ::*providerName*::end *sourceId* {
+                ...
+                }
+              **
+
+<a name="AEN55177"></a>## DESCRIPTION
+
+Ends a data taking run in the data source `sourceId`.
+              The `sourceId` is the value of the
+              sourceid key in the dict passed to the
+              provider's
+              [[r54976]]
+              proc was called to start the data source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| resume | Up | init |

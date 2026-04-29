@@ -1,0 +1,24 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev | Appendix A. Reference (man) pages | Next |
+
+
+---
+
+# <a name="AEN882"></a>A.3. MPI SpecTcl
+
+**Table of Contents**[[r886]] -- Data Getter from MPI[[r908]] -- Send data to MPI getters.
+
+This section provides reference information about MPI parallel
+                batch SpecTcl.  The programmatic interfaces are the union
+                of Batch SpecTcl and MPItcl.  This section merely adds the
+                set of commands and classes that are added by the
+                mpispectcl package.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| MPITcl binary data. | Up | mpisource |

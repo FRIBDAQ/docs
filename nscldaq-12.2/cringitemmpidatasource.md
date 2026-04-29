@@ -1,0 +1,54 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN71455"></a>CRingItemMPIDataSource
+
+<a name="AEN71459"></a>## Name
+
+CRingItemMPIDataSource -- Fanout clumps of ring items.
+
+<a name="AEN71462"></a>## Synopsis
+
+```
+#include <CRingItemMPIDataSource.h>
+
+class CRingItemMPIDataSource : public CRingItemBlockSourceElement
+{
+public:
+    CRingItemMPIDataSource(const char* ringUri,  size_t chunkSize=1);
+
+};
+
+        
+```
+
+<a name="AEN71464"></a>## DESCRIPTION
+
+This class fans out data from ring buffer structured files or
+            live ring buffers.  To use this, construct it and then call
+            the base class's `operator()` functor
+            method.  The object then reads data from the ring item data
+            source and fans it out to its clients until there's no more
+            data (never for a live ring, end of file for a file).
+
+The constructor parameter `ringUri`
+            identifiles the data source and can be either a file
+            (file: protocol URI) or a live ring
+            (tcp: protocol URI).
+
+The `chunkSize` parameter allows you to tune
+            the performance efficiency of the transport.  Each message will
+            `cunkSize` complete ring items unless an
+            end file is hit prior to filfilling this obligations.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CMPIFanoutClientTransport | Up | 3ccusb |

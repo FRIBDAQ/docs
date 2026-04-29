@@ -1,0 +1,124 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. |  |
+
+
+---
+
+# <a name="AEN1973"></a>3.33. Waveform requests (new in 7.0-003)
+
+SpecTcl version 7.0-003 introduced the **waveform**.
+                This command supports the storage and retrieval of digitized waveforms 
+                and their associated metadata.  This section of the ReST documents
+                describes the encapsulation of this command's capabilities within the
+                ReST server.
+
+The base URL for ReST access to the waveform command is:
+                http://host:port/spectcl/waveform.
+
+## <a name="AEN1979"></a>3.33.1. Creating new waveforms
+
+<a name="AEN1981"></a>**http://host:port/spectcl/waveform/create?name=*wfname*&samples=*length*
+**
+
+In this request, the query parameter name is the
+                    name of the waveform to create and samples is the number of samples the
+                    waveform will hold.  Note that creating a wavform does not automatically mean it will be filled.
+                    That is up to the user written event processors running in SpecTcl.  If one of them, from time to time,
+                    attempts to locate a crated waveform and then fill it in, the waveform will get populated.
+
+The detail section of the response is empty on success.
+
+## <a name="AEN1990"></a>3.33.2. Listing waveform properties
+
+<a name="AEN1992"></a>**>http://host:port/spectcl/waveform/list[?pattern=*wfname-pattern*]
+                        **
+
+This request lists the the properties of all waveforms that match the optional 
+                    pattern query parameter.  If provided, this parameter is a glob pattern that
+                    determines which waveforms will be listed.  If not supplied the pattern defaults to * 
+                    which matches all waveform names..
+
+The detail is a JSON array.  Each element of the array is an object that describes a single waveform.
+                    Each object has the following attributes:
+
+
+
+nameThe value of this attribute is the name of the waveform being desribed.
+
+samplesThe value of this attribute is the number of samples the waveform
+                                        holds.
+
+metadataThe value of this attribute is an array of objects with the attributes 
+                                        name containing the name of a metadata value and
+                                        value containing the value of that metadata item.    
+                                        This array  may be empty if no metadata has been associated with the waveform.
+
+## <a name="AEN2019"></a>3.33.3. Retrieving waveform samples.
+
+<a name="AEN2021"></a>**http://host:port/spectcl/waveform/get?name=*wfname*
+**
+
+This request returns the samples associated with a waveform.
+                    The mandatory name query parameter is the name of the waveform.
+                    The return value is an object with the attributes name the
+                    name of the waveform and samples which is an array of integers 
+                    containing the waveform samples, and rank which is the rank number returning the data.
+                    This can be different from query to query as the
+                    data are analyzed and waveforms are filled.
+
+The rank number documents, for MPISpecTcl which rank returned the data. In serial SpecTcl,
+                    this will always be zero, however, it will be a random value at least to identifing
+                    a worker processi n MPISpecTcl.
+
+## <a name="AEN2030"></a>3.33.4. Getting waveform metadata
+
+<a name="AEN2032"></a>**http://host:port/spectcl/waveform/metadata/get?name=*wfname*[&key=*metadata-key*]
+                        **
+
+Returns the metadata associated with a the waveform object specified by the `name`.
+                    The optional `key` query parameter, if provided, restricts the returned metadata to
+                    only that key.  If not provided, all metadata associated with the waveform is returned.
+
+The detail part of the response is an array of objects.  Each object
+                    has two attributes, name and value.
+                    The value of the name attribute is the name of a metadata item.
+                    The value of the value attribute is the value of that metadata item.
+
+Note that the values of all metadata items are treated as strings.
+
+## <a name="AEN2047"></a>3.33.5. Modifying waveform metadata
+
+<a name="AEN2049"></a>**http://host:port/spectcl/waveform/metadata/set?name=*wfname*&key=*metadata-key*&value=*metadata-value*...
+                        **
+
+Sets metadata items for the waveform specified by the mandatory
+                    name query parameter.  The mandatory
+                    key and value query parameters
+                    specify a single metadata item to set.  This request can be repeated
+                    to set multiple metadata items.  The same number of key
+                    and value query parameters must be provided.
+                    If a metadata item already exists, its value is replaced with the
+                    new value.  If it does not exist, it is created.
+
+The detail section of the response is empty on success.
+
+Full validation is performed prior to setting the metadata.  This implies that either
+                    all metadata are set or none are set (in case of an error).
+
+## <a name="AEN2063"></a>3.33.6. Resizing a waveform.
+
+<a name="AEN2065"></a>**http://host:port/spectcl/waveform/resize?name=*wfname*&samples=*new-size*
+**
+
+Resizes the waveform specified by the mandatory name
+                    query parameter to hold new-size samples.
+                    The waveform is initialized to zero.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| Querying display memory mirrors. | Up |  |

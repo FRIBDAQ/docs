@@ -1,0 +1,324 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.treeparametercommand"></a>treeparameter
+
+<a name="AEN784"></a>## Name
+
+treeparameter -- Create list or modify characteristics treeparameters
+
+<a name="AEN787"></a>## Synopsis
+
+**treeparameter `-create` *name low high bins units*
+**
+
+**treeparameter `-list` *?pattern?*
+**
+
+**treeparameter `-listnew`
+**
+
+**treeparameter `-set` *name bins low high inc units*
+**
+
+**treeparameter `-setinc` *name inc*
+**
+
+**treeparameter `-setbins` *name bins*
+**
+
+**treeparameter `-setunit` *name units*
+**
+
+**treeparameter `-setlimits` *name low high*
+**
+
+**treeparameter `-check` *name*
+**
+
+**treeparameter `-uncheck` *name*
+**
+
+**treeparameter `-version`
+**
+
+<a name="AEN830"></a>## DESCRIPTION
+
+The treeparameter command is part of the Tree Parameter package.
+            The command allows users or scripts to create list or modify
+            characteristics of the defined treeparameters.
+
+The first command parameter is a switch that tells the treeparameter
+           command what you want it to do.
+           The switch also defines the number and meaning of the remaining
+           command line parameters. Each of the possibilities is described in
+           COMMAND FORMATS section below.
+
+<a name="AEN835"></a>## COMMAND FORMATS
+
+**treeparameter** is sort of a command ensemble.
+            Instead of the second command word being a keyword subcommand,
+            it is an option.  The option specified (they are mutually exclusive),
+            determines the operation performed and the number and meaning
+            of any remaining parameters.
+
+Here are the treeparameter subcommands.
+
+
+
+**treeparameter `-create` *name low high bins units*
+**
+
+This subcommand creates a new treeparameter, and if
+                        necessary, and underlying parameter.  Normally, however,
+                        this is used to give tree parameter attributes to a
+                        parameter that does not have an underlying
+                        `CTreeParameter` object.
+
+`name` is the name of the new
+                        parameter.  This will bel inked to the an existing underlying
+                        parameter.  If necessary a new underlying parameter
+                        is created.  This may be needed in systems where parameters
+                        can be dynmically created.
+
+`low` and `high`
+                        are recommended axis limits for spectra defined on this
+                        parameter.  These limits are advisory however.
+
+`bins` is a suggested number of bins
+                        to cover the range `low` ..
+                        `high`.  Again, this is an advisory
+                        value.
+
+`units` are units of measure
+                        and only serve to document the units of measure of the
+                        parameter.   This can be an empty string if the parameter
+                        does not have units of measure.
+
+**treeparameter `-list` *?pattern?*
+**
+
+Returns a list of tree parameter descriptions for the
+                        tree parameters that match the optional glob
+                        `pattern`.   If
+                        `pattern` is not supplied, it defaults
+                        to * which matches all tree parameters.
+
+Each tree parameter description is, itself, a list
+                        of 6 parameters which are in order:
+
+
+
+1. The name of the parameter.
+2. The number of channels recommended on the axis
+                                   (binning).
+3. The recommended low limit for the parameter
+                                   on a spectrum axis
+4. The recommended high limit of the parameter on
+                                   a spectrum axis.
+5. The width of a channel in real coordinates if the
+                                   recommended axis limits and binning are used.
+                                   This is a value computed from the limits and
+                                   binning.
+6. The units of measure of the parameter.  This can
+                                   be an empty string.
+
+**treeparameter `-listnew`
+**
+
+Returns a (possibly empty) Tcl list of names
+                        of parameters that have been created with the
+                        **treeparameter `-create`**
+                        command.
+
+**treeparameter `-set` *name bins low high inc units*
+**
+
+Sets a new definitioun for an existing tree parameter;
+                        `name`.
+
+`name` is the name of the parameter.
+                        Normaly, this is a period separated list that defines
+                        the path through the treeparameter hierarchy to the element.
+
+`bins` provides the
+                        recommended number of channels for this parameter on
+                        a spectrum axis.
+
+`low` provides the default low
+                        limit for axes on spectra involving this parameter.
+
+`high` provides the default high
+                        limit for axes on spectra involving this parameter.
+
+`inc` provides the default channel
+                        width in parameter coordinates.  Note that this parameter
+                        is a function of low, high and bins. If the calculated
+                        value of inc is not close to the value supplied, an
+                        error is returned.
+
+`units` provides the units label
+                        for the spectrum axis.
+
+**treeparameter `-setinc` *name inc*
+**
+
+Sets the channel width for `name`
+                        to `inc`.  `inc`
+                        is a floating point value.
+                        This is done by holding the number of axis bins and
+                        the low limit contant and recomputing the high limit
+                        to achieve the desired width.
+
+**treeparameter `-setbins` *name bins*
+**
+
+Sets the number of bins for the tree parameter
+                        `name` to `bins`.
+                        This is done by holding the low and high limits fixed
+                        and adjusting the bin width.
+
+**treeparameter `-setunit` *name units*
+**
+
+This subcommand sets the units label that is used by
+                        the parameter `name`
+                        to `units`. The parameter units
+                        are used to label parameter's axes on spectra that
+                        involve this parameter when the spectrum is viewed in
+                        mapped mode.
+
+**treeparameter `-setlimits` *name low high*
+**
+
+This subcommand sets the default parameter axis limits
+                        for spectra that use created by the GUI. The number of bins is kept constant. This command, therefore, implies a change in the channel width.
+
+**treeparameter `-check` *name*
+**
+
+Returns 0 if the parameter's modified flag is not set
+                        and 1 if it is. Each treeparameter has a modified flag
+                        associated with it. Whenever a parameter's properties
+                        are modified, this flag is set.
+
+The modified flag is
+                        never set as a result of programmatic assignments to
+                        the tree parameter value on event by event processing,
+                        only by modifying the properties of the parameter.
+                        The modified flag is used to determine if a parameter's
+                        properties must be seaved to file for later recovery.
+
+**treeparameter `-uncheck` *name*
+**
+
+Clears the parameter's modified flag.
+
+**        treeparameter `-version`
+**
+
+Returns the Tree parameter version string.  This allows
+                        you to determine if the features needed by your
+                        software are available.  This document describes
+                        version 2.1.   Future versions
+                        of this document will indicate which version of the
+                        software adds new features to the command.
+
+<a name="AEN980"></a>## EXAMPLES
+
+<a name="AEN982"></a>**Example 1. Creating a new tree parameter**
+
+** treeparameter -create new.tree.parameter -1.0 1.0 100 mm
+            **
+
+If the parameter new.tree.parameter already is
+            defined, this tree parameter is linked to it.  If
+            new.tree.parameter is a tree parameter this is
+            an error.  If there is no such parameter it is dynamically created.
+
+The parameter is defined to request an axis that gos from -1 to 1
+            with 100 bins and  has mm as its units of measure.
+
+<a name="AEN991"></a>**Example 2. Listing all tree parameters with sample output**
+
+```
+treeparameter -list
+{event.raw.00 100 1 100 0.99 channels} 
+{event.raw.01 100 1 100 0.99 channels} 
+{event.raw.02 100 1 100 0.99 channels} 
+{event.raw.03 100 1 100 0.99 channels} 
+{event.raw.04 100 1 100 0.99 channels} 
+{event.raw.05 100 1 100 0.99 channels} 
+{event.raw.06 100 1 100 0.99 channels} 
+{event.raw.07 100 1 100 0.99 channels} 
+{event.raw.08 100 1 100 0.99 channels} 
+{event.raw.09 100 1 100 0.99 channels} 
+{event.sum 100 1 100 0.99 arbitrary}
+
+            
+```
+
+<a name="AEN996"></a>**Example 3. Listing only some parameters (using a pattern)**
+
+```
+treeparameter -list event.raw*
+{event.raw.00 100 1 100 0.99 channels} 
+{event.raw.01 100 1 100 0.99 channels} 
+{event.raw.02 100 1 100 0.99 channels} 
+{event.raw.03 100 1 100 0.99 channels} 
+{event.raw.04 100 1 100 0.99 channels} 
+{event.raw.05 100 1 100 0.99 channels} 
+{event.raw.06 100 1 100 0.99 channels} 
+{event.raw.07 100 1 100 0.99 channels} 
+{event.raw.08 100 1 100 0.99 channels} 
+{event.raw.09 100 1 100 0.99 channels}
+
+            
+```
+
+<a name="AEN1001"></a>**Example 4. The treeparameter -check command**
+
+```
+(treeparam) 4 % treeparameter -check event.sum
+0
+(treeparam) 5 % treeparameter -setunit event.sum MeV
+(treeparam) 6 % treeparameter -check event.sum
+1
+            
+```
+
+We assume coming into this example that the parameter
+            event.sum is unmodified.  Changing the parameter's
+            units sets its check flag.
+
+<a name="AEN1012"></a>**Example 5. Unsetting the modified flag:**
+
+```
+(treeparam) 6 % treeparameter -check event.sum
+1
+(treeparam) 7 % treeparameter -uncheck event.sum
+(treeparam) 8 % treeparameter -check   event.sum
+0
+            
+```
+
+<a name="AEN1021"></a>## SEE ALSO
+
+
+
+- [[r1868]]
+- [[r1032]]
+- Programming guide and programmer reference manual tree
+                      parameter subsystem.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| specstats | Up | treevariable |

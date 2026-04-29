@@ -1,0 +1,95 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 56. VMUSB readout | Next |
+
+
+---
+
+# <a name="AEN5817"></a>56.2. Writing DAQ configuration files
+
+The DAQ configuration file is processed at the beginning of each run.
+            The configuration file is processed in a fresh interpreter each time.
+            You therefore cannot maintain any state across runs via your configuration
+            file.
+
+To illustrate module creation and configuration,
+            this let's look at a fragment from a configuration
+            file:
+
+<a name="AEN5821"></a>**Example 56-1. Creating and configuring devices**
+
+```
+adc create myadc 0x11000000
+adc config myadc -geo 15
+            
+```
+
+The **adc** command implements base support for the
+            CAEN 32 channel digitizer family (V775, V785, V792, V862).  The first
+            command creates an instance of one of those modules with a base address
+            0x11000000.  The instance is given the name
+            myadc to distinguish it from other digitizers
+            of that or other types.
+
+The second line sets a configuration parameter, the geographical
+            address of the  module, for the instance created by the first line.
+            Each device type supports a set of configuration parameters much in the
+            same way Tk objects support configuration options.
+            The reference ssection 3vmusb provides detailed
+            information about the configuration options supported by each
+            device class.
+
+Configuration files must also specify at least one stack and, if
+            scaler modules are to be read periodically, a second scaler stack.
+            See the [[r47320]] command
+            in the reference material for detailed information about how
+            to create and configure stacks.
+
+To continue with the previous example:
+
+<a name="AEN5833"></a>**Example 56-2. Configuring an event stack**
+
+```
+stack create events
+stack config event -trigger nim1 -modules [myadc]
+            
+```
+
+Stacks are created and configured exactly like any other module.
+            In this configuration file fragment, a stack named
+            events is created.  It is configured to
+            manage the myadc module (`-modules`).
+            It is configured to use the IN 1 input of the VM-USB
+            (-trigger nim1) to trigger the stack.
+
+Finally here is a configuration file fragment that sets up an
+            SIS 3820 scaler and a scaler stack to read it every 2 seconds:
+
+<a name="AEN5842"></a>**Example 56-3. Configuring a VM-USB scaler stack**
+
+```
+sis3820 create sisscaler 0x38000000
+
+stack create scaler 
+stack config scaler -modules [list sisscaler] -trigger scaler -period 2
+            
+```
+
+The reference pages in 3vmusb describe, among other
+            things the commands that implement device support that are supported
+            by the NSCL programming group.  In addtion to user device drivers
+            that are described later in this chapter, two device drivers support
+            modules have been contributed by Washington University at St. Louis.
+            These modules support XLMs used to read out the ASIC systems they
+            have developed for managing large detector arrays.
+
+For information about how to use those modules, contact
+            Lee Sobotka or Jon Elson at Washington University directly.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VMUSB readout | Up | Writing C++ device support software |

@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-hinp"></a>hinp
+
+<a name="AEN53992"></a>## Name
+
+hinp -- XLM-XXV with Wash-U HINP firmware.
+
+<a name="AEN53995"></a>## Synopsis
+
+**hinp ceate *name ?options?*
+**
+
+**hinp config *name ?options?*
+**
+
+**hinp cget *name*
+**
+
+<a name="AEN54005"></a>## DESCRIPTION
+
+This command was contributed to this framework by Jon Elson
+                from Washington University in St.Louis.  It supports readout of
+                an XLM-XXV which runs the HINP firmware and communicates with
+                Wash-U ASICS.
+
+<a name="AEN54008"></a>## OPTIONS
+
+
+
+`-base` *base-address*Sets the base address of the XLM board.
+
+`-firmware` *file-name*This option is accepted without error but ignored.
+                            The firmware for HINP modules should be loaded and
+                            configured using the Chip control program that is
+                            available from Wash-U.  For that program to operate
+                            the
+                            VMUSBReadout program must be running.
+
+`-readsramb` *boolean*When used with the XLM-XXV, this option should be
+                            false, which is the default.  If
+                            used with an external FADC (see e.g.
+                            [[r54082]])
+                            this should be true, indicating one set of motherboards
+                            must be read from SRAM B.
+
+`-havefadc` *boolean*When used with the XLM-XXV this option shouild be
+                            true indicating the XLM has an on-board
+                            FADC.  Set false if e.g. using
+                            in a [[r54082]]
+                            HiRA configuration where the FADCs are external to the
+                            XLM.
+
+`-clearveto` *boolean*If true (the default), the
+                            veto output is cleared prior to the first event and
+                            after each event is read.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| sis3804 | Up | psd |

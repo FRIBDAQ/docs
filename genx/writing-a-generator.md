@@ -1,0 +1,137 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev |  |  |
+
+
+---
+
+# <a name="AEN805"></a>Chapter 7. Writing a generator
+
+The actual construction of a code generator is beyond the scope of this
+				manual page.  Each analysis framework poses its own problems and choices
+				to make about how to generate headers and C++ code to support the framework.
+				This chapter will describe the form of the intermediate representation the
+				parser produces and how to deserialize it back into internal data structures
+				you can use to drive the generator.  The
+				SpecTclGenerator and RootGenerator
+				subdirectories contain generators for NSCL/SpecTcl and CERN/Root. You can use
+				them as examples.
+
+The directory intermed contains the parser code.
+				There are two data sets of data structures that get passsed between
+				the parser and the generator.
+				The program deserializetest.cpp shows how to deserialize
+				data from std::cin.
+
+definedtypes.{cpp,h} provides an ordered list of the
+				structures that describe the structs that were defined by the user.
+				instance.{h,cpp} provides an ordered of the instances
+				the user defined.
+
+The parser will first emit the defined struct declarations
+				(defined types).  After that it emits the instance declarations (instances).
+				You can use the deserialization functionsn defined and implemented by
+				definedtypes.{h,cpp} and instance.{h,cpp}
+				to recover the internal representation of these lists from stdin as shown
+				in deserializetest.cpp.  Those data structures then
+				can be used to drive you code generation.
+
+The result of `deserializeTypes` is a
+				std::list<TypeDefinition>.  Each TypeDefinition
+				defines a struct the user declared in their declaration file.  The list is
+				in the order in which those structs were declared so you are ensured there
+				are no forward definitions.
+
+Let's look at the fields in TypeDefinition.
+
+
+
+std::string `s_typename`This contains the name of the structure.  For example for:
+													struct Ta {...}, this will contain the string
+													Ta.
+
+FieldList `s_fields`Contains the ordered list of field definitions.  Note that
+													FieldList is defined as
+													std::list<Instance>.  We'll describe that
+													data type next.  Since instance definitions and field definitions
+													have essentially the same data representation needs, they share
+													a data structure.
+
+Instance definitions, and fields in structs are represented as
+				std::list<Instance>.  These are also in order of
+				appearance in the structure declaration or instance definition.
+				The `deserializeInstance` recovers the instance list
+				into a std::list<Instance>.
+
+Instance structs have the following fields:
+
+
+
+InstanceType `s_type`This contains the data type of the field or instance.
+													InstanceType is an enumerated type with legal values:
+													value, for scalar parameters,
+													array, for arrays of scalar parameters,
+													structure, for a structure and
+													structarray for arrays of structures.
+
+std::string `s_name`The name of the instance of struct field represented by this
+													data structure.
+
+std::string `s_typename`For structure  or
+													structarray, this contains the name
+													of the structure that is the type of either the instance or
+													structure field represented by this struct.
+
+for value or array instances
+													and fields, `s_typename` is not used and
+													you cannot rely on it having any particular value.
+
+unsigned `s_elementCount`For array and structarray
+													instances and fields, this contains the number of elements
+													 in the array.
+
+For value and structure
+													fields and instances, this is unsused and you cannot rely on it
+													having any particular value.
+
+ValueOptions `s_options`This field contains metadata for the field/instance.  It only has
+													meaningful values for value and
+													array instances and fields.   It may well be
+													that your generator cannot do anything with these values (
+													the SpecTcl generator uses this to initialize tree parameters whie
+													the Root generator ignores them
+													).
+
+The ValueOptions data type provides metadata for a field or
+				instance.  Not all generators use this metadata.  Metadata is always provided,
+				if not specified in the declaration file the metadata contains default
+				values that are traditional from the NSCL SpecTcl tree parameter subsystem.
+
+Here are the fields for ValueOptions:
+
+
+
+double `s_low`Anticipated low limit of the values that parameter may have.
+
+double `s_high`Anticipated high limit of the values the parameter may have.
+													Note that the parser does not require that
+													`s_low ` <
+`s_high` if the high value is smaller
+													than the low value, the SpecTcl generator and SpecTcl will run
+													parameter axes for this parameter "backwards"  that is from
+													`s_low`
+													on the left to `s_high` on the right.
+
+unsigned `s_bins`The number of suggested bins on axes containing this parameter.
+													The parser requires this be a counting number (an integer strictly
+													greater than 0).
+
+std::string `s_units`Units of measure of the parameter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| Adding a--targetto the genx compiler. | Up |  |

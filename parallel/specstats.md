@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1827"></a>specstats
+
+<a name="AEN1831"></a>## Name
+
+specstats -- Fetch spectrum over/underlow statistics
+
+<a name="AEN1834"></a>## Synopsis
+
+**specstats**  [*glob-pattern*]
+
+<a name="AEN1839"></a>## DESCRIPTION
+
+This command is wrapped in a `CMPITclCommand`.
+                    Since the spectrum contents needed to return these statistics are
+                    maintained by the  MPI_EVENT_SINK_RANK, this
+                    command, when run in any other process sets no result and returns
+                    TCL_OK.  When running in MPI_EVENT_SINK_RANK,
+                    the result is set with statitics information and TCL_OK
+                    is returned as the status.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| shmemsize | Up | version |

@@ -1,0 +1,1043 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 5. VMUSBReadout | Next |
+
+
+---
+
+# <a name="vmusb-develop-module"></a>5.9. Extending the slow controls subsystem
+
+There is nothing to stop you from creating device support that
+        does not do anything in its `addReadoutList`.
+        You could do this to implement static controls devices.  That is
+        non data taking devices whose configuration is set up at the start of
+        a run and cannot be dynamically modified.
+
+## <a name="vmusb-develop-module-cpp"></a>5.9.1. Writing slow control drivers in C++
+
+Slow control drivers can be dynamically loaded into the TclServer
+        that runs the slow controls software.  This section provides
+        an overview to the process of writing these drivers and loading them
+        into your VMUSBReadout program.
+
+Slow control drivers consist of the following pair of classes:
+
+
+
+The driverContains the actual code to translate Set, Get, Update
+              and Mon operations into actions on the hardware or internal
+              data or both.
+              Drivers are classes that are derived from
+              `CControlHardware`  They also
+              contain a configurable object called a `CControlModule`
+              which provides support for an option configuration database much like
+              that of readout drivers.
+
+A driver creatorThis object is registered with a module factory and associated with
+              a module type.  It provides a method that creates a specific module
+              driver type.  The factory is used by the **Module**
+              command to create specific drivers.
+
+The driver creator must be a subclass of `CModuleCreator`
+
+An initialization functionThe initialization function is called when the driver is loaded
+              either via the Tcl **load** command or via the
+              **package require** command if you create a Tcl
+              package index that supports loading your driver in that manner.
+
+The initialization function must have C bindings
+              and is expected to register the creator with the module factory
+
+These three bits of code must be compiled and linked together into a
+        shared object.  The resulting shared object must have no dangling external
+        references outside of the VMUSBReadout program or else it cannot be loaded
+        by the Tcl server's interpreter.
+
+What I mean by a dangling reference is best illustrated by an example.
+        Suppose you need the function `crypt` in your driver
+        (**man crypt** to know what that does).  That function
+        lives in the libcrypt library.  For a library intended 
+        to be linked into other code to make a complete program, it's not necessary
+        for your libarary to link explicitly to libcrypt so long
+        as the program itself is linke to libcrypt.
+        For a shared library used as a slow control driver, however no expclicitly
+        linking it to libcrypt would leave an undefined reference
+        that Tcl would not know how to satisfy, so the **load** of the
+        library would fail.
+
+### <a name="AEN2689"></a>5.9.1.1. Driver requirements
+
+A Slow controls device driver is a class that is derived from
+          the 
+          [[r76168]] abstract base class.
+          In this section I will briefly go over the mandatory and optional 
+          requirements of a driver class as well as providing an annotated
+          sample (if silly) driver.
+
+The [[r76168]] class is an abstract
+          base class.  This means it has some virtual methods that are not 
+          implemented and must be implemented by derived classes.
+          In addition the name of the object being created (**Module**
+          command's name) is maintained by the base class.
+
+These constraints mean that a control driver class must implement the
+          following member functions.
+
+
+
+constructorThe class must implement a constructor that takes as a parameter
+                (at least) a `std::string` modulename which
+                it passes to the base class constructor.
+
+`onAttach` 
+              (CControlModule& `configuration`)`onAttach` is called when the driver's
+                configuration object `configuration` is being
+                attached to the object.  The base class provides a protected data
+                item named `m_pConfig` in which a pointer to the
+                `configuration` can be stored for future use.
+
+The `onAttach` method is also where you must
+                define your configuration options and their constraints.  Soon after this
+                method is invoked, the driver is likely to have to respond to 
+                requests to configure values into these parameters.
+                As with readout drivers, the process of giving values to configuration
+                options transparent to your driver code.  When you need to know the
+                value of an option, you just ask the `configuration`
+                and it's magically there.
+
+`Update`(CVMUSB& `vme`For some devices it is necessary to maintain an internal state
+                that describes the device.  This is done for devices that are
+                write only such as the V812.  For those devicdes it is useful to be able
+                to refresh the device state from an internal copy of what the state should
+                be.  `Update` is provided for that  purpose.
+                This method must be implemented though the implementation can be empty.
+
+The `vme` parameter is a reference to a VMUSB controller
+                object that can be used to perform VME operations or to execute a 
+                `CVMUSBReadoutList` of operations built up by this
+                method.
+
+`Set`(CVMUSB& `vme`, 
+              std::string `parameter`,
+              std::string `value`)Fundamentally, slow control device drivers manage some settable 
+                parameters in a device.  The driver associates a name with each parameter.
+                The `Set` operation provides a new value for a parameter.
+                The driver is expected to propagate that value out to the device.
+
+The `parameter` argument is the name of the parameter to
+                modify.  Names are assigned by the driver and known to the client via documentation.
+                `value` is the new value for the parameter. The driver is
+                responsible for all validity checking and error reporting in the event the parameter
+                value is not valid.
+
+`vme` is a reference to a VMUSB controller object that is used
+                by the driver to perform VME operations or list of VME operations encapsulated in
+                a `CVMUSBReaoutList`
+
+`Get`(CVMUSB& `vme`,
+              std::string `parameter`)This is expected to return the value of a `parameter` in 
+                the hardware.  The `vme` can be used to perform the
+                needed VME operations or lists of VME operations encapsulated in a
+                `CVMUSBReadouList`
+
+`clone`(const CControllerHardware& `rhs`)There are times when the framework needs to create a copy of a driver instance. When 
+                this happens `clone` is invoked.  The
+                `rhs` object is the object we are copying into ourselves.  If the object
+                has no additional state it can just cop construct the
+                `CControlMdoule` configuration into `m_pConfig`.
+
+In addition to the mandatory methods above, you can implement several optional
+          methods if required.
+
+
+
+`Initialize`(CVMUSB& `vme`)If you need to perform any one-time initialization of your
+                hardware you can do that here.  An example of where this is used
+                is with the CAEN V812 driver.   The V812 registers
+                are write only.  Therefore, the driver maintains a
+                configuration file with settings and at initialization
+                time, that configuration file is read and loaded into the
+                device returning it to a known state.
+
+The `vme` parameter is a reference to
+                a VMUSB controller object.  It can be used to perform
+                operations on the VME crate or to execute 
+                `CVMUSBReadoutList` objects the
+                method builds.
+
+`addMonitorList` (CVMUSBReadoutList& `vmeList`)For some devices, the ability set and get parameters is not the whole story. 
+                This is especially the case because in order to set or get a parameter, active data taking must
+                be stopped and restarted which is time-consuming.  Consider, for example, a VME Bias supply
+                controller.  A control panel would want to monitor the supply for trips periodically and display
+                those trips regardless of whether or not data taking is active.  This  is accomplisshed with
+                a monitor list.
+
+The monitor list is one of the 8 stacks supported by the VM-USB.  It contains a set of operations
+                that are periodically performed by manually triggering the list in the action register.  The
+                data routing software forwards data from this list to the Tcl server for processing.  Since this list
+                can be triggered just like any other acquisition mode list, no time consuming stop/start is needed
+                when data taking is active.  If data taking is inactive the list is periodically issued as an
+                immediate mode list.
+
+`addMonitorList` provides an opportunity for a driver to specify a set
+                of VME operations to perform to gather the needed data to monitor the device.
+                This is optional and the default method adds nothing to the list.
+
+`processMonitorList`(void* `pData`,
+              size_t `remaining`)This is called when the data from a monitorlist becomes available.  The drivers
+                `processMonitorList` are called in the same order in which their
+                `addMonitorList` methods were called.
+                `pData` is a pointer to the as yet unprocesssed part of the
+                data read by the monitor list while `remaining` is the number
+                of bytes of unprocessed data in that list.
+                The return value from this method should be a pointer to the first unprocessed
+                byte of monitor list data after the data consumed by this driver.
+
+Normally the driver will pull data out of the monitor list and store it internall for
+                the next call to `getMonitoredData` below.  It's up to the driver
+                how the data are stored.
+
+The base class implementation just returns `pData` which is
+                exactly right for a driver that does not use monitor lists.
+
+`getMonitoredData`()This is called when the Mon command is issued for this device.  The driver
+                should package up the most recently received data from the monitor list and return it
+                to the caller as a string in the documented form.  Note: Since many clients are in Tcl
+                it is convenient to return these data as a properly formatted Tcl list.
+
+Let's look at the code for a rather silly user written driver a piece at a time.
+          The driver is not going to interact with any hardware.  What it will do is provide
+          the configuration options `-anint` which will hold an integer,
+          `-astring` which holds an arbitraty string, and 
+          `-alist` which holds a list of integers.
+          The Set and Get operations will modify and retrieve these options.
+          The driver won't support monitor lists.
+
+#### <a name="AEN2817"></a>5.9.1.1.1. The driver
+
+This section provides an annotated view of the driver source code.  For clarity,
+            the header and driver are combined in a single file.  Comments that might ordinarily
+            be in the source code are in the annotations instead.
+
+<a name="AEN2820"></a>**Example 5-14. Control driver headers**
+
+```
+#include <CControlHardware.h>
+#include <CControlModule.h>
+#include <CVMUSB.h>
+#include <CVMUSBReadoutList.h>
+	      
+```
+
+This section of the driver sourcde includes the headers required by the driver 
+	      itself.  The headers are:
+
+
+
+1. CControlHardware.h the base class for the
+   		driver class
+2. CControlModule.h  the specialized version of the 
+   		configurable object that is used by control drivers is a  `CControlModule`
+   		this includes the command dispatching that makes configuration transparent
+   		to your driver code, as well as the harness for dispatching the driver
+   		calls themselves and marshalling them in a way that makes them available
+   		to the clients.
+3. CVMSUB.h Defines the class that provides access to
+   		the VMUSB.
+4. CVMUSBReadoutList.h  provides a class for constructing
+   		VME lists of operations that can b executed immediately for better
+   		performance than single operations with the `CVMUSB`
+
+<a name="AEN2839"></a>**Example 5-15. Control driver class definition**
+
+```
+class CUserDriver : public CControlHardware
+{
+
+public:
+  CUserDriver();
+  virtual void onAttach(CControlModule& configuration);
+  virtual std::string Update(CVMUSB& vme);
+  virtual std::string Set(CVMUSB& vme, 
+			  std::string parameter, 
+			  std::string value);
+  virtual std::string Get(CVMUSB& vme, 
+			  std::string parameter);
+  virtual void clone(const CControlHardware& rhs);
+
+};
+	      
+```
+
+The key points are that the user driver inherits from the
+	      `CControlHardware` base class. Since
+	      `CControlHardware` is an abstract base class,
+	      it is necessary to define all abstract methods.  Furthermore, since
+	      `CControlHardware` has no default constructor,
+	      our driver must define a constructor that is capable of passing the
+	      driver instance name (module name) to the base class.
+
+<a name="AEN2846"></a>**Example 5-16. Control driver constructor**
+
+```
+CUserDriver::CUserDriver() :
+  CControlHardware()
+{}
+	      
+```
+
+The only mandatory function of the constructor is to initialize the
+              base class.
+
+<a name="AEN2850"></a>**Example 5-17. Control driver `onAttach` method**
+
+```
+void
+CUserDriver::onAttach(CControlModule& configuration)
+{
+  m_pConfig = &configuration;	       
+  m_pConfig->addIntegerParameter("-anint", 0);
+  m_pConfig->addParameter("-astring", NULL, NULL, ""); 
+  m_pConfig->addIntListParameter("-alist", 16);
+
+}
+	      
+```
+
+`onAttache` is called when a driver instance
+	      is being created and attached to its configuration object. The
+	      `configuration` is passed as a parameter to the
+	      method.  The numbers inthe example text are referenced below in the
+	      annotations:
+
+[[x2650#ctldriver-onattach-saveconfig]]		  The base class (`CControlHardware`) 
+		  provides a protected data member `m_pConfig`
+		  that is intended to hold a pointer to the driver instance's
+		  configuration object (`CControlModule`).
+		  It is usually important to be able to access your configuration
+		  later in the life cycle of the driver.
+		[[x2650#ctldriver-onattach-makeparams]]		  Drivers normally are parameterized by a set of configuration 
+		  paramters.  These are defined/described and constrained in the
+		  `onAttache` method.  For this toy
+		  driver we just define the options
+		  `-anint` which is constrained to be an integer,
+		  `-astring` which is unconstrained and
+		  `-alist` which is constrained to be a list of
+		  16 integer parameters.
+		Normal drivers will defined at least a 
+		  `-base` option which is intended to hold
+		  the base address of the device being controlled.
+
+<a name="AEN2873"></a>**Example 5-18. Control driver `Update`**
+
+```
+std::string
+CUserDriver::Update(CVMUSB& vme)
+{
+  return "OK";
+}
+	      
+```
+
+Some devices have write only registers.  Since it is not possible
+	      to determine the device state by reading the device registers, it is
+	      useful to have an operation that will set the device to a known state.
+	      Typcially this state is maintained in a set of *shadow registers*
+	      that are maintained in the driver instance,and possibly read from a 
+	      file that is also maintained by that instance or by a control panel for the
+	      device.
+
+The `Update` method is intended to provide a mechanism
+	      for device control panel clients to request the driver set the hardware to a known
+	      state. The method should return the string OK on success or
+	      a streing of the form ERROR - *some descriptive error message*
+	      normally control panels, on seeing the first return word is ERROR
+	      will parse the error message out and display it for the user.
+
+<a name="AEN2885"></a>**Example 5-19. Control driver `Set` method.**
+
+```
+
+std::string
+CUserDriver::Set(CVMUSB& vme,    
+                 std::string parameter,           
+                 std::string value)
+{
+  try {
+    m_pConfig->configure(parameter, value);   
+    return "OK";
+  }
+  catch (std::string msg) {	// configure reports errors via std::string exceptions.
+    std::string status = "ERROR - ";
+    status += msg;
+    return status;                              
+  }
+}
+	      
+```
+
+The `Set` is intended to provide a new
+	      value for a device parameter.  When you write a device driver
+	      you must give names to each device parameter you want to allow
+	      clients to control.  These names are used by the client to identify
+	      device parameters both for the `Set` and
+	      the `Get` we will discuss next.
+
+In our toy driver, we have no hardware to modify so we are accepting the
+	      names of our configuration options as the parameter names.  Normal drivers
+	      will need to pull their base address from the configuration
+	      and use them, along with the value of the `parameter`
+	      parameter to know what to do to change the requested
+	      parameter to `value`.
+
+[[x2650#ctldriver-set-params]]		  The parameters passed to the `Set` are:
+		  
+
+`vme`A `CVMUSB` object reference
+			that can be used to either perform direct VME operations
+			or to execute `CVMUSBReadoutList`
+			objects that have been created and stocked this 
+			method.
+
+`parameter`The name of the parameter to modify.
+
+`value`The stringified version of the new value to 
+			set for the parameter.  This parameter is always
+			a `std::string` and therefore
+			may require conversion by the driver.
+
+
+[[x2650#ctldriver-set-configure]]		  Since we are using our configuration parameters as device
+		    parameters, this line just attempts to set the requested
+		    configuration parameter to the reqested value.
+		  The `configure` throws 
+		    `std::string` exceptions
+		    on errors.  Hence the `configure`
+		    operation is done in a try block.
+
+[[x2650#ctldriver-set-error]]		    Error exceptions are caught by this
+		    catch block where they are turned
+		    into error messages.  The return value from
+		    the `Set` method is either
+		    OK (No error) or
+		    ERROR - followeed by an error
+		    message string.
+
+<a name="AEN2935"></a>**Example 5-20. Control driver `Get` method**
+
+```
+
+std::string
+CUserDriver::Get(CVMUSB& vme, std::string parameter) 
+{
+  try {
+    return m_pConfig->cget(parameter);                
+  }
+  catch (std::string msg) {
+    std::string retval = "ERROR - ";                    
+    retval += msg;
+    return msg;
+  }
+}
+		
+```
+
+The `Get` method is used by control panel
+		clients to fetch values of device parameters from the driver.
+
+[[x2650#ctldriver-get-params]]		    The parameters for the `Get` are:
+		    
+
+`vme`Reference to a `CVMUSB` controller
+			  object that can be used to perform VME operations directly
+			  or to execute `CVMUSBReadoutList`
+			  objects that are created and filled by this method.
+
+`parameter`The name of the parameter to modify.
+
+
+[[x2650#ctldriver-get-cget]]		    In our toy driver our parameter names are configuration option names.
+		    In a real driver we would typically need to retrieve the
+		    `-base` value to locate our device in VME space.
+		    We would then use the value of `parameter`
+		    to determine which value to fetch.  That value would be 
+		    represented as a string and then returned to the caller.
+		  [[x2650#ctldriver-get-error]]		  In the toy driver, `cget` can throw an
+		  exception.  We turn this into an error return indicated by
+		  returning a string of the form
+		  ERROR -  followed by a descriptive error
+		  string.
+
+<a name="AEN2969"></a>**Example 5-21. Control driver `clone` method**
+
+```
+void
+CUserDriver::clone(const CControlHardware& rhs)
+{
+  CControlHardware* pRhs = const_cast<CControlHardware*>(&rhs);
+  m_pConfig = new CControlModule(*(pRhs->getConfiguration()));
+}
+		
+```
+
+All control drivers must supply a `clone`
+		method.  This method must clone a `rhs` object
+		into `this`.  The minimal work that must be done
+		is to clone the `rhs` configuration into our
+		`m_pConfig`.
+
+Any internal data the driver has must also be copied.  Wether this can
+		be a shallow or deep copy is up to the needs of the driver.
+
+#### <a name="AEN2980"></a>5.9.1.1.2. The creator
+
+The creator is used by the extensible module factory. It captures
+	      knowledge of how to create a driver instance.  The factory matches
+	      driver type names with creators and uses the creator to produce
+	      the correct constructor.
+
+<a name="AEN2983"></a>**Example 5-22. Control driver creator**
+
+```
+#include <CModuleCreator.h>                             
+#include <CControlHardware.h>
+   
+
+class CUserDriverCreator : public CModuleCreator             
+{
+public:
+  virtual std::unique_ptr<CControlHardware>
+    operator()();                           
+};
+
+std::unique_ptr<CControlHardware>
+CUserDriverCreator::operator()()
+{
+  return std::unique_ptr<CControlHardware>(emasc 
+        new CUserDriver()                               
+    );                               
+}
+	      
+```
+
+[[x2650#cltcreator-headers]]		  The creator must have `CModuleCreator` as 
+		  a base class.   This line includes the header for that class.
+		[[x2650#ctlcreator-classdef]]		  This is the class definition for the creator.  By convention
+		  the name of a creator is built from the name of the class
+		  it creates with Creator suffixed.
+		  As previously described this class must inherit from
+		  `CModuleCreator`
+[[x2650#ctlcreator-functordef]]		  The creator must define and implement a functor
+		  (`operator()`).  This method
+		  must t return a dynamically
+		  allocated `CControlHardware*`
+		  whose underlying type is the same as the type we are
+		  supposed to be creating.  
+		The use of the `std::unique_ptr`
+                    smarpt pointer class provides that the
+                    created object's  lifetime can be properly managed.
+
+[[x2650#ctlcreator-new]]		  The implementation of the functor operator is usually 
+		  as simple as what's shown here.  Just
+		  new into existence the object
+		  and return an std::unique_ptr containing it.
+
+#### <a name="AEN3007"></a>5.9.1.1.3. The initialization function
+
+The initialization function is called automatically by the
+	      Tcl **load** or **package require**
+	      command used to load the driver into the interpreter.
+	      The initialization function must have a specific name that matches
+	      the name of the library/package it is built into.  The name must be
+	      of the form described in 
+	      [http://www.tcl.tk/man/tcl8.5/TclCmd/load.htm](http://www.tcl.tk/man/tcl8.5/TclCmd/load.htm)
+	      Unless otherwise specified in the **load** command,
+	      the package name is the part of the name of the library that follows
+	      the lib part but before the file type.  E.g. for
+	      a shared library named libMyControlDriver.so,
+	      the initialization function should be
+	      Mycontroldriver
+
+Here is the initialization function for our sample driver:
+
+<a name="AEN3018"></a>**Example 5-23. Control driver initialization**
+
+```
+#include <CModuleFactory.h>                          
+#include <tcl.h>
+
+extern "C" {                                               
+  int Userdriver_Init(Tcl_Interp* pInterp)                 
+  {
+    CModuleFactory* pFact = CModuleFactory::instance();    
+    pFact->addCreator(
+        "mydriver",
+        std::unique_ptr<CModuleCreator>(new CUserDriverCreator)); 
+
+    return TCL_OK;                                         
+  }
+  
+}
+	      
+```
+
+[[x2650#ctldriver-init-headers]]		  The headers required for the initialization function are (in addition
+		  to any header that defines the module creator):
+		  
+
+CModuleFactory.hDefines the `CModuleFactory`
+			  singleton which is the class in which our creator must
+			  be registered.
+
+tcl.hContains interface definitions for the API to the
+			  Tcl interpreter.
+
+
+[[x2650#ctldriver-init-cbinding]]		    The Tcl interpreter needs to be able to compute
+		    the function name explicitly.   Since C++ function names
+		    are *decorated* in ways that depend on
+		    their signatures, the initialization function must be 
+		    declared with C name bindings.  This is done with the
+		    extern "C" block shown here.
+		  [[x2650#ctldriver-init-prototype]]		    The initialization functdion takes an interpreter
+		    (Tcl_Interp*) as a parameter and returns
+		    an int status.  The normal return status
+		    is TCL_OK.  The failure return status is
+		    TCL_ERROR and  an error message can be
+		    put in the interpreter result (using e.g.
+		    [Tcl_SetResult](http://www.tcl.tk/man/tcl8.5/TclLib/SetResult.htm)).
+		  [[x2650#ctldriver-init-factget]]		    The main work of the intitialization function is to register
+		    the module creator with the module factory.  The
+		    `CModuleFactory::instance()`
+		    returns a pointer to the 
+		    [singleton instance](http://en.wikipedia.org/wiki/Singleton_pattern)
+		    of the factory.
+		  [[x2650#ctldriver-init-creator]]		    Registers the new creator object associating it with the
+		    module type mydriver
+[[x2650#ctldriver-init-status]]		    Returns a normal status value.
+
+#### <a name="AEN3062"></a>5.9.1.1.4. Building the driver and using it.
+
+Compiled drivers must be built as shared libraries.  You can then
+	      either use the Tcl **load** command to directly
+	      load them or build a pkg_Index.tcl in a 
+	      Tcl library directory and use **package require**
+	      instead.
+
+Regardless of the choices you make, if you have bundled your
+	      driver into a single file you can build it using:
+
+<a name="AEN3069"></a>**g++ -shared -o libMyDriver.so MyDriver.cpp
+	      **
+
+Note that you don't need to specify libraries that are
+	      included in the readout program, however you do need to
+	      resolve any other undefined symbols that are in libraries
+	      not part of the readout program.
+
+To use the driver you need to load it into the interpreter
+	      and the use the **Module** to make an instance
+	      and to maniuplate that instance.  For example:
+
+<a name="AEN3075"></a>```
+load [file join [file dirname [info script]] libMyDriver.so]
+Module create testModule mydriver
+Module config testModule -anint 1234
+	      
+```
+
+## <a name="vmusb-develop-module-tcl"></a>5.9.2. Writing slow control drivers in Tcl
+
+Using the SWIG wrappers for the `CVMUSB` and
+	`CVMUSBReadoutList` classes and the
+	tcl wrapper module type you can write
+	slow control modules using pure Tcl. A Tcl driver is a command ensemble
+	that defines the following subcommands:
+
+
+
+**Initialize**Called by the wrapper's `Initialize`
+	    to perform initialization.
+
+**Update**Called by the wrapper's `Update`
+	    method.
+
+**Set**Called by the wrapper's `Set` method.
+
+**Get**Called by the wrapper's `Get` method.
+
+**addMonitorList**Called by the wrappers `addMonitorList`
+	      method.  This method must be supplied though it need not do
+	      anything.
+
+**processMonitorList**Called by the wrappers's `processMonitorList`.
+	    Again while this  method must be supplied, it need not do anything
+	    (except return 0 indicating it has not processed antyhing from the monitor
+	    list).
+
+**getMonitoredData**Called from the wrapper's `getMonitoredData`.
+	      Must be defined but need not do anything useful if the driver
+	      does not make use of monitor lists.
+
+The remainder of this section will pick apart a Tcl driver that performs
+	the same basic function as the C++ driver we wrote in the previous section.
+	We will also show how to incorporate the driver into a 
+	controlconfig.tcl file.
+
+For this example we will use a driver written using snit. incrTcl or 
+	Xotcl or even namespace ensembles can be used to implement drivers, or
+	even just a Tcl procedure of only one instance is going to be supported.
+
+Let's start by looking at the overall framework of the driver:
+
+<a name="AEN3130"></a>**Example 5-24. Control drivers - structure of a Tcl driver**
+
+```
+
+package provide Mydriver 1.0
+package require cvmusb                            
+package require cvmusbreadoutlist
+
+
+snit::type Mydriver {                            
+    option -anint -configuremethod _validInt
+    option -astring                              
+    option -alist -configuremethod _validIntList
+
+    constructor args {
+       ...
+       $self configurelist $args                
+    }
+
+    method Initialize vme {...}
+    method Update     vme {...}
+    method Set        {vme parameter value} {...}
+    method Get       {vme parameter} {...}     
+    method addMonitorList vmeList {...}
+    method processMonitorList data {...}
+    method getMonitoredData {...}
+
+    #  Private method:
+    
+    method _validInt {optname value} {...}      
+    method _validIntList {optname value} {...}
+    
+
+}
+	
+```
+
+[[x2650#ctldriver-tclstruct-packages]]	    This section of code defines a package name; Mydriver
+	    and specifies it to have a version of 1.0.  This
+	    allows the Tcl command 
+	    [**pkg_mkIndex**](http://www.tcl.tk/man/tcl8.5/TclCmd/pkgMkIndex.htm)
+	    to create a pkgIndex.tcl package index that includes 
+	    the Mydriver package.
+	    The two **package require** packages include the packages
+	    that implement SWIG wrappings of the `CVMUSB`
+	    and `CVMUSBReadoutList` classes.
+	  [[x2650#ctldriver-tclstruct-snittype]]	    Snit classes are declared with the **snit::type** 
+	    command.  That command takes two parameters, the typename
+	    (Mydriver), and the body of the type definition
+	    which begins with the {.
+	  [[x2650#ctldriver-tclstruct-options]]	    The **option**, defined within a **snit::type**
+	    body declares a configuration option for objects created with this type.
+	    These three lines declare the three configuration options we said we would 
+	    support.  We want to perform validation on the
+	    `-anint` and the `-alist`.  The
+	    `-configuremethod` option in the
+	    **option** provides the name of a method that
+	    will be called when the option is configured.  This provides for
+	    validation.
+	  [[x2650#ctldriver-tclstruct-constructor]]	    The constructor  method must do all internal initializations,
+	    it should also process the configuration options that were passed
+	    on the construction command line.  The built-in method
+	    `configurelist` processes a list of
+	    option/value pairs.  Precisely what the `args`
+	    parameter contains.
+	  [[x2650#ctldriver-tclstruct-methods]]	    These lines of code are skeletal definitions of the 
+	    methods we are required to implement in a Tcl driver. 
+	    The **method** in a **snit::type**
+	    is used to create object methods for a Snit object.  We will
+	    look at the bodies of these methods in separate sections.
+	  [[x2650#ctldriver-tclstruct-configmethods]]	    These lines of code create skeletal definitions of the methods
+	    we established as configuration handlers via the 
+	    `-configuremethod`.  Confifgure methods take a pair of parameters.
+	    `optname` is the name of the parameter being configured
+	    while `value` is the proposed new value for that parameter.
+	    This parameterization allows configuremethods to be shared between several
+	    options (for example if we had more than one option we wanted to constrain
+	    to be an integer.
+
+### <a name="AEN3177"></a>5.9.2.1. Initialize
+
+The full implementation of the `Initialize` is shown
+	  below:
+
+<a name="AEN3181"></a>**Example 5-25. Tcl control driver `Initialize` method**
+
+```
+    method Initialize vme {
+    
+    }
+	  
+```
+
+The `Initialize` does nothing for our driver.
+	  For a real driver the options might be queried to find the base address
+	  of the hardware as well as other static configuration options.  The 
+	  `vme` argument, which is a Swig wrapped
+	  `CVUSB` object would then be used to perform the
+	  VME transactions needed to initialize the device.
+
+In the event of an error while executing this method, the wrapper
+	  will pull the result of the command as a string, and throw it as a
+	  `std::string` exception.  This is the accepted way
+	  for drivers to indicate errors in their `Initialize`
+	  methods
+
+### <a name="AEN3192"></a>5.9.2.2. The update method
+
+The `Update` method servesthe same function
+            in a Tcl driver as in a C++ driver.  In our case the implementationis
+
+<a name="AEN3196"></a>**Example 5-26. Tcl control driver `Update` method**
+
+```
+    method Update vme {
+        return "OK"
+    }
+            
+```
+
+The `vme` is a SWIG encapsulated
+            `CVMUSB` object that, in a real driver,
+            would be used to perform VME operations or execute lists created
+            via  `CVMUSBReadoutList` objects created and
+            filled in by this method.
+
+The return string of OK indicates a normal
+            completion.  Tcl methods have two mechanisms to return errors.
+            Returning a string that begins with ERROR - 
+            and concludes with an error message, or simply executing the
+            **error** with an error message argument.
+            The wrapper will map error returns into an ERROR - 
+            string return with the value of the string passed t the
+            **error** command appended to the end of the
+            error return string.
+
+### <a name="AEN3210"></a>5.9.2.3. The Set method
+
+As with the C++ driver, the `Set` method is
+            used to process client requests to change a device parameter.
+            The Tcl version of this method is:
+
+<a name="AEN3214"></a>**Example 5-27. Tcl control driver `Set` method**
+
+```
+    method Set {vme parameter value} {
+        $self configure $parameter $value
+        return "OK"
+    }
+            
+```
+
+The parameters passed into this are the same as those passed into
+            a C++ driver's set, however the `vme` parameter
+            is a swig wrapped `CVMUSB` object.
+
+By using the `configure` method rather than
+            just directly writing to the `options` array
+            we force the call of any `-configuremethod` code
+            that may do validations and throw errors.
+
+The return of OK indicates successful completion,
+            an error will be converted by the wrapper into a return string of the form
+            ERROR - *intepreter error result string*.
+            This allows errors from the `configurmethod`,
+            including specifying an invalid option name as well as failures
+            in validation by the `-configuremethod` code to be
+            naturally mapped back to proper error returns.
+
+In a real driver, the `vme` parameter will
+            be used to perform VME operations.  In addition you can choose
+            to explicitly return an error string, or use the
+            **error** command to report failures.
+
+### <a name="AEN3234"></a>5.9.2.4. The Get method
+
+As with the C++ driver this is called to fetch the value of a
+            driver parameter.  Our toy driver fetches configuration parameters
+            rather than hardware parameters.
+
+<a name="AEN3237"></a>**Example 5-28. Tcl control driver `Get` method**
+
+```
+    method Get {vme parameter} {
+        if {[array names options $parameter] eq ""} {
+            error "Invalid parameter name: $parameter"
+        }
+        return $options($parameter)
+    }
+            
+```
+
+Our driver ensures the value of `parameter` really
+            is an option name and then returns the option value from the
+            `options` array.
+            By doing the check for **array names options $parameter**
+            we can produce a more meaningful error message than would be
+            produced if we just let **return $options($parameter)**
+            error.
+
+Instead of the **error** command we could have just
+            as easily done a **return "ERROR - Invalid parameter name: $parameter"**
+
+A real driver would use the `vme` parameter,
+            which is a Swig wrapped `CVMUSB` object
+            to fetch the value of the parameter from the hardware.
+
+### <a name="AEN3252"></a>5.9.2.5. The addMonitorList method
+
+Since we are not using monitor lists, this method is trivial:
+
+<a name="AEN3255"></a>**Example 5-29. Tcl control drer `addMonitorList` method**
+
+```
+    method addMonitorList vmeList {
+    }
+	  
+```
+
+The `vmeList` is a `CVMEReadoutList`
+	  that is wrapped by Swig.  A driver that uses monitor lists would add operations
+	  to the list as needed to retrieve the data being monitored from the device.
+
+### <a name="AEN3262"></a>5.9.2.6. The processMonitorList method
+
+`processMonitorList` is called with the data read
+	  by the monitor list marshalled into a Tcl list of bytes (string representation).
+	  The method is expected to process what it needs from the front of the list
+	  and return a count of the number of bytes processed.  Since we are not using
+	  monitor lists, our implementation is:
+
+<a name="AEN3266"></a>**Example 5-30. Tcl control driver `processMonitorList` method**
+
+```
+    method processMonitorList data {
+        return 0
+    }
+	  
+```
+
+### <a name="AEN3270"></a>5.9.2.7. The getMonitoredData method
+
+If using a monitor list, this method typically returns the data
+	  last processed by `processMonitorList` with
+	  OK -  prepended to indicate a successful completion.
+	  As usual an **error** or script errors will result in
+	  a return of ERROR -  with the result string appended.
+
+Since we are not using a monitor list, it's appropriate for us
+	  to return an error condition:
+
+<a name="AEN3278"></a>**Example 5-31. Tcl control driver `getMonitoredData` method**
+
+```
+    method getMonitoredData {} {
+        error "This driver has no monitored data"
+    }
+          
+```
+
+### <a name="AEN3282"></a>5.9.2.8. Validating the command options
+
+The only thing left to do is write the option validation methods
+	  `_validInd` and `_validIntList`.
+
+|  |  |
+| --- | --- |
+|  | Note |
+|  | Snit does not have method visibility control, that is all methods
+	  are public.   By convention, methods that are not intended to be
+	  called by a client are given names that start with a_.
+	  Therefore these methods should be considered private. |
+
+<a name="AEN3291"></a>**Example 5-32. Tcl control driver validation**
+
+```
+    method _validInt {optname value} {
+        if {[string is integer -strict $value]} {                  
+	    set options($optname) $value                           
+        } else {
+            error "$optname must be configured with an integer was given '$value'" 
+        }
+    }
+    method _validIntList {optname value} {
+        if {![info complete $value]} {                            
+            error "$optname must be given an integer list and '$value' isn't one"
+        }
+
+	set elements [llength $value]
+        if {$elements != 16} {                                    
+	    error "$optname must be given an integer list 16 '$value" as $elements"
+	}
+	
+	foreach item $value {                                     
+            if {![string is integer -strict $item]} {             
+	       error "$optname list elements must be integer but '$item' in '$value' is not"
+            }
+        }
+	set options($optname) $value                              
+    }
+	  
+```
+
+[[x2650#tcldriver-validate-isinteger]]	      The **string is integer -strict** command takes its argument
+	      and returns true if the argument is an integer and non-blank (a blank integer
+	      can be interpreted as a zero).
+	    [[x2650#tcldriver-validate-setintopt]]	      This sets the appropriate element of the `options`
+	      array.  This array is used by e.g. **cget** to
+	      return configuration options, unless overridden with a `-cgetmethod`.
+	    [[x2650#tcldriver-validate-intinvalid]]	      If the option value does not validate as an integer, an error is thrown.  Note 
+	      that we have seen that errors are mapped by the wrapper into the appropriate
+	      error indication to the driver framework.
+	    [[x2650#tldriver-validate-islist]]	      This trick checks that `value` is a valid list.  This works
+	      because complete commands must be valid Tcl lists as well.
+	    [[x2650#tcldriver-validate-listcount]]	      This ensures the list has exactly 16 elements, else an error is thrown.
+	    [[x2650#tcldriver-validate-intelements]]	      Element by element, the list is checked to ensure that all elements are
+	      valid integers.
+	    [[x2650#tcldriver-validate-setlistopt]]	      If by now we have not errored out, the value is valid and is set in the
+	      `options` array.
+
+### <a name="AEN3322"></a>5.9.2.9. Using a Tcl control driver
+
+To use a Tcl control driver you must:
+
+
+
+1. Incorporate the driver into your controlconfig.tcl
+   	    script either using the **source** or 
+   	    **package require** command.
+2. Create an instance of your driver if needed.  In the case of
+   	    our toy driver, this means a command like:
+   	    **Mydriver aninstance** to create a command
+   	    ensemble named aninstance
+3. If necessary configure our driver instance.
+4. Wrap your driver with the tcl module type:
+   <a name="AEN3340"></a>```
+   Module create  atcldriver tcl
+   Module config atcldriver -ensemble aninstance
+   ```
+
+The key point is that the `-ensemble` for a 
+  tcl module provides the base name of the
+  command ensemble that Tcl driver wraps.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extending the Supported Readout Hardware | Up | Pushing external data into the event stream |

@@ -1,0 +1,77 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.n568b"></a>Chapter 23. N568B CAENnet shaping amplifier
+
+The N568B is a 16 channel NIM shaping amplifier.  It features a CAENnet
+        interface which allows the module to be controlled remotely when a
+        VME crate in the setup contains a CAEN V288 CAENnet controller.
+
+Support for this module comes in the form of:
+
+
+
+- A Tcl loadable package
+              [[r74786]]
+              that knows how to control the module, and can be used in an
+              arbitrary Tcl script.
+- A Tcl Loadable package
+                  [[r74984]]
+                  that implements a megawidget which can be used within a
+                  slow controls GUI to control an N568 module.
+- A Tcl script
+                  [[r16287]]
+                  that uses the n568panel widget to implement a canned
+                  application that controls any number of N568 modules.
+- A Tcl script
+                  [[r16259]]
+                  which allows you to load the settable parameters in a
+                  shaper module.
+
+Refer to the reference material for more information about each of these
+        support packages.
+
+If you want to make use of the n568b and/or
+        n568panel packages in your own scripts you will
+        need to be sure that the package diretory tree is in your package search path.
+        NSCLDAQ installs Tcl loadable packages in its TclLibs
+        directory tree.  Adding this directory to the Tcl package search path
+        makes all NSCLDAQ Tcl loadable packages available to your scripts.
+
+The Tcl package search path can be extended in two ways.  First by
+        setting the `TCLLIBS` environment variable
+        and second b y appending directory names to the
+        `auto_path` Tcl global variable.
+
+Suppose the envirionment variable `DAQROOT`
+        contains the top level installation directory of the
+        NSCLDAQ installation you are using.  In that case
+        at the bash shell you can:
+
+<a name="AEN7122"></a>```
+export TCLLIBPATH=$DAQROOT/TclLibs
+        
+```
+
+Similarly within your script you can:
+
+<a name="AEN7125"></a>```
+lappend auto_path [file join $::env(DAQROOT) TclLibs]
+        
+```
+
+Once the package load path has been established, you can use
+        the Tcl **package require** command to load the
+        package into your script.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CAEN V812 Constant Fraction Discriminator | Up | VHS-40xxx SBS support. |

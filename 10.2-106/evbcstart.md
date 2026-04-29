@@ -1,0 +1,89 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb3_start"></a>EVBC::start
+
+<a name="AEN4259"></a>## Name
+
+EVBC::start -- Start the event builder pipeline.
+
+<a name="AEN4262"></a>## Synopsis
+
+**EVBC::start *options*
+**
+
+<a name="AEN4266"></a>## DESCRIPTION
+
+**EVBC::start** starts the event builder pipeline.
+            It is an error to start the pipeline if it is already started.
+            The *options* described in the command
+            synopsis above are option value pairs which are described in the
+            OPTIONS section below.
+
+This proc is part of the API layer.  Rather than using it directly,
+            you may want to consider using the procs in the EZBuilder layer.
+
+<a name="AEN4273"></a>## OPTIONS
+
+
+
+`-teering` *ringname*If present with a non empty value, this option inserts
+                        an element in the pipeline that tees off the ordered
+                        fragments into a ring buffer.  The value of this option
+                        is the name of the ring (not the URL) which will receive
+                        the ordered fragments.
+
+Defaults to an empty string which disables the production
+                        of an intermediate data ring.
+
+`-glombuild` *yes | no*If yes the glom stage of the pipline
+                        builds events using a coincidence interval specified
+                        by the `-glomdt` option.
+
+If no the glom stage only passes
+                        fragments on with minimal re-formatting to turn them into
+                        proper event ring items.
+
+Defaults to no
+
+`-glomdt` *ticks*If `-glombuild` is yes, this sets the
+                        number of timestamp clock ticks that define a coincidence
+                        interval for event building.
+
+`-destring` *ringname*Specifies the ring in which the output of glom
+                        is put.  If not provided, this default to the username
+                        of the logged in account.
+
+<a name="AEN4308"></a>## EXAMPLES
+
+The example below starts up the event building pipline without
+                merging the data into events.  The output ring is named
+                built
+
+<a name="AEN4312"></a>```
+EVBC::start -glombuild off -destring built
+                
+```
+
+The example below starts up the event building pipeline merging
+                the data from adjacent fragments into event when the difference
+                timestamp is less than 300.
+                Output data is put in the ring built, the orderered
+                fragments are put in the ring fragments
+
+<a name="AEN4318"></a>```
+EVBC::start -glombuild on -glomdt 300 -destring built -teering fragments
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Preface | Up | EVBC::stop |

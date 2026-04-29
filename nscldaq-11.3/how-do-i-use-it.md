@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 44. TclRingBuffer Tcl package. | Next |
+
+
+---
+
+# <a name="AEN9482"></a>44.2. How do I use it?
+
+The TclRingBuffer  package can be incorporated in your
+      script by:
+
+
+
+- Ensuring the Tcl package load path includes the NSCLDAQ Tcl library
+  	  directory tree.
+- Using the **package require** command to
+  	  actually load the package.
+
+
+Here is a script fragment that takes care of this, assuming that you have
+      sourced the daqsetup.bash into your shell:
+
+<a name="AEN9493"></a>```
+lappend auto_path [file join $::env(DAQROOT) TclLibs]
+package require TclRingBuffer
+      
+```
+
+The package provides a new command ensemble named **ring**.
+      The example below shows a typical initialization and event processing loop:
+
+<a name="AEN9497"></a>**Example 44-1. Processing ring items in Tcl.**
+
+```
+...
+ring attach $someRingUri                    
+while {[continueProcessing]} {
+  set item [ring get $someRingUri $itemTypes] 
+  processItem $item
+}
+ring detach $someRingUri                     
+...
+      
+```
+
+This generic processing loop externalizes a test for completion in the
+      **continueProcessing** command.  The actual
+      processing of ring items is also externalized in
+      **processItem**. Here's a description of the use of the
+      TclRingBuffer opackage in this script fragment.
+
+[[x9482#tclring_attach]]	  This command attaches the ringbuffer specified by the
+	  URI in the variable named `someRingUri`.
+	  The URI is used to identify the ringbuffer for any commands that
+	  operate on the ring.  The resources associated with the attached
+	  ring are looked up by exact textual matching of the ringbuffer
+	  (e.g. tcp://spdaq19/aring
+	  is considered a different ring from
+	  tcp://spdaq19.nscl.msu.edu/aring).
+	[[x9482#tclring_get]]	  the **ring get** command blocks until
+	  a ring items is available from the ring attached at
+	  `someRingUri`.  Only ring items
+	  that match the type list in `itemType`
+	  are returned.  
+	The next matching ring items is translated to a dict (see
+	  the reference page for the structure of this dict) and
+	  and returned as the result of the **ring get**
+	  command.
+
+[[x9482#tclring_detach]]	  Once processing is done, the ring is detached.  Once detached,
+	  it is no longer available for use in a **ring get**
+	  command.
+
+For reference information see:
+      [[r75167]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| TclRingBuffer Tcl package. | Up | Using TclRingBuffer in event driven software |

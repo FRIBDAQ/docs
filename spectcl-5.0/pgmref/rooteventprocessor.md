@@ -1,0 +1,104 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN23465"></a>RootEventProcessor
+
+<a name="AEN23469"></a>## Name
+
+RootEventProcessor -- Event processor to manage root event sinks
+
+<a name="AEN23472"></a>## Synopsis
+
+```
+class RootEventProcessor : public CEventProcessor
+{
+public:    
+    void addTreeSink(const char* name, RootTreeSink* sink);
+    RootTreeSink* removeTreeSink(const char* name);
+    
+    std::map<std::string, RootTreeSink*>>:const_iterator begin() const;
+    std::map<std::string, RootTreeSink*>::const_iterator end() const;
+
+    
+};
+        
+```
+
+<a name="AEN23474"></a>## DESCRIPTION
+
+`RootEventProcessor` is an event processor that
+            manages `RootTreeSink` objects.  Its purpose is to know
+            when files need to be opened and closed and to inform all registered
+            `RootTreeSink` objects of those events.
+
+The **roottree** command automatically creates and
+            adds a `RootEventProcessor` object to manage
+            the `RootTreeSink` objects it creates,
+            manipulates and destroys.
+
+If you write subsystem that manages its own set of
+            `RootTreeSink` objects you may want to provide
+            your own managing event sinnk.
+
+<a name="AEN23486"></a>## METHODS
+
+The event processor interface methods are not shown.
+
+
+
+`   void  addTreeSink(const  char*  name, RootTreeSink*  sink);`Registeres a new `RootTreeSink` object,
+                        `sink`,
+                        with this manager associating it with the name
+                        `name`.
+
+If analysis of a run is ongoing, `sink`'s
+                        `OnOpen` method is called
+                        to inform it of the file into which data are being written.
+
+`   RootTreeSink*  removeTreeSink(const  char*  name);`Locates the root tree sink associated with
+                        `name`.  If a file is open,
+                        that object's `OnAboutToClose`
+                        is invoked and the object is removed from the
+                        set of managed sinks.
+
+If the object is not found, a
+                        `std::invalid_argument` exception
+                        is thrown.
+
+`  const std::map<std::string, RootTreeSink*>>:const_iterator  begin() ();`Returns an iterator that allows the caller to iterate
+                        over the set of registered sinks and their names.
+                        See also `end`
+
+`  const std::map<std::string, RootTreeSink*>::const_iterator  end() ();`Returns an iterator that allows the caller to determine
+                        when iteration over the container containing the
+                        sinks is complete.  Typical usage pattern might be:
+
+<a name="AEN23550"></a>```
+RootEventProcessor* pProc = getMyEventProcessor(); // to get a pointer to the proc.
+
+for (auto p = pProc->begin(); p != pProc->end(); p++) {
+    std::string name = p->first;
+    const RootTreeSink& sink(p->second);
+    
+    // Do something with the sink and or name
+    
+    ...
+}
+                        
+```
+
+Naturally STL iteration patterns (e.g.
+                        `std::for_each`) can be used
+                        as well.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RootTreeSink | Up | CPipelineManager |

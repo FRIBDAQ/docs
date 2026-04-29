@@ -1,0 +1,398 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4387"></a>CSqliteStatement
+
+<a name="AEN4391"></a>## Name
+
+CSqliteStatement -- Executes SQLite3 statements
+
+<a name="AEN4394"></a>## Synopsis
+
+```
+#include <CSqlite.h>
+#include <CSqliteStatement.h>
+
+class CSqliteStatement {
+public:
+    static const int integer;
+    static const int floating;
+    static const int text;
+    static const int blob;
+    static const int null;
+    
+    typedef void (*ObjectDestructor)(void*);
+
+public:
+    static void execute(CSqlite& connection, const char* statement);
+
+public:
+    CSqliteStatement(CSqlite& connection, const char* statement);
+    
+public:    
+
+    CSqlite&  database(); 
+    sqlite3_stmt* statement();
+    
+    
+    
+    int bindIndex(const char* name);
+    void bind(
+        int paramNo, const void* pBlob, int nBytes, ObjectDestructor destructor
+    );
+    void bind(int paramNo, double value);
+    void bind(int paramNo, int value);
+    void bind(int paramNo, int64_t value);
+    void bind(int paramNo);
+    void bind(
+        int paramNo, const char* pValue, int nBytes,
+        ObjectDestructor destructor
+    );
+
+    void bind(int Paramno, uint64_t nBytes);          // Blob filled with nulls.
+    void clearBindings();
+    
+    CSqliteStatement& operator++();             // Only prefix auto inc.    
+    void reset();
+    bool atEnd();
+    
+    int bytes(int col);
+    int bytes16(int col);
+    const void* getBlob(int col);                // Blob
+    double      getDouble(int col);
+    int         getInt(int col);
+    int64_t     getInt64(int col);
+    const unsigned char* getText(int col);
+    int         columnType(int col);
+
+    const char* sql();                        // SQL of the statement.
+    int   lastInsertId();                     // Row Id of last insert.
+    void  enableRetry();
+    void  disableRetry();
+
+};
+
+                    
+```
+
+<a name="AEN4396"></a>## DESCRIPTION
+
+Supports performing SQL queires on a database.
+
+If the query has no free parameters and returns
+                        no results, the static method
+                        `execute` can be used
+                        to execute a simple query.
+
+Constructing an object, however, is the same
+                        as creating a prepared statement.  Methods are
+                        provided to bind actual parameters to formal parameters
+                        in the prepared statement.  The
+                        `operator++`, steps the
+                        query through any result set positioning the retrieval
+                        cursor at consecutive rows.
+
+After each row, the fields in the row can be
+                        queried for their datatype and fetched.
+
+Prepared statement objects can be re-used with
+                        different actual parameters after call to
+                        `reset` is performed and
+                        new parameters bound to the formal parameters in the
+                        statement.
+
+Note that when user input is involved in creating
+                        the query or query parameters, it is wise to use
+                        prepared statements to avoid either deliberate or
+                        accidental SQL query injection exploits.
+                        (Google Little Bobby tables
+                        if you're not sure what this means).
+
+<a name="AEN4408"></a>## METHODS
+
+
+
+` static void  execute(CSqlite&  connection = , const char*  statement = );`Performs an immediate statement.  Note that
+                                since this method provides no mechanism to obtain
+                                the result set, the statement performed should be
+                                one that has no result set (e.g.
+                                INSERT, DELETE
+                                etc.).
+
+The method does not sanitize any data. Therefore,
+                                if the user is involved in building up a
+                                query (e.g. providing the value to insert
+                                into a table), it is safer to construct a
+                                statement object and execute it, binding
+                                the user's input to formal parameters in the
+                                statement.  This will avoid the
+                                infamous "Bobby Tables" style of SQL
+                                injection vulnerabilities this method is
+                                vulnerable to.
+
+connection is the database on
+                                which the statement will be performed and
+                                `statement` is the
+                                statement that will be executed.
+
+`  CSqliteStatement(CSqlite&  connection = , const char*  statement = );`Constructs a prepared statement.  Prepared statements
+                                are re-cyclable SQL statements.  Prepared
+                                statements can have formal parameters
+                                (see the SQLite3 documentation on prepared
+                                statement objects and their parameters for
+                                information about how to specify a formal
+                                parameter in prepared statement text).
+                                Prepared statements in this library do have a
+                                mechanism with which to retrieve result set
+                                rows.
+
+`connection` specifies
+                                the database on which the prepared statement
+                                is actually executed. `statement`
+                                is the text of the SQL that specifies the statement.
+
+The typical object lifetime is to construct
+                                a prepared statement. Once successfully
+                                constructed, calls to `bind`
+                                provide actual parameters for the slots labeled
+                                in the statement for formal parameters.
+                                Once actual parameters are provided
+                                `operator++` is used
+                                to iterate over the save set until
+                                `atEnd` returns true.
+                                After each iteration,
+                                getter methods are used to retrieve data from
+                                the result set rows.
+
+After iteration is done, the statement can
+                                be re-used with different actual parameters
+                                after calling `reset`
+                                and binding new parameters.
+
+` CSqlite&   database();`Returns the database object on which the
+                                object was constructed.  That is a reference
+                                to the `connection`
+                                parameter passed to the constructor.
+
+` sqlite3_stmt*  statement();`Returns the statement handle for the
+                                prepared statement created by constructing
+                                the object.  Note that this becomes invalid
+                                once the `CSqliteStatement`
+                                is destroyed.  Having this allows for
+                                unanticipated operations to  be performed
+                                on the statement.
+
+If you have an intersting use case that forces you
+                                to use this, please contact us so that we
+                                can consider supporting that use case
+                                in a future release.
+
+` int  bindIndex(const char*  name = );`When specified in an SQL statement, formal
+                                parameters can be either named or numbered.
+                                The binding methods, however only accept
+                                numbered parameters.  This method
+                                returns the value to pass to `bind`
+                                for the `paramNo`
+                                argument that corresponds to the named
+                                parameter `name`.
+
+` void  bind(int  paramNo = , const void*  pBlob = , int  nBytes = , ObjectDestructor  destructor = );`Binds a Binary Large OBject (BLOB) to a
+                                the formal parameter numbered
+                                `paramNo` in the
+                                statement.  `pBlob`
+                                is a pointer to the
+                                `nBytes` of data
+                                that make up the BLOB.
+
+`destructor` is
+                                a function that is passed `pBlob`
+                                and is expected to dispose of the storage
+                                associated with `pBlob`
+                                when the statement no longer needs it.
+
+Two special values can be used for the
+                                `destructor`:
+                                SQLITE_STATIC informs
+                                SQLITE that the data will be valid for the
+                                entire iteration of the statement and that
+                                there's no need to call a destructor
+                                function.  SQLITE_TRANSIENT
+                                means that the storage associated with the
+                                `pBlob` will have
+                                shorter lifetime than the staement iteration
+                                and that SQLite should create an internal
+                                copy of the data which it will take responsibility
+                                for destroying when no longer needed.
+
+` void  bind(int  paramNo = , double  value = );`Binds a double precision `value`
+                                to the statement's formal parameter numbered
+                                `paramNo`.
+
+` void  bind(int  paramNo = , int  value = );`Binds an integer `value`
+                                to the formal parameter `paramNo`
+
+` void  bind(int  paramNo = , int64_t  value = );`Binds a 64 bit integer `value`
+                                to formal parameter `paramNo`.
+
+` void  bind(int  paramNo = );`Binds a null value to the formal parameter
+                                numbered `paramNo`. Note that
+                                if a parmaeter does not have a binding it is treated
+                                as bound to a null value.  If, however a
+                                parameter was bound that is not null, and the
+                                statement is `reset`
+                                and new parameters bound, it may be necessary
+                                to explicitly specify a null binding.
+
+` void  bind(int  paramNo = , const char*  pValue = , int  nBytes = , ObjectDestructor  destructor = );`Binds a text string of `nBytes`
+                                bytes  pointed to by `pValue`
+                                to the formal parmeter numbered
+                                `paramNo`.
+                                As with the BLOB binding, `destructor`
+                                is a pointer to the destructor function for the
+                                data pointed to by `pValue`.
+                                Note that the same special values are legal
+                                as well.
+
+` void  bind(int  paramNo = , uint64_t  nBytes = );`Binds BLOB of `nBytes`
+                                of null data to the formal parameter numbered
+                                `paramNo`.
+
+` void  clearBindings();`Clears all bindings to formal parameters.
+                                Unless rebound, the parameters are
+                                all bound to NULL.
+
+` CSqliteStatement&  operator++();`Steps the statement to the next (first)
+                                row of the result set.  Note that once
+                                this is done, parameter bindings can no longer
+                                be performed until `reset`
+                                is called.
+
+` void  reset();`Resets the statment back to the preparing
+                                state.  All parameters remain bound as before,
+                                however new bindings can be made to replace
+                                any that are now in effect.  The next
+                                call to `operator++`
+                                will return the first row of the result set of
+                                the statement.
+
+`  bool  atEnd();`If true there are no
+                                more rows in the statement's result set.
+                                If that's the case, `operator++`
+                                will return an error.
+
+` int  bytes(int  col = );`Returns the number of bytes required to hold
+                                the value in field `col`
+                                of the current row of the result set.  Note
+                                that this works correctly for blobs or
+                                UTF-8 text (where the number of bytes required
+                                may be larger than the number of characters).
+
+` int  bytes16(int  col = );`Returns the number of bytes required to
+                                hold the UTF-16 text in column number
+                                `col`.
+
+` const void*  getBlob(int  col = );`Returns a pointer to the BLOB data in column
+                                number `col`.
+
+` double       getDouble(int  col = );`Returns the floating point value in column
+                                `col` of the current row
+                                of the result set.
+
+` int          getInt(int  col = );`Returns the integer value at column
+                                `col` of the current
+                                row of the result set.
+
+` int64_t      getInt64(int  col);`Returns the 64 bit integer value in field
+                                number `col` in the
+                                current row of the result set.
+
+` const unsigned char*  getText(int  col = );`Returns a pointer to the text stored in field
+                                `col` of the current
+                                result set.
+
+` int  columnType(int  col = );`Returns an integer that specifies the underlying
+                                data type in field `col`
+                                of the current row of the result set. Note that
+                                the return values are described in
+                                PUBLIC ATTRIBUTES and DATA TYPES
+                                below.
+
+` const char*  sql();`Returns the text of the SQL statement.
+                                This is a reverse compilation of the
+                                prepared statement.  I believe this does
+                                not show the parameter bindings but retains
+                                the formal pareter indices instead.
+
+` int    lastInsertId();`Returns the row id of the last inserted
+                                row in the database (not the statement),
+                                through this connection.  If the table has
+                                an integer primary key, the key generated for
+                                that insertion is returned.  If not,
+                                a ROWID generated by SQLite is returned. Note
+                                that all tables have in an implied ROWID
+                                column that stores these values.
+
+The most common reason to use this is when
+                                doing a mult-table insert and you need
+                                a foreign key to relate some of the
+                                insertions.
+
+` void   enableRetry();`Specifies that statment steps that result
+                                in SQLITE_BUSY should
+                                be retried. Note that
+                                SQLITE_BUSY generally
+                                means an operation could not be performed because
+                                to do so would violate locking done by another process
+                                operating on the same database.
+
+` void   disableRetry();`Disables the retry of a busy statement.
+                                If calling `operator++`
+                                returns SQLITE_BUSY, the
+                                operation fails and an exception is thrown.
+
+<a name="AEN4800"></a>## PUBLIC ATTRIBUTES and DATA TYPES
+
+The class exports several integer values and one
+                        datatype.  The integers respresent values that
+                        can be returned from the `columnType`
+                        method.  They are as follows:
+
+
+
+`integer`Synonym for SQLITE_INTEGER,
+                                the column type is an integer. You can use
+
+`floating`Synonym for SQLITE_FLOAT.
+                                The data type is floating point.
+
+`text`Synonym for SQLITE_TEXT.
+                                The field contains character data.
+
+`blob`Synonym for SQLITE_BLOB,
+                                the field contains a binary large object (BLOB).
+
+`null`Synonym for SQLITE_NULL,
+                                the column contains anull value.
+
+The data type exported is ObjectDestructor
+                        which is a typedef for void function that takes a single
+                        void parameter.  It is passed to a couple of the
+                        bind methods and allows you to do storage management
+                        on dynamic data bound to query parameters.
+                        When the SQLITE statement no longer needs the data
+                        associated with a field type that requires destructors,
+                        it calls the destructor specified passing a pointer to the
+                        data as a parameter.  The destructor function can then
+                        free the data as required.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSqliteException | Up | CSqliteTransaction/CSqliteSavePoint |

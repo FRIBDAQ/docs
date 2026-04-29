@@ -1,0 +1,121 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.auth"></a>auth
+
+<a name="AEN107782"></a>## Name
+
+auth -- Manager Authorization System
+
+<a name="AEN107785"></a>## Synopsis
+
+```
+package require auth
+
+auth::adduser db username
+auth::addrole db rolename
+auth::rmrole db rolename
+auth::grant db user role
+auth::revoke db user role
+set usernames [auth::users db]
+set roles [auth::listRoles db]
+set info [auth::listAll db]
+
+
+      
+```
+
+<a name="AEN107787"></a>## Description
+
+Implements the database for a role based authorization system.
+            In role based authorization systems, there are users and there
+            are roles.  Users can be *granted* one
+            or more roles and roles the currently have been granted can be
+            *revoked*.
+            The authorized capabilities of the user are then determined by the
+            roles they've been granted.
+
+Note the difference between authorization, and authentication.
+            Authentication is the process of "proving" who you are.  For example,
+            when you provide a user name and a password to login, you are
+            authenticating.  Authorization is the process of determining,
+            the access appropriate to an authenticated user.  For example, the
+            unix file modes determine, for a specific authenticated user
+            the operations that user can perform on that file.
+
+This package explicitly addresses *authorization*
+            and explictly does *not* address
+            *authentication*.
+
+<a name="AEN107797"></a>## PUBLIC ENTRIES
+
+In the command documentation that follows, all commands require an
+         SQLite3 database access command.  The parameter `db`
+         is that access command and will not be mentioned further.
+
+
+
+**auth::adduser *db username***Adds a new user, `username` to the
+                  set of users that can be authorized with roles.
+                  `username` must not have been added
+                  in the past or an error will be thrown.
+
+**auth::addrole *db rolename***Adds a new role,
+                  `rolename`that can be granted to users.
+                  `rolename` must not be the name of an
+                  existing role or else an error will be thrown.
+
+**auth::rmrole *db rolename***Removes the role `rolename` from
+                  the list of roles that can be granted to users.
+                  A scorched earth policy is adopted in the sense that prior
+                  to removing the role it is revoked from any users it has
+                  been granted to.
+
+An error is throw if `rolename` is
+                  not an existing role.
+
+**auth::grant *db user role***Grants the `user` the role named by
+                  `role`.  Both
+                  `user` and `role`
+                  must have been previously defined as a user and a role
+                  respectively or else an error will be thrown.
+
+Once the user has been granted this `role`,
+                  the user has all of the capabilities implied by that role.
+
+**auth::revoke *db user role***Revokes the role named `role` from
+                  the user named `user`.   Any capabilities
+                  implied by the `role` that are not also
+                  implied by another role the user was granted are no longer
+                  allowed to that user.
+
+By the previous paragraph we mean that the set of capabilities
+                  carried by roles may not be orthogonal.
+
+**auth::users *db***Returns a list of the user names that have been added to the
+                  system.
+
+**auth::listRoles *db***Returns a list of all of the role names that have been
+                  added to the system.
+
+
+
+**auth::listAll *db***Lists all of the information in the authorization database.
+                  The result is a dict.  The dict keys are usernames and the
+                  values for each key are a list of roles that have been
+                  granted to that user.  Users with no roles granted will
+                  appear as keys in to the dict and those keys
+                  will have empty lists as
+                  values.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| eventloggers | Up | stateclient |

@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN721"></a>genx
+
+<a name="AEN725"></a>## Name
+
+genx -- Compiler for parameter definitions
+
+<a name="AEN728"></a>## Synopsis
+
+**/usr/opt/genx/bin/genx `--target`=*targetname  declaration-file output-base***
+
+<a name="AEN733"></a>## DESCRIPTION
+
+Runs the parameter definition compiler.  This command
+															takes a parameter declaration file (see 5genx) and compiles
+															it into headers and executable code modules for a specific data
+															analysis framemwork.  The `--target` option value
+															can be spectcl or root,
+															specifying that output is being created for either SpecTcl or
+															CERN/Root.
+
+The declaration-file is the path to a parameter declaration
+												file written with the syntax and semantics defined in the
+												5genx manpage.  The output-base is a path and basename for
+												the resulting generated files.  Note that all declarations, instances
+												and API functions will be made in a namespace that's derived
+												from output-base as well.
+
+<a name="AEN740"></a>## EXAMPLES
+
+<a name="AEN742"></a>**/usr/opt/genx/bin/genx --target=spectcl myparams.decl SpecTcl/Event**
+
+Generates SpecTcl code for the definition in myparams.decl.
+									The resulting files will be SpecTcl/Event.h ansd
+									SpecTcl/Event.cpp  All definitions will be in the
+									Event namespace.
+
+<a name="AEN750"></a>**/usr/opt/genx/bin/genx --target root myparams.decl Root/Event**
+
+Generates CERN/Root code for the definition file
+									myparams.decl.  The resulting files will be
+									Root/Event.h, Root/Event.cxpp
+									and Root/Event-linkdef.h.  All definitions
+									will be made in the Event namespace.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Genx Declaration language | Up | Programming manual |

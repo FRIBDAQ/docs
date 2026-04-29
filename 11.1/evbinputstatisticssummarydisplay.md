@@ -1,0 +1,62 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_inputstatistics_summarydisplay"></a>EVB::inputStatistics::summaryDisplay
+
+<a name="AEN13777"></a>## Name
+
+EVB::inputStatistics::summaryDisplay -- Summary of input statistics.
+
+<a name="AEN13780"></a>## Synopsis
+
+**EVB::inputStatistics::summaryDisplay *window ?options?*
+**
+
+** *$window* configure *options*
+**
+
+** *$window* cget *?option-nanme?*
+**
+
+<a name="AEN13792"></a>## DESCRIPTION
+
+Provides a widget in which summary statistics for input queues can
+            be displayed.  The summary statistics consist of the oldest an
+            newest in-flight timestamps, the source id of the input queue with
+            the most in-flight fragments and the number of fragments in that
+            *deepest* queue.
+
+The actual statistic values displayed are set by using configuration
+            options.  See OPTIONS below for more information about these.  The
+            widget has no public methods.
+
+<a name="AEN13797"></a>## OPTIONS
+
+
+
+`-fragments`Specifies the value to display as the total number
+                        of queued fragments (across all queues).
+
+`-oldest`Specifies the value to display as the
+                        timestamp of the oldest fragment in flight.
+
+`-newest`Specifies the value to display as the timestamp of the
+                        newest in-flight fragment.
+
+`-deepestid`Specifies the value to display as the source id with the
+                        most fragments in its queue (deepest queue).
+
+`-deepestdepth`Specifies the value to display as the number of fragments
+                        in the deepest queue.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ::EVB::inputStatistics::queueDisplay | Up | EVB::lateFragments |

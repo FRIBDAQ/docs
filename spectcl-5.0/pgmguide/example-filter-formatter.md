@@ -1,0 +1,244 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 8. Extending SpecTcl's filter file formats | Next |
+
+
+---
+
+# <a name="sec.filterformatexample"></a>8.2. Example filter formatter.
+
+In this section, we'll build a simple filter formatter.  We're not
+            going to build an unpacker for it because that raises a few issues
+            beyond the scope of this part of the document.  We're just going to
+            show:
+
+
+
+- How to write a filter output stage for a simple CSV
+                      form of filter file format.
+- How to write an output stage creator for the new
+                      filter format we're creating
+- How and where to register the creator with the factory
+                      so that the **filter** command knows about it.
+
+Let's look at the creator.  Here's a working definition for our class:
+
+<a name="AEN2317"></a>**Example 8-4. Definition of `CSVFilterOutputStage`**
+
+```
+#ifndef CSVFILTEROUTPUTSTAGE_H
+#define CSVFILTEROUTPUTSTAGE_H
+
+#include <CFilterOutputStage.h>
+#include <fstream>
+
+
+class CSVFilterOutputStage : public CFilterOutputStage
+{
+private:
+  std::ofstream    m_file;
+  std::vector <UInt_t> m_params;
+
+ public:
+  virtual void open(std::string filename) ;
+  virtual void close() ;
+  virtual void DescribeEvent(std::vector<std::string> parameterNames,
+			     std::vector<UInt_t>      parameterIds);
+
+  virtual void operator()(CEvent& event);
+  virtual std::string type() const;
+};
+
+#endif
+
+            
+```
+
+Note that since we're doing a text, comma separated field
+            file, it's completely appropriate to store the file as an
+            `std::ostream` object.
+
+Implementations of `open` and
+            `close` are trivial:
+
+<a name="AEN2326"></a>**Example 8-5. 
+                Implementation of `open` and `close` for `CSVFilterOutputStage`
+**
+
+```
+void
+CSVFilterOutputStage::open(std::string filename)
+{
+  m_file.open(filename);
+}
+void
+CSVFilterOutputStage::close()
+{
+  m_file.close();
+}
+                
+            
+```
+
+`DescribeEvent` is not that harder:
+
+
+
+- Write a header to the output file.
+- Save the parameter ids for later use.
+
+<a name="AEN2339"></a>**Example 8-6. Implementing `CSVFilterOutputStage::DescribeEvent`**
+
+```
+void
+CSVFilterOutputStage:: DescribeEvent(std::vector<std::string> parameterNames,
+				     std::vector<UInt_t>      parameterIds)
+{
+  for (int i = 0; i < parameterNames.size(); i++) {
+    char delim = ',';                  // Delimeter for all but end.
+    if ((i+1) == parameterNames.size()) {
+      delim = '\n';                           // Last one has a newline following it.
+    }
+    m_file << parameterNames[i] << delim;
+  }
+  
+  m_params = parameterIds;
+}
+                
+            
+```
+
+The only interesting thing about this is a bit of logic we saw
+            in our filter output example and that's how the character that
+            follows the data is chosen to be a , if the
+            item being written is not last or \n if it is.
+
+We'll see that logic again in the `operator()`
+            implementation.  There, we'll also see a check on whether an event
+            has defined a parameter or not.  If not, then an empty field is written:
+
+<a name="AEN2348"></a>**Example 8-7. Implementing `CSVFilterOutputStage::operator()`**
+
+```
+void
+CSVFilterOutputStage:: operator()(CEvent& event)
+{
+  for (int i = 0; i < m_params.size(); i++) {
+    int idx = m_params[i];
+    char delim = ',';
+    if ((i+1) == m_params.size()) {
+      delim = '\n';
+    }
+    if (event[idx].isValid()) {
+      m_file << event[idx];
+    }
+    m_file << delim;
+  }
+}
+
+            
+```
+
+This leavses only the `type` method and
+            that too is trivial:
+
+<a name="AEN2354"></a>**Example 8-8. Implmenting `CSVFilterOutputStage::type`**
+
+```
+std::string
+CSVFilterOutputStage::type() const
+{
+  return "csv";
+}
+
+            
+```
+
+Our next order of business is to implement a creator for this
+            output stage.  The definition of this creator is:
+
+<a name="AEN2359"></a>**Example 8-9. Definition of `CSVFilterOutputStageCreator`**
+
+```
+#ifndef CSVFILTEROUTPUTSTAGECREATOR_H
+#define CSVFILTEROUTPUTSTAGECREATOR_H
+#include <CFilterOutputStageCreator.h>
+
+
+class CSVFilterOutputStageCreator : public CFilterOutputStageCreator
+{
+public:
+  virtual CFilterOutputStage*  operator()(std::string type);
+  virtual std::string document() const;
+  virtual CFilterOutputStageCreator* clone();  
+};
+
+
+#endif
+                
+            
+```
+
+Implementations of all of these are quite trivial.  We're going to
+            recognize the type csv and produce a
+            `CSVFilterOutputStage` object. Here are
+            all implementations in one chunk:
+
+<a name="AEN2366"></a>**Example 8-10. Implementation of `CSVFilterOutputStage`**
+
+```
+#include "CSVFilterOutputStageCreator.h"
+#include "CSVFilterOutputStage.h"
+
+
+CFilterOutputStage*
+CSVFilterOutputStageCreator:: operator()(std::string type)
+{
+  if (type == "csv") {
+    return new CSVFilterOutputStage;
+  } else {
+    return nullptr;
+  }
+}
+
+std::string
+CSVFilterOutputStageCreator::document() const
+{
+  return "csv       - Comma separated fields";
+}
+
+CFilterOutputStageCreator*
+CSVFilterOutputStageCreator::clone()
+{
+  return new CSVFilterOutputStageCreator(*this);
+}
+                
+            
+```
+
+To register this creator with the factory, modify
+            `CMySpecTclApp::AddCommands` to read:
+
+<a name="AEN2372"></a>```
+void
+CMySpecTclApp::AddCommands(CTCLInterpreter& rInterp)
+{
+  CTclGrammerApp::AddCommands(rInterp);
+  CFilterOutputStageFactory::getInstance().Register(*(new CSVFilterOutputStageCreator));
+}
+
+            
+```
+
+I chose this method becaus I know that by the time
+            `CTclGrammerApp::AddCommands` has run,
+            the entire filter framework is set up because that call
+            registers the **filter** command ensemble.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extending SpecTcl's filter file formats | Up | Extending the set of SpecTcl fit types. |

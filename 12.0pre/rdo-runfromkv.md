@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.rdo_runFromKv"></a>rdo_runFromKv
+
+<a name="AEN17097"></a>## Name
+
+rdo_runFromKv -- Set Run Number from Key Value STore
+
+<a name="AEN17100"></a>## Synopsis
+
+**$DAQBIN/rdo_runFromKv *mgr_host mgr_user readout-name*
+**
+
+<a name="AEN17104"></a>## DESCRIPTION
+
+By convention the experiment run number is maintained in the
+            value of the
+            run key of an experiment's key value store.
+            This program:
+
+
+
+- Fetches the program definition for the
+                    *readout-name* program from the
+                    manager running in *mgr_host* started by
+                    the user *mgr_user*.  The assumption
+                    is that this is a readout program that has the
+                    ReadoutREST plugin running.
+  The program definition describes the host in which this
+                  Readout is running and its username will be the same as
+                  *mgr_user*.  The REST service is
+                  assumed to be running on the default service name.
+- Fetches the value of the run  key from
+                    the same manager.
+- Requests that the specified Readout program set its run number
+                    to the value of the run key fetched from
+                    the key value store.
+
+<a name="AEN17122"></a>## TO DO
+
+It is the use of the default REST service name in this and other
+        programs that restrict us to a single Readout program per host/user
+        pair.  This restriction should be removed at some point by allowing
+        users to specify the REST service used by programs and using that
+        to select the actual service name.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_startloggers | Up | rdo_titleFromKv |

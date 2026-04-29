@@ -1,0 +1,1103 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="CCAENV1x90"></a>CCAENV1x90
+
+<a name="AEN25700"></a>## Name
+
+CCAENV1x90 -- Support for the CAEN V1190 and V1290
+                    multihit, complicated TDC.
+
+<a name="AEN25703"></a>## Synopsis
+
+```
+#include <CCAENV1x90.h>
+            
+```
+
+```
+  CCAENV1x90(unsigned int nSlot, unsigned int nCrate, unsigned long nBase);
+```
+
+<a name="AEN26214"></a>## Description
+
+This very complex class provides support for the very complex CAEN V1190 and
+                    CAEN V1290 multhit TDCs and their variants.  Be sure you have read the
+                    manual on this TDC thoroughly before you attempt to program the device.
+                    While there are models of this device that are capable of geographical addressing,
+                    We have not purchased them.  The software is  written only to support base addressing.
+
+The TDC is essentially a free running time digitizer.  When used in trigger matching
+                    mode, it can simulate a common stop or commnon start multihit TDC.
+                    One important point is
+                    that times relative to the trigger will jitter by the module's FPGA clock. If you
+                    use this module you must digitize the gate time in one channel as well so that you
+                    can compute gate relativel timing by digital subtraction.  Only in this way will
+                    you get the full time resolution offered by the TDC.
+
+<a name="AEN26218"></a>## Public member functions
+
+For the data types specific to the module support code, see the section
+                    Types and pulbic data below.
+
+
+
+<a name="AEN26225"></a>`CCAENV1x90(unsigned int nSlot, unsigned int nCrate, unsigned long nBase);`
+
+Called when a CAENV1x90 object is created to initialize the object
+                                and, provisionally, the module represented by the object.
+                                `nSlot` is the geographical address that
+                                will be assigned to the module.
+                                `nCrate` and `nBase`
+                                define the location of the module in VME space in terms of a VME
+                                crate number and an A32 base address withihn that
+                                crate.
+
+<a name="AEN26246"></a>` unsigned int getModel(void);const`
+
+Returns the model number of the device.  This will be either
+                                    1190 or 1290
+
+<a name="AEN26259"></a>` unsigned char getVersion(void);const`
+
+Returns the sub model of the device.  This is the single letter
+                                that follows the device model number and currently can be one of
+                                N, 'A', or
+                                'B'.
+
+<a name="AEN26273"></a>`
+unsigned int getSerialNumber(void);const`
+
+Return the serial number of the device.  This serial number is also
+                                stamped on the small metal tag at the bottom of the module front panel.
+
+<a name="AEN26284"></a>` unsigned int getChipCount(void);const`
+
+Returns the number of TDC chips on the board.  Some of the models,
+                                like the 1290N only have 2 TDC chips on board while most others
+                                have 4.  As some functions require you to supply a TDC number,
+                                this function can be called to determine how high the TDC number
+                                is allowed to go.
+
+<a name="AEN26295"></a>` unsigned int getChannelCount(void);const`
+
+Returns the number of TDC channels supported by the board.  This
+                                is a function of whether or not the module is an 1190, 1290 and
+                                whether it has the N suffix after its model number.
+
+<a name="AEN26306"></a>` unsigned short SR(void);`
+
+Returns the contents of the board's status register.  Normally
+                                you will not need to call this function.
+
+<a name="AEN26316"></a>` bool isSetSR(unsigned short bitnum);`
+
+Returns true if the bit numbered `bitnum` is set
+                                in the board status register.
+
+<a name="AEN26329"></a>` unsigned short ReadCR(void);`
+
+Returns the current value of the control register.  Normall you
+                                will not need to invoke this function.
+
+<a name="AEN26339"></a>` bool isSetCR(unsigned short bitnum);`
+
+Returns true if the bit numbered
+                                `bitnum` is set in the control register.
+
+<a name="AEN26353"></a>` void Terminate(void);`
+
+Enables the on board termination of the module inputs.
+                                See `Unterminate` and
+                                `TerminateWithSwitch` for other alternatives.
+
+<a name="AEN26365"></a>` void Unterminate(void);`
+
+Disable on board termination of the module's inputs.
+                                See `Terminate`
+                                and `TerminateWithSwitch` for other options.
+
+<a name="AEN26377"></a>` void TerminateWithSwitch(void);`
+
+Set the module so that it's slide switch enables or disables termination.
+                                See `Terminate`
+                                and `Unterminate` for alternatives to this.
+
+<a name="AEN26389"></a>` void EnableTriggerTagTime(void);`
+
+Tells the module to place the time of the trigger input in the
+                                buffer.
+
+<a name="AEN26399"></a>` void DisableTriggerTagTime(void);`
+
+Tells the module not to place the time of the trigger input in the
+                                buffer.
+
+<a name="AEN26409"></a>` bool DataReady(void);`
+
+Returns true if data can be read from the
+                                TDC module (the data buffer has some data).
+
+<a name="AEN26420"></a>` bool
+                                AlmostFull(void);`
+
+Returns true if the amount of data in the module
+                                exceeds the *almost full* threshold
+                                programmed into it.
+
+<a name="AEN26432"></a>` bool
+                                isFull(void);`
+
+Returns
+                                true of the data buffer for the module is full.
+
+<a name="AEN26443"></a>` bool
+                                isTriggerMatching(void);`
+
+Returns true if the module has been set to trigger
+                                matching mode. In trigger matching mode, times are collected into events
+                                that occur within some defined time window of the trigger.
+
+<a name="AEN26454"></a>` bool isHeaderEnabled(void);`
+
+Returns true if the module has been told to insert
+                                event header information in the data stream.
+
+<a name="AEN26465"></a>` bool isTerminated(void);`
+
+Returns true if the module inputs are terminated.
+
+<a name="AEN26476"></a>` bool
+                                HadError(unsigned int nChip);`
+
+Returns true if the module reported an error.
+
+<a name="AEN26489"></a>` int  ReadResolution(void);`
+
+Return the resolution code from the module.
+
+<a name="AEN26499"></a>` bool isPairMode(void);`
+
+Returns true if the module has been programmed in
+                                pair mode.  Pair mode measures the times between pulse pairs, rather
+                                than the timing of individual pulses.
+
+<a name="AEN26510"></a>` bool
+                                WereTriggersLost(void);`
+
+Returns true if the board missed triggers
+                                due to rate conditions.
+
+<a name="AEN26521"></a>` void
+                                SetGeographicalID(unsigned short int);`
+
+Sets the geographical ID of the module.  The geographical Id is a
+                                virtual slot number that is presented in the data stream from the module
+                                to identify where the data came from.
+
+<a name="AEN26533"></a>` unsigned short
+                                GetGeographicalID(void);`
+
+Returns the module's geographical id.
+
+<a name="AEN26543"></a>` void
+                                Reset(void);`
+
+Does a soft reset on the module.
+
+<a name="AEN26553"></a>` void
+                                Clear(void);`
+
+Clears any data the module may have stored in its fifo buffer.
+
+<a name="AEN26563"></a>` void
+                              EventReset(void);`
+
+Resets the event counter to zero .
+
+<a name="AEN26573"></a>` void
+                                Trigger(void);`
+
+Peforms a software trigger.
+
+<a name="AEN26583"></a>` unsigned long
+                                TriggerCount(void);`
+
+Returns the number of events the module has had since
+                                the last event count reset.
+
+<a name="AEN26593"></a>` unsigned short
+                                EventCount(void);`
+
+Returns the number of events that resulted in data stored in the buffer.
+
+<a name="AEN26603"></a>` void
+                                SetAlmostFullLevel(unsigned int nWords));`
+
+Defines the FIFO almost full level.  If there are more than
+                                `nWords` longowrds of data in the FIFO,
+                                the board is considered to be  almost full of data and
+                                calls to `AlmostFull` will result in
+                                true
+
+<a name="AEN26618"></a>` unsigned short
+                                GetAlmostFullLevel(void);`
+
+Returns the number of longwords that define the FIFO almost full
+                                condition.
+
+<a name="AEN26628"></a>` void
+                                DefineECLOutput(ECLOutputSelect signal);`
+
+Selects the meaning of the ECL user output of the module. See
+                                the section "Types and Public Data" for a definition of
+                                ECLOutputSelect the legal values it can take and
+                                what they mean.
+
+<a name="AEN26641"></a>` ECLOutputSelect
+                                GetECLOutputDefinition(void);`
+
+Returns the meaning of the ECL user output.  See the section
+                                Types and Public Data" for a definition of
+                                ECLOutputSelect the legal values it can take and
+                                what they mean.
+
+<a name="AEN26652"></a>` unsigned short
+                                EventFIFOCount(void);`
+
+Returns the number of events stored in the module FIFO.
+                                This is done by reading the *Event FIFO Stored Register*.
+
+<a name="AEN26663"></a>` unsigned long
+                                ReadEventFIFO(void);`
+
+Reads the event FIFO.  This a destructive read, in the sense
+                                that once read the datum read cannot be reread.  The Event
+                                FIFO is a longword.  The lower 16 bits are the number of
+                                words in an event, while the upper 16 bits are the event number
+                                of an event.  You can use this to determine how many words to read
+                                from the module event FIFO for an event.
+
+<a name="AEN26673"></a>` bool  isEventFIFOReady(void);`
+
+Returns true if the Event FIFO is not empty.
+
+<a name="AEN26684"></a>` bool   isEventFIFOFull(void);`
+
+Returns true  if the event FIFO is true.  The event FIFO can
+                                only hold 1024 longwords.
+
+<a name="AEN26695"></a>` unsigned short
+                                FIFOEventNumber(unsigned long fifoentry);`
+
+Returns the event number field from the `fifoentry`
+                                which was returned via  `ReadEventFIFO`.
+
+<a name="AEN26709"></a>` unsigned short
+                                FIFOWordCount(unsigned long fifoentry);`
+
+Given a `fifoentry` received from a call to
+                                `ReadEventFIFO` returns the value of the
+                                event word count field.
+
+<a name="AEN26723"></a>` void
+                                TriggerMatchMode(void);`
+
+Sets the module in trigger match mode.  In this mode, hits in the
+                                channels are grouped into events that are within a programmable timing
+                                window of the gate input.
+
+<a name="AEN26733"></a>` void
+                                ContinuousStorageMode(void);`
+
+Sets the module into continous storage mode.  In this mode,
+                                hits are just recorded relative to the last Reset time (bunch reset),
+                                without any time relationship constraints.  Think of this data
+                                as a stream of hits.
+
+<a name="AEN26743"></a>` void
+                                TransferUntilDone(void);`
+
+This mode refers to the manner in which data from a single TDC chip
+                                are transferred to the data buffer.  After calling this function,
+                                each TDC transfer data from its L1 storage into the FIFO event buffer
+                                until an event has been completely read in before yielding the data
+                                path to the FIFO to the next TDC chip.
+
+See also `TransferOneAtATim` which is an alternative
+                                to this.
+
+<a name="AEN26755"></a>` void
+                                TransferOneAtATime(void);`
+
+See also `TransferUntilDone` after transferring
+                                a single hit to the output event FIFO, each TDC chip yields the
+                                data path to the next TDC.
+
+<a name="AEN26766"></a>` void
+                                LoadDefaultConfig(void);`
+
+Sets up the module with the default trigger configuration:
+
+
+
+- Continuous storage mode
+- Window width 500ns
+- Window Offset -1us.
+- Reject margin 100ns
+- Extra search margin 200ns
+- All channels enabled
+
+
+<a name="AEN26789"></a>` void
+                                SaveUserConfig(void);`
+
+Saves the current trigger configuration as the *User
+                                Trigger Configuration*.  The user trigger configuration
+                                can be loaded via a call to
+                                `LoadUserConfig`, or made to load on power up
+                                via a call to `AutoLoadUserConfig`.  The
+                                user trigger configuration is stored in non-volatile memory and
+                                therefore preserved across power cycles of the board.
+
+<a name="AEN26802"></a>` void
+                                LoadUserConfig(void);`
+
+Loads the most recently saved user trigger configuration.
+                                The user trigger configuration is created by programming the
+                                trigger and calling `SaveUserConfig`.
+
+<a name="AEN26813"></a>` void
+                                AutoLoadUserConfig(void);`
+
+Sets the module to load the user configuration on power up or
+                                reset.  This should be used with extreme caution and only with TDC
+                                modules you own.  Otherwise you can be handing a board to
+                                someone that will power up with  a trigger configuration that is
+                                much different than what the user might expect from reading
+                                the manual.  Similarly, because someone could have done this to you,
+                                you should call `LoadDefaultConfiguration` prior
+                                to setting up the trigger configuration so that you  are
+                                starting from a known initial state.
+
+<a name="AEN26824"></a>` void
+                                AutoLoadDefaultConfig(void);`
+
+Causes the default trigger configuration to be loaded on the
+                                next power up or reset.  If you are using the module in an\
+                                application where you have called `AutoLoadUserConfig`,
+                                it would be polite to call this before returning the module to the
+                                pool so that it has expected behavior on power up.
+
+<a name="AEN26835"></a>` void
+                                SetWindowWidth(unsigned int nWidth);`
+
+Sets the trigger matching window width.  The window width and the
+                                window offset (see `SetWindowOffset`) are the main
+                                parameters that determine
+                                which hits are grouped together into an event when the module is set to
+                                trigger matching mode.  See also the TDC hardware manual where the
+                                trigger matching parameters are discussed in detail.
+
+<a name="AEN26848"></a>` void
+                                SetWindowOffset(int nOffset);`
+
+Sets the offset of the window relative to the gate of the trigger
+                                matching window.  This offset defines the time that the trigger match
+                                window opens relative to the gate.  The window offset
+                                together with the window width
+                                (see `SetWindowWidth`) defines the time window during
+                                which hits are collected into events when the module is run in trigger
+                                matching mode.  See the TDC hardware manual where the trigger
+                                matchin paramters are discussed in detail.
+
+<a name="AEN26861"></a>` void
+                                SetExtraSearchMargin(unsigned int nMargin
+                                );`
+
+Sets the trigger matching extra search margin.  This is an additional
+                                slice of time at the end of the trigger matching window during which
+                                hits will be accepted into an event.  This helps compensate for internal
+                                pipeline and clock jitter delays that would otherwise prematurely
+                                cut off the trigger match window.
+
+<a name="AEN26873"></a>` void SetRejectMargin(unsigned int Margin);`
+
+Sets the width of an additional bit of time at the front of the
+                                trigger matching window during which hits will be accepted into
+                                an event in trigger matching mode.  This helps compensate for the
+                                jitter of the start in the trigger matching window due to the
+                                granularity of the FPGA clock.
+
+<a name="AEN26885"></a>` void EnableTriggerTimeSubtraction(void);`
+
+Tells the module to subtract the trigger time from times produced in
+                                trigger matching mode.  Note that you must still provide a time reference
+                                channel as the trigger time granularity is that of the FPGA clock
+                                rather than the resolution of the TDC chip.
+
+<a name="AEN26895"></a>` void DisableTriggerTimeSubtraction(void);`
+
+Turns off the subtraction of the trigger time from the times produced
+                                by the module in trigger matching mode.  The times will be relative
+                                to the last 'bunch reset'.
+
+<a name="AEN26905"></a>` TriggerConfiguration
+                                GetTriggerConfiguration(void);`
+
+Returns the entire trigger configuration.  The resulting
+                                TriggerConfiguration data type is documented in
+                                the section "Types and Public Data" below, however normally you use
+                                it by handing it to functions like `GetMatchWindow` e.g.
+                                that knwow how to extract elements of the trigger configuration.
+
+<a name="AEN26917"></a>` unsigned int
+                                GetMatchWindow(TriggerConfiguration config);`
+
+Returns the trigger match window from the `config`
+TriggerConfiguration.
+
+<a name="AEN26931"></a>` int GetWindowOffset(TriggerConfiguration config);`
+
+Returns the window offset from the `config`
+TriggerConfiguration
+                                parameter.
+
+<a name="AEN26945"></a>` unsigned int
+                                GetExtraSearchMargin(TriggerConfiguration config);`
+
+Returns the extra search margin from the
+                                `config`
+TriggerConfiguration parameter.
+
+<a name="AEN26959"></a>` unsigned int
+                                GetRejectMargin(TriggerConfiguration config);`
+
+Get the trigger rejection margin from the `                                                                            config`
+TriggerConfiguration
+
+<a name="AEN26973"></a>` bool
+                                isTriggerTimeSubtracted(TriggerConfiguration config);`
+
+Returns true If the `config`
+TriggerConfiguration would enable trigger time
+                                subtraction.
+
+<a name="AEN26988"></a>` void
+                                SetEdgeDetectMode(EdgeMode nEdgeMode);`
+
+Sets the edge detection mode of the TDC
+                                to `nEdgeMode`.  The edge detection mode
+                                defines what a hit is and what the TDC measures.  The
+                                EdgeMode type, and the meaning of the values it can
+                                take are described in the section
+                                "Types and Public Data" below.
+
+<a name="AEN27002"></a>` EdgeMode GetEdgeDetectMode(void);`
+
+Returns the currently programmed edge detection mode.
+                                See "Types and Public Data below for a description of the
+                                EdgeMode data type, the values it can have, and
+                                what they mean.
+
+<a name="AEN27013"></a>` void
+                                SetIndividualLSB(Resolution nResolution);`
+
+Selects the resolution (meaning of the Least Significant Bit of the time)
+                            for all TDC chips.  The data type Resolution is
+                            described in the section "Types and Public Data" below.
+
+<a name="AEN27026"></a>` void
+                        SetPairResolutions(LEResolution nLeadingEdge, PWResolution nPulseWidth);`
+
+Sets the time resolutions of the leading edge and pair timings.
+                             The meaning of the data types
+                            PWResolution and LEResolution are described in the section
+                            "Types and Public Data" below.
+
+<a name="AEN27043"></a>` unsigned short
+                    GetResolution(void);`
+
+Returns information about the resolution settings programmed into the
+                            TDC module.  The unsigned short that was returned is
+                            intended to be passed to functions like
+                            `InterpretEdgeResolution` to get detailed information
+                            about the resolution.
+
+<a name="AEN27055"></a>` Resolution
+                    InterpretEdgeResolution(unsigned short nResolution);`
+
+Given a resolution value returned from `GetResolution`
+                            Returns the edge resolutions that are encoded in it.  See
+                            "Types and Public Data" below for a description of
+                            Resolution and its legal values.
+
+<a name="AEN27069"></a>` LEResolution
+                    InterpretLEResolution(unsigned short nResolution);`
+
+Interprets and returns the leading edge resolution from a value
+                            returned by `GetResolution`.
+                            See "Types and Public Data" below for more a description of
+                            of the LEResolution data type, and the values it can
+                            take.
+
+<a name="AEN27083"></a>` PWResolution
+                    InterpretWidthResolution(unsigned short nResolution);`
+
+Interprets and returns the pair widht resolution from an value that
+                            was gotten from `GetResolution`.
+                            See "Types and Public Data" below for more information about the
+                            PWResolution and the values it can take.
+
+<a name="AEN27097"></a>` void
+                    SetDoubleHitResolution(DeadTime nDead);`
+
+Set the double hit resolution of the TDC.  This is the deadtime
+                            between hits during which another hit will not be recorded.
+                            See "Types and Public Data" below for more information about the
+                            DeadTime data type and the values it can take.
+
+<a name="AEN27110"></a>` DeadTime
+                    GetDoubleHitResolution(void);`
+
+Returns the currently programmed double hit resolution.
+                            See "Types and Public Data" below for more information about
+                            the DeadTime data type and the values it can take.
+
+<a name="AEN27121"></a>` void
+                    EnableTDCEncapsulation(void);`
+
+Turns on the encapsulation of the data from a single TDC chip
+                            in chip headers and trailers.  See the TDC hardware manual
+                            for information about the nature and format of these headers
+                            and trailers.
+
+<a name="AEN27131"></a>` void
+                    DisableTDCEncapsulation(void);`
+
+Turns off the encapsulation of the data from a single TDC chip
+                            (see `EnableTDCEncapsulation`).
+
+<a name="AEN27142"></a>` bool
+                    isTDCEncapsulationOn(void);`
+
+Returns true if TDC chip data encapsulation is
+                        enabled.
+
+<a name="AEN27153"></a>` void
+                    SetMaxHitsPerEvent(HitMax nHits);`
+
+Set the maximum number of hits the tdc board will accept per event
+                            (in trigger matching mode).  Note that this is not a per-channel
+                            maximum hit count,  but a *per-module* maximum.
+                            See the section "Types and Public Data" for more information about
+                            the HitMax data type and the values it can take.
+
+<a name="AEN27167"></a>` HitMax
+                    GetMaxHitsPerEvent(void);`
+
+Returns the maximum  number of hits that will be accepted within
+                            a trigger matching window (defaulted or set by
+                            `SetMaxHitsPerEvent`).
+                            See the section "Types and Public Data" for more information about
+                            the HitMax data type and the values it can take.
+
+<a name="AEN27179"></a>` void
+                    EnableErrorMark(void);`
+
+Enables the TDC to insert an error word into the data when an error
+                            condition occurs in the TDC.  See the TDC hardware manual for more information
+                            about the format of this error word and the error condition it can report.
+
+<a name="AEN27189"></a>` void
+                    DisableErrorMark(void);`
+
+Turns off the insertion of an error mark word in the data
+                            when the TDC detects an error condition.
+
+<a name="AEN27199"></a>` void EnableBypassOnError(void);`
+
+Enables bypassing TDC chips that detect error conditions.
+                            When bypassed a chip will not contribute data to the output stream.
+                            See the hardware manual for more information about what this means.
+
+<a name="AEN27209"></a>` void
+                    DisableBypassOnError(void);`
+
+Disables bypassing a TDC chip that has detected an error condition.
+                            In this mode, TDC chips with error conditions will continue to contribe
+                            data to the output stream to the best of their ability constrained by the
+                            actual error condition.
+
+<a name="AEN27219"></a>` void
+                    SetErrorEnables(unsigned short nErrors);`
+
+Sets the mask of errors the TDC is enabled to detect.  This is a bit mask
+                            with bits numbered from lowest oder to highest order defined as followed:
+
+
+
+|  |
+| --- |
+| 0 - Vernier error, DLL unlocked or excessive jitter. |
+| 1 - Coarse error or parity error on coards count. |
+| 2 - Channel select error, probably an internal timing error. |
+| 3 - L1 buffer parity error |
+| 4 - Trigger FIFO parity error. |
+| 5 - Trigger matching error (state machine got really mixed up). |
+| 6 - Readout FIFO parity error. |
+| 7 - Readout state error. |
+| 8 - Set up parity error. |
+| 9 - Control parity error. |
+| 10 - JTAG instruction parity error. |
+
+
+
+
+                            When a bit is set, the corresponding error is enabled, otherwise the
+                            corresponding error is disabled.
+                        <a name="AEN27243"></a>` unsigned short
+                    GetErrorEnables(void);`
+
+Returns the mask of error enables.  This mask has the same format
+                            as the mask described in `SetErrorEnables`.
+
+<a name="AEN27254"></a>` void
+                    SetL1Size(L1Size nL1Size);`
+
+Set the usable size of the TDC module's level 1 buffer.
+                            See "Types and Public Data" below for  a description of the
+                            L1Size data type and the values it can assume.
+
+<a name="AEN27267"></a>` L1Size
+                    GetL1Size(void);`
+
+Returns the current size selected for the level 1 buffer.
+                            See "Types and Public Data" below for  a description of the
+                            L1Size data type and the values it can assume.
+
+<a name="AEN27278"></a>` void
+                    EnableChannel(unsigned short nChannel);`
+
+Enables the specified channel.  The channel numbering may  not be
+                            obvious for modules other than the V1190 (full 128 channels).
+                            Check the hardware manual
+                            for more information about this.  `nChannel`
+                            specifies which channel should be enabled.
+
+<a name="AEN27291"></a>` void
+                    DisableChannel(unsigned short
+                                 nChannel);`
+
+Disables the specified channel.  Note that channel numbering
+                            may not be straightforward for modules other than the V1190 (full 128
+                            channels).  Be sure to consult the hardware manual for more information
+                            about this.
+
+<a name="AEN27303"></a>` void EnableAllChannels(void);`
+
+Enables all of the channels on the module.
+
+<a name="AEN27313"></a>` void
+                    DisableAllChannels(void);`
+
+Disables all of the channels in the modules.  Effectively disables
+                            the module for data acquisition.
+
+<a name="AEN27323"></a>` void
+                    SetChannelEnables(std::vector<unsigned short> masks);`
+
+Sets enables/disables for all of the channels.   `masks`
+                            is a vector of channel enable/disable masks that supplied 128 bits of
+                            enable disable information numbered from low channel to high channel
+                            from low bit of the first 16 bits of the first mask through the top bit
+                            of the last mask.
+
+Be sure that you read the hardware manual for your TDC model before
+                            you jump to conclusions about which channels are which.  The mapping
+                            of channel numbers to front panel numbers is not always straightforward
+                            for modules other than the V1190.
+
+<a name="AEN27337"></a>` void
+                    GetChannelEnables(std::vector<unsigned short>&
+                                 masks);`
+
+Retrieves the channel enable masks.
+
+<a name="AEN27349"></a>` void SetChipEnables(unsignedshort nChip, unsigned int nMask);`
+
+Set the channel enables for a single chip.  `nChip`
+                            selects the chip and `nMask` provides the
+                            32 bits of channel enables for that chip.
+
+<a name="AEN27366"></a>` unsigned int GetChipEnables(unsigned short nChip);`
+
+Returns the enable mask for a single chip.  `nChip`
+                            selects the chip you are interested in.  The enables are returned as
+                            the function value.
+
+<a name="AEN27379"></a>` unsigned int GetChipId(unsigned short nChip);`
+
+
+
+<a name="AEN27391"></a>` void GetuCFirmwareInfo(unsigned short& nRevision, unsigned short& nDay, unsigned short& nMonth, unsigned short& nYear);`
+
+
+
+<a name="AEN27412"></a>` unsigned short GetChipErrors(unsigned short nChip);`
+
+
+
+<a name="AEN27424"></a>` unsigned int ReadData(void* pBuffer, unsigned int nMaxLongs);`
+
+
+
+<a name="AEN27439"></a>` unsigned int ReadPacket(void* pBuffer, unsigned int nMaxLongs);`
+
+
+
+<a name="AEN27454"></a>`unsigned int ReadValid(void* pBuffer, unsigned int nMaxLongs);`
+
+
+
+<a name="AEN27469"></a>` void
+                    SetIndividualLSB(Resolution nResolution);`
+
+
+
+<a name="AEN27481"></a>` void
+                    SetPairResolutions(LEResolution nLeadingEdge, PWResolution nPulseWidth);`
+
+
+
+<a name="AEN27496"></a>` unsigned short
+                    GetResolution(void);`
+
+
+
+<a name="AEN27506"></a>` Resolution
+                    InterpretEdgeResolution(unsigned short nResolution);`
+
+
+
+<a name="AEN27518"></a>` LEResolution
+                    InterpretLEResolution(unsigned short nResolution);`
+
+
+
+<a name="AEN27530"></a>` PWResolution
+                    InterpretWidthResolution(unsigned short nResolution);`
+
+
+
+<a name="AEN27542"></a>` void
+                    SetDoubleHitResolution(DeadTime nDead);`
+
+
+
+<a name="AEN27554"></a>` DeadTime
+                    GetDoubleHitResolution(void);`
+
+
+
+<a name="AEN27564"></a>` void
+                    EnableTDCEncapsulation(void);`
+
+
+
+<a name="AEN27574"></a>` void
+                    DisableTDCEncapsulation(void);`
+
+
+
+<a name="AEN27584"></a>` bool
+                    isTDCEncapsulationOn(void);`
+
+
+
+<a name="AEN27594"></a>` void
+                    SetMaxHitsPerEvent(HitMax nHits);`
+
+
+
+<a name="AEN27606"></a>` HitMax
+                    GetMaxHitsPerEvent(void);`
+
+
+
+<a name="AEN27616"></a>` void
+                    EnableErrorMark(void);`
+
+
+
+<a name="AEN27626"></a>` void
+                    DisableErrorMark(void);`
+
+
+
+<a name="AEN27636"></a>` void EnableBypassOnError(void);`
+
+
+
+<a name="AEN27646"></a>` void
+                    DisableBypassOnError(void);`
+
+
+
+<a name="AEN27656"></a>` void
+                    SetErrorEnables(unsigned short nErrors);`
+
+
+
+<a name="AEN27668"></a>` unsigned short
+                    GetErrorEnables(void);`
+
+
+
+<a name="AEN27678"></a>` void
+                    SetL1Size(L1Size nL1Size);`
+
+
+
+<a name="AEN27690"></a>` L1Size
+                    GetL1Size(void);`
+
+
+
+<a name="AEN27700"></a>` void
+                    EnableChannel(unsigned short nChannel);`
+
+
+
+<a name="AEN27712"></a>` void
+                    DisableChannel(unsigned short
+                                 nChannel);`
+
+
+
+<a name="AEN27724"></a>` void EnableAllChannels(void);`
+
+
+
+<a name="AEN27734"></a>` void
+                    DisableAllChannels(void);`
+
+
+
+<a name="AEN27744"></a>` void
+                    SetChannelEnables(std::vector<unsigned short> masks);`
+
+
+
+<a name="AEN27756"></a>` void
+                    GetChannelEnables(std::vector<unsigned short>&
+                                 masks);`
+
+
+
+<a name="AEN27768"></a>` void SetChipEnables(unsignedshort nChip, unsigned int nMask);`
+
+
+
+<a name="AEN27783"></a>` unsigned int GetChipEnables(unsigned short nChip);`
+
+
+
+<a name="AEN27795"></a>` unsigned int GetChipId(unsigned short nChip);`
+
+Returns the id code fo the TDC.  Note that there is no documentation about
+                            possible values that can be returned.
+
+<a name="AEN27807"></a>` void GetuCFirmwareInfo(unsigned short& nRevision, unsigned short& nDay, unsigned short& nMonth, unsigned short& nYear);`
+
+Returns the version/release data information about the
+                            firmware for the microcontroller that is used to set up
+                            the TDC module.  This micro controllers is what the
+                            software interacts with to perform most of the operations
+                            described up until now.
+
+<a name="AEN27828"></a>` unsigned short GetChipErrors(unsigned short nChip);`
+
+Reads a mask that describes which errors have occured for a specific
+                            TDC chip.  See `SetErrorEnables` for information about
+                            the bits in this mask.
+
+<a name="AEN27841"></a>` unsigned int ReadData(void* pBuffer, unsigned int nMaxLongs);`
+
+Reads data from the TDC.  This actually `ReadPacket`
+                            if the module is in trigger matching mode or `ReadValid`
+                            if the module is in continuous storage mode.  These two functions
+                            are described  below.
+
+<a name="AEN27858"></a>` unsigned int ReadPacket(void* pBuffer, unsigned int nMaxLongs);`
+
+Reads data from the TDC output FIFO into `pBuffer`
+                            until either
+                            `nMaxLongs` long words have been read, or until
+                            a global trailer is encountered.  When the TDC is in trigger matching mode,
+                            and if `nMaxLongs` is larger than the
+                            the number of longs until the next global trailer, this is equivalent to
+                            reading a single event from the TDC.
+                            One way to ensure that you read complete events is to read the
+                            event FIFO to determine how large the next event is and then
+                            read that event once you are sure you have a large enough buffer to hold it.
+
+<a name="AEN27876"></a>`unsigned int ReadValid(void* pBuffer, unsigned int nMaxLongs);`
+
+Reads data from the TDC into `Buffer`
+                            a filler word is encountered or until `nMaxLongs`
+                            longwords have been read, whichever is first.  This is the preferred
+                            way to read the module when it is in continuous storage mode.
+
+<a name="AEN27891"></a>## Types and public data
+
+This section describes data types that are used in calls to public methods of
+                    the `CCAENV1x90` device support class.
+
+**`ECLOutputSelect`. **
+                        The CCAENV1x90 TDC has a programmable ECL output on its control bus.
+                        The `ECLOutputSelect` type is an enumerated
+                        type that provides symbolic names to the possible signals that can be
+                        programmed to appear on this output:
+
+
+
+`DATA_READY`Data are ready in the module.  In the case of trigger matching
+                                        mode, I believe data are only ready if a full event has been
+                                        digitized and stored.
+
+`FULL`The event FIFO buffer is full.
+
+`ALMOST_FULL`The FIFO is almost full as defined by the almost full
+                                        level programmed in the devie.
+
+`ERROR`An error has ocurred in the TDC.
+
+**`TriggerConfiguration`. **
+                        This is a structure, that is intended to be decoded by e.g.
+                        `GetWindowOffset`.  It is the data
+                        that is returned from the TDC microcontroller when
+                        `GetTriggerConfiguration` is called.
+                        it has the following fields:
+
+
+
+unsigned short `s_MatchWidth`The matching window width in FPGA clock ticks.
+
+short `s_MatchOffset`The matching window offset in FPGA clock ticks (signed).
+
+unsigned short `s_MatchExtra`The extra mathing margin.
+
+unsigned short `s_RejectMargin`The reject margin of the matching window.
+
+unsigned short `s_Subtracting`Inidicates if the gate time is subtracted from times in the
+                                        matching window.
+
+**`EdgeMode`. **
+                        This is an enumeration whose values are used to specify what constitutes a
+                        hit in a channel.
+
+
+
+`EdgeMode_Pair`A hit is  a pulse, and the measurement
+                                    consists of the time of the leading edge and the width of the
+                                    pulse.
+
+`EdgeMode_Leading`A hit is the leading edge of an input pulse.
+
+`EdgeMode_Trailing`A hit is the trailing edge of a pulse.
+
+`EdgeMode_Both`Both edges of each pulse are digitized.
+
+**`Resolution`. **
+                        This is an enumerated type that defines the possible resolutions
+                        of the least significant bit of the time measures.  It can take the following
+                        values:
+
+
+
+`Res_25ps`The resolution is 25ps.  This is only legal for the
+                                    V1290.
+
+`Res_100ps`The resolution is 100ps.
+
+`Res_200ps`The resolution is 200ps.
+
+`Res_800ps`The resolution is 800ps.
+
+**`LEResolution`. **
+                        Specifies the resolution with which the leading pulse in a pulse
+                        pair is measured.  This is an enumerated type that has
+                        possible values that look like
+                        `LE_nnnps`,
+                        where nnn is the number of picoseconds of resolution and can take the values
+                        100, 200, 400, 800, 1600, 3120, 6250, and
+                        12500.
+
+**`PWResolution`. **Specifies the resolution of the width of a pulse pair.
+                        This is an enumerated type with two formats:
+                        `PW_nnnps`,
+                        and `PW_mmmns`.
+                        In the first form, *nnn* is the resolution in picoseconds
+                        and can be any of: 100 200 400 800 1600 3200 6250 12500.
+                        In the second form, *mmm*   is the resolution in nanoseconds
+                        and can be any fo the following: 25 50 100 200 400 800.
+
+**`DeadTime`. **This enumerated constant specifies the double hit resolution (dead time between
+                        conesecutive hits in the same channel.   Values have the form
+                        `DT_nnnns`, where
+                        *nnn* is this timing parameter in ns and can be any
+                        of the following 5, 10, 30, 100.
+
+**`HitMax`. **
+                        This is an enumerated tpe that dtermines how many hits will be accepted in
+                        a trigger matching window for an event.  Note that this limit spans all
+                        channels rather than being a per channel limit.  Values of this type
+                        are of the form `HITS_n`
+                        where *n* determines the maximum number of hits
+                        andcan be any of the following: 0, 1, 2, 4, 8, 16, 32, 64, 128,
+                        UNLIMITED.
+
+**`L1Size`. **
+                        Limits the size of the TDC level 1 buffer.  This enumerated type has
+                        values of the form: `L1_nwds`,
+                        where *n* is the L1 buffersize limit in
+                        32 bit longwords and can be one of:
+                        2, 4, 8, 16, 32, 64, 128, 256.
+
+**Constants. **The following set of 16 bit constants are defined, and represent bits in the
+                        error enable mask `ERR_VERNIER, ERR_COARSE, ERR_SELECT,
+                        ERR_L1PARITY, ERR_TFIFOPARITY, ERR_MATCHERROR, ERR_RFIFOPARITY, ERR_RDOSTATE,
+                            ERR_SUPPARITY, ERR_CTLPARITY, ERR_JTAGPARITY
+                                          `
+
+<a name="AEN28056"></a>## Exceptions
+
+Various exception types may be thrown including:
+
+
+
+`std::string`If the module addressed did not have a legal type
+
+`CException`A standard NSCL Exception typ thrown iif there are low level
+                                    problems accessing the device.
+
+Design by contract exceptionsImproper function paramters will in general result in an
+                                   excetpion from the DesignByContract.h
+                                   header.
+
+<a name="AEN28075"></a>## SEE ALSO
+
+The CAEN V1190 and CAEN V1290 hardware manuals.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CBD8210 | Up | CCAENV560 |

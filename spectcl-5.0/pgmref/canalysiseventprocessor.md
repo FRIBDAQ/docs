@@ -1,0 +1,117 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25571"></a>CAnalysisEventProcessor
+
+<a name="AEN25575"></a>## Name
+
+CAnalysisEventProcessor -- Event processor for callback analysis.
+
+<a name="AEN25578"></a>## Synopsis
+
+```
+#include <CAnalysisEventProcessor.h>
+
+class CAnalysisEventProcessor : public CEventProcessor
+{
+ public:
+    typedef struct _ClientData {
+        void*                      s_pUserData;
+        CAnalysisEventProcessor*   s_pCaller;
+    } ClientData, *pClientData;
+
+    // Construction and other canonicals
+public:
+    CAnalysisEventProcessor(CAnalysisBase* pProcessor, void* pClientData = 0);
+    virtual ~CAnalysisEventProcessor();
+
+    // The interface
+
+    virtual Bool_t operator()(
+        const Address_t pEvent, CEvent& rEvent, CAnalyzer& rAnalyzer,
+        CBufferDecoder& rDecoder
+    );
+    virtual Bool_t OnBegin(CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);
+    virtual Bool_t OnEnd(CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);
+    virtual Bool_t OnPause(CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);
+    virtual Bool_t OnResume(CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);
+    virtual Bool_t OnOther(
+        UInt_t nType, CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder
+    );
+
+
+
+    // Queries available to the user code:
+
+public:
+
+    CEvent*         getEvent();
+    CBufferDecoder* getDecoder();
+    CAnalyzer*      getAnalyzer();
+};
+      
+```
+
+<a name="AEN25580"></a>## DESCRIPTION
+
+This class provides an event processor that encapsulates
+            a callout object.  The event processor does data format specific
+            extraction of information from items and passes them to
+            methods provided by its call out object.
+
+The callout object methods are descried by the base class for such
+          classes: `CAnalysisBase`.
+
+<a name="AEN25585"></a>## METHODS
+
+The methods provided by all event processors are not documented
+        in this manpage.  See the `CEventProcessor`
+        manpage for those.  We only document the public methods that
+        are provided for use by the callout objects.
+
+
+
+`  CAnalysisEventProcessor(CAnalysisBase*  pProcessor, void*  pClientData = = 0);`The constructor is parameterized by a pointer to the
+                 callback object the event processor will use.  The object
+                  pointed to by this pointer must have program lifetime.
+                  The optional `pClientData` parameter
+                  provides the ability to pass arbitrary data to the
+                  callbacks.
+
+` CEvent*  getEvent();`Returns a pointer to the base CEvent object that is filled
+                  in when a physics event is being processed.  This pointer
+                  is meaningless unless called from the callout object's
+                  `onEvent` method.
+
+` CBufferDecoder* getDecoder();`Gets a pointer to the buffer decoder object in use by
+                 the analysis pipeline. This pointer is valid from all
+                 callbacks.
+
+` CAnalyzer*  getAnalyzer();`Gets a pointer to the analyzer object in use by the analysis
+                 pipeline.  This pointer is valid from all callbacks.
+
+<a name="AEN25629"></a>## DATATYPES
+
+`CAnalysisEventProcessor` passes a parameter
+       to callbacks that is of type `CAnalysisEventProcessor::ClientData`.
+       This data type is a struct with the following members.
+
+
+
+void*`s_pUserData`The value of the `pClientData`
+             parameter of the object's constructor.
+
+CAnalysisEventProcessor*`s_pCaller`Pointer to the object itself (e.g. the event processor's
+             this pointer).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Callback based analysis framework. | Up | CAnalysisBase |

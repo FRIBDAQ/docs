@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4749"></a>Chapter 7. Non stack VMUSB Readout framwork **$DAQBIN/VMUSBnostackReadout**
+
+This framework became available with NSCLDAQ-12.1-006.  
+        There are modules whose readout cannot be anaged via the set of
+        instructions the VMUSB can autonomously execute.  The specific
+        module that motivated this development is the SIS 3316 digitizer
+        module.
+
+The architecture of that module consists of FPGAs associted with blocks of four
+        digitizer channels.  These ADCS digitizer into memory that is not visible from the VME.
+        When a readout is desired, the module must be told to begin transferring memory to the
+        VME FPGA's FIFO.  Readout can only proceed, when the transfer is complete.
+        This wait for the completion bits to be set cannot be done in the VMUSB stack,
+        and delays cannot be computed for this process either.
+
+The approach taken, therefore was to develop a special version of th SBSReadout
+        framworks that uses the VM-USB only as a controller, without ever starting it in autonomous mode.
+        Configuring this readout is almost like configuring a VMUSBReadout, however there is no stack,
+        and only a few modules are supported:
+
+
+
+- SIS3316 digitizer (the motivation for this after all)
+- SIS3820 module as a timestamper.
+- CAEN V977 as a bit register (pattern register).
+- The VMUSB as a timestamp module
+- SIS3820 module as a scaler module
+
+Should this framework be more generally useful, more module can be added to it on request.
+
+# <a name="AEN4767"></a>7.1. Running the VMUSB no stack readout program
+
+**Table of Contents**[[r4770]] -- Use VMUSB in non-atonomous mode in readout
+
+This is a reference page for the VMUSB no stack readout program.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The ccusbcamac Tcl package | Up | VMUSBnostackReadout |

@@ -1,0 +1,112 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cunixusercheck"></a>CUnixUserCheck
+
+<a name="AEN37883"></a>## Name
+
+CUnixUserCheck -- Authenticate against a unix user name and password.
+
+<a name="AEN37886"></a>## Synopsis
+
+```
+#include <UnixUserCheck.h>
+         
+```
+
+```
+  CUnixUserCheck();
+```
+
+<a name="AEN37970"></a>## Description
+
+Authenticates any user whose encrypted password can be retrieved by
+            `getpwnam`.  The meaning of this may differ depending
+            on whether or not NIS is used to do authentication, and may vary
+            from operating system to operating system.
+
+<a name="AEN37974"></a>## Public member functions
+
+`  CUnixUserCheck();`Constructs a default
+            `CUnixUserCheck`
+            object.  The object is construted with both username and password
+            prompting enabled with suitable default prompt strings.
+            You may modify these prompt strings after construction, as well as
+            the prompting behavior.  See below for more information.
+
+`  CUnixUserCheck(const std::string& usernamePrompt, const std::string& passwordPrompt, Bool_t promptUser, Bool_t promptPassword);`Full bodied construction of a
+            `CUnixUserCheck` object.   The username and
+            password prompts are provided by `usernamePrompt`
+            and
+            `passwordPrompt`
+            respectively. While
+            `promptUser`
+            and
+            `promptPassword`
+            control which prompts are acutally emitted.
+
+`  CUnixUserCheck(const CUnixUserCheck& rhs);`Copy constructor, creates a news object that is identical to
+                `rhs`
+
+`  ~CUnixUserCheck();`Destroys the object and release any resources that were allocated
+                by the object.
+
+` CUnixUserCheck& operator=(const CUnixUserCheck& rhs);`Assigns to the object from the `rhs` object.
+
+` const std::string getUserPrompt();`Returns the current value of the user name prompt string.
+
+` const std::string getPasswordPrompt();`Returns the current value of the password prompt string.
+
+` const Bool_t getPromptUser();`Returns kfTRUE if the user name prompt
+                is enabled, and
+                kfFALSE
+                if the user name prompt is disabled.
+
+` const Bool_t getPromptPassword();`Returns kfTRUE if the password prompt
+                is enabled, and
+                kfFALSE
+                if the username prompt is disabled.
+
+` virtual Bool_t Authenticate(CInteractor& interactor);`Authenticates the requestor using the
+            `interactor`
+            to obtain a username and password.  Dependig on the state of the
+            prompt flags, the username and password may be prompted for with prompt
+            strings.  See the constructors and the functions below for more
+            on prompt strings.
+
+` void setPrompting(Bool_t fUserPrompt = kfTrue, Bool_t fPasswordPrompt = kfTrue);`If
+                `fUserPrompt`
+                is
+                kfTRUE,
+                the user name is prompted for.  If
+                kfFALSE,
+                the username is read without prompting.
+
+If
+                `fPasswordPrompt`
+                is
+                kfTRUE,
+                authentication will prompt for a password. If
+                kfFALSE,
+                the password will be read without prompting.
+
+` void SetUserPrompt(const std::string& rNewPrompt = std::string("Username: "));``rNewPrompt`
+            replaces the user prompt string.  If username prompting is enabled,
+            this string will be used as the prompt in future authentications.
+
+` void SetPasswordPrompt(const std::string& rNewPrompt = std::string("Password: "));``rNewPrompt`
+            replaces the current password prompt string.  If password prompting is
+            enabled, the new string will be used to prompt for passwords
+            in future authentications.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CPasswordCheck | Up | CTclAccessListCheck |

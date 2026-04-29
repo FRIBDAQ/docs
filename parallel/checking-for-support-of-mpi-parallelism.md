@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Chapter 1. Quick Start | Next |
+
+
+---
+
+# <a name="AEN34"></a>1.2. Checking for support of MPI parallelism.
+
+Support for MPI parallelism in SpecTcl is an option selectable when SpecTcl is built and
+                installed.  You can see if MPI parallelism is enabled by looking at the VERSION
+                file that is installed in the top level directory of the SpecTcl installtion (the INSTDIR directory
+                in your tailored Makefile).
+
+Below are the first two lines of this file for SpecTcl built with MPI support:
+
+<a name="ex.version"></a>**Example 1-1. VERSION file for SpecTcls with MPI support**
+
+```
+Version:  SpecTcl-7.0-000 build on RonDell Thu 06 Jun 2024 01:48:15 PM EDT by ron MPI Enabled
+Compiled with /usr/opt/mpi/openmpi-4.0.1/bin/mpicxx and /usr/opt/mpi/openmpi-4.0.1/bin/mpicc               
+                
+```
+
+Towards the end of the first line you can see the text MPI Enabled.
+                This indicates the installed SpecTcl was built with MPI support enabled.  
+                If MPI support was disabled, this will read MPI Disabled.
+
+THe second line shows the compiler command used to build SpecTcl.
+                Building software with MPI requires specific include directories and link libraries
+                to be added to the compiler and linker flags.  For convenience, MPI distributions such
+                as OpenMPI and MPICH provide compiler drivers that define these flags for the user.
+                Note that mpicxx is the MPI C++ compiler and mpicc
+                the MPI C compiler.  Mostly, take not of the path to the compiler.
+                That will be needed both when you run SpecTcl in parallel mode and you may also
+                need to define an environment variable to use SpecTcl in parallel mode.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Quick Start | Up | Environment variables you will need |

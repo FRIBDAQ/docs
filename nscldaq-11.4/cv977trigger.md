@@ -1,0 +1,68 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cv977trigger"></a>CV977Trigger
+
+<a name="AEN86103"></a>## Name
+
+CV977Trigger -- Concrete Trigger class using CAEN V977 module.
+
+<a name="AEN86106"></a>## Synopsis
+
+```
+#include <CV977Trigger.h>
+         
+```
+
+```
+  CV977Trigger(uint32_t base, unsigned crate = 0);
+```
+
+<a name="AEN86139"></a>## Description
+
+`CV977Trigger` is a concrete trigger class that
+            accepts triggers from a CAEN V977 I/O register module.  The trigger
+            is accepted on input 0.  Since the module latches inputs input 0 should
+            be pulsed.  Normally you should use this class in conjunction with a
+            `CV977Busy` object to manage the busy.
+
+<a name="AEN86144"></a>## Public member functions
+
+`  CV977Trigger(uint32_t base, unsigned crate = 0);`Constructs the object using a description of the electronics module's
+                `base` address and VME
+                `crate` number.
+
+`  CV977Trigger(CCAENV977* pModule, bool deleteme = true);`Constructs the object using an existing hardware object
+                `pModule`.
+                If `deleteme` is true,
+                when this object is destroyed, the module passed in will be as well.
+                This is appropriate if a
+                `CCAENV977` was dynamically allocated/constructed
+                for this object.
+
+` virtual void setup();``CEventTrigger` interface.  Called to
+                setup the electronics and make it able to accept trigger.
+
+` virtual bool operator()();``CEventTrigger` interface.  Called to
+                poll for a trigger condition.  Triggers are latched until
+                they are cleared.  Normally this object will be used in
+                conjucntion with a `CV977Busy` object
+                on the same electronics.  The clear of the busy output of
+                that object will reset the trigger as well.
+
+<a name="AEN86188"></a>## SEE ALSO
+
+[[r85057]],
+        [[r85977]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CV977Busy | Up | RunState |

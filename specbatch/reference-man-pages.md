@@ -1,0 +1,27 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN635"></a>Appendix A. Reference (man) pages
+
+This appendix provides reference material for batch SpecTcl,
+            MPITcl and MPISpecTcl
+
+# <a name="AEN638"></a>A.1. Batch SpecTcl
+
+**Table of Contents**[[r641]] -- Establish a data distributor to the anlaysis pipeline[[r656]] -- Begin analysis.[[r672]] -- Establish a data getter from a file.[[r690]] -- Base class for data getters.[[r732]] -- Data Distribution base class.
+
+This section provides reference pages for the commands unique
+                to batch SpecTcl and the classes you might want to know
+                about if you are exending batch SpecTcl.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Serial reader parallel worker example. |  | analysissink |

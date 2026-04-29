@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25066"></a>CXamineFilePrompt
+
+<a name="AEN25070"></a>## Name
+
+CXamineFilePrompt -- Prompt for a filename.
+
+<a name="AEN25073"></a>## Synopsis
+
+```
+#include <XamineFilePrompt.h>
+
+class CXamineFilePrompt  : public CXamineButtonPrompt        
+{
+  
+public:
+
+  CXamineFilePrompt (const std::string& rPrompt);
+  CXamineFilePrompt(const char* pPrompt);
+                       
+  virtual   void FormatPrompterBlock (ButtonDescription& rButton) const  ;
+ 
+};
+
+        
+```
+
+<a name="AEN25075"></a>## DESCRIPTION
+
+Xamine buttons that have this propmter, prompt
+               for a filename using a file prompter prior to
+               dispatching the button event messgae to the client.
+               Note that the name selected will be sent in the message.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamineSpectrumPrompt | Up | CXaminePointsPrompt |

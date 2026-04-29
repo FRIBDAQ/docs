@@ -1,0 +1,27 @@
+|  |  |  |
+| --- | --- | --- |
+| CutiePie (QtPy) (version 5.13-000) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25"></a>Chapter 2. A brief design description.
+
+The core of CutiePie is based on the Python/C API to extend the Python interpreter with new modules written in C/C++.
+	These modules can not only define new functions but also new object types and their methods. To simplify the process, SIP has been chosen.
+	SIP is a collection of tools that makes it very easy to create Python bindings for C and C++ libraries. It comprises
+	a set of build tools and a sip module. The build tools process a set of specification files and generates C or C++ code which is then compiled
+	to create the bindings extension module. Several extension modules may be installed in the same Python package. Extension modules can be built
+	so that they are independent of the version of Python being used.
+	With parts of SpecTcl converted to Python modules, the only part left to take care is the GUI. Qt is set of cross-platform C++ libraries that
+	implement high-level APIs for accessing many aspects of modern desktop and mobile systems. PyQt5 is a comprehensive set of Python bindings for Qt v5 and allows
+	the creation of GUI widgets, classes for accessing SQL databases, XML parser, SVG support. PyQt5 is a good example of modern technology, with known commercial applications,
+	that improves the SpecTcl histogram visualization and offers multiple hooks to a variety of data analysis tools.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | Features |

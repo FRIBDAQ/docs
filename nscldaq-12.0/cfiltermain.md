@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN48204"></a>CFilterMain
+
+<a name="AEN48208"></a>## Name
+
+CFilterMain -- Ring item filter application class.
+
+<a name="AEN48211"></a>## Synopsis
+
+```
+#include <CFilterMain.h>
+
+class CFilterMain
+{
+  
+
+  public:
+    CFilterMain(int argc, char** argv);
+    void operator()();
+    void registerFilter(const CFilter* filter);
+    CMediator* getMediator() { return m_mediator; }
+    void putRingItem(CRingItem* pRingItem);
+    
+};
+
+      
+```
+
+<a name="AEN48213"></a>## DESCRPTION
+
+The `CFilterMain` class contains
+            the application logic for the filter framework.
+            When constructing a custom filter you instantiate
+            this class, register your filter objects (which are
+            added to a composite filter object) and
+            invoke the object's `operator()`
+            method.
+
+The application class takes care of processing command line
+            parameters, instantiating the proper data source and
+            data sinks as well as instantiating the correct logic
+            object (mediator).
+
+<a name="AEN48219"></a>## METHODS
+
+
+
+`  CFilterMain(int  argc = , char**  argv = );`Pass the constructor the program arguments as they
+                are passed to `main`.
+                The constructor will instantitate the data source,
+                data sink and proper mediator type.
+
+` void  operator()();`Executes the application logic.  This can only return
+                if the desired mediator (expressed via command
+                parameters passed at construction) is a one-shot,
+                or the data source is a file and the end-file is
+                encountered.
+
+` void  registerFilter(const CFilter*  filter = );`Adds a clone of the filter object pointed to by
+                `filter` to the end of the chain
+                of filters in the composite filter maintained by
+                the application logic object.
+
+` CMediator*  getMediator();`Returns a pointer to the mediator. The filter framework
+                uses objects called mediators to implement actual
+                detailed program logic.
+
+` void  putRingItem(CRingItem*  pRingItem = );`Puts the ring item object `pRingItem`
+                in the data sink.   This results in the ring item
+                being sent to the data sink, whatever it is.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CCompositeFilter | Up | cvt |

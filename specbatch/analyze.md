@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN656"></a>analyze
+
+<a name="AEN660"></a>## Name
+
+analyze -- Begin analysis.
+
+<a name="AEN663"></a>## Synopsis
+
+**package require spectcl**
+
+**analyze**
+
+<a name="AEN668"></a>## DESCRIPTION
+
+Begin analysis of data from the data getter sending
+                        the resulting data blocks to the data distributor.
+                        It is an error to request analysis without having set
+                        both a getter and a setter.
+
+Behavior when this command is issued after an event
+                        source has already been exhausted is not defined and
+                        depends on the implementation of that source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| analysissink | Up | filesource |

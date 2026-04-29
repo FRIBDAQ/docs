@@ -1,0 +1,147 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN71120"></a>CMPITransport
+
+<a name="AEN71124"></a>## Name
+
+CMPITransport -- Base class for transports using MPI for communication.
+
+<a name="AEN71127"></a>## Synopsis
+
+```
+#include <CMPITransport_mpi.h>
+
+class CMPITransport : public CTransport
+{
+public:
+    CMPITransport();
+    CMPITransport(int currentReceiver);
+    
+    virtual  void    recv(void** ppData, size_t& size);
+    virtual  void    send(iovec* parts, size_t numParts);
+    virtual  void    end();
+    
+    // MPI specific stuff:
+    
+    int setReceiver(int rank);
+    int getReceiver() const;
+    int getLastReceivedTag() const;
+    int getLastReceivedRank() const;
+    MPI_Comm setCommunicator(MPI_Comm newComm);
+    
+protected:
+    static const int endTag  = 0;    // Tag signifying end of data
+    static const int dataTag =  1;   // Tag signifying data    
+};
+        
+```
+
+<a name="AEN71129"></a>## DESCRIPTION
+
+This is the base class for transports that use the Message Passing
+            Interface (MPI) for communication.  Note that MPI applications
+            normally require a helper program (e.g. **mpirun**)
+            to be started.
+
+MPI application endpoints are ranks.  By default these are ranks
+            within the communicator named MPI_COMM_WORLD.
+            It is possible, however, for applications to build groups of processes
+            that perform communication using sub-set communicators.  Doing that
+            is beyond the scope fo this library, however there is support for
+            using such communicators.
+
+Note that in addition to being able to target specific
+            receivers with messages, each message has a tag
+            associated with it.  The framework uses those tags
+            as follows:
+
+
+
+- 1 - indicates data are being transferred.
+- 0 - indicates no more data is available
+                      from the peer.
+
+<a name="AEN71143"></a>## METHODS
+
+
+
+`  CMPITransport();`Base class.  Note that no receiver has been selected
+                        and the user must set a receiver prior to the first
+                        communication using `setReceiver`.
+                        The communicator use, unless later set using
+                        `setCommunicator` will be
+                        MPI_COMM_WORLD, the communicator
+                        for the entire application.
+
+`  CMPITransport(int currentReceiver);`This constructor sets the receiver peer as
+                        `currentReceiver`.   This
+                        is intended for use by derived classes implementing
+                        e.g. pipelining to communicate from one stage of the
+                        pipeline to another (not fan-in).  Unless later
+                        overridden by calls to `setReceiver`,
+                        all sends will be directed to the process indicated by
+                        `currentReceiver`'s rank.  Note
+                        that unless modified by a call to
+                        `setCommunicator` that rank
+                        is evaluated in the MPI_COMM_WORLD
+                        communicator.
+
+` virtual    void     recv(void**  ppData, size_t&  size);`Receives data.  By default, this allows receipt of messages
+                        from any sender with any tag.
+                        `getLastReceivedRank` and
+                        `getLastReceivedTag` can be used
+                        to determine the source and tag of the last message.
+
+` virtual    void     send(iovec*  parts, size_t  numParts);`Sends a message to the current receiver.  The
+                        message is gathered from parts specified by
+                        `parts`.  See the man page for
+                        `writev` for the definition of
+                        iovec.  `numParts`
+                        specifies the number of parts.
+
+The message is sent with a tag of 1
+                        indicating the message is data
+
+` virtual    void     end();`Sends an empty message with tag 0.
+                        This indicates to the peer that no more data is
+                        available to be sent.
+
+`   int  setReceiver(int  rank);`Sets the target of the next send to be
+                        `rank` in the current communicator.
+                        The method returns the rank of the receiver
+                        prior to this call.  If there was no prior receiver,
+                        the method returns -1 wich is not
+                        a legal process rank.
+
+`  const int  getLastReceivedTag();`Returns the tag of the most recently received message.
+                        If the object has not yet received a message,
+                        -1 is returned. Note that
+                        -1 is, I think, a legal MPI tag so
+                        I strongly suggest not using it in applications that
+                        rely on this framework.
+
+`  const int  getLastReceivedRank();`Returns the rank of the process from which the
+                        most recently received message came.  If no messages
+                        have been received yet, -1 is
+                        returned, which is an illegal rank.
+
+`   MPI_Comm  setCommunicator(MPI_Comm  newComm);`Sets the communicator that will be used to send and receive
+                        messages to `newComm`.  This is our
+                        one concession to support multiple communicators and
+                        process groups.  The return value of this method is the
+                        previous communicator and will always be legal because
+                        the communicator the object is initialized with is
+                        MPI_COMM_WORLD.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CCommunicatorFactoryMaker | Up | CMPIFanoutTransport |

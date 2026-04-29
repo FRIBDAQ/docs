@@ -1,0 +1,46 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_resume"></a>resume
+
+<a name="AEN57163"></a>## Name
+
+resume -- Resume a Paused Run
+
+<a name="AEN57166"></a>## Synopsis
+
+**proc ::*providerName*::resume *sourceId* {
+...
+}
+          **
+
+<a name="AEN57171"></a>## DESCRIPTION
+
+Resumes a run that is paused in the data source identified by
+          `sourceId`.
+          This proc is optional.  Specifically, if the data source provider's
+          [[r57236]] specifies  the
+          provider is unable to pause runs, the provider need not implement
+          either this proc or the
+          [[r57116]]
+          proc.  Similarly, the data source manager should not invoke the
+          **pause** or **resume** commands on
+          data sources that cannot support it.
+
+The ReadoutGUI data source manager and GUI will prevent an invocation
+          of the **pause** and **resume**
+          operations on any data of the data sources
+          unless all data sources specified able to perform these
+          operations.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| pause | Up | end |

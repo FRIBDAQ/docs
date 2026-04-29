@@ -1,0 +1,91 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN654"></a>Chapter 3. Creating a Readout program from a spectrodaq production readout program
+
+This chapter describes how to create a RingDaq readout program given
+            a spectrodaq production readout program as a starting point.
+            The RingDaq readout program closely  mimics the SPDAQ production readout
+            framework.  Therefore the concepts should seem quite familiar.
+
+In this chapter we'll see how to:
+
+
+
+- Obtain a copy of the RingDaq readout framework skeleton
+- Port an existing event segment to RingDaq
+- Modify the Skeleton.cpp to register
+                   our event segments.
+- Port existing scaler objects to RingDaq
+                      and instantiate/register them with skeleton.cpp
+- Modify the Makefile to add our
+                  software to the final Readout program
+                  produced by it.
+
+# <a name="AEN673"></a>3.1. Obtaining a copy of the RingDaq readout skeleton
+
+In this section we are going to operate as if an environment
+                variable named DAQROOT is defined and
+                points to the top level of the RingDaq distribution.
+                At the time this is being written, at the NSCL this would give
+                DAQROOT the value
+                /usr/opt/daq/10.0.  As time goes on,
+                this directory name may change as version numbers change.
+                If you are not at the NSCL you will  need to contact your
+                system administrators about where they installed this software.
+
+The commands below show how to obtain a copy of the readout
+                skeleton for RingDaq:
+
+<a name="AEN680"></a>**Example 3-1. Getting the skeleton**
+
+```
+mkdir myreadout
+cd    myreadout
+cp $DAQROOT/skeletons/sbs/* .
+                
+```
+
+This sequence of unix shell commands creates a new directory
+                named myreadout, makes that the current
+                default directory and copies the readout skeleton into that
+                directory.
+
+The readout skeleton constists of the following files:
+
+
+
+MakefileMakefile that builds the skeleton
+
+Seleton.cppSource code for the registration code for the
+                            readout framework.
+
+Skeleton.hHeader defining the class implemented by
+                        Skeleton.cpp
+
+If you examine Skeleton.cpp you wont' find
+                a main function.  This is because the readout
+                framework is an application framework.  Application frameworks
+                consist of a main program that is written for you and specific
+                ways to register the presence of application specific code that
+                needs to be called at well defined points in the program's
+                execution.
+
+Using an application framework frees you from having to worry about
+                how your code actually interfaces with the data acquisition system,
+                manager run-state transitions, trigger processing and so on.
+                In the next two chapters we will see how to create code that is
+                application specific and how to register it with the framework
+                so that it is called when we want it to be called.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Editing and using the Makefile |  | Porting existing event segments to RingDaq |

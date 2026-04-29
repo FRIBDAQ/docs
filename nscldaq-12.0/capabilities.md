@@ -1,0 +1,57 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_capabilities"></a>capabilities
+
+<a name="AEN78490"></a>## Name
+
+capabilities -- Get Provider Capabilities Dict
+
+<a name="AEN78493"></a>## Synopsis
+
+**proc ::*providerName*::capabilities {} {
+...
+}
+          **
+
+<a name="AEN78497"></a>## DESCRIPTION
+
+Not all data source providers are created equal.  This command
+            is expected to return a dict that describes the data source's
+            capabilities.  The keys to this dict are capability names.
+            The values generally are booleans that indicate whether that
+            capability is supported.
+
+<a name="AEN78500"></a>## CAPABILITIES
+
+At present the following capabilities are defined:
+
+
+
+canPauseIf true the provider implements the
+                            **pause** and
+                            **resume** procs and they
+                            do what they are advertised to do.
+
+runsHaveTitlesIf true the provider will honor the
+                            `title` parameter passed to the
+                            [[r78317]]
+                            command.
+
+runsHaveNumbersIf true the provider will honer the
+                            `runNumber` parameter
+                            passed to the
+                            [[r78317]]
+                            command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| init | Up | SSHPipe |

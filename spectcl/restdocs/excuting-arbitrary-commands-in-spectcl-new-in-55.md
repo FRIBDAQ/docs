@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1854"></a>3.30. Excuting arbitrary commands in SpecTcl (new in 5.5)
+
+This is intended to support access to user defined SpecTcl commands.
+                The REST interface, however arbitrary commands and scripts can
+                be run in the interpreter using this interface:
+
+<a name="AEN1857"></a>**http://host:port/spectcl/script/command=*tcl-command*
+**
+
+This runs the Tcl script that is the value of the query parameter
+                command at the global level of the
+
+The result of the command is returned in the
+                detail of the returned object.  If the command
+                raised an error, the status attribute of the
+                returned object will be ERROR  and the
+                detail field of the returned data will
+                have the error message raised as its value.
+
+SpecTcl interpreter. `tcl-command` need
+                not be a simple script. For example, if tcl-command's value is:
+
+<a name="AEN1870"></a>```
+ {
+    set result [list]
+    foreach s [parameter -list] {
+        lappend result [lindex $s 0]
+    }
+    set result
+}
+
+                
+```
+
+The detail field of a request with this as the
+                command value will contain a Tcl list
+                (not JSON array) containing the names of all parameters.
+
+A very important point is that the server does no interpretation
+                of the script's returned values.  This is fine for Tcl clients
+                but may be difficult to deal with properly for clients in other
+                languages or in programs that cannot embed a Tcl interpreter to
+                parse the results.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the evbunpack command (new in 5.5) | Up | Traces (New in 5.5). |

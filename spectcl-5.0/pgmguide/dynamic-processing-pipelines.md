@@ -1,0 +1,112 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.dynamicpipe"></a>Chapter 12. Dynamic processing pipelines
+
+Beginning with SpecTcl 5.1, SpecTcl supports dynamic event processsing
+        pipelines.  At the very least, this allows you to use the same
+        SpecTcl executable image to analyze raw data and to playback filter files.
+        You can also use it to selectively enable analysis or to allow a single
+        SpecTcl executable to analyze data from a wide variety of data formats.
+
+To use this facility you must:
+
+
+
+- Create instances of the event processors you want to use.
+- Register the event processor instances with the pipeline manager.
+- Use the SpecTcl **pman** commands to setup event processing
+                  pipelines involving those event processors.
+- Use the SpecTcl **pman** command to select
+                  the event processing pipeline to use.
+- Start anlayzing data from a data source.
+
+In this chapter we'll give sample code that shows how to create
+        instances of event processors and how to register them with the
+        pipeline manager singleton.  We'll also give examples of Tcl command
+        sequences that build up and select event processing pipelines.
+
+Before continuing, let me reassure you that all of your existing
+        SpecTcl code should work just fine.  When SpecTcl starts, it creates
+        a pipeline named default and sets that pipeline
+        as the current event processing pipeline.  The
+        `CreateAnalysisPipeline` code you use
+        registers event processors you create (they must be uniquely named or
+        have default names) and adds them to the current event processing
+        pipeline.  Thus everything we describe in this chapter is optional.
+
+# <a name="AEN4375"></a>12.1. Creating and registering event processors.
+
+To use dynamic event processors, you must have  a set of
+            event processor instances, each registered with the pipeline
+            manager singleton under a unqique name.  In this section,
+            I'll show how to create a few event processors and register
+            them with the pipeline manager.  This code could appear in
+            `CreateAnalysisPipeline`.  We're going to
+            assume you have created event processor classes namec Evp1, Evp2
+            and Evp3. Additionally, we're going to
+            instantiate and register the filter event
+            processor that comes with SpecTcl.
+
+<a name="AEN4379"></a>**Example 12-1. Creating and registering**
+
+```
+#include <FilterEventProcessor.h>
+#include "Evp1.h"
+#include "Evp2.h"                           
+#include "Evp3.h"
+#include <CPipelineManager.h>
+....
+void
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+    CPipelineManager* pMgr = CPipelineManager::getInstance()  
+    
+    pMgr->registerEventProcessor("evp1", new Evp1);
+    pMgr->registerEventProcessor("evp2", new Evp2);           
+    pMgr->registerEventProcessor("evp3", new Evp3);
+    pMgr->registerEventProcessor("filter", new CFilterEventProcessor);
+}
+            
+```
+
+[[c4354#dynpipe.includes]]                    These includes, presumably pull in the class definitions
+                    for the your `Evp1` ..
+                    `Evp3` classes, the
+                    `CFilterEventProcessor` definition
+                    and definition of `CPipelineManager`,
+                    the pipeline manager singleton.
+                [[c4354#dynpipe.pmgrsingleton]]                    Since the `CPipelineManager` is a
+                    singleton, you can't construct it.
+                    It's `getInstance` method
+                    (it's declared as private).
+                    returns a pointer to the one and only instance of this
+                    class.
+                [[c4354#dynpipe.evpregister]]                    Each of these calls registers an event processor with the
+                    pipeline manager.  The first paramteer is a name that will
+                    be associated with the event processor instance.  The second,
+                    a pointer to an instance of the event processor.
+                    If you attempt to register a duplicate name a
+                    `std::logic_error` exception will be
+                    thrown by the pipleline manager.
+
+Note that we have not created any event processing pipelines.  In
+            this set of examples, we're going to do that at the Tcl script level.
+            If you prefer, the pipeline manager does provide methods to create
+            pipelines, add event processors to them to select the pipeline that
+            SpecTcl will use to analyze data.
+
+See the programming reference for a complete description of the
+            methods provided by the pipeline manager singleton.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Distributing theSomeDaqBufferDecoderas a plugin |  | Using thepmancommand to create and select pipelines |

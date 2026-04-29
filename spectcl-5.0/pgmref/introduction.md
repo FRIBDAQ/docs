@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This manual provides reference pages for classes, scripts and
+            file formats for the NSCL SpecTcl histogramming program.  Command
+            reference information is explicitly not given here but in a separate
+            command reference manual.
+
+The reference information is divided into the following parts:
+
+
+
+1. The SpecTcl API provides a reference page for the
+                       SpecTcl API class `SpecTcl`.  This
+                       is sort of a stovepipe class that provides access to the
+                       rest of the public API used by SpecTcl.
+2. The Tree parameter/TreeVariable API provide structure as well
+                       as metadata on top of SpecTcl's flat parameter array.
+                       Authors of  event processors should write in terms of this API.
+3. Tcl++ is a separate package, however it is so much an integral
+                       part of the SpecTcl interface, that reference information
+                       for that package is provided here as well.
+4. Core SpecTcl classes include parameters, histograms,
+                       and gates.  This part documents these core classes as well
+                       as the methods of the `CHistogrammer`
+                       class intended to be available for extension programs.
+5. File formats.  This part describes the format of filter files
+                       as well as both the binary and ASCII format of spectrum
+                       files written by the **swrite** command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl Programming Reference. |  | SpecTclAPI class |

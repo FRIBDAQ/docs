@@ -1,0 +1,88 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb1_v812usbcontrol"></a>VMUSB V812 control
+
+<a name="AEN23134"></a>## Name
+
+VMUSB V812/895 control -- Adapt CAENV812GUI to the VM-USB readout
+
+<a name="AEN23137"></a>## Synopsis
+
+**v812usbcontrol *configfile* [host [port]]
+        **
+
+**vm895usbcontrol *configfile* [host [port]]
+          **
+
+<a name="AEN23148"></a>## DESCRIPTION
+
+Control application for either the CAEN V812 constant fraction
+      discriminator or the CAEN V895 leading edge discriminator for the
+      VM-USB Readout control server.  This application uses the
+      V812 control widget
+      [[r111375]]
+
+The configuration file format is described below in the section
+      [[r23120#vmusb1_v812usbcontrol_configfile]] below.
+
+If the user does not supply any additional parameters following the *configfile*,
+       a dialog is popped up to allow them to accept or modify the default values 
+       (host=localhost, port=27000).   If at least the host is provided,
+       it is used and the dialog is not presented.  If the host is provided but the port is not, the default
+       value of 27000 is used.   IF the host and port are both provided they are used.
+
+Irregardless of how the host an connection ports of the VMUSBReadout are specified, they are
+        output to stdout so that you an know what they are.
+
+<a name="vmusb1_v812usbcontrol_configfile"></a>## CONFIGURATION FILE
+
+The configuration file for the control panel is actually a Tcl script.
+        the script sets variables which, contain the configuration.  Only the
+        `name` and `base` variables are 
+        required.  The `name` variable must match the name of
+        a slow control module for the V812/V895 in the VMEUSB readout control configuration script.
+        The `base` should be the base address of that module.
+
+The full set of configuration variables are:
+
+
+
+`name`Name of the module in the configuration script for the VMUSBReadout.
+
+`base`Base address - this is for documentation purposes.  It is mandatory but just displayed
+
+`thresholds`This is an array with integer indices from 0-15 and contains the integer threshold values in 
+                        units of mV. The values should be the absolute values of the thresholds e.g. not
+                        -2 but 2 for -2mV threshold.
+
+`widths`A two element list indexed 0 and 1.  widths(0) applies to channels 0-7 while
+                        widths(1) applies to channel 8-15.
+                        The manual
+                        for the module says this value is from 0 to 255. where 0 corresponds to a 12ns width,
+                        255 a 206ns width, with a non-lineary function between them.  In otherwords use an
+                        oscilloscope to arrive at the correct value if it is important for timing.
+
+`majority`THe majority level.
+
+`enables`A bitmask where set bits enable the corresponding channel.  The least significatn
+                        bit of the mask is channel 0 e.g. 0x5 enables channel 0, and 2.
+
+`deadtimes` (V812 only)A two element array of deadtime values indexes are 0 and 1.  deadtimes(0) applies to 
+                        channels 0-7 while deadtimes(1) applies to channels 8-15. Don't blame me.
+                        this is how the module works.  A value of 0 represents 118ns while the value 255 represents
+                        1625ns.  Don't assume a linear function connecting these two endpoints.
+
+Note that the deadtime is at least the width if it is longer than the programmed deadtime.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| eventlog | Up | gdgpanel |

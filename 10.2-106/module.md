@@ -1,0 +1,279 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-Module"></a>Module
+
+<a name="AEN61873"></a>## Name
+
+Module -- control config command: create/configure modules.
+
+<a name="AEN61876"></a>## Synopsis
+
+```
+          Module create type name
+           
+            Module config name ?option value? ... 
+                 
+            Module cget name
+                 
+          
+```
+
+<a name="AEN61887"></a>## DESCRIPTION
+
+This command is processed by the Tcl slow controls server when it
+            processes the control configuration file.  It is used to create,
+            configure and query the configuration of slow controls
+            modules.
+
+The **create** subcommand creates a new module
+                assigned the `name` by which it can be
+                referred to by remote control panels, and the remainder of
+                the cofiguration file.  The module will be of type
+                `type`.  See MODULE TYPES below for
+                information about the module types supported.
+
+The **config** subcommand configures the
+            module `name`, setting the configuration
+            options provided on the command line to the specified values.
+            See MODULE TYPES below for information about the configuration
+            options accepted by each module.
+
+The **cget** subcommand returns the configuration of
+            the `name`ed module.  The configuration is
+            returned as a list of pairs where each pair consists of the
+            configuration parameter name and value.
+
+<a name="AEN61900"></a>## MODULE TYPES
+
+This section describes the module types that are supported
+                currently and the device specific configuration options and
+                settable/readable parameters
+                each supports.  Device support includes both the
+                driver and a control panel for the device.
+
+<a name="AEN61903"></a>### jtecgdg
+
+This module is actually a general purpose logic module.
+                    The only support for it at this time is as a multi-channel
+                    gate and delay generator.
+
+<a name="AEN61906"></a>#### Options
+
+The only option supported by the jtecgdg
+                        is the `-base` option which sets the
+                        VME base address for the module (must match the
+                        rotary switch settings).
+
+<a name="AEN61911"></a>#### Parameters
+
+
+
+delay*n*The delay register value for register n.
+                                    There are 8 registers numbered
+                                    [0..7]
+
+width*n*The width of channel `n`
+
+<a name="AEN61926"></a>### caenv812/canev895
+
+The CAEN V812 is a VME 16 channel constant fraction
+                    disriminator while the V895 is a software compatible
+                    leading edge discriminator.
+
+<a name="AEN61929"></a>#### Options
+
+
+
+`-base`The value of this parameter is the base
+                                    address of the module as set by the
+                                    on-board rotary switches.
+
+`-file`The value of this parameter is the path to a
+                                    configuration file whose contents are used to
+                                    initialize the state of the device. Note
+                                    that these modules are write-only so writing
+                                    their initial state is the only way to put them
+                                    into a known state.
+
+The contents of this file are described in
+                                    [[r66858]]
+
+<a name="AEN61944"></a>#### Parameters
+
+
+
+`threshold`nThe threshold register value for
+                                    channel `n`
+
+`width`iThe width register value for bank
+                                    `i`.  The module
+                                    is divided into two banks of 8 modules.
+                                    the banks are numbered 0 and 1.
+
+<a name="AEN61959"></a>### vmusb
+
+This slow control module supports remote execution of
+                    arbitrary VM-USB lists.  Full documentation of this facility
+                    will be produced in a later version of this document.
+                    The idea is, however that the module, which has no
+                    configuration options, has exactly one parameter,
+                    list
+
+list is a set only parameter.  It's
+                    value is a Tcl list.  The first element of thel ist specifies
+                    the maximum input buffer size required by the list.
+                    The second value of the list is a Tcl list containing
+                    the VM-USB stack.  The Set operation executes the stack
+                    and returns the text Ok -  followed by a
+                    Tcl list  whose elements are the bytes of data put in the
+                    read buffer by the stack.
+
+<a name="AEN61966"></a>### v6553
+
+This is a CAEN bias supply controller.  It makes use of the
+                    slow controls monitor facility to maintain an up-to-date
+                    module state without interrupting data acquisition.
+
+<a name="AEN61969"></a>#### Options
+
+The module supports only the `-base`
+                        option which describes to the software the base address
+                        of the bias supply as encoded in the module rotary
+                        switches.
+
+<a name="AEN61973"></a>#### Parameters
+
+The following parameters can be Set:
+
+
+
+>v*i*Sets the requested voltage on channel
+                                    `i` in floating point
+                                    volts.
+
+i*i*Sets the current limit on channel `i`
+                                    in floating point micro-amps.
+
+on*i*Turns channel on or off.  The value of this
+                                    parameter is a legal boolean value.
+
+ttrip*i*Sets the number of seconds (floating point)
+                                    for which channel `i`
+                                    is allowed to be out of specification before
+                                    it trips  off.
+
+svmax*i*Sets the maximum voltage allowed for
+                                    channel `i` in floating
+                                    point volts.  If a voltage setting is made
+                                    that is larger than this, the actual requested
+                                    voltage will be limited to this value.
+
+rdown*i*Sets the ramp down rate of channel
+                                    `i` in
+                                    floating point volts per second.
+
+rup*i*Sets the ramp up rate of channel
+                                    `i` in floating point
+                                    volts per second.
+
+pdownmode*i*Sets the power down mode of channel
+                                    `i`.  The value of this
+                                    parameter can be either kill
+                                    which abruptly drops the voltage to zero,
+                                    or ramp which ramps the
+                                    channels down at the ramp down rate.
+
+Note that if you want to monitor key components
+                        of this device periodically you should use the
+                        **Mon** command as that will retrieve
+                        data without temporarily halting data taking.
+
+The following parameters can be retrieved via Get:
+
+
+
+globalmaxvReturns the global maximum voltage
+                                    for the module.
+
+globalmaxIReturns the global maximum current for the
+                                    module.
+
+vReturns a list of the requested voltages from all
+                                    channels.
+
+iReturns  a list consisting of the requested
+                                    maximum currents
+                                    from all channels.
+
+onReturns a list that contains the requested
+                                    channel states (on or off for each
+                                    channel).
+
+vactReturns a list contaning the actual voltage
+                                    reading from each channel.
+
+iactReturns a list containing the actual
+                                    current readings from each channel.
+
+statusReturns a list of status values for each
+                                    channel.  See sections 3.2.2.6 for a bit
+                                    b bit description of the valuesthat
+                                    can be set in each list element.
+
+ttripReturns the trip times for each channel.
+
+svmaxReturns the software maximum voltage for
+                                    each channel.
+
+rdownReturns a list of ramp down rates for each
+                                    channel.
+
+rupReturns a list of the ramp up rates for each
+                                    channel.
+
+pdownmodeReturns a list of the power down modes
+                                    for each channel.
+
+polaritiesReturns a list of the channel polarity values.
+                                    Each channel polarity is represented by a
+                                    + or a
+                                    -
+
+tempReturns a list of the temperaturs  for each
+                                    channel.
+
+<a name="AEN62115"></a>#### Monitored variables
+
+Bias supplies must normally be monitored periodically
+                        so that operators can be informed of trip and alarm
+                        conditions.  The VM-USB framework provides for each
+                        slow control device to contribut to a list that is
+                        triggered periodically via the action register.
+                        This allows this monitoring to be done without
+                        pausing data taking.
+
+The V5633 driver uses this capability and the
+                        **mon** command should be used to
+                        retrieve the most recent values of the monitored
+                        variables.
+
+The **mon** protocol command
+                        will return the the string
+                        OK  followed by a Tcl list of lists.
+                        The first list will be the channel status values.
+                        The second list will be the channel actual voltages.
+                        The third list will be the actual channel currents.
+                        The fourth and last list will be the channel temperatures.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| cvmusbreadoutlist | Up | watch |

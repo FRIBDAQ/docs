@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 6. CCUSBReadout | Next |
+
+
+---
+
+# <a name="AEN3927"></a>6.5. The slow controls subsystem
+
+<a name="ccusb.slowcontrols.intro"></a>There is nothing to stop you from creating device support that
+            does not do anything in its `addReadoutList`.
+            You could do this to implement static controls devices.  That is
+            non data taking devices whose configuration is set up at the start of
+            a run and cannot be dynamically modified.
+
+There are cases, however when you'd like to have some control
+            panel associated with a device, that would provide a virtual knob
+            allowing you to dynamically modify settings in the device.
+            The slow controls subsystem supports this by offering a
+            TCP/IP server which can accept commands to set and query
+            devices.
+
+If the run is halted, the slow controls server can directly
+            manipulate the CCUSB to perform the desired device changes.
+            If, however the CCUSB is in data taking mode, the slow controls
+            server pauses the run, makes the setting and then resumes the run.
+            You should avoid working with control panels during production runs
+            for that reason.
+
+The philosophy of the slow controls subsystem is similar to that
+            of the readout subsystem.  A controls configuration file defines
+            the control modules present in the system and their unchanging
+            configuration.  Note that the controls configuration file
+            is read only as CCUSBReadout starts, not once per run as
+            for the data acquisition configuration file.
+
+The **Module** command is used to create configure
+            and query the configuration of slow controls devices known to the server.
+            The example below shows how to a Phillips PH7106 leading edge
+            discriminator:
+
+<a name="AEN3937"></a>```
+Module create led ph7106
+Module config led -slot 3
+            
+```
+
+The 3ccusb reference section describes the Module types available,
+            the configuration options available, their control panels and
+            the network protocol used to communicate with the controls server.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Tcl device driver support | Up | Running CCUSBReadout |

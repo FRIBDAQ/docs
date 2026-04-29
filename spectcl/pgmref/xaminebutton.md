@@ -1,0 +1,141 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25142"></a>XamineButton
+
+<a name="AEN25146"></a>## Name
+
+XamineButton -- Describe a client button
+
+<a name="AEN25149"></a>## Synopsis
+
+```
+#include <XamineButton.h>
+#include <clientops.h>
+
+class CXamineButton      
+{
+
+public:
+  CXamineButton (  int am_nReturnCode,  
+		   const std::string& am_sLabel,  
+		   Bool_t am_fEnabled,  
+		   ButtonSensitivity am_eWhenSensitive,
+		   CXamineButtonPrompt& rPrompter);
+  CXamineButton(  int am_nReturnCode,  
+		   const char* pLabel,  
+		   Bool_t am_fEnabled,  
+		   ButtonSensitivity am_eWhenSensitive,
+		   CXamineButtonPrompt& rPrompter);
+
+  int getReturnCode() const;
+  const std::string& getLabel() const;
+  Bool_t getEnabled() const;
+  ButtonSensitivity getWhenSensitive();
+  CXamineButtonPrompt* getPrompter() const;
+  
+  virtual   void FormatMessageBlock (ButtonDescription& rButton) const  ;
+  virtual   CXaminePushButton*   PushButton();   // Type safe upcasts
+  virtual   CXamineToggleButton* ToggleButton(); // Type safe upcasts.
+};
+
+        
+```
+
+<a name="AEN25151"></a>## DESCRIPTION
+
+`XamineButton` is used to describe
+              Xamine client buttons.  Xamine can display a box of buttons
+              that, when pressed, simply send messages to the client.
+              Actual buttons come in two shapes, push buttons and toggle buttons.
+
+Buttons can also have prompters associated with them.
+                If a button has a prompter, Xamine will interact via that
+                prompter with the user to gather additional data to be
+                fed back to the application.
+                For example, a prompter might request that points be
+                accepted on a spectrum which, on acceptance cause the points and
+                the spectrum id to be included in the message to the client.
+
+Finally buttons can also have sensitivity specifications.
+                These determine when a button is enabled by Xamine,
+                for example, a Fit button might only be enabled if a
+                1-d spectrum is currently selected by Xamine.
+
+<a name="AEN25157"></a>## METHODS
+
+
+
+`  CXamineButton (int  am_nReturnCode = , const std::string&  am_sLabel = , Bool_t  am_fEnabled = , ButtonSensitivity  am_eWhenSensitive = , CXamineButtonPrompt&  rPrompter = );`Constructs a button object.  Note that the button
+                    object just describes the button. Once created it must
+                    be entered into Xamine.
+                    `am_nReturnCode` is the button code
+                    that will be included in the event message Xamine sends
+                    to the client when the button is pressed. Each button should
+                    be given a unique code.
+                    `am_sLabel` is the text Xamine
+                    should painto n the button.  `am_fEnabled`
+                    should be true if the button is
+                    enabled or false if not.
+
+Buttons have two levels of enable.  The first level is
+                    determined by the enable state (initially the value
+                    of `am_fEnabled`).  If this
+                    is false, the button cannot be
+                    clicked by the user.  Even if enabled, the button
+                    might have a sensitivity (`am_eWhenSensitive`),
+                    which further determines when a button can be used based
+                    on the state of Xamine.    The values that the
+                    ButtonSensitivity enumerated type
+                    can take are defined in clientops.h.
+
+`rPrompter` is a reference
+                    to a prompting object that determines what, if any
+                    prompting Xamine will do before returning a button
+                    message to the client program.
+
+`   CXamineButton((  int  am_nReturnCode = , const char*  pLabel = , Bool_t  am_fEnabled = , ButtonSensitivity  am_eWhenSensitive = , CXamineButtonPrompt&  rPrompter = );`Same as above but the button label string is passed
+                    as a const char*.
+
+` const int  getReturnCode();`Returns the return code of the button. This
+                    code uniquely idenfies the button both to Xamine
+                    and to the client when being told which button
+                    was clicked in a button event.
+
+` const const std::string&  getLabel();`Returns the string that's used to label
+                    the button.
+
+` const Bool_t  getEnabled();`Returns the enabled flag from the object.
+
+` const  ButtonSensitivity  getWhenSensitive();`Returns the selector that describes when the
+                    button is sensitive if enabled.
+
+` const CXamineButtonPrompt*  getPrompter();`Returns a pointer to the button prompter object.
+                    Note that while this method is const the pointer
+                    returned is to the object's prompter allowing
+                    modifications to be made by the caller.
+
+`  virtual   void  FormatMessageBlock(ButtonDescription&  rButton = );`Formats the message required to define the button
+                    to Xamine.  The formatted message is placed in
+                    `rButton`.
+
+In addition, two methods are provided to perform
+            type-safe upcasts:  `PushButton`
+            and `ToggleButton` wich
+            return pointers to `CXaminePushButton`
+            and `CXamineToggleButton`
+            respectively.  These methods return null pointers if the
+            cast is not correct.  Note that the ponters point to the
+            original object, making these actual cast-like operations.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Xamine Gates | Up | CXamineButtonPrompt |

@@ -1,0 +1,49 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4372"></a>CSqliteException
+
+<a name="AEN4376"></a>## Name
+
+CSqliteException  -- Exception class for libsqlite3pp
+
+<a name="AEN4379"></a>## Synopsis
+
+```
+#include <CSqliteException.h>
+class CSqliteException : public std::exception
+{
+public:
+    CSqliteException(int error) noexcept;
+    CSqliteException(const CSqliteException& rhs) noexcept;
+    
+    // Methods required by the base class:
+public:
+    CSqliteException& operator=(const CSqliteException& rhs) noexcept;
+    virtual const char* what()  const noexcept;
+};
+                    
+```
+
+<a name="AEN4381"></a>## DESCRIPTION
+
+This class is an
+                        `std::exception` that is used
+                        to signal errors in SQLite3 calls.  The
+                        `error` parameter in the
+                        constructor must be the status value from a failing
+                        SQLite3 API call.  `what`
+                        will return a stringified, human readable version of
+                        that error code.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSqlite | Up | CSqliteStatement |

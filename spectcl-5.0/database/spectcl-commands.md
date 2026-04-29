@@ -1,0 +1,22 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Chapter 3. Tcl APIs to the database. | Next |
+
+
+---
+
+# <a name="AEN528"></a>3.3. SpecTcl commands
+
+**Table of Contents**[[r531]] -- SpecTcl command ensemble to record/recover data
+
+A specTcl command ensemble is provided to provide support for
+            accessing databases and recording/recovering data from
+            them.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::getScalers | Up | daqdb |

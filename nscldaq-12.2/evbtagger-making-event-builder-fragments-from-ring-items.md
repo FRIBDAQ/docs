@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 10. EVBLite -  light event building | Next |
+
+
+---
+
+# <a name="AEN6300"></a>10.2. evbtagger - making event builder fragments from ring items.
+
+The **evbtagger** command takes a stream of ring items
+        on stdin and emits a stream of ring items prepended by fragment headers
+         on stdout.  It accepts the following program options:
+
+
+
+`--buffersize`The number of Kbytes of input buffer used for reads from stdin.
+                This must be large enough to contain at least one input ring item.
+                Larger buffers, result in better throughput up to a point but
+                longer latencies between fragments sent from **ringtostdout**
+                and seeing those fragments in events in the output ringbuffer.
+
+`--sourceid`Some NSCLDAQ ring items types do not have the body headers from
+                which the information required by the fragment header can be
+                extracte.  These items get the timestamp of the previous item
+                and source id specified by the value of this option.
+
+Normally the value of this option should be just the value of the
+                source id of the data source for EVBLite.
+
+`--resetts`By default, this is enabled.  If the option is supplied, it will
+                be turned off.   When enabled, when a begin run is encountered,
+                the last timestamp value is reset to zero.  This really only
+                influences the timestamps given to items that don't have timestamps
+                before the first timestamped events appear.  It should be turned
+                off in systems that don't reset the timestamp at the beginning of
+                the run (e.g. XIA systems in infinity clock mode).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBLite -  light event building | Up | The evblite Tcl package. |

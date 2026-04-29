@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1069"></a>3.14. Projecting spectra (new in 5.5)
+
+The REST interface supports spectrum projection:
+
+<a name="AEN1072"></a>**http://host:port/spectcl/project?snapshot=1|2&source=specname&newname=newspecname&direction=x|y[&contour=contourname]
+                **
+
+URLS of this form project an existing spectrum onto one of the
+                axes creating an new spectrum.  The query parameters are:
+
+
+
+snapshotThis is a boolean value.  If nonzero, the projected spectrum
+                        will not increment, it's a snapshot of the projection in time.
+                        If 0, as new data arrive, the projected
+                        spectrum will increment just like any other.
+
+sourceSpecifies the name of the spectrum to project.
+
+newnameSpecifies the name of the new projected spectrum.
+
+directionEither x or y
+                        identifying the axis onto which the spectrum is projected.
+
+contourOptional.  If specified, this is a contour that must have
+                        been displayable on the source spectrum.
+                        The projected spectrum is initially populated only with counts
+                        that are within that contour. Furthermore, if the projected
+                        spectrum is not a snapshot spectrum, it is gated on that contour
+                        (initially) so that the projection remains faithful as
+                        new data arrive.
+
+Note that there is nothing to stop a user from
+                        applying a different gate later however, in that case,
+                        clearly the spectrum will not increment in a manner that
+                        is faithful to the original projection.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the channel command (new in 5.5) | Up | Spectrum Underflow and Overflow Statistics (new in 5.5) |

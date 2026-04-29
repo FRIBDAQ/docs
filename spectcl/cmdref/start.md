@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.stopcommand"></a>start
+
+<a name="AEN3074"></a>## Name
+
+stop -- stop analyzing data
+
+<a name="AEN3077"></a>## Synopsis
+
+**stop
+            **
+
+<a name="AEN3080"></a>## DESCRIPTION
+
+Stops analyzing data fromt he current data source.  Data is no longer
+            analyzed until the **start** command is next issued.
+            Note that if you are using **ringselector** from
+            NSCLDAQ as a pipe data source without the  `--non-blocking`
+            option, this will eventually cause data acquisition to halt with
+            backpressure.  We therefore strongly encourage the use of the
+            `--non-blocking` option with
+            **ringselector**.
+
+<a name="AEN3088"></a>## SEE ALSO
+
+
+
+- [[r3039]]
+- [[r108]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| start | Up | rootexec |

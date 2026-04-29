@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage_compatibilitybuffer"></a>compatibilitybuffer
+
+<a name="AEN11432"></a>## Name
+
+compatiblitybuffer -- Filter ring items to spectrodaq buffers
+
+<a name="AEN11435"></a>## Synopsis
+
+**compatibilitybuffer [options]
+          **
+
+<a name="AEN11439"></a>## DESCRIPTION
+
+Filters ring buffer items from standard input to spectrodaq
+            buffers on standard output.  Buffer sequence numbers are generated
+            in such a way that they allow clients to approximate
+            the sampling fraction if physics events are sampled into the application.
+            Event sizes get truncated to 16 bits so that existing clients can
+            analyze the output.
+
+The default output buffer size is 8192 bytes, however
+            see the `--buffersize` switch in OPTIONS below.
+
+The program will continue to run until it detects an EOF on either
+            stdin or stdout.
+
+<a name="AEN11446"></a>## OPTIONS
+
+
+
+`--buffersize`=*buffer-size-in-bytes*Allows the default buffer size of 8182 bytes
+                        to be overridden.
+
+`--help`Outputs short form help to the console and exits immediately.
+
+`--help`Outputs the version of the program and exits immediately.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 1compatibility | Up | convert10to11 |

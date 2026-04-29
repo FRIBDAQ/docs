@@ -1,0 +1,173 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  |  |
+
+
+---
+
+# <a name="AEN848"></a>gate
+
+<a name="AEN852"></a>## Name
+
+gate -- Wraps a gate via its gate container.
+
+<a name="AEN855"></a>## Synopsis
+
+```
+spectcl.gate:
+```
+
+<a name="AEN923"></a>## DESCRIPTION
+
+Wraps a gate container which, in turn wraps a SpecTcl
+                        gate.  There are two constructor styles.  The first
+                        style creates a wrapper for an existing gate.  That
+                        constructor only takes a single positional parameter,
+                        the name of an existing gate to wrap.  If this form
+                        of the constructor is used but a non-existent gate
+                        is supplied `LookupError`  is
+                        raised.  Note that the Tcl gate deletion operation
+                        does not actually destroy the gate but makes it into a
+                        False gate.  This implies it's possible to wrap a
+                        deleted gate.
+
+The second style creates and wraps a new gate. The
+                        only positional parameter is the gate name.  If this
+                        matches an existing gate, an error message will result.
+                        To modify a gate, wrap the existing gate and invoke the
+                        `change` method.
+
+When creating a new gate, the remaining parameters are keyword
+                        parameters.  The need for most of these depends on
+                        the gate type.  Providing an un-needed keyword is not
+                        an error, that parameter is just silently ignored.
+
+The keywords and their values are:
+
+
+
+`type`=gate-typeThis is always required when creating a new
+                                    gate, or modifying the existing gate.
+                                    The value supplied must be a string that is
+                                    a valid gate type string for the SpecTcl
+                                    **gate** Tcl command.
+
+The value of this type influences which other
+                                    keywords are needed.
+
+`parameters`=parameter-name-ntupleThis keyword is required for gates that
+                                    depend on parameters.  It is expected to be
+                                    a tuple of the names of the parameters on which
+                                    the gate depends.  The order may be important,
+                                    for exmaple for  contours and bands, the
+                                    tuple must have two elements where the first
+                                    element is the x parameter and the second the
+                                    y parameter.
+
+`gates`=gate-name-ntupleThis keyword is required for gates that
+                                    depend on other gates (e.g. compound gates).
+                                    The keyword value must be a tuple of gate
+                                    names.
+
+`points`=point-dict-tupleThis keyword is required for gates that have
+                                    two dimensional points (for example, contours,
+                                    bands, gamma contours etc).
+                                    The value is a tuple of point dicts.  Each point
+                                    dict has the keywords x whose
+                                    value is a floating point x coordinate and
+                                    y whose value is a floating
+                                    point y coordinate of the point.
+
+`low`=low-limit, `high`=high-limitThese keywords are both required for gates that
+                                    are slice-like (e.g. slices or gamma slices).
+                                    They provide the floating point low and high
+                                    limits of the gate acceptance region.
+
+`mask`=mask-valueThis keyword is required for bitmask gates
+                                    like equal mask, and mask and not mask. Its value
+                                    is an integer that supplies the actual bitmask
+                                    value for the gate.
+
+<a name="AEN968"></a>## ATTRIBUTES
+
+While all gates have `name`
+                        and `type` attributes, the other
+                        attributes described in this section are only present for
+                        appropirate gate types.  For example, a primitive gate
+                        won't have a `gates` attribute while a
+                        compound gate will not have `parameters`.
+
+To distinguish from empty values, if a gate does not have
+                        an attribute, attempting to read it will result in a return
+                        value of None.
+
+Note that all attributes for  gates objects are
+                        reado.ly
+
+
+
+` readonly string  name;`All gate types have this attribute.  The
+                                    gate's name is stored in this attribute.
+
+` readonly string  type;`All gates have this attribute.  The gate
+                                    type string is stored in this attribute.
+
+` readonly tuple of strings  parameters;`Only gate types that depend directly on parameters
+                                    have this attribute.  It contains a tuple
+                                    of the names of the parameters the gate
+                                    depends on.   And gates are an example of
+                                    a gate that will not have this attribute.
+                                    slice, band, contour, gamma slices,
+                                    bit mask gates etc. are
+                                    examples of gate types that will have this
+                                    attribute.
+
+` readonly tuple of strings  gates;`Only compound gates will have this attribute.
+                                    It is a tuple that contains the names of the
+                                    gates this gate depends on.
+                                    And, Or, Not gates all have this attribute but,
+                                    for example, a slice gate won't have this
+                                    attribute.
+
+` readonly float  low;`Contains a floating point low limit for the
+                                    gate.  Only one dimensional slice-like gates like
+                                    slices, and gamma slices have this attribute.
+
+` readonly float  high;`As for `low` only slice like
+                                    gates have this attribute.  It contains the
+                                    high limit for the gate.
+
+` readonly tuple of dicts  points;`Only two dimensional figure like gates,
+                                    such as contours, bands, gamma contours etc.
+                                    have this attributes.  It contains a
+                                    tuple of point dicts. See the
+                                    DESCRIPTION section
+                                    for the definition of a point dict.
+
+` readonly integer  mask;`Only bitmask gates have this attribute.
+                                    It contains the bitmask that the gate
+                                    checks against its parameter.
+
+<a name="AEN1045"></a>## METHODS
+
+At present, only the `change`
+                        method is defined.  It allows you to change any and all
+                        parts of the gate definition.  The parameters
+                        to this method are the keyword parameters for the
+                        gate creation constructor (that is every parameter but
+                        the `name` positional parameter).
+
+The keyword supplied must provide a proper gate definition
+                        for the gate type specified by the mandatory
+                        `type` keyword.  If this is the case,
+                        the method generates a new replacement gate and replaces
+                        the gate the gate container the object has with that
+                        replacement gate.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| The spectcl.gates type | Up |  |

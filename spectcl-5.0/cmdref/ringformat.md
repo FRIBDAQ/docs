@@ -1,0 +1,74 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.ringformatcommand"></a>ringformat
+
+<a name="AEN2292"></a>## Name
+
+ringformat -- Select ringbuffer format
+
+<a name="AEN2295"></a>## Synopsis
+
+**ringformat *major?.minor?*
+**
+
+<a name="AEN2299"></a>## DESCRIPTION
+
+NSCLDAQ since version 10.0 uses a *ring buffers*
+            as the cornerstone for its bulk data flow.  While ring buffers
+            are byte stream, single producer, multi-consumer objects, NSCLDAQ
+            imposes a format on the messages passed through ringbuffers.
+
+Ring buffers are used to transfer a series of *ring items*.
+            At present there are two basic structure variants to these ring items. Those
+            used in nscldaq version 10.x and those used in 11.x and later.
+            As time goes on, additional ring item structure variants may be added.
+
+When attached to a ringbuffer data source, SpecTcl needs to know
+            which ring item format that ring buffer will carry.   Since
+            nscldaq-11.0, each data taking run begins with a ring format ring item.
+            therefore, if SpecTcl is attached to a ring data source prior to
+            begin run, it can figure out the format.
+
+On the other hand, if not, or to be safe you can use the
+            **ringformat** command, once attached to a ring
+            to select a specific  format for the ring items that will
+            come from that ring buffer.
+
+The parameter to **ringformat** is the version of
+            NSCLDAQ you feel is producing ring items for that ring.
+
+<a name="AEN2310"></a>## EXAMPLES
+
+<a name="AEN2312"></a>**Example 1. NSCLDAQ version 10 data:**
+
+```
+ringformat 10
+            
+```
+
+<a name="AEN2316"></a>**Example 2. NSDCLDAQ version 11 data**
+
+```
+ringformat 11
+            
+```
+
+Note that at this time NSCLDAQ-12.0 uses the same data formats
+            as NSCLDAQ-11.x
+
+<a name="AEN2321"></a>## SEE ALSO
+
+[[r102]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| sread | Up | scontents |

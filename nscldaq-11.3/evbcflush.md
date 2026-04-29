@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb3_flush"></a>EVBC::flush
+
+<a name="AEN56677"></a>## Name
+
+EVBC::flush -- Flush event builder event queues.
+
+<a name="AEN56680"></a>## Synopsis
+
+**EBC::flush
+              **
+
+<a name="AEN56683"></a>## DESCRIPTION
+
+Requests that the event builder order data until all of its input
+            queues are empty.  This should not be done unless you know that
+            the event builder  is not likely to receive any new data for a while
+            (e.g. run has halted).  The actual flush is performed asynchronously
+            and may require some time to perform depending on how backed up the
+            input queues are.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBC::reset | Up | EVBC::registerRingSource |

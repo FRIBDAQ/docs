@@ -1,0 +1,36 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1406"></a>fold
+
+<a name="AEN1410"></a>## Name
+
+fold -- THe fold command on mpiSpecTcl
+
+<a name="AEN1413"></a>## Synopsis
+
+**fold `-apply`** *gate-name* *spectrum*...
+
+**fold `-list`** *glob-pattern*
+
+**fold `-remove`** *spectrum-name*
+
+<a name="AEN1431"></a>## DESCRPTION
+
+The **fold** implementation is wrapped in a 
+                    `CMPITclCOmmand`.  In all other ranks than 
+                    MPI_EVENT_SINK_RANK, the **fold**
+                    does nothing other than open return a TCL_OK
+                    status and not set the result.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| fit | Up | gate |

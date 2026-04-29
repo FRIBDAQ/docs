@@ -1,0 +1,72 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN104926"></a>ACrdcXLM72
+
+<a name="AEN104930"></a>## Name
+
+ACrdcXLM72 -- Provide support for the XLM72 with the S800 CRDC Firmware
+
+<a name="AEN104933"></a>## Synopsis
+
+```
+package require crdcxlm72
+ACrdcXLM72 dev-name
+dev-name  configure option value ?...?
+dev-name cget option
+
+addtcldriver create dev-stacknaame -ensemble dev-name
+        
+```
+
+<a name="AEN104942"></a>## DESCRIPTION
+
+This is a IncrTcl driver intended to readout out the S800 and Sweeper magnet CRDC detectors
+            via an XLM72 with appropriate firmware.  I believe the original code was written by
+            Daniel Bazin with a later port to the VMUSBReadout by Jeromy Tompkins.
+
+Note that since this is a translator, at every start of data taking, the FPGA will be loaded.
+            At some point in the future, we will arrange for the FGPA to be externally loaded via a utility
+            like exists for the VMUSB.
+
+<a name="AEN104946"></a>## OPTIONS
+
+Like the compiled drivers, **ACrdcXLM72** objects have
+            options to configure them.  Once the object is created it has a configure subcommand that allows you to
+            set option values.  It also has a cget option which allows you to query the value of individual
+            options.  See SYNOPSIS above for more.
+
+Options are:
+
+
+
+`-base` *vme-address*XLM Module VME base address.
+
+`-filename` *path-to-firmware*Specifies the file that contains the CRDC FPGA firmware.  This file will be
+                            loaded at initialization time.
+
+`-samples` *no-samples-per-pad*Provides the number of samples per pad that should be read.  The samples on each
+                            pad allow for the determination of the particle's Y position through the detector.
+
+`-period` *value*Sets the period.
+
+`-delay` *delay*Sets the delayparameter
+
+`-width` *width*Sets the width parameter.
+
+`-shift` *shift*Sets the shift parameter.
+
+`-thresholds` *list-of-thresholds*List of 256 threshold register values.  Note that if the list is shorter than
+                            256, the threshold values not given are set to the meximum values.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ACAENV795 | Up | AGD16XLM72 |

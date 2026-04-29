@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN279"></a>stop
+
+<a name="AEN283"></a>## Name
+
+stop -- Stop data analysis
+
+<a name="AEN286"></a>## Synopsis
+
+**spectcl.stop()
+                    **
+
+<a name="AEN289"></a>## DESCRIPTION
+
+This method stops data analysis from the current
+                        data source.  If data analysis is stopped,
+                        this method does nothing.  If data analysis are stopped,
+                        the Tcl global variable `RunState` is
+                        set to 0 as it is for the Tcl **stop**
+                        command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| start | Up | The spectcl.parameter type |

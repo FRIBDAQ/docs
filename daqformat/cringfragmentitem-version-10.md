@@ -1,0 +1,124 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3462"></a>CRingFragmentItem (version 10)
+
+<a name="AEN3466"></a>## Name
+
+CRingFragmentItem (version 10) -- Event builder fragment
+
+<a name="AEN3469"></a>## Synopsis
+
+```
+#include <v10/CRingFragmentItem.h>
+
+namespace v10 {
+
+
+    class CRingFragmentItem : public ::CRingFragmentItem
+    {
+     
+      // Implemented canonical items:
+    
+    public:
+      CRingFragmentItem(uint64_t timestamp, 
+                uint32_t source, 
+                uint32_t payloadSize, 
+                const void* pBody,
+                uint32_t barrier=0);
+      
+      virtual uint64_t     timestamp() const;
+      virtual uint32_t     source() const;
+      virtual size_t       payloadSize()   const;
+      virtual void*  payloadPointer();
+      virtual uint32_t     barrierType() const;
+ 
+      virtual bool hasBodyHeader() const;
+      virtual void* getBodyHeader() const;
+      virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                             uint32_t barrierType = 0) ;
+      
+      virtual std::string typeName() const;
+      virtual std::string toString() const;
+ 
+    };
+}
+
+                
+```
+
+<a name="AEN3471"></a>## DESCRIPTION
+
+Ring fragment items are event builder fragments wrapped in
+                    a ring item.  Event builder fragments have a header that contains
+                    the timestamp, source id and barrier type from the fragment
+                    and the fragment data itself.  The fragment data is referred
+                    to in the class documentation as the *payload*.
+
+The payload  is assumed to be a ring item for items with this
+                    item type by default.  If one edits the item type to be
+                    v10::EVB_UNKNOWN_PAYLOAD, no such
+                    assumption can be made.
+
+<a name="AEN3477"></a>## METHODS
+
+
+
+`  CRingFragmentItem(uint64_t  timestamp, uint32_t  source, uint32_t  payloadSize, const void*  pBody, uint32_t  barrier = 0);``timestamp` is the fragment
+                            timestamp that will be put in the header.
+                            `source` is the source id of the
+                            fragment that also will be put in the header.
+
+`payloadSize` and `pBody`
+                            specify the number of bytes of payload and the source
+                            of the data that will be put in the payload part of the
+                            ring item.
+
+If the optional `barrier`
+                            parameter is specified it provides a barrier type to
+                            be put in the header.  Otherwise a barrier type of
+                            zero is used which is no barrier.
+
+` const virtual uint64_t      timestamp();`Returns the timestamp from the item's body header.
+                            Note that by definition, fragment items have
+                            a body header.
+
+`  const virtual uint32_t      source();`Returns the source id from the item's body header.
+
+` const virtual size_t   payloadSize();`Returns the size of the payload. Note that it is
+                            acceptable, and normal for this to be computed by the
+                            implementation from the ring item size and the body
+                            header size
+
+` virtual void*         payloadPointer();`Returns a pointer to the payload data.  The pointer
+                            allows the data to be edited as well as simply
+                            inspected.
+
+` virtual uint32_t      barrierType();`Returns the item's body header barrier type field.
+
+` const virtual std::string  typeName();`Returns a string that describes the type of the
+                            ring item: Event fragment
+
+` const virtual std::string  toString();`Returns a string representation of the  contents of
+                            the ring item. This is used e.g. by
+                            **dumper**
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType  = 0);`Does nothing.  V10 ring items never have a body header.
+
+` const virtual void*  getBodyHeader();`Returns a nullptr.
+                            V10 ring items never have a body header.
+
+` const virtual bool  hasBodyHeader();`Returns false.  v10 Ring items
+                            never have a body header.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingItem (version 10) | Up | CRingPhysicsEventCountItem (v10) |

@@ -1,0 +1,591 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.gatecommand"></a>gate
+
+<a name="AEN1432"></a>## Name
+
+gate -- Create, list, delete gates
+
+<a name="AEN1435"></a>## Synopsis
+
+**gate *name type description*
+**
+
+**gate `-list` `?-byid?` *?pattern?*
+**
+
+**gate `-delete` `?-id?` *gate1 ?gate2 ...?*
+**
+
+**gate `-trace` *subcommand arg1 ...*
+**
+
+<a name="AEN1453"></a>## DESCRIPTION
+
+Using the gate command you can:
+
+
+
+- Create a new gate
+- list the existing gates sorted by name or gate id and filtered by pattern.
+- Delete an existing set of gates by name or id.
+- Define traces, Tcl scripts that are invoked when
+                      there are changes to the gate dictionary.
+
+If the first command parameter is not either the -list or -delete
+            switch then a new gate is created.   Otherwise the action is as
+            indicated by the switch.
+
+Gates are conditions which can be applied to a set of spectra to
+            control when that spectrum is incremented.
+
+The gate command is quite complex.  The complexity comes from the
+            rich set of gate types the gate command supports and the need
+            to understand how those gate types are described both when creating
+            and listing gates.
+            Fortunately, most GUI's and the
+            displayers make it unecessary to actually know how to use the
+            command directly.  COMMAND DETAILS below
+            describes how to create, delete and list gates.
+
+<a name="AEN1469"></a>## COMMAND DETAILS
+
+In this section we're going to describe:
+
+
+
+- How to create gates, paying special attention to the types of
+                      gates supported by SpecTcl and how to describe them.
+- How to list gates and what to expect from the gate description
+                      for the various types of SpecTcl supported gates.
+- How to delete gates and what it actually means to delete
+                      a gate in terms of gate processing.
+- How to define gate traces
+
+<a name="AEN1481"></a>### Creating a gate
+
+The form of the gate creation command is deceptively simple:
+
+**gate *name type description*
+**
+
+First the basics.  `name` is a name that
+                you give to the gate that must be unique.  Gates are considered
+                mutable.  Therefore, be careful because re-defining an existing
+                gate does exactly that, it changes the definition of that gate.
+                That change happens immediately relative to event processing.
+                In addition to the gate name, gates are assigned a numeric
+                *id* which normally you don't need to know
+                about.
+
+The `type` is a text string that
+                identifies the type of gates that can be created.  In the
+                subsection Gate Types we'll go over each gate
+                type.  Understanding the SpecTcl gate types and how to create them
+                is an important part of your SpecTcl knowledge.
+
+The `description` describes the gate being
+                made.  In general it is a Tcl list.  The actual contents of that
+                list will depend on the type of gate being created.  The
+                subsection Gate Descriptions will document
+                the form of gate descriptions for  each gate type.  Note that
+                there are slight differences between these descriptions and
+                what you get from **gate** `-list`.
+
+The gate creation command does not return a result.
+
+<a name="AEN1499"></a>#### Gate Types
+
+SpecTcl provides a rich complement of gate types.  These
+                    gate types, allow you great control over when a spectrum
+                    is incremented.
+
+SpecTcl has two classes of gate types, simple (sometimes
+                    called primitive) and compound.  A simple gate is defined in
+                    terms of some condition in parameters while a compound gate
+                    is defined on one or more other gates.
+
+It is important to note that the gates a compound gate
+                    is defined on can be a mix of simple and compound gates.
+                    This allows you to incrementally build up arbitratry
+                    logical conditions.
+
+It is important to also note that simple gates, while they
+                    may be entered graphically on spectra are defined on the
+                    underlying parameters of that spectrum, not the spectrum.
+                    Their existence, once created is totally independent of the
+                    spectrum used to define them.  Thus while we can talk about
+                    a gate being drawn on or displayed on a spectrum, it's not correct
+                    to talk about a gate defined on a spectrum.
+
+Without further ado, let's look at the gate types and their
+                    `type` codes as they must be used
+                    in gate creation and as they are displayed in gate lists.
+
+
+
+* - And gateA compound gate.  The And gate is made up of
+                                a list of any number of gates
+                                called *constituent gates*.
+                                The And gate is satisfied only if
+                                *all* of its constituent gates
+                                are satisfied.
+
+Note that if a gate cannot be evaluated for an
+                                event because, for example, one or more of the
+                                parameters it depends on is not defined for
+                                the event, that gate is considered
+                                false.
+
+b BandBands are simple gates.  They are defined on
+                                a pair of parameters.  Those parameters define
+                                a two dimensional space.
+
+A band has an
+                                arbitrary number of points which define a polyline
+                                in that two dimensional space.
+
+Each event that has both of the parameters
+                                needed to define the band defines a point in the
+                                two dimensional paramter space.  If that point is
+                                below the band, the gate is satisfied.
+
+While you can specify a band that backtracks,
+                                This means only that the space below the highest
+                                part of the polyline is in the gate.
+
+The figure below shows what I mean by this:
+
+<a name="AEN1526"></a>**Figure 1. A band draw with backtracking**
+
+![](pathalogicalband.png)
+
+The black region is the space that satisfies the
+                                gate.
+
+c ContourA countour gate is defined in a manner similiar
+                                to a band.  A set of points are provided in a
+                                the two dimensional space defined by a pair of
+                                parameters.  These points define a closed region
+                                of space by connecting the last point with the
+                                first point (with a line segment).
+
+Contours are satsified for events that have both
+                                of the parameters they depend on and for which
+                                the point defined by those parameters lies inside
+                                the closed figure.
+
+It's possible to define some fairly pathalogical
+                                figures for which the interior may be difficult
+                                to discern.  SpecTcl uses the
+                                *odd crossing rule* to
+                                define the interior of a figure.  This is well
+                                defined for arbitrarily pathalogical contours.
+
+The odd crossing rule means that for any point,
+                                draw a ray from that point in any direction.
+                                If the ray crosses an odd number of boundaries of the
+                                contour it is considered inside the contour.
+
+The midly pathalogical contour in the figure
+                                below has its interior shaded under this rule:
+
+<a name="AEN1540"></a>**Figure 2. Contour interior**
+
+![](contourinterior.png)
+
+c2band Two bands to a contourA contour formed by joining the endpoints of
+                                two bands defined on the same set of parameters.
+                                This joining is done statically.  Therefore,
+                                while the gate is formed of two other
+                                gates (bands),  it becomes a primitive contour
+                                in behavior.
+
+You can think of this gate as a convenience
+                                for turning a series of bands into a set
+                                of countours.  A downside to this type of
+                                gate is that each time you need to change the
+                                definition (move) one of the two bands, you
+                                also must remember to change the c2band gates
+                                that depend on it.  See, however
+                                Gate Traces below for
+                                a mechanism that can automate this process.
+
+F False gateA false gate is a simple gate that is never
+                                satisfied.
+
+gb Gamma BandAn open set of points forming a polyline on a
+                                spectrum. Applied as a fold to a 1-d gamma
+                                spectrum, for all pairs of parameters below
+                                the polyline, increments for all parameters in
+                                the spectrum which are not in the pair. Applied
+                                as an ordinary gate to any spectrum via apply
+                                the gate is true whenever any pair of parameters
+                                in the gate is under the band.
+
+Applied to a 2-d spectrum as a fold, for all
+                                pairs of parameters, (p1, p2), below the
+                                polyline, increments for all pairs of
+                                parameters, (x, y) in the spectrum such that
+                                (p1, p2) and (x, y) have no intersection.
+                                As a gate to any spectrum via the apply
+                                command, the gate is true whenever any pair of
+                                parameters that make up the gate lie under the band.
+
+The same rules for determining which points
+                                are under the band are used for gamma bands
+                                that are used for ordinary bands.
+
+gc Gamma contourClosed polygon of points drawn on a 2-d spectrum.
+                                The lines may cross abitrarily many times,
+                                and the same 'odd-crossing' rule used by contours
+                                is used to determine the interior of the shape.
+                                Used as a fold on a
+                                1-d gamma spectrum, for all pairs of
+                                parameters in the interior of the polygon,
+                                increments for all parameters in the spectrum
+                                which are not in the pair.
+
+When applied to a spectrum
+                                (**applygate**):
+                                This gate has identical meaning to the gamma
+                                band but parameter pairs must lie within the
+                                contour (according to the odd crossing rule)
+                                to make the gate true.
+
+gs Gamma sliceA lower and upper limit set on a spectrum.
+                                Applied as a fold to a 1-d spectrum, for all
+                                parameters within the bounds of the upper and
+                                lower limits, increments for all other
+                                parameters in the spectrum.
+
+Applied as a gate to any spectrum, via apply,
+                                is true whenever any parameter in the gate
+                                definition is in the slice.
+
+Applied as a fold to a 2-d spectrum, for all
+                                parameters within the bounds of the upper and
+                                lower limits, increments for all pairs of
+                                parameters in the spectrum such that neither
+                                parameter in the pair is in the slice.
+
+Applied as a gate via apply is true whenever
+                                any parameter in the gate is inside the slice.
+
+- Not gateTakes one and only one constituent gate.  This gate
+                                is the logical inverse of its constituent.  If
+                                its constituent is satisfied, the not gate is
+                                not satisfied.  If the constituent is not satisfied,
+                                the not gate is satisfied.
+
++ Or gateGate is true if any of the constituent gates is true.
+
+s SliceSometimes also called a *cut*.
+                                A lower and upper limit set on a single
+                                parameter.  True if the point is in the
+                                interval [low,high).
+
+T True gateThis gate is always satisfied. When you creaete
+                                a spectrum, a true gate comes pre-applied to it.
+
+em Mask equalIntended for integer parameters that represent
+                                bit registers or other masks.
+                                Gate returns true whenever the parameter is equal
+                                to a user defined bit pattern.
+
+am And maskIntended for integer parameters that represent
+                                bit masks.
+                                Gate returns true whenever the parameter value
+                                bitwise anded with the user defined bit pattern
+                                is equal to the user defined bit pattern.
+
+nm Nand maskIntended for integer parameters that represent
+                                bit masks.
+                                Gate returns true whenever the parameter value
+                                bitwise anded with the bitwise not of the user
+                                defined bit pattern equals the bitwise not of
+                                the user defined bit pattern.
+
+<a name="AEN1613"></a>#### Gate Descriptions
+
+This section describes the `descripion`
+                    parameter of the gate creation command.  For the
+                    descriptions returned by **gate**
+`-list`, see Listing gates
+                    below.
+
+In general the `description` gate creation
+                    parameter is a Tcl list.
+                    The description of each gate type has its own requirements,
+                    however.
+
+
+
+* And gates.The description is a properly formatted Tcl
+                                list containing the names of the constituent gates.
+                                For each event, all gates must be evaluated and
+                                true to satisfy the gate.
+
+b Band and c Contour gates.The desription is a three element list.  The first
+                                two elements are the names of the X and Y
+                                parameters the gate is checked on, in that order.
+                                The last parameters is a list of X, Y
+                                coordinate pairs.  Each pair is a two element list.
+
+c2band Contour from 2 bandsThe description is a two element list of the
+                                two bands that are used to create the contour.
+                                The last point of the first gate is connected to the
+                                last point of the second gate.  The first point of
+                                the first gate is connected to the first point  of
+                                the second gate to form the contour.
+                                Line segments are used to perform these joins.
+
+F false or T true gateThe description is empty.  Note the description
+                                cannot be empty. It must be an empty Tcl list.
+                                For example {} or more
+                                verbosely: **[list]**
+
+gb Gamma band and gc Gamma contour gatesThe description of this is a two element list
+                                The first element of the list is the ordered list
+                                of X/Y coordinates that define the contour or
+                                the band.  The second element of the list are the
+                                names of parameters the gate is checked against.
+
+Note that for gamma gates only a minimal number
+                                of the parameters (2 for these gates) need to
+                                be defined to evaluate the gate.  Not all of
+                                the parameters.
+
+gs Gamma slice gateThe description is a two element list.
+                                The first element of the list is itself a
+                                two element list that contains the low and
+                                high limits of the cut.  This defines
+                                an interval of the form
+                                [low, high), that is inclusive
+                                of the low limit and exclusive of the high limit.
+
+The second list element is a list of the names
+                                of parameters the gate is checked against.  Unlike
+                                non-gamma gates only at least one of these parameters
+                                must be present
+                                in an event for the gate to be checked.
+
+- Not GateThe description for this is the name of the
+                                single gate whose sense is negated to make this
+                                gate.
+
++ Or Gate.The description is a list of the names of
+                                the constituent
+                                gates that will be ORed together.  The
+                                gate is satisfied for any event for which at
+                                least one of the constituent gates is
+                                true.
+
+s Slice gateThe description is a two element list.  The
+                                first element of the list is the parameter on
+                                which the gate is checked. The second is
+                                a two element list that contains, in order,
+                                the low and high limits of the gate.
+
+em equal mask,
+                            am and mask and
+                            nm Not mask.The description of these gate types are all
+                                two element lists where the first element is
+                                the name of the parameter checked and the
+                                second is the bitmask used in the check
+
+<a name="AEN1683"></a>### Listing gates
+
+The form of this command is:
+
+**gate `-list` `?-byid?` *?pattern?*
+**
+
+The result of the command is a Tcl list of the gates that
+                have names which
+                match the optional `pattern` parameter.
+                If `pattern` is not provided to the
+                command, * is used which matches
+                all gates.
+
+If `-byid` is present, the gates are sorted by
+                their numeric id.  If not, the gates are sorted by their
+                names.  The gate id is a unique,
+                immutable number assigned to each gate
+                when it is created.
+
+Each element of the list returned by this command describes
+                one gate.    Each description is a four element list containing
+                in order:
+
+
+
+1. The name of the gate
+2. The id of the gate.
+3. The type code for the gate.  The type code is the same
+                           as the type code used to create the gate.
+4. A description of the gate that is type code dependent.
+
+The last element of the gate description list is a type dependent
+                description of the gate.  This description contains the information
+                needed to define the gate.  Here is the form of that description
+                for each of the gate type codes:
+
+
+
+* and + or
+                        gatesThe final element of the gate description is
+                            a list of the constituent gtates for this gate type.
+
+F false and T
+                        true gates.The final element of the gate description is an
+                            empty list as these gates are constants.
+
+gb Gamma band or
+                        gc Gamma contourThe final description element is a two element list.
+                            The first element is a list of coordinate points
+                            that define the gate in parameter space.  The
+                            second element is the list of parameters the
+                            gate is defined on.
+
+gs Gamma sliceThe final description element is a two element list.
+                            The first element is itself a two element list
+                            containing the low and high limits of the slice.
+                            The second  element is a list of the parameters
+                            on which the gate is defined.
+
+- notThe final description element is just the name
+                            of the gate this gate will invert.
+
+s SliceThe final description element is a two element list.
+                            The first element is the parameter on which the
+                            gate is defined.  The second element is a
+                            list containing the lower and upper limit of the slice.
+
+em Equal mask,
+                        am and mask and
+                        nm not mask.The last element of the description is a two element
+                            list containing in order, the parameter the gate
+                            is defined on and the mask to check.
+
+<a name="AEN1749"></a>### Deleting gates
+
+The form of the delete command is:
+
+**gate `-delete` `?-id?` *gate1 ?gate2 ...?*
+**
+
+First let's look at what it means to delete a gate.  Just
+                removing a gate from the SpecTcl gate dictionary has the problem
+                that there may be gates that depend on it.  Or gates that depend
+                on gates that depend on it.  What does it mean for those gates
+                that a constituent has been deleted?
+
+In order to provide consistent meaning to those and other cases,
+                SpecTcl doesn't actually delete gates you tell it to delete.
+                Instead it redefines them as False gates.  Gates that are never
+                satisified.  Most GUIs understand this and suppress the listing
+                of False gates.
+
+**The `-id` option. **
+                    Recall that gates are assigned a numeric id.  If you
+                    use the `-id` option on the
+                    `-delete` command, the `gate1 ?gate2...`
+                    parameters are gate ids rather than names.  If you don't,
+                    then those parameters are expected to be the names of the
+                    gates you want to delete.
+
+<a name="AEN1766"></a>### Gate Traces
+
+The format of the trace command is
+
+**gate -trace **  [add* ?script?* | delete* ?script?* | change* ?script?*]
+
+Gate traces allow you to establish a script that is executed when
+                gates are added, deleted or changed.  One potential application
+                for this is to automatically update a c2band if one of the
+                constituents changes.  Other applications are to inform
+                a GUI that the list of gates being displayed must be updated.
+
+The command word that follows the `-trace` option
+                indicates which of the three traces we are interested in.
+                add traces are invoked when a new gate is
+                created.  delete traces, when a gate is
+                deleted.  change traces are invoked when
+                an existing gate is modified.
+
+Regardless of the form of the command, the trace script  established
+                prior to the command is returned.  If no trace script has been
+                established, an empty string is returned.
+
+If no `script` parameter is supplied,
+                no change is made to the trace.  If the `script`
+                parameter is an empty string, traces are turned off.  If the
+                `script` parameter is a non-empty string,
+                That string replaces any existing trace for that event.
+
+Unless you know exactly what the previous trace was, your
+                trace scripts should also give prior traces a chance to
+                execute.  Each trace script is passed the name of the
+                on which the trace operation is being performed.
+
+<a name="AEN1790"></a>## EXAMPLES
+
+<a name="AEN1792"></a>**Example 1. Creating a slice gate**
+
+```
+gate exampleSlice s {someParameters {100 200}}
+            
+```
+
+<a name="AEN1796"></a>**Example 2. Listing all gates**
+
+```
+gate -list
+            
+```
+
+<a name="AEN1800"></a>**Example 3. Deleting a gate**
+
+```
+gate -delete exampleSlice
+            
+```
+
+<a name="AEN1804"></a>**Example 4. Establishing a trace**
+
+```
+set oldTrace ""
+proc myTrace name {
+    # Execute any prior trace
+    
+    if {$::oldTrace ne ""} {
+        uplevel #0 $::oldTrace $name
+    }
+    puts "myTrace called with the gate named: $name"
+}
+set oldTrace [gate -trace add myTrace]
+            
+```
+
+<a name="AEN1807"></a>## SEE ALSO
+
+
+
+- [[r18]]
+- [[r2905]]
+- [[r465]]
+- [[r2473]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| filter | Up | integrate |

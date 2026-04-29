@@ -1,0 +1,118 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4113"></a>CTreeVariableProperites
+
+<a name="AEN4117"></a>## Name
+
+CTreeVariableProperties -- Shared properties of CTreeVariable
+
+<a name="AEN4120"></a>## Synopsis
+
+```
+CTreeVariableProperties
+```
+
+<a name="AEN4123"></a>## DESCRIPTION
+
+Unless you are iterating the tree variable dictionary, this
+                    class can be completely ignored as internal to the
+                    tree parameter subsystem.  A `CTreeVariableProperties`
+                    object contains the properties shared between several instances
+                    of a `CTreeVariable` that have
+                    the same name.
+
+Furthermore, it is the `CTreeVariableProperties`
+                    object that carries the binding between the variable and the
+                    associated Tcl variable.
+
+Each tree variable holds the following information in this
+                    object:
+
+
+
+- The variable's name.
+- The variable's units.
+- The variable's value.  This is linked to a
+                              Tcl variable with the same name as this object.
+- Definition and value changed flags.
+
+<a name="AEN4140"></a>## METHODS
+
+Note that since these objects are typically constructed
+                    by `CTreeVariable` objects, we're not
+                    going to document the class constructors.
+
+The first set of methods we document are those used
+                    by `CTreeVariable` to mimic
+                    a doubleL
+
+
+
+`   CTreeVariableProperties&  operator=( double  value);`, `   CTreeVariableProperties&  operator=(const  CTreeVariableProperties&  rhs);`, `   CTreeVariableProperties&  operator=(const  CTreeVariable&  rhs);`Assigns the `rhs` or its
+                                value to the value of the object.
+                                Returning a reference to the object supports
+                                assignment chaining.
+
+`    operator double();`Returns the value of the object.  This
+                                allows the object to be treated like
+                                a double for many purposes.
+
+The next set of methods are used to query various
+                        aspects of the object:
+
+
+
+`   bool     definitionChanged();`Returns true if the
+                                    definition has changed either since construction
+                                    or since the change flags were reset last.
+
+`   std::string   getName();`Returns the name of the variable.
+
+`   std::string   getUnits();`Returns the units of measure associated
+                                    with the variable.
+
+`   bool     valueChanged();`Returns true if the
+                                    value of the object was changed either since
+                                    it was constructed or since the flag
+                                    that keeps track of this was last reset.
+
+These methods perform actions on the object:
+
+
+
+`   void     setUnits( std::string  units);`Sets the units of measure for the object
+                                    to `units`.  This
+                                    also sets the definition modified flag
+                                    to true.
+
+`   void     resetDefinitionChanged();`Resest the definition changed flag to
+                                    false.
+                                    Normally this is done after finding the
+                                    flag was true and
+                                    taking appropriate action.
+
+`   void     fireTraces();`Calls `Tcl_UpdateLinkedVar`
+                                    to ensure the Tcl variable is updated and traces are fired.
+                                    for that variable.  This is necessary after
+                                    changes have been made to the value and the
+                                    variable is quiescent again.
+
+`   void     Link( CTCLInterpreter&  rInterp);`Actually links the data in this object
+                                    to the Tcl variable of the same name.  The
+                                    current value of the variable is refreshed
+                                    so that the Tcl variable is assured to be
+                                    have the same value as the object's
+                                    value prior to this method call.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTreeVariable | Up | CTreeVariableArray |

@@ -1,0 +1,68 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.utils"></a>Utils
+
+<a name="AEN94456"></a>## Name
+
+Utils -- Tcl namespace with useful utility procs.
+
+<a name="AEN94459"></a>## Synopsis
+
+**package require Utils
+            **
+
+**Utils::isInRange *low high val*
+**
+
+**Utils::listElementsInRange *low high list*
+**
+
+**Utils::sequence *start n ?inc?*
+**
+
+<a name="AEN94471"></a>## DESCRIPTION
+
+A package that contains a random set of utility functions.
+
+<a name="AEN94474"></a>## PROCS
+
+
+
+**Utils::isInRange *low high val*
+**
+
+Returns a boolean that is true if
+                            `val` is in the range
+                            [`low`, `high`]
+
+**Utils::listElementsInRange *low high list*
+**
+
+Returns a possibly empty list of values from
+                            the list of values `list` that
+                            are in the range
+                            [`low`, `high`].
+
+**Utils::sequence *start n ?inc?*
+**
+
+Returns a list (sequence) of
+                            `n`integers that
+                            begin with `start`.  Each
+                            value in the sequence is derived from the prior value
+                            by adding `inc`.  If
+                            the optional `inc` is not
+                            present, it defaults to 1.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| TclSourceFilter | Up | wait |

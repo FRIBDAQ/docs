@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Appendix A. Reference material | Next |
+
+
+---
+
+# <a name="AEN4153"></a>A.2. Object oriented Sqlite3 wrapper
+
+**Table of Contents**[[r4187]] -- Connection to Sqlite3[[r4372]] -- Exception class for libsqlite3pp[[r4387]] -- Executes SQLite3 statements[[r4837]] -- Encapsulate Sqlite transactions/savepoints[[r5003]] -- Classes to build up WHERE clauses.
+
+The database C++ software uses an object wrapping of SQLite3
+                called sqlite3pp.  It was written here at the NSCL/FRIB and
+                is built and installed inthe SpecTcl installation directory.
+
+To use this library you'll need to add the following
+                compilation and link flags:
+
+
+
+-I$SPECTCLHOME/includeIn this flag and others, SPECTCLHOME
+                        is assumed to be an environment variable that points
+                        to where the SpecTcl top level installation directory is.
+
+Adds the SpecTcl header directory to the search path
+                        for files in #include preprocessor directives.
+
+-L$SPECTCLHOME/libThis flag adds the SpecTcl library directory to the
+                        link library search path.
+
+-lSqlite3ppAdds the libsqlite3pp.so shared object to the set of libraries
+                        searched to resolve undefined symbols in your code.
+
+-lsqlite3Adds the Sqlite3 API library to the libraries that are
+                        searched to resolve undefined symbols in your code.
+
+-Wl,-rpath="$SPECTCLHOME/libAdds the SpecTcl library directory to the run-time
+                        search path for shared objects that are loaded when
+                        your program starts up.
+
+The library is quite small and represents a minimal simple
+                wrapping of SQLite3.  The refererence pages that follow are
+                organized in a sort of logical order rather than alphabetically.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Reference material | Up | CSqlite |

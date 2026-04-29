@@ -1,0 +1,61 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.ceventpacket"></a>CEventPacket
+
+<a name="AEN74778"></a>## Name
+
+CEventPacket -- Encapsulate an event segment in a documented packet.
+
+<a name="AEN74781"></a>## Synopsis
+
+```
+#include <CEventPacket>
+         
+```
+
+```
+  CEventPacket(CEventSegment& seg, short tag, std::string name, std::string description, std::string version);
+```
+
+<a name="AEN74828"></a>## Description
+
+This class allows you to wrap an existing event segment in a documented
+            packet without modification to the event segment.
+
+<a name="AEN74831"></a>## Public member functions
+
+`  CEventPacket(CEventSegment& seg, short tag, std::string name, std::string description, std::string version);`Creates the object.  `seg` is a reference
+                to the event segment you want to wrap in a packet.  All the
+                remaining parameters define the packet as in
+                [[r74511]]
+
+` virtual void initialize();`Invokes the `initialize` method of the
+                event segment
+                used to construct this object.
+
+` virtual void clear();`Invokes the `clear` method of the
+                evnet segment used to create this object.
+
+` virtual void disable();`Invokes the event segment's `disable` method.
+
+` virtual size_t read(void* pBuffer, size_t maxwords);`Begins the packet, invokes the `read`
+                method of the encapsulated event segment and ends the
+                packet.
+
+<a name="AEN74887"></a>## SEE ALSO
+
+[[r74511]]
+[[r74892]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDocumentedPacket | Up | CEventSegment |

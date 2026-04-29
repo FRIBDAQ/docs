@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  |  |
+
+
+---
+
+# <a name="ref.applycommand"></a>apply
+
+<a name="AEN23"></a>## Name
+
+apply -- Show which gates are applied to which spectra
+
+<a name="AEN26"></a>## Synopsis
+
+**apply *gatename spectrum1 ?spectrum2...?*
+**
+
+**apply `-list`  ?*pattern*
+**
+
+**Description**
+
+
+
+**OPTIONS**
+
+
+
+**EXAMPLES**
+
+
+
+**SEE ALSO**
+
+
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+|  | Up |  |

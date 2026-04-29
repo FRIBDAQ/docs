@@ -1,0 +1,105 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Appendix A. Reference material | Next |
+
+
+---
+
+# <a name="AEN5417"></a>A.3. Tcl bindings to the C++ API
+
+There are actually three distinct Tcl APIs:
+
+
+
+Raw Tcl APIEncapsulates much of the C++ API. The missing pieces
+                    are event recording as this is not anticipated
+                    to be something done directly from Tcl.  If this
+                    becomes needed, then let us know and we can consider adding
+                    that for a future release.
+
+SpecTcl APIA package intended only for use in SpecTcl.
+                    Provides an API against which SpecTcl GUIs can
+                    be written to manage savesets.  This also
+                    does not address recording event data.
+
+Event recording APIThis is intended only for use in SpecTcl and
+                    provides the API required to set up and tear dow
+                    the infrastructure needed to record event data
+                    to a saveset.
+
+We will provide reference material for each of these
+                in turn in separate subsections.
+
+## <a name="AEN5434"></a>A.3.1. Raw Tcl API
+
+**Table of Contents**[[r5453]] -- Provide database access.[[r5478]] -- Manipulate a database[[r5522]] -- Manipulate save sets
+
+The raw API consists of three command ensembles.
+
+
+
+DBTclThis command ensemble provides the ability
+                            to create new databases and open existing databases.
+
+Database instancesThese command ensembles are dynamically
+                            created with unique base commands. When
+                            DBTcl opens a database, a new Database instance command
+                            ensemble is created and its base command returned
+                            to the application.
+
+The Database instance ensembles can
+                            create and access save sets within the
+                            database.
+
+Saveset instancesSaveset instances are also dynamically
+                            created command ensembles.  When a Database
+                            instance command accesses a save set it
+                            generates a new ensemble with a unique
+                            command name.
+
+Thus only the **DBTcl** command is
+                    a fixed command. You can think of Database instances
+                    and Saveste instances a objects whose subcommands
+                    are callable methods.
+
+## <a name="AEN6030"></a>A.3.2. SpecTcl API
+
+**Table of Contents**[[r6036]] -- [[r6057]] -- Connect to a database[[r6070]] -- Access a save set.[[r6085]] -- Save SpecTcl analysis configuration[[r6101]] -- Obtain information about save sets[[r6131]] -- Restore analysis configuration from saveset[[r6146]] -- Save contents of a spectrum.[[r6161]] -- Restore spectrum contents from save set.[[r6175]] -- Save the contents of all spectra to a saveset[[r6188]] -- Load channels for all spectra[[r6201]] -- List information about saved runs.[[r6242]] -- Determine if a save set has run data.[[r6256]] -- Get information about all runs in a saveset.[[r6269]] -- Return scaler information from a run.
+
+The SpecTcl API contains procs that SpecTcl uses to access
+                    the database.  While it provides a higher level model
+                    of the database, it makes extensive use of SpecTcl commands
+                    and therefore is highly SpecTcl specific.
+
+The procs are defined in  the
+                    dbconfig package and all are defined in
+                    the dbconfig namespace.  This section provides
+                    reference information about these procs.
+
+## <a name="AEN6318"></a>A.3.3. Event recording API
+
+**Table of Contents**[[r6323]] -- Record/playback event data from sqlite3 database files
+
+The event recording API consist of Tcl commands that
+                    allow clients to set up SpecTcl event recording into
+                    database save sets.  When enabled, each time a
+                    begin run for a new run is seen, a new save-set is created,
+                    the current configuration saved to it, and events
+                    and scaler data are added to that saveset.
+                    The first time an end run record is encountered for a
+                    run, the end run time from that record is recorded
+                    and the contents of any spectrum marked for auto-save
+                    are saved.
+
+The Event recording API has been subsumed into the
+                    SpecTclDB package.  We supply reference
+                    documentation here to support user written graphical
+                    user interfaces that support event recording.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSqliteWhere | Up | DBTcl |

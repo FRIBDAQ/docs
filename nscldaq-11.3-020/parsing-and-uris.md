@@ -1,0 +1,110 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.uri"></a>Chapter 52. Parsing and URIs
+
+Elements of the NSCL acquisition system are named with Universal Resource
+        Locators, or URIs.  For the purposes of the NSCLDAQ, a URI is not really
+        distinguishable from a URL (Universal Resource Locator).  It has the form:
+        protocol://host:port/path, or
+        protocol://host:port
+
+
+
+*protocol*Is the means used to talk with a resource.  For nscldaq
+                    this is most often tcp
+
+*host*Is the system that hosts the resource that is identified
+                    by the URI. The host can either be a dotted IP address,
+                    or the DNS name of a host on the network.
+
+*path*Identifies the resource within the host. This identification
+                    may differ depending on what the resource is.  For a ring buffer,
+                    for example, the path is the name of the ring buffer.
+
+*port*Identifes the network port number used to contact the server
+                    that provides the resource to the network.
+
+The URI library is a class that parses URI's and provides member
+        functions that return the elements of a URI.  Here's a trivial example
+        of the URI library in use:
+
+<a name="AEN10035"></a>**Example 52-1. Sample URI library program**
+
+```
+#include <URL.h>
+#include <URIFormatException.h>
+#include <iostream>
+#include <stdlib.h>
+int main(int argc, char** argv)
+{
+    if (argc != 2) {
+        cerr << "Usage:\n";
+        cerr << "  urltest URI\n";             
+        exit(-1);
+    }
+    
+    try {                                           
+       URL uri(argv[1]);                            
+       cout << "Protocol: " << uri.getProto()
+            << " host : "   << uri.getHostName()
+            << " path: "    << uri.getPath()       
+            << " port: "    << uri.getPort() << endl;
+    }
+    catch(CURIFormatException& error) {
+        cerr << "URI was not valid: "
+             << except.ReasonText()           
+             << endl;
+        exit(-1);
+    }
+    exit(0);
+}
+        
+```
+
+[[c10007#chapter.uri.usage]]                The test program accepts the URL to parse as its command line
+                parameter.  If the user does not provide a URL or provides too
+                many parameters, the progrm's usage is printed on
+                stderr before the program exits.
+            [[c10007#chapter.uri.try]]                The `URL` constructor parses the
+                URI. If, however the URI is not valid syntax, or refers to
+                a host that does not exist, it will throw an
+                exception (`CUIRFormatException`).
+                The construction and manipulation of the URI is therefore
+                wrapped in a **try**/**catch**
+                block.
+            [[c10007#chapter.uri.pieces]]                This section of code takes the parsed URI and demonstrates
+                how to pull the elements of the URI out and print them.
+            [[c10007#chapter.uri.catch]]                This code catches errors that may be thrown by the URI
+                parse.  The reason for the error is printed out.
+                For more information see
+                the
+                [[r46289]].
+
+To incorporate the URI library into your source code, you must compile
+        with an appropriate set of switches to allow the compiler to locat your
+        header files, and the linker to locate the URL library both at link time
+        and at load time.  If the example program above is called
+        urltest.cpp and if you have an environment variable
+        DAQROOT that points to the top level directory of the NSCLDAQ
+        install tree the command below will compile and link the program.
+
+<a name="AEN10061"></a>**Example 52-2. Building urltst.cpp**
+
+```
+g++ -o urltest -I$DAQROOT/include urltest.cpp -L$DAQROOT/lib -lurl \
+               -Wl,"-rpath=$DAQROOT/lib"
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Interactors | Up | Shared memory |

@@ -1,0 +1,98 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 30. Compatibility utilities | Next |
+
+
+---
+
+# <a name="AEN7423"></a>30.4. Convenience scripts
+
+The core applications discussed so far can be composed with e.g.
+            RingSelector to create many useful
+            applications.  This section describes several scripts that have
+            been written and installed that provide the most commonly used
+            applications.
+
+**eventlog-compat. **
+                Provides a script that creates a pipeline suitable for eventlogging
+                through the ReadoutShell.  If, in your .bashrc
+                you define the environment variable EVENTLOGGER
+                to be $DAQROOT/bin/eventlog-compat, the ReadoutGui
+                will run this script rather than the standard Ring buffer event
+                logger.  This will result in ring buffer data being logged
+                directly in spectrodaq formatted event files.
+
+**spectcldaq. **
+                This script mimics the SpecTcl data source provided by
+                the spectrodaq data acquisition systems installations.
+                It requires a single command parameter, the URI of the ring
+                from which it will take data.  Below is an
+                `attachOnline` **proc**
+                that accepts a hostname as a parameter and attaches to the
+                default ring for the current user on that host.
+                It is assumed the environment variable DAQROOT points to the
+                ring buffer daq installation.
+
+<a name="AEN7438"></a>**Example 30-5. Attaching SpecTcl to ring buffers in compatibility mode**
+
+```
+proc attachOnline host {
+    global tcl_platform
+    global env
+
+    set user    $tcl_platform(user)
+    set daqroot $env(DAQROOT)
+    set spectcldaq [file join $daqroot bin spectcldaq] 
+
+    attach -pipe $spectcldaq tcp://$host/$user
+    start
+
+}                
+            
+```
+
+**spectcldaq.server. **
+                In some cases you'd like to sample data from the ring buffer
+                system to a system that is not running the data acuisition
+                system software.  In native mode, this can be done by
+                contacting the ring master server in the source system
+                and requesting that it pipe data to your system.
+
+If, however you want this data to be in spectrodaq buffer format,
+            you can start the spectcldaq.server.
+            This TCP/IP server listens for connection on a specfied port and
+            when contacted sets up a pipeline to send ring data in spectrodaq
+            buffer format across the socket.
+
+Suppose for example you want to export data to a SpecTcl that is
+            running in a system that does not run nscldaq.  Assuming that
+            DAQHOST specifies the host that is taking data;
+            on one of the data taking systems:
+
+<a name="AEN7448"></a>```
+$DAQROOT/spectcldaq.server tcp:/$DAQHOST/$LOGNAME 22222
+            
+```
+
+spectcldaq.server is now listening for connections on port
+            22222.  In most systems a program called
+            netcat is or can be installed to
+            connect to a server/port and pipe the data sent to it on its
+            stdout.  This makes an ideal pipe data source for SpecTcl:
+
+<a name="AEN7453"></a>```
+attach -pipe netcat $myserverhost 22222'
+start
+            
+```
+
+Where `myserverhost` is the name of the host that
+            is runnning spectcldaq.server
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Converting NSCLDAQ-V10.x data to NSCLDAQ-11.x data | Up | BufferToRing |

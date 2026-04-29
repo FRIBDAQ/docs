@@ -1,0 +1,195 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 5. CCUSBReadout | Next |
+
+
+---
+
+# <a name="AEN3522"></a>5.9. The ccusbcamac Tcl package
+
+<a name="intro.ccusbcamac"></a>Now that you have been introduced to the slow-controls server and how to
+        write your own custom drivers to work with it, we will discuss a fully
+        implemented example of how this system might be used.  In the 
+        [[x2804#ccusb.slowcontrols.intro]],
+        you were shown the **Module** command and instructed on how 
+        it can be used to register a slow-controls driver for a CAMAC discriminator. 
+        It can also be used to create a module of type ccusb, which 
+        is a module that enables remote control over the CC-USB from a client program. 
+        This chapter will focus on the the ccusbcamac Tcl package, 
+        which provides a client-side API to execute remote CAMAC commands through the 
+        ccusb module.
+
+The ccusbcamac package provides an API compatible with 
+        the camac and wienercamac packages. It is 
+        therefore intended to be a drop in replacement for those two. 
+        The ccusbcamac package allows Tcl scripts to send
+        remote commands to the CC-USB device attached to the slow-controls server
+        it is connected to in a transparent way.
+
+The package can be used to communicate with up to 56, unrelated CAMAC 
+        crates at the same time. Each of these crates is uniquely identified
+        by a pair of branch ane crate indices. It is important to understand that 
+        there are no physical CAMAC branches being referred to. Instead, the branch
+        and crate indices are used to uniquely identify a specific crate and
+        to store the connection information with it. A major benefit of maintaining
+        the branch and crate parameters is the maintaining of compatibility with the
+        camac and wienercamac packages.
+
+The remainder of this chapter describes:
+
+
+
+- How to incorporate this package in your scripts.
+- How to use the package itself and configure the CCUSBReadout 
+                slow-controls server.
+
+
+Reference material is available at
+        [[r55327]].
+
+## <a name="AEN3547"></a>5.9.1. Incorporating ccusbcamac in your scripts.
+
+Incorporating ccusbcamac in your scripts is a
+          three step process:
+
+
+
+1. The NSCLDAQ Tcl package repository must be added to the
+                   Tcl interpreter's package search path.
+2. The NSCLDAQ lib directory must be added to the
+                   Tcl interpreter's package search path.
+3. The ccusbcamac package must be loaded into the interpreter
+                   via an explicit **package require** command.
+
+
+There are two ways to manipulate the Tcl interpreter package load
+          search path.  The environment variable `TCLLIBPATH`
+          is a space separated set of additional directories to search for packages.
+          The Tcl global variable `auto_path` is one of the
+          several Tcl variables that control the package search path.
+
+From now on we will assume that the environment variable
+          `DAQROOT` has been defined to point to the
+          top level of the NSCLDAQ installation directory tree.
+          A bash shell script fragment that shows how to append the
+          NSCLDAQ Tcl package repository and lib path to the `TCLLIBPATH`
+          environment variable is shown below:
+
+<a name="AEN3565"></a>```
+            export TCLLIBPATH="$TCLLIBPATH $DAQROOT/TclLibs $DAQROOT/lib"
+          
+```
+
+Similarly the code to add the NSCLDAQ Tcl package repository and 
+          lib directory to the `auto_path` interpreter global is shown
+          below:
+
+<a name="AEN3569"></a>```
+            global env
+            global auto_path
+            lappend auto_path [file join $env(DAQROOT) TclLibs]
+            lappend auto_path [file join $env(DAQROOT) lib]
+          
+```
+
+Once these directories have been added to the
+          repository search path, an explicit **package require**
+          as shown below must be issued prior to using the package commands:
+
+<a name="AEN3573"></a>```
+            package require ccusbcamac
+          
+```
+
+The commands defined by ccusbcamac are
+          defined in the ccusbcamac:: namespace.
+          The examples in the next section will use fully qualified command
+          names (e.g. **::ccusbcamac::cdreg 1 1**).  It is
+          also possible to import the commands from that namespace
+          using the **namespace import** command.
+          If you are also using the wienercamac or camac 
+          package, this is not advisable as both packages share many of the same command names.
+
+## <a name="AEN3582"></a>5.9.2. Using ccusbcamac
+
+The ccusbcamac package is the client code to the slow-controls
+          server in the CCUSBReadout program. All communication with the 
+          server is via the TCP/IP protocol and must proceed after a connection
+          has been established. The server-side handler is the CCCUSBControl
+          class, which must be registered to the slow controls server by adding
+          a line to the controlconfig.tcl script such as:
+
+<a name="AEN3585"></a>```
+            Module create ccusb ctlr
+          
+```
+
+The example creates a new control module named "ctlr" and is of type
+          ccusb. In order to establish a functional connection, the name of
+          the module, the name of the host running the server, and the port
+          on which it listens must be provided to the ccusbcamac package. 
+          These three pieces of connection information are associated and stored with a 
+          branch and crate index by the **cdconn**
+          command. This leads us to the major difference between the ccusbcamac
+          package and the wienercamac
+          packages that affects the user. The difference is that the 
+          **cdconn** command MUST be
+          called prior to any other methods for a given branch and crate index combination. 
+          If for some reason the
+          user forgets to call **cdconn** prior to calling **cdreg**, they
+          will be presented with an error. It is not essential, but it is not
+          a bad idea to check whether or not the server is accepting connections
+          before calling **cdreg** using the **isOnline**
+          procedure.
+
+The commands in the package are loosely based on a subset of the
+          ESONE CAMAC function standard (IEEE 785).  In that standard, the unit
+          of address is a single CAMAC module.  The **cdreg**
+          produces a handle to a module which is then used in subsequent
+          commands that operate on that module. Extensions to the standard
+          include commands that allow you to get the graded lam register values,
+          sense and control the inhibit and determine if the crate is online.
+
+While the ESONE block transfer functions are supported, connecting
+          a LAM to a script is not.  The example below enables the LAM on a module
+          in Slot 15 of the crate labeled by the user as branch 0 and crate 1.
+
+<a name="AEN3599"></a>**Example 5-30. Enabling a module Lam with ccusbcamac**
+
+```
+
+            # Load the package.
+
+            lappend auto_path [file join $env(DAQROOT) TclLibs]
+            lappend auto_path [file join $env(DAQROOT) lib]
+            package require ccusbcamac
+
+            # Provide the connection information for b=0, c=1
+            set host   localhost
+            set port   27000      ;# The standard slow-controls server port
+            set module ctlr
+            ccusbcamac::cdconn 0 1 $host $port $module
+
+            #  Initialize the crate and uninhibit it
+
+            ccusbcamac::C 0 1
+            ccusbcamac::Z 0 1
+            ccusbcamac::Inhibit 0 1 false
+
+            # Make the module handle:
+
+            set module [ccusbcamac::cdreg 0 1 15]
+
+            # F26 at any subaddress normally enables LAM:
+
+            ccusbcamac::cssa $module 26 0
+          
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing Tcl slow controls device drivers | Up | ReadoutGUI & ReadoutShell |

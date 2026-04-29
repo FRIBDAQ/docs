@@ -1,0 +1,143 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq3-ceventorder"></a>CEventOrderClient
+
+<a name="AEN35068"></a>## Name
+
+CEventOrderClient -- Client of the event orderer
+
+<a name="AEN35071"></a>## Synopsis
+
+```
+CEventOrderClient
+```
+
+<a name="AEN35127"></a>## DESCRIPTION
+
+Provides the client API to the event fragment orderer component of the
+    event builder.  The normal operation sequence would be to use the
+    `Lookup` static method to locate the event builder
+    server port, create a `CEventOrderClient` instance
+    and invoke `Connect` to connect to the event
+    builder.
+
+Once connected, `submitFragments` would be used to send data to the
+    server until it's time to disconnect at which time
+    the connection is dropped either by destroying the object or by
+    calling the `Disconnect` method.
+
+<a name="AEN35136"></a>## METHODS
+
+
+
+`  CEventOrderClient(std::string node-name, unsigned int port);`Constructs an instance of an event order client object.
+                The `node-name`
+                and `port` define the Tcp/IP
+                of the connection that will be made with the event builder.
+
+The connection is not actually made until the
+                `Connect` method is invoked
+                (see below).
+
+` void disconnect();`Disconnect a connected client object.
+
+` static int Lookup(std::string host, const char* pEvbName = 0);`
+                CErrnoException
+              Attempts to look up the port on which an event builder for the
+                current user is running.  This is done by contacting the
+                NSCL port manager on the specified `host`.
+
+If the optional `pEvbName` parameter is
+                supplied and is not a null pointer, it is taken to be the name
+                of the event builder to which the connection should be made.
+                If this parameter is null or missing, the port looked up is
+                that of the default event orderer for the caller's username.
+
+On failure, a `CErrnoException` is thrown
+                which will describe the reason and context of the error.
+
+` void Connect(std::string description)          throws CErrnoException;`Attempts to connect to the event builder described
+                by the constructor parameters.
+                `description` will be passed to the
+                event builder as a description of the event source.
+                The description will be used on the event builder GUI.
+
+` void submitFragments(pFragmentChain pChain);``pChain` is a pointer to the first
+                 element of the fragment chain that will be sent to the
+                 event builder
+
+` void submitFragments(size_t nFragments, pFragment ppFragments);``nFragmnents` is the number of
+                 fragments to submit while `ppFragments`
+                 is a pointer to the first element of an array
+                 of Fragments.
+
+<a name="AEN35223"></a>## DATA STRUCTURES
+
+The fragment.h header defines several event
+        fragment related data structures:
+
+The FragmentHeader data type is the main data type.
+        It defines the struct that contains meta-data about an event fragment:
+This data structure
+            contains the following fields.
+
+
+
+` uint64_t s_timestamp;`Each event must have an extracted timestamp. The
+                    first stage of the event builder does an absolute
+                    total time ordering of all input fragments by increasing
+                    timestamp.
+
+The timestamp must be synchronized between
+                    all data sources to a high degree of accuracy if this
+                    total ordering is going to represent a true time
+                    ordering of fragments, since the second stage of the
+                    event builder builds events by matching fragments that
+                    live within a coincidence window.
+
+` uint32_t s_sourceId;`Each data source has a unique id chosen by the source
+                    itself.  Furthermore, each client can represent several
+                    data sources (all sourcdes system wide must be unique).
+                    This field contains the source id that corresponds to the
+                    fragment data.
+
+` uint32_t s_size;`Contains the size of the fragment payload in bytes.
+                    this size does not include the size of this fragment
+                    header.
+
+The <fragment.h> header also defines
+        a Fragment type which contains
+        the fields `s_header` which is a a
+        FragmentHeader and a
+        ` void* s_pBody;`
+        which is a pointer to the body of the event described by
+        `s_header`.
+
+Finally the FragmentChain contains the fields
+        `s_pNext` which is a
+        pFragmentChain and points to the next item in the
+        chain, and `s_pFragment` which points to a single
+        fragment. The last item in the chain has a
+        `s_pNext` that is a null pointer.  Fragment chains
+        are required to be in timestamp order by event source.
+
+<a name="AEN35267"></a>## EXCEPTIONS
+
+The following exception types can be thrown:
+
+
+
+CErrnoExceptionReports Linux system service errors.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEVBClientFramework | Up | FragmentIndex |

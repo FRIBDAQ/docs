@@ -1,0 +1,46 @@
+[NSCL Home Page](http://www.nscl.msu.edu/)
+
+
+[MSU Home Page](http://www.msu.edu/)
+
+
+---
+
+
+# CAEN V288
+
+
+---
+
+
+[An Introduction to the CAEN V288](http://docs.nscl.msu.edu/daq/samples/CAEN%20V288/CAEN_V288_1.0.pdf) (PDF)
+
+
+[CAEN V288 Manual](http://docs.nscl.msu.edu/daq/samples/CAEN%20V288/v288_rev0.pdf) (PDF)
+
+
+
+
+
+More information is available at the [NSCL docs page](http://docs.nscl.msu.edu/)
+
+
+## Please direct all questions and comments to [daqdocs@nscl.msu.edu](mailto:daqdocs@nscl.msu.edu)
+
+
+---
+
+
+Last updated 1/10/2005
+
+
+ByTim Hoagland
+
+
+---
+
+
+[NSCL Home Page](http://www.nscl.msu.edu/)
+
+
+[MSU Home Page](http://www.msu.edu/)

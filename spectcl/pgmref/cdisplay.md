@@ -1,0 +1,244 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN24244"></a>CDisplay
+
+<a name="AEN24248"></a>## Name
+
+CDisplay -- Display interface base class
+
+<a name="AEN24251"></a>## Synopsis
+
+```
+#include <Display.h>
+
+class CDisplay
+{
+public:
+    typedef std::pair<int, std::string> BoundFitline;
+    typedef std::list<BoundFitline>     FitlineList;
+    typedef std::vector<FitlineList>    FitlineBindings;
+
+public:
+    virtual CDisplay* clone() const = 0;
+    virtual void start() = 0;
+    virtual void stop() = 0;
+    virtual bool isAlive() = 0;
+    virtual void restart() = 0;
+
+    virtual SpectrumContainer getBoundSpectra() const = 0;
+    virtual void addSpectrum(CSpectrum& rSpectrum, CHistogrammer& rSorter) = 0;
+    virtual void removeSpectrum(CSpectrum& rSpectrum, CHistogrammer& rSorter) = 0;
+    virtual bool spectrumBound(CSpectrum* pSpectrum) = 0;
+
+    virtual void addFit(CSpectrumFit& fit) = 0;
+    virtual void deleteFit(CSpectrumFit& fit) = 0;
+    virtual void addGate(CSpectrum& rSpectrum, CGateContainer& rGate) = 0;
+    virtual void removeGate(CSpectrum& rSpectrum, CGateContainer& rGate) = 0;
+    virtual std::vector<CGateContainer> getAssociatedGates(const std::string& spectrumName,
+                                                           CHistogrammer& rSorter) = 0;
+
+    virtual std::string createTitle(CSpectrum& rSpectrum, UInt_t maxLength,
+    virtual void setInfo(CSpectrum& rSpectrum, std::string name) = 0;
+    virtual void setTitle(CSpectrum& rSpectrum, std::string name) = 0;
+    virtual UInt_t getTitleSize() const = 0;
+
+    virtual void updateStatistics() = 0;
+};
+
+
+        
+```
+
+<a name="AEN24253"></a>## DESCRIPTION
+
+`CDisplay` is an abstract
+              base class that defines the interfaces every display
+              class must implement.  concrete display classes
+              implement the interfaces between SpecTcl and a displayer.
+
+Displayers can be internal or external.  By internal,
+              we mean that they run in the same process address
+              space as SpecTcl. External displayers run in a separate
+              address space and interface with SpecTcl via shared
+              memory, the SpecTcl REST interface and/or other
+              communication schemes that are specific to the
+              display program.   Xamine is an external displayer,
+              there are currently no internal displayers.
+
+The interface methods come in several groups that
+              manipulate objects that are the concerns of
+              displayers;
+
+
+
+- Methods are provided to control the displayer iself,
+                      an external (or internal for that matter) displayer
+                      will need to be started, stopped and restarted.
+- Methods are provided to make the displayer know
+                      the spectra it should display.  For example,
+                      Xamine uses a fixed sized shared memory region
+                      to gain access to bulk spectrum information,
+                      as such, these interface methods can shuttle
+                      the contents of spectra in and out of that
+                      shared memory.
+- Displayers can have the ability to display
+                      *graphical* objects that
+                      annotate spectra.  These can be gates, markers,
+                      and fitlines.  Methods are provided to define
+                      these to the displayer.
+- Finally, each spectrum has both a title and information
+                      string.  The displayer must implement methods that support
+                      the creation of and display of these strings.
+
+<a name="AEN24269"></a>## METHODS
+
+Note that all methods are pure virtual making this an interface
+          definition class.
+
+
+
+` const = 0 virtual CDisplay*  clone() ();`Display interfaces must be able to duplicate themselves.
+                  Unless multiple concurrent displayers are supported
+                  (SpecTcl is neutral about this), this must usually
+                  be a shallow, referential copy maintaining some
+                  scheme that knows when data can be safely destroyed.
+
+`  = 0 virtual void  start();`This method must start the displayer.  Until
+                  `start` is called, the displayer
+                  should not have a visual presence on the
+                  screen.
+
+`  = 0 virtual void  stop();`This method must stop the displayer.  Once called,
+                  the displayer should not have a visual presence on the
+                  screen.
+
+`  = 0 virtual bool  isAlive();`Should return true if
+                  the displayer is running.  This allows
+                  SpecTcl to detect the display has exited
+                  without `>stop`
+                  being called e.g.
+
+`  = 0 virtual void  restart();`This method is normally a short-hand for
+                  invoking `stop`
+                  immediately followed by
+                  `start`
+
+` const = 0; virtual CDisplay::SpectrumContainer  getBoundSpectra();`This method is expected to return the spectra
+                  that are known to the displayer.  The
+                  CDisplay::SpectrumContainer
+                  data type is descried in
+                  PUBLIC DATA TYPES below.
+                  For the purposes of this discussion, it's enough
+                  to know this is a container that has integer
+                  indices.
+
+` = 0; virtual void  addSpectrum(CSpectrum&  rSpectrum = , CHistogrammer&  rSorter = );`Called to make a spectrum known to the displayer.
+                  The **sbind** command will ultimately call
+                  this method in an active displayer.
+                  `rSpectrum` is a reference to the
+                  spectrum to add and `rSorter`
+                  is a reference to the active histogrammer.
+
+` = 0; virtual void  removeSpectrum(CSpectrum&  rSpectrum = , CHistogrammer&  rSorter = );`Called to informt the displayer it no longer
+                  needs to display a spectrum.  Note that there
+                  are two events that normally invoke this method:
+                **unbind** is invoked on the spectrum,
+                or the spectrum was deleted.
+                `rSpectrum` is a reference to the
+                spectrum to remove while, `rSorter`
+                references the current histogrammer.
+
+` virtual bool  spectrumBound(CSpectrum*  pSpectrum = = 0 );`Returns true if the spectrum
+                  is known by the displayer.  In general this means
+                  that the spectrum,  `pSpectrum`
+                  was passed to `addSpectrum`
+
+`                   = 0
+                  virtual void  addFit(CSpectrumFit&  fit = );`Displayers can display informationa relevant to the
+                  spectrum as well as the spectrum.
+                  `fit` contains fit line information
+                  that SpecTcl is requiesting the displayer to display
+                  on the spectrum named by the fit.  A fit line is just a set of
+                  channel/count pairs that can be extracte from the
+                  `fit` object to render the
+                  fit.
+
+`  = 0 virtual void  deleteFit(CSpectrumFit&  fit = );`Requests that the diplayer remove the
+                  fit line specified by
+                  `fit` from the spectrum
+                  specified by `fit`.
+
+` = 0; virtual void  addGate(CSpectrum&  rSpectrum = , CGateContainer&  rGate = );`Spectra on which gates have been accepte can be made
+                 to display the gates. The actual rendition of the gate
+                 depends on the gate and the spectrum.
+
+This method requests that the gate
+                  `rGate` be displayed on
+                  the spectrum `rSpectrum`.
+                  Note that the actual gate and even gate type may
+                  change.  The gate container object
+                  `rGate` serves as a pointer-like
+                  object that is a fixed reference to the gate regardless
+                  of the changes it undergoes.  It is legitimate for the
+                  displayer to refuse to display a gate.
+
+` = 0 virtual void  removeGate(CSpectrum&  rSpectrum = , CGateContainer&  rGate = );`Requests that the gate `rGate`
+                  no longer be displayed on `rSpectrum`
+
+` = 0 virtual std::vector<CGateContainer>  getAssociatedGates(const std::string&  spectrumName = , CHistogrammer&  rSorter)  = );`Returns a vector that contains the gate containers
+                  of the gates that are supposed to be displayed
+                  on `rSpectrum`.
+                  `rSorter` is a reference to he
+
+`  = 0 virtual std::string  createTitle(CSpectrum&  rSpectrum = , UInt_t maxLength = , CHistogrammer&  rSorter = );`Creates a title string for the specturm
+                  `rSpectrum`.
+                  The title string must be no more than
+                  `maxLength` characters
+                  long. `rSorter` provides
+                  a reference to the histogramming object.
+
+` = 0 virtual void  setInfo(CSpectrum&  rSpectrum = , std::string  name = );`Sets the infornmation string for
+                  `rSpectrum` to
+                  `name`.
+
+` = 0 virtual void  setTitle(CSpectrum&  rSpectrum = , std::string  name)  = );`Sets the title string for `rSpectrum`
+                  to `name`.
+
+` const = 0 virtual UInt_t  getTitleSize();`Returns the number of characters that can be displayed
+                  in the title string. Note that in the case where
+                  the title is in e.g. UTF-8 or UTF-16, the number of
+                  characters and number of bytes differ
+
+` =0 virtual void  updateStatistics();`Spectra maintain under and overflow counters.
+                  This method is supposed to scan the set of bound
+                  spectra and update any internal knowledge of those
+                  statistics the displayer may have
+
+<a name="AEN24549"></a>## PUBLIC DATATYPES
+
+Three data types are exported by the base class.
+
+**typedef std::pair<int, std::string> BoundFitline. **
+            This  provides the names of the fit lines and the internal id
+            that the displayer assigns to them.
+
+**typedef std::list<BoundFitline>     FitlineList. **
+            A list of fitlines.  This is used to represent the fit lines
+            that are bound to a specific spectrum.
+
+**typedef std::vector<FitlineList>    FitlineBindings;. **
+            Captures the fitlines assigned to all spectra. Each element is
+            the list of fit lines assigned to a single spectrum.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl Displays | Up | CNullDisplay |

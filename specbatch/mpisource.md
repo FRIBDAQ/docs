@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN886"></a>mpisource
+
+<a name="AEN890"></a>## Name
+
+mpisource -- Data Getter from MPI
+
+<a name="AEN893"></a>## Synopsis
+
+**package require mpispectcl
+                        **
+
+**mpisource
+                        **
+
+<a name="AEN898"></a>## DESCRIPTION
+
+Establishes the batch SpecTcl data getter as getting
+                        data from MPI.  The sender is assumed to be rank0
+                        and should have used the **mpisink**
+                        command to set up to transmit data to the other ranks.
+
+Note that prior to beginning analysis in the rank 0 process:
+
+
+
+1. Analysis should be started in all other ranks.
+2. The mpi notifier should be halted.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| MPI SpecTcl | Up | mpisink |

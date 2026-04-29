@@ -1,0 +1,33 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1809"></a>shmemsize
+
+<a name="AEN1813"></a>## Name
+
+shmemsize -- Get the size of the spectrum pool of display shared memory
+
+<a name="AEN1816"></a>## Synopsis
+
+**shmemsize**
+
+<a name="AEN1819"></a>## DESCRIPTION
+
+This command is wrapped in a `CMPITclCommand` Run in 
+                    MPI_EVENT_SINK_RANK, the result is set with the size in 
+                    bytes and a status of TCL_OK.  In all other processes,
+                    the status is still TCL_OK but no result is set.
+                    This is because the display shared memory region is created and managed
+                    by the MPI_EVENT_SINK_RANK.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| shmemkey | Up | specstats |

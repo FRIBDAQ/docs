@@ -1,0 +1,95 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.ccompositefilter"></a>CCompositeFilter
+
+<a name="AEN46454"></a>## Name
+
+CCompositeFilter -- A composite filter composed of primitive filters
+
+<a name="AEN46457"></a>## Synopsis
+
+```
+#include <CCompositeFilter.h>
+    
+```
+
+```
+CCompositeFilter
+```
+
+<a name="AEN46550"></a>## DESCRIPTION
+
+`CCompositeFilter` is a derived class of CFilter and
+      is technically a primitive filter. However, it maintains a registry of
+      primitive filters that ultimately define its functionality. The composite
+      filter owns the filters that exist in its registry. When registering a
+      primitive filter, the actual filter passed as an argument is not
+      registered. Instead, it is cloned and the clone is registered. In this
+      way, the composite filter guarantees that it has ownership of all filters
+      in its registry. It will delete all of the filters it owns at destruction
+      time. When the composite filter is copied, it clones all of the
+      target's filters rather than sharing pointers.
+
+All handler methods iteratively call the corresponding handler methods of
+      the registered primitive filters. The registration order of the primitive
+      filters defines the order in which the filters will be called. When its
+      registry is empty, the composite filter is just a transparent filter.
+
+<a name="AEN46555"></a>## Public member functions
+
+`  CCompositeFilter();`An empty registry is created.
+
+`  CCompositeFilter(const CCompositeFilter& rhs);`All of the filters in the argument's registry are cloned. The order
+      of the registry is maintained.
+
+` CCompositeFilter& operator=()(const CCompositeFilter& rhs);`All of the filters in the argument's registry are cloned into a
+      temporary registry. If no exceptions occur while performing this deep
+      copy, the filters currently in the registry are deleted. Subsequently,
+      the temporary registry becomes the registry. In this way, if errors occur
+      while performing the copy, the current registry is not alterred.
+
+` virtual ~CCompositeFilter();`Deletes all of the filters in the registry and resizes the registry to 0.
+
+` virtual const CRingItem* clone();`Returns a dynamically allocated copy of this object.
+
+` void registerFilter(const CFilter* filter);`Clones the filter passes as an argument and adds the clone to the back of
+      the registry.
+
+` virtual CRingItem* handleRingItem(CRingItem* item);`Passes the item to the handleRingItem method of the registered primitives
+      in the order in which they were registered. The output of the first
+      primitive filter is passed as input to the second primitive filter. If
+      the primitive filters return a newly allocated CRingItem, this will
+      properly cleanup the items that are outputted by inner filters. In other
+      words, if there are two filters registered and both return different ring
+      items than they are passed, the output of the first filter will be
+      deleted and the output of the second filter will be returned.
+
+` virtual CRingItem* handleStateChangeItem(CRingStateChangeItem* item);`Behaves exactly like handleRingItem except that handleStateChangeItem is called.
+
+` virtual CRingItem* handleScalerItem(CRingScalerItem* item);`Behaves exactly like handleRingItem except that handleScalerItem is called.
+
+` virtual CRingItem* handlePhysicsEventItem(CPhysicsEventItem* item);`Behaves exactly like handleRingItem except that handlePhysicsEventItem is
+      called.
+
+` virtual CRingItem* handleFragmentItem(CRingFragmentItem* item);`Behaves exactly like handleRingItem except that handleFragmentItem is called.
+
+` virtual CRingItem* handlePhysicsEventCountItem(CRingPhysicsEventCountItem* item);`Behaves exactly like handleRingItem except that handlePhysicsEventCountItem is called.
+
+` virtual CRingItem* handleTextItem(CRingTextItem* item);`Behaves exactly like handleRingItem except that handleTextItem is called.
+
+` virtual void initialize();`Behaves exactly like handleRingItem except that initialize() called.
+
+` virtual void finalize();`Behaves exactly like handleRingItem except that finalize() called.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CFilter | Up | CFilterMain |

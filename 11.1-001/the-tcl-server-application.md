@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.tclserver"></a>Chapter 21. The tcl server application
+
+TclServer is a deceptively simple program.  It is a wish (Tk) interpreter
+        that allows Tcp/IP connections from a local or remote client.
+        Once connected, the client can send messages consisting of Tcl commands
+        and receive the result of executing those commands from the server.
+
+TclServer is used as the basis of a number of applications in the
+        NSCLDAQ system including the scaler display program, the epicsdisplay
+        program and other software written by specific groups. Tcl servers can
+        be used as distributed data repositories (store data in server Tcl variables and/or
+        arrays and get them back out), or as display programs that can be remote-controlled.
+        The production readout framework has a Tcl Server component that can be enabled.
+
+This chapter contains:
+	A description of the TclServer protection model.  For complete
+    information about the TclServer see
+    [[r15441]].
+
+The TclServer protection model is not very stringent.  The assumption
+            is that TclServers can only be reached by trusted systems.  Specifically
+            systems that have not been broken into and will not spoof host names.
+            When a TclServer starts, it will only allow connections from
+            localhost.
+
+The TclServer extends the Tcl/Tk command set with the command
+            **serverauth** this command allows you to authorize
+            additional systems to connect  to the server.  The complete form
+            of the **serverauth** command is described in
+            the [[r15484]].
+            section.
+
+The following command adds the node spdaq20.nscl.msu.edu
+            to the set of hosts that are allowed to connnect to the server.
+
+<a name="AEN7026"></a>**Example 21-1. Using **serverauth** to authorize a node**
+
+```
+serverauth add spdaq20.nscl.msu.edu
+            
+```
+
+# <a name="AEN7030"></a>21.1. Tcl server package
+
+TclServer is also available as a package that can be incorporated
+                into Tcl scripts.
+                For information about that, see:
+                [[r70803]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Event log program | Up | CAEN V812 Constant Fraction Discriminator |

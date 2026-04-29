@@ -1,0 +1,171 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3817"></a>DBApplication
+
+<a name="AEN3821"></a>## Name
+
+DBApplication -- Wrap database definitions of gate applications
+
+<a name="AEN3824"></a>## Synopsis
+
+```
+#include <DBApplications.h>
+
+namespace SpecTclDB {
+    
+/**
+ * @class DBApplication
+ *    Gates by themselves are simply conditions that return a boolean
+ *    for each event.  They are only useful when they are used to conditionalize
+ *    something.  In SpecTcl, that something, is normally the incrementing
+ *    of a spectrum.  Each SpecTcl spectrum has exactly one gate that is
+ *    conditionlizes its increments. That gate is said to be "applied" to that
+ *    spectrum.  Spectra in SpecTcl come into being with a predefined "T"
+ *    gate applied to them.  The SpecTcl database gate_applications table
+ *    keeps track of any gates other than the pre-defined T gate that are
+ *    applied to spectra.  It's not much more than a JOIN table between the
+ *    spectrum_defs and gate_defs tables.
+ */
+class DBApplication {
+public:
+    struct Info {
+        int s_id;
+        int s_gateid;
+        int s_spectrumid;
+    };
+public:
+    static DBApplication* applyGate(
+        CSqlite& conn, int saveid, const char* gate, const char* spectrum
+    );
+    static std::vector<DBApplication*> listApplications(
+        CSqlite& conn, int saveid
+    );
+    
+
+public:
+    // constructors
+
+    DBApplication(
+        CSqlite& conn, int saveid,
+        const char* gateName, const char* spectrumName
+    );    
+    
+    
+public:
+    const Info& getInfo() const;
+    std::string getGateName();
+    std::string getSpectrumName();
+
+    
+};
+}                         // SpecTclDB namespace.
+
+                    
+```
+
+<a name="AEN3826"></a>## DESCRIPTION
+
+Gates define conditions that are evaluated on
+                      paramters or other gates.  A gate does something useful
+                      when it is applied to a spectrum.  All spectra in
+                      SpecTcl have a gate applied.  The spectrum is only
+                      checked to see if it can be incremented if the gate
+                      applied to it is true for the event.  Note that when
+                      first created, a spectrum has a True
+                      gate applied to it.
+
+`SpecTclDB::DBApplication`
+                        captures this fact.  It allows you to create
+                        a record of gate applications in a saveset in a database.
+                        It also allows you to wrap an existing gate application
+                        stored in a savset with a
+                        `SpecTclDB::DBApplication` object.
+
+<a name="AEN3833"></a>## METHODS
+
+
+
+` static DBApplication*  applyGate(CSqlite& conn  = , int  saveid = , const char*  gate = , const char*  spectrum = );`Creates a gate application definition in
+                                the database indicated by `conn`
+                                in the saveset `saveid`.
+                                The gate named `gate` is
+                                entered as applied to the spectrum
+                                named `spectrum`.
+
+The method returns the application
+                                definition wrapped in a
+                                `SpecTclDB::DBApplication`
+                                object.  The object is dynamically created and a
+                                pointer to it is returned.  When the application
+                                no longer needs this object, it must be
+                                deleted.
+
+` static std::vector<DBApplication*>  listApplications(CSqlite&  conn = , int  saveid = );`Lists the applied gates stored in the
+                                save set `saveid`
+                                from the database connected to `conn`.
+                                The list is a vector containing pointers
+                                to applications wrapped in
+                                `SpecTclDB::DBApplication`
+                                objects.  The objects are dynamically
+                                created and therefore must be deleted when
+                                the application no longer needs them.
+
+`  DBApplication(CSqlite&  conn = , int  saveid = , const char*      gateName = , const char*  spectrumName = );`Locates the application definition that
+                                applies the gate `gateName`
+                                to the spectrum `spectrumName`
+                                in the saves set `svaeid`
+                                in the database connected to `conn`.
+                                If the sought after application does not exist,
+                                `std::invalid_argument`
+                                will be thrown.
+
+` const const Info&  getInfo();`Returns a const reference to the
+                                data that has been cached from the database that
+                                describes this gate application.
+                                See DATA TYPES below
+                                for a description of that structure.
+
+` std::string  getGateName();`The name of the gate is stored in the database
+                                and the Info struct as a
+                                foreign key to the gate top level table.
+                                This returns the name of the gate that's
+                                applied.
+
+` std::string  getSpectrumName();`The spectrum to which the gate is applied
+                                is stored as a foreign key to the top level
+                                spectrum table.  This method returns
+                                the name of that spectrum.
+
+<a name="AEN3937"></a>## DATA TYPES
+
+The `SpecTclDB::DBApplication`
+                        class exports a single data type;
+                        SpecTclDB::DBApplication::Info.
+                        This struct caches the information about this
+                        application definition as it is stored in the
+                        database. It contains the following fields:
+
+
+
+int `s_id`The primary key of this entry in the
+                                applications table.
+
+int `s_gateid`A foreign key to the gate being applied in the
+                                top level gate table.
+
+int `s_spectrumid`A foreign key to the top leve spectrum table,
+                                this indicates the spectrum the gate is being
+                                applied to.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DBGate | Up | DBTreeVariable |

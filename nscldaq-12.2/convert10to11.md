@@ -1,0 +1,46 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="compatibility1_convert10to11"></a>convert10to11
+
+<a name="AEN19472"></a>## Name
+
+convert10to11 -- Filter converting NSCLDAQ10.x to NSCLDAQ11.x data.
+
+<a name="AEN19475"></a>## Synopsis
+
+**convert10to11
+          **
+
+<a name="AEN19478"></a>## DESCRIPTION
+
+**convert10to11** is a filter that takes data in
+            NSCLDAQ10.x format on stdin and emits data in NSCLDAQ11.x format
+            on stdout.  Using input and output rediretion it can be used  to
+            convert an event file in NSCLDAQ10.x format into one in NSCLDAQ11.x
+
+**convert10to11** can also be used as an element in a
+            Unix pipelin to process NSCLDAQ10.x data directly.  For an extreme
+            example, see EXAMPLES below.
+
+<a name="AEN19484"></a>## EXAMPLES
+
+The shell script below can be used as a SpecTcl pipe data source.
+            It takes a single parameter that is a gzipped NSCLDAQ-10.x event file
+            and sends the resulting data in NSCLDAQ-11.x format to output.
+
+<a name="AEN19487"></a>**Example 1. Uncompressing NSCLDAQ-10.x data and converting it to NSCLDAQ-11 format**
+
+**zcat $1 | convert10to11**
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| compatibilitybuffer | Up | compatibilitylogger |

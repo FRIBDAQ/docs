@@ -1,0 +1,1142 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Chapter 3. C++ Low level API | Next |
+
+
+---
+
+# <a name="AEN247"></a>3.2. The SpecTclDB::SaveSet class.
+
+Save sets are where data are stored. Save sets are used to organize
+                data into named containers.  Each container has a name,
+                a creation timestamp and a unique integer identifier.   The
+                identifier is used to link other objects back to the save set
+                that owns them in the save_sets table of the
+                database.  See the description of the database schema in the
+                reference appendix for more information.
+
+In this section we'll show a few examples of the the
+                `SpecTclDB::SaveSet` class in action.  We're
+                only going to look at the object methods of the
+                `SpecTclDB::Saveset` class.  There are
+                some static methods, but they are intended for use by
+                the `SpecTclDB::CDatabase` class not us.
+
+We're going to look at the Savesets through the lens of the following
+                examples (installed in the share/dbexamples
+                directory of the SpecTcl installation).
+                These examples will:
+
+
+
+- Show how to define parameters and get
+                         information about them.
+- Show how to save spectrum definitions and
+                        retrieve information about them.
+- How to save the definition of
+                        several broad categories of
+                        gates, and retrieve information about
+                        them.
+- How to save information about which gates
+                        are applied to conditionalize the
+                        increments of which spectra.
+- How to store information about
+                        tree variables and retrieve it.
+- How to store and retrieve
+                          decoded events,
+                          and scaler readouts in a
+                          saveset.
+
+<a name="AEN270"></a>**Example 3-4. Defining parameters (pardef.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <DBParameter.h>      
+
+#include <iostream>
+#include <stdexcept>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  if(argc != 2) {
+    std::cerr << "Usage:  pardef db-filename\n";
+    exit(EXIT_FAILURE);
+  }
+
+  SpecTclDB::SaveSet* pSave(nullptr);  
+      
+  try {
+    SpecTclDB::CDatabase db(argv[1]);
+    pSave = db.getSaveSet("a saveset"); 
+    delete pSave->createParameter("p1", 100); 
+    delete pSave->createParameter("p2", 101, -10.0, 1.0, 100, "cm");
+
+    auto params = pSave->listParameters(); 
+    std::cout << "The following parameters are defined:\n";
+    for (int i =0; i < params.size(); i++) {
+      std::cout << params[i]->getInfo().s_name << std::endl;
+      delete params[i];
+    }
+    SpecTclDB::DBParameter* p = pSave->findParameter("p2"); 
+    std::cerr << " I found parameter: " << p->getInfo().s_name << std::endl;
+    delete p;
+
+  }
+  catch (std::exception& e) {
+    std::cerr << "Error: " << e.what() << std::endl;
+    delete pSave;
+    exit(EXIT_FAILURE);
+  }
+
+  delete pSave;
+  exit(EXIT_SUCCESS);
+}
+
+                
+```
+
+[[x247#pardef.paramhdr]]                        Parameters are encapsulated in
+                        `SpecTclDB::DBParameter`
+                        objects.   This #include
+                        bring the definition of that class into
+                        the program.
+                    [[x247#pardef.psave]]                        This will be a pointer to the save set
+                        we're manipulating. It's declared here
+                        so that it will be in scope in the
+                        catch block below.
+                        That allows us to ensure that the
+                        saveset gets freed if there's an
+                        exception.
+                    [[x247#pardef.getsvset]]                        The `getSaveSet`
+                        looks up a save set and caches its
+                        database defintion into internal data
+                        in a `SpecTclDB::SaveSet`.
+                        A pointer to this dynamically allocated
+                        object is then returned on success.
+                        On failure an exception is thrown.
+                    [[x247#pardef.create]]                        This line and the next create two parameters.
+                        SpecTcl has two raw parameters and
+                        `CTreeParameter`
+                        parameters.  The latter wrap raw parameters
+                        and provide metadata that give hints about
+                        how to best histogram the variable and
+                        units of measure.
+                    The first line stores a parameter
+                        definition for a raw parameter. These
+                        have a name and a slot number defining
+                        how SpecTcl event processors should
+                        supply data for this parameter.
+
+The second line stores a parameter
+                        with full metadata. In addition to the
+                        name and number, metadata includes a
+                        suggested low limite, a suggested high
+                        limit, a suggested binning over that range,
+                        and units of measure.  The second line
+                        stores a parameter that runs in the range
+                        of -10.0 to 10.0 with a suggested binning
+                        of 100 bins.  The units of measure
+                        are cm.
+
+Noe that
+                        `createParameter`
+                        returns a pointer to the created parameter
+                        object. This object is immediately
+                        deleted.
+
+[[x247#pardef.listpars]]                        Produces a container with pointers to all
+                        parameters.  The pointers are to
+                        dynamically allocated objects which
+                        must be deleted when no longer needed.
+                    Subsequent code iterates over the
+                        objects in the container, outputting
+                        the names of each parameter and
+                        deleting the objects.
+
+[[x247#pardef.find]]                        Retrieves a parameter definition by name.  This provides
+                        us a container of pointers to `DBParameter`
+                        objects.  We'll say more about `DBParameter`
+                        later on.  For now you only need to know that this
+                        class encapsulates cached information retrieved from
+                        the database for a single parameter.
+                    A readonly reference to this information can be gotten via
+                        the `getInfo` method.  The pointers
+                        in the container represent pointers to dynamically created
+                        objects.  Therefore, once your code is done using one,
+                        it should be deleted to avoid memory leaks.
+
+Let's look at a toy program to create spectra in a save
+                set and list information about the spectra a save set has.
+                For this program:
+
+
+
+1. Refer to the SpecTcl command reference or user's guide for
+                         a list of the spectrum types and what they do.
+2. If you are going to test it, be sure you run it on a
+                         database that has had the parameter test program run on it.
+                         We will be using the saveset and
+                         parameter definitions that we created
+                         with that program.
+
+Note that in general, spectra need a name,
+                a spectrum type, a vector of parameters and
+                one or two axis definitions.  By default,
+                spectra are defined with longword per channel
+                storage, but this can be modified.
+
+<a name="AEN315"></a>**Example 3-5. Defining Spectra (specdef.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <DBParameter.h>
+#include <DBSpectrum.h>     
+
+#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
+int main(int argc, char** argv)
+{
+    if (argc != 2) {
+        std::cerr << "Usage:  specdef database-name\n";
+        exit(EXIT_FAILURE);
+    }
+
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet* pSvSet(nullptr);
+    try {
+        pSvSet = db.getSaveSet("a saveset");
+
+        std::vector<const char*> s1Params = {"p1"};      
+        std::vector<const char*> s2Params = {"p1", "p2"}; 
+        SpecTclDB::SaveSet::SpectrumAxis x = {0, 1023, 1024};  
+        SpecTclDB::SaveSet::SpectrumAxis y = {-10.0, 1.0, 100};
+
+        std::vector<SpecTclDB::SaveSet::SpectrumAxis>
+            s1axes = {x};
+        std::vector<SpecTclDB::SaveSet::SpectrumAxis>
+            s2axes = {x, y};
+
+        delete pSvSet->createSpectrum("s1", "1", s1Params, s1axes); 
+        delete pSvSet->createSpectrum("s2", "2", s2Params, s2axes);
+
+        auto spectra = pSvSet->listSpectra();                 
+        std::cout << "Names of spectra in saveset:\n";
+        for (int i =0; i < spectra.size(); i++) {
+            auto& info = spectra[i]->getInfo();
+            std::cout << info.s_base.s_name << std::endl; 
+            delete spectra[i];
+        }
+    }
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        delete pSvSet;
+        exit(EXIT_FAILURE);
+    }
+
+    delete pSvSet;
+    exit(EXIT_SUCCESS);
+}
+
+                
+```
+
+We're not going to describe the elements of this example
+                that are repeats of code fragments in prior examples.
+
+[[x247#specdef.header]]                        We will be calling methods of the
+                        `DBSpectrum`
+                        class, which encapsulates data from
+                        a spectrum definition in the database.
+                        We'll also be deleting dynamically allocated
+                        `DBSpectrum` objects.
+                        Both of these require knowledge of the shape of the
+                        object given in the class definition.
+                        The DBSpectrum.h header
+                        is included to provide that information
+                        to our program.
+                    [[x247#specdef.pars]]                        Spectrum are incremented on data from parameters
+                        in events.  We defined two parameters in the
+                        pardef.cpp example;
+                        p1 and p2.
+                        We're going to be making a 1d and 2d spectrum.
+                        These need one and two parameters respectively.
+                        The spectrum generating method requires a
+                        `std::vector<const char*>`
+                        where each element is a pointer to a parameter
+                        name that's already been defined. 
+                    This line and the next line define the vectors
+                        appropriate to the two spectra we'll be creating.
+
+[[x247#specdef.axes]]                        Spectra require one or two axes as well.
+                        Axes are defined by low, and high limits and
+                        binning.  This line and the next define a pair
+                        of axes.  Note that the first one is arbitrary,
+                        but the second one, uses the low/high binning
+                        suggestions in the p2
+                        parameter definition.  A real program
+                        will query that parameter for its axis
+                        recommendations.  That's beyond the scope of
+                        this example however.
+                    The two lines that follow the axis definitions
+                        make a one element and two element vector of
+                        axis specifications respectively.  Vectors of
+                        axis specifications are what the spectrum
+                        generating method expects.
+
+[[x247#specdef.def]]                        These two lines actually create the spectra.
+                        As with parameters, a dynamically allocated
+                        pointe to the spectrum object is returned, which
+                        we immediately delete.
+                        The parameters to `createSpectrum`
+                        are respectively, the name of the spectrum,
+                        the spectrum type (1 is the
+                        type of 1d spectra and 2
+                        is the type for 2d spectra).  The parameters needed
+                        by the spectrum and the spectrum axes.
+                    An optional additional parameter provides
+                        a string specification of the data type used
+                        for spectrum channels.  This defaults to
+                        long if not supplied but
+                        can also be word or
+                        byte.
+
+[[x247#specdef.list]]                        Asks the saveset for a list of the spectra
+                        that have been defined.  The return value is
+                        an indexable container that holds pointers to
+                        dynamically allocated `DBSpectrum`
+                        objects.
+                    [[x247#specdef.info]]                        The spectrum information struct is complex enough
+                        that it is divided into several pieces. The
+                        piece selected by `s_base`
+                        contains the base information about the spectrum,
+                        including the type and spectrum name.
+                    The loop outputs the name sof all spectra
+                        defined in the saveset to standard output.
+
+The gate definition API in `SavSet`
+                is the most complex of the APIs. This is because SpecTcl supports
+                a rich set of gate types.  There are are essentially
+                three major classes of gate:
+
+
+
+1. Gates that specify a region of interest in a subset
+                         of the event's parameter space.
+2. Gates that specify a logical operation
+                         on other gates.
+3. Gates that specify a bitwise operation and comparison
+                         on a mask applied to a single parameter.
+
+The point gates are, for convenience, further
+                subdivided into
+                *1-d* gates, which specify
+                lower and upper bounds that define a slice of valuees,
+                and *2-d* gates, which
+                define a 2-d region of parameter space in pairs
+                of parameters.
+                Regardless of the gate type, all gates are
+                encapsulated in a `DBGate`
+                class which holds the database information
+                describing the gate.
+
+The information cached for a gate is similarly
+                more complex.  We'll look at that in detail
+                in the reference man pages on the
+                `DBGate` class.
+
+Let's look at a simple program that generates
+                one of each type of these gates.  In past examples,
+                we've made a token attempt at error handling by
+                wrapping the body of the code in a try/catch
+                block.  From now on we will not do any error
+                handling, for the sake of brevity.
+
+This program assums a database that has had
+                the **makesaveset** and
+                **pardef**  example programs
+                run on it.
+
+<a name="AEN378"></a>**Example 3-6. Defining gates (gatedef.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <DBGate.h>         
+
+#include <iostream>
+#include <stdlib.h>
+
+
+int main (int argc, char** argv)
+{
+    if (argc != 2) {
+        std::cerr << 'Usage:: gatedef database-name\n";
+        exit(EXIT_FAILURE);
+    }
+
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet*  svset = db.getSaveSet("a saveset");
+
+    std::vector<const char*> p1ds = {"p1"};  
+
+    delete svset->create1dGate("1d", "s", p1ds, 100, 200);
+
+    std::vector<const char*> p2ds = {"p1", "p2"};  
+    std::vector<std::pair<double, double>> pts2d {
+      {100, 0}, {200, 0}, {200, 200}, {100, 200}
+    };
+    delete svset->create2dGate("2d", "c", p2ds, pts2d);
+
+    std::vector<const char*> gatenames={"1d", "2d"};   
+    delete svset->createCompoundGate("compound", "+", gatenames);
+
+    delete svset->createMaskGate("mask", "em", "p1", 0x55555555); 
+
+    auto gates = svset->listGates();   
+    std::cout << "Gates in the saveset:\n";
+    for (int i = 0; i < gates.size(); i++) {
+        std::cout << gates[i]->getInfo().s_info.s_name << std::endl;
+        delete gates[i];
+    }
+
+    delete svset;
+    exit(EXIT_SUCCESS);
+}
+
+                
+```
+
+[[x247#gatedef.header]]                        The DBGate.h header defines
+                        the shape and method sof the
+                        `SpecTclDB::DBGate` class.
+                        We need these definitions because we are going
+                        to all methods on class instances and
+                        delete them.
+                    [[x247#gatedef.1d]]                        This section of code creates a 1-d gate.
+                        1-d gates define a slice in parameter space.
+                        Examples of 1-d gates are slices and gamma slices.
+                        Since a gamma slice is defined on any number
+                        of parameters, the method that creates 1-d
+                        gates needs a vector of parameter names, rather
+                        than a single parameter name.
+                    Once the parameter name vector is created,
+                        we can call
+                        `create1dGate`
+                        passing the name of the new gate, the
+                        gate type code (slice in this case), the
+                        vector of parameter names the gate needs and
+                        the limits of the gate.
+
+[[x247#gatedef.compound]]                        The only difference between a 1d and
+                        a 2d gate (e.g. band, contour, gamma contour) is that
+                        the shape of the region of interest is defined
+                        by a vector of x/y coordinate pairs.  These
+                        coordinates are in parameter space (not spectrum space).
+                    This section of code creates  a
+                        contour gate that consists of a square
+                        in the parameter space defined by
+                        p1, p2.
+
+[[x247#gatedef.compound]]                        Compound gates define a logical combination
+                        of existing gates; for example a gate that
+                        is true if all component gates are true or a gate that is
+                        true if any of the component gates is true.
+                        The  not gate is also a compound gate that
+                        depends on exactly one gate.  Similarly, True and False
+                        gates are compound gates that depend on no
+                        other gate.
+                    This section of code creates a compound gate
+                        that is true when either of the 1d or
+                        2d gates we previously created is true.
+
+[[x247#gatedef.mask]]                        A mask gate performs specific bitwise operations
+                        on parameters that are presumed to actually be
+                        integers.  The result of those bitwise
+                        operations determines the truth or falsity
+                        of a gate.
+                    This section of code creates an
+                        *equal mask gate*.
+                        The bitmask is bitwise anded with the
+                        value of the parameter on each event and,
+                        if the result is equal to that mask, the
+                        gate is satisfied.
+
+[[x247#gatedef.list]]                        This section of code lists the gates
+                        in the save set. The method
+                        `listGates` returns a container
+                        that has pointers to `SpecTclDB::DBGate`
+                        that contain cached information about all gates defined
+                        for the saveset in the database.
+                        The `SpecTclDB::DBGate` objects
+                        are dynamically created and, therefore,
+                        must be deleted when you no longer need them.
+                    As with all database objects, the
+                        `getInfo` method
+                        returns a const reference to a struct
+                        that defines the information in the
+                        database for the gate.  For gates, this
+                        struct has quite a few sub-pieces. The
+                        `m_info` sub
+                        structure contains base information all
+                        gates have.  The `s_name`
+                        field in that struct is an
+                        `std::string`
+                        containing the gate's name.
+
+Gates, by themselves are useless.  They only have meaning, and in
+                SpecTcl are only evaluated, if they are applied
+                to a spectrum or spectra. When a gate is applied
+                to a spectrum, that spectrum can only be incremented
+                for events that make that gate true.
+
+All SpecTcl spectra have exactly one gate applied
+                to it at all times.  When initially created, a SpecTcl
+                spectrum has a pre-defined True gate applied to it. By convention,
+                there's no need to save either that true gate
+                nor the application of true gates to spectra.
+
+Note that the database does not enforce the
+                requirement that only one gate is applied at any
+                time to any spectrum.  Restoring from a saveset
+                that applies more than one gate to a spectrum
+                will result in the application of one of those
+                gates (unpredictably), to the spectrum.  The
+                code used by SpecTcl to create savesets ensures this
+                does not happen.
+
+The example below assumes that the databas it
+                is run on has hasd
+                **makesaveset**, **pardef**,
+                **gatedef** and
+                **specdef**previously
+                run on it.
+
+<a name="AEN427"></a>**Example 3-7. Applying gates to spectra (applydef.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <DBApplications.h>            
+
+
+#include <iostream>
+#include <stdlib.h>
+
+
+int main(int argc, char** argv)
+{
+    if (argc != 2) {
+        std::cerr << "Usage:: applydef database-name\n";
+        exit(EXIT_FAILURE);
+    }
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet* svset = db.getSaveSet("a saveset");
+
+    delete svset->applyGate("1d", "s2");    
+    delete svset->applyGate("compound", "s1");
+
+    auto applications = svset->listApplications();
+    std::cout << "Gate applications\n";   
+    for (int i = 0; i < applications.size(); i++) { 
+        std::cout << applications[i]->getGateName()
+                  << " is applied to "
+                  << applications[i]->getSpectrumName() << std::endl;
+        delete applications[i];
+    }
+    delete svset;
+    exit(EXIT_SUCCESS);
+
+}                    
+                
+```
+
+[[x247#applydef.header]]                        The Applictions.h
+                        header defines the
+                        `SpecTclDB::DBApplication`
+                        class which encapsulates gate application
+                        records in the database.
+                        Including this file allows us to delete
+                        instances of this class as well as call
+                        methods on instances.
+                    [[x247#applydef.apply]]                        To save a gate application, we only need
+                        provide the name of the gate and the
+                        name of the spectrum it should be applied
+                        to to the
+                        `applyGate` method
+                        of the saveset.
+                    [[x247#applydef.list]]                        This section of code lists the gate applications.
+                        A good question is why we didn't just use
+                        `getInfo` and list
+                        out information cached there.  The answer
+                        is that the information structure contains
+                        information that's stored in the database for
+                        the application.  In keeping with holding
+                        the database in a normal form, the gate
+                        and spectra are stored as foreign keys into
+                        the gate and spectrum definitions tables.
+                    `getGateName` and
+                        `getSpectrumName`
+                        use those values to look up the actual
+                        gate and spectrum names.
+
+Sometimes we want to write computations that can
+                be steered at run-time.  For example, suppose we want to apply a
+                linear energy calibration to a raw ADC parameter.  This
+                calibration requires two values, a slope and offset.
+                These values will not, in general, be known in advance
+                but must be determined.
+
+Tree variables wrap Tcl variables in a way that makes them
+                easy for the user to set and modify yet appear
+                like ordinary double precision values to the C++
+                code.  In addition tree variables have associated,
+                with them units of measure to remind users how
+                to properly set them (was that slope counts/KeV, counts/MeV?).
+
+Being able to save the analysis conditions so that
+                they can be repeatably restored requires that
+                tree variable definitions and values be saved
+                in the database as well.
+
+The C++ API for tree variables is demonstrated
+                in the example below.
+
+<a name="AEN451"></a>**Example 3-8. Saving and recovering tree variables (vardef.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <DBTreeVariable.h>  
+
+#include <iostream>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+    if (argc !=2) {
+        std::cerr << "Usage: vardb database-file\n";
+        exit(EXIT_FAILURE);
+    }
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet* svset = db.getSaveSet("a saveset");
+
+    delete svset->createVariable("p1.slope", 1.0, "KeV/Counts");
+    delete svset->createVariable("p1.offset", 0.0, "KeV");   
+
+    delete svset->createVariable("p2.slope", 1.0, "KeV/Counts");
+    delete svset->createVariable("ps.offset", 0.0, "KeV");
+
+    auto vars = svset->listVariables();      
+    std::cout << " Tree variables: \n";
+    for (int i = 0; i < vars.size(); i++) {
+        const auto& info = vars[i]->getInfo();
+        std::cout << info.s_name << " = " << info.s_value
+                  << info.s_units << std::endl;
+
+        delete vars[i];
+    }
+    delete svset;
+    exit(EXIT_SUCCESS);
+}
+
+                
+```
+
+[[x247#tv.header]]                        The DBTreeVariable.h
+                        header defines the `SpecTclDB::DBTreeVariable`
+                        class which is wraps a database definition
+                        for a tree variable.
+                    [[x247#tv.create]]                        These lines create four tree variables.
+                        These might be initial value for a linear
+                        calibration.  Each call to
+                        `createVariable`
+                        needs a variable name, its current value
+                        and units of measure.  It is customary
+                        to use an empty string as the units
+                        of measure for unit-less values.
+                    [[x247#tv.list]]                        This section of code lists the tree
+                        variables that are defined in this save
+                        set, their values and units of measure.
+                        Note that since
+                        `listVariables`
+                        returns a container of pointers to dynamically
+                        created objects, we delete
+                        each pointer after we are done with it.
+
+One of the more powerful features of the SpecTcl
+                database is its ability to store pre-decoded parameters
+                and playing back runs from the databsae.
+                This is analagous to loading Root Trees (which SpecTcl
+                can also do).
+
+This allows the user to rapidly try out different
+                analysis conditions.   Rapidly because normally the
+                user's data anlysis pipeline, the code that extracts parametes
+                from raw data, is the most computationally expensive
+                part of SpecTcl.  Reading events from the database allows
+                the data analysis pipeline to be bypassed.
+
+The examples that show the API for storing and
+                reading back event data are somewhat more complex.
+                They will also need to rely on the existence of
+                some source of data and some sink of data.
+                These will be trivial sources, and not described
+                in detail in the examples.
+
+<a name="AEN472"></a>**Example 3-9. Storing event data (evtstore.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <stdlib.h>
+#include <iostream>
+#include <time.h>
+                         
+void createEvent(std::vector<int>& params, std::vector<double>& values)
+{
+
+    for (int i =0; i < 100; i++) {
+        if (drand48() < 0.5) {
+            params.push_back(i);
+            values.push_back(drand48()*200.0 - 100.0);
+        }
+    }
+}
+
+int main(int argc, char** argv)
+{
+    if (argc != 3) {
+        std::cerr << "Usage:  evtstore db-filename nevents\n";
+    }
+    const char* dbFile = argv[1];
+    int         nEvents = strtoul(argv[2], nullptr, 0);
+
+    SpecTclDB::CDatabase db(dbFile);
+    SpecTclDB::SaveSet* pSaveSet = db.getSaveSet("a saveset");
+
+    int runId =                      
+        pSaveSet->startRun(1, "Some junk Data", time(nullptr));
+
+    std::vector<int> params;
+    std::vector<double> values;
+    srand48(time(nullptr));           
+    void* ctx = pSaveSet->startEvents(runId);  
+    for (int i =0; i < nEvents; i++) {
+        params.clear();
+        values.clear();             // new event.
+        createEvent(params, values);
+        pSaveSet->saveEvent(                   
+            runId, i, params.size(), params.data(), values.data()
+        );
+
+        if (i %100 == 0) {    // every 100 events commit the transaction.
+            pSaveSet->endEvents(ctx);         
+            ctx  = pSaveSet->startEvents(runId);
+        }
+
+    }
+    pSaveSet->endEvents(ctx);                
+
+    pSaveSet->endRun(runId, time(nullptr));  
+    delete pSaveSet;
+    exit(EXIT_SUCCESS);
+}
+                    
+                
+```
+
+[[x247#evtstore.crevent]]                        This function creates an event. It
+                        takes references to  a pair of vectors.
+                        The integer vector is filled in with
+                        numbers of parameters that are present
+                        while the vector of doubles is filled in
+                        whith parameter values for that parameter
+                        in this event.
+                    There are 100 parameters.  In any given
+                        event, there's a 50% chance a parameter is present.
+                        The parameter values are uniformly distributed
+                        random numbers in the range [-100.0, 100.0)
+                        because `drand48`
+                        produces pseudo randoms in the range
+                        [0, 1)
+
+[[x247#evtstore.start]]                        The `startRun`
+                        indicates we are starting to store data for a run.
+                        Normally this will be intermixed event
+                        and scaler data.  For this example, we're
+                        only storing events.  The run number must
+                        be unique within the save set. The
+                        return value is an integer that identifies
+                        the run and must be used in most
+                        of the methods we'll call in the future.
+                    Only a run start time is provided.
+                        The assumption is that we are reading data
+                        from some serial data source and won't
+                        know the end time for the run until
+                        we reach data for the end of the run.
+
+[[x247#evtstore.init]]                        Our event generator uses the pseudo random number generators.
+                        This code ensures those generators are seeded with an
+                        undeterministic value.  If you omit this
+                        line, the program will still work but the
+                        random number generators will be seeded
+                        with a deterministic value and the
+                        results of each run will be the same
+                        from program run to program run.
+                    [[x247#evtstore.init]]                        Individual database stores can be expensive.
+                        Sqlite provides a mechanism for batching up
+                        a bunch of stores into an atomic
+                        *transaction*, these
+                        transactions are called savesets.  
+                    This line starts a transaction for storing
+                        events and gets a void*
+                        back which we call a context.
+                        The context identifies the transaction
+                        suc that it can be rolled back or committed
+                        by the code at a later date.
+
+[[x247#evtstore.save]]                        This line saves an event. The
+                        `data` method of
+                        `std::vector` returns
+                         a pointer to the contiguous storage used by the
+                         event for he current transaction.
+                    [[x247#evtstore.commit]]                        Every 100 events, we commit the
+                        transaction we started with our call to
+                        `startEvents`.
+                    It is also possible to decide not to
+                        store any events from a transaction
+                        but doing that is beyond the scope of this
+                        example.
+
+[[x247#evtstore.commit2]]                        Performs the commit for any partial
+                        block of events.
+                    [[x247#evtstore.endrun]]                        Closes off the run by providing the
+                        end run time.
+
+The next program will read the event data
+                we stored in the previous example and dump
+                every 50 events to stdout. Note that the
+                parameter numbers are intended to be the
+                `number` parameter
+                passed to the `createParameter`
+                method in the database.  In SpecTcl these
+                correspond to parameter ids, slots in the
+                `CEvent` object passed
+                between the members of the event processing
+                pipeline.
+
+In SpecTcl, using `CTreeParameter`
+                and `CTreeParameterArray` objects
+                hides but does not eliminate this parameter number.
+                What this number is *not*
+                is the value of the primary key of a parameter
+                definition.
+
+<a name="AEN519"></a>**Example 3-10. Recovering event data (evtget.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+
+#include <iostream>
+#include <stdlib.h>
+
+
+// accept data:
+                    
+void sink(const SpecTclDB::SaveSet::Event& event)
+{
+    static int evt = 0;
+    if ((evt % 50) == 0) {
+      std::cout << "Dumping event " << evt << ":\n";
+        for (int i =0; i < event.size(); i++)  {
+            std::cout << "   param# " << event[i].s_number
+                << " = " << event[i].s_value << std::endl;
+        }
+    }
+    evt++;
+}
+
+
+int main (int argc, char** argv)
+{
+    if (argc != 2) {
+        std::cerr << "Usage:: evtget db-filename\n";
+        exit(EXIT_FAILURE);
+    }
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet* pSet = db.getSaveSet("a saveset");
+
+    int runid = pSet->openRun(1);    
+    void* ctx = pSet->openEvents(runid); 
+
+    SpecTclDB::SaveSet::Event event;
+    while(pSet->readEvent(ctx, event)) {  
+        sink(event);
+    }
+
+    pSet->closeEvents(ctx);     
+    delete pSet;
+
+    exit(EXIT_SUCCESS);
+}
+
+                   
+                
+```
+
+[[x247#evtget.sink]]                        This function is a stand in for whatever
+                        processing you might do on events.
+                        For our toy example, it just dumps the
+                        data from every 50'th event.
+                    [[x247#evtget.open]] `openRun`
+                        accepts a run number and returns the
+                        id (primary key) identifying that run
+                        in the database.  This can be used in other
+                        calls to retrive information about
+                        event data and scalers.
+                    [[x247#evtget.evts]]                        Getting events back from the database
+                        requires iteration through the result set
+                        from a query.  Doing this requires
+                        that some context allowing the result set to be
+                        identified must be held and saved.
+                        `openEvents` performs
+                        the query for the events that belong to the
+                        run and returns a context that refers to the
+                        result set.
+                    [[x247#evtget.read]] `readEvent`
+                        takes the result set context gotten above
+                        and fills in the `event`
+                        parameter with the next event for that
+                        run in the database.
+                    As we've seen from the previous example
+                        (evtstore.cpp),
+                        parameters in an event can form a sparse set.
+                        The data stored for an event only consists of the
+                        parameters that have data for that event.
+                        `readEvents` fills
+                        in an indexable container (`Event`)
+                        which contains the parameter numbers and
+                        parameter values for parameters with data
+                        for an event.
+
+note that this can be trivially turned into
+                        a `CEvent` object
+                        by SpecTcl. With a bit of a table lookup
+                        it can also be trivially marshalled into a root tree
+                        leaf.
+
+[[x247#evtget.close]] `closeEvents`
+                        releases all resources that were associated
+                        with the result set gotten from
+                        `openEvents`.
+
+In addition to storing decoded event data, the
+                database schema supports storing and retrieving
+                the results of scaler reads.  The next pair of
+                examples exercise this capability.
+
+<a name="AEN551"></a>**Example 3-11. Storing scaler readouts (sclstore.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <stdlib.h>
+#include <iostream>
+#include <time.h>
+
+
+std::vector<uint32_t> getScalers()  
+{
+    static uint32_t       chan1 = 0;
+    std::vector<uint32_t> result;
+    for (int i = 0; i < 32; i++) {
+        result.push_back(chan1*i);
+    }
+
+    chan1++;
+    return result;
+}
+
+int main(int argc, char** argv)
+{
+    if (argc != 2) {
+        std::cerr << "Usage: sclstore database-name\n";
+        exit(EXIT_FAILURE);
+    }
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet* pS = db.getSaveSet("a saveset");
+
+    time_t now =time(nullptr);
+    int offset = 0;
+    int runid = pS->startRun(2, "This is run 2", now);
+
+    // simulate Read every 10 seconds 100 times:
+
+    for (int i = 0; i < 100; i++) {   
+        now += 10;
+        auto scalers = getScalers();
+        pS->saveScalers(
+            runid, 1, offset, offset+10, 1, now, 32, scalers.data()
+        );
+        offset += 10;
+    }
+    pS->endRun(runid, now);
+
+    delete pS;
+    exit(EXIT_SUCCESS);
+}
+                    
+                
+```
+
+We've already seen show to record the start and
+                end of run information, therefore, we won't
+                repeat that discussion here.
+
+[[x247#sclstore.produce]]                        We need something to generate our scaler
+                        data.  normally, these will come from ring items.
+                        In SpecTcl event processors, the
+                        `OnOther` method allows you to
+                        catch and process scaler data.  SpecTcl's
+                        code to write event data to the database h as an
+                        implementation for this method that decodes
+                        the scaler ring item and writes it to the
+                        database.
+                    In this case, since we are just writing a
+                        sample program, we'll just generate 32
+                        scaler values that change somewhat each time.
+
+[[x247#sclstore.save]]                        This loop simulates the scaler readouts
+                        for a run that's 1000 seconds long with scaler
+                        readouts every 10 seconds.
+                        `saveScalers` takes
+                        the run Id to associate the scalers with the
+                        correct run.  It also takes two offset
+                        values representing the start and end time into
+                        the run over which the scalers counted.
+                        The next parameters is a divisor. If you
+                        divide the start and end times by the
+                        divisor you should get the number of seconds
+                        into the run for each of those values. This supports
+                        offsets that have sub-second precision.
+                        Following the divisor is a clock timestamp
+                        indicating when this read took place.
+                        The final pair of parameters is the
+                        number of scalers and a pointer to them.
+
+<a name="AEN565"></a>**Example 3-12. Recovering scaler readouts (sclget.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+                       
+void processScalers(const SpecTclDB::SaveSet::ScalerReadout& readout)
+{
+    double start = readout.s_startOffset;
+    start /= readout.s_divisor;
+    double end   = readout.s_stopOffset;
+    end   /= readout.s_divisor;
+    std::cout << "Scaler readout: Sid: " << readout.s_sourceId
+              << " from " << start << " to " << end << " seconds into the run \n                  ";
+    std::cout << "Readout occured at: " << ctime(&readout.s_time) << std::endl;
+
+    for (int i =0; i < readout.s_values.size(); i++) {
+        std::cout << "   channel " << i << " : " << readout.s_values[i] << std::                  endl;
+    }
+    std::cout << "------------------------------\n";
+}
+
+int main(int argc, char** argv)
+{
+    if (argc != 2) {
+        std::cerr << "Usage:: sclget database-file\n";
+        exit(EXIT_FAILURE);
+    }
+    SpecTclDB::CDatabase db(argv[1]);
+    SpecTclDB::SaveSet* pS = db.getSaveSet("a saveset");
+
+    int runid = pS->openRun(2);
+    auto info = pS->getRunInfo(runid);   
+    std::cout << "Dumping scalers for run: " << info.s_runNumber << std::endl;
+    std::cout << "Title: " << info.s_title << std::endl;
+    std::cout << "Start time: " << ctime(&info.s_startTime) << std::endl;
+    std::cout << "End time  : " << ctime(&info.s_stopTime) << std::endl;
+
+    void* ctx = pS->openScalers(runid);  
+    SpecTclDB::SaveSet::ScalerReadout scalers; 
+    while(pS->readScaler(ctx, scalers)) { 
+        processScalers(scalers);
+    }
+
+    pS->closeScalers(ctx);              
+
+
+    delete pS;
+    exit(EXIT_SUCCESS);
+}
+                    
+                
+```
+
+[[x247#sclget.process]]                        This function is a stand-in for any processing you
+                        might want to do on a scaler readout.
+                        In this case we just output information
+                        about the scaler read and the channel
+                        values to stdout.
+                    [[x247#sclget.runinfo]]                        The `getRunInfo`
+                        method fetches top level information
+                        about the run given its id
+                        (gotten from `openRun`).
+                        The run number, title, start and stop time
+                        are elements of the
+                        SpecTclDB::SaveSet::RunInfo
+                        struct this method returns.
+                    [[x247#sclget.open]]                        As with getting events from the database,
+                        scaler readout information is gotten by
+                        iterating over the result set from a
+                        query executed on the database.
+                        `openScalers` executes
+                        the query and returns a context that
+                        can be used to iterate over the result set
+                        from that query.
+                    [[x247#sclget.read]]                        The `readScaler`
+                        gets the next result from the result set
+                        indicated by the context parameter.
+                        The information in that result are loaded
+                        into the SpecTclDB::SaveSet::ScalerReadout
+                        struct passed to it (by reference).
+                    The return value of `readScaler`
+                        is non zero if there was another result or
+                        zero if there was no next result set
+                        item.
+
+All we do with the data gotten from
+                        the database is call
+                        `processScalers`.
+
+[[x247#sclget.close]]                        Once you are done iterating over the
+                        result set, you must free the resources associated
+                        with the context.   This is done by
+                        calling `closeScalers`
+                        passing the context.
+                    It is not legal to use the context again, once
+                        it has been closed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| C++ Low level API | Up | SpecTcl classes that record event data |

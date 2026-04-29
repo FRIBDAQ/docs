@@ -1,0 +1,302 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3_tclringbuffer"></a>TclRingBuffer
+
+<a name="AEN110700"></a>## Name
+
+TclRingBuffer -- Tcl ring buffer consumer package
+
+<a name="AEN110703"></a>## Synopsis
+
+**package require TclRingBuffer
+   **
+
+**ringbuffer attach *ring-uri*
+**
+
+**set item [ringbuffer get ?`-timeout` secs? *ring-uri ?type-list?*
+**
+
+**ringbuffer detach *ring-uri*
+**
+
+<a name="AEN110716"></a>## DESCRIPTION
+
+Provides Tcl scripts with access to ring buffer data.
+	NSCLDAQ ring buffers are identified by Uniform Resource
+	Identifiers (URI).  These URIs are of the form:
+	tcp://*hostname/ringname*.
+
+A program wishing to get data from  ring must first use
+	the **ringbuffer attach** command to
+	attach as a client to that ring.  Once attached the
+	**ringbuffer get** command gets data
+	fromt he ring, blocking as needed.  The optional
+	*type-list* limits the types
+	of ring items returned.  The type list is a list of integer
+	item types.  If the `-timeout` is provided to the
+    **get** subcommand, the operation will block
+    at most that many seconds.  If a ring item is not read after the
+    timeout, an empty string is returned.
+    See the header DataFormat.h
+	for the ring data types.
+
+Once done with a ring, the script either exits, which automatically
+	detaches all rings that have been attached, or explicitly uses
+	the **detach** command to detach the ring.
+
+The items returned by **ring get** are dicts that are
+	descsribed in the RING ITEM DICT section below.
+
+<a name="AEN110732"></a>## RING ITEM DICT
+
+Ring items returned by the **ringitem get** command are
+	decoded into dicts.  All dicts contain a type key
+	whose value is a textually encoded ring item type.  Further more, if a ring item
+	has a body header it has an additional key bodyheader
+	whos value is a dict that contains three key value pairs:
+	timestamp is the timestamp from the body header,
+	source  is an integer that identifies the data source
+	and barrier is the barrier flag, nonzero if the
+	item was an event builder barrier synchronization item and zero if not.
+
+The remaining keys depend on the type of ring item>
+
+<a name="AEN110742"></a>### Run state change types
+
+These are types Begin, Pause,
+	    Resume, and End.  The
+	    additional dict key/value pairs these item type have are:
+
+
+
+runThe number of the run affected.
+
+timeoffsetThe number of seconds into the run at which this
+			item was emitted.
+
+divisorProvides the number of ticks in timeoffset
+                in a second.  This provides support for sub second timing
+                resolution.
+
+timeoffsetsecUses the timeoffset and
+                divisor values and returns the offset
+                into the run as floating point seconds.
+
+titleThe title of the run.
+
+realtimeA unix timestamp that can, for example be passed to
+			**clock format** to get date and time
+			at which this item was emitted.
+
+sourceProvides the original data source id that created this
+                state change item.  There is a source id in the
+                body header, however the event builder pipeline will, in general
+                edit that.  This key provides the original source id and is
+                immune from that editing.
+
+<a name="AEN110787"></a>### Scaler items
+
+These items are of type Scaler.
+	    The additional key value pairs specific to this ring item are:
+
+
+
+startNumber of seconds into the run at which the counting
+			interval for this scaler item started. See
+			divisor below, however.
+
+endNumber of seconds into the run at which the counting
+			interval ended. See
+			divisor below, however.
+
+realtimeA unix timestamp that indicates the absolute time
+			at which this item was emitted.  This can be
+			passed to **clock format** to get a
+			date/time string.
+
+divisorApplications can do fractional second timing.
+			If so, this value is the what to divide the
+			start and end offsets by to actually get seconds.
+
+startsecThe counting interval start offset into the run in
+                floating point seconds.
+
+endsecThe counting interval end offset into the run in
+                floating point seconds.
+
+incrementalBoolean flag that is true if the scalers are incremental
+			(cleared when latched/read) or false if not.
+
+sourceThe original source id of the scaler item. While there
+                is a source id in the body header, that is subject to editing
+                by event builder piplines the item may have flowed through.
+                This key provides a source id that is immune to that editing.
+
+scalersA list of the scaler values.
+
+<a name="AEN110840"></a>### String items
+
+These are types Packet Types and
+	    Monitored Variables.  The have the
+	    additional key value pairs:
+
+
+
+timeoffsetNumber of seconds into the run the item was emitted.
+			See, however divisor below.
+
+divisorIf the producer is using fractional timing, this is
+			the value to divide the time offset by to get seconds
+			again.
+
+offsetsecThe offset into the run in floating point seconds.
+
+realtimeA unix time stamp value specifying when the
+			item was emitted.  This can be passed to
+			**clock format** to get a date/time
+			string.
+
+sourceThe id of the original source that generated this item.
+                While there is a source id in the body header, it is subject
+                to editing by any event pipelines this item has flowed through.
+                This key provides the authoritative source id for this item
+                immune to event builder pipeline editing.
+
+stringsA valid Tcl list of the strings in the item.  The
+			meanings of these strings depends on the actual item type.
+
+<a name="AEN110878"></a>### Ring format description items
+
+This item type;
+	    Ring Item format version, describes the
+	    format of the data.  It should be the first item emitted in
+	    a run.  It contains the following key/value pairs
+
+
+
+majorThe major version of the format.
+
+minorThe minor version of the format.
+
+<a name="AEN110893"></a>### Physics events
+
+This dict contains data acquired in response to accepted physics
+	    triggers.  It contains the following items:
+
+
+
+sizeNumber of bytes of data in the event body.
+
+bodyThe body of the physics event as a byte array.  Byte
+			arrays can be decoded using the Tcl
+			**binary scan** command.  Byte arrays
+			are used because, unlike other item types, we have no
+			clues to the semantics of the body contents.
+
+<a name="AEN110908"></a>### Event fragment
+
+These represent event fragments.  They can occur if you monitor a
+	    ring that is the direct output of the event orderer.  Using the
+	    ReadoutGUI this is done by requesting a 'tee ring' and looking at it.
+
+Event fragment dicts have the following key/value pairs:
+
+
+
+timestampThe timestamp associated with the fragment.  Note that
+			event fragments don't ever have body headers.
+
+sourceId of the source of this event.
+
+barrierBarrier type of the fragment.  Nonzero values indicate
+			the fragment cause a barrier synchronization of the
+			event orderer's output while zero means the fragment is
+			did not.
+
+sizeNumber of bytes in the body of the fragment.
+
+bodyA byte array contaning the fragment body (payload).
+			This byte arrays can be decoded using the
+			Tcl **binary scan** command.
+
+<a name="AEN110939"></a>### Trigger count items
+
+Of type Trigger count, these items provide
+	    gross statistics for the triggers seen by a data source.  These are
+	    normally used by SpecTcl to determine the fraction of data analyzed
+	    online.
+
+The following key/value pairs are used by this type:
+
+
+
+timeoffsetOffset into the run at which this item was emitted.
+
+divisorDividing timeoffset by this value
+			yields the number of seconds into the run at which
+			this item was emitted.
+
+offsetsecThe offset into the run at which this item was generated
+                in floating point seconds.
+
+realtimeThe unix time of day value at which this item was emitted.
+			This can be passed to **clock format** to
+			get a time/day string.
+
+triggersNumber of triggers this source responded to this run
+			(live trigers).  Note that this is a wide integer (generated
+            from a 64 bit source).
+
+sourceThe id of the data source that generated this item.
+                Note that while the body header contains a source id, it could
+                have been edited by any event building pipelines the item
+                flowed through.  The value of this key is not subject to that
+                sort of editing.
+
+<a name="AEN110977"></a>### Glom parameters
+
+When the event builder pipeline is in use, the glom stage of the
+	    pipeline has a set of parameters it uses to determine how, or if
+	    to glue event fragments together to make an event.  These parameters
+	    are documented in a ring item it emits at the start of each run.
+
+The glom parameter item has the type Glom Parameters.
+	    It never has a body header and has the following key/value pairs:
+
+
+
+isBuildingBoolean value that is true if glom was told to build
+			events and false if ont.
+
+conicidenceWindowThis only has meaning if isBuilding
+			is true.  In that case it is the width of the window
+			in ticks that defines a coincidence.
+
+timstampPolicyOnly meaningful if isBuilding is
+			true, this value describes how timestamps are
+			assigned to built events.  If this value is
+			first, the event timestamp is taken
+			from the earliest fragment.  If last,
+			the timestamp is taken from the last fragment.  Finally,
+			if average, indicates the timestamp is
+			the average of all fragments in the event.
+
+<a name="AEN111003"></a>### Abnormal end items
+
+These can be emitted by various NSCLDAQ components to indicate the
+	    run did not end properly.  The type, Abnormal End,
+	    is the only key value pair this dictionary has.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| evblite::evblite | Up | portAllocator |

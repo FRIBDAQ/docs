@@ -1,0 +1,70 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2217"></a>Appendix C. The MPI Tcl package
+
+The MPI package provides variables and a  command that may be needed for some scripts
+            in mpiSpecTcl.  If you are using the 7.0 skeleton, it's SpecTclInit.tcl
+            automatically loads the package.  On the other hand, if you are porting from an earlier version
+            of SpecTcl and have customizd SpecTclInit.tcl; add the following lines
+            to your SpecTclInit.tcl file:
+
+<a name="AEN2223"></a>**Example C-1. Loading the mpi Tcl package**
+
+```
+load [file join $SpecTclHome lib/libMPITclPackage.so]
+package require mpi
+            
+```
+
+Note that we add these lines to SpecTclinit.tcl as it is run in all 
+            processes while SpecTclRC.tcl is only run in the root process.
+
+The mpi Tcl package addressses the following concerns:
+
+
+
+- Allowing scripts to know if they are running in parallel or serial SpecTcl.
+- Allowing scripts to determine which mpi rank they are running in.
+- Allowing scripts to determine under which role they are running.
+- Allowing scripts run in the root process to run in other processes of the job.
+
+The mpi Tcl package creates the ::mpi:: namespace and defines
+            the following variables:
+
+
+
+`mpi::environment`Provides the environment under which the
+                    application is running.  This is
+                    mpi if running parallel and
+                    serial if not.
+
+`mpi::rank`Provides the numeric rank of the process.  If
+                    `mpi::environment` is 
+                    serial, this will be 0
+
+`mpi::role`Provides the textual process role.  This can be one of
+                    root, event-sink or 
+                    worker.  If `mpi::environment`
+                    is serial   This will be root
+
+The mpi package also provides the **mpi::send**
+            which submits a script to be executed in specified ranks/roles. 
+            Note that the script is broadcast to all ranks via the Tcl command pump
+            and the receiver determines if it should be run.
+            This implies that **mpi::send** should only 
+            be used in the root rank.
+
+Complete documentation of the **mpi::send**
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ungate |  | mpi::send |

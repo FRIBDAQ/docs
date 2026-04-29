@@ -1,0 +1,113 @@
+|  |  |  |
+| --- | --- | --- |
+| Rootxamine - Attaching CERN Root to SpecTcl's Spectrum Shared Memory |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.running"></a>Chapter 2. Running rootxamine
+
+# <a name="AEN37"></a>2.1. Setting up SpecTcl for use with rootxamine
+
+Prior to running rootxamine, SpecTcl must be started and must
+         run both its mirror server and REST server.  Both of these are used
+         to map to the shared memory.  If SpecTcl is run remotely, a mirror
+         of the shared memory is transparently set up.
+
+How you do this depends on the environment in which SpecTcl
+        is running.  In the analysis environment where the NSCLDAQ
+        servers are not running, you must specify a unique integer port.
+        This port must be unique system wide.
+
+Here's an example of a chunk of SpecTclInit.tcl
+        that does this.  Note these lines *must*
+        be placed in SpecTclInit.tcl,
+        *not* SpecTclRC.tcl:
+
+<a name="AEN47"></a>**Example 2-1. Setting the HTTPD and Mirror ports literally**
+
+```
+set HTTPDPort 8080
+set MirrorPort 8081
+        
+```
+
+This sets the value of the REST port (`HTTPDPort`)
+        to 8080 and the Mirror server port
+        (`MirrorPort`) to 8081.  Note again,
+        these are sample values and each SpecTcl instance in the system
+        that uses a REST server and a Mirror server must use unique port
+        vales for both.
+
+The NSCLDAQ servers include a *port manager*
+        service.  This service manages a pool of TCP/IP ports.
+        On request from a client it can allocate a port and associate
+        a name and user with that port.  This allows you to ensure
+        your REST and Mirror server ports are unique and can be looked up
+        by name (and optionally the name of the user running SpecTcl
+        in an experiment).
+
+Here's an example fragment from SpecTclInit.tcl
+        that shows how to use the port manager to allocate a unique
+        set of ports and to assign meaningful names to them.
+
+<a name="AEN58"></a>**Example 2-2. Setting the HTTPD and Mirror ports using the port manager**
+
+```
+lappend auto_path [file join $SpecTclHome TclLibs]  
+if {[array names env DAQTCLLIBS]  ne ""} {
+    lappend auto_path $env(DAQTCLLIBS)             
+}
+package require DAQService                         
+set HTTPDPort [SpecTcl::getServicePort SpecTcl_REST] 
+set MirrorPort [SpecTcl::getServicePort SpecTcl_MIRROR]
+            
+        
+```
+
+[[c35#port.libpath]]                We will need to pull in a SpecTcl Tcl library package. This
+                line adds the SpecTcl Tcl library directory tree to the
+                Tcl package search path list.
+            [[c35#port.daqlibpath]]                The package we pull in will need the port manager from
+                the NSCLDAQ system.  If NSCLDAQ 12 or later is set up,
+                via the daqsetup.bash script, it will
+                define the DAQTCLLIBS environment
+                variable to point to its Tcl package library tree.
+            If that variable is defined, we append it to the
+                package load path.  If you have not set up the
+                a version of NSCLDAQ 12 or later, or not set up NSCLDAQ
+                at all, this environment variable will not be defined
+                and you'll need to set the
+                TCLLIBPATH environment variable
+                to include $DAQROOT/TclLibs.
+                TCLLIBPATH is a space separated set of
+                directory tree tops that will also be searched for packages.
+
+If you don't add NSCLDAQ Tcl libraries to the search path,
+                this SpecTclInit.tcl will fail to run
+                properly.
+
+[[c35#port.package]] DAQService is a SpecTcl Tcl package
+                that is a simplified interface to the port manager.
+                Working with the NSCLDAQ portAllocator
+                package it provides the proc
+                SpecTcl::getServicePort that
+                allocates a TCP/IP service port via the manager,
+                advertising a service.
+            [[c35#port.setports]]                These two lines use SpecTcl::getServicePort
+                to allocate a unique service port.  The parameter passed
+                to that proc is the name of the service that will be
+                advertised for that port.
+            Note that service names are qualified by the username
+                of the user running the program that allocated the port.
+                This means that, unlike using literal port numbers, which must be
+                unique system wide, your service names only need to be
+                unique within all SpecTcl's you run on that system.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | How to run xamineroot |

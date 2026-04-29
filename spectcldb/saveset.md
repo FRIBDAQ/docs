@@ -1,0 +1,1011 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1682"></a>SaveSet
+
+<a name="AEN1686"></a>## Name
+
+SaveSet -- Encapsulate a save set.
+
+<a name="AEN1689"></a>## Synopsis
+
+```
+#include <SaveSet.h>
+
+namespace SpecTclDB {
+    class DBParameter;
+    class DBSpectrum;
+    class DBGate;
+    class DBApplication;   
+    class DBTreeVariable;
+    
+    /**
+     * @class SaveSet
+     *    This class encapsulates a save set and all the things
+     *    you can do to it _except_ playing back events.
+     *
+     */
+    class SaveSet {
+    public:
+        struct Info {
+            int         s_id;
+            std::string s_name;   // requires copy construction etc.
+            time_t      s_stamp;
+        Info() {}
+        Info(const Info& rhs) {
+            copyIn(rhs);
+        }
+        Info& operator=(const Info& rhs) {
+            if (&rhs != this) copyIn(rhs);
+            return *this;
+        }
+        void copyIn(const Info& rhs) {
+            s_id = rhs.s_id;
+            s_name = rhs.s_name;
+            s_stamp = rhs.s_stamp;
+        }
+        };
+        struct SpectrumAxis {
+            double s_low;
+            double s_high;
+            int    s_bins;
+        };
+        // Stuff having to do with run playback:
+        
+        struct RunInfo {
+            int         s_runNumber;
+            std::string s_title;
+            time_t      s_startTime;
+            time_t      s_stopTime;
+            
+        };
+        struct ScalerReadout {
+            int    s_sourceId;
+            int    s_startOffset;
+            int    s_stopOffset;
+            int    s_divisor;
+            time_t s_time;
+            std::vector<int> s_values;
+        };
+        struct EventParameter {   // Event blobs are a soup of these.
+            int     s_number;
+            double  s_value;
+        };
+        typedef std::vector<EventParameter> Event;
+    public:
+        static bool exists(CSqlite& conn, const char* name);
+        static SaveSet* create(CSqlite& conn, const char* name);
+        static std::vector<Info> list(CSqlite& conn);
+
+    public:
+        SaveSet(CSqlite& conn, const char* name);     // Construct given name
+        SaveSet(CSqlite& conn, int id);
+    
+    // Object methods:
+    public:
+        const Info& getInfo();
+        
+
+        
+        std::vector<DBParameter*> listParameters();
+        DBParameter* createParameter(const char* name, int number);
+        DBParameter* createParameter(
+            const char* name, int number,
+            double low, double high, int bins, const char* units
+        );
+        DBParameter* findParameter(const char* name);
+        DBParameter* findParameter(int number);
+        DBParameter* getParameter(int id);
+        
+        // Spectrum API:
+        
+        bool spectrumExists(const char* name);
+        DBSpectrum* createSpectrum(const char* name, const char* type,
+                const std::vector<const char*>& parameterNames,
+                const std::vector<SpectrumAxis>& axes,
+                const char* datatype="long"
+        );
+
+        std::vector<DBSpectrum*> listSpectra();
+
+        DBSpectrum* lookupSpectrum(const char* name);
+    
+        // Gate api:
+        
+        bool gateExists(const char* name);
+        DBGate*  create1dGate(
+            const char* name, const char* type,
+            const std::vector<const char*>& params, double low, double high
+        );
+        DBGate* create2dGate(
+            const char* name, const char* type,
+            const std::vector<const char*>& params,
+            const std::vector<std::pair<double, double>>& points
+        );
+        DBGate* createCompoundGate(
+            const char* name, const char* type,
+            const std::vector<const char*>& gates
+        );
+        DBGate* createMaskGate(
+            const char* name, const char* type,
+            const char* parameter, int imask
+        );
+        DBGate* lookupGate(const char* name);
+        DBGate* lookupGate(int id);
+        std::vector<DBGate*> listGates();
+        
+        // Gate application api:
+        
+        DBApplication* applyGate(const char* gate, const char* spectrum);
+        DBApplication* lookupApplication(const char* gate, const char* spectrum);
+        std::vector<DBApplication*> listApplications();
+        
+        // Treevariable API
+
+        DBTreeVariable* createVariable(
+            const char* name, double value, const char* units=""
+        );
+        DBTreeVariable* lookupVariable(const char* name);
+        bool variableExists(const char* name);
+        std::vector<DBTreeVariable*> listVariables();
+        
+        // Event recording in the database.
+        
+        int startRun(
+            uint32_t run, const char* title, time_t start
+        );
+        void endRun(int id, time_t endtime);
+        int saveScalers(
+            int id, int sourceid,
+            int startOffset, int stopOffset, int divisor, time_t when,
+            int nScalers, const uint32_t* scalers
+        );
+        void* startEvents(int id);
+        void  rollbackEvents(void* savept);
+        void  endEvents(void* savept);
+        void  saveEvent(
+            int id,  int event, int nParams,
+            const int* paramids, const double* params
+        );
+        
+        std::vector<int> listRuns();
+        
+        // Accessing runs
+        
+        int openRun(int number);
+        
+        void* openScalers(int runid);
+        int   readScaler(void* context, ScalerReadout& result);
+        void  closeScalers(void* context);
+        void* openEvents(int runid);
+        int   readEvent(void* context, Event& result);
+        void closeEvents(void* context);
+        
+        RunInfo getRunInfo(int id);
+        
+        
+    
+
+    };
+}                                  // SpecTclDB 
+
+                    
+```
+
+<a name="AEN1691"></a>## INTRODUCTION
+
+The `SpecTclDB::SaveSet`
+                        class encapsulates a save set in an object.
+                        Methods are provided to create save sets and
+                        the constructor wraps a save set into an object.
+
+Once you have a save set, you can us it to
+                        prerform a number of operations on the save set.
+                        These operations may require a number
+                        of data type definitions.
+                        See METHODS
+                        and DATA TYPES for more.
+
+<a name="AEN1698"></a>## METHODS
+
+
+
+` static bool  exists(CSqlite&  conn = , const char*  name = );`Returns true
+                                if the save set named
+                                `name` has been
+                                created in the database connected to
+                                `conn`.
+                                Normally, this method is used by the
+                                `SpecTclDB::CDatabase` class
+                                whose objects encapsulate a raw
+                                `CSqlite` object.
+
+For information about the
+                                `CSqlite`
+                                class, see the
+                                3sqlite++ reference
+                                section.
+
+` static SaveSet*  create(CSqlite&  conn = , const char*  name = );`Creates a new save set named
+                                `name` in the
+                                database connected to `conn`.
+                                This is normally  used by
+                                `SpecTclDB::CDatabase`.
+                                The resulting
+                                `SpecTclDB::SaveSet`
+                                object pointed to by the return value is
+                                dynamically allocated and must be deleted
+                                when your program is done using it.
+
+On error, the method throws a
+                                `std::invalid_argument`
+                                exception.  The most common error is
+                                that there is already a save set named
+                                `name` in the database.
+
+` static std::vector<Info>  list(CSqlite&  conn = );`Returns a vector whose elements are pointers to
+                                every save set defined in the database connected
+                                via `conn`.
+                                Normally, this is used by
+                                `SpecTclDB::CDatabase`.
+                                The pointers in the result are pointers to dynamically
+                                created objects that must, eventually be
+                                deleted.
+
+`  SaveSet(CSqlite&  conn = , const char*  name = );`Constructs a
+                                `SpecTclDB::SaveSet` object
+                                wrapping one named `name`
+                                in the database connected to
+                                `conn`.
+                                This is normally used by the
+                                `SpecTclDB::CDatabase`
+                                class.  `name`
+                                must already exist.  If not, a
+                                `std::invalid_argument`
+                                exception is thrown.
+
+`  SaveSet(CSqlite&  conn = , int  id = );`Same as previous constructor but the
+                                specific save set is selected by the
+                                primary key of the save set (
+                                `id`
+                                ).
+
+` const Info&  getInfo();`Information about the save set wrapped
+                                by a
+                                `SpecTclDB::SaveSet`
+                                object is cached in an information structure
+                                (SpecTclDB::SaveSet::Info).
+                                This returns a const reference to that struct.
+                                Examining the struct members allows you to
+                                know essentially everything about the top level
+                                save set definition.
+
+The members of the
+                                SpecTclDB::SaveSet::Info
+                                struct are described in the
+                                DATA TYPES section of this
+                                manpage.
+
+` std::vector<DBParameter*>  listParameters();`Returns a vector of pointers to
+                                `SpecTclDB::DBParameter` objects
+                                that provide poiners to objects encapsulating
+                                all parameter definitions. These
+                                pointers are to dynamically allocated objects and
+                                therefore must, at some point, have
+                                delete operate on them.
+
+See the reference page for
+                                `SpecTclDB::DBParameter`
+                                for information about the objects that
+                                are returned.
+
+` DBParameter*  createParameter(const char*  name = , int  number = );`Creates a new minimal parameter definition.
+                                `name` is the name of the new
+                                parameter while `number`
+                                is the parameter number.  In addition, the database
+                                assigns the parameter a primary key which
+                                can be used for retrieval.
+
+The return value is a pointer to a dynamically
+                                created
+                                `SpecTclDB::DBParameter`
+                                which encapsulates the ata store for the parameter
+                                in the database.   The parameter pointer points to a
+                                dynamically allocated object and, therefore,
+                                must be operated on by delete when you are done
+                                with it.
+
+` DBParameter*  createParameter(const char*  name = , int  number = , double  low = , double  high = , int  bins = , const char*  units = );`Same as the previous overload of
+                                `createParameter`, however
+                                this version of the method includes, in addition to the
+                                minimal values of `name`
+                                and `number`, metadata.
+                                The metadata provided provides hints to the user and
+                                graphical user interfaces when constructing
+                                spectrum axes that represent the parameter.
+
+`low` and
+                                `high` are suggested low and
+                                high limits for such axes.
+                                `bins` is the suggested
+                                number of bins for the axis. Finally,
+                                `units` is a reminder to users
+                                of the units of measure in which the parameter is
+                                produced.  Note that a normal convention for
+                                unitless parameters is to provide an empty string.
+
+` DBParameter*  findParameter(const char*  name = );`Encapsulates the parameter named by `name`
+                                in a `SpecTcl::DBParameter`
+                                object.  The object is dynamically created and
+                                a pointer to it returned.  When the object is no
+                                longer deleted the pointer should be operated on by
+                                delete.
+
+` DBParameter*  findParameter(int  number = );`Same as above, but the lookup is by the number
+                                 of the parameter passsed to
+                                 `createParameter`.
+                                 In the context of SpecTcl, the number is a slot
+                                 in `CEvent` objects that
+                                 represent unpacked events.
+
+` DBParameter*  getParameter(int  id = );`Retrievs a parameter by its primary key value.
+                                Unlike the parameter number which is assigned by the
+                                application, the primary key is an integer that is
+                                assigned to each row of the parameter definition
+                                table by the database when an insert is performed.
+
+This is most often useful to lookup parameters that are
+                                referred to by other objects in the database.
+                                In order to create a database that is in one of the
+                                normal forms, references to objects that other
+                                objects depend on are stored as the primary key.
+                                In database terminology these are called
+                                *foreign keys*.
+
+Most realtional databases are constructed so that
+                                lookups by primary key are very fast.
+
+` bool  spectrumExists(const char*  name = );`Returns true if the saveset
+                                contains a spectrum definition for a spectrum
+                                called `name`. If not
+                                false is returned.
+
+` DBSpectrum*  createSpectrum(const char* name = , const char*  type = , const std::vector<const char*>&  parameterNames = , const std::vector<SpectrumAxis>&  axes = , const char*  datatype= = "long");`Creates a new spectrum definition in the database.
+                                The name of the spectrum is `name`.
+                                The spectrum type code is `type`.
+
+All spectra are defined on some set of parameters.
+                                The order of these parameters is important, and
+                                stored in the data base in a way that it can be recovered.
+                                `parameterNames` is an ordered 
+                                vector of parameters the spectrum depends on.  The
+                                names of these parameters must match the name of a
+                                previously defined parameter in
+                                *this* saveset.
+
+Spectra have one or two free axes.  By free axes,
+                                I mean axes whose definition is not obvious from the
+                                spectrum type and must be provided to complete the
+                                spectrum definition.  For example, the X axis of
+                                a summary spectrum is fully determined by the number
+                                of parameters the summary is defined on and therefore
+                                not a free axis.  Axis specification order is important,
+                                for example, in a 2 spectrum, the
+                                the first axis description is the X axis and the scond
+                                the Y.  `axes` is an ordered
+                                vector
+                                of axis specifications that describe the axis
+                                low limite, high limit and number of bins for each free
+                                axis. See the DATA TYPES section
+                                that, among other things describes the
+                                SpecTclDB::SaveSet::SpectrumAxis
+                                data type used here.
+
+Finally, an optional `datatype`
+                                parameter specifies the data type used to store
+                                each bin of spectrum data. This defaults to
+                                "long". Valid string values are:
+                                "long" which creates bins that are
+                                32 bits wide, "word" which creats
+                                bins that are 16 bits wide and "byte"
+                                which creates bins that are 8 bits wide.
+
+The return value from this method is a pointer
+                                to a `SpecTclDB::DBSpectrum` object
+                                that wraps the spectrum definition in the
+                                database.  This object is dynamically created.
+                                Once the program no longer needs it, delete should operate
+                                on that pointer in order to free the object.
+
+` std::vector<DBSpectrum*>  listSpectra();`Returns a vector containing pointers to objects
+                                that encapsulate all spectrum definitions in this
+                                save set. Note that these objects are all
+                                dynamically allocated and, therefore delete
+                                must operate on these pointers.
+
+` DBSpectrum*  lookupSpectrum(const char*  name = );`If the saveset has a definition for the spectrum
+                                named `name`,  a pointer to an object
+                                wrapping of the spectrum is returned.
+                                When the program no longer needs this object,
+                                it should be deleted.
+
+If no spectrum with that name has been defined in the
+                                saveset, an `std::invalid_argument`
+                                exception is thrown.
+
+` bool  gateExists(const char*  name = );`If the saveset has a definition for a gate named
+                                `name`, this method returns
+                                true, if not,
+                                false is returned instead.
+
+` DBGate*   create1dGate(const char*  name = , const char*  type = , const std::vector<const char*>&  params = , double  low = , double  high = );`Creates a 1-d gate definition in the saveset.
+                                Gates come in three broad categories, depending on the
+                                data they need to express them:
+
+
+
+1. Point gates require parameters and one or
+                                         more sets of points in parameter space.
+   Polnt gates are further subdivided into
+                                       1-d and 2-d points which are determined by
+                                       the dimensionality of the region of interest
+                                       defined by the gate.
+2. Compound gates are gates that are checked by
+                                         performing a logical operation on some other
+                                         set of gates.
+3. Mask gates are gates that require one parameter
+                                        and a bitmask. The parameter value is treated
+                                        as an integer.  Some bitwise operation is
+                                        performed between the mask and parameter and
+                                        a check is performed on the result.
+
+This method creates a 1-d point gate. Examples of
+                             such gates are slices and gamma slices.
+                             `name` is the name of the gate
+                             that will be created in the save set.
+                             `type` is a textual gate type
+                             string.
+
+As this is a point gate, `params`
+                             is a vector of parameters the gate will be checked against.
+                             for slice gates this will be a single parameter, for gamma
+                             slices, more than one. `low`
+                             and `high` define a segment
+                             of 1-d parameter space.  Parameters must be in this
+                             gate to make the gate true for this event.
+                             See SpecTcl's documentation for more information on
+                             what makes a gamma slice true.
+
+The returned value is a pointer to a dynamically
+                             created `SpecTclDB::DBGate`
+                             object.  When your program no longer needs this
+                             object, it should be deleted.
+
+` DBGate*  create2dGate(const char*  name = ,  const char*  type = , const std::vector<const char*>&  params = , const std::vector<std::pair<double, double>>&  points = );`Creates a point gate where the region of interest is a
+                                2-dimensional figure.  Examples are bands, contoures,
+                                gamma contours etc.
+
+As before, the `name`
+                                parameter specifies the name of the gate and
+                                `type` a gate type
+                                string.  Again as before `parameters`
+                                are the parameters on which the gate is defined.
+                                Order can be important.  For example for a contour,
+                                the first parameter is the X parameter the second the
+                                Y parameter.
+
+`points` is an ordered list
+                                of X, Y pointes in parameter space that define
+                                the region of acceptance of the gate.  See the SpecTcl
+                                documentation for information about how the
+                                region of acceptance is intepreted when evaluating
+                                a gate.
+
+The returned value is a pointer to a dynamically
+                                created `SpecTclDB::DBGate`
+                                object.  When your program no longer needs this
+                                object, it should be deleted.
+
+` DBGate*  createCompoundGate(const char*  name = , const char*  type = , const std::vector<const char*>&   = );`Creates a compound gate definition. Compound gates
+                                are dependent on other gates, some of which could,
+                                themselves, also be compound gates.  In SpecTcl,
+                                compound gates can nest to any depth as long as
+                                there are no circular dependencies.
+
+As before, `name` is the
+                                name of the gate definition now being made,
+                                `type` is the type of the gate
+                                (e.g. "*" for an and gate).
+                                `gates` is a vector of
+                                names of gates that are already defined in the
+                                save set.
+
+Note that when saving the gate definitions in
+                                SpecTcl, you must be careful to determine the gate
+                                dependencies to ensure that gates are not defined
+                                in the database prior to all their dependent gate
+                                definitions.  The Tcl high level SpecTcl
+                                API does this dependency analysis.
+
+The database is organized that the method
+                                `listGates` will return
+                                gates in the order in which they were defined
+                                which means that if dependency analysis was done when
+                                saving gates, it does not need to be done when
+                                restoring them.
+
+The returned value is a pointer to a dynamically
+                                created `SpecTclDB::DBGate`
+                                object.  When your program no longer needs this
+                                object, it should be deleted.
+
+` DBGate*  createMaskGate(const char*  name, const char* type = , const char* type = , const char*  parameter = , int  mask = );`Creates a mask gate definition.  As before,
+                                `name` is the name of the
+                                gate and `type` is the
+                                gate type (e.g. "em").
+                                Mask gates only take a single parameter:
+                                `parameter` is the name of that
+                                parameter, which  must already be defined in this
+                                saveset. `mask` is the
+                                mask.
+
+The returned value is a pointer to a dynamically
+                                created `SpecTclDB::DBGate`
+                                object.  When your program no longer needs this
+                                object, it should be deleted.
+
+` DBGate*  lookupGate(const char*  name = );`If the gate named `name` has
+                                a definition in this saveset, a pionter to
+                                an object encapsulating that gate definition is returned.
+                                If `name` has not been defined
+                                in the save set, an
+                                `std::invalid_exception`
+                                is thrown.
+                                The object pointed to by the return value is
+                                dynamically allocated and must therefore be
+                                deleted when the program has no further need for it.
+
+` DBGate*  lookupGate(int  id = );`Same as above, but lookup is by the primary
+                                key of the gate in the top level table for
+                                gate definitions.  This is generally a faster
+                                way to find a gate if its primary key is known
+                                (for example, in a compound gate, the dependent
+                                gates are stored as gate ids).
+
+` std::vector<DBGate*>  listGates();`Returns a vector of pointer to
+                                `SpecTcl:DBGate` objects.
+                                The vector will contain pointers to objects that will
+                                encapsulate all gates defined in this save set.
+                                The vector order will be such that no gate will
+                                appear in the vector without all of its dependencies
+                                appearing first.
+
+The pointers point to dynamically created objects.
+                                All pointers must be deleted once the program
+                                has no further need of them.
+
+` DBApplication*  applyGate(const char*  gate = , const char*  spectrum = );`Creates a new gate application entry in the
+                                save set.  Gates applied to spectra conditionalize that
+                                spectrum's increment on the gate.  Even an event has
+                                all the parameters needed to increment the spectrum,
+                                if a gate is applied to a spectrum, it will
+                                not be incremented unless that gate is true.
+
+`gate` is the name of the
+                                gate to apply and `spectrum`
+                                is the name of the spectrum it should be applied to.
+                                Bot gate and spectrum must already be defined in the
+                                saveset.  Note that gate application is a one to
+                                many thing.  A gate can be applied to as many
+                                spectra as desired, but only one gate can be
+                                applied to any single spectrum.
+
+In fact, SpecTcl simplifies its gate checking logic
+                                by requiring that all spectra always have
+                                exactly one gate applied to it.  When a spectrum
+                                is created a true gate is applied to it.
+                                It is not necessary to store the application of
+                                true gates to a spectrumm, unless once restored,
+                                that gate may be changed to a different type of
+                                gate.
+
+The return value fromt his method is a
+                                pointer to a 
+                                `SpecTclDB::DBApplication` object.
+                                The object encapsulates information about the
+                                application and is dynamically created. When the
+                                program no longers needs the object, therefore,
+                                it should be destroyed.
+
+` DBApplication*  lookupApplication(const char*  gate = , const char*  spectrum = );`Looks up an application and returns a pointer
+                                to an object wrapping of the data for it in the
+                                database.  Note that applications are not named entities.
+                                They can only be looked up by providing both the
+                                gate name (`gate`) and the
+                                target spectrum (`spectrum`).
+
+The returned value is a pointer to a dynamically
+                                created object. As such, when the calling program
+                                no longer needs it, it should be deleted.
+
+` std::vector<DBApplication*>  listApplications();`Returns a vector containing pointers to all of the
+                                gate applications defined in the save set.
+                                These objects are all dynamically created and must be
+                                deleted when the program no longer needs them.
+
+` DBTreeVariable*  createVariable(const char*  name = , double value = , const char*  units = "");`Creates a tree variable definition.  `name`
+                                is the name of the variable whose definition is
+                                being captured.  `value`
+                                is the value for it that will be stored.
+                                `units` are the units of
+                                measure of the variable.  If not supplied, this
+                                defaults to an empty string which, by convention,
+                                means a unit-less variable.
+
+The return value is a pointer to a
+                                `SpecTclDB::DBTreeVariable`
+                                that encapsulates the database entry just made.
+                                This is a pointer to a dynamically created object and,
+                                therefore, must be deleted when it is no longer
+                                needed.
+
+` DBTreeVariable*  lookupVariable(const char*  name = );`If there is a definition for
+                                the tree variable `name`
+                                in the database it is retrieved and wrapped
+                                with a `SpecTclDB::DBTreeVariable`
+                                object.  If not, an `std::invalid_argument`
+                                exception is thrown.  The return value is
+                                dynamically constructed and, therefore, when the
+                                program is done using it, you should delete it.
+
+` bool  variableExists(const char*  name = );`If there is a variable definition for
+                                `name` in the saveset,
+                                this method returns true.
+                                If not, false is returned instead.
+
+` std::vector<DBTreeVariable*> listVariables();`Returns a vector containing pointers to
+                                `SpecTclDB::DBTreeVariable`
+                                objects that describe all of the variable definitions
+                                in the save set.  The pointers are to dynamically
+                                allocated objects and therefore, once the
+                                program is done with the objects they should be
+                                deleted.
+
+` int  startRun(uint32_t  run = , const char*  title = , time_t  start = );`Creates an entry in the save set for a begin run.
+                                `run` is the run number of that
+                                run, `title` is the run title
+                                and `start` the clock time
+                                a which the run actually started.
+                                The return value is the primary key of the
+                                run entry which should be used as a handle in future
+                                calls to store data associated with the run.
+
+Note tha the entry in the database has a
+                                run end time.  This is initialized to null.
+                                It can be set by a call to
+                                `endRun` described below.
+                                The two are separated because if you are building up
+                                run data from a serial event file, there will
+                                be a separation between the begin run record
+                                and end run record of, potentially several million events.
+
+The `start` time should not
+                                be now, but the time the run actually started,
+                                nopefully recorded in the start run
+                                record of the event file being analyze.
+
+` void  endRun(int id = , time_t  endtime = );`Sets the end of run time for the run with the
+                                `id` returned from
+                                `startRun`.  the
+                                time used will be `endtime`
+
+` int  saveScalers(int  id = , int  sourceid = , int  startOffset = , int  stopOffset = , int  divisor = , time_t when  = , int  nScalers = , const uint32_t*  scalers = );`Saves a scaler readout entry for the run
+                                identified by `id`. This
+                                id should have been returned from
+                                `startRun`.
+
+`sourceid` is an integer
+                                that represents the source id that identifies data
+                                from a specific source of data to the event builder.
+
+`startOffset` and
+                                `stopOffset` identifier the start and stop times of the
+                                most recent scaler readout.  `divisor`
+                                is the value to divide the offsets by to get a time
+                                in seconds since the run started.
+
+`nScalers` are the number of
+                                scalers that were readout and `scalers`
+                                is a pointer to that many scalers.
+
+` void*  startEvents(int  id = );`Indicates that a set of decoded events
+                                 are about to be stored in the database.
+                                 Single database operations are comparitively slow,
+                                 while doing several entries within a transaction
+                                 or save point is much more efficient.  This
+                                 method starts a save point and returns
+                                 a handle to it.
+
+The `id` parameter should be
+                                the return value from the
+                                `startRun` for the
+                                run for which we are going to enter events.
+
+` void   rollbackEvents(void*  savept = );`Rolls back the save point created by a
+                                call to `startEvents`.
+                                `savept` is the value
+                                returned from `startEvents`.
+                                Once this is called, that pointer should not
+                                be used as it is no longer pointing to anything
+                                valid.
+
+A rollback effectively cancels all database
+                                insertions performed since the call to
+                                `startEvents`.
+                                This applies not just to event data but:
+
+
+
+- Calls to `saveScalers`
+- Calls to methods that create definitions
+                                        for objects in this saveset.
+- Calls to methods that result in insertions
+                                        to the database that are performed on any
+                                        object connected to the same database
+                                        as this saveset.
+
+` void   endEvents(void*  savept = );`Commits the save point created by the call to
+                                `startEvents` that
+                                returned the value passed to this method
+                                as `savept`.
+                                All insertions become finalized and become
+                                visible to other clients of the database.
+
+In actual fact, the save point affects more than
+                                event data, see the description in
+                                `rollbackEvents`
+                                above.
+
+` void   saveEvent(int  id = , int  event = , int  nParams = , const int*  paramid = , const double*  params = );`Saves an event either to the database directly or
+                                to the set of queued events in the save point
+                                created by a recent call to
+                                `startEvents`.
+                                `id` is the id of the run that
+                                owns the event (returned from `startRun`).
+                                `event` is the event number.
+                                (should be a counter incremented after each event).
+                                `nParams` the number
+                                of unpacked parameters to be saved.
+                                `paramids` points to the array
+                                of parameter numbers for the parameters in the event.
+                                By parameter numbers I mean the value of the
+                                number field of a parameter definition.
+                                `params`, pointer to an array of
+                                corresponding parameter values.
+
+If you are preparing to call this from a
+                                `CEvent` object in SpecTcl,
+
+
+
+1. `nParams`  is the size
+                                         of that event's dope vector.
+2. `parmids`  is the
+                                         pointer returned from the call to
+                                         `data` on the
+                                         dope vector.
+3. `params`  can
+                                         be produced by pushing the values corresponding
+                                         to parameter ids in the dope vector intp a
+                                         vector of doubles
+                                         and then using the value returned from
+                                         `data` called on that
+                                         vector.
+
+` std::vector<int>  listRuns();`returns a vector run number for the runs that
+                                have data stored in this saveset.
+
+` int  openRun(int  number = );`Given a run number makes it available for data
+                                retrieval by returning the primary key of the
+                                run in the database.  The resultis known in the API
+                                variously as a runid or just an id.
+
+` RunInfo  getRunInfo();`Given a run primary key (run id) returns
+                                information about it in a
+                                `SpecTclDB::SaveSet::RunInfo`
+                                struct.
+
+` void* openScalers(int runid = );`Begins pulling scaler readout data from the
+                                whose run id is `runid`.
+                                The return value is actually a handle into the
+                                scaler data retrieval result set and
+                                should be used in calls to
+                                `readScaler`, and ultimately
+                                `closeScalers`
+
+` int    readScaler(void*  context = , ScalerReadout& result = );`Returns the next scaler read from the
+                                result set, `context` that
+                                was returned from a call to
+                                `openScalers`.
+                                The data are returned in the `result`
+                                parameter.  The shape of the
+                                SpecTclDB::SaveSet::ScalerReadout
+                                type is described in the section
+                                DATA TYPES.
+
+If the return value was non zero there was another
+                                readout and the data in
+                                `result` is valid.  If not,
+                                then there was no additional data and the
+                                `result` data should
+                                not be relied on.
+
+` void   closeScalers(void*  context);`frees all reasources that are used by the
+                                `context` parameter
+                                returned from a previous call to
+                                `openScalers`.
+
+` void*  openEvents(int  runid = );`Prepares a result set for the events
+                                associated with the run whose primary key is
+                                `runid`.  The return
+                                value is a context that should be used
+                                to iterate over the result set.
+                                See `readEvent`
+                                and `closeEvents`.
+
+` int    readEvent(void*  context = , Event& result = );`Retrieves the next event in the result set
+                                indicted by `context`
+                                (gotten from `openEvents`).
+                                The eventis stored in `result`
+                                The shape of the
+                                SpecTclDB::SaveSet::Event
+                                data type is described in
+                                DATA TYPES below.
+
+If there is another event in the result set,
+                                the return value is nonzero.  If, however
+                                there are no more events, the return value is zero.
+                                If the return value is zero, the
+                                contents of `result`
+                                should not be considered to be reliable.
+
+<a name="AEN2596"></a>## DATA TYPES
+
+Several public data types are defined.  When reading
+                        the description below, all data type names should be
+                        prefixed in code with
+                        SpecTclDB::SaveSet:: that is the
+                        types are defined as local types within the
+                        `SpecTclDB::SaveSet` class.
+
+<a name="AEN2601"></a>### Info
+
+The Info type is a structure
+                            that caches information about the saveset retrieved
+                            from the database.  It has the following fields:
+
+
+
+int`s_id`The save set's primary key in its top level
+                                    table.
+
+std::string `s_name`The name of the save set.
+
+time_t`s_stamp`The time of day at which the save set was
+                                    created.
+
+Note that an appropriate set of copy constructors
+                            and assignment operators have been defined to make
+                            the struct copy and assignment safe.
+
+<a name="AEN2626"></a>### RunInfo
+
+This struct provides information about a run
+                            that was saved in the database.  It as the
+                            following fields:
+
+
+
+int` s_runNumber`The run number of the run.
+
+std::string `s_title`The title string of the run.
+
+time_t`s_startTime`The clock time at which the run started.
+
+time_t `s_stopTime`The clock time at which the run ended.
+                                    It is possible, if the run ended badl or wasn ot
+                                    completely saved to the databas, that this
+                                    field will be zero meaning that the end time
+                                    of the run is not known.
+
+<a name="AEN2655"></a>### ScalerReadout
+
+This struct contains the information from a
+                            scaler readout.  The struct contains not only the
+                            scaler channel data but also the metadata
+                            describing it.  Here are the fields in that
+                            struct:
+
+
+
+int `s_sourceId`When data are event built, each source for the
+                                    event builder has its own unique integer source id.
+                                    Each data source may readout periodic
+                                    scalers and the meaning of the scalers
+                                    read from source to source vary.
+
+This field contains the source id of the
+                                    data source that produced this readout.
+
+int `s_startOffset`This is a time offset into the run at which
+                                    the period over which the scalers accumulated
+                                    started. The units depend on
+                                    `s_divisor`
+                                    below.
+
+int `s_stopOffset`The time offset into the run at which the
+                                    period over which the scalers accumulated for
+                                    this readout ended.
+
+int `s_divisor`If you do a floating point division of
+                                    `s_startOffset`
+                                    or `s_stopOffset`
+                                    by this value you will get those times
+                                    in units of seconds.
+
+std::vector<int> `s_values`This vector are the scaler values for
+                                    this counting period.
+
+<a name="AEN2694"></a>### EventParameter and Event
+
+These two data types are closely related and
+                            are used when returning a processed event from
+                            the database.  EventParameter
+                            is a struct that represents a single parameter:
+
+
+
+int`s_number`The number of the parameter represented by
+                                    this struct. Note that this refers not
+                                    to a primary key for a parameter but
+                                    its number field.
+
+double`s_value`The actual value of the parameter.
+
+This representation of parameters assumes that,
+                            in general, events are sparse.  Finally,
+                            the Event is just a
+                            `std::vector<EventParameter>`,
+                            and represents an entire event extracted
+                            from the database.
+
+<a name="AEN2716"></a>### SpectrumAxis
+
+This data type describes a single spectrum
+                            axis and is used when creating spectra:
+
+
+
+double `s_low`The axis low limit in parameter coordinates.
+
+double `s_high`The axis high limit in parameter coordinates.
+
+int`s_bins`The number of bins on that axis.
+
+Note that axes are inclusive on the low side and
+                            exclusive of the high end.  In SpecTcl it's perfectly
+                            legal to have a reversed axis.  That is an axis
+                            where `s_low` is
+                            greater than `s_high`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDatabase | Up | DBParameter |

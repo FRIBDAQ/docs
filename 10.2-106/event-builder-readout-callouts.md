@@ -1,0 +1,46 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4231"></a>Chapter 53. Event builder Readout Callouts
+
+Event builder readout callouts allow you to integrate the event builder
+        with the Readout GUI.   There are two layers of callouts;
+
+
+
+- An API layer provides the highest level of flexbility by
+                      providing you witha set of Tcl procs you can use from inside
+                      your ReadoutCallouts Extensions to manage the event builder
+                      and its pipeline.
+- An EZBuilder layer provides a set of simple calls you can
+                      make that handle the most common use cases for the event builder.
+
+
+Both the API and EZBuilder procs are part of the Tcl package
+        evbcallouts
+
+# <a name="AEN4241"></a>53.1. API layer
+
+The API layer of the readout callouts library provides low level
+            calls that let you start and stop the event builder as well as to
+            reset its timestamp knowledge.
+
+Procedures have also been provided to help you start standard
+            event sources.  Specifically `startRingSource`
+            starts a ring buffer data source while `startS800Source`
+            starts the S800 data source.
+
+Reference information for the API layer is provided in the
+            3evb manpage section.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ringFragmentSource - a prepackaged client for ringbuffer data sources | Up | EZBuilder |

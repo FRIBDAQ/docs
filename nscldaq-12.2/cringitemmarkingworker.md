@@ -1,0 +1,114 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN70792"></a>CRingItemMarkingWorker
+
+<a name="AEN70796"></a>## Name
+
+CRingItemMarkingWorker -- Strategy pattern for classifying ring items
+
+<a name="AEN70799"></a>## Synopsis
+
+```
+#include <CRingMarkingWorker>
+
+class CRingMarkingWorker : public CParallelWorker
+{
+public:
+    class Classifier {
+    public:
+        virtual uint32_t operator()(CRingItem& item) = 0;
+    };
+    
+public:
+    CRingMarkingWorker(
+        CFanoutClientTransport& fanin, CSender& sink, uint64_t clientId,
+        Classifier* pClassifier
+    );
+    virtual ~CRingMarkingWorker() {}
+    virtual void process(void* pData, size_t nBytes);
+
+};
+
+        
+```
+
+<a name="AEN70801"></a>## DESCRIPTION
+
+One of the main purposes of the parallel processing
+            framework is to set up software triggers. In NSCLDAQ
+            these operate in two stages.  The first stage
+            classifies ring items with a uint32_t value.
+            The second stage retains or discards items by
+            applying an acceptance criterion to this classification.
+
+Note that only PHYSICS_EVENT items
+            get classified.  The classification is carried with
+            the ring item as an extension to that item's body
+            header.  This class provides a framework that
+            allows the user to simply report back the classification.
+            All the work of getting work items, formatting the
+            output ring items and sending them on to the next
+            stage of processing are taken care of by this class.
+
+The data processed by this class are assumed to have come
+            from a `CRingItemZMQDataSource`
+            or any other data source that produces the
+            same output format.  The data source is
+            assumed to be a fanout data source as classification
+            may be computationally intensive enough to
+            be worth parallelization.
+
+Construction of one of these therefore requires:
+
+
+
+`fanin`The fanout client transport that
+                        is getting data from the fanout
+                        transport.
+
+` sink`The sender that will be used to ship
+                        the resulting work items to the
+                        next stage of processing.
+
+`clientId`The client id that will be configured
+                        into `fanin`
+
+`pClassifier`A pointer to a concrete subclass of
+                        `CRingMarkingWorker::Classfier`.
+                        This is an application specific class who's
+                        `operator()` knows
+                        how to compute and return the
+                        uint32_t classification of a ring item
+                        passed by reference.
+
+Data sent on the `sink` will
+            have the same format as the data received, however
+            each block containing a physics item
+            will be a uint32_t longer than before
+            to accomodate the classification value.  The
+            ring item size and body header size field will be
+            modified to appropriately reflect this.
+
+<a name="AEN70835"></a>## OUTPUT DATA FORMAT
+
+The messages sent by this class are suitable
+            for input to the
+            `CRingItemSorter`(3daq).
+            The consist of first a uint32_t client id followed
+            by an array of timestamp, ring items pairs
+            The message size and
+            iterating through the ring items can be used to
+            determine the number of ring items present.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingItemZMQSourceElement | Up | CRingItemSorter |

@@ -1,0 +1,273 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4837"></a>CSqliteTransaction/CSqliteSavePoint
+
+<a name="AEN4841"></a>## Name
+
+CSqliteTransaction/CSqliteSavePoint -- Encapsulate Sqlite transactions/savepoints
+
+<a name="AEN4844"></a>## Synopsis
+
+```
+#include <CSqliteTransaction.h>
+
+class CSqliteTransaction {
+public:
+    typedef enum _transactionState {
+        active, rollbackpending, completed
+    } TransactionState;
+public:
+    CSqliteTransaction(CSqlite& db);
+    CSqliteTransaction(
+        CSqlite& db, const char* start, const char* rollback, const char* commit
+    );
+    
+    void start();
+    void rollback();                        // Rollback now.
+    void scheduleRollback();                // Rollback on destruction
+    void commit();                          // early commit.
+    TransactionState state() const;
+    
+public:
+    class CException : public std::exception
+    {
+        public:
+            CException(std::string message) noexcept;
+            CException(const CException& rhs) noexcept;
+        public:
+            CException& operator=(const CException& rhs) noexcept;
+            virtual const char* what() const noexcept;
+    };
+};
+
+class CSqliteSavePoint : public CSqliteTransaction
+{
+public:
+    CSqliteSavePoint(CSqlite& db, const char* name);
+
+private:
+    static std::string startCommand(const char* name);
+    static std::string rollbackCommand(const char* name);
+    static std::string commitCommand(const char* name);
+};
+
+                    
+```
+
+<a name="AEN4846"></a>## DESCRIPTION
+
+SQLite3 provides two tools that can group several
+                        operations into an atomic group; Transactions and SavePoints.
+                        Operations done within one of these bracketing
+                        operations either all complete or all fail.
+                        These tools allow applications that must do
+                        multi-table updates to do them in a way that
+                        ensures the database is always consistent.
+
+Transactions and Savepoints only differ in the way
+                        they can or cannot nest.  Both start and
+                        then, at some point either commit the operations
+                        that have been performed since the start,
+                        or *rollback*, or abort
+                        those transactions.   The database
+                        ensures that it is not possible for partial
+                        success to occur.
+
+Where transactions and savepoints differ is in
+                        allowable nesting:
+
+
+
+- A new transaction cannot be started while a
+                                transaction is in progress.
+- A save point cannot be started while a transaction
+                                is in progress.
+- A save point can be initiated when another save
+                                point is in progress, subject to the previous
+                                nesting rules.
+- As transaction can be initiated while a save point
+                                is in progress, subject to the previous rules.
+
+In another differnce, save points have names
+                        while transactions do not.  Active save point
+                        names must be unique.
+
+In brief, it's really only safe to use transactions
+                        when you have full control over the database
+                        access code (e.g. when your code is a complete
+                        application).  Otherwise, it is safer to use
+                        save points to avoid inadvertent violation of the
+                        nesting rules above.
+
+Transaction and savepoint failures are reported
+                        by throwing a
+                        `CSqliteTransction::CException`
+                        object.  This object is derived from
+                        `std::exception`.
+                        The use of this distinct exception class
+                        (as opposed to `CSqliteException`),
+                        is intended to allow code to differentiate
+                        between failure in SQL statements and failures
+                        in any enclosing transaction.
+
+Both transactions and savepoints, start on
+                        construction and terminate on destruction.
+                        In between code can mark the transaction
+                        for eventual rollback (do this if there are
+                        code paths that will still perform SQL operations
+                        that are intended to be within the transaction),
+                        or roll the transaction back immediately.
+                        You may also prematurely commit the transaction
+                        or savepoint prior to its destruction.
+
+The simplest typical use of a transaction
+                        is modeled in the fragment of code below
+
+<a name="AEN4869"></a>**Example A-1. How transactions are usually used**
+
+```
+CSqlite db(....);      // A database.
+...
+void someDbFunction(CSqlite& db)
+{
+   CSqliteSavePoint savpt(db, "MySavePoint");
+   try {
+       DosomeSqliteStuff(db);
+       DosomeMoreSqliteStuff(db);
+       if  (weNeedToRollback()) {
+          savept.scheduleRollback();
+       }
+       DoSqliteStuffThatMightGetRolledBack(db);
+   }
+   catch (...) {
+    savept.rollback();
+    return;
+   }
+}
+                        
+```
+
+In this example, the save point begins as it is
+                        declared at the beginnning of
+                        `savpt`.  If an exception
+                        is thrown, the save point is immediately rolled
+                        back and the function returns.
+                        If the `weNeedToRollBack`
+                        returns true, rollback is scheduled and the
+                        operations performed by
+                        `DoSqliteStuffThatMightGetRolledBack`
+                        will get rolled back.
+                        When the function falls through to its end,
+                        the save point is destroyed.  If
+                        `DoSqliteStuffThatMightGetRolledBack`
+                        returned false all databae transactions are committed,
+                        otherwise, the whole save point is rolled back.
+
+<a name="AEN4877"></a>## METHODS
+
+In actual fact, the `CSqliteTransaction`
+                        class performs all the dirty work.
+                        `CSqliteSavePoint` simply
+                        is a convenience class that constructs
+                        the transaction class to perform save point operations.
+                        Savepoints and Transaction differ at the SQL
+                        level only in the SQL commands needed to
+                        initiate, rollback, or commit them.
+                        `CSqliteSavePoint` simply
+                        passes save point versions of those commands
+                        to a constructor in `CSqliteTransaction`
+                        appropriate to its named save point.
+
+
+
+`  CSqliteSavePoint(CSqlite&  db = , const char*  name = );`Constructs (starts) a save point.
+                                The save point is named by
+                                `name` and is
+                                relevant to the database connected to
+                                `db`.
+                                Note that savepoints and transactions span
+                                all database connections to the same underlying file,
+                                even (well especially) database connections
+                                held by other processes.
+
+`  CSqliteTransaction(CSqlite&  db = );`Constructs a transaction and starts it.
+                                `db` is the database
+                                that will be impacted by this transaction.
+
+`  CSqliteTransaction(CSqlite&  db = , const char*  start = , const char*  rollback = ,  const char*  commit = );`Constructor intended to be used by
+                                `CSqliteSavePoint`.
+                                In addition to `db`,
+                                the database, the SQL statements needed
+                                to
+                                `start`,
+                                `rollback`,
+                                and `commit`
+                                the operations are supplied. The
+                                `CSqliteSavePoint`
+                                class will compute these given the
+                                save point name and pass them
+                                to its base class constructor
+                                (`CSqliteTransaction`).
+
+` void  start();`Starts the transaction.  This is
+                                automomatically called by the constructor.
+                                The only reason you have to call it is
+                                to start a new instance of this transaction
+                                or save point after explicitly
+                                committing or rolling it back.
+
+` void  rollback();`Explicitly rolls back the transaction or
+                                savepoint.  When the transaction or savepoint
+                                is destroyed, it will take no further action.
+
+` void  scheduleRollback();`Indicates that when the transaction or
+                                savepoint object is destroyed, it should
+                                be rolled back.  No immediate action is taken.
+
+By default, on destruction, active transactions
+                                and savepoints are committed.  Think of this
+                                method as overriding that behavior.
+
+` void  commit();`Immediately commits the transaction or
+                                save point.   Unless
+                                `start` is
+                                subsquently called to restart the transaction/save point,
+                                no action will be take when the
+                                transaction/save point is destroyed.
+
+` const     TransactionState  state();`Transaction and save point objects are stateful.  The
+                                state determines the operations
+                                that are allowed as well as what
+                                action the object will take  when it is
+                                destroyed.
+
+This method returns the current state
+                                of the object.  The actual return type,
+                                CSqliteTransaction::TransactionState
+                                is an enumerated value that can be one of:
+
+
+
+CSqliteTransaction::activeThe object is active.
+                                        If destroyed it will be committed.
+
+CSqliteTransaction::rollbackpendingThe object is active, however
+                                        `scheduleRollback`
+                                        was called and therefore on destruction
+                                        a rollback will be performed.
+
+CSqliteTransaction::completedThe object is not active.  On destruction,
+                                        no action will be taken.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSqliteStatement | Up | CSqliteWhere |

@@ -1,0 +1,187 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1720"></a>Chapter 5. Analyzing ring buffer data with SpecTcl
+
+This chapter describes how to analyze ring buffer data with SpecTcl.
+            As with the Readout, ring buffer data analysis is highly
+            source code compatible.  To analyze the data requires two sets of
+            modifications to your SpecTcl:
+
+
+
+1. You must alter the scripts you use to connect SpecTcl
+                       to the online system to use the correct pipe data source,
+                       data source format and URL for RingDaq.
+2. You must make some simple changes to your analysis to handle
+                       the fact that the event length is now 32 bits and, if you are
+                       using documented packets, the packet size fields are 32 bits.
+
+This section takes a simple example and shows how to perform these
+            modifications.  We use very generic SpecTcl analysis code that
+            has the actual analysis abstracted away. We also assume the
+            existence of an `attachOnline` Tcl
+            **proc** that both need to be modified.
+
+# <a name="AEN1731"></a>5.1. Event processor modifications
+
+Let's start by looking at the boilerplate of a typical
+                event processor for SPDAQ shown in the example below.
+
+<a name="AEN1734"></a>**Example 5-1. SpecTcl event processor boilerplate**
+
+```
+#include <config.h>
+#include "MyEvProc.h"
+#include <TranslatorPointer.h>   
+#include <BufferDecoder.h>
+#include <TCLAnalyzer.h>
+
+
+Bool_t
+MyEvProc::operator()(const Address_t pEvent,
+                     CEvent&         rEvent,
+                     CAnalyzer&      rAnalyzer,
+                     CBufferDecoder& rDecoder)
+{
+  
+  
+  TranslatorPointer<UShort_t> p(*(rDecoder.getBufferTranslator()), pEvent);
+  UShort_t  nWords = *p++;                                   
+  CTclAnalyzer&      rAna((CTclAnalyzer&)rAnalyzer); 
+  rAna.SetEventSize(nWords*sizeof(UShort_t)); // Set event size. 
+
+  // Here we would have code that unpacked pEvent into rEvent.
+
+  //
+
+  return kfTRUE;   
+}
+
+                
+```
+
+[[c1720#spectcl_evproc_inclues]]                        These includes are typically required by event processors.
+                        MyEvProc.h is the header for this
+                        event processor class. All of the other headers are
+                        standard SpecTcl class definitions.
+                    [[c1720#spectcl_xlator]]                        SpecTcl supports transparent byte order conversions for
+                        integer data types in the event.  It does this via
+                        a pointer-like object called a `TranslatorPointer`.
+                        The next line creates a translator pointer to access the
+                        events as unsigned shorts (Ushort_t).
+                    [[c1720#spectcl_getwordcount]]                        The SPDAQ data acquisition readout frameworks
+                        precede each event with a 16 bit word count (count of
+                        16 bit items in the event).  This line extract that word
+                        count from the event.
+                    [[c1720#spetcl_ctclanalyzer]]                        At least one event processor in the event processing
+                        pipeline is required to inform SpecTcl of the number
+                        of bytes in the event.  This allows SpecTcl to locate the
+                        next event in the data stream.  
+                    Since
+                        `operator()` return value is
+                        already used to indicate success or failure of the
+                        event processing pipeline, this is done by
+                        calling a method in the `CTCLAnalyzer`
+                        which is an object that controls the overall flow of'
+                        analysis in SpecTcl.
+                        This line casts the generic `CAnalyzer`
+                        into the correclt type of analyzer.
+
+[[c1720#spectcl_setwordcount]]                        Sets the event size for SpecTcl.
+                    [[c1720#spectcl_returntrue]]                        Returnging kfTRUE tells the analyzer
+                        that called this event processor that analysis was
+                        successful and to procede to the next stage of the event
+                        pipeline or to pass the generated event to the
+                        histogramming part of SpecTcl.
+
+To adapt this event processor to RingDaq requires that we
+                modify the boilerplate code slightly. The modification is required
+                because the event size in RingDaq has been widened to a 32
+                bit unsigned integer to allow for larger events (e.g.
+                waveform digitizers).
+
+The example below shows the boiler plate modified to take into
+                account this change.  For the sake of brevity only the relevent
+                code fragment is shown:
+
+<a name="AEN1766"></a>**Example 5-2. SpecTcl event processor boilerplate for RingDAQ**
+
+```
+ ...
+    
+  TranslatorPointer<ULong_t> pwc(*(rDecoder.getBufferTranslator()), pEvent);
+  ULong_t  nWords = *pwc++;       
+  TranslatorPointer<UShort_t> p(pwc);  
+  CTclAnalyzer&      rAna((CTclAnalyzer&)rAnalyzer);
+  rAna.SetEventSize(nWords*sizeof(UShort_t)); // Set event size.
+... 
+                
+```
+
+[[c1720#spectcl_ringdaq_longxlator]]                        Obtains a translator pointer as before, but in this case
+                        a longword translator pointer is used so the widened
+                        RingDaq word count can be extracted.
+                    [[c1720#spectcl_ringdaq_getwc]]                        Extracting the word count in this way leaves
+                        `pwc` pointing to the event body.
+                    [[c1720#spectcl_ringdaq_wordpointer]]                        Converts the longword translating pointer to a
+                        translator pointer to UShort_t as before.
+                        Choosing the target to be `p` should
+                        allow all the remaniing event processor code to run
+                        un-modified.
+
+Before leaving this topic, let's look at one more issue; packets.
+                Depending on how you build packets you may need to modify the
+                code that gets the size of the packet from each packet.
+                If you create packets manually, or via the packet macros of
+                the classic readout framework, you don't need to make any
+                additional changes to your SpecTcl code.
+
+If you use `CDocumentedPacket`s to create
+                your packets, you will need to modify your analysis of those
+                packets to handle the widened packet size fields of those
+                packets.  As with the event, `CDocumentedPacket`s
+                now use a 32 bit unsigned packet size.
+
+Below is a code fragment that extracted the packet size from
+                a SPDAQ documented packets and pointed to the packet body:
+
+<a name="AEN1787"></a>```
+...
+  TranslatorPointer<UShort_t> p(*(rDecoder.getBufferTranslator()), pEvent);
+...
+   UShort_t packetSize = *p++;
+   
+                
+```
+
+Code like this should be changhed to look like:
+
+<a name="AEN1790"></a>```
+...
+  TranslatorPointer<ULong_t> pwc(*(rDecoder.getBufferTranslator()), pEvent);
+  ULong_t  nWords = *pwc++;       
+  TranslatorPointer<UShort_t> p(pwc);
+...
+  pwc = p;
+  ULong_t packetSize = *pwc++;
+  p = pwc;
+  ...
+                
+```
+
+The key is to use a TranslatorPointer<ULong_t> to fish
+                the size out of the event, and that assigning translator pointers
+                works as you expect it would.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Modifying the Makefile |  | Attaching to a ring buffer data source |

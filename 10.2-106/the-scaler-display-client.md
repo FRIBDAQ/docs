@@ -1,0 +1,36 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.sclclient"></a>Chapter 24. The Scaler Display Client
+
+The NSCL Scaler display is described in the
+        [[c1269]]
+        chapter and associated
+        [[r10722]].
+        The NSCL Scaler display runs inside a Tcl server to isolate it from
+        the data acquisition data flow.
+        sclclient is the NSCL DAQ aware program
+        that connects to the scaler display Tcl server to update the
+        variables and call the procedures that drive that user interface.
+
+Unless you have a Tcl server or other server program that has a need
+        for a similar set of functions as the Tcl server, you won't need to
+        manually start the
+        sclclient application as the
+        Scaler Display program starts its own client.
+
+The
+        [[r8051]]
+        completely describe this program, and the various ways it can be started.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Scaler Display Software. | Up | Sequencing runs |

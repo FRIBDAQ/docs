@@ -1,0 +1,113 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="spectcl.cwaveformdictionary"></a>CWaveformDictionary
+
+<a name="AEN19574"></a>## Name
+
+CWaveformDictionary -- Singleton that holds SpecTcl's known waveforms
+
+<a name="AEN19577"></a>## Synopsis
+
+```
+#include <CWaveFormDictionary.h>
+
+class CWaveFormDictionary {
+public:
+    typedef std::map<std::string, CWaveform> Dictionary_t;
+public:
+    static CWaveFormDictionary& getInstance();
+
+    CWaveform& add(const CWaveform& trace);
+    void remove (const char* name);
+
+    size_t size() const;
+    CWaveform& find(const char* name);
+    Dictionary_t::iterator begin();
+    Dictionary_t::iterator end();
+ };
+
+        
+```
+
+<a name="AEN19579"></a>## DESCRIPTION
+
+This is a singleton object.  As such, you cannot construct it directly but must use the
+            `getInstance` to get a reference to the singleton.  The dictionary holds
+            all of the waveforms that are known to SpecTcl.  It is not enough to create a 
+            `CWaveform` object.  You must enter that object into the waveform dictionary for it to
+            be known to e.g. the **waveform** command or the `SpecTcl`
+            API singleton's waveform manipulation methods.
+
+Note that in order to assure object lifetimes, adding an item to the dictionary creates a copy and adds
+            that copy.  Once your code has done that, it normally then finds that item in the dictionary
+            in order to fill the waveform.
+
+<a name="AEN19587"></a>## METHODS
+
+
+
+` static CWaveformDictionary& getInstance();`Returns a reference to the `CWaveformDictionary` singleton object,
+                    creating it if needed.
+
+` CWaveform& add(CWaveform& trace);`Adds a copy of the `trace` to the dictionary. 
+                    The method returns a referene to the copy of the waveform that is in the dictionary.
+                    The caller should not longer use the waveform it created but this reference instead, or,
+                    alternatively use the result of a `find` calls.
+                    If a waveform with the same name exists, 
+                    `CDuplicateSingleton` is thrown.
+
+` void remove(const char* name);`Remove the waveform named by `name` from the
+                    dictionary.  If the waveform does not exist, 
+                    `CNoSuchObjectException` is thrown.
+
+` const size_t size();`Returns the number of waveform objects in the dictionary.
+
+` CWaveform& find(const char* name);`Returns a reference to the waveform named `name` in the
+                    dictionary.  If there is no such waveform,
+                    `CNoSuchObjectException` is thrown.
+
+` Dictionary_t::iterator begin();`Retuns an iterator to the beginning of the dictionary.  Iterators can be
+                    derefernced to produce std::pair<std::string, CWaveform&>.
+                    Where the string is the waveform name.  Be careful handling the second element
+                    of the pair as `CWaveform` objects are can be copied and any
+                    modifications made to the copy are not reflected in the dictionary object.
+
+These iterators can also be compared for equality and normally this is done to
+                    the itertor returned by the `end`.
+
+The existence of `begin` and `end`
+                    methods also supports using a for loop directly to loop over the map as in the
+                    code fragment below:
+
+<a name="AEN19660"></a>```
+...
+auto& d = CWaveFormDictionary::getInstance();
+for(auto& p : d) {
+    std::string name = p.first;
+    CWaveform& wf = p.second;
+    ...
+}
+...
+                     
+```
+
+
+` Dictionary_t::iterator end();`Returns an end of iteration iterator into the map.  See `begin`
+
+<a name="AEN19671"></a>## DATA TYPES
+
+The class exports the Dictionary_t data type which is a typedef for
+            std::map<std::string, CWaveform>
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CWaveform | Up | CXdrFilterOutputStage |

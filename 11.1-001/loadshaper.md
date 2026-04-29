@@ -1,0 +1,41 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.loadshaper"></a>loadshaper
+
+<a name="AEN15733"></a>## Name
+
+loadshaper -- Load setttings into an N568 shaper via SBS/V288.
+
+<a name="AEN15736"></a>## Synopsis
+
+**loadshaper config-file    
+    **
+
+<a name="AEN15739"></a>## DESCRIPTION
+
+This program is a command line utility to load settings into an
+        N568b shaper module connected to the system via a VME CAENnet controller.
+        The configuration file describes the shaper connection and identification as
+        well as settings the user wants to load into the shaper.  Any settings not
+        specified in the shaper module are not loaded. See the \fBn568configfile(5)\fR
+        manpage for more information about creating configuration files.
+
+Note that the N568b holds its settings in non-volatile memory.  Therefore
+        settings are retained across power cycles of its NIM bin.
+
+<a name="AEN15743"></a>## SEE ALSO
+
+[[r76642]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| bcnaf | Up | n568Control |

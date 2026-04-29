@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN238"></a>Chapter 4. The dumper program
+
+When we run our program, we are going to want to inspect the data
+          that is being read out from the hardware. To do this, we will use the
+          **dumper** program. But first, we need to understand a
+          little bit about a ring buffer (a.k.a. a "ring").
+
+# <a name="AEN242"></a>4.1. A very brief introduction to ring buffers
+
+A ring buffer is a fundamental component of the system
+            NSCLDAQ uses to pass data from one process to another and is where
+            the readout program sends its data. Other processes can then read
+            the data from that ring buffer. From the vantage point of the ring
+            buffer, the program filling it with data is its
+            *producer* and the programs that read from it
+            are its *consumers*. There is only allowed to
+            be a single producer per ring buffer while there may be many
+            consumers.
+
+Ring buffers are local to a specific computer but are accessible
+            over the network. Each ring buffer is identified by a user-defined
+            name and the hostname of the computer it is located on. When
+            processes want to attach to a ring to either produce or consume
+            its data, they must specify the name of the ring via a universal
+            resource identifier (URI). The URI specifies the protocol
+            (proto://), the hostname
+            (host), and the name of the ring
+            (name) as a single string:
+            proto://host/name. When a user attaches to a
+            ring on another computer, a service running in the background
+            called RingMaster sets up the connection that
+            will stream the data across the network for you. In this way, the
+            nework is basically transparent.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Compiling the Readout program |  | Starting up the dumper program |

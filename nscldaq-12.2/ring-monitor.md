@@ -1,0 +1,142 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN24325"></a>ring_monitor
+
+<a name="AEN24329"></a>## Name
+
+ring_monitor -- Monitor ring throughput statistics
+
+<a name="AEN24332"></a>## Synopsis
+
+**nohup $DAQBIN/rust/ring_monitor &
+            **
+
+<a name="AEN24335"></a>## DESCRIPTION
+
+This server is intended to be started at system start up time.  It attaches a consumer to
+            every ringbuffer that has been and will be created and monitors the throughput in 
+            total bytes, total physics items (events) as well as bytes/events since the last begin 
+            run item.  It also computes rates of bytes and events per second.
+
+The server advertises with the NSCLDAQ port manager as the service:
+            RING_MONITOR.  Connecting to that service results in the
+            monitor spitting out the statistics in JSON format (see STATISTICS FORMAT
+            below).  After providing the statistics, the ring monitor willl shutdown the connection
+            to the client.
+
+A word about the ring monitor structure that is important.  The NSCLDAQ ringmaster
+            reacts to the destruction of a ringbuffer by attempting to kill processes that are
+            attached to the ringbuffer either as the producer or a consumer.   THerefore, the
+            ringmonitor is actually a pair of processes.  The parent process starts the
+            actual monitor program and, when it exits, restarts it.  This implies that deleting
+            a ringbuffer resets the statistics on all rings.  This also implies that while the
+            monitor program needs, and does react to the creation of new ringbuffers, it does not
+            need to react to the destruction of ringbuffers as the ringmaster will force
+            a restart, which will re-inventory the rings.
+
+The rng monitor program does not restrict the set of hosts that can connect to it.
+            This implies that ring statistics can be moniotored from  non DAQ nodes.
+
+<a name="AEN24343"></a>## STATISTICS FORMAT
+
+The ring monitor returns statistics to clients in JavaScript Object Notation (JSON).  See 
+            [https://www.json.org/json-en.html](https://www.json.org/json-en.html) for a description of JSON.  Fortunately,
+            JSON decoding libraries exist for many programming languages.  FRIB containers provide 
+            JSON decoding libraries for several languages.  This section describes the JSON that
+            the ring monitor returns.  The server returns an array of JSON objects. each object
+            provides statistics for a single ringbuffer.   The proxy rings that represent remote ringbuffer
+            are included in the array.
+
+Below is an example of an idle system with a single ring named ring2
+            that has never had data produced into it. I have prettified the JSON to make it more readable.
+
+<a name="AEN24349"></a>```
+[
+  {
+    "name":"ring2",
+    "cum_statistics":{
+        "name":"ring2",
+        "bytes":0,
+        "events":0,
+        "bytes_this_run":0,
+        "events_this_run":0
+    },
+    "byte_rate":0.0,
+    "event_rate":0.0,
+    "byte_per_run_rate":0.0,
+    "evts_per_run_rate":0.0
+ }
+]           
+            
+```
+
+If there were additional ring buffers, they would be separated from the structure shown additional
+            each other by commas, per JSON array notation.  The object that describes ring buffer statistics
+            has the following attributes:
+
+
+
+`name` (string)The name of the ringbuffer.  Note this is a local ringbuffer name, not
+                            a URI.
+
+`cum_statistics` (object)An object that describes the cumulative statistics fromt he ring.
+                            These are the statistics since the last restart of the ring monitor.
+                            The attributes of this object will be described below.
+
+`byte_rate`(float)Instantaneous bytes per second through the ring.
+
+`event_rate` (float)Instantaneous rate of PHYSICS_EVENT items through the
+                            ringbuffers.
+
+`byte_per_run_rate` (float)Same as `byte_rate` once a run is stable.
+                            At the start of the run there may be a perturbation.
+
+`evts_per_run_rate (float)`Same as `event_rate` though there can be a
+                            downward perturbation at the start of the run.
+
+The `cum_statistics` is itelf an object which has the following
+            attributes:
+
+
+
+`name` (string)The name of the ring buffer again.
+
+`bytes` (integer)Number of bytes that have gone through the ringbuffer since the
+                            server started.
+
+`events` (integer)Number of PHYSICS_EVENT ring items that
+                            have gone through the ring sinc the server was started.
+
+`bytes_this_run` (integer)Number of bytes that have gone through the ring buffers since
+                            the most recent BEGIN_RUN item was observed.
+
+`events_this_run` (integer)Number of PHYSICS_EVENT ring items that
+                            were observed since the most recent BEGIN_RUN
+                            was observed.
+
+Note:  The countes for the run begin counting when the server starts and don't wait for
+            a begin run item.  Thus if the server is started in the middle of the run, the counters and
+            rates will be from the start of the server until a BEGIN_RUN is observed
+            at which time the totals for a run will be reset.
+
+<a name="AEN24420"></a>## BUGS
+
+WHen a ringbuffer is deleted, the ring master, in the system the ringbuffer lived in
+            will kill all clients (producer and consumers) that are attached to that ring.
+            This means that the ring_monitor will be killed as well.  The ring_monitor, however
+            consists of a parent process that spawns off the actual monitor and, when the actual
+            monitor exits restarts it.  Unfortunately that means that all counters maintained
+            by the ring_monitor are reset when a ringbuffer is deleted.  This is not expected to be fixed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mvlc_xlmload | Up | statsview |

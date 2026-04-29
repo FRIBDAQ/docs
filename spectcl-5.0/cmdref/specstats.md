@@ -1,0 +1,56 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.specstatscommand"></a>specstats
+
+<a name="AEN733"></a>## Name
+
+specstats -- Return spectrum statistics information
+
+<a name="AEN736"></a>## Synopsis
+
+**specstats *?pattern?*
+**
+
+<a name="AEN740"></a>## DESCRIPTION
+
+Provides some spectrum statistics for the spectra
+            with names that match the
+            optional `pattern`.  If `pattern`
+            is not supplied, the default value of * is used
+            which matches all spectra.
+
+The result is a list of **dict**s; one dict for each
+            spectrum that matches `pattern`.  The
+            dicts have the following members:
+
+
+
+nameName of the spectrum described by this element
+
+overflowsA list of 0, 1 or two elements that are overflow
+                        counters for each axis.
+
+underflowsSame as for overflows but the counters
+                        represent the number of underflows for each axis.
+
+Note that the **clear** clears the over/underflow
+            counters as well.
+
+<a name="AEN768"></a>## SEE ALSO
+
+
+
+- [[r577]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| project | Up | treeparameter |

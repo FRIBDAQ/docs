@@ -1,0 +1,502 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN98033"></a>DAQ manager database schema
+
+<a name="AEN98037"></a>## Name
+
+DAQ Manager schema -- Document database tables for manager.
+
+<a name="AEN98040"></a>## Synopsis
+
+```
+CREATE TABLE container  (
+            id         INTEGER PRIMARY KEY,
+            container  TEXT,
+            image_path TEXT,
+            init_script TEXT
+        );
+CREATE TABLE bindpoint (
+            id            INTEGER PRIMARY KEY,
+            container_id  INTEGER,    -- FK to container
+            path          TEXT,
+            mountpoint    TEXT DEFAULT NULL
+        );
+CREATE TABLE program_type (
+            id                INTEGER PRIMARY KEY,
+            type              TEXT
+        );
+CREATE TABLE program (
+            id           INTEGER PRIMARY KEY,
+            name         TEXT,      -- Name used to refer to the program.
+            path         TEXT,
+            type_id      INTEGER, -- FK to program_type
+            host         TEXT,
+            directory    TEXT,
+            container_id INTEGER, -- FK to container
+            initscript   TEXT,
+            service      TEXT
+        );
+CREATE TABLE program_option (
+                id          INTEGER PRIMARY KEY,
+                program_id  INTEGER,  -- FK to program
+                option      TEXT,
+                value       TEXT
+            );
+CREATE TABLE program_parameter (
+            id             INTEGER PRIMARY KEY,
+            program_id     INTEGER,   -- FK to program.
+            parameter      TEXT
+        );
+CREATE TABLE program_environment (
+                id         INTEGER PRIMARY KEY,
+                program_id INTEGER,
+                name       TEXT,
+                value      TEXT
+            );
+CREATE TABLE sequence (
+            id                INTEGER PRIMARY KEY,
+            name              TEXT,
+            transition_id     INTEGER -- FK to transition triggering seq.
+        );
+CREATE TABLE step (
+            id                       INTEGER PRIMARY KEY,
+            sequence_id              INTEGER, -- fk to sequence
+            step                     REAL,
+            program_id               INTEGER, -- fk to program table.
+            predelay                 INTEGER DEFAULT 0,
+            postdelay                INTEGER DEFAULT 0
+        );
+CREATE TABLE transition_name (
+            id        INTEGER PRIMARY KEY,
+            name      TEXT
+        );
+CREATE TABLE legal_transition (
+            id              INTEGER, PRIMARY KEY,
+            from_id         INTEGER,   -- FK in to transition_name
+            to_id           INTEGER    -- Also FK into transition_name
+        );
+CREATE TABLE last_transition (
+            state           INTEGER     -- FK to transition_name
+        );
+
+CREATE TABLE logger (
+            id                 INTEGER PRIMARY KEY,
+            daqroot            TEXT,
+            ring               TEXT,
+            host               TEXT,
+            partial            INTEGER DEFAULT 0,
+            destination        TEXT,
+            critical           INTEGER DEFAULT 1,
+            enabled            INTEGER DEFAULT 1,
+            container_id       INTEGER DEFAULT NULL -- FK to container tbl.
+        );
+CREATE TABLE recording (
+            state     INTEGER
+        );
+CREATE TABLE kvstore (
+            id        INTEGER PRIMARY KEY,
+            keyname   TEXT,
+            value     TEXT
+        );
+CREATE TABLE users (
+            id        INTEGER PRIMARY KEY,
+            username  TEXT
+        );
+CREATE TABLE roles (
+            id       INTEGER PRIMARY KEY,
+            role     TEXT
+        );
+CREATE TABLE user_roles (
+            user_id    INTEGER,
+            role_id    INTEGER
+        );
+            
+         
+```
+
+<a name="AEN98042"></a>## INTRODUCTION
+
+The program manager maintains a DAQ instance configuration in an
+            SQLite3 database.  In addition some state is also maintained in that
+            database.   The purpose of this section is to describe the
+            tables and their relationships in this schema.
+
+For the most part, the database tables make up subsystems of
+            roughly orthogonal table sets.  Each of these table sets will
+            be given section in the man page.
+
+All tables have an integer primary key field named id.
+            This will not be further described in the interest brevity.  When
+            a field is said to be a foreign key into another table, its value is
+            the value of the id field of a row in that other
+            table.  This is a normal way to make relationships between tables
+            in SQL databases.
+
+<a name="AEN98049"></a>## Users and Roles
+
+While at the time this is being written, the intended functionalit behind
+         these tables is not implemented, the eventual purpose is to allow for
+         a capability based system that constrains what each user can do.
+         The tables are probably pretty close to the final shape but there is
+         no code to implement the protections.
+
+The concept of this table set is that users of the system must be defined.
+         Roles indicate the sorts of things a person is allowed to do within the
+         system and a user can be granted any set of roles which, in turn, describe
+         what that user can do within the system.
+
+The users table defines the set of users known to the
+         system  the username field is the login name of
+         a system user.
+
+Similarly, the roles table contains the set of
+         roles defined by the system.  The role field is the
+         name of a role that can be *granted* to a set of
+         users.
+
+Finally, the user_roles table is a
+         *join table*.  It does not have or need a primary
+         key field.  It has two fields:
+
+
+
+user_idA foreign key into the users table which
+
+role_idA foreign key into the roles table.
+
+Thus each entry in the user_roles table defines
+         a role that has been granted to a specific user.
+
+<a name="AEN98078"></a>## Containers
+
+The database supports the definition of containers and bindpoints.
+         In addition an *init script* can be defined
+         that is run prior to running a program within the container.  Containers
+         can be activated on specific nodes in the network.  Once activated a
+         container persists and any number of programs can run within it.
+
+The container table defines the containers and gives
+         names to each one.
+         container  field is the name of the container.
+            image_path is the path in the *host system*
+            to the container image.
+            init_script is a script that is run prior to running
+            any program in the container.  The field contains the script itself not
+            the path to a file containing that script.  If, however, the script
+            depends on other scripts, the must be referred to in a way that they
+            can be located within the container (e.g. located in a directory bound
+            into the running container).
+
+Since each running container can have any number of bind points,
+         a separate table is needed to contain their definitions. The
+         bindpoint table is this table.  It contains
+
+
+
+container_idA foreign key back into the container
+                  table that indicates which container this bind point
+                  belongs to.
+
+pathThe host system path to be bound into the container.
+
+mountpointIf not null, this is the location in the container's file system
+                  where path will be bound.  If this field is
+                  null, the path is bound into the same
+                  filesystem location in the container.
+
+<a name="AEN98109"></a>## Programs
+
+Programs are executables or shell scripts that are run by the manager.
+         Programs are run on a specific host and can either run in the native system
+         or inside a container that has been defined in the database.
+
+Programs have a type, which determines what happens when it exits, options
+         (name value pairs e.g. `--ring` myring), parameters which are
+         an ordered set of values.  In addition programs can have a set of
+         name value pairs that are loaded into the environment prior to program
+         startup.  Note that programs started in containers will first have the
+         containers initialization script executed on their behalf.
+
+The program_type table in the program table set
+         provides names for the types of programs the system recognizes.
+         This table is pre-loaded when the schema is created. A program's program
+         type determines the actions taken by the system when the program exits.
+
+Possible values are:
+
+
+
+TransitoryThe program is expected to run, do something and then exit.
+                  No action is taken when it exits.
+
+PersistentThe program is intended to run and continue to run but is
+                  not critical to the functioning of the system.  For example
+                  a SpecTcl instance could be run under the program manager.
+                  SpecTcl is not intended to exit but data continues to flow
+                  and external SpecTcl instances can be attached to the system
+                  to monitor the data.
+
+If a persistent program exits, a note is sent to all output monitors
+                  but no other action is taken.
+
+CriticalThe continued operation of the program is critical to the
+                  system.  If a critical program exits, the manager makes a
+                  transition to SHUTDOWN stopping the system.
+
+The program table is the *root table*
+         of program definitions.  It has the following fields:
+
+
+
+nameA name assigned to the program that can be used to reference
+                  the program when using the tools provided to configure the
+                  system.  This is *not* the program path.
+
+pathPath to the executable or script that will run when the program
+                  is activated.  Note that if the program should be run in a container,
+                  this must be the path to the program as seen within the container.
+
+type_idA foreign key into the program_type table
+                  that indicates the type of program this is.
+
+hostThe IP address or DNS name of the host in which the program will
+                  be run.
+
+directoryThe working directory that will be set for the program when it
+                  runs.  Again, if the program is containerized, this must be
+                  the path to the directory as seen within the container.
+
+container_idIf not null, the
+                  program will be run containerized and this is a foreign key into the
+                  container table that selects the container within
+                  which the program will run.  If null, the program runs in the native
+                  system.
+
+initscriptIf not empty, this is a script that is run prior to program
+                  activation.  As with container, this contains
+                  the contents of a script not a path.
+
+serviceNot yet used by code.  The intent is that this field can encapsulate
+                  a service advertised in the host's port manager on which requests
+                  can be made to the program.
+
+The program_option table captures a list of option/value
+         pairs that will be passed to the program's command line.  The fields are
+         program_id a foreign key into the program
+         table indicating the program this belongs to, option
+         the option and value the option's value.
+         For example if option is --ring
+         and value is fox, --ring=fox
+         is passed to the program.
+
+Similarly, program_parameter is an ordered list
+         of parameters that is passed to the program on startup.
+         program_id is the foreign key back to
+         program indicating the program this will be passed to and
+         parameter is the value that will be passed.
+         Parameters are given in the command line in order of their primary keys..
+
+Finally, program_environment, is  a list of environment
+         variables and their values that will be set prior to running the
+         program.  program_id is, again, a foreign key
+         into the program that determines which program each
+         record belongs to. name is the environment variable name
+         and value its value.
+
+An implementation note of some interest:  Since the manager writes a
+         shell script and runs it to execute the program, all shell substitutions
+         will work in the option, parameter and environment tables.
+
+<a name="AEN98205"></a>## States and transitions
+
+At its heart the manager is just a state machine.  States are defined
+         in the database as are valid transitions from each state.  Each state
+         transition can trigger sequences of program executions.  While the set
+         of states is initially defined when the schema is created, the states
+         and valid transitions can be redefined using the configuration tools.
+         That is not recommended.
+
+This section describes states, transitions and sequences.
+
+Since actions occur on transitions not within the states themselves,
+         the stae names are actually captured in the transition_name
+         table.  Other than its primary key, it consists of a single text field;
+         name that is the textual state of the
+         state-name/transition into the state.  Initially, this is stocked with
+
+
+
+SHUTDOWNThe system is shutdown.  This is a special state in the
+                  sense that transitioning into  that state involves stoppping
+                  execution of all programs.  In addition failure of critical
+                  programs will cause an automatic transition to the SHUTDOWN
+                  state.
+
+BOOTThe system is ready for use.  Often, for a DAQ system to be usable,
+                  a set of base programs (e.g. readout engines, event builders and their
+                  feeders) must be running.  Sequences attached to the transition
+                  to this state normally initiate that set of base programs.
+
+HWINITHardware is initialized.  This is normally done once after
+                  boot to ensure that the hardware has been  made ready to
+                  start/stop runs.  Any time consuming, one-time initialization is
+                  normally done here.
+
+BEGINThe system is taking data, a run has begun.
+
+ENDThe system has finished taking data and is now ready to start
+                  the next run.
+
+Legal transitions between states are defined in the legal_transition.
+         In addition to its primary key, it contains
+         a pair of foreign keys into the transition_name table:
+         from_id and to_id which define
+         a legal transition's initial and final states respectively.
+
+The last_transition table captures the last
+         state of the system.  It is primarily used on system start up to know if
+         the manager has to transition to SHUTDOWN.  It's a
+         table with a single entry  and a single field state
+         which is a foreign key into legal_transition indicating
+         the current manager state.
+
+The power of the manager system comes from being able to trigger
+         actions as a result of attempts to transition to another state of
+         the system.   These actions are called sequences and consist of
+         attempts to run a set of programs.  How programs are run depends on their
+         types.  If a program is transitory it is run and must complete before
+         the next step in a sequence is initiated.  If a program is either
+         Critical or Persistent it is started and then next step of the
+         sequence can be run.
+
+From the previous paragraph, you have hopefully built a model that
+         a sequence has a transition trigger and an ordered series of steps
+         that run programs.  This model is captured in the
+         following tables:
+
+The sequence table contains one entry per sequence.
+         The entry contains a name, which provides a name to
+         the sequencde and transition_id which is a foreign key
+         into the transition_name table indicating which
+         transition will trigger execution of the sequence.
+
+Each sequence has a series of steps.  These are defined in the
+         step table which defines both the actions of each
+         step in the sequence as well as the ordering of the steps. The ordering
+         is captured in a way that allows steps to be inserted at any point in the
+         sequence when configuring the system.  The step
+         table contains the following fields:
+
+
+
+sequence_idForeign key  into the sequence table
+                  that indicates the sequence to which this step belongs.
+
+stepA real value that indicates the step ordering.  To determine step
+                  ordering for a sequence, the system retreives all steps that
+                  belong to that sequence and orders them by this field.
+
+program_idForeign key into the program
+                  table that describes the program to be run in this step.
+
+predelayNumber of seconds to delay prior to running this step.
+
+postdelayNumber of seconds to delay after starting the program described
+                  by this step.
+
+Note that several sequences can be given the same trigger.  This is useful
+         when buiding systems that consist of quasi-independent detector systems.
+         While there's no specification that defines the order in which sequences
+         are run, in practice their primary key determines that order.
+
+One way to ensure that sequences are run in the order you want is to add
+         intermediate states to the system, and use external software to step
+         the system from desired initial state to desired final state along that
+         set of intermediate states.
+
+<a name="AEN98289"></a>## Event Logging
+
+Event logging could have been captured as steps in sequences, however
+         the actions, and order in which they are taken are so critical, they
+         are separated out from that subsystem.  In NSCLDAQ prior to the manager,
+         there were two types of loggers, the primary logger managed a directory
+         tree that maintained run metadata and used symbolic links to provide
+         both and experiment and a run view of the event files.  Multiloggers just
+         put event files in a soup in a directory.
+
+In NSCLDAQ prior to the manager you could have a single primary logger and
+         as many multiloggers as you wanted.  The manager allows any number of
+         any type of logger.  Loggers that look like multilogger are called
+         *partial* loggers.  Loggers can also be critical or not.
+         Failure of a critical logger results in a transition to SHUTDOWN.
+
+Two tables describe and manage logger fucntionality recording
+         simply contains a single record with a single boolean field state
+         which is non-zero if logging should be done and zero if not.
+
+The logger table defines the loggers themselves.  It
+         contains the following fields:
+
+
+
+daqrootThe directory tree that contains the event loggers. This should
+                  be the top leve of an NSCLDAQ installation either in a container
+                  (if the logger is run containerized), or the native system if not.
+                  The actual program run will be eventlog from
+                  the bin subdirectory of that tree.
+
+ringThis is the URL of the NSCLDAQ ring buffer from which event
+                  data will be logged.  This should be of the form:
+                  tcp://*host/ringname*.
+
+hostHost in which the event logger should be run.
+
+partialNon zero if the loggers is partial (multilogger style). If
+                  zero, the logger is a full logger and will maintain a directory
+                  tree in the same manner the primary logger of the
+                  ReadoutShell does.
+
+criticalIf nonzero, the logger is critial to the experiment function and the
+                  system should be SHUTDOWN if it fails/exits
+                  unexpectedly.
+
+enabledIf nozero, the logger will record data when the
+                  recoring.state field is nonzero.
+                  This allows loggers to be turned off once system debugging
+                  is complete.
+
+container_idIf non-null, the logger will be run containerized and this
+                  specifies the foreign key into the
+                  container table that specifies the
+                  container definition to use when containerizing the
+                  logger software.
+
+<a name="AEN98341"></a>## Key value store
+
+The key value store is used to hold miscellaneous data.  For example,
+         the Readout program control programs use this to store the run title
+         and run number.  The is simply a table that contains the fields:
+         keyname the name of an item.
+         value the value of that item.  User software can
+         also use this table to store arbitrary data.
+
+$DAQBIN/mg_mkconfig adds two entries to this table when it is created:
+
+
+
+Key: title Value: Set a new titleThe title Readout programs will use for their next run.
+
+Key: run Value: 0The run number readout programs will use for their next run.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Manager REST | Up | Container Description File |

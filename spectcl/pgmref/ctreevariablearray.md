@@ -1,0 +1,119 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4290"></a>CTreeVariableArray
+
+<a name="AEN4294"></a>## Name
+
+CTreeVariableArray -- Container for an array of tree variables.
+
+<a name="AEN4297"></a>## Synopsis
+
+```
+CTreeVariableArray
+```
+
+<a name="AEN4300"></a>## DESCRIPTION
+
+Objects of type `CTreeVariableName`
+                    are built to act programmatically like arrays of tree
+                    parameters with identical definitions and a common base name.
+                    Tree variables in a tree variable name are given names
+                    of the form *basename.n*
+                    where *n* is a multidigit
+                    fixed length number.
+
+The number of digits is chosen so
+                    that the largest index will fit.  The use of fixed
+                    sized integers makes sorting with alphabetic keys work properly
+                    for these indices. For example, a tree variable with 16
+                    elements starting at element zero and with a base name
+                    of tv, will have names tv.00,
+                    tv.01... tv.15.
+
+<a name="AEN4311"></a>## METHODS
+
+The first set of methods we're going to document are
+                    associated with construction and initialization.
+                    A tree parameter array can be constructred in either one
+                    or two steps.
+
+One step construction uses one of the parameterized constructors.
+                    Two step construction uses the default constructor and
+                    the special `Initialize` method.
+                    `Initialize` should be invoked prior
+                    to the completion of initialization so that the variables
+                    are properly bound.  If this is not done, the variables
+                    that make up the object will need to be bound manually
+                    after `Initialize` has been
+                    called.
+
+
+
+`  CTreeVariableArray();`Default constructor.  After this is called,
+                                initialization must be completed by invoking
+                                `Initialize`
+
+`  CTreeVariableArray( std::string  baseName,  double  initialValue,  std::string  units,  UInt_t  size,  int  firstIndex = 0);`Full one-step construction.  `baseName`
+                                is the base name for the variables this creates.
+                                `initialValue` is the value
+                                initially given to all of the created variables.
+                                `units` will be the units of measure.
+                                The array will have `size`
+                                elements and the first index will be
+                                `firstIndex`.
+
+`   CTreeVariableArray(const  CTreeVariableArray&  rhs);`Copy construction creates a copy of the
+                                array that can be used in pass by value
+                                parmeters in function/method calls.
+                                The const  The
+                                copy is a copy in name only as the
+                                resulting tree variables will be bound to the
+                                same Tcl variables as the original.
+
+`   void Initialize( std::string  baseName,  double  initialValue,  std::string  units,  UInt_t  size,  int  firstIndex = 0);`Performs the second step in two phase initialization.
+                                The first was performed by invoking the default
+                                constructor.
+
+The remaining methods are methods associated with the
+                    ability to treat `CTreeVariableArray`
+                    objects like arrays:
+
+
+
+`   CTreeVariable&  operator[]( Int_t  index);`The indexing operator returns a reference to the
+                                tree variable at the specified
+                                `index`. Note again
+                                that the object's initial index may be
+                                non zero.
+
+`   CTreeVariableArray&  operator=(const  CTreeVariableArray&  rhs);`Assigns to the object from
+                                `rhs`.  Note that
+                                because of how tree variables work, the left
+                                and right hand sides of the assignment will
+                                then refer to the same underlying tree variables
+
+`   UInt_t  size();`Returns the number of elements in the array.
+
+`   Int_t   firstIndex();`Returns the lowest legal index value for
+                                the array.  This will be the
+                                value of the
+                                `firstIndex` parameter
+                                to the costructor or the call to
+                                `Initialize` or,
+                                if the object was assignedvia
+                                `operator=` the
+                                number of elements in the right hand
+                                side tree variable
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTreeVariableProperites | Up | Tcl++ classes |

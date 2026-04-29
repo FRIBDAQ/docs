@@ -1,0 +1,191 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 7. Readout GUI (ReadoutShell) | Next |
+
+
+---
+
+# <a name="AEN513"></a>7.3. Customizing Readout Shell
+
+The readout gui is highly customizable.  You can provide Tcl
+            code that is called by the Readout Shell and specific times to
+            perform application specific operations. An API allows you to
+            interact with the Readout GUI through these script extensions.
+
+Furthermore, a large number of environment variables allow you
+            to configure how the ReadoutGUI operates.
+
+## <a name="AEN517"></a>7.3.1. ReadoutCallouts.tcl
+
+ReadoutCallouts is a script that you can supply.  When the Readout
+                Gui starts it sources all scripts by this name in the following
+                directories in order: ~, ~/experiment/current,
+                and ..  The script is sourced at the global
+                level.
+
+In addition to performing any desired operations as the script
+                is initially sourced, if these script define any of the
+                following **proc**s they will be called
+                by the Readout GUI at the appropriate time.  Please note that
+                Tcl does not support overloading **proc**names.
+                If you want to chain to previously defined instances of those
+                procs you'll need to use the **rename** command
+                to rename the old ones and then manually chain to them from your
+                code.
+
+
+
+**OnBegin** `runNumber`This proc is called by Readout GUI when the run has been
+                            started.  By the time this proc is called, the event logger
+                            has already started, however the Readout program itself
+                            has not yet been told to start the run.
+                            As implied by the header above,  the proc receives
+                            the current run number as a parameter.
+
+**OnEnd** `runNumber`This proc is called just after a run has neded.  The
+                            Readout program has been asked to end the run,
+                            however due to the lack of closed loop control
+                            between the ReadoutGui and Readout, it is not yet known
+                            that the Readout program actually has finished ending
+                            the run and sent its end run item to the ring buffer.
+                            The proc is parameterized by the number of the run'
+                            that is ending.
+
+**OnPause** `runNumber`This proc is called just after a run has paused.
+                            The timing for this call is essentially the same as that for
+                            **OnEnd**.
+
+**OnResume** `runNumber`This proc is called just after a run has resumed.
+                            The timing for this is the same as that for
+                            **OnStart**
+
+**OnStart**This proc is called just after the readout program
+                            has been asked to start.  There is no gaurentee that
+                            by the time OnStart begins executing, the readout
+                            program is able to accept and act on commands. It
+                            may be appropriate to delay some appropriate time
+                            period to allow it to initialize.
+                            A common use of this callback is to define
+                            run and state variables in a readout framework
+                            so that it can log those to file.
+
+The toy extension below logs readout loads, and run state transitions
+                to a file ~/readout.log  The  file
+                is opened and appended to for each log operation.
+
+<a name="AEN561"></a>**Example 7-1. ReadoutCallouts.tcl sample extension**
+
+```
+set filename [file join ~ readout.log]
+
+if {[info procs OnBegin] ne ""} {
+    rename OnBegin PreLogger_OnBegin 
+}
+
+proc logToFile message {
+   global filename
+   
+   set fd [open $filename "w+"]
+   set timestamp [clock format [clock seconds]]
+   puts $fd "$timestamp : $message"
+   close $fd
+}
+proc OnBegin run {
+   if {[info procs PreLogger_OnBegin] ne ""} {
+        PreLogger_OnBegin $run
+   }
+   logToFile "Run $run Begun"
+}
+proc OnEnd run {
+   logToFile "Run $run has ended"
+}
+proc OnPause run {
+   logToFile "Run $run has been paused"
+}
+proc OnResume run {
+   logToFile "Run $run has been resumed"
+}
+proc OnStart {} {
+   logToFile "Readout program has been started"
+}
+                    
+                
+```
+
+The code at the top of the file and the code in
+                **OnBegin** illustrate how to chain to a previously
+                defined OnBegin.  As the script starts up, any existing OnBegin
+                proc is renamed to **PreLogger_OnBegin**. If
+                OnBegin detects the existence of this proc it is called.
+                Obviously this can be extended to any and all of the callback
+                functions.
+
+## <a name="AEN567"></a>7.3.2. Environment and configuration variables
+
+ReadoutGUI looks for a large number of environment variables.
+                Setting these overrides default values and symbolic links.
+                This section describes the set of environment variables that
+                are understood by Readout GUI.
+
+Readout GUI processes configuration files, then environment
+                variables and finally command line parameters where appropriate.
+                The cofiguration file is located in
+                ~/stagerea/.readoutconfig.  This contains
+                static configuration as a set of Tcl Variables.
+                ~/.daqconfig can contain additional
+                static configuration as can ./.daqconfig.
+                In the tables below, the parameter column is
+                the global Tcl variable to set to modify this parameter in
+                a configuration file.
+
+<a name="AEN575"></a>**Table 7-1. Data Acquisition configuration parameters**
+
+| Parameter | Environment variable | Meaning |
+| --- | --- | --- |
+| SourceHost | DAQHOST | Name of the system that runs the Readout program. |
+| ReadoutPath | RDOFILE | File system path to the readout program |
+| EventLogger | EVENTLOGGER | Path to an event logger that substitutes
+                                for the standard event logger. |
+
+<a name="AEN596"></a>**Table 7-2. Directory root configuration parameters**
+
+| Parameter | Environment variable | Meaning |
+| --- | --- | --- |
+| StageArea | EVENTS | Overrides the symbolic link~stageareaif set |
+| Experiment | EXPDIRM | Overrides the root directory where the
+                            experiment view is generated.  This defaults to~/experimentwhich if it does
+                            not initially exist is linked to anexperimentdirectory in the stage area. |
+
+<a name="AEN616"></a>**Table 7-3. State Parameters**
+
+| Parameter | Environment variable | Meaning |
+| --- | --- | --- |
+| RunTitle | EXPTITLE | The title of the run.  This is intended to allow
+                            you to provide an initial run title.  It is usually overidden
+                            by the value in.readoutconfigwhich
+                            is rewritten at the start and end of each run |
+| RunNumber | -- | The current run number.  This is far too dynamic
+                            to merit an environment variable. |
+| ScalerCount | SCALERS | The value that will be used in the initialset scalerscommand at the
+                                start of the run. The intent of this variable
+                                (not much used nowadays). is to allow experiment
+                                specific code to bind to it and use its value
+                                to determine the number of scalers to read out. |
+| ScalerInterval | SCALERINTERVAL | Value in theset frequencycommand performed at the beginning of each run.
+                                The original intent of this was to allow
+                                users to bind to this value and use it to
+                                dynamically set the scaler trigger period. |
+| Recording | -- | Non zero when the recording checkbox is lit.
+                            Like the run number this is too dynamic to merit an
+                            environment variable. |
+| Timed | -- | Reflects the state of the timed run checkbox |
+| TimedLength | -- | Number of seconds the time in the timed run
+                            length entries reflects. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Event file organization | Up | Epics Channel logging |

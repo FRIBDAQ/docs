@@ -1,0 +1,88 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2273"></a>mpi::send
+
+<a name="AEN2277"></a>## Name
+
+mpi::send -- Allow rank 0 to execute scripts in other ranks.
+
+<a name="AEN2280"></a>## Synopsis
+
+**mpi:send** *target-list* *script*
+
+<a name="AEN2287"></a>## DESCRIPTION
+
+When run in rank 0 (root process) requests that
+                    the script be run in the processes specified by
+                    *target-list*.  The
+                    worst status and the longest result are returned.
+                    The script is only run once in each host irregardless of
+                    the number of times it is specified by *target-list*
+
+The *target-list* parameter is
+                    a well formed Tcl list whose elements are any mixture of 
+                    the following:
+
+
+
+- MPI Rank numbers (unsigned integers)
+- Process role names which can be any of
+                          root, event-sink,
+                          or worker
+- all which, as the text implies, all processes
+
+Using role names is the preferred way to target scripts.
+
+|  |  |
+| --- | --- |
+|  | NOTE: |
+|  | If you use a SpecTcl command in the script you send,
+                        you should use the local version of the command to
+                        prevent SpecTcl from trying to retransmit it.  The
+                        local version of each SpecTcl command is in the namespace::spectcl::serial::.  See the examples. |
+
+<a name="AEN2310"></a>## EXAMPLES
+
+<a name="AEN2312"></a>**Example C-1. Output the rank in each worker**
+
+```
+mpi::send all {puts "Hello from $mpi::rank"}
+                    
+```
+
+Note that if your SpecTclRC.tcl loads the TkCon
+                        console, the rank 0 output will go there and all other
+                        ranks output will go to its stdout
+
+<a name="AEN2317"></a>**Example C-2. Have workers output their roles and ranks**
+
+```
+mpi::send worker {puts "Hello from $mpi::role at rank $mpi::rank"}
+                    
+```
+
+<a name="AEN2320"></a>**Example C-3. A send command that clears all spectra**
+
+```
+mpi::send event_sink {
+    ::spectcl::serial::clear -all
+}
+                    
+```
+
+Note this prior example is a bit silly as it can also
+                    be accomplished by **clear -all** in the root
+                    process.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The MPI Tcl package | Up | XXUSB SpecTcl with MPI parallelism |

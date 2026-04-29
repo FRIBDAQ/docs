@@ -1,0 +1,396 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 11. SpecTcl plugins | Next |
+
+
+---
+
+# <a name="AEN4155"></a>11.2. Distributing the `SomeDaqBufferDecoder` as a plugin
+
+In the previous section we described, in theoretical terms what we
+            need to do to create a Tcl extension and, thus, a SpecTcl plugin.
+            In this section we will take concrete steps to turn the
+            the buffer decoder developed in the previous chapter into a plugin.
+            We will:
+
+
+
+- Show the initialization function for this function.
+- Show a modified Makefile for SpecTcl that also generates
+                      the shared library for the extension/plugin
+- Show a pkgIndex.tcl file which
+                      provides the proper package index for this extension/plugin
+- Show a screen log of a short SpecTcl session showing that
+                      the extension/plugin loads and integrates with SpecTcl.
+- Describe what you'd need to do to distribute the plugin in
+                      binary form.
+
+From now I'm going to use the word *plugin* rather than
+            the Tcl term extension to describe our work.
+
+Let's see what the plugin's initialization function looks like:
+
+<a name="AEN4174"></a>**Example 11-1. Plugin initialization for the sample daq decoder plugin**
+
+```
+#define USE_TCL_STUBS 1                            
+
+#include <tcl.h>
+#include <AttachCommand.h>                   
+#include "SomeDaqDecoderCreator.h"
+
+const char* packageName    = "SomeDaqDecoder";
+const char* packageVersion = "1.0";                
+const char* TclMinVersion  = "8.5";
+
+extern "C" {                                       
+  int Somedaqdecoder_Init(Tcl_Interp* interp)      
+  {
+    const char* actualVersion = Tcl_InitStubs(interp, TclMinVersion, 0); 
+    if (!actualVersion) {
+      Tcl_AppendResult(interp, "Unable to initialize Tcl Stubs", NULL); 
+      return TCL_ERROR;
+    }
+
+    int status = Tcl_PkgProvide(interp,
+                            const_cast<char*>(packageName),       
+                            const_cast<char*>(packageVersion));
+    if (status != TCL_OK) status;
+
+
+    CAttachCommand::addDecoderType("blockring", new SomeDaqDecoderCreator);  
+
+    return TCL_OK;                                
+  }
+}
+
+            
+```
+
+[[x4155#plugin_usetclstubs]]                    This preprocessor definition switches on the plugin interface
+                    in the tcl.h header.  This definition
+                    could also  have been, and often is added to the compiler's
+                    command line flags (-DUSE_TCL_STUBS).
+                In this case we really want to be sure that we're using
+                    the stubs interface because that employes a jump table
+                    rather than direct linkages to the Tcl run time libraries
+                    to insulate us from Tcl version.
+
+[[x4155#plugin_headers]]                    We need several headers to correctly compile:
+                
+
+tcl.hDefines the Tcl API functions and data types.
+
+AttachCommand.hProvides the bits of the SpecTcl library we need,
+                                specifically how to register our decoder creator
+                                with SpecTcl's **attach**
+                                command.
+
+SomeDaqDecoderCreator.hIn order to register our decoder with the
+                                **attach** command we'll need
+                                to provide an instance of `SomeDaqDecoderCreator`,.
+
+[[x4155#plugin_strings]]                    Defines several constant strings we'll need:
+                
+
+`pakageName`The name of the package we are initializing.
+
+`packageVersion`The version of the package initialized by this
+                                code.  Package versions allow clients to distinguish
+                                between historical implementations of a package
+                                that may not be forward or backwards compatible.
+                                See the documetation of the
+                                **package provide** command
+                                for more information.
+
+`TclMinVersion`Initialization of the Tcl stubs interface requires
+                                some information about the specific versions of
+                                Tcl our package complies with.  We'll us this
+                                to indicate that the value of this string
+                                specifies the minimum acceptable version of
+                                Tcl.
+
+Note to nitpickers.  Probably this package runs
+                                just fine on Tcl 8.0 or later but I've not had
+                                the motivation to try it out on that version.
+
+[[x4155#plugin_cbinding]]                Since the Tcl API is written in C it is important not to allow
+                C++ to modify the name of our initialization  entry point to
+                indicate the argument signature (name decoration or mangling is
+                how C++ supports function name overloading in the face of
+                linkers that know nothing of argument signatures).
+                The extern "C" declaration here means that
+                the block of code that follows will use C not C++ linkage
+                conventions wich, in turn, means that function names won't get
+                decorated.
+            If we forget to  do this, at load time Tcl will complain that it
+                can't find our initialization function.
+
+[[x4155#plugin_initentry]]                This is the initialization function entry.  The name
+                depends on the name of the library our plugin will be
+                built into.  We chose
+                libSomeDaqDecoder.so, and that forces us
+                touse the name `Somedaqdecoder_Init`.
+            [[x4155#plugin_initstubs]] `Tcl_InitStubs` initializes the Tcl stubs
+                interface by building a jump table in the stubs library so that
+                calls to stubs interfaces get forwarded to the actual API
+                functions in the Tcl API shared library loaded by SpecTcl.
+            The first parameter is the interpreter.  The second is a Tcl
+                version number string.  The final parameter is nonzero
+                if the version string passed in must exactly match the
+                version string of the Tcl shared library linked into SpecTcl,
+                and false if that version or any newer version will satisfy
+                our requirements.
+
+[[x4155#plugin_initstubserror]] `Tcl_InitStubs` returns a pointer to a string
+                that is the Tcl version actually loaded on success or a Null
+                pointer if the call fails.  If the call fails, we
+                append a message (hopefully the reason the call fails is already
+                in the result string), to the interpreter result string so this
+                error can be properly reported to the user.
+            Package initialization returns TCL_ERROR
+                to indicate the initialization failed and the package
+                is not loaded.
+
+[[x4155#plugin_pkgprovide]] `Tcl_PkgProvide` lets Tcl know that initializing
+                this library provides a Tcl package.
+                The first parameter is the interpreter, the second the package name
+                and the third, the package version number.
+            The function returns TCL_OK on success.
+                On failure we just pass the return code back to our caller indicating
+                the package did not load.  There's a tacit hope that
+                `Tcl_PkgProvide` has left an interpreter result
+                that describes the reason for failure.
+
+[[x4155#plugin_registercreator]]                The point of our initialization is to add our buffer decoder to
+                the list that **attach** can use by associating
+                it with a `-format` keyword.  This
+                line performs that operation.
+            [[x4155#plugin_normalstatus]]                Since all has gone well we return TCL_OK
+                to show that.
+
+Let's look at the Makefile for a tailored SpecTcl modified
+            to also produce our plugin library:
+
+<a name="AEN4265"></a>**Example 11-2. Makefile that can produce the plugin**
+
+```
+...
+USERCXXFLAGS=-std=c++11 -fPIC                 
+
+USERCCFLAGS=$(USERCXXFLAGS)
+
+USERLDFLAGS=
+
+OBJECTS=MySpecTclApp.o
+
+all: SpecTcl libSomeDaqDecoder.so            
+
+SpecTcl: $(OBJECTS)
+        $(CXXLD)  -o SpecTcl $(OBJECTS) $(USERLDFLAGS) \
+        $(LDFLAGS)
+
+
+clean:  cleanlib
+        rm -f $(OBJECTS) SpecTcl
+
+depend:
+        makedepend $(USERCXXFLAGS) *.cpp *.c
+
+help:
+        echo "make                 - Build customized SpecTcl"
+        echo "make clean           - Remove objects from previous builds"
+        echo "make depend          - Add dependencies to the Makefile. "
+
+                                 
+libSomeDaqDecoder.so: SomeDaqBufferDecoder.o  SomeDaqDecoderCreator.o packageInit.o
+        $(CXXLD) -shared -o libSomeDaqDecoder.so  $^  -ltclstub8.5 $(LDFLAGS)
+
+
+                                 
+
+SomeDaqBufferDecoder.o: SomeDaqBufferDecoder.cpp SomeDaqBufferDecoder.h expdata.h
+
+SomeDaqBufferCreator.o: SomeDaqBufferCreator.cpp SomeDaqBufferCreator.h
+
+packageInit.o: packageInit.cpp SomeDaqDecoderCreator.h
+
+                       
+
+cleanlib:                         
+        rm -f SomeDaq*.o
+        rm -f libSomeDaq*.so*
+
+            
+```
+
+Some comments have been removed for brevity.
+
+[[x4155#plugin_PIC]]                    To build shared libraries requires that code be compiled
+                    as *position independent*.  This means
+                    that all branches and variable references must be relative
+                    to somethign (self in the case of branches or a pointer to
+                    data in the case of data).  The -fPIC
+                    compiler flag instructs the compiler to build
+                    position independent code.
+                [[x4155#plugin_newtarget]]                    This added line defines the first target all
+                    to build not only SpecTcl but also
+                    libSomeDaqDecoder.so.
+                The **make** command with no target
+                    builds the first target in the Makefile, in this case
+                    all
+
+[[x4155#plugin_libtarget]]                    Describes what's needed to make the objects needed by
+                    libSomeDaqDecoder.so, and
+                    how to build the library.  Note that
+                    $^ is a Makefile variable that
+                    translates to the dependencies for the target.
+                    -ltclstub8.5, the stubs library, is specified
+                    prior to the standard SpecTcl load  options to ensure
+                    that it satisfies all of the Tcl externals prior to
+                    the -ltcl8.6 in the SpecTcl
+                    LDFLAGS variable.
+                `-shared` instructs the linker that the
+                    output of the link should be a shared library rather than
+                    an executable.
+
+[[x4155#plugin_libsources]]                    These lines build the objects needed by the shared library
+                    from the individual source files.  They also describe
+                    which headers each source depends on so that a change
+                    to a header will also result in an appropriate
+                    set of recompilations.
+                [[x4155#plugin_clean]]                    Describes how to clean the results of the shared library
+                    build. This will get invoked on
+                    **make clean** because we indicated that
+                    cleanlib is a dependency for
+                    the clean target.
+
+The package index file pkgIndex.tcl is
+            relatively simple:
+
+```
+package ifneeded SomeDaqDecoder 1.0 \
+    [list load [file join $dir libSomeDaqDecoder.so]]
+
+        
+```
+
+The **list** command can build up a Tcl command
+            with appropriate quoting.  The **file join**
+            command joins filename path elements into a file path in a manner
+            independent of the operating system.  The `dir`
+            variable is the directory the Tcl
+            **package require** command is searching when this
+            script is sourced.
+
+Let's see if all of this works.  We'll run SpecTcl and show a screen
+            log of the process of checking the set of buffer decoders registered
+            with **attach**, adding the package directory to
+            `auto_path`, loading the package and
+            checking the buffer decoders after the load.
+
+```
+% attach
+You must have exactly one data source type
+Usage:
+  attach {switches...} connection
+  Where:
+     Switches are taken from the following:
+     -format {format type}
+     -size nBytes - Number of bytes per buffer.
+     {sourcetype} which can be only one of:
+        -file  when connection is the name of the file
+               from which data will be taken
+        -pipe  When connection is a command whose stdout is
+               taken as the event source.
+        -test  When connection selects one of the test data sources
+        -null  No events will be made available.
+Available format types are:
+filter - SpecTcl filter format files.                    
+jumbo - NSCL 'standard' buffer format with jumbo sized buffers
+nscl - NSCL 'standard' buffer format decoder'
+ring  - NSCL DAQ Ring buffer data acquisition system
+
+% lappend auto_path .  
+/usr/share/tcltk/tcl8.6 /usr/share/tcltk
+/user/fox/test/pgmguideexamples/lib /usr/local/lib/tcltk /usr/local/share/tcltk
+/usr/lib/tcltk/x86_64-linux-gnu /usr/lib/tcltk /usr/lib/tcltk/tcl8.6 /usr/lib
+/usr/opt/spectcl/5.0/TclLibs /usr/opt/spectcl/5.0/TclLibs
+/usr/share/tcltk/tklib0.6 /usr/share/tcltk/tcllib1.16 /usr/share/tcltk/tk8.6
+/usr/share/tcltk/tk8.6/ttk /usr/opt/spectcl/5.0/TclLibs
+/usr/opt/spectcl/5.0/Script /usr/share/tcltk/itk3.3
+/usr/share/tcltk/iwidgets4.0.1 /usr/share/tcltk/iwidgets4.0.1/generic
+/usr/share/tcltk/iwidgets4.0.1/scripts /usr/opt/spectcl/5.0/Script .
+% package require SomeDaqDecoder 
+1.0                                        
+% attach
+You must have exactly one data source type
+Usage:
+  attach {switches...} connection
+  Where:
+     Switches are taken from the following:
+     -format {format type}
+     -size nBytes - Number of bytes per buffer.
+     {sourcetype} which can be only one of:
+        -file  when connection is the name of the file
+               from which data will be taken
+        -pipe  When connection is a command whose stdout is
+               taken as the event source.
+        -test  When connection selects one of the test data sources
+        -null  No events will be made available.
+Available format types are:
+blockring - Decode buffers from blocked 'ring items'            
+filter - SpecTcl filter format files.
+jumbo - NSCL 'standard' buffer format with jumbo sized buffers
+nscl - NSCL 'standard' buffer format decoder'
+ring  - NSCL DAQ Ring buffer data acquisition system
+
+%
+
+        
+```
+
+[[x4155#plugin_attnosample]]                    When most SpecTcl commands are issued with an error in
+                    their syntax, they will output detailed help on the
+                    usage of the command.  In this case, the
+                    **attach** command, among other things,
+                    lists the set of legal format types.  Note that
+                    blockring is not listed.
+                [[x4155#plugin_autopath]]                    We add the current working directory (.)
+                    to the `auto_path`.  This means
+                    that **package require** will look in
+                    this directory for a **pkgIndex.tcl**
+                    script.  For this demonstration, the index file and the
+                    shared library are both in the same directory from which
+                    we ran SpecTcl.
+                [[x4155#plugin_require]]                    This **package require** command attempts to
+                    load the package.
+                [[x4155#plugin_loadok]]                    When **package require** successfully loads
+                    a package, the return value from the command is the
+                    package version string.  This 1.0
+                    indicates the package was successfully loaded.
+                [[x4155#plugin_attsample]]                    After the load note that the blockring
+                    format is shown as available to the
+                    **attach** commmand.  This indicates our
+                    package was able to register its creator.
+
+One of the interesting things about plugins is that they can
+            be distributed by only supplying their package index file and
+            their shared library.  That can be put in a Tarball and
+            handed off to any user.  This is the advantage of using the
+            Tcl stubs library as you are insulated from the need to know
+            the specific version of Tcl SpecTcl was linked against.
+
+To install a plugin so that it's automatically available to all
+            SpecTcl users, you can ask your system administrator to
+            install the plugin in a directory under the
+            TclLibs subdirectory of the Tcl
+            installation.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl plugins | Up | Dynamic processing pipelines |

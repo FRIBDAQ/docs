@@ -1,0 +1,152 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.1sbsreadout"></a>Readout
+
+<a name="AEN27068"></a>## Name
+
+Readout -- Start an event readout program.
+
+<a name="AEN27071"></a>## Synopsis
+
+**Readout *options...*
+**
+
+<a name="AEN27075"></a>## DESCRIPTION
+
+Starts the Readout program.
+
+<a name="AEN27078"></a>## OPTIONS
+
+
+
+`--port`=*port-selection*Enables the Tcl server component to listen on the specified port.
+            If the value of this option is *managed*,
+            the port manager is contacted to allocate a port.  Otherwise the
+            value must be the integer port number on which to listen.
+
+`--ring`=*name*Provides the name of the local ring into which data will be placed.
+                If this switch is omitted, the ring name will be the username
+                running the program.
+
+`--sourceid`=*value*Sets the default source id for events that have timestamps.
+                Events without timestamp have an abbreviated body header.
+                A call to `setSourceId` from within the
+                event processor overrides the value of this switch for this
+                event only.
+
+`--init-script`=*file-path*After initialization, executes the script designated by
+                *file-path* in the main thread's
+                interpreter.
+
+`--no-barriers`If present, state change ring items will not have be
+                event building  barriers.  This must be set for all
+                Readouts that participate in the same level of event building.
+                The use case for this is when data may come from a single
+                Readout program that requires event building for multiple
+                internal data source ids.
+                DDASReadout could
+                do this (it does not), as well as readouts for CAEN DPP
+                firmwares (and they do).
+
+This works around the problem that if a readout program emits
+                more than one source id, it still only emits a single
+                state change item for each state change.  If that state change
+                were a barrier (as it is by default), the event builder would
+                suffer a barrier timeout for each state change.
+
+`--help`Outputs a summary of the command line options and exits without
+                doing anything else useful.
+
+`--version`Outputs the program version number and exists without doing anything
+                else useful.
+
+`--log`Specifies a log file to which CCUSB will append logging
+                        information.  If this is not specified, no log file
+                        will be produced/appended. See also
+                        `--debug` below.
+
+`--debug`Used in conjunction with `--log` to
+                        specify the verbosity of the log file.  The value of
+                        this option must be an integer with a value of
+                        0, 1 or
+                        2. Larger numbers imply increasing
+                        verbosity.
+
+<a name="AEN27139"></a>## COMMANDS
+
+The Readout program runs a Tcl interpreter.  The Tcl **set**
+        command can set some variables that have meaning to the Readout program.
+        See VARIABLES below for a list of those. This section describes commands
+        that have been added to the base Tcl interpreter for the Readout program.
+
+
+
+**begin**Starts a data taking run.
+
+**end**Ends a data taking run.
+
+**pause**Pauses a data taking run.
+
+**resume**Resumes a data taking run that was paused.
+
+**runvar** *varname*Designates `varname` as a Tcl variable
+                    that will be written out to the event stream in a documentation
+                    ring item.  Normally the values of these variables are set
+                    either by the users's experiment specific code, or via external
+                    programs interacting with Readout's Tcl server.  One example
+                    of this is the use of the
+                    [[r23758]]
+                    program to push the values of Tcl variables into the interpreter.
+
+**serverauth** *subcommand ?parameters?*This controls access to the Tcl server embedded in the
+                    Readout program.  By default only connections from
+                    localhost (the host Reaout is running in)
+                    are allowed. Note that this command must be issued to the
+                    Tcl server not to the main command interpreter.
+
+Subcommands are as follows:
+
+
+
+**add** *host-or-ip*Adds a new `host-or-ip` to the
+                                list of hosts that are allowed to connect.
+                                `host-or-ip` is either the
+                                DNS name of a host (e.g. u6pc3) or
+                                the IP address of that host in dotted numeric form
+                                (e.g. 35.9.56.23).
+
+**list**Lists the hosts that are allowed to connect
+                                to the Tcl server. The returned value is a list of
+                                hosts.  Each host is a two element hostname/IP address
+                                list.
+
+**delete** *host-or-ip*Removes the specified *host-or-ip*
+                                from the list of hosts authorized to connect.
+
+<a name="AEN27203"></a>## VARIABLES
+
+Besides the variables that have been defined via the **runvar**
+        command to put in documentation ring items, some variables have
+        special meaning for Readout:
+
+
+
+`title`This variable contains the run title string that appears
+                    in run state transition events.
+
+`run`This variable contains the run number as it appears in the
+                    run state transition events.  `run` must
+                    be a positive integer.  The ReadoutGUI enforces this restriction.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 1sbsReadout | Up | 1utilities |

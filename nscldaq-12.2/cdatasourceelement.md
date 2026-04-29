@@ -1,0 +1,55 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN70727"></a>CDataSourceElement
+
+<a name="AEN70731"></a>## Name
+
+CDataSourceElement -- Fan out a data source without transformations
+
+<a name="AEN70734"></a>## Synopsis
+
+```
+#include <CDataSourceElement.h>
+
+class CDataSourceElement : public CProcessingElement
+{
+public:
+    CDataSourceElement(CReceiver& source, CFanoutTransport& fanout);
+    
+    virtual void operator()();
+    virtual void process(void* pData, size_t nBytes);
+
+};
+        
+```
+
+<a name="AEN70736"></a>## DESCRIPTION
+
+This is a processor that can be used when a source
+            of data needs to be fanned out as work items to
+            a parallel array of worker processes.  The
+            `fanout` parameter is
+            a fanout transport.  As each elemet is
+            received from whatever the source is, it is
+            sent to the `fanout` transport
+            which will distribute it to the workers.
+
+When an end is detected on the input stream,
+            defined as a zero length message, an end indication
+            is sent to the `fanout` transport
+            which ensures that all workers get an end condition.
+            At that point, the `operator()`
+            returns.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDataSinkElement | Up | CRingItemZMQSourceElement |

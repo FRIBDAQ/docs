@@ -1,0 +1,117 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="sbsvmebase"></a>Chapter 44. SBS Base interface classes to the VME
+
+This chapter describes the `SBSVmeAPI` library.
+        This library supplies base functionality that allows applications to
+        access one or more VME crates on a local system via the SBS/Bit3/GE-Fanuc
+        fiber optic interface.
+
+This chapter is divided as follows:
+
+
+
+The classesProvides a list of the classes, their purpose and intent.
+
+BuildingDescribes how to incorporate the headers and libraries into
+                    one of you applications.
+
+# <a name="AEN3181"></a>44.1. The classes
+
+The class library consists of the following classes that are considered
+            public:
+
+
+
+`CVMEInterface`Provides a thin class level wrapping around the set of
+                        SBS module operations that might exist for other types
+                        of VME interfaces
+
+`SBSBit3API`Provides a thin class level wrapping around the set
+                        of SBS module operations that are very likely SBS unique.
+
+`CVMEptr`Encapsulates a VME address segment mapped into the
+                        process virtual address space in a pointer-like object.
+                        The pointer is reference counted so that it is well behaved
+                        in the presence of copy construction and asignment.
+
+`VmeModule`Provides base functionality that is intended to support
+                        classes that support a specific VME module.
+
+To understand how to use these classes a quick overview of VME
+            addressing may be useful.  The VME bus has the following characteristics:
+
+
+
+- Up to 32 bits of address
+- Up to 32 bits of data
+- Address modifiers that provide several address spaces.
+
+
+A discussion of the purpose and use of address modifiers is of the
+            utmost importance.  Bus cycles consist of address and data cycles.
+            Each address cycle provides an address and an address modifier.
+            Each data cycle provides a longword transfer and a set of data strobes
+            that, for non-longword transfers, describe the set of bytes to be
+            transferred at the address.
+
+Address modifiers select which of several address spaces should be
+            involved in data transfers associated with that address cycle.
+            Three main address modifiers are the most important ones.
+            These address modifiers are symbolically defined in the header file:
+            CVMEInterface.h.
+            They are:
+
+
+
+CVMEInterface::ShortIODescribes an address space that only pays attention to
+                        the bottom 16 bits of the address.  Modules that recognize
+                        this space are intended to be I/O modules with a modest
+                        address space footprint.   Modules in this address space
+                        can define their address maps to start on an 8 bit address
+                        boundary.  This limits the bus to at most 256 short I/O
+                        address regions.
+
+CVMEInterface::StandardDescribes an address space that only uses the bottom
+                        24 bits of the address. This address space provides
+                        for a 16 bit data bus which is entirely located on the
+                        P1 (top) connector.   In the past, this allowed for
+                        3-U VME cards (1/2 height VME cards) to be built that
+                        fit in to a 1/2 heigbht backplane.
+
+CVMEInterface::ExtendedDescribes an address space that uses the full 32 bits
+                        of VME addressing capability.
+
+In addition to these addressing modes, the CVMEInterface::GEO,
+            CVMEInterface::CBLT, and
+            CVMEInterface::Multicast address modifiers provide
+            symbolic names for the address modifier most often used by VME
+            modules that implement these access modes.  The VME64 standards provides
+            an additional set of address modes that, by multiplexing the address
+            and data lines on the backplane allow the same backplane to support
+            64 bit address and data spaces.  The SBS controllers we have
+            do not
+            support these addressing modes.
+
+Some address modifiers define high performance block transfer
+            modes.  In these data transfer modes, the address cycle only happens
+            infrequently, followed by a burst of data cycles that are assumed
+            to come from a sequential set of addresses.  The SBS module can
+            peform block transfers and transparently modifies the base
+            address modifier you specify when a block transfer is performed.
+
+See the reference pages for each of these classes for detailed
+            information.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| C++ encapsulation of a Tcl API subset | Up | Incorporating headers and libraries into your program. |

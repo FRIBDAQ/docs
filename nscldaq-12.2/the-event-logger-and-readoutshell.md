@@ -1,0 +1,103 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 8. ReadoutGUI & ReadoutShell | Next |
+
+
+---
+
+# <a name="readoutshell_filestruct"></a>8.3. The event logger and ReadoutShell
+
+The Readout GUI works with the event logger to maintain
+            a directory structure of event files and associated data.
+            You can associate an arbitrary set of files and directory subtrees
+            with each run.  Through heavy use of symbolic links, the
+            Readout GUI provides you with two views of your data.
+
+**Events view. **
+                The events view presents all of the event files in a single
+                directory.  This view allows you to sequentially analyze
+                several runs without needing to move around in the directory
+                hierarchy.
+
+**Runs view. **
+                This view collects all of the data associated with each run
+                into a single directory.
+
+The top of the directory subtree that is managed by Readout Gui is
+            determined by a symbolic link; ~/stagearea or,
+            alternatively, the EVENTS environment variable
+            if it is defined.
+            [[1]](#FTN.AEN5648)
+            This must be created by you when you set the account up for data taking
+            and should point to the event area that you were assigned.
+
+When Readout GUI runs the first time it will, if necessary, create the directory
+            structure it need underneath the directory pointed to by
+            ~/stagearea.
+
+The directory tree created looks like this:
+
+<a name="AEN5653"></a>**Figure 8-4. Readout GUI Directory tree**
+
+stagearea +  
+
+          +----> experiment+  
+
+          |                +---> current  
+
+          |                +---> run1  
+
+          |                +---> run2  
+
+          ...             ...  
+
+          +----> complete
+
+Let's start with stagearea/experiment.
+            The current directory is one location
+            you can put the ReadoutCallouts.tcl customization
+            file.   (new behavior in 12.0x) When event recording begins, the
+            readout Gui creates a run directory with the same name as the
+            requested run number.  Events are recorded in that directory.
+
+In 11.x, event files were segmented into approximately 2Gbyte
+            chunks.  This was done to meet maximum file size requirements
+            of older file systems that are no longer prevalent.  In 12.x the
+            default segment size is 1,000 Tbytes which is effectively unlimited.
+            In 11.x, event files were recorded in stagearea/experiment/current.
+            In 12.x they are recorded directly in their run directories.
+
+To retain compatiblity with 11.x software that assumes the structure
+            of the stage area, while event recording is underway, event files
+            in the current run directory are given symbolic links in the
+            stagearea/experiment/current directory.
+            These links are removed at the end of the run.
+
+When event recording is completed for a run, the symbolic links to
+            event files are removed from stagearea/experiment/current.
+            Furthermore a link following copy of the files in that directory are
+            made into the run directory allowing you to associate arbitrary
+            data with each run.  Link followed copy means that if there are symbolic
+            links, the item those links point to are copied rather than the links.
+            This allows you a hook to copy data that isn't in the stagearea
+            directory tree.
+
+Finally, when all this copying is done, the events view is updated
+            by creating symbolic links to the run directory event files in
+            stagearea/complete.
+
+### Notes
+
+|  |  |
+| --- | --- |
+| [1] | Environment variables can override this link however and are
+                    useful in the event you are using a single account to do
+                    multiple tests for which you want to segregate the data. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Operating the user interface | Up | Customizing the ReadoutShell |

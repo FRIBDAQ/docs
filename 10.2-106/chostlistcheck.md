@@ -1,0 +1,116 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.chostlistcheck"></a>CHostListCheck
+
+<a name="AEN14543"></a>## Name
+
+CHostListCheck -- Authenticate from a list of TCP/IP hosts
+
+<a name="AEN14546"></a>## Synopsis
+
+```
+#include <HostListCheck.h>
+         
+```
+
+```
+  CHostListCheck();
+```
+
+<a name="AEN14613"></a>## Description
+
+`CHostListCheck` is derived from the
+            [[r14397]].
+            The difference between the two classes is that
+            `CHostListCheck` maintains an access control list
+            made up of internet IP addresses.  The credentials fetched from the
+            interactor must be a host name that translates to an IP address, or
+            a dotted IP address string that matches an address in the access
+            control list.
+
+Note that while the class allows users to invoke the
+            original set of ACL Maintenance functions, calling these
+            produces a warning on stderr.  The preferred way to maintain
+            the access control list is via the
+            `AddIpAddress` and
+            `DeleteIpAddress` member functions.
+
+<a name="AEN14623"></a>## Public member functions
+
+`  CHostListCheck();`Creates a
+            `CHostListCheck`
+            object with an empty access control list.
+
+`   CHostListCheck (const CHostListCheck& aCHostListCheck);`Constructs a
+            `CHostListCheck`
+            object that is an exact copy of
+            `aCHostListCheck`.
+
+`  ~CHostListCheck();`Releases all storage and any other resources that have been allocated
+            by the object.
+
+`  CHostListCheck& operator=(const CHostListCheck& aCHostListCheck);`Assigns
+            `aCHostListCheck`
+            to the object. This currently implies a deep copy of all member data.
+
+` virtual Bool_t Authenticate(CInteractor& rInteractor);`Fetches a host name or dotted IP address string from
+            `rInteractor`.
+            If the host fetched translates to an IP address that is in the
+            access control list, the method returns
+            kfTRUE
+            otherwise,
+            kfFALSE
+            is returned.
+            Host names, or addresses that cannot map to IP addresses will naturally
+            return
+            kfFALSE.
+
+`  Bool_t Authenticate(const std::string& rHostname);`Same as above, however authentication is done with a host string
+                `rHostname`
+                that is already available to the application.
+
+`  virtual void AddAclEntry(const std::string& rHostname);`Warns via stderr, that this is not the preferred way to add an IP
+            address to the host list, and then adds the string
+            `rHostname`
+            without interpretation to the access control list.
+            To fit in with the rest of the class,
+            `rHostname`
+            should be a string of the form
+            0xaaaaaaaa
+            where
+            aaaaaaaa
+            is the IP address in network byte order, with sufficient leading
+            zeroes to ensure that there are eight digits.
+
+` virtual void DeleteAclEntry(const std::string& rHostname);`Warns the user that this is not the preferred way to manage the
+            acdess control list and then deletes
+            `rHostname`
+            from the list if it exists.
+            See `AddAclEntry` for a discussion of the
+            correct form of Acl entries.
+
+` Bool_t Authenticate(in_addr Address);`Authenticates given the IP address
+            `Address`
+            in network byte order.
+
+` void AddIpAddress(in_addr Address);`Adds an IP address to the access control list.
+
+` void DeleteIpAddress(in_addr address);`Removes an IP address from the access control list.
+
+<a name="AEN14714"></a>## Types and public data
+
+In all cases in_addr is the IP address in
+            *network byte order*.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CAccessListCheck | Up | CInteractor |

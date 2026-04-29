@@ -1,0 +1,350 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 4. NSCLDAQ Manager subsystem (new in 12.0) | Next |
+
+
+---
+
+# <a name="sec.mgr.readout"></a>4.4. Running Readout Software With the Manager
+
+Running Readout programs under the DAQ manager requires the following:
+
+
+
+- Incorporating the REST control and status server into the Readout.
+- Providing a sequence entry to the manager on BEGIN that starts
+              up the Readout.
+- Providing sequence entries to the manager on BEGIN, HWINIT and END
+              that properly start the run, request a hadware initialization and
+              end the run.
+
+Note that the current, initial version of the management utilities, do not
+      support multiple Readouts in a single host, the mechanics are there but
+      what is not there is the ability to specify REST Service names to the
+      controlling utilities and control panels for each Readout.  We anticipate
+      a later release of 12.x will provide this support.
+
+The remainder of this section will describe:
+
+
+
+- [[x1411#sec.mgr.bootreadout]]
+              describes how to setup Readout to run the REST plugin as a manager program and
+              add it to
+              a sequence attached to the BOOT transition.
+- [[x1411#sec.mgr.readoutctl]]
+              describes the utilities that are available to control NSCLDAQ Readout
+              programs that run the Readout REST server and how to use them in
+              sequences attached to HWINIT, BEGIN, END and SHUTDOWN  to control
+              the Readout program(s) that have been started at BOOT.
+
+If your experiment runs more than one Readout you'll need to repeat the
+        instructions in the following section, once for each Readout and
+        most likely run the event builder as described in
+        [[x1673]]
+
+## <a name="sec.mgr.bootreadout"></a>4.4.1. Starting Readout with REST at BOOT
+
+Starting Readout with a REST interface within the manager requires:
+
+
+
+1. Creating an initscript that is run by Readout as it starts
+                   to start the REST server.
+2. Specifying the Readout as a program to the manager.
+3. Adding the Readout program to a sequence that's triggered
+                   by a BOOT transition.  We'll show how to create that sequence
+                   if it does not yet exist.  Note that any number of sequences
+                   can be triggered by a manager state transition.
+
+**The Readout initscript. **
+            Readouts in the NSCLDAQ support initialization scripts.  These
+            are Tcl scripts whose path is specified by the
+            `--init-script` command line option.
+            To start the REST server in Readout the following initscript
+            is required:
+
+<a name="AEN1446"></a>**Example 4-1. Readout initscript to Start a REST server**
+
+```
+#
+#  To override the default service name add a line like:
+#
+#   set ServiceName MyReadoutRESTService
+package require ReadoutREST
+close stdin
+          
+```
+
+The **package require** command starts the REST server.
+          The default service name ReadoutREST is used
+          unless this is overridden by defining the Tcl variable
+          `ServiceName` or the environment variable
+          SERVICE_NAME to be the desired service name.
+
+Once the REST service starts up, we close stdin so that we can
+          continue to run if an endfile is detected on stdin.
+
+**Specifying a Readout Program to the Manager. **
+            The program editor [[r19223]]
+            or the experiment configuration editor
+            ([[r19147]])
+            should be used to specify a Readout program to the editor:
+
+
+
+1. Click the New...  button to bring
+                       up the program editor to create a new program.
+2. Fill in the top part of the definition:
+                        Choose a unique name you will use to refer to this program
+                        when buiding sequences.  If appropriate, select the container
+                        in which the program will run.  Set for Program file:
+                        the executable program or script that runs your Readout.
+                        Note that if you are running within a container, this must
+                        refer to a path within the container file system.  Set
+                        the host in which the program will run and the working
+                        directory in which it will run.  Mark the program as
+                        Critical
+   Note that when running within a container, it can be useful
+                     to define your container so that it has an initialization
+                     script that sources the appropriate daqsetup.bash file.  If you
+                     do that, since when running a program the manager writes a shell
+                     script to run it, you can do environment name substitutions, e.g.
+                     the program can be specified as $DAQBIN/DDASReadout.
+3. Specify the program options you need for Readout by adding
+                       them to the left list box.  At the very least you need
+                       to specify `--inits-cript` to have a value
+                       that is the path of your initialization script (within the
+                       containerized filesystem if running containerized).
+                       Depending on your data flow and if you are doing event building
+                       you may also need to specify `--ring` and
+                       `--sourceid`.
+4. Fill in the program environment.  At the very least, you'll
+                        need to define TCLLIBPATH to point to the NSCLDAQ Tcl
+                        package library directory tree
+                        so that the ReadoutREST package
+                        can be found.  If the daqsetup.bash has
+                        been sourced, you can specify the value of that environment
+                        variable to be $DAQTCLLIBS
+
+**Starting your Readout From a Boot Sequencde. **
+            In general, you will want to start your Readout program from a sequence
+            that's triggered by the BOOT transition.  This will start your readout
+            program as you tell the manager to bring up your data acquisition
+            system.  Use
+            [[r19308]]
+            (or start it from
+            [[r19147]])
+            to do this.  If no sequence has been specified to trigger on Boot,
+            you need to create one by typing a unique sequence name
+            (I suggest BOOT)) in the New Sequence:
+            entry box and selecting BOOT from the
+            Trigger state: drop down.  Then
+            click Add to add it to the list of sequences.
+            Once you have done this:
+
+
+
+1. Double click the sequence triggered on boot to bring up
+                       the sequence editor.
+2. In the Define step  frame choose your
+                       readout program from the Program name
+                       drop down list.
+3. Click Add to add the program
+                       to the end of list of actions performed by this sequence.
+                       In general, you won't need either a pre or post delay so you
+                       can leave these defaulted to zero.
+
+## <a name="sec.mgr.readoutctl"></a>4.4.2. Controlling Readout From the Manager
+
+In the previous section we saw how to add a Readout program to the
+          manager and arrange for it to start when the DAQ system boots.
+          In this section we'll describe how to ensure that the manager
+
+
+
+1. Starts any event loggers you've defined when a run begins.
+2. Sets the run metadata (title, run number) in all readout
+                   programs when the run begins.
+3. Tells the readout programs to begin taking data when a run begins
+4. Tells the Readout programs to stop taking data when a run ends.
+5. Provides support for hardware initialization if needed for eeach
+                   readout.
+
+Note that for some complex data acquisition systems you will need
+          to think about the order in which each Readout starts/stops taking data and
+          may need to also think about how to arrange for timestamp synchronization.
+
+The manager provides a number of utilities to help you build sequences
+          that control data taking.  These are:
+
+
+
+[[r19771]]This program starts all event loggers you have defined
+                  for your experiment.  All loggers run for the duration of a single
+                  run.  The loggers will only start if global event recording
+                  is enabled and each logger will then only start if it is enabled.
+
+Normally event logger must be started in a BEGIN
+                sequence before any of the readouts are allowed to take data.
+
+[[r19791]]Asks a single readout program to set its run number to the
+                  value of the run variable in the key
+                  value store.  This should be done in each Readout program
+                  prior to starting data taking so that they all have
+                  consistent run numbers that match the value of
+                  that variable.  This variable is maintained by the
+                  Run control panel.
+
+[[r19823]]Asks a single readout program to set it stitle to the value of
+                  the title key in the key value store.  This
+                  should be done in each Readout program prior to starting a run
+                  so that they all have the same title.  This should be
+                  done in the sequence prior to starting data taking.
+                  This variable is maintained by the Run control panel.
+
+[[r19855]]Performs some operation on a single Readout program.
+                  We're going to use the init,
+                  begin,  end and
+                  shutdown subcommands.
+
+The remainder of this section will show:
+
+
+
+- What to put in a sequence triggered on
+                  SHUTDOWNto stop
+                  your Readouts.
+- What to put in a sequence triggered on
+                  BEGINto start taking
+                  data.
+- What to put in a sequence triggered on
+                  HWINIT to ask the Readouts to intialize
+                  their hardware.
+- What to put in a sequence tirggered on
+                  END to end data taking in your Readouts.
+
+To cut down on explanatory text, we're going to assume:
+
+
+
+- The manager is running in a system called daqcompute1
+                  and was or will be started by fox.
+- There's only one readout and its run in a system called
+                  spdaq99 and its program name is readout99
+- Following the instructions in the previous section, we've already
+                  set up a BOOT sequence that starts our
+                  Readout when the system is booted.
+- We're running containerized in a container named
+                  BUSTER and the initscript of that
+                  container sources an appropriate daqsetup.bash
+                  so all of the DAQ Environment variables are availalble.
+
+**SHUTDOWN sequence. **
+            We need to create a program that shuts down our readout99
+            Readout program and put it in a sequence that is triggered by the
+            SHUTDOWN transition:
+
+
+
+1. Use the program editor
+                       [[r19223]]
+                       to create a new program named
+                       shutdown99 let's run it in daqcompute1,
+                       although it could run anywhere.  Specify the buster
+                       container, any working directory and the program file will be
+                       $DAQBIN/rdo_control.  The program should be
+                       marked
+   Parameters must be in order: spdaq99 (the
+                     system readout99 runs in), fox and
+                     shutdown.
+   Save this program definition by clicking Ok.
+                     This creates a nw program, shutdown99
+                     that will ask the readout program in spdaq99
+                     run by fox to exit.
+2. Use the sequence editor,
+                        [[r19308]]
+                        to, if necessary  create a sequence triggered on the
+                        SHUTDOWN transition.  Double click on that
+                        sequence to edit its steps.
+   Add a step that runs the shutdown99 program
+                      you just created to the sequence.
+
+**Telling the Manager to Begin a Run in readout99. **
+            We need to create programs to set the run number, Set the title and
+            begin the run:
+
+
+
+1. In the program editor, create a new program name it
+                        setrun99 it will run in
+                        daqcomput1, under the buster
+                        container and will execute
+                        $DAQBIN/rdo_runFromKv.  This program
+                        should be marked transitory.  It's parameters should, in order,
+                        be: spdaq99, fox,
+                        readout99
+   You can choose any existing directory for the working
+                     directory.
+2. Similarly create a new program settitle99
+                       everthing should be the same as the previous step, however,
+                       the program file will be $DAQBIN/rdo_titleFromKv
+                       this program should also be transitory.
+3. Finally add a new program named begin99
+                        Only the program file and parameters will be different
+                        from the programs above:  For the program  file
+                        use $DAQBIN/rdo_control, for
+                        the parameters use, in order:
+                        spdaq99, fox and
+                        begin.
+   This creates a program that requests that our readout running
+                     in spdaq99 begin a run.
+4. Finally, using the sequence editor; if necessary, create a sequence
+                       that is triggered by the BEGIN
+                       transition add, in order, the setrun99,
+                       settitle99 and begin99
+                       programs you created in the steps above.  These sequence steps
+                       will set the run number and title from the values in the
+                       key value store and then start the run in the Readout
+                       program.
+
+**Handling HWINIT Transitions. **
+            When an HWINIT transition is performed, we want
+            to tell readout99 to initialize its hardware,
+            if it supports doing that:
+
+
+
+1. Create a new program hwinit99.  It should
+                       run in the buster container, be marked
+                       transitory and run in daqcompute1.
+                       The progam file should be $DAQBIN/rdo_control.
+                       The parameters should be, in order,
+                       spdaq99, fox and
+                       init
+2. Using the sequence editor, if necessary add a sequence that is
+                       triggered by the HWINIT transition.
+                       Add hwinit99 to that sequence.
+
+**END Transitions and Stopping Data Taking. **
+            To end the run when the manager undertakes a END
+            transition:
+
+
+
+1. Create a new program with the program editor
+                       named end99.  The program file should
+                       be $DAQBIN/rdo_control, the container
+                       buster, the host daqcompute1.
+                       The program should be marked transitory and its parameters,
+                       in order must be
+                       spdaq99, fox and
+                       end
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running an Experiment With The Manager | Up | Using the NSCLDAQ Event Builder With the Manager |

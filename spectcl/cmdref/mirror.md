@@ -1,0 +1,52 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3408"></a>mirror
+
+<a name="AEN3412"></a>## Name
+
+mirror -- List Display Memory mirrors.
+
+<a name="AEN3415"></a>## Synopsis
+
+**mirror list ?pattern?
+        **
+
+<a name="AEN3418"></a>## DESCRIPTION
+
+This command was introduced in SpecTcl version 5.10.  SpecTcl 5.10
+            supports mirroring the spectrum/display memory to remote systems.
+            In order to avoid mirroring to the same host several times, this
+            command allows one to query about the set of mirrors that are already
+            being maintained.
+
+The return value is a list of dicts.  Each dict contains the
+            keys:
+
+
+
+hostIdentifies a host to which mirroring is being done.
+
+shmkeyProvides the SYS-V shared memory key identifying the
+                    mirror in that host.
+
+If the optional `pattern` parameter is provided,
+                only hosts which match the pattern (Glob wild cards allowed)
+                are listed.
+
+The assumption is that a remote mirror client will first query
+            SpecTcl's current mirrors via the REST server to determine if
+            there is an existing mirror.  If there is the client can map
+            tothat memory directly.   If not it can set up a new mirror.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| isRemote | Up | waveform |

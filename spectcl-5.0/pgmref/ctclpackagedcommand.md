@@ -1,0 +1,103 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLPackagedCommand"></a>CTCLPackagedCommand
+
+<a name="AEN6011"></a>## Name
+
+CTCLPackagedCommand -- 
+            Base class for a command that lives in a `CTCLCommandPackage`
+
+<a name="AEN6015"></a>## Synopsis
+
+```
+#include <TCLPackagedCommand.h>
+...
+class CTCLPackagedCommand   : public CTCLProcessor
+{
+
+  CTCLPackagedCommand (const std::string& sCommand, CTCLInterpreter* pInterp,
+                       CTCLCommandPackage& rPackage);
+  CTCLPackagedCommand (const char* pCommand, CTCLInterpreter* pInterp,
+                       CTCLCommandPackage& rPackage);
+   ~ CTCLPackagedCommand ( );
+
+  CTCLCommandPackage& getMyPackage();
+
+  void setMyPackage (CTCLCommandPackage& am_rMyPackage);
+
+};
+    
+```
+
+<a name="AEN6017"></a>## DESCRIPTION
+
+Command packages (see CTCLCommandPackage(3)), provide a way to organize
+            a set of related Tcl command processors  around a set of shared services.
+            Objects derived from `CTCLPackagedCommand` are added
+            to an object derived from `CTCLCommandPackage`.
+            The `CTCLCommandPackage` manages bulk registration of
+            all of the commands added to it.  Construcint a
+            `CTCLPackagedCommand` object provides it a
+            reference to its package so
+            that public members of the package can be invoked when the package commands
+            are executing.
+
+Note that since `CTCLPackagedCommand` is derived from
+            `CTCLProcessor`, and does not supply a `operator()`
+            You must derive concrete classes from this class implementing
+            `operator()` to provide the desired command functionality.
+
+<a name="AEN6029"></a>## METHODS
+
+
+
+```
+CTCLPackagedCommand
+```
+
+
+Constructs a packaged command.
+            `sCommand` or
+            `pCommand`
+            provide the command name.  `pInterp` is a pointer to the
+            interpreter on which the command will be registered.
+            `rPackage` is a reference to the package this object will
+            be a member of.
+
+
+
+```
+getMyPackage()
+```
+
+
+Returns a reference to the object's package.  This can be cast to the
+            actual type of the package at which point package public members can be
+            accessed.
+
+
+
+```
+setMyPackage
+```
+
+
+Provides a new package for the command.
+
+<a name="AEN6065"></a>## SEE ALSO
+
+CTCLCommandPackage(3),
+CTCLProcessor(3)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLCommandPackage | Up | CTCLVariable |

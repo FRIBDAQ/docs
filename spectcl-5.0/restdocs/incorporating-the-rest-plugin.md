@@ -1,0 +1,94 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN33"></a>Chapter 2. Incorporating the REST plugin
+
+This chapter assumes that the REST plugin has been installed
+            in the SpecTcl installation directory tree, or at least is installed
+            somewhere in the Tcl package load path (auto_path).
+            At the NSCL, the REST plugin is normally installed in:
+            $SpecTclHome/TclLibs/rest.
+
+In this chapter we will see Tcl code that you can incorporate
+            in your SpecTclRC.tcl script.
+            This code will:
+
+
+
+- Load the REST plugin
+- Select a port on which the REST server will listen for client requests
+- Start the REST server.
+
+For SpecTcl 5.3 and later, starting the REST interface is much simpler
+            than described in the remainder of this document.  This is because
+            The REST
+            In SpecTclInit.tcl simply set the HTTPDPort variable
+            in SpecTclInit.tcl to the desired server port.
+            Note that:
+
+
+
+- Port numbers below 1024 are privileged ports and cannot
+                        be used by programs that are not running as root
+- If the desired port is in use, SpecTcl will search for a
+                        nearby unused port.
+- When the REST interface starts,
+                        the actual port number selected will be output to the terminal on which
+                        SpecTcl was started.
+
+
+The remainder of this section only applies to versionf of SpecTcl
+            earlier than 5.3.
+
+If the REST plugin was installed in the $SpecTclHome/TclLibs
+            directory tree, SpecTcl will ensure that it is visible to the
+            Tcl package auto load path.  If not you will need to make an approprate
+            addition to `auto_path`.
+
+<a name="AEN62"></a>**Example 2-1. Incorporating and starting the REST server**
+
+```
+package require SpecTclHttpdServer          
+set port [::SpecTcl::findFreePort 8000]     
+startSpecTclHttpdServer $port               
+....
+Starting 8080 charlie.nscl.msu.edu           
+
+            
+```
+
+[[c33#require]]                    The SpecTclHttpdServer package contains
+                    the REST interface.  Since REST is a web-based protocol,
+                    the REST plugin is built on top of a Tcl web server called
+                    tclhttpd that has custom, active pages that implement the
+                    interface.
+                [[c33#getport]]                    A system can run several instances of SpecTcl.  Each REST
+                    server, however must listen for connections on a
+                    distinct TCP/IP port.  The package provides a proc
+                    ::SpecTcl::findFreePort that probes
+                    for an unused port starting at a base port.
+                This line locates the first unused port above port number
+                    8000, and returns that port number.
+                    You can display the port number you used at stdout or
+                    in a custom user interface so that you know how to
+                    point your clients at the server.
+
+[[c33#start]]                    Starts the REST server.  Once this has been done
+                    REST requests can be made of the server.
+                [[c33#output]]                    As the server starts it outputs a few lines of text on
+                    Tcl's stdout file (in most cases for SpecTcl this is redirected
+                    to the TkCon window.
+                    As this line shows, one of the bits of output identifies the
+                    port and host on which the server is running.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | REST requests supported. |

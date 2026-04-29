@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This document describes a package distributed with SpecTcl that provides
+            support for saving and restoring data from sqlite3 databases.
+            For more information about Sqlite3 see
+            [http://sqlite.org](http://sqlite.org) for information about that database and
+            package.   If you want to extend the database access but don't know SQL,
+            the query language used by Sqlite3, you can have a look at this
+            SQL tutorial online.  [[www.w3schools.com/sql]]
+
+The remainder of this document describes
+
+
+
+- What the SpecTcl Sqlite interface provides and how to
+                      incorporate it into your SpecTcl.
+- The low level, program neutral C++ API which allows database
+                      object to be stored and recovered without the user
+                      needing to know the database schema or the SQL query language
+                      used to maintain and query the database contents.
+- The C++ classes SpecTcl uses to store event data into the
+                      database and read it back out into SpecTcl.
+- A description of the Tcl bindings to the C++ API.
+                     These bindings can be used in any environment,
+                     not just SpecTcl.
+- A description of a high level Tcl API that
+                      is SpecTcl centric.  This includes command
+                      and procs for saving and restoring objects
+                      in the database as well as recording
+                      and playing back decoded events.
+- SpecTcl database GUI. The GUI bolts on to SpecTcl providing
+                     a user interface you can use to interact with SpecTcl databases.
+- Appendix A provides a detailed description of the SQL schema
+                     (database organization) of the database files as well as
+                     reference information about the APIs described in the
+                     various chapters of this manual.
+
+Why use Sqlite instead of some other database library?  Most, though not all, database
+            libraries work in a client server environment.  In this environment, new databases
+            must be created by requesting them from a database administrator.  Sqlite, however
+            stores its database in an ordinary file.  This means no overhead is required to create
+            dabases and you can hand out databases to your collaborators as simply as handing them
+            the database file.
+
+All of this comes at one cost.  Sqlite, provides only a single writer and multiple
+            reader model.  With a lot of fancy footwork in detecting and responding to database locked
+            conditions, this can be overcome, however one writer and a single reader is not normally
+            a hindrance in this application.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl Sqlite3 interfaces |  | What you can do with the SpecTcl Sqlite database package. |

@@ -1,0 +1,22 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="man-3tcl"></a># XV. 3tcl
+
+**Table of Contents**[[r68240]] -- Access Rings from tcl.[[r68415]] -- Tcl ring buffer consumer package[[r68678]] -- Tcl API for the DaqPortManager daemon.[[r68778]] -- Embeddable Tcl Server script object[[r68884]] -- low level control of the CAEN V812 CFD[[r69024]] -- Megawidget control panel for the CAEN V812 CFD[[r69156]] -- Support package for the CAEN N568B shaper.[[r69344]] -- Control panel megawidget for N568 shaping amplifier[[r69481]] -- SBS support for VHS 404 modules.[[r69985]] -- User interface components for VHS 404 power supplies.[[r70064]] -- Low level Tcl access to iSEG VHQ2xxx units.[[r70251]] -- Control widget for iSeg vhq2xx VME bias supply.[[r70444]] -- Access CAENnet from Tcl scripts.[[r70509]] -- Provide access to CES CBD8210 CAMAC to Tcl scripts[[r70676]] -- Tcl Script CAMAC access via VC32/CC32 boardset.[[r70814]] -- 
+            Provide a ReadoutGui plugin for nscldaq 8.1 and later that can
+            automate several data taking runs.
+        [[r70940]] -- Plotchart XY plot wrapper[[r71251]] -- Manage markers on a plotchart plot.[[r71351]] -- Widget that shows ring status.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| V6533Driver | Up | TCL Ring package.
+        Ron FoxNSCLDAQ |

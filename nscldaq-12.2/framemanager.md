@@ -1,0 +1,85 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.framemanager"></a>FrameManager
+
+<a name="AEN114152"></a>## Name
+
+FrameManager -- Make one of a set of widgets visible.
+
+<a name="AEN114155"></a>## Synopsis
+
+**package require FrameManager
+          **
+
+**FrameManager *path ?option value...?*
+**
+
+** *path* configure *option value ?...?*
+**
+
+** *path* cget *?option?*
+**
+
+** *path* add *name widget ?onviewscript?*
+**
+
+** *path* select *name*
+**
+
+** *path* getCurrent
+            **
+
+<a name="AEN114180"></a>## DESCRIPTION
+
+This megawidget manages a set of subwidgets displaying only one
+            at a time. Note that the subwidgets can be anything, though as the name
+            of this megawidget implies they are intened to be frames with subwidgets.
+
+<a name="AEN114183"></a>## OPTIONS
+
+
+
+`-width`Specifies the minimum width with which the displayed
+                        widget will be shown.
+
+`-height`Specifies the minimum height with which the displayed
+                        widget will be shown.
+
+<a name="AEN114196"></a>## METHODS
+
+
+
+`add` name widget ?onviewscript?Adds a new widget to the set of managed frames.
+                            `name` is a name to be used when
+                            referring to the widget.  While no effort is made to
+                            enforce this, the `name` should
+                            be unique amongst the wigets managed by this object.
+
+`widget` is the widget to manage.
+                            This should be any griddable object (e.g. cannot be
+                            a toplevel).
+
+`onviewscript` if supplied
+                            is a script tht will be executed at the global level
+                            when the widget has been selected to be viewed.
+
+`select` nameSelects the widget associated with
+                            `name` be displayed.
+                            The name must have been associated with a widget.
+
+`getCurrent`Returns the name of the currently displayed widget.
+                            If no widget has been selected for display since
+                            construction, the return will be an empty string.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Orphan | Up | FrameSequencer |

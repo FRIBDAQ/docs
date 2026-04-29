@@ -1,0 +1,85 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_latefragments"></a>EVB_lateFragments
+
+<a name="AEN26312"></a>## Name
+
+EVB_lateFragments -- Late fragment statistics
+
+<a name="AEN26315"></a>## Synopsis
+
+**package require EVB::Late
+            **
+
+**EVB::LateFragments *window ?options?*
+**
+
+** *$window* configure *options*
+**
+
+** *$window* cget *?option-name?*
+**
+
+** *$window* source *id count late*
+**
+
+** *$window* clear
+                **
+
+<a name="AEN26336"></a>## DESCRIPTION
+
+Provides a widget that displays data late statistics.   A data late
+            event is one where a fragment arrives sufficiently late relative
+            to its cohorts in time that when it is emitted it will result in
+            a break in total ordering of timestamps.
+
+The widget itself is divided into a pair of subwidgets.  A summary
+            and per input queue statistics.  The summary data are controlled by
+            widget options while the per-queue information is controlled by
+            method calls.  See the OPTIONS and METHODS sections below
+
+<a name="AEN26340"></a>## OPTIONS
+
+
+
+`-count`Sets the total number of late fragments as displayed in
+                        the summary part of the widget.
+
+`-worst`Sets the worst case timestamp difference between the
+                        a late fragment and the time limit for when it should have
+                        been received.
+
+<a name="AEN26353"></a>## METHODS
+
+The **configure** and **cget**
+                methods operate just like  the Tk widget
+                **configure** and **cget**
+                methods for all widgets.
+
+
+
+** *$window* source *id count late*
+**
+
+Specifices the `count` of late fragments and the largest
+                            time difference for `lateM` fragments for a specific
+                            data source `id`.
+
+** *$window* clear
+                            **
+
+Removes all per source statistics entries from
+                            the per-queue section of the widget.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB_inputStatistics:_summaryDisplay | Up | EVB_lateSummary |

@@ -1,0 +1,102 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5775"></a>Chapter 56. VMUSB readout
+
+The VMUSB readout framework provides support for the Wiener-JTec
+        VM-USB VME controller. The VM-USB is a USB VME controller that uses
+        a Xilinx gate array to implement a VME list processor.  This allows
+        events to be readout autonomously by the VM-USB without intervention
+        by the host processor.
+        The VMUSB Readout framework provides:
+
+
+
+- A high level approach to the problem of data taking with the VM-USB
+- Support for user written device support without any need to
+              understand the format of list operations supported by the VM-USB.
+              Drivers can be written in C++.
+- Direct insertion of data taken to an arbitrary destination
+                  ringbuffer.
+
+This chapter provides:
+
+
+
+- The philosophy behind the VMUSB readout framework.
+- How to write configuration files for the VMUSB readout
+                  framework.
+- How to write device support modules in in C++ and incorpoprate
+                  those modules into the
+                  VMUSB readout framework.
+- How to write device support modules in Tcl and incorporate
+                  those modules into a VM-USB readout DAQ configuration file.
+- The slow controls protocol and its primitives.
+- Variable monitoring.
+
+Reference information is available in the
+        3vmusb section of the reference material.
+
+# <a name="AEN5801"></a>56.1. How the VMUSB readout framework works
+
+The VM-USB readout framework taks a high level approach to
+            specifying and configuring a readout case.   Users write a
+            configuration file that specifies at a very high level which
+            devices are used, their configuration and which ones need to be
+            read under which circumstances (The VM-USB supports up to 8 lists
+            with differing trigger conditions).
+
+The framework supports data taking (physics and scaler triggers), as
+            well as a mechanism for building and integrating control panels
+            for slow controls devices.  A plugin architecture supports the addition
+            of user support for devices that are not now supported by internal
+            drivers.
+
+The recurring concepts for configuring data taking and slow controls
+            devices are:
+
+
+
+- A Tcl configuration file describes the devices used
+                      by the experiment.
+- Each supported device class is represented in the
+                      configuration file by a Tcl command ensemble. The
+                      command ensemble provides subcommands that allow you to
+                      create, configure and query the configuration of
+                      physical devices (device instances).
+- The device configuration is represented in the configuration
+                      file in manner analagous to the state of a Tk widget.
+                      That is, you never actually program the device directly,
+                      you simply specify the desired configuration. The actual
+                      programming is done by the device class's device support
+                      software.
+- In accordance with the way the VM-USB operates, you can create
+                      8 lists or *stack*s in VM-USB parlance.
+                      Some of these stacks have special meaning to either the
+                      framework or to the VM-USB.  One stack is reserved by the
+                      VM-USB as the target of periodic triggers and is used to
+                      support scaler readout/display.  A second stack is reserved
+                      for a software periodic trigger and is used to support
+                      devices that require periodic monitoring (e.g. detector
+                      bias supplies which may trip during operation due to interlock
+                      conditions).   Of the remaining 6 stacks one can be triggered
+                      by a VM-USB front panel input and the remaining 5 can
+                      be triggered by VME backplane interrupts.
+  Each stack has, configuration properties as well. One
+                      configuration property is the set of modules managed
+                      by that stack.  Modules managed by that stack are initialized
+                      by the software, in accordance with their configuration,
+                      and contribute to the readout list that executes in response
+                      to that stack's trigger.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running CCUSBReadout | Up | Writing DAQ configuration files |

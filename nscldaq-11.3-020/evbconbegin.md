@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb3_onbegin"></a>EVBC::onBegin
+
+<a name="AEN56109"></a>## Name
+
+EVBC::onBegin -- EZBuilder begin run actions
+
+<a name="AEN56112"></a>## Synopsis
+
+**EVBC::onBegin
+          **
+
+<a name="AEN56115"></a>## DESCRIPTION
+
+Call **EVBC::onBegin** from your **OnBegin**
+            callout.  If `-restart` is on, a new instance of the event
+            builder will be started (and the old one killed off).  If the Event
+            builder is being started, if you have defined a proc or command named
+            startEVBSources that will be invoked
+            after the event builder pipeline has been started.
+
+If the event builder pipeline is not restarted, this command will
+            also call **EVBC::reset** preparing the event builder
+            for the potential that the timestamps in the data acquisition
+            hosts have been reset.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBC::initialize | Up | EVBC::onEnd |

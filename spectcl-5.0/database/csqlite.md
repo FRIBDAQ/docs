@@ -1,0 +1,243 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4187"></a>CSqlite
+
+<a name="AEN4191"></a>## Name
+
+CSqlite -- Connection to Sqlite3
+
+<a name="AEN4194"></a>## Synopsis
+
+```
+#include <CSqlite>
+
+class CSqlite {
+
+    // public data connection flags:
+public:    
+    static const int nomutex;
+    static const int fullmutex;
+    static const int sharedcache;
+    static const int privatecache;
+    static const int uri;
+    static const int readonly;
+    static const int readwrite;
+    static const int create;
+    
+    // canonicals (these do the real work).
+public:
+    CSqlite(const char* database);
+    CSqlite(const char* database, int flags);
+    
+public:
+    sqlite3* connection();
+    
+    static const char* version();
+    static int         versionNumber();
+public:
+    bool tableExists(const char* tableName);
+    static void checkStatus(int status);
+    
+};
+
+                    
+```
+
+<a name="AEN4196"></a>## DESCRIPTION
+
+Encapsulates an sqlite3 opaque object
+                        pointer used by the underlying API to connect to
+                        a database.
+
+<a name="AEN4200"></a>## METHODS
+
+
+
+`   CSqlite(const char*  database = );`Connects the object under construction to the database
+                                designated by `database`.
+
+If `database` is the string
+                                :memory:, a private temporary
+                                in memory database is constructed.  This
+                                is useful for testing or for rapid access that
+                                is later flushed to disk using the native
+                                database backup functions in the base API.
+                                Sqlite3 reserves the right to add additional
+                                special database designators that begin with
+                                :, therefore if your actual
+                                `database` would begin
+                                with that character it is recommended that you
+                                prefix the filename with a path e.g.
+                                ./:colonfile.
+
+I believe that each :memory:
+                                database opened is distinct rather than shared.
+
+An empty string for `database`
+                                opens an on disk termporary database.  This database
+                                will be deleted automatically when the database
+                                connection is closed.
+
+Errors in creating the native database
+                                handle are signalled via an exception of the
+                                type `CSqliteException`.
+                                Note that this exception is derived
+                                from `std::exception`.
+                                See its reference page  for more information.
+
+`  CSqlite(const char*  database = , int  flags = );`Same as the previous  constructor however
+                                a bitwise or of several flags more tightly
+                                controls the open.  See PUBLIC ATTRIBUTES
+                                for the legal flag values.
+                                Note that using the native SQLite3 flags
+                                is also supported.
+
+` sqlite3*  connection();`Returns the raw SQLite3 connection handle
+                                encapsulated by this object.  We hope you never
+                                have to use this method.  If you do
+                                please let us know why and we'll consider
+                                adding the functionality you needed to this
+                                library for the next person.
+
+If you close the database handle, you will, at best,
+                                make all subsequent calls using it
+                                fail.  You may also cause program failure.
+
+` tatic const char*  version();`Returns the SQLite3 version string for
+                                the underlying library.
+
+` static int          versionNumber();`Returns the version number value.  The SQlite3
+                                version consist of three fields of three
+                                digits.  Thus a value of
+                                1002003 corresponds to
+                                version 1.2.3.
+
+` bool  tableExists(const char*  tableName = );`If the encapsulate database has a table named
+                                `tableName` defined,
+                                this returns true othewise,
+                                false is returned.
+                                It is strongly suggested this be called before
+                                assuming a database file passed by a user
+                                is actually a database file initialized for
+                                your application.
+
+` static void  checkStatus(int  status = );`If `status` is not
+                                SQLITE_OK throws a
+                                `CSqliteException` object.
+                                Used throughout the database library for
+                                error checking/handling.
+
+<a name="AEN4297"></a>## PUBLIC ATTRIBUTES
+
+Several public attributes are exported by this
+                        class.   These are static values that are usable
+                        in the `flags` parameter
+                        for the constructor.  They are synonyms for
+                        API flag values available for use in the native
+                        library function:
+                        `sqlite3_open_v2`
+
+
+
+static const int `nomutex`Equivalent to SQLITE3_OPEN_NOMUTEX:
+                                The new database connection will use the
+                                "multi-thread" threading mode.
+                                This means that separate threads are
+                                allowed to use SQLite at the same time, as
+                                long as each thread is using a different
+                                database connection.
+
+In the context of this library, a different
+                                connection means a different
+                                `CSqlite` object.
+
+static const int `fullmutex`Equivalent to SQLITE_OPEN_FULLMUTEX:
+                                The new database connection will use the
+                                "serialized" threading mode. This means
+                                the multiple threads can safely attempt
+                                to use the same database connection at
+                                the same time. (Mutexes will block any
+                                actual concurrency, but in this mode there is no
+                                harm in trying).
+
+This can be used best when short database
+                                accesses are interleaved with longer computing and
+                                that the accesses and computing across
+                                several threads.  In an appliction with this
+                                balance of computing/database operation, the
+                                probability of collision on a mutex is low.
+
+static const int `sharedcache`Equivalent to
+                                SQLITE_OPEN_SHAREDCACHE:
+                                The database is opened shared cache enabled,
+                                overriding the default shared cache setting
+                                provided by
+                                `sqlite3_enable_shared_cache`.
+                                Note that the SQlite3 documentation does not
+                                recommend using this flag.
+
+Sharing the cache allows a common cache to be used
+                                between several objects open on the same database
+                                all with this flag set.
+
+static const int `privatecache`Mutually exclusive of `sharedcache`.
+                                This is synonymous with
+                                SQLITE_OPEN_PRIVATCACHE:
+                                The database is opened shared cache disabled,
+                                overriding the default shared cache setting
+                                provided by
+                                `sqlite3_enable_shared_cache`.
+
+This is the recommended and by default shared cache
+                                is globally in the SQLite3 library.
+
+static const int` uri`A synonym for :
+                                SQLITE_OPEN_URI
+                                    The filename can be interpreted as a URI if
+                                    this flag is set.  This has several
+                                    implications.
+
+The first of these implications is that
+                                open flags can be provided as query strings
+                                on on the URI (see the SQLite3 documentation
+                                for more information about this).  The
+                                second is that using the query parameter
+                                memory in different connections
+                                with the same URI allows several connections to the
+                                same memory database to be made.
+                                See the SQLite3 documentation regarding
+                                URI filenames.
+
+static const int `readonly`Identical to SQLITE_OPEN_READONLY:
+                                The database is opened in read-only mode.
+                                If the database does not already exist, an
+                                error is returned, which is then thrown
+                                as an `CSqliteException`.
+
+static const int`readwrite`Equivalent to SQLITE_OPEN_READWRITE:
+                                The database is opened for reading and writing
+                                if possible, or reading only if the file is write
+                                protected by the operating system. In either
+                                case the database must already exist, otherwise
+                                an error is returned and thrown as a
+                                `CSqliteException`
+
+static const int `create`Equivalent to
+                                SQLITE_OPEN_CREATE,
+                                should be used in combination with
+                                `readwrite`:
+                                The database is opened for reading and writing,
+                                and is created if it does not already exist.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Object oriented Sqlite3 wrapper | Up | CSqliteException |

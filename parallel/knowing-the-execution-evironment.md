@@ -1,0 +1,75 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Chapter 2. Porting custom commands | Next |
+
+
+---
+
+# <a name="AEN216"></a>2.2. Knowing the execution evironment
+
+Your commands may need to know if you are running as an MPI application and, if so,
+                the sort of process you are.  mpiSpecTcl has three types of functionally distinct processes:
+                The Root process runs the interactive Tcl interpreter (and therefore any GUI), the
+                Event sink pipeline process and workers, which run the event processing pipline you write.
+                The organization of the MPI application is described in greater detail in 
+                [[c362]].
+
+There is only one Root and one Event sink pipeline process.  There are as many Worker processes
+                as you implicitly specify in the **mpirun** command.  User command
+                extensions generally affect the operation of the event processing pipeline and, therefore
+                when running MPI should onhly actually do something in worker processes.
+
+In MPI processes are grouped together in *communicators*.  Each 
+                process is assigned an unsigned integer number called a *rank* within
+                each communicator to which it belongs.  WHen an MPI application starts, an initial 
+                communicator called the *world communicator* is created by the
+                MPI run-time and processes are assigned a rank within the world communicator.
+                It is the world communicator rank that mpiSpecTcl uses to assign roles to each process.
+
+The header Globals.h defines three preprocessor constants:
+
+
+
+MPI_ROOT_RANKThe rank of the root process.
+
+MPI_EVENT_SINK_RANKThe rnak of the event sink pipline process.
+
+MPI_FIRST_WORKER_RANKThe smallest rank assigned to a worker process.  All workers will
+                            have world communicator ranks that are this or larger.
+
+The header TclPump.h provides a pair of functions:
+
+
+
+bool `isMpiApp`()Returns true if SpecTcl is running as an MPI application.
+
+int `myRank` ()Returns the rank of the process in the current communicator.
+
+Here is sample code for a command processor that only executes in worker processes
+                when the SpecTcl is an mpi application but executes as well if SpecTcl is run serially.
+
+<a name="AEN263"></a>**Example 2-4. Running commands only in workers**
+
+```
+#include <TclPump.h>
+...
+int SomCommandProcessor::operator()(
+    CTCLInterpreter& interp, std::vector<CTCLObject>& objv
+) {
+    if (isMpiApp() && (myRank() < MPI_FIRST_WORKER_RANK)) {
+        return TCL_OK;
+    }
+    // The actual stuff the command does...
+
+
+}
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Porting custom commands | Up | Wrapping old argc, argv commands. |

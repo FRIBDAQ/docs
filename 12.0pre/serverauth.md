@@ -1,0 +1,62 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.serverauth"></a>serverauth
+
+<a name="AEN22436"></a>## Name
+
+serverauth -- Control tcl server authorization.
+
+<a name="AEN22439"></a>## Synopsis
+
+**serverauth add *hostorip*
+**
+
+**serverauth remove *hostorip*
+**
+
+**serverauth list
+        **
+
+<a name="AEN22448"></a>## DESCRIPTION
+
+Manipulates the server authorization database.  The server authorization
+        database determines which nodes are allowed to connect to the tcl server.
+        This command lives in the tclserver itself.  Usually a startup script
+        or GUI element projected by the server sets up the appropriate authorization
+        lists.
+
+**serverauth** is an ensemble of commands that has
+        the following ensemble commands:
+
+
+
+**serverauth add *hostorip***Adds `hostorip` to the set of hosts
+                    that are allowed to connect to this instance of the server.
+                    `hostorip` can be either a DNS hostname
+                    like spdaq22.nscl.msu.edu or it can
+                    be a dotted IP address like: 35.8.35.123.
+
+**serverauth remove *hostorip***Removes the host `hostorip` from the set of
+                    systems that are authorized to connect as clients to the tcl server.
+                    `hostorip` is a DNS name or dotted IP, as for
+                    the **serverauth add** command.  Matching is based on
+                    the IP address so the command should work just fine in the presence of e.g. CNAMEs.
+
+**serverauth list**Lists the systems that are authorized to connect.  The command
+                    returns as a result a Tcl list. Each element of the list is a pair.
+                    The first element of the pair is the hostname of a host authorized
+                    to connect (actually a hostorip provided).  The second element
+                    of the list is the IP address of the associated host.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| tclserver | Up | !ModuleName! |

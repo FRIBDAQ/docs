@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1515"></a>mirror
+
+<a name="AEN1519"></a>## Name
+
+mirror -- List sthe mirrors being run
+
+<a name="AEN1522"></a>## Synopsis
+
+**mirror**   list
+
+<a name="AEN1526"></a>## DESCRIPTION
+
+Presently there is only one subcommand, list.  It lists
+                    the currently active mirrors.  This command is only relevant if the
+                    mirror server was turned on.
+
+The **mirror** command is wrapeed in an `CMPITclCommand`
+                    and only executes in the MPI_EVENT_SINK_RANK process as it is the only 
+                    one with access to the spectrum channels.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| integrate | Up | parameter |

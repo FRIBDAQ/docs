@@ -1,0 +1,28 @@
+|  |  |  |
+| --- | --- | --- |
+| The DDAS cookbook |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This document describes several programs that are distributed with DDAS since 5.0-000.  These programs are intended to show how to use DDAS events to perform some common tasks.  I anticipate that the set of examples and this documentation will grow with time.
+
+The programs described in this cookbook are tested and available, along with Makefiles in the directory tree $DDAS_SHARE/recipes .  Each of the following chapters will describe one of these recipes as well as provide the actual directory in which the program lives.
+
+NB: To be able to use the provided libraries correctly please unload the ROOT module (if loaded by hand or automatically loaded via .bashrc). We compiled ROOT-dependent libraries against specific version of ROOT that are provided in the containers. For information on what version have been used please check the file located in i.e. /usr/opt/ddas/3.3-000/VERSION. Once, the ROOT version is identified please source the corresponding script (i.e. source /usr/opt/root/root-6.18.04/bin/thisroot.sh for DDAS 3.3-000).
+
+At the time this is being written the following recipes are available:
+
+
+
+- [[c24]] describes how to read DDAS data.  The program presented can read data from the ROOT output files of the ddasdumper.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The DDAS cookbook |  | Reading ROOT-formatted DDAS data events |

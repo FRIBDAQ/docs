@@ -1,0 +1,53 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN22864"></a>cratelocator
+
+<a name="AEN22878"></a>## Name
+
+cratelocator -- locate specific SBS VME crate controllers.
+
+<a name="AEN22881"></a>## Synopsis
+
+```
+$DAQHOME/cratelocator
+                        
+          
+```
+
+<a name="AEN22884"></a>## DESCRIPTION
+
+Each system can support up to 8 SBS controllers, numbered
+                    0-7.  Unfortunately, there are no distinguishing
+                    marks on the controllers themselves to let you know which is which.
+                    **cratelocator** is a Tcl/Tk script that helps you identify
+                    the crate controllers.
+
+The **cratelocator** utility presents you with a set of
+                    radiobuttons.  Select one to choose a VME crate controller.
+                    Click the Locate button.  **cratelocator**
+                    rapidly issues VME operations on the crate which causes the selected controller's
+                    Remote light to glow.  When you have identified the
+                    controller either click the Stop button and
+                    select repeat this process until all controllers have been identified, or
+                    click Exit to exit.
+
+Note that unless you add VME controllers to the system, or rearrange the
+                    Fiber optic cabling, VME bus controller numbers will not change from
+                    reboot to reboot.
+
+<a name="AEN22897"></a>## OPTIONS
+
+None
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| vhqControl | Up | SBS Vme Tcl package |

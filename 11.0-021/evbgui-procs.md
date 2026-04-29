@@ -1,0 +1,62 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_GUI_procs"></a>EVB::GUI procs
+
+<a name="AEN13427"></a>## Name
+
+EVB::GUI procs -- Standard monitor UI procs.
+
+<a name="AEN13430"></a>## Synopsis
+
+**package require EVB::GUI                
+            **
+
+**EVB::createGui *window*
+**
+
+**EVB::maintainGUI *window update-ms*
+**
+
+<a name="AEN13439"></a>## DESCRIPTION
+
+These commands support creating and maintaining the default
+            Event orderer monitoring gui.  See PROCEDURES below for
+            information about each of the **proc** and their
+            parameters.
+
+<a name="AEN13443"></a>## PROCEDURES
+
+
+
+**EVB::createGui *window***Creates a new instance of the standard event orderer
+                        monitor widget set.  This is a tabbed notebook where each
+                        page of the notebook displays a different set of statistics.
+                        `windowM` is the Tk window path
+                        for the top of the window hierarchy created by this
+                        command.
+
+You must **pack**, **grid**
+                        or **place** `window` to
+                        position it within a container widget (e.g. a frame or
+                        toplevel widget).  Until you do the window is off-screen.
+
+**EVB::maintainGUI *window update-ms***Starts a repeating task to maintain the contents of a
+                        standard Event Orderer.  `window`
+                        is the window that is at the top of the hierarchy of
+                        windows created by a call to **EVB::createGui**.
+                        `update-ms` is the number of milliseconds
+                        between user interface updates.  `update-ms`
+                        should be on the order of a second or more.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::connectionList | Up | EVB::inputStatistics::statusDisplay |

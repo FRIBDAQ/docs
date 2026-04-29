@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+The Python package allows users of SpecTcl to execute python scripts
+            within the SpecTcl program.   The package provides commands
+            to execute python scripts from file or inline with other Tcl
+            commands.  The package also provides Python-esque wrappings of
+            the major SpecTcl objects, allowing you to manipulate spectra,
+            parameters, gates, and variables directly from your python scripts.
+
+Incorporating the Python package in your SpecTcl run is as simple as
+            adding the line:
+
+<a name="AEN17"></a>```
+package require python
+                
+```
+
+
+            to your SpecTclRC.tcl script.
+        Note that this both adds the **python**
+            command to your SpecTcl Tcl interpreter and imports the
+            spectcl Python package into the python interpreter
+            that runs that command.  Since the same interpreter is used
+            to run all Python commands, packages, variables, objects created
+            in one script are fully available to subsequent scripts.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl Python package |  | Thepythoncommand. |

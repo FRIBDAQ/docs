@@ -1,0 +1,60 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN105103"></a>APpacXLM72
+
+<a name="AEN105107"></a>## Name
+
+APpacXLM72 -- Provide support for XLM72 with PPAC readout firmware
+
+<a name="AEN105110"></a>## Synopsis
+
+```
+package require ppacxlm72
+APpacXLM72 dev-name
+dev-name configure option value ?...?
+
+addtcldriver create stack-name -ensemble dev-name
+        
+```
+
+<a name="AEN105117"></a>## DESCRIPTION
+
+This Tcl driver provides support for the PPAC Readout XLM72 firmware.  
+            As with all of the XLM72 based modules, until an external firmware loader
+            is written, the firmware is unconditionally loaded at the start
+            of each data taking run.
+
+<a name="AEN105120"></a>## DESCRIPTION
+
+
+
+`-base` *vme-address*VME base address of the module.
+
+`-filename` *firmware-file-path*Path to the file containing the firmware for the module.
+
+`-pariod`Period parameter, in the rangge [0-3].
+
+`-delay` *delay*Set the delay value, must be in the range [0-15].
+
+`-width` *width*Sets the width parameter, must be in the range [0-63].
+
+`-shift` *shift*Set the shift value.  Must be in the range [0-255].
+
+`-thresholds` *list-of-thresholds*List of threshold values.  This is a list that is at most 256 elements long.
+                            If not all elements are provided, the "missing" elements are set to 1023 which is
+                            the larges allowed threshodl value.  Thresholds are in groups of four for the
+                            four connectors on the PPAC.  Each group of four contains threshold for, in order
+                            a pin on connectors 0,1,2,3.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| AMesytecMADC32 | Up | ATimeStampXLM72 |

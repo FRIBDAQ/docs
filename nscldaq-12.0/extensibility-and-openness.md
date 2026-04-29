@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 1. NSCLDAQ In a Nut Shell | Next |
+
+
+---
+
+# <a name="AEN33"></a>1.4. Extensibility and Openness
+
+A very important aspect of NSCLDAQ is that it is designed to be open.
+      Because it is impossible to know what challenges might be introduced by
+      future experiments, NSCLDAQ is built around software frameworks.
+
+There are a number of frameworks for building C++ applications. First
+      there is the [[c15004]],
+      which provides users with the ability to write minimal amounts of C++
+      code to develop a Readout program that
+      has the same semantics and feel of other precompiled NSCLDAQ Readout
+      programs.  Though it is designed for use with the SBS Bit3 PCI/VME
+      bridge, it is useful for any other hardware that requires a trigger loop
+      for reading out hardware and emitting data in the NSCLDAQ 11.0 version
+      data format. To facilitate the design of filter programs, the [[c15528]] exists. It handles the
+      input, output, and data-type delegation logic in order to allow the
+      experimenter to focus on the details of his/her specific problem.
+      Thirdly, the event builder provides a framework for constructing new
+      clients in case a user intends to contribute data to it in a format
+      different than the standard NSCLDAQ format.
+
+In addition to the already mentioned frameworks, most of the precompiled
+      Readout programs provide the ability to extend their functionality through
+      plugins. For example, both VMUSBReadout and CCUSBReadout have frameworks
+      to support reading out and controlling new hardware. In both these cases,
+      templates (a.k.a. skeletons) exist to facilitate development.
+
+Of course, the NSCLDAQ source code is open source. It is licensed under
+      the [Gnu General Public
+        License](http://www.gnu.org/copyleft/gpl.html) and is available at [sourceforge](http://sourceforge.net/projects/nscldaq/).
+      Code added by the scientific software team at the NSCL is copyright
+      protected by the Michigan State University Board of Trustees.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Built-in Diagnostics | Up | The Ring Buffer |

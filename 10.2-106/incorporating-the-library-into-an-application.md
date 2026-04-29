@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 35. NSCL DAQ Thread Library | Next |
+
+
+---
+
+# <a name="AEN2131"></a>35.2. Incorporating the library into an application.
+
+To incorporate the thread library in your software, you will
+            need to ensure that the compiler can locate the library headers
+            and the library, both at link time and at load time.
+
+The library headers are in the
+            include
+            directory of the NSCLDAQ installation tree.  The library is called
+            libthreads and is in the
+            lib
+            directory of the installation tree.
+
+In the compilation example below, we assume that an
+            environment variable named DAQROOT has been defined to point to the
+            top level of the NSCLDAQ installation tree:
+
+<a name="AEN2139"></a>**Example 35-4. Compiling and linking NSCLDAQ threaded software**
+
+```
+g++ -o mythreadedapp -I$DAQROOT/include mythreadedapp.cpp -L$DAQROOT/lib -lthreads \
+    -Wl,"-rpath=$DAQROOT/lib"
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| NSCL DAQ Thread Library | Up | Pointers to the reference material |

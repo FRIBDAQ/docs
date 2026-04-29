@@ -1,0 +1,92 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-CBDLeCroy4434"></a>CBDLeCroy4434
+
+<a name="AEN72518"></a>## Name
+
+CBDLeCroy4434 -- control a LeCroy 4434 Scaler on a CAMAC branch
+
+<a name="AEN72521"></a>## Synopsis
+
+**CBDLeCroy4434 create *name base*
+**
+
+**CBDLeCroy4434 config *name option value ...*
+**
+
+**CBDLeCroy4434 cget *name*
+**
+
+<a name="AEN72531"></a>## DESCRIPTION
+
+The CBDLeCroy4434 is intended to control a LeCroy 4434 scaler situated on a
+camac branch rooted in a VME crate by a CES CBD8210 branch driver. If you
+intend to utilize the driver in a camac crate controlled by a CCUSB, see the
+LeCroy4434 command. It provides the exact same functionality but understands the
+CCUSB to be its controller.
+
+The CBDLeCroy4434 cannot be registered as a stack module by itself. Instead it
+must be registered first to a CBDCamacCrate. That CBDCamacCrate must then be
+registered to a CBDCamacBranch module. See the example below to understand how
+this works.
+
+During initialization, all scalers are cleared and the auxiliary bus is disabled.
+
+At the end of the run, no actions are taken.
+
+During stack execution initiated by an event trigger, this driver will operate
+  based on the following logic:
+
+```
+
+  Read all channels
+  if "-incremental" is true
+      Clear the module
+  
+```
+
+
+
+  Just as a note, the latch and the clear are not atomic.
+
+<a name="AEN72539"></a>## OPTIONS
+
+
+
+**-slot** *value*Specifies the slot of the CAMAC crate the target module is occupying.
+	Default is 1.
+
+**-incremental** *bool*Specifies whether to clear the scalers on each event after latching
+	  them. Default is false.
+
+<a name="AEN72554"></a>## EXAMPLES
+
+<a name="AEN72556"></a>**Example 1. Sample setup of a single scaler**
+
+```
+CBDLeCroy4434 create sclr -slot 10
+
+# Create a crate to stick it in
+CBDCamacCrate create crate0 -crate 1
+CBDCamacCrate config crate0 -modules [list sclr]
+
+# Create a branch to register the crate in
+CBDCamacBranch create branch0 -branch 0
+CBDCamacBranch config branch0 -crates [list crate0]
+         
+```
+
+Sets up a LeCroy 4434 scaler module in slot 10.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CBDLeCroy4300B | Up | CBDLeCroy2551 |

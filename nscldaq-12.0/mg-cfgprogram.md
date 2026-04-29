@@ -1,0 +1,89 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_cfgprogram"></a>mg_cfgprogram
+
+<a name="AEN18073"></a>## Name
+
+mg_cfgprogram -- Configure manager program definitions
+
+<a name="AEN18076"></a>## Synopsis
+
+**$DAQBIN/mg_cfgprogram *configuration-file*
+**
+
+<a name="AEN18080"></a>## DESCRIPTION
+
+**mg_cfgprogram** is a utility that supports editing
+            DAQ manager program definitions.
+            The configuration-file command line parameter
+            is the path of the configuration database file that will be edited.
+
+The main window of this editor is a table listing the programs that are
+            currently defined.  The program name, program file, host and container
+            of all defined programs are shown in this table.  If the Container
+            column is empty for a program it is run natively in the specified host.
+            Note, as you might expect, for containerized applications, the
+            program file is the path to the program as it appears in the container
+            file system.  Not the host filesystem.
+
+CLicking the New.. button or double clicking
+            on a program in the table, brings up an editor window.  The only
+            difference between the two methods to bring up this window are that
+            double clicking a program will load that program into the editor
+            window.
+
+For the most part the editor window is straightforward, the Name
+            of the program must be a unique name.  The program file
+            Browse... button allows you to browse for
+            the program file.  This browses in the filesystem in effect at the
+            time the editor is being run.  If, for example, you are running the
+            editor natively but the program will be containerized,
+            you may need to modify the final path selected by hand to match
+            what the container sees.  The Container Browse...
+            buttons allows you to select from the list of defined containers in
+            which the program can run.
+
+A Type radio button group allows you to specify
+            the program type.
+
+The Program Options listbox shows the options
+            that are defined for the program.  To add a new option,
+            enter the option namme (e.g. --ring) and
+            option value (e.g. fox) in the Name and Value
+            entry text boxes and click the New button.
+            To remove an option  click it in the list, this also supports
+            editing the option as the name/value pair are loaded into the
+            corresponding entries where they can be edited and recreated.
+            This bit of mechanics is the same for all of the editor elements
+            described below.
+
+Similarly, the Program Parameters listbox
+            shows parameters that are passed to the program.  You can think of
+            parameters as options with no value.  However, the program parameters
+            are passed to the program *after* the program's
+            options.   Create a new parameter by entering its value and clicking
+            the New button below it.  Delete or edit
+            by clicking it in the list.  Note that often parameters are positional
+            and you must take care of that when editing.
+
+The Program Environment define environment
+            variables that will be defined when the program executes.
+            Editing these is identical to editing Program Options:
+
+Clicking OK saves the definition in the database
+            and refreshes the list of programs in the main window.
+            Clicking Cancel closes the editor window
+            without making any changes
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_cfgcontainers | Up | mg_stateedit |

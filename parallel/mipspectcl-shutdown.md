@@ -1,0 +1,74 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Chapter 3. How mpiSpecTcl works in parallel mode. | Next |
+
+
+---
+
+# <a name="sec.shutdown"></a>3.5. mipSpecTcl shutdown
+
+Normal shutdown of mpi SpecTcl ultimately happens either because the Tcl exit command is
+                executed or a Control-C was typed; which forces the root process to exit.
+                All ranks have used `atexit` to establish `MPIExitHandler`
+                to be called when the program exits.  This function is
+                implemented in Core/TclGrammerApp.cpp
+
+It is this function that handles all of the shutdown tasks.
+
+There is one bit of trickiness in the exit handler when Xamine is the displayer.
+                Under those circumstances, the spectrum shared memory region is created by Xamine and
+                the Xamine API therefore forks off a process to monitor the number of processes that are attached to that
+                SYSV shared memory region.  As forked processes inherit exit handlers established by
+                `atexit` that case must be properly  handled.
+
+The Xamine API defines a global variable; `is_xamine_shm_monitor`
+                which is set nonzero in the forked process but 0 in all other processes.
+                `MPIExitHandler`  will just return without doing any SpecTcl
+                specific shutdown operations if that value is set.  It does this because
+                the shared memory monitor is not properly part of the MPI application that makes up
+                mpiSpecTcl.
+
+If the process is the root process, one thing it must do is force the other processes
+                in the application to exit.  It does this by sending the **exit**
+                to all of the processes running the Tcl command pump.  This will start them exiting.
+                It does not look for the result/status of that command as, in theory there won't be any.
+
+The root process also invokes `stopCommandPump` which broadcasts
+                a special message to all Tcl Command pumps imploring them to exit.  This and all pumps
+                must be shutdown to get a normal exit as thread blocked in MPI calls when 
+                `MPI_Finalize` is called witll, in general, segfault.
+
+In fact, the remainder of `MPI_Finalize` is mostly concerned
+                with stopping the various pumps.
+
+Pumps are stopped by sending 'special' messages to them that are easily recognized as
+                invalid.  For example, the Ring item pump is stopped by sending a ring item with 0 in
+                the header's length field.  On receiving a special message the pump threads exit.
+
+The root rank, after broadcasting an **exit** to all of the
+                other processes, ssends an empty command to them to stop all of the Tcl command pumps.
+
+The event sink pipeline process, stops the parameter pump it uses to receive
+                unpacked events from workers.   In MPI It's perfectly legal to send yourself
+                a message.  It is not possible, however to recdeive a broadcast from yourself.
+                It also stops the gate pump which broadcasts gates received by Xamine to 
+                all the other processes, and stops the gate trace pump used to fire
+                traces as a result of gate creations/modifications from Xamine.
+
+The root process and the workers all stop the ring item pumps.  when
+                `stopRingItemPump` is called by the root process,
+                it broadcasts a special message to stop all of the non physics pump threads.
+                The workers, send a special message to their own Physics event pump threads
+                to stop them.
+
+It can take some time for threads to exit.  Therefore all processes execute a 2 second
+                wait before invoking `MPI_Finalize` indicating to the MPI run-time
+                that the process is no longer going to communicate.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mpiSpecTcl initialization | Up | mpiSpecTcl  reference material |

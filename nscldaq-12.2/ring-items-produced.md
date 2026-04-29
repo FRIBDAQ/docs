@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 13. mvlcgenerate and using the Mesytec MVLC VME controller | Next |
+
+
+---
+
+# <a name="AEN7329"></a>13.3. RING ITEMS PRODUCED
+
+The fribdaq-readout program produces normal FRIB/NSCLDAQ ring items.  The
+            format of the ring items, depends on the version of the DAQ the program is linked to.  If a timestamp
+            extractor is specified, the ring items will have non-empty body headers.  If not, they will have
+            empty body headers.
+
+Prior to all state change items, a format item is emitted.   This format item will reflect the
+            format of the underlying version of FRIB/NSCLDAQ.  Normally, this will be 12.0 or higher.
+
+For each event, a PYSICS_EVENT item is emitted.  As you have seen in the previous
+            section, events can be segmented.  The data from each segment are concatenated to form the body 
+            of the physics event.
+
+Scaler items are produced whenever the periodic stack produces data.  As with the VMUSBReadout, 
+            elapsed run time data are produced from an internal timer.   In general, this timer will have a finer
+            granularity than a second, so you must take into account the divisor field of these items, if you
+            are accessing the items directly.  The unified format library is the recommnded way to access data,
+            this will compute the elapsed times from the time elements and divisors transparently.
+
+The MVLC Scaler readout is purely time based and, therefore, there is not a final scaler item at the
+            end of the run.
+
+The current version does not produce PHYSICS_EVENT_COUNT items. This is planned for
+            a later release of the software.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| fribdaq-readout | Up | BUILDING mesytec-mvlc WITH THE OPTIONALfribdaq-readoutPROGRAM |

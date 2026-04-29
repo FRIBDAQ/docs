@@ -1,0 +1,25 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1559"></a>3.24. Accessing the ungate command (new in 5.5)
+
+The SpecTcl **ungate** command removes any gate condition
+            from a spectrum.  It can be accessed via the following URL
+
+<a name="AEN1563"></a>**http://host:port/spectcl/ungate?name=name1[&name=name2...]
+               **
+
+Where the spectra to be ungated are specified by repeated occurences
+            of the name query parameter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the unbind command (new in 5.5) | Up | Accessing the swrite command (new on 5.5) |

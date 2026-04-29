@@ -1,0 +1,140 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN69393"></a>TclConfiguredReadout
+
+<a name="AEN69397"></a>## Name
+
+TclConfiguredReadout -- Event Segment configured with Tcl
+
+<a name="AEN69400"></a>## Synopsis
+
+```
+#include <TCLConfiguredReadout.h>
+namespace caen_nscldaq {
+class TclConfiguredReadout : public CEventSegment {
+public:
+    TclConfiguredReadout(const char* configFile, CExperiment* pExperiment);
+    void addModule(
+         const char* name, const char* connectionString, std::uint32_t sid,
+         bool isUsb = false
+    );
+    CEventTrigger* getTrigger();
+    
+    // Event segment interface:
+    
+    virtual void onBegin();
+    virtual void initialize();
+    virtual void disable();
+    virtual void onPause();
+    virtual void onResume();
+    virtual size_t read(void *pBuffer, size_t maxwords);
+};
+}
+                    
+```
+
+<a name="AEN69402"></a>## DESCRIPTION
+
+NSCLDAQ has several frameworks for reading events.  The
+                        oldest, SBSReadout might be better named programmatic
+                        trigger responder, but that's a bit awkward.  SBSReadout
+                        was originally used to read data from VME crates that were
+                        interfaced to the host via a memory mapped fiber optic bus
+                        bridge.
+
+In fact, however, SBSReadout has a very generalized concept
+                        of a trigger and actually makes no assumptions that the
+                        SBS bus bridge is actually used to interface it to the hardware
+                        it's reading.
+
+SBSReadout organizes the readout itself around objects
+                        that are instances of classes derived from the
+                        `EventSegment` abstract base class.
+                        The base class provides a standard interface to the Readout
+                        which is implemented by each concrete class.
+
+`TclConfiguredReadout` is a class that
+                        can read a collection of nextgen CAEN digitizers running
+                        DPP-PHA  firmware.  The configuration of these digitizers
+                        is maintained externally in a Tcl configuration file that,
+                        at the beginning of each run is processed by a `VX2750TclConfig`
+                        instance.
+
+The SBS readout also requires a *trigger object*.
+                        The trigger object, derived from the `CEventTrigger`
+                        base class is polled in the readout thread and determines
+                        when an event must be read.  As modules are added to
+                        `TclConfiguredReadout`, a trigger object is
+                        generated that can determine which modules, if any, have
+                        data to read.
+
+<a name="AEN69415"></a>## METHODS
+
+
+
+`  TclConfiguredReadout(const char* configFile, CExperiment* pExperiment);`Construction requires the name of the Tcl configuration
+                                file and a pointer to the SBSReadout experiment object.
+                                This latter object,
+                                `pExperiment`is available in the skeleton in the
+                                method that defines the readout and trigger to the
+                                framework.
+
+`configFile` is a path to a Tcl
+                            script that will be processsed by a Tcl interpreter
+                            at the beginning of reach run.  This interpreter has
+                            been extended by `VX2750TclConfig`
+                            instantiated with the base command
+                            **vx27xxpha**.
+
+` void  addModule(const char*  name, const char*  connectionString, std::uint32_t  sid, bool  isUsb = false);`Adds a new module to the readout segemnt.
+                                A trigger component is generated for the module.
+                                The `name` must match the
+                                name of a configuration that's crated in the
+                                configuration file via the
+                                **v27xxpha create** command.
+
+`connectionString` is the
+                                connection string that is passed to the CAEN API
+                                that specifies the module's host or NDIS identifier
+                                if the module is connected via USB>
+
+`sid` is the source id
+                                events hits from this module are tagged with for
+                                purposes of event buiding.
+
+`isUsb`, is an optional parameter
+                                that defaults to false.  If
+                                true, the module is connected
+                                to the host via a USB connection.  IF false,
+                                the module connection is via ETHERNET.
+
+` CEventTrigger* getTrigger();`As modules are added to the object, a trigger object
+                                is computed that includes all modules known to
+                                the object.  This method returns that trigger so that
+                                it can be registered as the experiment trigger.
+                                Note that this clearly should be called after
+                                all modules have been added.
+                                Note that the `TclConfiguredReadout`
+                                object retains ownerhship of the trigger object
+                                and therefore the caller must not attempt to
+                                destroy it.
+
+The remaining public methods implement the interface
+                        between the framework and `CEventSegment`.
+                        They should not be called by user code and will not be
+                        documented, in the interests of brevity.  See the
+                        NSCLDAQ documentation of `CEventSegment`
+                        if you are interested in these methods.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VX2750TclConfig | Up | VX2750EventSegment |

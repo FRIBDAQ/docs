@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="util.vhssbs"></a>Chapter 24. VHS-40xxx SBS support.
+
+The iSeg VHS-40xxx family of modules implement VME four channel high
+         voltage bias supply modules.  THese modules can be controlled by the
+         slow controls software via the SBS PCI/VME bus bridget controller.
+         This chapter gives an overview of this support.  Reference material
+         provides detailed information.
+
+Support for the module comes in two Tcl packages and a complete Tcl/Tk
+        application:
+
+
+
+[[r71506]]Provides a tcl package forlow level support fo the
+                    modules including
+                    the ability to program the base address of the module.
+
+[[r72010]]Provides a tcl package that supplies a set of widgets that
+                    view and control aspects of the device.  Each widget
+                    provides access to some element of the device,  a channel,
+                    environmental information or status information about the
+                    module.
+
+This separation allows you to build custom applications
+                    with a flexible layout of the VHS user interface
+                    elements.
+
+[[r15770]]Provides a canned application that allows you to control
+                    and view a VHS404 module.
+
+Packages are used like any other Tcl package.  Ensure that the
+        TclLibs directory of the nscldaq installation is
+        in your Tcl search path and use the **package require**
+        Tcl command.
+
+Assuming an environment variable named DAQROOT
+        is defined, that point to the top level directory of the NSCLDAQ
+        installation, you can add this directory to the search path either by
+        defining the TCLLIBPATH environment variable (e.g. in login
+        scripts):
+
+<a name="AEN7133"></a>```
+export TCLLIBPATH="$TCLLIBPATH $DAQROOT/TclLibs"
+            
+```
+
+
+        or by adding it to the `auto_path` Tcl variable in your
+        script:
+        <a name="AEN7136"></a>```
+lappend auto_path [file join $::env(DAQROOT) TclLibs]
+            
+```
+
+
+Once the package auto-load path has been extended e.g.:
+
+<a name="AEN7139"></a>```
+package require iSegVhs       
+            
+```
+
+
+        loads the base module support package.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| N568B CAENnet shaping amplifier | Up | cratelocator |

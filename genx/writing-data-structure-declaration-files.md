@@ -1,0 +1,186 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN43"></a>Chapter 2. Writing data structure declaration files.
+
+**genx** requires that you describe your data structures.
+				This chapter describes the elements of these files.
+				The main value added by **genx** is to translate your
+				data structure files into C++ headers and executable code that supports
+				creating the structure you describe in your unpacker.
+
+Maybe the simplest way to introduce the data structure language is to  look
+				at a simple, toy example.
+
+<a name="AEN49"></a>**Example 2-1. Data structure description file**
+
+```
+// Structure definitions                  
+struct Ta  {                              
+    value a                               
+    value b low=-1.5 high=1.5 units=cm    
+}
+struct Tb {
+    array a[10]                           
+    array b[20]
+}
+
+struct Tc {
+    struct Tb a                         
+    structarray Tb b[10]                
+    value c units=megawidgets
+    array d[100]                        
+        low = 0 high = 4095 bins=4096.65 units=channels
+}
+
+// instances start here                
+
+value b low=-100.5 high=100 bins=200 units=cm 
+value a
+
+array c[20]
+array d[5] units=furlongs             (11)
+
+structinstance Ta stuff               (12)
+structinstance Tc mystuff
+structarrayinstance Tb morestuff[20]  (13)
+
+				
+```
+
+In the discussion that follows, match the numbers below with corresponsding
+				numbers in the example.
+
+[[c43#decl.comment]]									Data definition files support comments.  Comments begin with a double
+									slash (//) and end at the end of the line.  If you
+									want to have a multi-line comment just put a // before
+									each line like this:
+								<a name="AEN71"></a>```
+// This is line one of a comment.
+// This is line 2.
+									
+```
+
+Just like you would with C++'s //.  Comments can
+									be anywhere you want.
+
+[[c43#decl.struct]]									Data description files consist of structure definitions and instance
+									declarations.  Structure definitions define *shapes*
+									of data while instances define containers that take a specific
+									shape. 
+								All structure definitions must first.  You also cannot reference
+									structure definitions that have not yet been defined.
+
+Structure definitions begin with the keyword struct
+									followed by the name of the structure (in this case Ta).
+									The stuff inside the matched { and }
+									define the members of the structure.
+
+[[c43#decl.simplemember1]][[c43#decl.simplemember2]]									The simplest kind of members are
+									*values*.  These represent individual
+									parameters.  What they wind up looking like in real life depends
+									on the target **genx** is asked to generate code for.
+									For example, in SpecTcl a value generates a `CTreeParameter`
+									element of a struct.   
+								Value members are declared using the keyword value
+										followed by the structure member name to use followed by optional
+										value meta-data.  The optional metadata is given as keyword=value
+									 and is, currently, used only by the SpecTcl target to specify
+										the suggested axis range, binning and units for the parameter. See
+										the value reference page for a complete description
+										of all the metadata items allowed.  Note that, unlike C/C++, no
+										semicolons are needed at the end of statements.  If you put one it
+										it's not an error.  It will just be ignored.
+
+Ta is therefore a struct that contains two members
+									named `a`, which is a value that has no
+									metadata and `b`, which has a range from
+									0-4095 with a suggested binning of 4096 and units of channels.
+
+Member names must begin with an alphabetical character followed by
+									as many alphabetical, numerical  or _
+									characters as you want.  This makes names compliant with C/C++
+									structure members and variables.  There is no limit to the length of
+									a name, however compilers may limit the number of characters that are
+									significant.  Choose concise and meaningful names.  Names are
+									case sensitive, as with C/C++.
+
+[[c43#decl.arraymember1]][[c43#decl.arraymember2]]									Structure members can also be arrays of simple values
+									(in SpecTcl these are generated as `CTreeParamterArray`
+									members).  An array member is declared with the reserved word
+									array followed by the name of the member which must
+									then be followed by the size of the array in [].
+								Note that array's can also have metadata associated with them.
+									The purpose of the metadata is the same as for
+									value members.
+
+[[c43#dec.structmember]]									As with C/C++ structs, a member of a struct can be another struct.
+									This is done by using the keyword struct followed by
+									the name of a structure type followed by the member name you want to use.
+									In this case, Tc contains a member named
+									`a` that is itself a structure of type
+									Tb.
+								[[c43#decl.structarraymember]]									Finally the structarray keyword can be used
+									to declare that a member consists of an array of structures.
+									The syntax for this is a bit like a cross between the
+									struct and array declarations.
+									structarray is followed by the name of a struct
+									you've already declared, that's followed by the name of the member
+									and the number of elements between [].
+								This line says that Tc contains an element
+									named `b` that is a 10 element array of
+									Tb structs.
+
+[[c43#decl.instances]]									Everything below this line is an instance.  You can think of instances
+									as variables (that's normally what they generate), of specific types.
+									Your unpacker's job will be to fill in these instances with data from
+									the raw event.
+								As with elements of a struct, instances can be simple values, arrays,
+									structures or arrays of structures.  Let's look at how each of these
+									types of instances is declared.
+
+[[c43#decl.simpleinstance]]									As with structure members, simple value instances are defined using the
+									value keyword followed by the name of the instance
+									followed by optional metadata for that instance.  This line and the
+									next in the code declare two simple instance named
+									`b` and `a`.
+									`b` defines metadata.
+								[[c43#decl.arrayinstance]]									Similarly, the arrayt keywords is used to declare
+									an array. As with members, arrays can have metadata associated with them.
+									These two lines declare a 20 element array named
+									`c` and a 5 element array named
+									`d` with some metadata (the units of these array
+									elements are furlongs).
+								[[c43#decl.structinstance]] structinstance is used to declare instances of structs.
+									This and the next line declare `stuff` as a struct
+									of type Ta and `mystuff` as a struct
+									of type Tc.
+								In your unpacker code, as we will see, you can treat struct instances
+									as variables that are C/C++ structs (well in fact that's what will be
+									generated, only the member types differ from generator to generator).
+									Thus your unpacker code can reference the `b`
+									member of `stuff` as
+									stuff.b
+
+Similarly, mystuff.a.b[10] references
+									element 10 of the b member of the struct a (a Tb) of
+									the instance named `mystuff`.
+
+[[c43#decl.structarrayinstance]] structarrayinstance declares an instance that
+									is an array of structs.  In this case, `morestuff`
+									is an array of 20 elements, each of which is
+									a Tb.  So morestuff[2].a[5] is
+									the sort of thing you might see to reference bits of
+									morestuff in unpacking code.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| User manual | Up | Translating structure declaration files into code for a target |

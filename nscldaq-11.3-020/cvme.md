@@ -1,0 +1,189 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="CVME"></a>CVME
+
+<a name="AEN33133"></a>## Name
+
+CVME -- Pointer like object for accessing the VME
+
+<a name="AEN33136"></a>## Synopsis
+
+```
+#include <CVME.h>
+            
+```
+
+```
+  CVME<T>(CVME::VmeSpace space, UInt_t base, UInt_t length, UInt_t crate = );
+```
+
+<a name="AEN33235"></a>## Description
+
+This class provides a pointer like object that can construct and manipulate
+                mappings to chunks of VME address space.  It represents a reference counted pointer.
+                A reference counted pointer uses a double indirection to accomplish destructor safe
+                copy, assign and destroy semantics.  The object itself contains a reference to an
+                actual shared, object that points to the underlying memory map.  Reference counts in
+                that object are maintained as the the `CVME` object is
+                copied and assigned.  While copies of the original `CVME`
+                object can be freely created and assigned, the underlying memory map does not get
+                destroyed until there are no more references left to it.
+
+The class is a 'type pure' pointer.  This means that it is a templated class and only
+                dereferences of the pointer to that type are allowed.  For example, a
+                `CVME<long>` will only allow dereferences to
+                long targets both on  the left and right side of assignments.
+
+<a name="AEN33243"></a>## Public member functions
+
+
+
+<a name="AEN33248"></a>`CVME<T>(VmeSpace space, UInt_t base, UInt_t length, UInt_t crate);`
+
+Constructs a new address space pointer.  The object produced can
+                            be used to affect the actual underlying address space defined by the
+                            `space, base, length` ande `crate`
+                            parameters.
+
+For more information about the VmeSpace type and its legal
+                            values, see "Types and public data" below.  Note that if not supplied, the
+                            `crate` parameter defaults to 0 which is correct for
+                            a system that only has a single VME crate.
+
+<a name="AEN33273"></a>` CVME<T>(void);`
+
+Constructs a pointer like object to a VME space that points to nothing.
+                            One use of this is to create an object that will later be assigned to
+                            e.g.:
+
+```
+                                CVME<long>  a;    // points to nothing.
+                                a = b;                  // b is an initiazlied CVME<long>.
+                            
+```
+
+
+Dereferencing a `CVME` pointer that has been
+                            created with this constructor prior to assigning it a value from an
+                            initialized `CVME` pointer will result in
+                            bus errors or segmentation faults.
+
+<a name="AEN33286"></a>`CVME<T>(CVMEptr<T>* aCVMEptr);`
+
+Given a pointer to a `CVMEptr` object constructs
+                            a new `CVME` object that points to the address space
+                            described by the `aCVMEpt`.  Note that
+                            `CVMEptr` is the underlying object that is reference
+                            count protected by this class.
+
+<a name="AEN33301"></a>`CVME<T>(const CVME& aCVME);`
+
+Constructs a new `CVME` that is a functional
+                            duplicate of `aCVME`.  Functional duplicate means
+                            that it points to the same offset of the same underlying address space.
+
+<a name="AEN33314"></a>`CVME<T>& operator=(const CVME<T>& aCVME);`
+
+Assigns to the object from another object of type `CVME`
+                            The pointer becomes a functional duplicate of the right hand side of the
+                            assignment.  If left hand side object had been pointing to an object,
+                            the reference count is decremented, and that object is destroyed if the
+                            left hand side object was the last to refer to it.  The reference count
+                            of the underlying object of the right hand side of the assignment is incremented
+                            to indicate that the left hand side object now points through it too.
+
+<a name="AEN33327"></a>`int  operator==(const CVME<T>& aCVME);`
+
+Tests two pointer like objects for equality.  Two pointer like objects
+                            are equal if they point to the same underlying pointer object.
+
+<a name="AEN33339"></a>`UInt_t  getOffset(void);`
+
+Returns the pointer offset relative to the base of the underlying
+                            address space.
+
+<a name="AEN33349"></a>`UInt_t   getLength(void);`
+
+Returns the length of the underlying address space the pointer points into.
+
+<a name="AEN33359"></a>` T&  operator*(void);`
+
+Dereferences the pointer by returning a reference to the thing that is
+                            pointed to.  That allows the *pointee* to be used
+                            either as an *lvalue* or as an *rvalue*.
+
+<a name="AEN33372"></a>`T*  T* operator-> (void);`
+
+If T is a structured data type, this operator allows dereferencing the pointer
+                            to get access to an element of that data type.
+
+<a name="AEN33382"></a>`T&  operator[](UInt_t nOffset);`
+
+Indexes into an array of object of type T  and returns a reference
+                            to the `nOffset`'th item.  Returning a reference allows
+                            the item to be used in expressions either as an lvalue or an rvalue.
+                            There is also an overloaded version of this function which we won't bother
+                            to document that is const, that allows indexing in situations
+                            where the item returned must be immutable.
+
+<a name="AEN33397"></a>`CVME<T>& operator+(UInt_t nOffset);`
+
+Adds the specified offset to the pointer and returns a reference to the
+                            modified pointer.
+
+<a name="AEN33409"></a>`CVME<T>&  operator-(UInt_t nOffset);`
+
+Subtracts the offset from the pointer and returns a reference to the
+                            resulting pointer.
+
+<a name="AEN33421"></a>`CVME<T>&  operator+=(UInt_t nOffset);`
+
+Adds the specified offset to the pointer and returns a reference to the
+                            modified pointer.
+
+<a name="AEN33433"></a>`CVME<T>&  operator-=(UInt_t nOffset);`
+
+Subtracts the offset from the pointer and returns a reference to the
+                            resulting pointer.
+
+<a name="AEN33443"></a>## Types and public data
+
+The VME bus actually implements several distinct memory spaces.  The
+                VmeSpace data type is used in the constructor to select which
+                of the address spaces to create.  Note that many of the values are
+                misnomers. Legitimate values are:
+
+
+
+a16d16Selects an address space where only the low 16 bits are significant.
+                                the d16 is because many peripherals that live in this space only support
+                                a 16 bit data path.
+
+a24d16Selects an address space where only the low 24 bits are significant.
+                                The d16 is because some devices that live in this space only support
+                                a 16 bit data path.  This is really synonymous with
+                                a24d32 however.
+
+a24d32Selects an address space where the low 24 bits are significant.
+                                The d32 is because most devices that live in this address space
+                                have 32 bit data paths.
+
+a32d32Selects an address space where all 32 bits are significant.
+
+<a name="AEN33469"></a>## Exceptions
+
+`CRangeError` is thrown if the pointer is positioned out of the
+                address range.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTrigger | Up | CVMEScalerLRS1151 |

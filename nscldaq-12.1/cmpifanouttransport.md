@@ -1,0 +1,117 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN69785"></a>CMPIFanoutTransport
+
+<a name="AEN69789"></a>## Name
+
+CMPIFanoutTransport -- Fanout data over MPI to multiple workers.
+
+<a name="AEN69792"></a>## Synopsis
+
+```
+#include <CMPIFanoutTransport_mpi.h>
+
+class CMPIFanoutTransport : public CMPITransport, public CFanoutTransport
+{
+
+public:
+    CMPIFanoutTransport();
+    CMPIFanoutTransport(MPI_Comm communicator);
+
+    virtual void recv(void** ppData, size_t& size);
+    virtual void send(iovec* parts,  size_t numParts);
+    virtual void end();
+
+    static const int dataRequestTag  = 2; 
+};
+        
+```
+
+<a name="AEN69794"></a>## DESCRIPTION
+
+This transport provides the supplier side of mechanism to fanout
+            data chunks to multiple workers.  Fanouts allow for worker
+            processes to operate in parallel on distinct chunks of data.
+            Clients of this data accept it using a
+            `CMPIFanoutClientTransport` class.
+
+At a low level, the protocol used is a pull protocol. When a worker
+            is ready for data, it requests it by sending this rank an empty
+            message with a dataRequestTag (value is
+            2).  `send` operations
+            read the next data request message and respond by sending the
+            requested data to the rank that sent the data request.
+
+As each process sends a data request, it is rememebered and end
+            of data is handled by sending end of datas as requested until all
+            registered requestors have received the end..
+
+<a name="AEN69803"></a>## METHOD
+
+
+
+`  CMPIFanoutTransport();`Constructs a new fanout transport using the
+                        default communicator
+                        (MPI_COMM_WORLD).
+
+`  CMPIFanoutTransport(MPI_Comm  communicator);`Constructs the transport using an alternate
+                        `communicator`.  Note that
+                        since the transport is not point to point, there's not
+                        a concept of the receiver rank.
+
+` virtual   void  recv(void**  ppData, size_t& numParts);`Throws an `std::logic_error`
+                        as this transport is uni-dicectional.
+
+` virtual   void  send(iovec*  parts, size_t  numParts);`Sends the message to the next requestor using the underlying
+                        transport. You can think of this as having the
+                        following pseudocode implementation:
+
+<a name="AEN69855"></a>```
+
+get request message using base class recv.
+get rank of request message sender after ensuring the tag is a data request tag.
+set receive rank of base class.
+send message using base class send.
+
+                        
+```
+
+Note that in the above pseudo code, if the
+                        message received when getting the data request is non-empty,
+                        or is not tagged by a dataRequestTag,
+                        the method throws a `std::logic_error`
+                        exception
+
+Note as well that request messages from first time requestors
+                        result in the rank of the requestor being entered in
+                        a registry of clients.
+
+` virtual   void  end();`Sends an end to all clients.  The pseudo code for this
+                        is essentially:
+
+<a name="AEN69871"></a>```
+send
+```
+
+Note that it's therefore important for there not to
+                        be so many workers
+                        for a small data set that some of them never get any data.
+                        If that happens, it's possible the client registry can be
+                        empty before some of those workers requested data and
+                        received end messages.
+
+For very small data sets, it might be wise to only
+                        constitute a single worker.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CMPITransport | Up | CMPIFanoutClientTransport |

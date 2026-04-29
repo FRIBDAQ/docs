@@ -1,0 +1,1200 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="dataformat3-formatfunctions"></a>format  Functions
+
+<a name="AEN33431"></a>## Name
+
+format Functions -- Functions to create ring items.
+
+<a name="AEN33434"></a>## Synopsis
+
+```
+#include <DataFormat.h>
+            
+```
+
+<a name="AEN33436"></a>`pPhysicsEventItem formatEventitem(
+              size_t nWords, 
+                void* pPayload
+            );`
+
+<a name="AEN33447"></a>`pPhysicsEventCountItem formatTriggerCountItem (
+                  uint32_t runTime
+               , 
+                time_ttimeStamp
+               , 
+                uint64_ttriggerCount
+               );`
+
+<a name="AEN33461"></a>`pScalerItem 
+                    formatScalerItem
+                (
+                   unsigned  scalerCount 
+                , 
+                    time_ttimestamp
+                , 
+                    uint32_t btime
+                , 
+                    uint32etime
+                , 
+                    void* pCounters
+                );`
+
+<a name="AEN33481"></a>`pTextItem formatTextItem (
+                   unsigned  nStrings 
+                , 
+                    time_t stamp
+                , 
+                    uint32_t runTime
+                , 
+                    const char** pStrings
+                , 
+                    int type
+                );`
+
+<a name="AEN33501"></a>`pStateChangeItem
+                formatStateChange (
+                   time_t  stamp 
+                , 
+                    uint32_t offset
+                , 
+                    uint32_t  runNumber
+                , 
+                    const char* pTitle
+                , 
+                    uin32_t type
+                );`
+
+<a name="AEN33521"></a>`pScalerItem
+                formatNonIncrTSScalerItem(
+                    unsigned scalerCount
+                , 
+                    time_t timestamp
+                , 
+                    uint32_t btime
+                , 
+                    uint32_t  etime
+                , 
+                    uint64_t eventTimestamp
+                , 
+                    void* pCounters
+                , 
+                    uint32_t timebaseDivisor
+                );`
+
+<a name="AEN33547"></a>`pDataFormatformatDataFormat
+                (void);`
+
+<a name="AEN33553"></a>`pGlomParameters
+                        formatGlomParameters
+                    (
+                        uint64_t coincidenceWindow
+                    , 
+                        intisBuilding
+                    , 
+                        inttimestampPolicy
+                    );`
+
+<a name="AEN33567"></a>`pEventBuilderFragment
+                        formatEVBFragment
+                    (
+                        uint64_t timestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        uint32_t payloadSize
+                    , 
+                        const void*
+                        pPayload
+                    );`
+
+<a name="AEN33587"></a>`pEventBuilderFragment
+                        formatEVBFragmentUnknown
+                    (
+                        uint64_t timestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        uint32_t payloadSize
+                    , 
+                        const void* pPayload
+                    );`
+
+<a name="AEN33607"></a>` pPhysicsEventItem
+                        formatTimestampedEventItem
+                    (
+                        uint64_t timestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        uint32_t payloadSize
+                    , 
+                        const void* pPayload
+                    );`
+
+<a name="AEN33627"></a>` pPhysicsEventCountItem
+                        formatTimestampedTriggerCountItem
+                    (
+                        uint64_t timestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        uint32_t runTime
+                    , 
+                        uint32_t offsetDivisor
+                    , 
+                        time_t stamp
+                    , 
+                        uint64_t triggerCount
+                    );`
+
+<a name="AEN33653"></a>` pScalerItem
+                        formatTimestampedScalerItem
+                    (
+                        uint64_ttimestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        int isIncremental
+                    , 
+                        uint32_t timeIntervalDivisor
+                    , 
+                        uint32_t timeofday
+                    , 
+                        uint32_t btime
+                    , 
+                        uint32_t etime
+                    , 
+                        uint32_t nScalers
+                    , 
+                        void* pCounters
+                    );`
+
+<a name="AEN33688"></a>` pTextItem
+                        formatTimestampedTextItem
+                    (
+                        uint64_t timestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        unsigned nStrings
+                    , 
+                        time_t stamp
+                    , 
+                        uint32_t runTime
+                    , 
+                        const char**pStrings
+                    , 
+                        int type
+                    , 
+                        uint32_t timeIntervalDivisor
+                    );`
+
+<a name="AEN33720"></a>` pStateChangeItem
+                        formatTimestampedStateChange
+                    (
+                        uint64_t timestamp
+                    , 
+                        uint32_t sourceId
+                    , 
+                        uint32_t barrier
+                    , 
+                        time_t stamp
+                    , 
+                        uint32_t offset
+                    , 
+                        uint32_t runNumber
+                    , 
+                        uint32_t offsetDivisor
+                    , 
+                        const char* pTitle
+                    , 
+                        int type
+                    );`
+
+<a name="AEN33752"></a>` void* bodyPointer
+                    (
+                        pRingItem pItem
+                    );`
+
+<a name="AEN33760"></a>` pAbnormalEndItem formatAbnormalEndItem
+                    (void);`
+
+<a name="AEN33766"></a>` int  
+              hasBodyHeader
+
+          (
+              const RingItem*  pItem
+          );`
+
+<a name="AEN33774"></a>` int  
+              hasBodyHeader
+
+          (
+              const RingItem*  pItem
+          );`
+
+<a name="AEN33782"></a>` void* 
+              bodyHeader
+              
+          (
+                  RingItem*  pItem
+          );`
+
+<a name="AEN33790"></a>` uint32_t 
+              itemSize
+          (
+              const RingItem*  pItem
+          );`
+
+<a name="AEN33798"></a>` uint16_t 
+              itemType
+          (
+              const RingItem*  pItem
+          );`
+
+<a name="AEN33806"></a>` int
+              mustSwap
+          (
+              const RingItem*  pItem
+          );`
+
+<a name="AEN33814"></a>` void* 
+              fillRingHeader
+          (
+              pRingItem  pItem
+          , 
+              uint32_t  size
+          , 
+              uint32_t  type
+          );`
+
+<a name="AEN33828"></a>` void* 
+              fillBodyHeader
+          (
+              pRingItem pItem 
+          , 
+              uint64_t  timestamp
+          , 
+              uint32_t  sourceId
+          , 
+              uint32_t  barrier
+          );`
+
+<a name="AEN33845"></a>` void* 
+              fillEventCountBody
+          (
+              pRingItem  pItem
+          , 
+              uint32_t  offse
+          , 
+              uint32_t  divisor
+          , 
+              uint32_t  unixTime
+          , 
+              uint64_t  count
+          , 
+              uint32_t  sid
+          );`
+
+<a name="AEN33868"></a>` void* 
+              fillScalerBody
+          (
+              pRingItem  pItem
+          , 
+              uint32_t  start
+          , 
+              uint32_t  end
+          , 
+              uint32_t  divisor
+          , 
+              uint32_t  unixTime
+          , 
+              uint32_t  count
+          , 
+              int  incremental
+          , 
+              uint32_t*  pScalers
+          , 
+              uint32_t  sid
+          );`
+
+<a name="AEN33900"></a>` void* 
+                  fillTextItemBody
+              (
+                  pRingItem  pItem
+              , 
+                  uint32_t  offset
+              , 
+                  uint32_t  divisor
+              , 
+                  uint32_t  unixTime
+              , 
+                  uint32_t  nStrings
+              , 
+                  const char**  ppStrings
+              , 
+                  int  sid
+              );`
+
+<a name="AEN33926"></a>` void* 
+                  fillStateChangeBody
+              (
+                  pRingItem  pItem
+              , 
+                  uint32_t  run
+              , 
+                  uint32_t  offset
+              , 
+                  uint32_t  divisor
+              , 
+                  uint32_t  unixTime
+              , 
+                  const char*  pTitle
+              , 
+                  int  sid
+              );`
+
+<a name="AEN33952"></a>## DESCRIPTION
+
+These functions produce dynamically allocated ring items
+                that reflect the parameters that have been passed to them.
+                All functions that create ring items use
+                malloc(3) to allocate storage.  When you
+                no longer need an item you must free(3)
+                the item to prevent memory leaks.
+
+
+
+<a name="AEN33960"></a>`pPhysicsEventItem formatEventitem(
+                          size_t nWords
+                        , 
+                            void* pPayload
+                        );`
+
+Creates a PHYSICS_EVENT ring item.
+                            `nWords` is the number of
+                            uint16_t objects that are in the event
+                            data pointed to by `pPayload`.
+                            When the ring item is created, a uint32_t
+                            containing nWords + 2 is inserted
+                            prior to the payload to conform to NSCL standards
+                            for the payload contents.
+
+<a name="AEN33981"></a>`pPhysicsEventCountItem formatTriggerCountItem (
+                              uint32_t runTime
+                           , 
+                            time_ttimeStamp
+                           , 
+                            uint64_ttriggerCount
+                           );`
+
+Creates a PHYSICS_EVENT_COUNT ring
+                            item.  `runTime` should be the
+                            number of seconds into the run the items is emitted.
+                            `timeStamp` should be the unix
+                            `time(2)` at which the event
+                            count is being submittted and `triggerCount`
+                            is the total number of event triggers that have been
+                            created by this point in the run.
+
+<a name="AEN34004"></a>`pScalerItem 
+                                formatScalerItem
+                            (
+                               unsigned  scalerCount 
+                            , 
+                                time_ttimestamp
+                            , 
+                                uint32_t btime
+                            , 
+                                uint32etime
+                            , 
+                                void* pCounters
+                            );`
+
+Creates a scaler ring item (INCREMENTAL_SCALERS).
+                            `scalerCount` is the number of
+                            scalers read out and `pCounters`
+                            points to an array of uint32_t scalers.
+                            `btime` and `etime`
+                            are respectively the beginning and end run offsets
+                            over which the scalers counted.
+
+`timestamp` is the time at which the
+                            scaler data was read.
+
+<a name="AEN34036"></a>`pTextItem formatTextItem (
+                           unsigned  nStrings 
+                        , 
+                            time_t stamp
+                        , 
+                            uint32_t runTime
+                        , 
+                            const char** pStrings
+                        , 
+                            int type
+                        );`
+
+Creates a text ring item.  The type of the
+                            ring items is provided by the `type`
+                            argument however this should be one of
+                            PACKET_TYPES or
+                            MONITORED_VARIABLES
+                            or a user type that is larger than
+                            FIRST_USER_ITEM_CODE.
+
+The number of strings put in the item are
+                            `nStrings` and
+                            `pStrings` is a pointer to an
+                            array of pointers to the null terminated strings that
+                            are put in the `s_strings` storage
+                            of the ring item.
+
+`stamp` is the unix
+                            `time(2)` at which the
+                            item was created and `runTime`
+                            the number of seconds into the run at which this time
+                            was created.
+
+<a name="AEN34072"></a>`pStateChangeItem
+                        formatStateChange (
+                           time_t  stamp 
+                        , 
+                            uint32_t offset
+                        , 
+                            uint32_t  runNumber
+                        , 
+                            const char* pTitle
+                        , 
+                            uin32_t type
+                        );`
+
+Formats and returns a state change item.
+                            State change items reflect a change in the run state.
+                            While the `type` parameter
+                            provides the item type, this should normally be one of
+                            BEGIN_RUN,
+                            END_RUN,
+                            PAUSE_RUN or
+                            RESUME_RUN.
+
+`runNumber` should be a
+                            unique run number for the run and
+                            `pTitle` should point to a
+                            null terminated title string.
+
+`offset` is the time into the
+                            run at which the state change took place in seconds.
+                            This will be 0 for
+                            BEGIN_RUN and the number of
+                            seconds the run was active for
+                            END_RUN
+
+Finally `stamp` is the unix
+                            absolute timestamp from `time(2)`
+                            at which the state change occured.
+
+<a name="AEN34112"></a>`pScalerItem
+                            formatNonIncrTSScalerItem(
+                                unsigned scalerCount
+                            , 
+                                time_t timestamp
+                            , 
+                                uint32_t btime
+                            , 
+                                uint32_t  etime
+                            , 
+                                uint64_t eventTimestamp
+                            , 
+                                void* pCounters
+                            , 
+                                uint32_t timebaseDivisor
+                            );`
+
+Formats a scaler ring item
+                                (ScalerItem) into dynamically
+                                allocated data and returns a pointer to the
+                                formatted item.  The item will be created with
+                                the `s_incremental` flag of
+                                the body turned off.  This is intended for
+                                compatibility with code written for NSCLDAQ
+                                11.1-100.
+                                New code should just use
+                                `formatTimestampedScalerItem`
+
+The scalers are defined by
+                                `scalerCount` which
+                                provides the number of scalers and
+                                `pCounters` which is
+                                a pointer to an array of scaler values.
+                                The `timestamp`,
+                                `btime` and
+                                `etime` values have
+                                the same meaning as for
+                                `formatScalerItem`
+
+`eventTimestamp`
+                                associates an event timestamp value with the
+                                scaler item, forcing the creation of a
+                                body header.  The source id and barrier type
+                                of that header are both set to zero.
+
+`timebaseDivisor` supports
+                                `btime` and
+                                `etime` parameters that have
+                                resolutions less than one second.
+                                The run time in seconds is gotten by
+                                doing a floating point division of either of the
+                                time parameters by `timebaseDivisor`
+                                For example, if `btime` is
+                                10 and
+                                `timebaseDivisor` is 4,
+                                the run time is 2.5 seconds>
+
+Note that as with all of these functions,
+                                the resulting pointer is to dynamically allocated
+                                memor that must be released via a call to
+                                free(3),
+
+<a name="AEN34165"></a>`pDataFormatformatDataFormat
+                            (void);`
+
+Formats a DataFormat ring item
+                                into dynamically allocated memory. A pointer
+                                to the resulting ring item is returned as the
+                                function value.  The caller must
+                                free(3)
+
+The function takes the values to put in this
+                                data item from the `FORMAT_MAJOR`
+                                and `FORMAT_MINOR` constant
+                                values defined in DataFormat.h
+                                at the time it was compiled.
+
+<a name="AEN34181"></a>`pGlomParameters
+                                    formatGlomParameters
+                                (
+                                    uint64_t coincidenceWindow
+                                , 
+                                    intisBuilding
+                                , 
+                                    int timestampPolicy
+                                );`
+
+Dynamically creates a GlomParameters
+                                ring item and returns a pointer to it.
+                                The `coincidenceWindow`
+                                parameter determines the value of the
+                                `s_coincidenceTicks` field
+                                and the `isBuilding`
+                                parameter determiens the value
+                                of the `s_isBuilding` field.
+                                `timestampPolicy` is used to
+                                fill in the `s_timestampPolicy` field.
+
+The item must be released by the caller
+                                via a call to free(3).
+
+<a name="AEN34208"></a>`pEventBuilderFragment
+                                    formatEVBFragment
+                                (
+                                    uint64_t timestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    uint32_t payloadSize
+                                , 
+                                    const void*
+                                    pPayload
+                                );`
+
+Formats an event builder frragment item with
+                                type `EVB_FRAGMENT`.
+                                The item is dynamically allocated and must be
+                                passed to free(3) to be
+                                released.
+
+The contents of the ring item are as follows:
+                                The ring item body header is filled in from
+                                `timestamp`,
+                                `sourceId` and
+                                `barrier`.
+                                The event fragment payload size in bytes is
+                                `payloadSize` and the
+                                payload itself is copied in from
+                                `pPayload`.
+
+<a name="AEN34240"></a>`pEventBuilderFragment
+                                    formatEVBFragmentUnknown
+                                (
+                                    uint64_t timestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    uint32_t payloadSize
+                                , 
+                                    const void* pPayload
+                                );`
+
+This performs the same operation as
+                                `formatEVBFragment` however
+                                the ring item is given the type
+                                EVB_UNKNOWN_PAYLOAD
+
+<a name="AEN34266"></a>` pPhysicsEventItem
+                                    formatTimestampedEventItem
+                                (
+                                    uint64_t timestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    uint32_t payloadSize
+                                , 
+                                    const void* pPayload
+                                );`
+
+Creates an event ring item that has a full body
+                                header.  The body header contents are determined
+                                by the `timestamp`,
+                                `sourceId` and
+                                `barrier` parameters.
+                                The contents of the event are `payloadSize`
+                                words (16 bit words) long and are pointed to by
+                                `pPayload`
+
+<a name="AEN34295"></a>` pPhysicsEventCountItem
+                                    formatTimestampedTriggerCountItem
+                                (
+                                    uint64_t timestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    uint32_t runTime
+                                , 
+                                    uint32_t offsetDivisor
+                                , 
+                                    time_t stamp
+                                , 
+                                    uint64_t triggerCount
+                                );`
+
+Creates a trigger count ring item that has a full
+                                body header.  The body header allows trigger counts
+                                to be accumulated from several event sources.
+                                The body header is filled in from
+                                `timestamp`,
+                                `sourceId` and
+                                `barrier`
+
+The `runTime` and
+                                `offsetDivisor` provide
+                                for sub-second timing information. The
+                                offset into the run in floating point seconds
+                                is given by the expression
+                                runTime/offsetDivisor
+
+`stamp` is the unix
+                                time_t that describes the absolute
+                                time at which this item was created.  The
+                                `triggerCount` item is the
+                                total number of triggers the `sourceId`
+                                has responded to since the beginnin of the run
+
+<a name="AEN34337"></a>` pScalerItem
+                                    formatTimestampedScalerItem
+                                (
+                                    uint64_ttimestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    int isIncremental
+                                , 
+                                    uint32_t timeIntervalDivisor
+                                , 
+                                    uint32_t timeofday
+                                , 
+                                    uint32_t btime
+                                , 
+                                    uint32_t etime
+                                , 
+                                    uint32_t nScalers
+                                , 
+                                    void* pCounters
+                                );`
+
+Creates a scaler ring item with a full body header.
+                                Scaler readout can be incremental or not and
+                                the time offsets for the start and end times
+                                (`btime`> and `etime`)
+                                of the counting interval use
+                                `timeIntervalDivisor` to
+                                supply sub-second time resolution.
+
+The body header values are determined by
+                                `timestamp`,
+                                `sourceId` and
+                                `barrier`.
+
+If `isIncremental`
+                                is true (nonzero), the scaler values are incremental.
+                                Incremental scaler values represent the number
+                                of counts during the `btime`
+`etime` interval only.
+
+If `isIncremental`
+                                is false (zero), the scaler values are
+                                cumulative and represent the total number of
+                                counts since the start of the run.
+
+The scalers themselves are pointed to by
+                                `pCounters` and
+                                `nScalers` tells you how
+                                many there are.
+
+<a name="AEN34392"></a>` pTextItem
+                                    formatTimestampedTextItem
+                                (
+                                    uint64_t timestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    unsigned nStrings
+                                , 
+                                    time_t stamp
+                                , 
+                                    uint32_t runTime
+                                , 
+                                    const char**pStrings
+                                , 
+                                    int type
+                                , 
+                                    uint32_t timeIntervalDivisor
+                                );`
+
+Creates a text list item with a full body header.
+                                The type of the ring item is determined by
+                                `type`.  It should be one
+                                of PACKET_TYPES,
+                                MONITORED_VARIABLES or a
+                                user defined type.
+
+The body header contents are determined
+                                by
+                                `timestamp`,
+                                `sourceId` and
+                                `barrier`
+
+The time into the run at which this item
+                                was emitted in in floating point seconds is
+                                `runTime`/`timeIntervalDivisor`.
+                                The absolute time at which the item was created
+                                is `stamp` which is a
+                                Unix time_t value.
+
+The number of strings is `nStrings`.
+                                `pStrings` is an array
+                                of pointers to each string, which must be
+                                null terminated like all Unix strings.
+
+<a name="AEN34443"></a>` pStateChangeItem
+                                    formatTimestampedStateChange
+                                (
+                                    uint64_t timestamp
+                                , 
+                                    uint32_t sourceId
+                                , 
+                                    uint32_t barrier
+                                , 
+                                    time_t stamp
+                                , 
+                                    uint32_t offset
+                                , 
+                                    uint32_t runNumber
+                                , 
+                                    uint32_t offsetDivisor
+                                , 
+                                    const char* pTitle
+                                , 
+                                    int type
+                                );`
+
+Creates a state change item that has a complete
+                                body header.  The `type`
+                                parameter is the ring item type and should be
+                                any of BEGIN_RUN,
+                                END_RUN,
+                                PAUSE_RUN or
+                                RESUME_RUN or a user
+                                defined ring item type if appropriate.
+
+The body header is determine by
+                                `timestamp`,
+                                `sourceId` and
+                                `barrier`
+
+The Offset into the run at which this item
+                                was emitted in seconds is:
+                                `offset/offsetDivisor`.
+                                The `stamp` parameter
+                                is the Unix time_t that specifies
+                                the absolute time at which the item was emitted.
+
+Information about the run is also provided.
+                                `runNumber` is the number
+                                of the run and `pTitle`
+                                points to the null terminated title string.
+
+<a name="AEN34495"></a>` pAbnormalEndItem formatAbnormalEndItem
+                                    (void);`
+
+Formats an abnormal end item and returns a pointer to the dynamically allocated
+                                item. You must at some point call
+                                `free(3)` to
+                                release the storage allocated to this ring item.
+
+<a name="AEN34506"></a>` void* bodyPointer
+                                (
+                                    pRingItem pItem
+                                );`
+
+The pointer to the actual body of an item
+                                depends on whether or not a body header is present
+                                in the item.  This function will return a pointer
+                                to the body of a ring item `pItem`
+                                taking this into account.
+
+<a name="AEN34519"></a>` int  
+                                    hasBodyHeader
+                      
+                                (
+                                    const RingItem*  pItem
+                                );`
+
+Returns non zero if the ring item pointed to by
+                            `pItem` contains a body header.
+                            Note that this works both with 11.x and 12.x data
+                            (e.g. it understands the body header size can be either
+                            0 as it is for 11.x and
+                            sizeof(uint32_t)) as it is for
+                            12.x
+
+If there is no body header, zero is returned.
+
+<a name="AEN34535"></a>` void* 
+                                    bodyHeader
+                                    
+                                (
+                                        RingItem*  pItem
+                                );`
+
+Returns a pointer to the body header of the
+                            ring item pointed at by `pItem`.
+                            If `pItem` has no body header
+                            a nullptr is returned.
+
+<a name="AEN34550"></a>` uint32_t 
+                                      itemSize
+                                  (
+                                      const RingItem*  pItem
+                                  );`
+
+Returns the number of bytes that make up the
+                            ring item pointed to by `pItem`.
+                            This is a short cut for returning
+                            pItem->s_header.s_size byte swapped
+                            if needed.
+
+<a name="AEN34564"></a>` uint16_t 
+                                    itemType
+                                (
+                                    const RingItem*  pItem
+                                );`
+
+Returns the item type of the ring item pointed to by
+                            `pItem`.  If necessary the
+                            contents of the 
+                            pItem->s_header.s_type field
+                            are byte swapped before being returned.
+
+<a name="AEN34578"></a>` int
+                                      mustSwap
+                                  (
+                                      const RingItem*  pItem
+                                  );`
+
+Returns non-zero if the ring item pointed to by
+                            `pItem` was generated on a system
+                            with a different byte ordering than the host.
+                            Note that the actual method of byte swapping required
+                            by the host to recover the original data strongly
+                            depends on the data itself.  Therefore, unless otherwise
+                            explicitly stated, the user of these methods is responsible
+                            for actually performing any byte reordering required
+                            to recover the original data in the hosts native
+                            byte ordering.
+
+<a name="AEN34591"></a>` void* 
+                                    fillRingHeader
+                                (
+                                    pRingItem  pItem
+                                , 
+                                    uint32_t  size
+                                , 
+                                    uint32_t  type
+                                );`
+
+Given a pointer to a ring item being formatted;
+                            `pItem`, fills in the ring item
+                            header with the specified `size`
+                            and `type` values.
+                            The return value of this function is a pointer to the
+                            first byte following the ring item header.
+
+<a name="AEN34612"></a>` void* 
+                                    fillBodyHeader
+                                (
+                                    pRingItem pItem 
+                                , 
+                                    uint64_t  timestamp
+                                , 
+                                    uint32_t  sourceId
+                                , 
+                                    uint32_t  barrier
+                                );`
+
+Fills in the body header of a ring item pointed to
+                            by `pItem` with
+                            `timestamp`, `sourceId`,
+                            and `barrier` (as the barrier Id).
+
+Naturally it is important that `pItem`
+                            point to sufficient storage to provide for at least
+                            a ring item header and a body header.
+
+<a name="AEN34639"></a>` void* 
+                                    fillEventCountBody
+                                (
+                                    pRingItem  pItem
+                                , 
+                                    uint32_t  offset
+                                , 
+                                    uint32_t  divisor
+                                , 
+                                    uint32_t  unixTime
+                                , 
+                                    uint64_t  count
+                                , 
+                                    uint32_t  sid
+                                );`
+
+Fills in the ring item body pointed to by
+                            `pRingItem` as an event count
+                            ring item body.  `offset` is the
+                            time offset into the run of at which this item was emittted,
+                            and `divisor` is the divisor needed
+                            to convert `offset` to seconds.
+                            `unixTime` is a time from e.g.
+                            `time`(2) that specifies the clock
+                            time at which the item is emitted.
+
+`sid` is the id of the data
+                            source that is generating this ring item and
+                            `count` is the number of event
+                            triggers that have been honored for the run at this
+                            point into the run.
+
+Naturally `pItem` must point to
+                            sufficient storage to hold an event count ring item body.
+                            The return value is a pointer to the first byte of
+                            storage following the body.
+
+<a name="AEN34677"></a>` void* 
+                                    fillScalerBody
+                                (
+                                    pRingItem  pItem
+                                , 
+                                    uint32_t  start
+                                , 
+                                    uint32_t  end
+                                , 
+                                    uint32_t  divisor
+                                , 
+                                    uint32_t  unixTime
+                                , 
+                                    uint32_t  count
+                                , 
+                                    int  incremental
+                                , 
+                                    uint32_t*  pScalers
+                                , 
+                                    uint32_t  sid
+                                );`
+
+Fills in the scaler item body pointed to by
+                            `pItem` with the data
+                            in its parameter list.   Naturally,
+                            `pItem` must point to sufficient
+                            storage to hold all of these data.  The return value
+                            points just past the scaler item body formatted.
+
+`start`, `end`
+                            and `divisor` provide the time
+                            offset from the beginning of the run over which the
+                            scaler items counted.  `start`
+                            and `end` are in arbitrary units
+                            that can be converted to seconds by performing a
+                            floating point division by `divisor`.
+                            This provides support for sub second resolution
+
+`unixTime` provides the clock time
+                            (value of `time`(2)) at which the
+                            scaler item was generated.
+
+`count` is the number of scalers
+                            to record and `pScalers` points to
+                            an array of `count` uint32_t
+                            values that are the scaler counts themselves.
+
+`sid` is the id of the data source
+                            producing this scaler item.  It is stored in a way
+                            that makes it immune to the maniuplations the event
+                            builder performs on the body header of the ring item.
+
+<a name="AEN34732"></a>` void* 
+                                    fillTextItemBody
+                                (
+                                    pRingItem  pItem
+                                , 
+                                    uint32_t  offset
+                                , 
+                                    uint32_t  divisor
+                                , 
+                                    uint32_t  unixTime
+                                , 
+                                    uint32_t  nStrings
+                                , 
+                                    const char**  ppStrings
+                                , 
+                                    int  sid
+                                );`
+
+Fills in the body of the text ring item where the
+                            body is pointed to by `pItem`.
+                            The storage pointed to by `pItem`
+                            must be large enough to contain the body, this includes
+                            the strings.  The return value of this function
+                            is a pointer to the next free byte of storage following
+                            the filled in body.
+
+`offset` and `divisor`
+                            provide the offset into the run at which the item was
+                            emitted and a conversion divisor to turn that
+                            value into seconds. `unixTime`
+                            is the clock time at which the item was created and is
+                            a value returned from `time`(2).
+
+The body will be filled in with `nStrings`
+                            strings and `ppStrings` is a pointer
+                            to an array of pointers to those strings.
+
+Finally `sid` is the source id to be
+                            saved in the body so that it is immune to manipulations
+                            performed by the event builder on the body header of
+                            the ring item.
+
+<a name="AEN34774"></a>` void* 
+                                      fillStateChangeBody
+                                  (
+                                      pRingItem  pItem
+                                  , 
+                                      uint32_t  run
+                                  , 
+                                      uint32_t  offset
+                                  , 
+                                      uint32_t  divisor
+                                  , 
+                                      uint32_t  unixTime
+                                  , 
+                                      const char*  pTitle
+                                  , 
+                                      int  sid
+                                  );`
+
+Fills the body of state change ring item.
+                            The body is pointed to by `pItem`
+                            which must point to sufficient storage to
+                            hold the data.  The return value of this function
+                            is a pointer to the first byte past the filled in
+                            body.
+
+The run is identified by the run number supplied
+                            by `run` and a run title
+                            string, `pTitle`.  The
+                            maximum number of characters allowed in a title
+                            string, exclusive of the null termination is
+                            TITLE_MAXSIZE.  If
+                            `pTitle` points to a string
+                            whose length is longer than that, the string will
+                            be silently truncated as it is copied into the item
+                            body.
+
+`offset` and `divisor`
+                            provide the offset time into the run at which this
+                            event was logged.  `offset`
+                            is in arbitrary units which when divided by
+                            `divisor` produce seconds.
+                            `unixTime` is the value of
+                            `time`(2), the clock time at which
+                            the item is being produced.
+
+Finally, `sid` is the source id
+                            of the data source generating this header.  It is immune
+                            from the modifications the event builder performs
+                            on body headers.
+
+<a name="AEN34817"></a>## RETURNS
+
+Pointers to dynamically allocated storage which has been
+                filled in with the requested ring item.
+                When the caller is done with the item it should pass it to 
+                `free(3)` to release the storage.
+
+If storage could not be allocated for the ring  item
+                NULL is returned instead.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DataFormat.h | Up | CDataSource |

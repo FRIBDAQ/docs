@@ -1,0 +1,49 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 8. Event Builder | Next |
+
+
+---
+
+# <a name="AEN5726"></a>8.5. Using the Event Builder With The Manager
+
+When the event builder is used with the DAQ Manager it must be
+      started differently.  The event builder must be started from within the
+      manager and should be run in persistent mode.  The event buider should
+      be started from the BOOT transition of the manager.
+      In general, since the event builder is a pipeline, you will need a script
+      to run the event bulder.  The form of this script should be:
+
+<a name="AEN5730"></a>**Example 8-1. Script To Start The EventBuilder in the Manager**
+
+```
+#!/bin/bash
+TCLLIBPATH=$DAQTCLLIBS $DAQBIN/EVBRest |             \
+                       $DAQBIN/glom [glom options] | \
+                       $DAQBIN/stdintoring [evb ring]
+      
+```
+
+There are a few items in this sample script you'll need to fill in depending
+      on the needs of your experiment.  For [glom options]
+      you must fill in at least a `--dt` value to set the coincidence
+      window in which events are built.  You may also wish to set the
+      `--sourceid` to define the output source id and
+      `--timestamp-policy` to determine how output event timestamps
+      are computed.
+
+For [evb ring] you will need to supply the name of a
+      ring buffer into which the data will be placed for distribution.
+
+When the Event Builder is used in this manner, there is no inherent user
+      interface. You can use the $DAQBIN/EVBMonitor program
+      to display the graphical statistics.  This program is descsribed in
+      [[r18522]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Fragments and Data Format | Up | EVBLite -  light event building |

@@ -1,0 +1,100 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN38"></a>Chapter 2. Creating a Readout program from scratch
+
+This section describes how to create a readout program for RingDaq
+            starting from scratch.  At present we will describe the process
+            only for the SBS Readout framework, as most people in the NSCL
+            will use this framework in the near future.
+            The SBS readout framework is quite simlar to the SDAQ Production
+            readout framework so you can use much of what you know
+            about that framework when building new software for
+            RingDaq's SBS Readout framework.
+
+In general you will need to follow these
+            steps:
+
+
+
+- Obtain the readout skeleton from your RingDaq installation
+                      directory tree.
+- Create event segments to manage the digitizers attached
+                      to your detectors.
+- Create scaler banks and scaler module code to read any
+                      scaler devices you might have.
+- Tie all of this together inthe framework skeleton;
+                      instantiating objects you will use and registering
+                      them with the framework.  At this stage you must also
+                      instantiate and register an appropriate trigger module
+                      so that the Readout will know when to process an event.
+- Modify, as necessary, the Makefile
+                      that was distributed with the skeleton code and usse it to
+                      build an executable.
+
+Throughout this discussion I'm going proceed as if DAQHOME
+            is an environment variable that points to
+            the top level directory of the ring buffer DAQ installation. At
+            the NSCL this is typically /usr/opt/daq/10.0.
+            If you are not at the institution or if this document is old,
+            the value for DAQHOME may differ.
+
+# <a name="AEN58"></a>2.1. Obtaining the readout skeleton
+
+The readout skeleton is a starting point for building a tailored
+                Readout program.  It is located in $DAQHOME/skeletons/sbs.
+                Normally you would start building a new readout program in an
+                empty directory as follows:
+
+<a name="AEN62"></a>**Example 2-1. Getting the skeleton**
+
+```
+mkdir myreadout
+cd    myreadout
+cp $DAQHOME/skeletons/sbs/* .
+                
+```
+
+This sequence of unix shell commands creates a new directory
+                named myreadout, makes that the current
+                default directory and copies the readout skeleton into that
+                directory.
+
+The readout skeleton constists of the following files:
+
+
+
+MakefileMakefile that builds the skeleton
+
+Seleton.cppSource code for the registration code for the
+                            readout framework.
+
+Skeleton.hHeader defining the class implemented by
+                        Skeleton.cpp
+
+If you examine Skeleton.cpp you wont' find
+                a main function.  This is because the readout
+                framework is an application framework.  Application frameworks
+                consist of a main program that is written for you and specific
+                ways to register the presence of application specific code that
+                needs to be called at well defined points in the program's
+                execution.
+
+Using an application framework frees you from having to worry about
+                how your code actually interfaces with the data acquisition system,
+                manager run-state transitions, trigger processing and so on.
+                In the next two chapters we will see how to create code that is
+                application specific and how to register it with the framework
+                so that it is called when we want it to be called.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | Creating an event segment |

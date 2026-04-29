@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This plugin provides a REST-like method to obtain information from
+            SpecTcl.  The plugin can be used to build remote control panels,
+            web browser based interfaces to SpecTcl and alternative spectrum
+            viewers.
+
+This document describes
+
+
+
+- How to incorporate the plugin into your SpecTcl at run time
+                  (in the SpecTclRC.tcl file).
+- How to make requests of the REST interface and what to
+                  expect in return.
+
+A few notes are important:
+
+
+
+- The REST plugin is stateless, that is it has no concept of a
+                  client session.
+- The REST plugin responses are returned in JavaScript Object Notation
+                  (JSON) format.  If you
+                  intend to write a client, this document assumes you are
+                  familiar with JSON.
+- The REST plugin is built on top of the tclhttpd pure Tcl web server.
+
+How you format, issue and obtaint the response to REST operations
+            depends on the language you program in.  For example in a shell
+            script you can use the curl command.
+            In Tcl, the rest package and so on.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl REST plugin |  | Incorporating the REST plugin |

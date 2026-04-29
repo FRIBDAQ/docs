@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1256"></a>CAbnormalEndItem (abstract)
+
+<a name="AEN1260"></a>## Name
+
+CAnbormaleEndItem (abstract) -- Support ring items that flag abnormally ended runs.
+
+<a name="AEN1263"></a>## Synopsis
+
+```
+#include <CAbnormalEndItem.h>
+
+class CAbnormalEndItem : public CRingItem
+{
+public:
+    CAbnormalEndItem();
+    virtual ~CAbnormalEndItem();
+
+    virtual void* getBodyHeader() const;
+    virtual void  setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+
+    virtual std::string typeName() const;
+    virtual std::string toString() const;
+};
+
+                
+```
+
+<a name="AEN1265"></a>## DESCRIPTION
+
+In the event a data taking run ends abnormally,
+                    Abnormal end run items can be emittted.  One purpose of
+                    these is to inform event loggers that the event file they have
+                    open can be closed.
+
+Normally an abnormal end run item is an indication of a
+                    DAQ state transition from active or paused to not ready.
+
+Abnormal end items were introduced into NSCLDAQ in version
+                    11.  In version 11 and 12, they are simply ring item headers
+                    with no body but the type ABNORMAL_ENDRUN.
+
+<a name="AEN1271"></a>## METHODS
+
+The methods below are normally implemented in version
+                    specific implementation of `CAbnormalEndRun`
+
+
+
+`  CAbnormalEndItem();`Constructs the item.
+
+` const virtual void*  getBodyHeader();`Normally returns nullptr
+                            since these items don't have body headers.
+
+` virtual void   setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType = 0);`Since the `CAbnormalEndItem`
+                            never has a body header, this is a no-op.
+
+` const virtual std::string  typeName();`Returns the string
+                            Abnormal End
+
+` const virtual std::string  toString();`Returns the string
+                            Abnormal End\n where the
+                            \n should be interpreted to mean
+                            a new line.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingItem (abstract) | Up | CDataFormatItem (abstract) |

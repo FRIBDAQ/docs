@@ -1,0 +1,261 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev | Chapter 2. Creating a Readout program from scratch | Next |
+
+
+---
+
+# <a name="AEN340"></a>2.3. Creating scaler banks and scaler modules
+
+The readout framework supports a hierachical organization of
+                scalers using two classes `CScaler` which
+                is intended to represent a single scaler module (but need not),
+                and `CScalerBank` a `CScaler`
+                into which `CScaler` objects including
+                `CScalerBank` objects can be put.
+
+Thus a `CScalerBank` is to `CScaler`
+                as a `CCompoundEventSegment` is to
+                `CEventSegment` objects.
+
+The interface of a `CScaler` is similar to that
+                of a `CScaler`:
+
+
+
+`read`All other methods are completely analagous
+                            to their counterparts in `CEventSegment`.
+                            `read` is as well, however
+                            it is supposed to return a vector of uint32_t
+                            values that are the scalers it reads.
+
+The framework will append this set of values to
+                            the final set of scalers it will report to the
+                            RingDaq.
+
+So lets look at a simple `CScaler`.  In
+                this case we will be building a `CScaler`
+                class that manages a single SIS 3820 scaler module.
+
+First the header for the class:
+
+<a name="AEN386"></a>**Example 2-10. `CScaler` header**
+
+```
+
+#include <CScaler.h>
+
+
+class CSIS3820;
+
+class CSIS3820Scaler : public CScaler   
+private:
+  CSIS3820*   m_pScaler;                
+
+public:
+  CSIS3820Scaler(unsigned long base, int crate = 0); 
+  ~CSIS3820Scaler();
+
+
+  // The interface required by the CScaler class:
+
+public:                          
+  virtual void initialize();
+  virtual void clear();
+  virtual std::vector<uint32_t> read();
+
+
+};
+
+                
+```
+
+[[x340#DerivedFromCScaler]]                        Much of this code should look familiar from the'
+                        `CEventSegment` discussion.
+                        The `CSIS3820Scaler` class must
+                        be derived from the `CScaler` class
+                        in order to be registered to read scalers with the
+                        readout framework.
+                    [[x340#CSIS3820-memberpointer]]                        This member will be a pointer to a
+                        `CSIS3820` object that will
+                        be used to talk to the scaler module we are reading.
+                    [[x340#CIS3820Scaler-ConstructorDecl]]                        The constructor declaration provides the ability for
+                        us to specify the base address an the VME crate in which
+                        the scaler is installed.  Note that as for the
+                        `CEventSegment` since we are going
+                        to dynamically create the scaler module class, we need
+                        to declare a destructor to allow us to destroy it when
+                        our object is destroyed.
+                    [[x340#CSIS3820Scaler-override-decls]]                        We must declare the functions from the
+                        `CScaler` base class that will
+                        be implemented by `CSIS3820Scaler`.
+                        This must be at least the `read`
+                        method as that is abstract in `CScaler`.
+
+As before, let's look at the implementation in logical pieces.
+                The front matterr is a few #include directives
+                to pull in the headers we need:
+
+<a name="AEN414"></a>**Example 2-11. `CSIS3820Scaler` implementation includes section**
+
+```
+#include <config.h>
+#include "CSIS3820Scaler.h"
+#include <CSIS3820.h>
+#include <iostream>
+#include <vector>
+                
+```
+
+The constructor and destructor are pretty simple as well:
+
+<a name="AEN419"></a>**Example 2-12. `CSIS3820Scaler` constructor/destructor**
+
+```
+CSIS3820Scaler::CSIS3820Scaler(unsigned long base, int crate) :
+     m_pScaler(new CSIS3820(base, crate))   
+{
+
+
+}
+
+
+CSIS3820Scaler::~CSIS3820Scaler()
+{
+  delete m_pScaler;     
+
+}
+                    
+                
+```
+
+[[x340#newCSIS3820]]                        Initializes the `m_pScaler`
+                        attribute with a pointer to a dynamically created
+                        `CSIS3820` object.
+                    [[x340#deleteCSIS3820]]                        Since the constructor created an object dynamically,
+                        the destructor is responsible for deleteing
+                        it.
+
+Next lets look at the `initialize` and
+                `clear` methods as they are relatively
+                short.
+
+<a name="AEN436"></a>**Example 2-13. `CSIS3820Scaler` initialize/clear methods**
+
+```
+void CSIS3820Scaler::initialize()
+{
+  m_pScaler->setOperatingMode(CSIS3820::LatchingScaler);  
+  m_pScaler->setLatchSource(CSIS3820::LatchVMEOnly);
+  m_pScaler->EnableClearOnLatch();                        
+  m_pScaler->Enable();                                    
+  m_pScaler->Arm();
+
+}
+
+void CSIS3820Scaler::clear()
+{
+  m_pScaler->ClearChannels();                           
+}
+
+                
+```
+
+[[x340#CSIS3820Scaler-latchmode]]                        Sets the scaler to latch mode with the
+                        VME being the only source of the latch signal.  For latching
+                        scalers this is normally the appropriate way to read them.
+                        Latch mode allows all scaler values to be "simultaneously"
+                        recorded for readout at a single snapshot in time.
+                    [[x340#CSIS3820Scaler-rdclear]]                        This function sets the scaler to clear its external counters
+                        when they are latched to the internal module memory. See,
+                        however the discussion about clearing below.
+                    [[x340#CSIS3820Scaler-start]]                        Enabling and arming the scalers is what starts them
+                        counting input pulses.
+                    [[x340#CSIS3820Scaler-clear]]                        This clears all of the external counters of the module.
+
+|  |  |
+| --- | --- |
+|  | Clears |
+|  | The way in which this module is being cleared is not techincally
+                    correct.  The module supports a clear on latch.  As coded,
+                    the scalers will be cleared a read time and then a bit later
+                    whenclearis called.  This
+                    can cause a few counts to be lost over the duration of the
+                    run.The correct way to handl this module is to clear it
+                    at initialization time and then not to provide aclearfunction.  The code
+                    was written this way in order to illustrate the use
+                    of aclearmethod rather than
+                    to be strictly speaking correct. |
+
+The `std::vector` class makes it pretty
+                easy to write the `read` method as well.
+
+<a name="AEN463"></a>**Example 2-14. `CSIS3820Scaler` read**
+
+```
+std::vector<uint32_t>
+CSIS3820Scaler::read()
+{
+  std::vector<uint32_t> result;   
+  uint32_t              channels[32];   
+
+  m_pScaler->LatchAndRead(reinterpret_cast<unsigned long*>(channels)); 
+
+  result.insert(result.begin(), channels, channels + 32); 
+
+  return result;
+
+  
+}
+                    
+                
+```
+
+[[x340#CSIS3820Scaler_readResultVector]]                        The `read` method must return an
+                        `std::vector`.  This declares
+                        storage for that vector.
+                    [[x340#CSIS3820Scaler_readResultArray]]                        The `LatchAndRead` function
+                        we use below will read the 32 channels of the module into
+                        an ordinary storage array.  Therefore wwe need to declare
+                        one here to hold that output.
+                    [[x340#CSIS3820_readout]]                        Reads the data in to `channels`
+[[x340#CSIS3820_readToVector]]                        The `std::vector::insert`
+                        method is then used to put the scaler channel values
+                        into the result vector which is returned.
+
+Before leaving this discussion of scalers lets take a short
+                tour of the `CScalerBank` class.
+                This class allows us to group several `CScaler` objects
+                into a single scaler-like object.
+
+Suppose we have several SIS 3820 scaler modules.  In a detector
+                system.  The example below organizes them into a single
+                scaler bank which we can hand out as our detector system's scaler.
+
+<a name="AEN489"></a>**Example 2-15. Creating a scaler bank**
+
+```
+...
+    CSIS3820Scaler sc1(0x80000000);
+    CSIS3820Scaler sc2(0x80010000);
+    CSIS3820Scaler sc3(0x80020000);
+    
+    CScalerBank myDetectorScalers;
+    myDetectorScalers.AddScalerModule(&sc1);
+    myDetectorScalers.AddScalerModule(&sc2);
+    myDetectorScalers.AddScalerModule(&sc3);
+...
+                
+```
+
+Naturally since, `CScalerBank` objects
+                are themselves derived from `CScaler` they
+                can be added, in turn, to other scaler banks.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating an event segment | Up | Tying the pieces together |

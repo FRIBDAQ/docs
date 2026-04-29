@@ -1,0 +1,55 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev | Chapter 7. Using the 'standard' SpecTcl GUI | Next |
+
+
+---
+
+# <a name="sec.parampage"></a>7.3. Using the Parameters page
+
+The Parameters tab lets you modify the
+                definition of tree parameters.  Specifically, for existing
+                tree parameters you can set new limits and units.  You
+                may not set new values for the binning.
+
+The parameters page looks like this:
+
+<a name="AEN2529"></a>**Figure 7-23. Parameters page**
+
+![](parameterpage.png)
+
+At any time, exactly one line is active.  The line with its
+                radio button checked.  The Parameter
+                pulldown menu allows you to load a parameter into that line.
+                The menu is organized to reflect the parameter hierarchy as a
+                menu, sub-menu hierarchy.
+
+If you modify the name field to match an existing parameter,
+                that parameter is loaded as well.  You can make as many modifications
+                as you want to the low, high and units fields.   If you get hopelessly
+                lost, simply click Load to reload the
+                current definition of that parameter.  If you click
+                Set the tree parameter definition
+                will be modified.  If you click Change Spectra,
+                any spectra that depend on that parameter will be redefined so
+                that axes depending on that parameter have the new low and high
+                limits.
+
+The array checkbox affects the Set and
+                 Change Spectra buttons. 
+                 If it is checked, and the parameter on that line is a member
+                 of a tree parameter array, all members of the array are modified
+                 on a Set operation and all
+                 spectra depending on all parameters in the array are modified.
+                 If array is checked, the
+                 Change Spectra button modifies all spectra
+                 that depend on all paframeters in the tree parameter array
+                 that contains that parameter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the Spectra page | Up | Using the variables page |

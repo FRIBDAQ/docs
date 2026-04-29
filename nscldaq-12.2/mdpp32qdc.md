@@ -1,0 +1,566 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-mdpp32qdc"></a>mdpp32qdc
+
+<a name="AEN90032"></a>## Name
+
+mdpp32qdc -- Mesytec MDPP-32 module with QDC firmware
+
+<a name="AEN90035"></a>## Synopsis
+
+**mdpp32qdc create *name -base base [option1 value1 option2 value2 ...]*
+**
+
+**mdpp32qdc config *name option value ...*
+**
+
+**mdpp32qdc cget *name*
+**
+
+<a name="AEN90045"></a>## DESCRIPTION
+
+This command creates, configures and retrieves the configuration of
+                 Mesytec MDPP-32 module with QDC firmware.
+
+Use the **create** subcommand to create a new module instance
+                 providing it with a unique `name` that will
+                 be used to identify it in future commands.  The `-base`
+                 parameter is the base address of the module as set in the module rotary
+                 switches. Options and corresponding values can be provided with the
+                 **create** subcommand instead of using **config**
+                 subcommand to configure.
+
+Use the **config** subcommand to configure
+                 a module named `name`  the `option`
+                 options and legal values are described in the section OPTIONS below.
+
+The **cget** subcommand returns as its value the configuration
+                 of the module `name`.  The configuration is
+                 returned as a list of two element sublists where each sublist
+                 contains, in order, an option from OPTIONS below, and its value.
+                 Note that some values may themselves be lists.
+
+<a name="AEN90061"></a>## OPTIONS
+
+
+
+`-base` *value*Allows you to reconfigure the base address of a module.
+                             This defaults to 0. The required
+                             `-base` parameter of the create
+                             option for this device overrides the default value.
+
+`-id` *vsn*`vsn` will be used as the module's
+                             identifier or *virtual slot number*.
+                             The `vsn` will be encoded into the
+                             event data that is returned by the module. This, in turn
+                             is normally used by event decoders to determine which parameters
+                             the channels of the module should be unpacked into.
+
+Each module should be given a unique `vsn`.
+
+By default, the value is 0.
+
+`-ipl` *0-7*The interrupt priority level the module should use to request
+                             a VME bus interrupt. Normally interrupts will be used
+                             to trigger an interrupt triggered stack.
+
+By default, the value is 0.
+
+`-vector` *0-255*The interrupt vector the module should use. The vector value is ignored if
+                             the module interrupts are disabled.
+
+Note that the VMUSB processes 16 bit vectors, but the
+                             vector produced by this module is 8 bits wide.
+                             The VME standard is ambiguous about how such modules
+                             produce the top eight bits of the vector under these
+                             circumstances. Mesytec modules set those top bits
+                             to 0xFF.  E.g. `-vector ` 0x80
+                             produces a vector, as see by the VMUSB of 0xFF80.
+                             One important thing to note in this case is that one must pass
+                             `-vector` option to the stack as 0xFF80
+                             to use interrupt-triggered stack. 0x0080 won't work.
+
+By default, the value is 0.
+
+`-irqeventthreshold` *0-32767*(From MDPP-32 QDC documentation) Every time the number of events in the FIFO
+                             exceeds this threshold, an IRQ is emitted.
+
+The register length is 15 bit. Thus, the maximum number it can take should be
+                             0x3FFF (32757)
+
+By default, the value is 3.
+
+`-irqdatathreshold` *0-32256*(From MDPP-32 QDC documentation) Every time the number of 32 bit words in
+                             the FIFO exceeds this threshold, an IRQ is emitted. Maximum allowed threshold
+                             is "FIFO size".
+
+"FIFO size" in the QDC documentation is 32k-512=32256.
+
+By default, the value is 1.
+
+`-irqsource` *event|data*
+
+eventUse the value provided with `-irqeventthreshold` as
+                                         the IRQ threshold.
+
+dataUse the value provided with `-irqdatathreshold` as
+                                         the IRQ threshold.
+
+By default, the value is event
+
+`-maxtransfer` *0-32256*(From MDPP-32 QDC documentation) With
+                             "`-multievent` 3", the value specifies
+                             the amount of data read from FIFO before Berr is emitted. Transfer stops
+                             only after full events.
+
+e.g. With "`-maxtransfer` 1", 1 event
+                             per transfer is emitted.
+
+With "`-multievent` 0xb", the value specifies
+                             the number of events read from FIFO before Berr is emitted.
+
+Setting this option to 0 allows unlimited transfer.
+
+By default, the value is 1.
+
+`-datalenformat`
+*8bit | 16bit | 32bit | 64bit | numevents*
+
+numeventsShow number of events in FIFO
+
+(From MDPP-32 QDC documnetation) The number of 32 bit words is always even.
+                             If necessary the fill word "0" is added. For the setting 0
+                             and 1, the max value 0xFFFF is shown
+                             when number exceeds the 16 bit format. The FIFO is not affected.
+
+By default, the value is 32bit.
+
+`-multievent` *See detail*By default, the value is 0xb.
+
+<a name="AEN90189"></a>```
++-----------------------------------------+
+|     Bit[3]     |   Bit[2]   | Bit[1:0]  |
++-----------------------------------------+
+|  count events  | skip Berr, | mode[1:0] |
+|   not words    | send EOB   |           |
+| (reg. 0x601A)  |            |           |
++-----------------------------------------+
+                             
+```
+
+
+
+Bit[1:0](From MDPP-32 QDC documentation)
+
+Allow multi event buffering.
+
+
+
+0Not allowing multi event buffering
+
+Register 0x6034 clears events
+                                                     allowing new conversion.
+
+1Allowing multi event buffering
+
+Unlimited transfer. No readout reset required.
+                                                     Register 0x6034 can be written
+                                                    after block readout. Don't use for CBLT.
+
+3Allowing multi event buffering, but MDPP transfers
+                                                     limited amount of data.
+
+The number of data words can be specified via
+                                                     register 0x601A After word limit is
+                                                     reached, the next end of event mark terminates transfer
+                                                     by emitting Berr. So, register 0x601A=1
+                                                     means event by event transfer (Berr after each event).
+
+The next data block can be transferred after writing
+                                                     the register 0x6034 (resets Berr).
+
+Bit[2]Berr handling. If set, send EOB=bit[31:30]=bx10
+                                         instead of Berr.
+
+Bit[3]Compare number of transmitted events (not words!) with the register
+                                         0x601A value (`-maxtransfer` value)
+                                         for Berr condition.
+
+`-marktype`
+*eventcount | timestamp | extended-timestamp*By default, the value is timestamp.
+
+
+
+eventcount, timestampThe last 32 bit word in the data contains either event counts
+                                         or timestamp according to the setting.
+
+<a name="AEN90251"></a>```
++------------------------------+
+|  2  |           30           |
++------------------------------+
+| b11 | eventcount / timestamp |
++------------------------------+
+                                         
+```
+
+extended-timestampFollowing 32 bit word will be added to the data.
+
+<a name="AEN90258"></a>```
++------------------------------------------------------+
+|  2  |  2  |       12       |           16            |
++------------------------------------------------------+
+| b00 | b10 | xxxx xxxx xxxx | 16 high bits time stamp |
++------------------------------------------------------+
+                                         
+```
+
+`-tdcresolution`
+*24ps | 49ps | 98ps | 195ps | 391ps | 781ps*Just for your information, TDC resolution is calculated using the
+                             raw register value with formula: 25ns/pow(2, 10-value)
+
+By default, the value is 24ps.
+
+`-adcresolution`
+*64k | 32k | 16k | 8k | 4k*Just for your information, ADC resolution is calculated using the
+                             raw register value with formula: pow(2, 6-value)k
+
+By default, the value is 64k.
+
+`-outputformat` *0 | 4 | 8 | 16 | 24*
+
+0Standard window of interest mode
+
+4Compact streaming mode
+
+8Standard streaming mode
+
+16Window of interest with samples mode
+
+24Standard streaming with samples mode
+
+By default, the value is 0.
+
+`-windowstart` *int 0-32767 (0-0x7fff)*(From MDPP-32 documentation) Unit: 1.56 ns (=25ns/16)
+
+Start window of interest: 0x0000 start at -25.56us, 0x7FFF start at +25.56us, 0x4000 = 16k no delay.
+
+< 16k, window starts before Trigger, > 16k, window is delayed.
+
+By default, this parameter is 0x3fbe(=16318).
+
+`-windowwidth` *int 0-16383 (0-0x3fff)*(From MDPP-32 documentation) Unit: 1.56 ns, max 16k = 25.56 us
+
+By default, this parameter is 0x80(=128).
+
+`-firsthit` *0 | 1*
+
+0transmit all hits in the window
+
+1 (default)only transmit first hit
+
+`-testpulser` *0 | 1*Switch for the internal test pulser.
+
+`-pulseramplitude` *int 0-4095 (0-0xfff)*(From MDPP-32 documentation) Max value corresponds to about 30% at gain=1.
+                             Gain jumpers are situated before pulser coupling,
+                             so have no effect on the pulser amplitude.
+
+This value has no effect unless `-testpulser` is set 1.
+
+`-triggersource` *int 0-1023 (0-0x3ff)*(From MDPP-32 documentation) Defines the trigger which creates the window of interest.
+                             This can be: one or both of the trigger inputs, lower 16 channels(B0), upper 16 channels(B1),
+                             or both banks (all channels).
+
+MDPPTriggerControl GUI is included in the FRIBDAQ package. This value needs to be set to 0x400
+                           to use the GUI controller. In this case, the last setting is preserved while start/stop runs.
+
+<a name="AEN90363"></a>```
++-------------------------------------------+
+| Whole bank |    16 channels     |  trig   |
+|   2 bits   |       6 bits       | 2 bits  |
++-------------------------------------------+
+|  B1  | B0  | active | Chan[4:0] | T1 | T0 |
++-------------------------------------------+
+                             
+```
+
+The default value is 0x400.
+
+`-triggersource` *int 0-1023 (0-0x3ff)*(From MDPP-32 documentation) Defines the trigger which creates output trigger.
+                             This can be: one or both of the trigger inputs, lower 16 channels(B0), upper 16 channels(B1),
+                             or both banks (all channels).
+
+MDPPTriggerControl GUI is included in the FRIBDAQ package. This value needs to be set to 0x400
+                           to use the GUI controller. In this case, the last setting is preserved while start/stop runs.
+
+<a name="AEN90373"></a>```
++-----------------------------------------+
+| Whole bank |    16 channels     |   00  |
++-----------------------------------------+
+|  B1  | B0  | active | Chan[4:0] | 0 | 0 |
++-----------------------------------------+
+                             
+```
+
+The default value is 0x400.
+
+`-monitoron`
+*bool*Switch monitor on
+
+`-setmonitorch`
+*int 0-31*Set channel to monitor
+
+`-setwave`
+*int 0-3*Set wave to monitior
+
+`-signalwidth`
+*int[8] 0-1023 (FWHM value in ns)*FWHM value of the input pulse in ns.
+
+The parameter provided must be a list of 8 integers.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is [list 20 20 20 20  20 20 20 20],
+                             which is 20ns for all channels.
+
+`-inputamplitude`
+*int[8] 0-65535 (mV)*0 to peak value of input pulse in mV. The amplitude cannot exceed the
+                             jumper range provided by `-jumperrange` and the physical
+                             jumper installed on the module.
+
+The parameter provided must be a list of 8 integers.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is
+                             [list 1000 1000 1000 1000  1000 1000 1000 1000],
+                             which is 1000 mV for all channels.
+
+`-jumperrange`
+*int[8] 0-65535 (mV)*Range printed on the jumper installed on the module in mV.
+
+The parameter provided must be a list of 8 integers.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is
+                             [list 3000 3000 3000 3000  3000 3000 3000 3000],
+                             which is 3000 mV for all channels.
+
+`-qdcjumper` *int[8] 0 | 1*Only used when QDC jumper is installed on the module.
+
+(From MDPP-32 documentation) QDC jumpers give better amplitude resolution
+                             and linearity if the signal width is less than 15ns.
+                             The QDC jumpers have band width limit of 30MHz, so increase the width
+                             of input pulses to about 25ns. They shouldn't be used for pulse shape
+                             discrimination.
+
+The parameter provided must be a list of 8 integers.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is [list 0 0 0 0  0 0 0 0],
+                             which is 0 for all channels.
+
+`-intlong`
+*int[8] 2-506*Input pulse integrating range from the time the pulse exceeds the threshold
+                             in multiple of 12.5 ns.
+
+The parameter provided must be a list of 8 integers.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is [list 16 16 16 16  16 16 16 16],
+                             which is 16 (16*12.5=200ns) for all channels.
+
+`-intshort`
+*int[8] 1-127*Input pulse integrating range from the time the pulse exceeds the threshold
+                             in multiple of 12.5 ns. This value must be smaller than
+                             `-intlong` value.
+
+The parameter provided must be a list of 8 integers.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is [list 2 2 2 2  2 2 2 2],
+                             which is 2 (2*12.5=25ns) for all channels.
+
+`-threshold` *int[32] 0-65535*
+
+The parameter provided must be a list of 32 integers. Each element sets
+                             the threshold to each channel.
+
+By default, the value is
+                             [list 0x4FF 0x4FF 0x4FF 0x4FF ... 0x4FF 0x4FF 0x4FF 0x4FF],
+                             which is 1279 (~1.95%) for all channels.
+
+`-gaincorrectionlong`
+*string[8] none | div4  |mult4*
+
+noneNo change with the amplitude in a spectrum
+
+div4Decrease the gain by the factor of 4 affecting the amplitude in a spectrum
+
+mult4Increase the gain by the factor of 4 affecting the amplitude in a spectrum
+
+(From MDPP-32 documentation) The internal gains and hardware gain are
+                             calculated based on the signal width and amplitude. This should give a quite
+                             good start value. Detais of the signals will have an effect on the real
+                             amplitude. So, there are 2 scaling factors to correct the gains.
+
+The parameter provided must be a list of 8 strings.
+                             The value of an element at index[0-7] is applied
+                             to the channels [4*index, 4*index+3].
+
+By default, the value is
+                             [list none none none none  none none none none],
+                             which is no change for all channels.
+
+`-gaincorrectionshort`
+*int[8] none | div4 | mult4*(From MDPP-32 documentation) The internal gains and hardware gain are
+                             calculated based on the signal width and amplitude. This should give a quite
+                             good start value. Detais of the signals will have an effect on the real
+                             amplitude. So, there are 2 scaling factors to correct the gains.
+
+`-nooffsetcorrection`
+*bool[8] true | false*(From MDPP-32 documentation) The 4 samples before transmitted samples are used
+                             for offset subtraction: mean value of the 4 samples is subtracted from all
+                             following samples.
+
+This option is ignored if `-outputformat` is other than 16 or 24.
+
+By default, the value is
+                             [list false false false false  false false false false],
+                             which means the offset is corrected for the channels in each channel group.
+
+`-noresampling`
+*bool[8] true | false*(From MDPP-32 documentation) Usually the input signals are asynchronous to the
+                             sampling frequency. This results in a jitter of the digitized signal by the
+                             sampling period in time. To get a stable display there are two possibilities:
+                             1) MDPP can do a resampling. So it calculates new sampling points related to the
+                             precise time measured by the digital discriminator in the timing path.
+                             2) In the sampling header, a "phase" showing the time difference between discriminator
+                             time and sample time is transmitted. In the mvme display the curve is shifted by this
+                             time to give a stable display as usually shown by an oscilloscope.
+
+This option is ignored if `-outputformat` is other than 16 or 24.
+
+By default, the value is
+                             [list false false false false  false false false false],
+                             which means the module is doing resampling for the channels in each channel group.
+
+`-samplesource`
+*int[8] 0-2*
+
+0Samples directly from ADC
+
+1Samples from short integration
+
+2Samples from long integration
+
+This option is ignored if `-outputformat` is other than 16 or 24.
+
+By default, the value is
+                             [list 0 0 0 0  0 0 0 0],
+                             which means the samples are directly from ADC for the channels in each channel group.
+
+`-numpresamples`
+*int[8] 0-1000*The number of samples before the input signal, where the input signal starts from
+                             the trigger.
+
+This option is ignored if `-outputformat` is other than 16 or 24.
+
+By default, the value is [list 0 0 0 0  0 0 0 0].
+
+`-numsamples`
+*int[8] 0-1000*The number of samples from the input signal defined by the trigger signal.
+
+This option is ignored if `-outputformat` is other than 16 or 24.
+
+By default, the value is [list 0 0 0 0  0 0 0 0].
+
+`-printregisters` *0 | 1*Print out register values from the module. The values are not from the user input,
+                             but from the actual register values read from the module after processing the input.
+
+<a name="AEN90576"></a>## EXAMPLES
+
+<a name="AEN90578"></a>**Example 1. Sample MDPP-32 QDC commands**
+
+```
+set signalWidth         [list 100 16 16 16  16 16 16 16]
+set inputAmplitude      [list 1000 2000 2000 2000  2000 2000 2000 2000]
+set jumperRange         [list 2000 2000 2000 2000  2000 2000 2000 2000]
+set qdcJumper           [list 0 0 0 0  0 0 0 0]
+set integrationLong     [list 8 16 16 16  16 16 16 16]
+set integrationShort    [list 2 2 2 2  2 2 2 2]
+set threshold           [list 0xfff 0xfff 0xfff 0xfff  0xfff 0xfff 0xfff 0xfff \
+                              0xfff 0xfff 0xfff 0xfff  0xfff 0xfff 0xfff 0xfff \
+                              0xfff 0xfff 0xfff 0xfff  0xfff 0xfff 0xfff 0xfff \
+                              0xfff 0xfff 0xfff 0xfff  0xfff 0xfff 0xfff 0xfff]
+
+set longGainCorrection  [list div4 none none none  none none none none]
+set shortGainCorrection [list div4 none none none  none none none none]
+set windowStart         16368
+set windowWidth         32
+set firstHit            1
+set testPulser          1
+set pulserAmplitude     400
+set triggerSource       0x100
+set triggerOutput       0x100
+set monitorOn           0
+set monitorCh           0
+set monitorWave         0
+set noOffsetCorrection  [list false false false false  false false false false]
+set noResampling        [list false false false false  false false false false]
+set sampleSource        [list  0  0  0  0   0  0  0  0]
+set numPreSamples       [list  4  4  4  4   4  4  4  4]
+set numSamples          [list 12 12 12 12  12 12 12 12]
+
+mdpp32qdc create qdc -base 0x00030000
+mdpp32qdc config qdc -signalwidth $signalWidth \
+                     -inputamplitude $inputAmplitude \
+                     -threshold $threshold \
+                     -jumperrange $jumperRange \
+                     -intshort $integrationShort \
+                     -intlong $integrationLong \
+                     -gaincorrectionlong $longGainCorrection \
+                     -gaincorrectionshort $shortGainCorrection \
+                     -windowstart $windowStart \
+                     -windowwidth $windowWidth \
+                     -firsthit $firstHit \
+                     -testpulser $testPulser \
+                     -pulseramplitude $pulserAmplitude \
+                     -triggersource $triggerSource \
+                     -triggeroutput $triggerOutput \
+                     -monitoron $monitorOn \
+                     -setmonitorch $monitorCh \
+                     -setwave $monitorWave \
+                     -nooffsetcorrection $noOffsetCorrection \
+                     -noresampling $noResampling \
+                     -samplesource $sampleSource \
+                     -numpresamples $numPreSamples \
+                     -numsamples $numSamples \
+                     -printregisters 1
+                 
+```
+
+Defines a module with base address 0x00030000.
+                 While many register values are defined with lists, not all of them are
+                 used to configure the module (qdcJumper
+                 is not used).
+
+If any of the parameters are not specified in config,
+                 it uses the default values. It is recommeneded only define variables
+                 need to change and omit others for taking default values.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| stack | Up | mdpp16qdc |

@@ -1,0 +1,283 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 4. The SpecTcl API | Next |
+
+
+---
+
+# <a name="sec.api.gates"></a>4.3. The API and the gates dictionary
+
+The SpecTcl class provides a family of creationals that
+            allow you to create any of the types of gates SpecTcl supports and
+            to add them to the gate dictionary.
+
+Gates in SpecTcl are mutable.  That is once defined a gate can be
+            modified.  This modification may change the gate type.   In order
+            to allow gate checking to be done without regard to this mutability,
+            software that checks gates should hold `CGateContainer`
+            objects rather than directly holding `CGate`
+            objects.
+
+`CGateContainer` objects provide an additional
+            level of indirection.  Linguistically , they look like pointers.
+            What they point to, however, can be dynamically modified by
+            SpecTcl.   Thus a gate container that points to a specific named
+            can be used to check that named gate regardless of changes
+            that may have been made to that gate.
+
+This means that if you create a gate and add it to the dictionary,
+            rather than holding on to the `CGate*` object
+            and checking that, you should, instead, then use
+            `FindGate` to obtain a gate container
+            that you can use to reference the new gate.
+
+The example we're going to use demonstrates this;  We're going to
+            show how to create a parameter whose value reflects which of several
+            gate (if any) an event satisfied.  One use for this is to create
+            a particle ID 1-d spectrum where the channels of the spectrum
+            represent individual particle types.
+
+Our example will implement an event processor that will:
+
+
+
+- Create several gates and enter them into the gate dictionary
+                      so that the user can modify them.  For simplicity, these will
+                      be cuts on a single parameter: raw.00.
+- Obtain gate containers for the gates and put them in an
+                      std::vector of gate containers.
+- Create a new tree parameter named PID.
+- For each event, if at least one gate is satisfied, the
+                      PID tree parameter is given the index
+                      of the gate container for that gate in the vector.
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | The discussion above means that our event processor must be
+                placed in the event processing pipelineafterall parameters have been set.  This is because gates are
+                evaluated on the parameters of the event, not on the
+                raw event data. |
+
+Before turning to code, there's a bit more background that must
+            be provided.
+
+Gate evaluations get cached.    That is once a gate is evaluated,
+            a second evaluation just refers to the cached value.  The
+            event sink pipeline invalidates the cached values prior to each event.
+            This is done so that costly gate evaluations are only done once
+            even though there may be several compound gates that refer to them.
+
+This is a problem because in order to improve program cache hit
+            performance in SpecTcl, several events are run through the
+            event processing pipeline before being passed on as a bunch to
+            the evetn sink pipeline.
+
+What this means for us is that we have to invalidate the cache
+            for each gate each event manually in our event processor.  If we don't
+            our code will seem to run properly but we'll get runs of the same
+            PID for groups of events where only the first event in each run
+            is properly identified.
+
+Let's look at the header for our event processor.
+
+<a name="AEN1025"></a>**Example 4-6. `GateProcessor` header.**
+
+```
+#ifndef GATEPROCESSOR_H
+#define GATEPROCESSOR_H
+
+#include <EventProcessor.h>
+#include <TreeParameter.h>
+#include <vector>
+
+class CGateContainer;
+
+
+class GateProcessor : public CEventProcessor
+{
+private:
+  CTreeParameter m_pid;
+  std::vector<CGateContainer*> m_gates;
+public:
+  GateProcessor();
+  Bool_t OnInitialize();
+
+  Bool_t operator()(const Address_t pEvent, CEvent& rEvent,
+		    CAnalyzer& rAna, CBufferDecoder& rDec);
+};
+
+#endif
+
+            
+```
+
+About the only thing I'm going to say about the header is that
+            the constructor will create the tree parameter, but
+            `OnInitialize` will be used to
+            create the gates to ensure that enough of SpecTcl has been put together
+            to support that operation.
+
+The constructor is trivial:
+
+<a name="AEN1032"></a>**Example 4-7. `GateProcessor` constructor implementation**
+
+```
+#include "GateProcessor.h"
+#include <SpecTcl.h>
+#include <GateContainer.h>
+#include <Gate.h>
+
+
+GateProcessor::GateProcessor() :
+  m_pid("PID")
+{}
+
+            
+```
+
+`OnInitialize` creates the gates, gets
+            gate containers for them and builds the vector
+            `m_gates`:
+
+<a name="AEN1039"></a>**Example 4-8. `GateProcessor::OnInitialize` implementation**
+
+```
+static const char* gateNames[] = {
+  "Protons", "Deuterons", "Tritons", "3He", "Alphas", 0
+};                                                
+static float lows[] = {0, 100, 200, 300, 400};
+static float highs[]  = {50, 150, 250, 350, 450};
+
+static const char* pGateParam="raw.00";           
+
+Bool_t
+GateProcessor::OnInitialize()
+{
+  SpecTcl& api(*SpecTcl::getInstance());
+
+  const char** pNames(gateNames);
+  float* pLows(lows);
+  float* pHighs(highs);
+
+  while (*pNames) {
+    CGate* pCut = api.CreateCut(pGateParam, *pLows, *pHighs); 
+    api.AddGate(*pNames, pCut);                               
+
+    CGateContainer* pContainer = api.FindGate(*pNames);       
+    assert(pContainer);                   // Must have a matching container.
+
+    m_gates.push_back(pContainer);                           
+    
+    pNames++;
+    pLows++;
+    pHighs++;
+  }
+  return kfTRUE;
+}
+
+            
+```
+
+[[x990#api.gates.tabledriven]]                    These data are tables that we'll use to set up the initial
+                    gates.  `gateNames` are the  names
+                    of the gates.  The `lows` and
+                    `highs` are an initial set of limits
+                    for the cut gates we'll make. 
+                [[x990#api.gates.gateparam]] `pGateParam`
+                    is the name of the parameter the cuts will check.  Remember
+                    that all gates are defined on one or more parameters.
+                    This example is intended to demonstrate a set of techniques,
+                    not be realistic.  Typically particle identification gates
+                    would be contours on some pair of parameters.
+                [[x990#api.gates.create]]                    Creates one of the gates. The loop over the names will create
+                    all of the gates.   Each cut gate is defined by the
+                    parameter it checks and the low/high limits of the cut.
+                [[x990#api.gates.adddict]]                    Adds the new gate to the SpecTcl gate dictionary.  This
+                    wraps the gate in a gate container as well so that
+                    the gate has a fixed point of reference (its container)
+                    even though the gate itself may change.  
+                [[x990#api.gates.getcontainer]]                    Gets the gate container that wraps the gate we just made.
+                    This must succeed since we just entered the gate.  The
+                    assert statement that follows defends
+                    against failure.
+                [[x990#api.gates.savecontainer]]                    Gate containers gotten are pushed into the vector for use
+                    in `operator()`.  This means that
+                    the PID value for events that satisfy the Protons
+                    gate will be zero, the Deuterons gate 1
+                    and so on through the Alphas gate
+                    which will have the value 4.
+
+This preparation makes the `operator()`
+            relatively simple.  We must
+
+
+
+- Clear the cache in each gate via its stored gate container
+- Loop over the gate containers asking each gate to check itself.
+                      If we find a match we can set the value of
+                      the PID parameter and exit the loop.
+
+Here's the code for that:
+
+<a name="AEN1080"></a>**Example 4-9. `GateProcessor::operator()` implementation**
+
+```
+Bool_t
+GateProcessor::operator()(const Address_t pEvent, CEvent& rEvent,
+			  CAnalyzer& rAnA, CBufferDecoder& rDecoder)
+{
+  for (int i = 0; i < m_gates.size(); i++) {
+    CGateContainer& p(*(m_gates[i]));            
+    p->Reset();                                   
+    if ((*p)(rEvent)) {                              
+      m_pid = i;                                     
+      break;
+    }
+  }
+  return kfTRUE;
+}
+            
+```
+
+[[x990#api.gates.op.getcontainer]]                    For each pass through the loop, we get a reference to the
+                    appropriate gate container.  The reference can be treated
+                    as if it were a pointer to the underlying gate.
+                    We will make use of this.  Notationally this is much
+                    simpler than dealing with the pointer to the gate container
+                    directly.
+                [[x990#api.gates.op.clearcache]]                    For each gate, we must clear its cached value before
+                    checking it.  This was explained previously.
+                [[x990#api.gates.op.check]]                    This statement checks the gate.  As you can see the gate
+                    check method requires a reference to the
+                    `CEvent` being built for this event.
+                    This is why our event processor must be registered
+                    *after* `CEvent`
+                    has been filled in for this event.
+                Remember that the gate we created may not be the gate we're
+                    checking.  It can have different limit points, it can
+                    be a different gate type. It could be on a different parameter
+                    or set of parameters, depending on what the user has done.
+
+[[x990#api.gates.op.setparam]]                    If the gate check operation returns true, the gate has
+                    been satisfied by the contents of the `CEvent`
+                    object it was given.  In this case, we set the
+                    PID parameter to the index of the gate
+                    which was satisfied.  If no gate is satisfied, the
+                    PID parameter has no value for this event.
+                    Any spectrum on it won't be incremented.
+                Note that after checking the gates we don't need to reset
+                    their cache.  This is because, if there are more events
+                    to be processed prior to starting the event sink pipeline,
+                    we'll reset the cache as part of gate processing.
+                    If the event sink pipeline will be called, it will reset
+                    the cache on all defined gates prior to running that pipeline
+                    for each event.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The API and the spectrum dictionary | Up | The API and the event processing pipeline |

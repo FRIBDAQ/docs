@@ -1,0 +1,99 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_barrierstats_incomplete"></a>EVB_BarrierStats_incomplete
+
+<a name="AEN25490"></a>## Name
+
+EVB_BarrierStats_incomplete -- Display incomplete barrier statistics
+
+<a name="AEN25493"></a>## Synopsis
+
+**package require EVB::barriers
+        **
+
+**EVB::BarrierStats::incomplete *window ?options?*
+**
+
+** *window* configure | cget  *?options?*
+**
+
+** *window* setItem * key value*
+**
+
+** *window* clear *?value?*
+**
+
+** *window* reinit
+            **
+
+** *window*idlist
+            **
+
+<a name="AEN25517"></a>## DESCRIPTION
+
+Provides a user interface element that can display the number
+            of times event sources did not participate in a barrier prior
+            to the barrier timeout.  Each count represents an exceptional
+            condition that is most likely an error.
+
+The visual appearance of this widget is a scrolling list two columns
+            wide.  The left column contains a set of source ids while the right
+            columns contains the number of times that source did not participate
+            in a barrier.
+
+<a name="AEN25521"></a>## OPTIONS
+
+
+
+`-title`The text of a title that is displayed above the entire
+                        widget.  This defaults to Missing barrier frags
+                        if not configured.
+
+`-lefttitle`Supplies a title above the column containing the source id.
+                        If not configured this defaults to Srcid.
+
+`-righttitle`Supplies a title above the column containing
+                        the counters.  If not configured, this defaults to
+                        Missing
+
+<a name="AEN25542"></a>## METHODS
+
+
+
+***window* setItem
+                    *source count*
+**Sets the missing fragment count for the specified
+                        `source` to
+                        `count`.  If necessary
+                        a new entry is made for the source in the widget.
+
+The widget always maintains the sources sorted by
+                        id.
+
+***window* clear
+                    *?value?*
+**Without the `value` parameter,
+                        all counters in all sourcdes are set to zero.  If
+                        a value is supplied it is used to set the value of
+                        all of the counters.
+
+***window* reinit**Removes all source id/counter pairs fromt the widget.
+                        This returns the widget to the visual state it was in
+                        prior to the first **setItem**
+                        method call.
+
+***window* idlist**Returns a list of the sources that exist in the
+                        widget.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 1evb | Up | EVB_BarrierStats_queueBarriers |

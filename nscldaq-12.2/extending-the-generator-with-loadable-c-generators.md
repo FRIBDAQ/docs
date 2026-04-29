@@ -1,0 +1,558 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 13. mvlcgenerate and using the Mesytec MVLC VME controller | Next |
+
+
+---
+
+# <a name="mvlcchap.cppextensions"></a>13.5. Extending the generator with loadable C++ generators
+
+The mvlcgenrate program can, as the VMUSBReadout program, accept loadable
+            C++ driver extensions.   These are modeled after lodable C++ extensions
+            that VMUSBReadout uses in order to make it simpler to port existing code to
+            the mvlcgenerate.
+
+A sample C++ driver extension, heavily commented, is provided in 
+            $DAQSHARE/mvlc-examples/SampleDriver.cpp
+            This section will go over.
+            that example.  There are three parts to an mvlcgenerate plugin:
+
+
+
+1. One or more driver classes.
+2. For each driver class a DriverCommand that needs to know how to 
+                   create a driver instance
+3. One initialization function that is called when the plugin is loaded,
+                   which needs to register the driver commands with the configuration 
+                   script parser.
+
+## <a name="AEN7397"></a>13.5.1. Some differences to keep in mind
+
+It's always important to keep in mind the main difference
+                between VMUSBReadout daqconfig plugins and mvlcgenerate's
+                plugins:  The mvlcgenerat plugins have no access to hardware.
+                While there are `CVMUSB` and
+                `CVMUSBReadoutList` classes, these only 
+                record operations, rather than performing them. The
+                `CVMUSB::executeList` methods are
+                provided but they just cause the `CVMUSB`
+                to add the objects in the `CVMUSBReadoutList`
+                to the list of operations it is recording.
+
+The mvlcgenerate headers your driver might need
+                are in the mvlc subdirectory of the 
+                $DAQINC directory, however to avoid inadvertently 
+                grabbing the wrong header you should specify
+                -I$DAQINC rather than -I$DAQINC/mvlc in addition to
+                -I$DAQINC
+
+Let's look at the headers our driver uses
+
+<a name="AEN7407"></a>**Example 13-4. Headers included by the sample MVLC loadable driver**
+
+```
+#include <mvlc/CReadoutHardware.h>
+#include <mvlc/CReadoutModule.h>
+#include <mvlc/DeviceCommand.h>
+#include <mvlc/CVMUSB.h>
+#include <mvlc/CVMUSBReadoutList.h>
+#include <mvlc/MVLCConfigParser.h>
+#include <XXUSBConfigurableObject.h>
+#include <stdint.h>
+#include <tcl.h>
+#include <TCLInterpreter.h>                 
+                
+```
+
+Note that several of the headers included from the
+              mvlc subdirectory have identical filenames for
+              VMUSBReadout headers.  This is why it is important to
+              be explicit about which header you need.
+
+## <a name="AEN7411"></a>13.5.2. Structure of a driver.
+
+Let's look at how a driver is built.  A driver is
+            a class that is derived from 
+            `CReadoutHardware` it is responsible
+            for generating the lists of MVLC VME operations that
+            will be performed at initialization, event read and end of run.
+            Driver instances also have a configuration that is specified
+            as a set of configuration keywords and validations for the
+            values associated with those keywords.  The configuration
+            is held in an `XXUSB::CConfigurableObject`
+            see the definition  of this class for more information about
+            the sorts of values that can be associated with configuration
+            keywords.
+
+The example below is the class definition for the
+            sample driver in 
+            $DAQSHARE/mvlc-examples/SampleDriver.cpp
+
+<a name="AEN7418"></a>**Example 13-5. Sample mvlcgenerate driver definition**
+
+```
+class SampleDriver : public CReadoutHardware {
+private:
+    XXUSB::CConfigurableObject* m_pConfiguration;  // Pointer to config.
+public:
+    SampleDriver();
+    ~SampleDriver();
+
+    virtual void onAttach(XXUSB::CConfigurableObject& configuration);
+    virtual void Initialize(CVMUSB& controller);
+    virtual void addReadoutList(CVMUSBReadoutList& list);
+    virtual void onEndRun(CVMUSB& interface);
+};
+            
+```
+
+The subsections below will describe each of the methods in 
+          the drier.  Note the `m_pConfiguration`
+          member data.  This will be a pointer to the driver instance's
+          configuration.  Its methods will be used both to define the
+          configuration options the driver accepts and to interrogate
+          the values of those options when it's time to generate code.
+
+### <a name="AEN7423"></a>13.5.2.1. onAttach - define the configurable options
+
+`onAttach` is called when the driver is being 
+                associated with its configuration object.  The configuration object is
+                passed in by reference, but the caller retains ownership, so you shouild not delete
+                this object.  Normally, you will need to save a pointer to that object, however.
+
+THe configuration object is an instance of `XXUSB::CConfigurableObject`
+                This class has methods both for defining configuration options and interrogating
+                their  current values.  The configuration maintained by `XXUSB::CConfigurableObject`
+                consists of a set of keywords (called *options*), and associated values.
+                A value proposed for an option can be validated by a validation function.  Many standard
+                validators are supplied with `XXUSB::CConfigurableObject` as well
+                as convenience methods to use them transparently.  By convention, option names, begin with
+                a - to make them look like Tk options.  This is not enforced by 
+                `XXUSB::CConfigurableObject`.
+
+The work of `onAttach` is to define thd configuration options the
+                driver needs.  A minimal option might be the base address of the specific device the
+                driver is generating code for (by convention this is `-base`).  
+                Let's pull apart the sample driver's implementation.  See the sample driver's comments for
+                `onAttache`
+
+<a name="AEN7438"></a>**Example 13-6. mvlcgenerate SampleDriver::onAttach - defining configuration options**
+
+```
+void
+SampleDriver::onAttach(XXUSB::CConfigurableObject& configuration) {
+    m_pConfiguration = &configuration;                        
+
+    m_pConfiguration->addIntegerParameter("-marker", 0);          
+
+
+    m_pConfiguration->addIntegerParameter("-resetloc");           
+    m_pConfiguration->addIntegerParameter("-resetvalue", 0, 0xffff, 0xaaaa); 
+
+    m_pConfiguration->addBooleanParameter("-writeendrun", false);  
+    m_pConfiguration->addIntegerParameter("-endrunloc");
+    m_pConfiguration->addIntegerParameter("-endrunvalue", 0, 0xffff, 0xbbbb);
+}
+
+                
+```
+
+Before picking apart `onAttach` a bit about the operations the
+                driver will generate.  For readout, the driver will generate a fixed marker.
+                For initialization, the driver will generate a 16 bit write to some VME location
+                that can be specified. For finalization (as the run ends), the driver will
+                *optionally* generate a 16 bit write to another VME location.
+
+The numbers in the list below refer to the number in the example above.
+
+[[x7385#mvlc-sample-oa-saveconfig]]                    The configuration does us no good if we cannot interrogate it.  This line
+                    saves a pointer to the configuration object as instance data. 
+                    The life-cycle of the driver instance is that in the configuration script,
+                    it will be created via a **create** subcommand for the
+                    driver command associated with it, the options configured via the
+                    **config** subcommand and, once the script has executed,
+                    the generated will invoke the `Initialize`,
+                    `addReadoutList` and `onEndRun`
+                    methods to generate operations to be performed.
+                [[x7385#mvlc-sample-oa-marker]]                This call to one of the `XXUSB::CConfigurableObject`'s 
+                `addIntegerParameter` adds an option named `-marker`.
+                MVLC markers, unlike VMUSB markers are 32 bits wide.  Therefor, no range checking is 
+                requested.  The 0 value is the initial value of this configuration 
+                option.  If `-marker` is never configured in the configuration script,
+                it will have the value 0 when queried.
+            [[x7385#mvlc-sample-oa-resetloc]]                This line, defines an option `-resetloc` that, once more, is an integer
+                that is not range checked.  This will hold the VME addresss to be written to when
+                generating code to initialize the device.  A more normal way to do this,
+                would be to define an `-base` option, which would describe the base
+                address of the module and then generate writes to appropriate offsets 
+                relative to that base
+                address.
+            [[x7385#sample-oa-resetval]]                This call to another overload of `addIntegerParameter` creates
+                an integer option; `-resetvalue` that is range checked so that its
+                value is within the range of values of a 16 bit number (between 0 and 0xffff).
+                The default value of this optin is 0xaaaa.
+                Normally, options would provide meaningful options for how the device is configured
+                (e.g. `-zerosuppress` might turn on or off a zero suppressed read), and
+                the actual initialization sequence would be computed from those options.
+                When designing a sample driver, think about how to provide options that make sense to the
+                user rather than the device with default values that reflect the most common use of the
+                device.  
+            [[x7385#mvlc-sample-oa-endrun]]                In this call to `addBooleanParameter` we define a 
+                configuration option `-writeendrun` that is a boolean with an
+                initial false value.  Valid values for boolean options,
+                in your script are the values for boolean options that Tcl scripts accept.
+                We will use the value of `-writendofrun` to determine if we will
+                generate a write to execute in `onEndRun`.  As you can 
+                probably guess by now, `-endrunloc` will, if `-writeendrun`
+                is true, define the VME address at which the write will occur and `-endrunvalue`
+                the value written.
+
+### <a name="AEN7486"></a>13.5.2.2. Initialize - generating operations to set-up the device
+
+`Initialize` is called after the configuration script
+                has been completely executed.  It is only called if the configuration script
+                executed without errors.   This method generates operations that will be
+                performed as a run is starting to setup the device for data taking.
+                Normally this invovle querying the configuration and performing operations
+                on the `controller` parameter passed in.
+
+While the `CVMUSB` class in the mvlcgenerate framework is
+                intended to be much like the class with the same name in the VMUSBReadout application,
+                the main thing to keep in mind is that your driver cannot actually talk to hardware.
+                It can only generate operations that will be memorized and regurgitated when
+                it comes time to generate initialization operation lists.
+
+This has the following implications, if you are porting drivers from
+                VMUSBReadout:
+
+
+
+- You cannot interrogate the device (by performing reads).  This may require additional
+                      options to be defined.  For example, when porting the driver for the
+                      CAEN V785, V775, V792, modules, the VMUSBReadout driver asked each module
+                      for its model number and generated code specific to the module type, ADC, QDC, or TDC,
+                      this is not possible with mvlcgenerate, so an additional option `-type`
+                      was added that has an enumerated vavlue (adc, qdc,
+                      or tdc) that drives module type specific code generatikon in mvlcgenerate.
+- Bit more subtle is that delays must be pushed into the set of generated operations.
+                      In many drivers, initialization requires some delay.  For example, a general module
+                      reset may require a delay before the module can accpet additional configuration.
+                      In VMUSBReadout modules, this was often done via calls to sleep or
+                      usleep.  In mvlcgenerate, this will simply delay code
+                      generation rather than actually supplying the run-time delay required.  Instead you must
+                      add a run-time delay using the `CVMUSB` `delay`
+                      method.
+- While using `CVMUSBReadoutList` to generate list of operations is
+                      supported for compatibility with existing VMUSBReadout drivers, the
+                      `CVMUSB`::`executeList` methods,
+                      just append the operations in the list to the list of VME operations it is memorizing.
+                      This method will never generate an error and it will always claim to have read
+                      0 bytes of data.
+
+In our `SampleDriver` none of this is relevant, but it is important to
+                keep these points in mind for actual drivers.  Let's have a look at the
+                `SampleDriver`::`Initialize` code:
+
+<a name="AEN7517"></a>**Example 13-7. mvlc SampleDriver::Initialize - generating initialization operations.**
+
+```
+void
+SampleDriver::Initialize(CVMUSB& controller) {
+    uint32_t addr = m_pConfiguration->getIntegerParameter("-resetloc");
+    uint32_t value = m_pConfiguration->getIntegerParameter("-resetvalue");
+
+    controller.vmeWrite16(addr, CVMUSBReadoutList::a32UserData, value);
+}
+                
+```
+
+This code is relatively straightforward,   The value sof the two integer 
+                configuration parameters, `-restloc` `-resetvalue`
+                are fetched from the configuration object and used in a call to 
+                the `CVMUSB` `vmewrite16` to add a 16
+                bit VME write to the list of initialization opertaions.  
+                CVMUSBReadoutList::a23UserData specifies a VME bus
+                *address modifier* that specifies the VME address space
+                associated with the address.  A discussion of VME address modifiers is beyond the 
+                scope of this documentation. See:
+                [https://www.vita.com/page-1855177](https://www.vita.com/page-1855177)
+                for a description of address modifiers and what they do.
+
+### <a name="AEN7528"></a>13.5.2.3. AddReadoutList - Generating operations to read the device
+
+The `AddReadoutList` requires that you generate the list of operations
+                that will be executed when the device is read out.  In the case of our sample driver,
+                we're just going to add a maker to the list.  When coding this, or porting drivers from the
+                VMUSBReadout, remember once more that you are not actually able to perform operations on the
+                device itself.  You can only add operations that will be added to the list of operations that
+                will read the device.  All read operations added to that list, will insert data into the 
+                event buffer.
+
+`AddReadoutList` gets a reference to a `CVMUSBReadoutList`
+                which is intended to implement the operations that the class of the same name implmeents for the
+                VMUSBReadout framework.  Where there is a mismatch in how these operations are implemented
+                between the MVLC and the VMUSB, the proper MVLC readout list code is generated to 
+                perform the requested operation.   For example, block reads where the transfer count comes
+                from a field ina  preceding read generate the appropriate accumluator load, shift and mask and
+                accumulator driven block read.
+
+Here is the `addReadoutList`  for our sample driver:
+
+<a name="AEN7537"></a>**Example 13-8. mvlcgenerate SampleDriver::AddReadoutList - Generating readout operations.**
+
+```
+void
+SampleDriver::addReadoutList(CVMUSBReadoutList& list) {
+    uint32_t markerValue = m_pConfiguration->getIntegerParameter("-marker");
+    list.addMarker(markerValue);
+}
+                
+```
+
+The only thing of note here is that the markers generated by the MVLC are 32 bit markers,
+                while those generated by the VMUSB are 16 bit markers.
+
+### <a name="AEN7541"></a>13.5.2.4. onEndRun - shutting down the device
+
+`onEndOfRun` is called to give the driver an opportunity to
+                perform operations as a data taking run ends.  Normally, these operations
+                disable the device and clear any buffered data.
+
+<a name="AEN7545"></a>**Example 13-9. mvlcgenerate SampleDriver::addReadoutList - generating event readout**
+
+```
+void
+SampleDriver::onEndRun(CVMUSB& controller) {
+    if (m_pConfiguration->getBoolParameter("-writeendrun")) {
+        uint32_t addr = m_pConfiguration->getIntegerParameter("-endrunloc");
+        uint32_t value = m_pConfiguration->getIntegerParameter("-endrunvalue");
+        controller.vmeWrite16(addr, CVMUSBReadoutList::a32UserData, value);
+    }
+}
+
+                
+```
+
+Notice how we use the `-writendrun` to conditionalize the
+                write.  Everything else should, by now be pretty clear.
+
+## <a name="AEN7550"></a>13.5.3. The Driver command
+
+In order to be created and configured, a driver must have an associted Tcl command
+                extension.  The bulk of the operations performed by this extension are the same
+                no matter which type of device is managed.     The `DeviceCommand`
+                is a Tcl command extension class that implements all of the code needed to
+                create, configure, and introspect the configuration of a device *except*
+                the actual device creation.
+
+Here is the sample device's device command class definition:
+
+<a name="AEN7556"></a>**Example 13-10. mvlcgenerate SampleDriverCommand definition**
+
+```
+class SampleDriverCommand : public DeviceCommand {
+public:
+    SampleDriverCommand(CTCLInterpreter& interp, TCLConfigParser& parser);
+    ~SampleDriverCommand();
+
+protected:
+
+    virtual CReadoutModule* createDevice(std::string name);    
+
+};
+
+                
+```
+
+The key methods are the constructor, which will give a name to the command,
+                and the `createDevice` which will create an actual
+                device instance.
+
+### <a name="AEN7561"></a>13.5.3.1. mvlcgenerate SampleDriverCommand construction/destruction
+
+Let's have a look at the constructor of the `SampleDriverCommand`:
+
+<a name="AEN7565"></a>**Example 13-11. mvlcgenerate SampleDriverCommmand constructor - defining the command**
+
+```
+SampleDriverCommand::SampleDriverCommand(
+    CTCLInterpreter& interp, TCLConfigParser& parser) :
+    DeviceCommand(interp, "example", parser)
+{}
+
+                
+```
+
+In our case, the base class contructor does all the work.  We passed the interpreter,
+                a command name: example and the configuration parser on to it.
+                The Configuration parser (`TCLConfigPaser`) is the object that
+                accumulates the configuration by processing the configuration script.
+                Some drivers and driver commands, may require access to this object.  For example,
+                the caenchain object must generate objects that can  validate
+                that the modules in their chains actually exist and are `C785`
+                modules.  The parser, includes factilities for finding modules or, alternatively, 
+                determining that modules don't exist.
+
+The destructor, in our case, is empty.  If your command allocates any dynamic
+                memory, of course the destructor must delete it.
+
+### <a name="AEN7574"></a>13.5.3.2. createDevice - creating a device instance
+
+The `createDevice` is respsonsible for
+                    creating a new, dynamically allocated, driver instance 
+                    (`SampleDriver` in our case), and binding it into a
+                    `CReadoutModule`.  Remember, a device instance, consists of
+                    a driver instance and a configuration.  These are packaged together in a 
+                    `CReadoutModule` object.
+
+For simple devices, the boilerplate below can be modified to create and return
+                    an appropriate `CReaodutModule`. Note that once returned,
+                    ownership of the module and associated device pass to the caller.
+
+<a name="AEN7583"></a>**Example 13-12. mvlcgenerate - creating a device instance (createDevice).**
+
+```
+CReadoutModule*
+SampleDriverCommand::createDevice(std::string name) {
+    CReadoutModule* result = new CReadoutModule;
+    result->SetDriver(new SampleDriver);
+
+    return result;
+}
+
+                    
+```
+
+Once a `CRedoutModule` is created its driver can be
+                    allocated and associated using the `SetDriver`
+                    method.  The `CReadoutModule` is then returned to the
+                    caller, in our case, the code executing the 
+                    **example create *name***
+                    example.  The `name` is the name of the device instance
+                    being created.  In most cases, the driver instance doesn't need this.
+
+## <a name="AEN7593"></a>13.5.4. Initialization code
+
+When the Tcl **load** is used to load a shared object into memory,
+                    it runs the an initialization function.  This function must have the name
+                    *prefix*_Init,and is passed the Tcl_Interp*
+                    for the interpreter running the **load**.
+
+The prefix in the function name is constructed by taking the library name,
+                    removing the lib and the extension, capitalizaing the first letter,
+                    and making all other letter lower case.  For example, if we built our
+                    driver into the the file:  libSampleDriver.so the
+                    prefix would be Sampledriver and the initialization
+                    function would be callsed Sampledriver_Init
+
+Let's have a look at  Sampledriver_Init
+
+<a name="AEN7607"></a>**Example 13-13. mvlcgenerate sample driver initialization code:**
+
+```
+ extern "C" {                                                           
+    int Sampledriver_Init(Tcl_Interp* pInterp) {
+
+        TCLConfigParser*  parser = TCLConfigParser::getInstance();    
+        CTCLInterpreter* interp  = parser->getInterpreter();          
+        parser-gt;addExtension(new SampleDriverCommand(*interp, *parser)); 
+
+        return TCL_OK;                                               
+    }
+ }                   
+                    
+```
+
+Let's pick this all apart line by line:
+
+[[x7385#mvlcgen-sd-init-cbinding]]                        C++ achieves function, method and operator overloading by *name mangling*.
+                        Name mangling means that the actual name of a function, as seen by the linker, is
+                        the name you give it, modified in ways that describe the parameters and, if appropriate,
+                        the class or namespace the function lives in.
+                        For example, the SampleDriver::createDevice method winds up crating a function
+                        named: 
+                        _ZN19SampleDriverCommand12createDeviceENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
+                        extern "C" {} are blocks in which the C++ compiler
+                            turns off this name manging and, instead, generates external function names
+                            that are compatible with those used by C rather than C++.
+                            This is necessary if our `Sampledriver_Init` function name
+                            is going to be found by the Tcl **load** command.
+
+[[x7385#mvlcgen-sd-init-parserinstance]]                        We will need the configuration parser (the object interpreting the configuration
+                        script), to pass it to the constructor of our command.  The
+                        `TCLConfigParser` is, essentially a singleton and
+                        its `getInstance` static method returns a pointer to
+                        it.
+                    [[x7385#mvlcgen-sd-init-interpencap]]                        The parameter to our initialization function is a raw Tcl interpreter pointer.
+                        To use the Tcl++ library we must must have a `CTCLInterpreter`
+                        The `getInterpreter` Of the `TCLConfigParser`
+                        running the script gives us that.
+                    [[x7385#mvlcgen-sd-init-addext]]                        This operation creates a new `SampleDriver` command and
+                        makes it know to the driver.  Making it know to the driver allows the driver
+                        to destroy the command when the parser is destroyed.  
+                    [[x7385#mvlcgen-sd-init-success]]                        The Tcl **load** command expects a  status return.  Returning
+                        TCL_OK tells the command initialization was successful.
+                        In the event of an error you should set the result and return a TCL_ERROR
+                        e.g. like this:
+                        <a name="AEN7643"></a>```
+        interp->setResult("Some useful error message");
+        return TCL_ERROR;
+                            
+```
+
+## <a name="AEN7645"></a>13.5.5. Building the C++ extension and using it.
+
+To build the driver, first start the container an setup the environment variables for
+                the version of FRIB/NSCLDAQ you will be using via the appropriate dasetup.bash.
+                Given the file SampleDriver.cpp is in the default directory; This
+                command builds it into libSampleDriver.so in the default directory:
+
+<a name="AEN7651"></a>**Example 13-14. mvlcgenerate building the C++ extension:**
+
+```
+ g++ -olibSampleDriver.so -shared -fPIC \
+     SampleDriver.cpp \
+     -L$DAQLIB -lmvlcGenerator -Wl,-rpath=$DAQLIB \
+     -I$DAQINC -I/usr/include/tcl8.6
+                
+```
+
+If future containers use a different version of Tcl, you may need to change the
+                directory from which tcl.h is included.
+
+If we run mvlcgenerate in the same directory, this configuration file
+                fragment shows how to use the sample driver to create and configure an instance of that
+                "device".
+
+<a name="AEN7657"></a>**Example 13-15. mvlcgenerate - using a C++ extension driver:**
+
+```
+load [file join . libSampleDriver.so]                               
+
+example create sample                                               
+example config sample -marker 0x1212 -resetloc 0x12340000 -resetvalue 0x1234
+example config sample -writeendrun true -endrunloc 0x12344000 -endrunvalue 0x4321
+
+...                                                                 
+                
+```
+
+[[x7385#mvlcget-sd-use-load]]                    This loads the driver library making the **example** available.
+                    If your driver is not located in the same directory that you are running
+                    mvlcgenerate from, replace the . with the path to the directory it is in.
+                    In general **load** will need a full path as otherwise only the system
+                    shared library load paths will be searched for the file.
+                [[x7385#mvlcgen-sd-use-createconfig]]                    These three lines show how the **example** can be used to
+                    create and configure instances of the sample driver just like any built in command can.
+                [[x7385#mvlcget-sd-use-stack]]                    Naturally, once created and configured, driver instances must be added to stacks
+                    to be used.  At some point, in this example, a stack has to be crerated (event or scaler),
+                    which has sample  in the list passed to its `-modules`
+                    option.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| BUILDING mesytec-mvlc WITH THE OPTIONALfribdaq-readoutPROGRAM | Up | Tcl Drivers |

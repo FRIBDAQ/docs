@@ -1,0 +1,116 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Chapter 4. The SpecTcl database GUI. | Next |
+
+
+---
+
+# <a name="AEN720"></a>4.2. Context menus
+
+The objects listed in the GUI all have associated context
+                menus.  A
+                *context menu* is a pop up menu
+                that provides operations consistent with a selected item.
+                Context menus are
+                displayed (*posted*), when the
+                right mouse button is clicked over the object.  It is
+                removed
+                *unposted*when an item is selected from the menu or the
+                Escape key is hit.
+
+Currently there are three context menus;  The configuration
+                context menu, the spectrum context menu and the
+                run context menus.  The following sections will
+                describe each of these and when they post
+
+## <a name="AEN727"></a>4.2.1. The configuration context menu
+
+This menu is associated with save sets and analysis
+                    configurations.  It has the following operations.
+
+
+
+Save...Saves a new save-set and configuration.
+                                This is identical to the
+                                Save->Configuration...
+                                menubar command.
+
+Save Spectrum...Saves the contents of spectra
+                                in the currently selected save set.
+                                This is identical to
+                                Save->Spectrum...
+                                command on the menu bar.
+
+LoadLoads the selected analysis configuration
+                                into SpecTcl
+
+## <a name="AEN752"></a>4.2.2. Spectrum Menu
+
+This context menu is associated with and posts
+                    for spectrum objects.  It has the following
+                    selections:
+
+
+
+ResaveRe-saves the contents of the
+                                currently selected spectrum, over-writing
+                                any previously saved contents for it.
+                                Only the selected spectrum is saved.
+
+Save...Prompts for a set of spectra to
+                                save (contents) into the current
+                                configuration.  This is identical to the
+                                Save->Spectrum...
+                                entry on the menubar.
+
+LoadLoads the contents of the selected
+                                spectrum into SpecTcl. Note that if the
+                                spectrum is not yet defined, it will
+                                be defined.  If the spectrum is defined
+                                in a compatible manner its contents will
+                                be overwritten with the data from the
+                                selected spectrum.
+
+Save Configuration...Identical to:
+                                Save->Configuration...
+                                on the menubar.  The user is prompted for
+                                a new saveset name.  The save-set is created
+                                and the analysis configuration saved into
+                                it.
+
+Load ConfigurationThe currently selected analysis configuration
+                                is loaded into SpecTcl.
+
+## <a name="AEN787"></a>4.2.3. Event context menu
+
+This menu is associated with event data in the
+                    database.  It has the following items:
+
+
+
+Play...Clicking this brings up a dialog
+                                box that allows you to clear spectra
+                                prior to beginning the playback and to
+                                Reload the analysis configuration
+                                in the save set that contains the
+                                event data.  This save set contains
+                                the analysis configuration when
+                                recording this run started.
+
+Clicking Ok
+                                executes the checked options and
+                                begins playback.  Clicking
+                                Cancel
+                                cancels playback.
+
+StopThis is only enabled when playback is
+                                in progress.  If clicked playback
+                                is stopped.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The SpecTcl database GUI. | Up | C++ API to the database |

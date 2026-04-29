@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_outputstats"></a>EVB::outputStats
+
+<a name="AEN16241"></a>## Name
+
+EVB::outputStats -- Get orderer output statistics
+
+<a name="AEN16244"></a>## Synopsis
+
+**EVB::outputStatistics get
+
+            **
+
+**EBB::outputStatistics clear
+                **
+
+<a name="AEN16249"></a>## DESCRIPTION
+
+The **get** subcommand
+            eturns information about the ordered event fragments that have
+            been created and output by the event orderer. The **clear**
+            subcommand clears those statistics.
+
+The **get** subcommand returns statistics as a list.
+            The first element of the list is the total number of output fragments
+            emitted by the program.  Subsequent list elements are pairs where the
+            first element of the pair is a source id and the second element the
+            number of fragments emitted from that source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::inputStats | Up | EVB::dlatestats |

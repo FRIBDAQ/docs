@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev | Chapter 2. Creating a Readout program from scratch | Next |
+
+
+---
+
+# <a name="AEN641"></a>2.5. Editing and using the Makefile
+
+Once you have completed your modifications, and written your code,
+                you need to be able to build it.  The Makefile
+                distributed with the skeleton is heavily commented.  Most of the
+                time you will simply have to tell the Makefile to build your
+                objects and incorporate them into the Readout
+                executable it builds.
+
+If we assume that we've written two .cpp files
+                and corresponding headers named: CCAENEventSegment.cpp
+                and CSIS3820Scaler.cpp,
+                We need to modify the OBJECTS definition to
+                read as follows:
+
+<a name="AEN651"></a>**Example 2-19. Makefile modifications**
+
+```
+                    ...
+OBJECTS=Skeleton.o CCAENEventSegment.o CSIS3820Scaler.o
+                    ...
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Tying the pieces together | Up | Creating a Readout program from a spectrodaq production readout program |

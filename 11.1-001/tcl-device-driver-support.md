@@ -1,0 +1,563 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 5. CCUSBReadout | Next |
+
+
+---
+
+# <a name="AEN2539"></a>5.4. Tcl device driver support
+
+This section describes how to provide support for device drivers
+            as Tcl modules.  The first subsection will describe in general
+            terms how to do this.  The second and third subsections will show
+            sample drivers written in the snit and Incr-Tcl object oriented
+            extensions of Tcl along with sample fragments of DAQ configuration
+            files that show how to use these drivers. Note that while snit and
+            Incr-Tcl drivers are shown any Tcl object oriented extension can
+            probably be used as could a carefully crafted set of
+            **namespace ensemble** commands.
+
+## <a name="AEN2543"></a>5.4.1. Conceptual background
+
+If you have not read the section on writing C++ device drivers
+                you should at least skim it.  Several of the concepts
+                are important.  Specifically:
+
+
+
+- A device support module provides a command that
+                          generates device instances.
+- Device instances have to provide an
+                          `Initialize` method that
+                          initializes the device according to some configuration
+                          of the instance.
+- Device instances have to provide a
+                          `addReadoutList` method that
+                          adds elements to the list of CAMAC operations
+                          that are executed when the stack they live in
+                          is triggered.
+
+All of this is a natural match to the way all of the object
+                oriented extensions to Tcl work.  Specifically you write a
+                class like thing.  Creating an instance of the class creates
+                a new Tcl command *ensemble*.  The
+                public methods of the instance become sub commands of the
+                new Tcl command.
+
+The CCUSB framework therefore provides a
+                mechanism, the **addtcldriver** command to
+                add an object instance command to the set of devices that
+                can be added to a stack. The **addtcldriver**
+                command registers the command name as a name of a  device
+                that can be put in a stack.  The command ensemble is also
+                wrapped in an actual driver that invokes
+                `Initialize`, and
+                `addReadoutList`
+                methods at the appropriate times.
+
+The final piece of the puzzle is providing access to the
+                CCUSB and CCUSBReadout list capabilities to Tcl drivers.
+                This has been done by wrapping Tcl command ensembles around both
+                of those classes using SWIG
+                (see [http://www.swig.org](http://www.swig.org)).
+
+As we will see when we work our way through sample drivers,
+                the C++ wrappers are not able to actually pass a SWIG wrapped
+                object to the driver methods.  The driver must take the
+                swig pointer like parameter and turn it into a SWIG object
+                before it can be used.  A Tcl fragment that shows how to
+                turn the CCCUSB pointer into a SWIG CCCUSB object is shown
+                below:
+
+<a name="AEN2565"></a>```
+...
+method Initialize ccusbPointer {
+    cccusb::CCCUSB c -this $ccusbPointer
+    ...
+}
+...
+                
+```
+
+The example takes the `ccusbPointer` parameter
+                which must be a swig like pointer to  a CCCUSB object and
+                turns it in to a swig object named c
+                which is a SWIG object representing the underlying CCCUSB
+                passed in to the `Initialize` method.
+
+## <a name="AEN2571"></a>5.4.2. A sample snit Tcl CCUSB framework driver
+
+This section will go through a sample snit driver describing
+                how it works.  To see this driver incorporated in a DAQ
+                configuration file see
+                [[x2539#ccusb-general-tcldriver-usage]].
+
+First a word or two about snit.  Snit is a pure Tcl object
+                oriented framework for Tcl written by Will Duquette from
+                the Jet Propulsion Laboratory in Pasadena.
+                [http://wiki.tcl.tk/3963](http://wiki.tcl.tk/3963)
+                provides access to documentation and examples of snit in action.
+
+snit is part of the TclLib which is installed
+                on all systems at the NSCL.
+
+Snit classes are created via the **snit::type**
+                command.  Snit classes feature **method**s
+                which are analagous to member functions in C++ classes.
+
+snit also
+                provides all types with a **configure** and
+                **cget** command and a mechanism for declaring
+                options that can be manipulated by these commands. Using this
+                capability allows you to configure snit device driver instances
+                in a manner analagous to the C++ driver instances supported
+                by the CCUSB framework.
+
+Below is a complete implementation of a snit driver that,
+                at initialization time turns on the yellow LED and adds
+                a marker to the readout list.  The marker value can be configured
+                via the instances built in configure subcommand.
+
+<a name="AEN2586"></a>**Example 5-6. A snit CCUSB device driver module**
+
+```
+lappend auto_path /usr/opt/daq/10.1/lib  
+
+package require snit                    
+package require cccusb                  
+package require cccusbreadoutlist
+
+
+snit::type marker-snit {                
+    option -value 0                     
+
+    #
+    # Called when the run is being started.  
+    # 
+    # @param driverPtr - 'pointer' to the CCUSB object.
+    #
+    method Initialize driverPtr {      
+
+ 
+        cccusb::CCCUSB c -this $driverPtr; 
+
+        # Get the led programming now
+        # Yellow is the mask of FF0000
+        # Clear out those bits and set that field to be 110000 which is source I3 and
+        # inverted.
+
+        set leds [c readLedSelector]      
+        set leds [expr {$leds &  0xffff}]
+        set leds [expr {$leds | 0x110000}]
+        c writeLedSelector $leds         
+
+    }
+    # Called to contribute to the readout list
+    #   
+    # @param list - 'pointer' to the CCCUSBReadoutList which will be wrapped in a
+    #                swig wrapper.
+    #
+    method addReadoutList list {       
+
+        #
+        # Wrap the list so we can use it:
+        #
+        cccusbreadoutlist::CCCUSBReadoutList l -this $list; 
+
+        l addMarker $options(-value)                        (11)
+
+    }
+}
+
+                
+```
+
+The numbers in the explanations below refer to the corresponding
+                numbers in the example text.
+
+[[x2539#ccusb-snit-auto_path]]                        The SWIG Tcl wrappers for the CCUSB and CCUSBReadoutList
+                        classes are installed in the lib
+                        subdirectory of the NSCLDAQ installation.  This
+                        adds that directory for the 10.1 verssion of nslcdaq
+                        to the package loads search path.  This allows those
+                        packages to be loaded via the **package require**
+                        package.
+                    [[x2539#ccusb-snit-packages]]                        Incorporates the following packages into the
+                        driver, if they have not been loaded elsewhere:
+                    
+
+snitThe snit package.  This implements the
+                                object oriented framework this example uses.
+
+cccusbThe  swig wrapper for the
+                                    CCUSB C++ class.
+
+cccusbreadoutlistThe swig wrapper for the CCCUSBReadoutList
+                                    C++ class.
+
+[[x2539#ccusb-snit-type]]                        The **snit::type** command
+                        creates a new snit class like entity. The
+                        type is named **marker-snit** and
+                        the list of commands that follow define the
+                        body of the class.  This creates a new command
+                        **marker-snit** primarly used to
+                        construct instances of the type.
+                    [[x2539#ccusb-snit-option]]                        Snit objects all have a set of options that are
+                        modified via their built in
+                        **configure** sub command and accessed
+                        externally via their **cget**
+                        built in sub command.
+                    The **option** command within a snit
+                        type body defines a configurable option
+                        (`-value` in this case), and optionally
+                        provides an initial value.
+
+[[x2539#ccusb-snit-Initializemethod]]                        Instance subcommands are created via the
+                        snit **method** command.  This command
+                        looks exactly like the **pro** command
+                        except that methods generate subcommands.
+                    The `Initialize` method must
+                        be implemented by all device driver objecgt (do-nothing
+                        implementations are fine).  The parameter to this method
+                        is a pointer like entity which points to a
+                        `CCCUSB` object that communuicates
+                        with the selected CAMAC crate.
+
+The `Initialize` method is
+                        invoke for all object instances that are added to stacks.
+                        It is suposed to look at the configuration items and
+                        do what is necessary to program the module it supports
+                        to prepare to take data in the specified configuration.
+
+[[x2539#ccusb-snit-ccusbswigwrap]]                        Creates a swig wrapping of the `CCCUSB`
+                        class whose underlying class is the class 'pointed to'
+                        by the `driverPtr` parameter.
+                    The wrapping creats a command **c**
+                        Subcommands of that command are mapped to methods in the
+                        `CCCUSB` C++ class.
+
+You can also get Swig to name the new object after
+                        the pointer that was passed in:
+
+<a name="AEN2650"></a>```
+...
+cccusb::CCCUSB -this $driverPtr
+...
+                            
+```
+
+
+                        Where $driverPtr can be used as the CCCUSB object
+                        command.
+                    [[x2539#ccusb-snit-readleds]]                        This is an example of invoking a CCCUSB method.
+                        The subcommand `readLedSelector`
+                        reads the CC-USB LED selector register. The subsequent
+                        code makes changes the fields that control the yellow
+                        LED so that it's input is the NIM IN3 inpout and is lit
+                        when there is no input (inverted state).  This should
+                        normally light the yellow LED.
+                    [[x2539#ccusb-snit-writeleds]]                        Invokes the CCCUSB `writeLedSelector`
+                        so that the new value of the LED selector register
+                        takes effect.
+                    [[x2539#ccusb-snit-addReadoutListmethod]]                        The `addReadoutList`
+                        is invoked for each driver instance that is in a stack
+                        as the run is started.  It is is expected to contribute
+                        elements to a `CCCUSBReadoutList`
+                        object that read the supported module in the manner
+                        defined by the object's configuration.
+                    The `list` parameter is a pointer
+                        like value to a `CCCUSBReadoutList`
+                        object.
+
+[[x2539#ccusb-snit-ccusbreadoutlist-swigwrap]]                        Wraps the pointer in a SWIG object analagous to what
+                        was done for the ccusb pointer passed to
+                        `Initialize`.
+                    [[x2539#ccusb-snit-addmarker]]                        Adds a marker to the list.
+                        The marker value will be value of the
+                        `-value` option. In snit, options
+                        are put in an array named `options`
+                        indexed by the option name.
+
+## <a name="AEN2672"></a>5.4.3. A sample Incr-Tcl Tcl CCUSB framework driver
+
+Incr Tcl is an object oriented extension for Tcl.  It is installed
+                on all NSCL systems.  It provides the ability to define
+                *classes*. As with snit, creating a class
+                 instance (object) creates a new command.  The public class
+                 methods are then subcommands for the object command.
+
+As with snit, objects can have configurations that are manipulated
+                and queried via built in **config** and
+                **cget** object subcommands.  Unlike snit,
+                all public member variables are considered to be
+                configurable objects to Incr Tcl.
+
+The properties above make Incr Tcl a viable option for
+                implementing driver support.
+
+[http://incrtcl.sourceforge.net/itcl/](http://incrtcl.sourceforge.net/itcl/)
+                provides information about Incr Tcl.
+
+The example below shows a marker driver identical in functionality
+                to the snit driver shown in the previous section, but written
+                with Incr Tcl.
+
+<a name="AEN2683"></a>**Example 5-7. CCUSB device support example writtin in Incr Tcl**
+
+```
+lappend auto_path /usr/opt/daq/10.1/lib
+puts $auto_path
+package require Itcl                       
+package require cccusb
+package require cccusbreadoutlist
+
+itcl::class marker-itcl {                 
+    public variable value 0               
+
+    #
+    # Called when the run is being started.  
+    # 
+    # @param driverPtr - 'pointer' to the CCUSB object.
+    #
+    public method Initialize driverPtr {  
+
+        #  This turns the driver pointer into a CCUSB object which
+        #  can make use of the SWIG wrappers for the CCUSB code:
+
+        cccusb::CCCUSB c -this $driverPtr; # c is a CAMAC controller object.
+
+        # Get the led programming now
+        # Yellow is the mask of FF0000
+        # Clear out those bits and set that field to be 110000 which is source I3 and
+        # inverted.
+
+        set leds [c readLedSelector]
+        set leds [expr {$leds &  0xffff}]
+        set leds [expr {$leds | 0x110000}]
+        c writeLedSelector $leds
+
+    }
+    # Called to contribute to the readout list
+    #   
+    # @param list - 'pointer' to the CCCUSBReadoutList which will be wrapped in a
+    #                swig wrapper.
+    #
+    public method addReadoutList list {               
+
+        #
+        # Wrap the list so we can use it:
+        #
+        cccusbreadoutlist::CCCUSBReadoutList l -this $list; # l is now a swig wrapper over the list.
+
+        l addMarker $value                          
+
+    }
+
+                
+```
+
+The numbers in the explanations below refer to the numbers
+                 in the example above.
+
+[[x2539#ccusb-itcl-header]]                        This heading is easily  understandable from the
+                        example in the previous section.  The only difference
+                        is that the Itcl package is loaded instead of snit.
+                    [[x2539#ccusb-itcl-class]]                        The **class** command creates an Incr
+                        Tcl class. The class name **marker-itcl**
+                        becomes the command name for creating class instances
+                        (objects).
+                    [[x2539#ccusb-itcl-options]]                        Unlike snit Incr Tcl does not have a separate facility
+                        for creating options.  Any instance variable that is
+                        declared public is treated as
+                        a configuration parameter.
+                    Therefore this line creates the
+                        `-value`.   Configuring
+                        `-value` will modify this variable.
+                        Cgetting `-value` will read this
+                        variable.
+
+[[x2539#ccusb-itcl-initialize]]                        The `Initialize` method
+                        has been described previously.  The body of this
+                        method is identical to the body of the
+                        correpondig snit::type.
+                        method.
+                    [[x2539#ccusb-itcl-addreadoutlist]]                        Creates a method to be called when the software
+                        is building readout lists.  With the exception
+                        shown below, this too is identical to the
+                        contents of the same method in the snit example.
+                    [[x2539#ccusb-itcl-addmarker]]                        In Incr Tcl, options are just member variables.
+                        Therefore when the marker is added ot the stack,
+                        $value substitutes the
+                        selected value.
+
+## <a name="ccusb-general-tcldriver-usage"></a>5.4.4. Using Tcl drivers in the DAQ configuration file.
+
+Using a Tcl driver in the DAQ configuration file requires that you
+
+
+
+- Incorporate the driver code into your DAQ configuration
+                          script.
+- Create device instances for the hardware you want read
+                          out by your experiment.
+- Register the device instances with the CCUSB frameowork
+                          so that they can be referred to in
+                          **stack** or other
+                          module containing commands.
+- Add the instances to a stack
+
+**Incorporating driver code into the DAQ configuration file. **
+                    Tcl provides two suitable mechanisms for incorporating
+                    device support code into your DAQ configuration script.  Note
+                    that these mechanisms are not restricted to device support
+                    code but could be used to incorporate any Tcl library code
+                    you might need.
+
+The **source** command allows you to include
+                a specific Tcl script file given a relative or absolute path
+                directly to that script.  Suppose our device support
+                file named mydriver.tcl is located
+                in the same directory as the configuration script.  The
+                code fragment below is an accepted way to source that file
+                that doesn ot assume the current working directory is where the
+                script is:
+
+<a name="AEN2735"></a>```
+set here [file dirname [info script]]
+source [file join $here mydriver.tcl]
+                
+```
+
+The first command determines the directory that holds the
+                script while the second uses that to construct a path to the
+                mydriver.tcl file for the **source**
+                command.
+
+If you develop a library of device support code, or are using
+                someone else's device support code, it is probably preferable
+                to use the Tcl **package** command,
+                pkgIndex.tcl and package search paths
+                to load the driver code.
+
+The author of the driver code you are using must have cooperated
+                to the extent of having a **package provide**
+                command in their scripts, and creating a pkgIndex.tcl
+                (through e.g. Tcl's **pkg_mkIndex** command) in the
+                directories holding their packagtes.
+
+Once this is done you can append the script package directories
+                to your `auto_path` variable and use
+                **package require** to pull in the required
+                files.
+
+Suppose, for example, /projects/mydetector/drivers
+                is a directory that contains several device support scripts
+                given package names like device1
+device2, suppose further that you are
+                running in conjunction with another system that has
+                device3 in /projects/otherdetector/drivers.
+                The following script fragment uses the Tcl package facility to load
+                those drivers:
+
+<a name="AEN2756"></a>```
+lappend auto_path /projects/mydetector/drivers /projects/otherdetector/drivers
+package require device1
+package require device2
+package require device3
+                
+```
+
+Furthermore, by using the TCLLIBPATH
+                rather than the `auto_path` variable you
+                can make it so that your script does not need to know
+                which directories have package files.
+
+**Creating device instances. **
+                    How you create device instances depends on how you the
+                    driver was written.  In snit, for example you use the
+                    **snit::type** type name's create
+                    sub command.  For example for the previous example driver:
+
+<a name="AEN2765"></a>```
+marker-snit create snitmarker
+                
+```
+
+creates an instance of the driver named snitmarker.
+                The base name of the resulting command ensemble is also
+                **snitmarker**.
+                In the case of our Incr Tcl driver:
+
+<a name="AEN2770"></a>```
+marker-itcl itclmarker
+                
+```
+
+Creates an instance whose name is itclmarker
+                and whose instance command is
+                **itclmarker**
+
+Once created, how you configure the device depends on the
+                framework used to build the driver.  For both the
+                snit and Incr Tcl examples, the **configure**
+                command can be used to configure  the object instance:
+
+<a name="AEN2777"></a>```
+instance-command configure -value 0x1234
+                
+```
+
+**Registering device instances. **
+                    Device instances must be registered.  Until they are,
+                    they have an existence completely independent of the CCUSB
+                    framework.  Registration makes their instance command
+                    the name of a device that can be added to **stack**
+`-module` lists.
+
+The **addtcldriver** command associated a Tcl
+                instance command with a module name:
+
+<a name="AEN2787"></a>```
+addtcldriver snitmarker
+                
+```
+
+Creates a module name snitmarker that is
+                associated with the **snitmarker**
+                instance of the `marker-snit` driver.
+
+Given this discussion, here is a fragment of a
+                daq cofiguration script:
+
+<a name="AEN2794"></a>**Example 5-8. DAQ config script fragment with tcl drivers.**
+
+```
+...
+set here [file dirname [info script]]
+
+source [file join $here testdriver-snit.tcl]
+marker-snit create snitmarker
+snitmarker configure -value 0x5678
+addtcldriver snitmarker
+
+source [file join $here testdriver-itcl.tcl]
+marker-itcl itclmarker
+itclmarker configure -value 0xfafa
+addtcldriver itclmarker
+
+
+# testing and tdc were defined earlier by 'normal' commands.,
+
+stack create events
+stack config events -modules [list itclmarker snitmarker testing tdc] -type event -delay 108
+
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing device support software | Up | The slow controls subsystem |

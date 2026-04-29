@@ -1,0 +1,150 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.organization"></a>Chapter 2. Library Organization
+
+This chapter describes the organization of the libraries.
+
+The first question a user might reasonbly ask is how a library can hide
+        the format differences between the versions of NSCLDAQ from a program.
+        This can be done mostly by understanding that each version layers on additional
+        fields and capabilities on the base of fields and capabilities supplied by
+        the prior version.  For example V11 adds the ability to have a body header
+        used in event building to the V10 format.  V12, makes a slight change to
+        the value that indicates there is no body header and provides the ability to
+        track the original source id of objects whose body headers are otherwise
+        overwritten during event building.
+
+The format libary:
+
+
+
+1. Provides a set of classes that is derived from a base class that
+                 completely hides the actual layout of each item, only providing
+                 constructors and accessors to retrieve/set fields in the underlying
+                 data of each object.
+   Where capabilities dont' yet exist, the library either hands off
+               reasonable defaults or throws exceptions.
+2. Provides a set of object factories, one for each supported
+                 NSCLDAQ version to generate objects either from parameterization,
+                 undifferentiated items or from sources of data (e.g. ringbuffers,
+                 file descriptors or c++ streams).  The factories also provide support
+                 for serializing objects to these entities.
+3. Given information about the version of NSCLDAQ used (either an
+                 explicit version number or a data format item, the library can
+                 provide an instance of the appropriate factory.
+
+In this way a program is not looking at the actual data but simply getting or
+        setting properties of the data based on an interface that can accomodate
+        the maximal capabilities of a ring item over all versions.
+
+The next sections describe and give examples of
+
+
+
+- [[c49#sec.ringitems]]
+                The ring item classes which encapsulate the data from each ring item
+                type.
+- [[x115]]
+                The factory classes see, however
+                [[c171]] for more.
+
+# <a name="sec.ringitems"></a>2.1. Ring Item classes.
+
+Ring item contents are hidden from users behind a family of classes.
+         A set of base classes, abstract ring items define a interfaces for each
+         type of ring item. For each supported version of NSCLDAQ a set of subclasses
+         exists that actually provide those interfaces for that specific data format.
+         In the next section we'll see how we can then use the factory classes
+         and factory selector to produce items without knowing the detailed format
+         of those items.
+
+The headers for the abstract ring items types are located in
+            the include subdirectory of the library's
+            installation directory root.  Subdirectories named
+            v*nn* where *nn*
+            is the NSCLDAQ version number host the headers for specific NSCLDAQ
+            versions.  For example  include/v11 holds
+            the headers for version 11.
+
+Since each of the version dependent headers will reference the
+            abstract headers, it's important to only add the top level include
+            directory to the header search path.  Here's a code fragment
+            that shows how to create and fill in a physics data item
+            with event builder information for version 11 (note that in
+            practice you'll do this using a ring item factory as described
+            in the next section).
+
+<a name="AEN82"></a>**Example 2-1. Generating a Physics item for NSCLDAQ-11**
+
+```
+#include <v11/CPhysicsEventItem.h>     
+...
+v11::CPhysicsEventItem item;                      
+item.setBodyHeader(someTimestamp, someSourceId); 
+uint16_t* pBody = reinterpret_cast<uint16_t*>(item.getBodyCursor); 
+...
+item.setBodyCursor(pBody);                   
+item.updateSize();                           
+...
+
+            
+```
+
+[[c49#v11phys.header]]                    Note how we explicitly pull in the header from the v11
+                    subdirectory of the header directory tree for the library.
+                    This header will, in turn, refer to the header in the
+                    top level directory, which supplies the base interface.
+                [[c49#v11phys.create]]                    After some code that's not relevant, a V11 Physics item is
+                    created.  Note that each subclass family lives in a namespace
+                    that indicates its version.  The parameter-less constructor
+                    just reservers a default amount of storage (about 8192 bytes),
+                    and reserves the ring item header filling in the type field
+                    with v11::PHYSICS_EVENT.  An optional parameter
+                    can be used to reserve additional storage if needed.
+                We'll still need to fill in the header's size field as we'll
+                    see later on.
+
+[[c49#v11phys.setbodyheader]]                    Event builder data is in the item's body header which contains
+                    a timestamp, sourceid and barrier type.  The
+                    `setBodyHeader` sets the body header
+                    of the item, if necessary sliding down any existing body data
+                    to accomodate it.  The barrier type argumetn of
+                    `setBodyHeader` defaults to
+                    0 which implies the event is not an
+                    event builder barrier.
+                [[c49#v11phys.getcursor]]                    Ring items have a *body cursor*. This is
+                    the location at which additional body data can be stored. The
+                    `getBodyCursor` method retrieves a
+                    void* pointer to this storage in a format
+                    independent manner.  This provides us a pointer which we
+                    can use to fill in the data from the physics trigger.
+                Note that the code in the section marked ...
+                    below is assumed to fill in the physics data and advance
+                    the `pBody` pointer to point past the
+                    body data we put in.
+
+[[c49#v11phys.updatecursor]]                    Sets the item's body cursor this does two things:
+                    First it allows several distinct sections of code to fill
+                    in the body of an item without knowing what other sections
+                    of code did.  Each section just asks for the current body
+                    cursor, fills in its chunk of data and updates the body cursor
+                    for the next chunk.  More importantly, however, the body
+                    cursor tells the item's encapsulating object the extent of the
+                    object's storage.
+                [[c49#v11phys.setsize]]                    Uses the objects current body cursor to compute the size
+                    of the object and stores that in the item's header.
+                    The physics item is now completely filled in.  Later sections
+                    will describe what we do with that item.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Document Organization |  | Factories. |

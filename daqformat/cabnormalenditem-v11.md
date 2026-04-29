@@ -1,0 +1,75 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5443"></a>CAbnormalEndItem (v11)
+
+<a name="AEN5447"></a>## Name
+
+CAbnormalEndItem (v11) -- Encapsulate abnormal end run item.
+
+<a name="AEN5450"></a>## Synopsis
+
+```
+#include <CAbnormalEndItem.h>
+
+namespace v11 {
+class CAbnormalEndItem : public ::CAbnormalEndItem
+{
+public:
+    CAbnormalEndItem();
+    virtual bool  hasBodyHeader() const;
+    virtual void* getBodyHeader() const;
+    virtual void  setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+    
+    
+    virtual std::string typeName() const;
+    virtual std::string toString() const;
+};
+
+                
+```
+
+<a name="AEN5452"></a>## DESCRIPTION
+
+Abnormal end items are sent into the event stream to mark
+                    an end to data taking that was not commanded by an end run.  They
+                    allow downstream analysis and recording software to close up
+                    processing on the run in progress as well as to note that some
+                    recovery may be required prior to restarting data taking.
+
+Abnormal end items in v11 look like ring item headers followed
+                    by a 0 uint32_t indicating the lack of
+                    a body header.
+
+<a name="AEN5457"></a>## METHODS
+
+
+
+`  CAbnormalEndItem();`Constructs the item.
+
+` const virtual void*  getBodyHeader();`Returns nullptr
+                            since these items don't have body headers.
+
+` virtual void   setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType = 0);`Since the `CAbnormalEndItem`
+                            never has a body header, this is a no-op.
+
+` const virtual std::string  typeName();`Returns the string
+                            Abnormal End
+
+` const virtual std::string  toString();`Returns the string
+                            Abnormal End\n where the
+                            \n should be interpreted to mean
+                            a new line.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingItem (v11) | Up | CDataFormatItem (v11) |

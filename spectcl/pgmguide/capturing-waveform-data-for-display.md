@@ -1,0 +1,114 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.waveforms"></a>Chapter 13. Capturing waveform data for display
+
+Beginning with SpecTcl version 7.0-003, SpecTcl provides the ability for event processors
+        to capture waveform data within event processors.  The new **waveform**
+        provides the ability to define and  maniuplate waveform instances which can be found
+        and filled in by event processors.
+
+This chapter summarizes the process of creating a waveform (at the command level), 
+        locating the `CWaveform` object you create, and updating the
+        waveform contents from within your event processor.
+
+See the command and programming refererences as well as the ReST interface reference
+        for more complete, but less tutorial information about wavforms.
+
+# <a name="AEN4457"></a>13.1. Programmatically creating and using waveform objects
+
+The `CWaveform` class (defined in the CWaveForm.h header)
+            is the object that contains waveform data and any metadata you might want to associated with the
+            waveform.  The `CWaveFormDictionary` 
+            (defined in CWaveFormDictionary.h header) maintains the set of waveforms that are
+            know to SpecTcl's **wavefor**.
+
+Waveform objects have a name, a size, along with storage for a waveform as well as arbitrary metadata
+            you can use as you choose (e.g. to store the digitizer frequency or resolution).
+
+The example below shows how to create and register a waveform object within an event processor.
+            Note that registering a waveform with the dictionary copies the waveform object making it necessary
+            to find it to use it.
+
+<a name="wf1.example"></a>**Example 13-1. Programmatically creating and filling a waveform**
+
+```
+#include <SpecTcl.h>       
+#include <CWaveForm.h>
+...
+class MyEp : public CEventProcessor {
+private:
+    CWaveform* m_pWf;            
+public:
+    Bool_t OnAttach(CAnalyzer& ra);  
+    ...
+    Bool_t operator()(const Address_t pEvent, 
+                            CEvent& rEvent,
+                            CAnalyzer& rAnalyzer,
+                            CBufferDecoder& rDecoder);
+};
+...
+Bool_t
+MyEp::OnAttach(CAnalyzer& ra) {
+    CWaveform awaveform("test", 100);
+    awaveform.setMetadata("Frequency", "250MHz");  
+    awaveform.setMetadata("bits", "14");
+
+    SpecTcl* api = SpecTcl::getInstance();
+    api->addWaveform(awaveform);                   
+    m_pWf = api->findWaveform("test");             
+}
+
+
+Bool_t
+    MyEp::operator()(const Address_t pEvent,
+                                CEvent& rEvent,
+                                CAnalyzer& rAnalyzer,
+                                CBufferDecoder& rDecoder) {
+    uint16_t waveformdata[100];                 
+    ....
+
+    m_pWf->update(waveformdata);                
+}
+            
+```
+
+Let's look at how all of this works. THe numbers below refer to the numbers in the
+            example text.
+
+[[c4450#wf1.headers]]                    These headers are generally needed when mainpulating waveforms. The
+                    SpecTcl API (SpecTcl.h) provides methods that maniuplate the
+                    waveform dictionary while WaveForm.h defines the
+                    `CWaveform` class.
+                [[c4450#wf1.pointer]] `m_pWf` will point to the waveform we actually entered into the
+                    dictionary.  This allows our unpacker to directly reference it without performing a
+                    constly search on each event.
+                [[c4450#wf1.onattach]]                    We will use the `OnAttach` to create and register our waveform
+                    object.  Therefore we need to declare that we are going to override the base 
+                    `CEventProcessor`'s implementation with our own.
+                [[c4450#wf1.unpack]]                    Similarly we'll fill the waveform object on each event with an updated waveform.
+                [[c4450#wf1.create]]                    These lines of code create a new waveform object and supply it with metadata.
+                    Metadata are just some name/value pairs which are not interpreted by SpecTcl.  In this
+                    case, we use the metadata to document the digitizer frequency and resolution.
+                    Metadata use is purely optional.
+                [[c4450#wf1.add]]                    Uses the SpecTcl API to copy the waveform object into the dictionary. Note that it is
+                    this copied object that SpecTcl knows about, not the one we created.
+                [[c4450#wf1.find]]                    Obtains a pointer to the waveform in the dictionary.  When we fill the waveform with
+                    data we want to fill the one in the dictionary as that's the one that e.g.
+                    **waveform get** will manipulate.
+                [[c4450#wf1.storage]]                    This reserves storage into which code not shown will fetch the waveform. Note that
+                    usually, the waveform can be updated directly from the trace in the raw event.
+                [[c4450#wf1.update]]                    Once the waveform has been decoded from the data the waveform object's
+                    `update` is used to copy the data into the waveform object.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using thepmancommand to create and select pipelines |  | Scripting the creation of waveforms and using them |

@@ -1,0 +1,129 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.vhswidgets"></a>VhsWidgets
+
+<a name="AEN81634"></a>## Name
+
+VhsWidgets -- User interface components for VHS 404 power supplies.
+
+<a name="AEN81637"></a>## Synopsis
+
+**package require VhsWidgets
+    **
+
+**set *name* [VhsWidgets::environment create ?options?]
+**
+
+**set *name* [VhsWidgets::channel create ?options?]
+**
+
+**set *name* [VhsWidgets::channelStatus ?options?]
+**
+
+** *name* method *parameters...*
+**
+
+<a name="AEN81653"></a>## DESCRIPTION
+
+This package contains a set of widgets that allow Tcl/Tk programmers
+        to construct control panels for the iSeg VHS 404 and similar modules.
+        See as well, [[r81906]]
+        for one such panel.
+
+Three widgets are included.  `VhsWidgets::environment`
+        provides a display of the environment of the board as sensed by the
+        onboard sensors.  This widget includes a display of the power on board
+        power supply sensors as well as the temperature sensor.
+        `VhsWidgets::channel` provides a voltage and
+        current meter as well as the ability set the voltage set points, the
+        currentl limits to initiate ramps and to kill the channel.
+        Finally `VhsWidgets::channelStatus ` provides
+        access to the stauts and events in the modules as well as the ability
+        to attempt a reset of interlocking events and status bits.
+
+In general a complete control panel will require the use of all of these
+        widgets. The separation of these widgets provides the programmer with
+        increased flexibility in control panel layout.
+
+<a name="AEN81662"></a>## OPTIONS
+
+Each widget has its owns set of options although they all support and
+        require the `-device` option whose parameter is an
+        object that was botten by creating a `vhs` object.
+        All widgets will also accept any option that is recognized by the
+        Tk frame widget and pass that option on to the top level frame that
+        enapsulates the megawidget.
+
+<a name="AEN81667"></a>### VhsWidgets::environment options
+
+This widget only supports the `-device` option.
+        This option is mandatory.
+
+<a name="AEN81671"></a>### VhsWidgets::channel
+
+In addition to the mandatory `-device` option,
+            this widget supports the following options:
+
+
+
+`-channel` `n`Indicates the wiget should monitor channel
+                        `n` this parameter can
+                        be dynamically modified after widget creation.
+                        The default, if this option is not
+                        specified is to monitor channel 0.
+
+`-statuscommand` *script*The user interface features a status button that
+                        monitors the state ofthe channel.  This button is colored
+                        green if there are no faults and red if there are faults.
+                        The script specified here will be executed when this
+                        button is clicked.
+
+On use of this button in a control panel application
+                        might be to display a
+                        `VhsWidgets::channelStatus`
+                        widget that shows the status of the channel.
+
+<a name="AEN81691"></a>### VhsWidgets::channelStatus options
+
+In addition to the `-device` option which is mandatory
+            on creation, this widget supports the `-channel`
+            option whose parameter specifies the specific channel to monitor/control.
+            If not supplied this defaults to 0.  The channel can be dynamically
+            modified using the `configure` method.
+
+<a name="AEN81697"></a>## OBJECT METHODS
+
+All of the widgets in this package support a single method;
+        `update` that refreshes the display from the
+        device.  In normal control applications this is hooked to a recurring
+        timer via code like:
+
+<a name="AEN81701"></a>**Example 1. Hooking update methods to recurring timer**
+
+```
+proc updateVhs {interval widget} {
+    $widget update
+    after $interval "updateVhs $interval $widget"
+}
+...
+updateVhs 1000 $someWidget;  #   update every second.
+        
+```
+
+<a name="AEN81704"></a>## SEE ALSO
+
+[[r81106]]
+[[r18744]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| iSegVhs | Up | vhq |

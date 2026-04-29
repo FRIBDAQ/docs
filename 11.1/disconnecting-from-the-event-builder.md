@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 41. Event builder client API | Next |
+
+
+---
+
+# <a name="AEN8710"></a>41.4. Disconnecting from the event builder.
+
+The event builder defines a 'clean' disconnect protocol.  If the
+                the client simply closes the socket without following this protocol,
+                the event builder can consider this an abnormal client termination
+                and report an alarm.
+
+The disconnect protocol is initiated by either
+
+
+
+- Destroying a connected `CEventOrderClient`
+                      object or
+- Invoking the `destroy` method on a
+                      connected `CEventOrderClient` object.
+
+The code snippet below illustrates the first of these methods.
+                `*pEvb` is a pointer to a dynamically allocated
+                connected
+                `CEventOrderClient` at the start of the
+                snippet.
+
+<a name="AEN8725"></a>**Example 41-2. Closing an event builder connection**
+
+```
+delete *pEvb;
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Connecting to the event builder. | Up | Sending data to the event builder. |

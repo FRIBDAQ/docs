@@ -1,0 +1,420 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev | Chapter 3. Creating a Readout program from a spectrodaq production readout program | Next |
+
+
+---
+
+# <a name="AEN707"></a>3.2. Porting existing event segments to RingDaq
+
+In this section we will look at how to take an existing event
+                segment for the SPDAQ production readout framework and
+                port it to RingDaq.
+                Let's start by comparing the interfaces of the two types of
+                event segments
+
+The `CEventSegment` class in
+                the SPDAQ system looks like this:
+
+
+
+`Initialize`Provides initialization code that is called at the
+                            start of data taking.
+
+`Read`Reads data in response to the trigger.
+                            `rBuffer` is a reference
+                            to the spectrodaq buffer pointer object that
+                            describes where to put the
+                            data to be read.  The return value is a spectrodaq
+                            buffer pointer objedt that has been advanced so that
+                            it points to the first word (uint16_t)
+                            following the data read by this event segment
+
+`Clear`Called prior to being able to accept a trigger
+                            (including the first trigger).  This method is supposed
+                            to do any cleanup to make the digitizers able to accept
+                            a new event.
+
+`MaxSzie`This is supposed to returnt he maximum number of
+                            uint16_t data alements the
+                            event segment will read.
+
+By comparison, the RingDaq `CEventSegment`,
+                which has the same purpose has the following interface:
+
+
+
+`initialize`Is called before data taking starts and is expected
+                            to initialize the data taking devices to prepare
+                            them and enable them to take data.  This method is
+                            optional.  If omitted the framework does nothing
+                            to initialize this event segment.
+
+`clear`Is called to clear digitizers to prepare them
+                            to respond to the next trigger.  It is called
+                            just prior to waiting for a trigger (at the
+                            start of the run after `initialize`
+                            is called as well as after each event).  This
+                            method is optional and if not implemented
+                            the framework does nothing for this event segment
+                            at clear time.
+
+`disable`This method is called as data taking is being
+                            shutdown. If your devices require any actions
+                            to disable them you can perform those actions in this
+                            method.  One place you might use this would be if you
+                            have programmed a user specific trigger based on
+                            VME interrupts.  You could use the method to disable
+                            the interrupts on your trigger device.
+
+This method is optional and the framework will do
+                            nothing if it is not implementerd.
+
+`read`This method is called on each trigger it is expected
+                            to read the data from the devices managed by this
+                            event segment from the digitizer hardware.
+                            Parameters are as follows:
+
+**type: **void*
+
+**parameter: **`pBuffer`
+
+**Purpose: **
+                                    Pointer to storage into which this event
+                                    segment should store its data. Usually
+                                    the first thing you will need to do is
+                                    re-cast this pointer to the appropriate
+                                    data type.
+
+**type: **size_t
+
+**parameter: **`maxWords`
+
+**Purpose: **
+                                    The maximum number of uint16_t
+                                    units that can fit in the space pointed to by
+                                    `pBuffer`.
+                                    Very bad things will happen if you read
+                                    more than this number of words.
+
+The return value is expected to be the number of
+                            uint16_t units of data read by this
+                            segment.
+
+The following are a few general remarks about how to port
+                from SPDAQ to RingDaq for each method in `CEventSegment`.
+                It is important to note that the header spectrodaq.h
+                does not exist in RingDaq and #include directives
+                for it should be removed:
+
+
+
+`Initialize`Change the name of this function to
+                            `initialize`.  Typically
+                            no other changes will be needed.
+
+`Clear`Change the name of this method to
+                            `clear`.  Typically no other
+                            changes are needd.
+
+`MaxSize`This method has no counterpart in the RingDaq
+                            system.  Remove it from your event segment.
+
+`Read`This method needs the most work:
+
+
+
+1. Rename the method to `read`
+                                       changing the parameter signature to match
+                                       that of the RingDaq event segment (accepting
+                                       a void* and a size_t).
+2. Usually you will need to cast the input pointer
+                                       to a uint16_t*.  Then replace all
+                                       arithmetic involving `DAQWordBufferPtr::GetIndex()`
+                                       with direct pointer arithmetic
+3. Return the number of words read rather than
+                                       a pointer to the next location.
+4. Peform a test at the top of the function to see
+                                       if your worst case event (or if you can
+                                       determine it your atual event size) is
+                                       less than or equal to the `maxWords`
+                                       parameter and throw an exception if not.
+
+Let's see how this works in practice. The following two examples
+                show a header and an implementation of an SPDAQ event segment that
+                manages a CAEN V775 TDC.
+
+<a name="AEN866"></a>**Example 3-2. SPDAQ Production readout event segment header**
+
+```
+#include <CEventSegment.h>
+#include <stdint.h>
+
+using namespace std;
+#include <spectrodaq.h>
+
+
+class CAENcard;
+
+class MyEventSegment :  public CEventSegment
+{
+ private:
+  CAENcard* m_pCard;
+ public:
+  MyEventSegment(uint32_t base,  uint8_t id, int crate= 0);
+  virtual ~MyEventSegment();
+
+  virtual void Initialize();
+  virtual DAQWordBufferPtr& Read(DAQWordBufferPtr& rBuffer);
+  virtual void Clear();
+  virtual unsigned int MaxSize();
+
+};
+
+                
+```
+
+<a name="AEN869"></a>**Example 3-3. SPDAQ production readout event segment implementation**
+
+```
+#include <config.h>
+#include "MyEventSegment.h"
+#include <CAENcard.h>
+
+
+MyEventSegment::MyEventSegment(uint32_t base, uint8_t id, int crate) :
+  m_pCard(new CAENcard(id, 0, false, base))
+{}
+
+MyEventSegment::~MyEventSegment() 
+{
+  delete m_pCard;
+}
+
+void MyEventSegment::Initialize()
+{
+  m_pCard->reset();
+  sleep(2);
+  for(int i =0; i < 32; i++) {
+    m_pCard->setThreshold(i, 0);
+  }
+  m_pCard->commonStart();
+  m_pCard->keepOverflowData();
+  m_pCard->keepUnderThresholdData();
+  m_pCard->setRange(0x1e);
+
+  m_pCard->clearData();
+}
+
+void MyEventSegment::Clear()
+{ 
+  m_pCard->clearData();
+
+}
+
+DAQWordBufferPtr&
+MyEventSegment::Read(DAQWordBufferPtr& rBuffer)
+{
+  for (int i =0; i < 30; i++) {
+    if(m_pCard->dataPresent()) break;
+  }
+  rBuffer +=(m_pCard->readEvent(rBuffer))/sizeof(int16_t);
+
+  return rBuffer;
+}
+
+unsigned int
+MyEventSegment::MaxSize() 
+{
+  return 34*2;
+}
+
+                
+```
+
+After following the previous suggestions the
+                resulting header for the event segment looks like this:
+
+<a name="AEN873"></a>**Example 3-4. Porting the event segment to RingDaq**
+
+```
+#include <CEventSegment.h>
+#include <stdint.h>
+
+
+
+
+using namespace std;
+
+
+class CAENcard;
+
+class MyEventSegment :  public CEventSegment
+{
+ private:
+  CAENcard* m_pCard;
+ public:
+  MyEventSegment(uint32_t base,  uint8_t id, int crate= 0);
+  virtual ~MyEventSegment();
+
+  virtual void initialize();  
+  virtual size_t read(void* pBuffer, size_t maxWords); 
+  virtual void clear();      
+
+
+};
+
+                
+```
+
+[[x707#SPAQPtoRing_killspectrodaqheader]]                        This note is for what is not there.  The
+                        #include for
+                        spectrodaq.h has been removed
+                        as there is no corresponding header in RingDaq.
+                    [[x707#SPDAQPtoRing_renameinit]]                        In RingDaq the name of this method is entirely lower
+                        case rather than starting with an upper case letter.
+                    [[x707#SPDAQPtoRing_resigREadout]]                        Note the change not only in name but in parameter
+                        types and number.
+                    [[x707#SPDAQPtoRing_renameclear]]                        The clear function has been renamed to be fully lower
+                        case.
+                    [[x707#SPDAQPtoRing_removeMaxWords]]                        The `MaxWords` method is not used
+                        by RingDaq and has therefore been removed.
+
+Let's take the implementation file in two pieces.
+                First we'll look at all methods other than the `read`
+                method.  Then we'll look at the `read` method
+                by itself.
+
+<a name="AEN898"></a>**Example 3-5. Porting the Event segment to RingDaq II **
+
+```
+#include <config.h>
+#include "MyEventSegment.h"     
+#include <CAENcard.h>
+#include <string>
+
+
+MyEventSegment::MyEventSegment(uint32_t base, uint8_t id, int crate) :
+  m_pCard(new CAENcard(id, 0, false, base))  
+{}
+
+MyEventSegment::~MyEventSegment()   
+{
+  delete m_pCard;
+}
+
+void MyEventSegment::initialize()   
+{
+  m_pCard->reset();
+  sleep(2);
+  for(int i =0; i < 32; i++) {
+    m_pCard->setThreshold(i, 0);
+  }
+  m_pCard->commonStart();
+  m_pCard->keepOverflowData();
+  m_pCard->keepUnderThresholdData();
+  m_pCard->setRange(0x1e);
+
+  m_pCard->clearData();
+}
+
+void MyEventSegment::clear()   
+{ 
+  m_pCard->clearData();
+
+}
+...
+                
+```
+
+As you can see not very many modifications were required for
+                this part of the code:
+
+[[x707#SDAQtoRing_ImplIncludes]]                        The <string> header was included so that
+                        the `read` method (see below)
+                        can throw a `std::string` exception.
+                    [[x707#SDAQToRing_ConstructorNC]]                        No changes required to the consturctor.
+                    [[x707#SDAQToRing_DestructorNC]]                        No changes were required to the destrutor.
+                    [[x707#SDAQToRing_initializeMods]]                        The only change required here was to change the
+                        first letter of the function name to lower case.
+                    [[x707#SDAQToRing_clearMods]]                        the only change required to this function was to
+                        change the first letter of the function name to
+                        lower case.
+
+The bulk of the changes are due to the change in the parameter
+                signature of the `read` method:
+
+<a name="AEN922"></a>**Example 3-6. Porting the Event segment to RingDaq II**
+
+```
+...
+size_t
+MyEventSegment::read(void* pBuffer, size_t maxWords) 
+{
+
+  if (34*2 > maxWords) {       
+    throw std::string("Insuficient space remaining in buffer");
+  }
+
+  for (int i =0; i < 30; i++) {
+    if(m_pCard->dataPresent()) break;  
+  }
+  size_t n = (m_pCard->readEvent(pBuffer))/sizeof(int16_t); 
+
+  return n;  
+}
+
+                
+```
+
+[[x707#SDAQToRing_ReadSigMod]]                        This line had to be changed.  The first character of the
+                        name of the method was changed to lower case and, instead
+                        of a `DAQWordBufferPtr&` return
+                        value, a size_t is returned indicating the
+                        number of words read.  Furthermore, instead of a
+                        `DAQWordBufferPtr& ` parameter,
+                        the function now is passed a void* and
+                        a size_t.
+                    [[x707#SDAQToRing_checkMaxSize]]                        As recommended earlier, if the largest amount of data
+                        we will produce is larger than our remaining event
+                        storage space (`maxWords`), a
+                        `std::string` exception is thrown.
+                    [[x707#SDAQToRing_Waitstillsame]]                        This code is unchanged.
+                    [[x707#SDAQToRing_readDaata]]                        This code is only slightly changed.  Instead of computing
+                        the next buffer location, we just need to know how much
+                        data were read.
+                    [[x707#SDAQToRing_returnsize]]                        Return the numger of words read.
+
+A few points need to be covered prior to leaving this section:
+
+
+
+- If your event segment is more complicated it is often
+                          necessary to cast the void* pointer to
+                          something else.  Suppose, for example in the
+                          code we've been working on we had two adc modules
+                          m_pCard1 and m_pCard2.  We need to know where to put
+                          the data for card 2.  This can be accomplished as follows:
+  <a name="AEN954"></a>```
+  uint8_t* pByteBuffer = reinterpret_cast<uint8_t*>(pBuffer);
+  pByteBuffer += m_pCard1->readEvent(pByteBuffer);
+  pByteBuffer += m_pCard2->readEvent(pByteBuffer);
+  ```
+- Sometimes it can be easier to use pointer
+                          arithmetic to figure out the number of
+                          words read.  In the example in the previous
+                          point, we could do this as follows:
+  <a name="AEN958"></a>```
+  return reinterpret_cast<uint16_t*>(pByteBuffer)
+       - reinterpret_cast<uint16_t*>(pBuffer);
+  ```
+  Subtracting the two uint16_t*
+                              pointers gives the number of words between them.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating a Readout program from a spectrodaq production readout program | Up | Registering event segments withSkeleton.cpp |

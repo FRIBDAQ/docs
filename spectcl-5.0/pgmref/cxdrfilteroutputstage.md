@@ -1,0 +1,157 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN19381"></a>CXdrFilterOutputStage
+
+<a name="AEN19385"></a>## Name
+
+CXdrFilterOutputStage -- Filter output stage for writing Xdr filters.
+
+<a name="AEN19388"></a>## Synopsis
+
+```
+#include <CXdrFilterOutputStage.h>
+
+class CXdrFilterOutputStage : public CFilterOutputStage
+
+public:
+  CXdrFilterOutputStage();
+
+  virtual void open(std::string filename) ;
+  virtual void close() ;
+  virtual void DescribeEvent(std::vector<std::string> parameterNames,
+                             std::vector<UInt_t>      parameterIds);
+
+  virtual void operator()(CEvent& event);
+  virtual std::string type() const;
+
+
+};
+
+        
+```
+
+<a name="AEN19390"></a>## DESCRIPTION
+
+This concrete output stage uses XDR (EXternal Data Represntation)
+            to write a system independent form of filter output data.  See the
+            section File Format below for a description of
+            the file format.
+
+<a name="AEN19394"></a>## METHODS
+
+
+
+`  CXdrFilterOutputStage();`Constructs an Xdr Filter.
+
+` virtual   void  open(std::string  filename);`Called to open the file.  This creates a
+                        `CXdrOutputStream`
+                        object that is open on the `filename`.
+                        That object is used to perform action serializations
+                        of primitive items to file.
+
+` virtual   void  close();`Closes the output file.  The
+                        `CXdrOutputStream` object
+                        created in `open`
+                        is destroyed.
+
+` virtual   void  DescribeEvent(std::vector<std::string> parameterNames, std::vector<UInt_t>  parameterIds);`Called when the filter knows what parameters will be output
+                        to the file. `parameterNames`
+                        is a vector of the names of the parameters while
+                        `parameterIds` are the ids
+                        of the parameters that are actually in the SpecTcl
+                        parameter dictionary.
+
+A series of header records are
+                        written via the `CXdrOutputStream`.
+                        These records are described in
+                        File Format below and describe the
+                        set of parameters that will be written to the filter
+                        file.
+
+` virtual   void  operator()(CEvent&  event);`Called to write an event to the filter files.
+                        An event record is written to file.
+                        See File Format for the
+                        contents of this record.
+
+` virtual  const std::string  type();`Returns the string xdr to signify
+                        that this output stage produces XDR formatted
+                        data.
+
+<a name="AEN19476"></a>## File Format
+
+The file produed by `CXdrOutputStage` objects
+            consists of a set of records.  Each record is identified by
+            a string record type.  At present, two record types are defined:
+            header which contains a set of parameter names
+            and event which contains an event.
+
+The file consists first of one or more header
+            items followed by a sequence of event items.
+            Items are written into fixed length 8192 byte blocks.  Each
+            header item is in a block by iteself.
+            Several event items will be packed into
+            a single block.
+
+<a name="AEN19487"></a>### header items
+
+A header block consits of an XDR string with the value
+                header.   This is then followed by a count
+                of strings to follow.  The count is an xdr integer.
+                The strings that follow are each the name of a parameter
+                that is written to the filter file.
+
+It is important to
+                maintain the order in which the parameters appear as this
+                will be needed to decode the following
+                event items.  There can be several
+                header items.  They cumulatively
+                describe the set of parameters written to the file.
+
+<a name="AEN19494"></a>### event items
+
+Event items each have a compressed event.  The compression
+                scheme takes advantage of the fact that in most cases,
+                the occupancy of parameter space is sparse for an event.
+
+Each event begins with a bitmask.  The set bits in this bitmask
+                determine the number of parameters that follow.  Each element
+                of the bitmask is an XDR integer and the number of bitmasks is
+                determined by the number of 32 bit integers (XDR integers
+                are 32 bits wide) required to provide one bit for each parameter.
+
+Bitmasks are ordered by parameters as they appear in the
+                header records.  The first bitmask has a bit for
+                each of the first 32 parameters and so on.  Within each 32 bit
+                bitmask, bits are assigned from low order to high order within
+                the 32 parameter group.
+
+Following the bitmasks are a set of XDR double precision
+                values.  Each of those values represents a parameter value for
+                one of the parameters corresponding to the bits set in the
+                bitmask.  The first parameter is for the lowest order bit set in the
+                first nonzero bitmask, and so on.
+
+Suppose, for example, we have an event with 48 parameters.
+                This requires two bitmasks.  All bits in the first bitmask
+                are used and the lower 16 bits in the second one are used.
+                Suppose the value of the first bitmask is
+                0x0000000a and that of the second one is
+                0x00000001.
+                Three parameter values will follow.
+
+If we number the parameters from zero;  The first value will
+                be for parameter 1, the second for parameter 2 and the last
+                for parameter 32.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CFilterOutputStage | Up | CFilterOutputStageCreator |

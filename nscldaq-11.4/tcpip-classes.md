@@ -1,0 +1,108 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN10734"></a>Chapter 58. TCPIP classes
+
+This library provides a simplified C++ encapsulation of the system interface
+        to TCP/IP socket stream sockets.
+        This chapter provides:
+
+
+
+- An overview of the library, its main class (`CSocket`)
+              and the exceptions objects of this class can throw.
+- Instructions for including the library in your applications at both
+              the source level and at link time.
+
+This tutorial information is no substitute for the reference pages:
+
+
+
+- [[r43320]]
+- [[r44174]]
+- [[r44293]]
+- [[r44415]]
+- [[r44525]]
+- [[r44660]]
+
+# <a name="AEN10763"></a>58.1. Library concepts
+
+The library supports three types of sockets.
+
+
+
+Client socketsThese sockets initiate connections with some service.
+                        Once connected typically they will make requests of the
+                        program that manages that service and that program will
+                        fulfil those requests as well as send response data back
+                        to the client
+
+Server SocketsThese sockets define a service and passively await connections.
+                        When a connection is made, a new `CSocket`
+                        object is created and the client and server subsequently
+                        communicate over that new socket until their interaction
+                        is complete.
+
+Encapsulated socketsAn encapsulated socket is one that has been opened by
+                        directly invoking the socket(2) operation.  If you know
+                        the socket state (more about socket states later),
+                        you can wrap that socket in a `CSocket`
+                        class.
+
+It is important to know that sockets are a stateful entity.  The
+`            CSocket::State and an internal state member variable
+            that captures this.  Depending on the state of the object, some
+            operations may be illegal.  Invoking an operation that is forbidden
+            by the current state will cause the object to throw a
+            `CTCPBadSocketState` exception.
+
+A socket can be in one of the following states:
+
+
+
+DisconnectedWhen a socket is initially created, or after it has been
+                        detected that the peer has closed its end of the socket,
+                        the socket is Disconnected.
+
+Disconnected sockets can be Bound, turning the
+                        socket into a server
+                        socket in the Bound state or
+                        Connected which, if successful turns the socket into
+                        a Connected client socket.
+
+BoundA server socket is Bound when it has
+                        been configured to offer a specific service. Once
+                        Bound an application can listen on the socket for
+                        a connection.
+
+ListeningA server socket is listening if it it can accept
+                        connections.  This is normally the case once the
+                        `Listen` is invoked.  Typically
+                        `Listen` is followed at some point
+                        in time by a call to `Accept`
+                        which accepts the next connection received.
+
+ConnectedConnected sockets come about in one of two ways.
+                        Either `Accept` called on a server
+                        returns a socket that is connected to a new peer, or
+                        a client socket successfully performss a
+                        `Connect` call connecting
+                        to a server.
+
+Connected sockets can be closed written to an read from.
+
+The `Read` and `Write`
+            methods can be invoked on any connected socket to transfer data to
+            the peer.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Plotchart | Up | Incorporating the socket library |

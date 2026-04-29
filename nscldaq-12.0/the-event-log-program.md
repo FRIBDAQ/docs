@@ -1,0 +1,70 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.eventlog"></a>Chapter 24. The Event log program
+
+Most experiments will record event data.  Event data files are
+        record the data taken from the experiment event by event.
+        The format of event data files is identical to the format of data in
+        ring buffers.
+        See the chapter:
+        [[c185]]
+        for a description of what to expect in an event file.   The
+        $DAQROOT/include/DataFormat.h header is
+        also helpful as it provides C/C++ structure definitions for
+        data in ring buffers and event files.
+
+The event logger takes data from any ring (local or remote via the
+        networked proxy ring subsystem).  When a begin run item is seen,
+        a new event file is started.  Event files are broken into segments.
+        This is done to ensure that files do not exceed maximum sizes set
+        by some filesystems and NFS.  By default, the segment size is a bit
+        less than 2Gbytes. When replaying data it is important to keep this in 
+        mind, and replay all segments of a run.
+
+The Event logger places output files in a specified directory.
+        By default, this directory is the working directory at the time the
+        application was started.  The default ring from which the program
+        accepts data is tcp://localhost/*username*
+        where *username* is the name of the user running
+        the program.
+
+The event log program includes a `--oneshot` option that
+        records a single run and then exits.  The `--oneshot`
+        option also creates synchronization files in the event file directory that
+        allow a controlling program to know when the event logger is
+        running and when it is about to exit.
+
+The control files are:
+
+
+
+.startedCreated when the program is ready to record data.
+                        The controlling program can then start a run.
+
+.exitedCreated when the program has closed the event file and
+                        is about to exit.  The controlling program can move
+                        any event files to a final directory if desired.
+
+
+<a name="AEN9717"></a>**Example 24-1. Taking data from a remote ring**
+
+```
+eventlog --source=tcp://spdaq22/fox --path=/user/0400x/stagearea/current --oneshot
+        
+```
+
+The full reference documentation for the program is in the
+        [[r20672]].
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The dumper program | Up | The tcl server application |

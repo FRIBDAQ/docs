@@ -1,0 +1,291 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN35968"></a>USBDeviceInfo
+
+<a name="AEN35972"></a>## Name
+
+USBDeviceInfo -- Provide information about a USB device.
+
+<a name="AEN35975"></a>## Synopsis
+
+```
+         g++ yourstuff -L$DAQLIB -Wl-rpath=$DAQLIB -llibUSB1 \
+   `pkg-config libusb-1.0 --libs` `pkg-config libusb-1.0 --cflags`         
+      
+```
+
+```
+
+#include <USBDeviceInfo.h>
+class USBDeviceInfo
+{
+public:
+    USBDeviceInfo();
+    USBDeviceInfo(libusb_device* pDevice);
+    USBDeviceInfo(const USBDeviceInfo& rhs);
+    virtual ~USBDeviceInfo();
+    USBDeviceInfo& operator=(const USBDeviceInfo& rhs);
+    libusb_device* getHandle() { return m_pDevice; }
+    uint8_t getBus();
+    uint8_t getPort();
+    uint16_t getVendor();
+    uint16_t getProduct();
+    USBDevice* open();
+    
+};
+      
+```
+
+<a name="AEN35978"></a>## DESCRIPTION
+
+Provides information about a device that does not
+            require opening a connection to the device to obtain.
+            This information includes the location of the device
+            in the USB subsystem as well as information about
+            the device itself.
+
+Finally, the `open`
+            method provides a `USBDevice`
+            which can then be used to interact with the device
+            itself.
+
+The libusb-1.0 implementation just provides a wrapper
+            for an instance of a `libusb_device*`.
+            libusb-1.0 manages these structs using reference
+            counting.  Destruction of a
+            `USBDeviceInfo` object decrements
+            the reference count.  Copy construction and assignment
+            are implemented using the device reference count so that
+            the destruction of the last object referencing
+            `libusb_device` will cause libusb-1.0
+            to destroy the struct.
+
+<a name="AEN35988"></a>## METHODS
+
+
+
+`  USBDeviceInfo();`This constructor does not create a functioning object
+                  as it does not encapsulate a device object.
+                  Use this constructor prior to assigning
+                  from an existing object that has been
+                  well constructed.
+
+See the examples for more.
+
+`  USBDeviceInfo(libusb_device* pDevice);`Constructs this object from a USB device object
+                  from the underlying libusb-1.0 library. Normally
+                  you won't actually directly create an object
+                  like this either but you'll obtain an object from
+                  the `enumerate`
+                  method of the `USB` class.
+
+See Examples for more.
+
+`  USBDeviceInfo(const USBDeviceInfo& rhs);`Copy construction is supported.  The
+                  underlying object's reference count is incremented.
+
+` USBDeviceInfo& operator(const USBDeviceInfo& rhs);`Assignment operator.  If the left hand side of the
+                  operation is not the same as the right, the
+                  encapsulated object on the left hand side is
+                  dereferenced (reference count decremented) and
+                  the object on the rhs referenced (referenc
+                  cont incremented).
+
+The method returns a reference to the lhs
+                  after the assignment is complete to support
+                  operation chaining.
+
+` libusb_device*  getHandle();`Returns the libusb-1.0 `libusb_device*`
+                  this object encapsulates.  If you have to do this
+                  you should aks the operations you need to perform
+                  be added to this class. If you intend to hold
+                  on to the pointer longer than the lifetime of the
+                  `USBDeviceInfo` object
+                  from which it came you should increment the
+                  reference count.
+
+See the examples for more information.
+
+` uint8_t getBus();`Returns the number of the USB bus to which this
+                  device is connected.  This is one part of the
+                  physical location of the device in the USB's
+                  subsystem.
+
+` uint8_t getPort();`Returns the port on the USB bus to which the
+                  device is connected.  Each USB bus controller
+                  (what you get from `getBus`).
+                  can have up to 255 attached devices.  The
+                  devices are attached to numbered ports.  This
+                  method returns a device's port number.
+
+` uint16_t  getVendor();`Returns the device's vendor id.  Each USB device vendor
+                  is assigned a vendor identification number.
+                  Their devices identify to the system using that
+                  number.  This method returns that vendor Id
+                  for the devices.
+
+` uint16_t  getProduct();`Returns the device's product id.  The product
+                  id is a number assigned to identify device models
+                  produced by a USB vendor.  For example, if a vendor
+                  produces keyboards and mice, their mouse will have
+                  a distinct product id from the keyboard so that
+                  software can tell the difference.
+
+` USBDevice*  open();`Opens the device for use returning a pointer
+                  to a dynamically allocated `USBDevice`
+                  object.  Further operations on the device
+                  are performed through this object.  Destroying
+                  the `USBDevice`
+                  returned by this method will also close access
+                  to the device.
+
+The `USBDevice` object
+                  returned by this method provides an implicit reference
+                  to the device information object wrapped by this
+                  class.  It is therefore safe to destroy the
+                  object on whic you called
+                  `open` immediately if it's
+                  no longer needed.
+
+<a name="AEN36088"></a>## EXAMPLES
+
+The first example shows how and when to use
+         the default constructor.  In the example below,
+         the function `selectDevice` choses
+         the 'correct' USB device from amongst the ones
+         connected to the system, and is assumed to be implemented
+         somewhere else in the application.
+
+<a name="AEN36092"></a>```
+#include <USB.h>
+#include <USBDevice.h>
+#include <stdlib.h>
+#include <iostream>
+#include <stdexcept>
+...
+
+try {
+   USB usb;
+   auto devices = usb.enumerate();
+   USBDeviceInfo* pDevice = selectDevice(devices);
+   USBDeviceInfo u;
+   u = *pDevice;
+   
+   // Do more stuff.
+   ...
+   
+}
+catch (std::exception& e) {
+   std::cerr << "Some error occured: "  <<  e.what()
+       <<  std::endl;
+   exit(EXIT_FAILURE);
+}
+         
+```
+
+In this case, the default constructor is used to
+         "turn" the `USBDeviceInfo` pointer
+         into an object.  This could just as easily be done with
+         copy construction or construction on the return value
+         of `getHandle`.
+
+Using enumerate to get a USBDeviceInfo object.
+         Normally, our USB programs need to operate on a specific
+         USB device.  The first cut for determining the device
+         is usually a match on the vendor and product id of the
+         devices in question.  Throughout our examples, we
+         have been doing this selection inside a function
+         named `selectDevice`.  This example
+         shows one possible implementation of this function.
+         Note that XXUSBUtil contains enumeration
+         methods that make it unecessar to code your own
+         `selectDevice` for XXUSB controllers.
+
+Our example will locate and return the last
+         VMUSB device it finds and throw an exception if none
+         are found.
+
+<a name="AEN36102"></a>```
+#include <stdint.h>
+#include <USBDeviceInfo.h>
+#include <stdexcept>
+#include <vector>
+
+static const uint16_t WIENERID(0x16dc);  // Wiener vendor id.
+static const uint16_t VMUSBID(0xb);      // VMUSB product id.
+
+USBDeviceInfo*
+selectDevice(const std::vector<USBDeviceInfo*>& devices)
+{
+   USBDeviceInfo* result(nullptr);
+   for (int i = 0; i < devices.size(); i++) {
+      if ((WIENERID == devices[i]->getVendor()) &&
+          (VMUSBID  == devices[i]->getProduct())) {
+         delete result;    // In case we already found one.
+         result = devices[i];
+      } else {
+         delete devices[i];
+      }
+   }
+   if (!result) {
+      throw std::runtime_error(
+         "There are no VMUSB devices attached to the system"
+      );
+   }
+   return result;
+}
+
+         
+```
+
+If you intende to hold on to a libusb_device pointer
+         for longer than the life time of the the
+         `USBDeviceInfo` object from
+         which it came you need to properly handle its reference
+         count as shown below. Note again, however, if you find yourself
+         using a libusb_device to do what you can't otherwise do,
+         you should reques the missing functionality be added
+         to libUSB1.
+
+<a name="AEN36106"></a>```
+#include <libusb.h>
+#include <USBDeviceInfo>
+
+...
+
+USBDeviceInfo* pDevice = getDevice();   // Somehow.
+
+libusb_device* pRawDevice = pDevice->getHandle();
+libusb_ref_device(pRawDevice);
+
+delete pDevice;
+
+//   ... do stuff with the device until no longer needed:
+
+libusb_unref_device(pRawDevice);
+...
+
+         
+```
+
+Note that if the call to libusb_ref_device is
+         performed *after*
+`pDevice` is deleted, and
+         `pDevice` is the last reference
+         to that handle, lib usb will destroy the struture
+         pointed to by `pRawDevice` because
+         the destructor for `USBDeviceInfo*`
+         calls libusb_unref_device.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| USB | Up | USBDevice |

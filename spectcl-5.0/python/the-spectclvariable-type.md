@@ -1,0 +1,27 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev | Chapter 3. The pythonspectclpackage | Next |
+
+
+---
+
+# <a name="AEN712"></a>3.4. The spectcl.variable type
+
+**Table of Contents**[[r716]] -- Wrapper for SpecTcl tree variable objects.
+
+Objects of this type encapsulate a treevariable.  Treevariables
+                are objects that have a value and units of measure.
+                The value is available to event processors and can be used
+                in computing derived parameters.
+
+SpecTcl does not suport  dynamic treevariable creation.
+                As such, spectcl.variable objects can only wrap
+                existing tree variables.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| spectrum | Up | variable |

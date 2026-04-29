@@ -1,0 +1,121 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="mvlc3.creadoutmodule"></a>CReadoutModule
+
+<a name="AEN105486"></a>## Name
+
+CReadoutModule -- Encapsulate a code generator and its configuration.
+
+<a name="AEN105489"></a>## Synopsis
+
+```
+#include <CReadoutModule.h>
+
+class CReadoutModule {
+
+public:
+    
+    CReadoutModule();
+    virtual ~CReadoutModule();   // Not willing yet to declare this as final.
+
+    CReadoutHardware* getDriver();
+    XXUSB::CConfigurableObject* getConfiguration();
+    void Attach(XXUSB::CConfigurableObject* config);
+    void SetDriver(CReadoutHardware* pDriver);
+    void Initialize(CVMUSB& controller);
+    void addReadoutList(CVMUSBReadoutList& list);
+    void onEndRun(CVMUSB& controller);
+
+};
+
+        
+```
+
+<a name="AEN105491"></a>## DESCRITION
+
+The `CReadoutModule` encapsulates a 
+            `CReadoutHardware` derived object along with
+            a `XXUSB::CConfigurableObject` that supplies
+            that readout driver's configuration.
+
+A `DeviceCommand` derived object will normally
+            implement that object's `createDevice` to
+            instantiate a `CReadoutModule`, instantiate the
+            appropriate `CReadoutHardware` derived class and
+            use the `SetDriver` to store the driver in the
+            module, returning that object.
+
+`CReadoutHardware` also is a facade in front of
+            the driver object providing all of code generating entries.
+
+<a name="AEN105505"></a>## METHODS
+
+
+
+` CReadoutHardware* getDriver ();`Returns a pointer to the code generating driver encapsulated by
+                            the object.  Note that if `SetDriver`
+                            was not yet called, this will return a nullptr
+                            The `CReadoutHardware` retains ownership of the
+                            `CReadoutHardware` object.
+
+` XXUSB::CConfigurableObject*  getConfiguration ();`Returns a pointer to the configuration of the module.  If `Attach`
+                            has not been called this will return nullptr, however the 
+                            base class `DeviceCommand` handling of the **create**
+                            subcommand, creates a configuration and invokes `Attach` so in principle,
+                            if a module was created via the configuration script, this will never be the case except, within
+                            the `DeviceCommand`'s `createDevice` method.
+
+` void  Attach (XXUSB::CConfigurableObject* config);`Associates the configuration `config` with the object.
+                            Ownership of `config` passes to the `CReadoutModule`
+                            object.  Note that on destruction (or replacement), the cofiguration will be delete-d.
+                            This implies it must have been new-ed into existence.
+
+If `SetDevice` has been called with a non-null `CReadoutHardware`
+                            pointer, then that driver's `onAttach` is called to allow it to define its configuration
+                            options.
+
+` void  SetDriver (CReadoutHardware* pDriver);`Sets the module's driver.  The driver must have been dyanmically created with new as its ownership
+                            is passed into the module and delete will be used by the module when it is 
+                            destroyed or in the unlikely event `SetDriver` is called again to replace the
+                            existing driver code.
+
+If the module already h as a configuration, the driver's `onAttach`
+                            is invoked.   This is not the normal case. The normal case is that a device
+                            command's **create** subcommand gets a module with the driver set,
+                            creates an empty configuration and then uses `Attach` to 
+                            get the configuration's options created by the driver.
+
+` void  Initialize (CVMUSB& controller);`If the object has a driver and a configuration, the driver's
+                            `Initialize` is invoked
+                            to generate initializatio operations.  If not an
+                            `std::logic_error` is thrown indicating either mis-use
+                            of this method or an error in the generator framwork, which should invoke this.
+
+The `controller` provides a subset of the
+                            VMUSBReadout's `CVMUSB` operations, but memorizes those operations.
+
+` void  addReadoutList (CVMUSBReadoutList& list);`If the object has a configuration and a driver, the driver's
+                            `addReadoutList` is invoked to generate the operations
+                            needed to read the module.  Note that `list` is an
+                            object very much like the `CVMUSBReadoutList` that can 
+                            memorize opertions requested by `addReadoutList` to be
+                            put into the resulting configuration file.
+
+` void  onEndRun (CVMUSB& controller);`Called by the framework to generate end of run shutdown code.  If the object
+                            has a driver and a configuration the driver's `onEndRun`
+                            method is called.  `controller` is an object the memorizes
+                            the operations the driver requests so that they can be put into the appropriate
+                            part of the generated configuration file.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DeviceCommand | Up | CVMUSB |

@@ -1,0 +1,95 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2287"></a>Chapter 5. CCUSBReadout
+
+The CCUSB Readout framework provides support for the Wiener-JTec
+        CC-USB CAMAC controller.  The CC-USB is a USB CAMAC controller that
+        uses a Xilinx gate array to implement a CAMAC list processor.
+        The CCUSB Readout framework provides:
+
+
+
+- A high level approach to the problem of data taking with the CC-USB
+- Support for user written device support without any need to
+              understand the format of list operations supported by the CC-USB.
+              Drivers can be written in either C++ or in object oriented extensions
+              to Tcl.
+- Direct insertion of data taken to an arbitrary destination
+                  ringbuffer.
+- Support for use as a data source with the NSCL event builder.
+
+This Chapter provides overview information that describes
+
+
+
+- The philosophy behind the CCUSB readout framework.
+- How to write configuration files for the CCUSB readout
+                  framework.
+- How to write device support modules in in C++ and incorpoprate
+                  those modules into the
+                  CCUSB readout framework
+- How to write device support modules in Tcl and incorporate
+                  those modules in the CCUSB readout framework.
+- How the slow controls framework operates.
+- How to write slow controls drivers in C++
+- How to write slow controls drivers in Tcl
+- How to integrate the CCUSBReadout program with the state
+                  manager.
+
+Reference information is available in the 3ccusb
+        section of the referencae material.
+
+# <a name="AEN2319"></a>5.1. How the CCUSB readout framework works
+
+The CCUSB readout framework provides a high level approach to
+            configuring devices supported by the system.  A plugin architecture
+            allows user written device support to be incorporated into
+            the framework at run-time.
+
+The framework supports both data taking devices and slow control
+            devices that may require a control panel.  Naturally you can
+            support relatively static slow control devices by using the
+            data taking device support as well.
+
+The recurring concepts for both the data taking device support
+            and slow controls device support are:
+
+
+
+- A Tcl configuration file describes the devices used
+                      by the experiment.
+- Each supported device class is represented in the
+                      configuration file by a Tcl command ensemble. The
+                      command ensemble provides subcommands that allow you to
+                      create, configure and query the configuration of
+                      physical devices (device instances).
+- The device configuration is represented in the configuration
+                      file in manner analagous to the state of a Tk widget.
+                      That is, you never actually program the device directly,
+                      you simply specify the desired configuration. The actual
+                      programming is done by the device class's device support
+                      software.
+- In accordance with the way the CC-USB operates, you can create
+                      two lists or *stack*s in CC-USB parlance.
+                      One stack is an event stack and is intended to be used
+                      to handle event triggers.  The second stack is a scaler stack
+                      and typically is set to readout periodically.
+  Each stack has, configuration properties as well. One
+                      configuration property is the set of modules managed
+                      by that stack.  Modules managed by that stack are initialized
+                      by the software, in accordance with their configuration,
+                      and contribute to the readout list that executes in response
+                      to that stack's trigger.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Pushing external data into the event stream | Up | Writing DAQ configuration files |

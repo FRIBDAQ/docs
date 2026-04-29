@@ -1,0 +1,68 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.serialbatch"></a>Chapter 2. Serial batch SpectTcl
+
+This chapter describes the batch SpecTcl.  It describes:
+
+
+
+- How to incorporate batch SpecTcl into a raw Tcl interpreter
+                      (e.g. tclsh).
+- The SpecTcl commands that batch SpecTcl
+                      supports.  Note that this is a subset of the full set of
+                      SpecTcl commands (e.g. the **attach** command
+                      is not supported).
+- The objects in batch SpecTcl that drive the batch
+                      analysis and the commands provided to accept them.
+                      Note that this part of batch SpecTcl is deliberately
+                      overkill to make the implementation of MPI SpecTcl simple.
+- How to create a loadable package that sets up the
+                      batch SpecTcl event processing pipeline.
+- We'll look at a simple analysis script and explain how it works.
+                      In that process, we'll also discuss multi-segmented
+                      runs and how to analyze them.
+
+# <a name="AEN52"></a>2.1. Incorporating batch SpecTcl in to a Tcl interpreter
+
+Batch SpecTcl provides a Tcl loadable package that can be
+                installed in any Tcl (or Tk for that matter) interpreter.
+                In order to do this you need to have a Tcl library path that
+                includes the Tcl libraries in the
+                version of SpecTcl you want to use (5.2-000 is
+                the earliest ersion that supports batch SpecTcl).
+
+Here are two examples of how to do this assuming SpecTcl is installed
+                in /usr/opt/spectcl/5.2-000:
+
+<a name="AEN57"></a>**Example 2-1. Incorporating batch SpecTcl: Specifying the TCL Library on the command line:**
+
+```
+TCLLIBPATH=/usr/opt/spectcl/5.2-000/TclLibs tclsh
+% package require spectcl
+                
+```
+
+<a name="AEN60"></a>**Example 2-2. Incorporating batch SpecTcl: adding the Tcl library to the `auto_path`**
+
+```
+tclsh
+% lappend auto_path /usr/opt/spectcl/5.2-000/TclLibs
+% package require spectcl
+                
+```
+
+The spectcl package contains the
+                    library code needed to run batch SpecTcl.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | Commands supported by batch SpecTcl |

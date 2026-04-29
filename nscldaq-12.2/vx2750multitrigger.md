@@ -1,0 +1,127 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN69552"></a>VX2750MultiTrigger
+
+<a name="AEN69556"></a>## Name
+
+VX2750MultiTrigger -- Manage readout triggers.
+
+<a name="AEN69559"></a>## Synopsis
+
+```
+#include <VX2750MultiTrigger.h>
+
+namespace caen_nscldaq {
+  
+    class VX2750MultiTrigger : public CEventTrigger
+    {
+        
+    public:
+        VX2750MultiTrigger();
+        
+        void addTrigger(CAENVX2750PhaTrigger* pTrigger);
+        void removeTrigger(CAENVX2750PhaTrigger* pTrigger);
+        std::vector<CAENVX2750PhaTrigger*> getTriggers() const;
+        std::vector<VX2750EventSegment*> getModules() const;
+        std::vector<VX2750EventSegment*>& getTriggeredModules();
+        
+        // Trigger interface.
+        
+        virtual bool operator()();
+    };
+}                                             
+
+                    
+```
+
+<a name="AEN69561"></a>## DESCRIPTION
+
+The SBS framework requires that the user code register
+                        a
+                        *trigger*.   A trigger is just
+                        an instance of a class that is derived from
+                        the abstract base class
+                        `CEventTrigger`.
+
+All concrete derivications of
+                        `CEventTrigger` must implement the
+                        function call operator (`operator()`).
+                        When invoked, this method returns true
+                        if the event segments of the experiment should be visited
+                        to provide data from an event.
+
+`VX2750MultiTrigger` is a compound
+                         trigger. On each call to `operator()`,
+                         it checks all triggers it owns for data and can then
+                         be queried for those that have data.   The
+                         multimodule event segment maintains this trigger and uses
+                         it to determine which of its owned event segments to read.
+
+The `VX2750MultiTrigger` is a
+                        special purpose compound trigger in that it can only
+                        contain `CAENVX2750PhaTrigger`
+                        objects.  As we will see these are triggers that are
+                        bundled together with their corresponding
+                        `VX2750EventSegment` objects.
+
+<a name="AEN69577"></a>## Methods
+
+In DESCRIPTION, we've already
+                        descdribed `operator()` so that
+                        method won't be described in this section.
+
+
+
+` void  addTrigger(CAENVX2750PhaTrigger*  pTrigger);`Adds a new trigger
+                                `pTrigger`
+                                to the triggers polled by
+                                the object.    The object
+                                pointed to by `pTrigger`
+                                remains owned by the caller.
+
+Recall that a `CAENVX2750PhaTrigger`
+                                is bundled together with the
+                                `VX2750EventSegment` that should
+                                be readout when its trigger is satisfied.
+
+`  void  removeTrigger(CAENVX2750PhaTrigger*  pTrigger);`If `pTrigger` is currently
+                                one of the triggers that has been added to this
+                                trigger, it is removed.   If not, this method
+                                does nothing, silently.
+
+` const std::vector<CAENVX2750PhaTrigger*>  getTriggers();`Returns a vector containing pointers to the
+                                triggers owned by this objects.
+
+` const  std::vector<VX2750EventSegment*>  getModules();`Returns pointer to all of the modules whose
+                                triggers this object will poll.  This is done
+                                by asking all of the triggers to return the modules
+                                that are bundled into them.
+
+` std::vector<VX2750EventSegment*>&  getTriggeredModules();`Returns all of the modules the most recent call
+                                to `operator()` determined
+                                had data.
+
+This is normally used by the event segment;
+                                the trigger loop polls `operator()`.
+                                When a true is returned, the
+                                `read` method of the
+                                event segment is called.  That method  retrieves
+                                the vector of triggered modules and reads each
+                                of them out into a single event fragment ring item.
+
+Once all triggered modules have been read, the
+                                event segment returns control to the trigger poll loop
+                                and the trigger/read process begins all over again.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VX2750EventSegment | Up | CProcessor |

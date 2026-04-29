@@ -1,0 +1,122 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-CBDLeCroy4300B"></a>CBDLeCroy4300B
+
+<a name="AEN84331"></a>## Name
+
+CBDLeCroy4300B -- control a LeCroy 4300B FERA on a CAMAC branch
+
+<a name="AEN84334"></a>## Synopsis
+
+**CBDLeCroy4300B create *name base*
+**
+
+**CBDLeCroy4300B config *name option value ...*
+**
+
+**CBDLeCroy4300B cget *name*
+**
+
+<a name="AEN84344"></a>## DESCRIPTION
+
+The CBDLeCroy4300B cannot be registered as a stack module by itself. Instead it
+must be registered first to a CBDCamacCrate. That CBDCamacCrate must then be
+registered to a CBDCamacBranch module. See the example below to understand how
+this works.
+
+There are a number of options that are provided to ultimately control the
+command register of the device. The command register is what establishes how
+the FERA will read out its data. Two options must be specified to operate the
+device, -pedestals and slot. If either of these are not specified,
+the initialization of the module will fail.
+
+During initialization the following operations occur:
+
+
+
+1. Clear the module
+2. Write all pedestals passed to the -pedestal option
+3. Compute the command register from user define options and write it
+   	  to the module
+
+
+At the end of the run, no actions are taken.
+
+During stack execution initiated by an event trigger, this driver will operate
+  based on the following logic:
+
+```
+
+  if "-camacclear" is true
+      Clear the module
+
+  
+```
+
+<a name="AEN84359"></a>## OPTIONS
+
+
+
+**-slot** *value*Specifies the slot of the CAMAC crate the target module is occupying. DEFAULT is 1.
+
+**-pedestals** *list*A proper tcl list of 16 integer parameters defining the pedestals for
+	  each of the 16 channels. The first element of the list will configure
+	  the first channel of the FERA, the second element will configure the
+	  second channel, and so on. REQUIRED (no legal default value).
+
+**-vsn** *num*The virtual station number to associate with the target device. This will be
+included in the header if data compression is enabled.  Defaults to 0
+
+**-eclpedsub** *bool*Specify whether to use pedestal subtraction in ECL port readout (aka. EPS). Default is false.
+
+**-eclcompression** *bool*Specify whether to enable a data compression cycle before ECL port readout (aka. ECE). Default is false.
+
+**-eclenable** *bool*Specify whether to enable ECL port readout (aka. EEN). Default is false.
+
+**-camacpedsub** *bool*Specify whether to use pedestal subtraction in CAMAC readout (aka. CPS). Default is false.
+
+**-camaccompression** *bool*Specify whether to enable a data compression cycle before CAMAC readout (aka. CCE). Default is false.
+
+**-camacseqrdo** *bool*Specify whether to configure the device for sequential readout in CAMAC (aka. CSR). Default is false.
+
+**-camaclam** *bool*Specify whether the allow the device to emit a LAM when data is available to be read (aka. CLE). Default is false.
+
+**-overflowsuppress** *bool*Specify whether to suppress output of overflows as well as zeros (aka. OAFS). Default is false.
+
+<a name="AEN84429"></a>## EXAMPLES
+
+<a name="AEN84431"></a>**Example 1. Sample setup of a few FERAs**
+
+```
+CBDLeCroy4300B create fera -slot 10 
+CBDLeCroy4300B config fera -pedestals \
+          [list 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+CBDLeCroy4300B config fera -eclenable on
+CBDLeCroy4300B config fera -eclpedsub on
+CBDLeCroy4300B config fera -eclcompression on
+CBDLeCroy4300B config fera -camacclear off
+
+# Create a crate to stick it in
+CBDCamacCrate create crate0 -crate 1
+CBDCamacCrate config crate0 -modules [list fera]
+
+# Create a branch to register the crate in
+CBDCamacBranch create branch0 -branch 0
+CBDCamacBranch config branch0 -crates [list crate0]
+         
+```
+
+Sets up a LeCroy4300B module with all pedestals 1 to be read out by the ECL ports. The FERA resides in slot 10.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CBDCamacCrate | Up | CBDLeCroy4434 |

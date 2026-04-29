@@ -1,0 +1,182 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN103"></a>Chapter 2. Porting custom commands
+
+One of the strengths of SpecTcl and the Tcl scripting language it uses is its extensibility.
+            Complex tailored SpecTcl programs have used this to extend the Tcl interpreter, adding
+            commands of their own to the base Tcl/Tk core and SpecTcl extensions to that core.
+            When SpecTcl is running as an MPI program, only one of the processes has an interactive
+            interpreter.  Therefore, your custom commands must be wrapped in appropriate classes
+            that will relay your command to the rest of the program from the interactive interpreter process.
+            For more about this, see [[c362]]
+
+This chapter will introduce two classes which:
+
+
+
+- Know when SpecTcl is running as an MPI application and when it is running serially.
+- When SpecTcl is running serially simply pass control of to an encapsulated commands.
+- When SpecTcl is running as an MPI application, either causes the wrapped command to 
+                  be executed in all other processes or in all processes, depending on the wrapper
+                  class chosen.
+- In MPI application mode, collects the statuses and the results from all of the
+                  processes executing the command and does something *sensible*.
+                  (I'll define sensible as well).
+
+I will also describe how your code can recognize if the application is running
+            serially or as an MPI application and how to know, in the latter case, the role of the
+            process it is executing in.
+
+The techniques I will describe have been used withn the SpecTcl command extensions
+            and examples will be drawn from that code.
+
+# <a name="AEN120"></a>2.1. The command wrapper classes
+
+In order to function in the MPI application environment, your commands must be
+                wrapped in one of two classes: `CMPITclCommand` defined in
+                CMPITclCommand.h or `CMPITclCommandAll`
+                defined in CMPITclCommandAll.h
+
+Your command must still be created in MySpecTclApp.cpp's 
+               `AddCommand` method.  The procedure is to first create an instanced of your
+               command then to wrap that instanced in the class you chose.
+
+In most cases you won't need your command to run in the interactive interpreter process.
+                Again, see [[c362]].  If that is
+                the case you should wrap your command in `CMPITclCommand`.  If, on the other hand,
+                you need your command to run in the main interpreter, wrap it in `CMPITclCommandAll`
+
+The example below is the `CMySpecTclApp`::`AddCommands` from 
+                CCUSBSpecTcl, howing how the **parammap** is wrapped in 
+                `CMPITclCommand`.  The procedures is identical for
+                `CMPITclCommandAll` as its constructor has the same argument
+                signature as `CMPITclCommand`'s constructor.
+
+<a name="AEN141"></a>**Example 2-1. Wrapping a command in `CMPITclCommand`**
+
+```
+#include "MPITclCommand.h"
+
+...
+
+void 
+CMySpecTclApp::AddCommands(CTCLInterpreter& rInterp)  
+{ 
+  CTclGrammerApp::AddCommands(rInterp);         
+  CParamMapCommand::create(rInterp);            
+  auto pParamMap = CParamMapCommand::getInstance(); 
+  new CMPITclCommand(rInterp, "parammap", pParamMap); 
+}  
+                
+```
+
+This example is made a bit more complicated than most of your commands will be because
+                CCUSB has a static creation method to create and store the instance of the command and
+                another static method to retrieve a pointer to that method. For a detailed description
+                of the sample code, see below where the numbers in the list correspond to numbered
+                callouts in the code itself.
+
+[[c103#ex.wrapcmd.base]]                        As usual, `TclGrammerApp`::`AddCommands` is 
+                        called to define the standard SpecTcl commands (like e.g. **spectrum**).
+                    [[c103#ex.wrapcmd.createwrapped]]                        This creates the **parammap** command handler and stores a
+                        pointer to is instance.  Note that it's just fine to register the command with
+                        the interpreter.   The wrapper will override that registration.
+                    [[c103#ex.wrapcmd.getwrapped]]                        Retrieves a pointer to the command processor instance.  The
+                        processor instance must have been implemented as a class derived
+                        eventually from `CTCLObjectProcessor`.  For classes
+                        derived from the older, obsolete `CTCLProcessor`, see 
+                        [[x266]] for some simple
+                        techniques to convert those to `CTCLObjectProcessor`
+                        processors.
+                    [[c103#ex.wrapcmd.wrap]]                        This is the magic that does the actual wrapping. The constructor for both
+                        `CMPITclCommand.h`
+                        takes three  parameters:
+                        
+
+- A reference to the `CTCLInterpreter` on which the
+                                  command is defined.   This was passed in as `rIterp`
+                                  to `AddCommands`
+- The command name under which the wrapped command shoulid be invoked.
+                                  Normally this shoulid be the same command name used to create your
+                                  wrapped command.  In this case it is parammap
+- The wrapped command itself, a pointer to an object from a class
+                                  derived from `CTCLObjectProcessor`.
+
+The **pman** SpecTcl core command processor uses  an interesting trick that allows you
+                to leave the initialization code in MySpecTclApp.cpp unmodified.
+                It also is wrapped in a `CMPITclCommandAll`.
+
+The original command processor class, `CPipelineCommand` is renamed to 
+                `CPipelineCommandActual`.  This just a simple global string replace for the
+                 most part.  A new class named `CPipelineCommand` derived, in this case,
+                 from `CMPITclCommandAll` with the same constructor signature as
+                 `CPipelineCommandActual` which constructs that actual command processor and wraps it.
+                 This method is suitable when the wrapped command processor is not exporting any services to the external code.
+
+The example below shows excerpts from the header CPipelineCommand.h.
+
+<a name="AEN192"></a>**Example 2-2. Transparently wrapping commands by renaming the actual processor**
+
+```
+#include <PITclCommandAll.h>
+#include <TCLObjectProcessor.h>
+
+...
+class CPipelineCommandActual : public CTCLObjectProcess  
+or
+{
+...
+public:
+
+    CPipelineCommandActual(CTCLInterpreter& interp);
+    int operator()(
+        CTCLInterpreter& interp, 
+        std::vector<CTCLObject>&; objv
+    );
+
+...
+};
+
+class CPipelineCommand : public CMPITclCommandAll {  
+public:
+    CPipelineCommand(CTCLInterpreter& rInterp) ;
+    ~CPipelineCommand() {}
+};
+
+                
+```
+
+[[c103#ex.autowrap.actualdecl]]                    Here we see the renamed original class. Note that in the implementation you will want
+                    to replace *OriginalClassName*:: with
+                    *OriginalClassName*Actual::
+[[c103#ex.autowrap.wrapperdecl]]                        Here is the definition of the replacement for the original class.
+
+where the implementation of `CPipelineCommand`, CPipelineCommand.cpp
+                is now:
+
+<a name="AEN208"></a>**Example 2-3. Implementing the replacement class **
+
+```
+CPipelineCommand::CPipelineCommand(CTCLInterpreter& rInterp) : 
+  CMPITclCommandAll(rInterp, "pman", new CPipelineCommandActual(rInterp)) {}
+                
+```
+
+Doing this allows your wrapped command to be constructed in exactly the same way the
+                original command was.  If you have to wrap a lot of commands this can be conceptually simpler.
+
+[[c103#ex.autowrap.constructorimpl]]                        Here you can see how we implement the constructor of the wrapper class
+                        so that it wraps the actual class.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Debugging mpiSpecTcl |  | Knowing the execution evironment |

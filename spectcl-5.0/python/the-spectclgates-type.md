@@ -1,0 +1,53 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev | Chapter 3. The pythonspectclpackage | Next |
+
+
+---
+
+# <a name="AEN840"></a>3.5. The spectcl.gates type
+
+**Table of Contents**[[r848]] -- Wraps a gate via its gate container.
+
+SpecTcl supports a rich set of conditions that can be combined in
+                arbitrary ways and then used to conditionalize spectrum increments.
+                The spectcl.gates type encapsulates these gates.  You can
+                wrap an existing gate, create new gates and, once you have a
+                gate wrapping you can modify the gate itself.
+
+Getters allow readonly access to gate attributes.
+
+Before providing reference material, it's important to understand
+                how gates are stored in SpecTcl in a manner that maintains
+                a coherent view to all clients in an inexpensive manner.
+                Gates are a two part object.  Firstly, there's the gate itself,
+                which can be any of a number of differnt types of gate.
+                Next there's a gate container that has the gate name and a pointer
+                to the gate itself.
+
+When a gate is modified, its container is unmodified but the
+                gate the container holds changes.  This implies that if you have
+                a handle (pointer) to the gate container, the definition of the
+                gate can change out from underneath you without requiring any
+                action to update your idea of the gate.
+
+This is analagous to the way in which tree parameters map several
+                parameters with the same name to the same underlying set of
+                metadata and same parameter.
+
+spectcl.gates objects, therefore don't directly wrap gates but,
+                instead wrap a gate container object.  Thus if the gate is
+                modified (even if the type of gate is changed), the
+                object is updated without requiring any action on the part of
+                the wrapper or you.  Similarly, several objects can be instantiated
+                that wrap the same gate (container) and all will maintain a
+                consistent view of the actual gate through their handles to its
+                gate container.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| variable | Up | gate |

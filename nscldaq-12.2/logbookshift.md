@@ -1,0 +1,86 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="py3.shift"></a>LogBook.Shift
+
+<a name="AEN85225"></a>## Name
+
+LogBook.Shift -- Encapsulate logbook shifts for python
+
+<a name="AEN85228"></a>## Synopsis
+
+```
+PYTHONPATH=$DAQROOT/pythonLibs/nscldaq python3
+
+import LogBook.LogBook as LogBook
+...
+book = LogBook.LogBook('logbookfile.log')
+person = book.get_person(1)
+shift = book.find_shift('Owl')
+
+      
+```
+
+```
+         
+id      = shift.id
+name    = shift.name
+members = shift.members
+
+      
+```
+
+```
+         
+shift.add_member(person)
+shift.remove_member(person)
+shift.set_current()
+         
+      
+```
+
+<a name="AEN85233"></a>## DESCRIPTION
+
+This class provides a wrapping for LogBook shifts.  A shift is a
+            collection of people.   Note that shifts are not directly comparable
+            via =.  If, however, their `id`
+            attributes are the sam, they wrap the same shift.
+
+<a name="AEN85238"></a>## ATTRIBUTES
+
+`LogBook.Shift` objects have readonly attributes:
+
+
+
+Integer` id`The primary  key associated with the shift.
+
+String` name`The name of the shift.
+
+Tuple of LogBook.Person` members`Tuple of `LogBook.Person` objects that
+                  represent the members of the shift.
+                  `LogBook.Person` is described in
+                  [[r85177]]
+
+<a name="AEN85264"></a>## METHODS
+
+
+
+` None add_member(LogBook.Person person);`Adds `person` to the shift.
+
+` None remove_member(LogBook.Person person);`Removes `person` from the shift.
+
+` None set_current();`Sets the shift to be the current shift. Run state changes
+                  logged after this will be logged as having occured when this
+                  shift was on-duty.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| LogBook.Person | Up | LogBook.Run |

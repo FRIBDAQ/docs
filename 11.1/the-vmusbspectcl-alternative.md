@@ -1,0 +1,35 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 9. A Simple VMUSBReadout Experiment Tutorial | Next |
+
+
+---
+
+# <a name="AEN5291"></a>9.7. The VMUSBSpecTcl Alternative
+
+Now that we have a fully implemented tailored SpecTcl, I will likely upset
+      you by telling you that a program called VMUSBSpecTcl is available with
+      SpecTcl distributions newer than 3.3-009. This program provides a
+      mechanism to build a parser for your VMUSBReadout data just by reading the
+      daqconfig.tcl file. This is a very limited program
+      that can parse only a subset of the modules supported by VMUSBReadout. It
+      is not intended to be used for parsing actual experiments. However, it is
+      perfect for small setups. You can read more about it by pointing a browser
+      at /usr/opt/spectcl/3.4/share/vmusb/index.html
+
+```
+spdaqXX> firefox /usr/opt/spectcl/3.4/share/vmusb/index.html
+    
+```
+
+That documentation will teach you how to set up the program. However, the
+      next section will still be useful to teach you how to create
+      histograms, so don't stop reading here.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Developing a Tailored SpecTcl | Up | Using SpecTcl |

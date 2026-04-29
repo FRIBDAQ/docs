@@ -1,0 +1,59 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq3_cdatasourcefactory"></a>CDataSourceFactory"
+
+<a name="AEN23637"></a>## Name
+
+CDataSourceFactory -- Create data sources given a URI
+
+<a name="AEN23640"></a>## Synopsis
+
+```
+#include <CDataSourceFactory>
+            
+```
+
+```
+CDataSourceFactory
+```
+
+<a name="AEN23658"></a>## DESCRIPTION
+
+This factory class contains a static method to create a ring item
+            data source given a URI.
+
+<a name="AEN23661"></a>## METHODS
+
+
+
+` static CDataSource* makeSource(std::string uri, std::vector<uint16_t> sample, std::vector<uint16_t> exclude);`Creates a new data source object and returns a pointer
+                        to it.  The `CDataSource` object
+                        created is dynamically allocated and needs to be
+                        deleted by the caller.
+
+uri describes the data source.
+                        For a live ring this should be of the form
+                        tcp://hostname/ringname
+                        For a file ring this shouild be of the form
+                        file:///path/to/the/file.
+
+`sample` is a vector of ring item
+                        types.  Ring data sources are free to skip items of this
+                        type depending on circumstances.
+
+`exclde` is a vector of
+                        ring item types the caller does not want to get from the
+                        data source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CFileDataSource | Up | CRingItemFactory |

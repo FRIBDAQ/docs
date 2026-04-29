@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="s800ringsource"></a>S800 Ring fragment data source
+
+<a name="AEN6983"></a>## Name
+
+s800ringsource -- Event builder ring fragment source from s800
+
+<a name="AEN6986"></a>## Synopsis
+
+**$DAQROOT/bin/ringFragmentSource *options...*
+**
+
+<a name="AEN6990"></a>## DESCRIPTION
+
+Combination of the **ringFragmentSource** with a
+            timestamp extractor that gets the timestamp from S800 formatted
+            data.  The assumption is that the s800 data are being
+            acquired from the S800 event builder and events put in a ringbuffer
+            somewhere.
+
+The main requirement is that the `--timestampextractor`
+            option be specified as $DAQROOT/lib/libs800TimeExtractor.so.
+            See OPTIONS below for a complete rundown of the command line
+            options.
+
+<a name="AEN6997"></a>## OPTIONS
+
+
+
+`--evbhost`=*hostname*Provides the name of the host on which the event
+                            orderer/event builder is running.
+
+`--evbport`=*port-spec*Provides a specification of the port number on which
+                            the event orderer is listening for connections.
+                            If managed is used, the
+                            software will attempt to locate the server's
+                            port using the remote system's port manager.
+
+`--evbname`=*eventbuilder-name*Provides the name of the event builder to which this
+                           client will provide fragments.  If this is omitted, the
+                           client will provide fragments to the default event
+                           builder for the user.
+
+`--info`=*information string*When connecting to the event builder/orderer,
+                            this string is used to describe the connection.
+                            It is available to GUI software that has been
+                            incorporated in the event orderer.
+
+`--ids`=*id-list*Normally this is a comma separated list of the
+                            event source ids that are managed by this
+                            data source.  Ring buffers comprise only a single
+                            event source and the program quits with an error
+                            if more than one event source id is supplied.
+
+The event source id tags each fragment submitted
+                            to the event builder. This allows data consumers
+                            to know which fragment came from which data source.
+
+`--ring`=*ring-uri*The URI describing the name of the ring from which
+                            data fragments are taken.  A ring URI is of the form:
+                            tcp://*hostname*/*ringname*
+                            Where the *hostname* is the
+                            name of the host in which the ring is ultimately
+                            located and *ringname* is the
+                            name of that ring.
+
+`--timestampextractor`=*so-path*Provides the path to the shared library that contains
+                            code to extract the timestamp from each physics item
+                            packet.  For the S800 ring this should be
+                            $DAQROOT/lib/libS800TimeExtractor.so
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| glom | Up | teering |

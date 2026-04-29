@@ -1,0 +1,308 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ccusb3_ccusb_command"></a>ccusb (command)
+
+<a name="AEN52655"></a>## Name
+
+ccusb (command) -- Configure and read scalers from CC-USB module
+
+<a name="AEN52658"></a>## Synopsis
+
+**ccusb create name ?options?
+          **
+
+**ccusb config name ?options?
+            **
+
+**ccusb cget name
+            **
+
+<a name="AEN52665"></a>## DESCRIPTION
+
+**ccusb** provides a readout module that allows you
+            to configure many of the resources of the CCUSB as well as
+            providing the capability of rerading the module internal scalers.
+            Note that owing to the way the framework operates, you must include
+            CCUSB modules in either the event or scaler stack in order to
+            configure them, even if you don't intend to readout the scalers.
+
+For the configuration options see OPTIONS
+            below.
+
+The resources you can control are the module internal gate and delay
+            generators, the module internal scalers, the meaning of the
+            Module NIM outputs and inputs and the meaning of the front panel
+            LED displays.
+
+<a name="AEN52672"></a>## OPTIONS
+
+
+
+`-gdgasource`Defines the start of the module internal gate and delay
+                        generator A.  This can be one of:
+                        disabled, in1, in2, in3, event, eventend, usbtrigger, 
+                        or pulser.   Sections 3.3.6 and 3.3.7
+                        of the CCUSB manual provide more information about the
+                        Gate and delay generators.
+
+This option defaults to disabled
+
+`-gdgbsource`Same as `-gdgasource`, however the
+                        B gate and delay generator start is set.  The same set
+                        of values accepted for `-gdgasource`
+                        are accepted for this option.
+
+Defaults to disabled
+
+`-gdgawidth`Sets the output width of the A Gate and delay generator.
+                        This can be a value from 0 through
+                        0xffff and is in 10ns units.
+
+Defaults to 1, or 10ns.
+
+`-gdgbwidth`Sets the output width of the B gate and delay generator.
+
+Defaults to 1, or 10ns.
+
+`-gdgadelay`Sets the output delay on the A gdg output. This can be
+                        in the range 0 through
+                        0xffffffff.  It winds up setting both
+                        a field in the
+                        DGG_A register and the
+                        DGG_Ext register.
+
+Defaults to 0
+
+`-gdgbdelay`Sets the output delay on the B gdg output.
+
+Defaults to 0
+
+`-red`Sets the signal that is reflected on the red LED on the
+                        module front panel.  This is modified by the
+                        `-redinvert` and `-redlatch`
+                        options described below.
+
+Legal values are
+                        event, busy, usboutnotempty and
+                        usbinnotfull
+
+The default value is event
+
+`-redinvert`This boolean parameter, if true
+                        inverts the sense of the red front panel LED.
+
+By default this is false
+
+-redlatchIf true, this boolean parameter latches the red front panel
+                        LED on once the condition required to ligth it is met.
+
+By default this is false
+
+`-green`This enumerated parmeter, together with
+                        `-greeninvert` and `-greenlatch`,
+                        determines when the green LED should be lit.  Valid values
+                        are:
+                        acquire, nimi1, nimi2, usbinnotemtpy
+                        and usbtrigger.
+
+The default is acquire.
+
+`-greeninvert`Boolean value that, when true, inverts the sense of the green front panel LED.
+			false by default
+
+`-greenlatch`Boolean value that, when true, latches the green LED on
+			when the condition to light it
+                        is met.
+
+false by default.
+
+`-yellow`Together with `-yellowinvert` and
+                        `-yellowlatch` when the yellow front
+                        panel LED is lit.  This can be one of the following values:
+                        nimi1, nimi3, busy or
+                        usbinfifionotempty.
+
+By default this is nimi2
+
+`-yellowinvert`Boolean parameter (default false).
+			When true the yellow led shows the inverse of the
+			condition selected vai `-yellow`
+
+`-yellowlatch`Boolean parameter (default false).
+			When true, the yellow light latches on when its
+			condition (modified by `-yellowinvert`)
+			is met.
+
+`-scalara`Defines what makes the A scaler count.  This can have
+                        any of the following values:
+                        disabled, nimi1, nimi2, nimi3, event, carryb, dgga
+                        or dggb.  The carryb
+                        increments the scaler when the B scale overflows.  This
+                        provides the ability to make the A scaler the most significant
+                        24 bits of a 48 bit scaler with the B scaler the least
+                        significant 24 bits.
+
+Defaults to disabled
+
+`-scalerb`Defines what makes scaler B count.  This can have any of
+                        the following values:
+                         disabled, nimi1, nimi2, nimi3, event, carrya, dgga
+                        or dggb. The carrya
+                        increments the scaler when the A scale overflows.  This
+                        provides the ability to make the B scaler the most significant
+                        24 bits of a 48 bit scaler with the A scaler the least
+                        significant 24 bits.
+
+Defaults to disabled
+
+`-out1`Together with `-out1invert`
+                        and `-out1latch` determines the condition
+                        that drives the O1 NIM output.  This can be one of the
+                        following values:
+                        busy, event, gdga or
+                        gdgb.
+
+By default, this parameter is busy
+
+`-out1invert`Boolean value that when
+			truenverts the sense of the O1 NIM output.
+			The default value is false.
+
+`-out1latch`Boolean value that when
+			true latches the state of O1 once
+			the condition needed to
+                        make it a logic true has been detected.
+			The default value of this parameter is
+			false.
+
+`-out2`Together with `-out2invert` and
+                        `-out2latch` determines when the
+                        NIM O2 signal is asserted.  This can be one of the
+                        following values:
+                        acquire, event, gdga,  or
+                        gdgb.
+
+The default value for this parameter is
+			event, that is a pulse is emitted
+			when an event trigger (IN1) occurs.
+
+`-out2invert`This boolean parameter inverts the sense of the O2 NIM output
+			when true.   By default, the value
+			is false.
+
+`-out2latch`This boolean value, latches the NIM O2 state if
+			true when the condition to assert
+                        it has been met.  This condition is determined by
+                        both `-out2` and
+                        `-out2invert`.
+
+By default, the value of this parameter is
+			false.
+
+`-out3`Together with `-out3invert`
+                        and `-out3latch` determines the behavior
+                        of the NIM O3 output.  This can be any of the following
+                        values: busyend, busy, gdga,  or
+                        gdgb.
+
+The default value of this parameter is
+			busyend, a pulse is emitted
+			when the busy is released after processing a stack.
+
+`-o3invert`This boolean parameter inverts the condition that asserts O3
+			when set to true.  By default the
+			value is false.
+
+`-o3latch`Boolean that when true
+			latches O3 in the asserted state when the condition
+                        to assert it is met.  By default, this value is
+			false.
+
+`-readscalers`Boolean that when true enables the readout of the A and
+                        B scalers in the stack this module is in.  The A scaler
+                        is read first then the B scaler.   Defaults to
+			false.
+
+`-incremental`This boolean parameters only matters when
+                        `-readscalers` is true.  It causes
+                        the scalers to be cleared once they have been read.
+                        Note that in general some counts may be lost as there
+                        is no way to atomically read and clear the scaler counters.
+
+Defaults to false.
+
+`-bulktransfermode`This enum parameter provides user control over the 
+                        criteria for a usb bulk transfers. This can be any
+                        of the following: default, nbuffers, timeout.
+                        The default provides the default behavior of 
+                        timeout of 1 second. The nbuffers nbuffers 
+                        allows the user to specify a number of data buffers to be 
+                        bundled in a given USB bulk write. The user must specify the
+                        -nbuffers2transfer options. The timeout
+                        generate a packet end after the time specified for the timeout.
+                        The user must specify the -bulktransfertimeout
+                        option for this mode.
+
+Defaults to default as that value
+			implies.
+
+`-nbuffers2transfer`This integer parameter specifies the number of buffers to 
+                      bundle in a given usb bulk write. This must be a number between
+                      1 and 255.
+
+Defaults to -1 which is not a legal
+			value, making this parameter mandatory when
+			`-bulktransfermode` is
+			nbuffers.  If not set in that mode,
+			an error will be emitted when the run is started and
+			the run will not start.
+
+`-bulktransfertimeout`Specifies the timeout value for a the usb bulk transfer mode.
+                        Values are between 0 and 15 and specify the number of seconds 
+                        beyond 1 second to timeout.
+
+Defaults to -1 which is not a legal
+			value.  It is therefor mandatory to set the
+			value of this option when
+			`-bulktransfermode` is timeout.
+			If not configured in that mode an error message will
+			be emitted when the run is started and the run
+			will not start.
+
+`-bufferlength`Enum that specifies the buffer size used by the CCUSB. This can
+                        be any of the following values: 4096, 2048, 1024, 512, 256, 128, 
+                        64, singleevent.  Defaults to 4096.
+			If your event rate is low, you may get better response
+			by reducing this value or even by setting it to
+			singleevent.
+
+`-forcescalerdump`When true, this causes the CC-USB to flush its buffers
+                      after every scaler stack execution. It is very useful
+                      when there is either a very low data rate or only
+                      a scaler stack defined. The default value is false.
+
+`-mixedbuffer`When true, this allows the CC-USB to put scaler-type data
+                      and event-type data in the same buffer. This defaults to
+                      false.
+
+`-triggerlatch`When true, the execution of a scaler stack causes the
+                      the event stack to execute immediately at completion.
+                      The default value is false.
+
+`-printconfig`When true, all register values for the CC-USB are read and
+                      printed at the completion of the initialization stage.
+                      This is useful for inspecting the exact register contents
+                      used for an ongoing run. The default value is false.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| c257 | Up | lrs2228 |

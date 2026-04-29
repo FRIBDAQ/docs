@@ -1,0 +1,101 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN903"></a>3.11. Accessing the fit command (new in 5.5)
+
+The /spectcl/fit domain provides
+                access to the SpecTcl **fit** command.
+                **fit** provides you with the ability to
+                fit spectra to arbitrary functions.  The built-in
+                linear and gaussian
+                fit types are provided and the programming manual describes
+                how to extend the set of fits that are provided by this
+                command.
+
+The URL below:
+
+<a name="AEN912"></a>**http://host:port/spectcl/fit/create?name=fitname&spectrum=specname&low=lochan&high=hichan&type=fittype
+                **
+
+Provides the capability to create new fits (**fit create**).
+                The query parameters are as follows:
+
+
+
+nameName to be associated with the fit.  This will be used
+                        when referring to the fit in the future.
+
+spectrumThe spectrum on which the fit is to be computed.
+
+low, highThe *channel* coordinates over which
+                        the fit is to be computed.  At present, the fit is done
+                        in channel coordinates.
+
+typeThe type of the fit to perform.  The built in fit types
+                        are linear and gaussian
+                        which have pretty obvious meanings.  Applications may
+                        extend this set of functions.
+
+The URL
+
+<a name="AEN942"></a>**http://host:port/spectcl/fit/update[?pattern=glob]
+                **
+
+Provides the ability to update the set of fits whose names
+                match the glob pattern in the query parameter pattern.
+                As spectra accumulate, fit data will be outdated. This allows
+                the fit information to be recomputed to match current data.
+
+If the pattern is not provided it defaults to *
+
+The URL
+
+<a name="AEN951"></a>**http://host:port/spectcl/fit/delete?name=fitname                    
+                **
+
+provides the ability to delete the fit object named after the
+                contents of the query parameter name.  Once
+                deleted, the fit cannot be recovered.
+
+URLs of the form
+
+<a name="AEN957"></a>**http://host:port/spectcl/fit/list?pattern=glob
+                **
+
+Allows you to get information about the fits whose names
+                match the pattern query parameter.  The
+                pattern is treated as a glob pattern and, if not supplied,
+                defaults to *
+
+The result is a detail attribute that is an
+                array. Each element of the array is an object that
+                describes a matching fit. The
+                atributes of these objects are:
+
+
+
+nameName of the fit.
+
+spectrumName of the spectrum the fit is computed on.
+
+typeType of the fit being computed.
+
+low, highFit limits in spectrum channel coordinates.
+
+parametersAn object that contains the fit parameters.
+                        The attributes of this object will depend on the actual
+                        fit type.  Likely there will always be a
+                        chisquare attribute that describes the
+                        goodness of fit.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Binding Spectra to Display Memory (new in 5.5) | Up | REST interface for the fold command (new in 5.5) |

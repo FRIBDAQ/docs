@@ -1,0 +1,116 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN8164"></a>CPhysicsEventItem  (v12)
+
+<a name="AEN8168"></a>## Name
+
+CPhysicsEventItem  (v12) -- Encapsulate physics event data.
+
+<a name="AEN8171"></a>## Synopsis
+
+```
+#include <v12/CPhysicsEventItem>
+
+namespace v12 {
+
+
+
+class CPhysicsEventItem : public ::CPhysicsEventItem
+{
+public:
+    CPhysicsEventItem(size_t maxBody=8192);
+    CPhysicsEventItem(uint64_t ts, uint32_t sid, uint32_t barrierType, size_t maxBody=8192);
+    virtual ~CPhysicsEventItem();
+  
+    virtual std::string typeName() const;	// Textual type of item.
+    virtual std::string toString() const; // Provide string dump of the item.
+    
+    size_t        getBodySize() const;
+    virtual void* getBodyPointer();
+    virtual const void* getBodyPointer() const;
+    virtual bool  hasBodyHeader() const;
+    virtual void* getBodyHeader() const;
+    virtual void setBodyHeader(
+        uint64_t tstamp, uint32_t sourceId, uint32_t barrierType
+    );
+    virtual uint64_t getEventTimestamp() const;
+    virtual uint32_t getSourceId() const;
+    virtual uint32_t getBarrierType() const;
+ 
+  
+};
+
+}
+                
+```
+
+<a name="AEN8173"></a>## DESCRIPTION
+
+This class contains the data taken in response to a trigger.
+                    We leave the concept of trigger delibrarately vague.
+                    The format of the body of the item is not defined as it
+                    is completely application dependent.
+
+Normally, one wil instantiate an object in response to a trigger.
+                    `getBodyCursor` is then used to determine
+                    Where data can be stored.  After the data are stored
+                    `setBodyCursor` should be updated
+                    to reflect the new insertion position.
+                    `updateSize` is then called to
+                    set the size of the ring item in the ring item header.
+
+`CPhysicsEventItem` objects may or may not
+                    have body headers.  However if event bulidng is done;
+                    the body header should be set either at construction time or
+                    via a call to `setBodyHeader`.
+
+<a name="AEN8183"></a>## METHODS
+
+
+
+`  CPhysicsEventItem(size_t  maxBody = 8192);`Constructs an item for a single physics trigger.
+                            Note that the storage size is statically allocated
+                            with `maxBody` bytes of payload
+                            data.  The ring item header type field is initialized
+                            to PHYSICS_EVENT.
+
+Upon creating the item, if a body header
+                            is required, `setBodyHeader`
+                            is invoked.  `getBodyCursor`
+                            is then used get a pointer into the object at where
+                            the physics data should be put.  After incrementing
+                            this pointer by an appopriate amount,
+                            calls to `setBodyCursor`,
+                            folowed by `updateSize`
+                            are required to set the size field of the
+                            ring item header.
+
+` const virtual std::string  typeName();`Returns a string that represents the ring item type:
+                            Event
+
+` const virtual std::string  toString();`Returns a string that represents the contents of the
+                            event.  This is used, e.g., by the
+                            **dumper** command to render human
+                            readable data.
+
+` const virtual void* getBodyHeader();`Returns a pointer to the body header for the event.
+                            If the event has no body header,
+                            nullptr is returned. Note that
+                            the base class `hasBodyHeader`
+                            can be called to determine if the ring item type has
+                            a body header.
+
+` virtual void  setBodyHeader(uint64_t  timestamp,  uint32_t  sourceId, uint32_t  barrierType  = 0);`Inserts a new or modifies an existing body header of the event.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CGLomParameters (v12) | Up | CRingFragmentItem (v12) |

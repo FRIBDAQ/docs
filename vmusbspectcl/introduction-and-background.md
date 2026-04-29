@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| VMUSBSpecTcl |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction and background
+
+VMUSBSpecTcl is a tailored SpecTcl which has unpacking software
+            for all of the modules supported by the VMUSBReadout program.
+            By inserting a bit of  metadata in the DAQ configuration file
+            used by VMUSBReadout, you can use VMUSBSpecTcl to analyze data
+            read by VMUSBReadout producing and produce raw spectra without
+            writing a single line of code.
+
+The remainder of this manual has the following chapters:
+
+
+
+- *VMUSBSpecTcl configuration* describes
+                      what you need to put in the daq configuration file to
+                      make VMUSBSpecTcl create parameters and raw spectra for
+                      each of the devices in your readout.
+- *Extending VMUSBSpecTcl* describes
+                      how to extend the base VMUSBSpecTcl application.
+                      At this poit in time emphasis is on how to add
+                      additional event processors that interact with the raw,
+                      unpacked parameters to produce computed parameters.
+- *Running VMUSBSpecTcl* describes what you need
+                  to do to run VMUSBSpecTcl
+- *Reference information* provides manpage
+                      like documntation to soem of the bits and pieces of
+                      VMUSBSpecTcl that need it.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VMUSBSpecTcl |  | VMUSBSpecTcl  configuration |

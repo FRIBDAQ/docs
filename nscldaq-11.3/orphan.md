@@ -1,0 +1,64 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN78523"></a>Orphan
+
+<a name="AEN78527"></a>## Name
+
+Orphan -- Run script when the process is orphaned
+
+<a name="AEN78530"></a>## Synopsis
+
+**package require orphan
+            **
+
+**set o [Orphan %AUTO% ?`-script`* script*?
+            **
+
+**$o configure `-script` *newscript*
+**
+
+**$o destroy
+            **
+
+<a name="AEN78543"></a>## DESCRIPTION
+
+The oprhan package provides an object oriented
+            scheme to execute a Tcl script when the process's parent process
+            changes.  Normall this happens when the process is orphaned (that is
+            its parent process exited).
+
+When the `Orphan` object is created, it
+            captures the parent's process id and uses the **after**
+            command to poll for changes in the parent's id every second.  The
+            `-script` option, used at construction time or
+            in the **configure** subcommand provides a script
+            to execute at the global level when the parent process id changes.
+            An empty script causes the object to continue to poll, however if the
+            parent process id changes no script is executed.
+
+This implementation, therefore has a few potential problems:
+
+
+
+- If the parent changes prior to creating the
+                      `Orphan` object, no script is called.
+- If the parent changes while the `-script`
+                      option value is empty, when `-script` is
+                      provided, it will never be called.
+
+The limitations above suggest that the best way to use this
+            facility is to create an `Orphan` object with
+            a script early in script execution.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ppid | Up | FrameManager |

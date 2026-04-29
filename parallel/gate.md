@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1439"></a>gate
+
+<a name="AEN1443"></a>## Name
+
+gate -- Behavior of the gate command in mpiSpecTcl
+
+<a name="AEN1446"></a>## Synopsis
+
+**gate [`-new`]** *name* *type* *description*
+
+**gate `-list`**  [`-byid`]  *[glob-pattern]*
+
+**gate `-delete`**  [`-id`]  *gate*...
+
+** gate `-trace`**   
+                         [add | delete | change]
+                      [*script*]
+
+<a name="AEN1482"></a>## DESCRIPTION
+
+The **gate** is wrapped in a `CMPITclPackagedCommandAll`
+                    which means that all ranks, including the root rank will execute it.  All operations on 
+                    gates are done via the `SpecTcl` singleton API.
+
+The API takes into
+                    account the differences in tracing semantics;  When it detects a 
+                    `CHistogrammer`
+                    has been created (MPI_EVENT_SINK_RANK) it manipulates the gates
+                    via that object so that its ownt tracing mechanisms will fire.
+                    If, on the other hand, no `CHistogrammer` has been
+                    created, it operates via the gate dictionary and the gate commands own
+                    internal tracing scheme is used.  Note that one pre-established trace feeds the
+                    gate trace pump so that GUIs are appropriately notified of gate modifications.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| fold | Up | integrate |

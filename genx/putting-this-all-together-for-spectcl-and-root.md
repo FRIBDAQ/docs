@@ -1,0 +1,1148 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev | Chapter 4. Generated Code | Next |
+
+
+---
+
+# <a name="AEN388"></a>4.3. Putting this all together for SpecTcl and Root.
+
+This section puts everything together to build a common unpacker
+					for Root and SpecTcl.  First we'll describe how to setup the project
+					and a recommended directory structure for the project.  At that time;
+					we'll also build skeleton Makefiles for the project.
+
+The final result will be a tailored SpecTcl and an event file to Root Tree
+					converter program.  For the latter we'll lean heavily on the cookbook
+					code for reading and analyzing ring items.
+
+## <a name="AEN392"></a>4.3.1. Setting up the project
+
+Here's the recommended project directory structure:
+
+<a name="AEN395"></a>```
+TopLevel
+    +-----> SpecTcl
+				+-----> Root
+						
+```
+
+For our example, the TopLevel project directory
+						(substitute your own name here) will contain
+						the following files:
+
+
+
+event.declThe data declaration file that's translated by genx.
+
+unpacker.cppThe unpacking code that is independent of Root and SpecTcl.
+									This is common code for both of those targets.
+
+MakefileThe top-level Makefile for this project
+
+Note that we're going to use a very simple example so that you can focus
+						on the process of creating this project rather than getting lost in the
+						intricacies of the event structure.  We'll build up the Makefile incrementally
+						as we go along, however if you lose track of the form of that file,
+						fear-not, we'll supply a section that provides the complete contents of
+						all of the files we've written.
+
+## <a name="AEN415"></a>4.3.2. Code in the TopLevel directory.
+
+We're going to define a simple unpacked structure.  The events that come
+						in will be fixed length 10 word items.  From those words we'll create
+						raw data as well as sums of element 1 and 2 and a difference between
+						elements 3 and 4.
+
+This leads to an event.decl file that looks like this:
+
+<a name="AEN419"></a>**Example 4-22. event.decl - event declaration file for the example:**
+
+```
+struct Tevent {
+			array raw[10] low = 0 high = 4095 bins = 4096
+			value sum12   low = 0 high = 8191 bins = 8192
+			value diff34  low = -4095 high = 4095 bins = 8129
+}
+
+
+structinstance Tevent event
+						
+```
+
+To generate code for Root and SpecTcl, we'll start out with the following
+						Makefile in TopLevel:
+
+<a name="AEN423"></a>**Example 4-23. Makefile - generating code from event.decl**
+
+```
+all: toplevel spectcl root
+
+toplevel: event.decl
+							/usr/opt/genx/bin/genx --target=spectcl event.decl SpecTcl/Event
+							/usr/opt/genx/bin/genx --target=root    event.decl Root/Event
+
+spectcl:
+
+root:
+						
+```
+
+This just generates code from event.decl into
+							the appropriate directories and keeps a place holder for compiling
+							the root and spectcl bits.
+
+The event unpacker for this code should be pretty simple.  Note
+						that the namespace that contains the instance event is event.
+
+<a name="AEN429"></a>**Example 4-24. unpacker.cpp - example unpacker**
+
+```
+#include "Event.h"
+#include <stdint.h<
+
+void unpack(const void* p)
+{
+  const uint16_t* pEvent = reinterpret_cast<const uint16_t*<(p);
+  for (int i =0; i < 10; i++) {
+    Event::event.raw[i] = *pEvent++;             // Fill the raw elements.
+  }
+  Event::event.sum12 = Event::event.raw[1] + Event::event.raw[2];
+  Event::event.diff34 = Event::event.raw[3] - Event::event.raw[4];
+
+}
+
+						
+```
+
+## <a name="AEN432"></a>4.3.3. SpecTcl event processor and unpacker.
+
+In order to compile the event.cpp code, we're going to have to start with
+						compiling into a framework of some sort.  We'll start with SpecTcl as
+						online analysis usually comes before offline.
+
+First copy a SpecTcl skeleton into the SpecTcl subdirectory:
+
+<a name="AEN436"></a>```
+cp /usr/opt/spectcl/5.0-012/Skel/* SpecTcl
+						
+```
+
+What we need to do is
+
+
+
+1. Make an event processor that invokes the API elements at appropriate
+   											times, and uses the code in unpacker.cpp to unpack the raw events.
+   											Note that the unpacker.cpp can unpack data from SpecTcl's test event
+   											generator.
+2. Modify MySpecTclApp.cpp to use the event processor
+   								we write in its event processingn pipeline.
+3. Modify the SpecTcl Makefile to build our tailored SpecTcl.
+4. Modify the TopLevel makefile to make SpecTcl in its spectcl: target.
+
+We will create an event processor called
+						`CUnpackerWrapper`.  It will
+						invoke event::Initialize in its OnAttach method and delegate unpacking
+						data to the unpack function in unpacker.cpp.  Here's the header for
+						this `CUnpackerWrapper` event processor:
+
+<a name="AEN452"></a>**Example 4-25. SpecTcl/CUnpackerWrapper.h**
+
+```
+#ifndef CUNPACKERWRAPPER_H
+#define CUNPACKERWRAPPER_H
+#include <EventProcessor.h>
+
+class CUnpackerWrapper : public CEventProcessor {
+  Bool_t OnAttach(CAnalyzer& rAnalyzer);
+  Bool_t operator()(const Address_t pEvent,
+                            CEvent& rEvent,
+                            CAnalyzer& rAnalyzer,
+                            CBufferDecoder& rDecoder);
+};
+
+#endif
+							
+						
+```
+
+As you can see we only need to claim to implement the
+						`OnAttach` and `operator()`
+						methods.
+
+The implementation of this class is very simple as well:
+
+<a name="AEN460"></a>**Example 4-26. SpecTcl/CUnpackerWrapper.cpp**
+
+```
+#include "CUnpackerWrapper.h"
+#include <TCLAnalyzer.h>
+#include "Event.h"
+
+
+extern void unpack(const void*);
+
+Bool_t CUnpackerWrapper::OnAttach(CAnalyzer& rAnalyzer)
+{
+  Event::Initialize();
+  return kfTRUE;
+}
+
+Bool_t CUnpackerWrapper::operator()(const Address_t pEvent,
+                  CEvent& rEvent,
+                  CAnalyzer& rAnalyzer,
+                  CBufferDecoder& rDecoder)
+{
+
+  // First word is the size in words... use that to set the event size
+  // (the test generator does not make ring items).
+
+  const uint16_t* p = reinterpret_cast<const uint16_t*>(pEvent);
+  CTclAnalyzer& TclAnalyzer(dynamic_cast<CTclAnalyzer&>(rAnalyzer));
+  TclAnalyzer.SetEventSize(*p  * sizeof(uint16_t));
+
+  Event::SetupEvent();
+  unpack(pEvent);
+  Event::CommitEvent();
+  return kfTRUE;
+}
+						
+```
+
+We need to adjust MySpecTclApp.cpp to set the
+						analysis pipeline up properly:
+
+<a name="AEN466"></a>**Example 4-27. SpecTcl/MySpecTclApp.cpp - AnalysisPipeline**
+
+```
+...
+#include "CUnpackerWrapper.h"
+...
+void
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+  RegisterEventProcessor(*(new CUnpackerWrapper), "unpacker");
+
+}
+
+							
+```
+
+Here's the modified version of SpecTcl/Makefile
+
+<a name="AEN472"></a>**Example 4-28. SpecTcl/Makefile**
+
+```
+INSTDIR=/usr/opt/spectcl/5.0-012
+# Skeleton makefile for 3.1
+
+include $(INSTDIR)/etc/SpecTcl_Makefile.include
+
+#  If you have any switches that need to be added to the default c++ compilation
+# rules, add them to the definition below:
+
+USERCXXFLAGS=
+
+#  If you have any switches you need to add to the default c compilation rules,
+#  add them to the defintion below:
+
+USERCCFLAGS=$(USERCXXFLAGS)
+
+#  If you have any switches you need to add to the link add them below:
+
+USERLDFLAGS=
+
+#
+#   Append your objects to the definitions below:
+#
+
+OBJECTS=MySpecTclApp.o CUnpackerWrapper.o unpacker.o Event.o
+
+#
+#  Finally the makefile targets.
+#
+
+
+SpecTcl: $(OBJECTS)
+        $(CXXLD)  -o SpecTcl $(OBJECTS) $(USERLDFLAGS) \
+        $(LDFLAGS)
+
+unpacker.o: ../unpacker.cpp event.h
+        $(CXX) $(CXXFLAGS) -c ../unpacker.cpp
+
+
+clean:
+        rm -f $(OBJECTS) SpecTcl
+
+depend:
+        makedepend $(USERCXXFLAGS) *.cpp *.c
+
+help:
+        echo "make                 - Build customized SpecTcl"
+        echo "make clean           - Remove objects from previous builds"
+        echo "make depend          - Add dependencies to the Makefile. "
+
+						
+```
+
+Note the explicit rule to build unpacker.o into this directory using
+						the source file in TopLevel directory.  Note as well the need to
+						Build Event.o from the C++ and header generated by genx.
+
+Finally in the top level Makefile we've modified the
+						spectcl target:
+
+<a name="AEN479"></a>```
+spectcl:
+        (cd SpecTcl; make)
+						
+```
+
+If you've followed along, you should be able to issue the
+						**make** command in the TopLevel directory and wind up with
+						a SpecTcl in the SpecTcl directory.  If you make some spectra and
+						use the **start** command without specifying a data source,
+						the test data source will supply data to SpecTcl and you can see
+						the spectra get populated.
+
+## <a name="AEN484"></a>4.3.4. Ring item reader, and unpacker to make trees.
+
+We're going to start from the cookbook recipe in
+						$DAQROOT/share/recipes/process for this.  The source files for this
+						are in $DAQROOT/share/recipes/process for 11.3-005 and later.
+						Let's start by setting up NSCLDAQ and ROOT and
+						copying that recipe into the Root folder. At TopLevel:
+
+<a name="AEN487"></a>```
+. /usr/opt/daq/11.3-005/daqsetup.bash
+module load root/gnu/6.10.02
+cp $DAQROOT/share/recipes/process/* Root
+						
+```
+
+Note that Event.h, Event.cpp and Event-linkdef.h are already there from
+						our make of SpecTcl.
+
+From here we need to:
+
+
+
+1. Modify process.cpp to create the output file and Initialize the
+   												tree.  Note that the output file has to be created before the
+   												tree so that the tree will be produced in the output file.
+2. Modify process.cpp to write to the output file and close it when
+   											there are no more ring items in the data source.  This ensures the
+   											any buffered data are written into the tree.
+3. Make processor.cpp's physics event processor call our
+   											unpacker function.  We'll also remove code from the example's
+   											implementation of its other methods
+   											so our program won't be so noisy when it runs.
+4. Modify the Makefile to create the program, and stuff we need
+   												to use the root classes in Event.cpp in root interpreted code.
+   												Note that the resulting shared object can also be linked into
+   												compiled root programs.
+
+Modifications to process.cpp are relatively minor.
+						They are limited to a few lines here and there:
+
+<a name="AEN502"></a>**Example 4-29. Root/process.cpp modifications**
+
+```
+...
+// Headers for other modules in this program:
+
+#include "processor.h"
+
+#include "Event.h"
+#include <TFile.h>
+
+...
+static void
+usage(std::ostream& o, const char* msg)
+{
+    o << msg << std::endl;
+    o << "Usage:\n";
+    o << "  readrings uri rootfile\n";
+    o << "      uri - the file: or tcp: URI that describes where data comes from\n";
+    o << "      rootfile - The Root file this program will write\n";
+    std::exit(EXIT_FAILURE);
+}
+...
+int
+main(int argc, char** argv)
+{
+    // Make sure we have enough command line parameters.
+
+    if (argc != 3) {
+        usage(std::cerr, "Not enough command line parameters");
+    }
+...
+   
+
+    TFile* pf = new TFile(argv[2], "RECREATE");
+    Event::Initialize();
+
+    while ((pItem = pDataSource->getItem() )) {
+        std::unique_ptr<CRingItem> item(pItem);     // Ensures deletion.
+        processRingItem(processor, *item);
+    }
+    // We can only fall through here for file data sources... normal exit
+
+    // Write any buffered data to file and close it:
+
+    pf->Write();
+    delete pf;
+
+    std::exit(EXIT_SUCCESS);
+}
+
+...
+						
+```
+
+Note that we've added another command line parameter, the name of the
+						root file that's created and written.
+
+Here's the modifications to processor.cpp.  In addition to the code
+						shown, the guts of each of the other ring item type handlers was removed.
+
+<a name="AEN508"></a>**Example 4-30. Root/processor.cpp modifications**
+
+```
+...
+#include <CGlomParameters.h>
+
+#include "Event.h"
+
+// Standard library headers:
+
+#include <iostream>
+...
+extern void unpack(const void* pdata);
+
+...
+
+void
+CRingItemProcessor::processEvent(CPhysicsEventItem& item)
+{
+  Event::SetupEvent();
+  unpack(item.getBodyPointer());
+  Event::CommitEvent();
+}
+...
+						
+```
+
+Note that in addition to creating the executable program, Root wants
+						dictionary code to be made and, if we're going to play back the
+						resulting trees in interpreted Root, we'll want a shared library that
+						can be loaded into the interpreter.  This results in the following
+						Makefile:
+
+<a name="AEN513"></a>**Example 4-31. Root/Makefile**
+
+```
+ROOTCXXFLAGS=$(shell $(ROOTSYS)/bin/root-config --cflags)
+ROOTLDFLAGS=$(shell  $(ROOTSYS)/bin/root-config --libs)
+
+DAQCXXFLAGS=-I$(DAQROOT)/include
+DAQLDFLAGS=-L$(DAQLIB)  \
+        -ldataformat -ldaqio -lException -Wl,-rpath=$(DAQLIB)
+
+CXXFLAGS=-std=c++11 -fPIC -I. $(DAQCXXFLAGS) $(ROOTCXXFLAGS)
+CXXLDFLAGS=$(DAQLDFLAGS) $(ROOTLDFLAGS)
+
+all: process libEventRootDictionary.so
+
+process: process.o processor.o Event.o unpacker.o EventRootDictionary.o
+        $(CXX) -o process process.o processor.o Event.o unpacker.o EventRootDictionary.o $(CXXLDFLAGS)
+
+process.o: process.cpp
+        $(CXX) $(CXXFLAGS) -c process.cpp
+
+processor.o: processor.cpp
+        $(CXX) $(CXXFLAGS) -c processor.cpp
+
+Event.o: Event.cpp
+        $(CXX) $(CXXFLAGS) -c Event.cpp
+
+unpacker.o: ../unpacker.cpp Event.h
+        $(CXX) $(CXXFLAGS) -c ../unpacker.cpp
+
+## Root dictionary code:
+
+EventRootDictionary.o: EventRootDictionary.cpp
+        $(CXX) -c $(CXXFLAGS) EventRootDictionary.cpp
+
+EventRootDictionary.cpp: EventRootDictionary.h
+
+EventRootDictionary.h: Event.h Event-linkdef.h
+        LD_LIBRARY_PATH=$(ROOTSYS)/lib $(ROOTSYS)/bin/rootcint \
+        -f EventRootDictionary.cpp \
+        -rml libEventRootDictionary.so  \
+        -rmf libEventRootDictionary.rootmap \
+        $^
+
+libEventRootDictionary.so: Event.o EventRootDictionary.o
+        $(CXX) -o libEventRootDictionary.so -shared Event.o EventRootDictionary.o $(CXXLDFLAGS)
+
+clean:
+        rm -f process *.o *.so
+
+						
+```
+
+The Makefile assumes that NSCLDAQ and Root have been setup.
+
+The top level Makefile is then modified so that its
+						root target looks like:
+
+<a name="AEN520"></a>```
+root:
+        (cd Root; make)
+						
+```
+
+If you've followed along, you should be able to issue the
+						**make** command from TopLevel
+						and get a SpecTcl in the SpecTcl directory and the Root directory will
+						have a process program as well as
+						libEventRootDictionary.so and libEventDictionary.rootmap files.
+
+## <a name="AEN525"></a>4.3.5. Full contents of all of the files we wrote/modified
+
+This section provides listing of all of the files we wrote. Listings are
+						not provided for the files generated by the **genx**
+						system.
+
+**Files in TopLevel. **
+
+<a name="AEN533"></a>**Example 4-32. Full listing of TopLevel/event.decl**
+
+```
+struct Tevent {
+    array raw[10] low = 0 high = 4095 bins = 4096
+    value sum12   low = 0 high = 8191 bins = 8192
+    value diff34  low = -4095 high = 4095 bins = 8129
+}
+
+structinstance Tevent event
+						
+```
+
+<a name="AEN537"></a>**Example 4-33. Full listing of TopLevel/Makefile**
+
+```
+all: toplevel spectcl root
+
+toplevel: event.decl
+        /usr/opt/genx/bin/genx --target=spectcl event.decl SpecTcl/Event
+        /usr/opt/genx/bin/genx --target=root    event.decl Root/Event
+
+spectcl:
+        (cd SpecTcl; make)
+root:
+        (cd Root; make)
+
+						
+```
+
+<a name="AEN541"></a>**Example 4-34. Full listing of TopLevel/unpacker.cpp**
+
+```
+#include "Event.h"
+#include <stdint.h<
+
+void unpack(const void* p)
+{
+  const uint16_t* pEvent = reinterpret_cast<const uint16_t*>(p);
+  for (int i =0; i < 10; i++) {
+    Event::event.raw[i] = *pEvent++;             // Fill the raw elements.
+  }
+  Event::event.sum12 = Event::event.raw[1] + Event::event.raw[2];
+  Event::event.diff34 = Event::event.raw[3] - Event::event.raw[4];
+
+}
+
+						
+```
+
+**Files in SpecTcl. **
+
+<a name="AEN548"></a>**Example 4-35. TopLevel/SpecTcl/CUnpackerWrapper.h**
+
+```
+#ifndef CUNPACKERWRAPPER_H
+#define CUNPACKERWRAPPER_H
+#include <EventProcessor.h>
+
+class CUnpackerWrapper : public CEventProcessor {
+  Bool_t OnAttach(CAnalyzer& rAnalyzer);
+  Bool_t operator()(const Address_t pEvent,
+                            CEvent& rEvent,
+                            CAnalyzer& rAnalyzer,
+                            CBufferDecoder& rDecoder);
+};
+
+#endif
+
+						
+```
+
+<a name="AEN552"></a>**Example 4-36. TopLevel/Spectcl/CUnpackerWrapper.cpp**
+
+```
+#include "CUnpackerWrapper.h"
+#include <TCLAnalyzer.h>
+#include "Event.h"
+
+
+extern void unpack(const void*);
+
+Bool_t CUnpackerWrapper::OnAttach(CAnalyzer& rAnalyzer)
+{
+  Event::Initialize();
+  return kfTRUE;
+}
+
+Bool_t CUnpackerWrapper::operator()(const Address_t pEvent,
+                  CEvent& rEvent,
+                  CAnalyzer& rAnalyzer,
+                  CBufferDecoder& rDecoder)
+{
+
+  // First word is the size in words... use that to set the event size
+  // (the test generator does not make ring items).
+
+  const uint16_t* p = reinterpret_cast<const uint16_t*>(pEvent);
+  CTclAnalyzer& TclAnalyzer(dynamic_cast<CTclAnalyzer&>(rAnalyzer));
+  TclAnalyzer.SetEventSize(*p  * sizeof(uint16_t));
+
+  Event::SetupEvent();
+  unpack(pEvent);
+  Event::CommitEvent();
+  return kfTRUE;
+}
+
+						
+```
+
+<a name="AEN556"></a>**Example 4-37. TopLevel/SpecTcl/MySpecTclApp.cpp (comments removed)**
+
+```
+#include <config.h>
+#include "MySpecTclApp.h"
+#include "EventProcessor.h"
+#include "TCLAnalyzer.h"
+#include <Event.h>
+#include <TreeParameter.h>
+#include "CUnpackerWrapper.h"
+
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;
+#endif
+
+
+
+void
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+  RegisterEventProcessor(*(new CUnpackerWrapper), "unpacker");
+
+}
+
+CMySpecTclApp::CMySpecTclApp ()
+{
+}
+ CMySpecTclApp::~CMySpecTclApp ( )
+{
+}
+void
+CMySpecTclApp::BindTCLVariables(CTCLInterpreter& rInterp)
+{
+  CTclGrammerApp::BindTCLVariables(rInterp);
+}
+
+void
+CMySpecTclApp::SourceLimitScripts(CTCLInterpreter& rInterpreter)
+{ CTclGrammerApp::SourceLimitScripts(rInterpreter);
+}
+
+void
+CMySpecTclApp::SetLimits()
+{ CTclGrammerApp::SetLimits();
+}
+
+void
+CMySpecTclApp::CreateHistogrammer()
+{ CTclGrammerApp::CreateHistogrammer();
+}
+
+void
+CMySpecTclApp::CreateDisplays()
+{
+    CTclGrammerApp::CreateDisplays();
+}
+
+void
+CMySpecTclApp::SelectDisplayer()
+{
+    CTclGrammerApp::SelectDisplayer();
+}
+
+void
+CMySpecTclApp::SetUpDisplay()
+{
+    CTclGrammerApp::SetUpDisplay();
+}
+
+void
+CMySpecTclApp::SetupTestDataSource()
+{ CTclGrammerApp::SetupTestDataSource();
+}
+
+void
+CMySpecTclApp::CreateAnalyzer(CEventSink* pSink)
+{ CTclGrammerApp::CreateAnalyzer(pSink);
+}
+void
+CMySpecTclApp::SelectDecoder(CAnalyzer& rAnalyzer)
+{ CTclGrammerApp::SelectDecoder(rAnalyzer);
+}
+
+void
+CMySpecTclApp::AddCommands(CTCLInterpreter& rInterp)
+{ CTclGrammerApp::AddCommands(rInterp);
+}
+
+void
+CMySpecTclApp::SetupRunControl()
+{ CTclGrammerApp::SetupRunControl();
+}
+
+void
+CMySpecTclApp::SourceFunctionalScripts(CTCLInterpreter& rInterp)
+{ CTclGrammerApp::SourceFunctionalScripts(rInterp);
+}
+
+int
+CMySpecTclApp::operator()()
+{
+  return CTclGrammerApp::operator()();
+}
+
+CMySpecTclApp   myApp;
+
+
+
+#ifdef SPECTCL_5_INIT
+CTclGrammerApp* CTclGrammerApp::m_pInstance = &myApp;
+CTCLApplication* gpTCLApplication;
+
+#else
+CTclGrammerApp& app(myApp);     // Create an instance of me.
+CTCLApplication* gpTCLApplication=&app;  // Findable by the Tcl/tk framework.
+#endif
+
+						
+```
+
+<a name="AEN560"></a>**Example 4-38. TopLevel/SpecTcl/Makefile**
+
+```
+INSTDIR=/usr/opt/spectcl/5.0-012
+
+include $(INSTDIR)/etc/SpecTcl_Makefile.include
+
+#  If you have any switches that need to be added to the default c++ compilation
+# rules, add them to the definition below:
+
+USERCXXFLAGS=
+
+#  If you have any switches you need to add to the default c compilation rules,
+#  add them to the defintion below:
+
+USERCCFLAGS=$(USERCXXFLAGS)
+
+#  If you have any switches you need to add to the link add them below:
+
+USERLDFLAGS=
+
+#
+#   Append your objects to the definitions below:
+#
+
+OBJECTS=MySpecTclApp.o CUnpackerWrapper.o unpacker.o Event.o
+
+#
+#  Finally the makefile targets.
+#
+
+
+SpecTcl: $(OBJECTS)
+        $(CXXLD)  -o SpecTcl $(OBJECTS) $(USERLDFLAGS) \
+        $(LDFLAGS)
+
+unpacker.o: ../unpacker.cpp event.h
+        $(CXX) $(CXXFLAGS) -c ../unpacker.cpp
+
+
+clean:
+        rm -f $(OBJECTS) SpecTcl
+
+depend:
+        makedepend $(USERCXXFLAGS) *.cpp *.c
+
+help:
+        echo "make                 - Build customized SpecTcl"
+        echo "make clean           - Remove objects from previous builds"
+        echo "make depend          - Add dependencies to the Makefile. "
+
+						
+```
+
+**Root files. **
+
+<a name="AEN567"></a>**Example 4-39. TopLevel/Root/process.cpp**
+
+```
+// NSCLDAQ Headers:
+
+#include <CDataSource.h>              // Abstract source of ring items.
+#include <CDataSourceFactory.h>       // Turn a URI into a concrete data source
+#include <CRingItem.h>                // Base class for ring items.
+#include <DataFormat.h>                // Ring item data formats.
+#include <Exception.h>                // Base class for exception handling.
+#include <CRingItemFactory.h>         // creates specific ring item from generic.
+#include <CRingScalerItem.h>          // Specific ring item classes.
+#include <CRingStateChangeItem.h>     //                 |
+#include <CRingTextItem.h>            //                 |
+#include <CPhysicsEventItem.h>         //                |
+#include <CRingPhysicsEventCountItem.h> //               |
+#include <CDataFormatItem.h>          //                 |
+#include <CGlomParameters.h>          //                 |
+#include <CDataFormatItem.h>          //             ----+----
+
+// Headers for other modules in this program:
+
+#include "processor.h"
+
+#include "Event.h"
+#include <TFile.h>
+
+// standard run time headers:
+
+#include <iostream>
+#include <cstdlib>
+#include <memory>
+#include <vector>
+#include <cstdint>
+
+static void
+processRingItem(CRingItemProcessor& procesor, CRingItem& item);   // Forward definition, see below.
+
+/**
+ * Usage:
+ *    This outputs an error message that shows how the program should be used
+ *     and exits using std::exit().
+ *
+ * @param o   - references the stream on which the error message is printed.
+ * @param msg - Error message that precedes the usage information.
+ */
+static void
+usage(std::ostream& o, const char* msg)
+{
+    o << msg << std::endl;
+    o << "Usage:\n";
+    o << "  readrings uri rootfile\n";
+    o << "      uri - the file: or tcp: URI that describes where data comes from\n";
+    o << "      rootfile - The Root file this program will write\n";
+    std::exit(EXIT_FAILURE);
+}
+
+
+/**
+ * The main program:
+ *    - Ensures we have a URI parameter (and only a URI parameter).
+ *    - Constructs a data source.
+ *    - Reads items from the data source until the data source is exhausted.
+ *
+ *  @note Online ringbuffers are never exhausted.  The program will just block
+ *        when the ringbuffer is empty until the ring has new data.
+ *  @note Because of the note above, this function never exits for online sources.
+ */
+
+int
+main(int argc, char** argv)
+{
+    // Make sure we have enough command line parameters.
+
+    if (argc != 3) {
+        usage(std::cerr, "Not enough command line parameters");
+    }
+    // Create the data source.   Data sources allow us to specify ring item
+    // types that will be skipped.  They also allow us to specify types
+    // that we may only want to sample (e.g. for online ring items).
+
+    std::vector<std::uint16_t> sample;     // Insert the sampled types here.
+    std::vector<std::uint16_t> exclude;    // Insert the skippable types here.
+    CDataSource* pDataSource;
+    try {
+        pDataSource =
+        CDataSourceFactory::makeSource(argv[1], sample, exclude);
+    }
+    catch (CException& e) {
+        usage(std::cerr, "Failed to open ring source");
+    }
+    // The loop below consumes items from the ring buffer until
+    // all are used up.  The use of an std::unique_ptr ensures that the
+    // dynamically created ring items we get from the data source are
+    // automatically deleted when we exit the block in which it's created.
+
+    CRingItem*  pItem;
+    CRingItemProcessor processor;
+
+    // Create the ROOT file and trees:
+
+    TFile* pf = new TFile(argv[2], "RECREATE");
+    Event::Initialize();
+
+    while ((pItem = pDataSource->getItem() )) {
+        std::unique_ptr<CRingItem> item(pItem);     // Ensures deletion.
+        processRingItem(processor, *item);
+    }
+    // We can only fall through here for file data sources... normal exit
+
+    // Write any buffered data to file and close it:
+
+    pf->Write();
+    delete pf;
+
+    std::exit(EXIT_SUCCESS);
+}
+
+
+/**
+ * processRingItem.
+ *    Modify this to put whatever ring item processing you want.
+ *    In this case, we just output a message indicating when we have a physics
+ *    event.  You  might replace this with code that decodes the body of the
+ *    ring item and, e.g., generates appropriate root trees.
+ *
+ *  @param processor - references the ring item processor that handles ringitems
+ *  @param item - references the ring item we got.
+ */
+static void
+processRingItem(CRingItemProcessor& processor, CRingItem& item)
+{
+    // Create a dynamic ring item that can be dynamic cast to a specific one:
+
+    CRingItem* castableItem = CRingItemFactory::createRingItem(item);
+    std::unique_ptr<CRingItem> autoDeletedItem(castableItem);
+
+    // Depending on the ring item type dynamic_cast the ring item to the
+    // appropriate final class and invoke the correct handler.
+    // the default case just invokes the unknown item type handler.
+
+    switch (castableItem->type()) {
+        case PERIODIC_SCALERS:
+            {
+                CRingScalerItem& scaler(dynamic_cast<CRingScalerItem&>(*castableItem));
+                processor.processScalerItem(scaler);
+                break;
+            }
+        case BEGIN_RUN:              // All of these are state changes:
+        case END_RUN:
+        case PAUSE_RUN:
+        case RESUME_RUN:
+            {
+                CRingStateChangeItem& statechange(dynamic_cast<CRingStateChangeItem&>(*castableItem));
+                processor.processStateChangeItem(statechange);
+                break;
+            }
+        case PACKET_TYPES:                   // Both are textual item types
+        case MONITORED_VARIABLES:
+            {
+                CRingTextItem& text(dynamic_cast<CRingTextItem&>(*castableItem));
+                processor.processTextItem(text);
+                break;
+            }
+        case PHYSICS_EVENT:
+            {
+                CPhysicsEventItem& event(dynamic_cast<CPhysicsEventItem&>(*castableItem));
+                processor.processEvent(event);
+                break;
+            }
+        case PHYSICS_EVENT_COUNT:
+            {
+                CRingPhysicsEventCountItem&
+                    eventcount(dynamic_cast>CRingPhysicsEventCountItem&>(*castableItem));
+                processor.processEventCount(eventcount);
+                break;
+            }
+        case RING_FORMAT:
+            {
+                CDataFormatItem& format(dynamic_cast<CDataFormatItem&>(*castableItem));
+                processor.processFormat(format);
+                break;
+            }
+        case EVB_GLOM_INFO:
+            {
+                CGlomParameters& glomparams(dynamic_cast<CGlomParameters&>(*castableItem));
+                processor.processGlomParams(glomparams);
+                break;
+            }
+        default:
+            {
+                processor.processUnknownItemType(item);
+                break;
+            }
+    }
+}
+
+						
+```
+
+<a name="AEN571"></a>**Example 4-40. TopLevel/Root/processor.cpp (comments removed)**
+
+```
+#include "processor.h"
+
+// NSCLDAQ includes:
+
+#include <CRingItem.h>
+#include <CRingScalerItem.h>
+#include <CRingTextItem.h>
+#include <CRingStateChangeItem.h>
+#include <CPhysicsEventItem.h>
+#include <CRingPhysicsEventCountItem.h>
+#include <CDataFormatItem.h>
+#include <CGlomParameters.h>
+
+
+#include "Event.h"
+
+// Standard library headers:
+
+#include <iostream>
+#include <map>
+#include <string>
+
+#include <ctime>
+
+extern void unpack(const void* pdata);
+
+void
+CRingItemProcessor::processScalerItem(CRingScalerItem& item)
+{
+
+}
+
+void
+CRingItemProcessor::processStateChangeItem(CRingStateChangeItem& item)
+{
+
+}
+void
+CRingItemProcessor::processTextItem(CRingTextItem& item)
+{
+}
+
+void
+CRingItemProcessor::processEvent(CPhysicsEventItem& item)
+{
+  Event::SetupEvent();
+  unpack(item.getBodyPointer());
+  Event::CommitEvent();
+}
+
+void
+CRingItemProcessor::processEventCount(CRingPhysicsEventCountItem& item)
+{
+}
+
+void
+CRingItemProcessor::processFormat(CDataFormatItem& item)
+{
+}
+void
+CRingItemProcessor::processGlomParams(CGlomParameters& item)
+{
+}
+
+void
+CRingItemProcessor::processUnknownItemType(CRingItem& item)
+{
+
+}
+
+						
+```
+
+<a name="AEN575"></a>**Example 4-41. TopLevel/Root/Makefile**
+
+```
+##
+# Makefile for process
+#
+#   Assumes an daqsetup.bash has been sourced so that DAQROOT etc.
+#   are defined:
+
+ROOTCXXFLAGS=$(shell $(ROOTSYS)/bin/root-config --cflags)
+ROOTLDFLAGS=$(shell  $(ROOTSYS)/bin/root-config --libs)
+
+DAQCXXFLAGS=-I$(DAQROOT)/include
+DAQLDFLAGS=-L$(DAQLIB)  \
+        -ldataformat -ldaqio -lException -Wl,-rpath=$(DAQLIB)
+
+CXXFLAGS=-std=c++11 -fPIC -I. $(DAQCXXFLAGS) $(ROOTCXXFLAGS)
+CXXLDFLAGS=$(DAQLDFLAGS) $(ROOTLDFLAGS)
+
+all: process libEventRootDictionary.so
+
+process: process.o processor.o Event.o unpacker.o EventRootDictionary.o
+        $(CXX) -o process process.o processor.o Event.o unpacker.o EventRootDictionary.o $(CXXLDFLAGS)
+
+process.o: process.cpp
+        $(CXX) $(CXXFLAGS) -c process.cpp
+
+processor.o: processor.cpp
+        $(CXX) $(CXXFLAGS) -c processor.cpp
+
+Event.o: Event.cpp
+        $(CXX) $(CXXFLAGS) -c Event.cpp
+
+unpacker.o: ../unpacker.cpp Event.h
+        $(CXX) $(CXXFLAGS) -c ../unpacker.cpp
+
+## Root dictionary code:
+
+EventRootDictionary.o: EventRootDictionary.cpp
+        $(CXX) -c $(CXXFLAGS) EventRootDictionary.cpp
+
+EventRootDictionary.cpp: EventRootDictionary.h
+
+EventRootDictionary.h: Event.h Event-linkdef.h
+        LD_LIBRARY_PATH=$(ROOTSYS)/lib $(ROOTSYS)/bin/rootcint \
+        -f EventRootDictionary.cpp \
+        -rml libEventRootDictionary.so  \
+        -rmf libEventRootDictionary.rootmap \
+        $^
+
+libEventRootDictionary.so: Event.o EventRootDictionary.o
+        $(CXX) -o libEventRootDictionary.so -shared Event.o EventRootDictionary.o $(CXXLDFLAGS)
+
+clean:
+        rm -f process *.o *.so
+
+						
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Code generated for Root | Up | Reference pages |

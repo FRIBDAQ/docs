@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="man-3daq"></a># VIII. 3daq
+
+**Table of Contents**[[r16106]] -- RingMaster access.[[r16345]] -- Remote Ring Access[[r16538]] -- Low level ring buffer primitives[[r17348]] -- Encapsulates an item in a ring buffer.[[r17815]] -- Encapsulate ring buffer scaler items.[[r18251]] -- Encapsulate a ring buffer state change item.[[r18646]] -- Encapsulate ring items that are lists of text strings.[[r18962]] -- Response to trigger.[[r19148]] -- Provides statistics regarding the number of events produced.[[r19465]] -- Encapsulate a EVB_FRAGMENT ring item
+         [[r19770]] -- Event fragment likley not containing a ring item[[r19858]] -- Describe the format of a stream of ringitems.[[r20101]] -- Reports event building parameters.[[r20359]] -- Abnormal end of run.[[r20571]] -- Base class for predicates that select items from
+            ring buffers.[[r20903]] -- Select all ring items except some.[[r21079]] -- Only accept specified ring item types.[[r21244]] -- Format of ring items.[[r21733]] -- Functions to create ring items.[[r22643]] -- Abstract base class of data source for ring items.[[r22685]] -- Ringbuffer data source for ring items.[[r22754]] -- Ring item data source from a file[[r22811]] -- Create data sources given a URI[[r22868]] -- Upcast ring items to specific ring item objects.[[r22961]] -- Abstract base class for data sinks.[[r23050]] -- Data sink to a disk file.[[r23190]] -- Data sink that writes to a `CRingBuffer`
+[[r23289]] -- Create an appropriate CDataSink object[[r23353]] -- Framework event builder client application.[[r23497]] -- Event builder client framework.[[r23553]] -- Client of the event orderer[[r23764]] -- Provide a C++ interface to the server port manager daemon.[[r23919]] -- Report errors conditions in port manager transactions[[r24073]] -- Support the Hytec NADC 2530 Peak sensing ADC.[[r24535]] -- Support for the CAEN 32 bit digitizers[[r25338]] -- CES CBD 8210 CAMAC branch highway driver (obsolete)[[r25706]] -- Support for the CAEN V1190 and V1290
+                    multihit, complicated TDC.[[r28088]] -- Support the CCAENV560 non-latching scaler.[[r28252]] -- Support driver for the CAEN V820/V830 latching scaler module.[[r28809]] -- Software support for the CAEN V977 I/O register.[[r29208]] -- Support software for the LeCroy LRS 2551 12 channel CAMAC scaler[[r29318]] -- High level support software for the 32 channel LeCroy LRS 4434 CAMAC scaler module[[r29430]] -- Provide computer busy status support for the BiRA CAMAC
+                NIM out module.
+            [[r29538]] -- Trigger module for the CES CBD 8210 VME CAMAC Parallel Branch Highway Driver
+            [[r29592]] -- Manages CAMAC memory maps.[[r29674]] -- Provide support for a generic CAMAC module.[[r30048]] -- Provides low level support for the BiRa CAMAC Nim output module.[[r30137]] -- Encapsulation of a BiRa 1302 CAMAC controller via CES CBS8210.[[r30477]] -- Support for the SIS 3600 VME latch module.[[r30936]] -- Low level support for SIS 3820 32 channel latching scaler module[[r31642]] -- Abstract base class for reading scalers into a vector[[r31749]] -- Abstract base class for status modules.[[r31814]] -- Abstract base class for triggers[[r31842]] -- Pointer like object for accessing the VME[[r32186]] -- High level support for the LeCroy LRS 1151 VME scaler.[[r32273]] -- Implement a status module using the CAEN V262 module.[[r32357]] -- VME trigger class based on the CAEN V262 I/O module.[[r32408]] -- [[r32751]] -- Support for the CAEN V262 I/O register module.[[r32898]] -- Exception that can be thrown in the event of memory mapping errors.[[r32933]] -- Low level support for the BiRa VME nim output module[[r33207]] -- Convenience base class for implementing VME module support[[r33505]] -- Low Level support for the SIS 3300 Flash ADC module[[r34238]] -- Base class for primitive filters[[r34420]] -- A composite filter composed of primitive filters[[r34638]] -- Integer byte order conversions[[r34824]] -- Abstract base class for thread objects.[[r34958]] -- Wait queue for threads[[r35056]] -- Provide Critical Regions, Monitors[[r35223]] -- C++ encapsulation of pthread mutexes.[[r35444]] -- Simple, safe critical section[[r35475]] -- Encapsulate POSIX condition variables.[[r35776]] -- Provide entry/exit guards for object critical regions.[[r35832]] -- Templated class for safe inter-thread messaging.[[r36019]] -- Abstract base authenticator class.[[r36123]] -- Authenticate against a stored password.[[r36311]] -- Authenticate against a unix user name and password.[[r36522]] -- Authenticate against a Tcl List.[[r36620]] -- Authenticate against a list of allowed credentials.[[r36762]] -- Authenticate from a list of TCP/IP hosts[[r36942]] -- Base class for security interactions.[[r37111]] -- Provide an interactor that processes strings.[[r37272]] -- Interact with  file descriptor[[r37398]] -- Separate prompt and input interactors.[[r37523]] -- Parse Uniform Resource Identifiers (URI)[[r37671]] -- Generate license/author credits.[[r37767]] -- class description[[r38126]] -- 
+            Base class for TCL/Tk applications.
+        [[r38169]] -- 
+            Class for reporting exceptional conditions in Tcl applications
+            via the C++ try/catch mechanism.
+        [[r38312]] -- 
+            Encapsulate a Tcl interpreter.
+        [[r38530]] -- 
+            Base class for objects that are associated with a Tcl Interpreter.
+        [[r38609]] -- 
+            Provide access to Tcl List parsing.
+        [[r38718]] -- 
+            Encapsulate Tcl Dual ported objects.
+        [[r38949]] -- 
+            Abstract base class to encapsulate the Tcl object command interface exposed by
+            `Tcl_CreateObjCommand`.
+        [[r39042]] -- 
+            Encapsulate Tcl interpreter variables.
+        [[r39237]] -- 
+            Provide `argc`, `argv`
+            extension commands to Tcl.
+        [[r39426]] -- 
+            Provide a C++ abstraction wrapper for Tcl Channels.
+        [[r39596]] -- 
+            Group several related Tcl command extensions and common services they
+            may require together.
+        [[r39701]] -- 
+            Adaptor between `CTCLOjbectProcessor`
+            and `CTCLProcessor`.
+        [[r39768]] -- 
+            Base class for building object oriented Tcl File event handlers.
+        [[r39854]] -- 
+            Object oriented interface to Tcl's hash table functions.
+        [[r39985]] -- 
+            Encapsulation of an entry in a Tcl Hash table as encapsulated
+            in `CTCLHashTable`
+[[r40053]] -- 
+            Iterator for visiting all elements of a `CTCLHashTable`
+[[r40149]] -- 
+            Allows the establishment of an executable object that
+            can be scheduled to be invoked when the Tcl/Tk intperpreter
+            has no events that require processing.
+        [[r40210]] -- 
+            Base class for a command that lives in a `CTCLCommandPackage`
+[[r40271]] -- 
+            Provide an object oriented interace to the Tcl interpreter result.
+        [[r40382]] -- 
+            Provide a wrapper for the Tcl_DString data type
+            and its API
+        [[r40599]] -- 
+            Abstract base class for C++ objects attached to timer events.
+        [[r40669]] -- Run Tcl with event loop.[[r40773]] -- Accept commands on a Tcl channel from the event loop.[[r40985]] -- Event driven command input on stdin/stdout[[r41049]] -- Listener for a Tcl server.[[r41177]] -- Channel commander that is a server instance for `CTCLServer`[[r41250]] -- Provide common functionality for a set of
+                related commands.[[r41312]] -- Base class for commands living in a
+                    `CTCLObjectPackage`
+[[r41412]] -- Hold a configuration[[r42135]] -- Base class for objects tht have a configuration.[[r42355]] -- Abstract base class for the exception class hierarchy.[[r42442]] -- Exceptions that wrap the Unix `errno`[[r42519]] -- Reports and exception for a value out of allowed range.[[r42657]] -- Exception for invalid state transitions.[[r42756]] -- I/O error on a C++ stream.[[r42919]] -- Report errors in universal resource identifiers (uri)s.[[r43104]] -- Exceptions for synchronization class abuse.[[r43239]] -- Report invalid function arguments.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| vmusbcaenupgrader | Up | CRingMaster |

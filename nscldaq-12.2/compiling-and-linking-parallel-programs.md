@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 70. Parallel programming framework | Next |
+
+
+---
+
+# <a name="AEN16075"></a>70.3. Compiling and linking parallel programs
+
+This section assumes you've set up the NSCLDAQ environment variables
+            before building your code.
+
+All headers are in $DAQINC, therefore,
+            compilations must have -I$DAQINC (
+            -I$(DAQINC) in Makefiles).
+
+The library is locaed in $DAQLIB It is called
+            libSwTrigger.so.  It also depends on
+            several other libraries in and out of NSCLDAQ:
+
+<a name="AEN16085"></a>... -L$DAQLIB -lSwTrigger -ldataformat -ldaqthreads \  
+
+    -lDataFlow -lPortManager -ldaqshm -lException -lzmq -Wl,-rpath=$DAQLIB
+
+In a Makefile you can use environment variable substitution:
+
+<a name="AEN16088"></a>... -L$(DAQLIB) lSwTrigger -ldataformat -ldaqthreads \  
+
+    -lDataFlow -lPortManager -ldaqshm -lException -lzmq -Wl,-rpath=$(DAQLIB)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Transport implementations | Up | Transformer |

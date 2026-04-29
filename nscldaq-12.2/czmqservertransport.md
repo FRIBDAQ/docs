@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN70544"></a>CZMQServerTransport
+
+<a name="AEN70548"></a>## Name
+
+CZMQServerTransport -- ZeroMQ transport that does a listen.
+
+<a name="AEN70551"></a>## Synopsis
+
+```
+#include <CZMQServerTransport.h>
+
+class CZMQServerTransport : public CZMQTransport
+{
+public:
+    CZMQServerTransport(const char* pUri, int socketType);
+};
+
+        
+```
+
+<a name="AEN70553"></a>## DESCRIPTION
+
+This clss is a ZeroMQ transport for a socket
+            that listens for connections rather than invoking
+            `connect`.
+            `pUri` is a URi that specifies the
+            socket endpoint and `socketType`
+            is the ZeroMQ socket type e.g. ZMQ_PUB.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CZMQClientTransport | Up | CZMQRouterTransport |

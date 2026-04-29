@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev | Chapter 3. MPITcl - an enhanced Tcl interpreter | Next |
+
+
+---
+
+# <a name="AEN431"></a>3.2. How MPI Concepts map to MPITcl
+
+Communication in MPI can be very complex.  The aim of MPITcl
+                is to simplify this communcation and make it friendly to the
+                sorts of things a Tcl script might think of doing in a parallel
+                computation.  These simplifications:
+
+
+
+- Remove the concept of grouping program instances
+                          other than the world group.
+- Since in Tcl everything has a string representation,
+                          all data are exchanged via the MPI_CHAR data type.
+- The computation is logically thought of as the
+                          rank 0 script, which runs an interpreter capable of
+                          accepting commands or sourcing script files and
+                          all other ranks which just process messages.
+- Program instances can send scripts to other ranks
+                          in the computation.
+- Program instances can send Tcl data to other ranks
+                          in the computation.  Program instances can establish
+                          handlers for Tcl data.
+- Several tag values are predefined to know how to dispatch
+                          messages received.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| MPITcl - an enhanced Tcl interpreter | Up | The mpi::mpi command ensemble. |

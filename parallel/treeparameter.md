@@ -1,0 +1,56 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2016"></a>treeparameter
+
+<a name="AEN2020"></a>## Name
+
+treeparameter -- Manipulate the metadatak of tree parameters
+
+<a name="AEN2023"></a>## Synopsis
+
+**treeparameter** `-list`  [*glob-pattern*]
+
+**treeparameter** `-listnew`
+
+**treeparameter** `-set` *name* *bins* *low* *high* *inc* *units*
+
+**treeparameter** `-setinc` *name* *increment*
+
+**treeparameter** `-setbins` *name* *bins*
+
+**treeparameter** `-setunit` *name* *units-of-measure*
+
+**treeparameter** `-setlimits` *name* *low* *high*
+
+**treeparameter** `-check` *name*
+
+**treeparameter** `-uncheck` *name*
+
+**treeparameter** `-create` *name* *low* *high* *bins* *units*
+
+**treeparameter** `-version`
+
+<a name="AEN2114"></a>## DESCRIPTION
+
+This command is encapsulated in a `CMPITclCommandAll`.   It is possible
+                   for application specific code to 
+                   programmatically define tree parameters in the ranks at or above
+                   MPI_FIRST_WORKER_RANK.  
+                   Depending on how that's done, those tree parameter may or may not be visible to 
+                   the other processes in the mpiSpecTcl application.
+                   Therefore the only ranks that actually
+                   excute the **treeparameter** commands are the worker processes.  All other
+                   ranks return TCL_OK and and leave an empty result.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| swrite | Up | treevariable |

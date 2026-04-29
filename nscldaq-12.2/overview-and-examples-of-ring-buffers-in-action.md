@@ -1,0 +1,215 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 48. Ring Buffer Primitives | Next |
+
+
+---
+
+# <a name="AEN12135"></a>48.2. Overview and Examples of ring buffers in action.
+
+This section will provide some annotated examples of ring buffers
+            in action. We will build a pair of simple ring buffer programs.
+
+The first called
+            consumer
+            will create a ring buffer, attach to it as a consumer and
+            just accept all the data that is being written to the ring buffer.
+            consumer will not exit unless you
+            interrupt it.  Data will be read in 1Mbyte chunks.
+
+The second program called
+            producer
+            will attach to a ring buffer and write several data buffers
+            to the ring.  The data buffers will consist of counting patterns
+            and will be 1Mbyte long.
+
+Used together, these programs can (and have been), used to
+            measure raw ring buffer performance.  Throughout, we will do essentially
+            no error checking for the sake of brevity and clarity.
+            Production quality software, should check for errors at every step
+            and consideration must be given to graceful error recovery or at least
+            error reportage.
+
+## <a name="AEN12144"></a>48.2.1. A Ring Buffer Consumer
+
+Before a ring buffer can be used, it must be created.
+                When creating a ring buffer, the creator can specify
+                the size of the ring buffer (which determines the size of
+                the largest message that can be sent to the ring), as well
+                as the maximum number of consumers that can connect to the
+                ring.
+
+The consumer program will create the ring buffer.  It will
+                be run first and sit there expecting buffers from the producer,
+                which will be run later.  In this way, the consumer will not miss
+                any data that might have been written prior to its startup.
+
+Let's look at the consumer code:
+
+<a name="AEN12149"></a>**Example 48-4. Sample ring buffer consumer**
+
+```
+#include <string>
+#include <CRingBuffer.h>            
+
+using namespace std;                      
+
+
+int main(int argc, char**argv)
+{
+  string ringname("timing");
+
+  CRingBuffer::create(ringname);          
+  CRingBuffer ring(ringname, CRingBuffer::consumer); 
+  ring.setPollInterval(1);                           
+
+  char buffer[1024*1024];
+  while(1) {
+    ring.get(buffer, sizeof(buffer), sizeof(buffer));  
+  }
+}
+                
+```
+
+As you can see, this is a relatively short and simple program.
+
+[[x12135#ringcons.include]]                        The
+                        CRingBuffer.h
+                        header is included.
+                        This include defines the
+                        `CRingBuffer`
+                        class which provides the ring buffer application
+                        programming interface
+                    [[x12135#ringcons.std]]                        Incorporating the
+                        std namespace into the
+                        default compiler scoping list ensures that when we
+                        use the
+                        `string`
+                        class, which lives in the
+                        std
+                        namespace, we won't have to specify it as
+                        `std::string`
+[[x12135#ringcons.create]]                        Ring buffers are created via a the
+                        `create` static
+                        member function.  This function creates the ring
+                        buffer and formats its header.  If the ring buffer
+                        is already created, it is still formatted.
+                        In general, the ring buffer should not be formatted
+                        in the middle of a running application.
+                        Additional optional parameters to the
+                        `create`
+                        method allow you to specify the size of the data region
+                        in the ring buffer as well as the maximum number of
+                        consumers that can connect to the ring.
+                    [[x12135#ringcons.obj]]                        Existing ring buffers are accessed by creating and
+                        manipulating a
+                        `CRingBuffer`
+                        object.  There are two types of
+                        `CRingBuffer`
+                        objects;
+                        *producer* and
+                        *consumer*
+                        objects.
+                        As their names imply, producer objects
+                        insert data into the ring buffer, while
+                        consumers remove data from the ring buffer.
+                        There can only be one producer at a time.
+                        consumer
+                        creates a consumer ring buffer. 
+                    [[x12135#ringcons.latency]]                        When a ring buffer consumer must block because
+                        there is not sufficient data to satisfy a get,
+                        the library enters a polling loop.  In each pass of
+                        the polling loop, the library checks for sufficient
+                        data and, if sufficient data is not available,
+                        sleeps for a specific number of milliseconds.
+                        This number of milliseconds is called the
+                        *poll interval*
+The polling interval determines the latency and
+                        the cost in compute cycles to wait for data.
+                        The lower the poll interval, the lower the latency.
+                        the lower the poll interval, the more compute intensive
+                        waiting is.
+
+`setPollInterval`
+                        sets the poll interval.  In this case we set the
+                        poll interval to 1 millisecond.
+
+[[x12135#ringcons.get]]                        The
+                        `get`
+                        member function gets data from the ring buffer
+                        blocking if necessary. The two sizes are
+                        the size of the buffer (maximum number of bytes
+                        that can be read), and the minimum number of
+                        bytes that must be available for transfer to this
+                        consumer prior to satisfying the
+                        `get`.
+                    If necessary, the
+                        `get`
+                        method will block until the minimum required
+                        bytes of data are available.
+
+## <a name="AEN12193"></a>48.2.2. A Ring Buffer Producer
+
+Our ring buffer producer program will assume that the ring
+                buffer has already been created.  It will attach to the ring
+                buffer as a producer, and send
+                10,000 messages, where each message is
+                1024*1024
+                bytes (1 Megabyte).
+
+<a name="AEN12198"></a>**Example 48-5. A sample Ring Buffer producer program**
+
+```
+#include <string>
+#include <CRingBuffer.h>                  
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+  string ringname("timing");
+
+  CRingBuffer ring(ringname, CRingBuffer::producer); 
+  ring.setPollInterval(1);                           
+
+  char buffer[1024*1024];
+  for (int i =0; i < sizeof(buffer); i++) {
+    buffer[i] = i;                                  
+  }
+
+  for (int i =0; i < 10000; i++) {
+    ring.put(buffer, sizeof(buffer));              
+  }
+}
+
+                
+```
+
+[[x12135#ringprod.include]]                        Includes the
+                        CRingBuffer.h
+                        header which makes available the definition
+                        of the
+                        `CRingBuffer`
+                        class that serves as the API to
+                        ring buffers.
+                    [[x12135#ringprod.latency]]                        See the discussion of the consumer for more
+                        information about this function.  This
+                        sets the poll interval so as to minimize buffer
+                        response latencies.
+                    [[x12135#ringprod.pattern]]                        This loop creates a buffer that consists of 1MB
+                        counting pattern.
+                    [[x12135#ringprod.put]]                        Sends the buffers as a message to ring buffer
+                        consumers 10,000 times.
+
+Note that the producer and consumer programs must agree on a
+                message format.  In our simple examples, the messages have
+                been fixed length 1Mbytes messages.  A more general protocol
+                might include a message size at the front of the message.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Ring Buffer Primitives | Up | The Tcl ring package |

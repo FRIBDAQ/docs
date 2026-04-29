@@ -1,0 +1,276 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN99176"></a>Event Builder REST
+
+<a name="AEN99180"></a>## Name
+
+Event Builder REST -- Event Builder Statistics REST Protocol
+
+<a name="AEN99183"></a>## Synopsis
+
+```
+/statistics/inputstats
+/statistics/queue
+/statistics/outputstats
+/statistics/barrierstats
+/statistics/completebarrierdetails
+/statistics/incompletebarrierdetails
+/statistics/datalatestatistics
+/statistics/oostatistics
+/statistics/connections
+/statistics/flowcontrol
+/statistics/shutdown
+      
+```
+
+<a name="AEN99185"></a>## DESCRIPTION
+
+The Orderer stage of the the event builder can be run
+               with a REST interface to its internal statistics through
+               the EVBREST package, which starts the server
+               and EVBStatistics package which maintains
+               statistics for the server in an easy to manage set of dicts.
+
+The server advertises the service ORDERER_REST
+            by default. The service name can be modified by defining the
+            SERVICE_NAME environment variable or the
+            Tcl global variable `ServiceName` prior to starting
+            including the EVBREST package.
+
+All REST requests have URLs of the form
+            http://hostname:port/statistics/request
+            where hostname is the name of the host in
+            which the event builder is running, port
+            is the port number of the server as translated from its advertised
+            service name and request identifies the
+            request.
+
+Successful returns produce a JSON encoded object
+            (mimetype application/json).
+            The remainder of this manpage describes the requests and
+            the JSON object returned by each of them.
+
+All of these objects have two common attributes;
+            status which has the string value
+            OK on success or
+            ERROR on failure and
+            message which is an empty string if
+            status was OK or
+            a human readable error string if not.
+
+<a name="AEN99209"></a>## /status/inputstats
+
+Returns input statistics.  The additional attributes returned are:
+
+
+
+oldestOldest queued fragment timestamp.
+
+newestNewest queued fragment timestamp.
+
+fragmentsNumber of in-flight fragments in the orderer.
+
+<a name="AEN99228"></a>## /status/queue
+
+Returns information about all of the queues.  Each data source id
+         has an associated queue into which its fragments go until they
+         can be emitted.  The JSON attribute queues
+         contains information about each queue.  The value of this
+         attribute is a JSON array of objects.  Each of the objects
+         in the array has the following attributes:
+
+
+
+idThe source id of the queue described by this object.
+
+depthThe number of fragments currently in that queue.
+
+olddestThe timestamp of the oldest fragment in this queue (the
+                  queue head).
+
+bytesThe number of bytes of data in this queue.
+
+dequeuedThe total number of bytes of data that have been
+                  dequeued from this queue since the event builder started.
+
+totalqueuedThe total number of bytes of data that have ever been sent to
+                  this queue.
+
+<a name="AEN99263"></a>## /statistics/outputstats
+
+This request provides output statistics.  The resulting object has
+         two attributes: fragments and perqueue
+
+The fragments value is just the total number of
+         fragments that have been output from the orderer.
+
+The perqueue value is a bit more complex.  It is a
+         JSON array of JSON objects that provide output statistics from the
+         event queues.  Each object in the array contains the following
+         attributes:
+
+
+
+idThe source id associated with the output statistics in this
+                  object.
+
+fragmentsThe number of fragments outupt from this queue.
+
+<a name="AEN99283"></a>## /status/barrierstats
+
+Provides an overview of the barrier statistics from the
+         event bulder orderer stage.  The data are returned in two attributes:
+         complete which provides statistics for complete
+         (successful) barriers and incomplete which
+         provides statistics for incomplete (failed) barriers.
+         The values of these attributes are JSON encoded objects as well.
+         Both objects have the same attributes:
+
+
+
+barriersNumber of barriers of this type (complete or incomplete).
+
+homogeneousNumber of barriers that were complete or not but whose fragments
+                  all had the same barrier type.
+
+heterogeneousNumber of barriers that were complete or not but whose
+                  fragments had more than one barrier type.
+
+<a name="AEN99304"></a>## /statistics/completebarrierdetails
+
+Returns more detailed statistics about the complete (successful)
+         barriers.  The returned object has the two attributes:
+         bytype which provides statistics by barrier type
+         and bySource which provides statistics by data source.
+         The values of both of these are arrays of objects.
+
+
+
+**bytype array element object attributes**
+
+typeContains a barrier type.
+
+countContains a count of the number of times a fragment with that
+                  barrier type has been seen.
+
+
+
+**bySource array element object attributes**
+
+idSource id this object provides statistics for.
+
+countTotal number of barrier fragments from that source.
+
+detailsArray of objects that have attributes:
+                  type - a barrier type and
+                  count - the number of times that barrier
+                  type has been see in in that source id's queue.
+
+<a name="AEN99342"></a>## /statistics/incompletebarrierdetails Detailed Incomplete Barrier Statistics
+
+Provides detailed statistics for incomplete barriers.  An incomplete barrier
+         is a failure of barrier synchronization.  The statistics for these
+         events are captured in data in the following two attributes:
+         histogram which captures a histogram of number of
+         missing fragments and bysource whichcaptures
+         per source statistics.  Both of these attributes contain
+         list of JSON objects:
+
+
+
+**histogram Array Element Attributes**
+
+numberNumber of missing fragments.
+
+countNumber of times that number of fragments was missing.
+
+
+
+**bysource Array Element Attributes**
+
+idSource id
+
+countNumber of times that source id was among the missing sources
+                  in a barrier synchronization.
+
+<a name="AEN99374"></a>## /statistics/datalatestatistics Data Late Statistics
+
+Provides statistics that describe the data late conditions detected
+         by the orderer.  This provides the following attributes:
+
+
+
+countTotal number of data late conditions.
+
+worstWorst case time stamp difference.
+
+detailsAn array of objects that provide per source data late
+                  statistics.  Each object has the attributes:
+                  id the data source id,
+                  count the number of times
+                  the source has had a data late condition.
+                  and worst the worst case timestamp
+                  deviation for that source.
+
+<a name="AEN99397"></a>## /statistics/oostatistics Out of Order Statistics
+
+Provide information about out of order statistics.  This object has
+         two attributes: summary providing summary statistics
+         and bysource providing per source statistics.
+
+The summary attribute contains an objec with the
+         attribues count - the number of out of order
+         fragments, prior the timestamp of the fragment prior
+         to the most recent out of order fragment and
+         offending the timestamp of the most recent out of
+         order fragments.
+
+bysource contains an array that provides per source
+         statistics. Each element has the id attribute which is
+         the source id and the attributs in summary which,
+         in this case are confined to the specific data source.
+
+<a name="AEN99412"></a>## /statistics/connections Connection List
+
+Data are fed to the event orderer via TCP/IP block transfer connections.
+         This request provides an object with the connections
+         attribute. The value of connections is an array
+         of objects.  The attributes of each object describe one connection:
+
+
+
+hostName or IP of host from which the connection was made.
+
+descriptionA textual description of the connection supplied by the
+                  client.
+
+stateTextual connection state.
+
+idleBoolean idle flag.  If nonzero, the connection has been
+                  idel.
+
+<a name="AEN99439"></a>## /status/flowcontrol Flow Control State
+
+The object returned has the atribute state
+         which is non-zero if the even builder is asserting flow control
+         to its clients.
+
+<a name="AEN99444"></a>## /status/shutdown Shutdown Event Builder (POST)
+
+This request will shutdown the event builder.  The request must be
+         issued using a POST request.  At present a fixed delay is used to shut down
+         the event builder.  In the future, the POST parameter
+         delay will be the delay in seconds.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Logbook Schema | Up | eventorderer |

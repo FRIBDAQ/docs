@@ -1,0 +1,280 @@
+|  |  |  |
+| --- | --- | --- |
+| VMUSBSpecTcl |
+| Prev |  |  |
+
+
+---
+
+# <a name="vmusb_configfileman"></a>VMUSB SpecTcl metadata
+
+<a name="AEN222"></a>## Name
+
+Config File -- VMUSBSpecTcl metadata.
+
+<a name="AEN225"></a>## Synopsis
+
+**set adcChannels(*moduleName*) *channel-list*
+**
+
+<a name="AEN230"></a>## DESCRIPTION
+
+The `adcChannels` array is indexed by
+                    VMUSB module names and defines the name of SpecTcl parameters
+                    into which each module's data will be decoded.
+
+For most simple modules, the value of an
+                    `adcChannels` element is just the parameter
+                    names for each channel of that module.  See SPECIAL CASES
+                    below for exceptions.
+
+Unused trailing channels can be omitted from the list. By
+                    convention, channels that are given the name "" are not
+                    used as well.  This allows you to have sparsely populated
+                    modules with either trailing unused channels or a set of unused
+                    channels in the middle of the module channel list.
+
+<a name="AEN237"></a>## SPECIAL CASES
+
+Some modules do not fit the model described above in
+                    DESCRIPTION.  For these modules, the `adcChannels`
+                    array element is still used, however it may be interpreted
+                    differently or even coupled with additional metadata.
+
+<a name="AEN241"></a>### CAEN 785N, 775N, 792N
+
+These modules have 16 NIM inputs. While functionally
+		       identical to the V785, V775, and V792 modules, only
+		       every other ADC channel is routed to the front panel.
+		       Therefore when setting up your `adcChannels`
+		       array element for these modules you must take this into
+		       account for example:
+
+<a name="AEN245"></a>```
+set adcChannels(moduleName)           \
+    [list chan0 "" chan1 "" chan2 "" chan3 "" chan4       \
+     "" chan5 "" chan6 "" chan7 \
+     "" chan8 "" chan9 "" chan10  "" chan11 \
+     "" chan12 "" chan13 "" chan14 "" chan15]
+		       
+```
+
+<a name="AEN248"></a>### CAEN Dual range ADC's
+
+The CAEN V956 is a dual range QDC.  Each input channel
+                        produces a high and a low gain output.  This allows the
+                        QDC to have good resolution at both the high and low
+                        end of the input range.
+
+In the CAEN V956, rather than requiring the user to
+                        specify each paramter, the value of the parameter list are
+                        taken as base parameter names and a
+                        *base-name*.l> and
+                        *base-name*.h paramter and spectrum
+                        are produced for each.  Where .l means
+                        low range and .h means high range.
+                        full resolution Spectra are produced for both of these parameters.
+
+<a name="AEN258"></a>### Washington University HINP chip readout FPGAs
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | Support for the WUSTL HINP chip readout and analysis
+                            was provided by Jon Elson at Washington Univ. |
+
+Washington University in St. Louis have built front end
+                        ASIC based boards that are designed for detector arrays
+                        with a large number of channels.
+                        The HINP board described in
+                        [http://www.chemistry.wustl.edu/~lgs/NIMA_573_418_2007.pdf](http://www.chemistry.wustl.edu/~lgs/NIMA_573_418_2007.pdf)
+                        use a discriminator and sample and hold array to
+                        sparsify and hold peak voltages and timing information
+                        from the detector array.
+
+The preferred way to acquire data from these boards is
+                        via a JTEC XLM-XXV which where the custom firmware in the
+                        FPGA sequences analog data through that modules FADC
+                        and merges it with the corresponding timing data.
+
+Since essentially arbitrarily sized arrays can be managed
+                        with this electronics, additional metadata is required.
+                        Specifically, one needs to know the number of HINP chips
+                        in the configuration. This information is stored in the
+                        array `HINPChips` which is indexed by module
+                        name.  Each element of this map is a list of the chip
+                        address numbgers of the chips that are being read out.
+
+The `adcChannels` array element is a base
+                        name for the entire chipset.  From this base name parameters
+                        are constructed for the energy and times of all channels
+                        of all chips as follows:
+                        *base-name*.*chip-address.nn*.e
+                        and
+                        *base-name*.*chip-address*.t
+                        where *base-name* is the base parameter
+                        name from `adcChannels`,
+                        *chip-address* is a two digit
+                        decimal chip address from `HINPChips`
+                        and *nn* a two digit channel number
+                        from within the chip in the range [00 .. 15].
+
+Full resolution spectra are created for each of these
+                        parameters.
+
+<a name="AEN283"></a>### Washington University PSD chip readout FPGAs
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | Support for the WUSTL PSD chip readout and analysis
+                                was provided by Jon Elson at Washington Univ. |
+
+Washington University in St. Louis has built a
+                            set of front end board for large detector arrays.
+                            The board are populated with a set of ASIC chip boards.
+                            Each ASIC is capabile of performing charge integration
+                            over three regions of the pulse.
+                            See
+                            [http://www.sciencedirect.com/science/article/pii/S0168900209019639](http://www.sciencedirect.com/science/article/pii/S0168900209019639)
+                            for information about this system, althought the
+                            channel density has been increased to 16 channels/chip
+                            since that article was published.
+
+The analog are sparsified and held in the ASIC
+                            along with timing information for the non-zero
+                            channels.  The preferred way to read data from
+                            from the PSD chips is with a JTEC XLM-XXV.
+
+Custom firmware in the XLM's FPGA sequences analog
+                            data to the FADC on the XLM-XXV and combines it with
+                            the digital timing information for each non-zero
+                            channel.
+
+Since arbitrary sized arrays can be handled by
+                            this system, the `adcChannels`
+                            variable only supplies a parameter base name.
+                            Additional metadata is required to describe the
+                            size of the system.
+
+`PSDChips`
+                            is an array that is indexed by module name and
+                            contains a list of the chip addresses that are in
+                            use by the system.  Each chip is capable of
+                            handling 16 channels.  Therefore, the base name
+                            and chip addresses are used to create parameter names
+                            of the form:
+                            *base-name*.abct.*chip-address*.*nn*
+                            Where; *base-name* is the
+                            value in `adcChannels` for the module,
+                            abct is one of a,b,c,t where
+                            a,b,c represent an integrationinterval and t the time
+                            parameter.  *chip-address* is the
+                            address of the chip and *nn* the
+                            two digit channel number within the chip from
+                            [0..15].
+
+<a name="AEN305"></a>### Indiana University MASE chip readout FPGAs
+
+The Indiana University MASE chip readout is a hieararchical
+                            readout system intended for highly segmented silicon
+                            detector arrays.  It is described in
+                            [http://www.sciencedirect.com/science/article/pii/S0168900206016664](http://www.sciencedirect.com/science/article/pii/S0168900206016664).
+
+In summary, the system consists of a number
+                            of Controller boards (COBs).  A number of
+                            Channel boards (CHB) connect to these COBs.
+                            Each channel board can manage 16 channels.
+                            The entire system i scapable of reading
+                            over 4000 channels of Si detector. The entire system
+                            is read using an FPGA base XLM module.
+
+In addition to `adcChannels` the
+                            MASE requires two piecs of additional metadata.
+                            `maseCOBCount` is an array indexed
+                            by module name that contains the number of COB boards
+                            in the system.  the array `maseCHBCounts`
+                            further provides a list of the number of CHB modules
+                            attached to each COB. This allows for COBs that are not
+                            fully populated.  CHB addresses are always sequential
+                            and start from zero as are COB adresses.
+
+As the MASE system only produces energy information,
+                            this results in parameters and full resolution spectra
+                            of with names of the form:
+                            *base-name*.*cob*.*chb*.*chan*
+                            Where *base-name* is the
+                            base name of the parameter in `adcChannels`,
+                            *cob* is the COB board
+                            address as a two digit decimal number,
+                            *chb* is the CHB board
+                            address as a two digit decimal number and
+                            *chan* is a two digit
+                            channel number within the CHB.
+
+<a name="AEN324"></a>### CAEN V977 I/O register
+
+The CAEN V977 operates like a 'normal' one channel
+                            module except that the spectrum it generates is
+                            a 16bit bitmask spectrum.
+
+<a name="AEN327"></a>### CAEN V 1x90 multi-hit TDCs
+
+The CAEN V 1x90 TDC family (V 1190 and V1290) are
+                            multihit TDCs that have settablechannel ranges.
+                            The configuration parameters also make it possible
+                            to know the timescale of the spectra created for this
+                            module. Furthermore, since the module gate is clocked in
+                            by the TDC timing relative to that gate is much worse
+                            than the TDC is capabile.  Therefore the software supports
+                            doing a digital subtraction from the digitized time of the
+                            gate (a reference channel).
+
+The additional metadata for this module is therefore
+                            the values of the following options:
+
+
+
+`-depth`Determines the number of hits that will
+                                        be histogrammed.  The software will
+                                        create one histogram per channel per allowed hit.
+                                        Names of the parameters/histograms
+                                        are of the form *name*.*n*
+                                        where *name* was the
+                                        name for the channel in `adcChannels`
+                                        and *n* is the
+                                        hit number from zero.
+
+`-refchannel`Set the channel number that will be used
+                                        as  the gate time channel.
+
+`-channelcount`The V1x90 is a familly of TDCs with many
+                                        different options for channel count.
+                                        This value determines the number of
+                                        channels to expect.
+
+`-window`Determines the full scale range of the TDC
+                                        by setting the width of the digitized time
+                                        window.
+
+`-offset`Determines where the window starts relative to the
+                                        gate and therefore establishes the time at the
+                                        left end of the spectrum.
+
+`-edgeresolution`Determines the width in time of each
+                                        channel of the spectrum.  Together with
+                                        `-window` this also
+                                        determines the number of channels
+                                        in each spectrum.
+
+Note that setting all but `-channelcountM`,
+                            `-refchannel` and `-depth`
+                            affect the way the TDC operates and you should keep
+                            your application in mind when doing so.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| Reference information | Up |  |

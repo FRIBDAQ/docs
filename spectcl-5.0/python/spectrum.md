@@ -1,0 +1,195 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN416"></a>spectrum
+
+<a name="AEN420"></a>## Name
+
+spectrum -- Wrap SpecTcl Spectrum objects.
+
+<a name="AEN423"></a>## Synopsis
+
+```
+class spectcl.spectrum:
+```
+
+<a name="AEN517"></a>## DESCRIPTION
+
+This type wraps SpectTcl spectra.  Two types of construtors
+                        are allowed.  The first constructor takes a single
+                        parameter, the name of an existing spectrum.
+                        If that spectrum exists, the object is created to wrap
+                        that spectrum.  If the spectrum does not exist,
+                        a LookupError exception will be
+                        raised.
+
+The second type of construtcor accepts four positional
+                        parameters.  The first parameter is the name of an ew
+                        spectrum.  The second is the type string.  See
+                        the SpecTcl Tcl **spectrum** comand
+                        reference for the legal spectrum types.  The third parameter
+                        is any iterable container that contains strings. The
+                        strings are the names of the parameter that are required
+                        by the spectrum.  Their number and interpretation will vary
+                        depending on the spectrum type.  The last parameter
+                        is an iterable container of dict that define the axes
+                        of the spectrum.  Each dict defines an
+                        axis and has the following keys:
+
+
+
+lowThe axis low limit.  This is an inclusive limit.
+
+highThe axis high limit.  This is an exclusive limit.
+
+binsThe number of spectrum bins on that axis.
+
+Note that in genaral there will be
+                                    one or two axis definitions,
+                                    depending on the spectrum type.
+
+<a name="AEN540"></a>## INSTANCE ATTRIBUTES
+
+Spectrum objects have several attributes.  These attributes
+                        are reaonly.  They provide information about the
+                        spectrum definition:
+
+
+
+`name`Is a string that contains the spectrum
+                                    name.
+
+`type`Is a string that contains the spectrum type.
+
+`parameters`Is a tuple of strings that are the ordered
+                                    set of parameters the spectrum is defined on.
+                                    The number and interpretation of these
+                                    parameters depends on the spectrum type.
+
+`axes`Is a tuple of axes.  Each axis is a dict
+                                    described in the DESCRIPTION
+                                    section.
+
+`gatename`The name of the gate that's applied to the
+                                    spectrum.   If a spectrum is ungated, this will
+                                    be the string -TRUE-
+                                    indicating that ther are no conditions on the
+                                    increment of a spectrum.
+
+`range_errors`The overflow and underflow counters.
+                                    This is a dict with two keys
+                                    underflows and
+                                    overflows.  Each
+                                    value is a tuple of counter values.
+                                    For one-dimensional spectrum types,
+                                    the tuple has a single element.
+
+For
+                                    two dimensional spetctrum types, there
+                                    two elements that contain the X and Y
+                                    range error counters in that order.
+
+<a name="AEN579"></a>## METHODS
+
+
+
+`    def clear() :`Clears the contents of the spectrum.
+                                    All spectrum channels are set to zero.
+
+`    def ungate() :`Removes any gate from the spectrum.  After
+                                    this method there are no conditions on the
+                                    increment of the spectrum other than it can
+                                    be incremented as a result of the event.
+
+`    def gate(string gatename) :`Applies the gate `gatename`
+                                    to the spectrum.  If `gatename`
+                                    does not exist, RuntimeError
+                                    is raised.
+
+`    def bind() :`Binds the spectrum into the displayer.
+                                    SpecTcl provides shared memory access to
+                                    a set of *bound*
+                                    spectra to local display clients.
+                                    This method adds the spectrum to the set
+                                    of bound spectra.
+
+`    def unbind() :`Unbinds the spectrum from displayers.
+                                    See `bind`
+                                    above.  This method removes the spectrum
+                                    from the set of spectra that are bound.
+
+`    def Get(container of integers coordinates) :`Returns the value in a channel of the
+                                    spectrum.  The `coordinates`
+                                    parameter is any object that supports the
+                                    iteration protocol.  It must have as many
+                                    elements as the dimension of the spectrum.
+                                    The first element is the x channel number or
+                                    just channel number for 1-d spectra.  The
+                                    second element is the y channel number for
+                                    spectra with two dimensions
+
+Note that these coordinates are channel
+                                    coordinates (bins) not axis coordinates.
+                                    If you have axis coordinates, it's your
+                                    responsibility to map them to a bin.
+
+`    def Set(container of integers coordinates, unsigned integer value) :`Sets the channel specified by
+                                    `coordinates` to
+                                    `value`.  The
+                                    `coordinates` parameter
+                                    has the same form as for `Get`
+
+`    def project(string new-name, string direction, snapshot=bool True|False, contour=stringname) :`Creates a new spectrum that is a projection
+                                    of the spectrum.
+                                    `new-name` is the name of the
+                                    new spectrum.  `direction`
+                                    must be either x
+                                    or y and specifies the
+                                    projection direction.
+
+Subsequent parmeters are optional and must be
+                                    specified by keyword/value pairs:
+
+
+
+snapshotTakes a boolean value.  If
+                                                True, thes
+                                                pectrum is a snapshot and will
+                                                never be incremented.  If
+                                                False,
+                                                a best effort will be made to
+                                                connect the spectrum with its
+                                                underlying parameters so that it
+                                                can be incremented as new events
+                                                become available.
+
+contourTakes a string value that is the
+                                                name of a contour gate.
+                                                The gate must be visible on the
+                                                spectrum.
+
+If
+                                                supplied the initial projection
+                                                will only contain points inside
+                                                the contour.   If the spectrum
+                                                is not a snapshot, the gate is
+                                                applied to this spectrum as well
+                                                to ensure that the projection is
+                                                remains a faithflu projection
+                                                of the data inside the contour.
+
+The return value is the actual name of the
+                                    spectrum (which might be different than the
+                                    requestsed name to prevent duplication).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The spectcl.spectrum type | Up | The spectcl.variable type |

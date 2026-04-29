@@ -1,0 +1,274 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.filtercommand"></a>filter
+
+<a name="AEN1200"></a>## Name
+
+filter -- Create filtered data sets
+
+<a name="AEN1203"></a>## Synopsis
+
+**filter `-new` *filtername gatename {par1 ?par2 ...?}*
+**
+
+**filter `-delete` *filtername*
+**
+
+**filter `-enable` * filtername*
+**
+
+**filter `-disable` *filtername*
+**
+
+**filter `-regate` *filtername gatename*
+**
+
+**filter `-file` *filename filtername*
+**
+
+**filter `-list` *?glob-pattern?*
+**
+
+**filter `-format` *filtername format*
+**
+
+<a name="AEN1236"></a>## DESCRIPTION
+
+Filters are SpecTcl objects that hook into the system after the
+            event analysis pipeline.  Their purpose two output pre-decoded
+            events that contain only part of the information.   The events
+            written can be filtered by the requirement to satisfy a gate and the
+            parameters written for each event can be filtered to a reduced set
+            of parameters.
+
+Each filter is fully defined by the following information:
+
+
+
+NameThe name of the filter must be uniquen and is used
+                        to identify he filter to the command.  The name
+                        is assigned when a filter is created.  It is an error
+                        to define a filter with a duplicate name.
+
+gateFilters only write data from an event if the event
+                        satisfies  the specified gate.  This reduces the
+                        data set.
+
+filenameThe name of the file to which the filtered data are
+                        written
+
+parametersFor each event the filter writes, only a subset of
+                        the parameters will be written.  It is up to the
+                        user, when the filter is established, to define
+                        this subset.
+
+stateOne of disabled or enabled.
+                        Filters are created in the disabled state.
+                        Filters only write data when enabled.
+                        When enabled, they open their output file and start
+                        writing data.  When disabled, they close any output file
+                        and stop writing data.
+
+The **filter** command allows you to define and
+            manipulate these parameters.
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | Filter output files can contain data from more than one run.
+                The filter output file is opened when the filter is created
+                and closed when the filter is disabled. |
+
+<a name="AEN1275"></a>## OPTIONS
+
+The command options make **filter** a command ensemble
+            whose dispatch keyword is the name of the filter. Options are
+            all mutually exclusive.
+
+
+
+**filter ?`-new`? *filtername gatename {par1 ?par2 ...?}*
+**
+
+Creates a new filter.  The new filter,
+                        `filtername` is created in the disabled
+                        state.  It has the default filename of filter.flt.
+
+The `gatename` parameter must be the
+                        name of the gate that determines which events are written.
+                        This gate must exist, however it could be a placeholder
+                        (True) gate that is later modified
+                        to be the desired condition.
+
+The final parameter is a Tcl list of the names of the
+                        parameters to be written when the filter writes an event.
+
+Normally after createing a filter, you should change
+                        the output filename and, when you want to write data,
+                        enable it.  When you are doe writing data the filter should
+                        be disabled and the output file changed.
+
+**filter `-delete` *filtername*
+**
+
+Deletes the filter named `filtername`.
+                        It is an error to attempt to delete a filter that does
+                        not exist.  All of SpecTcl's resources associated with
+                        the filter are destroyed.
+
+Note that to ensure that any data buffered by the filter
+                        is flushed to file, you should disable a filter
+                        prior to deleting it.  When SpecTcl exits normally it will
+                        flush data associated with all enabled filters and close their
+                        files properly.
+
+**filter `-enable` * filtername*
+**
+
+Enables the filter.  Enabled filters write data
+                        to their output files.  If the filter does not
+                        have an output file established, this is an error.
+
+If the filter is enabled it is first disabled which
+                        flushes data and closes the output file.  Note that
+                        enabling an already enabled filter does not
+                        necessarily mean that the filter file is overwritten.
+                        If the order is enable, establish a new filter file
+                        enable the next data will be written to the newly
+                        established filter file.
+
+**filter `-disable` *filtername*
+**
+
+If the filter is enabled, flushes any buffered data to the
+                        output file, closes it an stops writing data.   If the
+                        filter is already disabled, specific filter formats
+                        may throw an error.
+
+**filter `-regate` *filtername gatename*
+**
+
+Changes the gate on `filtername`
+                        to *gatename*. It is legal,
+                        though not recommended to change that gate while writing
+                        a filter file.  This is because the output will  then not
+                        represent a consistent data set.
+
+**filter `-file` *filename filtername*
+**
+
+Sets a new `filename` for the
+                        `filtername`.  Note that if the
+                        filter is enabled, the old file name continues to be
+                        the destination for filtered data until the filter
+                        is disabled and enabled (or just re enabled).
+
+**filter `-list` *?glob-pattern?*
+**
+
+Lists the filters whose names match the
+                        optional `glob-pattern`.  If
+                        the `glob-pattern` is not supplied,
+                        it defaults to * which matches all
+                        filter names.
+
+The result of this command is a list of filter descriptions.
+                        Each element of the list describes one filter.  Each
+                        filter description is, itself, a list that contains
+                        the following elements:
+
+
+
+1. The name of the filter.
+2. The name of the gate that must be satisfied
+                                   for an event to be written by the filter.
+3. The name of the file the filter will or is
+                                   writing to.
+4. The list of parameters the filter will write.
+5. The string enabled if the
+                                   filter is enabled or disabled
+                                   if not.
+6. The filter format string (e.g. xdr).
+
+**filter `-format` *filtername format*
+**
+
+Specifies the format of the filter.
+                        `format` will be the new
+                        filter format for `filtername`.
+                        Filters default
+                        to xdr format.  The filter format
+                        set can be extended, however.  An example of this is
+                        the root filter format plugin which adds the ability
+                        to write filter data as root ntuples.
+
+It is not legal to change the format of an enabled filter.
+                        You must first disable the filter, before you can change
+                        its format.  Unless you've already changed its format
+                        you don't need to explicitly set the default filter format
+                        to xdr.  That's the default.
+
+<a name="AEN1383"></a>## EXAMPLES
+
+<a name="AEN1385"></a>**Example 1. Creating a filter**
+
+```
+% filter george Slice {Distribution1 Distribution2}
+george Slice /user/fox/filter.flt {Distribution1 Distribution2} disabled xdr
+% filter harry Band1 Distribution3
+harry Band1 /user/fox/filter.flt {Distribution3} disabled xdr
+            
+```
+
+Creates two filters named george and harry.  For george, only the
+            parameters Distribution1 and Distribution2 are written to the output
+            filter file. For Harry,  only Distribution3 is written.  Note that
+            both filters are disabled, and the filenames for both filters are t
+            he same.
+
+The filter formats have also default to xdr.
+
+<a name="AEN1396"></a>**Example 2. Setting filter filenames**
+
+```
+% filter -filename george.flt george
+harry Band1 /user/fox/filter.flt {Distribution3} disabled xdr
+% filter -filename harry.flt harry
+harry Band1 harry.flt {Distribution3} disabled xdr
+            
+```
+
+<a name="AEN1404"></a>**Example 3. Enabling filters**
+
+```
+% filter -enable george
+george Slice george.flt {Distribution1 Distribution2} enabled xdr
+            
+```
+
+From this point forward, until disabled, the filter george
+            will write data to the file george.flt whenever
+            the gate Slice is satisfied.  The output file
+            will only contain data for parameters Distribution1
+            and Distribution2.
+
+<a name="AEN1416"></a>## SEE ALSO
+
+
+
+- [[r1428]]
+- [[r1868]]
+- [[r780]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| treevariable | Up | gate |

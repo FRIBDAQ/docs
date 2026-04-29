@@ -1,0 +1,90 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev | Chapter 4. More information | Next |
+
+
+---
+
+# <a name="AEN1122"></a>4.2. Using the Readout GUI ReadoutShell
+
+ReadoutShell provides a graphical user interface front end
+            to the readout application.  This front end supports:
+
+
+
+- Starts the readout program on an arbitrary host.
+- Starting, stopping, pausing, resuming runs
+- Setting run parameters such as the title, run number and scaler readout
+                      period.
+- Enabling or disabling software to start or stop recording event data to disk
+                      for later detailed analysis.
+- Performing timed runs, that is runs that have a fixed pre-determined run time.
+- User programmable actions to be performed when run state transitions are performed,
+                      or the Readout program started or restarted.
+- Management of data sets and symbolic links so that event data can be treated as
+                      grouped with any arbitrary associated data files, or as just a directory containing
+                      the event data.
+
+
+In this section we will create a script to start up the ReadoutShell
+            in such a way that our readout program, ~/experiment/readout/Readout will be
+            started by it.  We will ensure our readout runs on the host specified by the
+            `DAQHOST` environment variable, if it is defined, or localhost if not.
+
+Consider the following script:
+
+<a name="AEN1148"></a>**Example 4-3. Starting ReadoutShell ~/bin/startreadout**
+
+```
+#!/bin/bash
+
+. /etc/profile
+. ~/.bashrc
+
+
+if test "$DAQHOST" == ""
+then
+  host=`hostname`               # 
+else
+  host="$DAQHOST"
+fi
+
+/usr/opt/daq/8.1/bin/ReadoutShell -host=$host \
+				  -path=$HOME/experiment/readout/Readout # 
+
+                        
+
+                
+```
+
+
+
+
+[[x1122#host]]                    This shell script code checks to see if the environment
+                    variable `DAQHOST` is undefined or blank.
+                    If so, then the shell script variable `host`
+                    is set to the name of the system the script is running on
+                    (Readout will be run locally).  If not, `host`
+                    is set to the value of the `DAQHOST` variable.
+                                         [[x1122#startrdo]]                    These two lines start the ReadoutShell
+                    GUI telling it to run the readout program we created on the host
+                    specified by the `host` variable.
+
+
+The readout application we wrote does not need to know what its working directory is,
+            it also does not rely on any environment variables that got set by either the system
+            wide, or user profile scripts (/etc/profile, and
+            ~/.bashrc).  It is possible that you might write a readout program
+            that does rely on knowing the working directory, the value of an environment variable or
+            both.  In that case, instead of directly running the readout program, as shown in the
+            example above, specify that the readout program is itself a shell script that will
+            source the appropriate profiles and set the appropriate working directory.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| More information | Up | Creating desktop icons |

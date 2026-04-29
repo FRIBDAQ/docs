@@ -1,0 +1,214 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq3_fragmentindex"></a>FragmentIndex
+
+<a name="AEN25538"></a>## Name
+
+FragmentIndex -- Iterator for event built data.
+
+<a name="AEN25541"></a>## Synopsis
+
+```
+#include <FragmentIndex.h>
+
+// Add -lFragmentIndex -ldataformat -lException to the link command.
+// Add -I$DAQROOT/include to compilation.
+
+
+
+struct FragmentInfo
+{
+  uint64_t s_timestamp;
+  uint32_t s_sourceId;
+  uint32_t s_size;
+  uint32_t s_barrier;
+  uint16_t* s_itemhdr;
+  uint16_t* s_itembody;
+};
+
+
+class FragmentIndex
+{
+public:
+  typedef Container::iterator iterator;
+  typedef Container::const_iterator const_iterator;
+
+public:
+
+  FragmentIndex();
+  FragmentIndex(uint16_t* data);
+
+  FragmentInfo getFragment(size_t i);
+  size_t getNumberFragments() const;
+  void indexFragments(uint16_t* begin, uint16_t* end);
+  void indexFragments(uint16_t* data, size_t max_bytes);
+
+  iterator begin();
+  const_iterator begin() const;
+
+  iterator end();
+  const_iterator end() const;
+};
+
+        
+```
+
+<a name="AEN25543"></a>## DESCRIPTION
+
+This class provides a simple method to iterate over the fragments
+            in an event built event.  It provides both indexing and iteration
+            based approaches.
+
+Each fragment is represented by  a FragmwentInfo
+            struct that contains information from the fragment's header as
+            well as a pointer to the fragment's body.  The fragment's body,
+            in this case means the data past the fragment's ring item body header,
+            that is the actual payload of the fragment.  A pointer to the body
+            header is also provided.
+
+<a name="AEN25548"></a>## METHODS
+
+
+
+`  FragmentIndex();`, `   FragmentIndex(uint16_t*  data);`Constructs fragment info objects.  The first, default,
+                        constructor constructs an empty fragment.  The user
+                        must later call one of the
+                        `indexFragments` methods to
+                        parse an event into fragments.
+
+The second event passes in a pointer to the event
+                        built data.  This is like doing a default constructor and
+                        then calling `indexFragments` using
+                        `data` as the `data`
+                        parameter and dereferencing a 32 bit unsigned integer the
+                        `data` to compute the
+                        `max_bytes`
+                        parameter.
+
+`   void  indexFragments(uint16_t*  begin, uint16_t*  end);`, `   void  indexFragments(uint16_t*  data, size_t  max_bytes);`These two methods parse an event and  create a list of
+                        fragments.  It is safe to call this several times
+                        as the internal fragment list is cleared first.
+
+The first version of this method takes
+                        `begin`, a pointer to the
+                        event builder data and `end`
+                        a pointer just past the end of the event builder data.
+                        These are used to map out the extent of the event
+                        that will be processed.
+
+The second version of this method takes a
+                        `data` pointer to the start of the
+                        event built data and a size, `max_bytes`,
+                        of the part of the event that contains the fragments.
+                        The size should not include the event size that is the
+                        first 32 bits of the what `data`
+                        points to.
+
+`  const size_t  getNumberFragments();`Returns the number of fragments in the event.  If there
+                        is no parsed event (the default constructor was usedq
+                        to make the object and `indexFragments`
+                        was never called), this will return 0.
+
+`   FragmentInfo  getFragment(size_t  i);`Returns a copy of the fragment information data
+                        structure for fragment number `i`
+                        (numbered from 0).  See Data structures
+                        below for a description of the FragmeintInfo
+                        structure.
+
+If `i` is out of range of the fragments
+                        that have been parsed out of the event, the
+                        `s_itembody` field of
+                        the FragmentInfo struct returned will
+                        be a null pointer.
+
+`   FragmentIndex::iterator  begin();`, `  const FragmentIndex::const_iterator  begin();`Returns an iterator (in the STL sense of the word)
+                        that 'points' to the first fragment accumulated from the
+                        event.  If there are no fragments, this will compare
+                        as equal to the return value from `end`
+
+The iterator supports pointer dereferencing which provides
+                        access to a FragmentInfo struct.  It
+                        also support the ++ operator which
+                        points it to the next fragment info struct.  If there are no
+                        more fragment info structs, the resulting iterator compares
+                        as equal to the return value from
+                        `end`
+
+The only difference between these two versions is
+                        that a FragmentIndex::const_iterator
+                        does not allow the FragmentInfo it points
+                        to to be modified.
+
+`   FragmentIndex::iterator  end();`, `  const FragmentIndex::const_iterator  end();`Returns an iterator that is just off the end of the
+                        list of fragments parsed by the object from the event.
+
+<a name="AEN25678"></a>## Data structures
+
+The key data structure the header provides is the
+            FragmentInfo struct.  This struct provides
+            information from both the fragment's header and pointers into
+            useful parts of the event fragment.
+
+The FragInfo struct has the following fields:
+
+
+
+uint64_t `s_timestamp`The fragment's timestamp from the fragment's fragment
+                        header.
+
+uint32_t `s_sourceId`The id of the fragment's source, from the fragment's
+                        fragment header.  This value is defined by each experiment
+                        and describes the creator of the fragment.  Fragment ids
+                        should be unique experiment wide.
+
+uint32_t `s_size`Provides the number of bytes in the fragment body.
+
+uint32_t `s_barrier`If nonzero, this fragment required the event orderer to
+                        perform a data barrier with all known data sources for
+                        barrier fragments with the same barrier type.
+
+At present a barrier type of 1
+                        is a begin run barrier while a barrier of
+                        type 2 is an end of run.
+
+uint16_t* `s_itemhdr`If `s_itembody` is not null,
+                        this points to the ring item body  header.
+                        This will either point to a uint32_t of
+                        zero, if the Fragment has no body header, or
+                        a BodyHeader struct as defubed in
+                        DataFormat.h.
+
+uint16_t* `s_itembody`Points to the actual body of the fragment.  The
+                        structure of these data depend on the data source.
+                        The Special null value indicates that the
+                        fragment information struct is invalid.  That is that
+                        it does not represent any actual fragment in the event.
+
+The fragments are parsed from the event and put into
+            an opaque Container type.  The
+            `FragmentIndex` class defines two nested types
+            that support iteration of the elements of the class.  These iterators
+            'point' to FragmentInfo structs.
+
+
+
+FragmentInfo::iteratorIs an iterator that allows the contents of the
+                        FragmentInfo struct it
+                        'points to' to be modified.
+
+FragmentInfo::const_iteratorJust like FragmentInfo::iterator, however
+                        access to the FragmentInfo struct is
+                        limited to read-only.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEventOrderClient | Up | CPortManager |

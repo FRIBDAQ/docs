@@ -1,0 +1,142 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CPortManagerException"></a>CPortManagerException
+
+<a name="AEN24997"></a>## Name
+
+CPortManagerException -- Report errors conditions in port manager transactions
+
+<a name="AEN25000"></a>## Synopsis
+
+```
+#include <config.h<
+#include <histotypes.h<
+#include <CPortManagerException.h<
+
+
+         
+```
+
+```
+  CPortManagerException(std::string host, Reason why, std::string doing);
+```
+
+<a name="AEN25035"></a>`ostream&
+                    operator<<
+                (
+                    ostream& f
+                , 
+                    
+                    const CPortManagerException& e
+                );`
+
+<a name="AEN25046"></a>## Description
+
+`CPortManagerException`
+       is  an exception that can be thrown by the port manager
+       class `CPortManager`
+        see [[r24826]]).
+        Since it  is  derived
+       from
+       `CException`,
+       it can be caught as a generic error.  In addition to the base
+       class members, the class supports insertion into an output stream.
+
+<a name="AEN25053"></a>## Public member functions
+
+`  CPortManagerException(std::string host, Reason why, std::string doing);`Constructs the exception.  `host` is the host that
+                the object was connected to, or attempted to connect to when the
+                error was detected.  `why`Is the reason for
+                the exception. See "Types and public data" below for more information
+                about the possible values the Reason type can take.
+                `doing` provides context information that describes
+                what the object was attempting to do when the error was detected.
+
+` virtual const const char* ReasonText();`Returns comprehensive human readable text that describes the
+                reason this operation failed.
+
+` virtual const Int_t ReasonCode();`Returns the reason code.  The reason code is just the Reason
+                cast to an integer.
+
+` static string ReasonCodeToText(int code);`Converts a reason code into a text string that describes the reason.
+
+<a name="AEN25094"></a>`ostream&
+                    operator<<
+                (
+                    ostream& f
+                , 
+                     
+                    const CPortManagerException& e
+                );`
+
+Formats the exception object `e` and writes it to the
+            output stream `f`. A reference to the output stream
+            is returned allowing the normal sorts of cascading of the
+            `operator<<` function.
+
+<a name="AEN25109"></a>## Types and public data
+
+Reason
+            is an enumerated type that describes the actual error condition that
+            was detected:
+
+
+
+NoPortsWhen attempting to allocate a service port, thee daemon reported
+                            that all available service ports in the block it is managing
+                            are in use.
+
+NotLocalYou are attempting to allocate a port on a remote
+                            system.  Service ports can only be allocated by programs
+                            running on the same system as the port manager daemon.
+
+ConnectionFailedAn attempt to connect to the daemon failed.
+
+<a name="AEN25126"></a>## EXAMPLES
+
+The  example  below catches an exception.  If the exception was thrown because
+       of a Connection failure. it is just printed to cerr.   Otherwise,  The  reason
+       text  is printed along with a message idicating that a port allocation failed.
+
+<a name="AEN25129"></a>**Example 1. Catching a CPortManagerException**
+
+```
+…
+try {
+…
+}
+catch (CPortManagerException& e) {
+  int why = e.ReasonCode();
+  if((CPortManagerException::Reason)why ==
+                  CPortManagerException::ConnectionFailed) {
+     cerr << e << endl;
+  }
+  else {
+     cerr << "Port Allocation Failed: " << e.ReasonText() << endl;
+  }
+}
+
+…
+                
+            
+```
+
+<a name="AEN25132"></a>## SEE ALSO
+
+[[r74276]],
+            [[r24826]],
+            [[r15776]]
+[[r45760]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CPortManager | Up | CADC2530 |

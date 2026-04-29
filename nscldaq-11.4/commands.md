@@ -1,0 +1,18 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="AEN7510"></a># IV. commands
+
+**Table of Contents**18. [[c7512]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Overview of Basic Operation |  | Command line access to CAMAC via the SBS interface |

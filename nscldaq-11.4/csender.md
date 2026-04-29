@@ -1,0 +1,97 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN50629"></a>CSender
+
+<a name="AEN50633"></a>## Name
+
+CSender -- Encapsulate a transport to send data.
+
+<a name="AEN50636"></a>## Synopsis
+
+```
+#include <Sender>
+
+class CSender {
+
+public:
+    CSender(CTransport& transport);
+    
+    void sendMessage(iovec* parts, size_t numParts); 
+    void sendMessage(void* pBase, size_t nBytes);   
+    void end();
+};
+        
+```
+
+<a name="AEN50638"></a>## DESCRIPTION
+
+Working in conjunction with a
+            `CTransport`, this class provides
+            a mechanism to send data to the transports peer using
+            some communication pattern. Note that as far
+            as the application code is concerned, this is a
+            unidirectional data path.  The underlying
+            transport or communication pattern may bi-directional
+            message exchanges to accomplish a data transfer,
+            but that's hidden from the user code.
+
+<a name="AEN50642"></a>## METHODS
+
+
+
+`  CSender(CTransport&  transport);`Provides the `CSender`
+                        with a transport that will be used to
+                        send messages to the tranport's peer.
+
+When designing mechanisms to implement
+                        communication patterns (e.g. fanout),
+                        it's recommended that all high level
+                        protocol code be implemented in the
+                        transport so that the simple code of this
+                        class can be used everywhere..
+
+`   void  sendMessage(iovec*  parts, size_t  numParts);`Sends a multipart message to the peer.
+                        `parts` describes
+                        `numParts` message
+                        parts.  See
+                        `writev`(2) for a
+                        description of the
+                        iovec struct.
+
+This normally just calls the
+                        transport's `send`
+                        method which does whatever  is needed
+                        to marshall the message parts into a
+                        message.
+
+`   void  sendMessage(void*  pBase,  size_t  nBytes);`Convenience method to send a single part
+                        message.  You can think of this as being
+                        implemented:
+
+<a name="AEN50692"></a>```
+...                            
+iovec part;
+part.iov_len = nBytes;
+part.iov_base = pBase;
+sendMessage(∂, 1);
+...
+                        
+```
+
+`   void  end();`Signals the transport there is no more
+                        data to transmit.  This is normally
+                        done by invoking the transport's
+                        `end` method.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTransport | Up | CReceiver |

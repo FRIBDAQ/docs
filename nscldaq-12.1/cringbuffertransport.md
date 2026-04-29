@@ -1,0 +1,88 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN68755"></a>CRingBufferTransport
+
+<a name="AEN68759"></a>## Name
+
+CRingItemTransport -- Transport for ring items to or from ring buffers.
+
+<a name="AEN68762"></a>## Synopsis
+
+```
+#include <CRingBufferTransport.h>
+
+class CRingBufferTransport : public CRingItemTransport
+{
+    
+public:
+    CRingBufferTransport(CRingBuffer& writer);        
+    CRingBufferTransport(CRingBufferChunkAccess& reader); 
+    
+    virtual void recv(void** ppData, size_t& size);
+    virtual void send(iovec* parts, size_t numParts);
+};
+        
+```
+
+<a name="AEN68764"></a>## DESCRIPTION
+
+Provides a transport for data to and from a ring buffer.
+            Often these are at endpoints of a computation, but
+            need not be.
+
+Note that there is a constructor for writing and a different
+            one for reading. This represents the fundamental
+            difference between producers and consumers of ring
+            data.  Attempting to receive data from
+            a ring transport that's been set up to as a producer
+            or attempting to send data to a ring buffer
+            that's been setup as a consumer results in a
+            `std::logic_error` exception.
+
+<a name="AEN68769"></a>## METHODS
+
+
+
+`  CRingBufferTransport(CRingBuffer&  writer);`Use this constructor for producers into
+                        ring buffers.  Objects constructed with this
+                        version of the constructor only support
+                        `send`
+
+`  CRingBufferTransport(CRingBufferChunkAccess&  reader);`This version of the constructor is used
+                        for consumers.  Objects constructed
+                        in this manner are only capable of
+                        `recv` calls.
+
+The `reader` parameter
+                        is a reference to a
+                        `CRingBufferChunkAccess`
+                        class.  See the
+                        `CRingBufferChunkAccess`(3daq)
+                        class for more information about it, and
+                        specifically, how to construct it.
+
+` virtual   void  recv(void**  ppData,  size_t&  size);`Receives the next ring item from the
+                        ring buffer.  Receives from this transport
+                        are always receiving a full ring item.
+
+` virtual   void  send(iovec*  parts, size_t  numParts);`Puts data into the ring buffer. Note that
+                        each iovec element does a put into the
+                        ring buffer.  Thus, if a ring item is
+                        spread across several
+                        iovec elements,
+                        the put is not atomic.  In many cases,
+                        because of the way data are gotten from
+                        the ring buffer, this fact is not important.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingItemTransport | Up | CRingItemFileTransport |

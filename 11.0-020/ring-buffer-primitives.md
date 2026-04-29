@@ -1,0 +1,85 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringprimitives"></a>Chapter 38. Ring Buffer Primitives
+
+The NSCL DAQ data flow software is based on single producer
+        multi-client ring buffers.   A ring buffer is a block of memory
+        that is treated as a circular buffer.  NSCL DAQ ring buffers are
+        located in POSIX shared memory regions. They feature a single
+        *put* pointer and several
+        *get* pointers.
+
+Ring buffers of this type are an extremely low over head inter process
+        communications mechanism.  In most cases you will not need to interact
+        directly with NSCL DAQ Ring buffers.  Higher level classes and functions
+        built on top of them will interact for you.
+
+This chapter describes:
+
+
+
+- The steps you need to follow to compile and link to the ring buffer
+                  library.
+- The general flavor of the ring buffer classes along with
+                  sample code.
+
+
+Reference material can be found in the
+        [[r16528]]
+
+# <a name="AEN7796"></a>38.1. Incorporating ring buffer software
+
+The low level ring buffer software is described in a single
+            header file CRingBuffer.h.  This header
+            defines the class, data structures and constants needed to
+            write applications that use the ring buffer primitives.
+
+The header is installed in the
+            include
+            subdirectory of the NSCL DAQ installation tree.
+            Suppose there is an environment variable
+            DAQROOT
+            whose value is the top level installation directory of NSCL DAQ.
+            A sample compilation line might be:
+
+<a name="AEN7803"></a>**Example 38-1. Compilation line for ring buffer primitives**
+
+```
+g++ -c -I$DAQROOT/include consumer.cpp
+            
+```
+
+Where consumer.cpp will have:
+
+<a name="AEN7809"></a>**Example 38-2. Including the ring buffer primitives header**
+
+```
+#include <CRingBuffer.h>
+            
+```
+
+To link ring buffer programs, you need to specify that the
+            compile-time and run-time linker search the
+            lib
+            subdirectory of the nscldaq installation and incorporate the
+            libDataFlow library:
+
+<a name="AEN7815"></a>**Example 38-3. Linking to the ring buffer primitives**
+
+```
+g++ -o consumer -L$DAQROOT/lib consumer.o -lDataFlow -Wl,"-rpath=$DAQROOT/lib"
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Networked ring buffer access | Up | Overview and Examples of ring buffers in action. |

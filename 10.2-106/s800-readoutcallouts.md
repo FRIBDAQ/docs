@@ -1,0 +1,53 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2862"></a>Chapter 39. S800 ReadoutCallouts
+
+The S800 data acquisition system uses a data taking framework that
+        requires special handling.  This chapter describes the S800
+        data acquisition system.  We also describe the sorts of things
+        that need to be done to integrate the S800 with NSCLDAQ and finally
+        provide a brief description of what you need to do to use the S800
+        DAQ system.
+
+# <a name="AEN2865"></a>39.1. S800 Data acquisition system
+
+The S800 system consists of a CAMAC crate that is read via a CC-USB
+            FPGA based crate controller and a VME crate that is read via
+            a VM-USB FPGA based controller.  The CAMAC crate contains electronics
+            that read much of the focal plane while the VME crate contains
+            electronics that read out the CRDC's and image 2 detectors when they
+            are in use.
+
+The CC-USB and VM-USB are both block mode readout engines in the sense
+            that each module provides data from several triggers as the result
+            of each transfer to the host.  This means that the data from the
+            CC-USB and VM-USB must be built into events by an event builder.
+
+The S800 event builder creates events and re-formats them so that
+            they meet the event formats described in the Operations Technical Development
+            group at
+            [https://groups.nscl.msu.edu/opdevtech/wiki](https://groups.nscl.msu.edu/opdevtech/wiki).
+            The event builder
+            is also able to serve data to TCP/IP clients both remote and local
+            to the system in which it runs.  Data are delivered in 8Kbyte buffers
+            to clients that connect on port 9002.  These buffers are formatted
+            with a header that matches the pre-ring buffer data acquisition system
+            format.
+
+The entire system is run by a GUI that is tightly integrated into the
+            readout framework (is part of the readout program in fact).  The
+            readout program, however can accept exactly one client on port 8000.
+            The protocol is described at the same wiki.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating ring items | Up | Scope of the integration problem. |

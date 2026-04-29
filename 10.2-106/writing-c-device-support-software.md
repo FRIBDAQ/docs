@@ -1,0 +1,365 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 56. VMUSB readout | Next |
+
+
+---
+
+# <a name="AEN5848"></a>56.3. Writing C++ device support software
+
+This section describes how to write C++ software support for new
+            data taking devices and how to integrate that support into the
+            system.  Device support modules are built into shared images.
+            Tcl provides the **load** command which loads
+            a shared object into an application and invokes an initialization
+            function.  This provicdes a plugin scheme that the framework
+            leverages to support externally written device drivers.
+
+A device driver therefore consists of a C++ program that provides
+            a new device class and an initialization function that associates
+            this class with a Tcl command in the interpreter that reads the
+            configuration file.  Since each time the configuration file is read,
+            a new interpreter is used, this also means that the current version
+            of the device driver shared image is loaded at the start of each
+            run.
+
+The device driver support package is supplied as a driver development
+            kit that consists of a template driver and a Makefile.  These are two
+            files in the vmusbdriver directory of the
+            NSCLDAQ installation.  The example below shows how to create
+            a new directory and prepare it for driver development.  In the example
+            we are assuming that the environment variable DAQROOT
+            points to the top level of the installation directory.
+
+<a name="AEN5856"></a>**Example 56-4. Obtaning the VM-USB device driver development kit**
+
+```
+mkdir mydriver
+cd mydriver
+cp $DAQROOT/vmusbdriver/drivertemplate.cpp .
+cp $DAQROOT/vmusbdriver/Makefile .
+            
+```
+
+The template driver is a complete example that builds a
+            marker driver which inserts  constant word into the event.
+            You can do a **make** to build the driver if you like.
+            The template driver then defines a command **changeme**
+            for the configuration file interpreter and a configuration parameter
+            `-value` which allows you to set the value of the
+            markrer.
+
+The script fragment below shows how to load the driver, create and
+            configure a module instance using it. The fragment assumes that the
+            driver shared object libtemplatedriver.so
+            is in the same directory as the DAQ configuration script but that
+            that directory my not be the current working directory when
+            the configuration script is sourced.
+
+<a name="AEN5865"></a>**Example 56-5. Using a user written VMUSB driver**
+
+```
+set here [file nativename [file dirname [info script]]]
+load [file join $here libtemplatedriver.so]
+changeme cdreate testing -value -0x1234
+            
+```
+
+The work done by the **set here...** command builds
+            the full path to the directory the driver is in.  This is necessary
+            beause the **load** command normally only uses directories
+            that are in the dynamic loader search path to look for shared objects.
+            Note finally that once the driver is loaded, it registers the
+            **changeme** command with the interpreter and that
+            this command operates exactly like any other driver command.
+
+The next sections will examine the driver elements in detail. Before
+            doing that, let's take a broad brush overview look at the driver
+            template.
+
+The template consists of two sections.  The first section is the
+            definition and implementation of a class which derives from
+            `CReadoutHardware` the base class for
+            all DAQ device support.  The methods of this class define
+            configuration parameters, initialize the module as the run
+            is starting and provides the appropriate commands to the
+            VME list that is being generated for the stack this module
+            is an element of.  Finally virtual duplication
+            (`clone`) is also defined.
+
+The second section  is an initialization
+            function that the Tcl **load** command automatically
+            locates and calls.  This function creates an instance of the
+            driver which is cloned for each device instance the user creates.
+            It also associates a Tcl command with the device driver so that
+            the DAQ configuration script can create and manipulate new instances.
+
+While the driver template is heavily commmented, and modification
+            points indicated, the next few sectinos are a guided tour
+            of the driver in detail, pointing out what needs to be modified
+            to make the driver work with a specific device.
+
+## <a name="AEN5879"></a>56.3.1. The driver `onAttach` method
+
+Each driver instance has a configuration database attached to it
+                when it is created.  The configuration database holds configuration
+                parameter definitions and their current values.  The framework
+                takes care of managing the values for you, however you must
+                define the set of configuration parameters supported by your
+                driver.
+
+The template driver's code is (comments removed for brevity:
+
+<a name="AEN5884"></a>```
+void
+CTemplateDriver::onAttach(CReadoutModule& configuration)
+{
+  m_pConfiguration = &configuration;     
+
+  m_pConfiguration->addIntegerParameter("-base");  
+  m_pConfiguration->addIntegerParameter("-id", 0, 0xffff, 0); 
+
+
+}
+                
+```
+
+In the discussion below, the numbers refer to the same numbers
+                in the example above.
+
+[[x5848#vmusb-dtemplate-saveconfig]]                        The method is passed a reference to its instance
+                        configuration database.  This will be used here,
+                        to establish configuration parameters, in the
+                        `Initialize` method to know
+                        how to set up the module and  in
+                        `addReadoutList` to know
+                        how to read the module.
+                    This line saves a pointer to the configuration
+                        database for this instance in member data where it
+                        can be accessed in those other methods.
+
+[[x5848#vmusb-dtemplate-baseparam]]                        Most if not all VME modules must be addressed relative
+                        to some base address that is set via jumpers or switches
+                        on the module itself.  Therefore the template driver
+                        provides a definition for a `-base`
+                        option to hold this value.  The specific version of
+                        `addIntegerParameter` used
+                        only requires that the value passed to `-base`
+                        be a valid integer.  No constraint on the range is
+                        imposed.
+                    [[x5848#vmusb-dtemplate-idparam]]                        Since the template driver inserts a marker
+                        the `id` parameter is defined
+                        to provide the value of the marker.  The VM-USB
+                        only supports 16 bit markers, therefore the
+                        version of `addIntegerParameter`
+                        constrains the range of values to be in the range
+                        [0..0xffff].
+                    If a constraint is specified, and a daq configuration
+                        script violates it, the configuration file interpreter
+                        outputs an error message and refuses to start the run.
+                        Using constraints allows error checking to be done
+                        by the configuration subsystem without intervention
+                        by user code.
+
+Constraint checking comes from the
+                        `CConfigurableObject` class.
+                        See [[r59464]]
+                        for pre-defined constraints.  That manpage also shows
+                        you how to create your own constraints if the pre-defined
+                        ones don't work for you.
+
+## <a name="AEN5910"></a>56.3.2. The driver `Initialize` method
+
+When a run is starting, each stack invokes the
+                `Initialize` method for each element in
+                its `-modules` list.  Each driver is supposed
+                to query its configuration and do any initialization demanded
+                by the configuration.  For example the **adc**
+                command queries the set of pedestal values and programs them
+                into its module (using the `-base` of course)
+                at this time.
+
+The `Initialize` method is passed a
+                reference to a `CVMUSB` object.  Methods
+                on that object allow you to perform single or block VME
+                operations.  You can also create and stock a
+                `CVMUSBReadoutList` with several VME
+                operations and ask the controller to execute that list in
+                immediate mode.
+
+See [[r55338]] and
+                [[r57342]] for reference
+                information about those two classes.
+
+The template driver is a marker and does not perform any
+                VME operations.  Since, however your driver will most likely
+                need the `-base` parameter value, it shows
+                how to obtain that from the configuration database:
+
+<a name="AEN5927"></a>**Example 56-6. The template driver `Initialize` method**
+
+```
+void
+CTemplateDriver::Initialize(CVMUSB& controller)
+{
+
+  uint32_t base = m_pConfiguration->getUnsignedParameter("-base");
+
+
+}
+                
+```
+
+The configuration database stores all parameter values as
+                strings after validating them however it also provides a rich
+                set of member function to convert the string to some other
+                format.  Since the `-base` parameter can take values
+                greater than 0x80000000 it must be converted
+                and treated as an unsigned integer.
+                `getUnsignedParameter` converts the
+                value of the configuration parameter given to an unsigned integer.
+
+## <a name="AEN5935"></a>56.3.3. The driver `addReadoutList` method
+
+The `addReadoutList` method is called
+                by stacks containing a driver instance when the stack is
+                building its list of VME operations to download into the VM-USB.
+                `addReadoutList` is passed a
+                `CVMUSBReadoutList` object and is expected
+                to add entries to that object.
+
+The template ddriver fetches the `-base`
+                and `-id` option values and adds a marker
+                instruction to the stack with the value of the
+                `-id` option.
+
+<a name="AEN5946"></a>**Example 56-7. Template Driver `addReadoutList` method**
+
+```
+void
+CTemplateDriver::addReadoutList(CVMUSBReadoutList& list)
+{
+
+  uint32_t base  = m_pConfiguration->getUnsignedParameter("-base"); 
+  int      id    = m_pConfiguration->getIntegerParameter("-id"); 
+
+  list.addMarker(id);                                            
+}
+
+                
+```
+
+[[x5848#vmusb-dtemplate-getid]]                        The `-id` option is an integer
+                        in the range [0 .. 0xffff].
+                        This line
+                        fetches its current value from the configuration
+                        database.
+                    [[x5848#vmusb-dtemplate-addmarker]]                        This line adds a marker instruction to the
+                        stack.  The value of the marker to be
+                        inserted in the event is the value of the
+                        `-id` configuration parameter.
+
+## <a name="AEN5960"></a>56.3.4. Driver initialization `xxxx_init`
+
+The driver will build to a shared object of the name
+                libxxxx.so where you will choose
+                xxxx when you edit the driver Makefile.
+                When the **load** command loads this library,
+                it will look for a function named
+                `Xxxx_Init` (note the capitalization).
+                and call it with a pointer to the running Tcl Interptreter.
+
+You must make sure the initialization entry point name is
+                correct for the driver name.  For exmample:
+                libmyvmedriver.so requires an initialization
+                function entry point of
+                `Myvmedriver_Init`.
+
+Let's pick apart the template driver's implementation of its
+                initialization function.
+
+<a name="AEN5972"></a>**Example 56-8. 
+                    The VMUSB driver `Xxxx_Init`
+                    function.
+                **
+
+```
+extern "C" {                                     
+  int Templatedriver_Init(Tcl_Interp* pInterp)   
+  {
+
+    Tcl_PkgProvide(pInterp, "Templatedriver", "1.0"); 
+
+    CUserCommand::addDriver("changeme", new CTemplateDriver); 
+
+    return TCL_OK;     
+    
+  }
+}                      
+                
+```
+
+[[x5848#vmusb-dtemplate-ccall]]                        The Tcl **load** command will be
+                        looking for a specific function name to call
+                        to initialize the library it just loaded.
+                        C++ *decorates* or
+                        *mangles* function names adding
+                        information about the return type and the
+                        type of parameters expected by the function.
+                        This is how it implements function/operator overloading.
+                    Using the extern "C" block shown
+                        tells the GNU C++ compiler to use C
+                        language call methods which disable this function
+                        name mangling.  Without this, the **load**
+                        command would not find the initialization function.
+
+[[x5848#vmusb-dtemplate-initname]]                        As described above, the initialization function
+                        name must be precisely chosen to match both the
+                        library and the package name (see below).
+                        The function name used here must be modified to
+                        match your changes to the  Makefile.  The
+                        initialization function here is correct for
+                        the package TemplateDriver
+                        and the library file
+                        libtemplatedriver.so.
+                    [[x5848#vmusb-dtemplate-package]]                        This line also allows you to use the
+                        Tcl **package require** command to
+                        load the driver if you have created a
+                        pkgIndex.tcl file using e.g.
+                        **pkg_mkIndex** and added the diretory
+                        the driver lives in to the Tcl package load path
+                        (`auto_path`) or the
+                        `TCLLIBPATH` environment variable.
+                    The package name must match the part of the
+                        function name prior to _Init, as it
+                        is used to located the name of the package initialzation
+                        function by **package require**
+
+[[x5848#vmusb-dtemplate-adddriver]]                        This line associates the tcl command
+                        **changeme** with the
+                        driver by creating a *prototype*
+                        instance of the driver object that will be cloned
+                        to produce driver instances.  Normally you would change
+                        the name of the command to be a meaningful command
+                        name for your driver.
+                    This is part of an implementation of the
+                        *prototype pattern*. For more
+                        about the prototype pattern see e.g.
+                        [http://en.wikipedia.org/wiki/Prototype_pattern](http://en.wikipedia.org/wiki/Prototype_pattern)
+
+[[x5848#vmusb-dtemplate-initsuccess]]                        The **load** or
+                        **package require** command expects
+                        the initialization function to return
+                        TCL_OK on success or
+                        TCL_ERROR if  it is not able
+                        to successfully initialize. This line indicates
+                        a successful installation/initialization of the library.
+                    [[x5848#vmusb-dtemplate-endccall]]                        Ends the extern "C" {  block.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing DAQ configuration files | Up | Writing device support software in Tcl |

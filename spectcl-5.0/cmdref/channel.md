@@ -1,0 +1,83 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.channelcommand"></a>channel
+
+<a name="AEN522"></a>## Name
+
+channel -- Access spectrum channels
+
+<a name="AEN525"></a>## Synopsis
+
+**channel -get *spname indices*
+**
+
+**channel -set *spname indices value*
+**
+
+<a name="AEN532"></a>## DESCRIPTION
+
+Allows you to set or get the values of channels in a spectrum.
+
+<a name="AEN535"></a>## OPTIONS
+
+
+
+`-get`The channnel command will retrieve the contents
+                        of the channel of `spname`
+                        specified by the channel indices `indices`/
+                        The `indices` are raw channel parameters.
+                        For a two dimensional spectrum, this must be a list of, in order,
+                        x and y channel numbers.
+
+The result of the command is the channel value.
+
+`-set`The channel command will set the value of the channel
+                        in `spname` specified by the
+                        raw channel indices `indices` to
+                        the new value `value`.
+                        As with `-get`, for a 2-d spectrum,
+                        the `indices` parameter must
+                        be a list of x and y channel numbers.
+
+<a name="AEN557"></a>## EXAMPLES
+
+<a name="AEN559"></a>**Example 1. Getting the value of a channel in a 1-d spectrum**
+
+```
+channel -set TwodSpectrum {123 456} 100
+            
+```
+
+<a name="AEN562"></a>**Example 2. Clearing a spectrum using **channel****
+
+```
+for {set i 0 } { $i < 128 } {incr i } {
+   for {set j 0} {$j < 128 } {incr j } {}
+      channel -set TwodSpectrum [list $i $j] 0]
+    }
+}
+            
+```
+
+Normally use the **clear** command instead of this
+            method.
+
+<a name="AEN568"></a>## SEE ALSO
+
+
+
+- [[r2411]]
+- [[r577]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| fold | Up | clear |

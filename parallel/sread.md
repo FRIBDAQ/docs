@@ -1,0 +1,36 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1933"></a>sread
+
+<a name="AEN1937"></a>## Name
+
+sread -- Read spectra from file
+
+<a name="AEN1940"></a>## Synopsis
+
+**sread** `-format` fmtname  [`-[no]snapshot`] [`-[no]replace`] [`-[no]bind`]  *file-or-fd*
+
+<a name="AEN1956"></a>## DESCRIPTION
+
+This command is wrapped in a `CMPITclPackagedCommand`. 
+                    It is part of the spectrum package (`CSpectrumPackage`).
+                    It only actually does something in the MPI_EVENT_SINK_RANK
+                    process as it requires a histogramer and displayer into which to load
+                    the spectrum and, if necessary, bind it to display memory.  Note
+                    that spectra read in from file are only known to the 
+                    MPI_EVENT_SINK_RANK process though I believe that they
+                    will show up in the spectrum list and be handled properly by most
+                    commands.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| spectrum | Up | start |

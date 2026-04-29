@@ -1,0 +1,82 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 12. Dynamic processing pipelines |  |
+
+
+---
+
+# <a name="AEN4401"></a>12.2. Using the **pman** command to create and select pipelines
+
+In this section, we are going to assume that SpecTcl has the code
+            described in the previous section and therefore there are
+            four event processors registered: evp1,
+            evp2, evp3 and
+            filter.
+            We'll create two pipelines. One called raw
+            which will contain the user written evp* event
+            prociessors and one called filter which
+            contains the filter event processor.  We'll then select the
+            raw event processing pipeline to be the one
+            SpecTcl uses.
+
+Once more, all this could be done programatically using the
+            pipeline manager object, but this method is more flexible and
+            allows pipeline management to be added to your experiment
+            specific Tcl/Tk GUI without any additional C++ coding.
+
+<a name="AEN4414"></a>**Example 12-2. Using the **pman** SpecTcl command**
+
+```
+pman mk raw                                
+foreach proc [list evp1 evp2 evp3] {
+    pman add raw $proc                     
+}
+
+pman mk filter                             
+pman add filter filter
+
+pman use raw                               
+            
+```
+
+[[x4401#dynpipe.pman.mk]]                    The **pman** command is a command
+                    ensemble.  This means that it requires a subcommand
+                    to tell it what to do.   The **mk**
+                    subcommand creates new pipelines.  This line
+                    creates a new event processing pipeline called
+                    raw
+[[x4401#dynpipe.pman.add]]                    This loop adds the user written event processors we
+                    registered in the C++ code in the previous section
+                    to the raw pipeline.
+                    The list in the **foreach** loop
+                    determines the order in which the event processors
+                    are called.
+                [[x4401#dynpipe.pman.filter]]                    Similarly, this pair of commands creates the
+                    pipeline named filter and makes
+                    the filter event processor its only element.
+                    Pipeline names must be unique, and event processor names must
+                    be unique, but the namespaces for pipelines and event processors
+                    are distinct allowing the pipeline to have the same name
+                    as an event processor.
+                [[x4401#dynpipe.pman.use]]                    SpecTcl only runs a singl event processing pipeline at a time.
+                    When it starts executing, a pipeline named
+                    default is used.  The
+                    **use** subcommand specifies a new pipeline
+                    to be used by SpecTcl to analyze data.
+                We could have equally well just added our raw event
+                    processors to the default pipeline not
+                    bothering with a raw pipeline.
+                    We chose not to for illustrative purposes, and to give
+                    that pipeline a better name.
+
+The same SpecTcl executable can read filter files by
+                    simply doing a **pman use filter** at a later
+                    time.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| Dynamic processing pipelines | Up |  |

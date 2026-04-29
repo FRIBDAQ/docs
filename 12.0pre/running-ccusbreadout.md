@@ -1,0 +1,131 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 6. CCUSBReadout | Next |
+
+
+---
+
+# <a name="AEN3909"></a>6.6. Running CCUSBReadout
+
+CCUSBReadout is installed as:
+            $DAQROOT/bin/CCUSBReadout.
+
+Several command options control the way CCUSBReadout operates:
+
+
+
+`-serialno`Specifies the serial number of the CCUSB the program
+                        will use.  See `--enumerate` below.
+                        If not provided, the first CCUSB located will be used.
+                        If you only have one CCUSB connected to your system,
+                        this is suitable.
+
+`--ring`Specifies the ring buffer in which event data will
+                        be put by the program.  By default this is the
+                        same as the username you are logged in on .
+
+`--daqconfig`Specifies the filename that contains the data acquisition
+                        configuration script.  This defaults to
+                        ~/config/daqconfig.tcl
+
+`--ctlconfig`Specifies the filename that contains the slow controls
+                        configuration script.  This defaults to
+                        ~/config/controlconfig.tcl. Note
+                        that this file is required even if it is just an empty file.
+
+`--init-script`Specifies the name of a script that will be run in the
+                        interpreter just prior to starting the interpreter's
+                        command/event loop.
+
+`--port`Specifies the port on which the slow controls server
+                        listens for connections.  This defaults to
+                        27000.  The value of thie parameter
+                        can be either an intger port number or the special
+                        string managed.
+
+If the value is managed CCUSBReadout
+                        will work with the NSCL port manager to allocate and
+                        advertise itself on a managed port.  The port will
+                        be advertised as CCUSBReadout:*controller*
+                        Where *controller* is the serial
+                        number of the controller or FirstController
+                        if no specific serial number was requested.
+
+`--enumerate`Requests that the software list the serial numbers of
+                        the CCUSB devices currently attached to the system and
+                        exit.  Note that the serial 'numbers' are actually strings
+                        of the form CCnnnn where *nnnn*
+                        is a number.  One of these strings can be handed to the
+                        `--serialno ` to select the CCUSB
+                        to use.
+
+Sample output:
+
+<a name="AEN3966"></a>```
+/usr/opt/daq/10.1/bin/CCUSBReadout --enumerate
+CC-USB scriptable readout version V2.0
+[0] : CC0134
+
+                        
+```
+
+This output says the system is attached to a single
+                            CCUSB whose serial number string is
+                            CC0134
+
+`--sourceid`If a `--timestamplib` option is present,
+                        events will have a full body header and the integer
+                        value of this switch determines the value of the source
+                        id.
+
+`--timestamplib`The value of this option is a path to a shared object
+                        library.  If present, the library must have a C
+                        compatible entry point named `getTimestamp`.
+                        If not supplied all events will have abbreviated body
+                        headers and no timestamps will be present.
+
+The library is dynamically loaded into the readout
+                        program and `getTimestamp` is called
+                        for each event.  `getTimestamp`
+                        receives a single null pointer parameter, which points
+                        to the event and is supposed to return a
+                        uint64_t value that is that event's
+                        timestamp.
+
+If the library has a further entry named
+                        `onBeginRun`, taking no parametesr and
+                        having no return value, this funtion is called when the run
+                        starts.
+
+`--log`Specifies a log file to which CCUSB will append logging
+                        information.  If this is not specified, no log file
+                        will be produced/appended. See also
+                        `--debug` below.
+
+`--debug`Used in conjunction with `--log` to
+                        specify the verbosity of the log file.  The value of
+                        this option must be an integer with a value of
+                        0, 1 or
+                        2. Larger numbers imply increasing
+                        verbosity.
+
+`--quickstart` *on | off*If the value of this is on, each time
+                        a run begins, an md5 checksum is done on the daqconfig
+                        to determine if full initialization is actually needed.
+                        If the checksum matches the prior value, and the CCUSB
+                        has not been reconnected due to power failure
+                        the run is started without re-initializing the hardware.
+
+This can only work for self-contained daqconfig files.
+                        That is for daqconfig files that don't depend on any other
+                        files.  If you are not sure you have a self-contained
+                        daqconfig file, don't enable this option.  If you are
+                        sure, then by all means, go for it.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The slow controls subsystem | Up | Writing C++ slow controls device drivers |

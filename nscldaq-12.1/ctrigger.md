@@ -1,0 +1,46 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="CTrigger"></a>CTrigger
+
+<a name="AEN47703"></a>## Name
+
+CTrigger -- Abstract base class for triggers
+
+<a name="AEN47706"></a>## Synopsis
+
+```
+#include <CVMEInterface.h>
+            
+```
+
+```
+  virtual   bool operator()();
+```
+
+<a name="AEN47715"></a>## Description
+
+This abstract base class provides interfaces for trigger objects.
+                Trigger objects are polled at a high rate during data taking.  They
+                are expected to talk with some hardware that is used to indicate a trigger
+                to the data taking computer.
+
+<a name="AEN47718"></a>## Public member functions
+
+` virtual bool operator()();`This pure virtual member must be implemented in concrete subclasses.
+                It should return true if a trigger is pending,
+                false otherwise.  In order to reduce trigger latency,
+                it is acceptable for this member to check for a trigger several times before
+                returning.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CStatusModule | Up | CVME |

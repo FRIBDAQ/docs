@@ -1,0 +1,60 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringbuffer"></a>Chapter 2. The **ringbuffer** command
+
+The **ringbuffer** command provides a set of utilities
+        that allow you to administrate ring buffers at the command line.
+        In most cases, you will not need do anything other than list and
+        get the status of ring buffers as the NSCLDAQ software will manage
+        the ring buffers it needs to function correctly.
+
+You may, however use ring buffers for your own low latency communication
+        needs, in which case, of course you can use these commands to administrate
+        your own rings.
+
+To make the **ringbuffer** command easily available,
+        you should add the directory it lives in to your
+        `PATH`
+        environment variable.  In the examples for this, we assume as usual,
+        that the envirionment variable
+        `DAQROOT` points to the top level of the NSCL
+        DAQ installation.
+
+For the bash shell, this is done by
+        either typing the following, or by adding the following to a
+        shell initialization profile script such as .bashrc.
+
+<a name="AEN278"></a>**Example 2-1. Adding **ringbuffer**'s directory to bash's search path:**
+
+```
+export PATH=$PATH:$DAQROOT/bin
+
+        
+```
+
+Similarly for C shells:
+
+<a name="AEN284"></a>**Example 2-2.  Adding command paths to csh**
+
+```
+setenv PATH $PATH:$DAQROOT/bin
+        
+```
+
+Complete reference documentation of the
+        **ringbuffer** 
+        can be found in the
+        [[r6645]] reference pages
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| commands | Up | Ring piping utilities |

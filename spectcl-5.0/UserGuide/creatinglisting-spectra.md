@@ -1,0 +1,223 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev | Chapter 3. Getting started with SpecTcl | Next |
+
+
+---
+
+# <a name="AEN253"></a>3.2. Creating/listing spectra
+
+Spectra can be created, or deleted at any time.  The
+                **spectrum** command is the main command
+                for manipulating spectra.
+
+SpecTcl has a rich set of spectrum types in addition to the
+                normal 1d and 2d spectrum types.  This section will describe
+                only the most commonly used spectrum types.  If you don't see
+                the spectrum type you want, have a look at the reference
+                manual for more.
+
+As with the **parameter**, **spectrum**
+                is followed by a switch that describes the operation it is supposed
+                to do.  If no switch is supplied `-new` is
+                assumed.
+
+The general form of the **spectrum** command
+                to create a new spectrum is:
+
+<a name="AEN264"></a>```
+spectrum -new name type parameter-list axis-speclist ?datatype?
+                
+```
+
+`name` is the name of the new spectrum.
+                Spectrum names must be unique. `type`
+                is a one or two letter code that indicates the type of the
+                spectrum that will be created.
+                `parameter-list` is the list of parameter
+                names that are needed to create the spectrum.  The number
+                and organization of this list depends on the spectrum
+                type. `axis-speclist` is a list of axis
+                specifications.
+
+The optional `datatype` parameter is one of
+                byte, word or
+                long which indicate whether channels are
+                8, 16 or 32 bits wide respectively.  The default is
+                long.  These days there's no compelling
+                reason to use any other data type.  This parameter dates from
+                when systems had much less memory than they do today.
+
+We're going to describes the following spectrum types:
+
+
+
+1 - 1d spectrum.This spectrum requires a single parameter
+                            and a single axis specification.  The parameter
+                            value is scaled as defined by the binning of the
+                            single axis the resulting channel is incremented
+                            if the gate applied to the spectrum is true.
+
+The form of the axis specification is:
+                            {{low high bins}}.  Where
+                            `low` and `high`
+                            are the axis limits (the range of parameter values that
+                            lie within the spectrum) and `bins`
+                            is the number of bins in the axis.
+
+2 - 2d spectrumThis spectrum requires two parameters that are in order
+                            the X and Y parameters.  It also requires two axis
+                            specifications which specify the x and y axis
+                            limits and binning.
+
+For each event, the axis specifications are used to
+                            compute an x and y channel which is then incremented
+                            if the spectrum's gate is true.
+
+The form of the axis specification is:
+                            {{xlow xhigh xbins} {ylow yhigh ybins}}.
+                            Where each axis has low and high cutoffs for its
+                            parameter and bin counts.
+
+s - summary spectrumThe summary spectrum is a way to monitor several
+                            similar channels simultaneously.  The summary
+                            spectrum takes an arbitrarily long list of parameter
+                            names.
+
+While summary spectra are displayed as 2-d spectra,
+                            the X axis definition is determined by the number
+                            of parameters in the parameter list.  The
+                            only axis definition, therefore is the Y axis definition.
+
+One useful way to think of the summary spectrum is
+                            as 2d display of vertical strips where each vertical
+                            strip is a 1-d histogram of the channel in that x
+                            position.
+
+Typically summary spectra are used for a set of parameters
+                            that have a similar meaning (such as the energy parameters
+                            from and array of detectors).  By looking at a summary
+                            spectrum you can quickly see channels that are not working
+                            or not gain matched (if you're attempting to gain match
+                            these channels).
+
+The **spectrum** command can also list all or some
+                of the spectrum definitions.  As with **parameter** `-list`,
+                **spectrum** `-list` lists
+                the spectra in a format that is easy for Tcl scripts to interpret.
+                As with **parameter** `-list`,
+                **spectrum** `-list` can take
+                an optional pattern parameter that selects only spectra whose name
+                match the pattern.  Once more the pattern works exactly like
+                a unix filename pattern (glob pattern), and accepts all of
+                the wild card characters accepted by file name patterns.
+
+**spectrum** `-list` can also accept
+                a `-showgate` option.  This must appear before
+                any filter pattern.  If `-showgate` is used,
+                each spectrum definition will also list the gate that's applied
+                to the spectrum.
+
+**spectrum** `-list` returns a
+                Tcl list.  Each Tcl list element describes one spectrum and
+                that spectrum is described as a Tcl list.  A common error in
+                writing Tcl scripts is to remember that even if you are using
+                **spectru** `-list` to list
+                the definition of a single spectrum, there is still going to be
+                an outer list with a single element.
+
+The spectrum description list has the following elements (in order):
+
+
+
+spectrum idThis is an integer that uniquely identifies the spectrum.
+                            It's a pretty useless bit of information that you
+                            can ignroe.
+
+nameThe name of the spectrum.  This is what SpecTcl
+                            and humans use to identify the spectrum.
+
+typeThis is the spectrum type. See the reference
+                            documentation for a full list of the large set of
+                            spectrum types SpecTcl supports.  Recall that
+                            1 means the spectrum is a
+                            simple 1-d spectrum,
+                            2 means the spectrum is a simple
+                            2-d spectrum and s means the
+                            spectrum is a summary spectrum.
+
+parameter listThe list of parameters used to create the spectrum.
+                            The actual organization of this list depends on the
+                            spectrum type.  1-D spectra will just have a single
+                            parameter.  2-D spectra will have 2 and summary
+                            spectra will have the list of parameters on the X
+                            axis of the spectrum.
+
+axis definitionsThis is a list o axis definitions.  Each axis
+                            definition is a three element list of
+                            low limit, high limit and bins for the axis.
+
+1-D spectra will have a single axis definition
+                            that describes the limits and binning of the x axis.
+                            2-D spectra will have two axis definitions;
+                            the first for the X axis, the second for the Y axis.
+                            summary spectra will also have a single axis definition
+                            but this will define the binning on the y axis.
+
+See the reference documentation for more about
+                            the axis definitions for each spectrum type.  Note
+                            again this element is a list of axis definitions,
+                            even when there's only one definition.
+
+data typeThe data type byte, word
+                            or long used to store each channel
+                            of the spectrum.
+
+applied gateIf `-showgate` was used, there will
+                            be an additional list element that is the name of
+                            the gate applied to the spectrum.
+
+Ungated spectra area actually gated on a gate that
+                            is always true named -TRUE-.
+                            This gate is created by SpecTcl automatically.
+
+The **spectrum** command can also be used
+                to delete spectra.  Spectrum names are unique.  In order to redefine
+                a spectrum, you must first delete it.  The form of the command
+                to do this is:
+
+<a name="AEN375"></a>```
+spectrum -delete spectrum-name
+                
+```
+
+Where `spectrum-name` is the  name of the
+                spectrum you want to delete.
+
+A command closely related to the **spectrum**
+                command is **sbind**.   Recall that
+                SpecTcl does not have an intrinsic visualizer, but has an external
+                program, Xamine or the Root based Spectra.   In order to
+                facilitate high speed transfer of bulk channel data from SpecTcl
+                to these displayers, SpecTcl can place a spectrum's channel data
+                into a shared memory region.
+
+The **sbind** command can bind a set of specific
+                spectra or all spectra to shared memory.  Note that it is harmless
+                to attempt to bind the same spectrum more than once to shared memory.
+                The two forms of the **sbind** command are:
+
+<a name="AEN385"></a>```
+-all
+```
+
+Where `name1` and so on are spectrum
+                names.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Getting started with SpecTcl | Up | Defining and applying gates |

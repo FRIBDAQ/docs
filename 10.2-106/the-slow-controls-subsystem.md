@@ -1,0 +1,114 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 56. VMUSB readout | Next |
+
+
+---
+
+# <a name="AEN6256"></a>56.5. The slow controls subsystem
+
+
+
+There is nothing to stop you from creating device support that
+            does not do anything in its `addReadoutList`.
+            You could do this to implement static controls devices.  That is
+            non data taking devices whose configuration is set up at the start of
+            a run and cannot be dynamically modified.
+
+There are cases, however when you'd like to have some control
+            panel associated with a device, that would provide a virtual knob
+            allowing you to dynamically modify settings in the device.
+            The slow controls subsystem supports this by offering a
+            TCP/IP server which can accept commands to set and query
+            devices.
+
+If the run is halted, the slow controls server can directly
+            manipulate the VMUSB to perform the desired device changes.
+            If, however the VMUSB is in data taking mode, the slow controls
+            server pauses the run, makes the setting and then resumes the run.
+            You should avoid working with control panels during production runs
+            for that reason.
+
+The philosophy of the slow controls subsystem is similar to that
+            of the readout subsystem.  A controls configuration file defines
+            the control modules present in the system and their unchanging
+            configuration.  Note that the controls configuration file
+            is read only as VMUSBReadout starts, not once per run as
+            for the data acquisition configuration file.
+
+The **Module** command is used to create configure
+            and query the configuration of slow controls devices known to the server.
+            The following fragment from a controls configuration file
+            creates and configurea a CAEN V812 CFD.
+
+<a name="AEN6266"></a>```
+Module create caenv812 cfd
+Module config cfd -base 0x1245000 \
+                  -file [file join [file dirname [info script]] cfd1.cofig]
+            
+```
+
+The slow controls network protocol allows clients to connect
+            to a Tcp/IP port and perform requests that are dispatched to
+            specific drivers.  The `--port` option
+            specifies the port number on which this Tcip/IP server is listening.
+
+Drivers have entry points to get and set values as well as
+            to update their understanding of the state of the device.
+            In addition a mechanism exists that allows drivers to periodically
+            poll devices for status without pausing data taking.  This is done
+            by providing a monitor list which is programmatically triggered
+            on a periodic basis.
+
+Future releases of this documentation will describe how to
+            write slow contrrols drivers and integrate them with the
+            VM-USB readout framework.
+
+Normally device drivers for slow controls modules also have
+            control panels associated with them.  For more information
+            about the slow controls subsystem and for the protocol control
+            panels use to communicate with the control server, see the
+            3vmusb reference section.
+
+## <a name="AEN6273"></a>56.5.1. Using Remote procedure call Immediate Lists.
+
+In addition to control panels the VM-USB supports the slow
+                controls system executing immediate lists via remote procedure
+                calls. This documentation will be fleshed out in a future
+                version.
+
+This functionality must be enabled
+                by including a **Module vmusb** command
+                in your control configuration file.
+
+Clients then use a pair of classes/objects
+                to perform VM-USB lists:
+
+
+
+`CVMUSBReadoutList`Instances of this class represent lists of VME
+                            operations you want to perform via the server.
+                            See [[r57342]]
+                            for reference information.
+
+`CVMUSBRemote`Instances of this class represent connections
+                        to VMUSBReadout slow controls servers.  Instances
+                        provide a mechanism for submitting a
+                        `CVMUSBReaoutlist`
+                        for remote execution and gathering the results
+                        back for client code.
+
+See [[r58237]]
+                        for reference information about this class.
+
+Programs using these classes must link to the
+                libVMUSBRemote library in the NSCLDAQ
+                lib subdirectory.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing device support software in Tcl | Up | Pushing external data into the event stream |

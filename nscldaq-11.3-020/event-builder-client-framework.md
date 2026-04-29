@@ -1,0 +1,66 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1-evbclientfw-run"></a>Event builder client framework
+
+<a name="AEN56232"></a>## Name
+
+Event builder client framework -- Event builder cilent framework
+
+<a name="AEN56235"></a>## Synopsis
+
+** *binary-name options...*
+**
+
+<a name="AEN56239"></a>## DESCRIPTION
+
+The end result of user code build on top of the event builder
+            clienty framework is a runnable program.  The program uses
+            a .ggo file to define the set of options it supports.
+            Several options are defined for use by the framework, others
+            shared between the framework and your application code, while
+            you may add other options to the skeleton .ggo files for
+            purely application specific purposes.
+
+<a name="AEN56242"></a>## OPTIONS
+
+The options described here are those that are defined in the
+            skeleton .ggo file.
+
+
+
+`--evbhost`=*hostname*Provides the name of the host on which the event
+                            orderer/event builder is running.
+
+`--evbport`=*port-spec*Provides a specification of the port number on which
+                            the event orderer is listening for connections.
+                            If managed is used, the
+                            software will attempt to locate the server's
+                            port using the remote system's port manager.
+
+`--info`=*information string*When connecting to the event builder/orderer,
+                            this string is used to describe the connection.
+                            It is available to GUI software that has been
+                            incorporated in the event orderer.
+
+`--ids`=*id-list*Normally this is a comma separated list of the
+                            event source ids that are managed by this
+                            data source.  Ring buffers comprise only a single
+                            event source and the program quits with an error
+                            if more than one event source id is supplied.
+
+The event source id tags each fragment submitted
+                            to the event builder. This allows data consumers
+                            to know which fragment came from which data source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Eventbuilder callback bundle | Up | RingSourceMgr |

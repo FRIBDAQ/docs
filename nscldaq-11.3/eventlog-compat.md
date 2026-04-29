@@ -1,0 +1,77 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage-eventlog-compat"></a>eventlog-compat
+
+<a name="AEN12327"></a>## Name
+
+eventlog-compat -- Provide event logger pipeline for use with ReadoutGUI.
+
+<a name="AEN12330"></a>## Synopsis
+
+**eventlogcompat [options]
+          **
+
+<a name="AEN12334"></a>## DESCRIPTION
+
+This is a shell script that is suitable for use as a ReadoutGUI
+            (ReadoutShell) event logger. See the EXAMPLE section below
+            to see how to substitute this event logger for the default event
+            logger.
+
+The shell script actually  sets up a pipeline of
+            ringselector, compatibilitybuffer,
+            and compatibilitylogger to handle the
+            production of event log files.
+
+<a name="AEN12341"></a>## OPTIONS
+
+
+
+`--path`=*event-file-directory*Specifies in which directory the event file set for
+                        the run will be created (remember only a single
+                        run will be logged, normally the ReadoutShell starts
+                        up eventlog each time a recorded run starts).
+
+The script also honors the BUFFERSIZE
+                        environment variable creating event files that
+                        use the buffer size in bytes specified by that
+                        variable.
+
+`--source`=*ring-url*Specifies the data source in terms of a ring buffer
+                        URL.
+
+`--oneshot`This option is accepted for compatibility purposes.
+                        The script only functions in the one-shot mode however
+                        so the presence/absence of this switch does not
+                        change how the script operates.
+
+<a name="AEN12363"></a>## EXAMPLE
+
+The following example starts up the ReadoutShell at the
+                NSCL under the 10.0 version of the ring buffer system
+                using the compatibility event logger to produce
+                spectrodaq formatted event files:
+
+<a name="AEN12366"></a>```
+export EVENTLOGGER=/usr/opt/daq/10.0/bin/eventlog-compat
+/usr/opt/daq/10.0/bin/ReadoutShell -host=spdaq44 -path=/home/fox/test/Readout
+                
+```
+
+The EVENTLOGGER environment variable,
+                if set overrides the default event logger and provides
+                a replacement.  The eventlogger program must
+                accept all of the switches described above.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| compatibilitylogger | Up | spectcldaq |

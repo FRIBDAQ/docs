@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.personinstance"></a>personinstance
+
+<a name="AEN89516"></a>## Name
+
+personinstance -- Encapsulate a logbook person for Tcl scripts
+
+<a name="AEN89519"></a>## Synopsis
+
+```
+package require logbook
+set logbook [logbook::logbook open logbookfile]
+...
+set person [$logbook getPerson 1]
+...
+
+      
+```
+
+**$person destroy
+         **
+
+**set lastName [$person lastName]
+         **
+
+**set firstName [$person firstName]
+         **
+
+**set salutation [$person salutation]
+         **
+
+**set id [$person id]
+         **
+
+<a name="AEN89533"></a>## DESCRIPTION
+
+Provides an object oriented encapsulation of the data for a logbook
+            person.  The data are cached in the object rather than fetched
+            on demand from the database.  Since people are  write once objects,
+            in general this is not a problem for scripts.
+
+All person instance commands are command ensembles.  See
+            SUBCOMMANDS for the subcommands each instance
+            provides.  It is important to note that when a person instance is
+            no longer needed by the script its destroy
+            subcommand must be called to avoid memory leaks.
+
+<a name="AEN89539"></a>## SUBCOMMANDS
+
+
+
+**destroy**Destroys the object command. This releases all storage associated
+                  with the command and removes the command from the interpreter.
+
+**lastName**Returns the last name of the person encapsulated by this
+                  command.
+
+**firstName**Returns the first name of the person encapsulated by this
+                  command.
+
+**salutation**Returns the salutation of the person encapsulated by this
+                  command.
+
+**id**Returns the primary key of the person encapsulated by this
+                  command.  This is a unique integer assigned to each person.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| logbookinstance | Up | shiftinstance |

@@ -1,0 +1,184 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13117"></a>CParameter
+
+<a name="AEN13121"></a>## Name
+
+CParameter -- Parameter definition.
+
+<a name="AEN13124"></a>## Synopsis
+
+```
+#include <Parameter.h>
+
+class CParameter : public CNamedItem {
+
+ public:
+  CParameter();
+
+  CParameter(const std::string& rName,
+	     UInt_t nId,
+	     const char* pUnits);
+  CParameter(UInt_t am_nScale, 
+	     const std::string& rName, UInt_t nNumber);
+
+  CParameter(UInt_t am_nScale,
+	     const std::string& rName, UInt_t nNumber,
+	     Float_t nLow, Float_t nHigh, std::string am_sUnits) ;
+         
+ public:
+  Bool_t hasScale() const;
+  UInt_t getScale() const;
+  Float_t getLow() const;
+  Float_t getHigh() const;
+  std::string getUnits() const;
+  Float_t RawToMapped(Float_t Raw);
+  Float_t MappedToRaw(Float_t Mapped);
+
+};
+        
+```
+
+<a name="AEN13126"></a>## DESCRIPTION
+
+`CParameter` objects contain parameter definitions.
+            Parameter definitions are named objects where the name is used to
+            refer to the parameter in SpecTcl commands and Tree parameter
+            definitions while the id is an index into the
+            `CEvent` into which that parameter's values
+            for each event should be stored
+
+Parameter definitions also include metadata that is used to provide
+            hints to users defining spectra about how to define the axes of spectra
+            on those parameters.  An optional units metadata provides the units
+            of measure for a parameter
+
+Because of SpecTcl's long developmental history,
+            axis rang information comes in several orthogonal forms.
+
+Originally, SpecTcl parameters were integer values and scaling
+            to spectrum axes was done via simple shifting.  Metadata on
+            parameter ranges from that epoch is called a scale and represents
+            the number of bits of range of the parameter.  For example
+            a scale of 10 means the parameter runs
+            in the range of [0, 1024).
+
+In the second phase of parameter history, SpecTcl parameters were
+            still integers but the spectrum axes were labeled in an arbitrary
+            range.  This sort of a parameter is called a *mapped parameter*
+            because while it remains an integer, when looking at a spectrum,
+            the spectrum axis can be mapped to some arbitrary range.
+
+Finally, SpecTcl parameters are full double precision values.
+            These values are passed through a set of linear functions to map them from
+            raw parameter space to axis space in the spectra in which they are
+            used.
+
+<a name="AEN13139"></a>## METHODS
+
+In addition to the methods described, parameter objects can be
+            copy constructed, assigned and compared for equality.  These
+            canonical methods will not be described further here.
+
+
+
+`  CParameter();`Constructs a parameter with an id of
+                        UINT_MAX and a name of
+                        Undefined.  The scale low and high
+                        values are set to 0.0 and the
+                        units to an empty string
+
+The metadata initialization of this sort of parameter
+                        makes it quite useless.  This constructor is intended
+                        to produce a parameter definition that will eventually
+                        be on the left hand side of an assignemnt from a
+                        more meaningful parameter definition object.
+
+The id of UINT_MAX will make adding
+                        this parameter to the parameter dictionary and then actually
+                        attempting to assign it a value via e.g. a tree parameter
+                        cause SpecTcl to fail with a memory allocation as it
+                        tries to expand the active `CParameter`
+                        value to accommodate this parameter.
+
+`  CParameter(const  std::string&  rName, UInt_t nId, const  char*  pUnits);`Constructs a parameter named `rName`.
+                        The parameter Id of the
+
+`  CParameter(UInt_t  am_nScale, const  std::string& rName, UInt_t  nNumber);`Constructs a parameter that is `am_nScale`
+                        bits wide.  The name of the parameters is
+                        `rName` and the id is
+                        `nNumber`.
+
+`  CParameter((UInt_t  am_nScale, const  std::string&  rName, UInt_t  nNumber, Float_t  nLow, Float_t  nHigh, std::string  am_sUnits);`Creates a parameter with metadata that indicates the
+                        range of values the parameter may senisbly take.
+                        `am_nScale` is obsolete in modern
+                        times.  In the past, when mapped spectra existed,
+                        this parameter was the number of bits of range of the
+                        parameter.  Now, only `nLow`
+                        and `nHigh` matter.
+                        They are the recommended low and high limits
+                        for an axis on this parameter.
+
+As before, `rName` is the
+                        name of the parameter and `nNumber`
+                        is the parameter's id.  `am_sUnits`
+                        are the units of measure string.  If this makes no sense,
+                        simply provide an empty string.
+
+This constructor was used to provide the capability
+                        of mapping parameters with fixed bit width to some
+                        arbitrary range of actual values.  It was used along
+                        with the Xamine mapped spectrum capability, and the
+                        `RawToMapped` as well as
+                        `MappedToRaw` methods to
+                        do something a lot less useful than what
+                        arbitrarily ranged parameters and spectra
+                        can accomplish.  As such, use of this constructor
+                        is strongly discouraged.
+
+`  const Bool_t  hasScale();`Returns kfTRUE if the parameter
+                        was constructed with a non-zero scale value.
+                        Otherwise returns kfFALSE indicating
+                        that the parameter range should be gotten from the
+                        low and high range values or, may not have been supplied
+                        at all (in which case low == high == 0.0).
+
+`  const UInt_t  getScale();`Returns the scale value.  This is only meaningful
+                        if `hasScale` returns
+                        kfTRUE.   While you an probably
+                        guess what this returns when that's not the case
+                        I'm not going to gaurantee you're correct either now
+                        or in the future, so don't use that value instead of
+                        `hasScale`
+
+`  const Float_t  getLow();`Returns the low limit metadata for this parameter.
+                        If limits were not provided,
+                        both this and `getHigh` below
+                        will return 0.0.
+
+`  const Float_t  getHigh();`Returns the high limit metadata for thsi parameter.
+                        If limits were not provided, this and
+                        `getLow` above will return
+                        0.0
+
+`  const std::string  getUnits();`Returns the units of measure string metadata for
+                        this parameter.  If no units of measure were provided,
+                        this returns an empty string.
+
+`   Float_t  RawToMapped(Float_t  Raw);`
+`   Float_t  MappedToRaw(Float_t  Mapped);`These methods are left over from the days  of
+                        mapped spectra/parameters and should not be used
+                        in new SpecTcl code.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CNamedItem | Up | CEvent |

@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.EVBRest"></a>EVBRest
+
+<a name="AEN22083"></a>## Name
+
+EVBRest -- Run Event Builder Orderer With REST Interface
+
+<a name="AEN22086"></a>## Synopsis
+
+**[SERVICE_NAME=]*svc* $DAQBIN/EVBRest
+         **
+
+<a name="AEN22091"></a>## DESCRIPTION
+
+Starts the event builder orderer stage with its REST server.  The REST
+            server supports controlling the orderer and obtainig statistics
+            from this stage.  If the SERVICE_NAME environment
+            variable is defined, this will be used in place of the default
+            service name.  See the 5daq section of the
+            manual for more information about the REST protocol.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBShutdown | Up | glom |

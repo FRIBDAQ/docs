@@ -1,0 +1,27 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN614"></a>3.6. delete
+
+Deletes a gate named by the name
+                parameter.  The name parameter
+                is required and must name an existing gate.
+
+The detail attribute of the
+                returned object is empty.  Note that in SpecTcl,
+                gates are never actualyl deleted, the are turned into
+                gates that are always false
+                instead.  This allows you to know and reason about the
+                behavior of gates that depend on the deleted gates.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| list | Up | edit |

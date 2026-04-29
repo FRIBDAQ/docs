@@ -1,0 +1,249 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="csbsbit3vmeinterface"></a>CSBSBit3VmeInterface
+
+<a name="AEN34686"></a>## Name
+
+CSBSBit3VmeInterface -- Provide access to SBS/Bit3 driver parameters.
+
+<a name="AEN34689"></a>## Synopsis
+
+```
+#include <SBSBit3API.h>
+         
+```
+
+```
+  static void SetDMABlockTransfer(void* pHandle, bool enable);
+```
+
+<a name="AEN34889"></a>## Description
+
+This class is intended for use in conjunction with
+            [[r34367]].
+            It provides access to the configurable parameters of the underlying
+            device driver and library for the SBS/Bit 3 VME/PCI bus bridge card.
+
+<a name="AEN34894"></a>## Public member functions
+
+The functions below all include a `pHandle` parameter.
+            `pHandle` is a device handle returned by
+            `CVMEInterface::Open`.  It is an opaque data
+            type that represents a single VME crate interfaced to the host system.
+
+` static void SetDMABlockTransfer(void* pHandle, bool enable);`DMA transfer from and to the VME interface can use the VME BLT
+                transfer capabilities or not.  In the VME BLT transfer mode,
+                a single address cycle is followed by multiple data cycles
+                that are assumed by the target hardware to access consecutive
+                VME addresses.  This mode is significantly faster than non BLT
+                transfers which require an address cycle for each data cycle.
+
+If `enable` is true
+                block transfer mode is enabled.  If not, it is disabled.
+                See also, however `SetDMAThreshold`.
+
+` static void SetDMAPauseMode(void* pHandle, bool enable);`By default, the SBS interface will hold the VME bus for the duration
+                of a block transfer.  In systems where there is more than one
+                VME bus master, this can starve other masters that may have an equal or
+                even higher bus access priority.  Setting `enable`
+                to true causes the interface to release and re-arbitrate
+                for the bus frrom time to time during a block transfer.
+
+NSCL data taking systems do not at this time have bus masters other
+                than the host.  This means that it is not necessary to enable this
+                feature.  If you enable this feature, the performance of block
+                transfers will be degraded slightly by the periodic bus release
+                and arbitration cycles it will introduce.
+
+` static void SetMaxTransferWidth(void* pHandle, bt_width_t width);`Sets the maximum transfer width for DMA transfers.  This may be
+                needed if you are transferring data from a 16bit target, for example.
+                Note that there may be smaller transfers if your transfer count
+                does not represent an exact number of values of size
+                `width`.
+
+See "Types and public data" below for the values that are acceptable
+                for the `width` parameter.
+
+` static void SetDMAAddressModifier(void* pHandle, int Modifier);`Normally the address modifier of transfers initiated via the
+                `CVMEInterface::Read` method is
+                determined by the parameters to 
+                `CVMEInterface::Open`
+                This method allows you to specify that an arbitrary address
+                modifier be used for DMA transfers performed on that channel.
+
+The `Modifier` parameter is the exact
+                VME address modifier to use.  The address meaning of address
+                modifiers is defined by the VME bus standard.  A rather complete
+                table of address modifiers is at:
+                [http://www.vita.com/vme-faq/vmeamcod.html](http://www.vita.com/vme-faq/vmeamcod.html).
+                Note that the SBS/VME interface does not support address nor data
+                widths wider than 32 bits.
+
+` static void SetMMAPAddressModifier(void* pHandle, int Modifier);`Sets the address modifier that is associated with
+                `CVMEInterface::Map` VME maps.
+                Normally the address modifier is determined by the modifier
+                parameter of the
+                `CVMEInterface::Open` method.
+                The `Modifier` parameter is the
+                exact value of the VME address modifier to use.
+                See also `SetDMAAddressModifier`.
+
+` static void SetSwapMode(void* pHandle, bt_swap_t SwapMode);`Set the swap mode for transfers to and from the interface.
+                The VME bus is an inherently big endian bus.  Host systems could
+                in theory be either big or little endian (at the NSCL they are
+                intel linux systems and hence little endian).  The SBS
+                interface has hardware to do byte reordering during both DMA and
+                program controlled transfers.  This method requests a specific
+                byte reordering.
+
+The default value applied by the
+                `CVMEInterface::Open` does the correct
+                translation for transfers from the VME bus Linux i386 host systems.
+                For a desription of the legal values of the
+                `SwapMode` parameter, see
+                "Types and public data" below.
+
+` static void SetDMAThreshold(void* pHandle, int nTransfers);`Block transfers via the
+                `CVMEInterface::Read` and
+                `CVMEInterface::Write` methods may or
+                may not use the DMA engine.  There are several factors that
+                determine when it is most efficient to do DMA vs. programmed
+                control.  Specifically, the time to set up the DMA engine,
+                queue the request and the time required to service completion
+                (see also `SetDMAPollCeiling`).
+
+IF a block transfer size is less than the DMA Threshold
+                (set here by `nTransfers`), the transfer
+                is actually done via programmed I/O in the device driver.  If greater
+                or equal, then the DMA engine is used.
+
+If this number is too small, DMA setup/teardown overhead will
+                dominate the transfer time.  If too large, the kernel will block
+                other activity as it peforms the transfer programmatically.
+
+` static void SetDMAPollCeiling(void* pHandle, int nTransfers);`When the DMA engine is used to block transfers, there are two
+                ways to note completion, polling the DMA engine status and
+                letting the DMA engine interrupt the processor.  This method
+                allows you to set the `nTransfers` at which
+                the driver switches to interrupt completion synchronization.
+
+If this threshold is too small, transfer completion latencies
+                can dominate the transfer time, adversely affecting performance.
+                If this value is too large, the kernel will block other activity
+                significantly as it polls for DMA completion.
+
+` static void SetTraceMask(void* pHandle, int nMask);`Sets the driver trace mask. The trace mask determines when the
+                driver makes log entries, and is a logical or of several bits.
+                Unless you are doing device driver debugging, you should not
+                modify this as it can have an incredibly bad effect on performance
+                if too much logging is going on.
+
+` static int GetLocalCardPartNumber(void* pHandle);`Returns the part number of the PCI side of the interface pair.
+
+` static int GetRemoteCardPartNumber(void* pHandle);`Returns the part number of the VME card of the interface card set.
+
+` static unsigned int GetLocalMemorySize(void* pHandle);`The VME side of the cardset can have local memory daughterboards
+                installed.  This allows a local VME bus master to take data
+                into that memory and then for the host to transfer data from
+                that memory without causing VME bus contention.  This method
+                returns then number of bytes of memory on the VME bus card.
+
+Most NSCL cards do not have local memory as we do not have
+                remote hosts.
+
+` static bool IsDMABlockTransfer(void* pHandle);`Returns true if DMA BLT mode is enabled.
+
+` static bool IsDMAPauseMode(void* pHandle);`Returns true if block transfers will
+                be carried out with bus re-arbitration pauses.
+
+` static bt_width_t GetMaxTransferWidth(void* pHandle);`Returns the block transfer width.   See
+                "Types and public data" for the possible return
+                values.
+
+` static int GetDMAAddressModifier(void* pHandle);`Gets the current DMA address modifier.
+
+` static int GetMMAPAddressModifier(void* pHandle);`Gets the current address modifier used to create new memory
+                maps.
+
+` static bt_swap_t GetSwapMode(void* pHandle);`Gets the current Swapping mode.  See
+                "Types and public data" for more information about the
+                possible return values.
+
+` static int GetDMAThreshold(void* pHandle);`Returns the DMA threshold value.
+
+` static int GetDMAPollCeiling(void* pHandle);`Returns the number of transfers after which DMA completion is
+                signalled via interrupts.
+
+` static int GetTraceMask(void* pHandle);`Returns the current driver trace mask.
+
+` static void ResetVme(void* pHandle);`Pulses the VME bus RESET line.
+
+` static bt_error_t CheckErrors(void* pHandle);`Returns any pending VME interface errors.
+
+` static bt_error_t ClearErrors(void* pHandle);`Clears any pending VME bus interface errors.
+
+<a name="AEN35153"></a>## Types and public data
+
+The headers for the SBS interface library define three data types that
+            are used by this class:
+
+<a name="AEN35156"></a>### Byte swap specification
+
+The `bt_swap_t` data type specifies
+                how the byte reordering hardware is configured.  By default this
+                is properly set up to transfer big endian (VME) data to
+                little endian (i386) hosts.
+
+Legal values for this type are:
+
+
+
+`BT_SWAP_NONE`Don't do any byte reordering.
+
+`BT_SWAP_BSNBD`Byte swap any nonbyte sized data.
+
+`BT_SWAP_WS`Word swap longword data.
+
+`BT_SWAP_WS_BSNBD`Word swap and byte swap, non btye data
+
+`BT_SWAP_BSBD`Byte swap, btye data
+
+`BT_SWAP_BSBD_BSNBD`Byte swap, byte data and byte swap, non byte data
+
+`BT_SWAP_BSBD_WS`Byte swap, byte data and word swap
+
+`BT_SWAP_BSBD_WS_BSNBD`All possible swapping
+
+`BT_SWAP_DEFAULT`Driver default swapping
+
+<a name="AEN35207"></a>### Data transfer width
+
+The `bt_width_t` type defines the possible
+                data transfer widths that can be specified for the interface:
+
+
+
+`BT_WIDTH_D8`Specifies an 8 bit transfer width (or one byte).
+
+`BT_WIDTH_D16`Specifies a 16 bit transfer width (or a word).
+
+`BT_WIDTH_D32`Specifies a 32 bit (longword) transfer width.
+
+<a name="AEN35227"></a>## Exceptions
+
+Members of this class throw `std::string`
+            exceptions on error.  The string thrown is a human readable error
+            message.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CVMEInterface | Up | CVME<T> |

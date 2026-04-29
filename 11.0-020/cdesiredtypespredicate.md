@@ -1,0 +1,80 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cdesiredtypespredicate"></a>CDesiredTypesPredicate
+
+<a name="AEN21073"></a>## Name
+
+CDesiredTypesPredicate -- Only accept specified ring item types.
+
+<a name="AEN21076"></a>## Synopsis
+
+```
+#include <CDesiredTypesPredicate>
+         
+```
+
+```
+ class CDesiredTypesPredicate {
+}
+```
+
+```
+  CDesiredTypesPredicate();
+```
+
+<a name="AEN21147"></a>## Description
+
+The `CDesiredTypes` predicate is a ring item
+            type selector that skips all ring item types except those in its
+            item/flag list.  The flag determines if the data for that item type are
+            sampled (if true) or if all items of that type are
+            accepted (if false).
+
+`addDesiredType` is used to build up the list
+            of desired item types.
+
+<a name="AEN21155"></a>## Public member functions
+
+`  CDesiredTypesPredicate();`Constructs the predicate with an empty list of desired types.
+            If no types are added via `addDesiredType`,
+            the predicate will skip all of the data in the ring
+            (not very useful).
+
+`  CDesiredTypesPredicate(unsigned int nType, uint32_t* types);`Constructs the predicate with `nType` types
+            in its acceptance list.  These types are specified in the
+            array `types`.  The sample flags on all of these
+            types is set to false
+            so that all items of these types are accepted.
+
+`  CDesiredTypesPredicate(unsigned int nType, uint32_t* types, bool* sample);`Same as the previous constructor, however the sample flags for
+            each item type are explicitly specified by the
+            `sample`
+            array.
+
+`  CDesiredTypesPredicate(const CDesiredTypesPredicate& rhs);`Provides support for creating a new predicate by copying a previously
+            existing one.
+
+` CDesiredTypesPredicate& operator=(const CDesiredTypesPredicate& rhs);`Provides support for replacing the acceptance list of an existing
+            object with the acceptance list of `rhs`.
+
+` const int operator==(const CDesiredTypesPredicate& rhs);`Provides a mechanism for comparing two predicates for equality.
+
+` const int operator!=(const CDesiredTypesPredicate& rhs);`Provides the mechanism for comparing two predicates for inequality.
+
+` void addDesiredType(uint32_t type, bool sample = false);`Adds a type to the set of item types that  may be accepteed by the
+            predicate.  `type` is the type id, and
+            `sample` the flag that determines if the types
+            are accepted in sampled mode.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CAllButPredicate | Up | DataFormat.h |

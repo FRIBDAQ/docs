@@ -1,0 +1,62 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.controlpush"></a>Chapter 35. Providing EPICS channel information to Tcl Servers
+
+controlpush
+      is a program that is part of the EPICS support package.  It uses a
+      configuration file to connect to a set of EPICS channels, connects to
+      some TCP/IP server and then sends Tcl commands to that server to maintain 
+      a set of Tcl arrays that allow the server process to maintain a copy of
+      the state of those channels, their units and when their values were last updated.
+
+controlpush
+      is descsribed fully in:
+      [[r18893]].
+
+The intent is that 
+      controlpush be pointed at a 
+      TclServer.
+[[c9192]]
+      is a wish shell extended with the ability to accept commands from 
+      TCP/IP connected clients.
+
+You can use 
+      controlpush
+      in conjunction with 
+      TclServer 
+      and application specific scripts to provide a visual display of control
+      system parameters. 
+      [[c9717]] is an example
+      of this technique.  Another typical use of 
+      controlpush is in conjunction with readout
+      skeletons that support 
+      tclserver functionality to provide a set of
+      data in the event stream that logs the control system parameters and
+      their changes throughout the run.
+
+controlpush
+       Maintains information in arrays that are indexed by channel name:
+
+
+
+`EPICS_DATA(channelName)`Is the most recently received update for 
+		`channelName`.
+
+`EPICS_UNITS(channelName)`Are the engineering units for 
+		`channelName`
+
+`EPICS_UPDATED(channelName)`Is the timestamp of the alst update received for
+		 `channelName`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| BufferToRing | Up | The epics display utility |

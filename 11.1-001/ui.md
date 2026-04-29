@@ -1,0 +1,603 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="rdogui3_ui"></a>ui
+
+<a name="AEN56162"></a>## Name
+
+ui -- ReadoutGUI graphical user interface elements.
+
+<a name="AEN56165"></a>## Synopsis
+
+**package require ui
+          **
+
+<a name="AEN56168"></a>## DESCRIPTION
+
+This package provides all of the graphical user interface elements
+            that are part of the standard ReadoutGUI.  It is possible for
+            a custom control interface to be written using some, all or none
+            of these elements.
+
+This package can also be used to access elements of the ReadoutGUI
+            from within extensions to the standard ReadoutShell.
+            The package consists of a rather large set of component megawidgets
+            and singleton implementations of those megawidgets.  The remainder
+            of this section will briefly describe the purpose of each of those megawidgets.
+            Subsequent sections will provide more detailed reference information
+            about each megawidget.
+
+
+
+[[r56150#rdogui3_ui_readoutMenubar]]Provides the menu bar for the application.  This can
+                        be used as a genric menu bar handling class for
+                        your own applications distinct from the ReadoutShell
+                        as well.
+
+[[r56150#rdogui3_ui_RunIdentification]]Provides a megawidget that identifies runs.  This contains
+                        an entry/display of a title string and an entry for a
+                        run number.  The run number entry is constrained to
+                        hold positive integers.
+
+[[r56150#rdogui3_ui_RunControl]]Provides a megawidget that contains the controls for a run.
+                        These are buttons intended to drive the
+                        [[r55760]].
+                        Buttons that can appear include a Start
+                        button, a Begin/End button a
+                        Pause/Resume button that can be
+                        disabled and a Record checkbutton.
+
+The widget is linked to the run state machine
+                        singleton so that button presses create the appropriate
+                        state transitions.  An associated callout bundle
+                        allows the widget to track state machine transitions
+                        that it does not initiate.
+
+[[r56150#rdogui3_ui_StopWatch]]This is a non graphical element that implements
+                        a simple stopwatch.  The stop watch can be started,
+                        stopped and reset. Furthermore,
+                        alarms can be added which invoke application specific
+                        commands when they are reached.
+
+This is used to implement timed runs, and to maintain
+                        the elapsed run time, but also can be used in your
+                        own application whenever you need this functionality.
+
+[[r56150#rdogui3_ui_ElapsedTimeDisplay]]Works with an embedded stopwatch object to provide
+                        elapsed run display.  The stopwatch is fully exposed
+                        allowing application specific code to be invoked
+                        when a specific elapsed run time is reached (this is how
+                        timed runs work).
+
+A callout bundle is provided so that the timer
+                        starts, stops and resets at the appropriate times.
+
+[[r56150#rdogui3_ui_TimedRunControls]]Provides a GUI element that prompts for timed
+                        run information.  This consists of elements that
+                        allow users to specify the length of a timed run,
+                        as well as a checkbox that allows users to enable/disabled
+                        timed runs.
+
+An associated callout bundle hooks the singleton
+                        instance to the Run state machine and the
+                        elapsed run time implementing the semantics of
+                        timed runs.
+
+[[r56150#rdogui3_ui_OutputWindow]]Provides a scrollable text widget and methods to output
+                        data into that widget.  The widget also supports
+                        formatted log entries that are very configurable.
+                        A singleton and associated callout bundle supports
+                        logging basic state transitions.
+
+An associated
+                        [[r56662]]
+                        provides a dialog that allows several settings of the
+                        output window singleton to be modified.  Note that this
+                        is a bit specialized, while the output widow itself is not.
+
+[[r56731]]Provides a support for a vertically stacked set of
+                        widgets and convenience functions for these to be
+                        simple labels.  These are intended to provide
+                        status information about components of the
+                        system.
+
+<a name="rdogui3_ui_readoutMenubar"></a>## readoutMenuBar
+
+This object manages a menu.  Once created it can be
+                turned into a menu bar for a toplevel by using it's path as
+                the `-menu` option of that toplevel. The
+                delegation of all unknown options and methods to the underying
+                menu makes this indistinguishable from a menu created
+                via **menu**.  Convenience methods have been
+                added to make simple things simpler.
+
+<a name="AEN56229"></a>### METHODS
+
+
+
+`addMenu` `label-text`Adds a new submenu (cascade objet and associated menu)
+                                to the menu.  The menubutton that triggers the
+                                submenu will be labeled `label-text`.
+
+`lookupMenu` `label-text`Returns the menu widget associated with a sub-menu
+                                created via `addMenu`.
+                                `label-text` is the label
+                                that was passed in to `addMenu`
+                                when the submenu was created.
+
+This relies on an internal data structure
+                                that maintains the correspondence between
+                                sub-menu labels and their menu widget paths.
+                                Therefore this method can only be used to
+                                look up submenus created with `addMenu`
+
+`listMenus`Returns the list of menu labels created via
+                                `addMenu`.
+
+`addSeparator` `label-text`Adds a separator to the end of the menu
+                                whose label is `label-text`.
+
+`addCommand`
+`menu-label command-label command`Adds a command item to the menu identified by
+                                `menu-label`.  The
+                                command item's label will be `command-label`.
+                                When clicked the `command` will
+                                be run.
+
+`addMenuItem` `menu-label itemtype args`Adds an arbitrary menu item to `menu-label`
+                                The type of the item is `itemtype`.
+                                The allowed values for `itemtype`
+                                are the menu item types defined in
+                                [The man page for the **menu**](http://www.tcl.tk/man/tcl8.5/TkCmd/menu.htm)
+                                command.
+
+The `args` parameter is pasted
+                                on the back end of the **menu add** command
+                                and normally consists of a list of option value pairs
+                                (you can use the Tcl **list** command to build it).
+                                The valid options for each menu type are also
+                                described in the [The man page for the **menu**](http://www.tcl.tk/man/tcl8.5/TkCmd/menu.htm)
+                                command.
+
+<a name="rdogui3_ui_RunIdentification"></a>## RunIdentification
+
+This megawidget consists of two entries and associated labels.
+                The entries provide mechanisms for users to supply a run number
+                and a title string.  The run number entry is validated so that
+                it must be a positive integer.
+
+<a name="AEN56292"></a>### OPTIONS
+
+The megawidget supports the standard
+                    **configure** and **cget**
+                    methods.  These operate on the following set of options:
+
+
+
+`-haverun` *boolean-value*If false, the run number label and entry widgets
+                                are unmanaged.  This can be done if no data
+                                sources support run numbers.
+
+`-havetitle` *boolean-value*If false, the title entry and label are unmanaged.
+                                This can be done if no data sources support
+                                run titles.
+
+`-state` *normal | disabled | readonly*Specifies the state that will be applied to all
+                                entry widgets.  This is normally used to make
+                                the entries read-only when the run is
+                                Active or
+                                Paused.
+
+`-title` *title-string*Sets/gets the value of the title string.
+
+`-run` *run-number*Sets/gets the value of the run number.
+
+<a name="rdogui3_ui_RunControl"></a>## RunControl
+
+This is a megawidget that contains the controls needed
+                to drive the run state machine through its state transitions.
+                See
+                [[r55760]]
+                for information about the run state machine.
+
+Associated with this widget is a singleton implementation
+                and a callout bundle that hooks the widget into the
+                run state machine singleton so that it can maintain a state
+                that is consistent with the state of the run even in the face
+                of state transitions it does not initiate.
+
+<a name="AEN56335"></a>### OPTIONS
+
+The megawidget understands the standard
+                    **configure** and
+                    **cget** methods for configuring and
+                    querying options.  The set of options understood by
+                    the `RunControl` widget are:
+
+
+
+`-pauseable` *boolean*Set this to boolean true if the system as a whole
+                                can support paused runs.  False if not.  If
+                                the value of this option is  false,
+                                the Pause button removed
+                                from the megawidget making it impossible for the
+                                user to initiate a transition to
+                                Paused.
+
+`-recording` *boolean*If true the recording checkbutton is on indicating
+                                the run is either now being recorded (if in
+                                one of the active states), or the next run
+                                will be recorded if the run is not in an active
+                                state.
+
+Active states are
+                                Active and Paused.
+
+<a name="AEN56362"></a>### SINGLETON IMPLEMENTATION
+
+In the context of the standard ReadoutShell/ReadoutGUI,
+                    the run control megawidget is attached to the run state
+                    machine so that it can always reflect the state of the
+                    system.   This is done by providing a singleton implementation
+                    of the widget and registering a callout bundle with the
+                    state machine singleton that manipulates the widget's appearance:
+
+<a name="AEN56365"></a>```
+set rctl ::RunControlSingleton::getInstance ?path ?args??
+                    
+```
+
+The first time `::RunControlSingleton::getInstance`
+                    is called it must be given a widget `path` and
+                    optionally addtional configuration parmaeters `args`.
+                    When initially called, the singleton is created and the callout bundle
+                    registered.
+
+All calls return the widget path of the singleton.  Thus,
+                    if you know the singleton has already been created the
+                    code fragment below will turn on the recording checkbutton:
+
+<a name="AEN56374"></a>```
+[::RunControlSingleton::getInstance] configure -recording 1
+                    
+```
+
+<a name="rdogui3_ui_StopWatch"></a>## StopWatch
+
+The `StopWatch` class provides a timekeeper
+                that can stop, start, be reset and have alarms fire and specific
+                elapsed times.  An alarm is a script that is associated
+                with an elapsedtime via the `addAlarm`
+                method.
+
+`StopWatch` is not a megawidget, but does
+                require applications that normally run in an event loop as it
+                uses the
+                [**after**](http://www.tcl.tk/man/tcl8.5/TclCmd/after.htm)
+                command to schedule clock ticks.  Constructing an object creates
+                an object command ensemble which provides access to the object
+                methods.  The constructor returns the name of the command.
+
+You can either specify the command explicitly:
+
+<a name="AEN56386"></a>```
+StopWatch myStopwatch;     # Command named myStopwatch
+myStopwatch some-method...
+                
+```
+
+or you can ask the constructor to allocated a unique command
+                name using the special object name %AUTO%:
+
+<a name="AEN56392"></a>```
+set myStopwatch [StopWatch %AUTO%];
+...
+$myStopWatch some-method ...
+                
+```
+
+<a name="AEN56396"></a>### METHODS
+
+Stop watch objects have the following methods:
+
+
+
+`start`Starts the stop watch.  When the event loop is
+                                active, every .25 seconds, a tick will be declared.
+                                The elapsed time is maintained in milliseconds.
+                                via that counter.  If the application does not
+                                often enter the event loop, clearly the stopwatch
+                                will run slow.
+
+Note that `start` does not
+                                clear the timer.
+
+`stop`Stops the stopwatch.  If the stopwatch is already
+                                halted, an error is thrown.
+
+`reset`Sets the elapsed time to 0 milliseconds.
+                                It is legal to do this while the stopwatch is
+                                running.  Note that this does not remove alarm
+                                scripts.
+
+`addAlarm` `when script`Schedules a `script` to be run when the elapsed time
+                                is  `when` seconds.
+                                Note that `when`  must be a positive integer.
+                                If the elapsed time in integer seconds is already
+                                past `when`, the script won't run.
+
+`removeAlarm` `when script`Removes the matching script from the set of scheduled scripts.
+                                It is an error to remove a script that has not been
+                                registered.
+
+`isRuning`Returns true if the stopwatch is running.
+
+`elapsedTime`Returns the elapsed time in milliseconds.
+
+<a name="rdogui3_ui_ElapsedTimeDisplay"></a>## ElapsedTimeDisplay
+
+Makes use of a
+                [[r56150#rdogui3_ui_StopWatch]] to provide
+                a visual elapsed time megawidget.  This is normally used by
+                the ReadoutGUI to provide a visual indication of the elapsed active
+                time within a data taking run.  The stopwatch methods are
+                exposed so that given one  of these widgets anything that can
+                be done to a stopwatch can be done to it.
+
+Within the context of the ReadoutGUI, a singleton object is
+                available which hooks a callout bundle to the state machine
+                singleton to ensure that the timer starts, stops and
+                resets at the appropriate time.
+
+Application code can get access to this singleton by
+
+<a name="AEN56449"></a>```
+set elapsedTime [::ElapsedTime::getInstance]
+                
+```
+
+This is typically done when application code wants to perform
+                an action at a specific elapsed run time (alamr).  For example,
+                timed runs are implemented by setting an alarm for the desired
+                length of the run.  The alarm proc simply forces a state transition
+                to Halted.
+
+<a name="rdogui3_ui_TimedRunControls"></a>## TimedRunControls
+
+`TimedRunControls` is a megawidget that
+                allows user to specify timed run durations and to enable/disable
+                timed runs.  A singleton is implemented which hooks itself into
+                both the State machine singleton (via a callback bundle)
+                and the Elapsed time singelton (via alarms) when a timed
+                run is begin.
+
+<a name="AEN56458"></a>### OPTIONS
+
+The `TimedRunControls` megawidget
+                    provides the standard `configure`
+                    and `cget` methods that
+                    operate on the following options:
+
+
+
+`-state` *disabled | normal | readonly*Controls the appearance and ability of the user to
+                                interact with the controls.   normal
+                                provides a 'normal' ui appearance and allows
+                                users to interact with the widget, changing values.
+                                readonly provides a normal appearance
+                                but the user cannot change the values of the widget.
+                                disabled ghosts the controls
+                                and prevents user interaction.
+
+`-timed` *boolean*If true the timed run checkbox
+                                is checked if false it is not
+                                checked.
+
+`-days` *integer*, `-hours` *integer [0-23]*, `-minutes` *integer [0-59] *, `-seconds` *integer [0-52]*Specifies the desired active duration of the
+                                run when a timed run is performed.
+
+<a name="AEN56497"></a>### SINGLETON IMPLEMENTATION
+
+The ReadoutGUI/ReadoutShell manages access to the
+                    timed run instance it uses via the singleton pattern.
+                    If your extensions to ReadoutShell need access
+                    to the duration they can access the singleton
+                    via `::TimedRun::getInstance`.
+
+The code fragment below turns on timed runs and sets the
+                    duration to 2hours:
+
+<a name="AEN56502"></a>```
+[::TimedRun::getInstance] configure -timed true \
+    -days 0 -hours 2 -minutes 0 -seconds 0
+                    
+```
+
+<a name="rdogui3_ui_OutputWindow"></a>## OutputWindow
+
+The `OutputWindow` megawidget is a megawidget
+                that is based on a Tk
+                [**text**](http://www.tcl.tk/man/tcl8.5/TkCmd/text.htm)
+                widget coupled to vertical and horizontal scroll bars.  As
+                the name implies, while the **text** widget
+                can be used for input and output, the `OutputWindow`
+                is intended only for output.
+
+The ReadoutGUI/ReadoutShell uses an `OutputWindow`
+                to report output from data sources as well as to inform the user
+                of various events (e.g state transitions).  The **text**
+                widget is a very complex entity.  The `OutputWindow`
+                has a much simpler programmatic interface.
+
+Before providing the reference information, it is worth pointing
+                out that the `OutputWindow` as support for
+                log like  messages.  A log message is a message that has a severity.
+                Log messages are automatically output with timestamps.  It is
+                possible to instruct the `OutputWindow`
+                to render differnet severities using different renditions.
+                It is also possible to suppress the display of some message
+                severities.  The log capabilitie is used extensively by the
+                ReadoutGUI/ReadoutShell.  It is also possible to make the
+                `OutputWindow` record all output
+                to a log file for later review and analysis.
+
+The `OutputWindow` megawidget has
+                a singleton associated with the instance that is used by the
+                ReadoutGUI.  There is also a state machine singleton
+                callout bundle that is used to log state transition
+                messages.
+
+<a name="AEN56522"></a>### OPTIONS
+
+`OutputWindow` instances support
+                    the usual `configure` and
+                    `cget` operations to interact with
+                    configuration options.   The configuration options supported
+                    are:
+
+
+
+`-foreground` *color-spec*Specifies the default text color.  The `color-spec`
+                                can be  a color name recognized by Tk or it can
+                                be an #rrggbb color value.  This option is
+                                actually delegated directly to the underlying
+                                **text** widget without
+                                interpretation.
+
+`background` *color-spec*Specifies the background color of the
+                                `OutputText` **text**
+                                widget.  This is passed without interpretation to
+                                the **text** widget.
+
+`-width` *characters-wide*, `-height` *lines-tall*Specifies the width and height of the
+                                **text** widget in characters.
+                                These options are passed without interpretation
+                                to the **text** widget.
+
+`-history` *lines*The number of lines of historical data that are
+                                kept in the scrolling buffer.  If the number
+                                of output lines exceeds *lines*,
+                                the oldest lines are removed from the history
+                                until the number of lines remaining is at most
+                                *lines*.
+
+The default value for this is 1000.
+                                Note that log files do not have a line limit other
+                                than the amount of disk space available.
+
+`-logclasses` *list-of-severities*Determines the set of legal logging classes
+                                (severities) that are accepted by the
+                                log message (see METHODS below).  This, in
+                                addition to the value of `-showclass`
+                                (see below) determine how log messages are handled
+                                by the output widget.
+
+`-monitorcmd` *script*Provides a script that is invoked whenever output is added to
+                                the window.  The ouptut is appended quoted into
+                                a single word at the end of the *script*.
+
+`-showlog` *dict-of-option-lists*Determines for each log class value in the
+                                `-logclasses` option what is
+                                done with messages submitted with that log class.
+                                Note that changes to this value affect the display
+                                of old log messages with the exception of suppressed
+                                classes which will only display new entries.
+
+The form of the value for this option is a dict
+                                with keys that are log classes defined
+                                in the `-logclasses` option value.
+                                The values are lists of tag options as defined
+                                [TAGS section of the Tcl/Tk text widget manpage](http://www.tcl.tk/man/tcl8.5/TkCmd/text.htm#M26).
+                                These options are applied to log entries with these
+                                classes.
+
+If a log class is omitted fromthe dict it will
+                                not be displayed.  One use for this is to provide
+                                a debug log class for debugging
+                                information which can be suppressed by omitting
+                                it from the `-showlog` dict.
+
+<a name="AEN56594"></a>### METHODS
+
+This section describes the public methods for the
+                    `OutputWindow` widget.
+
+
+
+`puts` `?-nonewline?` `message`Outputs `message` to the
+                                `OutputWindow` displaying it
+                                using the current values of
+                                the `-foreground` and
+                                `-background` options to determine
+                                the text's rendition.
+
+If the optional `-nonewline` is
+                                provided, the text is not output with
+                                a trailing newline.  This can be used to
+                                build up a one-line message in several
+                                `puts` calls.
+
+`log` `class message`Creates and outputs a log `message`.
+                                `class` determines
+                                the rendition of the message via
+                                the values of the `-showlog`
+                                option.  It is an error for `class`
+                                to be a value not in the `logclasses`
+                                option value.
+
+The `messge` is output
+                                preceded by a timestamp and class name.
+
+`clear`Clears the contents of the window.
+
+`get`Returns the textual contents of the window.
+                                Note that no hints are provided to enable the
+                                caller to determine the rendition of the text.
+
+`open` `filename`Opens the file `filename` as
+                                an output log file.  From this point on all
+                                output (`log` and
+                                `puts`)
+                                to the `OutputWindow` will be
+                                recorded in that file.
+
+The file is opened for append.  If there was
+                                a previously open log file it is closed first.
+                                See `close` below.
+
+`close`Closes any open log file.
+
+<a name="AEN56653"></a>### SINGLETON IMPLEMENTATION
+
+The application level singleton is implemented via the
+                    `::Output::getInstance` method.
+                    This proc is declared as follows:
+
+<a name="AEN56657"></a>```
+proc Output::getInstance { {win {}} args} {
+...
+}
+                    
+```
+
+The `win` parameter is required only
+                    on the first call and is the window path to be used for
+                    the object.  Similarly any trailing parameters to the
+                    first invocation contain configuration option/value pairs.
+                    Creation register the run state machine callout bundle that
+                    maintains the foreground/background appearance of the window
+                    as runs start and stop.
+
+The proc returns the widget path.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| StateManager | Up | OutputWindowSettings |

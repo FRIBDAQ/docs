@@ -1,0 +1,68 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN42"></a>Chapter 3. Tcl APIs to the database.
+
+SpecTcl's scripting and the sqlite3 Tcl API provide a very natural interface
+        between SpecTcl and its database.  This Tcl API is realized by  the
+        dbconfig package.
+
+The first part of this chapter provides a high level organization of the data
+        in the database.  The second part provides reference information for the
+        database itself.  Note that this API Is quite SpecTcl centric, however by
+        providing scripts with mock SpecTcl commands you may be able to use the API
+        in other contexts.
+
+# <a name="AEN47"></a>3.1. High level view of the database organization.
+
+From the user's point of view, the database contains a set of
+            *save sets*.  Each save set minimally has a name
+            and a time at which it was created.  You must provide the name when
+            creating a save set.  The API automically timestamps the save set
+            when it creates it.
+
+The most important bits of information associated with a save set are
+            the current analysis conditions.  These consist of:
+
+
+
+Parameter definitionsParameter definitions include the things SpecTcl understands that
+                    define a parameter,   These include a unique parameter name and a unique
+                    parameter number that is an index into an event array.
+
+If the parameter has an associated tree parameter, the metadata that
+                    describes a parameter is also saved. This consists of the recommended
+                    spectrum axis specification for the parameter and units of measure.
+
+Spectrum definitionsThis includes all spectra defined in SpecTcl.  Parameters used by
+                    each spectrum refer to the parameter definitions.
+
+Gate definitionsThis includes all gate definitions defined in SpecTcl.  This includes
+                    simple as well as compound gates.  Gates are stored in such a way that
+                    they can be restored without needing to restore a gate whose dependencies
+                    have not yet been seen.
+
+Gate applicationsThese describe which gates conditionalize each
+                    spectrum.
+
+Tree variable values and definitionsEach tree variable's current value and
+                    metadata (units of measure and  name) are stored.
+
+The Tcl API allows you to save and restore these data.
+
+In addition to configuations, the database can store
+            the data from a run.  This includes the parameters
+            for each event that were created by an event processsing
+            pipeline and scaler information as well.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| What you can do with the SpecTcl Sqlite database package. |  | The Tcl API |

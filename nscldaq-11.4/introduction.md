@@ -1,0 +1,193 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_intro"></a>Introduction
+
+<a name="AEN64764"></a>## Name
+
+Introduction -- Data source providers
+
+<a name="AEN64767"></a>## Synopsis
+
+**package provide *providerName*_Provider *version-string*
+**
+
+**namespace eval *providerName* {...}
+                **
+
+**proc ::*providerName*::parameters {} {...}
+                **
+
+**proc ::*providerName*::start params {...}
+                **
+
+**proc ::*providerName*::check sourceId {...}
+                **
+
+**proc ::*providerName*::stop sourceId {...}
+                **
+
+**proc ::*providerName*::begin {sourceId runNumber title} {...}
+                **
+
+**proc ::*providerName*::pause sourceId {...}
+                **
+
+**proc ::*providerName*::resume sourceId {...}
+                **
+
+**proc ::*providerName*::end sourceId {...}
+                **
+
+**proc ::*providerName*::init sourceId {...}
+                **
+
+**proc ::*providerName*::capabilities {} {...}
+                **
+
+<a name="AEN64805"></a>## DESCRIPTION
+
+Data source providers are Tcl loadable packages that provide
+            code that understands how to maniuplate a specific type of
+            data source.  NSCLDAQ comes with two pre-built data source providers;
+            [[r65237]]
+            which understands how to run command line readout programs on the end
+            of a SSH pipeline to a (possibily) remote system, and
+            [[r65349]] which
+            knows how to connect to and send appropriate commands to the
+            S800 data acquisition readout program.
+
+If a Source provider supplies the code for a type of data source,
+            a specific data source is identified by a `sourceId`
+            this is assigned by the code that creates data sources.  In general
+            while it's a good idea to define data source ids that are unique across
+            all data source providers (that's what the ReadoutGUI data source
+            manager does), it is only required that source ids be unique within
+            a specific provider.
+
+This section of man pages provides:
+
+
+
+- Reference material on the API a data source provider must export.
+- Reference information that describes the SSHPipe provider.
+- Reference information that describes the S800 provider.
+
+<a name="AEN64820"></a>## CREATING A DATA SOURCE PROVIDER
+
+Data source providers are Tcl packages with names that end in
+                _Provider for example, the SSHPipe provider
+                is a package named SSHPipe_Provider. The
+                section of the package name before the trailing _Provider
+                is called the *provider name*.
+
+Data source providers are expected to define a specific set
+                of named procedures in a namespace that matches their
+                provider name.   Thus the SSHPipe provider defines procs in the
+                ::SSHPipe:: namespace.  These procs need not
+                be exported from the namespace.
+
+The code fragment below shows a simplified version of how the
+            package and namespace are defined and a definition for the
+            parameters proc is made within that namespace
+
+<a name="AEN64831"></a>```
+package provide MyDataSource_Provider 1.0 
+
+namespace eval ::MyDataSource {}
+
+proc ::MyDataSource::parameters {} {
+  # Actual implementation omitted
+  #  ...
+}
+            
+```
+
+While only the API functions described in this manpage need to be
+            in the provider's namespace, it is good programming practice to
+            put any utility functions either in that namespace or in some
+            other namespace that is specific to the data source provider
+            (e.g.  *providerName*_private).
+            This minimizes the chances that your definitions will re-define
+            some previously defined proc in the global namespace.
+
+For information on Tcl namespaces, see the documentation for the
+            [Tcl namespace command](http://www.tcl.tk/man/tcl8.5/TclCmd/namespace.htm).
+
+<a name="AEN64837"></a>## API FUNCTIONS
+
+This section provides a brief overview of each API function
+                a data provider must implement along with a pointer to the
+                detailed documentation for that function.  In the documentation
+                below, the namespace for the API function is omitted for the sake
+                of brevity.
+
+
+
+**parameters**Each data source a data source provider starts may
+                            require some parameterization.  For example, the
+                            S800 provider needs to know the host on which the
+                            S800 readout program is running along with the
+                            TCP/IP port on which that program is listening for
+                            command connections.
+                            [[r64910]]
+                            returns information about the parameterization of
+                            the provider.  The information returned is sufficient
+                            for calling code to produce a very simple prompter
+                            for those parameters.
+
+**start** *params*The **start** command of a data source
+                            provider start a data source given a specific
+                            parameterization.
+                            The
+                            [[r64937]]
+                            describes this command.
+
+**check** *sourceId*Whatever code is managing a set of data providers
+                            needs to know when one of the active sources
+                            has exited.
+                            [[r64966]]
+                            returns a true value if a source is still running and
+                            false if not.
+
+**stop** *sourceId*[[r64998]]
+                            Stops the specified data source.
+
+**begin** *sourceId runNumber title*Starts data taking for a new run.
+                            See [[r65029]]
+                            for reference information.
+
+**pause** *sourceId*If your data source implements pause/resume functionality
+                            you must define this command to pause the run.
+                            See the 
+                            [[r65060]]
+                            reference material for more information.
+
+**resume** *sourceId*If your data source implements pause/resume functionality
+                            you must implement
+                            [[r65097]]
+                            to resume paused runs.
+
+**end** *sourceId*The
+                            [[r65130]]
+                            ends a run in a data source.
+
+**init** *sourceId*The
+                            [[r65159]]
+                            causes an initialize procedure in the data source.
+
+**capbilities**Describes the data
+                            [[r65188]]
+                            source capabilities.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 3provider | Up | parameters |

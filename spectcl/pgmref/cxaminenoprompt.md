@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25304"></a>CXamineNoPrompt
+
+<a name="AEN25308"></a>## Name
+
+CXamineNoPrompt -- Prompter that does not prompt
+
+<a name="AEN25311"></a>## Synopsis
+
+```
+class CXamineNoPrompt  : public CXamineButtonPrompt        
+{
+  
+public:
+  CXamineNoPrompt ();  
+  virtual   void FormatPrompterBlock (ButtonDescription& rPrompt) const  ;
+
+  
+ 
+};
+        
+```
+
+<a name="AEN25313"></a>## DESCRIPTON
+
+This button prompter should be used when an Xamine client
+            button does not require any prompting from Xamine
+            Buttons with this prompter attached will simply send their
+            button message immediately to the client when clicked.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamineButtonPrompt | Up | CXamineConfirmPrompt |

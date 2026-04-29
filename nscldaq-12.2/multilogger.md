@@ -1,0 +1,113 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN83697"></a>multilogger
+
+<a name="AEN83701"></a>## Name
+
+multilogger -- Log data from multiple ring buffers
+
+<a name="AEN83704"></a>## Synopsis
+
+```
+##
+#   Add this line to your ReadoutCallouts.tcl file:
+# 
+package require multilogger
+              
+```
+
+<a name="AEN83706"></a>## DESCRIPTION
+
+The NSCL ReadoutShell has the concept of an
+                    event recording ringbuffer.  When you check the
+                    recording checkbutton on the GUI, ReadoutGUI
+                    automatically starts an eventlog programto log
+                    data to that ringbuffer and, at the end of the run
+                    does what's needed to build the experiment and run views
+                    of the resulting event file.
+
+In more complex experiments, involving multiple event building
+                 stages, it can be useful to log data to disk from more than one
+                 ring.  This provides the ability to reconstruct the final
+                 event file later, in case something went wrong with event building.
+                 It can also provide for the ability to replay and analyze
+                 subsets of the data (from a detector subsystem rather than the
+                 entire experiment).
+
+The mulilogger package meets that need.  Multilogger is
+                 a ReadoutGui add on that allows you to log data from an arbitrary
+                 number of ringbuffers.  Each of these logging specifications
+                 can be independently enabled or disabled.  You can also
+                 specify, if desired, that the system log data even when
+                 recording is not enabled on the GUI.
+
+Event files are prefixed with the creation time making it possible
+                 to log several runs with the same run number without losing
+                 data (essential if log always is turned on).
+
+<a name="AEN83712"></a>## Using the multilogger package.
+
+Using the multi logger package requires that you:
+
+
+
+- Incorporate the multilogger into the ReadoutShell. See
+                      the Synopsis section above for the
+                      line you need to add to your ReadoutCallouts.tcl
+- Set up the additional logging you want.
+
+The multilogger package adds a Multilogger
+              This menu provides commands to:
+
+
+
+Add Logger...Prompts for the URI of the ring buffer to log, the output
+                     directory, the maximum number of seconds to wait for
+                     all end runs to be received and the number of data sources
+                     that contribute control itesm to the ring.
+
+It also prompts for the initial enable state of the logger.
+                     A disabled logger will never log data, even if log always
+                     is enabled.  The output directory must exist before the
+                     multiloggers's first attempt to log data. The multilogger
+                     will *not*
+                     create that directory for you.
+
+List Loggers...Provides a list of loggers showing their ring buffers,
+                     output directories, enable state, end run timeout an
+                     number of event sources.
+
+Enable Loggers...Allows you to selectively enable or disable loggers.
+
+Delete Loggers...Lets you get rid of loggers you no longer want.
+
+Record AlwaysIs a menu checkbutton that, when checked makes
+                     the enabled loggers log data even if the Record button
+                     on the ReadoutGui is not checked.
+
+After each menu item's dialogs are approved, the state of
+              the multilogger subsystem is written to file.
+              (See FILES) below.
+
+<a name="AEN83749"></a>## FILES
+
+
+
+~/.multiloggersThis is a CSV file that has the up-to-date list of
+                     the loggers multilogger is managing.  The fields
+                     in this file are in order, the ring URI, the
+                     output direcctory, The enable state (non-zero is enabled),
+                     The timeout and the number of sources.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ReadoutGUIOutputClient | Up | 3provider |

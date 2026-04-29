@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.1sbsreadout"></a>Readout
+
+<a name="AEN10946"></a>## Name
+
+Readout -- Start an event readout program.
+
+<a name="AEN10949"></a>## Synopsis
+
+**Readout *options...*
+**
+
+<a name="AEN10953"></a>## DESCRIPTION
+
+Starts the Readout program.
+
+<a name="AEN10956"></a>## OPTIONS
+
+
+
+`--port`=*port-selection*Enables the Tcl server component to listen on the specified port.
+            If the value of this option is *managed*,
+            the port manager is contacted to allocate a port.  Otherwise the
+            value must be the integer port number on which to listen.
+
+`--ring`=*name*Provides the name of the local ring into which data will be placed.
+                If this switch is omitted, the ring name will be the username
+                running the program.
+
+`--help`Outputs a summary of the command lineo ptions and exits without
+                doing anything else useful.
+
+`--version`Outputs the program version number and exists without doing anything
+                else useful.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 1sbsReadout | Up | 3daq |

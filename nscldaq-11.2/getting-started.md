@@ -1,0 +1,25 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 64. Filter framework | Next |
+
+
+---
+
+# <a name="AEN11488"></a>64.2. Getting Started
+
+A small kit is provided in the /usr/opt/nscldaq/VERSION/filterkit
+      directory. All of the source code needed to build a fully functional
+      filter program is provided in this directory. It is recommended that the
+      user start with these files to begin the process of creating his/her
+      filter program. Simply copy the entire directory to a working location or
+      the relevant files: Makefile, SkeletonMain.cpp, and CTemplateFilter.cpp. I
+      will explain the contents of each of these files in the following
+      sections.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Filter framework | Up | Defining a primitive filter |

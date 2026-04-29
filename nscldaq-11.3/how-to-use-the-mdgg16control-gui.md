@@ -1,0 +1,127 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 15. Wiener MDGG-16 Controls | Next |
+
+
+---
+
+# <a name="AEN7264"></a>15.2. How to use the MDGG16Control GUI
+
+The MDGG16Control GUI is a client to the VMUSBReadout's slow controls
+      server. As such, it will only function when the slow-controls server is
+      actually up and running and when the running server has an module of type
+      mdgg16 loaded into it. Here is a step-by-step how-to to get the whole
+      system running.
+
+
+
+1. The first step is to set up the VMUSBReadout program to receive remote
+             requests for the MDGG-16. To do so, the user should add the following
+             code to their ctlconfig.tcl script.
+   ```
+             Module create mdgg16 mymdgg16
+             Module config mymdgg16 -base 0xffff0000
+   ```
+   This causes a new slow controls module named "mymdgg16" to be loaded
+             into the server. This module will initialize the MDGG-16 at base
+             address 0xffff0000 to operate as a logical OR and will subsequently 
+             receive Set and Get commands sent to it by clients such as the 
+             MDGG16Control gui.
+2. The above code is the bare minimum amount of configuration to provide
+             and allows the default values to be used for each mask (i.e. 65535 or
+             all channels contributing to the OR). The user can specify a
+             configuration mode, via the -mode option, to be either "explicit" or "file" to identify where to
+             gather values. When -mode is "explicit", the values are taken from the
+             options -or_a, -or_b, -or_c, and -or_d. By default, the -mode value is
+             "explicit" and the values of each of these -or_ options are 65535.
+             Here is an example bit of code that would explicitly define OR A to 
+             output ch.0 only, OR B to output ch. 1 only, OR C to output channels 1
+             and 2, and OR D to output channel 2 only.
+   ```
+             Module create mdgg16 mymdgg16
+             Module config mymdgg16 -base 0xffff0000
+             # explicitly set mode to be "explicit" and then set values for the
+             # masks. 
+             # OR_A = 1 (only ch0 contributes)
+             # OR_B = 2 (only ch1 contributes)
+             # OR_C = 3 (both ch0 and ch1 contribute)
+             # OR_D = 4 (only ch2 contributes)
+             Module config mymdgg16 -mode explicit -or_a 1 -or_b 2 -or_c 3 -or_d 4
+   ```
+   On the other hand, if the -mode is "file", then the user must provide
+             a value for the -configfile option. This file must exist or an error
+             will be thrown. Consider there is a file named mdgg16.settings. You
+             could use the contents of that file to configure by writing:
+   ```
+             Module create mdgg16 mymdgg16
+             Module config mymdgg16 -base 0xffff0000
+             Module config mymdgg16 -mode file -configfile /path/to/mdgg16.settings
+   ```
+   The loading of the config files is very simple and it assumes a simple
+             structure that is as follows:
+   ```
+            Configuration file for MDGG16Control
+            Timestamp of creation
+            or_a  value_a
+            or_b  value_b
+            or_c  value_c
+            or_d  value_d
+             0 : Name of Channel 0
+             1 : Name of Channel 1
+             2 : Name of Channel 2
+             ...
+            15 : Name of Channel 15 
+   ```
+   where value_a, value_b, value_c, and value_d are integers defining the
+             various bit masks. If the config file is not set up like this, the
+             configuration will produce undefined results.
+3. The user must next start up VMUSBReadout. This can be done by
+             executing the ReadoutShell with VMUSBReadout registered as a data
+             provider and then pressing the "Start" button. It can alternatively be
+             accomplished by starting VMUSBReadout from the commmand-line. It
+             really doesn't matter how VMUSBReadout gets started so long as it does
+             and is fed the ctlconfig.tcl as the --ctlconfig argument.
+   By default, the slow-controls server will listen for connections on
+             port 27000. This can be different if the host computer is running
+             other programs that were listening on that port first. If the user
+             suspects that the latter is the case, the port can be found by
+             executing lsof -i TCP in a terminal. Find the row
+             associated with your VMUSBReadout program by searching for the pid.
+             The port being listened on will be listed in the right-hand column.
+4. With the slow-controls server up and running, the user can then go to
+             a new shell and type:
+   ```
+             MDGG16Control --module mymdgg16
+   ```
+   By default, this assumes that the --host is localhost and --port is
+             27000. These should be correct  
+             unless other slow-controls servers are running. In which case, the
+             user should determine the relevant information as described in the
+             previous step.
+5. The user will then be presented with the a graphical user interface 
+             that can be used to control the bit masks. Each column represents the
+             OR output it is labeled as, and its contributing channels should be 
+             chosen by selecting and deselecting the checkbuttons.
+             If a checkbutton is filled in (i.e. selected) the channel is enabled
+             to be outputted in the associated OR. Take note that the state of the
+             GUI is not committed to the device until the "Commit to Device" button
+             is pressed. If the user seeks to read the state of the device, the
+             "Update from Device" button should be pressed. If the "Update from
+             Device" button is disabled, that indicates that the GUI and the device
+             are in sync.
+   <a name="mdgg16control_fig1"></a>**Figure 15-1. MDGG16Control Graphical User Interface**
+   ![](figures/MDGG16Control-HowTo-0.png)
+   A screenshot of the GUI showing OR A using only channel 0 (mask=1), OR B using only
+                   channel 1 (mask=2), OR C using all inputs (mask=65535), and OR D
+                   using only channel 2 (mask=4). The update button is
+                   disabled to indicate that no checkbuttons have been pressed since the
+                   last time the "Commit to Device" or "Update from Device" buttons
+                   were pressed. The GUI is sync'ed with the device.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Wiener MDGG-16 Controls | Up | Saving and Restoring The State of the GUI Between Sessions |

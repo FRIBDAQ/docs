@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.epicsdisplay"></a>Chapter 36. The epics display utility
+
+The epicsdisplay utility provides a tabular
+    display of an arbitrary set of epics channels.  It is possible to
+    configure a set of channels to be displayed on a chart recorder at the
+    bottom of the display as well.  Complete reference documentation is
+    available at the [[r22024]]
+
+epicsdisplay reads in a configuration file.
+    The configuration file is compatible with [[r18893]] application,
+    which uses it to fetch epics channesl and make them known to
+    epicsdisplay.
+    epicsdisplay interprets additional
+    information in the file as metadata that describes such things as:
+
+
+
+- Alarms on the channel and how to display the alarm condition.
+- Whether or not a channel should be displayed as a trace on a
+            chart recorder graph at the bottom of the window.
+
+
+Extensive online help is provided via the
+    Help->Topics...
+    menu entry.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Providing EPICS channel information to Tcl Servers | Up | Epics Channel logging |

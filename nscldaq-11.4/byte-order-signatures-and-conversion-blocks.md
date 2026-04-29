@@ -1,0 +1,52 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 50. Integer byte order conversion library | Next |
+
+
+---
+
+# <a name="AEN10091"></a>50.2. Byte order signatures and conversion blocks
+
+Byte order signatures are known integer values that are available
+            in the foreign system's byte oder.  By examining these on a byte by byte
+            basis, the byte ordering of the remote system can be determined.
+            While typically systems have a consistent ordering of bytes in words
+            and words in longwords, the library does not assume that.
+
+A system that is supplying data to be converted with this library
+            must provide a 16 bit and a 32 bit signature.  These are the
+            values 0x0102 and 0x01020304
+            repsectively written in that system's native byte ordering.
+
+The function `makecvtblock` takes those signatures
+            and delivers a DaqConversion block.  The
+            DaqConversion block is a data structure that provides
+            conversion tables for foreign to host and host to foreign conversions.
+
+Suppose you have data in a structure that contains these signatures
+            as fields named `s_ssig` and
+            `s_lsig`.  The example below shows how to
+            create a conversion block:
+
+<a name="AEN10104"></a>**Example 50-4. Creating a DaqConversion**
+
+```
+#include <cvt.h>
+...
+DaqConversion conversionBlock;
+makecvtblock(data.s_lsig, data.s_ssig, &conversionBlock);
+...
+            
+```
+
+The DaqConversion block
+            `conversionBlock`
+            can be used in subsequent calls to do byte order conversions.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Integer byte order conversion library | Up | Data conversion |

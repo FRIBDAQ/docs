@@ -1,0 +1,798 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage_readoutshell"></a>Readout Gui
+
+<a name="AEN7080"></a>## Name
+
+ReadoutShell -- Encapsulate data sources in a graphical user interface
+
+<a name="AEN7083"></a>## Synopsis
+
+**$DAQROOT/bin/ReadoutShell [`-host`=*readout-host*]
+[`-path`=*readout-program-path*]
+          **
+
+<a name="AEN7092"></a>## DESCRIPTION
+
+Starts the readout GUI. All of the options on the command line are optional.
+                If they are omitted, the program first attempts to fetch them from the
+                configuration (see the section Configuration files and environment variables
+                below for more information about configuration). If the required information
+                cannot be retrieved from the configuration, dialogs will be launched to prompt
+                for the host and readout path.
+
+The NSCL Data acquisition system uses a specific file directory
+                tree to associate event data and any other data that may be
+                germane to the run. The ReadoutGUI on startup creates this
+                directory structure and enforces it during its operation.
+
+The ReadouGui on startup attempts to launch the readout program
+                specified on the command line, in the configuration or via
+                prompts to the user on the host system specified in the same
+                way. It reports unexpected Readout program exits via a dialog
+                box to the user.
+
+<a name="AEN7097"></a>## OPTIONS
+
+
+
+`-host`=*readout-host*Specifies that
+                            `readout-host`  is the name of the computer
+                            on which the Readout program should be run. hostname
+                            is also used as the data source to which the readout
+                            gui connects other pieces of the system it controls,
+                            most importantly, the eventlog event data logging
+                            program.
+
+`-path`=*readout-program-path*Specifies
+                            `readout-program-path` as the
+                            readout program that should be run.  The path  must
+                            be absolute as you cannot make any assumptions about
+                            the working directory in which it is resolved.
+                            This is an important point that is sometimes missed:
+
+Suppose your current working directory is ~/readout
+                            and the Readout program is stored in
+                            ~/software/readout/Readout.
+                            Specifying the readout program as
+                            ../software/readout/Readout
+                            will not work as expected.
+
+<a name="AEN7117"></a>## FILES
+
+Several files are read written to maintain both the
+                static configuration (not changing from run to run) and the
+                last known dynamic configuration (changing from run to run).
+                Every effort is made to preserve state so that if you start
+                the Readout GUI again after it has exited normally or abnomrally,
+                it will return to the state it was when it exited.
+
+
+
+~/stagearea/.readoutconfigContains state data for both static and dynamic
+                            state.  This is rewritten as dynamic stat is modified.
+
+.daqconfigThis file is loaded both from the home directory ansd
+                            from your current working directory.  It allows
+                            you to finely tune the startup static state of the
+                            readout gui.  See CONFIGURATION below for more
+                            information about what can be put in this file.
+
+ReadoutCallouts.tclThis file is loaded from the home directory,
+                            the experiment view's current
+                            directory and the current working directory.
+                            See EXTENSION hooks below for more information
+                            about what this file can contain.
+
+<a name="AEN7137"></a>## CONFIGURATION
+
+The ReadoutGUI has many configuration parameters, although
+                normally the default values are suitable for your use.
+                The program gets configuration from a combination of
+                configuration files, environment variables and default values.
+                See FILES above for the set of configuration files.
+
+The section below describes the configuration parameters,
+                where appropriate the corresponding environment variables and
+                the precedence.
+
+**Configuration Parameter: **SourceHost
+
+**Environment Variable: **DAQHOST
+
+**Precedence: **Command line, Environment variable, config files.
+
+**Description: **Provides the host in which the readout software is run.
+                        This also determines the URL that will be generated to
+                        describe to the clients Readout GUI runs where data
+                        comes from.
+
+**Configuration Parameter: **ReadoutPath
+
+**Environment Variable: **RDOFILE
+
+**Precedence: **Command line, Environment variable, config files.
+
+**Description: **Absolute path to the Readout program.
+
+**Configuration Parameter: **StageArea
+
+**Environment Variable: **EVENTS
+
+**Precedence: **Environment, Config File
+
+**Description: **The root directory of the event data. This normally
+                         defaults to ~/stagearea.
+
+**Configuration Parameter: **Experiment
+
+**Environment Variable: **EXPDIR
+
+**Precedence: **Environment, config
+
+**Description: **The root of the directory where the run data are stored.
+                    This defaults to ~/experiment which,
+                    if it does not initially exist is linked symbolically to
+                    $StageArea/experiment
+
+**Configuration Parameter: **RunTitle
+
+**Environment Variable: **EXPTITLE
+
+**Precedence: **Config File, Environment
+
+**Description: **Title of the run.  This is normally only useful
+                    to provide an initial title as it is overidden by any
+                    changes the user makes in the GUI.
+
+**Configuration Parameter: **RunNumber
+
+**Environment Variable: **N/A
+
+**Precedence: **Gui, Config file
+
+**Description: **The run number of the current run if the run is active,
+                    or the next run if the run is idle.
+
+**Configuration Parameter: **ScalerCount
+
+**Environment Variable: **SCALERS
+
+**Precedence: **GUI, Configuration file, Environment
+
+**Description: **Value set to the Readout's `scalers`
+                    variable prior to starting run initialization.  This can be,
+                    but need not be, used by the Readout program to determine how
+                    many scaler channels are expected. Whether and how it is used
+                    is entirely up tot he application developer(s).
+
+**Configuration Parameter: **ScalerInterval
+
+**Environment Variable: **SCALERINTERVAL
+
+**Precedence: **Gui, Config file, Environment
+
+**Description: **Determines the value set in the Readout program's
+                    `frequency` variable prior to run initiaization.
+                    This can be but need not be used to set the period of the
+                    scaler readout trigger.  Whether and how it is used
+                    is entirely  up to the application developer(s).
+
+**Configuration Parameter: **Recording
+
+**Environment Variable: **N/A
+
+**Precedence: **GUI, Config file
+
+**Description: **If the run is active,this non zero when event data
+                    are being recorded. When the run is not active, this
+                    variable reflects whether or not the next run will record
+                    event data.
+
+**Configuration Parameter: **Timed
+
+**Environment Variable: ** N/A
+
+**Precedence: **Gui, Config file
+
+**Description: **Reflects whether or not this run (or the next run if
+                    idle) will be a timed run
+
+**Configuration Parameter: **TimedLength
+
+**Environment Variable: **N/A
+
+**Precedence: **Gui, Config file
+
+**Description: **If the configuration/state parameter `Timed`
+                    is true, this variable is the number of seconds for which a
+                    timed run should take data.
+
+<a name="AEN7207"></a>## EXTENSION HOOKS
+
+The Readout GUI can be extended by user supplied scripts.
+                How to provide an extension script is described in
+                FILES under the description of ReadoutCallouts.tcl.
+                This section describes the callbacks ReadoutGUI makes to any
+                extension that defines them and the API available to those
+                scripts (see Programmatic Inteface below).
+
+In addition to executing arbitrary Tcl code at the global level
+                when it is loaded, ReadoutCallouts.tcl can
+                provide **proc**s that are called at well defined
+                points in the execution of the Readout GUI.
+
+The callbacks the set of ReadoutCallouts can
+                provide are:
+
+
+
+**OnStart**Called when the readout program is started up.
+                            At the time this is called, the Readout program
+                            may not be sufficiently initialized to accept
+                            commands.  if your script feeds commands you might
+                            want to insert a short delay prior to doing this.
+
+**OnBegin**This proc is called just after the run has been
+                            started. It is passed the run number of the run
+                            that has just started. By the time **OnBegin**
+                            is called, the Event Logging program (if recording
+                            is enabled) is ready to run. The Readout program has
+                            not yet, however, been told to start the run.
+
+**OnEnd**Called just after a run has ended. The Readout program
+                           has been asked to end however it is not known yet
+                           that the readout program has actually sent its end
+                           of run buffer to the event distribution system.
+
+**OnPause**Called when a data taking run is being paused. This
+                            is called at an analagous time to the OnEnd call.
+
+**OnResume**Called when a data taking run is being resumed.
+                            This is called at an analgous time to the OnBegin
+                            function.
+
+<a name="AEN7243"></a>### Programmatic Interface
+
+Readout GUI extension scripts can also interact with well
+                    defined interfaces to the Readout GUI.
+                    This section describes those interfaces.
+
+The Readout GUI is segmented into several packages.  Each
+                    package is implemented as a Tcl package and you should use
+                    **package require** to ensure the package is
+                    loaded prior to invoking **proc**s from the
+                    package.
+
+
+
+ReadoutStateProvides the ability to manipulate and inquire
+                                about the state of the system.
+
+ReadoutControlProvides the ability to control the readout
+                                program.
+
+ReadoutGuiProvides the ability to do things that the
+                                GUI elements can cause to happen.
+
+ReadougGUIPanelProvides access to the gui elements of the
+                                user interface itself.  Note the first
+                                g in this package name
+                                is *not* a typo.
+
+<a name="AEN7269"></a>#### Programmatic interface
+
+ReadoutState packageThe ReadoutState package manipulates and gets access
+                        to various state values of the Readout GUI.  These commands
+                        are located in the ReadoutState namespace.
+                        If you don't want to qualify calls with
+                        ReadoutState::, you can
+                        **namespace import ReadoutState::***.
+                        The descriptions below assume this has been done.
+
+
+
+**setTitle** *newTitle*Sets the title string for the next run. Unlike
+                                    the GUI, which does not allow title string
+                                    changes until the run is halted, the software
+                                    can change this string at any time and the new
+                                    value will be reflected in the GUI. The Readout
+                                    program, however, only receives a new title
+                                    string just prior to the start of a run, and
+                                    prior to the call to **OnBegin**.
+
+**setRun** *runNumber*Sets the run number for the next run that
+                                     Readout will start. See setTitle for for
+                                     what this means and when the Readout
+                                     program will actually see this setting.
+
+**getRun**Returns the run number
+
+**incRun**Increments the run number held by the GUI.
+
+**setScalerCount** *scalers*Sets the number of scalers the user wants
+                                     read out. This is updated in the readout
+                                     program at the start of the next run. It is
+                                     possible for the readout software to
+                                     override this value programmtically. It is
+                                     intended for scaler readout software that
+                                     knows how to use this value to adjust the
+                                     set of scalers that are actually being read.
+
+**getScalerCount**Returns the proposed number of scalers
+
+**setScalerPeriod** *timInSeconds*Sets the number of seconds between timed
+                                    scaler readout in seconds.  Note that it
+                                    is up to the application code to select
+                                    a timed trigger and to modify the time interval
+                                    based on this value at the beginning of each
+                                    run.  The value will be pushed into the
+                                    main interpreter's `frequency`
+                                    variable.
+
+**getScalerPeriod**Returns the number of seconds between
+                                    periodic scaler readouts.
+
+**getRecording**Returns true if event recording is enabled.
+
+**enableRecording**Enables event recording. As with all of
+                                    these parameters, event recording determines
+                                    what happens at the start of the next run.
+
+**disableRecording**Disable event recording.
+
+**isTimedRun**Returns a true boolean value if the Timed
+                                    run checkbox is enabled.
+
+**TimedRun**Enables the next run to be a timed run.
+
+**notTimedRun**Says that the next run will not be a timed
+                                    run.
+
+**timedLength**Returns the length of a timed run. The
+                                    length is returned as the number of seconds
+                                    the run would last.
+
+**setTimedLength** *seconds*Sets the length of the timed run in seconds.
+                                     You must also enabled timed running in
+                                     order for this to mean anything.
+
+<a name="AEN7364"></a>#### Programmatic interface
+
+ReadoutControl packageThis package allows you to set and inquire the
+                        known state of the Readout program.  You can us it
+                        to send arbitrary messages to the readout program
+                        or to perform specific state transitions of the run.
+
+Where you force a state change in the Readout program
+                       that the GUI normally forces (e.g. starting a run), it
+                       is important that you use the higher level functions to
+                       do that so that the GUI remains consistent with the state
+                       of the Readout. If, for example, you start a run by
+                       sending the begin command directly to the Readout program,
+                       the run control buttons will not reflect that the run can
+                       be halted. Use of e.g.
+                       **ReadoutControl::Begin** maintains
+                       the state correspondence.
+
+All of the procs described in this section are
+                        in the ReadoutControl namespace.
+                        If you don't want to prefix each command with
+                        ::ReadoutControl:: you should
+                        import the namespace using
+                        **namespace import ::ReadoutControl::***.
+
+
+
+**getReadoutState**Returns the known state of the readout program.
+                                     This can be any of the following textual values:
+
+
+
+NotLoadedThe Readout program is not running.
+                                                Either it was never started, or it
+                                                failed.
+
+NotRunningThe Readout program is present, but
+                                                the run is in the halted state.
+
+PausedThe readout program has an active
+                                                run that is currently paused.
+
+ActiveThe readout program has an active
+                                                run and is taking data.
+
+**isExecuting**Returns a
+                                     true
+                                     boolean value if the Readout
+                                     program is executing. That is if
+                                     **ReadoutControl::getReadoutState**
+                                     would not return
+                                     NotLoaded
+
+**SendCommand** *string*Sends a literalcommand to the readout program.
+                                     In the case of the SBS Readout skeleton
+                                     you might use this in e.g.
+                                     **OnStart**
+                                     to force the readout program to source some
+                                     configuration script.
+
+**SetReadoutProgram** *host path*Determines which readout program will be run
+                                   next, and on which system. host specifies the
+                                   target processor, and path should be the full
+                                   absolute path to the program. If you have a
+                                   relative path you can use the Tcl
+                                   **file normalize**
+                                   command to turn it into an absolute path.
+
+**ExitReadoutProgram**Forces the readout program to exit. T
+                                     his is done as follows:
+
+
+
+1. The 
+                                           **end**
+                                           command is sent to the program.
+2. The
+                                           **exit**
+                                           command is sent to the program.
+3. The pipe open to the
+                                           readout program is closed.
+
+
+**StartReadoutProgram**Starts the readout program using the current
+                                   target host and path. If the readout program
+                                   is running it is stopped. This means that to
+                                   programmatically change readout programs you
+                                   can do something like this:
+
+<a name="AEN7442"></a>```
+package require ReadoutControl
+
+set newProgram ~/daq/Readout/Readout
+set host       spdaq22
+ReadoutControl::SetReadoutProgram $host [file normalize $newProgram]
+ReadoutControl::StartReadoutProgram
+                                    
+```
+
+
+**SetRun** *runNumber*Sends a command to the readout program to
+                                     set the run number to number. You should
+                                     normally use the functions in the package
+                                     ReadoutState to do this, in order to maintain
+                                     synchronization between the GUI and the
+                                     Readout program state.
+
+If the ReadoutGui believes the readout
+                                    program is in the
+                                    NotRunning state, an
+                                    error will be thrown.
+
+**SetTitle** *newTitleString*Sends a message to the readout program to
+                                    change its title. You should normally use
+                                    the functions in the package ReadoutState to
+                                    do this, in order to maintain synchronization
+                                    between the GUI and the Readout program state.
+
+If the ReadoutGui believes the readout
+                                     program is not in the
+                                     NotRunning
+                                     state, an error will be thrown.
+
+**Begin**Sends a message to the readout software to
+                                    start a run. You should normally use the
+                                    functions in the package ReadoutState to do
+                                    this, in order to maintain synchronization
+                                    between the GUI and the Readout program state.
+
+If the ReadoutGui believes the readout
+                                    program is not in the
+                                    NotRunning
+                                    state, an error will be thrown.
+
+**End**Sends a message to the readout software
+                                    ending any active run. You should normally
+                                    use the functions in the package ReadoutState
+                                    to do this, in order to maintain synchronization
+                                    between the GUI and the Readout program state.
+
+If the ReadoutGui believes the readout
+                                    program is in the
+                                    NotRunning
+                                    state, an error will be thrown.
+
+**Pause**Pauses any active run. You should normally
+                                    use the functions in the package ReadoutState
+                                    to do this, in order to maintain synchronization
+                                    between the GUI and the Readout program state.
+
+If the ReadoutGui believes the readout
+                                    program is not in the
+                                    Active state, an error will be thrown.
+
+**Resume**Sends a message to the readout software to
+                                    resume a paused run. You should normally use
+                                    the functions in the package ReadoutState to
+                                    do this, in order to maintain synchronization
+                                    between the GUI and the Readout program state.
+
+If the ReadoutGui believes the readout
+                                    program is not in the Paused
+                                    state, an error will be thrown.
+
+<a name="AEN7488"></a>#### Programmatic interface
+
+ReadoutGUI packageThis package provides access to the functions that
+                        the graphical user interface itself calls in response
+                        to button pushes.  Often using these methods is the
+                        safest way to do something as gthen you are duplicating the
+                        action of the GUI elements.
+
+All procs described here are in the
+                        ReadoutGui:: namespace.  If you don't
+                        want to have to precede each function name with
+                        ::ReadoutGUI, use
+                        **namespace import ::ReadoutGui::***
+
+
+
+**Start**Simulates the
+                                    File→Start
+                                    menu selection. The Readout program selected
+                                    is started on the target host without any
+                                    attempt to stop any existing Readout.
+
+**Restart**Simulates the
+                                     File→
+                                     Restart
+                                     menu choice. This attempts to stop an
+                                     existing Readout program before starting a
+                                     new instance of the selected Readout program
+                                     in the target host.
+
+**Begin**Simulates a press of the Begin button. This
+                                    attempts to start a run. Note that
+                                    programmatically, there are no protections
+                                    at this level against beginning a run that
+                                    is already running. You should inquire the
+                                    state of the system prior to attempting to
+                                    start a run. For example:
+
+<a name="AEN7516"></a>```
+
+if {[ReadoutControl::getReadoutState] eq "NotRunning"} {
+   ReadoutGui::Begin
+} else {
+   # Here recover from the fact that the run
+   # Cannot be started at this point in time.
+}
+                                    
+```
+
+**Pause**Simulates a press of the
+                                    Pause button.
+                                    as for **Begin** the state
+                                    should be checked to ensure it is
+                                    Active before invoking this.
+
+**Resume**Simulates a click of the
+                                    Resume button.
+                                    Call **getState** to ensure
+                                    the state is Paused
+                                    before invoking this.
+
+**End**Simulates a click of the
+                                   End button. As before,
+                                   ensure this is legal by comparing the return value of
+                                   **getState** to either
+                                   Paused or
+                                   Active> (paused runs can
+                                   be ended without resumption.
+
+<a name="AEN7543"></a>#### Programmatic interface
+
+Controllling the GUIThe ReadougGUIPanel package
+                        provides access to the graphical user interfaces
+                        that make up the readout gui.  YOu can use this to
+                        modify the state of existing widgets as well as to
+                        add new widges of your own to the GUI.
+
+All functions in this section  are in the
+                        namespace ReadougGUIPanel.
+                        To avoid needing to qualify each reference you can:
+                        **namespace import ::ReadougGUIPanel::***.
+
+
+
+**addUserMenu** *ident label*Allows you to add a user menu to the menubar
+                                    of the GUI. The
+                                    *ident* parameter is used as
+                                    the last element of the menu widget path.
+                                    *label* is the
+                                    text string that will label the element.
+
+The actual full widget path of the menu
+                                    created is returned. You can use this path
+                                    to modify the menu configuration or to add
+                                    elements to the menu.
+
+**addUserFrame** *ident*Adds a frame to the bottom of the panel
+                                    (you can add as many user frames as you want).
+                                    By frame we mean a Tk frame widget.
+                                    *ident*
+                                    is the last element of the frame's widget
+                                    path. The full path will be returned.
+
+At this time, the frame will span the width
+                                    of the Readout GUI toplevel widget. Once
+                                    you have created this frame you can stock
+                                    it with whatever widgets you want. The
+                                    example below is a bit silly.
+
+<a name="AEN7569"></a>```
+
+set frame [ReadougGUIPanel::addUserFrame myframe]
+button $frame.beep -text Beep -command {puts beep}
+button $frame.bop  -text Bop  -command {puts bop}
+button $frame.beebop -text BeeBop -command {puts "Now that's rockin'"}
+grid $frame.beep $frame.bop
+grid $frame.beebop
+                                    
+```
+
+**getHost**Returns the host in which the readout program will be, or is running
+
+**getPath**Returns the path to the readout program that
+                                    will be, or is running in the target host.
+
+**setTitle** *newTitle*Sets the title string in the ReadoutGUI widget to
+                                    *newTitle*.
+                                    If a run is started via the GUI,
+                                    *newTitle*
+                                    will be the title of that run.
+
+**getTitle**Returns the contents of the title widget in
+                                    the GUI. Unless manually, or programmatically
+                                    modified, this is the title of the next or
+                                    current run.
+
+**getRunNumber**Returns the contents of the run number widget.
+
+**setRun** *newRunNumber*Sets the run number widget contents to
+                                    *newRunNumber*
+                                    this will be the run number for the next run.
+
+**incrRun**Increments the run number (adds one to it).
+
+**setHost** *hostname*Sets the target host for the readout program to
+                                    *hostname*.
+                                    The next time the readout program is started,
+                                    it will be run in
+                                    *hostname*
+
+**setPath** *path*Sets a new readout program to
+                                    *path*.
+                                    It is safest if this is the full path to the
+                                    program or script to run. The file normalize
+                                    command can be used to turn relative paths
+                                    into absolute paths. For example:
+
+<a name="AEN7626"></a>```
+
+set absolutePath [file normalize ../Readout]
+ReadougGUIPanel::setPath $absolutePath
+                                    
+```
+
+**recordOff**Turns off the Record checkbutton. Unless
+                                    modified, the next run will not be recorded
+                                    to disk.
+
+**recordOn**Turns on the Record checkbutton. Unless
+                                     modified, the next run will be recorded to
+                                     disk.
+
+**setScalers** *channels period*Sets the hint of the number of scalers and
+                                    the scaler readout period. Unless modified,
+                                    these parameter are fed to the readout
+                                    program at the start of the next run.
+                                    *period* is the
+                                    integer number of seconds between scaler
+                                    trigger. *channels*
+                                    is the number of channels requested.
+
+Note that in the SBS readout framework it
+                                    is up to application specific code to do
+                                    something with these numbers.  The
+                                    VM-USB and CC-USB frameworks configure the
+                                    scaler readout period in the configuration
+                                    file when setting up the scaler stack.
+
+**getScalers**Returns a two element list containing the
+                                    ReadoutGui's understanding of the
+                                    number of scalers to be read and the interval
+                                    in seconds between scaler readouts.
+
+Once again these numbers could be completely
+                                    meaningless depending on the use made of them
+                                    by specific readout frameworks and any
+                                    application specific code that may be
+                                    grafted into those frameworks.
+
+**recordData**Returns a
+                                    true
+                                    value if the Record checkbutton is checked.
+
+**outputText** *text*Appends text to the GUI's text window. This
+                                     window contains the output from the readout
+                                     program as well as anything else put there
+                                     via this call.
+
+**isTimed**Returns a
+                                    true
+                                    value if the Timed Run check box is checked.
+
+**setTimed** *state*Sets the Timed Run check button to
+                                    *state*.
+                                    This governs whether or not the next run is
+                                    a timed run.
+
+**getRequestedRunTime**Returns the length of a timed run if the
+                                    Timed Run were set at the start of the run.
+                                    The time is returned in seconds
+
+**setRequestedRunTime** *seconds*Sets the desired timed run duration to 
+                                   *seconds*.
+                                   This does not modify the state of the Timed
+                                   Run check button however.
+
+<a name="AEN7690"></a>## EXAMPLE
+
+The toy extension below logs state transitions and
+                Readout startups to file.
+
+<a name="AEN7693"></a>**Example 1. Logging extension to readout gui**
+
+```
+
+set filename [file join ~ readout.log]
+
+proc logToFile message {
+   global filename
+   
+   set fd [open $filename "w+"]
+   set timestamp [clock format [clock seconds]]
+   puts $fd "$timestamp : $message"
+   close $fd
+}
+proc OnBegin run {
+   logToFile "Run $run Begun"
+}
+proc OnEnd run {
+   logToFile "Run $run has ended"
+}
+proc OnPause run {
+   logToFile "Run $run has been paused"
+}
+proc OnResume run {
+   logToFile "Run $run has been resumed"
+}
+proc OnStart {} {
+   logToFile "Readout program has been started"
+}
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| teering | Up | evttclsh |

@@ -1,0 +1,305 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN581"></a>Genx Declaration language
+
+<a name="AEN585"></a>## Name
+
+Genx declaration language -- Event definition language.
+
+<a name="AEN588"></a>## Synopsis
+
+***structure declarations***
+
+***instance declarations***
+
+<a name="AEN595"></a>## DESCRIPTION
+
+The Genx data declaration language provides a means for
+												defining the data structures and instances into which raw event
+												data can be unpacked in an analysis framework neutral manner.
+												What this means is that
+												the genx translator can take a genx data declaration language file
+												as input and create C++ headers and implementations that are
+												suitable for use with both SpecTcl and CERN/Root.
+
+A Genx data declaration file consists of two, optionally three parts.
+                                       An optional first part specifies the namespace
+                                       into which the generator will build its code.
+                                       If omitted, this is derived from the base
+                                       name of the outpout file.
+                                        The first
+                                        part of the file contains structure definitions.  The second part
+                                        defines instances of both simple parameters and structures that
+                                        were defined in the first part.  The genx translator ignores
+                                        additional whitespace, and accepts the C++ comment until end of
+                                        line comment syntax (// means the remainder of
+                                        the line is ignored).
+
+The remainder of this manpage provides
+
+
+
+1. A description of the namespace
+                                               directive.
+2. Reference information that describes how to define structured
+   											data.
+3. Reference information that describes how to define instances of both
+   											simple parameters and structured parameters.
+4. A full example of a Genx data declaration file.
+
+See the remainder of the user manual for documentation describing
+									how to put Genx data declaration files to use in your
+									analysis software.
+
+<a name="AEN612"></a>## Specifying the namespace
+
+Generators generate their definition into a namespace.
+                        The namespace, by default is derived from the basename
+                        specified in the **genx** command after
+                        leading path element have been stripped.  For example,
+                        a basename of /users/fox/test/spectcl/mydefs
+                        will, by default generate definitions in the
+                        mydefs namespace.
+
+The namespace directive can override
+                        the default and specify a namespace explicitly.  The
+                        namespace directive must be the first statement in
+                        a declaration and has the form:
+
+<a name="AEN620"></a>```
+namespace namespace-name
+                        
+```
+
+Where *namespace-name* is a valid
+                        C++ namespace name and will override the default
+                        namespace name.  For example:
+
+<a name="AEN625"></a>```
+namespace Event
+                        
+```
+
+Causes the generators to generate code in the
+                        Event namespace regardless of the
+                        basename of the output files.
+
+<a name="AEN629"></a>## Defining structures
+
+A structure definition looks like this:
+
+<a name="AEN632"></a>```
+struct 	structname {
+  field-def1 ...
+}
+						
+```
+
+The way to read this is that a structure definition consist of the
+						word struct  followed by a structure name that you
+						choose followed by a {.  The {
+						is followed by one or more field definitions. A }
+						follows the last field definition.
+
+A field definition looks like:
+
+<a name="AEN643"></a>```
+scaler-field | array-field | struct-field | struct-array-field
+						
+```
+
+That is there are four types of fields, scaler fields, array fields,
+						structure fields and structure array fields.
+
+A scalar-field  looks like this:
+
+<a name="AEN647"></a>```
+value fieldname [meta1 ...]
+						
+```
+
+That is a scaler field consists of the keyword value
+						followed by a field name.  The field name is followed by zero or more
+						optional bits of metadata.  Metadata is not used by all translation targets.
+						Meta data consists of:
+
+<a name="AEN652"></a>```
+low =  floating-pt-constant  |
+high =  floating-pt-constant |
+bins =  counting-number      |
+units =  string-value
+						
+```
+
+The low metadata provides a floating point value that
+						represents the lower range of the parameter.  The high
+						metadata represents the high end of the parameter range. bins
+						provides the recommended binning for axes of histograms on this parameter.
+						units provides units of measure for the parameter.
+						Note that string-value does not have quotes wrapping it.
+
+An array-field looks like this:
+
+<a name="AEN664"></a>```
+array fieldname[counting-number] [meta...]
+						
+```
+
+Thus the array-field looks just like the value-field except that it uses
+						the keyword array and there's an array size that's a
+						counting number inside of [] after the field name and
+						before any optional metadata.
+
+struct-field members allow structures to contain other structures. The
+						other structure must have been fully defined previously.  This implies
+						that structures cannot recurse directly or indirectly.  A struct-field
+						declaration looks like this:
+
+<a name="AEN673"></a>```
+struct struct-name fieldname
+						
+```
+
+struct-name is the name of a structure that was defined previously.
+						field-name is the name of the field.
+
+Similarly, structure-array-field members allow you to specify
+						a field that consists of an array of previously defined structs.
+						A struct array field looks like:
+
+<a name="AEN678"></a>```
+structarray struct-name fieldname[counting-number]
+						
+```
+
+That is exactly like a struct-field except that the
+						structarray keyword is used and the field name is followed
+						by a dimension specification which consists of the number of array
+						elements inside square brackets.
+
+You can define as many structs as you want and structs can be indefinitely
+						nested.
+
+<a name="AEN686"></a>## Instance definitions
+
+Instance definitions can be thought of as defining variables.  These
+						variables can be simple variables, array variables, structures or arrays
+						of structures.  After you have defined all of your structs your Genx
+						data definition file can have instance definitions:
+
+<a name="AEN689"></a>```
+(scalar-instance | array-instance | struct-instance | struct-array-instance ) ...
+						
+```
+
+This means that instances are one or more scaler, array, struct and
+						structure array instances.  One or more because instances are where the
+						actual unpacked parameters go so I'm assuming you'll have at least one
+						of those.
+
+Scaler and array  instances look exactly like scalar members.
+						The only difference
+						is that an instance will actually generate data in the program rather than
+						just contributing to the defintion of a data structure. Syntactically
+						they are the same, just not inside a struct definition.
+
+struct instances are of the form:
+
+<a name="AEN695"></a>```
+struictinstance structname instancename
+							
+```
+
+That is the keyword structinstance followed by the
+						name of a structure that was defined previously followed by the name of the
+						instance.  This will, in general, create a variable that is a struct
+						with the fields described by the struct name.   Your code can
+						treat that instance as a variable with that structure's field.
+						See the user guide for more information.
+
+A struct array instance generates a variable that is an array of
+						structs.  The syntax for this is:
+
+<a name="AEN701"></a>```
+structarrayinstance structname instancename[counting-number]
+						
+```
+
+That is the keyword structarrayinstance followed by the
+						name of a previously defined struct followed by the name of the instance
+						with the number of elements inside [].  This will
+						generate an array of with the name provided by the instance name
+						and each array elemen will be a struct with the fields described by the
+						definition of the struct named.
+
+In general, your programs can reference a struct array instance as if it
+						were an array (usually an array is generated) and reference each of the fields
+						of each element of that array as if it were a the named structure.
+
+<a name="AEN710"></a>## Example
+
+```
+// Structure definitions 
+struct Ta  {
+    value a 
+    value b low=-1.5 high=1.5 units=cm
+}
+struct Tb {
+    array a[10]
+    array b[20]
+}
+
+struct Tc {
+    struct Tb a
+    structarray Tb b[10]
+    value c units=megawidgets
+    array d[100]
+        low = 0 high = 4095 bins=4096.65 units=channels;
+}
+
+// instances start here
+
+value b low=-100.5 high=100 bins=200 units=cm
+value a
+
+array c[20]
+array d[5] units=furlongs
+
+structinstance Ta stuff
+structinstance Tc mystuff
+structarrayinstance Tb morestuff[20]
+
+					
+```
+
+<a name="AEN713"></a>## Advanced usage
+
+The genx compiler now incorporates the C preprocessor
+                        allowing you to use directives like
+                        #include and #define
+                        to make your code modular and more readable.
+
+<a name="AEN718"></a>```
+genx:  somefile.decl
+      cpp -E <somefile.decl >somefile1.decl
+						genx --target=spectcl somefile1.decl /SpecTcl/Event
+						genx --target=root    somefile1.decl /Root/Event
+						
+```
+
+This first runs the preprocessor on somefile.decl producing
+						somefile1.decl which is then processed by genx to create SpecTcl and
+						Root code.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Reference pages | Up | genx |

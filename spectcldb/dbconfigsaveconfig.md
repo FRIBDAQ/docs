@@ -1,0 +1,45 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6085"></a>dbconfig::saveConfig
+
+<a name="AEN6089"></a>## Name
+
+dbconfig::saveConfig -- Save SpecTcl analysis configuration
+
+<a name="AEN6092"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+
+
+set saveset [dbconfig::saveCOnfig $db new-savename ?save-contents?]
+
+                    
+```
+
+<a name="AEN6094"></a>## DESCRIPTION
+
+Creates a new save set `new-savename`
+                                in the database connected to `db`.
+                                The full SpecTcl analysis configuration;
+                                parameter definitions, spectrum definitions, gate
+                                definitions, gate applications and variable definitions
+                                are saved into the new save set.
+                                If `save-contents` is true
+                                the contents of all spectra are saved.
+
+The result is a handle to the resulting save set.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::openSaveSet | Up | dbconfig::listConfigs |

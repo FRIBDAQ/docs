@@ -1,0 +1,206 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3_gdgcontrol"></a>gdgcontrol
+
+<a name="AEN74096"></a>## Name
+
+gdbcontrol -- Slow control client of Wiener/JTec MGGD8
+
+<a name="AEN74099"></a>## Synopsis
+
+**package require gdgcontrol
+        **
+
+**set *object* [gdgcontrol *name ?options?*
+**
+
+** *$object method args*
+**
+
+<a name="AEN74109"></a>## DESCRIPTION
+
+Provides a class that can be instantiated to control a Wiener/JTec
+        MGDD8 module as an eight channel gate and delay generator. The
+        object communicates with the control server of a VM-USB readout program
+        by being configured with a
+        [[r73807]]
+        object. While objects can be constructed without specifying a
+        `controlClient` object, one must be configured
+        prior to the first I/O operation to the server.
+
+The object is intended to cooperate with a
+        [[r74310]]
+        object.  It must be constructed with the `-widget` option
+        specifying one of those objects as construction time sets up the widget
+        callbacks to methods in `gdgcontrol` object.
+        The callbacks from `gdgwidget` to `gdgcontrol`
+        are the controller logic of an MVC pattern where the model is the
+        `gdgcontrol` class and the view is the
+        `gdgwidget`.
+
+See OPTIONS below for configuration options and
+        METHODS below for the operations that can be performed.
+
+<a name="AEN74125"></a>## OPTIONS
+
+
+
+`-widget`This option must and can only be configured at construction
+                    time.  It specifies a view widget object that will coordinate
+                    with this object.  The view widget will have calls into this
+                    object when the controls on the view change a value and
+                    will be called back by refresh methods in this object.
+
+See WIDGET REQUIREMENTS for the interfaces
+                    the view widget must export.
+
+`-connection`Specifies the connection object (`controlClient`)
+                    that will be used to communicate with the control server.
+                    This can be configured at anytime prior to the first
+                    I/O operation with the server.
+
+`-name`Configures the driver instance name as defined in the
+                    control configuration file.
+
+`-onlost`Provides a script thati s called if the connection
+                    object loses its connection with the server.  If this
+                    is not supplied connection losses result in
+                    **error** throws.  If provided, it is up to
+                    the script supplied to handle and, if possible, recover
+                    from the error.
+
+<a name="AEN74152"></a>## METHODS
+
+
+
+`UpdateValues`Interacts with the view so that the view reflects the
+                    values most recentl read fromt he hardware.  Specifically
+                    calls the `refreshWidth` nd
+                    `refreshDelay` methods for each
+                    gate and delay channel.
+
+`getAll`Interacts with the hardware to return a two element list.
+                    The first element of the list is an 8 element list that
+                    contains the width values for each channel of the module,
+                    the second element is an 8 element list that contains
+                    the delay values.
+
+`setAll`Given as in put a list like that returned from
+                    `getAll` above, sets the
+                    gates widths and delays for all of the channels in the
+                    module.
+
+`onWidthPlus` `channel old`This method is attached to the view's
+                    `-upwidth` option.
+                    The method sets the width for `channel`
+                    to one nanosecons larger than `old`.
+
+`onWidthDown` `channel old`Same idea as `onWidthPlus` except
+                    `channel`'s width is set to
+                    one nanosecond less than `old`.
+                    This is attached to the widgets `-downwidth`
+                    callback.
+
+`onDelayPlus` `channel old`Simlar to `onWidthPlus` but the
+                    delay
+                    for `channel` is modified rather than the
+                    width.  This is attached to the widgets
+                    `-updelay` option.
+
+`onDelayDown` `channel old`Same as `onDelayPlus` but the
+                    value of the dealy for `channel` is
+                    set to one nanosecond less than `old`.
+
+`onSetDelay` `channel value`Attached to the widget's `-setdelay` option,
+                    this method sets the delay for `channel`
+                    to the specified `value`
+
+`onSetWidth` `channel value`Like `onSetDelay` but the width of
+                    `channel` is modified.
+
+`refreshWidth` `channel`Calls the widget's `setWidth` method
+                    passing the `channel` and the
+                    current width of that channel.
+
+`refreshDelay` `channel`Calls the widget's `setDelay` method
+                    passing the `channel` parameter and the
+                    current the current delay setting of that channel.
+
+<a name="AEN74243"></a>## WIDGET REQUIREMENTS
+
+The `gdgcontrol` class is intended to be tightly
+        coupled to a view widget.  The view widget provides a specific set
+        of configuration options and methods that facilitate communication
+        between `gdgcontrol` and the view widget.
+        The
+        [[r74310]]
+        class provides a sample view widget that can be used directly and without
+        modification.
+
+This section describes the interfaces that couple the view and this
+        class together so that, if desired, you can write your own view widget.
+
+<a name="AEN74250"></a>### Required widget options
+
+
+
+`-upwidth` *script*This option provides a script that is called by the widget
+                        to increment
+                        a channel width by one nanosecond.  The script shouild have
+                        appended to it a channel  number and the current number
+                         of nanoseconds believed to be set for that width.
+
+`-downwidth` *script*This option provides a script that is called by the widget
+                        to decrement
+                        a channel width by one nanosecond.  The script shouild have
+                        appended to it a channel  number and the current number
+                         of nanoseconds believed to be set for that width.
+
+`-updelay` *script*This option provides a script that is called by the widget
+                        to increment
+                        a channel delay by one nanosecond.  The script shouild have
+                        appended to it a channel  number and the current number
+                         of nanoseconds believed to be set for that delay.
+
+`-downdelay` *script*This option provides a script that is called by the widget
+                        to decrement
+                        a channel delay by one nanosecond.  The script shouild have
+                        appended to it a channel  number and the current number
+                         of nanoseconds believed to be set for that delay.
+
+`-setdelay` *script*This option provides a script that is called by the widget
+                        to set a new value for the delay of a channel.
+                        The channel number and new delay value in nanoseconds
+                        should be appended as parameters to this script.
+
+`-setwidth` *script*this options provides a script that is called by the widget
+                        when it wants to set a new value for the output width
+                        of a channel.  The channel number and new width in
+                        nanoseconds should be appended to the script.
+
+<a name="AEN74289"></a>### Required widget methods
+
+
+
+`setWidth` `channel value`Called by the `gdgcontrol` object to
+                        tell the view widget to display the new
+                        `value` for the new with of
+                        `channel`
+
+`setDelay` `channel value`Called by `gdgcontrol` to
+                        tell the view widget to display
+                        `value` for the delay of
+                        channel `channel`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| slowControlsPrompter | Up | gdgwidget |

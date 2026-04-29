@@ -1,0 +1,110 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3350"></a>CRingItem (version 10)
+
+<a name="AEN3354"></a>## Name
+
+CRingItem (version 10) -- Version 10 ring item class.
+
+<a name="AEN3357"></a>## Synopsis
+
+```
+#include <v10/CRingItem.h>
+
+
+namespace v10 {
+
+    class CRingItem  : public ::CRingItem{
+    
+    public:
+      CRingItem(uint16_t type, size_t maxBody = 8192);
+    
+      virtual size_t getBodySize() const;
+      virtual void*  getBodyPointer();
+      virtual const void* getBodyPointer() const;
+    
+      virtual void* getBodyHeader() const;
+      virtual void setBodyHeader(
+        uint64_t timestamp, uint32_t sourceId, uint32_t barrierType = 0
+      );
+      virtual std::string typeName() const;	// Textual type of item.
+      virtual std::string toString() const; // Provide string dump of the item.
+      
+    };
+}
+                
+```
+
+<a name="AEN3359"></a>## DESCRIPTION
+
+This class is derived from the abstract
+                    `::CRingItem`.  It provides
+                    essential services for V10 formatted ring items.
+
+<a name="AEN3363"></a>## METHODS
+
+
+
+`  CRingItem(uint16_t  type, size_t  maxBody = 8192);`Creates a new encapsulating object for a ring item in
+                            version 10 format.  `type` specifies
+                            a ring item type and, normally, comes from the
+                            types in v10/DataFormat.h.
+                            `maxBody` defines the capacity
+                            of the internally managed storage needed for the
+                            item.  If the default or smaller are used, a
+                            statically allocated internal buffer is used, negating
+                            the need for additional dynamic memory management.
+
+` const virtual size_t  getBodySize();`Computes the size of the body (payload) section
+                            of the encapsulated ring item. In version 10, this is
+                            just the ring item size (as defined by the last
+                            call to `setBodyCursor`)
+                            minus the size of a v10::RingItemHeader
+                            (defined in /v10/DataFormat.h)
+
+Normally you will fill in the contents of the ring item
+                             using `getBodyCursor` to obtain
+                             a pointer to the next available byte of the payload,
+                             and `setBodyCursor` to inform
+                             the object if that changes followed by
+                             `updateSize` to recompute
+                             the header size field based on the value of
+                             the body cursor.
+
+` virtual void*   getBodyPointer();`Returns a mutable pointer to the body of the
+                            object.  In the case of version 10, this will always
+                            point past the ring item header.  In later formats,
+                            with optional body headers, this will not be the
+                            case.
+
+` const virtual const void*  getBodyPointer();`Returns an immutable pointer to the object's body.
+
+` const virtual void*  getBodyHeader ();`Always returns a nullptr
+                            since version 10 does not support body headers.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType = 0);`Since version 10 does not support body headers,
+                            this method silently does nothing.
+
+` const virtual std::string  typeName();`Returns a string that indicates the item
+                            is of an unknown type.  This is because
+                            `v10::CRingItem` is
+                            an undifferentiated ring item capsule. If the
+                            `RingItemFactory` is used
+                            to set the actual ring item type, the resulting
+                            class will return a more useful result.
+
+` const virtual std::string  toString();`Returns a string that describes the contents of the
+                            ring item.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RingItemFactory (version 10) | Up | CRingFragmentItem (version 10) |

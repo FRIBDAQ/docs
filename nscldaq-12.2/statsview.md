@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN24423"></a>statsview
+
+<a name="AEN24427"></a>## Name
+
+statsview -- View ringbuffer statistics in a system
+
+<a name="AEN24430"></a>## Synopsis
+
+**$DAQBIN/statsview  [host]       
+            **
+
+<a name="AEN24434"></a>## DESCRIPTION
+
+This program periodically polls the ring monitor and displays
+            statistics for all ringbuffers in the system.  If the optional
+            `host`  is provided the statistics for the
+            ringbuffers in `host` are displayed.
+            If omitted, the statistics for the ringbuffers in  localhost
+            are displayed.  Note that proxy rings are also displayed.
+
+For this to work properly, the ring_monitor server must be running in the
+            host being viewed.  See the man page entry for **ring_monitor**.
+            Normally this should be started at system startup.
+
+The statistics are displayed in a simple table with the following columns:
+
+
+
+ringThe name of the ring buffer whose statistics are displayed on this line.
+
+Total VolumeThe total number of bytes that have passed through the ring since the
+                            ring_monitor started (see BUGS below).
+
+Volume This RunSame as Total Volume however this statistic is
+                            cleared  when a BEGIN_RUN is observed in the
+                            ring.
+
+Total EventsTotal number of PHYSICS_EVENT items observed in the 
+                            ring since the ring_monitor was statrted.
+
+Events This RunTotal number of PHYSICS_EVENT items but reset when
+                            a BEGIN_RUN item is observed in the ring.
+
+Data Volume RateInstantaneous bytes per second throughput through the ringbuffer.
+
+Event RateInstantaneous rate of PHYSICS_EVENT items
+                            observed in the ringbuffer.
+
+You can sort the table by any of the columns by clicking on that column's header.
+            You can stretch each column's width as well.  The initial sort is by ring buffer name,
+            though you may find it useful to sort by rate.
+
+Note that since there is only one ring_monitor server running in the target system,
+            the impact of the **statsview** program on the system and throughput is
+            negligible.
+
+<a name="AEN24489"></a>## BUGS
+
+WHen a ringbuffer is deleted, the ring master, in the system the ringbuffer lived in
+            will kill all clients (producer and consumers) that are attached to that ring.
+            This means that the ring_monitor will be killed as well.  The ring_monitor, however
+            consists of a parent process that spawns off the actual monitor and, when the actual
+            monitor exits restarts it.  Unfortunately that means that all counters maintained
+            by the ring_monitor are reset when a ringbuffer is deleted.  This is not expected to be fixed.
+
+Since all of the **statsview** statistics come from the ring_monitor,
+            the totals columns will be reset for all remaining rings.   The **statsview**
+            program will, however remove deleted rings from the table and will tolarate being unable to
+            update statistics during the time the **ring_monitor** restarts.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ring_monitor | Up | SoftwareTrigger |

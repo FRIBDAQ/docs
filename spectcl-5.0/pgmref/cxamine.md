@@ -1,0 +1,164 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN24282"></a>CXamine
+
+<a name="AEN24286"></a>## Name
+
+CXamine -- Displayer class for Xamine
+
+<a name="AEN24289"></a>## Synopsis
+
+```
+#include <Xamineplus.h>
+
+class CXamine : public CDisplay
+{
+public:
+  CXamine (std::shared_ptr<CXamineSharedMemory> pSharedMem);
+
+  void EnterPeakMarker (UInt_t nSpectrum, 
+                        UInt_t nId,
+                        const std::string& rsName,
+                        Float_t fCentroid, Float_t fWidth)  ;
+  UInt_t GetEventFd ()  ;
+  Bool_t PollEvent (Int_t nTimeout, CXamineEvent& rEvent)  ;
+
+  void DefineButtonBox (UInt_t nColumns=8, UInt_t NRows=3)  ;
+  void DefineButton (UInt_t nColumn, UInt_t nRow, 
+                        const CXamineButton& rButton)  ;
+  void ModifyButton (UInt_t nColumn, UInt_t nRow, 
+                        const CXamineButton& rButton)  ;
+  void EnableButton (UInt_t nColumn, UInt_t nRow)  ;
+  void DisableButton (UInt_t  nColumn, UInt_t nRow)  ;
+  void DeleteButton (UInt_t nColumn, UInt_t nRow)  ;
+  void DeleteButtonBox ()  ;
+  CXamineButton* InquireButton (UInt_t nColumn, UInt_t nRow)  ;
+
+
+};
+
+
+
+
+        
+```
+
+<a name="AEN24291"></a>## DESCRIPTION
+
+`CXamine` is a displayer for
+              the Xamine display program.  Xamine runs as a separate
+              process using both shared memory and named pipes
+              to communicate with SpecTcl.
+
+<a name="AEN24295"></a>## METHODS
+
+We only describe the methods that are provided in addition
+          to the interface required by `CDisplay`.
+
+
+
+`  CXamine(std::shared_ptr<CXamineSharedMemory>  pSharedMem); = );`Constructs the displayer. The parameter,
+                  `pShMem` is a shared pointer to an
+                  object that encapsulates the shared memory used to
+                  shared memory that Xamine and SpecTcl use to transfer
+                  bullk spectrum data.
+
+` void  EnterPeakMarker(UInt_t  nSpectrum = , UInt_t  nId = , const std::string&  rsName = , Float_t  fCentroid = , Float_t  fWidth = );`Xamine can display *peak markers*
+                  on spectra it displays.  A peak marker is an indicator of
+                  the peak position and peak width.
+                  `nId` is the Xamine internal id
+                  of the spectrum. `rsName` is the
+                  name of the peak marker `fCentroid `
+                  is the peak's centroid in channels and `fWidth`
+                  the width of the maker.
+
+If you think of a peak marker as an inverted T, the vertical
+                  stroek of the T is at `fCentroid`
+                  and the cross bar of the T is `fWidth`
+                  wide.
+
+` UInt_t  GetEventFd();`Returns the file descriptor open on the named pipe
+                  Xamine uses to communicate new events of interest
+                  to SpecTcl.  This can be used to set a file event
+                  in the Tcl event loop to handle input from Xamine.
+
+` Bool_t  PollEvent (Int_t  nTimeout = , CXamineEvent&  rEvent = );`Polls for an event from Xamine.  The method will
+                  block for at most `nTimeout`
+                  seconds waiting for an event from Xamine.  If
+                  one arrives within that timeout, `rEvent`
+                  is filled in with information about the event and
+                  the method returns kfTRUE.
+                  Otherwise it returns kfFALSE
+                  and the contents of `rEvent`
+                  have no meaning.
+
+If `nTimeout` is 0, the
+                  method does not block and returns
+                  kfTRUE only if an event is
+                  ready at the time of the call.  If
+                  `nTimeout` is negative,
+                  the method will wait indefinitely for the next event.
+
+` void  DefineButtonBox (UInt_t  nColumns = 8, UInt_t  NRows = 3);`Xamine can display a set of buttons that can be programmed to
+                  send events for custom operations back to its client.
+                  These buttons are arranged in a top level window
+                  that has `nColumns`
+                  columns of buttons and `NRows`
+                  of buttons.  This method tells Xamine to display
+                  the button box and the column/row geometry of the box.
+
+` void  DefineButton(UInt_t  nColumn = , UInt_t  nRow = , const CXamineButton&  rButton = );`Defines a button at the button box coordinats
+                  `nColumn`, `nRow`.
+                  The button's appearance and action depend on
+                  the contents of the `rButton`
+                  object. Several types of buttons are permitted
+                  including  buttons that induce Xamine to
+                  prompt the user.
+
+` void  ModifyButton(UInt_t  nColumn = , UInt_t nRow,   = ,  const CXamineButton&  rButton = );`Same as `CreateButton`, but
+                  an existing button is modified to match the specifications
+                  in `rButton`.
+
+` void  EnableButton(UInt_t  nColumn = , UInt_t  nRow = );`User buttons displayed by Xamine can be either enabled,
+                  in which case they have normal rendition and respond to
+                  clicks, or disbabled, in which case they are ghosted and
+                  do not respond to clicks.  This method enables the
+                  button specifiec by `nColumn`
+                  and `nRow`.  This method is a harmless
+                  no-op if the button is already enabled.
+
+` void  DisableButton(UInt_t   nColumn = , UInt_t  nRow = );`Disables the Xamine user button specified by
+                  `nColumn` and
+                  `nRow`.  This is a harmless
+                  no-op if the4 button is already disbled.
+
+` void  DeleteButton(UInt_t  nColumn = ,  UInt_t  nRow = );`Deletes the Xamine client button specified by
+                  `nColumn` and
+                  `nRow`.
+
+` void  DeleteButtonBox();`Deletes the entire button box and all of the user
+                  defined Xamine buttons.
+
+` CXamineButton*  InquireButton(UInt_t  nColumn, UInt_t nRow = ,  UInt_t  nRow = );`Returns a pointer to the button desription of the
+                  Xamine
+                  user button specified by
+                  `nColumn` and
+                  `nRow`.
+                  If the button does not exist a
+                  `CXamineButtonException` is
+                  thrown.  The returned pointer is  to a dynamically
+                  allocated object which must, therefore, be deleted
+                  when it is no longer needed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CNullDisplay | Up | Xamine Gates |

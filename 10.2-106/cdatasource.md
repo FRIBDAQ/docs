@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq3_cdatasource"></a>CDataSource
+
+<a name="AEN23563"></a>## Name
+
+CDataSource -- Abstract base class of data source for ring items.
+
+<a name="AEN23566"></a>## Synopsis
+
+```
+CDataSource
+```
+
+<a name="AEN23577"></a>## DESCRIPTION
+
+Abstract base class for a data source that returns ring items.
+            This class cannot be instantiated because the public method
+            `getItem` is pure virtual.  Normally
+            one gets a pointer to a `CDataSource` object
+            when creating a data source via
+            [[r23725#daq3_cdatasourcefactory_title]].
+
+<a name="AEN23583"></a>## METHODS
+
+
+
+` CRingItem* getItem();`This interface method will, for a concrete class, return a
+                    pointer to an item received from the data source.  In the event
+                    of an error, a NULL pointer will be
+                    returned or alternatively an integer exception will be thrown.
+                    If an integer exception is thrown its value will be a legitimate
+                    error number from <errno.h>.
+                    If a NULL is returned, the
+                    `errno` variable should be checked to
+                    determine if an end of data source condition or some other
+                    error occured.  For an end of source condition, the
+                    `errno` value will be ESUCCESS
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| format  Functions | Up | CRingDataSource |

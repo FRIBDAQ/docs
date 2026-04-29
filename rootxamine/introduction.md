@@ -1,0 +1,57 @@
+|  |  |  |
+| --- | --- | --- |
+| Rootxamine - Attaching CERN Root to SpecTcl's Spectrum Shared Memory |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This manual describes software that was introduced with SpecTcl-5.10-006.
+
+With SpecTcl 5.0, SpecTcl's spectra were stored in
+        CERN Root histogram
+        objects with, if available to e.g. Xamine via
+        **sbind** storage bound into the Spectrum shared memory region.
+        A natural desire is to be able to view and operate on those spectra with
+        Root commands.  The new **Rootexec** command provided
+        with SpecTcl allows users to execute a Root Macro within SpecTcl.
+
+In many cases, users used this to execute commands that perform
+        graphical output (e.g. instantiating a TBRowser, displaying and
+        fitting spectra).  With the need to be able to run a headless
+        SpecTcl (under the experiment manager e.g.) many of the things
+        that **Rootexec** is used for are not possible.
+
+Furthermore, errors in Root macros run by **Rootexec**
+        can adversely impact SpecTcl's execution.  As a worst case example of
+        this, a segfault in a Root macro will crash SpecTcl.
+
+Rootxamine is an attempt to address these problems.  It provides
+        the ability to run a fully functional Root interpreter that is
+        attached to SpectTcl's display shared memory in which all Spectra
+        defined in that shared memory are available to that interpreter.
+        Furthermore, as the spectra stored in shared memory change
+        the Spectra visible to Root are dyanmically modified as well.
+
+The remainder of this document is divided into two additional chapters:
+
+
+
+- [[c35]]
+                describes how to run **rootxamine**.
+                The requirements for SpecTcl to support this are described
+                as are the command line options **rootxamine**
+                accepts.
+- [[c173]]
+                Describes how **rootxamine** maintains the
+                root histograms it provides and some of the consequences
+                to your Root code of this update process.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Rootxamine - Attaching CERN Root to SpecTcl's Spectrum Shared Memory |  | Running rootxamine |

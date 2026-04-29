@@ -1,0 +1,32 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN143"></a>listvars
+
+<a name="AEN147"></a>## Name
+
+listvars -- Get a list of tree variables.
+
+<a name="AEN150"></a>## Synopsis
+
+**spectcl.listvars()
+                        **
+
+<a name="AEN153"></a>## DESCRIPTION
+
+This method returns a tuple containing the names of all
+                        tree variables that have been defined in SpecTcl.
+                        If no tree variables have been defined, the result is an
+                        empty tuple.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| listspectra | Up | listgates |

@@ -1,0 +1,105 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl DDAS Unpackers Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN754"></a>CFileDrivenParameterMapper
+
+<a name="AEN758"></a>## Name
+
+CFileDrivenParameterMapper -- Parameter mapper operating from description file.
+
+<a name="AEN761"></a>## Synopsis
+
+```
+#include <CFileDrivenParameterMapper.h>
+
+class CFileDrivenParameterMapper : public DAQ::DDAS::CParameterMapper {
+
+public:       
+    
+    CFileDrivenParameterMapper(const char* configFile);
+    virtual ~CFileDrivenParameterMapper();
+    virtual void mapToParameters(
+        const std::vector<DAQ::DDAS::DDASHit>& hits, CEvent& rEvent
+    );
+};
+            
+```
+
+<a name="AEN763"></a>## DESCRIPTION
+
+If the mapping between channels and parameters is fixed, it can
+                often be expressed as a configuration rather than as code.
+                This *should* be less error prone.
+
+`CFileDrivenParameterMapper` captures this.
+                It is a parameter mapper that processes a configuration file to
+                build up a correspondence between channels and tree parameters.
+                FOr each parameter, a tree parameter is created so that you don't
+                have to create the parameters in a separate (e.g.
+                SpecTclRC.tcl) file.
+
+The configuration file that drives this class is a simple text
+                file that defines a channel's parameter name one per line.
+                Each line contains 5 fields.  The first four fields are numeric
+                and are, in order, the crate id, the slot id, and the
+                channel id that uniquely identifies the channel, and the number
+                of bits in that channel's ADC.  The final field is the name
+                of the parameter that is given this parameter's raw value.
+
+Empty lines (not lines with spaces but truly empty lines). Comments
+                are lines whose first character is a pound (#)
+                character.
+
+Here's a sample configuration file fragment.
+
+<a name="AEN774"></a>```
+#
+#  Experiment xxxxxx XIA DDAS parameter mapping file
+#
+# crate slot channel     bits parameter name. 
+     0    2     0         16  Crate0.slot2.channel0
+     0    2     1         16  Crate0.slot2.channel1
+...
+     1    2     15        16  Crate1.slot2.channel16
+
+     1    3     0         16  Crate1.slot3.channel0
+
+...
+
+
+                
+```
+
+Hopefully the meaning of this is clear.
+
+<a name="AEN777"></a>## METHODS
+
+
+
+`  CFileDrivenParameterMapper(const  char*  configFile);`Normally you only need to construct an object of this
+                            type, construct the appropriate unpacker with this
+                            as the parameter mapper and registser that unpacker as
+                            an event processor.
+
+The `configFile` parameter is the
+                            path to your channel mapping configuration file.
+
+Errors in the configuration file are signaled by throwing a
+                            `std::string` exception.
+
+` virtual   void  mapToParameters(const std::vector<DAQ::DDAS::DDASHit>&  hits, CEvent&  rEvent);`This is the unpacking method called by the
+                            event processor.  It is not necessary to override this.
+                            Errors in this method are signalled by throwing a
+                            `std::string` exception.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DAQ::DDAS::CDDASBuiltUnpacker | Up | CCalibratedFileDrivenParameterMapper |

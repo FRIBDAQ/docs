@@ -1,0 +1,30 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.chanlog"></a>Chapter 8. Epics Channel logging
+
+chanlog
+      is a utility that allows you to log the values of a set of EPICS
+      channels.
+      [[r8201]]
+      provides full reference material for chanlog program.
+
+Chanlog allows you to:
+
+
+
+- Interactively view a set of channel values.
+- Write or append a set of channel values to a text file.
+- Pipe a set of channel values to a program for processing.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Customizing Readout Shell | Up | Providing EPICS channel information to Tcl Servers |

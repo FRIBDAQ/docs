@@ -1,0 +1,224 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN11884"></a>CBufferDecoder
+
+<a name="AEN11888"></a>## Name
+
+CBufferDecoder -- Base class for SpecTcl buffer decoders
+
+<a name="AEN11891"></a>## Synopsis
+
+```
+#include <BufferDecoder.h>
+
+class CBufferDecoder {
+ protected:
+  UInt_t    m_nSize;    // Number of bytes in buffer.
+
+ public:
+  CBufferDecoder(); 
+  virtual ~CBufferDecoder();
+  int operator==(const CBufferDecoder& aCBufferDecoder);
+  const Address_t getBuffer();
+ protected:
+  void setBuffer (Address_t am_pBuffer);
+ public:
+  virtual BufferTranslator* getBufferTranslator();
+  virtual const Address_t getBody() = 0;
+  virtual UInt_t getBodySize() = 0;
+  virtual UInt_t getRun() = 0;
+  virtual UInt_t getEntityCount() = 0;
+  virtual UInt_t getSequenceNo() = 0;
+  virtual UInt_t getLamCount() = 0;
+  virtual UInt_t getPatternCount() = 0;
+  virtual UInt_t getBufferType() = 0;
+  virtual void getByteOrder(Short_t& Signature16,
+			    Int_t& Signature32) = 0;
+  virtual std::string getTitle() = 0;
+  virtual void operator() (UInt_t nBytes,
+			   Address_t pBuffer,
+			   CAnalyzer& rAnalyzer);
+
+  virtual void OnAttach(CAnalyzer& rAnalyzer);
+  virtual void OnDetach(CAnalyzer& rAnalyzer);
+  virtual bool blockMode();	
+  virtual void OnSourceAttach();
+  virtual void OnSourceDetach();
+  virtual void OnEndFile();
+
+ protected:
+  void ThrowIfNoBuffer(const char* pszWhatImDoing);
+};
+        
+```
+
+<a name="AEN11893"></a>## DESCRIPTION
+
+This class is an abstract base class for the set of buffer decoders.
+            Buffer decoders are responsible for taking a block of data received
+            from a data source and breaking it up into items.  These items are
+            then passed to the appropriate analyzer methods for
+            detailed processing.
+
+<a name="AEN11896"></a>## METHODS
+
+
+
+`  CBufferDecoder();`The base class constructor is a default constructor.
+                        It has no parameters.  Typically, the state of a
+                        buffer decoder is meaningless until data arrives.
+                        This is because only when data arrives does the
+                        buffer decoder do anything.
+
+` const   Address_t  getBuffer();`Returns a pointer to the data most recently received.
+                        If, for some pathalogical reason, data has not yet
+                        been received, a null pointer is received.
+
+Note that it is possible that derived classes will have
+                        their own book-keeping for buffers of data received from
+                        the data source.  Those decoders should, nonetheless
+                        use `setBuffer` to set the
+                        buffer member data of their base class to ensure
+                        this methiod works.
+
+` virtual   BufferTranslator*  getBufferTranslator();`Returns a pointer to a buffer translator for this
+                        block of data.  A buffer translator is an object
+                        that knows how to perform byte order translations between
+                        the byte ordering of the source system and the system
+                        SpecTcl is executing on.
+
+In most cases the default implementation will not be
+                        useful as it was written with NSCLDAQ-7.x/8.x
+                        buffer formats in mind.
+
+` virtual const   = 0 Address_t  getBody();`Returns a pointer to the body of the block of data
+                        the decoder is currently working on.  Normally, this is
+                        a pointer to the next item, or run of items the
+                        analyzer should process.  For NSCLDAQ-10.x and later,
+                        for example, this will be a pointer to the body
+                        of a ring item.
+
+` virtual   = 0 UInt_t  getBodySize();`Returns the number of bytes in the body.  This will
+                        be the number of bytes of data in the block pointed
+                        to by the pointer returned from
+                        `getBody`.  Note that actually
+                        this will be the number of bytes from that body to be
+                        processed by the analyzer and may, in fact, be smaller
+                        than the storage pointeed to by
+                        `getBody`.
+
+` virtual  = 0 UInt_t  getEntityCount();`Returns the number of items in the block of data
+                        pointed to by `getBody`.  This is
+                        mostly intended for use with blocks containing runs of
+                        events from physics triggers.
+
+The analyzer's
+                        `OnPhysics` can use this and
+                        `getBodySize` to know how much
+                        data to process and to double check the
+                        event processor does  not over step the boundaries of
+                        the block or leave data unprocessed.
+
+` virtual  = 0 UInt_t  getSequenceNo();`Returns the sequence number of the last item processed.
+                        Note that this may not be precisely determined for
+                        some DAQ systems, and may not even be available.
+
+This value is maintained by SpecTcl in Tcl variables
+                        so that the GUI can display the analysis efficiency
+                        (which maybe less than 1 for online analysis).
+
+` virtual  = 0 UInt_t  getLamCount();`From the traditional nscldaq, returns the number of LAM
+                        registers.  This comes from the tradition of CAMAC where LAM bit masks
+                        show the set of modules with data available in a crate.
+                        This is vestigial; allowing NSCLDAQ-7.x/8.x to report
+                        the number of CAMAC crates in a 'larger' experiment.
+
+` virtual  = 0 UInt_t  getPatternCount();`Vestigial method from when readouts were pattern register
+                        driven.  This method used to return the number
+                        of pattern registers used to drive the readout pattern.
+
+` virtual   = 0 UInt_t  getBufferType();`Returns the item type in the block of data currently
+                        being processed.
+
+` virtual  = 0 void  getByteOrder( Short_t&  Signature16,  Int_t&  Signature32);`Returns byte order signatures that describe the order
+                        of bytes in the data.  `Signature16`
+                        will be written with the value 0x0102
+                        in the byte ordering of the creating system.
+                        `Signature32`, will similarly be written
+                        with 0x01020304 in the byte ordering
+                        of the originating system.
+
+` virtual   = 0 std::string  getTitle();`Returns the title from the most recently received
+                        begin run information.
+
+` virtual   void  operator()(  UInt_t  nBytes,  Address_t  pBuffer,  CAnalyzer&  rAnalyzer);`Called when a new chunk of data comes in.  `nBytes`
+                        is the number of bytes of data received. `pBuffer`
+                        is pointer to the data received. `rAnalyzer`
+                        refers to the analyzer that should be called back
+                        to handle specific items and runs of items.
+
+` virtual   void  OnAttach( CAnalyzer&  rAnalyzer);`This method is called when a decoder object is
+                        attached to SpecTcl. This can happen at startup time, but
+                        also can happen when the
+                        **attach** command specifies a format
+                        that selects a specific decoder object type.
+
+` virtual   void  OnDetach( CAnalyzer&  rAnalyzer);`Called when the buffer decoder is detached from SpecTcl.
+                        This will happen when a new one is attached.  Typically
+                        this will be because the **attach**
+                        command is used to start taking data from a source
+                        that has a different format than the prior source.
+
+` virtual   bool  blockMode();`If this method returns true,
+                        SpecTcl will require that a full fixed size block
+                        of data be read before invoking the decoder.  If,
+                        however false is returned,
+                        the buffer decoder is invoked on the successful
+                        completion of any read from the data source.
+
+This only has any impact on how pipe data sources
+                        are handled.  Note that there's still no guarantee
+                        the  a block read is a clean multiple of the
+                        data items
+
+` virtual   void  OnSourceAttach();`Invoked when a new data source is attached to SpecTcl.
+
+` virtual   void  OnSourceDetach();`Called when a data source is detached from SpecTcl.
+
+` virtual   void  OnEndFile();`Called when an end file is encountered on the current
+                        data source.
+
+` protected:   void  setBuffer ( Address_t  am_pBuffer);`Sets the value returned from
+                        `getBuffer` to be
+                        `am_pBuffer`.  This can be used
+                        by a derived class when it needs to do its oown buffer
+                        management to keep this base class apprised of the data
+                        it is operating on.
+
+` protected:   void  ThrowIfNoBuffer(const  char*  pszWhatImDoing);`To use this a derived class must use
+                        `setBuffer` to always maintain
+                        the a valid buffer pointer.  If this is called and
+                        either `setBuffer` last
+                        set a null pointer or was never called, a
+                        `CEventFormatError` exception
+                        is called with a reason code of
+                        CEventFormatError::knNoCurrentBuffer
+                        and a was doing text of `pszWhatImDoint`.
+
+<a name="AEN12165"></a>## SEE ALSO
+
+(3SpecTcl)CNSCLBufferDecoder,
+                    (3SpecTcl)CNSCLJumboBufferDecoder, (3SpecTcl)CRingBufferDecoder,
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTclAnalyzer | Up | CNSCLBufferDecoder |

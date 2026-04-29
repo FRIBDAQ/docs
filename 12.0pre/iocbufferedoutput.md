@@ -1,0 +1,110 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN50836"></a>io::CBufferedOutput
+
+<a name="AEN50840"></a>## Name
+
+io::CBufferedOutput -- Simple binary buffered output class with flush.
+
+<a name="AEN50843"></a>## Synopsis
+
+```
+#include <CBufferedOutput.h>
+
+class io::CBufferedOutput
+{
+
+
+public:
+    CBufferedOutput(int fd, size_t nBytes);
+    
+    virtual void put(const void* pData, size_t nBytes);
+    virtual void flush();
+    void    sync();
+    unsigned setTimeout(unsigned timeout);
+    int getFd() const;
+
+
+};
+
+template <class T>
+CBufferedOutput& operator<<(CBufferedOutput& b, T& data);
+
+        
+```
+
+<a name="AEN50845"></a>## DESCRIPTION
+
+The `io::CBufferedOutput`
+            class provides buffered output along with a streaming primitive
+            for simple objects (that don't require deep copies to the
+            output stream).  The class also features the capability of
+            providing a timeout that ensures that slow writes will
+            not necessarily require a full buffer to flush.
+
+<a name="AEN50849"></a>## METHODS
+
+
+
+`  io::CBufferedOutput(int  fd, size_t  nBytes);`Wraps a buffered output object around a file descriptor
+                        `fd`.
+                        The file descriptor must have been opened by
+                        e.g. `open`(2).
+                        `nBytes` is the size of the output
+                        buffer.  The output buffer is actualy written to the
+                        file descriptor when a
+                        `put` operation would overflow
+                        the buffer.
+
+Additionally the buffer can be flushed if a  timeout
+                        has been set and the time between consecutive puts
+                        is longer than the timeout.  Finally the buffer can
+                        be manually flushed as well.
+
+` virtual   void  put(const  void*  pData, size_t  nBytes);`"Writes" `nBytes` of data from
+                        the data pointed to by `pData`.
+                        In actual fact, the data are copied into the internal
+                        buffer.  See the description of the constructor
+                        for information about when the buffered data
+                        are flushed to disk.
+
+` virtual   void  flush();`Any buffered data are flushed to disk.  This is called
+                        automatically at destruction time and as described
+                        in the documentation for the constructor.
+
+`   void     sync();`Writing data to file via flush does not actually
+                        ensure the data get written to disk.  The operating
+                        system itself may also buffer the data.  This
+                        method ensures that buffered data are not only
+                        written to the file descriptor but that any
+                        operating system buffers maintained for the file
+                        are also written to disk.
+
+`   unsigned  setTimeout(unsigned  timeout);`Sets the flush timeout in seconds.  If the time between
+                        a put call and the last flush is greater than the
+                        number of seconds in `timeout`,
+                        the data will be flushed to disk regardless of the
+                        fullness of the buffer.
+
+The method returns the previous timeout value.
+
+`  const int  getFd()();`Returns the file descriptor used by the
+                        object. Note that prior to writing to that
+                        file descriptor, it's a really good idea to
+                        `flush` it.
+                        For the most part this is used for
+                        testing and ordinary clients should not need to
+                        call it.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDAQShm | Up | CRingBlockReader |

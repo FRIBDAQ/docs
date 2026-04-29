@@ -1,0 +1,28 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev | Chapter 4. Reference pages | Next |
+
+
+---
+
+# <a name="AEN9314"></a>4.5. Sample Program(s)
+
+**Table of Contents**[[r9321]] -- Multi format event file dumper
+
+This section provides reference material for sample programs.
+            The source code for the sample programs are installed in
+            the share/examples subdirectory tree
+            of the installation directory.  E.g. if installed in
+            /usr/opt/fmtlib/fmtlib-1.0
+            the evtdump sources will be installed in
+            /usr/opt/fmtlib/fmtlib-1.0/share/examples/evtdump
+
+The sample programs are intended, in themselves, to be useful.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CUnknonwFragment (v12) | Up | evtdump |

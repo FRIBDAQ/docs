@@ -1,0 +1,80 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cfdinteractor"></a>CFdInteractor
+
+<a name="AEN38519"></a>## Name
+
+CFdInteractor -- Interact with  file descriptor
+
+<a name="AEN38522"></a>## Synopsis
+
+```
+#include <FdInteractor.h>
+         
+```
+
+```
+  CFdInteractor(int fd);
+```
+
+<a name="AEN38572"></a>## DESCRIPTION
+
+The `CFdInteractor` is an interactor that
+	    accepts and, if requested, provides data to anything that can be
+	    represented by a file descriptor.   Reads and writes 
+	    go directly to the file descriptor, the only buffering that is
+	    done is what is done by whatever handles the file descriptor at the
+	    operating system level.
+
+<a name="AEN38576"></a>## PUBLIC MEMBER FUNCTIONS
+
+`  CFdInteractor(int fd);`Construct an object of this class connected to the
+	     file descriptor `fd`.
+
+`  CFdInteractor(const CFdInteractor& rhs);`Constructs a copy of the file descriptor
+	      `rhs`.  The underlying file descriptor
+	      is duped so that the original one can be closed without 
+	      affecting the copy.
+
+` CFdInteractor& operator=(const CFdInteractor& rhs);`Assigns to this from the `rhs`.
+	      The existing file descriptor is closed, and the file descriptor
+	      associted with `rhs` is duped so that
+	      actions by this object will be independent of those of the 
+	      `rhs`
+
+` const int getFd();`This informational member returns the file descriptor associated
+	       with the object.
+
+` int Read(UInt_t nBytes, void* pBuffer);`Attempts to read
+              `nBytes` of data from the file into
+              `pBuffer`.  The actual number of bytes read
+                is returned as the value of the method.  If 0
+                is returned, the fd has hit an eof or is in non-blocking mode with
+                no data ready to be read.  If negative, an error condition
+                exists and the reason for the error will be in the global
+                variable/macro `errno`
+
+` int Write(UInt_t nBytes, void* pData);`Attempts to write
+                `nBytes`
+                of data from `pData`
+                to the file.  The actual number of bytes of data written are
+                returned to the caller.  If an error has occured, the result will
+                be negative.  If the result is zero, likely the file descriptor
+                is open in non=blocking mode,  but cannot now be written to
+                (e.g. it's a pipe without a reader).
+
+` void Flush();`Flushes any buffered output to the file.  In practice this
+                does nothing for file descriptors.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CStringInteractor | Up | CIOInteractor |

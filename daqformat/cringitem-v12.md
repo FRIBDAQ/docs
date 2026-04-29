@@ -1,0 +1,301 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN7555"></a>CRingItem (v12)
+
+<a name="AEN7559"></a>## Name
+
+CRingItem (v12) -- Encapsulate V12 undifferentiated ring item
+
+<a name="AEN7562"></a>## Synopsis
+
+```
+#include <v12/CRingItem.h>
+
+namespace v12 {
+
+class CRingItem : public ::CRingItem
+{
+
+public:
+  CRingItem(
+      uint16_t type,
+      size_t maxBody = CRingItemStaticBufferSize - 10
+  );
+  CRingItem(uint16_t type, uint64_t timestamp, uint32_t sourceId,
+            uint32_t barrierType = 0, size_t maxBody = CRingItemStaticBufferSize - 10);
+  
+  virtual size_t getBodySize()    const;
+  virtual const void*  getBodyPointer() const;
+  virtual void*  getBodyPointer();
+
+  virtual bool mustSwap() const;
+  virtual bool hasBodyHeader() const;
+  virtual void* getBodyHeader() const;
+  virtual uint64_t getEventTimestamp() const;
+  virtual uint32_t getSourceId() const;
+  virtual uint32_t getBarrierType() const;
+  virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                     uint32_t barrierType = 0);
+
+  
+  virtual std::string typeName() const;	// Textual type of item.
+  virtual std::string toString() const; // Provide string dump of the item.
+
+
+  
+};
+} 
+
+
+                
+```
+
+<a name="AEN7564"></a>## DESCRIPTION
+
+Encapsulates an undifferentiate v12 ring item. Note that
+                    there's a bit of dirt used in implementing the other ring
+                    item classes because they need to derive from their
+                    abstract versions and that puts them out of the class
+                    hierearchy in which `v12::CRingItem`
+                    lives.
+
+Doing double inheritance in other classes to this and the abstract
+                    items results in the diamond of death
+                    (see the wikipedia article on multiple inheritence at
+                    [https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)
+                    ).  However `v12::CRingItem` supplies
+                    valuable methods to access the underlying data that we may want to
+                    use in other classes.
+
+The dirt is to do casts and then explicitly override
+                    the virtual function calls as needed.  If, for example
+                    a v12 class wants to determine if its encapsulated data
+                    has a body header this code fragment serves as a pattern
+                    that can be applied to other accessors if you are designing
+                    your own data encapsulation classes:
+
+<a name="AEN7572"></a>```
+v12::CRingItem* pThis = reinterpret_cast<v12::CRingItem*>(this);
+if (pThis->v12::CRingItem::hasBodyHeader()) {
+...
+}
+                    
+```
+
+The correctness of this code relies on the fact that:
+
+
+
+1. `v12::CRingItem`
+                             itself does derive from `::CRingItem`.
+2. The encapsulated data are in v12 format and therefor when
+                             accessed by `v12::CRingItem` in the
+                             code fragment above, the correct results will be returned.
+
+This is not for the faint at heart.
+
+<a name="AEN7584"></a>## METHODS
+
+
+
+`  CRingItem(uint16_t type, size_t  maxBody = CRingItemStaticBufferSize - 10);`Constructor.  `type` will be stored
+                            in the ring item header's type field.  Note that
+                            the header form is common for all formats.
+                            The `type` is 16 bit wide because in
+                            the original design it was also used to determine the
+                            byte order of the originator.  Specifically, if the
+                            'low order' 16 bits of a type field were zero, the
+                            byte order of the originator was the opposite of the
+                            consumer.  Now that little-endianess has won the
+                            byte order wars and big-endinaness only appears
+                            vestigially in network byte ordering,  We define
+                            the byte ordering of Ring items to be little-endian.
+
+`maxBody` determines the maximum
+                            number of bytes the internal storage for the ring item
+                            can hold in the body (the part following the header).
+                            Note that the design of `CRingItem`
+                            includes a decently sized static block of data.
+                            If this value indicates the data will fit in that
+                            block, no dynamic memory allocation is required and
+                            that block is used.  If this value indicates that
+                            the data won't fit, a block is dynamically allocated
+                            and used.  The intent is to minimize the costly
+                            set of dynamic memory allocations/deallocations
+                            needed if all `CRingItem`
+                            constructions dynamically allocated the needed
+                            data.
+
+The default value for `maxBody`
+                            allows callers to use the static buffer and is
+                            defined in CRingItem.h.
+
+`  CRingItem(v11::pRingItem  pItem);`Wraps a `CRingItem` object
+                            around a raw ring item.  The type
+                            pRingItem is defined in
+                            DataFormat.h.
+
+`pItem` is used to size
+                            the ring item and copied into the data storage
+                            region of the item.  The body cursor is set to point
+                            after the ring item data.  This allows the
+                            item to be mutated (via `getBodyPointer`)
+                            and to be extended (via `getBodyCursor`,
+                            `setBodyCursor`, and `updateSize`).
+
+` const virtual size_t  getStorageSize();`Returns the capacity of the block of data that is being used
+                            to store the ring item.   Can be used to determine
+                            if sufficient storage has been allocated to
+                            hold the desired ring item.
+
+` const virtual size_t  getBodySize();`Returns the current size, in bytes,
+                            of the ring item body.
+                            This computes the number of bytes between the
+                            pointers returned by
+                            `getBodyCursor` and the
+                            `geBodyPointer`.  For it to be
+                            accurate, `getBodyCursor`
+                            must be updated (via `setBodyCursor`)
+                            to point past the body of the ring item as it is
+                            so far.
+
+` const virtual const void*   getBodyPointer();`Returns a pointer to the body of the item. Since
+                            the pointer is const, this is intended to allow
+                            read access.  Note that the concept of a ring item
+                            *body* is not that straightforward.
+                            V11 support returns either a pointer after the items' body
+                            header or after the word that indcates there
+                            is no body header -- that is a pointer to the payload
+                            section of the ring item data.
+
+`  virtual void*  getBodyPointer();`Same as above except that the pointer can be used
+                            to modify the body contents.
+
+` void*   getBodyCursor();`Returns the body cursor of the item. When a ring item
+                            is created, a pointer, called the body cursor is
+                            created which points to the first free byte of memory
+                            into which data can be appended to the ring item.
+                            As data are appended to the ring item, the
+                            object's body cursor should be updated with
+                            `setBodyCursor`, at some point,
+                            when the ring item has been completely built,
+                            `updateSize` should be called
+                            to compute the ring item's size and store it in the
+                            size field of the ring item's header.
+
+` pRingItem   getItemPointer();`Returns a pointer to the ring item as encapsulated
+                            by this class.  Note that pRingItem
+                            is defined in v11/DataFormat.h.
+
+` const const RingItem*   getItemPointer();`Same as above but the pointer only allows read access
+                            to the contents of the ring item.
+
+` const uint32_t  type();`Returns the full 32 bit type field of the
+                            ring item.
+
+` const uint32_t  size();`Returns the size field of the header. Note that unless
+                            `updateSize` has been called,
+                            this value is not a reliable measure of the number
+                            of bytes that make up the ring item.
+
+`  const virtual bool  mustSwap();`Returns false.  All data is
+                            now specified be little endian as are all computing
+                            systems processing that data.
+
+` const virtual bool  hasBodyHeader();`Returns true if the ring item
+                            has a body header.
+
+` const virtual void*  getBodyHeader();`Returns a pointer to the body header of the item
+                            if it has one.  If it does not returns a
+                            nullptr.
+
+` const virtual uint64_t  getEventTimestamp();`Returns the event/fragment timestamp stored
+                            in the body header of the ring item.  If the ring
+                            item has no body header,
+                            `std::logic_error` is thrown.
+                            You can use e.g. `hasBodyHeader`
+                            to test for the presence of a body header in the
+                            item.
+
+` const virtual uint32_t  getSourceId();`Retrieves the source id from the ring item's body header.
+                            If the ring item does not have a body header,
+                            `std::logic_error` is throw
+
+` const virtual uint32_t  getBarrierType();`Returns the barrier type field from the item's
+                            body header.   If the ring item does not have a body
+                            header, `std::logic_error`
+                            is thrown.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType = 0);`If the item does not have a body header (yet),
+                            data are moved to reserve space for it just following
+                            the ring item header.  The body header is filled
+                            in with data from the parameters
+                            `timestamp`,
+                            `sourceId` and
+                            `barrierType`
+
+If the item already has a body header, its contents
+                            are modified in accordance with the parameters.
+
+` virtual void  setBodyCursor(void*  pNewCursor);`Updates the internal body cursor of the object
+                            with `pNewCursor`.  If coupled
+                            with a call to `updateSize`,
+                            this causes the size field of the ring item header
+                            to be computed and updated.
+
+` virtual void updateSize();`Treating the current body cursor value as a pointer
+                            to the byte following the current contents of the
+                            ring item, the size of the ring item is computed
+                            and stored in the size field of the ring item
+                            header.
+
+` () const virtual std::string  typeName();`The base class returns the string:
+                            Unknown followed by the parenthesized
+                            numeric
+                            type from the ring item header in hexadecimal.
+                            Derived classes are
+                            expected to return a text string which indicates the
+                            type of the ring item.
+
+` const virtual std::string  toString();`Returns a human readable stringified dump
+                            of the body of the item.  In this case this is just
+                            a byte by byte dump.  Derived classes are expected
+                            to return something a bit more meaningful.  The
+                            NSCLDAQ dumper, e.g. uses this string to
+                            dump items it encounters.
+
+` virtual void*  appendBodyData(const void*  pSrc, uint32_t  nBytes
+                              );`Appends the `nBytes` bytes
+                            of data pointed to by `pSrc`
+                            to the ring item.  The data are placed where
+                            the current body cursor is pointing.  The body cursor
+                            is updated and the size recomputed.
+
+This is equivalent to the following code fragment:
+
+<a name="AEN7852"></a>```
+  uint8_t* p = reinterpret_cast<uint8_t*>(getBodyCursor());
+  memcpy(p, pSrc, nBytes);
+  p += nBytes;
+  setBodyCursor(p);
+  updateSize();
+  return p;
+
+                            
+```
+
+The ring item object must have the capacity for the
+                            additional bytes of data.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RingItemFactory (v12) | Up | CAbnormalEndItem (v12) |

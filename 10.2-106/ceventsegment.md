@@ -1,0 +1,120 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.ceventsegment"></a>CEventSegment
+
+<a name="AEN65370"></a>## Name
+
+CEventSegment -- Base class for all event segments.
+
+<a name="AEN65373"></a>## Synopsis
+
+```
+#include <CEventSegment.h>
+         
+```
+
+```
+CEventSegment
+```
+
+<a name="AEN65434"></a>## DESCRIPTION
+
+Event segments are a logical unit of an experiment readout.
+            `CEventSegment` is an abstract base class
+            that provides default implementations for most of the interface
+            for an event segment as well as a pure virtual function as an
+            interface placeholder for the readout of the segment itself.
+
+<a name="AEN65438"></a>## PUBLIC MEMBER FUNCTIONS
+
+` virtual void initialize();`This is called as the runs becomes active (begin or resume).  It
+            should be overidden by concrete classes to provide code that
+            sets up the hardware used by the segment and makes it ready for
+            data taking.  The default implementation of this method is to do
+            nothing.
+
+` virtual void clear();`Called to clear the data taking hardware just prior to releasing
+            the busy and enabling gates.   This happens prior to the initial
+            enable of response to triggers as well as after each event is read.
+            Default action is to do nothing.
+
+` virtual void disable();`Called to disable the electronics.  The default does nothing.
+
+` virtual =0 size_t read(void* pBuffer, size_t maxwords);`This must be suplied by concrete classes for them to be
+            concrete classes.  This method is supposed to read out the electronics
+            associated with the event segment and put it in `pBuffer`.
+            At most `maxwords` words of data should be read.
+
+` virtual void onEnd(CExperiment* pExperiment);`This is called at the end of the run.  At this time the trigger
+            thread has exited and the end run event has not yet been emitted
+            by the readout framework.  One use of this method can be for deeply
+            buffered event sources where you need to flush either internal or
+            external buffers at the end of the run.  For example, if your custom
+            trigger just indicates there are data in buffers, you can invoke
+            pExperiment->ReadEvent to force the system to read events
+            until your trigger indicates there is no more data to ready (presumably
+            you use this method to disable your hardware triggers).
+
+` virtual const bool isComposite();`If the event segment contains other segments and those segments can
+            be queried via the same interfaces supported by
+            `CCompoundEventSegment`, this should return
+            true false if not.
+
+` void reject();`This can be called from `read` to indicate
+            the framework should not keep the event.  The remainder of the
+            event segments registered with the experiment are run unless a subsequent
+            one calls `rejectImmediately` (see below).
+
+` void rejectImmediately();`This can be called  from `read` to indicate
+            the framework should not keep the event.  Processing of event
+            segments stops with the return from `read`
+            if this is called.
+
+` void keep();`This is called by the framework to initalize the event segment
+            accept state.  It can also be called to change your mind about
+            rejecting an event.  If used in this manner, `keep`
+            must be called within the same event segment that invoked
+            `reject` or `rejectimmediately`.
+
+` const CEventSegment::AcceptState getAcceptState();`Returns the value of the accept state as set by the methods
+            `keep`, `reject` and
+            `rejectImmdediately`.  See PUBLIC TYPES AND VARIABLES
+            below for possible return values.
+
+Normally this only needs to be called by the framework.  Since each
+            event segement has its own acceptance state, this cannot be used
+            to determine if the event has been marked for rejection by another
+            event segment.
+
+<a name="AEN65522"></a>## PUBLIC TYPES AND VARIABLES
+
+CEventSegment::AcceptState is an enum that describes how the event
+            should be disposed of after the segment returns from `read`.
+            This type can take the following values:
+
+
+
+CEventSegment::keepIndicates the event segment wants the framework to keep the
+                        event.
+
+CEventSegement::rejectIndicates that the event segment wants the framework to
+                        reject the event but that the remainder of the event
+                        segments should keep running.  This takes precedence
+                        over CEventSegment::keep
+
+CEventSegment::rejectImmediatelySame meaning as CExperiment::reject
+                        except that this requests that no more event segments
+                        be run.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEventPacket | Up | CEventTrigger |

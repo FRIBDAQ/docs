@@ -1,0 +1,264 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringmaster"></a>Chapter 34. The RingMaster server
+
+The NSCL data acquisition system uses single producer multi-consumer
+        ring buffers at the core of its data flow system.  These ring buffers
+        provide a single put 'pointer' for the single producer and an array
+        of get 'pointers' for consumers.  Processes that attach to ring buffers
+        as producers or consumers, allocate their own pointers without the
+        benefit of a coordinating server.
+
+These pointers are allocated by the creation of a
+        `CRingBuffer` object and deallocated by
+        the destruction of such an object.
+        This means that if a program that is a client exits without destroying
+        all of its
+        `CRingBuffer` objects, the corresponding pointers
+        would be lost.
+
+The RingMaster server is a persistent server
+        that eliminates this problem.
+        `CRingBuffer`
+        communicates with the
+        RingMaster in such a way that the
+        RingMaster
+        knows which clients exist, which ring pointers they are using and
+        when they exit, normally or abnormally.
+
+If a client exits abnormally, the
+        RingMaster
+        forces the pointers left dangling to be free again.
+
+# <a name="AEN7600"></a>34.1. The RingMaster Protocol
+
+This section describes the protocol supported by the
+            RingMaster.
+            The RingMaster server uses the NSCL
+            PortManager to allocate its listen port.
+            The application name it uses is
+            RingMaster.
+            To connect to he
+            RingMaster
+            an application must first locate it using the programmatic
+            interface to the
+            PortManager. The starting point for
+            PortManager
+            is the
+            [[c7738]]
+            chapter.
+
+The first time an application creates a producer or consumer client
+            for any ring buffer,
+            `CRingBuffer` connects to the
+            RingMaster.  This connection is held open
+            for the lifetime of the client application.  It is the loss of this
+            connection that informs the
+            RingMaster
+            of the exit of a client.  The loss of a connection triggers the
+            RingMaster
+            to release all ring resources held by the application that formed
+            the link.
+
+Construction of a
+            `CRingBuffer` object
+            registers the put/get pointer allocated with the
+            RingMaster
+            destruction of an object informs the
+            RingMaster
+            which pointer is no longer allocated.
+
+Registration involves sending a message of the form:
+
+<a name="AEN7622"></a>**Example 34-1. The CONNECT message format**
+
+```
+CONNECT ringname connecttype pid comment
+                
+```
+
+
+The command should be a valid Tcl list, using quoting where needed
+            (e.g. surround the comment with {}'s if it has spaces.
+
+*ringname* is the name of the ring to
+            which the client is rattaching.
+            *connecttype* identifies the type of
+            connection being formed.  This can be either the text
+            producer for a producer connection or
+            conumer.nnn.  Where nnn is the index of the
+            consumer pointer allocated for consumer connections.
+
+On success, the server replies "OK\r\n.
+            The client must be local else the server will drop the connection.
+
+Destruction sends a DISCONNECT message
+            The form of this messge is:
+
+<a name="AEN7637"></a>**Example 34-2. Format of the DISCONNECT message**
+
+```
+ DISCONNECT   ringname connecttype pid
+            
+```
+
+The `ringname` is the name of the ring buffer,
+            `connecttype` is the connection type passed in
+            the CONNECT command that is being 'undone'.  The
+            `pid` argument is similarly  the pid that
+            was used in the CONNECT commnd being undone.
+
+On success, the server replies with
+            "OK\r\n".  If the client is not from localhost,
+            the connection is immediatel closed.
+
+Clients can also probe ring buffer usage.  This is done via a command of the
+            form
+
+<a name="AEN7651"></a>**Example 34-3. Format of the LIST command**
+
+```
+LIST
+            
+```
+
+This message is acceptable from both local and remote hosts.
+            It is used to inquire about rings and ring usage.  Note that only
+            rings that have producer or consumer clients will be reported.
+            The reply from this will be a line that reads
+            OK
+            followed by a properly formatte Tcl list of ring information.
+
+Each element of the list reports on the usage of a single ring.
+            Each list element is a pair.  The first element of the pair is
+            the ring name.  The second element, the ring usage as returned
+            from the
+            [[r17350]] command.
+
+This is returned as a Tcl list that has the following
+                    elements:
+
+
+
+`size`The number of data bytes in the ring buffer.
+
+`putAvailable`The number of bytes that can be put by the
+                        producer without blocking.  Note that in order
+                        to be able to distinguish between the full and empty
+                        ring buffer cases, this can never be larger than
+                        size - 1
+
+`maxConsumers`Returns the maximum number of clients that can
+                        connect to the ring buffer at any given time.
+
+`producer`The PID of the producer process. This is -1 if
+                        there is no producer.
+
+`maxGet`The amount of data that can be gotten without
+                        blocking by the consumer that is most caught up.
+                        (maximum that can be gotten by any consumer).
+                        If no consumers are connected, this returns 0.
+
+`minGet`Same as for `maxGet` but gives
+                        the amount of data that can be gotten by the
+                        consumer that is least caught up.
+
+`consumers`This is a list of consumers attached to the
+                        ring buffer.  Each consumer is represented by a pair of
+                        values.  The first, the consumer's pocess ID.
+                        The second, the amount of data that consumer could
+                        get without blocking.
+
+The RingMaster process keeps track of
+            all rings on the host system.  When it starts, it enumerates
+            the rings that have persisted since the last time it ran.
+            When new rings are created, a
+            REGISTER
+            message informs the RingMaster of that fact.  This message is
+            transparently sent by the
+            `CRingBuffer`::`create`
+            call.
+
+<a name="AEN7703"></a>**Example 34-4. Format of the REGISTER command**
+
+```
+REGISTER newRingName
+            
+```
+
+When a ring is destroyed, the
+            `CRingBuffer`::`remove`
+            member function transparently contacts the
+            RingMaster
+            process and sends it a
+            UNREGISTER
+            message so that the server forgets about the existence of the
+            ring.
+
+<a name="AEN7713"></a>**Example 34-5. Format of the UNREGISTER message**
+
+```
+UNREGISTER destroyedRingName
+            
+```
+
+The
+            RingMaster
+            allows applications on remote systems to get data from the ring bufffers
+            it manages.  The
+            `CRingAccess`
+            class is the preferred method to gain access to remote data.  It ensures
+            that data are not repetitively sent if several consumers from the same
+            remote host want data from a ring buffer.
+            It does this by creating a proxy ring to which all consumers attach
+            and arranging for data from the ring to be copied to the proxy ring.
+
+The
+            REMOTE
+            command requests data from a ring.  If successful, the
+            RingMaster replies:
+            OK BINARY FOLLOWS.  After that message,
+            the client process should no longer use that socket to send data
+            to the ring master.  Instead, the RingMaster will arrange for
+            all data submitted to the target ring to be transmitted to the client
+            on that socket.
+
+<a name="AEN7724"></a>**Example 34-6. Format of the REMOTE message**
+
+```
+REMOTE sourceRingName
+
+            
+```
+
+Once the socket to the ring master has become a data transfer socket:
+
+
+
+1. No further commands can be sent to the RingMaster.
+2. The ring master will have treated a request for
+                           REMOTE data to be identical to a disconnection of the
+                           socket, releasing any resources that were allocated
+                           via that socket.
+
+
+I recommend that if you are requesting remote data, you open a separate
+            socket to the ring master and only use it for that purpose.
+            I further recommend, that you use the
+            `CRingAccess`
+            class to do this rather than directly interacting with the
+            ring master, or rather than interacting via the
+            `CRingMaster` class.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| servers | Up | Service Port Manager. |

@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 11. Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register | Next |
+
+
+---
+
+# <a name="AEN6521"></a>11.5. Running the Readout Program
+
+The Readout program must run on a system that is physically
+              connected to the VME crate containing your hardware. Note that
+              the ReadoutShell tool can be used to wrap your program with a
+              Graphical user interface (GUI), and run it on the requested
+              remote system. While debugging your software we do not recommend
+              this. It's better just to run the software from the command line,
+              or under control of the gdb symbolic debugger (see man gdb for
+              more information about this extremely powerful debugging tool).
+
+In this section we will show how to use the command line to start
+              your Readout program, start data taking, stop data taking, and
+              exit it.
+
+To start the readout software, form another terminal session to
+              the computer that is connected to your VME crate, set the default
+              directory to where you built your software and start the Readout
+              program.
+
+```
+spdaqxx> cd ~/experiment/readout
+spdaqxx> ./Readout
+            
+```
+
+When Readout starts, it will prompt you for input with a
+              % symbol.
+
+The Readout program you have built runs an extended Tcl
+              interpreter. Tcl is a scripting language that is widely used
+              throughout the NSCL as an extension language. It provides a
+              common base language for programming applications. Each program
+              in turn extends this language with a set of commands that allow
+              you to control the application itself.
+
+The commands we will be working with are:
+
+
+
+*begin*Begins a run. From the point of view of your code, the
+                    initialize and clear member functions of your event segment
+                    will be called. The Readout framework will continually check
+                    whether your trigger is satisfied and then call the
+                    read member function of your event segment when it is.
+
+*end*Ends a run. The readout framework stops responding to
+                    triggers.
+
+Tell the readout program to start a run:
+
+```
+% begin
+            
+```
+
+After some time passes and you are ready to end the run, you can
+              do so by typing:
+
+```
+% end              
+            
+```
+
+At this point, you can either start a new run in the same way you
+              just did or exit the Readout program entirely. To exit the
+              program, you simply type:
+
+```
+% exit              
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The dumper program | Up | Interpreting the dumper output |

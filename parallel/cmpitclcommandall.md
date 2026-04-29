@@ -1,0 +1,64 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN893"></a>CMPITclCommandAll
+
+<a name="AEN897"></a>## Name
+
+CMPITclCommandAll -- Jacket a command that runs in all ranks
+
+<a name="AEN900"></a>## Synopsis
+
+```
+#include <MPITclCommandAll.h>
+
+class CMPITclCommandAll : public CTCLObjectProcessor {
+public:
+    CMPITclCommandAll(CTCLInterpreter& interp, const char* command, CTCLObjectProcessor* pActual);
+protected:
+    int operator()(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
+
+};
+                    
+```
+
+<a name="AEN902"></a>## DESCRIPTION
+
+Instances of `CMPITclCommandAll` wrap commands
+                        that must execute on all ranks.   In most cases, this is the correct
+                        wrapper class.
+
+
+
+**METHODS**
+
+`  CMPITCLCOmmandAll(CTCLInterpreter& interp, const char*  command, CTCLObjectProcessor& pActual);`Constructs the wrapper for `pAction` to run
+                                that actual command processor when `command` is
+                                the command to be executed in the `interp`
+                                interpreter.
+
+` int operator()(CTCLInterpreter& rInterp, std::vector<CTCLObject>& objv);`This is called by the interpreter; `rInterp` when
+                                the command on which the object was constructed should be executed by
+                                `rInterp`.  `objv` refers to 
+                                a vector of the command words.  Note that objv[0]
+                                is the command name.  This will typically be the same as the 
+                                `command` given to the constructor.
+
+The return value is the worst of the status values returned by all of
+                                the encapsulated objects `operator()`s. 
+                                The Tcl result will be one of the result from the first non 
+                                TCL_OK value or the longest string representation
+                                of the result returned by the various `operator()`
+                                executions.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Command jackets (3tcl) | Up | CMPITclCommand |

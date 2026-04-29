@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_seqedit"></a>mg_seqedit
+
+<a name="AEN19312"></a>## Name
+
+mg_seqedit -- Edit DAQ manager sequences
+
+<a name="AEN19315"></a>## Synopsis
+
+**$DAQBIN/mg_seqedit *configuration-file*
+**
+
+<a name="AEN19319"></a>## DESCRIPTION
+
+The command **mg_seqedit** allows you to define
+            and edit sequences of program executions that are run by
+            the manager during state transitions.  Sequences are composed of
+            steps.  Each step results in running a defined program.  Transitory
+            programs are run synchronously while other program types are run
+            in the background.
+
+Sequences are bound to or *triggered by* states.
+            When a transition is performed into
+            a state, the sequences triggered by those states are run.  The
+            sequences are run one at a time in the order in which they were defined.
+
+The GUI for **mg_seqedit** consists of a listbox
+            that displays the sequences that have been defined.  An entry and
+            drop down list provide the ability to define new sequences.
+
+To create a new sequence, ype in a new unique sequence name in the
+            text entry box, and select its trigger state
+            from the drop down. Clicking Add adds the
+            new sequence to the list of defined sequences.
+
+Sequences are edited by double-clicking them in the listbox.  This
+            is also how a new sequence is assigned steps.  Double clicking
+            a sequence pops up the sequence step editor window.
+
+Each step has a step number, which determines its order in the sequence.
+            The step numbers are floating point numbers ensuring new steps can
+            always be inserted between existing steps. Steps also have a program
+            that is run and optional delays before and after the step
+
+To add a new step, select the program from the pulldown menu
+            near the bottom of the window, optionally set non zero pre and post
+            delay values and click Add  by default
+            new steps are added at the end.  If a step is selected (single click it),
+            when a new step is added, the step is inserteed above that step.
+
+A context menu is brought up by right clicking any step.  The menu
+            allows yout to delete the step, move it up in the order or move it
+            down.
+
+At the very bottom of the page are three action buttons:
+
+
+
+SaveSaves the updated (or new) sequence steps.
+
+Delete...Prompts for confirmation and then deletes the sequence
+                    if you confirm.
+
+CancelMakes no changes.  The existing sequence is unmodified and
+                    the new sequence is not saved.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_stateedit | Up | mg_cfgEvlog |

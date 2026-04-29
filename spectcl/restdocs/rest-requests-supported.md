@@ -1,0 +1,89 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN86"></a>Chapter 3. REST requests supported.
+
+# <a name="AEN88"></a>3.1. General Request format
+
+Rest requests are made by performing an httpd GET operation.
+                The actual request is a combination of the URL and the query
+                parameters added to the end of the URL.
+
+You can think of the URL as being made up of the following components:
+
+
+
+Connection informationThis consists of the protocol (http:),
+                            the name of the host in which SpecTcl is running and
+                            the port on which its REST server is oeprating.
+
+Application nameThe tclhttpd server is extensible and, although this
+                            will not be described, you could add additional services
+                            to it.  The application name identifies a bundle of
+                            services that are logically related (in this
+                            case the SpecTcl REST services).
+
+The application name is the first element of the
+                            URL's path and, for the REST plugin is always
+                            spectcl
+
+Service groupThe services offered by the REST server are grouped
+                            in logically related operations.  For example,
+                            there is a spectrum group
+                            which offers operations and queries on spectra.
+
+The service group is the path element that immediately
+                            follows the application name. The remaining sections
+                            of this chapter describe each service group.
+
+OperationEach service group offers a set of operations.
+                            For example the
+                            spectrum service group offers
+                            an operation called list.
+                            This
+                            is encoded in the path element of the URL immediately
+                            following the service group.
+
+Query parametersIf you think of each operation as a function in a
+                            programming language, you can think of the
+                            query parameters as the arguments to that function
+                            In a URL, query parameters are introduced with a
+                            ? character and consist of a set
+                            of parameter=value strings that
+                            are separated by the & character.
+
+Suppose for example, you want to list all spectra whose names
+                begin with raw.
+                Assuming that the SpecTcl REST server is running on port 8080 in
+                the host charlie.nscl.msu.edu,
+                a GET operation on the following URL will return that information:
+
+<a name="AEN125"></a>http://charlie.nscl.msu.edu:8080/spectcl/spectrum/list?pattern=raw*
+
+Information returned from the REST request is formatted as a
+                JavaScript Object Notation (JSON) object.  All of these objects
+                have an attribute named status.  If the
+                value of this attribute is OK, the request
+                succeeded.  If not the operation failed and the
+                status
+                value is a short reason for the failure.
+
+Almost all returned objects also include a
+                detail attribute.  On failures,
+                this can contain more detailed information about the failure.
+                For success, this is where data associated with the request
+                is returned.  The contents of the detail
+                attribute will be described with the description of each REST
+                request.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Incorporating the REST plugin |  | Parameter requests |

@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.ungatecommand"></a>ungate
+
+<a name="AEN2909"></a>## Name
+
+ungate -- Remove gate applications.
+
+<a name="AEN2912"></a>## Synopsis
+
+**ungate *spec1 ?spec2...?*
+**
+
+<a name="AEN2916"></a>## DESCRIPTION
+
+All SpecTcl spectra have a gate applied to them.   The
+            **apply** command applies a different gate to a
+            spectrum.  One of the conditions for a gate to increment is that
+            the gate applied to it must be satisfied (true) for the event that
+            might increment it.
+
+**ungate** replaces the gate applied to the
+            spectra `spec1` and so on with a predefined
+            gate named -TRUE-.  As the name implies, the
+            -TRUE- gate is true for every event (it is
+            a gate of type T).  This effectively removes
+            any applied gate from the spectrum.
+
+<a name="AEN2926"></a>## SEE ALSO
+
+
+
+- [[r18]]
+- [[r1428]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| unbind | Up | version |

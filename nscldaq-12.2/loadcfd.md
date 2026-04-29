@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.loadcfd"></a>loadcfd
+
+<a name="AEN28055"></a>## Name
+
+loadcfd -- Load settings in to a CAEN V812 CFD module.
+
+<a name="AEN28058"></a>## Synopsis
+
+**loadcfd.tcl configfile ?settings?    
+    **
+
+<a name="AEN28061"></a>## DESCRIPTION
+
+This command is a command line utility that loads a CFD given a
+       configuration file and an optional  settings  file.    The configuration
+       file is sourced in.  If the settings file is defined it too is sourced
+       in.  The CFD described by these files is loaded with any settings
+       information supplied.   Note  that  if there are conflicting definitions
+       between the two configuration files, the settings file overrides.
+
+       For  information  about the format of both the configuration file and
+       settings file, see the
+       [[r119114]]
+       manpage.
+
+<a name="AEN28065"></a>## SEE ALSO
+
+[[r119114]],
+        [[r28011]].
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| canev812control | Up | cesbcnaf |

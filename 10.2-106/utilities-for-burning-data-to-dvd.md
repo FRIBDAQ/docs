@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.dvdburn"></a>Chapter 20. Utilities for burning data to DVD
+
+While the NSCL does not officially support burning data to DVD, two
+        utilities are provided that allow you to create informal archives of
+        data taken with NSCLDAQ on DVD.
+
+The command line utility
+        dvdburn
+        provides a simple command that burns a set of run to DVD,
+        creating more than one DVD if needed, splitting DVDs between runs.
+        See the
+        [[r10677]]
+        for information about how to use this program.
+
+A simple graphical user interface wizard for burning NSCLDAQ data to
+        DVD is provided by
+        burngui.
+        burngui is really a front end for
+        dvdburn.
+        See the
+        [[r10704]]
+        for complete information on that application.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DvdBurner - Using Tcl to burn runs to DVD | Up | The Event log program |

@@ -1,0 +1,286 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="fribdaq_readout_man"></a>fribdaq-readout
+
+<a name="AEN7098"></a>## Name
+
+fribdaq-readout -- Read data from a Mesytec MVLC interface to a FRIB/NSCLDAQ ringbuffer
+
+<a name="AEN7101"></a>## Synopsis
+
+**$MVLCROOT/bin/fribdaq-readout *options...* *configFile*
+**
+
+<a name="AEN7106"></a>## DESCRIPTION
+
+This program reads data from a single Mesytec MVLC controller into a ringbuffer.
+                    Note that this program is *not* part of FRIB/NSCLDAQ but requires
+                    an installation of the Mesytec mvlc userspace driver.  The environment variable
+                    MVLCROOT in the command above, is defined by *you*
+                    to point to the top level directory of this installation.  At the time I'm writing this,
+                    that is /usr/opt/mesytec-mvlc/0.1.0 at the FRIB or using the FRRIB
+                    containerized bookworm environment.
+
+The *configFile* on the command line is the output of 
+                    [[r24101]] when run on a VMUSBReadout
+                    daqconfig file.
+
+<a name="AEN7116"></a>## OPTIONS
+
+Note that in the list of options below, one and only one of the following options must
+                    be provided to describe the MVLC from which data will be collected:
+
+
+
+- `--mvlc-eth` Specifies the connection will be Ethernet.
+- `--mvlc-usb` specifies the first MVLC device found on the USB
+                                  system will be used (suitable when there's only one device present).
+- `--mvlc-usb-index`  Specifies that a specific index in the enumerated
+                                  list of MVLC devices attached to the USB be used.  This is not really safe, in my opinion
+                                  as it relies on a predictable enumeration by linux.
+- `--mvlc-usb-serial` Specifies the serial number string of a specific
+                                  MVLC that is attached to the USB.  This is the safest option to use when you are
+                                  selecting from more than one attached MVLC.
+
+
+Note that the crate configuration file can also specify the MVLC to use however as that
+                    comes from a template file used by mvlcgenerate it, normally, should
+                    be overidden by one o fthe options above.
+
+
+
+`-?`, `-h`, `--help`Display brief usage information in case you can't remember how to run
+                                    the program.
+
+`--mvlc-eth` *hostname*mvlc ethernet hostname (overrides CrateConfig).
+
+`--mvlc-usb`Connects to the first MVLC in the USB enumeration of devices.  This is simplest
+                                to use when only one MVLC is attached to the host system via USB.
+
+`--mvlc-usb-index` *index*Connect to the mvlc with the given usb device index (overrides CrateConfig).
+                                At system startup, and when a USB device is plugged in, or unplugged, linux
+                                creates an enumeration of devices (think of it as an array of device types and
+                                their connection specifications).  This option allows you to  connect to a specific
+                                MVLC by where it appears in this enumeration. Imagine the array described above
+                                with all non MVLC devices removed, the *index*
+                                parameter is the index into this reduced array that specifies the MVLC.
+                                to use.
+
+If it were me, I'd use `--mvlc-usb-serial` rather than this option.
+
+`--mvlc-usb-serial` *serial*Connect to the mvlc with the given usb serial number (overrides CrateConfig).
+                                Each MVLC has a serial number string that is on the module.  Supplying one of
+                                those strings as the *serial* parameter of the
+                                option selects the MVLC module with the matching serial number string.
+
+`--init-only`Run the DAQ init sequence and exit
+
+`--ignore-vme-init-errors`Ignore VME errors during the DAQ init sequence
+
+`--ring` *ring*Ring buffer name.  The name of the ring buffer to which the program will
+                                supply data.  The *ring* parameter must be the
+                                name, not URI of the ring buffer, as ring buffer producers can only produce
+                                to local ringbuffers.
+
+If not provided, the ring name is the logged in user name.
+
+`--sourceid` *sourceid*When a timestamp extractor is provided, 
+                                (see `--timestamp-library` below), this sets the source id in the
+                                body headers of ring items submitted to the ring.  This option, in combination
+                                with `--timstamp-library` allows for data from this source to be
+                                merged with other sources using the FRIB/NSCLDAQ event builder.
+
+`--timestamp-library` *shared-object*Time stamp shared library file.   *shared-object* is a
+                                shared object library that contains code that knows how to extract a timestamp
+                                from each physics event body.  See 
+                                [[r7094#fribdaq_readout_tsextract_sec]]
+                                to learn how to write a timestamp extractor and build it into a suitable
+                                library.
+
+Note that you may need to make it clear which directory the timestamp 
+                                extractor lives in due to the normal shared library load paths.
+                                For example myextractor.so may fail to load while
+                                ./myextractor.so will succeed.
+
+`--debug`Enable debug logging. Useful for me but not for you.  Disabled by default.
+
+`--trace`Enable trace logging.  Useful for me but not for you.  Disabled by default.
+
+<a name="AEN7216"></a>## Commands
+
+The fribdaq-readout is controlled by commands that are accepted on
+                    its stdin.  These commands are complmetely compatible with t
+		    he standard FRIB/NSCLDAQ readout command sets and, like all
+		    FRIB/NSCLDAQ readout command interpreters run inside
+		    an event driven Tcl intpereter making it compatible with
+		    the ReST server and ReadoutShell.
+
+<a name="fribdaq_readout_tsextract_sec"></a>## TIMESTAMP EXTRACTION PLUGINS
+
+In order to be used with the FRIB/NSCLDAQ event builder, timstamps must be 
+                    extracted from events.  This is done by supplying a timstamp extractor
+                    shared object with the `--timestamp-library`.  This section
+                    desribes the requirements of a timstamp extractor and how to build it.
+
+Let's start by looking at a silly example, buliding it and describing how to make it
+                    useful.  The silly example will just return an incrementing timestamp:
+
+<a name="AEN7225"></a>**Example 13-1. Silly timestamp extractor for fribdaq-readout**
+
+```
+
+// Filename: tsextract.cpp
+#include <fribdaq/parser_callbacks.h>  
+#include <stdint.h>
+
+// Timestamp extractors must have C linkage:
+extern "C" {                                 
+    /** Sample timestamp extractor
+        normal extractors need to look at the data which are
+        in the module structs
+     */
+    uint64_t                                 
+    extract_timestamp(unsigned numModules, const mesytec::mvlc::readout_parser::ModuleData* event) {
+        static uint64_t timestamp = 0;
+
+        return timestamp++;                 
+    }
+}
+
+                    
+```
+
+Let's first tear this apart bit by bit, and then show how to build it.  Then we'll
+                    describe what we need to do to make a more intersting timestamp extractor.
+
+[[r7094#fribdaqts.includes]]                            The first of these inlcudes is needed to define the struct that contains the
+                            event, passed into us.  The second, to define uint64_t an
+                            unsigned 64 bit integer into which we'll put the timsetamp.
+                        [[r7094#fribdaqts.clinkage]]                            The fribdaq-readout program has to locate the extractor
+                            from within the shared library.  C++ symbol names for functions get 
+                            *mangled* by the parameters and their types to support
+                            overloading.  This makes it hard to predict the actual name of a fuction.
+                            the extern "C" block causes the compiler to, among other things,
+                            disable this function name mangling so that the name of a function can be
+                            easily located within a library.  The actual mangling is not part of the C++ standard
+                            and may, not only vary from compiler to compiler but from compiler version to compiler version. 
+                        Timstamp extractor functions must be defined in side a extern "C"
+                            block to turn off mangling of their names.
+
+[[r7094#fribdaqts.signature]]                            Timestamp extraction functions must return a uint64_t and be named
+                            extract_timestamp.   When we make this function more useful,
+                            we will say more about the parameters passed into this function.
+                        [[r7094#fribdaqts.return]]                            The job of the extractor is to find the timestamp in the event, and return it as a
+                            uint64_t.  In the case of this silly example, we just defined a 
+                            static variable that increments each time we are called and returned the value
+                            of this variable prior to incrementing it.
+
+Before turning to making this a useful extractor, let's look at how to create the shared image.
+                    This compilation command will do that:
+
+<a name="AEN7252"></a>```
+g++ -otsextract.so -fPIC -shared -I$MVLCROOT/include tsextract.cpp
+                    
+```
+
+The `-share4d` and `-fPIC` are required when building
+                    shared images.  In the `-I` we assume that MVLCROOT
+                    is an evironment variable you have pointed to the root of a mesytec-mvlc intallation.
+                    At the FRIB this might translate to /usr/opt/mesytec-mvlc/0.1.0.
+                    This needed to define the structure that is passed to the extractor.
+
+You might well  ask why we bothered to use the C++ compiler rather than the C compiler
+                    (which would remove the need for an extern "C").  This is because C 
+                    does not have namespaces, and is allowed to pad structures differently than C++ and still
+                    be standard compliant. The mesytec::mvlc::readout_parser::ModuleData is
+                    defined in nested namespaces and compiled by C++
+
+Let's modify this extractor to take the first 64 bits of the event as the timestamp. 
+                    For now we won't worry  about how the timestamp was written to the data, just that the
+                    first 64 bit word is the timestamp.  Always.
+
+To do this we need to know how the event is passed to us. Data are read from the 
+                    MVLC In 'modules'.  This is because the mdaq program the MVLC support software was originally
+                    written for has you adding hardware modules to the readout.  The parameters passed to the
+                    timstamp extractor reflects this as well.  The `numModules` is the
+                    number of parameters that were read.  The `event` points to an array of
+                     mesytec::mvlc::readout_parser::ModuleData.  Each element of that array
+                    describes a module and provides its data.
+
+mesytec::mvlc::readout_parser::ModuleData is a struct that has the following
+                    elements:
+
+
+
+DataBlock `data`Describes the data, in practice, this is the only field we need in each
+                                    module.
+
+uint32_t `prefixSize`Data consist of a statically allocated prefix followed by a dynamically
+                                    allocated data body.  This indicates the size of the prefix.  In our
+                                    case the entire data block is the chunk of the event we care about.
+
+uint32_t `dynamicSize`Size of the dynamically allocated chunk.  We normally don't need this.
+
+uint32_t `suffixSize`Size of the suffix chunk.  We don't need this.
+
+bool `hasDynamic`True if there is a dynamic chunk.  We normally don't need to worry about
+                                    this field.
+
+The important fieled is the data field.  It is a mesytec::mvlc::readout_parser::DataBlock struct which
+                    has the following fields:
+
+
+
+const uint32_t* `data`Pointer to the actual event data.
+
+uint32_t `size`Size in units of uint32_t  of the data chunk.
+
+Note that all of these definitions are in the fribdaq/parser_callbacks.h
+                which is installed when the Mesytec software is installed with fribdaq-readout
+                enabled.
+
+The explanation above should make it pretty clear how to write a timestamp extractor where
+                the timestamp is in the first 64 bits of the event:
+
+<a name="AEN7320"></a>**Example 13-2. Extracting a timestamp from the first 64 bits of MVLC data**
+
+```
+#include <fribdaq/parser_callbacks.h> 
+#include <stdint.h>
+
+// Timestamp extractors must have C linkage:
+extern "C" {                                
+    /** Sample timestamp extractor
+        normal extractors need to look at the data which are
+        in the module structs
+     */
+    uint64_t                             
+    extract_timestamp(unsigned numModules, const mesytec::mvlc::readout_parser::ModuleData* event) {
+        const uint64_t* pTs = reinterpret_cast<const uint64_t*>(event->data.data); 
+        return *pTs; 
+    }
+}
+
+                
+```
+
+[[r7094#fribdaqts.ptr]]                    This line of code does all the work.  It takes the pointer to the first block of event
+                    data and converts it into a  const uint64_t* pointer.
+                    This pointer, points to the first 64 bits of the event. Dereferencing it results in the
+                    event timestamp.
+
+You can use this as a template to build a timestamp extractor that matches the data for your
+            event.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Reference manual forfribdaq-readout | Up | RING ITEMS PRODUCED |

@@ -1,0 +1,57 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Chapter 1. Quick Start | Next |
+
+
+---
+
+# <a name="AEN56"></a>1.4. Running mpiSpecTcl in parallel mode
+
+Running an MPI application requires using the mpirun command.  
+                The mpirun command allows you to, among other things, specify the number of processes
+                that should be started in the application. mpirun then sets up the MPI communication
+                infrastructure and starts the processes in a way that the MPI API knows how to communicate.
+
+If you had to set the OPAL_PREFIX environment variable, you can use
+                it.  Here's a sample invocation of the mpirun command that starts 5 processes for the
+                SpecTcl that you built in the current working directory:
+
+<a name="AEN62"></a>**Example 1-2. mpirun exmaple**
+
+```
+$OPAL_PREFIX/bin/mpirun -n 5 SpecTcl
+                
+```
+
+the value given to the `-n` option specifies the number of processes mpirun
+                should start.  As will be described more completely in 
+                [[c362]], you must use at least 3 processes.
+                Two processes are non-worker processes, the remaining processes are workers that run the event processing
+                pipeline in parallel on events.  The number actual value of `-n` that makes sense,
+                depdends on the computational complexity of your event processing pipeline.
+
+If you use this simple invocation of the miprun command your processes will all run
+                in the computer that runs the **mpirun** command. In that case,
+                a value for `-n` larger than the number of cores in that system
+                makes no sense.  More complex invocations of **mpirun** are possible and
+                can allow the application to spread across more than one system.  This is complicated for
+                the containerized environment and beyond the scope of this document.
+
+Events read from the data source are dispatched to the worker processes. The number of
+                worker processes are 2-n where n is the value given to the `-n`
+                option of **mpirun**.
+
+Events are dispatched to workers in chunks.  The number of ring items (events) in each chunk can
+                be controlled by setting the WorkerChunkSize Tcl variable
+                to the desired number of  ring items per chunk.  While this is normally set in 
+                SpecTclInit.tcl, after chunks are sent, SpecTcl dynamically 
+                updates the chunksize fromt he current value of that variable.  If this variable is not
+                set or is not a legal integer greater than 0, it defaults to 1
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Environment variables you will need | Up | Debugging mpiSpecTcl |

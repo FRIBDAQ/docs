@@ -1,0 +1,41 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6242"></a>dbconfig::hasRun
+
+<a name="AEN6246"></a>## Name
+
+dbconfig::hasRun -- Determine if a save set has run data.
+
+<a name="AEN6249"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+set set [dbconfig::openSaveSet $db set-name]
+
+if {[dbconfig::hasRun $set run-num]} {
+    ...
+}
+                        
+```
+
+<a name="AEN6251"></a>## DESCRIPTION
+
+If the `run-num` has data
+                            in the save set encapsulated by the save set instance
+                            stored in `set`,
+                            this proc returns a boolean true, otherwise
+                            a boolean false is returned.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::listRuns | Up | dbconfig::getRunInfo |

@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1_ccusbloader"></a>ccusbloader
+
+<a name="AEN20872"></a>## Name
+
+ccusbloader -- CC-USB Firmware loader
+
+<a name="AEN20875"></a>## Synopsis
+
+**ccusbloader *firmware-filename [serial-string]*
+**
+
+<a name="AEN20880"></a>## DESCRIPTION
+
+Loads the firmware-filename into the currently
+            selected firmware location. See
+            [[c9907]]
+            for the full load procedure.
+
+If *serial-string* is provided it must be
+            a serial number string for a powered up device attached to the system.
+            The CC-USB with that serial number will be used.
+
+<a name="AEN20887"></a>## KNOWN ISSUES
+
+The format of firmware files does not match the documentation available.
+            For .bit files it is necessary to skip headers to get to the load
+            data.  If you have bit files that are not loadable report this problem
+            and use the corresponding .bin file instead.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| xlmload | Up | vmusbloader |

@@ -1,0 +1,89 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 43. Event builder client API | Next |
+
+
+---
+
+# <a name="AEN9316"></a>43.5. Sending data to the event builder.
+
+The event builder allows you to send *chains* of
+            event fragments to it.  A chain is essentially a linked list of
+            event fragments.  Each fragment itself consists of a
+            header and a body. These data structures are all described in the
+            <fragment.h> header file.
+
+The Event builder client API in turn contains several utilities
+            that allow you to send data to the event builder from any of several
+            internal representatinos.  In all cases these representations are
+            converted to a chain which is then sent to the event builder.
+
+Regardless of the representation you choose, you will need
+            to fill in the contents of each fragment header.  This data structure
+            contains the following fields.
+
+
+
+` uint64_t s_timestamp;`Each event must have an extracted timestamp. The
+                        first stage of the event builder does an absolute
+                        total time ordering of all input fragments by increasing
+                        timestamp.
+
+The timestamp must be synchronized between
+                        all data sources to a high degree of accuracy if this
+                        total ordering is going to represent a true time
+                        ordering of fragments, since the second stage of the
+                        event builder builds events by matching fragments that
+                        live within a coincidence window.
+
+` uint32_t s_sourceId;`Each data source has a unique id chosen by the source
+                        itself.  Furthermore, each client can represent several
+                        data sources (all sourcdes system wide must be unique).
+                        This field contains the source id that corresponds to the
+                        fragment data.
+
+` uint32_t s_size;`Contains the size of the fragment payload in bytes.
+                        this size does not include the size of this fragment
+                        header.
+
+The <fragment.h> header also defines
+            a Fragment type which contains
+            the fields `s_header` which is a a
+            FragmentHeader and a
+            ` void* s_pBody;`
+            which is a pointer to the body of the event described by
+            `s_header`.
+
+Finally the FragmentChain contains the fields
+            `s_pNext` which is a
+            pFragmentChain and points to the next item in the
+            chain, and `s_pFragment` which points to a single
+            fragment. The last item in the chain has a
+            `s_pNext` that is a null pointer.  Fragment chains
+            are required to be in timestamp order by event source.
+
+Several overloaded `submitFragments` are
+            defined in the `CEventOrderClient` class:
+
+
+
+` void submitFragments(pFragmentChain pChain);``pChain` is a pointer to the first
+                        element of the fragment chain that will be sent to the
+                        event builder
+
+` void submitFragments(size_t nFragments, pFragment ppFragments);``nFragmnents` is the number of
+                        fragments to submit while `ppFragments`
+                        is a pointer to the first element of an array
+                        of Fragments.
+
+` void submitFragments(FragmentPointerList fragments);``fragments` is an STL list
+                        whose elements are pFragment, pointers to
+                        Fragments.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Disconnecting from the event builder. | Up | The Event orderer/event builder API |

@@ -1,0 +1,301 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="rdogui3_DatasourceUI"></a>DataSourceUI
+
+<a name="AEN54983"></a>## Name
+
+DataSourceUI -- Data source parameter user interface
+
+<a name="AEN54986"></a>## Synopsis
+
+**package require DataSourceUI
+          **
+
+**set *providerChooser* [ChooseProvider *path*]
+                **
+
+**set *dsrcprompter* [PromptDataSource *path*]
+                **
+
+**set *dialog* [DialogWrapper *path*]
+                **
+
+**set *provider* [DataSourceUI::getProvider *provider-list*]
+                **
+
+**set *params* [DataSourceUI::getParameters *provider-name param-dict*]
+                **
+
+<a name="AEN55009"></a>## DESCRIPTION
+
+This package provides a set of mega-widgets and **proc**s
+            that support prompting for information about data sources (providers and
+            parameterization).  In addtion a generic dialog wrapper megawidget is
+            supplied that allows you to wrap any form inside a dialog with
+            Ok and optional Cancel
+            buttons with the capability of going modal.
+
+The `ChooseProvider` megawidget along with the
+            **DataSourceUI::getProvider proc** allow you to prompt
+            for a data source provider.  `ChooseProvider`
+            is the prompting form, and **DataSourceUI::getProvider**
+            wraps that form with a `DialogWrapper` and uses
+            that to modally prompt for a data source provider.
+
+The `PromptDataSource` megawidget understands
+            how to produce a generic prompter given the parameterization
+            dict of a provder.  **DataSourceUI::getParameters**
+            wraps `PromptDataSource` in a
+            `DialogWrapper` and modally waits for the user
+            to set the parameterization which is returned to the caller.
+
+See MEGAWIDGETS for documentation about the widgets themselves.
+            See PROCS for documentation about the commands.
+
+<a name="AEN55027"></a>## MEGAWIDGETS
+
+<a name="AEN55029"></a>### ChooseProvider
+
+This megawidget provides a scrolling list box.  The
+                `-providers` option is the list of
+                data source provider names that will stock the list.
+                `-command` if not null is a script that will
+                be called at the global level if an item in the list box is clicked.
+
+The `selected` method returns the text
+                of the list box element that is currently selected.  If no item
+                is selected, the empty string is returned.
+
+<a name="AEN55036"></a>### PromptDataSource
+
+This megawidet provides a very generic form that prompts for
+                the parameterization of a data source.  The
+                `-parameters` option should be set with the parameterization
+                dict for the data source provider.  The dict is the dict
+                that is returned from the **parameters** proc of
+                a data source provider.  The form consists of a set of lines
+                each line has a label widget, that displayse the long textual
+                desription of the parameter, and an entry the user fills in to
+                set that parameter's value.
+
+The `getForm` method of the
+                `PromptDataSource` megawidget returns a
+                dict whose keys are short parameter names (from the data source
+                parameterization) and whose values are a list containing in order:
+
+
+
+- The parameter prompt string
+- The path to the prompting widget for ths parameter.
+- The contents of the entry widget.
+
+<a name="rdogui3_dialogwrapper"></a>### DialogWrapper
+
+`DialogWrapper` is a helper widget that
+                assists in building modal dialogs.  A dialog is typically
+                composed of two sections.  The top section, the control area,
+                contains a form with input controls, or possibly just a message.
+                The bottom section, the action area, contains one or two buttons.
+                The first button Ok accepts the form
+                values while the second button Cancel 
+                can optionally be displayed and indicates the user wants to
+                dismiss the dialog without making choices.
+
+The `DialogWrapper` allows you to create an Tcl widget
+                (usually a frame) and establish it as the control area of a dialog.
+                The control area widget must be the child of an appropriate
+                subwidget of the dialog.  That widget is returned from the
+                `controlarea` method call.
+
+Once the control area widget hierarchy has been constructed and
+                interally laid out, its top level frame should be configured
+                to be the `-form` option of the dialog.  The
+                dialg widget itself can gen generally be managed into a toplevel
+                widget which displays it.
+
+To block for user interaction with the dialog (make it modal),
+                invoke the `modal` method.  That method will
+                return one of:
+
+
+
+OkThe user clicked the Ok button.
+
+CancelThe user clicked the Cancel button.
+
+DestroyThe user destroyed the dialog using the window
+                            manager control for that.
+
+Note that if the return is either Ok or
+                Cancel it is still possible to retrieve
+                items for the form (in the case of Cancel
+                your application might use these values to default fields
+                in future instances of the dialog).
+
+If the return value is Destroy the
+                form widget tree has already been destroyed and therefore
+                cannot be used.
+
+The `-showcancel` option is a boolean that
+                controls whether or not the Cancel
+                button is displayed.
+
+The normal lifecycle of this widget is to
+
+
+
+- Create a toplevel widget for the dialog
+- Create the dialog as a child of the toplevel
+- Invoke the `controlarea` method to get the control areay container
+- Create a frame under the control area
+- Create the control area input form and lay it out in the frame above
+- Configure the dialog so that it's `-form` option is the frame above.
+- Invoke the `modal` method to wait for the user to interact with the form
+
+
+If `modal` returned Ok
+                the data from the user are fetched from the controls in the
+                controlarea and the toplevel is destroyed.  If `modal`
+                returns Cancel the toplevel is destroyed.
+                If `modal` returned Destroy
+                nothing is done because this happens when the toplevel gets destroyed by
+                the user.
+
+<a name="AEN55115"></a>## PROCS
+
+Two of the forms described in the MEGAWIDGETS section above have
+                associated convenience functions.    These convenience functions
+                wrap their megawidget in a `DialogWrapper`
+                invoke `modal` and return the
+                results of the user interaction with the dialog to the caller.
+
+
+
+`::DataSourceUI::getProvider` `providers`Prompts for a data source provider.  `providers`
+                            is a list of the providers to choose from.
+                            If the user selected a provider its name is returned
+                            as the value of this proc.  If the user clicked
+                            Cancel or destroyed the
+                            dialog an empty string is returned.
+
+`::DataSourceUI::getParameters` `provider-name parameters`Prompts for the parameterization of an instance
+                            (data source) of a `provider-name`.
+                            `parameters` is the
+                            dict that defines the parameterization of the
+                            provider's instances.
+
+<a name="AEN55137"></a>## EXAMPLES
+
+The example below shows how to use the `DialogWrapper`.
+                In this case, the widgets that make up the control area are just
+                constructed in line.  In general it makes sense to build
+                a megawidget for the conotrolarea using snit or itk and
+                provide that megawidget with methods to fetch form elements.
+
+<a name="AEN55141"></a>**Example 1. Sample use of the `DialogWrapper`**
+
+```
+ 
+toplevel .dialog
+DialogWrapper .dialog.wrapper                          
+
+set controlArea [.dialog.wrapper controlarea]
+set f [ttk::frame $controlArea.frame]                  
+
+ttk::label $f.namelabel -text {What is your name}
+ttk::entry $f.name
+
+ttk::label $f.colorlabel -text {What is your favorite color}
+ttk::combobox $f.colors  -values [list red green "red no green"]
+                                                     
+ttk::label $f.vlabel \
+    -text {What is the air speed velocity of a fully laden swallow}
+ttk::combobox $f.v        -values [list African English]
+
+grid $f.namelabel $f.name
+grid $f.colorlabel $f.colors                         
+grid $f.vlabel    $f.v
+
+.dialog.wrapper configure -form $f
+pack .dialog.wrapper                                 
+
+set result [.dialog.wrapper modal]                   
+
+if {$result eq "Ok"} {
+    set name [$f.name get]
+    set color [$f.color get]                         
+    set velocity [$f.v get]
+
+    destroy .dialog
+
+    bridgeOfDeath $name $color $velocity
+    
+
+} elseif {$result eq "Cancel"} {
+   destroy .dialog                                   
+}
+                                                    
+               
+```
+
+[[r54971#dlgwrapper_toplevel]]                        These two commands make a top level widget that will
+                        hold the dialog and the dialog wrapper itself.  The
+                        dialog wrapper is not yet managed into the top level.
+                        If it is packed now, before it knows the shape of its
+                        control are there might be an unpleasant jitter as it
+                        comes up and then re-computes the geometry.
+                    [[r54971#dlgwrapper_ctlarea]]                        These two commands ask the dialog wrapper to tell us
+                        which widget should be the parent of our control area.
+                        A frame is created and its full path is stored in the
+                        variable f for convenience.
+                    [[r54971#dlgwrapper_form1]]                        This makes some rather silly labels and inputs that
+                        comprise the part of the dialog (control area) that
+                        the user interacts with.
+                    [[r54971#dlgwrapper_form2]]                        The **grid** geometry manager is then
+                        used to arrange the labels and input controls into
+                        `f`.
+                    [[r54971#dlgwrapper_display]]                        The dialog widgets `-form` is set
+                        to `f`. At that time the dialog frame
+                        manages the control area and therefore comes to know
+                        its size and shape.  The **pack** command
+                        makes the dialog visible inside the top level widget.
+                    [[r54971#dlgwrapper_modal]]                        The `modal` method blocks until
+                        the user clicks Ok,
+                        Cancel or destroys the widget
+                        via the window manager controls.
+                    The action peformed by the user to complete his or her
+                        interaction with the dialog is saved in
+                        `result`
+
+[[r54971#dlgwrapper_ok]]                        If the user clicked the Ok button
+                        in the dialog actinon area, `result` will
+                        be Ok. In that case, the values of
+                        the input controls are pulled out of the control area
+                        widgets before the dialogt is destroyed.
+                    `bridgeOfDeath` is just symbolic of
+                        some **proc** that then operates on the
+                        results of the dialog.  Equally easily, this could be
+                        embedded in a proc and the results provided to the caller.
+
+[[r54971#dlgwrapper_cancel]]                        If the user clicked the Cancel button,
+                        `result` will be Cancel.
+                        In this case we are going to ignore the data in the form
+                        and just destroy the dialog
+                    [[r54971#dlgwrapper_destroy]]                        If the user destroyed the dialog using the window manager
+                        controls, the value of `result` will be
+                        Destroy.  In this case, since the
+                        top level is already destroyed or well on its way to being
+                        destroyed, we just do nothing.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DataSourceManager | Up | Diagnostics |

@@ -1,0 +1,251 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN24810"></a>Xamine Gates
+
+<a name="AEN24814"></a>## Name
+
+CXamineGate, CDisplayCut, CDisplayBand, CDisplayContour -- Represent gates in Xamine
+
+<a name="AEN24820"></a>## Synopsis
+
+```
+#include <XamineGate>
+
+
+class CXamineGate
+{
+  
+public:
+
+  CXamineGate(const msg_object& rGateInfo);
+  CXamineGate(UInt_t nSpectrum, UInt_t nId,
+		const std::string& rName);
+
+  UInt_t getSpectrum() const;
+  UInt_t getId() const;
+  std::string getName() const;
+  GateType_t getGateType() const;
+  PointArray getPoints() const;
+  
+  void setId (UInt_t am_nId);
+  void setName (std::string am_sName);
+
+  PointIterator begin ()  ;
+  PointIterator end ()  ;
+  UInt_t size ()  const;
+  CPoint& operator[] (UInt_t n)  ;
+  void AddPoint (const CPoint& rPoint)  ;
+  void AddPoint(int x, int y) 
+  void RemovePoints (UInt_t n=1)  ;
+
+  CDisplayCut* Cut ()  ;
+  CDisplayBand* Band ()  ;
+  CDisplayContour* Contour ()  ;
+
+  void FormatMessageBlock(msg_object& rMsg) const;
+
+};
+
+class CDisplayCut : public CXamineGate {
+public:
+  CDisplayCut(const msg_object& rGate); 
+  CDisplayCut(UInt_t nSpectrum, UInt_t nId, const std::string& rName);
+};
+
+class CDisplayBand : public CXamineGate {
+public:
+  CDisplayBand(const msg_object& rgate) ;
+  CDisplayBand(UInt_t nSpectrum, UInt_t nId, const std::string& rName) ;
+
+};
+
+class CDisplayContour : public CXamineGate {
+public:
+  CDisplayContour(const msg_object& rgate);
+  CDisplayContour(UInt_t nSpectrum, UInt_t nId, const std::string& rName); 
+};
+
+        
+```
+
+<a name="AEN24822"></a>## DESCRIPTION
+
+This family of classes capture the structure and functionality
+              of gates as seen by Xamine.   The classes are able to
+              instantiate either from an Xamine gate accepted event
+              or from inforrmation about the gate.  Once
+              instantiated, gate objects are able to format the
+              message that Xamine expects to receive when a gate
+              is entered by a client.
+
+In addition to the base class, subclasses are
+              provided to make instantiating the basic gate types
+              simple.
+
+<a name="AEN24826"></a>## METHODS
+
+
+
+`  CXamineGate(const msg_object&  rGateInfo = );`Constructs the object from the object event message
+                  sent by Xamine to the client when a gate is accepted by
+                  the user. `rGateInfo`
+                  encapsulates that message and is defined in the
+                  Xamine API headers.
+
+`  CXamineGate(UInt_t  nSpectrum = , UInt_t  nId = , const std::string&  rName = );`Constructs the base class gate object that will be displayed
+                  on the spectrum with Xamine id `nSpectrum`.
+                  The gate id is `nId`,
+                  and its name is `rName`.
+
+` const UInt_t  getSpectrum();`Returns the Xamine Id on which the gate is displayed.
+                  Two important differences between Xamine gates and
+                  SpecTcl gates.  SpecTcl primitive gates are defined on parameters
+                  that are checked.  Xamine gates are displayed on Spectr.
+                  Spectra in SpecTcl are identified by a named object
+                  `CSpectrum`, Xamine spectra
+                  are identified by an integer slot number.
+
+` const UInt_t  getId();`Returns the id of the gate.  The gate id is
+                  what identifies the gate to Xamine.
+                  The use of gate ids, rather than a named
+                  object to identify gates in Xamine is another
+                  difference between Xamine gates and SpecTcl
+                  gates.
+
+` const std::string  getName();`Returns the name of the gate.  Gate names in Xamine
+                  are used for documentation purposes only.
+
+` const GateType_t  getGateType();`Returns the SpecTcl gate type of the gate.
+
+` const PointArray  getPoints();`Returns the array of points that make up the
+                  gate shape.  The PointArray type
+                  is defined in Point.h.
+
+` void  setId(UInt_t  am_nId = );`Normally used internally while constructing this type
+                  of object from a msg_object, this
+                  method sets the Xamine id of the gate.
+
+` void  setName (std::string  am_sName = );`Normally used internally while constructing this type
+                  of gate from a msg_object, this
+                  method sets the Xamine gate name.
+
+` PointIterator  begin();`Returns an iterator to the front of the container
+                  that holds the gate points.  The
+                  PointIterator type is defined in
+                  Point.h.
+
+` PointIterator  end();`Returns an iterator just off the end of the
+                  container that holds the gate points.
+
+` const UInt_t  size();`Returns the number of points in the container
+                  that holds the gate points.
+
+` CPoint&  operator[] (UInt_t  n = );`Returns a reference to the `n`'th
+                  point in the set of points that define the shape of the
+                  gate.  CPoint is defined in
+                  Point.h.  The reference is not const
+                  so this allows existig gate points to be modified.
+
+` void  AddPoint(const CPoint&  rPoint = );`Adds a new point to the end of the list of points that
+                  define the appearance of the gate.
+                  `rPoint` describes the point
+                  to add.
+
+` void  AddPoint(int  x = , int  y = );`Adds a point to the end of the points that
+                  define the shape of the gate to Xamine.
+                  `x` and `y`
+                  are in channel coordinates.  For slices, only the
+                  `x` matters.
+
+` void  RemovePoints(UInt_t  n = 1);`Removes the last `n` points
+                  from the set of points that define the shape of
+                  the gate.
+
+` CDisplayCut*  Cut();`Peforms a type-safe up-cast to the `CDisplayCUt`
+                  class. If the gate is not a cut, a null pointer is
+                  returned.  Otherwise a pointer to the same object
+                  but cast as a `CDisplayCut`*
+
+` CDisplayBand*  Band ();`Same as `Cut` but up-casts to a
+                  `CDisplayBand` pointer.
+
+` CDisplayContour*  Contour();`Same as `Cut` but
+                  up-casts to a `CDisplayContour`
+                  pointer.
+
+` const void  FormatMessageBlock(msg_object&  rMsg = );`Takes the data in the gate object and
+                  writes the Xamine message into `rMsg`
+                  needed to enter that gate into Xamine.
+
+<a name="AEN25059"></a>## `CDisplayCut`
+
+`CDisplayCut` is a convenience class
+          that constructs the base class with parameters appropriate
+          to a cut.  Here are the two constructors it supports:
+
+
+
+`  CDisplayCut(const msg_object&  rGate = );`Constructs from an Xamine message.
+
+`  CDisplayCut(UInt_t  nSpectrum = , UInt_t  nId = ,  const std::string&  rName = );`Constructs from
+                 `nSpectrum`, the Xamine Id  of the
+                 spectrum to display the gate,
+                 `nId` an Id assigned to the gate to
+                 identify it, and `rName`
+                 the name of the gate.
+
+Once constructed, a left and right limit point can
+                  be added to define the sape of the gate.
+
+<a name="AEN25097"></a>## `CDisplayBand`
+
+This class represents a band. The ponts in a band
+            are a polyline.  In SpecTcl, the gate region of acceptance
+            is the region below the gate points.
+            Here are the constructors `CDisplayBand`
+            offers:
+
+
+
+`  CDisplayBand(const msg_object&  rgate = );`Constructs the object from the
+                    message,
+                    `rgate`received from Xamine reporting the acceptance
+                    of the gate.
+
+`  CDisplayBand(UInt_t  nSpectrum = , UInt_t  nId = ,  const std::string&  rName = );`Constructs the band from the
+                    `nSpectrum`, the id of the
+                    spectrum on which it will be displayed,
+                    `nId`, the id of the gate
+                    and `rName`, the name of the
+                    gate.
+
+Once constructed, points must be added. A band is defined by at
+                    least two points (a line segment). In general, for a band,
+                    the points should be strictly monotonically increasing in
+                    x coordinate.
+
+<a name="AEN25136"></a>## `CDisplayContour`
+
+This class captures a contour.  A contour is a closed polygon.
+            The polygon is closed by drawing a line segment connecting the last
+            point to the first point.  For SpecTcl the gate acceptance region
+            is the set of points such that a line drawn from that point
+            to infinity in any direction crosses an odd number of line segments
+            that make up the polygon.  This allows for a consistent definition
+            of the interior of arbitratily pathalogical polygons.
+
+The constructors are essentially the same as for
+            `CDisplayBand`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamine | Up | XamineButton |

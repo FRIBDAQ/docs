@@ -1,0 +1,579 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1200"></a>Chapter 5. Complete program listings.
+
+# <a name="AEN1202"></a>5.1. Readout Software
+
+This section contains the files that make up the Readout software in their
+            entirety.  We include the Makefiles and scripts as well as the C++ source code.
+            This software is also available online at [http://docs.nscl.msu.edu/daq/samples/CAENV785/CAENV785.zip](http://docs.nscl.msu.edu/daq/samples/CAENV785/CAENV785.zip)
+
+<a name="AEN1206"></a>**Example 5-1. MyEventSegment.h**
+
+```
+
+
+/*
+This is the header file to define the MyEventSegment class, which 
+is derived from CEventSegment.  This class can be used to read 
+out any number of CAEN modules covered by the CAENcard class. 
+Those cards include the V785, V775, and  V792.
+
+Tim Hoagland
+11/3/04
+s04.thoagland@wittenberg.edu
+
+*/
+
+
+#ifndef __MYEVENTSEGMENT_H                // co:protect
+#define __MTEVENTSEGMENT_H
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;                      // co:namespace
+#endif
+#include <spectrodaq.h>
+#include <CEventSegment.h>
+#include <CDocumentedPacket.h>
+#include <CAENcard.h>
+#define CAENTIMEOUT 50
+
+
+// Declares a class derived from CEventSegment
+class MyEventSegment : public CEventSegment   // co:eventsegderived
+{
+private:
+  CDocumentedPacket m_MyPacket;	             // co:docpacket
+  CAENcard* module;                          // co:hardwareobject
+public:
+  MyEventSegment(short slot,unsigned short Id); // co:mysegconstructor
+              // Defines packet info
+  ~MyEventSegment();		                // co:mysegdestructor
+
+  virtual void Initialize();                    // co:myseginit
+             // One time Module setup
+
+  virtual void Clear();                         // co:mysegclear
+             // Resets data buffer
+
+  virtual unsigned int MaxSize();               // co:mysegobsoletemaxsize
+
+  virtual DAQWordBufferPtr& Read(DAQWordBufferPtr& rBuf);  // co:mysegread
+             // Reads data buffer
+};
+#endif
+
+            
+```
+
+<a name="AEN1209"></a>**Example 5-2. MyEventSegment.cpp**
+
+```
+/*
+    This software is Copyright by the Board of Trustees of Michigan
+    State University (c) Copyright 2005.
+
+    You may use this software under the terms of the GNU public license
+    (GPL).  The terms of this license are described at:
+
+     http://www.gnu.org/licenses/gpl.txt
+
+     Author:
+             Ron Fox
+	     NSCL
+	     Michigan State University
+	     East Lansing, MI 48824-1321
+   */
+
+
+/*
+
+This is the implementation file for the MyEventSegment
+class.  This class defines funtions that can be used to 
+readout any module covered in the CAENcard class.  These
+include the V785, V775, and V792
+
+
+Tim Hoagland
+11/3/04
+s04.thoagland@wittenberg.edu
+
+
+*/
+
+
+
+#include <config.h>
+#ifdef HAVE_STD_NAMESPACE                     // co:boilerplate
+using namespace std;
+#endif
+
+#include "MyEventSegment.h"                   // co:myheader
+
+static char* pPacketVersion = "1.0";          // co:packetversion
+// Packet version -should be changed whenever major changes are made
+// to the packet structure.
+
+
+//constructor set Packet details
+MyEventSegment::MyEventSegment(short slot, unsigned short Id):    
+  m_MyPacket(Id, 
+	     string("My Packet"), 
+	     string("Sample documented packet"),
+	     string(pPacketVersion))       // co:packetinit
+{
+  module = new CAENcard(slot);	           // co:cardcreate
+
+}
+// Destructor:
+MyEventSegment::~MyEventSegment()
+{
+  delete module;                          // co:destroy
+}
+
+
+// Is called right after the module is created.  All one time Setup
+// should be done now.
+void MyEventSegment::Initialize()
+{
+  module->reset();                       // co:moduleInit
+  Clear();
+
+}
+
+
+// Is called after reading data buffer
+void MyEventSegment::Clear()
+{
+  module->clearData();          // Clear data buffer co:cleardata
+}
+
+unsigned int MyEventSegment::MaxSize()
+{
+  return 0;
+}
+
+
+//Is called to readout data on module
+DAQWordBufferPtr& MyEventSegment::Read(DAQWordBufferPtr& rBuf)
+{
+  for(int i=0;i<CAENTIMEOUT;i++)        // co:waitready
+                  // Loop waits for data to become ready
+    {
+      if(module->dataPresent())      
+                 // If data is ready stop looping
+	{
+	  break;
+	}
+    }
+  if(module->dataPresent())           
+                // Tests again that data is ready
+    {
+      rBuf = m_MyPacket.Begin(rBuf);     // co:openpacket
+               // Opens a new Packet
+
+      module->readEvent(rBuf);           // co:readdata
+               // Reads data into the Packet
+
+      rBuf= m_MyPacket.End(rBuf);       // co:closepacket
+               // Closes the open Packet
+    }
+  return rBuf;                          // co:returnpointer
+}
+
+            
+```
+
+<a name="AEN1212"></a>**Example 5-3. Skeleton.cpp**
+
+```
+/*
+    This software is Copyright by the Board of Trustees of Michigan
+    State University (c) Copyright 2005.
+
+    You may use this software under the terms of the GNU public license
+    (GPL).  The terms of this license are described at:
+
+     http://www.gnu.org/licenses/gpl.txt
+
+     Author:
+             Ron Fox
+	     NSCL
+	     Michigan State University
+	     East Lansing, MI 48824-1321
+*/
+
+
+/*
+This file was modified to readout segments from the MyEventSegment class.
+It is set to read only one card although that is easily changed.  
+
+Tim Hoagland
+11/3/04
+s04.thoagland@wittenberg.edu
+
+Modified to be an 8.1 example
+Ron Fox 
+3/28/2006
+fox@nscl.msu.edu
+*/
+
+
+static const char* Copyright = "(C) Copyright Michigan State University 2002, All rights reserved";
+
+//  This file contains a test readout system.
+//   It derives from the CReadoutMain class
+//   to setup our experiment specific requirements
+//   creates an instance of it and lets the base classes
+//  do most of the work:
+
+#include <config.h>                      // co:config
+#include <CReadoutMain.h>
+#include <CExperiment.h>
+#include <CInterpreterStartup.h>
+#include <CInterpreterCore.h>
+#include <CRunVariableCommand.h>
+#include <CRunVariable.h>
+#include <CStateVariableCommand.h>
+#include <CStateVariable.h>
+#include <TCLInterpreter.h>
+#include <CDAQTCLProcessor.h>
+#include <CVMEScalerLRS1151.h>
+#include <CTraditionalEventSegment.h>
+#include <CTraditionalScalerReadout.h>
+#include <CEventSegment.h>
+#include "MyEventSegment.h"	// co:myeventseginclude
+
+
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;		// co:stdnamespace
+#endif
+
+
+           //  Added MyEventSegement Header File
+
+
+
+/*!
+    Sample implementation of an experiment specific1
+   tailoring of the production readout software.
+   
+*/
+class CMyExperiment : public CReadoutMain
+{
+public:
+   // Constructors and other canonical operations:
+
+   CMyExperiment() {
+   }
+   virtual ~CMyExperiment() {
+   }
+   // Copy construction, assignment and comparison 
+   // make no sense and are therefore disallowed:
+private:
+   CMyExperiment(const CMyExperiment& rhs);
+   CMyExperiment& operator=(const CMyExperiment& rhs);
+   int            operator==(const CMyExperiment& rhs);
+   int            operator!=(const CMyExperiment& rhs);
+public:
+   // The member functions below allow us to override/extend base
+   // class behavior for experiment specific stuff.
+   
+protected:
+   virtual void SetupReadout(CExperiment& rExperiment);
+   virtual void SetupScalers(CExperiment& rExperiment);
+
+public:
+   virtual void SetupRunVariables(CExperiment& rExperiment,
+				  CInterpreterStartup& rStartup,
+				  CInterpreterCore&    rCore);
+   virtual void SetupStateVariables(CExperiment& rExperiment,
+				  CInterpreterStartup& rStartup,
+				  CInterpreterCore&    rCore);
+   virtual void AddUserCommands(CExperiment& rExperiment,
+				  CInterpreterStartup& rStartup,
+				  CInterpreterCore&    rCore);
+   
+};
+
+// The system relies on a globally accessible instance of a CReadoutMain 
+// derived object called MyApp so here it is:
+
+CMyExperiment MyApp;
+
+/*!
+     In SetupReadout, you are expected to add Event segments to your 
+     experiment.   Event segments read out logical sections of your 
+     experiment.  The following types of event segments are available for your
+     use:
+       -    Simple event segments:  These are derived from the abstract base
+              class CEventSegment, and are intended to readout a coherent piece
+              of an experiment.
+      -  Compatibility mode segments: These are objects of type
+          CTraditionalEventSegment  they provide all the callouts to code
+          that lives in an old-style skeleton.cpp file.  You will need to modify
+          the skeleton makefile to add the oldstyle skeleton.cpp to the build.
+          There can be only one CTraditionalEventSegment in the system due
+           to function naming.
+      -  Compound segments:  These are objects of type CCompoundEventSegment
+          They consist of an ordered list of event segments of any type (including
+          if you like other compound event segments.
+   
+       \param rExperiment - CExperiment& - A reference to the experiment object
+                                                    that runs the readout.  You will normally be making 
+		              calls to CExperiment::AddEventSegment to register your
+		              own event segments in the experiment readout
+*/
+void
+CMyExperiment::SetupReadout(CExperiment& rExperiment) // co:setupreadout
+{
+   CReadoutMain::SetupReadout(rExperiment);
+   
+
+   rExperiment.AddEventSegment(new MyEventSegment(10, 0xff00)); // co:addmysegment
+                           // Make a new object of type MyEventSegment(slot#, ID)
+   
+}
+/*!
+    This function allows you to describe your scaler readout configuration.  This is done by 
+    inserting scalers into the experiment object.   Scalers come in the following flavors (all
+    derived from CScaler 
+    - CCAMACScalerLRS2551  - CAMAC LeCroy model 2551 12 channel scalers.
+    - CCAMACScalerLRS4434  - CAMAC LeCroy model 4434 32 channel scalers.
+    - CVMEScalerCAENV830   - VME CAEN model V830 32 channel scalers.
+    - CVMEScalerLRS1151         - VME LeCroy model 1151  scalers.
+    - CScalerBank                         - A collection of scalers sequentially read out.
+
+   \param rExperiment - CExperiment& reference to the experiment object.
+	    Normally  you will call CExperiment::AddScalerModule to add
+	    scaler modules to the readout.
+*/
+void
+CMyExperiment::SetupScalers(CExperiment& rExperiment) // co:setupscalers
+{
+   CReadoutMain::SetupScalers(rExperiment);
+
+   // Insert your code below this comment.
+
+   // For test,setup an LRS 1151 at 0x200c00
+
+   //   CScaler* pScaler = new CVMEScalerLRS1151(0xc00200);
+   //   rExperiment.AddScalerModule(pScaler);
+
+}
+/*!
+   In this function create and define any run variables you need. 
+   A run variable is a TCL Variable whose value is logged to the
+   event stream.   Run variables are always modifiable.
+
+   If, for example, you have a thermocouple that is monitoring
+   the temperature of a temperature senstive detector, you could
+   create a RunVariable, monitor the temperature periodically
+   and update the RunVariable.  See CRunVariable and
+   CRunVariableCommand  Run variables can also be 
+  create at the command line using the runvar command.
+
+   \param rExperiment - CExperiment& the experiment object.
+   \param rStartup   - CInterpreterStartup& the interpreter startup
+                                            object.
+    \param rCore  - CInterpreterCore& the core TCL interpreter
+	 add on functionality.  Normally you will obtain the run
+	 variable command object and do CRunVariableCommand::Create
+	 calls to add your run variables.
+
+   \note The base class creates key run variables.  It is therefore 
+   very important to be sure the base class version of this function is
+   called.
+*/
+void
+CMyExperiment::SetupRunVariables(CExperiment& rExperiment,
+				  CInterpreterStartup& rStartup,
+				 CInterpreterCore&   rCore)
+{
+   CReadoutMain::SetupRunVariables(rExperiment, rStartup, rCore);
+   
+   CRunVariableCommand& rCommand(*(rCore.getRunVariables()));
+   
+   // Add your code below this commet. rCommand is a reference to the run variable
+   // commands object.
+}
+/*
+    This function allows you to create run state variables.  Run state
+   variables are TCL variables that are write locked during a run.  Their
+   values are logged to run state variable buffers at run state transitions.
+
+   An example of a run state variable is the run number; created by the
+   base class.  An example of run variables you might like to create are
+   fixed run conditions, such as beam species, energy, target species,
+   trigger conditions etc.
+
+   The Tcl command statevar can also be used to create list and delete
+   state variables.
+
+   \param rExperiment - CExperiment& the experiment object.
+   \param rStartup   - CInterpreterStartup& the interpreter startup
+                                            object.
+    \param rCore  - CInterpreterCore& the core TCL interpreter
+	 add on functionality.  Normally you will obtain the 
+	 state variable command object and do CStateVariableCommand::Create
+	 calls to add your run variables.
+
+   \note The base class creates key run variables.  It is therefore 
+   very important to be sure the base class version of this function is
+   called.
+*/
+void
+CMyExperiment::SetupStateVariables(CExperiment& rExperiment,
+				   CInterpreterStartup& rStartup,
+				   CInterpreterCore&    rCore)
+{
+   CReadoutMain::SetupStateVariables(rExperiment, rStartup, rCore);
+   
+   CStateVariableCommand& rCommand(*(rCore.getStateVariables()));
+   
+   // Insert your code below this comment.  Note that rCommand is the 
+   // state variable command object.
+
+}
+/*!
+     Add user written commands in this function.  User written commands
+   should be objects derived from CDAQTCLProcessor  This will ensure that
+  command execution will be properly synchronized to the rest of the application.
+
+   \param rExperiment - CExperiment& the experiment object.
+   \param rStartup   - CInterpreterStartup& the interpreter startup
+                                            object.  Normally you will use this object
+		   to locate the interpreter on which your commands
+                                        will be registered.
+    \param rCore  - CInterpreterCore& the core TCL interpreter
+	 add on functionality. 
+
+  \note The base class creates key command extensions (e.g. begin) it is
+    important that the base class version of this function be called.
+
+*/
+void
+CMyExperiment::AddUserCommands(CExperiment& rExperiment, 
+				   CInterpreterStartup& rStartup,
+				   CInterpreterCore&    rCore)
+{
+   CReadoutMain::AddUserCommands(rExperiment, rStartup, rCore);
+   
+   CTCLInterpreter& rInterp(rStartup.Interp());
+   
+   // Add your command definitions after this comment.  rInterp
+   // is a reference to the interpreter.
+}
+void* gpTCLApplication;
+
+            
+```
+
+<a name="AEN1215"></a>**Example 5-4. Makefile**
+
+```
+INSTDIR=/usr/opt/daq/8.1
+# User makefile for the Production readout skeleton.  Read the comments
+# in the code below to know what you can modify.
+#
+include $(INSTDIR)/etc/ProductionReadout_Makefile.include
+
+#
+#   Below, define any additional C++ compilation switches you might need.
+#
+#  If you are using camac you will need to add at least:
+#    -DCESCAMAC  
+# or -DVC32CAMAC
+# to select between the CES 8210 and WIENER CAMAC interface modules.
+# respectively.
+#
+USERCXXFLAGS=
+#
+#  Below, define any additional C compilation switches you may need.
+#  By default, this is defined to be the same as the C++ additional
+#  switches:
+
+USERCCFLAGS=$(USERCXXFLAGS)
+
+#
+#  Below, define any additional linker flags you may need:
+#
+
+USERLDFLAGS=
+
+#
+#  Add any objects you require to the defintion below. Note that the 
+#  Makefile knows by default how to correctly compile most C++ and C files.
+#  Unless ther are problems, don't add any compilation rules for your objects.
+#
+#
+#   If you are using a 'traditional readout skeleton,
+#  Comment the Objects line two down and  uncomment the next line:
+#
+#Objects= Skeleton.o CTraditionalEventSegment.o CTraditionalScalerReadout.o
+#                        co:listobjects
+Objects=Skeleton.o MyEventSegment.o
+
+#
+
+Readout: $(Objects)
+	$(CXXLD) -o Readout  $(Objects) $(USERLDFLAGS) $(LDFLAGS)
+
+clean:
+	rm -f $(Objects) Readout
+
+depend:
+	makedepend $(USERCXXFLAGS) *.cpp
+
+help:
+	echo "make       - Create the readout program."
+	echo "make clean - Clean up objects etc. created by previous builds"
+	echo "make depend- Add include file dependencies to the Makefile."
+
+
+
+
+# DO NOT DELETE
+
+MyEventSegment.o: MyEventSegment.h
+Skeleton.o: MyEventSegment.h
+
+            
+```
+
+<a name="AEN1218"></a>**Example 5-5. startreadout script**
+
+```
+#!/bin/bash
+
+. /etc/profile
+. ~/.bashrc
+
+
+if test "$DAQHOST" == ""
+then
+  host=`hostname`               # co:host
+else
+  host="$DAQHOST"
+fi
+
+/usr/opt/daq/8.1/bin/ReadoutShell -host=$host \
+				  -path=$HOME/experiment/readout/Readout # co:startrdo
+
+                        
+
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating desktop icons |  | SpecTcl software |

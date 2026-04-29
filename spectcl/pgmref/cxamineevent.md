@@ -1,0 +1,73 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25388"></a>CXamineEvent
+
+<a name="AEN25392"></a>## Name
+
+CXamineEvent -- Encapsulate events from Xamine.
+
+<a name="AEN25395"></a>## Synopsis
+
+```
+#include <XamineEvent.h>
+
+class CXamineEvent      
+{
+  
+public:
+  CXamineEvent(); 
+				       
+  CXamineEvent (  msg_XamineEvent am_EventData  );
+
+  const msg_XamineEvent& getm_EventData() const;
+
+   CXamineGate* GateCast ()  ;
+   CButtonEvent* ButtonCast ()  ;
+ 
+};
+
+        
+```
+
+<a name="AEN25397"></a>## DESCRIPTION
+
+`CXamineEvent` encapsulates
+               the messages Xamine sends to report events to the client.
+               Currently there are two such event types:
+
+
+
+Gate acceptanceInidicates a user has accepted a gate drawnon a spectrum.
+                        This event is encapsulated by the
+                        `CXamineGate` class
+                        documented previously
+
+Client button eventsIndicates a user has clicked a button on the user
+                        defined button box and successfully navigated
+                        any attached prompter.  This event is
+                        encapsulated by the `CButtoneVENT`
+                        class documented next.
+
+The base class is just a holder of the event message.
+                `GateCast` and
+                `ButtonCast` construct dynamically
+                allocated `CXamineGate` and
+                `CButonEvent` objects respectively
+                from the object in a type-safe way.  If the underlying message
+                is not of the appropriate sort, these methods return
+                a null pointer.  Once the application no longer needs
+                the pointes returned from these methods, it should
+                delete the objects they point to.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXaminePointsPrompt | Up | CButtonEvent |

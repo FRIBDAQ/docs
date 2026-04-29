@@ -1,0 +1,76 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1285"></a>3.18. Accessing the integrate command (new in 5.5)
+
+There are essentially three forms of the integrate command and
+                these are reflected in three URL/query combinations.
+
+
+
+1. It is possible to integrate the interior of a gate on any
+                         spectrum on which it is displayable:
+   <a name="AEN1291"></a>**http://host:port/spectcl/integrate?spectrum=spectrum-name&gate=gate-name
+                       **
+   In this form, the query parameter spectrum
+                       is the name of the spectrum on which to do the integration and
+                       gate's value is the name of the gate
+                       within which to integrate.
+2. It is possible to integrate a 1-d spectrum within some
+                         explicit area of interest provided in spectrum world coordinates.
+                         This is done with a URL of the form:
+   <a name="AEN1299"></a>**http://host:port/spectcl/integrate?spectrum=spectrum-name&low=low-limit&high=high-limit
+                       **
+   As before the spectrum parameter is the
+                       name of the spectrum to integrate.
+                       low and high represent
+                       the low and high limits, in world coordinates, of the
+                       region of interest to integrate.
+3. It is also possible to integrate a spectrum within an
+                         arbitrary polygonal region of interest.  The interior of
+                         the polygon is defined using the same odd crossing algorithm
+                         used to determine the interior of SpecTcl contours;  for any
+                         point, if a line drawn in any direction crosses an odd number
+                         of edges of the polygon, the point is in the gate interior.
+   The format of the URL to integrate a 2-d spectrum is:
+   <a name="AEN1309"></a>**http://host:port/spectcl/integrate?spectrum=spectrum-name&xcoord=x1...&ycoord=y1...
+                       **
+   The coordinates of the polygon are given by the
+                       xcoord and ycoord
+                       values.  These are given in world coordinates and
+                       there must be at least three xcoord,
+                       ycoord pairs.  The
+                       X/Y coordinates are created from ordered pairs of
+                       occurences of the xcoord and
+                       ycoord query parameter.
+
+Regardless of how the integration is specified, the detail
+                field of a successful completion is an object with the following
+                fields:
+
+
+
+centroidThe world coordinates of the integration's centroid.  For
+                        a 1-d Spectrum, this is a single value.  For a 2-d
+                        spectrum, this is a 2 element array containing, in order,
+                        the x and y coordinates of the centroid.
+
+countsContains the number of counts inside the region of interest.
+
+fwhmThe full width at half maximum of the peak (assumed to
+                        be gaussian peak shape). For a 1-d spectrum, this is
+                        just a single number.  For a 2-d spectrum, this will be
+                        a 2 element array that contains the x and y extents of
+                        the FWHM in order.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the filter command (New in 5.5 | Up | Accessing the SpecTcl parameter command (new in 5.4) |

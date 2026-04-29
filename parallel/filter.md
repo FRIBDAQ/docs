@@ -1,0 +1,45 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1298"></a>filter
+
+<a name="AEN1302"></a>## Name
+
+filter -- MPISpectcl Implementation of the filter command
+
+<a name="AEN1305"></a>## Synopsis
+
+**filter `-new`** *filter-name* *gate-name* *parameter-name*...
+
+**filter `-delete`** *ilter-name*
+
+**filter `-enable`** *filter-name*
+
+**filter `-disable`** *filter-name*
+
+**filter `-regate`** *filter-name* *gate-name*
+
+**filter `-file`** *file-name* *filter-name*
+
+**filter `-list`**  [*glob-pattern*]
+
+** filter `-format`** *filter-name* *format-specifier*
+
+<a name="AEN1356"></a>## DESCRIPTION
+
+The **filter** is wrapped in a `CMPITclCommand`. 
+                    In mpiSpecTcl, in only runs inthe MPI_EVENT_SINK_RANK as filters
+                    live in the event sink pipeline only.  In all other ranks, no result is set and
+                    a TCL_OK status is returned.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| evbunpack | Up | fit |

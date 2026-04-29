@@ -1,0 +1,29 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Chapter 4. SpecTcl classes that record event data | Next |
+
+
+---
+
+# <a name="AEN748"></a>4.2. Upper layer of SpecTcl's event recording/playback code.
+
+The upper layer of SpecTcl event recording/playback code
+                consists of a pair of objects that interface into
+                SpecTcl's analysis system.  Specifically,
+                `CDBProcessor` is used
+                to write run starts stops and scalers to the
+                database.  It is an `CEventProcessor`
+                and will be added to the event processing pipeline
+                `CDBSink`, on the other hand
+                is a `CEventSink` and will be added
+                to the event sink pipline.  By the time the event sink pipline
+                is executed for an event, the event has been fully decoded and
+                can be written to the database.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl classes that record event data | Up | Tcl bindings to the C++ API |

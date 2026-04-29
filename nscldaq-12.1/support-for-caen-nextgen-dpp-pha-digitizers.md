@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.caen_nextgen_dpp_pha"></a>Chapter 80. Support for CAEN Nextgen DPP-PHA digitizers
+
+# <a name="AEN16642"></a>80.1. Introduction
+
+This document describes how to configure and use the NSCLDAQ support
+            for the new generation of CAEN VXxxxx digitizers.  I assume that:
+
+
+
+- You have a basic familiarity with NSCLDAQ, how to configure it
+                    and how to use its event builder.
+- You have a basic familiarity with how to use and tailor
+                    the SpecTcl analysis package (if you choose to use this
+                    for analysis).
+- You are familiar with the configuration parameters of the
+                    DPP-PHA firmware supported by these modules.
+
+Note that NSCLDAQ and SpecTcl documentation are all online at
+            [http://docs.nscl.msu.edu/daq](http://docs.nscl.msu.edu/daq).   Problems and questions
+            about NSCLDAQ and SpecTcl (outside the scope of the CAEN Vxxxx digitizers)
+            should be addressed to [mailto:helpme@frib.msu.edu](mailto:helpme@frib.msu.edu).
+
+The document is therefore organized into the following chapters:
+
+
+
+- [[x16670]] describes
+                    how to create and configure a customized Readout program which
+                    will inject data from a set of ADCs into the NSCLDAQ data flow
+                    system.   Within that chapter,
+                    [[x16670#sec.rdoprogramming]]
+                    describes the changes needed to the SBS readout skeleton.  The
+                    format of events readout by this program will also be described.
+                    [[x16670#sec.rdoconfig]]
+                    describes how the modules are configured and how to write a
+                    configuration file for your readout software.
+- [[x17586]]
+                     describes how to build a tailored version of SpecTcl to produce
+                     raw parameters from the modules  you are reading out.
+
+For those interested an appendix describes the structure of the software
+            as well as items for further development.
+
+The tclreadout subdirectory of the source tree
+            gives a sample tailored readout program for the readout software
+            described in [[x16670]].
+            The tclreadout/SpecTcl subdirectory of the source
+            tree gives a sample tailored SpecTcl program for this example.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Exemplified Usage of the Actions package | Up | Getting Data |

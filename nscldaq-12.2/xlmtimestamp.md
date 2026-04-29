@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN104841"></a>XLMTimestamp
+
+<a name="AEN104845"></a>## Name
+
+XLMTimestamp -- XLM with timstamp firmware
+
+<a name="AEN104848"></a>## Synopsis
+
+```
+XLMTimestamp create name ?option value...?
+XLMTimestamp config  name option value?..?
+XLMTimestamp cget  name ?option?       
+        
+```
+
+<a name="AEN104853"></a>## DESCRIPTION
+
+The XLM72 module is a general purpose FPGA module. This means that what it does
+            depends entirely on the firmware that has been loaded into it.   For the
+            timeastmp firmware, two 32 bit values are read to the data stream from the module.
+
+<a name="AEN104856"></a>## OPTIONS
+
+
+
+`-base` *vme-address*Provides the base address of the module.
+
+`-firmware` *path-to-firmware-file*Provies the path to the firmware filename for the timestamp firmware.
+                            This must be provided unless the module is loaded externally from the 
+                            Readout (at some  point we will probably have a xlmloadmvlc to do that).
+
+`-loadfirmware` *yes | no *IF yes, the default, the firmware will be loaded at the start of each run.  If no, it is 
+                            assumed the firmware will have been loaded external to the readout.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| v977 | Up | ACAENV1290 |

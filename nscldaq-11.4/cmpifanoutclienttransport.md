@@ -1,0 +1,100 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN52095"></a>CMPIFanoutClientTransport
+
+<a name="AEN52099"></a>## Name
+
+CMPIFanoutClientTransport -- Worker side of a fanout transport (client).
+
+<a name="AEN52102"></a>## Synopsis
+
+```
+#include <CMPIFanoutClientTransport_mpi.h>
+
+class CMPIFanoutClientTransport
+    : public CMPITransport, public CFanoutClientTransport
+{
+public:
+    CMPIFanoutClientTransport(int distributor);
+    CMPIFanoutClientTransport(
+        MPI_Comm communicator, int distributor
+    );
+
+    virtual void recv(void** ppData, size_t& size);
+    virtual void send(iovec* parts,  size_t numParts);
+    virtual void setId(uint64_t id) {} 
+
+};
+
+        
+```
+
+<a name="AEN52104"></a>## DESCRIPTION
+
+Objects of this class should be used to get data from
+            a fanout tranposrt (MPI).  Note that for MPI transports, the
+            ID of the client is always its rank in the communicator.  This implies
+            that the communicator used by the fanout and its client must be the
+            same.  This also implies that the
+            `setId` method, in fact, actually does nothing.
+
+<a name="AEN52108"></a>## METHODS
+
+
+
+`  CMPIFanoutClientTransport(int  distributor);`Constructs a fanout client using the default
+                        communicator (MPI_COMM_WORLD).
+                        `distributor` is the rank of the
+                        process that is fanning out the data (the one with
+                        the `CFanoutMPITransport` object).
+
+`  CMPIFanoutClientTransport(MPI_Comm  communicator, int  distributor);`This constructor also accepts a
+                        `communicator` that will be used for
+                        all message passing. This communicator must be the same
+                        as the one used by the peer
+                        `CMPIFanoutTransport` object.
+
+` virtual   void  recv(void**  ppData, size_t&  size);`Gets data from the fanout.  A pointer to the received
+                        data (when done, the application must call
+                        `free` to release it) is
+                        stored in `ppData`.  The
+                        number of bytes of data received are stored in
+                        `size`.
+
+The pseudo code for this can be though of as:
+
+<a name="AEN52156"></a>```
+send request for data to distributor.
+receive message from distributor.
+                        
+```
+
+Note that the caller needs to ensure the data received
+                        are not an end.  While this could be done by asking
+                        for the message tag, a more transport portable method
+                        is to check for an empty message.
+
+` virtual   void  send(iovec*  parts, size_t  numParts);`Since this transport is unidirectional at the application
+                        level, this method throws a
+                        `std::logic_error` exception.
+
+` virtual  void   setId(uint64_t  id);`This operation is provided as required by the
+                        base class but is a No-op as the client id is always
+                        the class of the program in the communicator used to
+                        construct the object.  This communicator must be the
+                        same one used to construct the
+                        peer `CMPIFanoutTransport`
+                        object.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CMPIFanoutTransport | Up | CRingItemMPIDataSource |

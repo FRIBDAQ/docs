@@ -1,0 +1,173 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN169"></a>attach
+
+<a name="AEN173"></a>## Name
+
+attach -- Attach SpecTcl to a data source.
+
+<a name="AEN176"></a>## Synopsis
+
+**spectcl.attach(
+    type=*"file"|"pipe"*, name=*source-spec*,
+    [...])
+                        **
+
+<a name="AEN182"></a>## DESCRIPTION
+
+This method attaches SpecTcl to a new data source.
+                        Data analysis from any prior source is terminated.
+                        If successful, it's still necesary to start analysis
+                        on the data source.  The method returns
+                        None
+
+The actual operation of the method is determined by
+                        entirely by keyword parameters.  No positional parameters
+                        are allowed.  With the exception of
+                        `type` and `name`, all
+                        other keywords are options.  Allowed keywords are:
+
+
+
+`type`The value of this keyword must be a string
+                                    that contains either file,
+                                    if data are to be analyzed from a file,
+                                    or pipe if data
+                                    are analyzed from a pipe program.
+
+`name`The value of this keyword is a string. It's
+                                    interpretation depends on the value of
+                                    `type` above.
+
+If `type`='file',
+                                    the `name` value is a path
+                                    (absolute or relative) to the file from which
+                                    data will be analyzed.
+
+If `type`='pipe'
+                                    the `name` value is a program
+                                    and its arguments.  The specified program must
+                                    output valid data to its stdout. The specified
+                                    program's stdout will be connected to a pipe
+                                    from which SpecTcl will read data.
+
+Note that pipe data sources are how
+                                    SpecTcl takes data from online systems.
+
+`size`The value of this keyword must be an integer.
+                                    SpecTcl will read data from its data source
+                                    using a buffer with as many bytes as
+                                    specified by `size`.
+                                    This keyword is optional and its value
+                                    defaults to 8192.
+
+It is recommended that the size be large enough
+                                    to hold several typical events.
+
+`format`The value of this keyword is a
+                                    string that specifies
+                                    the data format that SpecTcl assumes the
+                                    data is in.  The legal values are
+                                    ring10 or
+                                    ring11.  This keyword is
+                                    optional and defaults to ring11.
+
+Note that if Spectcl sees ring format items
+                                    but ring10 was specified,
+                                    it will override the specification to the
+                                    data format specified by the format item.
+                                    If the source is online and the run has already
+                                    been started, the initial ring format item
+                                    will not be seen and the specified format
+                                    will be used.
+
+<a name="AEN230"></a>## EXAMPLES
+
+<a name="AEN232"></a>**Example 3-1. Attaching a file data source**
+
+```
+set filename [file normalize [file join ~ stagearea experiment run1 run-0001-00.evt]]
+python exec {
+spectcl.attach(type='file', name='$filename')
+}
+                        
+```
+
+Note that Tcl is used to generate and normalize
+                            the event filename in the stagearea.  The resulting
+                            filename is used by the python script as the
+                            `name` for the attach.
+
+<a name="AEN237"></a>**Example 3-2. Taking data from an NSCLDAQ ringbuffer**
+
+```
+python exec {
+import os
+import getpass
+
+daqbin=os.getenv('DAQBIN')
+host  =os.getenv('DAQHOST')
+
+program = daqbin + '/ringselector --sample=PHYSICS_EVENT --non-blocking '
+user    = getpass.getuser()
+uri     = 'tcp://' + host + '/' + user
+program = program + '--source=' + uri
+
+spectcl.attach(type='pipe', name=program)
+    
+}
+                        
+```
+
+This example assumes thate:
+
+
+
+- The DAQBIN environment
+                                          variable points at a valid bin
+                                          subdirectory of an NSCLDAQ installation.
+- The environment variable
+                                          DAQHOST contains the name
+                                          of the system on which the ringbuffer
+                                          from which we want data lives.
+- We want to take data from the default
+                                          ringbuffer (the logged in username) from
+                                          that host.
+  Note that the combination of
+                                          `--sample` and
+                                          `--non-blocking` on the
+                                          **ringselector** command
+                                          ensure that SpecTcl will not determine
+                                          the maximum data taking rate.
+
+<a name="AEN254"></a>**Example 3-3. Reading data from a gzipped event file**
+
+```
+set filename [file normalize [file join ~ stagearea experiment run1 run-0001-00.evt.gz]]
+python exec {
+program = 'zcat $filename'
+spectcl.attach(type='pipe', name=program)    
+}
+                        
+```
+
+The output of zcat, the uncompressed event file,
+                            is attached via a pipe to SpecTcl.  As in the
+                            first example, we use Tcl to generate the filename.
+                            We could equally well have done this using
+                            `os.path.join` and
+                            `os.path.abspath`
+                            completely in the python script.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| listgates | Up | start |

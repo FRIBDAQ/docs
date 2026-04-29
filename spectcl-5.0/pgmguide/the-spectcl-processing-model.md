@@ -1,0 +1,103 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.processingmodel"></a>Chapter 2. 
+        The SpecTcl processing model.
+
+This chapter describes the SpecTcl processing model.  In order to
+        effectively write SpecTcl based software it is important to have some
+        understanding of how SpecTcl organizes its computing.  The intent of this
+        chapter is to provide an overview of this processing model.  Each of the
+        remaining chapters in this book will then zoom in on one section of
+        that model and describe how to write software that extends or lives inside
+        of that section.
+
+The figure below graphically shows the major components of SpecTcl
+        and their main interactions.
+
+<a name="fig.processingmodel"></a>**Figure 2-1. SpecTcl processing model**
+
+![](processingmodel.png)
+
+The core of SpecTcl is a command interpreter that is an extended
+        version of the Tcl/Tk scripting language ([http://www.tcl.tk](http://www.tcl.tk)).
+        Tcl is a general purpose programming language with a very simple syntax.
+        You can learn most of what you need about Tcl in under an hour.  The Tk
+        toolkit bolts on to Tcl providing a mechanism for Tcl scripts to create
+        rich graphical user interfaces.
+
+SpecTcl extents the Tcl interpreter.  It adds commands to the interpreter
+        that provide the ability to create and manipulate the objects SpecTcl
+        needs.  The most prominent of these objects are parameters, spectra, gates
+        and gate applications.  Parameters, spectra and gates are held in
+        dictionaries indexed by their names.  Gate applications are stored
+        with their spectra.
+
+Tcl/Tk's processing model provides an event loop.  An event loop
+        reacts to events and dispatches them to appropriate handlers.
+        SpecTcl's Tcl extensions establish a source of events.  When the data
+        source has data avaialable, the event loop dispatches it to a processing
+        pipeline.
+
+The first stage of event processing knows about the high level format of
+        the data. This is used to unpack blocks of data into units that consist
+        of, among other things events.  This is represented by the diagram's
+        High level parsing  box.  In most cases
+        you will not need to provide or modify that code.  That code only needs
+        to be touched if you are adapting SpecTcl to data from a new data acquisition
+        system not supported by SpecTcl.
+
+The high data parsing stage locates blocks of events (a block may be
+        a single event long as it is for ring buffer data).  Events from
+        this block are passed one by one to the event processing pipeline.
+
+The event processing pipeline is the code you will normally have to write.
+        It takes a raw event and extracts meaningful parameters from it.
+        The format of a raw event and the definition of meaningful parameter
+        are both experiment specific.
+
+The event processing pipeline consists of an arbitrary number of stages.
+        Each stage has access to the raw event and to the parameters that have
+        been unpacked from it by the prior stages.  Careful organization of
+        the functionality of your event processors can be key both to allowing
+        your detector system to be easily reconfigured and to layering the extraction
+        of computed parameters on top of raw parameters in a meaningful and organized
+        way.
+
+The parameters produced by the event processing pipeline are then passed
+        to the event sink pipeline.  The main component of that is the
+        histogramming kernel.  It uses the parameters, parameter definitions,
+        spectrum definitions, gate applications and relevant gate definitions
+        to determine which histograms will be incremented and where.
+
+At this point, the only other elements that live in the event sink
+        pipeline are filters.  Filters produce a reduced data set by outputing
+        some set of parameters for events that satisfy a gate.  It is very
+        unusual for application specific code to need to add elements to the
+        event sink pipeline, though that is  possible.
+
+Histograms are stored by SpecTcl as arrays of data with descriptive
+        metadata.  SpecTcl has no built in visualization component.  It can
+        store spectrum bulk data in a shared  memory region and supports a few
+        well defined communications mechanisms that allow external displayers
+        to let you visualize and interact with the data.  The two visualizers
+        that are currently supported are Xamine and Spectra.  Xamine is an
+        X-11/Motif application, while spectra is based on Root
+        ([http://root.cern.ch](http://root.cern.ch)).
+
+We won't say anything about Spectra in this document, however
+        Xamine provides hooks to allow your code to interact with it and the
+        data it displays.  We'll describe how to take advantage of those
+        hooks.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | The SpecTcl event processing pipeline. |

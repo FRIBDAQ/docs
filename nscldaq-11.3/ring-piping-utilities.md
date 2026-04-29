@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringpipes"></a>Chapter 19. Ring piping utilities
+
+The ring pipe utilities are intended to provide mechanisms for
+        non ringbuffer aware software to access ring buffers.  These utilities
+        are also used by the high level access libraries to provide access
+        to remote ringbuffers via proxy rings.
+
+There are two ring pipe utilities:
+
+
+
+**ringtostdout**Accepts data from a ring buffer and transmits it to the program's
+                stdout file descriptor.
+
+**stdintoring**Accepts data from the program's
+                    stdin
+                    file descriptor and places it in the ring buffer.
+
+The **ringtostdout** command can be used to
+        hoist data out of ring buffers to a command or filter that is not
+        aware of the NSCL Data acquisition system.  It is a key element of the
+        pipeline that ships data to
+        SpecTcl,
+        as well as a key component of the networked data distribution system
+        (with stdout redirected to a socket).
+        For detailed usage information see the
+        [[r12770]].
+
+The **stdintoring** command can be used to allow a
+        non NSCLDAQ aware program or pipeline to be a producer for a ring buffer.
+        This command is also a key component of the networked data distribution
+        system (with
+        stdin redirected to a socket).
+        For detailed information, see the
+        [[r12834]].
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| utilities | Up | The dumper program |

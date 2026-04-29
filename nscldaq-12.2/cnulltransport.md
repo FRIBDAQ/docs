@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN70032"></a>CNullTransport
+
+<a name="AEN70036"></a>## Name
+
+CNullTransport -- Null transport for testing
+
+<a name="AEN70039"></a>## Synopsis
+
+```
+#include <CNullTransport.h>
+
+class CNullTransport :  public CTransport
+{
+    void recv(void** ppData, size_t& size);
+    void send(iovec* parts, size_t numParts);
+};
+        
+```
+
+<a name="AEN70041"></a>## DESCRIPTION
+
+This is a Transport class built for testing.
+            See `CTransport`(3daq) for
+            information about transports.
+            The null transport provides zero length messages
+            for each call to `recv`.
+            Calls to `send` don't do
+            anything.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CReceiver | Up | CTestTransport |

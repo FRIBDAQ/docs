@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cabnormalenditem"></a>CAbnormaEndItem
+
+<a name="AEN28028"></a>## Name
+
+CAbnormalEndItem -- Abnormal end of run.
+
+<a name="AEN28031"></a>## Synopsis
+
+```
+CAbnormalEnditem
+```
+
+<a name="AEN28105"></a>## DESCRIPTION
+
+Provides a class for objects that represent abnormal end of run
+            ring items.
+
+<a name="AEN28108"></a>## METHODS
+
+
+
+`  CAbnormalEndItem()          throws ;`Default constructor for abnormal end items.
+                        In most applications, this is the only
+                        constructor you ever need.
+
+`  CAbnormalEndItem(const CAbnormalEndItem& rhs);`Creates a ring item that is a duplicate of the `rhs`
+                        argrument.
+
+`  CAbnormalEndItem(const CRingItem& rhs);`Constructs an abnormal end item from an arbitrary
+                        ring item reference.  The only requirement to avoid an
+                        exception is that `rhs` has the type
+                        ABNORMAL_ENDRUN.  If this is not the case
+                        a `std::bad_cast` exception is thrown.
+
+` CAbnormalEndItem& operator=(const CAbnormalEndItem& rhs);`Assigns this to the contents of `rhs`.
+
+`  const int operator==(const CAbnormalEndItem& rhs);`Returns 1 because there is no payload
+                        in abnormal end run item to differentiate one from another.
+
+`  const int operator==(const CRingitem& rhs);`Returns 1 if `rhs`
+                        is an abnormal end ring item.
+
+`  const int operator!=(const CAbnormalEndItem& rhs);`
+`  const int operator!=(const CRingItem& rhs);`Returns the logical negation of the corresponding
+                        `operator==`.
+
+` virtual  const std::string  typeName();`Returns a string that describes the type of the
+                        ring item.  In this case the string is
+                        Abnormal End.
+
+` virtual  const std::string  toString() ();`Returns a string that represents the contents
+                        of the ring item.  In this case, with no
+                        payload, the result of
+                        `typeName` is returned.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CGlomParameters | Up | CRingSelectionPredicate |

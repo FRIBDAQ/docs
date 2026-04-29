@@ -1,0 +1,796 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev | Chapter 5. Complete program listings. |  |
+
+
+---
+
+# <a name="AEN1221"></a>5.2. SpecTcl software
+
+<a name="AEN1223"></a>**Example 5-6. MyEventProcessor.h**
+
+```
+#ifndef __MYEVENTPROCESSOR_H
+#define __MYEVENTPROCESSOR_H
+
+#include <EventProcessor.h>                      // co:epbaseclassinclude
+#include <TranslatorPointer.h>	                 // co:epxlatorpointerinclude 
+#include <histotypes.h>                          // co:histotypesinclude
+
+
+// Forward class definitions:
+
+class CTreeParameterArray;
+class CAnalyzer;		                 // co:epforwards
+class CBufferDecoder;
+class CEvent;
+
+
+
+
+class MyEventProcessor : public CEventProcessor // co:epinherit
+{
+private:
+  CTreeParameterArray&  m_rawData;              // co:treearraymember
+  int                   m_nId;                  // co:epidmember
+  int                   m_nSlot;                // co:epslotmember
+public:
+  MyEventProcessor(int         ourId, 
+		   int         ourSlot,	        // co:epconstructor
+		   const char* baseParameterName);
+  ~MyEventProcessor();		                   // co:epdestructor
+
+  virtual Bool_t operator()(const Address_t pEvent,
+			    CEvent&         rEvent,   // co:epfunccall
+			    CAnalyzer&      rAnalyzer,
+			    CBufferDecoder& rDecoder);
+
+private:
+  void unpackPacket(TranslatorPointer<UShort_t> p);  // co:unpackUtil
+  
+};
+
+#endif
+
+        
+```
+
+<a name="AEN1226"></a>**Example 5-7. MyEventProcessor.cpp**
+
+```
+#include <config.h>
+#include "MyEventProcessor.h"            // co:epinclude
+#include <TreeParameter.h>
+#include <Analyzer.h>                    // co:epforwardincludes
+#include <BufferDecoder.h>
+#include <Event.h>
+
+#include <iostream>
+
+#include <TCLAnalyzer.h>                  // co:tclanalyzerinclude
+
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;
+#endif
+static const ULong_t CAEN_DATUM_TYPE(0x07000000);  
+static const ULong_t CAEN_HEADER(0x02000000);      
+static const ULong_t CAEN_DATA(0);
+static const ULong_t CAEN_TRAILER(0x04000000);
+static const ULong_t CAEN_INVALID(0x06000000);
+
+static const ULong_t CAEN_GEOMASK(0xf8000000);
+static const ULong_t CAEN_GEOSHIFT(27);
+static const ULong_t CAEN_COUNTMASK(0x3f00);   // co:constants
+static const ULong_t CAEN_COUNTSHIFT(8);
+
+static const ULong_t CAEN_CHANNELMASK(0x3f0000);
+static const ULong_t CAEN_CHANNELSHIFT(16);
+static const ULong_t CAEN_DATAMASK(0xfff);
+
+
+static inline ULong_t getLong(TranslatorPointer<UShort_t>& p)  // co:getLong
+{
+  ULong_t high   = p[0];
+  ULong_t low    = p[1];                  
+  return (high << 16) | low;	          
+}
+
+MyEventProcessor::MyEventProcessor(int ourId,
+				   int ourSlot,
+				   const char* baseParameterName) :
+  m_rawData(*(new CTreeParameterArray(string(baseParameterName),
+				      4096, 0.0, 4095.0, string("channels"),
+				      32, 0))),    // co:epinitializers
+  m_nId(ourId),
+  m_nSlot(ourSlot)
+{
+}
+
+
+
+MyEventProcessor::~MyEventProcessor()
+{
+  delete &m_rawData;		// co:epcleanup
+}
+
+Bool_t
+MyEventProcessor::operator()(const Address_t pEvent,
+			     CEvent&         rEvent,
+			     CAnalyzer&      rAnalyzer,
+			     CBufferDecoder& rDecoder)
+{
+  TranslatorPointer<UShort_t> p(*(rDecoder.getBufferTranslator()),
+				pEvent);                    
+  UShort_t                    nWords = *p++;           // co:epboilerplate
+  CTclAnalyzer&               rAna((CTclAnalyzer&)rAnalyzer);
+  rAna.SetEventSize(nWords*sizeof(UShort_t));
+  nWords--;			// Remaining words after word count.
+
+  while (nWords) {
+    UShort_t nPacketWords = *p;                       // co:packetHeader
+    UShort_t nId          = p[1];
+    if (nId == m_nId) {                               // co:packetSearch
+      try {                                           // co:tryCatch
+	unpackPacket(p);                              // co:invokeUnpack 
+      }
+      catch(string msg) {
+	cerr << "Error Unpacking packet " << hex << nId << dec 
+	     << " " << msg << endl;
+	return kfFALSE;                               // co:handleError
+      }
+      catch(...) {
+	cerr << "Some sort of exception caught unpacking packet " << hex << nId
+	     << dec << endl;
+	return kfFALSE;
+      }
+    }
+    p      += nPacketWords;                           // co:nextPacket
+    nWords -= nPacketWords;
+  }
+  return kfTRUE;		                     // co:aOk 
+}
+
+void
+MyEventProcessor::unpackPacket(TranslatorPointer<UShort_t> pEvent)
+{
+  pEvent += 2;			                    // co:toBody
+
+  ULong_t header      = getLong(pEvent);
+  if ((header & CAEN_DATUM_TYPE) != CAEN_HEADER) {   // co:headerSanity
+    throw string("Did not find V785 header when expected");
+  }
+  if (((header & CAEN_GEOMASK) >> CAEN_GEOSHIFT) != m_nSlot) {
+    throw string("Mismatch on slot");
+  }
+
+  Long_t nChannelCount = (header & CAEN_COUNTMASK) >> CAEN_COUNTSHIFT;
+
+  pEvent += 2;                                       // co:toData
+  for (ULong_t i =0; i < nChannelCount; i++) {       // co:decodeBody
+    ULong_t channelData = getLong(pEvent);
+    int     channel     = (channelData & CAEN_CHANNELMASK) >> CAEN_CHANNELSHIFT;
+    int     data        = (channelData & CAEN_DATAMASK);
+    m_rawData[channel] = data;
+
+    pEvent += 2;
+  }
+  
+  Long_t trailer = getLong(pEvent);
+  trailer       &= CAEN_DATUM_TYPE;
+  if ((trailer != CAEN_TRAILER) ) { // co:trailerSanity
+    throw string("Did not find V785 trailer when expected");
+  }
+  
+}
+
+
+        
+```
+
+<a name="AEN1229"></a>**Example 5-8. MySpecTclApp.cpp**
+
+```
+static const char* Copyright = "(C) Copyright Michigan State University 2008, All rights reserved";
+
+// Class: CMySpecTclApp
+
+////////////////////////// FILE_NAME.cpp /////////////////////////////////////////////////////
+#include <config.h>
+#include "MySpecTclApp.h"    				
+#include "EventProcessor.h"
+#include "TCLAnalyzer.h"
+#include <Event.h>
+#include <TreeParameter.h>
+#include "MyEventProcessor.h"
+
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;
+#endif
+
+
+// Local Class definitions:
+
+
+// This is a sample tree parameter event structure:
+// It defines an array of 10  raw parameters that will
+// be unpacked from the data and a weighted sum
+// that will be computed.
+//
+typedef
+struct  {
+  CTreeParameterArray&  raw;
+  CTreeParameter&       sum;
+} MyEvent;
+
+// Having created the struct we must make an instance
+// that constructs the appropriate objects:
+
+
+MyEvent event = {
+  *(new CTreeParameterArray("event.raw", "channels",  10, 0)),
+  *(new CTreeParameter("event.sum", "arbitrary"))
+};
+
+// Here's a sample tree variable structure
+// that defines the weights for the weighted
+// sum so that they can be varied from the command line:
+// An array is also declared for testing purposes but not used.
+typedef
+struct {
+  CTreeVariable&  w1;
+  CTreeVariable&  w2;
+  CTreeVariableArray& unused;
+} MyParameters;
+
+// Similarly, having declared the structure, we must define
+// it and construct its elements
+
+MyParameters vars = {
+  *(new CTreeVariable("vars.w1", 1.0,  "arb/chan")),
+  *(new CTreeVariable("vars.w2", 1.0, "arb/chan")),
+  *(new CTreeVariableArray("vars.unused", 0.0, "furl/fort", 10, 0))
+
+};
+// CFixedEventUnpacker - Unpacks a fixed format event into
+// a sequential set of parameters.
+//
+
+class CFixedEventUnpacker : public  CEventProcessor
+{
+public:
+  virtual Bool_t operator()(const Address_t pEvent,
+			    CEvent&         rEvent,
+			    CAnalyzer&      rAnalyzer,
+			    CBufferDecoder& rDecoder);
+};
+
+Bool_t
+CFixedEventUnpacker::operator()(const Address_t pEvent,
+				CEvent&         rEvent,
+				CAnalyzer&      rAnalyzer,
+				CBufferDecoder& rDecoder)
+{
+
+  // This sample unpacker unpacks a fixed length event which is
+  // preceded by a word count.
+  //
+  TranslatorPointer<UShort_t> p(*(rDecoder.getBufferTranslator()), pEvent);
+  CTclAnalyzer&      rAna((CTclAnalyzer&)rAnalyzer);
+  UShort_t  nWords = *p++;
+  Int_t     i      = 1;
+
+  // At least one member of the pipeline must tell the analyzer how
+  // many bytes were in the raw event so it knows where to find the
+  // next event.
+
+  rAna.SetEventSize(nWords*sizeof(UShort_t)); // Set event size.
+
+  nWords--;			// The word count is self inclusive.
+  int param = 0;		// No more than 10 parameters.
+
+  while(nWords && (param < 10)) {		// Put parameters in the event starting at 1.
+    event.raw[param] = *p++;
+    nWords--;
+    param++;
+  }
+  return kfTRUE;		// kfFALSE would abort pipeline.
+}
+
+// CAddFirst2 - Sample unpacker which adds a pair of unpacked parameters
+//   together to get a new parameter.
+
+
+class CAddFirst2 : public CEventProcessor
+{
+public:
+  virtual Bool_t operator()(const Address_t pEvent,
+			    CEvent&         rEvent,
+			    CAnalyzer&      rAnalyzer,
+			    CBufferDecoder& rDecoder);
+
+};
+
+Bool_t
+CAddFirst2::operator()(const Address_t pEvent,
+		       CEvent&         rEvent,
+		       CAnalyzer&      rAnalyzer,
+		       CBufferDecoder& rDecoder)
+{
+  event.sum = event.raw[0]*vars.w1 + event.raw[1]*vars.w2;
+  return kfTRUE;
+}
+
+
+// Instantiate the unpackers we'll use.
+
+
+static CFixedEventUnpacker Stage1;
+static CAddFirst2          Stage2;
+
+// CFortranUnpacker:
+//   This sample unpacker is a bridge between the C++ SpecTcl
+//   and a FORTRAN unpacking/analysis package.  
+//   The raw event is passed as a parameter to the FORTRAN function
+//   f77unpacker.  This function has the signature:
+//     LOGICAL F77UNPACKER(EVENT)
+//     INTEGER*2 EVENT(*)
+//
+//  As with all event processors, this function is supposed to
+//  return .TRUE. if processing continues or .FALSE. to abort event processing.
+//  Unpacked events are returned to SpecTcl via a Common block declared
+//  as follows:
+//                                      ! generated by the unpacker:
+//    COMMON/F77PARAMS/NOFFSET, NUSED, PARAMETERS(F77NPARAMS),
+//   1                 FPARAMETERS(F77NPARAMS)
+//    INTEGER*4 PARAMETERS
+//    LOGICAL   FPARAMETERS
+//
+//    At compile time, define: WITHF77UNPACKER
+//    and F77NPARAMS to be the maximum number of parameters the Fortran
+//    unpacker will fill in.
+// 
+//    In the unpacker, set FPARAMETERS(i) if i has been unpacked from
+//    the event.
+//        
+//
+//   PARAMETERS are copied from 1 -> NUSED into parameters numbered
+//   NOFFSET -> NUSED+NOFFSET
+//   NOFFSET starts from zero.
+//
+//   The fortran program should be compiled:
+//      cpp -DF77NPARAMS=nnnn yourprog.f > yourprog.for
+//      f77 -c yourprog.for
+//      rm yourprog.for
+//
+//    Assuming you've writtne the file yourprog.f
+
+#ifdef WITHF77UNPACKER
+
+
+struct {
+  int   nOffset;
+  int   nUsed;
+  int  nParameters[F77NPARAMS];	// Fortran will extend this appropriately.
+  int fParameters[F77NPARAMS];
+} f77params_;
+
+extern "C" Bool_t f77unpacker_(const Address_t pEvent);
+
+class CFortranUnpacker : public CEventProcessor
+{
+public:
+  virtual Bool_t operator()(const Address_t pEvent, CEvent& rEvent,
+		    CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);
+};
+
+Bool_t
+CFortranUnpacker::operator()(const Address_t pEvent,
+			     CEvent&         rEvent,
+			     CAnalyzer&      rAnalyzer,
+			     CBufferDecoder& rDecoder)
+{
+  Bool_t result = f77unpacker_(pEvent);
+  if(result) {
+    int dest = f77params_.nOffset;
+    for(int i = 0; i < f77params_.nUsed; i++) {
+      if(f77params_.fParameters[i])
+	rEvent[dest] = f77params_.nParameters[i];
+      dest++;
+    }
+    UShort_t* pSize = (UShort_t*)pEvent;
+    CTclAnalyzer&  rAna((CTclAnalyzer&)rAnalyzer);
+    rAna.SetEventSize( (*pSize)* sizeof(UShort_t));
+  }
+  return result;
+}
+
+CFortranUnpacker legacyunpacker;
+
+#endif
+//  Function: 	
+//    void CreateAnalysisPipeline(CAnalyzer& rAnalyzer) 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+  Sets up an analysis pipeline.  This function is required and must
+be filled in by the SpecTcl user.  Pipeline elements are objects
+which are members of classes derived from the CEventProcessor
+class. They should be added to the Analyzer's event processing pipeline
+by calling RegisterEventProcessor (non virtual base class member).
+   The sample implementation in this
+file produces a two step pipeline.  The first step decodes a fixed length
+event into the CEvent array.  The first parameter is put into index 1 and so on.
+The second step produces a compiled pseudo parameter by adding event array
+elements 1 and 2 and putting the result into element 0.
+
+
+*/
+
+void 
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)  
+{ 
+  RegisterEventProcessor(*(new MyEventProcessor(0xff00, 10, 
+						"mydetectors.caenv785")));
+}  
+
+// Constructors, destructors and other replacements for compiler cannonicals:
+
+CMySpecTclApp::CMySpecTclApp ()
+{   
+} 
+
+	// Destructor:
+
+ CMySpecTclApp::~CMySpecTclApp ( )
+{
+} 
+
+
+// Functions for class CMySpecTclApp
+
+
+
+//  Function: 	
+//    void BindTCLVariables(CTCLInterpreter& rInterp) 
+//  Operation Type:
+//     override
+/*  
+Purpose: 	
+
+ Add code to this function to bind any TCL variable to
+ the SpecTcl interpreter.  Note that at this time,
+ variables have not yet been necessarily created so you
+ can do Set but not necessarily Get operations.
+
+
+
+*/
+void 
+CMySpecTclApp::BindTCLVariables(CTCLInterpreter& rInterp)  
+{ 
+  CTclGrammerApp::BindTCLVariables(rInterp);
+}  
+
+//  Function: 	
+//    void SourceLimitScripts(CTCLInterpreter& rInterpreter) 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+Add code here to source additional variable setting
+scripts.  At this time the entire SpecTcl/Tk infrastructure
+is not yet set up.  Scripts run at this stage can only run
+basic Tcl/Tk commands, and not SpecTcl extensions.
+Typically, this might be used to set a bunch of initial values
+for variables which were bound in BindTCLVariables.
+
+*/
+void 
+CMySpecTclApp::SourceLimitScripts(CTCLInterpreter& rInterpreter)  
+{ CTclGrammerApp::SourceLimitScripts(rInterpreter);
+}  
+
+//  Function: 	
+//    void SetLimits() 
+//  Operation Type:
+//     overide
+/*  
+Purpose: 	
+
+Called after BindVariables and SourceLimitScripts.
+This function can be used to fetch values of bound Tcl
+variables which were modified/set by the limit scripts to
+update program default values. 
+
+*/
+void 
+CMySpecTclApp::SetLimits()  
+{ CTclGrammerApp::SetLimits();
+}  
+
+//  Function: 	
+//    void CreateHistogrammer() 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+Creates the histogramming data sink.  If you want to override
+this in general you probably won't make use of the actual
+base class function.  You might, however extend this by 
+defining a base set of parameters and histograms from within
+the program.
+
+*/
+void 
+CMySpecTclApp::CreateHistogrammer()  
+{ CTclGrammerApp::CreateHistogrammer();
+}  
+
+//  Function: 	
+//    void SelectDisplayer(UInt_t nDisplaySize, CHistogrammer& rHistogrammer) 
+//  Operation Type:
+//     Override.
+/*  
+Purpose: 	
+
+Select a displayer object and link it to the
+histogrammer.  The default code will link Xamine
+to the displayer, and set up the Xamine event handler
+to deal with gate objects accepted by Xamine interaction.
+
+*/
+void 
+CMySpecTclApp::SelectDisplayer(UInt_t nDisplaySize, CHistogrammer& rHistogrammer)  
+{ CTclGrammerApp::SelectDisplayer(nDisplaySize, rHistogrammer);
+}  
+
+//  Function: 	
+//    void SetupTestDataSource() 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+ Allows you to set up a test data source.  At
+present, SpecTcl must have a data source of some sort
+connected to it... The default test data source produces a 
+fixed length event where all parameters are selected from
+a gaussian distribution.  If you can figure out how to do it,
+you can setup your own data source... as long as you don't
+start analysis, the default one is harmless.
+
+*/
+void 
+CMySpecTclApp::SetupTestDataSource()  
+{ CTclGrammerApp::SetupTestDataSource();
+}  
+
+//  Function: 	
+//    void CreateAnalyzer(CEventSink* pSink) 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+Creates an analyzer.  The Analyzer is connected to the data
+source which supplies buffers.  Connected to the analyzer is a
+buffer decoder and an event unpacker.  The event unpacker is 
+the main experiment dependent chunk of code, not the analyzer.
+The analyzer constructed by the base class is a CTclAnalyzer instance.
+This is an analyzer which maintains statistics about itself in Tcl Variables.
+
+*/
+void 
+CMySpecTclApp::CreateAnalyzer(CEventSink* pSink)  
+{ CTclGrammerApp::CreateAnalyzer(pSink);
+}  
+
+//  Function: 	
+//    void SelectDecoder(CAnalyzer& rAnalyzer) 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+  Selects a decoder and attaches it to the analyzer.
+A decoder is responsible for knowing the overall structure of
+a buffer produced by a data analysis system.  The default code
+constructs a CNSCLBufferDecoder object which knows the format
+of NSCL buffers.
+
+*/
+void 
+CMySpecTclApp::SelectDecoder(CAnalyzer& rAnalyzer)  
+{ CTclGrammerApp::SelectDecoder(rAnalyzer);
+}  
+
+
+
+//  Function: 	
+//    void AddCommands(CTCLInterpreter& rInterp) 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+This function adds commands to extend Tcl/Tk/SpecTcl.
+The base class function registers the standard SpecTcl command
+packages.  Your commands can be registered at this point.
+Do not remove the sample code or the SpecTcl commands will
+not get registered.
+
+*/
+void 
+CMySpecTclApp::AddCommands(CTCLInterpreter& rInterp)  
+{ CTclGrammerApp::AddCommands(rInterp);
+}  
+
+//  Function: 	
+//    void SetupRunControl() 
+//  Operation Type:
+//     Override.
+/*  
+Purpose: 	
+
+  Sets up the Run control object.  The run control object
+is responsible for interacting with the underlying operating system
+and programming framework to route data from the data source to 
+the SpecTcl analyzer.  The base class object instantiates a 
+CTKRunControl object.  This object uses fd waiting within the 
+Tcl/TK event processing loop framework to dispatch buffers for
+processing as they become available.
+
+*/
+void 
+CMySpecTclApp::SetupRunControl()  
+{ CTclGrammerApp::SetupRunControl();
+}  
+
+//  Function: 	
+//    void SourceFunctionalScripts(CTCLInterpreter& rInterp) 
+//  Operation Type:
+//     Override
+/*  
+Purpose: 	
+
+  This function allows the user to source scripts
+which have access to the full Tcl/Tk/SpecTcl
+command set along with whatever extensions have been
+added by the user in AddCommands.  
+
+*/
+void 
+CMySpecTclApp::SourceFunctionalScripts(CTCLInterpreter& rInterp)  
+{ CTclGrammerApp::SourceFunctionalScripts(rInterp);
+}  
+
+//  Function: 	
+//    int operator()() 
+//  Operation Type:
+//     Override.
+/*  
+Purpose: 	
+
+  Entered at Tcl/Tk initialization time (think of this
+as the entry point of the SpecTcl program).  The base
+class default  implementation calls the member functions
+of this class in an appropriate order.  It's possible for the user
+to extend this functionality by adding code to this function.
+
+*/
+int 
+CMySpecTclApp::operator()()  
+{ 
+  return CTclGrammerApp::operator()();
+}
+
+CMySpecTclApp   myApp;
+CTclGrammerApp& app(myApp);	// Create an instance of me.
+CTCLApplication* gpTCLApplication=&app;  // Findable by the Tcl/tk framework.
+
+
+        
+```
+
+<a name="AEN1232"></a>**Example 5-9. Makefile**
+
+```
+INSTDIR=/scratch/fox/SpecTcl/3.1test
+# Skeleton makefile for 3.1
+
+include $(INSTDIR)/etc/SpecTcl_Makefile.include
+
+#  If you have any switches that need to be added to the default c++ compilation
+# rules, add them to the definition below:
+
+USERCXXFLAGS=
+
+#  If you have any switches you need to add to the default c compilation rules,
+#  add them to the defintion below:
+
+USERCCFLAGS=$(USERCXXFLAGS)
+
+#  If you have any switches you need to add to the link add them below:
+
+USERLDFLAGS=
+
+#
+#   Append your objects to the definitions below:
+#
+
+OBJECTS=MySpecTclApp.o MyEventProcessor.o
+
+#
+#  Finally the makefile targets.
+#
+
+
+SpecTcl: $(OBJECTS)
+	$(CXXLD)  -o SpecTcl $(OBJECTS) $(USERLDFLAGS) \
+	$(LDFLAGS) 
+
+
+clean:
+	rm -f $(OBJECTS) SpecTcl
+
+depend:
+	makedepend $(USERCXXFLAGS) *.cpp *.c
+
+help:
+	echo "make                 - Build customized SpecTcl"
+	echo "make clean           - Remove objects from previous builds"
+	echo "make depend          - Add dependencies to the Makefile. "
+
+        
+```
+
+<a name="AEN1235"></a>**Example 5-10. startspectcl**
+
+```
+#!/bin/bash
+
+. /etc/profile              # co:profile
+. ~/.bashrc
+
+cd ~/experiment/spectcl     # co:cd
+
+./SpecTcl <setup.tcl        # co:spectclstart
+
+        
+```
+
+<a name="AEN1238"></a>**Example 5-11. SpecTcl Setup file setup.tcl**
+
+```
+source myspectra.tcl;     # co:definitions
+sbind -all;               # co:bind
+
+.gui.b update;            # co:treeupdate
+
+
+if {[array names env DAQHOST] ne ""} {
+    set daqsource $env(DAQHOST)
+} else {;                  # co:daqsource
+    set daqsource "localhost"
+}
+
+set url "tcp://$daqsource:2602"; # co:url
+
+attach -pipe /usr/opt/daq/current/bin/spectcldaq $url; # co:attach
+start;                                                 # co:start
+
+        
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| Complete program listings. | Up |  |

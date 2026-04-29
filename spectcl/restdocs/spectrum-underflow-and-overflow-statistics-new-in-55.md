@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1108"></a>3.15. Spectrum Underflow and Overflow Statistics (new in 5.5)
+
+URLs of the form:
+
+<a name="AEN1111"></a>**http://host:port/specstats[?pattern=globname-pattern]
+                **
+
+Return the overflow and underflow statistics for the spectra
+                whose names match the optional pattern
+                query parameter.  If that pattern is not supplied it defaults
+                to * returning information about all spectra.
+
+The detail attribute of the returned JSON object
+                is an array of objects that have the attributes:
+
+
+
+nameName of the spectrum being described.
+
+underflowsArray of underflow counters.  If a 1-d spectrum this is
+                        a single element.  For 2-d spectra this is a two element
+                        array containing x and y axis undeflowas in that order.
+
+overflowsSame as for undeflows but the array
+                        contain overflow counter(s).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Projecting spectra (new in 5.5) | Up | Access to the treeevariable command (new in 5.5) |

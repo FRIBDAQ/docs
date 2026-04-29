@@ -1,0 +1,200 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="cvme"></a>CVME<T>
+
+<a name="AEN35235"></a>## Name
+
+CVME<T> -- Reference counted pointer like object to VME address segments.
+
+<a name="AEN35238"></a>## Synopsis
+
+```
+#include <CVME.h>
+         
+```
+
+```
+  CVME<T>(VmeSpace space, UInt_t base, UInt_t length, UInt_t crate = 0);
+```
+
+<a name="AEN35384"></a>## Description
+
+This class encpasulates a 'pointer' to a segment of VME address space in
+            a reference counted object. This allows the pointer to be assigned
+            and copied.  When there are no longer references remaining to the
+            pointer it is automatically deleted freeing both host and interface
+            resources.
+
+The underlying pointer is actually a base address and an offest.
+            All of this should be mostly transparent to the user who can generally
+            treat this just like any other pointer.
+
+Note that the class is a template class allowing object that
+            emulate pointers to virtually any data type to be instantiated.
+
+<a name="AEN35389"></a>## Public member functions
+
+`  CVME<T>(VmeSpace space, UInt_t base, UInt_t length, UInt_t crate = 0);`Constructs a new pointer like object that allows access to a
+                slice of VME address space.  Actual VME transactions are then
+                performed by dereferencing the resulting 'pointer'.
+
+The VME address space slice this pointer can dereference to
+                is described by
+                `base` the base address of the slice,
+                `length` the number of bytes worth of address
+                in the slice, and `space` which selects a
+                VME address space.  See
+                "Types and public data" for the legal values for the
+                `space` parameter.
+
+By default the address space is constructed within VME crate 0.
+                Specify a nonzero `crate` parameter
+                to use a different crate.
+
+`  CVME<T>();`Constructs an unmapped VME pointer like object.  If dereferenced,
+                a SEGFAULT will result.  The resulting pointer
+                can, however be made valid by assigning to it from another
+                valid `CVME` pointer.
+
+`  CVME<T>(CVMEptr<T>* aCVMEptr);`Constructs a VME pointer from an existing
+                `CVMEptr` object.   THe
+                `CVMEptr` class is not intended to be
+                used by user application code.  It is the object that is wrapped
+                with a reference count to produce a `CVME`
+                object.  Like a quark it should be considered to be very
+                tightly bound to the `CVME` object.
+
+`  CVME<T>(const CVME& aCVME);`Copy construction for the `CVME` class.
+                A new `CVME` object is constructed from
+                and made equivalent to the `aCVME` object.
+                This allows you to pass a `CVME` pointer by
+                value to a function (as if it were an ordinary pointer).
+
+` CVME<T>& operator=(const CVME<T>& aCVME);`Allows you to assign one `CVME` pointer
+                to another.  Reference counts are maintained to ensure the
+                underlying address space resources are not destroyed until
+                the last reference to it is destroyed.
+
+` int operator==(const CVME<T>& aCVME);`Determines the equality of another `CVME`
+                object to this.   `CVME` objects have
+                a base pointer and an offset.  Two objects are considered
+                equal if they have the same base pointer and offset.
+                This definition can break down if you map two pointers to overlapping
+                or identical VME address slices, as no effort is made to pool
+                the mapping resources in that case or to use the actual underlying
+                VME address space in the comparison.  Errors of this sort will result
+                in false inequalities rather than false equalities.
+
+` UInt_t getOffset();`Returns the offset portion of the object. This determines
+                how far into the address window the pointer actually points.
+
+` UInt_t getLength();`Returns the length of the address window.
+
+` Address_t getStart()();`Returns a pointer tothe start of the virtual address space
+                mapped to the VME space.
+
+` Address_t getgenptr(UInt_t nOffset);`Returns a generic real pointer to the VME space window.
+                `nOffset` is a scaled offset
+                (in units of T) where relative to the current
+                pointer position the desired pointer should be.
+
+` Address_t getcurrptr();`Equivalent to getgenptr(0);
+
+` T& operator*();`Dereferences the pointer.  This can be used as both an L and R value,
+                as a reference to the actual underlying address chunk is returned.
+
+` T* operator-<();`Dereferences a field of a complex object.  In order to support this,
+                the type T must either have member data or there must
+                be member functions associated with this data type.
+
+` T& operator[](UInt_t nOffset);`Returns a refernce to the `nOffset`'th
+                T relative to the currnent pointer position.
+
+` CVME<T>& operator+(UInt_t nOffset);`Returns a new pointer that is `nOffset`
+T's past the current pointer position.
+
+` CVME<T>& operator-(UInt_t nOffset);`Returns a new pointer that is `nOffset`
+T's prior to the current pointer position.
+
+` CVME<T>& operator+=(UInt_t nOffset);`Adds `nOffset` scaled by the size of
+                T
+                to the current pointer and returns that pointer.  Note that as with
+                the += operator on normal pointers, the
+                object this is applied to is modified.
+
+` CVME<T>& operator-=(UInt_t nOffset);`Subtracts `nOffset` scaled by the size
+		of T to the current pointer and returns the
+		resulting pointer.  As with the -=
+		operator on normal pointers, the object this is applied to
+		is modified.
+
+` CVME<T>& operator++();`Increments the pointer so that it points to the next
+		T object.
+		The result is a reference to the pointer after the increment.
+		This operator therefore implements the prefix increment
+		e.g. ++p
+
+` CVME<T>& operator--();`Decrements the pointer so that it points to the previous
+		T object.
+		The result is a reference to the pointer after the decrement.
+		This operator therefore implements the pre-decrement operator
+		e.g. --p
+
+` CVME<T>& operator++(Int_t dummy);`Implements the post-increment operator
+		(p++).
+		The object is incremented to point to the next
+		T object.  The value of the object prior to 
+		the increment is returned.
+
+` CVME<T>& operator--(Int_t dummy);`Implements the post decrement operator
+		p--.  The object is
+		decremented to point to the previous T.
+		The value returned is the pointer prior to being
+		decremented.
+
+` volatile UChar_t* asChar();`Returns an ordinary pointer to an unsigned char that
+	       when dereferenced returns the byte at the current position
+	       of the object.
+
+` volatile UShort_t* asShort();`Same as above but the pointer returned points to a
+`		 16 bit word.
+
+` volatile ULong_t* asLong();`Same as above, but returns a pointer to a 32 bit word.
+
+<a name="AEN35598"></a>## Types and public data
+
+`VmeSpace` represents a VME bus address
+	    modifier.  The legal values are:
+
+
+
+`a16d16`VME short IO space (16 bits of address and usually
+		    16 bits of data too.
+
+`a24d32`VME Standard address space, (24 bits of data and
+			 16 or 32 bits of data.
+
+`a32d32`VME Extended address space (32 bits of address and
+			data).
+
+`geo`Geographical addressing.  Requires both a card and
+			 backplane that support this.
+
+<a name="AEN35623"></a>## Exceptions
+
+<a name="AEN35626"></a>## EXAMPLES
+
+<a name="AEN35629"></a>## SEE ALSO
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSBSBit3VmeInterface | Up | CVMEModule |

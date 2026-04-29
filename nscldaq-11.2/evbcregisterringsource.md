@@ -1,0 +1,119 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb3_registerringsource"></a>EVBC::registerRingSource
+
+<a name="AEN55780"></a>## Name
+
+EVBC::registerRingSource -- Register a ring fragment source to the RingSourceMgr.
+
+<a name="AEN55783"></a>## Synopsis
+
+**EVBC::registerRingSource *source-uri extractor-lib source-ids info expectBodyHeaders oneshot timeout timeoffset*
+**
+
+<a name="AEN55787"></a>## DESCRIPTION
+
+The registerRingSource proc registers information to the
+             [[r56198]]
+             to launch a ringFragmentSource when
+             transitioning to the Active state from Halted. This is the
+             preferred mechanism for associating ringFragmentSources with the
+             event builder and should be used in place of EVBC::startRingSource
+             or EVBC::startS800Source. Once the registration is completed, the
+             RingSourceMgr will launch a rignFragmentSource with the
+             appropriate command line options when needed.
+
+See PARAMETERS below for a brief explanation of
+            the command line parameters, as well as the reference cited above.
+
+<a name="AEN55793"></a>## PARAMETERS
+
+
+
+*source-uri*The URI of the ring buffer from which the data
+                            will be taken.  If the ring is local to the
+                            system that ReadoutGUI is running in, you should
+                            specify tcp://localhost/ring-name
+                            where *ring-name* is the name
+                            of the ring buffer.
+
+*extractor-lib*Specifies the file system path to the shared object
+                            that contains code to extract the timestamp
+                            from the incoming ring data.
+                            [[x10786#sec_tsextractors]] describes how
+                            to write timestamp extractors and how to build them
+                            into shared libraries.
+
+The timestamp extractor library is only useful if
+                            the data to be read by the ringFragmentSource has
+                            no timestamp (i.e. no body header) already, because
+                            the timestamp extractor function is only ever
+                            called if a timestamp is missing. If all of
+                            the ring items are already labeled with timestamps,
+                            simply pass an empty string for this argument and
+                            then pass a true value to the expectBodyHeaders
+                            argument. Doing so will not change the behavior and
+                            will save you the effort of creating the timestamp
+                            extractor library.  If you are dying to do the
+                            extra work of creating the library, you can still
+                            do so but know that it will not be called by
+                            the ringFragmentSource.
+
+*source-ids*A list of source ids to be associated with the ring buffer.
+                            The ringFragmentSource is sensitive to what source ids it
+                            observes and will exit if a source id is observed that it 
+                            was not told to expect by this argument.
+
+*info*This parameter is arbitrary text that is used to
+                            label the data source client in the event builder
+                            GUI connection list window.  It is intended to allow
+                            humans to better understand what each source
+                            represents.  It is not used by the event builder
+                            itself other than to label sources.
+
+*expectBodyHeaders*This argument takes a boolean value to allow the
+                        omission of the tstamplib argument.
+                        The default value is false.
+
+If true, the user can pass an empty
+                        string for the tstamplib.  Doing so
+                        however is equivalent to making a promise to the
+                        ringFragmentSource that all ring items will contain a
+                        timestamp (i.e. a body If passed true
+                        and a ring items arrives without a timestamp, the
+                        ringFragmentSource will exit when an empty string was
+                        passed for the tstamplib argument.  In
+                        the same scenario, only a warning will be printed if a
+                        valid timestamp extractor library was passed.
+
+If this is false, the
+                        user must provide a valid timestamp extractor library
+                        for the tstamplib argument.
+
+*oneshot*This is a boolean value specifying whether the
+                        ringFragmentSource should exit after a symmetric number
+                        of begin and end run items have been observed. Default
+                        value is false.
+
+*timeout*The timeout parameter is an integer
+                        parameter that dictates how many seconds to wait before
+                        shutting down after the first end run item is observed
+                        by any ringFragmentSource registered to the event
+                        builder.
+
+*timeoffset*The timeoffset specifies a signed
+                        integer to add to any timestamp observed by the
+                        ringFragmentSource.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBC::flush | Up | EVBC::startRingSource |

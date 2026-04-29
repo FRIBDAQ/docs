@@ -1,0 +1,33 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.vhqcontrol"></a>vhqControl
+
+<a name="AEN15802"></a>## Name
+
+vhqControl -- Control panel application for VHQ bias supply modules.
+
+<a name="AEN15805"></a>## Synopsis
+
+**$DAQHOME/Scripts/ControlApplications/vhqControl.tcl [?config config ...?]    
+    **
+
+<a name="AEN15809"></a>## DESCRIPTION
+
+This  command  runs the vhq control program.   config are configuration files described by
+        [[r76758]]
+       If no configuration files are provided on the command line, the program will graphically prompt for one.
+
+Refer to the extensive online help for further operational details.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| vhsPanel | Up | cratelocator |

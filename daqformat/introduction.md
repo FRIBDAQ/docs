@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+# <a name="AEN15"></a>1.1. Motivation
+
+Data in the NSCLDAQ system are distributed online through ring buffers.
+         While a ring buffer, at its lowest level, is just a stream of bytes
+         produced by a producer and consumed by zero or more consumers,
+         in practice, a structure is layered on top of this byte stream.
+
+Items are placed by producers as Ring Items.  A Ring Item consists of
+         a header and a payload.  The header contains the complete size of the item
+         and an item type.  As NSCLDAQ has evolved, so too have the formats
+         of the payloads for various item types.  This makes writing programs
+         that can process data from all versions of NSCLDAQ difficult to
+         write correctly.
+
+This document describes a set of libraries which should ease this burden,
+         and allow you to very simply write programs that can operate on data
+         from any of the NSCLDAQ data formats.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| NSCLDAQ Unified Format Library |  | Document Organization |

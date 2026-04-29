@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.shiftinstance"></a>shiftinstance
+
+<a name="AEN97521"></a>## Name
+
+shiftinstance -- Encapsulate a shift for Tcl scripts
+
+<a name="AEN97524"></a>## Synopsis
+
+```
+package require logbook
+set book [logbook::logbook open mylogbook]
+# e.g.
+set shifts [$book listshifts]
+set shift [lindex $shifts 0]
+foreach s [lrange $shifts 1 end] {
+   $s destroy
+}
+...
+      
+```
+
+**$shift destroy**
+
+**set name [$shift name]**
+
+**set id   [$shift id]**
+
+**set members [$shift members]**
+
+<a name="AEN97535"></a>## DESCRIPTION
+
+Shift instances are command ensembles that are generated
+            by the logbookinstance objects (see
+            [[r97089]]).
+            Shift instances encapsulate resources and must be destroyed
+            using their **destroy** subcommand when they
+            are no longer needed (see the SYNOPSIS for
+            an example of that.).
+
+<a name="AEN97541"></a>## SUBCOMMANDS
+
+
+
+**destroy**Destroys the shfit instance.  All resources held by the object
+                  are relesed and the command is removed from the Tcl interpreter
+
+**name**Returns the name of the encapsulated shift.
+
+**id**Returns the primary key assigned to the encapsulated shift.
+
+**members**Returns person instances for all of the members of the
+                  encapsulated shift.  See
+                  [[r97462]] for information
+                  about person instances
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| personinstance | Up | runinstance |

@@ -1,0 +1,22 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 54. The SBS Readout framework | Next |
+
+
+---
+
+# <a name="sbsrdo.sec.running"></a>54.6. Running a readout application
+
+The readout application recognizes a few command options.
+            The full Readout command reference is described in
+            [[r10942]].
+            You can get a summary of the options by invoking Readout with
+            the `--help` option.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Embedded Tcl server | Up | CCUSB Readout framework |

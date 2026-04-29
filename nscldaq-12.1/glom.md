@@ -1,0 +1,88 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1_glom"></a>glom
+
+<a name="AEN21337"></a>## Name
+
+glom -- Glue event fragments together into events
+
+<a name="AEN21340"></a>## Synopsis
+
+**glom *options*
+**
+
+<a name="AEN21344"></a>## DESCRIPTION
+
+Glom is a filter that accepts event ordered event fragments on stdin
+            and emits event ring items on standard output.  Event fragments that
+            represent non physics triggers are just passed through, with the
+            event fragment header stripped off so that they become their initial
+            ring items again.
+
+Any errors glom wants to complain about are emitted to its standard
+            error.  It is therefore normally a bad idea to have glom's standard
+            output and standard error pointed to the same sink.
+            Glom's behavior is controlled by command line options that are
+            documented in OPTIONS below.
+
+<a name="AEN21349"></a>## OPTIONS
+
+
+
+`--nobuild`If this option is present, glom won't attempt to glue
+                            together event fragments, but will emit each event fragment
+                            as a single vent.
+
+`--dt` *ticks*This mandatory parameter provides the number of
+                            timestamp ticks that define a coincidence interval
+                            when building events.  The value of *ticks*
+                            is ignored but currently necessary when `--nobuild`
+                            is speicified.
+
+`--timestamp-policy` *policy*When glom builds output events it builds them with
+                            full body headers.  This allows the output of glom to be
+                            used as an event source for a subsequent higher level
+                            event builder.
+                            This option determines what is used
+                            for the output timestamp in event body headers.
+
+earliest is the default and
+                            means the timestamp will be filled in with timestamp
+                            from the fragment with the smallest timestamp.
+                            latest means that the timestamp
+                            comes from the fragment that has the largest timestamp.
+                            average means the timestamp is an
+                            integerized average of the timstamps of all event
+                            fragments in the event.
+
+<a name="AEN21375"></a>## OUTPUT FORMAT
+
+Glom's output consists of ring items with the following format:
+
+
+
+1. A uint32_t size in bytes of the event.  This size is self inclusive
+2. A series of FlatFragment items
+                           as defined in the fragment.h header file.
+                           The number of fragments is the number required to completely fill
+                           the event as determined by the size above.
+
+<a name="AEN21385"></a>## KNOWN ISSUES
+
+
+
+1. `--dt` should probably not be necessary if
+                       `--nobuild` is present.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RingSourceMgr | Up | evbtagger |

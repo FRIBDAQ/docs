@@ -1,0 +1,167 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN645"></a>Chapter 4. 
+            The SpecTcl database GUI.
+
+To use the SpecTcl GUI add the following lines to your SpecTclRC.tcl
+
+<a name="AEN648"></a>```
+package require dbgui
+            
+```
+
+Note that this will also implicitly pull in the
+            dbconfig package.
+
+The figure below is a screen shot of the database gui with annotations
+            superimposed to show what the various icons mean.
+
+<a name="AEN653"></a>**Figure 4-1. Database GUI**
+
+![](GUI.png)
+
+Each folder in the GUI represents a database save set.  The name
+            of the save set is just to the righ t of the save set and the
+            time at which the save set was saved is in the description column.
+            Clicking the arrow to the left of the save set folder opens the
+            save set and shows its contents.
+
+All save sets will have an analysis configuration. That entity
+            is created when the save set is created.  Save sets may optionally
+            have spectra.  These are shown as
+            histogram icons inside the save-set.  Save sets may also have event
+            data.  These are shown as the tape icons inside the save set.
+            The selected entity is highlighted.
+
+The bottom strip of the GUI shows the status bar.  It shows which
+            database is currently open, the configuration that's selected and,
+            if a spectrum is selected that as well.
+
+There are two ways to make the GUI do something:
+
+
+
+1. The menu bar at the top of the GUI provides commands
+                       you can select.
+2. All objects in the GUI have a
+                       *context menu* that can be
+                       posted using the right mouse button.  These
+                       also have commands that can be executed.
+
+# <a name="AEN668"></a>4.1. File menu items
+
+The File menu provides operations at the level of
+                database files:
+
+
+
+New...Prompts for a new database file.
+                            The database file will be created and
+                            initialized and cleared.  Note that if
+                            the database file already exists, you'll be
+                            prompted to confirm.  Any existing data
+                            will be destroyed.
+
+Open...Prompts for an existing database file
+                            and opens it.  The GUI is updated
+                            with the contents of the database.
+
+The Save menu allows you to save
+                entities to the database.
+
+
+
+Configuration...Prompts for the name of a new unique save set.
+                            If confirmed, the new save set is created
+                            and the current analysis configuration is saved
+                            into it.
+
+The analysis configuration consist of all
+                            parameter/tree parameter definitions,
+                            all spectrum definitions, all  gate
+                            definitions and applications as well as all
+                            treevariable definitions and values.  Note
+                            that spectrum contents are not saved.
+                            See below, however.
+
+Spectrum...Pops up a listbox containing all spectrum
+                            names. Select the spectra you want saved and
+                            click Ok to
+                            save the contents of the
+                            selected spectra to the current
+                            save-set.  Note that you can use shift
+                            click/drag
+                            to select a range of spectrum names and
+                            control-click to add spectra not contiguous
+                            in the list to the list of selected spectra.
+
+Saving spectrum contents is a cumulative thing.
+                            If you save spectra that are not already saved,
+                            their contents will be added to the set that
+                            are saved.
+
+If you save the contents of a spectrum that
+                            are already saved in the save-set, the
+                            current contents replace the old.
+
+The Recording menu allows you to
+                manage the recording of analyzed event data.
+
+
+
+Enable RecordingThis is a checkbutton menu entry. If
+                            checked, event recording is enabled, if not
+                            (the initial default) it is not.
+
+Before changing the button state, you are
+                            warned about the pitfalls of changing state
+                            and must confirm that you want to change state.
+                            Note that while recording is active,
+                            the GUI is inactive.  Once recording is
+                            disabled, the configurationas and events
+                            will be made visible in the GUI.
+
+Recording data is recommended only for offline
+                            runs of SpecTcl. This is because recording
+                            data significantly impacts the speed at which
+                            SpecTcl can process data.  Online, this will
+                            lead to missing data and incomplete event
+                            records.
+
+The intent of recorded data is to provide
+                            stored data that can be rapidly analyzed
+                            using differing analysis configurations.
+                            Recorded data can also be used by other programs.
+
+AutoSave Spectra...When the end of data for a recorded run is
+                            encountered, contents of selected
+                            spectra can automatically be
+                            saved to the save-set.  These spectra are
+                            refered to as *autosaved spectra*.
+                            Clicking on this
+                            menu entry brings up a spectrum chooser which
+                            allows you to specify which spectra will be
+                            saved at the end of the run.  Selecting no
+                            spectra and clicking Ok
+                            means no spectra will be autosaved.
+                            Clicking Cancel
+                            means that no change will be made to the auto
+                            saved spectrum list.
+
+Note that saving the contents of spectra
+                            can take a significant amount of time.  Note
+                            as well that autosaving only applies when
+                            recording is enabled.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| daqdb |  | Context menus |

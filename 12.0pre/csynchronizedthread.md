@@ -1,0 +1,62 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.csynchronizedthread"></a>CSynchronizedThread
+
+<a name="AEN47086"></a>## Name
+
+CSynchronizedThread -- Thread with synchronized initialization
+
+<a name="AEN47089"></a>## Synopsis
+
+```
+
+```
+
+<a name="AEN47116"></a>## DESCRIPTION
+
+Provides a Thread class (see
+            [[r46929]]).
+            When the thread is started, the starting thread blocks on a
+            condition variable.
+
+The `CSynchronized` thread's body consists of
+            two methods; `init` and `operator()`
+            executed in that order.  When `init` returns
+            to its caller, (`run`), the condition variable
+            is signalled allowing the starting thread to be scheduled for
+            continued execution.
+
+<a name="AEN47126"></a>## METHODS
+
+
+
+`  void start();`Schedules the thread for execution and blocks on a condition
+                        variable that will be scheduled by the thread.
+
+` virtual void run();`Thread entry point.  This method invokes
+                        `init` and then signals the
+                        condition variable the thread that called
+                        `run` is presumably
+                        waiting or that.
+
+` virtual void init();`This method is overidden by a typical thread class.
+                        It provides initialiation that must occur before the
+                        parent thread can be allowed to resume.
+
+` virtual void operator()();`Actual body of the thread.  When this method is called,
+                        the parent thread has already been authorized to run.
+                        Note that this method is pure virtual and must be
+                        implemented
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Thread | Up | Synchronizable |

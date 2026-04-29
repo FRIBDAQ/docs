@@ -1,0 +1,60 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb3_callbackbundle"></a>Eventbuilder callback bundle
+
+<a name="AEN80858"></a>## Name
+
+Event builder callback bundle -- Event builder callback bundle.
+
+<a name="AEN80861"></a>## Synopsis
+
+**package require evbrdocallouts
+            **
+
+**EVBC::useEventBuilder
+                **
+
+**EVBC::configure *option value ...*
+**
+
+** proc startEVBSources {} {
+ ....
+ }
+                **
+
+<a name="AEN80871"></a>## DESCRIPTION
+
+State machine callback bundles are a mechanism to hook actions to
+            specific state transitions in the ReadoutGUI.  The Event builder
+            implements a callback bundle that, when registered will automatically
+            do what is needed to manage the event builder without any further
+            programmatic intervention from your ReadoutCallouts.tcl
+            code.
+
+The `useEventBuilder` command exported by the
+            evbrdocallouts package registers this callback
+            bundle with the Readout GUI's state machine.
+            `EVBC::configure` allows you to configure
+            the event builder options. All of the options described in the
+            [[r80639]]
+            manpage are supported.
+
+The `startEVBSources` proc is hook that you can
+             use to start your event sources using
+             `EVBC::startRingSource`. It will be called as
+             needed by the callback bundle. HOWEVER, it is _NOT_ the preferred
+             way to start your ring sources. Rather, you should use [[r80463]] to create the ring
+             sources.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBC::configParams | Up | 3rdogui |

@@ -1,0 +1,178 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.attachcommand"></a>attach
+
+<a name="AEN112"></a>## Name
+
+attach -- Connect SpecTcl to a data source
+
+<a name="AEN115"></a>## Synopsis
+
+**attach *?options? ?sourcetype? connection...*
+**
+
+<a name="AEN119"></a>## DESCRIPTION
+
+**attach** connects SpecTcl to a data source.
+            If SpecTcl is already connected to a data source, the previous
+            data source is first disconnected.
+            Once connected to a data source the **start**
+            and **stop** commands control when data
+            is analyzed from that source.
+
+There are fundamentally two types of data sources; files and programs
+            connected to SpecTcl by a pipe.  The source type is a required
+            parameter on the **attach** command.  Other options
+            control SpecTcl's understanding about the data format and how to
+            process it.
+
+The data source type determines the format of the connection parameters.
+
+<a name="AEN128"></a>## OPTIONS
+
+The **attach** command must have exactly one data
+            source option, which determines how the connection parameter(s) are
+            processed.  This can be one of:
+
+
+
+`-file`Data comes from a file.  The connection consists of a
+                        single parameter that is the path to the file in the
+                        filesystem.
+
+`-pipe`Data comes from a program.  The program is started using
+                        the connection words as command and arguments.  Any
+                        number of connection words are allowed but they must,
+                        of course, make sense to the program.
+
+Programs attached in this way have their stdout connected
+                        to a pipe from which SpecTcl reads data.
+
+`-list`Not actually a data source type, this
+                        provides information about the currently attached
+                        data source.  If this is provided all other options
+                        are ignored.
+
+The remaining options can be used in any combination:
+
+
+
+`-size`The number of bytes SpecTcl will read from the data source
+                        at any given time.  For some data source formats, this
+                        is important (see `-format` below), for
+                        others this just says something about the I/O efficiency
+                        of SpecTcl
+
+`-format` *format-value*Specifies the format of the data being analyzed.
+                        SpecTcl comes with a set of formats it knows about.
+                        This set of formats can be extended as well, however
+                        that process is not in the scope of this manual.
+
+The value of the `-format` flag can
+                        say something about how strictly the value of
+                        `-size` must be.  Specifically, if
+                        you are anlyzing data from a format that uses fixed sized
+                        buffering, the `-size` parameter must
+                        match the buffer size.
+
+The built in format values are:
+
+
+
+nsclThis is the 'traditional' nscl daq format
+                                    for NSCLDAQ data from versions 8.0 and earlier.
+
+At this time this is only useful for
+                                    legacy data.
+
+jumboA specialized version of
+                                    nscl that allowed for
+                                    buffer sizes larger than 128Kbytes.
+
+filterThe file is an XDR Filter file.  SpecTcl
+                                    must be properly prepared to analyze filter
+                                    data.  See the User Guide for more
+                                    information.
+
+ringData is from nscldaq 10.0 and later, ring
+                                    buffer data.  Note that the
+                                    **ringformat** command
+                                    may be required to specify the ring buffer
+                                    format prior to starting analysis.
+
+If a ring buffer event file is seen from
+                                    its very beginning, SpecTcl can and will
+                                    automatically determine the ring buffer
+                                    format.   If, as is often the case
+                                    in online analyais, the data source
+                                    connects to the middle of a run, the
+                                    **ringformat** command
+                                    must correctly specify the ring format  prior
+                                    to issuing the **start**
+                                    command.
+
+<a name="AEN195"></a>## OUTPUT
+
+Only the `-list` produces anything.  If the data
+            source is a pipe data source, the words that were used to invoke
+            the program are returned.   If the source is a file data source,
+            the return value will be File: *file-name*.
+
+<a name="AEN201"></a>## EXAMPLES
+
+<a name="AEN203"></a>**Example 1. Attaching to a data file for nscldaq-11:**
+
+**attach -format ring -file /user/fox/stagearea/complete/run-0001-00.evt
+            **
+
+The command above attaches the ring buffer file:
+            /user/fox/stagearea/complete/run-0001-00.evt
+            the **start** command is needed to start
+            analyzing data.  Since this is segment 0 of a file data source,
+            by definition SpecTcl will haves sufficient information to
+            determine the ring item format.
+
+<a name="AEN210"></a>**Example 2. Attaching to the online system via a pipe data source**
+
+**attach -format ring -pipe /usr/opt/daq/current/bin/ringselector --non-blocking --sample=PHYSICS_EVENT  tcp://spdaq20.nscl.msu.edu/e01234
+        **
+
+Uses the ringselector program supplied with
+            NSCLDAQ to attach SpecTcl to the online system.  ringselector
+            accepts data from a ring buffer and outputs it to stdout making it suitable
+            for use as a pipe data source.   The switches use ensure that
+            analysis by SpecTcl cannot bottle neck the dataflow.
+
+In this case, it's advisable to issue a **ringformat**
+            command prior to intiating analysis.
+
+<a name="AEN219"></a>**Example 3. Attaching to a compressed datafile:**
+
+**attach -format ring -pipe zcat /user/fox/stagearea/compressed/run0.gz
+            **
+
+This examples hows that pipe data sources can productively be
+            somethingo ther than just connectors to the online system.
+            In this case a gzipped event file is analyzed without requiring
+            the file exist in uncompressed form.
+
+<a name="AEN224"></a>## SEE ALSO
+
+
+
+- [[r3039]]
+- [[r3070]]
+- [[r2347]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| applygate | Up | sbind |

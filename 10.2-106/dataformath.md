@@ -1,0 +1,363 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref-dataformat"></a>DataFormat.h
+
+<a name="AEN22853"></a>## Name
+
+DataFormat.h -- Format of ring items.
+
+<a name="AEN22856"></a>## Synopsis
+
+```
+  uint32_t s_size;
+```
+
+<a name="AEN22936"></a>## DESCRIPTION
+
+This header describes the format of data placed in NSCL ring
+                buffers.  Each item consists of an envelope and a payload.
+                The envelope, 
+                RingItemHeader contains a size:
+                ` uint32_t s_size;`
+                which is the total size of the item (inlcuding the header) in
+                bytes, and an item type
+                ` uint32_t s_type;`
+                which indicates what the item contains.  The payload immediately
+                follows the header and varies in structure depending on the
+                value in `s_type`.
+
+Items are placed in rings in native machine byte ordering.
+                While the data type is 32 bits long, only the least significant
+                16 bits are nonzero.  This allows a determination of
+                the endianness of the system that generated the item.
+
+STRUCTURES below describes each of the ring items defined
+                at this time.  CONSTANTS defines the set of values that
+                `s_type` can take (once converted to
+                the localh host's endian-ness).
+
+<a name="AEN22950"></a>## STRUCTURES
+
+The following ring items have been defined:
+
+
+
+StateChangeItemThis ring item carries information about state
+                            changes in data taking its header will have
+                            a type that is one of BEGIN_RUN,
+                            END_RUN, PAUSE_RUN
+                            or RESUME_RUN depending on the
+                            state change that is being documented.
+
+A state change has the following set of fields:
+
+
+
+` RingItemHeader s_header;`This is the ring item's header. The
+                                        contents of this structure have been
+                                        described in DESCRIPTION above.
+
+` uint32_t s_runNumber;`Contains the run number of the current
+                                        run.  When data are being recorded
+                                        it is expected this will be a unique
+                                        number.
+
+` uint32_t s_timeOffset;`Contains the number of seconds into the
+                                        run at which this transition occured.
+
+` uint32_t s_Timestamp;`Contains the absolute time at which the 
+                                       item was initially generated. This value
+                                       is the number of seconds since the Unix
+                                       epoch. The various functions normally
+                                       defined in <time.h> can be used to
+                                       manipulate this value once it is in
+                                       native byte ordering.
+
+` char s_title[TITLE_MAXSIZE+1];`Null terminated string that contains the
+                                     run title.  The actual character part is
+                                     gauranteed to be at most
+                                     TiTlE_MAXSIZE bytes
+                                     ensuring that there is a terminating null
+                                     byte.  At this time multi-byte/wide
+                                     characters are not excluded but not
+                                     explicitly supported.
+
+ScalerItemThis item type contains incremental scaler data.
+                             NSCL scaler data by standard is incremental so
+                             that users don't have to be concerned with how
+                             scaler hardware handles overflows (assuming the
+                             scaler registers are wide enough to accomodate a
+                             single counting interval).   It is the Readout
+                             program's responsibility to ensure scaler values
+                             represent incremental values.
+
+ScalerItem ring items have the
+                             following fields:
+
+
+
+` RingItemHeader s_header;`The standard header.  The
+                                        `s_type` field will
+                                        contain the value
+                                        INCREMENTAL_SCALERS
+                                        (see CONSTANTS below).
+
+` uint32_t s_intervalStartOffset;`The number of seconds into the run at
+                                       which this counting interval started.
+                                       If this is the first scaler item in a
+                                       run  this will be
+                                       0.  If not this will
+                                       be the
+                                       `s_intervalEndOffset`
+                                       of the previous scaler item in the run.
+
+` uint32_t s_intervalEndOffset;`The number of seconds into the run at
+                                     which this counting interval ended.
+                                     Normally this wil be the
+                                     `s_intervalStartOffset`
+                                     of the next incremental scaler item.
+
+` uint32_t s_timestamp;`The absolute time at which this scaler
+                                     item was produced.  This is a Unix
+                                     uint32_t which means it is the
+                                     number of seconds since the unix
+                                     *epoch* time and
+                                     date.  Once converted into local host byte
+                                     ordering, this value can be used in all
+                                     function in <time.h> that take a
+                                     uint32_t as a parameter.
+
+` uint32_t s_scalerCount;`Contains the number of scalers that have
+                                        been read out.  This is assumed to be a
+                                        number of uint32_t values.
+
+` uint32_t s_scalers[1];`This is the first element of an array
+                                        of scalers.  The actual size of this array
+                                        will be determined by
+                                        `s_scalerCount`
+
+TextItemSeveral item types contain documentation data in
+                            the form of a list of null terminated strings.
+                            These are TextItem item types and the
+                            actual contents are differntiated by the
+                            `s_type` field of the item header.
+
+The TextItem contains the following
+                            fields:
+
+
+
+` RingItemHeader s_header;`The standard ring item header.  The
+                                        `s_type` field will be
+                                        either MONITORED_VARIABLES
+                                        or PACKET_TYPES.  The
+                                        string formats vary depending on which of
+                                        these is used.  See the `s_strings`
+                                        field description velow for more information.
+
+` uint32_t s_timeOffset;`The time in seconds from the beginnning
+                                        of the run at which this item was
+                                        emitted.
+
+` uint32_t s_timestamp;`A unix absolute timestamp.
+                                        This is a time in
+                                        seconds since the beginning of the
+                                        unix epoch.  Once converted to the
+                                        local host byte ordering, this is
+                                        a valid uint32_t which can
+                                        be used in any of the function in
+                                        <time.h>
+
+` uint32_t s_stringCount;`The number of strings in the item.
+
+` char s_strings[1];`The first byte of string storage.  The
+                                        actual size of the `s_strings`
+                                        array depends on the number and lengths
+                                        of the strings, but can be computed from
+                                        the `s_size` field of the
+                                        header.
+
+The actual format of each string depends
+                                        on the `s_type` field
+                                        of the header.
+
+MONITORED_VARIABLES
+                                        items contain the values of readout
+                                        variables that have been chosen for
+                                        monitoring.  One application is the
+                                        injection of EPICS process variable
+                                        data into Readout's Tcl interpreter.
+
+A string for a MONITORED_VARIABLE
+                                        is a Tcl command that would recreate the
+                                        variable with that value (e.g. a
+                                        Tcl **set** command) like:
+
+<a name="AEN23120"></a>```
+set EPICS_DATA(Z1234) 1.234
+                                        
+```
+
+PACKET_TYPES items
+                                        are created by the
+                                        `CDocumentedPacket`
+                                        in the SBS readout framework.  These strings
+                                        are a colon separated set of fields that
+                                        provide in order, for each packet type the
+                                        packet id, the packet description,
+                                        the packet version and the date at which
+                                        the `CDocumentedPacket`
+                                        object has been instantiated. For
+                                        example:
+
+<a name="AEN23126"></a>```
+0x1234:My special packet:3.1416:Wed Jun 30 21:49:08 1993
+                                        
+```
+
+PhysicsEventItemThis contains data from a physics trigger.
+                                The fields include the standard header
+                                `s_header` and a
+                                ` uint16_t s_body;`
+                                which is the first word of the body.
+
+The header's `s_type` field
+                                has the value PHYSICS_EVENT.
+                                The actual size of the body depends on how many
+                                words were read out for this event.  At this level
+                                of formatting ther is no specification describing
+                                the payload of this item.  It is customary, however
+                                to put some information about the size of the
+                                event read in the beginning of the event.
+                                The structure of this size may depend on the
+                                readout framework, however.
+
+PhysicsEventCountItemThis item type is used to describe the number
+                                of triggers that have been recorded since the
+                                start of the run.  This can be used for
+                                several applications including a determination
+                                of data fraction for sampling consumers, and
+                                raw data rate approximation.
+
+This item has the following fields:
+
+
+
+` RingItemHeader s_header;`The standard ring item header.
+                                        The `s_type` field will
+                                        be PHYSICS_EVENT_COUNT.
+
+` uint32_t s_timeOffset;`The run relative time in seconds
+                                        at which this item was emitted by the
+                                        readout framework(s).
+
+` uint32_t s_timestamp;`Absolute timestamp describing when this
+                                        item was emitted.  When converted to
+                                        native byte ordering, This item can be
+                                        used in e.g. `ctime`
+                                        and other time functions described in
+                                        <time.h>
+
+` uint64_t s_eventCount;`Number of events acquired so far this run.
+
+EventBuilderFragmentThis item contains fragments of an event from a stage
+                            of the event builder.  Normally these items represent
+                            the output of the orderer.  The following fields
+                            are defined:
+
+
+
+` RingtItemHeader s_header;`The ring item header as for all other
+                                        ring item types described so far.
+
+` uint64_t s_timestamp;`The 64 bit timestamp that describes when
+                                        this fragmentw as acquired by its data
+                                        source.  These will normally be unique
+                                        for all but possibly barrier events.
+
+` uint32_t s_sourceId;`Event fragments come from data sources.
+                                        A specific data source program may represent
+                                        several data source.  Each source is
+                                        identified by a unique 32 bit integer.
+                                        `s_sourceId` is that
+                                        integer for this fragment.
+
+` uint32_t s_barrierType;`Some event fragments are parts of a larger
+                                        synchronization process.  These processes
+                                        contribute *barrier fragments*
+                                        (named after barrier synchronization).
+                                        Barrier synchronization requires that all
+                                        data sources emit a barrier fragment.
+                                        If this field is nonzero, the fragment
+                                        is a barrier fragment emitted by one of
+                                        these processes.
+
+` uint32_t s_payloadSize;`Then number of bytes of data in the
+                                        event fragment body.
+
+` uint8_t s_body[1];`First byte of the body (payload) of the
+                                        event fragment.  This array should be
+                                        treated as being exactly
+                                        `s_payloadSize`
+                                        bytes long.
+
+<a name="AEN23228"></a>## CONSTANTS
+
+DataFormat.h provides constant definitions
+                    for the possible item type values as well as other definitions:
+
+
+
+BEGIN_RUNItem type for a StateChangeItem
+                                that announces a new run is starting.
+
+END_RUNItem type for a StateChangeItem
+                                that announces a run is ending.
+
+PAUSE_RUNItem type for a StateChangeItem
+                                that announcdes a run is being paused.
+
+RESUME_RUNItem type for a StateChangeItem
+                                that announces a paused run is being resumed.
+
+PACKET_TYPESItem type for a TextItem
+                                that contains packet type definitions.
+
+MONITORED_VARIABLESItem type for a TextItem
+                                that contains values of variables monitored
+                                at run-time.
+
+INCREMENTAL_SCALERSItem type for a ScalerItem.  These
+                                contain incremental scaler readout values.
+
+PHYSICS_EVENTItem type for an item that contains physics
+                                data.
+
+PHYSICS_EVENT_COUNTItem type for a PhysicsEventCountItem
+                                which contains information about how many
+                                events have been put in the ring buffer this run.
+
+EVB_FRAGMENTItem type code for a EventBuilderFragment
+                                item.   These are fragments of events that have not
+                                yet been put together by an event builder.
+
+FIRST_USER_ITEM_CODEIf users create application specific
+                                items the item type code should be at least
+                                this value.  The largest allowed item type
+                                code is 0xffff.
+
+TITLE_MAXSIZEThe maximum number of non null characters in
+                                a title string.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDesiredTypesPredicate | Up | format  Functions |

@@ -1,0 +1,110 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  |  |
+
+
+---
+
+# <a name="AEN3247"></a>evbunpack
+
+<a name="AEN3251"></a>## Name
+
+evbunpack -- Dynamically setup decoding of event built data.
+
+<a name="AEN3254"></a>## Synopsis
+
+**evbunpack create evpname frequency diag-basename
+            **
+
+**evbunpack addprocessor evpname sid pipe-name
+            **
+
+**evbunpack list ?pattern?
+            **
+
+<a name="AEN3261"></a>## DESCRIPTION
+
+**evbunpack** is a command ensemble that's intended
+            to work with **pman** to support dynamically
+            setting up analysis of data from event built data sources.
+
+The concept is that you use **evbunpack** to create
+            a `CEventBuilderEventProcessor` at script level.
+            You can then tell that processor to use an event processing pipeline
+            to analyze data from each source id found in event builder fragments.
+            Naturally, this can be cascaded such that a pipeline might contain
+            another event builder event processor which allows SpecTcl
+            to process data from hierarchically built events.
+
+Once you've created and stocked you event processor, you can
+            then use **pman**
+            to create a pipeline whose first element is that
+            event processor.
+
+<a name="AEN3271"></a>## SUBCOMMANDS
+
+The **evbunpack** command is actually a command
+            ensemble.  The first command parameter is, therefore, a subcommand
+            that tells **evbunpack** what to actually do:
+
+
+
+**evbunpack create evpname frequency diag-basename
+            **
+
+Creates a new event processor for unpacking
+                        event built data.  `evpname`
+                        give the processor a name that will be used to
+                        register it with the pipeline manager, thus making
+                        it available to the **pman** command.
+
+`frequency` is the frequency of
+                        the timestamping clock in MHz.  This is used to construct
+                        the elapsed run time parameter diagnostic parameter of
+                        the event processor.
+
+`diag-basename` is the base name of
+                        a set of tree parameters.  The event processor produces
+                        and maintains a set of diagnostic parameters that can
+                        be used to monitor the correctness of the event builder.
+                        See the programming reference manual's documentation
+                        of `CEventBuilderEventProcessor`
+                        for more informationa about the set of diagnostic parameters
+                        produced.
+
+Once created without error, the event processor is
+                        registered with the **pman** command
+                        allowing it to be placed into event processing pipelines.
+
+**evbunpack addprocessor evpname sid pipe-name
+            **
+
+Tells the event processor to use an existing event processing
+                        pipeline to analyze fragments from a specific data source.
+                        `evpname` is the name of an event
+                        processor created by **evbunpack create**.
+                        `sid` is the source id of the fragments
+                        `pipe-name` should handle.
+
+`pipe-name` is the name of a pipeline
+                        that **pman** knows about and can be
+                        arbitrarily complex.
+
+**evbunpack list ?pattern?
+            **
+
+Returns a Tcl list of the event processors this command
+                        has created.
+
+<a name="AEN3311"></a>## BUGS
+
+At present, there's no way to determine which pipelines are
+            analyzing which source ids for an event processor.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| pman | Up |  |

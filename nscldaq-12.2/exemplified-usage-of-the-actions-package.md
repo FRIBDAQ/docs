@@ -1,0 +1,117 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 80. The actions library | Next |
+
+
+---
+
+# <a name="AEN17635"></a>80.4. Exemplified Usage of the Actions package
+
+Suppose there is an experiment that wanted to ensure that runs were
+      limited to only 1000 physics events each. (This is purely hypothetical).
+      A run size of 1000 events could easily be enforced with a filter that utilizes the
+      actions library. Here is the filter's handlePhysicsEvent method to
+      accomplish this task.
+
+```
+      #include <Actions.h>
+      #include <ilter.h>
+      #include <iostream>
+      #include <sstream>
+
+      class OneThousandDelimiter : public CFilter {
+        private:
+          bool m_stopEmitted;     // flag for outputting new events
+          int m_count;            // number of events
+
+        public:
+
+        /**! The handler of PHYSICS_EVENT ring items */
+        virtual CRingItem* handlePhysicsEventItem(CPhysicsEventItem* pItem) 
+        {
+          // if we have exceeded the threshold just stop outputting
+          if (m_stopEmitted) return 0; 
+
+          // increment the event count
+          ++m_count;
+
+          // display a log message every 100 events in the ReadoutGUI OutputWindow
+          if ((m_count%(100))==0) {
+            std::stringstream msg;
+            msg << "Processed " << m_count << " of " << 1000;
+            Actions::Log ( msg.str() ); 
+          }
+
+          // If we reached the 1000 event threshold, then emit a warning message 
+          // and end the run
+          if (m_count>=1000) { 
+            m_stopEmitted=true;
+            Actions::Warning("Exceeded threshold of events! Stopping the run");
+            Actions::EndRun();
+          }
+
+          return pItem;
+        }
+
+        /**! The required clone method */
+        virtual OneThousandDelimiter* clone () const {
+          return new OneThousandDelimiter(*this);
+        }
+
+        /**! Reset count prior to first events received after startup */
+        void initialize() {
+          m_count=0; 
+          m_stopEmitted=false;
+        }
+      };
+    
+```
+
+What this does is to count the number of PHYSICS_EVENT ring items
+      processed by the filter, all the while printing log messages to the
+      ReadoutGUI's OutputWindow to indicate progress. Once 1000 events have
+      been processed, a message formatted as a warning class will be printed on
+      the OutputWindow and the run will be ended. Considering that there is
+      time that passes between when the filter program emits the end run
+      command and when the ReadoutGUI's run control actually transitions the
+      state machine to Halted, there is a flag that is set called
+      m_stopEmitted. When this is set, the filter throws away all PHYSICS_EVENT items
+      that come its way.
+
+Assume that the user's source code above was built into an executable
+      named OneThousandLimiter. In the ReadoutCallouts directory this would be
+      launched as follows:
+
+```
+      # load the packages we need
+      package require Actions         ;# the actions tcl package
+      package require DefaultActions  ;# the default response for the action package
+
+      # instantiate the parser for the actions 
+      set parser [::Actions %AUTO%]
+
+      # launch the program as a pipeline with read permissions
+      set cmd [file join /path to OneThousandLimiter]
+      set pipe [open "| $cmd  --source=tcp://localhost/user --sink=file:///dev/null |& cat" r]
+      chan configure $pipe -blocking 0
+      chan configure $pipe -buffering line
+
+      # register the actions parser to the pipeline
+      chan event $pipe readable [list $parser onReadable $pipe]
+    
+```
+
+As you can see, the TCL portion of this has been reduced to instantiating
+      the Actions parser and then launching the OneThousandLimiter program as a
+      pipeline process. The key here is that the prewritten onReadable method
+      of the parser is used as the callback function for a readable event. Note
+      that this is actually less work for the user than writing the callback
+      from scratch.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Run Control and Command Execution | Up | Support for CAEN Nextgen DPP-PHA digitizers |

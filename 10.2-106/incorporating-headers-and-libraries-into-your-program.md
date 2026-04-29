@@ -1,0 +1,32 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 44. SBS Base interface classes to the VME | Next |
+
+
+---
+
+# <a name="AEN3238"></a>44.2. Incorporating headers and libraries into your program.
+
+Class definitions for each of the classes described in the previous
+            section are provided in headers that have the same name as the class
+            name e.g. CVMEInterface.h provides the
+            class definitions for the `CVMEInterface` class.
+
+Header files are installed in the include
+            subdirectory of the installation tree.  Suppose that the root
+            of the install tree is pointed to by the environment variable
+            `DAQROOT`.  Compilations should have the
+            -I$DAQROOT/include switch specified.
+
+The library is installed in $DAQROOT/lib and
+            is called libSBSVmeAPI.so.  To incorporate this
+            library at link time, your link command line will need:
+            -L$DAQROOT/lib -lSBSVmeAPI.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SBS Base interface classes to the VME | Up | Tcl CAENet package |

@@ -1,0 +1,24 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 7. Non stack VMUSB Readout framwork$DAQBIN/VMUSBnostackReadout | Next |
+
+
+---
+
+# <a name="AEN4908"></a>7.2. Supported Event Modules
+
+This is the set of modules supported by the VMUSBnostackReadout program at the time this
+            is being written.  If additional module types are required, contact
+            daqhelp at frib dot msu dot edu.
+
+## <a name="AEN4912"></a>7.2.1. SIS3820 scaler as a timestamp module
+
+**Table of Contents**[[r4914]] -- Use an sis3820 in timestamp mode.[[r4968]] -- Read data from an SIS3316 Digitizer[[r5091]] -- Provide access to the VMUSB scalers[[r5139]] -- Read a CAEN V977 bit register
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Non stack VMUSB Readout framwork$DAQBIN/VMUSBnostackReadout | Up | sis3820 |

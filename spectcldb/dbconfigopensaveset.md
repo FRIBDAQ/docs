@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6070"></a>dbconfig::openSaveSet
+
+<a name="AEN6074"></a>## Name
+
+dbconfig::openSaveSet -- Access a save set.
+
+<a name="AEN6077"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+set saveset [dbconfig::openSaveSet $db save-name]
+                            
+```
+
+<a name="AEN6079"></a>## DESCRIPTION
+
+Given a handle returned from `dbconfig::connect`,
+                            `db`
+                            and the name of a saveset known to exist in that
+                            database, access the save set `save-name`.
+                            The function returns a handle that can be used in other
+                            save set related operations. In fact, that handle is
+                            a save set instance command.  See the
+                            reference pages describing the Tcl bindings
+                            to the database API for more information about
+                            what you can do with a save set instance command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::connect | Up | dbconfig::saveConfig |

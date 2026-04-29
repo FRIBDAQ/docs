@@ -1,0 +1,34 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3394"></a>isRemote
+
+<a name="AEN3398"></a>## Name
+
+isRemote -- Test for remote-ness.
+
+<a name="AEN3401"></a>## Synopsis
+
+**isRemote
+            **
+
+<a name="AEN3404"></a>## DESCRIPTION
+
+Returns 0 indicating the script that's running is not a REST client.
+            The SpecTclRestCommand package, which provides
+            emulators for all SpecTcl commands that run over the REST server
+            interface returns 1.  This command allows  a script to know if it
+            is or is not a REST client and take action that depends on that state.
+            state.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| evbunpack | Up | mirror |

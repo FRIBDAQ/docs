@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1145"></a>attach
+
+<a name="AEN1149"></a>## Name
+
+attach -- Attach a data source to SpecTcl
+
+<a name="AEN1152"></a>## Synopsis
+
+**attach**   
+                         [`-file` | `-pipe`]
+                       `-format` *format-spec*  [`-size` *num-bytes*]  *connection-specification*
+
+**attach** `-list`
+
+<a name="AEN1173"></a>## DESCRIPTION
+
+Attaches SpecTcl to the a data source or, if `-list` is specified
+                    provides information about the data source.  Note that once attached, analysis
+                    must still be started.
+
+In parallel operation:
+
+
+
+- In mpiSpecTcl only the ring format specifier is registered. In serial
+                          SpecTcl, that and nscl, jumbo and
+                          filter are also registered as valid format types.
+- This command only executes in the MPI_ROOT_RANK process as
+                          that is the one that manages the data source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| applygate | Up | channel |

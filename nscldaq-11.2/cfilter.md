@@ -1,0 +1,74 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cfilter"></a>CFilter
+
+<a name="AEN35610"></a>## Name
+
+CFilter -- Base class for primitive filters
+
+<a name="AEN35613"></a>## Synopsis
+
+```
+#include <CFilter.h>
+    
+```
+
+```
+CFilter
+```
+
+<a name="AEN35689"></a>## DESCRIPTION
+
+`CFilter` is the base class of all primitive
+      filters. It cannot be instantiated because it is an abstract class. The
+      `clone` method is a null method to enforce that
+      this must be clonable.
+
+A series of handler methods are declared virtual for derived classes to
+      write their own handler implementations. Because all of these handlers
+      provide a default implementation, derived classes need not write an
+      implementation for all of the handlers. All of the handlers in the base
+      class do nothing more than return the ring item passed as an argument.
+
+<a name="AEN35695"></a>## Public member functions
+
+`  CFilter();`The default constructor is a no-op.
+
+` virtual ~CRingItem();`The virtual destructor is a no-op.
+
+` virtual const CRingItem* clone();`This is declared null.
+
+` virtual CRingItem* handleRingItem(CRingItem* item);`Returns a copy of this.
+
+` virtual CRingItem* handleStateChangeItem(CRingStateChangeItem* item);`Downcasts the item pointer to a CRingItem and returns it.
+
+` virtual CRingItem* handleScalerItem(CRingScalerItem* item);`Downcasts the item pointer to a CRingItem and returns it.
+
+` virtual CRingItem* handlePhysicsEventItem(CPhysicsEventItem* item);`Downcasts the item pointer to a CRingItem and returns it.
+
+` virtual CRingItem* handleFragmentItem(CRingFragmentItem* item);`Downcasts the item pointer to a CRingItem and returns it.
+
+` virtual CRingItem* handlePhysicsEventCountItem(CRingPhysicsEventCountItem* item);`Downcasts the item pointer to a CRingItem and returns it.
+
+` virtual CRingItem* handleTextItem(CRingTextItem* item);`Downcasts the item pointer to a CRingItem and returns it.
+
+` virtual void initialize();`Method executed prior to the first ring item is handled. It is useful for
+      one-time initialization tasks. You should not use it for code that must
+      execute when a begin run occurs.
+
+` virtual void finalize();`Method executed after the last ring item is handled. It is useful for
+      clean up tasks such as writing a result to a file. You should not use it
+      for code that must execute when an end run occurs.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSIS3300 | Up | CCompositeFilter |

@@ -1,0 +1,113 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN35918"></a>USB
+
+<a name="AEN35922"></a>## Name
+
+USB -- Encapsulate low level USB context
+
+<a name="AEN35925"></a>## Synopsis
+
+```
+         g++ yourstuff -L$DAQLIB -Wl-rpath=$DAQLIB -llibUSB1 \
+   `pkg-config libusb-1.0 --libs` `pkg-config libusb-1.0 --cflags`         
+      
+```
+
+```
+         
+#include <USB.h>         
+class USB
+{
+public:
+    USB();
+    virtual ~USB();
+    void setDebug(int level);
+    std::vector<USBDeviceInfo*> enumerate();
+};         
+      
+```
+
+<a name="AEN35928"></a>## DESCRIPTION
+
+Provides a top level wrapping of a stream of operations on
+            a low level USB user space API.  If the library requires some
+            context object or other application or stream global
+            object, this object encapsulates it.
+
+A few opt level services are also provided that do not
+            require accessing USB devices that are attached to the
+            system's usb subsystem.  Note that device enumeration is
+            something that's done in hotplug and builds system
+            data structures that don't require any device operations
+            to access.
+
+<a name="AEN35932"></a>## METHODS
+
+
+
+` void setDebug(int level);`Provides a mechanism to set the underlying library's
+                  debug level.  Currently, `level`
+                  is a debug level value in
+                  libusb.h.  In a later
+                  implementation it's possble we'll make this
+                  method map from some generic set of levels to
+                  debug levels in the underlying library.
+
+` std::vector<USBDeviceInfo*> enumerate();`Returns a container that contains pointers to
+                  `USBDeviceInfo*`
+                  objects for all of the devices attached to the
+                  system's USB subsystem.  Note that these
+                  objects are dynamically allocated and must
+                  be deleteed when no longer
+                  required.
+
+<a name="AEN35957"></a>## EXAMPLES
+
+Below we show a typical use case for the
+         `enumerate` method.
+
+<a name="AEN35961"></a>```
+#include <USB.h>
+#include <stdexcept;
+#include <iostream>
+...
+ try {
+   USB usb;
+   auto devices usb.enumerate();
+   USBDeviceInfo* selectDevice(devices);
+   
+   // Operate on the selected device.
+   ...
+   
+ }
+ catch (std::exception& e) {
+   std::cerr << "Error encountered: " << e.what()
+             << std::endl;
+ }
+ 
+         
+```
+
+The example enumerates the devices attached to the
+         USB subsystem and then calls `selectDevice`
+         (internal to the application) to select the USB device
+         to use.  All other devices in the container
+         are deleed by `selectDevice`.
+
+See the documentation of `USBDeviceInfo`
+         for more information about how to select a specific
+         device and open it for use.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| USBException | Up | USBDeviceInfo |

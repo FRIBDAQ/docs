@@ -1,0 +1,190 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cvt"></a>cvt
+
+<a name="AEN50714"></a>## Name
+
+cvt -- Integer byte order conversions
+
+<a name="AEN50717"></a>## Synopsis
+
+```
+#include <cvt.h>
+       
+```
+
+<a name="AEN50719"></a>`void makecvtblock(
+                uint32_t lsig
+            , 
+                uint16_t ssig
+            , 
+                DaqConversion* conversion
+            );`
+
+<a name="AEN50733"></a>`int hostsameasforeign(
+                    DaqConversion* conversion
+                );`
+
+<a name="AEN50741"></a>`uint32_t ftohl(
+                DaqConversion* convertdata
+            , 
+                uint32_t datum
+            );`
+
+<a name="AEN50752"></a>`uint16_t ftohs(
+                DaqConversion* convertdata
+            , 
+                uint1y_t datum
+            );`
+
+<a name="AEN50763"></a>`uint32_t> htofl(
+                DaqConversion* convertdata
+            , 
+                uint32_t datum
+            );`
+
+<a name="AEN50774"></a>`uint16_t htofs(
+                DaqConversion* convertdata
+            , 
+                uint16_t datum
+            );`
+
+<a name="AEN50785"></a>## Description
+
+This library provides a suite of functions that do integer conversions
+          between the native integer formats of different systems.
+          Typically systems are classified as 
+          *big-endian* or
+          *little-endian*.
+
+Big-endian systems store their data with the most significant bytes of
+        a multi-byte integer in lower addresses, while little-endian systems
+        least significant bytes in lower addresses.
+        This library uses *signature* data in the
+        data to determine the byte ordering of foreign host (the host that
+        created the data), and how it differs from the local byte ordering.
+
+Signature data are data that have a known value, stored in the
+            system's native byte order.  Analyzing these values byte by byte
+            allows the software to determine the byte order of the foreign system.
+            The code defines the values:
+            CVT_WORDSIGNATURE
+            and
+            CVT_LONGSIGNATURE
+            respectively to be uint16_t and
+            uint32_t
+            signatures respectively.
+            Separate 16 and 32 bit signatures allows the library to deal with
+            any pathalogical systems that may have word orders that differ from
+            byte ordering.
+
+<a name="AEN50797"></a>## Public functions
+
+<a name="AEN50799"></a>`void makecvtblock(
+                uint32_t lsig
+            , 
+                uint16_t ssig
+            , 
+                DaqConversion* conversion
+            );`
+
+Creates a conversion block from the foreign system signatures you've
+            extracted from the data.  Note that NSCLDAQ control data includes byte
+            and long signatures you can use for this purpose.
+            `lsig` and
+            `ssig`
+            are the 32 and 16 bit signatures respectively.
+
+`conversion`
+            must point to a DaqConversion structure that will be
+            over-written with the conversion block that describes how to
+            convert from the byte order described by
+            `lsig`
+            and
+            `ssig`
+            to the host's byte order.
+
+<a name="AEN50821"></a>`int hostsameasforeign(
+                    DaqConversion* conversion
+                );`
+
+Determines if the conversion block pointed to by
+        `conversion`
+        describes a system with the same byte order as the host system.
+
+<a name="AEN50831"></a>`uint32_t ftohl(
+                DaqConversion* convertdata
+            , 
+                uint32_t datum
+            );`
+
+Converts a 32 bit value
+            `datum`
+            from the byte order of the foreign host used to produce the
+            DaqConversion
+            structer pointed to by `convertdata` to the
+            local host's byte order. The converted value is returned.
+
+<a name="AEN50846"></a>`uint16_t ftohs(
+                DaqConversion* convertdata
+            , 
+                uint1y_t datum
+            );`
+
+Converts a 16 bit integer
+            `datum` from the byte order described by
+            the system used to produce the
+            DaqConversion
+            block pointed to by
+            `convertdata` into the local system's byte order
+            and returns that 16 bit integer.
+
+<a name="AEN50861"></a>`uint32_t> htofl(
+                DaqConversion* convertdata
+            , 
+                uint32_t datum
+            );`
+
+Converts the 32 bit integer
+            `datum`
+            from the local host's native byte order to the byte order described
+            by the foreign host used to create the 
+            DaqConversion
+            conversion block
+            `convertdata`,
+            and returns the converted value.
+
+<a name="AEN50876"></a>`uint16_t htofs(
+                DaqConversion* convertdata
+            , 
+                uint16_t datum
+            );`
+
+Converts the 16 bit integer
+            `datum`
+            from the local host's native byte order to the byte order described
+            by the foreign host used to create the 
+            DaqConversion
+            conversion block
+            `convertdata`,
+            and returns the converted value.
+
+<a name="AEN50891"></a>## Types and public data
+
+CVT_WORDSIGNATURE is a 16 bit byte order signature you will
+            need to supply in any data you originate, and
+        CVT_LONGSIGNATURE is a 32 bit byte order signature you will
+            need to supply in any data you originate.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CFilterMain | Up | Thread |

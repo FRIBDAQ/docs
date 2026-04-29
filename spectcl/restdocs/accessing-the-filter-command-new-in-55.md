@@ -1,0 +1,110 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1187"></a>3.17. Accessing the filter command (New in 5.5
+
+Filters can be created using URLs of the form:
+
+<a name="AEN1190"></a>**http://host:port/spectcl/filter/new?name=filtername&gate=gatename&parameter=p1[&parameter=p2...]
+            **
+
+In this URL, the query parameters are:
+
+
+
+nameThe name of the filter to create.
+
+gateSpecifies the name of a gate that will determine which
+                    events are output by the filter.
+
+parameterEach occurance of this query parameter specifies the
+                    name of a parameter that will be written to the filter output.
+                    Note that neither the server nor SpecTcl check for name uniqueness,
+                    it is therefore possible, although pathalogical, to output
+                    the same parameter in an event more than once.
+
+To delete a filter use URLs of the form:
+
+<a name="AEN1212"></a>**http://host:port/spectcl/filter/delete?name=filtername
+            **
+
+The query parameter name specifies the name of
+            the filter to delete.  If the filter is enabled it is first disabled which
+            results in a properly terinated file.
+
+Filters can be enabled using URLs of the following form:
+
+<a name="AEN1218"></a>**http://host:port/spectcl/filter/enable?name=filtername
+            **
+
+Where the query parameter name
+            specifies the name of the filter to enable.
+
+Similarly:
+
+<a name="AEN1224"></a>**http://host:port/spectcl/filter/disable?name=filtername
+            **
+
+Disables the filter specified by the name
+            query parameter.
+
+URLs of the form
+
+<a name="AEN1230"></a>**http://host:port/spectcl/filter?name=filtername&file=path
+                **
+
+Specify the output file for the filter.
+            name specifies the filter name and
+            path the filter output file path. Note that
+            SpecTcl is writing the filter file and therefore the
+            path is interpreted as a path in the context of
+            the server not the client.  Furthermore, the path
+            value must specify a file that can be written by SpecTcl (not the
+            client).
+
+Urls of the form
+
+<a name="AEN1239"></a>**http://host:port/spectcl/filter/list
+            **
+
+Returns, for the detail part of the JSON
+            returned object an array of objects.  Each object will
+            describe a single filter and contains the following attributes:
+
+
+
+nameName of the filter.
+
+gateName of the gate applied to the filter.
+
+fileName of the output file to which the filter writes.
+
+parametersAn array of parameter names written to the output file
+                    for each event that passes the gate.
+
+enabledIf the filter is enabled, this attribute has the value
+                    enabled otherwise
+                    disabled.
+
+formatContains the format string e.g. xdr.
+
+The format of the filter output can be extended.  URLs of the form:
+
+<a name="AEN1279"></a>**http://host:port/spectcl/filter/format?name=filtername&format=format
+            **
+
+Specify the format of a filter.  name
+            specifies the filter name and format
+            the format type string.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Access to the treeevariable command (new in 5.5) | Up | Accessing the integrate command (new in 5.5) |

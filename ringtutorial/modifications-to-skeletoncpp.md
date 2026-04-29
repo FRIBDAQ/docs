@@ -1,0 +1,212 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev | Chapter 4. Creating a Readout program from a spectrodaq classic readout program | Next |
+
+
+---
+
+# <a name="AEN1630"></a>4.4. Modifications to Skeleton.cpp
+
+Up until now we have built code to wrap the skeleton.cpp
+                in classes that are compatibile with the RingDaq readout framework.
+                The readout framework also requires that we:
+
+
+
+1. Select (or write and register) an event trigger.
+2. Register an instance of our `CTraditionalEventSegment`
+                           as an event segment so that it can respond to the
+                           event trigger.
+3. Register an instacne of our `CTraditionalScaler`
+                           as a scaler so that it can respond to scaler triggers.
+
+The actions above are all done by editing the Skeleton.cpp
+                (note the capital S).
+
+Lets first take up the event trigger.  In the classical readout
+                framework this is selected at compile time by defining a
+                preprocessor symbol, or by creating and registering a replacement
+                trigger.  For the RingDaq readout framework, you must select
+                a trigger in your software.  While this is a bit more burdensome,
+                it is more flexible.
+
+Triggering in the RingDaq framework is divided into two
+                parts, the trigger itself, and dead-time management.
+                These are represented by a class descended from
+                `CTrigger` and another class
+                descended from `CBusy`.  Objects of these
+                classes can be mixed.  It is anticpated that there may be cases
+                where a specific bit of trigger hardware cannot also do deadtime
+                management.
+
+The readout framework supplies trigger/busy classes for the
+                CAEN V262 I/O register and the CAEN V977 coincidence register/latch.
+                In addition it is pretty easy to create new trigger classes and
+                to use them to trigger your readout.
+                The example below selects the CAEN V262 as the trigger and busy
+                manager. The signals used are identical to those used by the
+                SPDAQ frameworks.
+
+<a name="AEN1651"></a>**Example 4-12. Sepcifying the trigger/busy**
+
+```
+#include <config.h>
+#include "Skeleton.h"
+#include <CExperiment.h>
+#include <TCLInterpreter.h>
+#include <CTimedTrigger.h>
+
+#include "CCAENEventSegment.h"
+
+
+#include "CSIS3820Scaler.h"
+
+#include <CCAENV262Trigger.h>  
+#include <CCAENV262Busy.h>
+
+...
+void
+Skeleton::SetupReadout(CExperiment* pExperiment)
+{
+...
+  pExperiment->EstablishTrigger(new CCAENV262Trigger(0x444400, 0) ); 
+  pExperiment->EstablishBusy(new CCAENV262Busy(0x444400, 0));        
+  
+...
+}
+
+
+                
+```
+
+[[x1630#CV262_Includes1]]                        This header and the next define the
+                        `CV262Trigger` and
+                        `CV262Busy` classes which we will
+                        be using as trigger and busy classes respectively.
+                    [[x1630#CV262_trigger1]]                        This line of code creates a new
+                        `CV262Trigger` object
+                        for a module with base address of 0x444400
+                        in VME crate 0.  This is the traditional location of this
+                        module in the NSCL DAQ. The all to the
+                        `EstablishTrigger` method
+                        of the `CExperiment` object
+                        makes this trigger module the experiment event
+                        trigger.
+                    [[x1630#CV262_busy1]]                        Similarly, this line creates a
+                        `CV262Busy` object at the same
+                        VME base address and establishes it as the module
+                        that will handle and maintain the program's
+                        busy state.
+
+Now lets register the a `CTraditionalEventSegment`
+                to respond to the trigger.  The Readout framework allows you to
+                register any number of event segments. The segments are processed
+                in the order in which you register them, much the same way
+                SpecTcl event processors work.
+
+<a name="AEN1673"></a>**Example 4-13. Registering a `CTraditionalEventSegment`**
+
+```
+...
+#include "CTraditionalEventSegment.h"  
+...
+void
+Skeleton::SetupReadout(CExperiment* pExperiment)
+{
+  CReadoutMain::SetupReadout(pExperiment);
+
+  // Establish your trigger here by creating a trigger object
+  // and establishing it.
+
+  pExperiment->EstablishTrigger(new CCAENV262Trigger(0x444400, 0));
+  pExperiment->EstablishBusy(new CCAENV262Busy(0x444400, 0));
+
+  // Create and add your event segments here, by creating them and invoking CExp
+eriment's
+  // AddEventSegment
+
+  pExperiment->AddEventSegment(new CTraditionalEventSegment); 
+
+}
+
+
+                
+```
+
+[[x1630#rdoclassic_EVSegReg_Header]]                        Includes the header for the event segment we wrote to wrap
+                        skeleton.cpp.  This declares the class
+                        to the compiler and therefore makes references to it usable
+                        later.
+                    [[x1630#rdoclassic_EVSegReg_Reg]]                        Registers the event segment by creating one dynamically
+                        and passing the pointer to it to
+                        `CExperiment::AddEventSegment`.
+                        Since `Skeleton::SetupReadout` only
+                        is called once for the lifetime of the program, it is not
+                        a memory leak to not provide a way to destroy the pointer.
+
+The code to register the scaler wrapper is about the same,
+                however it is added to `Skeleton::SetupScalers`.
+
+<a name="AEN1689"></a>**Example 4-14. Registering the scaler adapter with readout**
+
+```
+...
+#include "CTraditionalScaler.h"  
+...
+void
+Skeleton::SetupScalers(CExperiment* pExperiment)
+{
+  CReadoutMain::SetupScalers(pExperiment);      // Establishes the default scale
+r trigger.
+
+  // Sample: Set up a timed trigger at 2 second intervals.
+
+  timespec t;
+  t.tv_sec  = 2;                                  
+  t.tv_nsec = 0;
+  CTimedTrigger* pTrigger = new CTimedTrigger(t);
+  pExperiment->setScalerTrigger(pTrigger);
+
+  // Create and add your scaler modules here.
+
+  pExperiment->AddScalerModule(new CTraditionalScaler); 
+
+}
+
+                
+```
+
+[[x1630#rdoclassic_ScalerReg_Header]]                        As before we must include the header for our
+                        wrapper so that we can refere to and use the
+                        `CTraditionalScaler` class
+                        later in the code.
+                    [[x1630#rdoclassic_ScalerReg_Trigger]]                        This code comes pre-packaged with the Skeleton.cpp
+                        file.  It sets up a scaler readout trigger to fire every
+                        two seconds when the run is active.  Scaler triggers,
+                        like event triggers are completely replaceable.
+                        If you want a different scaler readout interval,
+                        change the 2 to the number of seconds
+                        between readouts.
+                    While the `CTimedTrigger` supports
+                        trigger intervals that are not whole seconds, the time
+                        resolution of the run time offset in the scaler event
+                        currently only supports whole seconds.  Therefore
+                        leave the `t.tv_nsec` (nanoseconds)
+                        field set to zero.
+
+[[x1630#rdoclassic_ScalerReg_register]]                        Registers our scaler module with the readout.  As for
+                        event segments, any number of scaler modules can be registered.
+                        Scaler modules will be read out in the order in which
+                        they are registered.
+                    Once more, since the `CSkeleton::SetupScalers`
+                        is only called once in the lifetime of the program, no memory
+                        leak results from creating the `CTraditionalScaler`
+                        object in the way we have.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing the adaptors. | Up | Modifying the Makefile |

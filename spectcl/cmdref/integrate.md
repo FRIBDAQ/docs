@@ -1,0 +1,115 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.integratecommand"></a>integrate
+
+<a name="AEN1826"></a>## Name
+
+integrate -- Integrate regions of interest on spectra
+
+<a name="AEN1829"></a>## Synopsis
+
+**integrate *spectrum area-of-interest*
+**
+
+<a name="AEN1833"></a>## DESCRIPTION
+
+Integrates areas of interest in 1-d and 2-d spectra.
+            `spectrum` is the name of the spectrum to integrate.
+            `area-of-interest` is either a gate that can
+            be displayed on the spectrum (due to the set of parameters defined
+            on the gate and the set of parameters the spectrum displays), or
+            a set of points in parameter space that define an integration
+            region.
+
+**integrate** Integrates a spectrum within some
+            selected area of interest. The command returns the centroid,
+            total number of counts and full width at half maximum under
+            gaussian peak shape assumption.
+
+The spectrum can be any kind of spectrum, although clearly, some
+            spectra have integrations that may not be very meaningful
+            (e.g. summary spectra). The area of interest can either be a
+            gate name or a list of points that describe the area of interest.
+
+If the area of interest is a gate name it must be the name of gate
+            of suitable type that can be displayed on the spectrum.
+            Suitable means that if the spectrum is 1-d the gate must be a slice
+            like gate,
+            while if the spectrum is 2-d the gate must be a contour like gate.
+            Displayable means that if you displayed the spectrum in Xamine,
+            you would see the gate displayed on that spectrum. In general,
+            that means that the parameters that the gate is defined on are the
+            same as the parameters the spectrum is defined on.
+
+If the area of interest is a set of points, for 1-d spectra, the
+            points must be a Tcl list that is a pair that specifies the
+            boundaries of the integration region. The points must be specified
+            in the coordinate system of the parameter the spectrum is defined
+            on, rather than in spectrum channels (note that it is possible,
+            but not necessary, that the spectrum was defined in such a way
+            that these two coordinate systems are the same.
+
+For example; Consider a spectrum defined:
+
+<a name="AEN1844"></a>```
+spectrum aSpectrum 1 aParameter {{0 1023 512}}
+            
+```
+
+The command:
+
+<a name="AEN1848"></a>```
+integrate aSpectrum [list 200 300]               
+            
+```
+
+Will integrate the spectrum from channels 100 through 150 because
+            the spectrum is specified as a 2:1 compresssion of the parameter to
+            spectrum channels.
+
+If the area of interest is a set of points for a 2-d spectrum, the
+            points must be a list of coordinate pairs (again in parameter
+            coordinates not channels), that define the vertices of a closed
+            polyfigure (line crossings are allowed, and there must be a minimum
+            of three points). The interior of the polygon is defined in the
+            same way the interior of a contour is defined: For any point, extend
+            a ray to infinity in any direction. If the line crosses an odd number
+            of line segments defining the polygon the point is inside otherwise
+            outside.
+
+For example:
+
+<a name="AEN1854"></a>```
+integrate a2dSpectrum [list [list 0 0] [list 100 0] [list 100 100] [list 0 100]]
+            
+```
+
+Integrates a square that has one vertex at the origin and has a side 100 parameter units.
+
+The command returns a Tcl list that contains the integration
+            centroid, the number of counts in the region of interest, and the
+            Full width at half maximum (FWHM) under the assumption the region
+            of interest encloses a single peak with a gaussian line shape. If
+            the spectrum is a 2-d spectrum, The centroid and FWHM are returned
+            as pairs that describe the x and y centroids or FWHM's in the X and
+            Y directions respectively.
+
+<a name="AEN1859"></a>## SEE ALSO
+
+
+
+- [[r2473]]
+- [[r1428]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| gate | Up | parameter |

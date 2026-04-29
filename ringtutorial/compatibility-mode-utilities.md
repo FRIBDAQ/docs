@@ -1,0 +1,137 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev |  |  |
+
+
+---
+
+# <a name="AEN2109"></a>Appendix C. Compatibility mode utilities
+
+In order to facilitate migration to the new ringdaq software,
+            several utilities have been written that allow spdaq client
+            software to attach to ring buffer data with little or no modification.
+            This appendix briefly describes these utilities and provides some
+            examples of their use.
+
+The utilities address three areas of compatibility:
+
+
+
+- Event file format.
+- SpecTcl pipe data sources
+- Hoisting data to systems that are not running nscldaq software
+
+
+**Event file format. **
+                The eventlog-compat script provides
+                an event logger that the ReadoutShell GUI can use to log
+                event data in SPDAQ compatible format.  Readout Shell has
+                been enhanced so that alternative event loggers can be used.
+                This combination allows you to run experiments recording data
+                directly in SPDAQ compatible format.
+
+When Readout shell starts, it looks for the environment variable
+            EVENTLOGGER if this is defined it is assumed to
+            be the full absolute path to an event logging program which will be
+            used instead of the default eventlog.  The example belows shows
+            how to make use of this to write event data directly in SPDAQ format
+
+<a name="AEN2126"></a>**Example C-1. Writing event data in SPDAQ format**
+
+```
+export EVENTLOGGER=/usr/opt/daq/10.0/bin/eventlog-compat
+            
+```
+
+**Piping SPDAQ formatted data to SpecTcl. **
+                The spectcldaq provides a SpecTcl
+                pipe data source that sends data to SpecTcl in SPDAQ format.
+                This allows you to attach unmodified SpecTcl applications to the
+                ring buffer DAQ system.
+
+The example below is a Tcl **proc** that allows you to
+            make use of this facility:
+
+<a name="AEN2135"></a>**Example C-2. Piping SPDAQ formatted event data to SpecTcl**
+
+```
+proc attachOnline host {
+    global tcl_platform
+    global env
+
+    set user    $tcl_platform(user)
+    set daqroot $env(DAQROOT)
+    set spectcldaq [file join $daqroot bin spectcldaq]
+
+    attach -pipe $spectcldaq tcp://$host/$user
+    start
+
+}
+            
+```
+
+The software assumes the environment variable DAQROOT
+            is defined and is the top level directory of the ringdaq installation
+            (e.g. /usr/opt/daq/10.0/bin).  The script further
+            assumes that the readout source is putting data into its default ring.
+            Note that as with Spectrodaq, using localhost when
+            you want data from the same system is preferred over specifying the
+            hostname.
+
+**Serving SPDAQ data to non NSCLDAQ systems (e.g. S800 Mac). **
+                The spectcldaq.server script
+                implements a server that allows connecting systems to
+                get SPDAQ formatted data across a TCP/IP client/server connection.
+                This can be used to send data to the S800 Mac SpecTcl
+                diagnostics.
+
+spectcldaq.server must be parameterized
+            with the URL of the ring buffer into which Readout is putting data
+            as well as the the port on which it listens.  Any connecting
+            client will receive data in SPDAQ fromat along its socket until
+            it disconnects.
+
+The next pair of examples shows how to start the server in the
+            spdaq system that provides data listening on port 1100, and how
+            to provide a pipe data source to SpecTcl using the server.
+
+<a name="AEN2149"></a>**Example C-3. Running spectcldaq.server in an Spdaq system.**
+
+```
+$DAQROOT/bin/spectcldaq.server tcp://localhost/`whoami` 1100
+            
+```
+
+The example above assumes DAQROOT points to the
+            base of the ringdaq directory tree
+            (.e.g **export DAQROOT=/usr/opt/daq/10.0**), and that
+            the Readout software is putting data into its default ring. Note
+            that when accessing rings that are local to the machine the use of
+            localhost is preferred in the ring url.
+
+<a name="AEN2156"></a>**Example C-4. SpecTcl pipe data source using spectcldaq.server**
+
+```
+proc attnet {host port} {
+    attach -pipe netcat $host $port
+    start
+}
+            
+```
+
+This **proc** makes use of the netcat
+            utility which connects to a TCP/IP host/port pair and outputs data
+            from that connection on its stdout.  netcat
+            is available on all Linux systems and is avaialble in the Darwin ports
+            repository for OS-X,
+            ([http://www.darwinports.info/ports/net/netcat.html](http://www.darwinports.info/ports/net/netcat.html))
+            as well as being available in source form
+            under the GPL ([http://netcat.sourceforge.net/](http://netcat.sourceforge.net/)).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| User written triggers |  |  |

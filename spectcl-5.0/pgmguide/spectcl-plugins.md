@@ -1,0 +1,160 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.plugins"></a>Chapter 11. SpecTcl plugins
+
+Until now we've only talked about code that is statically compiled
+        into SpecTcl to extend its functionlity.  Plugins are shared libraries
+        that are loaded on command to dynamically extend SpecTcl's functionality
+        at run time.  Two examples of plugins that are available from the NSCl are
+        the Radware I/O plugin that adds commands to save spectra in Radware format
+        and the Root Filter format plugin that adds the ability to save filtered
+        data as Root Ntuples so filtered events can easily be impoted to Root.
+
+The ability to write a SpecTcl plugin really comes as a natural consequence
+        of using Tcl as the SpecTcl command langauge.  The Tcl built in command
+        **load** loads a shared library and invokes a specific
+        initialization function.  This in conjunction with the SpecTcl
+        package subsystem allows plugins to be defined, made known to SpecTcl
+        and loaded via the **package require** Tcl command.
+
+In this chapter:
+
+
+
+- I'll provide an overview of the process of writing Tcl loadable
+                  packages.
+- I'll describe how to make those packages known to SpecTcl.
+- We'll work through an example;  wrapping the buffer decoder
+                  we wrote in the previous chapter into a plugin that can be
+                  loaded on demand rather than compiled in.
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | The use of plugins is not absolutely necessary.  It does, however
+            make distributing SpecTcl extensions somewhat simpler.  Feel free
+            to skip this chapter on a first reading, however.  Come back to it
+            as needed. |
+
+# <a name="AEN4081"></a>11.1. Writing and publishing compiled Tcl packages
+
+To write and publish plugin you must:
+
+
+
+- Write code to support the functionality of your plugin.
+                      For our example, we've already done this in the previous chapter.
+- Write A Tcl loadable module initialization function. Note
+                      that this must have C not C++ bindings.
+- Produce a package index file,
+                      pkgIndex.tcl with the appropriate
+                      **package ifneeded** commands.
+- Package the shared library and package index in a directory
+                      that is already part of or is added to the Tcl package
+                      search path (`auto_path`).
+
+We're going to start this section with a discussion of the initialization
+            function as we've already got code to support our plugin's functionality.
+            The name of the initialization function is important.   The name of the
+            initialization function is derived from the name of the shared library
+            you are making by:
+
+
+
+1. Removing the leading lib
+2. Removing the trailing .so and anything after that
+                       (e.g. version numbers).
+3. Making the first name of all that remains upper case.
+4. Making all the remaining parts of the name lower case.
+5. Appending _Init to the result.
+
+So, for example,  if we decide we're going to build the
+            shared library: libSomeDaqDecoder.so,
+            our initialization function must be called:
+            `Somedaqdecoder_Init`.
+
+The function receives the interpreter (raw interpreter of type
+            Tcl_Interp*) as its only argument and, on success
+            is supposed to return TCL_OK, and on failure
+            TCL_ERROR.
+
+The initialization function should:
+
+
+
+1. Initialize the Tcl stubs interface, if Tcl is stubs enabled
+                       and you want your extension to be stubs enabled (you should
+                       as this insulates you from the exact Tcl version SpecTcl
+                       is built with enabling your plugin to be more portable).
+   This is done by invoking `Tcl_InitStubs`.
+                       You must also be sure to link your plugin to the stubs
+                       library rather than Tcl directly.
+2. Make the name and version of the package you intend to supply
+                       to the interpreterk nown, via a call to
+                       `Tcl_PkgProvide`.
+3. Do whatever's necessary to incorporate your package into
+                       SpecTcl.
+
+Much of this is best covered by example in the next section.
+            We'll say a bit here about packages, package indices and the package
+            load process.  This will serve as a bit of background on how to
+            distribute your plugin so that it can be incorporated into SpecTcl.
+            Note that this is a Tcl topic, not a SpecTcl topic.
+
+When Tcl processes the **package require** command
+            for a package that isn ot already loaded, it searches the directories
+            in `auto_path` one by one for a file named
+            pkgIndex.tcl.  If that file is located, it is
+            sourced into the interpreter.
+
+Typically pkgIndex will contain a series of
+            **package ifneeded** commands that define how
+            to load a set of packages into the interpreter.  When sourced,
+            the Tcl variable `dir` is the full path
+            to the directory in which the pkgIndex.tcl
+            script is installed.
+
+The form of the **package ifneeded** command is:
+
+**package ifneeded *name version load-script*
+**
+
+Where `name` is the name of a package,
+            `version` is a version of that package and
+            `load-script` are the commands needed to
+            load that package into the interpreter.  Note that the
+            **package require** command can specify a version
+            as well as matching criteria and you can have
+            **package ifneeded** commands for several versions
+            of the same package.
+
+For a compiled extension, the script must be a **load**
+            command for the appropriate shared library.  For example for
+            libSomDaqDecoder.so, providing version 1.0 of the package
+            SomeDaqDecoder, the pkgIndex.tcl file might
+            contain:
+
+```
+
+package ifneeded SomeDaqDecoder 1.0  \
+    [list load [file join $dir libSomeDaqDecoder.so]]
+        
+```
+
+The Tcl **list** command can be used to build up
+            command forcing appropriate quoting and the
+            **file join** command supplies a system independent
+            mechanism for joining file path elements in to a file path.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Worked example for supporting a new data format |  | Distributing theSomeDaqBufferDecoderas a plugin |

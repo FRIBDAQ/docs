@@ -1,0 +1,154 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="mvlc3.tclconfigparser"></a>TCLConfigParser
+
+<a name="AEN106131"></a>## Name
+
+TCLConfigParser -- Base class for mvlcgenerate configuration parser
+
+<a name="AEN106134"></a>## Synopsis
+
+```
+#include <mvlc/TCLConfigParser.h>
+
+class TCLConfigParser {
+public:
+    TCLConfigParser(const std::string& infile);
+    
+    CStack* getEventStack() ;
+    CStack* getScalerStack();
+
+    virtual void initialize();
+    virtual void operator()();                         
+    CTCLInterpreter* getInterpreter();
+    CReadoutModule* findDevice(std::string devname);                   
+    virtual void addDevice(std::string devname, CReadoutModule* driver);
+    virtual void addExtensions();
+    virtual void addExtension(CTCLObjectProcessor& cmdobj);       
+    void addExtension(CTCLObjectProcessor* pCmd) 
+    static TCLConfigParser* getInstance();
+
+};
+        
+```
+
+<a name="AEN106136"></a>## DESCRIPTION
+
+This is the base class for the translator parser.  The subclass `MVLCConfigParser`
+            does al lthe real work with this class just providing the framework on which devices, the event
+            and scaler stack can be hung.
+
+In order to handle a virtual initialization of the extensions, a two phase initialization
+            is required. First the specific subclass must be instantiated.  Next `initialize`
+            must be called.  This is a virtual method that will do any type specific initialization including, 
+            but not limited to registering extensions.  Finally, when ready to interpret the configuration
+            script to build the final configuration, `operator()` should be 
+            called to process the configuration file into a configuration.  The final step, would naturally
+            be using that configuration to generate the final configuration file.
+
+Note that this method is an irregular singleton in that it has a public constructor that
+            prevents multiple invocations and a `getInstance` that returns
+            a pointer to the singleton object if it has been constructed.
+
+<a name="AEN106145"></a>## METHODS
+
+
+
+`  TCLConfigParser(const std::string& infile);`The constructor requires a single parameter; the path to the file that
+                            is interpreted by `operator()`.  Note that construction
+                            also instantiates a `CTCLInterpreter` object.
+                            The `infile` is saved in member data and is the name
+                            of the configuration file that `operator()` will intepret.
+
+`  CStack* getEventStack();`It makes sense to call this method, only after `operator()`
+                            has processed the configuration file.  If an event stack, has been defined
+                            by the configuration, this method returns a pointer to it.  If not, 
+                            nullptr is returned.  nullptr will, naturally,
+                            also be returned if the configuration file has not yet been processed.
+
+` CStack* getScalerStack();`It makes sense to call this method, only after `operator()`
+                            has processed the configuration file.  If an scaler stack, has been defined
+                            by the configuration, this method returns a pointer to it.  If not, 
+                            nullptr is returned.  nullptr will, naturally,
+                            also be returned if the configuration file has not yet been processed.
+
+` virtual void initialize();`This method invokes `addExtensions` to extend the
+                            Tcl interpreter used to interpret the configuration script.
+                            Since this operation is virtual it cannot be invoked from the constructor.
+                            This is is because constructor code ignores the polymophism of virtual 
+                            methods.  This is why the two phase construction described in 
+                            DESCRIPTION is needed to allow subclasses to do their
+                            own type specific initialization.
+
+Subclasses  typically only need to modify `addExtensions`
+                            to add the set of domain specific verbs the interpreter will understand.
+
+` virtual void operator()();`This method interprets the configuration file tha was passed in to the constructor.
+                            Once the configuration has been built from the file  the code generator can
+                            query it to generate appropriate operations.
+
+` CTCLInterpreter*  getInterpreter();`Returns a pointer to the interpreter object that will be used to interpret the
+                            configuration file.
+
+` CReadoutModule* findDevice(std::string devname);`It only makes sense to call this method after, or during configuration.
+                            It returns a pointer to the `CReadoutModule` of the
+                            device named `devname`. One use during configuration is
+                            for devices such as [[r102834]],
+                            or 
+                            [[r104261]]
+                            to validate the contents of
+                            their list of devices they control.  
+                            [[r105423]] objects
+                            will also use this to ensure they are not creating devices with dupliate names
+                            and to lookup existing devices to configure or introspect their configurations.
+
+If there is no match to the module name in the set of modules defined when 
+                            `findDevice` is called, a nullptr is returned.
+
+` virtual void addDevice(std::string devname, CReadoutModule*  driver);`Adds a new named device driver instance wrapped together with its configuration
+                            to the configuration being buit up.
+
+This is normally called from a 
+                            [[r105423]]
+                            when it creates a new 
+                            [[r105482]]
+                            to enter that device in the configuration.
+                            `devname` is the name assigned to the device
+                            in the **create** subcommand while `driver`
+                            is a pointer to the
+                             [[r105482]]
+                            that subcommand created.
+
+` virtual void addExtensions();`This is an no-op method.  It is not pure virtual to facilitate unit testing.
+                            Normally derived class override this method and provide code to extend the
+                            base Tcl intepreter that will be used to interpret the configuration file.
+
+This can be thought of as a strategy method that is called by
+                            `initialize`
+
+` virtual void addExtension(CTCLObjectProcessor& cmdobj);`Adds a command extension to the interpreter.  The configuration maintains a List
+                            of command objects added.  `cmdobj` must be 
+                            dynamically created via new. Ownership passes into our object and
+                            the object delete's all extensions added in this way
+                             when it is destroyed.
+
+` void addExtension(CTCLObjectProcessor* pCmd);`Invokes the previous overload of `addExtension` with 
+                            the dereferences `pCmd`.
+
+` static TCLConfigParser* getInstance();`As described, this is an irregular singleton.  If an instance has been
+                            created, this will return a pointer to that instance.  If not, 
+                            nullptr is returned. The irregularity stems from the need
+                            to pass a connfiguration file name into the constructor of the instance.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CVMUSBReadoutList | Up | MVLCCOnfigParser |

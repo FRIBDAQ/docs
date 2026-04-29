@@ -1,0 +1,321 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringformat"></a>Chapter 38. Format of Event Data In Ring Buffers
+
+The NSCL Ring buffer based data distribution scheme ia a very flexible
+        data distribution scheme that makes no restrictions on the format
+        of the data it transmits.  This section describes the format of data
+        that is placed in the ring buffer by NSCL DAQ readout software.
+        These data are formatted in a consistent way so that consumer programs
+        know what to expect and so that library functions can (and have been) be
+        written that can select specific data record types in specific ways from
+        the data stream.
+
+This chapter is divided into these sections:
+
+
+
+- A description of the data records that will be put in
+                      ring buffers, and how to incorporate definitions of these
+                      structures in your software.
+- A description of the mechanisms that are available to selectively
+                      get data from ring buffers.
+- A description of the class library that helps you build and
+                      decode items in the ring buffer in the format described in
+                      this chapter.
+- A description of a simple library that allows you to
+                      create ring items that may not wind up being placed in a ring.
+
+
+Reference material is provided in in the 3daq section that describes the
+        class library.
+
+# <a name="AEN2489"></a>38.1. The basic data formats
+
+Data placed in the ring buffer consists of 'items'.   Items have a
+            header, which has the same shape from item type to item type and
+            an item body whose format varies from type to type.
+
+The header DataFormat.h contains, among other
+            things, the struct definitions that define
+            the shapes of each item.  These structs are given typenames via
+            the typedef statement.  The remaining
+            discussion will use these typenames, rather than the names of the
+            underlying structs.
+
+The header of each item type is of type `RingItemHeader`
+            for convenience, the type `pRingItemHeader` is defined
+            to be a pointer to a `RingItemHeader`.  This is a
+            common pattern in the DataFormat.h header.
+
+The header has the following fields:
+
+
+
+uint32_t `s_size`Contains the size of the item in bytes.
+                            `s_size` should include the
+                            size of the header as well
+
+uint32_t `s_type`Contains a value that uniquely defines the type of
+                            datain the item.  While this is a 32 bit field,
+                            the actual type values a 16 bits wide, with the
+                            remaining 16 bit set to zero.  This allows consumer
+                            software to detect byte order differences between
+                            systems that generate the data and consumer systems.
+
+The NSCL DAQ reserves types 1 through 32767
+                            for itself.  Type 0 is illegal, as it's byte order
+                            is indeterminate.  Types
+                            37678 through 65535 are available for user applications.
+                            The constant `FIRST_USER_ITEM_CODE`
+                            provides the symbolic value for the first item code
+                            available for user applications.
+
+The NSCL DAQ is currently using the following
+                            item codes, defined in the DataFormat.h
+                            header:
+
+
+
+`BEGIN_RUN`The item describes the beginning of a data
+                                    taking run.
+
+`END_RUN`The item descdribes the end of a data taking
+                                        run.
+
+`PAUSE_RUN`The item describes a temporary pause in
+                                        data taking.  This item must be followed
+                                        immediately by either a
+                                        `RESUME_RUN` item,
+                                        or an `END_RUN` item.
+
+`RESUME_RUN`This item describes the resumption of
+                                        data taking after a temporary pause.
+                                        Barring user defined types that may
+                                        follow a
+                                        `PAUSE_RUN`, this
+                                        item will always follow a
+                                        `PAUSE_RUN` item.
+
+`PACKET_TYPES`NSCL DAQ readout frameworks can package
+                                        chunks of a physics event into packets.
+                                        Packets have essentially the same
+                                        format as ring buffer items.
+                                        The frameworks also support documenting
+                                        the packet types that can occur in a
+                                        data taking run.  This item supplies that
+                                        documentation to interested consumers.
+
+`MONITORED_VARIABLES`Some readout frameworks support the creation
+                                        of variables that can monitor external
+                                        conditions such as EPICS channels.
+                                        This item contains information about the
+                                        latest state of a monitored variable.
+
+`INCREMENTAL_SCALERS`NSCL DAQ readout frameworks support the
+                                        periodic readout of counters.  These counters
+                                        are called *scalers* by
+                                        the experimental community and are used to
+                                        monitor the rates of trigger components,
+                                        detector systems, or system live-time.
+                                        Data from these are put in
+                                        `INCREMENTAL_SCALERS` items.
+
+`PHYSICS_EVENT`The purpose of NSCL DAQ readout frameworks,
+                                        is to respond to event triggers and read out
+                                        digitizer hardware that has captured the data
+                                        from a nucleus-nucleus collision.
+                                        These data are placed in
+                                        `PHYSICS_EVENT` items.
+
+`PHYSICS_EVENT_COUNT`Periodically emitted to tell clients how
+                                        many `PHYSICS_EVENT`
+                                        items have been inserted in the
+                                        ring.  This is can be used to
+                                        determine sampling efficiency for
+                                        analysis consumers, as well as to
+                                        compute event rates.
+
+EVB_FRAGMENTAn event fragment from the ordering phase of the
+                            event builder.
+
+
+These item types break down in to four distinct categories of
+            item which will be described in the remaining subsections of this
+            section.
+
+## <a name="AEN2577"></a>38.1.1. State Change Items
+
+State change items are those with types
+                `BEGIN_RUN`, `END_RUN`,
+                `PAUSE_RUN`, and `RESUME_RUN`.
+                As the type names imply, these signal state transitions in
+                data taking.
+
+State change items have the type
+                `StateChangeItem`.  This item has the
+                following fields:
+
+
+
+uint32_t `s_runNumber`Is the number of the run for which this state transition
+                            is being documented.  Typically, run numbers are
+                            unique, for recorded runs, as the run number is encoded
+                            into the name of the run's event file.
+
+uint32_t `s_timeOffset`Is the number of seconds the run has been active prior
+                            to this state transition.  Clearly if the type of the
+                            item is `BEGIN_RUN` this will be zero.
+                            For the NSCLDAQ frameworks, the time offset only
+                            counts seconds during which the run was active (time
+                            during which the run was paused are not counted).
+
+uint32_t `s_Timestamp`Is the absolute time at which the transition
+                            occured. This is represented in seconds since
+                            the Unix epoch of
+                            00:00:00 UTC, January 1, 1970.
+                            Once translated into the host's byte order, it can
+                            be passed to any of the time formatting functions
+                            (e.g. `asctime`).
+
+char `s_title`[TITLE_MAXSIZE+1]Holds the run title.  Run titles are restricted in
+                            size to `TITLE_MAXSIZE` characters,
+                            with the +1 to accomodate the
+                            trailing '\0'.
+                            `TITLE_MAXSIZE`
+                            is also defined in
+                            DataFormat.h.
+
+All item types have a field
+                `s_header` of type
+                RingItemHeader that holds the item header.
+
+## <a name="AEN2617"></a>38.1.2. Text List Items
+
+Text list items contain a list of null terminated strings.
+                They are usually used to provide metadata for the run.  At present,
+                two types of text list items are defined.
+                `PACKET_TYPES` and
+                `MONITORED_VARIABLES`.
+
+`PACKET_TYPES` document the packets you might
+                expect to find in a run's `PHYSICS_EVENT` items.
+                Creating instances of the
+                `CDocumentedPacket` object
+                automatically generates these.  Each packet is documented with a
+                single string.  The string consists of five colon separated fields.
+                These fields contain, in order:
+
+
+
+1. The Name the packet.
+2. The id of the packet given as a hex string e.g.
+                               "0x1234"
+3. A desription of the packet.
+4. A version string for the packet.  Presumably this
+                               will change if the packet with this type ever
+                               changes 'shape'>
+5. The date and time at which the
+                               `CDocumentedPacket` object
+                               creating this entry was created.
+
+
+`MONITORED_VARIABLES` items contains a snapshot
+                of the values of process variables that have been declared
+                by the readout software.   Each variable takes up one string and is
+                formatted like a Tcl **set** command that, if executed,
+                would define that variable to the value it had when the item was created.
+
+String list items have type `TextItem`.
+                This item has the following fields:
+
+
+
+uint32_t `s_timeOffset`The number of seconds of data taking that have gone on
+                            in this run prior to the generation of this item.
+                            This time offset does not count time in the paused
+                            state.
+
+uint32_t`s_timestamp`Is the absolute time at which the item was 
+                            created. This is represented in seconds since
+                            the Unix epoch of
+                            00:00:00 UTC, January 1, 1970.
+                            Once translated into the host's byte order, it can
+                            be passed to any of the time formatting functions
+                            (e.g. `asctime`).
+
+uint32_t `s_stringCount`Number of strings in the item.
+
+char `s_strings[]`An array of characters large enough to hold all
+                            the strings.  Each string is a null terminated set
+                            of characters immediately followed by the next
+                            string.
+
+## <a name="AEN2666"></a>38.1.3. Scaler Items
+
+NSCLDAQ readout frameworks support periodically reading scaler
+                data.  These data are represented as
+                `ScalerItem` items in ring buffers.
+                These items have the following fields:
+
+
+
+uint32_t `s_intervalStartTime`The number of seconds of active data taking prior
+                            the start of the time period represented by the counts
+                            in this scaler item.
+
+uint32_t `s_intervalEndTime`The number of seconds of active data taking prior to
+                            the end of the time period represented by the counts
+                            in this scaler item.
+
+uint32_t  `s_timestamp`Is the absolute time of the end of the
+                            scaler counting period.
+                            This is represented in seconds since
+                            the Unix epoch of
+                            00:00:00 UTC, January 1, 1970.
+                            Once translated into the host's byte order, it can
+                            be passed to any of the time formatting functions
+                            (e.g. `asctime`).
+
+uint32_t `s_scalerCount`The number of scalers in the item.
+
+uint32_t `s_scalers`[]The array of scaler counts.  This contains
+                            `s_scalerCount` elements.
+
+## <a name="AEN2699"></a>38.1.4. Event Data Items
+
+These items are of type
+                `PHYSICS_EVENT`.
+                The contain the data read from the hardware.  Depending on the
+                readout framework, this can be the response to one trigger or to
+                a block of triggers. It is up to the analysis software to know
+                which is which.
+
+This item is of type `PhysicsEventItem`
+                and contains the field
+                uint16_t `s_body` that is the data
+                from the event.
+
+## <a name="AEN2706"></a>38.1.5. Event count items
+
+These items are of type `PhysicsEventCountItem`.
+                uint32_t `s_timeOffset` is
+                the number of seconds into the active run the event occured.
+                uint32_t `s_timesamp`
+                is the absolute timestamp indicating when this item was created.
+                uint64_t `s_eventCount` is
+                the total number of events that have been contributed to this
+                ring for this run.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Callbacks | Up | Selecting Data From a Ring Buffer |

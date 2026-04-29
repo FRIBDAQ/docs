@@ -1,0 +1,78 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN22493"></a>reglom
+
+<a name="AEN22497"></a>## Name
+
+reglom -- Rebuild events offline
+
+<a name="AEN22500"></a>## Synopsis
+
+**$DAQBIN/reglom `options...` *files...*
+**
+
+<a name="AEN22505"></a>## DESCRIPTION
+
+**reglom** is a non-GUI program that takes the event file that has
+          been through the FRIBDAQ event builder, torn apart into fragment files, and  rebuilds the events using
+          a different coincidence window.  This may be needed if later analysis dtermines the
+          the coincidence window chosen for online data taking was incorrect.
+
+Reglom operates with **Unglom** (do not confuse this with
+            **unglom** which may be simpler to use than
+            **Unglom** together with **reglom**
+
+The **reglom** program accepts command line options,
+            which will be described in the next section and a list of 
+            fragment filenames.  Thes fragment files generally come from
+            running **Unglom** over an event file that has been
+            event bult.
+
+<a name="AEN22517"></a>## OPTIONS
+
+The options accepted by **reglom**
+            determine how the fragment files are put together
+            into an event built event file:
+
+
+
+`--help`Outputs brief help text to stdout and
+                    exits without doing anything.
+
+`--version`Outputs the program version string to stdout and
+                    exits without doing anything.
+
+`--dt`*coincidence-window*The argument to this option is the number of clock
+                    ticks that define the event build window.  This value
+                    must be a valid positive, non-zero, integer.  There is no
+                    default value.
+
+`--timestamp-policy`*policy*The argument to tis option determines how the timestamps
+                    for built events is assigned.  It can be one of
+                    earliest, latest
+                    and average.  If not supplied, the default
+                    value is earliest, that is the timestamp
+                    of the first fragment in the built event.
+
+`--sourceid`*output-source-id*Defines the source id that will be assigned to output events.
+                    This is normally a small counting number. If not
+                    provided, the default is 0
+
+`--output`*filename*Provides the name of the output file to be produced.
+                    This has no default value.  Note that unlike event files
+                    produced by the **eventlog** program,
+                    output files are a single, unsegmented file.
+                    There is no default value for this mandatory option.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Unglom (note capital U) | Up | timecheck |

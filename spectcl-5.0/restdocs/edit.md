@@ -1,0 +1,129 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN562"></a>3.7. edit
+
+This operation creates or re-defines (edits) an existing gate.
+                The name parameter specifies the name of the
+                gate.  If the gate does not exist it will be created.
+                Gates can not only be edited to change their points. Any aspect
+                of a gate can be modified (except the name of the gate).
+
+The type parameter determines the new
+                type of the gate.
+                The remaining parameters depend on the value of this type.
+
+## <a name="AEN568"></a>3.7.1. Compound gates (* + -)
+
+These gates only require a gate
+                    parameter whose value is a Tcl list of component gates.
+
+## <a name="AEN573"></a>3.7.2. Constant gates (T F)
+
+These are gates that are either always TRUE or always
+                    FALSE.  They are normally used as placeholders.  For
+                    example SpecTcl itself replaces a deleted gate with a
+                    FALSE gate in order to ensure that any dependent
+                    gates will continue to function in a predictable manner.
+
+These gates do not require any additional parameters.
+
+## <a name="AEN578"></a>3.7.3. Bands and Contours (b c)
+
+These gates need both an xparameter and
+                    a yparameter value to describe the X and
+                    Y parameters to check against the definition.  In addtion, these
+                    gates need several instances of xcoord
+                    parameters (x position of gate points) and
+                    ycoord parameters (y position of gate points).
+
+If there are differing number of x and y coordinates
+                    (you really should avoid that), only those points for which
+                    the x/y coordinates were both specified will be used.
+                    A band must have a minimum of two points while a contour
+                    requires at least three points.  For contours, there is an
+                    additional implied line segment joining the last and first points
+                    to close the figure.
+
+## <a name="AEN587"></a>3.7.4. Bit mask gates (em am nm)
+
+Bit mask gates require a parameter and
+                    a value parameter.   The
+                    parameter indicates which event
+                    parameter will be checked againts the value
+                    which is a bitmask.
+
+## <a name="AEN595"></a>3.7.5. Slice gates (s)
+
+Slice gates require three query parameters:
+
+
+
+parameterProvides the name of the parameter checked
+                                against the slice.
+
+lowLow limit of the slice.
+
+highHigh limit of the slice.
+
+Note that if low is larger
+                    than high, SpecTcl will
+                    reverse these parameters to create a sensible gate.
+
+## <a name="AEN618"></a>3.7.6. Gamma 2d gates (gb gc
+
+These neewd the follwoing additional parametrs:
+
+
+
+parametrerMust appear t least twice and can appear
+                                several times. Each appearance adds a
+                                parameter to the list of parameters
+                                the gate will be checked against.
+
+Gamma gates are true for each pair of parameters
+                                that are in the gate.  They are more useful
+                                as folds than as actual gates.
+
+xcoordProvides an X coordinate for a gate point.
+                                These are orderd and will be matched up with
+                                ycoord values (see below).
+                                A band requires at least two of these and a
+                                contour at least three.
+
+ycoordProvides the y coordinate for a gate point.
+                                These are ordered and will be matched up with
+                                corresponding xcoord values.
+                                If there is an excess of either xcoord
+                                or ycoord values, the excess
+                                is discarded.
+
+A band requires at least two points while a contour
+                                requires at least three.
+
+## <a name="AEN644"></a>3.7.7. Gamma slice (gs)
+
+As for a slice gate a high and
+                    low parameter are required to set
+                    the limits for the gate.  For Gammma slice gates, however
+                    you can have more than one parameter
+                    query option.  Each parameter adds
+                    another parameter to the list of parameters checked
+                    against the gate.
+
+Gamma slice gates are true if any of the parameters
+                    are within the slice.  As such, they are more useful
+                    as folds where they can cut down the set of parameters
+                    that can actually increment spectra.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| delete | Up | Gate Applications. |

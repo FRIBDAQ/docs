@@ -1,0 +1,139 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev | Chapter 2. Library Organization | Next |
+
+
+---
+
+# <a name="sec.factories"></a>2.2. Factories.
+
+Factories are classes that create instances of other classes.
+                Abstract factories are a family (inheritance hierarchy) of factory
+                classes, where each factory instance createst instances of classes
+                from parallel class hierarchies.
+
+I Know the previous paragraph might sound a bit confusing.  Let's
+                describe this in the concrete terms of how factories and the
+                abstract factory pattern fit into this library:
+
+
+
+- We have a base class factory with an interface that describes
+                        various ways to create different types of ring items.
+- For each supported version of NSCLDAQ we have a factory
+                        which knows how to instantiate objects from the class
+                        hierarchy that implement its own ring item data formats.
+- Finally, and this is slightly different from the classic
+                        abstract factory pattern, we have a factory factory which,
+                        given information about the version of NSCLDAQ being used
+                        (either an explicit version number or, in the case of
+                        versions 11 and higher a data format item), can give us an
+                        instance of the correct factory to use for that version of NSCLDAQ.
+                        [[1]](#FTN.AEN126)
+  Since all factories provide the same interface as the factory
+                      base class, once we've selected the factory we're going to use,
+                      we don't need to know anything about the NSCLDAQ version.
+                      The same interface will be used for all versions to produce
+                      ring item objects which support the same interface across
+                      all versions.
+
+Before continuing with the next chapter, which describes abstract
+                factories in detail, let's look at a simple example of using
+                a concrete factory to build a physics
+                item, as we did in the previous section:
+
+<a name="AEN132"></a>**Example 2-2. Using Factories to Make a Physics Item for NSCLDAQ-11**
+
+```
+#include <v11/RingItemFactory.h>    
+#include <CPhysicsEventItem.h>      
+#include <memory>                   
+...
+
+v11::RingItemFactory fact;               
+std::unique_ptr<::CPhysicsEventItem> pItem(fact.makePhysicsEventItem()); 
+
+pItem->setBodyHeader(someTimestamp, someSourceId); 
+uint16_t* pBody = reinterpret_cast<uint16_t*>(pItem->getBodyCursor); 
+...
+pItem->setBodyCursor(pBody);                   
+pItem->updateSize();                          
+...
+            
+```
+
+[[x115#v11fact.include]]                        In this example, we will, directly create a V11
+                        ring item factory.  Therefore we need the header
+                        for that class.  In the next chapter we'll seee how to
+                        select an appropriate ring item factory if we only know the
+                        correct version at run-time.
+                    [[x115#v11fact.physics]]                        Note that we include the header for the abstract
+                        `CPhysicsEventItem`.  This is what
+                        factories create.  This is the base class for the version specific
+                        classes such as `v11::CPhysicsEventItem`.
+                    We choose this class so that, once we've instantiated the
+                        physics item using the appropriate factory, we no longer need
+                        to know the version of NSCLDAQ we're operating with.
+
+[[x115#v11fact.memory]]                        This header, part of the C++ standard library, supplies, among other
+                        things, smart pointer classes which can help avoid memory leaks.
+                        Our factory classes produce dynamically allocated items.
+                        Using e.g. `std::unique_ptr` can ensure
+                        these objects are deleted.
+                    [[x115#v11fact.instance]]                        This line of code creates an instance of the
+                        object factory for NSCLDAQ-11.  Since we use virtual
+                        methods to support a polymorphic base class/subclass
+                        class hierarchy, we need to have an object as virtual methods
+                        cannot be static.
+                    [[x115#v11fact.make]]                        This line is a bit involved.  Let's look at it from the
+                        inside out.  We ask the `fact`
+                        object to create a new physics event item.  Since it is
+                        an instance of a `v11::RingItemFactory`,
+                        what well get is a pointer to a `v11::CPhysicsEventItem`
+                        object returned as a pointer to its base class
+                        `::CPhysicsEventItem`.
+                    We use this to initialize a
+                        `std::unique_ptr<::CPhysicsEventItem>`
+                        object named `pItem`.  Once the unique
+                        pointer is created it can be used exactly as if it were
+                        a `::CPhysicsEventItem*`.  When we call methods
+                        using this pointer like object, due to polymorphism the
+                        NSCLDAQ-11 version of those methods will get called.
+
+Once `pItem` goes out of scope, the item
+                        it 'points to' will be deleted.  This includes going out
+                        of scope due to an unhandled exception.
+
+Once `pItem` is created it can be used
+                        to fill in the body header and body of the item just as
+                        we did in the example in the previous section.  The result,
+                        since we used the V11 factory is a V11 Physics event item.
+
+Note that the code which fills in the item, which may be
+                        very far  from the code which selects the factory, does not
+                        need to know that we are making items for NSCLDAQ-11.
+
+You might wonder about the call to set the body header.  What
+                        would happen if we'd chosen the `v10::RingItemFactory`
+                        for our factory?  NSCLDAQ-10 items don't have body headers.
+                        The implementation of `setBodyHeader`
+                        for NSCLDAQ-10 item types is just a no-op which means that you
+                        would wind up with a perfectly good NSCLDAQ-10 ring item.
+
+### Notes
+
+|  |  |
+| --- | --- |
+| [1] | Our use of the abstract factory pattern differs from the
+                            classic presentation in that in the classic presentation,
+                            there's a factory that makes use of specific factories for
+                            the desired concrete set of objects.For more on the abstract factory pattern as it is normally used,
+                            see e.g.this Wikipedia article. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Library Organization | Up | Factories and the Abstract Factory Pattern |

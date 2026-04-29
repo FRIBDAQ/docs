@@ -1,0 +1,595 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev | Chapter 3. Getting started with SpecTcl | Next |
+
+
+---
+
+# <a name="AEN506"></a>3.4. Tailoring a new SpecTcl skeleton
+
+SpecTcl is a framework, not a complete program.  The process
+                of preparing a version of SpecTcl that is specialized to your
+                data is called *Tailoring*. The result
+                of this process is called a *Tailored SpecTcl*.
+                This chapter provides an overview of the tailoring process.
+                For more information, see the SpecTcl programming guide and
+                the SpecTcl programming reference.
+
+In this section, we'll introduce:
+
+
+
+- Obtaining a starting point for tailoring.
+- Event processors and how they see parameters and
+                          tree parameters.
+- How to write an event processor.
+- How to set up SpecTcl's pipeline of event processors
+- How to modify the skeleton Makefile to incorporate your
+                          software into the build of your tailored SpecTcl.
+
+## <a name="AEN523"></a>3.4.1. The SpecTcl skeleton
+
+Our discussion of SpecTcl tailoring assumes you are starting
+                    from scratch.  More likely, if you are part of an
+                    extablished research group, you can start from one or more
+                    existing tailored SpecTcls.  Work with your group to start
+                    from that SpecTcl.
+
+SpecTcl installation provides a starting point for
+                    building a tailored SpecTcl.  This starting point is called
+                    the *SpecTcl Skeleton*.  It is located in
+                    the Skel directory of the SpecTcl
+                    installation directory.  At the NSCL,
+                    /usr/opt/spectcl/current is a symbolic
+                    link that points to the version of SpecTcl we recommend for
+                    use in new applications.
+
+If you are starting fresh, your first step is to obtain
+                    a copy of the SpecTcl skeleton.  We want to put that into
+                    an empty directory:
+
+<a name="AEN531"></a>```
+mkdir myspectcl
+cp /usr/opt/spectcl/current/Skel/* .
+cd    myspectcl
+                    
+```
+
+The skeleton provides the following files;
+
+
+
+MySpecTclApp.hHeader file for the class that you must fill
+                                in to configure SpecTcl.  SpecTcl is an application
+                                framework.  This means that you don't have a
+                                `main` function.  You have an
+                                *Application Object* that
+                                sets up your part of SpecTcl and then the framework
+                                calls your code at appropriate times.
+
+MySpecTclApp.cppImplementation of the application class that you
+                                must fill in to configure SpecTcl.
+
+MakefileA starting point for a Makefile to build
+                                SpecTcl.  As you add compilation modules, you'll
+                                need to modify this Makefile to reflect this.
+                                The Makefile is built so that this should be
+                                easy, even if you are not familiar with
+                                make and Makefiles.
+
+SpecTclRC.tclThis is a starting point for a SpecTcl startup
+                                script.  Recall that the Tcl in SpecTcl stands
+                                for the Tcl scripting language.  This script sets
+                                up the default user interface environment.
+
+For more about startup scripts see:
+                                [[c934]]
+                                For more about scripting SpecTcl, see:
+                                [[c1035]]
+
+If you run **make** to build the SpecTcl
+                    distributed from the Skel directory,
+                    you will wind up with what us developers call
+                    *plain vanilla SpecTcl*.  Several
+                    parameters will be defined and a test event generator
+                    can be started (with the **start** command)
+                    so that you can play with SpecTcl's user interface and
+                    visualization tools.
+
+## <a name="AEN569"></a>3.4.2. Event processors, parameters and tree parameters
+
+The main job of tailoring SpecTcl consists of providing
+                    code that takes a raw event and turns it into a set of
+                    parameters.  SpecTcl does this by allowing you to register
+                    a set of *event processors* and
+                    invoking them in the order registered.  This ordered list
+                    of event processors, sometimes called unpackers, is
+                    called SpecTcl's *analysis pipeline*.
+
+The term analysis pipeline is intended to make you think about
+                    how to organize your event processors so that, via sequential
+                    steps, you take the raw event and produce the parameters
+                    you of interest.  Each stage of this pipeline makes
+                    available not only the raw event, but the results of
+                    previous pipeline stages.
+
+When planning your event processors,
+                    remember, simple software is easier to debug than complex
+                    and small functions are easier to debug than long.
+
+Event processors are created by making a derived class
+                    from the `CEventProcessor` base class.
+                    This base class is defined in EventProcessor.h.
+                    This and all SpecTcl headers are in the include
+                    subdirectory of your SpecTcl installation.
+
+Here's the important part of that header:
+
+<a name="AEN581"></a>**Example 3-4. CEventProcessor base class definition**
+
+```
+class CEventProcessor {
+ public:
+  virtual Bool_t operator()(const Address_t pEvent,
+                            CEvent& rEvent,
+                            CAnalyzer& rAnalyzer,
+                            CBufferDecoder& rDecoder); // Physics Event.
+
+  virtual Bool_t OnAttach(CAnalyzer& rAnalyzer); // Called on registration.
+  virtual Bool_t OnBegin(CAnalyzer& rAnalyzer,
+p
+                         CBufferDecoder& rDecoder); // Begin Run.
+  virtual Bool_t OnEnd(CAnalyzer& rAnalyzer,
+                       CBufferDecoder& rBuffer); // End Run.
+  virtual Bool_t OnPause(CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder); // Pause Run.
+  virtual Bool_t OnResume(CAnalyzer& rAnalyzer,
+                          CBufferDecoder& rDecoder); // Resume Run.
+  virtual Bool_t OnOther(UInt_t nType,
+                         CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder); // Unrecognized buftype.
+
+  virtual Bool_t OnEventSourceOpen(std::string name);
+  virtual Bool_t OnEventSourceEOF();
+  virtual Bool_t OnInitialize();
+};
+
+                    
+```
+
+As you can see from the function names, the event
+                    processor provides methods that are called at well
+                    defined points in data analysis.  For example,
+                    `OnBegin` is called when
+                    a begin run item is seen in the data source.
+
+The only method you normally have to fill in is
+                    the function call operator `operator()`.
+                    Let's look at the parameters passed to this method:
+
+
+
+const Address_t ` pEvent`This parameter points to the raw event.  What
+                                this looks like depends on two things; the readout
+                                you actually use and the way the buffer decoder
+                                strips event out of the stream of encapsulated
+                                events from the underlying data acquisition system.
+
+For NSCLDAQ-11.x events, you will get a pointer
+                                to the body of the event (not the body header).
+
+CEvent&  `rEvent`Recall that SpecTcl's raw parameter model is
+                                a flat array of parameters.  In this model,
+                                the parameter id is the index into this array.
+                                `CEvent` is an array like
+                                object (supports indexing) that expands as needed
+                                depending on how it's indexed.  `rEvent`,
+                                therefore is the raw parameter array for this
+                                event.
+
+`CEvent` contains elements
+                                of the class `ValidValue`.
+                                These elements can be treated as if they were
+                                doubles.  They also record whether or
+                                not they've been assigned a value and have
+                                a `isValid`
+
+If you decided to use the tree parameter framework,
+                                you must create the appropriately named
+                                `CTreeParameter`
+`CTreeParameterArray` objects.
+                                 Each element of these can also be treated as a
+                                 double and has an
+                                 `isValid` method.
+                                 We'll see more about this later when we
+                                look at an example event processor.
+
+CAnalyzer& rAnalyzerSpecTcl's analyzer directs the flow of control
+                                for data analysis.   It's the object that
+                                actually calls your event processors and
+                                the object that calls the histogrammer to
+                                process the events you produced.
+
+For the most part you don't need to be concerned
+                                with the anaylzer, however at least one of your
+                                event processors must invoke the analyzer's
+                                `SetEventSize` method.
+                                This method tells the analyzer how many bytes
+                                large the raw event occupies so that the
+                                buffer decoder and event processor know how
+                                to find the next event given this one.
+
+CBufferDecoder& rDecoderThe buffer decoder is the SpecTcl object that
+                                is responsible for breaking up larger units
+                                of data into events and other item types.
+                                In many cases you won't need to do anything
+                                with this.
+
+An exception is when you need to inspect information
+                                in the body header of an event (the buffer decoder
+                                object is then an instance of `CRingBufferDecoder`).
+                                In that cast you can use
+                                `hasBodyHeader` to determine
+                                if there is a body  header and `getBodyHeaderPointer`
+                                to retrieve  a pointer to the body header.
+
+Let's look at two simple event processors.  The first one
+                    unpacks a fixed length event into a sequential set of
+                    raw event array parameters.  The second one shows how to
+                    do the same unpacking with tree parameters.  We're going
+                    to assume that the first 16 bit element of the raw
+                    event is the number of 16 bit words in the event (self inclusive)
+                    and that all of the parameters are 16 bit integers.
+
+The differences betwee these two event processors is only
+                    in the implementation file.  Both share a common header
+                    which we'll call SimpleEvp.h:
+
+<a name="AEN632"></a>**Example 3-5. Sample Event processor header**
+
+```
+#ifndef SIMPLEEVP_H
+#define SIMPLEEVP_H                     
+#include <config.h>                     
+#include <EventProcessor.h>             
+
+
+
+class SimpleEventProcssor : public CEventProcessor  
+{
+public:
+  Bool_t operator()(const Address_t pEvent, CEvent& rEvent,   
+                    CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);
+};
+
+
+
+#endif
+
+                    
+```
+
+[[x506#evp.h.guard]]                            Best practices call for header files to be guarded
+                            against multiple inclusion like this.  The first time
+                            the header is included,
+                            SIMPLEEVP_His not defined
+                            and therefore the body of the #ifndef
+                            is executed.  That defines SIMPLEEVP_H
+                            so that subsequent includes of this file won't
+                            double define anything.
+                        [[x506#evp.h.config]]                            The config.h contains definitions
+                            of data types and preprocessor symbols that all
+                            SpecTcl headers may need.  Its inclusion should be
+                            the first thing the header does once it's passed its
+                            guard.
+                        [[x506#evp.h.baseinc]]                            Our class, `SimpleEventProcessotr`
+                            extends the base class `CEventProcessor`.
+                            Doing so requires knowing the shape of the base class.
+                            The EventProcessor.h header
+                            provides this definition.
+                        [[x506#evp.h.classdecl]]                            This line defines our new class as one derived from,
+                            or extending `CEventProcessor`.
+                        [[x506#evp.h.fcnoperator]]                            We need to indicate that we are overriding the
+                            function call operator (`operator()`).
+                            This declaration does that.  The function call operator
+                            is invoked once per physics event.
+
+Let's look at an implementation of `SimpleEventProcessor`
+                    that uses the SpecTcl raw parameter array.  This is passed
+                    to the function call operator as the
+                    `rEvent` parameter. We are going to
+                    make a few simplifications:
+
+
+
+- We assume that parameters have been declared consecutively starting
+                              at parameter id 0>
+- We assume that we know that the byte ordering of the
+                              system that generated the data is the same as
+                              the byte ordering of the system running SpecTcl.
+                              There are facilities to do transparent byte ordering
+                              (`TranslatorPointer` e.g.)
+                              which, for the sake of simplicity won't be used in this
+                              example.
+
+The file SimpleRaw.cpp implements
+                    the event processor for the raw event array:
+
+<a name="AEN671"></a>**Example 3-6. Simple Event processor for raw parameter arrays**
+
+```
+#include "SimpleEvp.h"
+#include <stdint.h>
+#include <TCLAnalyzer.h>
+
+
+Bool_t
+SimpleEventProcessor::operator()(const Address_t pEvent, CEvent& rEvent,
+                                 CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder)
+{
+  uint16_t* params   = reinterpret_cast<uint16_t*>(pEvent);    
+  CTclAnalyzer& ana = reinterpret_cast<CTclAnalyzer&>>(rAnalyzer); 
+  uint32_t nWords = *params++;                                       
+  ana.SetEventSize(nWords*sizeof(uint16_t));                         
+
+  nWords--;
+
+  for (unsigned  i =  0; i < nWords; i++) {
+    rEvent[i] = *params++;                                          
+  }
+
+
+
+  return kfTRUE;                                                
+}
+
+                    
+```
+
+[[x506#simple.raw.ptr]] Address_t is a typedef for
+                            void*.  This line turns it into a
+                            pointer to unsigned 16 bit integers as our
+                            data consists entirely of 16 bit unsigned integers.
+                        [[x506#simple.raw.tclanalyzer]]                            One of the things we must do is report the event
+                            size, in bytes to the analyzer.  It turns out the
+                            analyzer is actually a `CTclAnalyzer`.
+                            This line converts the reference to the generic
+                            `CAnalyzer` base class into
+                            a reference to the specialized `CTclAnalyzer`.
+                        [[x506#simple.raw.size]]                            Extracts the event size.
+                        [[x506#simple.raw.setsize]]                            Tells the analyzer how big the event is. Note that
+                            the event size is in self including 16 bit entities.
+                            That's why there's a scaling and why the word count
+                            is subsequently deremented to give the number of
+                            remaining words in the event.
+                        [[x506#simple.raw.store]]                            This loop saves the parameters in sequential
+                            elements of the parameter array.
+                        [[x506#simple.raw.return]]                            Event processors return a Bool_t.
+                            If the value returned is kfTRUE,
+                            processing continues.  If kfFALSE
+                            is returned, event processing is aborted (no more
+                            pipeline elements are called) and the parameters
+                            from this event are not submitted to the histogram.
+                        A common error is to forget to return a value when
+                            kfTRUE is intended.  In that
+                            case, the return value is random (event by event) and the event processor
+                            may appear to work but actually some fraction of the
+                            events won't get histogrammed.
+
+Let's see what this looks like if we use Tree parameters.
+                    The resulting file will be called  SimpleTree.cpp:
+
+<a name="AEN704"></a>**Example 3-7. SimpleTree.cpp - Event processor using tree parameters**
+
+```
+#include "SimpleEvp.h"
+#include <stdint.h>
+#include <TCLAnalyzer.h>
+#include <TreeParameter.h>                 
+
+
+// Has a maximum of 10 parameters:
+
+CTreeParameterArray Parameters("raw", 1024, 0.0, 1023.0, "arbitrary", 10, 0); 
+
+
+Bool_t
+SimpleEventProcessor::operator()(const Address_t pEvent, CEvent& rEvent,
+                                 CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder)
+{
+  uint16_t* params   = reinterpret_cast<uint16_t*>(pEvent);
+  CTclAnalyzer& ana = reinterpret_cast<CTclAnalyzer&>(rAnalyzer);
+  uint32_t nWords = *params++;
+  ana.SetEventSize(nWords*sizeof(uint16_t));
+
+  nWords--;
+
+  if (nWords > 10) {                         
+    nWords = 10;
+  }
+
+  for (unsigned i = 0; i < nWords; i++) {
+    Parameters[i] = *params++;                  
+  }
+
+  return kfTRUE;
+
+
+}
+                    
+```
+
+[[x506#simple.tree.includes]]                            There are a cluster of headers for the tree parameter
+                            and tree variable subsystem.  These are all included
+                            by the TreeParamter.h header
+                            included here.
+                        [[x506#simple.tree.array]]                            This declaration creates an tree parameter array.
+                            This is an array like object of 10 elements indexed
+                            starting with 0.  The parameters will be named
+                            raw.00, raw.01
+                            ... raw.09.
+                        The declaration specifies a suggested axis that goes
+                            from 0 through 1023
+                            with 1024 bins, suitable for an integer in the range
+                            of [0, 1024).
+
+The units are specified as arbitrary.
+
+In the original versions of Tree parameter, event
+                            processors would have to invoke the
+                            `Reset` method on
+                            tree parameters and arrays to bind them to their
+                            underlying raw parameters before processing events.
+                            When integrating tree parameters with SpecTcl, this
+                            reset operation was moved into the SpecTcl framework.
+
+You may still see code that invokes `Reset`
+                            and this is harmless.
+
+[[x506#simple.tree.sizelimit]]                            Our declaration has only provided for up to 10 parameters.
+                            Therefore if more than 10 parameters are present,
+                            this code limits processing to the first
+                            10.
+                        In practice the fact that tree parameters are fixed
+                            sized events is not a limitation because detector systems
+                            tend to be fixed sized and, in any event, the parameters
+                            must be named at some point.
+
+[[x506#simple.tree.store]]                            Stores the data into the tree parameter array.
+
+## <a name="AEN735"></a>3.4.3. Setting up the event processing pipeline
+
+Once the event processor has been written, SpecTcl must be
+                    told to call an instance of it when events are available to be
+                    processed.  This requires modifying the
+                    MySpecTclApp.cpp file provided by the
+                    skeleton:
+
+
+
+- The appropriate header file must be included so that
+                              the class definition is available to
+                              MySpecTclApp.cpp
+- Sample code must be removed so that it does not
+                              interfere with your application.
+- An instance of your event processor must be
+                              added to the event analysis pipeline.
+
+The first of thse steps, adding an #include
+                    is pretty self explanatory;  In MySpecTclApp.cpp
+                    locate the block of include directives at the top of the file.
+                    Add one for your event processor.
+
+This is shown for our simple event processor below:
+
+<a name="AEN751"></a>```
+#include <config.h>
+#include "MySpecTclApp.h"
+#include "EventProcessor.h"
+#include "TCLAnalyzer.h"
+#include <Event.h>
+#include <TreeParameter.h>          // Add this if you use tree parameters.
+#include "SimpleEvp.h"                    // Header for our event processor.
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;
+
+                    
+```
+
+A large chunk of code in MySpecTclApp.cpp
+                    represents an example.  These lines should be removed.
+                    Delete the lines from the comment:
+                    //  Local Class definitions: until the
+                    comment block that describes
+                    `CreateAnalysisPipeline`.
+
+This makes the code above look something like:
+
+<a name="AEN758"></a>```
+
+...
+#include "SimpleEvp.h"
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;
+#endif
+
+
+//  Function:
+//    void CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+//  Operation Type:
+//     Override
+/*
+...
+                    
+```
+
+Remove all code frrom the body of
+                    `CreateAnalysisPipeline` as well.
+                    Add a line to that body that looks like:
+
+<a name="AEN762"></a>```
+  RegisterEventProcessor(*(new SimpleEventProcessor), "MyUnpacker");
+
+                    
+```
+
+This adds an event processor to the back of the event
+                    analysis pipeline.  The first parameter is a reference to
+                    an object from a class derived from
+                    `CEventProcessor`.   The second
+                    parameter is a name you can assign to this processor.
+
+If SpecTcl detects error while running code in your
+                    event processor, it will include this name with your error
+                    message.   Furthermore the SpecTcl API (see the
+                    programmer's reference manual) provides API methods that
+                    allow you to locate event processors by name so that you
+                    can control the order of the pipeline if needed.
+
+## <a name="AEN767"></a>3.4.4. Building your tailored SpecTcl
+
+Building the tailored SpecTcl is an iterative process.
+                    First the Makefile must be modified
+                    to add any additional modules you've written (like your
+                    event processor) to the build.  Next you iteratively attempt to
+                    use **make** to build SpecTcl and fix errors
+                    the compiler and linker point out to you.
+
+In this section we'll point out the most likely bits and
+                    pieces of the Makefile you will need
+                    to modify.
+
+**The OBJECTS definition. **
+                        The OBJECTS symbol in the Makefile
+                        should be a space separated list of the names of
+                        object modules you want to produce.  Unless you want
+                        to provide your own build rules, these should just be
+                        the name of the CPP file with .o as the extension.
+
+If we choose to use the tree parameter event processor
+                    in our build.  The OBJECTS definition
+                    would look like:
+
+<a name="AEN781"></a>```
+OBJECTS=MySpecTclApp.o SimpleTree.o
+                    
+```
+
+**Compilation switches. **
+                        Sometimes it's necessary to add compilation switches
+                        to the build.  For example, you may need to specify
+                        another include file directory to be searched.
+                        The USERCXXFLAGS symbol in the
+                        Makefile allows you to add to the compilation switches.
+
+**Link/loader switches. **
+                        Similarly, the USERLDFLAGS
+                        symbol allows you to add switches to the link command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Defining and applying gates | Up | Data sources |

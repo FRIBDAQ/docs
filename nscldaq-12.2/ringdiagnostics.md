@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.ringdiagnostics"></a>ringdiagnostics
+
+<a name="AEN24046"></a>## Name
+
+ringdiagnostics --  Diagnose ring data flow bottlenecks
+
+<a name="AEN24049"></a>## Synopsis
+
+**$DAQBIN/ringdiagnostics [`options...`]
+    **
+
+<a name="AEN24054"></a>## DESCRIPTION
+
+Provides a graphical description of the flow of data between
+            ringbuffers in a multi computer system.
+
+<a name="AEN24057"></a>## OPTIONS
+
+
+
+`--help`Prints a list of options and their descriptions to stdout.
+                Then exits without doing anything.
+
+`--update`* seconds*Specifies the update rate in seconds.  THis defaults to 2 if not
+                specified.
+
+`--alarm_percentage`* pct*Specifies the backlog level, as a percentage of ring size, that constitutes
+              a bottleneck.  This defaults to 90 if not specified.
+
+<a name="AEN24078"></a>## Environment requirements in a containr
+
+If this is run in a container, its use of the 
+            nscldaq.nscldaqutils.ssh method imposes some
+            environment variable definitions:
+
+
+
+APPTAINER_CONTAINERMust be the full path to the container image.
+
+SINGULARITY_CONTAINERIn older singularity systems, this must have the same value
+                    as APPTAINER_CONTAINER. In Apptainer systems,
+                    this is not needed.
+
+CONTAINER_BINDINGSMust be a string that can be passed to apptainer/singularity's 
+                    `--bind` option, that specifies the container bindings
+                    you care about, for example at the FRIB for the bookworm container,
+                    you  might have the value
+                    /usr/opt/opt-bookworm:/usr/opt.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ddasSort | Up | mvlcgenerate |

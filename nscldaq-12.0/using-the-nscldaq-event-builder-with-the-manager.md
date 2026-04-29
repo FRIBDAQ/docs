@@ -1,0 +1,165 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 4. NSCLDAQ Manager subsystem (new in 12.0) | Next |
+
+
+---
+
+# <a name="sec.mgr.eventbuilder"></a>4.5. Using the NSCLDAQ Event Builder With the Manager
+
+This section describes how to run the NSCLDAQ event builder from the
+      NSCLDAQ manager.  Unlike the ReadoutGUI, where the event builder was often
+      run in one-shot mode, we suggest running the Event builder in persitent
+      mode under the manager.
+
+This requires:
+
+
+
+1. You create a program to start the event builder with its
+               REST statistics plugin
+2. You create program definitions for each data source.
+3. You add these programs to a sequence that's executed by the
+               BOOT transition
+4. Create a program to shutdown the event builder (the sources
+               will shutdown when their network peer exits).
+5. Add the shutdown program to a sequence that's executed
+               by the SHUTDOWN transition.
+
+In the remainder of this section we will show how to execute the steps
+      above.
+
+**Create a Program To Start The Event Builder. **
+        In fact, the event builder is a pipeline of programs.  An Orderer which
+        accepts fragments from data sources and outputs them totally time ordered
+        to stdout, **glom** which glues together fragments into
+        events and sends those events to its stdout, and finally
+        **stdintoring** which drops the ring items 
+        **glom** built to a ringbuffer for distribution.
+
+You will need to build a script that starts up this pipeline and define
+      it as a program to the manager.  The following sample script does that
+      building events with a timestamp window of 250
+      ticks and dropping events into the ringbuffer fox_evb.
+
+<a name="AEN1688"></a>**Example 4-2. An Event Builder Start Script**
+
+```
+#!/bin/bash
+
+
+TCLLIBPATH=$DAQTCLLIBS $DAQBIN/EVBRest  \
+  | $DAQBIN/glom --dt 250  \
+  | $DAQBIN/stdintoring fox_evb
+
+      
+```
+
+This script assumes the appropriate  daqsetup.bash
+      script has been sourced.   The first stage of the pipeline runs
+      the [[r19857]]
+      program which runs the orderer stage with a REST interface plugin.
+      The second stage of the pipeline run the **glom** program
+      described in
+      [[r19874]].
+      The `--dt` 250 option sets the
+      build window to 250 timestamp ticks.  The final pipline stage takes the
+      output of glom and puts the ring items it produced into the ring named
+      fox_evb.
+
+Use [[r18069]]
+      to create a program that runs this script.  Be sure to chmod the
+      script so that it is executable by whomever will run the manager.
+      In the remaining discussion, we'll assume this program was given the name
+      startevb.
+
+Specify the name of the program as startevb, specify
+      the name of the script you created for the filename.  Specify appropriate
+      container, working directory and host values.  Generally, event builders
+      should be marked as Critical programs.
+
+You should not normally require any options, parameters or environhment
+      variables.   These will be provided in your script.
+
+**Making a Program to Start a Data Source. **
+        This discussion assumes that the data comes from
+        tcp://spdaq99/fox.  We also assume the source ids
+        are the default value of 0.  Finally we assume that
+        the program will run in an evironment with an appropriate
+        daqsetup.bash sourced in.
+
+In the program editor set the name to e.g. source99
+      Set the host to the name of the host in which you want the source to run.
+      Choose an appropriate container definition if appropriate.  Chose
+      any working directory and mark the progrfam as Critical.
+
+The following options should be specified:
+
+
+
+`--evbhost`Host in which the event builder pipeline will run.
+
+`--evbname`Set this to the name of the user running the manager.
+
+`--info`Set this to a descriptive string. E.g:
+              "spdaq99\ data"
+
+--idsThere should be one of these for each source id the source will
+              emit.  The value should be the value of one of those ids.
+              Note that most NSCLDAQ Readout programs only emit a single source id.
+              A notable exception being the CAEN Digitizer readouts which emit
+              a source id per digitizer.
+
+`--ring`The URI from which the data comes.  In our example the value is
+              tcp://spdaq99/fox
+
+`--expectbodyheaders`No value required.  This indicates the data come from an 11.0
+              NSCLDAQ or later.
+
+`--oneshot`=0Indicates the data source should not exit after an end of run
+              condition.
+
+For more information; see
+      [[r20160]]
+
+**Starting the Event Builder and Source(s) In a Boot Sequence. **
+        Now that you have your start programs, startevb
+        to start the event builder pipeline and source99
+        to start the data source, using the sequence editor
+        ([[r18154]]),
+        If necessary create a sequence triggered by the BOOT transition.
+        Add the startevb program to it and then add
+        the source99 program with a pre-delay of 5 seconds
+        so that the event builder has a chance to register and listen for
+        connections on its REST service before **ringFragmentSource**
+        tries to look up the service.
+
+**Making a Program to Shutdown The Event Builder. **
+        The [[r19833]]
+        utility shuts down an event builder that is running a REST interface.
+        Use [[r18069]]
+        to add a program.  Name it evbshutdown, run the
+        prgram file $DAQBIN/EVBShutdown.  Set the host,
+        working directory and container appropriately.
+
+The program parameters should be, in order, the host in which the
+      event builder pipeline is running and the user running it.  This is
+      the host you specified the startevb program to run in.
+      The user should be the user that will run the daq manager.
+
+Note that shutting down the event builder pipeline will, eventually
+      shutdown the data sources as they lose connection to the event builder.
+
+**Adding the Event Builder Shutdown to a SHUTDOWN Sequence . **
+        Using [[r18154]]
+        if necessary, add a squence triggered on the SHUTDOWN
+        transition.  Edit that sequence and add the
+        evbshutdown program to that sequence.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running Readout Software With the Manager | Up | VMUSBReadout |

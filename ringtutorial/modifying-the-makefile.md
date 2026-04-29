@@ -1,0 +1,30 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev | Chapter 4. Creating a Readout program from a spectrodaq classic readout program | Next |
+
+
+---
+
+# <a name="AEN1711"></a>4.5. Modifying the Makefile
+
+Now that our code is all written, we must ensure it will
+                be compiled into the final executable program. This is a matter
+                of adding the adaptor modules we wrote to the OBJECTS
+                makefile macro definition in Makefile.
+                The example below shows the resulting definitions assuming that
+                we have named our event readout adaptor CTraditionalEventSegment.cpp
+                and our scaler adaptor CTraditionalScaler.cpp:
+
+<a name="AEN1718"></a>```
+OBJECTS=Skeleton.o skeleton.o CTraditionalEventSegment.o \
+        CTraditionalScaler.o
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Modifications toSkeleton.cpp | Up | Analyzing ring buffer data with SpecTcl |

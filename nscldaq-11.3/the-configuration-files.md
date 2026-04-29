@@ -1,0 +1,217 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 10. A Simple VMUSBReadout Experiment Tutorial | Next |
+
+
+---
+
+# <a name="daqconfig"></a>10.3. The Configuration Files
+
+Because we are using hardware that is already supported by
+      VMUSBReadout, the only tasks left
+      are to create the daqconfig.tcl and
+      ctlconfig.tcl scripts.
+
+The ctlconfig.tcl script is the configuration file
+      for the slow-controls subsystem. In this situation, it will be an empty file
+      because we are not attempting to use slow-controlled capabilities. We can
+      quickly generate an empty file with the **touch** program
+      at the command line. Here is how that works.
+
+```
+spdaqXX> touch ctlconfig.tcl
+    
+```
+
+The next step is to build our daqconfig.tcl script.
+      In that file, we will declare the V785, V775, and SIS3820 and add them to
+      stacks. Doing so will cause them to be initialized at the beginning
+      of each run, read out during triggers, and then transitioned back to an
+      inactive mode at the end of each run. The V785 and V775 will be read out
+      using a chained block transfer for each event trigger, and the SIS3820 will
+      be periodically read using an internally generated trigger. We will
+      therefore, need to define two separate stacks.
+
+## <a name="AEN5348"></a>10.3.1. The event stack
+
+We will begin with defining the stack that will read out our digitizer.
+        Because this stack will read out the event data, we will refer to it as
+        the "event stack". To begin setting up this stack, we have to first
+        construct the device instances for the V785 and V775. Both of these
+        conveniently share the same Tcl command ensemble, because they are
+        essentially identical pieces of hardware. The command ensemble that create
+        their device instances is called **adc**. It takes a set of
+        options that are accepted for both V785 and V775 devices and then some
+        more specialized options only valid for either the V785 and V775. The
+        first module we will create is the V785. To do so we add the following
+        lines to our daqconfig.tcl file:
+
+```
+set adcThresh [list 10 10 10 10  10 10 10 10 \
+                    10 10 10 10  10 10 10 10 \
+                    10 10 10 10  10 10 10 10 \
+                    10 10 10 10  10 10 10 10 ]  
+adc create v785 0x11110000                      
+adc config v785 -geo 10 -thresholds $adcThresh   
+      
+```
+
+[[x5334#vmusb-ss-v785-thresh]]            The V785 takes a list of 32 integers for its
+            `-threshold` option. Each integer corresponds to the
+            threshold for a channel. The first element of the list corresponds to
+            channel 0 and the last to channel 31. For making our code more
+            organized, we define a variable named adcThresh
+            that will hold the list of 32 integers we created. Note that we
+            created the list using a Tcl **list** command. This
+            simply just returns a properly formatted Tcl list. The
+            **set** command assigns the list to the variable.
+          [[x5334#vmusb-ss-v785-create]]            A new adc device instance is created with the name
+            v785. The base address of the V785 in our crate is
+            provided as the last argument to the line. 
+          [[x5334#vmusb-ss-v785-config]]            The device instance named v785 is configured. We
+            specify via the `-geo` option which slot it lives in.
+            This value will label the data outputted by the device during each
+            readout cycle. It is important that this corresponds to the correct
+            slot index the card is situated in. We also pass the list wof
+            thresholds to the `-thresholds` option. The
+            $ syntax dereferences the variable
+            adcThresh and returns the list
+            that it refers to.
+
+Using an an almost identical recipe, we will create a device instance for
+        the V775. We want to define the time range of the TDC so we will configure
+        the `-timescale` option.
+
+```
+set tdcThresh [list 10 10 10 10  10 10 10 10 \
+                    10 10 10 10  10 10 10 10 \
+                    10 10 10 10  10 10 10 10 \
+                    10 10 10 10  10 10 10 10 ]
+adc create v775 0x22220000                      
+adc config v775 -geo 11 -thresholds $tdcThresh   
+adc config v775 -timescale 150                  
+      
+```
+
+[[x5334#vmusb-ss-v775-create]]            Just like the V785, we create the device instance using the
+            **create** subcommand. The name we can refer to this
+            device later in the script will be v775. The 
+            base address for the module is 0x22220000.
+          [[x5334#vmusb-ss-v775-config]]            The first line of configuration is almost identical to the V785
+            besides the different slot number and the different variable name
+            holding the threshold list. The second line of configuration though
+            establishes the time range of the TDC as a maximum 150 ns.
+
+We now have two device instances defined in the configuration script. If
+        we wanted to, we could immediately construct a stack using the
+        **stack** command ensemble and pass our
+        v775 and v785 device instance to it.
+        However, we intend to read out our devices using a chained block transfer
+        technique. A chained block transfer is an optimized means for reading out
+        multiple devices. Instead of having to set up a block transfer from one
+        device and then again from the second device, we can set up one block
+        transfer and that reads out all of the devices in order. This
+        functionality is implemented by the V785 and V775 rather than the VM-USB.
+        To the VM-USB, this is just like a normal block transfer. To set this up
+        in our daqconfig.tcl file we need to use the
+        **caenchain** command. Here is how we do that:
+
+```
+caenchain create chain                  
+caenchain config chain -base 0x12000000 -modules [list v775 v785] 
+      
+```
+
+[[x5334#vmusb-ss-chain-create]]            This line creates a device instance for the chained block transfer. We
+            can refer to it by its name chain later in the
+            file.
+          [[x5334#vmusb-ss-chain-config]]            The chained block transfer works by accessing the devices via a
+            different address than their individual base addresses. In fact, by
+            sending commands to this address, all of the modules who understand it
+            can respond simultaneously. Some implementation require a multicast
+            address as well as a chained block transfer address, the base address
+            we provide for the Caen modules is dual purpose. It is important that
+            only the top 8-bits of the base address provided here is used.
+            Furthermore, we have also added the v775 and
+            v785 device instances for chained readout. The
+            order of these modules should reflect the order in which they reside
+            in the crate. The leftmost module in the crate should be the first
+            module in the list and the rightmost module should be the last in the
+            list.
+
+The **caenchain** extends the idea of a device instance,
+        because it does not really reflect a piece of hardware. Rather it is
+        more of a virtual piece of hardware that handles the readout of multiple
+        physical pieces of hardware. With it created and configured, we are
+        ready to create our stack and we will only register the
+        chain to the stack.  Here is how that works
+
+```
+stack create evtStack                             
+stack config evtStack -modules [list chain] -trigger nim1 
+      
+```
+
+[[x5334#vmusb-ss-evtstack-config]]            A single element list containing chain is added to
+            the stack. Because our v775 and
+            v785 are registered to the chain
+            they will indirectly be read out. The `-trigger` option
+            is passed a value of nim1 to indicate that the
+            stack will be triggered for execution whenever a logic pulse arrives
+            at NIM input 1.
+
+## <a name="AEN5417"></a>10.3.2. The scaler stack
+
+With the event stack already defined, we now turn to the definition of
+        the stack responsible for reading out the SIS3820. Because this stack
+        will deal with scaler data, it will be referred to as the scaler stack.
+        The procedure for setting up the scaler stack is the same as for the
+        event stack. First we create a device instance for the SIS3820 and then
+        we add it to a stack.
+
+The Tcl command ensemble responsible for creating, configuring, and
+        querying the state of an SIS3820 is named **sis3820**.
+        There are two options that can be configured for the device instances it
+        creates and we will only use the `-base` option. This
+        will take the base address of the actual VME module. When this is added
+        to a stack, it will cause the VM-USB to read all 32 channels of the
+        device it is associated with. Let's add the following line to the bottom
+        of our daqconfig.tcl file:
+
+```
+sis3820 create sclr 0x38000000        
+      
+```
+
+The scaler can then be added to a stack later by its name
+        sclr. We will do that right now. Creating the stack
+        for the scaler readout is done as normal using the
+        **stack**. However, to define this a scaler stack that
+        gets periodically read out we need to specify different values for the
+        options.
+
+```
+stack create sclrStack                    
+stack config sclrStack -modules [list sclr] -trigger scaler -period 2 
+      
+```
+
+[[x5334#vmusb-ss-sclrstack-config]]            Purposing a stack for scaler readout is accomplished by passing
+            scaler for the `-trigger`
+            argument. Not only does this enable periodic execution of the stack,
+            but it also labels the stack as index 1.
+            VMUSBReadout will treat the data read by
+            this stack specifically as scaler data and turn it into ring items
+            of type PERIODIC_SCALERS. The `-period` option was
+            passed a value of 2 to specify that we want the readout period to be
+            2 seconds.
+
+The scaler stack is now complete.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Setting up the Electronics | Up | Running VMUSBReadout |

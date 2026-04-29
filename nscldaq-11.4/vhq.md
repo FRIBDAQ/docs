@@ -1,0 +1,179 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.vhq"></a>vhq
+
+<a name="AEN81723"></a>## Name
+
+vhq -- Low level Tcl access to iSEG VHQ2xxx units.
+
+<a name="AEN81726"></a>## Synopsis
+
+**package require vhq
+    **
+
+**::vhq::create base ?crate?
+    **
+
+**::vhq::delete module
+    **
+
+**::vhq::id module
+    **
+
+**::vhq::id module
+    **
+
+**::vhq::stat1 module
+    **
+
+**::vhq::stat2 module
+    **
+
+**::vhq::rampspeed  module a|b ?value?
+    **
+
+**::vhq::setv module a|b ?value
+    **
+
+**::vhq::limit module v|c|i a|b ?value?
+    **
+
+**::vhq::actual module a|b
+    **
+
+<a name="AEN81749"></a>## DESCRIPTION
+
+The  vhq  package  allows  you  to control the ISEG family of VME High detector bias supply controllers.
+       This package is built on top of the vme package.  Therefore, scripts that make use of  the  vhq  package
+       must  run  on systems that are physically connected to VME crates that have the ISEG controller(s) being
+       controlled.
+
+<a name="AEN81752"></a>## SUBCOMMANDS
+
+
+
+**::vhq::create  *base *[?crate?]**This command creates a handle to an ISEG power supply controller
+            and associates  it  with  a  VME
+            address range.  The handle is returned as the command value for the
+            supply where:
+
+`base`   Is  the  base  address  of  the module
+            in VME space.  The module base address (in short IO
+            space) is set via a very strange procedure described in the module documentation.
+
+`crate`
+            Is the number of the VME crate in which the module is inserted.
+            This value defaults to  0
+            which is suitable for use in systems with only  a single VME crate.
+
+**::vhq::delete** *module*Destroys  the  correspondence between a module handler returned
+                by **::vhq::create** and the
+                VME module.  Any resources required to maintain this
+                correspondence are released.
+
+`module`
+                Is a controller that was returned from the
+                **::vhq::create** command.
+
+**::vhq::id** *module*Returns the serial number of the specified module.  The serial number is  returned  as  a  Binary
+              Coded Decimal (BCD) string.
+
+`module`
+                Is a module handle that was returned from a ::vhq::create command.
+
+**::vhq::stat1** *module*Returns  the  information  from the module status register 1.  This register contains bit encoded
+              data for both of he two channels in the module.  The data are returned as a list of two elements.
+              Element  0  contains  status  for  chanel 0, element 1 the status for channel 1.  Each element is
+              itself a list of two element sublists.  Each of the two element sublists is a keyword value pair.
+              The keyword describes the bit and the value is 0 if the bit is clear an 1 if the bit is set.  The
+              keywords are:
+
+
+
+vzThe voltage value is currently zero.
+
+manualThe manual swithc is enabled.
+
+plusThe voltage output is positive.  The polarity of the module is controlled  by  a  hardware
+                            switch within the module itself.
+
+offThe High voltage is powered down.
+
+killIs true if the kill switch is on.  The kill switch enables various alarm status conditions
+                     to trip the voltage off (e.g. over current or undervoltage).
+
+rampupTrue if the power supply is ramping to a new value.
+
+stableTrue if the power supply has reached a stable voltage.
+
+errorTrue if some error is present in status register 2 for the channel.
+
+**::vhq::stat2**> *module*Returns information from status register 2 of module.  The format of the returned value is  simi-
+              lar  to that of ::vhq::stat1, however the list is a three element list.  The first element of the
+              list is gives the status of the timeout bit as {tot 0|1}.  The second element of the  list  gives
+              channel  0  specific  status while the third element of the list goves channel 1 specific status.
+              As before, status is a list of keyword value pairs.  Valid keywords are:
+
+
+
+ilimitTrue if the supply is current limiting.
+
+OpCompleteTrue if the last operation is complete.
+
+FpChangedTrue if a front panel switch has changed.
+
+VoversetTrue if the supply is in overvoltage.
+
+InhibitedTrue ifthe supply is inhibited.
+
+OverVorITrue if there is either an over voltage or over current state.
+
+BadQualityTrue if the power voltage is not regulating well.
+
+**::vhq::rampspeed** *module a|b* [?value?]Returns the current ramp speed in 10V/sec units.  The optional value causes the ramp speed to  be
+                  reprogrammed.
+
+`module` is the module handle returned from the ::vhq::create calls.
+
+`a|b`
+                Selects which channel is operated on, channel A or B.
+
+**::vhq::setv** *module a|b*   [?value?]Retrieves  the  voltage  target.  If the optional value is supplied, it is taken as a new voltage
+                target and a ramp to that target is begun.
+
+`module` is a module that was retunred from
+                **::vhq::create** and selects the supply that  is  operated
+                on.
+                `a|b` determines which channel,
+                a or b will be
+                read or set.
+
+**::vhq::limit** *module v|c|i a|b* [?value>]Examines or modifies the voltage or current limit of a device.
+
+`module` is  a  module handle returned from
+                **vhq::create** specifying which hardware is
+                being operated on.
+                `v|c|i`
+                Selects whether the voltage (v) or current
+                (c or i) limits are being
+                operated on.
+                `a|b` selects which channel (a or b) is affected.
+                `value`; 
+                     If present, this is the new value for the limit.
+
+**::vhq::actual** *module a|b*Returns a two element list containing the voltage and current
+              for the specified channel (a or
+              b).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VhsWidgets | Up | vhqPanel |

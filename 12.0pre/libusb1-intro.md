@@ -1,0 +1,86 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN31888"></a>LIBUSB1 INTRO
+
+<a name="AEN31892"></a>## Name
+
+LIBUSB1 INTRO -- Wrappers for userspace USB library.
+
+<a name="AEN31895"></a>## Synopsis
+
+```
+#include <USB.h>
+#include <USBDeviceInfo.h>
+#include <USBDevice.h>
+#include <XXUSBUtil.h>
+
+g++ yourstuff -L$DAQLIB -Wl-rpath=$DAQLIB -llibUSB1 \
+   `pkg-config libusb-1.0 --libs` `pkg-config libusb-1.0 --cflags`
+        
+```
+
+<a name="AEN31897"></a>## DESCRIPTION
+
+This page provides introductory material that describes the
+            libUSB1 library.  Currently, this provides a
+            simplified interface to the libusb-1.0 usb user space library.
+            However, by using this class library, rather than libusb-1.0's API
+            directly, the maintainers of NSCLDAQ can switch to newer better(?)
+            userspace USB libraries with minimal impact on your code.
+
+The library defines three classes and a namespace containing
+            unbound utilities that are primarily intended to support
+            programming the Wiener-JTEC XXUSB controller family.
+
+The `USBException`, derived from
+             `std::exception` is used to
+             report errors from functions and methods in this library.
+
+The `USB` provides a top level wrapping
+            of operations that don't actually involve a specific device.
+            The purpose  of this class is to wrap any library call stream
+            context required by the underlying library, and to provide
+            an enumeration of the devices on the USB subsystem.
+
+Device enumeration comes in the form of `USBDeviceInfo`
+            devices.  Each `USBDeviceInfo` object
+            provides access to descriptive information about a device attached to
+            the USB subsystem that does not require a connection to the device
+            itself.  A method is provided, as well to open the device.
+
+Open devices are represented by `USBDevice` objects.
+            These can be configured and set and transfers of various types
+            can be performed to and from the device.
+
+The XXUSBUtil namespace provides utility functions
+            that are intended, primarily, to allow you to manage the Wiener-JTEC
+            XXUSB controller family (the VMUSB is a VME usb controller, the
+            CCUSB is a CAMAC USB controller).  Support is provided for
+            enumerations that are restricted to these devices, downloading lists
+            and executing immediate lists.
+
+The reference pages that follow document each of these classes and
+            the datatypes and functions defined in the XXUSBUtil
+            namespace.
+
+<a name="AEN31916"></a>## FILES
+
+
+
+- USB.h
+- USBDeviceInfo.h
+- USBDevice.h
+- XXUSBUtil.h
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingBufferChunkAccess | Up | USBException |

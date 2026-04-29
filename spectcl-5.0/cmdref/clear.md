@@ -1,0 +1,101 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.clearcommand"></a>clear
+
+<a name="AEN581"></a>## Name
+
+clear -- Clear spectra
+
+<a name="AEN584"></a>## Synopsis
+
+**clear -all
+            **
+
+**clear *spec1 ?spec2...?*
+**
+
+**clear -id *id1 ?id2...?*
+**
+
+<a name="AEN593"></a>## DESCRIPTION
+
+Zeroes the channesl of selected or all spectra.
+
+<a name="AEN596"></a>## COMMAND FORMS
+
+
+
+**clear -all
+                    **
+
+Clears all spectra.  On completion all channels of all
+                        spectra will be zero.
+
+**        clear *spec1 ?spec2...?*
+**
+
+Clears all spectra named spectra.
+
+**clear -id *id1 ?id2...?*
+**
+
+Clears all spectra whose numeric ids are listed
+                        by the command.  Spectra have both names and numeric
+                        ids.
+
+<a name="AEN619"></a>## EXAMPLES
+
+<a name="AEN621"></a>**Example 1. Clearing all spectra**
+
+```
+clear -all 
+            
+```
+
+<a name="AEN624"></a>**Example 2. Clearing spectra given their names**
+
+```
+clear spec1 spec3                
+            
+```
+
+<a name="AEN627"></a>**Example 3. Clearing spectra given their ids:**
+
+```
+clear -id 1 5 7
+            
+```
+
+<a name="AEN630"></a>**Example 4. Clearing spectra whose names match a glob pattern r***
+
+```
+foreach spectrum [spectrum -list r*] {
+   clear -id [lindex $spectrum 0]
+}                
+            
+```
+
+Note that this is not directly supported by the **clear**
+            command but the little script above achieves that.  An exercise for
+            the reader is to modify the script so that instead of
+            **clear -id**, spectra are cleared by name.
+
+<a name="AEN637"></a>## SEE ALSO
+
+
+
+- [[r2411]]
+- [[r518]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| channel | Up | project |

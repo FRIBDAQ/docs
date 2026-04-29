@@ -1,0 +1,158 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN8016"></a>CGLomParameters (v12)
+
+<a name="AEN8020"></a>## Name
+
+CGLomParameters (v12) -- Document event builder parameters.
+
+<a name="AEN8023"></a>## Synopsis
+
+```
+#include <v12/CGlomParameters.h>
+
+namespace v12 {
+
+
+class CGlomParameters : public ::CGlomParameters
+{
+    
+    // Canonicals:
+    
+public:
+    CGlomParameters(uint64_t interval, bool isBuilding, TimestampPolicy policy);
+   virtual uint64_t coincidenceTicks() const;
+   virtual bool     isBuilding() const;
+   virtual TimestampPolicy timestampPolicy() const;
+   virtual std::string typeName() const;
+   virtual std::string toString() const;
+   virtual void* getBodyHeader() const;
+   virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+
+};
+
+
+}                   // v12 namespac.
+
+                
+```
+
+<a name="AEN8025"></a>## DESCRIPTION
+
+`v12::CGlomParameters`
+                    items are written by the glom stage of the event builder
+                    pipeline.  They describe the parameters glom is using to
+                    buid events from the ordered stream of fragments it receives
+                    on stdin.
+
+Three parameters determine how glom operates:
+
+
+
+build flagIf true (normal) glom builds events, if not,
+                            then for diagnostic purposes, glom creates events
+                            out of single fragments.
+
+coincidence intervalIf the build flag is set, this is the number
+                            of timestamp ticks that define a n event.
+                            Glom operates by accepting a 'first fragment' to begin
+                            an event and then accepting additional fragments until
+                            the timestamp differnence with the first fragment is
+                            greater than the coincidence interval.  At that point
+                            the accumulated fragments constitute and event and that
+                            fragment becomes a new first fragment for the next event.
+
+timestamp policy.Determines how the timestamp for output events are determined
+                            from the fragments that make up the event.  There are
+                            three policies:  earliest - timestamps are taken from
+                            the first fragment's timestamp, latest - timetamps are
+                            taken from the last fragment's timestamps, and
+                            average - the output timestamp is the average of all
+                            timestamps in the fragment.
+
+<a name="AEN8044"></a>## METHODS
+
+
+
+`  CGlomParameters(uint64_t  interval, bool  isBuilding, TimestampPolicy  policy);`Fully parameterized construction.  `interval`
+                            is the coincidence interval used to build events from
+                            the sorted fragments.  If `isBuilding`
+                            is false, the output stream is just a stream of single
+                            fragment events, regardless of the coincidence interval.
+                            This is intended for use in testing only.
+                            `>policy` is the policy used to derive
+                            timestamps of the output event stream from the
+                            fragments that compose them.
+                            See DATA TYPES and CONSTANTS
+                            for valid values and their meanings.
+
+` const virtual uint64_t  coincidenceTicks();`Returns the coincidence interval stored in the object.
+                            The units of this value are timestamp ticks.
+
+` const virtual bool      isBuilding();`Returns the state of the object's building flag.
+                            If true, the data are event built. If not the
+                            event builder was run in a test mode where
+                            each event output consists of a single fragment.
+
+` const virtual TimestampPolicy  timestampPolicy();`Returns the timestamp policy used to derive the
+                            timestamp of output events.
+
+` const virtual std::string  typeName();`Returns a string that identifies the ring item type:
+                            Glom Parameters.
+
+` const virtual std::string  toString();`Returns a stringified representation of the object.
+                            Intended for use in e.g. **dumper**.
+
+` const virtual void*  getBodyHeader();`Returns a pointer to the object's body header.
+                            Since glom parameter items dont, at present,
+                            have body headers, expect a
+                            nullptr to be returned.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t sourceId , uint32_t  barrierType = 0);`Sets/adds a body header to the item.  Since
+                            glom parameter items don't have a body header,
+                            this is a no-op.
+
+<a name="AEN8140"></a>## DATA TYPES and CONSTANTS
+
+The `CGlomParameters` class provides
+                    a single data type:  TimestampPolicy.  THe
+                    event builder in NSCLDAQ supports hierarchical event building.
+                    This means that the output of an event builder can be input
+                    for a subsequent event builder in the data acquisition
+                    data flow.
+
+This allows detector systems which require an event builder
+                    of their own to be run together with other detector systems
+                    by simply providing a second level event builder to glue together
+                    events from each detector subsystem into coincident events.
+
+This ability for hierarchical event building requires that
+                    output events are also given a timestamp.  The
+                    TimestampPolicy data type provides a type that
+                    specifies how this output timestamp is determined.  It
+                    can have the following values:
+
+
+
+firstThe output timestamp is taken from the earliest (first)
+                            fragment's timestamp.
+
+lastThe output timestamp is taken from the latest (last)
+                            fragment's timestamp.
+
+averageThe output time stamp is the average of all timestamps
+                            of the fragments that make up the event.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDataFormatItem (v12) | Up | CPhysicsEventItem  (v12) |

@@ -1,0 +1,36 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN672"></a>filesource
+
+<a name="AEN676"></a>## Name
+
+filesource -- Establish a data getter from a file.
+
+<a name="AEN679"></a>## Synopsis
+
+**package require spectcl**
+
+**filesource *filename ?blocksize-in-bytes?***
+
+<a name="AEN685"></a>## DESCRIPTION
+
+Establishes a data getter that reads data from the file
+                        `filename`  If specified the
+                        `blocksize-in-bytes` specifies
+                        the size of each read done from the data file.  If
+                        not provided a default value is used. Note that
+                        the block size must be large enough to hold at least
+                        one ring item entirely.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| analyze | Up | CDataGetter |

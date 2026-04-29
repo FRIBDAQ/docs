@@ -1,0 +1,31 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1847"></a>version
+
+<a name="AEN1851"></a>## Name
+
+version -- Provide the SpecTcl version
+
+<a name="AEN1854"></a>## Synopsis
+
+**version**
+
+<a name="AEN1857"></a>## DESCRIPTION
+
+This command is wrapped in a `CMPITclCommandAll`. 
+                    It returns Tcl_OK as the status when run in the MPI_ROOT_RANK
+                    with the result set to the version string, but in all other ranks, while returning
+                    TCL_OK as a status, it does not set he result.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| specstats | Up | spectrum |

@@ -1,0 +1,35 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 39. Compatibility utilities | Next |
+
+
+---
+
+# <a name="AEN10717"></a>39.3. Converting NSCLDAQ-V10.x data to NSCLDAQ-11.x data
+
+With the introduction of NSCLDAQ-11.0, additional fields were added
+            to ring items to better support time stamped event building and to
+            make the timebase for run time offsets more flexible.  Furthermore,
+            the scaler records were expanded to support nonincremental as well
+            as the previously supported incremental scaler readout.
+
+A utility filter program has been provided to convert NSCLDAQ-10.x
+            data to NSCLDAQ-11.x data.  Filter program transform data read on
+            their standard input to data on their standard output.  As such the
+            can easily be used in pipelines of commands.
+
+The simplest way to use this filter is shown in the example below where
+            run-0000-00.evt is assumed to be an NSCLDAQ10.0 event file which is
+            being converted to run-0000-00.evt-11 which is an NSCLDAQ11.0 file.
+
+<a name="AEN10722"></a>**Example 39-4. convert10to11 - converting event files**
+
+**convert10to11 < run-0000-00.evt > run0000-00.evt-11**
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing event files withcompatibilitylogger | Up | Convenience scripts |

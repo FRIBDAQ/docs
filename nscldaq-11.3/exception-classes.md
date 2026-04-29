@@ -1,0 +1,61 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 60. The NSCL Exception class library | Next |
+
+
+---
+
+# <a name="AEN10830"></a>60.2. Exception classes
+
+The exception classes forma hierarchy with
+                `CException`
+                as the base class.
+                `CException` provides a unified interface
+                to all exceptions that allow you to get human readable messages
+                and status information that can be processed by computers (e.g.
+                for exception recovery).
+
+All exceptions have the following member functions (virtual):
+
+
+
+- ` virtual const const char* ReasonText();`
+                          Which returns a human readable error string that contains an error
+                          message describing why the exception was thrown and what was being done
+                          when the error that triggered the exception occured.
+- ` virtual const Int_t ReasonCode();`
+                              Which returns some exception specific error code, that
+                              can be processed by software for error recovery.
+
+
+The example below shows the simplest handling of
+            `CException` types.  Note that the exception
+            is caught by reference so that member functions retain their
+            polymorphism.
+
+<a name="AEN10855"></a>**Example 60-1. Catching `CException` and exiting**
+
+```
+#include <Exception.h>
+#include <iostream>
+using namespace std;
+...
+try {
+...
+}
+catch (CException& error) {
+    cerr << err.ReasonText() << endl;
+    exit(-1);
+}
+            
+```
+
+The example prints out a meaningful error message and exits the program.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The NSCL Exception class library | Up | frameworks |

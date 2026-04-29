@@ -1,0 +1,130 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringselector"></a>Chapter 29. The ringselector application
+
+The ringselector application is very
+        similar in nature ot
+        [[r11920]]
+        application.  Both
+        ringselector and ringtostdout
+        accept data from ring buffers and pipe them to their stdout.
+        Both are intended for use when setting up pipelines.
+
+ringselector
+        differs in that you can select the types of data that will be accepted
+        from the ring.  You may also select which event types will be sampled,
+        and which type must be reliably delivered.
+
+To understand ringselector it's helpful
+        to understand how applications select data from a ring buffer.
+        Applications can provide a *predicate* object
+        that filters items.  A predicate is an object from a class that has
+        an `operator()` virtual member that returns
+        a bool.
+
+There are two pre-canned predicate classses:
+        [[r21079]],
+        which accepts only the set of item type specified, and
+        [[r20903]]
+        which only accepts the est of item types specified.
+
+Both predicates support specifying that an item type should be sampled.
+        Sampled item type are only delivered if they are the last item in the
+        ring, that is sampled items may be skipped if the consumer application is
+        not fast enough to keep up with the flow of items.
+
+ringselector has three options that
+        control the type of predicate that is used to select data from the ring:
+
+
+
+`--accept`=*item-type-list*Provides a list of item types that must be accepted.
+                        Using this option is exclusive of use of the
+                        `--exclude` switch.  Using
+                        `--accept` forces the use of a
+                        `CDesiredTypesPredicate`.
+
+`--exclude`=*item-type-list*Provides a list of item types that must not be
+                        accepted.  Using this option is exclusive of the
+                        `--accept` switch, and selects the
+                        use of a
+                        `CAllButPredicate`.
+
+`--sample`=*item-type-list*Provides a list of item types that are accepted with
+                        sampling.  This modifies the behavior of the
+                        predicate selected by `--accept`
+                                              or `--exclude`.
+
+`--non-blocking`If present data are read in non-blocking mode.  This means that if the
+		  process reading the RingSelector output
+		  is not keeping up, even unsampled data can be lost.   This also
+		  prevents hang-ups when the process reading our stdout is not
+		  reading data.
+
+
+Let's look at a few examples.  First let's take data from
+        from a ring buffer with our username on spdaq22.nscl.msu.edu.
+        We'll just pipe this into the od utility.  We will only be interested
+        in state transition items and sampled event data (a
+        `CDesiredTypesPredicate`).
+
+<a name="AEN7342"></a>**Example 29-1. Dumping state changes and sampled event data with od**
+
+```
+    ringselector --accept=BEGIN_RUN,END_RUN,PAUSE_RUN,RESUME_RUN \
+                 --sample=PHYSICS_EVENT                          \
+                 --source=tcp://spdaq22.nscl.msu.edu/`whoami` | od -xa
+
+        
+```
+
+Note how the **whoami** command is used to
+        make this work independent of the actual user running the
+        program.
+
+Let's take data from the same ring buffer. Now we'll
+        specify that we want all data items, except for the packet type
+        documentation.  We will still sample physics events. This produces
+        a `CAllButPredicate`.
+
+<a name="AEN7350"></a>**Example 29-2. Dumping all but packet types**
+
+```
+    ringselector --exclude=PACKET_TYPES --sample=PHYSICS_EVENT \
+                 --source=tcp://spdaq22.nscl.msu.edu/`whoami` | od -xa
+
+        
+```
+
+If neither `--exclude` nor `--accept`
+        is provided on the commandline, the predicate used is
+        a `CAllButPredicate`.
+        The following attaches SpecTcl to data from the ring we've been
+        using as an example, in the normal way.
+
+<a name="AEN7358"></a>**Example 29-3. Attaching SpecTcl**
+
+```
+attach -format ring -pipe \
+        ringselector --source=tcp://spdaq22.nscl.msu.edu/$tcl_platform(user) \
+                     --sample=PHYSICS_EVENT
+start
+
+        
+```
+
+For a complete reference on the command see the
+        [[r12801]].
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the sequencer. | Up | Compatibility utilities |

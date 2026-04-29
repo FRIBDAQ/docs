@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.evb-orderer-dev0"></a>Chapter 74. Event orderer and its user interface
+
+The NSCL event builder is a two stage pipeline.  The first stage of the
+        pipeline puts event fragments from an arbitrary number of event sources
+        into a total time order.  A mechanism exists to allow analysis
+        applications to look at
+        these fragments directly.  The second stage of the pipeline assembles
+        fragments that lie within some specified coincidence window into
+        events.
+
+This chapter describes:
+
+
+
+- The philososphy of the event orderer
+- How to start up the event orderer using the standard
+              start script
+- How to write an event orderer startup script
+- The set of packages available to scripts that interact
+              with the event orderer.
+
+In addition to this chapter, please see the reference information in
+        the part *1evb*.  That part of the reference
+        material provides detailed information about the event builder
+        Tcl package.
+
+# <a name="AEN15363"></a>74.1. Event orderer design philosophy.
+
+The event orderer was designed to support user written extensions
+            and user interfaces.  Support for this was in the specification from
+            the start.  One reason is the wide variety of possible meanings
+            that can be attributed to exceptional conditions like data late,
+            or mixed and incomplete barriers.
+
+The orderer accomplishes this by wrapping it's C/C++ core with a
+            Tcl/Tk interface.  Furthermore some standard Tk components are
+            provided along with a Tcl application program interface that
+            allowws you to intervene at key points in the event orderer's
+            execution.
+
+If you think of the event orderer as a set of Tcl commands that
+            encapsulate the C/C++ core you'll have a good picture of the
+            final structure.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Injecting variables into the USB data taking frameworks | Up | Using the standard event orderer startup script |

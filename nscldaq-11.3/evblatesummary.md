@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_latesummary"></a>EVB::lateSummary
+
+<a name="AEN15173"></a>## Name
+
+EVB::lateSummary -- Widget to display summar of data late fragments.
+
+<a name="AEN15176"></a>## Synopsis
+
+**EVB::lateSummary *window ?options?*
+**
+
+** *$window* configure *options*
+**
+
+** *$window* cget *?option-name?*
+**
+
+<a name="AEN15188"></a>## DESCRIPTION
+
+Provides a widget that can display a summary of data late cases.
+            The widget contents are completely controlled by configuration
+            options.  See OPTIONS below.
+
+<a name="AEN15191"></a>## OPTIONS
+
+
+
+`-count`Sets the contents of the total late fragment count
+                        field of the widget.
+
+`-worst`Sets the contents of the worst case timestamp difference
+                        field of the widget.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::lateFragments | Up | ::EVB::outputStatistics |

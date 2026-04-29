@@ -1,0 +1,115 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN713"></a>3.8. Gate Applications.
+
+The /spectcl/apply set of URLs provide access
+                to the SpecTcl **apply** command.  This set of
+                URLs can
+
+
+
+- Apply a gate to a spectrum.  Applying a gate to a spectrum
+                        only allows that spectrum to be incremented for events
+                        that make that gate true
+- List the gate applied to a spectrum.  Note that to make the
+                        SpecTcl logic regular, all Spectra actually have exactly
+                        one gate applied to them.  Always.
+  When Spectra are initially created, the gate
+                        -TRUE- is applied which is a True
+                        gate.  True gates are true regardless of the event contents.
+
+## <a name="AEN726"></a>3.8.1. Applying a gate to a spectrum.
+
+To apply a gate to a spectrum the URI of the form:
+
+<a name="AEN729"></a>**http://*host.name:port-num*/spectcl/apply/apply               
+                **
+
+Should be used.  This URI has two required query parameters:
+
+
+
+gateThe name of the gate to apply to the spectrum.
+
+spectrumThe name of the spectrum to which the gate is applied.
+
+The response from the server, on success, is
+
+<a name="AEN744"></a>```
+{
+    "status" : "OK",
+    "detail" : ""
+}          
+                    
+```
+
+Any other value for the status attribute is an error return
+                    message and the detail attribute furthere clarifies the
+                    error.
+
+## <a name="AEN747"></a>3.8.2. Listing gate applications
+
+To list the gates applied to a spectrum  a URI of the form.
+
+<a name="AEN750"></a>**http://*host.name:port-num*/spectcl/apply/list                          
+                    **
+
+Should be used.  This URI accepts a single optional
+                    query parameter pattern whose value is a
+                    glob pattern string that filters the output by spectrum
+                    names that match that pattern.  If this parameter
+                    is omitted it defaults to * which
+                    lists the gates applied to all spectra.
+
+The result is a JSON object with attributes
+                    status and detail.
+                    The status attribute value will always
+                    be a the string OK as this URI produces
+                    no errors.
+
+The detail attribute value is an array
+                    of JSON objects.  Each element of the array describes
+                    a single gate application for a matching spectrum.
+                    The attributes of these objects are:
+
+
+
+spectrumThe value of this attribute is the name of a
+                            spectrum.
+
+gateThe value of this attribute is the name of the
+                            gate applied to this spectrum.  Note again,
+                            that every spectrum has a gate applied to it, however
+                            some spectra may have a true
+                            gate applied to themto effectively un gate them.
+
+Sample return value:
+
+<a name="AEN777"></a>```
+{
+    "status" : "OK",
+    "detail" : [{
+        "name" : "some.spectrum",
+        "gate" : "some.gate"
+    },
+    {
+        "name" : "ungated.spectrum",
+        "gate" : "-TRUE-"
+    }
+    ]
+}      
+                    
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| edit | Up | Attaching data sources (New in 5.5) |

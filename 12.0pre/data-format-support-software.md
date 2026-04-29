@@ -1,0 +1,512 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.ringformat-dev"></a>Chapter 45. Data Format Support Software
+
+In the user guide section on [[c185]], the format of all the ring items were explained in
+    detail. These were described without any mention of how NSCLDAQ
+    implements them in software. This section seeks to provide an overview
+    of the existing support that is free for use by experimenters.
+
+This chapter is divided into these sections:
+
+
+
+- A description of the C/C++ structure that represent the data
+            format for I/O operations.
+- A description of the class library that helps you build and
+            decode items in the ring buffer in the format described in
+            this chapter.
+- A description of a simple library that allows you to
+            create ring items that may not wind up being placed in a ring.
+- A description of the mechanisms that are available to selectively
+            get data from ring buffers.
+
+
+Reference material is provided in in the 3daq section that describes the
+    class library.
+
+# <a name="AEN10685"></a>45.1. The basic data formats
+
+The header DataFormat.h contains, among other
+      things, the struct definitions that define
+      the shapes of each item as they are passed around. These structs are given typenames via
+      the typedef statement.  The remaining
+      discussion will use these typenames, rather than the names of the
+      underlying structs. The contents of each structure mirror the data as
+      described in the user guide describing the data format. For that reason,
+      the details of the implementation are provided here.
+
+The general structure of a ring item is:
+
+```
+#ifndef DISABLE_V11_COMPATIBILITY
+#define s_mbz s_empty
+#endif
+
+typedef PSTRUCT _RingItem {
+  RingItemHeader s_header;
+  union {
+    struct {
+      uint32_t s_empty;
+      uint8_t  s_body[1];
+    } u_noBodyHeader;
+    struct {
+        BodyHeader s_bodyHeader;
+        uint8_t s_body[];
+    } u_hasBodyHeader;
+  } s_body;
+} RingItem, *pRingItem;
+    
+```
+
+As you can see, the RingItem is composed of a RingItemHeader first,
+      followed by a union of structs. The union handles the fact that there may or may not
+      be a body header present. The body header is a new addition to the data
+      format in NSCLDAQ 11.0 and will be explained in a bit more detail later.
+      The case in which the body header is absent causes the body to have a
+      uint32_t followed immediately by the body data. Alternatively, the body
+      begins with at BodyHeader which is followed by the body data. This is
+      common for all ring items. The s_body element refers to the remaining data
+      that is lives in the body and that may or may not have a defined format.
+      To representation the different body formats, there are different structs
+      defined that are all variations of this theme. In the end, these are being
+      treated as data entities without methods of their own.
+
+If the preprocessor symbol DISABLE_V11_COMPATIBILITY
+      is not defined, then s_mbz can be used (as in version 11) for the s_empty
+      field.  This is done, as shown via a preprocessor symbol, its use may cause
+      problems if there are other structs with fields named `s_mbz`,
+      therefore at compile time -DDISABLE_V11_COMPATIBILITY
+      will turn off this definition.
+
+The header of each item type is of type `RingItemHeader`
+      for convenience, the type `pRingItemHeader` is defined
+      to be a pointer to a `RingItemHeader`.  This is a
+      common pattern in the DataFormat.h header.
+
+The header has the following fields:
+
+
+
+uint32_t `s_size`Contains the size of the item in bytes.
+              `s_size` should include the
+              size of the header as well
+
+uint32_t `s_type`Contains a value that uniquely defines the type of
+              datain the item.  While this is a 32 bit field,
+              the actual type values a 16 bits wide, with the
+              remaining 16 bits set to zero.  This allows consumer
+              software to detect byte order differences between
+              systems that generate the data and consumer systems.
+
+The NSCL DAQ reserves types 1 through 32767
+              for itself.  Type 0 is illegal, as it's byte order
+              is indeterminate.  Types
+              37678 through 65535 are available for user applications.
+              The constant `FIRST_USER_ITEM_CODE`
+              provides the symbolic value for the first item code
+              available for user applications.
+
+The supported NSCLDAQ data item codes are defined in
+              the DataFormat.h header. They
+              are also defined i
+
+
+The body header includes a timestamp, event source and barrier information
+      either emitted by or intended for the event building pipeline.  This
+      header is either a uint32_t containing sizeof(uint32_t), which indicates
+      there is no header, or a structure of the following type:
+
+```
+typedef struct _BodyHeader {
+  uint32_t   s_size;		/* 0 or sizeof(DataSourceHeader) */
+  uint64_t   s_timestamp;
+  uint32_t   s_sourceId;
+  uint32_t   s_barrier;   
+} BodyHeader, *pBodyHeader;
+    
+```
+
+The fields of this structure are as follows:
+
+
+
+`s_size`The size of the header.  This value includes the
+            `s_size` field.  Thus you can also
+            think of items that don't have a body header
+            as having a header size of sizeof(uint32_t); The size of the s_size
+            elementWe promise to maintain
+            backwards compatility by adding any new elements to the
+            end of the body header.  Thus you can use
+            `s_size` to determine where the
+            body header ends and the structure fields will not
+            move from version to version.
+
+`s_timestamp`The value of the event/globally synchronized
+            timestamp at the time this ring item was initially
+            formed.
+
+`s_sourceId`Unique identifier of the source of this ring item.
+
+`s_barrier`If the item was part of a barrier synchronization amongst
+            the data sources, this field will be non-zero and
+            represent the type of the barrier.  If zero, this
+            item was not part of a barrier.
+
+To generate the various ring items, the DataFormat.h
+      provides a series of functions.
+
+<a name="AEN10749"></a>`pScalerItem
+            formatNonIncrTSScalerItem(
+            unsigned scalerCount
+          , 
+            time_t timestamp
+          , 
+            uint32_t btime
+          , 
+            uint32_t  etime
+          , 
+            uint64_t eventTimestamp
+          , 
+            void* pCounters
+          , 
+            uint32_t timebaseDivisor
+          );`
+
+
+<a name="AEN10775"></a>`pDataFormatformatDataFormat
+          (void);`
+
+
+<a name="AEN10781"></a>`pGlomParameters
+            formatGlomParameters
+          (
+            uint64_t coincidenceWindow
+          , 
+            intisBuilding
+          , 
+            inttimestampPolicy
+          );`
+
+
+<a name="AEN10795"></a>`pEventBuilderFragment
+            formatEVBFragment
+          (
+            uint64_t timestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            uint32_t payloadSize
+          , 
+            const void*
+              pPayload
+          );`
+
+
+<a name="AEN10815"></a>`pEventBuilderFragment
+            formatEVBFragmentUnknown
+          (
+            uint64_t timestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            uint32_t payloadSize
+          , 
+            const void* pPayload
+          );`
+
+
+<a name="AEN10835"></a>` pPhysicsEventItem
+            formatTimestampedEventItem
+          (
+            uint64_t timestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            uint32_t payloadSize
+          , 
+            const void* pPayload
+          );`
+
+
+<a name="AEN10855"></a>` pPhysicsEventCountItem
+            formatTimestampedTriggerCountItem
+          (
+            uint64_t timestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            uint32_t runTime
+          , 
+            uint32_t offsetDivisor
+          , 
+            time_t stamp
+          , 
+            uint64_t triggerCount
+          );`
+
+
+<a name="AEN10881"></a>` pScalerItem
+            formatTimestampedScalerItem
+          (
+            uint64_ttimestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            int isIncremental
+          , 
+            uint32_t timeIntervalDivisor
+          , 
+            uint32_t timeofday
+          , 
+            uint32_t btime
+          , 
+            uint32_t etime
+          , 
+            uint32_t nScalers
+          , 
+            void* pCounters
+          );`
+
+
+<a name="AEN10916"></a>` pTextItem
+            formatTimestampedTextItem
+          (
+            uint64_t timestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            unsigned nStrings
+          , 
+            time_t stamp
+          , 
+            uint32_t runTime
+          , 
+            const char**pStrings
+          , 
+            int type
+          , 
+            uint32_t timeIntervalDivisor
+          );`
+
+
+<a name="AEN10948"></a>` pStateChangeItem
+            formatTimestampedStateChange
+          (
+            uint64_t timestamp
+          , 
+            uint32_t sourceId
+          , 
+            uint32_t barrier
+          , 
+            time_t stamp
+          , 
+            uint32_t offset
+          , 
+            uint32_t runNumber
+          , 
+            uint32_t offsetDivisor
+          , 
+            const char* pTitle
+          , 
+            int type
+          );`
+
+
+<a name="AEN10980"></a>` void* bodyPointer
+          (
+            pRingItem pItem
+          );`
+
+
+These item types break down in to four distinct categories of
+      item which will be described in the remaining subsections of this
+      section.
+
+## <a name="AEN10989"></a>45.1.1. State Change Items
+
+State change items are those with types
+        `BEGIN_RUN`, `END_RUN`,
+        `PAUSE_RUN`, and `RESUME_RUN`.
+        As the type names imply, these signal state transitions in
+        data taking.
+
+State change items have the type
+        `StateChangeItem`.  This item has the
+        following fields:
+
+
+
+uint32_t `s_runNumber`Is the number of the run for which this state transition
+              is being documented.  Typically, run numbers are
+              unique, for recorded runs, as the run number is encoded
+              into the name of the run's event file.
+
+uint32_t `s_timeOffset`Is the number of seconds the run has been active prior
+              to this state transition.  Clearly if the type of the
+              item is `BEGIN_RUN` this will be zero.
+              For the NSCLDAQ frameworks, the time offset only
+              counts seconds during which the run was active (time
+              during which the run was paused are not counted).
+
+uint32_t `s_Timestamp`Is the absolute time at which the transition
+              occured. This is represented in seconds since
+              the Unix epoch of
+              00:00:00 UTC, January 1, 1970.
+              Once translated into the host's byte order, it can
+              be passed to any of the time formatting functions
+              (e.g. `asctime`).
+
+char `s_title`[TITLE_MAXSIZE+1]Holds the run title.  Run titles are restricted in
+              size to `TITLE_MAXSIZE` characters,
+              with the +1 to accomodate the
+              trailing '\0'.
+              `TITLE_MAXSIZE`
+              is also defined in
+              DataFormat.h.
+
+All item types have a field
+        `s_header` of type
+        RingItemHeader that holds the item header.
+
+## <a name="AEN11029"></a>45.1.2. Text List Items
+
+Text list items contain a list of null terminated strings.
+        They are usually used to provide metadata for the run.  At present,
+        two types of text list items are defined.
+        `PACKET_TYPES` and
+        `MONITORED_VARIABLES`.
+
+`PACKET_TYPES` document the packets you might
+        expect to find in a run's `PHYSICS_EVENT` items.
+        Creating instances of the
+        `CDocumentedPacket` object
+        automatically generates these.  Each packet is documented with a
+        single string.  The string consists of five colon separated fields.
+        These fields contain, in order:
+
+
+
+1. The Name the packet.
+2. The id of the packet given as a hex string e.g.
+                 "0x1234"
+3. A desription of the packet.
+4. A version string for the packet.  Presumably this
+                 will change if the packet with this type ever
+                 changes 'shape'>
+5. The date and time at which the
+                 `CDocumentedPacket` object
+                 creating this entry was created.
+
+
+`MONITORED_VARIABLES` items contains a snapshot
+        of the values of process variables that have been declared
+        by the readout software.   Each variable takes up one string and is
+        formatted like a Tcl **set** command that, if executed,
+        would define that variable to the value it had when the item was created.
+
+String list items have type `TextItem`.
+        This item has the following fields:
+
+
+
+uint32_t `s_timeOffset`The number of seconds of data taking that have gone on
+              in this run prior to the generation of this item.
+              This time offset does not count time in the paused
+              state.
+
+uint32_t`s_timestamp`Is the absolute time at which the item was 
+              created. This is represented in seconds since
+              the Unix epoch of
+              00:00:00 UTC, January 1, 1970.
+              Once translated into the host's byte order, it can
+              be passed to any of the time formatting functions
+              (e.g. `asctime`).
+
+uint32_t `s_stringCount`Number of strings in the item.
+
+char `s_strings[]`An array of characters large enough to hold all
+              the strings.  Each string is a null terminated set
+              of characters immediately followed by the next
+              string.
+
+## <a name="AEN11078"></a>45.1.3. Scaler Items
+
+NSCLDAQ readout frameworks support periodically reading scaler
+        data.  These data are represented as
+        `ScalerItem` items in ring buffers.
+        These items have the following fields:
+
+
+
+uint32_t `s_intervalStartTime`The number of seconds of active data taking prior
+              the start of the time period represented by the counts
+              in this scaler item.
+
+uint32_t `s_intervalEndTime`The number of seconds of active data taking prior to
+              the end of the time period represented by the counts
+              in this scaler item.
+
+uint32_t  `s_timestamp`Is the absolute time of the end of the
+              scaler counting period.
+              This is represented in seconds since
+              the Unix epoch of
+              00:00:00 UTC, January 1, 1970.
+              Once translated into the host's byte order, it can
+              be passed to any of the time formatting functions
+              (e.g. `asctime`).
+
+uint32_t `s_scalerCount`The number of scalers in the item.
+
+uint32_t `s_scalers`[]The array of scaler counts.  This contains
+              `s_scalerCount` elements.
+
+## <a name="AEN11111"></a>45.1.4. Event Data Items
+
+These items are of type
+        `PHYSICS_EVENT`.
+        The contain the data read from the hardware.  Depending on the
+        readout framework, this can be the response to one trigger or to
+        a block of triggers. It is up to the analysis software to know
+        which is which.
+
+This item is of type `PhysicsEventItem`
+        and contains the field
+        uint16_t `s_body` that is the data
+        from the event.
+
+## <a name="AEN11118"></a>45.1.5. Event count items
+
+These items are of type `PhysicsEventCountItem`.
+        uint32_t `s_timeOffset` is
+        the number of seconds into the active run the event occured.
+        uint32_t `s_timesamp`
+        is the absolute timestamp indicating when this item was created.
+        uint64_t `s_eventCount` is
+        the total number of events that have been contributed to this
+        ring for this run.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Tcl ring package | Up | Selecting Data From a Ring Buffer |

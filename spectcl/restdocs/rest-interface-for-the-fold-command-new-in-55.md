@@ -1,0 +1,67 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN992"></a>3.12. REST interface for the fold command (new in 5.5)
+
+The fold command has three sub opterations that:
+
+
+
+1. Fold a list of gamma spectra on a gamma gate.
+2. Remove a fold from a gamma spectrum .
+3. List the folded spectra (that match a glob pattern).
+
+The URL below applies folds to spectra:
+
+<a name="AEN1003"></a>**http://host:port/spectcl/fold/apply?gate=gammagate&spectrum=specname1[&spectrum=specname2...]
+                **
+
+The `gate` query parameter specifies a gate
+                which must be a gamma gate.  One or more `spectrum`
+                query parameters specify the spectra to be folded with that gate.
+
+the spectcl/fold/apply URLs do not return
+                anything useful other than the status.
+
+The URL below lists folded spectra that match the pattern
+                query parameter (treated as a glob pattern).  If the
+                pattern query parameter is not supplied, it
+                defaults to *
+
+<a name="AEN1016"></a>**http://host:port/spectcl/fold/list[?pattern=globpattern]
+                **
+
+It is important to note that the pattern matches
+                *spectra* not gates.  The detail
+                part of the return data is an array of JSON objects. Each
+                object has the following attributes:
+
+
+
+spectrumName of a folded spectrum.
+
+gateName of the gate used to fold the spectrum.
+
+Spectra without folds will not be listed in the array.
+
+The following URL is used to unfold a spectrum:
+
+<a name="AEN1036"></a>**http://host:port/spectcl/fold/remove?spectrum=spectrum-name
+                **
+
+The spectrum query parameter specifies
+                the name of the spectrum from which to remove the fold.
+                Nothing useful other than the status attribute
+                of the reply is returned on success.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the fit command (new in 5.5) | Up | Accessing the channel command (new in 5.5) |

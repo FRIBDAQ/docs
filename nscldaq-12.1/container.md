@@ -1,0 +1,122 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN82963"></a>Container
+
+<a name="AEN82967"></a>## Name
+
+Container -- Provide access to the container part of managed experiment configuration databases
+
+<a name="AEN82970"></a>## Synopsis
+
+```
+from nscldaq.mg_database import Container
+
+class Container:
+   def __init__(self, handle)...
+   def exists(self, name)...
+   def add(self, name, image, initscript, mountpoints)...
+   def remove(self, name)...
+   def replace(self, oldname, newname, image, initscript, mountpoints)...
+   def list(self)...
+   def id(self, name)...
+
+      
+```
+
+<a name="AEN82972"></a>## DESCRIPTION
+
+This provides python scripts with access to the Container part of the managed
+         experiment environment experiment configuration datababase.
+         Note that docstrings describe this class as well so you can recover
+         much of the information in this manpage from the Python help system.
+
+This class was tested using Python3.  No warranty is made to its suitability for use with Python 2
+         scripts.
+
+<a name="AEN82976"></a>## METHODS
+
+
+
+def __init__(self, handle)
+               Class constructor.  `handle` should be
+             an sqlite3 connection object that is connected to the configuration database file.
+             See e.g. [https://docs.python.org/3/library/sqlite3.html](https://docs.python.org/3/library/sqlite3.html)
+             for information about how to construct an sqlite3 database connection object.
+
+All operations performed by this class will be performed on the database connected to 
+               `handle`
+
+def id(self, name)
+               If there is a container named `name` the primary key for its
+               root table entry (container table) is returned.  If not, 
+               None is returned.
+
+In general user written code will not need this,  Other classes in the
+               nscldaq.mg_database module will use this to establish foreign keys
+               describing the containers used by database objects *they* create.
+
+def exists(self, name)      
+               Returns True if there is a container named `name`
+False otherwise.
+
+def add(self, name, image, initsript, mountpoints)      
+               Creates a new container definition in the database.
+               `name` is the unique name by which that container will be
+               referred to by other `Container` methods.  This need not be the
+               `image` which is the container image file.
+               If a container by this name already exists, a `ValueError` is raised.
+
+`initscript` specifies a file system path (in the context of
+               the wizard's execution) of a script that will be run before starting any program
+               in the container).  One use of that script can be to establish a version of FRIBDAQ
+               by running the daqconfig.bash of that version.
+               The contents of the script itself are sucked into the database.  Therefore, if you
+               modify the script you must re-create the container.
+
+`mountpoints` is an iterable object of binding specifications.
+               Each element of that iterable is a two or one element array.
+               If the element is a single elment array, that element specifies a host file system path
+               that is made available within the container at the same filesystem path as the host.
+               Note that bindings overlay and supersede filesystem paths within the container image.
+               If an element of `mountpoints` is a two element array, the first
+               element is a host file system path and the second one specifies where, in the active
+               container the contents of that path are bound.
+
+Note that not only directories can be bound.  Even single files can be bound into the
+               running container.
+
+def remove(self, name)
+               Removes the container named `name` from the set of 
+               container definitions in that database file.  If there is no such container,
+               this method raises a `ValueError`
+
+               def replace(self, oldname, newname, image, initscript, mountpoints)
+               This is identical to
+
+```
+            container.remove(oldname)
+            container.add(newname, image, initscript, mountpoints)
+            
+```
+
+def list(self)
+               Returns an iterable that describes all of the container definitions.
+               Each element of the iterable is a dict. With the keys:
+               name, image, init_script
+               and bindings.
+               With the exception of init_script  these are the 
+               parameter needed to create the container.  init_script however is
+               the *contents* of the initialization script, not its path.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 3python | Up | EventLog |

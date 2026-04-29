@@ -1,0 +1,225 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.fitcommand"></a>fit
+
+<a name="AEN304"></a>## Name
+
+fit -- 1-d Spectrum fitting computation
+
+<a name="AEN307"></a>## Synopsis
+
+**fit create fitname spectrumname low high type
+            **
+
+**fit update *?pattern?*
+**
+
+**fit delete name
+            **
+
+**fit list *?pattern?*
+**
+
+**fit proc name
+            **
+
+<a name="AEN320"></a>## DESCRIPTION
+
+The **fit** command is a command ensemble that
+             creates and maniuplates fits of spectrum data.  At present, SpecTcl
+             only has builtin support for gaussian fits on a constant background
+             and linear fits.
+             The programming guide describes how to add fit types to this subsystem
+             in a seamless manner.
+
+The fit command allows you to specify a region of interest to be
+            fit and update the fit parameters based on current data.  A unique
+            feature of the fit command is that it can return the definition
+            of a Tcl proc that can be used to compute the fit value at
+            any point.
+
+<a name="AEN325"></a>## SUBCOMMANDS
+
+The **fit** command is a command ensemble.  This
+            means that what the command does depends on a keyword immediately
+            following the **fit** command word.  The sections
+            that follow will describe the subcommands **fit**
+            understands.
+
+<a name="AEN331"></a>### create
+
+**fit create fitname spectrumname low high type
+              **
+
+Creates a new fit.  `fitname` is the name
+                that will be given to the fit.  Each fit has a name that must
+                be unique.  It is an error to create a fit with a fit name that
+                already exists.
+
+Fits are performed on 1D spectra.  `spectrumname`
+                must be the name of a spectrum that has a single, X axis.
+
+`low` and `high` are
+                the channel numbers of the area of interest the fit covers.
+                These must be raw channel numbers.
+
+`type` is the type of the fit.
+                The builtin types are gaussian, which performs
+                a gaussian fit with a constant background term and
+                linear.   See
+                the Programming Guide for information about how to add
+                additional fit types to the system.
+
+This command returns the name of the fit as its result.
+
+<a name="AEN347"></a>### update
+
+**fit update *?pattern?*
+**
+
+Recomputes fit parameters for all fits that match the optional
+                glob `pattern`.  If the
+                `pattern` is not supplied it defaults to
+                * matching all fits.
+
+If the Xamine displayer is used, the fitline displayed on the
+                spectrum is updated.  Note that with the Root based Spectra
+                displayer it is more normal to use Root's native fitting
+                subsystem.
+
+This subcommand produces no useful output.
+
+<a name="AEN358"></a>### delete
+
+**fit delete name
+                **
+
+Deletes the fit `name`.  All resources
+                associated with that fit are released.
+
+<a name="AEN364"></a>### list
+
+**    fit list *?pattern?*
+**
+
+Lists the fits that match the optional glob
+                `pattern`.  If `pattern`
+                is not provided on the command line, it defaults to
+                * which matches all fits.
+
+This command returns a (possibly empty) list of fit descriptions.
+                Each fit description is itself a 5 element list containing:
+
+
+
+1. The name of the fit
+2. The name of the spectrum the fit is defined on
+3. The type of the fit (e.g. gaussian).
+                           Note that SpecTcl defines both
+                           gaussian  which is a gaussian function
+                           on a constant background and a linear
+                           fit types
+4. A two element list that is the area of interest over
+                           which the fit was performed.
+5. A property list that describes the fit parameters.
+                           A property list is a list of two item sublists.
+                           Each item contains a keyword and a value
+                           (the keyword is element 0). The parameters returned by
+                           each fit will depend on its fit type as each fit type
+                           will have a different set of variable parameters. For
+                           example, the gaussian fit has a "centroid" parameter,
+                           a linear fit might have a "slope" parameter.
+                           See the section
+                           "Parameters of supported fits" below for the parameters
+                           of fits that are a standard part of SpecTcl. for others
+                           either list them and look at the fit property list or
+                           consult with the author of the fit. Note that all fits
+                           should produce a property named chisquare
+                           that is the chi-square measure of the goodness of the fit.
+
+<a name="AEN389"></a>#### Parameters of supported fit types:
+
+**Gaussian fits. **
+                        See the full functional form of the gaussian below.
+
+
+
+baselineThe constant background the gaussian
+                                        sits on.
+
+heightThe scaling parameter of the gaussian.
+
+centroidThe position of the peak.
+
+sigmaThe variance of the peak.
+
+chisquareThe goodness of fit.
+
+Using the above parameterization, the functional form of
+                    a gaussian fit is:
+
+<a name="AEN421"></a>y = baseline + height * exp(-0.5*((x-centroid)/sigma)**2)
+
+**                        Linear fits
+                    . **
+                        The following parameters are defined for linear fits:
+
+
+
+offsetThe Y intercept of the fit line
+
+slopeSlope of the fit line.
+
+chisquareThe goodness of fit measure.
+
+The form of the linear fit is, of course:
+
+<a name="AEN443"></a>y  = offset + slope*x
+
+<a name="AEN445"></a>### proc
+
+**fit proc name
+                **
+
+Returns the text of a Tcl proc that can evaluate the fit line
+                *as it is defined at the time of this command*
+                (the proc does not reflect later **update** operations).
+                The proc can be used to evaluate the fit at any point although
+                evaluation outside the area of interest may be meaningless.
+
+The fit proc will be named fitline and will
+                take one parameter, the channel number at which the fit should
+                be evaluated.
+
+<a name="AEN454"></a>## EXAMPLES
+
+<a name="AEN456"></a>**Example 1. Using the proc subcommand**
+
+```
+foreach fit [fit list] {
+  set name [lindex $fit 0]
+  eval     [fit proc $name]
+  rename fitline $name
+}
+            
+```
+
+The example above uses the **fit proc** command to
+            get a proc text for each defined fit.  The **eval**
+            command is then used to create the actual fit proc for Tcl.  The
+            **rename** command then renames the proc, which is
+            always called fitline to the name of the fit
+            so that procs don't step on each other's name.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| sbind | Up | fold |

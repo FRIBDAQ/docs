@@ -1,0 +1,35 @@
+|  |  |  |
+| --- | --- | --- |
+| The NSCLDAQ cookbook |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This document describes several programs that are distributed with NSCLDAQ since 11.3-006.  These programs are intended to show how to use NSCLDAQ and it support libraries to perform some common tasks.  I anticipate that the set of examples and this documentation will grow with time.
+
+The programs described in this cookbook are tested and available, along with Makefiles in the directory tree $DAQROOT/share/recipes .  Each of the following chapters will describe one of these recipes as well as provide the actual directory in which the program lives.
+
+At the time this is being written the following recipes are available:
+
+
+
+- [[c35]] describes how to read NSCLDAQ data.  THe program presented can read data from either an event file or an online ringbuffer.  This file is the basis of all of the following NSCLDAQ I/O recipes.
+- [[c203]] describes how to write ring
+                      items.  The program presented expands on readrings above to filter out some ring items and write others to either a file or another ringbuffer, from which online programs can
+                      consume them.
+- [[c287]] describes a very simple processing framework that reads data from either a file or rinbuffer and does ring item type specific processing.  This program could be used as the basis of a custom program that transforms NSCLDAQ data into trees in a root file.
+- [[c572]]
+                      describes how to process event built data.
+- [[c665]]
+                      describes how to include the values of EPICS channels in
+                      your event files.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The NSCLDAQ cookbook |  | Reading NSCLDAQ data sources |

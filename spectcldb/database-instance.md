@@ -1,0 +1,93 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5478"></a>Database Instance
+
+<a name="AEN5482"></a>## Name
+
+Database Instance -- Manipulate a database
+
+<a name="AEN5485"></a>## Synopsis
+
+```
+package require SpecTclDB ?1.0?
+
+set db [DBTcl connect filename]
+
+set saveset [$db createSaveset set-name]
+set saveset [$db getSaveset    set-name]
+set names [$db listSavesets]
+set runs  [$db listRuns]
+$db destroy
+
+                        
+```
+
+<a name="AEN5487"></a>## Database Instance
+
+A database instance is a dynamically
+                            created command ensemble.  The
+                            **DBTcl connect** command
+                            returns a value that is actually a command
+                            ensemble name.
+
+Database Instance command ensembles have
+                            the following subcommands:
+
+
+
+**createSaveset**Creates a new save set in the database.
+                                    The subcommand takes the save set as a
+                                    parameter.  The command result is
+                                    a saveset instance command.
+
+When no longer needed the saveset instance
+                                    command should be destroyed using
+                                    the **destroy** subcommand.
+
+**getSaveset**This command takes the name of an existing save
+                                    set as a parameter.  The saveset is looked up
+                                    in the database and a new
+                                    saveset instance command is wrapped
+                                    around it.
+
+The save set instance command is
+                                    returned as the command's result.
+                                    When the application no longer needs it,
+                                    the save set instance command
+                                    should be destroyed using its
+                                    **destroy**
+                                    method.
+
+**listSavesets**This subcommand returns a Tcl list containing
+                                    the names of all savesets in the
+                                    database.
+
+**listRuns**Returns a Tcl list containing the
+                                    run numbers that are saved in the database.
+                                    Note that in principle a run can appear
+                                    more than once, in several save sets.
+                                    As SpecTcl uses the database, however
+                                    each run will be in a saveset of its own
+                                    along with the configuration used
+                                    when run recording started, and any
+                                    spectra on the auto save list at the
+                                    time the end of run was seen.
+
+**destroy**Destroys the command freeing all resources
+                                    associated with it.  Once this
+                                    subcommand has been executed, the
+                                    instance command is no longer known
+                                    to the interpreter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DBTcl | Up | Save set Instance |

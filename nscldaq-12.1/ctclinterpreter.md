@@ -1,0 +1,316 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLInterpreter"></a>CTCLInterpreter
+
+<a name="AEN56685"></a>## Name
+
+CTCLInterpreter -- 
+            Encapsulate a Tcl interpreter.
+
+<a name="AEN56688"></a>## Synopsis
+
+```
+#include <string>
+#include <vector>
+#include <TCLInterpreter.h>
+
+class CTCLInterpreter
+{
+public:
+  CTCLInterpreter ();
+  CTCLInterpreter (Tcl_Interp* am_pInterpreter  );
+
+  Tcl_Interp* getInterpreter()
+  std::string Eval (const char* pScript) ;
+  std::string Eval(const CTCLString& rScript);
+  std::string Eval(const std::string& rScript);
+  std::string EvalFile (const char* pFilename)   ;
+  std::string EvalFile(const CTCLString& rFilename);
+  std::string EvalFile(const std::string& rFilename);
+
+  std::string GlobalEval (const char* pScript)   ;
+  std::string GlobalEval (const CTCLString& rScript) ;
+  std::string GlobalEval(const std::string& rScript) ;
+
+  std::string RecordAndEval (const char* pScript, Bool_t fEval=kfFALSE);
+  std::string RecordAndEval(const CTCLString& rScript,
+                            Bool_t fEval=kfFALSE);
+  std::string RecordAndEval(const std::string& rScript,
+                            Bool_t fEval = kfFALSE);
+
+  std::string ExprString (const char* pExpression)   ;
+  std::string ExprString(const CTCLString& rExpr);
+  std::string ExprString(const std::string& rExpr);
+
+  Long_t ExprLong (const char* pExpression)   ;
+  Long_t ExprLong (std::string& rExpression);
+  Long_t ExprLong (const CTCLString& rExpr);
+
+  DFloat_t ExprDouble (const char* pExpression)   ;
+  DFloat_t ExprDouble (const CTCLString& rExpression);
+  DFloat_t ExprDouble(const std::string& rExpression);
+
+  Bool_t ExprBoolean (const char*  pExpression)   ;
+  Bool_t ExprBoolean (const CTCLString& rExpression);
+  Bool_t ExprBoolean(const std::string& rExpression);
+
+  std::string TildeSubst (const char* pFilename) const  ;
+  std::string TildeSubst (const CTCLString& rName) const;
+  std::string TildeSubst (const std::string& rName) const;
+  std::string EvalFile (const char* pFilename)   ;
+  std::string EvalFile(const CTCLString& rFilename);
+  std::string EvalFile(const std::string& rFilename);
+
+  std::string GlobalEval (const char* pScript)   ;
+  std::string GlobalEval (const CTCLString& rScript) ;
+  std::string GlobalEval(const std::string& rScript) ;
+
+  std::string RecordAndEval (const char* pScript, Bool_t fEval=kfFALSE);
+  std::string RecordAndEval(const CTCLString& rScript,
+                            Bool_t fEval=kfFALSE);
+  std::string RecordAndEval(const std::string& rScript,
+                            Bool_t fEval = kfFALSE);
+
+  std::string ExprString (const char* pExpression)   ;
+  std::string ExprString(const CTCLString& rExpr);
+  std::string ExprString(const std::string& rExpr);
+
+  Long_t ExprLong (const char* pExpression)   ;
+  Long_t ExprLong (std::string& rExpression);
+  Long_t ExprLong (const CTCLString& rExpr);
+
+  DFloat_t ExprDouble (const char* pExpression)   ;
+  DFloat_t ExprDouble (const CTCLString& rExpression);
+  DFloat_t ExprDouble(const std::string& rExpression);
+
+  Bool_t ExprBoolean (const char*  pExpression)   ;
+  Bool_t ExprBoolean (const CTCLString& rExpression);
+  Bool_t ExprBoolean(const std::string& rExpression);
+
+  std::string TildeSubst (const char* pFilename) const  ;
+  std::string TildeSubst (const CTCLString& rName) const;
+  std::string TildeSubst (const std::string& rName) const;
+  Tcl_Interp* operator-> ();
+  operator Tcl_Interp* ();
+};
+
+
+
+    
+```
+
+<a name="AEN56690"></a>## DESCRIPTION
+
+`CTCLInterpreter`
+            encapsulates a Tcl_Interp* in an object.
+            Method invocations on that object provide access to many of the
+            Tcl interpreter. See METHODS below for more information about htis.
+
+<a name="AEN56695"></a>## METHODS
+
+`CTCLInterpreter () `
+
+`CTCLInterpreter` (
+                Tcl_Interp* `pInterp`)
+
+Constructs an interpreter object.  The first form of this
+            constructor creates a new Tcl_Interp* using
+            `Tcl_CreateInterp()` and wraps the object
+            around it.  All members of the object will operate on that
+            newly created interpreter.  The second form, wraps an object
+            around `pInterp`,
+            a previously created Tcl_Interp*.
+            Note that in either case on destruction, `Tcl_DeleteInterp()`
+            is called on the wrapped interpreter.
+
+Tcl_Interp* `getInterpreter`()
+
+Returns the interpreter that is being wrapped by this object.
+            This interpreter can be used as an `interp`
+            parameter for any `Tcl_xxxxxx` call in the Tcl
+            API.
+
+
+
+```
+Eval
+```
+
+
+Evaluates the script passed as a parameter.  The only differences between
+            these functions is the form of the script parameter.  Each function will
+            return the result of the script.  If there is an error in the script,
+            a `CTCLException` will be thrown that will describe
+            what happened.  For example:
+
+```
+    std::string commands;
+    CTCLInterpreter interp;     // New intepreter.
+    ...
+    // after commands has been built up:
+
+    string result
+    try {
+        result = interp.Eval(commands);
+        cout << "Eval of " << commands << " was "
+             <<  result << endl;
+    }
+    catch (CTCLException &e) {
+        cerr << "Eval of " << commands << " failed: "
+             << e.ReasonText() << endl;
+    }
+    // If no exception, result is usable as the output of the eval.
+
+            
+```
+
+
+
+
+```
+EvalFile
+```
+
+
+Sources the specified file in and executes it as a script in the interpreter that
+            is wrapped by the object.  The only difference between these functions is
+            how the name of the file is passed.  The return value is the script result.
+            A `CTCLException` will be thrown in the event the script
+            reports an error.  See the example in
+            `CTCLInterpreter`::`Eval`
+            to see how to catch and report this kind of exception.
+
+
+
+```
+GlobalEval
+```
+
+
+This function evaluates a script at the global level.  Note that
+            `CTCLInterpreter`::`Eval`,
+            and `CTCLInterpreter>`::`EvalFile`
+            evaluates the script at whatever call level the interpreter is currently
+            executing at.
+            The only difference between the methods above is how the script is passed.
+            The functions all return the interpreter result after the script executes.
+            If the script reports an error, a `CTCLException` will
+            be thrown.
+
+
+
+```
+RecordAndEval
+```
+
+
+Records a script in the Tcl interpreter history and, if `fEval`
+            is kfTRUE, evaluates it as well.  The
+            return value is the interpreter result, which is only meaningful if the
+            script was evalutated.  If the script reports an error, a
+            `CTCLException` is thrown.
+
+
+
+```
+ExprString
+```
+
+
+Evaluates an expression (as if with the **expr**
+            Tcl command), and returns the result
+            of the evaluation as a string.  If the expression has an error,
+            a `CTCLException` will be thrown.
+            The only difference between these functions is how the expression is passed.
+
+
+
+```
+ExprLong
+```
+
+
+Evaluates an expression (as if with the **expr**
+            Tcl command).  If the result
+            can be converted into an integer, it is returned as a Long_t.
+            If the expression either cannot be converted to an integer (e.g. it's a non-numerical
+            expression), or if the expression contains an error, a `CTCLException`
+            will be
+            thrown.
+
+
+
+```
+ExprDouble
+```
+
+
+Evaluates the parameter as an expression (as if with the **expr** Tcl command).
+            If the result can be converted to a floating point value it is returned as
+            the function value.  If not, or if there is an error in the expression,
+            a `CTCLException` is thrown.
+
+
+
+```
+ExprBoolean
+```
+
+
+Evaluates the parameter as an expression (as if with the **expr**
+            Tcl command).  If the result can be interpreted as a boolean, it is returned
+            as the function value.  If not, or if there is an error in the expression,
+            a `CTCLException` is thrown.
+
+
+
+```
+TildeSubst
+```
+
+
+Performs tilde substitution on its parameter.   Tilde substitution means that leading
+             characters are expanded to the current user's home directory path, while
+            a leading  followed by a word that is a username will be expanded to the
+            home directory path of that user.  The expanded value is returned.
+            Note thatthe use of this member is deprecated as the underlying Tcl library
+            function is also deprecated.
+
+
+
+```
+operator->
+```
+
+
+These two functions allow objects that are `CTCLInterpreter`
+            objects to be treated as if they were Tcl_Interp*'s.
+            `operator->` supports dereferncing to fields of the
+            wrapped interpreter (note that this is now deprecated within Tcl itself).
+            `operator Tcl_Interp*` supports dynamic type conversion from
+            a `CTCLInterpreteter` object and a Tcl_Interp*
+            pointer.
+
+<a name="AEN56893"></a>## DEFECTS
+
+It is not possible to avoid destroying the interpreter when the
+            object is destroyed.
+
+<a name="AEN56896"></a>## SEE ALSO
+
+CTCLException, CTCLApplication, CTCLChannel, CTCLCommandPackage,
+        CTCLFileHandler, CTCLList, CTCLObject, CTCLObjectProcessor, CTCLTimer,
+        CTCLVariable
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLException | Up | CTCLInterpreterObject  3 |

@@ -1,0 +1,266 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl DDAS Unpackers Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN262"></a>DAQ::DDAS::DDASHit
+
+<a name="AEN266"></a>## Name
+
+DAQ::DDAS::DDASHit -- encapsulate the data from a DDAS hit.
+
+<a name="AEN269"></a>## Synopsis
+
+```
+#include <DDASHit.h>
+
+namespace DAQ {
+  namespace DDAS {
+    class DDASHit { 
+      public:
+        uint32_t GetSlotID() const ;
+        uint32_t GetCrateID() const;
+        uint32_t GetChannelID() const;
+        uint32_t GetEnergy() const;
+        double GetTime() const;
+        uint32_t GetTraceLength() const ;
+        std::vector<uint16_t>& GetTrace();
+        uint32_t GetTimeHigh() const;
+        uint32_t GetTimeLow() const;
+        uint32_t GetTimeCFD() const;
+        uint64_t GetCoarseTime() const;
+        uint32_t GetFinishCode() const;
+        uint32_t GetChannelLength() const;
+        uint32_t GetChannelLengthHeader() const;
+        uint32_t GetOverflowCode() const;
+        uint32_t GetModMSPS() const ;
+        int GetHardwareRevision() const;
+        int GetADCResolution() const ;
+        uint32_t GetCFDTrigSource() const;
+        uint32_t GetCFDFailBit() const ;
+        const std::vector<uint16_t>& GetTrace() const;
+        std::vector<uint32_t>& GetEnergySums();
+        const std::vector<uint32_t>& GetEnergySums() const;
+        std::vector<uint32_t>& GetQDCSums() ;
+        const std::vector<uint32_t>& GetQDCSums() const ;
+        uint64_t GetExternalTimestamp() const ;
+        bool     GetADCOverflowUnderflow() const ;
+        
+        // Used by low level unpackers.
+
+        void Reset();        
+        void setChannel(uint32_t channel);
+        void setSlot(uint32_t slot);
+        void setCrate(uint32_t crate);
+        void setChannelHeaderLength(uint32_t channelHeaderLength);
+        void setChannelLength(uint32_t channelLength);
+        void setOverflowCode(uint32_t overflow);
+        void setFinishCode(bool finishCode);
+        void setCoarseTime(uint64_t time);
+        void setRawCFDTime(uint32_t data);
+        void setCFDTrigSourceBit(uint32_t bit);
+        void setCFDFailBit(uint32_t bit);
+        void setTimeLow(uint32_t datum);
+        void setTimeHigh(uint32_t datum);
+        void setTime(double time);
+        void setEnergy(uint32_t value);
+        void setTraceLength(uint32_t trace);
+        void setADCFrequency(uint32_t value);
+        void setADCResolution(int value);
+        void setHardwareRevision(int value);
+        void appendEnergySum(uint32_t value);
+        void appendQDCSum(uint32_t value);
+        void appendTraceSample(uint16_t value);
+        void setExternalTimestamp(uint64_t tstamp);
+        void setADCOverflowUnderflow(bool state);
+    };
+  
+  }
+}
+            
+```
+
+<a name="AEN271"></a>## DESCRIPTION
+
+This class encapsulates a decoded DDASHit.  It is filled in
+                by the low level decoders using the `setXXX`
+                methods.  Consumers of DDAS data use the
+                `getXXX` data to fetch decoded and massaged
+                data from objecgts of this class.
+
+<a name="AEN276"></a>## METHODS
+
+Don't be intimidated by the large number of methods this
+                class provides. The `setXXX` and
+                `appendXXX` methods will, in general
+                not be used by you.  As such we're not going to document them
+                here.  If you do need to build your own decoder, you can
+                look at the code to understand what they do.
+
+For the most part you'll only need to use the first few
+                methods of this class.
+
+
+
+`  const uint32_t  GetSlotID();`Returns the slot id for the module from which this
+                            hit was gotten.
+
+`  const uint32_t  GetCrateID() ();`Returns the number of the crate from which the
+                            hit came.  The crate id is set in the
+                            cfgPixie16.txt file that drove
+                            the readout program that produced the hit.
+
+`  const uint32_t  GetChannelID();`Returns the channel number from which this hit
+                            was emitted.   Together, the triplet of crate id,
+                            slot id and channel number define which channel
+                            of the system produced this hit, though in systems
+                            known to consist of a single crate, the crate id
+                            can be ignored in general.
+
+`  const uint32_t  GetEnergy();`Returns the energey computed by the DSP and FPGA
+                            for the trace captured by this channel for this
+                            trigger.
+
+`  const double  GetTime();`Returns the calibrated time for the hit.  This is
+                            the number of nanoseconds since the last clock reset
+                            and includes any correction for the CFD zero crossing
+                            time.
+
+The actual calibrated time determination, from
+                            timestamps and cfd times depends on the module type:
+
+
+
+100MSPS Modules:
+
+<a name="AEN340"></a>time = 10*((timehigh << 32) + timelow)
+
+
+where timehigh
+                                            and timelow are the
+                                            two halves of themodule's raw timestamp.
+
+250MSPS modules:
+
+<a name="AEN349"></a>time = 8*(timehigh << 32 + timelow) + 4*(timecfd/(2^14) - cfdtrigsourcebit)
+
+
+500MSPS module:
+
+<a name="AEN355"></a>time = 10*(timehigh << 32 + timelow) + 2*(timecfd/(2^13) + cfdtrigsourcebit - 1)
+
+`  const uint32_t  GetTraceLength();`Returns the length of the trace data acquired by
+                            the hit.  If no trace data was captured, this will
+                            be 0.
+
+`   std::vector<uint16_t>&  GetTrace();`Returns a reference to the trace data captured for
+                            this hit.  Note this is not a const
+                            reference so use this with care as it's possible
+                            to use the return value to modify the trace data
+                            in the object, and normally this is not desirable.
+
+The method:
+
+` const  const; std::vector<uint16_t>&  GetTrace();`Provides more protected access to the trace.
+
+`  const uint32_t  GetTimeHigh();`Returns the upper bits of the hit's raw timestamp.
+                            Normally you would use `GetTime`
+                            to access a calibrated timestamp.
+
+`  const uint32_t  GetTimeLow();`Returns the low order bits of a hit's raw timestamp.
+                            Normally you'd use `GetTime`
+                            to access a calibrated timestamp.  The calibrated
+                            time also includes any appropriate CFD correction.
+
+`  const uint32_t  GetTimeCFD();`Returns the raw CFD correction to the timestamp.
+                            Normally you'd use `GetTime`
+                            to get a full calibrated timestamp.
+
+`  const uint64_t  GetCoarseTime();`Returns the calibrated time (nanoseconds) without
+                            any application of a CFD correction. This timestamp
+                            is sufficient for use in event building e.g.
+
+`  const uint32_t  GetFinishCode();`Returns the hit's finish code. The finish code is
+                            non-zero if the firmware detected signal
+                            pile-up.
+
+`  const uint32_t  GetChannelLength();`Returns the amount of raw data in the hit. This
+                            is not normally useful as by the time your code
+                            sees this object, the raw hit is not available to you.
+
+`  const uint32_t  GetChannelLengthHeader();`Returns the length of the raw hit header.  THis is
+                            not normally useful in your code because by the time
+                            you have this object the raw hit is unavailable to you.
+
+`  const uint32_t  GetOverflowCode();`Returns the overflow code from the hit.  If this is
+                            non-zero, the trace at some point in the acquisition
+                            window overflowed the range that could be digitized
+                            by the module.
+
+`  const  uint32_t  GetModMSPS();`Returns the sampling frequency of the module
+                            the hit comes from in MHz. (MSPS == Mega Samples Per Second).
+                            This comes from an extra data word remembered for each
+                            module and added to the Pixie16 raw hit.
+
+`  const int  GetHardwareRevision();`Returns the hardware identification/version code
+                            for the module that returned this hit.  This
+                            comes from data saved by Readout and added to the
+                            Pixie16 raw hit.
+
+`  const int  GetADCResolution();`Returns the ADC resolution in bits.
+                             This
+                            comes from data saved by Readout and added to the
+                            Pixie16 raw hit.
+
+`  const uint32_t  GetCFDTrigSource();`Returns the source of the CFD trigger.  This is
+                            only important for 250MHz and 500Mhz modules.
+                            For 250MHz modules, this indicates whether the
+                            fractional time comes from the odd or even samples
+                            which are processed in the CFD in parallel.
+                            For the 500Mhz modules this is a value from 0-4
+                            indicating which of 5 parallel CFD Branches found
+                            the zero crossing.
+
+Section 4.2.3 of the Pixie-16 manual version 3
+                            shows how to interpret these values along with the
+                            coarse and CFD timing information. See as well
+                            `GetTime` above which
+                            captures the information in that section.
+
+`   uint32_t  GetCFDFailBit();`Returns 1 if the CFD logic
+                            in the module's FPGA could not find a zero
+                            crossing for the CFD trace for this hit..
+
+` const  const std::vector<uint32_t>&  GetEnergySums();`Returns the a four element vector of energy sums and the
+                            baseline
+                            for this hit. Note there is an overload of this
+                            method that returns a non const reference (allowing
+                            the values to be modified).
+
+the first three elements are trailing, gap and leading sums
+                            as defined by the Pixie16 manual.  The last
+                            element is the DC Offset the signal is on.
+
+` const const std::vector<uint32_t>&  GetQDCSums();`The Pixie16 allows the user to specify 8 regions over
+                            which the wave form is summed.  This allows both the
+                            computation of a QDC for the trace as well as
+                            pulse shape analysis.  This returns the 8 element
+                            vector containin the summed values.
+
+Note that an overload supplying a writable
+                            access to this vector is also provided.
+
+`  const uint64_t  GetExternalTimestamp();`For firmware that supports an external timestamp
+                            clock, reports the time.
+
+`  const  bool      GetADCOverflowUnderflow() ();`Obsolete.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Reference pages. | Up | DAQ::DDAS::DDASUnpacker |

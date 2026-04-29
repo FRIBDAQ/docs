@@ -1,0 +1,192 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  |  |
+
+
+---
+
+# <a name="AEN26046"></a>CAnalysisBase
+
+<a name="AEN26050"></a>## Name
+
+CAnalysisBase -- Base class for callout analyzers.
+
+<a name="AEN26053"></a>## Synopsis
+
+```
+#include <CAnalysisBase.h>
+
+class CAnalysisBase
+{
+public:
+    typedef enum _StateChangeType {
+        Begin, End, Pause, Resume
+    } StateChangeType;
+
+    typedef enum _StringListType {
+        PacketTypes, MonitoredVariables, RunVariables
+    } StringListType;
+
+public:
+    virtual void onStateChange(
+        StateChangeType type, int runNumber, time_t absoluteTime, float runTime,
+        std::string title, void* clientData
+    );
+    virtual void onScalers(
+        time_t absoluteTime, float startOffset, float endOffset,
+        std::vector<unsigned> scalers, bool incremental, void* clientData
+    );
+
+    virtual void onStringLists(
+        StringListType type, time_t absoluteTime, float runTime,
+        std::vector>std::string< strings, void* clientData
+    );
+
+    virtual unsigned onEvent(void* pEvent, void* clientData);
+
+    class NonFatalException : public std::runtime_error {
+        public:
+            explicit NonFatalException(const std::string& whatarg) :
+                std::runtime_error(whatarg) {}
+
+    };
+
+    class FatalException : public std::runtime_error {
+        public:
+            explicit FatalException(const std::string& whatarg) :
+                std::runtime_error(whatarg) {}
+    };
+};
+
+    
+```
+
+<a name="AEN26055"></a>## DESCRIPTION
+
+This is the base class for all classes you can register as
+            a callout processor with a 
+            `CAnalysisEventProcessor` object.
+            It provides default, no-op implementations of all of the callback
+            methods.  It also provides useful data types and exception
+            types.
+
+METHODS below describes the methods and
+            their parameters.  DATA TYPES
+            describes the data types and exception classes.
+
+<a name="AEN26062"></a>## METHODS
+
+All methods described in this section have no-op implementations. This
+      makes the class not formally abstract but it allows derived classes
+      to only bother to implement the methods they intend to provide some
+      actuall processing for.
+
+
+
+` virtual void onStateChange(StateChangeType  type,  int  runNumber, time_t absoluteTime, float  runTime, std::string  title, void*  clientData);`This method is called when a state change item is encountered.
+             The `type` describes the type of state change
+             item and its values are described in DATA TYPE
+             below.
+
+Basic run information is provided by the
+            `runNumber` and
+            `title` parameters.
+
+"When" information is provided by the
+             `absoluteTime` parameter which is the
+             unix timestamp of the state change item.  This can be manipulated
+             by the time functions defined in <time.h>.
+             `runTime`, on the other hand is the number
+             of seconds into the run at which the state chane item  was
+             emitted.
+
+` virtual void  onScalers(time_t  absoluteTime, float  startOffset, float  endOffset, std::vector<unsigned>  scalers, bool  incremental, void*  clientData);`This method is called by the event processor when a scaler
+             item is encounterd. Timing is provided by
+             `absoluteTime` which is a unix date/time stamp
+             that descdribes when the item was created, `startOffset`
+             which provides the number of seconds into the run at which the
+             counting described by this item began and
+             `endOffset` which is the number of seconds
+             into the run at which the counting interval ended.
+
+The scalers themselves are provided as a vector `scalers`
+           NSCLDAQ supports either incremental or continuously counting scalers.
+           Incremental scalers (preferred) are cleared on each read.
+           continuosuly counting scalers are never cleared.   The
+           `incremental` flag is true
+           when the scalers are incremental.
+
+Finally, `clientData` is a struct that includes
+           the data passed in when the event processor was constructed a
+           well as a  pointer to the event processor object.
+
+` virtual void  onStringLists(StringListType  type, time_t  absoluteTime, float  runTime, std::vector<std::string>  strings, void*  clientData);`This method is called when a string list item is encounterd.
+             There are several types of string list items that provide
+             documentation.   The `type` provides the
+             type of string list item that is being processed.
+             Timing is provided by the `absoluteTime`
+             Unix data/time stamp, while `runTime`
+             is the number of seconds into the run at which this item was
+             created.
+
+The strings themselves have been marshalled into the
+           `strings` vector. Finally `clientData`
+           points to the additional data struct that contains both a pointer to
+           the user data passed to event processor constructor and a pointer to he
+           event processor itself.
+
+` virtual unsigned  onEvent(void*  pEvent, void*  clientData);`Called when a physics event item is being processed.
+             `pEvent` points to the event data that
+             was passed tothe event processor's
+             `operator()` method.
+             The `clientData` actually points to a
+             struct that includes the pointer passed in as client data
+             to the event processor and a pointer to the event processor
+             itself.  The event processor implements methods to allow access
+             to the `CEvent ` object that
+             the event processing pipeline is building up.
+
+<a name="AEN26178"></a>## DATA TYPES
+
+The class defines two enumerated data types and a pair of
+        nested classes that have public access.
+
+StateChangeType is an enumerated type that
+        is passed into `onStateChange` to
+        describe the type of state change item being processed.
+        Possible values are:
+        CAnalysisBase::Begin,
+        CAnalysisBase::End,
+        CAnalysisBase::Pause and
+        CAnalysisBase::Resume.
+
+StringListType is passed in to
+        `onStringLists` to describe the
+        type of string list item being processes.  It has possible values:
+        CAnalysisBase::PackteType,
+        CAnalysisBase::MonitoredVariables and
+        CAnalysisBase::RunVariables
+
+Two exception classes are defined.  These types are both
+        caught by the event processing methods that invoke callouts.
+        These classes both are derived from `std::runtime_error`.
+        They are both constructed with a std::string parameter that
+        provides the message retrieved with the class's
+        `what` method.
+
+`CAnalysisBase::NonFatalException`,
+        when thrown, aborts the event processing pipleline emitting
+        the message it was passed to stderr.   SpecTcl will continue
+        processing with the next item.
+
+On the  other hand, `CAnalysisBase::FatalException`
+       when thrown emits the message it was constructed with to
+       stderr and exits SpecTcl with an abnormal exit value.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| CAnalysisBase | Up |  |

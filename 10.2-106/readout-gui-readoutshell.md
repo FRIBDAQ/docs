@@ -1,0 +1,116 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN397"></a>Chapter 7. Readout GUI (ReadoutShell)
+
+The  Readout GUI (installed as $DAQROOT/bin/ReadoutShell)
+        is a graphical user interface that wraps around data source (Readout)
+        software.  It allows you to:
+
+
+
+- Run a data source in a remote system.
+- Control your experiment runs via a simple graphical user
+                  interface
+- Manage event files and ancillary data so that they remain
+                  together in a single package while providing an event file
+                  view.
+- Customize the operation of the GUI program by adding
+                  Tcl scripted extensions that are called at specific times.
+
+For reference information see the
+        [[r7076]]
+        man page in section 1daq.
+
+# <a name="AEN411"></a>7.1. Running and using the ReadoutShell
+
+The Readout GUI is installed as
+            $DAQROOT/bin/ReadoutShell where
+            $DAROOT is used as a placeholder for the top
+            level of the ring buffer data acquisition installation directory.
+
+|  |  |
+| --- | --- |
+|  | WARNING! |
+|  | You cannot use the readout gui of nscldaq versions earlier
+                than 10.0 with the ring buffer data acquisition system. |
+
+**ReadoutShell** accepts two command line options:
+
+
+
+`-host`=*hostname*Specifies on which system Readout will be run.  You must
+                        be able to do an ssh login to that host by means
+                        of ssh key exchange (without a password).  You can
+                        find out how to set this up by googling for
+                        setting up ssh keys.
+
+
+
+`-path`=*readout-path*Specifies the full path to the readout program
+                        ReadoutShell should run.  This path must be accessible
+                        on the system that runs ReadoutGui and the users's home
+                        directory must be shared between that system and the
+                        system designated by the `-host` option.
+
+By default, the system assumes data will be put in a ringbuffer on
+           the same system as the readout program with a name the same as your
+           username.  If, for example, your username is fox
+           and your readoutis running in
+           spdaq22.nscl.msu.edu, the default ring name is
+           going to be tcp://spdaq22.nscl.msu.edu/fox.
+
+You can override the default ring name by setting the environment
+           variable RINGNAME to the name of the ring in the
+           system on which the readout is running.  If, in the example above,
+           your readout software is putting data in the ring
+           s800, you would: **export
+           RINGNAME=s800** prior t running the GUI.
+
+When the GUI starts it will attempt start the readout program specified
+            in the remote host specified.  All output from that program will
+            appear in the large output window on the GUI.  Below are a few
+            of the common controls you'll need to know how to use:
+
+
+
+BeginStarts a new data taking run.  If the run is active,
+                        this button is a End button and
+                        ends the active run.
+
+TitleThis text entry is only enabled when the run is
+                        inactive (the Begin button
+                        is visible).  Type into this entry to provide a
+                        title that will be used for the next run.
+                        The title, truncated if necessary to 79 characters
+                        is inserted into some of the ring items the run
+                        produces.
+
+Run NumberThis entry is only enabled when the run is inactive.
+                        It is validated so that it must contain an integer
+                        at all times.  The number in this entry will be the run
+                        number of the next run.
+
+RecordThis check button is only enabled when the the run
+                        is inactive.  When checked, the next run will be
+                        recorded to disk.
+
+File→New...This menu item allows you to choose a new readout
+                        program and/or host.  Once this a new readout/host
+                        have been selected you can use either
+                        File→Restart...
+                        or File→Start
+                        to start it depending on whether or not a readout program
+                        is already running.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| glom | Up | Event file organization |

@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_barrierstats_queueBarriers"></a>EVB::BarrierStats::queueBarriers
+
+<a name="AEN15968"></a>## Name
+
+EVB::BarrierStats::queueBarriers -- Displays per queue barrier statistics
+
+<a name="AEN15971"></a>## Synopsis
+
+**package require EVB::barriers
+            **
+
+**EVB::BarrierStats::queueBarriers *window ?options?*
+**
+
+** *window* setStatistic *source type count*
+**
+
+** *window* clear
+                **
+
+** *window* reset
+                **
+
+<a name="AEN15987"></a>## DESCRIPTION
+
+Provides a widget in which per source barrier statistics can be
+            displayed.  A barrier is a set of fragments with a non-zero
+            barrier type and indicates some sort of global synchronization.
+
+The appearance of this widget is a scrolling list of ids on
+            the left each linked to a scrolling list containing barrier type/
+            barrier count paitrs.
+
+<a name="AEN15991"></a>## OPTIONS
+
+
+
+`-text`Provides a title for the overall widget.
+
+`-lefttitle`Title for the widget's left column (source ids).
+
+`-righttitle`Title for the widget's right column
+                            (per type statistics widget).
+
+<a name="AEN16009"></a>## METHODS
+
+
+
+**setStatistic
+                    *src type count***Sets the number of times, `count`,
+                            a specific barrier type,
+                            `type`,
+                            has been emitted by a source who's id is
+                            `src`.
+
+If necessary new source widgets are created or new
+                            barrier type rows in existing source widgets.
+
+**clear**Clears counters on all barrier types for all sources.
+
+**reset**Empties the widget of all statistics.  The appearance
+                            of the widget will be as if
+                            **setStatistic** has never been
+                            called.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::BarrierStats::incomplete | Up | EVB::BarrierStats::Summary |

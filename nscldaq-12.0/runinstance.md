@@ -1,0 +1,124 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.runinstance"></a>runinstance
+
+<a name="AEN97569"></a>## Name
+
+runinstance -- Encapsulate logbook runs for Tcl scripts
+
+<a name="AEN97572"></a>## Synopsis
+
+```
+package require logbook
+set book [logbook::logbook open mylogbook]
+set run [$book currentRun]
+if {$run eq ""} {
+   puts stderr "There is no currently active run"
+}
+...
+      
+```
+
+**set key [$run  id]
+         **
+
+**set number [$run number]
+         **
+
+**set title [$run title]
+         **
+
+**set transitions [$run transitions]
+         **
+
+**if {[$run isActive]} {
+   puts "The run is active"
+}
+         **
+
+**$run destroy
+         **
+
+<a name="AEN97587"></a>## DESCRIPTION
+
+Run instance objects are command ensembles that encapsulate
+            a single run.  Instance objects don't get created directly by your
+            script.  They are returned from some of the API subcommands in
+            logbook instance as shown, for example, in the
+            SYNOPSIS section.
+
+Run instance objects encapsulate resources and, when no longer
+            needed, those resources must be released using the
+            **destroy** subcommand.
+
+<a name="AEN97593"></a>## SUBCOMMANDS
+
+
+
+**destroy**Destroys the instance and releases any resources it may have.
+                  The instance command is removed from the interpreter.
+
+**id**Returns the primary key that was assigned to the encapsulated
+                  run.
+
+**number**Returns the number of the run encapsulated by this object.
+
+**title**Returns the title of the run encapsulated by this object.
+
+**transitions**Returns a list of dicts that describes the transitions this
+                  run has undergone.  Each run will have at least one transition
+                  (the begin run is what creates the run).  The
+                  keys and values in these dicts are described in
+                  TRANSITION DICTS below.
+
+**isActive**Returns a boolean that is true
+                  if this run is the active run.
+
+<a name="AEN97628"></a>### TRANSITION DICTS
+
+A transition dict is a Tcl dict that describes one transition.
+            The **transitions** subcommand of the run instance
+            command returns a list of these describing the transition history
+            of the run.
+
+Each transition dict contains the following keys:
+
+
+
+idThe primary key value assigned to the transition by the
+                     database.
+
+transitionAn integer code that describes the transition.
+                     See the table of values in
+                     [[r35332#daq3.logbookrun.trantbl]]
+                     in the reference page for `LogBookRun`
+                     for possible values.
+
+transitionNameContains a text string that describes the transition.
+                     See the table of values in
+                     [[r35332#daq3.logbookrun.trantbl]]
+                     in the reference page for `LogBookRun`
+                     for possible values.
+
+transitionTimeThe **clock seconds** at which the
+                     transition was logged. **clock format**
+                     can be used to create a human readable date/time string
+                     from this value.
+
+shiftA shift instance that encapulates the shift that was on duty
+                     when the transition was logged. See
+                     [[r97517]]
+                     for information about shift instances.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| shiftinstance | Up | noteinstance |

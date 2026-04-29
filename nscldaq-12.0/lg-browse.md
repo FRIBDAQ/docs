@@ -1,0 +1,29 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.lg_browse"></a>lg_browse
+
+<a name="AEN19697"></a>## Name
+
+lg_browse -- Logbook browser
+
+<a name="AEN19700"></a>## Synopsis
+
+**lg_browse
+         **
+
+<a name="AEN19703"></a>## DESCRIPTION
+
+Provides a graphical logbook browser.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| lg_wrnote | Up | lg_print |

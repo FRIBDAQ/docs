@@ -1,0 +1,636 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5522"></a>Save set Instance
+
+<a name="AEN5526"></a>## Name
+
+Save set Instance -- Manipulate save sets
+
+<a name="AEN5529"></a>## Synopsis
+
+```
+package require SpecTclDB ?1.0?
+
+set db [DBTcl connect filename]
+set saveset [$db createSaveset saveset]
+set saveset [$db getSaveset saveset]
+
+$saveset destroy
+set info [$saveset info]
+
+$saveset createParameter name number ?low high bins ?units??
+set info [$saveset listParameters]
+set info [$saveset findParameter param-name]
+
+$saveset createSpectrum name type parameters axes ?datatype?
+if {[$saveset spectrumExists name]} {...}
+set info [$saveset findSpectrum name]
+set info [$saveset listSpectra]
+
+$saveset create1dGate name type parameter-list low high
+$saveset create2dGate name type parameter-list point-list
+$saveset createCompoundGate name type gate-list
+$saveset createMaskGate name type parameter mask
+if {[$saveset gateExists gate-name]} {...}
+set info [$saveset findGate name]
+set info [$saveset listGates]
+
+$saveset applyGate gate-name spectrum-name
+set info [$saveset findApplication gate-name spectrum-name]
+set info [$saveset listApplications]
+
+$saveset createVariable name value ?units?
+if {[$saveset variableExists name]} {...}
+set info [$saveset findVariable name]
+set info [$saveset listVariables]
+
+if {[$saveset hasChannels spectrum-name]} {...}
+$saveset storeChannels spectrum-name channel-spec-list
+set info [$saveset getChannels spectrum-name]
+
+set run-numbers [$saveset listRuns]
+set info [$saveset getRunInfo]
+set scaler-data [$saveset getScalers run-number]
+
+
+                        
+```
+
+<a name="AEN5531"></a>## DESCRIPTION
+
+A save set instance command is returned
+                            from the database instance commands sub commands
+                            for creating and looking up save sets.
+                            It is a dynamically created command
+                            ensemble who's subcommands allow applications
+                            to query and manipulate the save set.
+                            You can think of this command ensemble as an
+                            object wrapping of a save set whose
+                            subcommands are methods on that object.
+
+Once the application no longer needs a specific
+                            save set instance command, its
+                            **destroy** subcommand
+                            should be called to release all resources
+                            owned by the command.  Once **destroy**
+                            is called, the the save set instance command is no
+                            longer known to Tcl.
+
+The subcommands of a saveset instance
+                            command provide an API that allows access
+                            to the following classes of data stored
+                            in the save-set.
+
+
+
+- Save set information
+- Parameters
+- Spectra
+- Gates
+- Gate applications to spectra
+- Tree Variables
+- Spectrum contents
+- Recorded data
+
+<a name="AEN5555"></a>## Save Set information subcommands
+
+
+
+**destroy**Destroys the command and frees all
+                                    resources managed by it.  This
+                                    should be invoked when the application
+                                    no longer needs a specifid save set
+                                    intance.  Once called, the save set instance
+                                    command is no longer known to the Tcl interpreter.
+
+**info**This subcommand returns a dict that
+                                    describes the save set this command
+                                    wraps.  The dict has the following
+                                    key/value pairs:
+
+
+
+idPrimary key of the root record
+                                            for this save set in the root saveset
+                                            table (see schema documentation for more
+                                            information).
+
+nameName of the save set.
+
+timestampThe time at which the saveset was created.
+                                            This  value can be formatted for
+                                            humans via **clock format**.
+
+<a name="AEN5585"></a>## Parameter subcommands
+
+
+
+**createParameter**Creates  new parameter definition.
+                                    The command requires the following mandatory
+                                    parameters:
+                                    `name` of
+                                    the new parameter, which must
+                                    not be defined in the saveset,
+                                    `number`,
+                                    for SpecTcl the number of the slot in
+                                    `CEvent` objects
+                                     in which the parameter will be stored.
+
+If creating a tree parameter, with metadata,
+                                    three more parameters are required
+                                    and one optional:
+                                    `low`,
+                                    `high`,
+                                    `bins` describe
+                                    the recommended axis range and binning for
+                                    spectra on the parameter and
+                                    the optional `units`
+                                    provides a units of measure.
+
+If the units of measure are not
+                                    provided for a tree parameter the
+                                    when fetched, the units of measure
+                                    will be an empty string.
+
+**listParameters**Returns a possibly empty list of
+                                    dicts.  Each element of the list
+                                    describes one of the parameters defined in the
+                                    dictionary. The dicts have
+                                    the following key/value pairs.
+
+
+
+idThe primary key of the parameter in the
+                                            parameter table. See the schema
+                                            documentation in this appendix
+                                            for more information.
+
+nameName of the parameter.
+
+numberThe `CEvent`
+                                            slot number in SpecTcl where this parameter
+                                            is stored when created from an event.
+
+lowOnly present for tree parameters.
+                                            The recommended axis low limit.
+
+highThe recommended axis high limit. Only present
+                                            with tree parameters.
+
+binsThe recommended axis binning, only
+                                            present for tree parameters.
+
+unitsUnits of measure, only present
+                                            for tree parameters.
+
+**findParameter**This subcommand accepts a parameter
+                                    name. If a parameter by that name has
+                                    been defined in the saveset, information
+                                    about it is returned.  If not an error
+                                    is raised. The parameter information
+                                    is a dict with the key/value
+                                    pairs described in
+                                    **listParameters**
+                                    above.
+
+<a name="AEN5650"></a>## Spectrum subcommands
+
+
+
+**createSpectrum**Creates a new spectrum definition.
+                                    This requires four parameters:
+                                    In order a spectrum `name`,
+                                    a spectrum`type` string,
+                                     a list of the `parameters`
+                                     the spectrum depends on and a list of one or
+                                     two `axis-definitions`.
+                                    An optional fifth parameter
+                                    provides the data type of each channel
+                                    in the spectrum.  This can be
+                                    long,
+                                    word,
+                                    or byte.
+
+Axis definitions are three element
+                                    lists containing low, high bins
+                                    in that order.  If the parameter(s)
+                                    for an axis are tree parameters it may
+                                    make sense to use the values
+                                    from those parameters.
+
+**spectrumExists**Accepts the name of a spectrum and
+                                    returns a boolean true if that
+                                    spectrum has a definition in the save set.
+
+**findSpectrum**Takes the name of a spectrum as a parameter.
+                                    If the spectrum exists, a dict
+                                    describing it is returned.  If not an
+                                    error is raised.  The dict
+                                    returned, has the following key/value
+                                    pairs:
+
+
+
+idValue of the primary key of the spectrum
+                                            definition in the root table for spectrum
+                                            definitions.  See the schema
+                                            documentation for more informtion.
+
+nameName of the spectrum.
+
+typeSpectrum Type string.
+
+parametersList of the name sof parameters
+                                            required by the spectrum.
+
+axesList of one or two axis definitions.
+                                            The axis definitions are dicts
+                                            with the keys
+                                            low, high
+                                            and bins.
+
+datatypeThe data type string e.g. long,
+                                            word
+                                            or byte
+
+**listSpectra**Returns a list of spectrum definitions.
+                                    Each spectrum definition is a dict
+                                    as described in **findSpectrum**.
+
+<a name="AEN5719"></a>## Gate subcommands.
+
+Note that when dumping gate definitions
+                            to the database, dependency analysis must be
+                            done to ensure that no gate is saved before
+                            all gates it depends on have been saved.  This
+                            is because compound gates can depend on other
+                            compound gates.
+
+
+
+**create1dGate**Creates a pointe gate with a one dimensional
+                                    region of acceptance.  The parameters
+                                    required by this gate are, in order,
+                                    `name` of the gate,
+                                    the gate `type` string,
+                                    a  `parameter-list` of the
+                                    parameters used by the gate and
+                                    finally, the `low`
+                                    and `high` limits
+                                    of the acceptance region.
+
+Note that unlike for SpecTcl, where gates can
+                                    be redefined, the database gate names
+                                    must be unique within the context of a
+                                    save set.  This is because save sets are intended
+                                    to capture a snapshot of object
+                                    definitions rather than be the live
+                                    configurtion store.
+
+**create2dGate**Creates a point gate with a two
+                                    dimensional acceptance region.  Note that
+                                    the acceptance region is define by both the
+                                    points and the gate type.  For example
+                                    contour gates define the acceptance region to be
+                                    a closed figure while bands define the acceptance
+                                    region to be the region below the connected
+                                    line segments defined by the points.
+
+The **crete2dGate**
+                                    command requires the following parameters:
+                                    The gate `name`,
+                                    the gate `type`,
+                                    the `parameter-list` of parameters
+                                    needed by the gate and  a
+                                    `point-list`
+
+The `point-list`
+                                        is a Tcl list of pairs of doubles.
+                                        The first element of each pair is a point x coordinate
+                                        and the second the point's y coordinate.
+                                        Note that the order in which points
+                                        are listed is, of course significant as the
+                                        2-d figure represented is drawn from line
+                                        segments that connect adjacent points.
+
+**createCompoundGate**Creates a compound gate.  A compound gate performs
+                                    a boolean operation on a list of
+                                    *dependent gates* to
+                                    deterimine the truth or falsity of an event.
+                                    This subcommand requires the following
+                                    additional parameters:
+                                    The gate `name`,
+                                    the get `type`,
+                                     a `gate-list` which is a
+                                     list of the names of the dependent gates.
+
+While the order in which the gates are
+                                    provided to the `gate-list`
+                                    does not affect the value of the gate, if you
+                                    know something about the frequency with which
+                                    the component gates are true, you can influnce the
+                                    performance of the gate evaluation.
+                                    This is because short circuit evaluation is
+                                    done.  Or gates are true the when the first
+                                    gate in the list is true, so ordering these
+                                    gates in the probability they are true improves performance.
+                                    And gates are false when a first false gate is
+                                    encountered, so ordering these in increasing
+                                    probability they will be true
+                                    improves performance.
+
+**createMaskGate**Creates a mask gate.
+                                    Additional parameters are the
+                                    gate `name`,
+                                    the gate `type`,
+                                    and the `mask`
+                                    applied by the gate.
+
+**gateExists**Accepts the name of a gate as its single
+                                    parameter and returns a boolean true
+                                    value if that gate is defined in the database.
+
+**findGate**Takes a gate name as an additional parameter
+                                    and, if the gate is defined, returns a
+                                    dict that describes the gate.  If the
+                                    gate does not exist an error is raised.
+                                    The dict contains the following key/value
+                                    pairs.
+
+
+
+idThe id of the gate in the root gate
+                                            definition table. See the schema documentation
+                                            for more information.
+
+nameThe gate name.
+
+typeThe SpecTcl gate type string.
+
+classificationThe gate type classification. This determines
+                                            which aditional fields the dict
+                                            will have.  Valid values
+                                            are point,
+                                            mask
+                                            and compound
+
+parameters (point, mask)The parameters the gate depends on.
+
+gates (compound)The gates this gate depends on.
+
+points (point)The gate points as a list
+                                            dicts. Each dict has an
+                                            x and
+                                            y key.
+                                            For one dimensional point gates,
+                                            the y value
+                                            should be ignored.
+
+mask (mask)The bitmask used by mask gates.
+
+**listGates**Returns a list of dicts of the form
+                                    described for **findGate**
+                                    above.  The dicts describe all of the
+                                    gate definitions in the safe set.
+
+<a name="AEN5829"></a>## Gate application subcommands.
+
+
+
+**applyGate**Takes two parameter, a
+                                    `gate-name`
+                                    and a `spectrum-name`
+                                    and creates a definition that the
+                                    gate is applied to the spectrum.
+
+**findApplication**Returns informtaion about the
+                                    application of
+                                    `gtae-name` to
+                                    `spectrum-name`.
+                                    Currently the only additional
+                                    information provided is the primary
+                                    key from the gate application table.
+
+If no matching application exits,
+                                    an error is raised.  If there is
+                                    a match, a dict with the following
+                                    key/value pairs is returned.
+
+
+
+idThe primary  key of the gate.
+
+gateName of the gate.
+
+spectrumSpectrum to which this gate
+                                            is applied.
+
+**listApplications**Returns a list of dicts of the
+                                    form returned by
+                                    **findApplication**
+                                    that describes all of the gate applications
+                                    in the database.
+
+<a name="AEN5869"></a>## Tree variable subcommands
+
+
+
+createVariableCreates a new tree variable. Two
+                                    parameters, the `name`
+                                    and `value` of the
+                                    variable are required. An optional
+                                    third `units`
+                                    parameter provides the units of measure
+                                    for the parameter. If
+                                    `units` are not
+                                    provided, the units will be an empty
+                                    string.
+
+**variableExists**Accepts a `name`
+                                    and returns a boolean true if the
+                                    `name` exists
+                                    in the save set.
+
+**findVariable**Accepts the parameter name and, if the parameter
+                                    exists returns a dict that describes
+                                    the parameter's definition.  If the
+                                    parameter does not exist, an error
+                                    is raised.
+
+The resulting dict has the following
+                                    key/value pairs:
+
+
+
+idThe primary key of the variblein the
+                                            top level variable table.
+                                            See the database schema for more information.
+
+nameName of the tree variable.
+
+valueValue of the parameter (a double float).
+
+unitsThe units of measure string.
+                                            This will be an empty string if no units of
+                                            measure were provided.
+
+**listVariables**Returns a list of dicts.  Each
+                                    dict has the form described in
+                                    **findVariable**
+                                    above. The list provides all of
+                                    the variable definitions in the save set.
+
+<a name="AEN5921"></a>## Spectrum Channel access.
+
+
+
+**hasChannels**Takes a spectrum name as an additional
+                                    mandatory parameter. Returns
+                                    a boolean true value if the named
+                                    spectrum in the save set has
+                                    channel data associated with it.
+                                    Throws an error if the spectrum is not defined
+                                     in this save set.
+
+**storeChannels**Stores channel data for a spectrum defined
+                                     in the save set. Any existing data
+                                     for that spectrum is overwritten.
+                                     The command requires a pair of parameters.
+                                     The first is `name`
+                                     of the spectrum.  The second a list that
+                                     contains the `channel-spec-list`
+                                     (channel specification list).
+
+The channel specification list is a list
+                                    of three item lists.  Each element of the
+                                    outer list defines a channel value for
+                                    a non-zero channel. Specifically,
+                                    The elements in the list are the X channel,
+                                    the Y channel and the data in the channel.
+                                    For a 1-d Spectrum, the Y channel should be zero.
+
+Note that typically, only non-zero channels
+                                    need to be representd and the data
+                                    is the same format as that returned from
+                                    the SpecTcl **scontents**
+                                    command.  If a spectrum has no non-zero channels,
+                                    in order to ensure that **hasChannels**
+                                    works properly, you need to provide a
+                                    single element (normally {0 0 0}), with no counts
+                                    so that there will be a database entry for
+                                    the spectrum's channels.
+
+**getChannels**Accepts a spectrum name parameter and returns
+                                    the channel data associated with that
+                                    spectrum in the save set.  If the spectrum
+                                     has no channels an error is raised.
+
+The result is a list of three element lists
+                                    containing X channel number,
+                                    Y channel number and the
+                                    number of counts in that channel.
+                                    For one dimensional spectra, the Y channel number
+                                    should be ignored.
+
+<a name="AEN5946"></a>## Run and scaler data
+
+Access to run data ans caler data are
+                            limited and there is currently  no support
+                            to generate these data from Tcl as it is
+                            assumed these data usually come from
+                            the high perfromance C++ parts of the application.
+
+
+
+**listRuns**Returns a (possibily empty) list of the
+                                    runnumbers that have data saved for them in this
+                                    saveset.  The C++ API suports saving
+                                    data from more than one run in a save set.
+                                    SpecTcl, however does not do that.
+                                    When run data recording starts, it
+                                    makes a new save set and saves the
+                                    analysis state prior to beginnning
+                                    to record data.
+
+**getunInfo**Accepts a run number and, if that
+                                    run is in the saveset, returns
+                                    information about it.  If the run
+                                    is not in the saveset,
+
+The information about the run is returned
+                                    as a dict that contains the following
+                                    key/value pairs:
+
+
+
+configName of the save set this
+                                            run is stored in.
+
+numberRun number.
+
+titleTitle string for the run.
+
+start-timeTimestamp for when the run started.
+                                            you can use **clock format**
+                                            to turn this into a human readable
+                                            date and time string.
+
+stop_time (optional)Time at which the run ended.
+                                            This will not be present if either
+                                            the data were not all fully recorded or
+                                            the run was not properly ended (had no end run
+                                            record).  If there were multiple end run
+                                            records as there are for event built
+                                            data in NSCLDAQ-11, the time of the
+                                            last one is recorded.
+
+**getScalers**Accepts a run number as an argument and
+                                    returns a list of scaler readouts.
+                                    for that run. Each element of the list is
+                                    a dict with the following key/value pairs.
+
+
+
+sourceidThe event builder source id from which
+                                            these data came.  Each data source
+                                            will have a unique integer id that
+                                            identifies it.  The scalers readout
+                                            for each source will, in general be
+                                            different and not summable.
+
+startTime offset into the run at which counting
+                                            for this readout started.  See
+                                            divisor
+                                            as well.
+
+stopTime offset into the run that marked
+                                            the end of this sclaer accumulation.
+
+divisorDoing a floating point division of
+                                            either start
+                                            or stop
+                                            by the divisor
+                                            computes those times in seconds into the
+                                            run.  The divisor
+                                            allows for offset resolutions better than
+                                            one second.
+
+timestampTime of day timestamp at which
+                                            the scalers were read.  This can
+                                            be turned into something human readable
+                                            with **clock format**.
+
+channelsThe scaler channel data thta was read.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Database Instance | Up | dbconfig::makeSchema |

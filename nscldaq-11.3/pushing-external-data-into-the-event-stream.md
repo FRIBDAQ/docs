@@ -1,0 +1,80 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 4. VMUSBReadout | Next |
+
+
+---
+
+# <a name="AEN2254"></a>4.10. Pushing external data into the event stream
+
+The slow controls port can also be used to send data that will
+            be periodically inserted in the data stream.  The mechanism
+            for this is intended to monitor slowly varying values (for example
+            magnet currents).  Here's a brief sketch about how this works:
+
+
+
+- In your slow controls configuration file you specify Tcl
+                  variables whose values will be watched.
+- A slow controls client sets those variables to value that
+                  reflect the things to be monitored in the outside world
+                  (e.g. controlpush can set
+                  the arrays `EPICS_DATA`,
+                  `EPISC_UNITS` and `EPICS_UPDATED`
+                  to reflect changes in epics process variables).
+- When the run is active, every two seconds the current values of
+                  any variables that were modified since the last update operation
+                  are pushed to the ring buffer as MONITORED_VARIABLE
+                  string list items.  Note that towards the beginning of the
+                  run one or more ring items will be generated that have
+                  all monitored variable values.
+
+## <a name="AEN2269"></a>4.10.1. Specifying variables to be monitored.
+
+The key to monitoring variables is that the control server is
+                really a Tcl interpreter executing commands that are poked into
+                it by its client sockets.  The Tcl server supports a new
+                command **watch** which allows you to specify
+                which variables should be monitored.
+
+The example below specifies that the arrays
+                `EPICS_DATA`, `EPICS_UNITS`,
+                `EPICS_UPDATED` and the scalar variable
+                `monitored` should be monitored.;
+
+<a name="AEN2278"></a>**Example 4-33. Specifying VM-USB monitored variables**
+
+```
+array set EPICS_DATA    [list]
+array set EPICS_UNITS   [list]     
+array set EPICS_UPDATED [list]
+
+watch EPICS_DATA
+watch EPICS_UNITS                  
+watch EPICS_UPDATED
+
+watch monitored                   
+                
+```
+
+[[x2254#watchexample-createarrays]]                        In order to monitor an array, the array must first
+                        be created. Note that this is not the case
+                        for a scalar variable.
+                        [[x2254#watchexample-monitorarrays]]                        These commands specify that the three arrays
+                        we created with the **array set**
+                        command should be monitored.
+                    [[x2254#watchexample-monitorscalar]]                       Since `monitored` was not created as
+                       an array only the single scalar value
+                       will be monitored.
+
+For more information about the **watch**
+                command see [[r72195]]
+                in the reference manual pages.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extending the slow controls subsystem | Up | CCUSBReadout |

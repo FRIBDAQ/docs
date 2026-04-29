@@ -1,0 +1,90 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN23683"></a>EventFilter
+
+<a name="AEN23687"></a>## Name
+
+EventFilter -- Filter classified events.
+
+<a name="AEN23690"></a>## Synopsis
+
+**EventFilter [options...]
+        **
+
+<a name="AEN23694"></a>## DESCRIPTION
+
+EventFilter takes a data source
+            that contains events classified by
+            SoftwareTrigger and applies a
+            criterion to the classification to determine whether or not
+            each event is forwarded to a sink.
+
+Optionally, a rejected events sink can be defined.  If defined,
+            that sink will receive all physics events that were not forwarded
+            to the accepted sink.  Both sinks will get all non Physics events.
+
+Acceptance is defined using a mask and a value.  The following
+            boolean expression must be true if an even is to be forwarded to
+            the accepted events sink:
+            (classification & mask) == value.
+
+<a name="AEN23702"></a>## OPTIONS
+
+
+
+`--source`=*URI*Provides the URI of the data source.  This can be
+                        a file or tcp URI.
+                        If a tcp URI it may refer to a remote
+                        ringbuffer.
+
+`--accepted-sink`=*URI*Provides the URI of the data sink into which
+                        accepted events are placed.  See
+                        DESCRIPTION above to see
+                        which events are accepted.  See also the
+                        `--mask` and
+                        `--value` options below.
+
+The URI can be either a file
+                        or a tcp URI.  If a
+                        tcp URI, the  host must resolve
+                        to localhost as NSCLDAQ only
+                        supports local producers to ring buffers.
+
+`--rejected=-sink`=*URI*Provides an optional sink for rejected events.
+                        If this option is not used, rejected events silently
+                        disappear.  The URI parameter can be defined as it is
+                        for the `--accepted-sink` as either
+                        a file or a local ring buffer.
+
+`--mask`=*int*Provides the integer mask used in determining if
+                        events are accepted.  See
+                        DESCRIPTION for how this
+                        mask is used.
+
+`--value`=*int*Provides the integer comparison value used in
+                        determining if events are accepted.  See
+                        DESCRIPTION for how this
+                        mask is used.
+
+`--sample`=*int*If supplied and greater than zero, specifies a scaledown
+		  sampling value.  1/--sample rejected events will also be
+		  sent to the accepted ring.  Note that this implies that if
+		  you set --sample=1, all events, sampled and rejected will go
+		  to the accepted ring.
+
+The value of this setting does not affect the events sent to
+		  the rejected ring, if that ring is used.  The sampled events
+		  are sent to both rings.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SoftwareTrigger | Up | 1epics |

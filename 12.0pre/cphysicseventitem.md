@@ -1,0 +1,77 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cphysicseventitem"></a>CPhysicsEventItem
+
+<a name="AEN26535"></a>## Name
+
+CPhysicsEventitem -- Response to trigger.
+
+<a name="AEN26538"></a>## Synopsis
+
+```
+#include <CPhysicsEventItem.h>
+        
+```
+
+```
+CPhysicsEventItem
+```
+
+<a name="AEN26609"></a>## DESCRIPTION
+
+Encapsulates the data read by a readout program in response to a
+            trigger.  Note the actual meaning of this data depends on which ring
+            you are looking at.  For example, if an experiment consists of
+            several readout programs operating in parallel, there may be rings
+            whose events are really fragments of full events (and an event
+            builder data source that turns those events into fragments that
+            are input to an event building pipeline).  In the same situation
+            the ring to which the output of the glom stage of the event builder
+            goes would have complete events (unless one is doing a mulitlevel
+            build).
+
+<a name="AEN26612"></a>## METHODS
+
+
+
+`  CPhysicsEventItem(size_t maxBody = 8192);`Constructs a physics item with the specified maximum
+                        body size.  You are then responsible for obtaining the
+                        body cursor, inserting data, updating the body cursor and
+                        sizeo fht item.
+
+`  CPhysicsEventItem(uint64_t timestamp, uint32_t  source, uint32_t  barrier, size_t maxBody = 8192);`Creates an empty physics event item with a full body
+                        header whose contents are described by
+                        `timestamp`, `source`
+                        and `barrier`.
+                        As before  you must still fill in the event data itself.
+
+`  CPhysicsEventItem(const CPhysicsEventItem& rhs);`Copy constructor.  Creates a copy of the object
+                        `rhs`
+
+` CPhysicsEventItem&  operator=(const CPhysicsEventItem& rhs);`Assigns `rhs` to this object.
+
+` const int  operator==(const CPhysicsEventItem& rhs);`Compares `rhs` for equality
+                        with this object.  If the two objects are
+                        equal, a non zero result is returned.
+
+` const int  operator!=(const  CPhysicsEventItem& rhs);`Returns nonzero if `operator==`
+                        would have returned zero.
+
+` virtual const  std::string typeName();`Returns a string that provides a human with the
+                        type of this ring item.  The string returned is:
+                        Event .
+
+` virtual const std::string toString();`Converts the ring item into a human readable string.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingTextItem | Up | CRingPhysicsEventCountItem |

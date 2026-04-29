@@ -1,0 +1,149 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.sequencer"></a>Chapter 28. Sequencing runs
+
+The NSCL Run sequencer provides a mechanism for scheduling as series
+        of timed runs.  Prior to the start of each run, the sequencer
+        allows custom actions to be taken. While these actions normally
+        set up hardware, there is no actual requirement this be the case.
+        Any parameterizable action can be taken.
+
+For a full description of the sequencer, see its
+        [[r70886]].
+        This chapter gives an overview that describes how to use and configure
+        the sequencer.
+
+# <a name="AEN7189"></a>28.1. Configuring the sequencer.
+
+The sequencer requires the following configuration work:
+
+
+
+- The actions executed prior to each run must be defined.
+                      Each action accepts a parameter which becomes a column of the
+                      run plan.
+- A run plan.  This is a specification of the parameters
+                      for each  of the actions to be taken prior to starting a run.
+                      The run plan is displayed to the user as a table which can
+                      be edited.
+- The sequencer must be incorporated into the Readout GUI
+                      (see the chapter on the Readout GUI).
+
+
+Furthermore, each action must provide Tcl code that executes it and,
+            optionally initializes its access to whatever it might control.
+
+The actions are defined in a file named
+            sequencer.conf in the current working directory
+            at the time the sequencer starts.  This file describes one action
+            on each line.  Each sequencer line contains several whitespace
+            separated fields.  In order:
+
+
+
+- Name of the action.  This name will be passed to the
+                      action's procedure.
+- GUI name of the action.  This name will be used to label the
+                      action's column in the run plan table.
+- Set action (optional):  This is the name of a Tcl **proc**
+                      used to perform the action.  It is passed the name of the
+                      action (value of the first column), and the value of the
+                      action parameter.  If omitted no action is taken at the beginning
+                      of the run.
+- Initialize action (optional):  This is the name of a Tcl
+                      **proc** that is called as the sequencer initializes.
+                      it is passed tha name of the action.
+
+
+When the sequencer starts it will source in the Tcl script file
+            sequencerActions.tcl from the current working
+            directory.  This file contains arbitrary Tcl scripts.  It is expected
+            to define all of the action
+            **proc**s described in sequencer.config.
+
+Run plan files can be created graphically in the sequencer table.
+            Simply edit each cell of the table with the appropriate
+            parameter for that run and that action.    The
+            File->Save...
+            menu selection allows yoj to save run plans for later (re)use.
+
+Run plan files are plain text files.  Each line contains the parameterization
+            of a run. Lines contain whitespace separated fields where each field is
+            a parameter value for a run.
+
+The run sequencer must be integrated with the Readout GUI.  This is
+	   done by providing (or modifying an existing) 
+	   ReadoutCallouts.
+	   See the
+	   Readout GUI reference
+	   page
+	   for information about how the readout GUI locates its 
+	   ReadoutCallouts
+	   file.
+
+The sequencer is provided as a Tcl package located in the 
+	   TclLibs directory tree of the NSCL DAQ
+	   installation.  To load it you will need to have this 
+	   directory in your Tcl Load path.  This can be done either
+	   by setting the `TCLLIBPATH`
+	   environment variable, or by having 
+	   ReadoutCallouts.tcl
+	   add the appropriate directory to the
+	   `auto_path` loader list.
+
+The example below takes a hybrid approach.  We assume you've 
+	  set an environment variable `DAQROOT` to be
+	  the top level directory of the NSCL DAQ installation.
+	  At this NSCL, this might be 
+	  /usr/opt/daq/9.0 for example.
+          The example shows additions to the top of the
+	  ReadoutCallouts.tcl script
+	  that make the sequencer package loadable, and
+	  load it:
+
+<a name="AEN7234"></a>**Example 28-1. Loading the sequencer package**
+
+```
+set daqroot $env(DAQROOT)                
+set libdir [file join $daqroot TclLibs]  
+
+set auto_path [concat $libdir $auto_path] 
+
+package require runSequencer             
+
+	   
+```
+
+[[c7184#chapter.sequencer.env]]	         The global `env` array contains a 
+		 copy of the environment variables indexed by 
+		 variable name.  This line gets the 
+		 `DAQROOT` environement
+		 variable.
+              [[c7184#chapter.sequencer.join]]	          The Tcl **file join** joins 
+		  filename path elements inserting the appropriate
+		  path separator, and quoting if needed.  This
+		  line constructs the name of the directory 
+		  in which NSCL DAQ packages are found.
+	      [[c7184#chapter.sequencer.path]]	         This line pre-pends the NSCL DAQ Tcl library
+		 directory to the list of directories 
+		 (`auto_path`) searched by
+		 the Tcl.  Prepending ensures that if there are
+		 any package name collisions, the NSCL DAQ
+		 packages will be found first.
+	      [[c7184#chapter.sequencer.require]]	         This line actually loads the sequencer package.
+		 By the time this line finishes, the sequencer
+		 configuration files, and action scripts will have
+		 been read, and the sequencer user interface created.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VM/CCUSB Firmware loaders | Up | Using the sequencer. |

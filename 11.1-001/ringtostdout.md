@@ -1,0 +1,74 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.ringtostdout"></a>ringtostdout
+
+<a name="AEN12128"></a>## Name
+
+ringtostdout -- Transmit data from a ring buffer to stdout.
+
+<a name="AEN12131"></a>## Synopsis
+
+**ringbuffertostdout `--mindata=n` `--timeout=t` *ringname*
+**
+
+<a name="AEN12139"></a>## DESCRIPTION
+
+This command accepts data from the ring buffer named
+        `ringname`
+        and writes it to stdout.  It can be used as the starting point of a
+        pipeline that sends data from ringbuffers to programs that are not
+        ringbuffer aware.
+
+<a name="AEN12143"></a>## OPTIONS
+
+
+
+`--mindata`=*n*Specifies the minimum size of the block of data
+                    **ringtostdout**
+                    will try to get from the ring buffer before transmitting
+                    data to
+                    stdout.
+                    The value *n*
+                    is the number of bytes of data or can be a number followed by
+                    k, m or g
+                    which multiply the numeric value by
+                    1024, 1024*1024 and
+                    1024*1024*1024 respectively.
+
+This value defaults to 1m if not
+                    explicitly overridden.
+                    See also, however, the `--timeout` option
+                    below.
+
+`--timeout`=*seconds*Specifies the maximum amount of time in seconds the program will
+                    wait for for the number of bytes specified as
+                    `--mindata`. If by that timeout, that number
+                    of bytes is not available, any bytes that are in the ring
+                    are read and forwarded to stdout.  This ensures that latencies
+                    remain tolerable even at low data rates with large values
+                    of `--mindata`
+
+<a name="AEN12172"></a>## EXAMPLES
+
+This sample creates a hex dump of the data coming from a
+        ring buffer:
+
+<a name="AEN12175"></a>**Example 1. making hex dumps of data from a ring buffer.**
+
+```
+ringtostdout somering | od -xa
+        
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ringbuffer | Up | stdintoring |

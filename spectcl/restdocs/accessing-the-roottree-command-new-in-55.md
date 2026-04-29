@@ -1,0 +1,90 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1604"></a>3.27. Accessing the roottree command (new in 5.5)
+
+Note that **roottree**
+                is only present in a SpecTcl instances
+                that have loaded the rootinterface package
+                loaded.   See the SpecTcl command reference for this command
+
+The URLs's for this part of the REST interface allow you
+                to create Root output trees.  These are objects that create
+                CERN ROOT output files with trees that have some subsset of
+                parameters of some subset of events.
+
+Note that writing root trees significantly impacts the performance
+                of SpecTcl owing to the poor performance of ROOT file output.
+                Use with caution.
+
+To create a new root tree you can use the following URL
+
+<a name="AEN1612"></a>**http://host:port/spectcl/roottree/create?tree=treename&parameter=pattern1[&gate=gatename&parameter=pattern2...]
+                   **
+
+The query parameters are as follows:
+
+
+
+treeName of the new root tree object.  This must be unique.
+
+parameter (multiple)Each of these parameters specifies a pattern that can have
+                        glob wildcard characters.  The parameters that will be
+                        booked into the tree is set of parameters whose names
+                        match any of the patterns.
+
+At least one pattern is required.
+
+gate (optional)If provided, the value of this parameter is the name
+                        of an existing gate that will determine which events
+                        are placed in the tree.  Only those  events that satisfy
+                        the gate will be bookeed into the tree.
+
+If this parameter is not provided,
+                        the built-in -TRUE- gate is
+                        used which books all events.
+
+To delete a tree that's already been created:
+
+<a name="AEN1637"></a>**http://host:port/spectcl/roottree/delete?tree=tree-name
+                   **
+
+Where tree is the name of the tree
+                to delete.
+
+To learn which trees have been created and their properties:
+
+<a name="AEN1643"></a>**http://host:port/spectcl/roottree/list[pattern=name-pattern]
+                   **
+
+Provides a return value who's detail lists
+                all of the root tree objects whith  names that match the
+                optional pattern query parameter value.  This
+                pattern can contain glob pattern wild card characters.  The
+                detail attribute will be an array of
+                objects.  Each object
+                describes one  root tree and will have the following attributes
+
+
+
+treeName of the tree to create.
+
+parametersArray of parameter name patterns that define the
+                        parameers to book into the tree.
+
+gateName of the gate that must be satisfied to  add an event
+                        to the tree.  Note that if there is not one the pre-defined
+                        name
+                        -TRUE- will appear here.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Controlling data anlaysis (new in 5.5) | Up | Accessing the pman comman (new in 5.5) |

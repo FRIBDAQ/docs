@@ -1,0 +1,58 @@
+[NSCL Home Page](http://www.nscl.msu.edu/)
+
+
+[MSU Home Page](http://www.msu.edu/)
+
+
+---
+
+
+# CAEN V1290
+
+
+---
+
+
+
+
+
+
+
+
+[Using the CAEN V1290 in a simple setup](http://docs.nscl.msu.edu/daq/samples/CAEN%20V1290/CAEN_V1290_1.0.pdf) (PDF)
+
+
+[Sample code for the CAEN V1290](http://docs.nscl.msu.edu/daq/samples/CAEN%20V1290/CAEN%20V1290.zip) (ZIP)
+
+
+[Manual for CAEN V1290](http://www.caen.it/nuclear/getattach.php?mod=VX1290A&obj=mn) (PDF)
+
+
+
+
+
+
+
+
+More information is available at the [NSCL docs page](http://docs.nscl.msu.edu/)
+
+
+## Please direct all questions and comments to [daqdocs@nscl.msu.edu](mailto:daqdocs@nscl.msu.edu)
+
+
+---
+
+
+Last updated 1/10/2005
+
+
+ByTim Hoagland
+
+
+---
+
+
+[NSCL Home Page](http://www.nscl.msu.edu/)
+
+
+[MSU Home Page](http://www.msu.edu/)

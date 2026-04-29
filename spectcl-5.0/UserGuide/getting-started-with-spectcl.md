@@ -1,0 +1,389 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.starting"></a>Chapter 3. Getting started with SpecTcl
+
+This chapter will help you get started using SpecTcl.  The audience
+            is users who have never used SpecTcl before, or people who will be
+            applying SpecTcl to a new analysis problem (e.g a new detector system).
+
+In the remainder of this chapter we'll describe:
+
+
+
+- The sorts of objects SpecTcl understands.
+- How to create, delete and manipulate these parameters.
+- How to start with a new SpecTcl skeleton and, after writing
+                      a new set of event processor, build a version of SpecTclthat
+                      is tailored to your analysis tasks.
+- What sorts of data sources SpecTcl works from and how
+                      to start analyzing data from a data source.
+
+Note that in this chapter we're not going to assume the existence
+            of any SpecTcl graphical user interface.  If you write SpecTcl
+            scripts you'll need to know something about the raw SpecTcl
+            command interface.  This chapter and the reference manuals for
+            SpecTcl are your sources for this information.
+
+# <a name="AEN76"></a>3.1. SpecTcl Objects and how to use them
+
+SpecTcl performs its analysis using several classes of objects.
+                Once you have an unpacked event, it is the configuration of these
+                objects rather than any programming on your part that
+                determines how the analysis is performed.
+
+First we're going to list and describe the types of objects
+                SpecTcl uses in analysis and then we will go into a bit more
+                detail about each object and the commands that manipulate
+                them.
+
+
+
+- *Parameters*;  Parameters are the
+                          output of event processors, the code that connects SpecTcl
+                          to the event data from the experiment that's being analyzed.
+                          Typically, event data consists of data from some set
+                          of digitizer hardware.  Each digitizer may package
+                          the data in different ways.
+  The actual conversion values from each digitizer is
+                          usually a parameters.  Parameters taht come from these
+                          raw data values are called *raw parameters*.
+  One can also derive parameters by performing computations
+                          on other parameters.  For example, you can take a raw
+                          digitizer channel value and apply some calibration
+                          function to it.   Parameters that are the results of
+                          computations on other parameters are called
+                          *computed parameters*, or sometimes
+                          *psuedo parameters*.
+- *Spectra* are histograms.  SpecTcl
+                          has a rich set of histograms.  Histograms are the 'output'
+                          of SpecTcl.
+  SpecTcl is normally run in conjunction with a visualization
+                          program. Originally, this program was Xamine.
+                          More recently a new visualization program, called
+                          Spectra provides visualization based
+                          on the Root toolkit.
+  SpecTcl can locates spectra in a shared memory region.
+                          This permits high speed access to bulk spectrum data
+                          by visualization programs.   Spectra that have been
+                          located in shared memory are said to be
+                          *bound* to the displayer.
+- *Gates* are conditions. Gates can
+                          be primitive regions of interest that are draw on spectra.
+                          They can also be boolean combinations of other gates.
+                          These latter gates are often called
+                          *compound gates* while the
+                          former are called *primitive gates*.
+  An important point often lost by beginning (and sometimes
+                          experienced) SpecTcl users is that while gates might be
+                          created by drawing them on spectra in a displayer, they
+                          actually represent tests that are performed on one or
+                          more *parameters*.  Spectra are
+                          only involved in gate creation because the regions of
+                          interest in parameter space are often most easily
+                          seen by looking at spectra that involve the parameter.
+  You can think of a gate as a boolean function on the
+                          parameters of each event.
+- *Gate Application*.  Gates by
+                          themselves are useles.  What makes a gate useful is
+                          that it can be *applied* to a
+                          spectrum.  When a spectrum has a gate applied to it,
+                          the spectrum is only incremented for events that
+                          make that gate true.
+  Note that really all Spectra have gates applied to them.
+                          What are normally called ungated spectra actually are
+                          spectra that have a True gate applied
+                          to them.  A True gate is true for all events regardless
+                          of any parameter values.
+- Earlier, we alluded to computed, or psuedo parameters.
+                          There are two ways you can create a computed parameter.
+  1. You can provide the computation as part of
+                                         your event processor.
+  2. You can provide a Tcl **proc**
+                                         that is evaluated for each event to
+                                         compute the computed parameter.   This latter
+                                         approach, while slower than compiled code,
+                                         provides a mechanism to add new parameters
+                                         to SpecTcl without recompiling your tailored
+                                         SpecTcl.
+- *Filters*;  Usually analysis, at least
+                          initially, procedes in several stages.   Often each stage
+                          of analysis refines the set of events that are interesting
+                          to the experiment.  The unpacking of each event from raw
+                          format can be time consuming as well.
+  A filter is a way to save a new event file that consists
+                          of a subset of the parameters of a subset of events.
+                          The file is saved in a form that is much easier to unpack
+                          than normal raw event files.  Thus the analysis of these
+                          files can be substantially faster
+
+## <a name="AEN124"></a>3.1.1. Creating and describing parameters.
+
+The creation and description of parameters has evolved
+                    considerably since the first versions of SpecTcl.  Much of
+                    this evolution is thanks to the vision and contributions of
+                    Daniel Bazin at the NSCL.
+
+The first version of SpecTcl provided a flat array of integer
+                    parameters.  Relatively quickly, this flat array of integers
+                    became a flat array of double precision floating point
+                    values.
+
+This flat array of double precision floats is still used
+                    internally by the histogramming kernel SpecTcl uses to
+                    take the parameters from an event and increment the
+                    appropriate channels of appropriate spectra.
+
+What Daniel Bazin created was an overlay that lives on top
+                    of this flat array that provides:
+
+
+
+- The ability to structure the parameter space in
+                              a manner that better matched the parameters of
+                              each analysis problem.
+  He provided classes that allow parameters to transparently
+                              live in C/C++ structs as well as array like objects
+                              containing parameters.
+- The ability to associate with each parameter information
+                              about its range, preferred binning, when histogrammed
+                              and units of measure.
+- A parameter naming convention that allowed graphical
+                              user interfaces to present potentially large parameter
+                              sets hierchically in a manner that typically reflects
+                              the structs in which the programming constructs live.
+
+This package, called *TreeParameter* was
+                    first adopted in SpecTcl and then later rewritten to provide
+                    additional functionality and a tighter integration with the
+                    SpecTcl event processing framework.  We'll say more about
+                    tree parameters when we describe event processors.
+
+This bit of history is by way of explanation of the two
+                    sets of parameter manipulation commands that today's
+                    SpecTc provides.
+
+SpecTcl provides three commands that deal with parameters:
+
+
+
+- **parameter** provides access to the
+                              underlying array of floats.
+- **treeparameter** provides access to
+                              the structured overlay on to of the parameter array.
+- **psuedo** provides support for
+                              dynamically computed parameters (Tcl scripts that
+                              create new parameters).
+
+### <a name="AEN152"></a>3.1.1.1. The **parameter** command
+
+Recall that at the lowest levesl of SpecTcl, parameters
+                        are stored in a flat array-like object.  The user's
+                        event processors store specific parameters at specific
+                        indices in that object.
+
+Parameter indices are not something humans have an easy
+                        time with.  The **parameter** allows you
+                        to maintain a mapping between textual names and the
+                        indices in the parameter array.  When you create objects
+                        that require one or more parameters, then can then be
+                        specifiec by name, and SpecTcl can use this
+                        *parameter dictionary* to look up
+                        the actual parameter.
+
+The **parameter** command accepts an optional
+                        switch that modifes what it does.  If no switch is
+                        provided, the `-new` switch is implied
+                        and a new mapping is created.  There are several
+                        forms of the parameter command for creating new mappings:
+
+<a name="AEN162"></a>```
+parameter ?-new? name id resolution
+parameter ?-new? name id resolution {low high units}
+parameter >-new? name id ?units?
+                        
+```
+
+The multiplicity of forms of the parameters represent
+                        evolutions of parameters from simple integers to
+                        scaled integers and finally to double values.
+                        The command arguments are as follows for these versions
+                        of **parameter -new**:
+
+
+
+`name`The name to be given to the specified index
+                                    of the parameter array.
+
+`id`The index of the parameter for which a
+                                    mapping is being created.  The index is
+                                    also referred to in SpecTcl as the
+                                    *parameter id*.
+
+`resolution`When parameters were solely integer or
+                                    scaled integers, this represents the number
+                                    of bits of resolution the underlying parameter
+                                    has.  For example, an ADC that has the range
+                                    [0,4096)  will have 12
+                                    bits of resolution.
+
+`units`Documents the units of measure associated with
+                                    a parameter.
+
+`low` `high`For scaled parameters represents the limits of the
+                                    parameter being represented.
+
+The other most commonly used form of the parameter command
+                        is when the `-list` switch is used.
+                        In this case, the result of the command is a list of
+                        the parameters in a form that is easily parsed by
+                        Tcl scripts.
+
+<a name="AEN197"></a>```
+parameter -list ?pattern?
+                        
+```
+
+Lists information about the parameter mappings that have
+                        been defined.  If `pattern` is
+                        provided, only those parameters
+                        whose names that match that pattern
+                        are listed.  Pattern can contain any of the wildcard
+                        characters used in filename matching in UNIX (glob
+                        pattern).  Not providing a pattern is identical to
+                        providing * as the pattern, listing
+                        all parameters.
+
+The result is  well formatted Tcl list.  See the
+                        reference manual for the form of this list, however
+                        for many cases you just need to know that each list
+                        element describes a parameter as a sublist.  The
+                        first element of each sublist (element 0) is the
+                        parameter name, and the second, the parameter id
+                        (index into the parameter array).
+
+### <a name="AEN203"></a>3.1.1.2. The **treeparameter** command
+
+The **treeparameter** command manipulates
+                        parameters defined within the tree parameter subsystem
+                        that is layered on top of the parameter array.
+                        From the event unpacker point of view, tree parameters
+                        are represented by a `CTreeParameter`
+                        object or an indexed element of a
+                        `CTreeParameterArray` array like object.
+                        Each of those can be treated as a double.
+
+Metadata is associated with each tree parameter and,
+                        in most user interfaces that know about tree parameters,
+                        these metatdata are used to inform the user about the
+                        recommended histogram binning for that parameter.
+
+Tree parameters also have a name.  This name matches the
+                        name of the underlying **parameter**
+                        name.  For `CTreeParameter`
+                        objects, new parameters are created as needed and two
+                        instances of a `CTreeParameter`
+                        object that have been given the same name will refer
+                        to the same underlying parameter.
+
+Tree parameters can be created, listed and their
+                        metadata modified.  The form of the
+                        **treeparameter** command that
+                        creates a tree parameter is:
+
+<a name="AEN217"></a>```
+treeparameter -create name low high bins units
+                        
+```
+
+Creates a new tree parameter.  The tree parameter will
+                        correspond to the underlying parameter `name`.
+                        `units` are the units of measure
+                        of the parameter. `low` is the
+                        recommended low limit of spectra axes that are created
+                        on this parameter.  `high`
+                        is the recommended high limit of spectra axes that are
+                        created on this parameter.
+                        `bins` is the recommended number
+                        of bins on axes on this parameter.
+
+Since creating an e.g. `CTreeParameter`
+                        instance creates a tree parameter, this command is intended
+                        to take legacy parameters (those that are populated
+                        directly into the parameter array), and wrap them in the
+                        metadata associated with a tree parameter.
+
+To list the set of defined tree parameters and their
+                        metadata.
+
+<a name="AEN228"></a>```
+treeparameter -list ?pattern?
+                        
+```
+
+### <a name="AEN230"></a>3.1.1.3. The **pseudo** command
+
+The pseudo command allows you to compute a parameter
+                        from existing parameters to produce a new computed parameter.
+                        Pseudo parameters are created as follows:
+
+<a name="AEN234"></a>```
+pseudo name parameters body
+                        
+```
+
+Prior to defining a pseudo, the new parameter must have
+                        been created using either the **parameter**
+                        or `treeparameter` commands.
+
+The best way to understand this command is to think of it
+                        as a variation on the Tcl **proc** command.
+                        `name` is the name of the new parameter
+                        and will be used to construct the name of the proc that
+                        actually computes the new parameters.
+                        `parameters` is a list of existing
+                        parameter names that are required to produce the parameter.
+                        `body` is a script whose value
+                        will become the pseudo parameter's value.
+
+A new proc is created.  The proc is created with
+                        two formal parameters for each parameter.  The first
+                        parameter, has the same name as the SpecTcl parameter
+                        and is the value of that parameter for each event.
+                        The second parameter is the parameter name with
+                        isValid appended and is a boolean
+                        that is true if the parameter has a value for that
+                        event.
+
+Here's a sample of a **psuedo**
+                        command that sums to value par1
+                        and par2 
+                        together:
+
+<a name="AEN250"></a>```
+pseudo sum { par1 par2 } {
+   if {$par1isValid && $par2isValid} {
+      return [expr $par1 + $par2]
+   } else {
+       return -1
+   }
+}
+                        
+```
+
+Note that psuedo parameter scripts have no mechanism to
+                        indicate they are not defined for an event.  The best
+                        you can do is return a value that is outside the useful
+                        range of the parameter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Overview of how SpecTcl works |  | Creating/listing spectra |

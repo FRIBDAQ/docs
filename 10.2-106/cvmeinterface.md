@@ -1,0 +1,216 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="cvmeinterface"></a>CVMEInterface
+
+<a name="AEN34371"></a>## Name
+
+CVMEInterface -- Class wrapping of the SBS VME library.
+
+<a name="AEN34374"></a>## Synopsis
+
+```
+#include <CVMEInterface.h>
+         
+```
+
+```
+  static void* Open(AddressMode nMode, unsigned short crate =  0);
+```
+
+<a name="AEN34464"></a>## Description
+
+This class provides  low level access to VME crates connected to
+            the host system via the SBS PCI/VME fibre optic bus bridge.  Each
+            interface can connect to a single crate.  The crates are numbered from
+            zero in the order deteced at power up by the linux kernel.  The
+            utility [[r34367#cratelocator]] is able
+            to help you determine which crate is which.
+
+A closely related class is
+            [[r34682]]
+            which provides access to the advanced interfaces of the module.
+
+The section below (Public member functions) provides reference
+            information about each member function. Data types that are exported
+            from this class are described in "Types and public data".
+
+<a name="AEN34472"></a>## Public member functions
+
+` static void* Open(AddressMode nMode, unsigned short crate =  0);`Opens a handle to the sbs driver.  The `nMode`
+            defines the address modifier that will be used for all references
+            to the VME crate through this handle.  See the
+            "Types and public data" section for the definitions of legal
+            values of AddressMode.  The `crate`
+            selects which of the potentially several VME crates to
+            operate on.  You can us the
+            [[r34367#cratelocator]]
+            utility to determine which crates are which.
+
+The return value from this function is a handle to be used in subsequent
+            calls.  The handle is an opaque data type and should not be assumed
+            to have any particular structure other thanbeing the size of a pointer.
+            On error, the function will throw a `std::string`
+            exception.  The exception string will be an error message suitable
+            for display to human users.
+
+` static void Close(void* pDeviceHandle);`Closes an open handle.  On error, this will throw an
+            `std::string` exception that contains an error
+            message suitable for display to human users.
+
+` static void* Map(void* pDeviceHandle, unsigned long nBase, unsigned long nBytes);`Creates a mapping between an address segment in VME space and an chunk
+            of process virtual address space.  Once created, the process can
+            perform VME transactions by simply dereferencing pointers into this
+            adress map.  The map persists after the handle is closed, although
+            the handle is needed if you want to explicitly release the map
+            rather than allowing process cleanup to do so.
+
+The `pDeviceHandle` is a handle returned
+            by a call to the `Open` method.  `nBase`
+`nBytes` describe the desired range of VME address space
+            to map to the process.  The address modifier is determined by the modifier
+            passed to the `Open` method.
+
+On succedss, the method returns a pointer to the base address of the
+            process virtual address space that corresponds to the VME address segment.
+            On error, the method will throw a `std::string`
+            exception where the string is a human readable error message.
+
+` static void Unmap(void* pDeviceHandle, void* pBase, unsigned long lBytes);`Breaks an address space mapping to the VME bus that was established
+            by a call to the `Map` method.  Once broken,
+            the results of memory references to the process address space that
+            was mapped to a VME bus are undefined, but will most likely fail
+            with a SEGFAULT
+
+`pDeviceHandle` is the handle returned from
+            the `Open` used to create the map.  The
+            `pBase` and `lBytes` parameters
+            describe the region in *process virtual address space*
+            of the map (`pBase` is the value returned from the
+            `Map` method).
+
+On error, the method will throw a `std::string`
+            exception that contains a user readable error message describing
+            the error
+
+` static int Read(void* DeviceHandle, unsigned long nOffset, void* pBuffer, unsigned long nBytes);`Peforms a read from several consecutive locations of VME
+            memory into a user buffer.  Depending on parameter settings and the
+            transfer count,
+            (see [[r34682]]),
+            the transfer might be done under program control in the device driver,
+            via DMA or via blockmode.  The width of the transfer is also
+            determined by driver parameters set via
+            `CSBSBit3VmeInterface` member functions.
+
+`DeviceHandle` is the device handle returned from
+            a call to the `Open` method.  `nOffset`
+            is the base address in VME address space at which the transfer starts, while
+            `nBytes` is the number of bytes to transfer.  The
+            user buffer is pointed to by `pBuffer` and must
+            be at least `nBytes` long.
+
+On success, the function returns the number of bytes transferred.
+            If a bus error (BERR) is signalled on the backplane, this is
+            *approximately* the number of bytes transferred
+            before the BERR occurred, however the hardware is not able to
+            accurately report the partial transfer count.
+
+On failure a `std::string` error message
+            exception is thrown.
+
+` static int Write(void* pDeviceHandle, unsigned long nOffset, void* pBuffer, unsigned long nBytes);`Writes a block of `nBytes` of data
+            from `pBuffer` to the address in the VME
+            space starting at `nOffset`.  `pDeviceHandle`
+            is the handle returned from an `Open` call.
+
+On success, the number of  bytes transferred is returned.
+            As for reads, a BERR is not considered an error. Instead, an approximate
+            transfer count is returned.  On failure a `std::string`
+            exception is thrown containing a human readable errror message.
+
+` static void Lock();`Locks a semaphore associated with the VME interface system.  While
+            the interface is performing a DMA transfer, program controlled
+            transfers cannot take place.  If you are doing a block transfer
+            via `Read` or `Write`,
+            and suspect that some other process may attempt a VME transaction
+            via  memory map, or vica versa, bracket those operations with
+            a call to `Lock` and `Unlock`.
+
+` static void Unlock();`Releases the VME semaphore.  See `Lock` for more information
+               about why you would use the VME sempahore.
+
+<a name="AEN34620"></a>## Types and public data
+
+The `CVMEInterface` class exports an enumerator,
+            `CVMEInterface::AddressMode`,
+            that defines the basic address modifiers (address spaces) understood
+            by the module.  Some of these are synonymous with others.
+
+Values defined by this enum are:
+
+
+
+`A16` or
+                        `ShortIO`Selects the 16 bit address space.  This is also
+                            known in VME parlance as *Short I/O*
+                            space.
+
+`A24` or
+                    `Standard`Selects the 24 bit address space. For historical reasons,
+                            this is also known as the *Standard*
+                            address space.
+
+`A32` or
+                    `Extended`Selects the 32 bit address space.  For historical
+                            reasons, this is also known as the *Extended*
+                            address space.
+
+`MCST` or
+                    `Multicast`Some boards support common initialization and cleanup
+                            functions via a *multicast* address.
+                            For those boards that do, the `MCST`
+                            or it synonym `Multicast`
+                            address modifier provides a mechanism to access those
+                            modes.  Not that at presen this is a synonym for
+                            `A32`.
+
+`CBLT` or
+                        `ChainedBlock`Some modules implement a chained block transfer that
+                            allows a group of contiguous modules to be read out
+                            via a single VME block transfer.  This is implemented
+                            via the `A32` transfer in block
+                            mode only.
+
+`GEO` or
+                    `Geographical`Some modules provide an extra connector on which the
+                            slot number is encoded.  These modules implement some
+                            addressing shceme tht allows you to access the module via
+                            a 24 bit adress that depends in some computible way on
+                            the module's slot. Thie GEO adrss space allows you to
+                            operate on the module in geo mode.
+
+At present, geographical addredssing is just the same as the
+                            A24 address modifier.,
+
+<a name="AEN34672"></a>## Exceptions
+
+Most functions signal errors via a `std::string`
+            excpetion.  In that case the string contain a human readable error string
+
+<a name="AEN34676"></a>## EXAMPLES
+
+<a name="AEN34679"></a>## See Also
+
+Fake cratelocator link target
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CConfigurableObject | Up | CSBSBit3VmeInterface |

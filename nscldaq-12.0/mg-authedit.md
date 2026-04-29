@@ -1,0 +1,115 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_authedit"></a>mg_authedit
+
+<a name="AEN18362"></a>## Name
+
+mg_authedit -- Edit NSCLDAQ manager authorization database.
+
+<a name="AEN18365"></a>## Synopsis
+
+**$DAQBIN/mg_authedit *configuration-file*
+**
+
+<a name="AEN18369"></a>## DESCRIPTION
+
+The **mg_authedit** command allows you to edit the
+            authorization configuration of the experiment.  Auhorization provide
+            access to functionality of the NSCLDAQ manager to specific users
+            (login usernames).  Note that in NSCLDAQ 12.0, authorization is not
+            enforced.  We anticipate that in the future as we come to understand
+            the roles in an experiment better, we can layer these protections into
+            the manager.
+
+The user interface of **mg_authedit** consists of
+            the following sections:
+
+
+
+- At the top is a tree view.  The top level items are users
+                    that have been defined to the expermiment.  Second level
+                    items (accessed by left clicking on the wedge icon to the left
+                    of a user's name) are the roles held by that user.
+- Below the treeview is a section that allows you to add new users.
+                    This is a frame with the lable Add user
+- Below the Add user  frame is a frame of
+                    widgets that allows you to add and delete roles.  This frame
+                    is labelled Add role.
+- At the bottom  of the user interface is a button labeled
+                    Save.   All changes to the users and
+                    roles and the roles granted to specific users are held within
+                    the user interface until the Save button
+                    is clicked.
+  To exit without saving updated roles and users, simply
+                  delete the window (on most window managers this means clicking)
+                  an X at the right top of the window banner.
+
+The treeview supports context menus both on user and roles they've
+            been granted.
+            Right clicking on a user brings up a context menu with the
+            following commands:
+
+
+
+Remove user...Prompts for confirmation and, if given, removes the user
+                    and, of course.  This operation cleans up  properly, that is
+                    first the user's roles are revoked and then the user
+                    him/herself is removed from the list of authorized users.
+
+Grant Roles...Pops up a list box populated with all of the roles the
+                    user does *not* have.  The list box
+                    supports multiple selection.  Select the rols you want to
+                    grant and click the Ok button.
+                    The Cancel button makes no changes
+                    to the granted roles.
+
+Revoke role(s)...Pops up a list box populated with the roles that have been
+                    granted to the user.  Multiple selections are allowed.
+                    Select the role(s) you wish to revoke from the user and
+                    click Ok to revoke them.  The
+                    Cancel button makes no changes
+                    to the granted roles.
+
+The context menu for a role can be accessed by right clicking on the
+            role.  It contains the following menu commands.
+
+
+
+RevokeRevokes that role, and that role only, from the associated
+                    user.
+
+Grant role(s)...As with the user context menu, allows you to grant additional
+                    roles to the user that holds this role.
+
+The Add user frame allows you to add users to the
+            list of authorized users. Simply type the username of the new
+            authorized user and click the Add button
+            to the right of the text entry.  If the user you type in is already
+            in the authorized list, an error dialog will pop up to inform you
+            of that.
+
+The Add role frame allows you to add and delete
+            roles.  To add a role, simply type the new role name and click the
+            add button. As with adding users,
+            an error message will pop up if you type in an existing role name.
+
+To delete a role, simply click the Delete...
+            button.  A list box will pop up populated with the names of all of the
+            roles that have been defined.   Select thew role(s) to remove and click
+            Ok to remove them.  Roles will be revoked from
+            all that hold them before being deleted so no dangling role references
+            will remain.  Clicking the Cancel button
+            makes no changes.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_kvedit | Up | mg_monitorOutput |

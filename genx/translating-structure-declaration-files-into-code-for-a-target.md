@@ -1,0 +1,90 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN164"></a>Chapter 3. Translating structure declaration files into code for a target
+
+The **genx** command (at the NSCl this is in
+				/uar/opt/genx/bin/genx) translates a
+				structure definition file into at least a C++ header and a C++ executable.
+				The header defines the structs and instances you've declared using the
+				data types expected by the analysis framework you chose as the target.
+				It also creates prototype definitions for a mimnimal set of functions
+			 for each framework.
+				The C++ executable, contains the actual storage for your instances, any
+				executable code needed to support the instances and implementations of the
+				API functions.
+
+These two files will allow you to treat the instances as structs
+				and variables.
+
+In this chapter we're not going to  look at the generated code but
+				rather what you need to do to generate the code.
+
+The genx command must be given three bits of information:
+
+
+
+`--target`The value of this option identifies which analysis framework
+													code will be generated for (selects what's called the
+													*backend* of genx).  Supported values at this
+													point in time are
+													spectcl generates code for NSCLSpecTcl and
+													root generates code for CERN Root.
+
+input-fileThe path to the file that contains your structure and instance
+													definitions.
+
+output-basenameThe *basename* for the files that will be
+													generated.  If, for example I choose a basename like
+													spec, the header
+													spec.h and C++ file
+													spec.cpp will be generated.
+
+<a name="AEN195"></a>**Example 3-1. Generating SpecTcl code from data.decl**
+
+```
+/usr/opt/genx/bin/genx --target=spectcl data.decl spec
+				
+```
+
+Generates spec.h and
+				spec.cpp.
+
+<a name="AEN201"></a>**Example 3-2. Generating CERN/Root code from data.decl**
+
+```
+/usr/opt/genx/bin/genx --target=root data.decl root
+				
+```
+
+Generates root.h, root.cpp
+				and root-linkdef.h.  root-linkdef.h
+				is a file that allows you to build the class dictionary Root will need to
+				use the classes and structs defined and implemented in
+				root.{h,cpp} in interpreted Root code.  More on this
+				when we look at the generated code.
+
+In addition to the data definitions and method implementations, three
+				functions are declared in the header and implemented in the C++ file:
+
+
+
+`Initialize`Performs one-time initialization required by the framework.
+
+`SetupEvent`Performs any initialization needed before you can fill your data
+												structures with the unpacked event.
+
+`CommitEvent`Performs any actions needed by the analysis framework after the
+													event has been unpacked.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Writing data structure declaration files. | Up | Generated Code |

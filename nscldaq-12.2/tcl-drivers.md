@@ -1,0 +1,217 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 13. mvlcgenerate and using the Mesytec MVLC VME controller | Next |
+
+
+---
+
+# <a name="AEN7676"></a>13.6. Tcl Drivers
+
+mvlcgenerate supports user written drivers in Tcl as well as C++.  These can be significatly
+            easier to write.  In this section, the general requirements of a Tcl driver are described.
+            Subsections walk through a Sample Tcl driver with the same functionality as the
+            Sample C++ driver in the previous section, and document support facilities available
+            to Tcl drivers.
+
+Tcl drivers must be *Tcl command ensembles*.
+            A commane ensemble, is simple a command with subcommands.  In the core
+            Tcl language itself, the **file** is an example of a
+            command ensemble.
+
+Tcl provides many ways to produce command ensembles.  Since a driver
+            may need to support many instances of its hardware, the best mapping
+            to that need is one of the Tcl Object oriented packages such as
+            snit, Incremental Tcl, or TclOO.
+
+Object oriented extensions to Tcl have the common property that 
+            a class can be thought of as a thing that generates command ensembles.
+            The base command represents a class instance (object), and its
+            subcommands, the object's methods as defined by its class code.
+
+Typically driver instances will need to be configured.  At the very least,
+            real drivers will need to have their instances told the base address of the
+            device hardware the instance is generating code for. Snit and incremental Tcl
+            are, therefore good matches as both provide their objects with built in 
+            configure and cget subcommands and provide a mechanism for easily 
+            defining configurable options.
+
+Any driver class must implement three methods in addition to any others
+            it chooses:
+
+
+
+`Initialize`Generates device initialization operations that will be
+                    performed as data taking starts.  Note that, as for all
+                    drivers, the driver is not connected to any actual hardware.
+                    It therefore cannot perform any read operations on the device.
+
+The Initialize method/subcommand is passed a single parameter.
+                    The parameter represents a command ensemble that can
+                    store VME operations.  It has subcommands that are essentially
+                    methods of the `CVMUSB` command.
+                    This mvlc command is documented in 
+                    [[x7676#mvlcgen.tcl.support]].
+
+`addReadoutList`Generates the operations that will be performed on each event trigger
+                    to read the device.  The addRedoutList is passed a single parameter
+                    that is a command ensemble that operates much like a 
+                    CVMUSBReadoutList.  
+                    [[x7676#mvlcgen.tcl.support]]
+                    for documentation of this mvcllist command.
+
+`onEndRun`Generates the operations that are performed to shut the device down
+                    as the run is ending.  Like `Initialize`, this
+                    method is passed a command ensemble that can store VME operations.
+
+## <a name="AEN7707"></a>13.6.1. Sample Tcl Driver
+
+In this section, we will go over the sample Tcl driver code that gets installed in 
+                $DAQSHARE/mvcl-examples/SampleDriver.tcl.  This driver is 
+                written in the snit object oriented extension of Tcl.  That file also includes
+                disabled code showing how to use the driver in the configuration file.
+                SampleDriver.tcl is heavily commented.  Those comments have beeen largely
+                stripped here for brevity.
+
+<a name="AEN7711"></a>**Example 13-16. mvlcgenerate - Sample Tcl driver in snit.**
+
+```
+package require snit        
+
+
+snit::type SampleDriver {   
+    
+    option -marker -default 0
+    option -resetloc
+    option -resetvalue -default 0xaaaa    
+    option -writeendrun -default false
+    option -endrunloc
+    option -endrunvalue -default 0xbbbb
+
+    
+    constructor args {
+        $self configurelist $args      
+    }
+
+    
+    method Initialize vme {           
+        $vme vmeWrite16 $options(-resetloc) \
+        $::CVMUSBReadoutList::a32UserData $options(-resetvalue)
+    }
+    
+    method addReadoutList list {     
+        $list addMarker  $options(-marker)
+    }
+
+    
+    method onEndRun vme {           
+        if {$options(-writeendrun)} {
+            $vme vmeWrite16 $options(-endrunloc) \
+                $::CVMUSBReadoutList::a32UserData $options(-endrunvalue)
+        }
+    }
+}
+
+                
+```
+
+The actual operation of the driver is a bit silly but it does illustrate the
+                structure of a driver.  The driver is complete and tested.  At initialization time,
+                it does a 16 bit write whose value and address are configurable via the
+                `-resetvalue` and `-resetloc` configuation options
+                respectively.  The readout list is just going to be  a single marker written to the
+                event whose value is configuable via the `-marker`
+                At end run, if the option `-writeendrun` is Tcl true,  a configurable
+                value (`-endrunvalue`) is written to a configurable address
+                (`-resetloc`).
+
+The numbers in the list below refer to the numbers in the code.
+
+[[x7676#mvlcgen-tcl-requiresnit]]                        Since our driver is in snit, we must pull in the 
+                        sint code.  This is done via the 
+                        **package require snit**
+                        command.  Note that a production driver might itself provide a package
+                        via something like:
+                        **package provide sampledriver 1.0** and live in a 
+                        directory with a library of drivers that have a 
+                        pkgIndex.tcl that allows the Tcl package system
+                        to locate them.
+                    [[x7676#mvlcgen-tcl-snittype]]                         A **snit::typ** provides a block of code that 
+                         create the snit version of a class.   The form of that command is a
+                         typename (SampleDriver) followed by a block
+                         of code that defines options, constructors, destructors and methods.
+                    [[x7676#mvlcgen-tcl-optiondefs]]                        The snit **option** command defines
+                        configurable options for instances of a snit type.
+                        The first command parameter after **-option**
+                        is the name of the option.  For a tour of snit, see
+                        [https://core.tcl-lang.org/tcllib/doc/00329f8b8f/embedded/www/tcllib/files/modules/snit/snitfaq.html](https://core.tcl-lang.org/tcllib/doc/00329f8b8f/embedded/www/tcllib/files/modules/snit/snitfaq.html)
+                        It descrsibe the option command and its various forms, including type validation, which is 
+                        beyond the scope of this example/document.
+                    [[x7676#mvlcgen-tcl-constructor]]                        The **construtor** command defines code that is run
+                        when an instance of the class is created.  It is passed any residual
+                        command line values.  The built in method `configurelist`
+                        processes this argument as configuration options.  The built in methods
+                        `configure` and `cget` support
+                        manipulation of the values of the options the type defined.
+                    [[x7676#mvlcgen-tcl-init]]                        The **method** defines a method that class instances recognize
+                        as subcommands.  In this case we define the `Initialize`
+                        which is a require driver method/subcommand.  This method accepts a command
+                        ensemble which allows VME operations to be recorded.  See documentation
+                        of the **mvlc** in 
+                        [[x7676#mvlcgen.tcl.support]]
+                        for a description of the subcommands this command ensemble has.
+                    Our `Initialize` stores a 16 bit VME write 
+                        to the address described by the `-resetloc`.  The
+                        address modifier used is the A32 user Data address modifier stored
+                        in the predefined variable: `::CVMUSBReadoutList::a32UserData`.
+                        See 
+                        [[x7676#mvlcgen.tcl.support]]
+                        for a description of the predefined variables.  These allow you to
+                        specify address modifiers for VME operations without needing to look them up.
+
+[[x7676#mvlcgen-tcl-addreadout]]                        As described earlier, the `addReadoutList` generates
+                        VME operations that will be performed on each event.  These operations should
+                        read data from the device into the event and, if necessary, prepare the device for
+                        the next event.
+                    The parameter passed in is a command ensemble that operates much like a 
+                        `CVMUSBReadoutlist`.   Subcommands of this ensemble are like
+                        that class's methods.  See the **mvlclist** in 
+                        [[x7676#mvlcgen.tcl.support]]
+
+We just add a marker to the event whose value comes from the
+                        `-marker` configurable option.
+
+[[x7676#mvlcgen-tcl-endrun]] `onEndRun` is called to generate operations that will be performed when the run ends.
+                        This method is invoked to save operations that should disable the device.
+                        Note that the parameter passed to this method is the same as the parameter passed to
+                        `Initialize`; a `CVMUSB` like command ensemble.
+                    In our case, we first interrogate the `-writeendrun` if this is a Tcl
+                        true value, we write to `-endrunloc` using the
+                        32 bit user data adderss modifier. The value we write is
+                        `-endrunvalue`
+
+## <a name="mvlcgen.tcl.support"></a>13.6.2. Support facilities for Tcl drivers.
+
+**Table of Contents**[[r7802]] -- Provide symbolic values for VME address modifiers.[[r7816]] -- Provide substitute for VMUSB controller object[[r7895]] -- List memorizor for vmvlcgenerator
+
+This section provides the following bits of reference material that support
+                Tcl drivers:
+
+
+
+Address modifier variablesThe predefined Tcl variables that contain VME bus addresss modifier values.
+
+The **mvlc** commandThe command ensemble that mimics the `CVMUSB `.  This command ensemble
+                        is passed to the Tcl driver's `Initialize` and 
+                        `onEndRun` subcommands.
+
+The **mvlclist** commandThe command ensemble that mimics `CVMUBSReadoutList`.  This
+                        command ensemble is passed to the Tcl driver's `addReadoutList`
+                        subcommands.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extending the generator with loadable C++ generators | Up | Address modifier Tcl variables |

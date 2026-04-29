@@ -1,0 +1,119 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev | Chapter 3. MPITcl - an enhanced Tcl interpreter | Next |
+
+
+---
+
+# <a name="AEN501"></a>3.4. Running MPITcl (NSCL/FRIB specific)
+
+At the NSCL, the MPITcl shell is located in
+                /usr/opt/miptcl/bin/mpitcl.  It is normally run under the
+                **mpirun** command.  Usually it is
+                run within a batch job submission script that specifies the
+                resources the application needs and provides stdin redirection to
+                a script that contains the application.
+
+For example, the following command runs 4 processes in the
+                MPItcl application and specifies the application script
+                myapp.tcl
+
+<a name="AEN506"></a>**Example 3-1. Running MPITcl**
+
+```
+mpirun -np 4 /usr/opt/mpitcl/bin/mpitcl <myapp.tcl
+                
+```
+
+Let's look at a toy application.  In
+                [[c549]]
+                We'll look at MPI batch SpecTcl, a more interesting application
+                that runs under MPITcl.  Remember that the script executes
+                in rank 0. It therefore must tell all other ranks what to do.
+
+<a name="AEN511"></a>**Example 3-2. Toy MPITcl application**
+
+```
+                    
+                    
+puts "There are [mpi::mpi size] proceses in the application."   
+mpi::mpi execute others {puts "Hello from worker [mpi::mpi rank]"} 
+
+# Note that the notifier starts out running so this can work:
+
+mpi::mpi execute others {
+    proc ReturnData {rank data} {
+      mpi::mpi send 0 $data
+    }                                                
+    mpi::mpi handle  ReturnData
+}
+
+proc receiveData {rank data} {
+    puts "Received data from $rank: $data" 
+    incr ::expecting -1
+}
+mpi::mpi handle receiveData                       
+
+set expecting [mpi::mpi size]                     
+incr expecting -1                                
+
+mpi::mpi send others [list 1 2 3 4]              
+while {$expecting > 0} {
+ vwait expecting
+}
+
+mpi::mpi stopnotifier                          
+mpi::mpi execute all exit
+
+
+                
+```
+
+Remember that this script runs in rank 0
+
+[[x501#mpi.size]]                        Reports the number of processes in the computation.
+                        If, for example this was run from
+                        **mpirun -np 4 ...** this would report
+                        4
+[[x501#mpi.exec]]                        Requests all but rank 0 output its rank to stdout.
+                        Note that the output may not be in any order and
+                        may not even be in coherent lines because the
+                        outputs are all done in parallel in the various
+                        non rank 0 processes.
+                    [[x501#mpi.otherhandle]]                        In all processes besides rank 0, a proc named
+                        ReturnData is defined and set up
+                        to handle any data sent to that process.  The proc
+                        sends the data it receives to the rank 0 process.
+                    [[x501#mpi.rank0handle]]                        In rank 0, however a data handler is established that
+                        outputs where the data came from and the contents of
+                        the data.  The `expecting`
+                        global variable is decremented after each call.
+                        If this variable is **vwait**ed on,
+                        the **vwait** will conclude when the
+                        handler is called.
+                    [[x501#mpi.repliesexpected]]                        For a send to others, this computes the number of
+                        times we expect the receiveData handler
+                        tob e called.  Once for each process in the application
+                        except rank 0.
+                    [[x501#mpi.send]]                        Sends a list of data to all other ranks and
+                        vwaits until all other ranks have responded by
+                        echoing back their data.  Each echo back will
+                        result in receiveData being called,
+                        which ends the **vwait**.  The loop
+                        runs until there are no more replies to wait for.
+                    [[x501#mpi.stop]]                        Prior to exiting the application the notifier thread must
+                        be exited. The **mpi::mpi execute all exit**
+                        is the preferred way to exit the MPI application.  A simple
+                        **exit** won't do because mpirun will
+                        wait until all processes in the application have exited.
+
+Hopefully this toy application gives you an idea about how
+                the typical patterns used in an MPITcl application.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The mpi::mpi command ensemble. | Up | MPISpecTcl - Massively parallel SpecTcl. |

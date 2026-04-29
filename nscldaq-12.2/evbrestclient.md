@@ -1,0 +1,267 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.evbrestclient"></a>EVBRESTClient
+
+<a name="AEN110226"></a>## Name
+
+EVBRESTCient -- REST Client for Event Builder Statistics
+
+<a name="AEN110229"></a>## Synopsis
+
+```
+package require EVBRESTClient
+
+EVBRestClient client ?option value...?
+client configure option value ?...?
+
+set stats [client inputstats]
+set stats [client queuestats]
+set stats [client outputstats]
+set stats [client barrierstats]
+set stats [client completebarrierdetails]
+set stats [client incompletebarrierdetails]
+set stats [client datalatestatistics]
+set stats [client oostatistics]
+set stats [client connections]
+set stats [client shutdown]
+
+      
+```
+
+<a name="AEN110231"></a>## DESCRIPTION
+
+The EVBRESTClient package provides a
+            `EVBRestClient` **snit::type**.
+            `EVBRestClient` provides an object oriented
+            REST client for the event builder's REST statistics server.
+
+Each REST operation performs service discovery, connects to the server,
+            makes a request, gets the data back from the request and disconnects.
+            Thuse the configuration is tolerant in the presence of event builder
+            restarts (which might change the service port) and can made to
+            understand server migration.
+
+Client configuration is via the object options, which can be set
+            either at construction time or via a later **configure**
+            subcommand.  Actual REST operations require calling one of the public methods.
+
+<a name="AEN110241"></a>## OPTIONS
+
+The options are used to configure service discovery and connection with the
+         event builder REST server.  They are consulted for every REST operation.
+         Each REST operation performs service discovery (interacting with the port
+         manager to translate the service name into a TCP/IP server port number),
+         connects to the server, performs the HTTP transaction and finally disconnects.
+
+Options are as follows:
+
+
+
+`-host`Provides the host in which the server is running.  This is used
+                   both in service discovery and when connecting to the actual
+                   server.
+
+`-user`The user that ran the event builder.  This is used during
+                  service discovery to dis-ambiguate services with the same name
+                  that were registered by different users.
+
+`-service`Name of the service registered by the event builder's REST
+                  server.  This defaults to ORDERER_REST unless
+                  modified by the application.  This is used during service discovery.
+
+<a name="AEN110262"></a>## PUBLIC METHODS
+
+Most public methods  perform REST operations.  In order to perform a REST
+         transaction, it's necessary to have the information needed to do both
+         service discovery and to connect to the server.  Thus the options
+         described in the previous section must be properly configured prior
+         to the first public method call described below.   This configuration
+         can be done either at construction or via the `configure`
+         method.
+
+The methods that perform REST operations are as follows:
+
+
+
+`inputstats`Returns the event builder's input statistics as a dict with the
+                  following key/value pairs:
+
+
+
+oldestThe timestamp of the oldest queued fragment.
+
+newestThe timestamp of the newest queued fragment.
+
+fragmentsThe total number of queued fragments.
+
+`queuestats`Returns the queue statistics as list of dicts.  Each dict
+                  describes one of the source id queues.  The key/value pairs
+                  in each dict are:
+
+
+
+idThe source id the queue serves.
+
+depthNumber of fragments in the queue.
+
+oldestTimestamp of the oldest (front) element int he
+                           queue.
+
+bytesNumber of fragment bytes queued.
+
+dequeuedTotal number of bytes dequeued from the queue.
+
+totalqueuedTotal number of bytes that have ever been queued
+                           in the queue.
+
+`outputstats`Returns a dict that describes the event builder
+                  sorting stage's output statistics.  This is a dict
+                  with the following key/value pairs;
+
+
+
+`fragments`Total number of fragments otutput by the orderer.
+
+perqueueList of dicts showing output statistics for each
+                           queue. These dicts have the keys
+                           id whichi s the source id
+                           the queue serves and fragments,
+                           the number of fragments output from the queue.
+
+`barrierstats`Returns a dict containing the top level barrier statistics.
+                  The dict has two keys, complete which
+                  describes the complete barriers and incomplete
+                  which describes the incomplete barriers.
+
+Each of key values above is, itself a dict.  Both dicts
+                  are identical in structure and have the following key/value
+                  pairs:
+
+
+
+barriersNumber of that type of barrier (complete or incomplete).
+
+homogeneousNumber of homogeneous barriers of that type (complete or
+                           incomplete).
+
+heterogeneousNumber of heterogeneous barriers of that type.
+
+`completebarrierdetails`Provides detailed information about the complete barriers.
+                  This is a dict with two keys that allow drill down in
+                  two directions:
+
+The bytype key contains a list of dicts
+                  that give complete barrier statistics by barrier type. Each
+                  dict contains the keys type (a barrier type)
+                  and count (number of occurences of that type).
+
+The bysource key provides a list of dicts that
+                  provide statistics of complete barrier contributions by data source
+                  Each list has the keys id (the source id),
+                  count (number of barrier fragments from this
+                  source that resulted in a complete barrier), and
+                  details.
+
+The details field is an array of dicts each
+                  with key type, a barrier type, and
+                  count, the number of times that source contributed
+                  a barrier fragment of that type that resulted in a complete
+                  barrier.
+
+`incompletebarrierdetails`Provides full statistical details on incomplete barriers detected
+                  by the orderer.  This returns a dict containing two keys.
+                  histogram and bysource.
+
+The value of histogram is a list of dicts each with
+                  two keys.  number, which contains the number
+                  of missing fragments in an incomplete barrier and
+                  count, the number of times an incomplete barrier
+                  was missing that number of fragments.
+
+bysource is a list of dicts each with the
+                  keys id which is a source id and count,
+                  the number of times that source id was missing from a barrier.
+
+`datalatestatistics`Returns a dict of data late statisitcs.  This dict contains the
+                  following keys:
+
+
+
+countNumber of data late fragments.
+
+worstWorst gates timestamp difference for data late events.
+
+detailsA list of dicts that provides detailed data late
+                           statistics.  Each dict contains
+                           id, a source id.
+                           count number of data lates from
+                           that data source.
+                           worst worst case time difference
+                           for data laste events from that source id.
+
+`oostatistics`Provides data on the out of order fragments set to the orderer.
+                  The data returned are a dict with the two keys
+                  summary and bysource
+
+The summary key provides top level, summary
+                  statistics.  It contains a dict that has the keys
+                  count, which is the number of out of order
+                  fragments observed, prior, the timestamp
+                  of the fragment prior to the last out of order fragment and
+                  offending the timestamp of the
+                  most recent offending
+                  fragment.
+
+bysource, on the other hand, provides information
+                  on the data late fragments by data source.  The value of this
+                  key is a list of dicts with the keys:
+                  id a data source id being described by this
+                  list element, count the number of data late
+                  fragments from that source, prior, the timestamp
+                  of the fragment prior to the last out of order fragment from this source
+                  and
+                  offending the timestamp of the
+                  most recent offending
+                  fragment from that source.
+
+`connections`Returns a list of the connections of data sources to the
+                  event orderer stage of the event builder pipeline.
+                  This is a list of dicts.  Each dict has the following
+                  key/value pairs:
+
+
+
+hostIP or DNS name of the host from which the client
+                           connects.
+
+descriptionA descriptive text string the connecting client must
+                           provide. This is intended to provide information
+                           about the sort of data sent along this connection.
+
+stateString version of the connection state.
+
+idleBoolean valued idle flag.  If the connection has not
+                           sent any data within the idle timeout this will
+                           be nonzero, otherwise it will be zero.
+
+`flowcontrol`Returns a boolean which is true if the event builder is currently
+                  asserting flow control.
+
+`shutdown` ?delay?Requests that the event builder shutdown after
+                  `delay` seconds.  The default
+                  value of `delay` is
+                  2.  Note that early
+                  server implementations may ignore this value.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVBRestUI | Up | EVBRestControllers |

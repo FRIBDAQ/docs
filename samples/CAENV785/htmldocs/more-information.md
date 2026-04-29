@@ -1,0 +1,148 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1017"></a>Chapter 4. More information
+
+If you are preparing a system that will be used many times, you may want to
+        automate the startup as well as run the Readout software under the control of a
+        Readout Gui called ReadoutShell.  Normally this automation is
+        done by:
+
+
+
+- Writing scripts to start each of the components of the system.
+- Attaching these scripts to icons on a KDE
+                  desktop.
+
+
+
+        It is a good idea to get all of your software debugged first, as debugging programs run
+        under desktop icons can be challenging.
+    # <a name="AEN1027"></a>4.1. Scripting and desktop icons
+
+The trickiest issue for creating scripts that will become desktop icons
+            is that the environment in which you are running your scripts and programs
+            is not well known.  You should ensure that each script sources appropriate
+            login scripts and sets the working directory you want your application to run in.
+            We will generate four scripts:
+
+
+
+1. A script to run SpecTcl
+2. A script to initialize SpecTcl, loading
+                       in our histogram definitions and connecting it to the appropriate
+                       online system.
+3. A script to run the ReadoutShell Readout GUI.
+4. A script that will be used by the ReadoutShell
+                       to start the readout program.
+
+
+            Once these scripts are written we will create desktop icons for the first two scripts
+            so that you can start SpecTcl and Readout by clicking on the desktop.
+        ## <a name="AEN1043"></a>4.1.1. Scripts and a desktop shortcut for SpecTcl
+
+The following script will be used to start SpecTcl:
+
+<a name="AEN1048"></a>**Example 4-1. SpecTcl startup script.**
+
+```
+#!/bin/bash
+
+. /etc/profile              # 
+. ~/.bashrc
+
+cd ~/experiment/spectcl     # 
+
+./SpecTcl <setup.tcl        # 
+
+                    
+```
+
+
+Refer to the numbers in the listing above when reading the annotations below:
+
+[[c1017#profile]]                    Since icons may or may not source the various bash startup scripts
+                    we explicitly source the system wide and our login specific startup scripts.
+                                             [[c1017#cd]]                    We set the working directly explicitly to the directory in which we have
+                    installed our SpecTcl.  This ensures that when
+                    SpecTcl is started, it will find its initialization
+                    scripts.[[c1017#spectclstart]]                    This starts SpecTcl, setting its standard input to the file setup.tcl
+                    located in ˜/experiment/spectcl, the working directory.
+                    This file will initialize SpecTcl, and will be written next.
+
+
+In our startup script for SpecTcl we pointed the
+                SpecTcl stdin at the file setup.tcl.
+                This file will setup the initial spectrum definitions and attach SpecTcl to the
+                online system.
+
+The spectcl.tcl startup script is as shown below:
+
+<a name="AEN1073"></a>**Example 4-2. The spectcl.tcl SpecTcl
+                            startup script**
+
+```
+source myspectra.tcl;     # 
+sbind -all;               # 
+
+.gui.b update;            # 
+
+
+if {[array names env DAQHOST] ne ""} {
+    set daqsource $env(DAQHOST)
+} else {;                  # 
+    set daqsource "localhost"
+}
+
+set url "tcp://$daqsource:2602"; # 
+
+attach -pipe /usr/opt/daq/current/bin/spectcldaq $url; # 
+start;                                                 # 
+
+                    
+```
+
+
+The numbers in the explanation below refer to the numbers in the example above.
+
+[[c1017#definitions]]                        This source command sources the spectrum definitions we created when
+                        we configured SpecTcl.  SpecTcl GUI configuration files are just Tcl Scripts.
+                        Sourcing these scripts reproduces the definitions saved in them.
+                                                    [[c1017#bind]]                        The **sbind** command here binds all of the spectra
+                        into the Xamine visualization program.
+                        SpecTcl spectra need not be visible to Xamine,
+                        this command ensures they will be.[[c1017#treeupdate]]                        Unless told to do so, the GUI's object browser will not reflect definitions
+                        that have been made outside the gui.  This command tells the gui's object
+                        browser (widget .gui.b), to rebuild the object tree.
+                                                   [[c1017#daqsource]]                        By convention, most experiments use the environment variable
+                        `DAQHOST` to store the name of the host on which
+                        Readout runs.  This code sets `daqsource`
+                        to be the value of the `DAQHOST` environment variable if it is
+                        defined, or to localhost if it is not.  This establishes
+                        the system from which data will be analyzed.[[c1017#url]]                        Connections are specified to remote data acquisition systems using
+                        *URL* notation.  This command sets `url`
+                        to be the url corresponding to the spectrodaq server
+                        buffer request socket for the host `daqsource`.[[c1017#attach]]                        The SpecTcl **attach** command
+                        specifies the data source from which SpecTcl will process buffers.
+                        In this case we specify that we will accpet buffers from a pipe to which the
+                        program spectcldaq in the data acqusition system
+                        will be attached.  spectcldaq accepts data from
+                        the specified source, sampling event data, and dumps the data to its
+                        standard output (the other end of the pipe SpecTcl
+                        is taking buffers
+                        from.[[c1017#start]]                        Once SpecTcl is attached to a data source the
+                        **start** command starts processing data from that
+                        data source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Testing and Running the Software. |  | Using the Readout GUIReadoutShell |

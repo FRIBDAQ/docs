@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1977"></a>stop
+
+<a name="AEN1981"></a>## Name
+
+stop -- Stop analyzing data from the data source
+
+<a name="AEN1984"></a>## Synopsis
+
+**stop**
+
+<a name="AEN1987"></a>## DESCRIPTION
+
+This command is not encapsulated.  It runs only on the
+                    process in which it's invoked.  Since data source managemnent
+                    and data distribution are all done in the
+                    MPI_ROOT_RANK and that runs the 
+                    interactive interpreter as well, this is normally fine.
+                    Note that if SpecTcl is taking data from an online data source,
+                    stopping without detaching (usually done by attaching to the file
+                    /def/null), will eventually, most likely
+                    cause data taking to stall or ring items you might care about to
+                    be dropped depending on the options passed to 
+                    ringselector
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| start | Up | swrite |

@@ -1,0 +1,158 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.sclclient"></a>sclclient
+
+<a name="AEN8055"></a>## Name
+
+sclclient -- Maintain scaler state in a tclserver
+
+<a name="AEN8058"></a>## Synopsis
+
+**sclclient [options]
+	**
+
+<a name="AEN8062"></a>## DESCRIPTION
+
+sclclient accepts scaler buffers from a  DAQ  systems  (spdaq  system  at  the
+       NSCL),  processes them and sends processed information to a tclserver program.
+       Given an appropriate setup script to describe a  visual  presentation  of  the
+       scalers, sclclient and tclserver together create a scaler display subsystem.
+
+Command  options  (see  OPTIONS  below),  describe  how the program starts up.
+       sclclient interacts with tclserver by sending it a  set  of  tcl  commands  to
+       maintain  some  global  variables  (see VARIABLES below).  In addition, at key
+       points, procedures are called that are assume to be loaded into the  tclserver
+       program by its setup scripts (see PROCEDURES below).
+
+<a name="AEN8066"></a>## OPTIONS
+
+The sclclient program accepts both short
+        (single dash single letter) and long (double dash and english word) options.
+        The list below only describes the long options.  For a table of the
+        corresponding short options run
+        **sclclient --help**.
+
+
+
+`--help`Provides a short help page that describes the options their
+                    associated values and functionality.
+
+`--host`=*hostname*Provides the name of the host in which the Tcl server
+                this program connects to is running.  If not provided this
+                defaults to localhost
+
+`--port`=*port*Provides the port on which the Tcl server is listening
+                    for connections.  This should either be an integer port number
+                    or the special text string managed.
+                    By default, this is
+                    managed.
+
+If the port is managed the
+                    client software will use the port manager running in the target
+                    host to locate an application named ScalerDisplay
+                    being run under the same username that sclclient
+                    is running.
+
+`--source`=*ringurl*`ringurl` is the URL to the
+                    ringbuffer from which the application will take data.
+                    If omitted, the source will be
+                    tcp://localhost/*username*
+                    where *username* is the name of the
+                    user running the program.
+
+`--version`Prints out program version information to
+                    stdout.
+
+<a name="AEN8112"></a>## VARIABLES
+
+sclclient maintains several variables and arrays in the TCL server to which it
+       is  connected.    Scaler  displays are therefore constructed by displaying the
+       values of these variables and arrays as well as by providing procedures called
+       by sclclient (see PROCEDURES below).
+
+The variables sclcient maintains are:
+
+
+
+Scaler_TotalsThis is a TCL array indexed by scaler channel number (channels start at
+              0.  Each element of the array is the total number  of  counts  in  that
+              channel  either  since  the scaler program started up or the run began,
+              whichever happened latest.
+
+Scaler_IncrementsThis is a TCL array indexed by channel number. The value of  each  
+              element  is  the  number of counts in that channel since the latest of the
+              beginning of the run,  starting  sclclient,  and  the  previous  scaler
+              buffer.
+
+ScalerDeltaTimeThis  variable  maintains  the  number  of seconds in the most recently
+              received set of scaler increments in seconds.  If no scaler  increments
+              have been received, this variable is 0.  ScalerDeltaTime can be used to
+              calculate scaler rates.
+
+ElapsedRunTimeThis variable contains the number of seconds since the start of run, or
+              when the scaler client program started, whichever is latest.
+
+RunNumberThis  variable contains he number of the current run. If not yet known,
+              it has the value >Unknown%lt; instead.
+
+RunStateThis variable has the known run state.  It is any of HALTED, ACTIVE, or
+              PAUSED, or lastly >Unknown< if the run state is not yet known.
+
+RunTitleContains  the title of the current run if known or the text
+              ">Unknown<"
+              if not.
+
+<a name="AEN8145"></a>## PROCEDURES
+
+In addition to maintaining the global variables described in VARIABLES  above,
+       sclclient  calls  procedures at well defined points in time.  These procedures
+       must be defined in the tclserver, even if only as empty procedures.
+
+Procedures are not passed any parameters.  The procedures  sclclient  requires
+       are:
+
+
+
+UpdateCalled  whenever  variables have been updated.  The tclserver code here
+              will usually refresh the display picture.
+
+BeginRunCalled when a begin run is detected.
+
+EndRunCalled when an end run is detected.
+
+PauseRunCalled when a pause run is detected.
+
+ResumeRunCalled when a resume run is detected.
+
+RunInProgressCalled when the first data to come in is not a begin run.   This
+              indicates that sclclient started while a run is in progress.
+
+<a name="AEN8174"></a>## EXAMPLES
+
+The  sample below starts out sclclient taking data from spdaq22 and feeding it
+       to a tclserver on u6pc2
+
+<a name="AEN8177"></a>**Example 1. Starting sclclient**
+
+```
+/usr/opt/daq/bin/sclclient --source= tcp://spdaq22/`whoami` --host=u6pc2 --port=2700
+            
+```
+
+<a name="AEN8180"></a>## SEE ALSO
+
+[[r10722]],
+        [[r10588]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ringselector | Up | tkdumper |

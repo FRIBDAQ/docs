@@ -1,0 +1,156 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN132"></a>3.2. Parameter requests
+
+The parameter service group provides
+                services related to SpecTcl parameters and tree parameters.
+                The base URL for this service group is like:
+
+<a name="AEN136"></a>```
+http://host.name:port-num/spectcl/parameter
+                
+```
+
+The remainder of this section describes the operations provided by
+                this service goup.
+
+## <a name="AEN140"></a>3.2.1. list
+
+Lists the SpecTcl raw parameters and their properties.
+                    If the parameter is also defined as a tree parameter
+                    the tree parameter properties are supplied.
+
+The filter query parameter
+                    accepts a glob pattern.  If it is not provided it defaults
+                    to * which matches all parametrs.
+
+On success, the detail attribute
+                    of the returned JSON object is an array of objects,
+                    one for each parameter whose name matches the
+                    filter
+
+Each object in the array has the following attributes:
+
+
+
+nameThe parameter name
+
+idThe parameter id.
+
+bins (tree parameters only)Number of suggested bins an axis of this parameter
+                                should have.
+
+low (tree parameters only)Recommended low limit for an axis of this parameter.
+
+hi (tree parameters only)Recommended high limit for an axis of thsi parameter.
+
+units (tree parameters only)Units of measure this parameter is in.
+
+## <a name="AEN181"></a>3.2.2. edit
+
+Modifies the properites of a tree parameter.  This
+                    operation has the following query parameters:
+
+
+
+nameName of the tree parameter.  The value of this
+                                parameter defaults to empty which won't usually
+                                match a tree parameter.  The value of
+                                name must be the name
+                                of a currently defined tree parameter.
+
+If the name is not a tree parameter
+                                a status of
+                                not found is returned
+                                with a detail that is
+                                the value of the name
+                                parameter.
+
+binsIf supplied the tree parameter's bins property
+                                will be modified to the value of this parameter.
+                                If not supplied, that attribute will not be changed.
+
+lowIf supplied the tree parameter's low limit property
+                                will be modified to the value of ths parameter.
+                                If not supplied, that property will not be modified.
+
+highIf supplied, the tree parameter's high limit property
+                                will be modified to the value of this parameter.
+                                If not supplied, that property will remain unchanged.
+
+unitsIf supplied, the tree parameter's units property will
+                                be modified to the value of this parameter.  If not
+                                supplied, that property will remain unchanged.
+
+On success the return has a status of
+                    Ok and an empty detail.
+                    Several errors are possible and detected:
+                    not found indicates the tree parameter
+                    was not found. command failed indicates
+                    that a **treeparameter** failed.
+
+## <a name="AEN223"></a>3.2.3. promote
+
+This operation promotes a simple, raw SpecTcl prameter to
+                    a tree parameter.  The difference between a parameter and
+                    a tree parameter from the point of view of the REST
+                    interface is that tree parameters have additional properties
+                    that can assist you in choosing good axis limits an binning
+                    when creating spectra.
+
+The following query parameters are recognized by
+                    the promote operation.  Note that
+                    most of them are mandator and an error is returned if
+                    mandatory parameters are not supplied.
+
+
+
+name (mandatory)Name of the parameter.   This parameter must
+                                already exist but must also not be a tree parameter.
+
+low (mandatory)Sets the low limit property of the parameter.
+
+high (mandatory)Sets the high limit property of the parameter
+
+bins (mandatory)Sets the bins property of the parameter.
+
+units (optional)Sets the units of measure of the parameter.
+
+On success, the detail attribute
+                    of the returned object is empty. Several error returns
+                    are possible (status not Ok):
+
+**missing parameter. **
+                        If one or more of the mandatory parameters is not
+                        present.  In that case the detail
+                        field is the name of one of the missing parameters.
+
+**not found. **
+                        If the name parameter value
+                        does not correspond to an existing parameter.
+                        The detail is the name of the
+                        parameter.
+
+**already treeparameter. **
+                        If the parameter named is already a tree parameter.
+                        The detail is the name of the
+                        parameter.
+
+**command failed. **
+                        If the **treeparameter -create**
+                        command failed.  The detail
+                        field is the error message emitted by the
+                        failing command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| REST requests supported. | Up | spectrum requests |

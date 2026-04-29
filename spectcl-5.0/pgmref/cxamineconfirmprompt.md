@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25021"></a>CXamineConfirmPrompt
+
+<a name="AEN25025"></a>## Name
+
+CXamineConfirmPrompt -- Prompt for confirmation
+
+<a name="AEN25028"></a>## Synopsis
+
+```
+#include <XamineConfirmPrompt.h>
+
+
+class CXamineConfirmPrompt  : public CXamineButtonPrompt        
+{
+  
+public:
+
+  CXamineConfirmPrompt (const std::string& rPrompt );
+  CXamineConfirmPrompt(const char* pPrompt);
+  virtual void FormatPrompterBlock (ButtonDescription& rButton) const  ;
+ 
+};
+        
+```
+
+<a name="AEN25030"></a>## DESCRIPTION
+
+`CXamineConfirmPrompt`
+               simply uses its prompt string to ask the user if
+               they are certain they want to perform the action
+               requested by the button.  If the usr declines,
+               no message is sent.  One use case is, for example,
+               if you provide a button to clear the contents of the
+               selected spectrum, you might want to give the user a
+               chance to consider if they really want to do that.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamineNoPrompt | Up | CXamineTextPrompt |

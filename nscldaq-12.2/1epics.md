@@ -1,0 +1,20 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="man-1epics"></a># III. 1epics
+
+**Table of Contents**[[r25299]] -- 
+            Push epics data into a Tcl Server (e.g. production readout).
+        [[r25408]] -- Write a set of channels to file
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EventFilter | Up | controlpush |

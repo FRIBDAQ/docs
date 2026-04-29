@@ -1,0 +1,35 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1717"></a>remote
+
+<a name="AEN1721"></a>## Name
+
+remote -- Allow scripts to know if they are operating remot of SpecTcl
+
+<a name="AEN1724"></a>## Synopsis
+
+**remote**
+
+<a name="AEN1727"></a>## DESCRIPTION
+
+The purpose of this command is to let scripts know if they are incorporated into
+                    SpecTcl or are running over the ReST command simulation jackets.  The command
+                    unconditionally returns a status of TCL_OK and a 
+                    result of 0 indicating the script is not remote.
+
+This script is not enapsulated and, therefore, any rank that executes it executes it
+                    locally.  A typical use case, has this executed by a GUI running in the
+                    MPI_ROOT_RANK.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| pseudo | Up | ringformat |

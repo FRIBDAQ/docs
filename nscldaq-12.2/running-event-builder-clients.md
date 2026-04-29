@@ -1,0 +1,49 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 76. Event builder client framework | Next |
+
+
+---
+
+# <a name="evb-using-client"></a>76.3. Running event builder clients
+
+Once built you will have to run your event builder clients.
+            To successfully run the clients, the event builder itself must
+            also be running.  The event builder supports several command
+            line options.  These are defined by the file
+            options.ggo, and can be extended by you
+            as well.  This file is an input file to the
+            **gengetopt** command line parser package.
+
+A Makefile rule to compile this file and create header is
+            already present.  The format of this file is described in the
+            **gengetopt** manual at:
+            [http://www.gnu.org/software/gengetopt/gengetopt.html](http://www.gnu.org/software/gengetopt/gengetopt.html).
+
+The pre-defined options are:
+
+
+
+`--help`Prints the a summary of the command line options
+                        that are supported by the program.
+
+`--evbhost`=*hostname*Provides the name (or IP address) of the host on which
+                        the event builder is running.  This switch is mandatory.
+
+`--evbport`=*tcpport*Provides the port on which the event builder is listening.
+                        If not provided, the NSCLDAQ Port manager is used to
+                        automatically locate the event builder.  In general you
+                        should not need this switch.
+
+`--evbname`=*eventbuilder-name*Provides the name of the event builder to which this
+                        client will provide fragments.  If this is omitted, the
+                        client will provide fragments to the default event
+                        builder for the user.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Building event builder clients. | Up | ringFragmentSource - a prepackaged client for ringbuffer data sources |

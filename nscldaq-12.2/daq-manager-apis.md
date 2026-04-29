@@ -1,0 +1,1559 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN12947"></a>Chapter 51. DAQ Manager APIs
+
+The DAQ Manager has extensive APIs for database, server REST access.
+    Also provided are a set of user interface libraries that provide canned views
+    which can either be coupled with standard model/controller APIs to build
+    user interfaces, or coupled with application specific model/controller
+    code to produce custom written GUIs.
+
+At present these APIs only supply Tcl bindings.  As time goes on, it is
+    likely that additional bindings will be written and documented here
+    and in the reference pages.
+
+The organization of this chapter is as follows:
+
+
+
+- [[c12947#sec.manager.dbapi]]
+             documents the components of the DAQ manager configuration database API.
+             This API not only supports database manipulation but includes
+             code used by the manager.
+- [[x13812]]
+            documents the components of the manager REST client API.  This API
+            allows you to create custom code to interact witht he manager.
+- [[x14002]]
+
+Each of these sections will list and describe the packages provided
+      in each category and provide copious references to man pages that
+      provide detailed descriptions of their public interfaces.
+
+# <a name="sec.manager.dbapi"></a>51.1. Manager Configuration Database API
+
+This section will provide documenation for Tcl packages that provide direct
+        access to the experiment configuration database used by the manager.
+        In actual fact, these packages also contain the manager server, minus
+        its REST interface packages.
+
+The  Tcl packages described in this section are available in the
+        NSCLDAQ Tcl library tree. This is defined by the $DAQTCLLIBS environment
+        variable when you source in daqsetup.bash from
+        NSCLDAQ 12.0 and later.  You can add this directory to your path
+        by either adding it to the TCLLIBPATH environment variable when running
+        tclsh or explicitly including it in `auto_path`
+        prior to sourcing your packages.  The next pair of examples illustrate
+        both options.
+
+<a name="AEN12969"></a>**Example 51-1. Setting the TCLLIBPATH environment variable for tclsh**
+
+```
+# On the Tcl command line:
+
+TCLLIBPATH="$TCLLIBPATH $DAQTCLLIBS" tclsh
+
+# Or via a persistent environment variable:
+
+TCLLIBPATH="$TCLLIBPATH $DAQTCLLIBS"
+export TCLLIBPATH
+tclsh
+        
+```
+
+Note that the method shown appends the
+        DAQTCLLIBS environment variable
+        value to any existing directorys in the
+        TCLLIBPATH.  This environment
+        variable is a space separated list of directories (valid Tcl list)  that
+        are top levels of directories searched for packages.
+
+<a name="AEN12975"></a>**Example 51-2. Adding DAQTCLLIBS to auto_path**
+
+```
+lappend ::auto_path $::env(DAQTCLLIBS)
+        
+```
+
+This code snippet takes advantage of the fact that environment
+        variables in Tcl are stored in a global array named `env`
+        whose indices are variable names and values the values.  Using ::
+        in front of these variable names forces them to be evaluated in the
+        global scope allowing this code snippet to work even in the body of a
+        **proc**.
+
+The database API packages are described in subsections listed below:
+
+
+
+- The [[c12947#sec.manager.containers]]
+                section describes a package that allows the manipulation of
+                container definitions as well as the ability to start a
+                persistent container
+                as defined by the database in an arbitrary node that can access
+                the container image and user's home directory tree.
+- The [[c12947#sec.manager.programs]]
+                 section describes a package that suports the definition of programs
+                 in the database and can manipulate them as well.
+- The [[c12947#sec.manager.sequence]]
+                section describes a package that supports manipulation of the
+                state machine and sequences attached to state transitions.
+- The [[c12947#sec.manager.kvstore]]
+                section describes a package that can manipulate the key value store.
+- The [[c12947#sec.manager.auth]]
+                section describes support for an authorization database.
+- The [[c12947#sec.manager.eventloggers]]
+                section describes a package that supports the definition of
+                event loggers.
+
+Note that configuration databases are SQLite3 database files.
+        Thus a pre-requisite for all of these packages is the
+        sqlite3 package.  More details will be provided
+        in the sections below.
+
+## <a name="sec.manager.containers"></a>51.1.1. The containers package.
+
+The containers package is provided
+            to manipulate the definitions of containers and to start
+            and stop persistent containers defined in a configuration database.
+            A common parameter to many of the exported procs is an sqlite3 database
+            command.  The example below shows what you need to
+            do to create
+            this command.
+
+<a name="ex.sqlite3cmd"></a>**Example 51-3. Creating an SQLite3 database command**
+
+```
+package require sqlite3
+...
+
+sqlite3 db mydbfile.db
+            
+```
+
+This code snippet pulls in the sqlite3 Tcl
+            package and later uses the **sqlite3** command
+            to associate the command **db** with the
+            database file mydbfile.db. The
+            **sqlite3** command, by default will create
+            a new database file, however since the database must have
+            a specific schema before it can be used by this package you
+            should not rely on this capability but use
+            [[r20127]]
+            to create configuration databases instead.
+
+The remainder of this section will briefly describe the capability
+            of the package along with examples.  Reference material on the
+            package can be found at:
+            [[r106592]].
+
+Containers are represented to have the following attributes:
+
+
+
+nameEach container definition has a unqique name. This
+                    name is used to identify the container definition
+                    throughout the API>
+
+imageEach container has an image fie.  This is a singularity
+                    image that, when activated produces a containerized
+                    environment within which programs can run.
+
+initialization scriptEach container definition can have an initialization
+                    script.  This is a shell script that is run prior
+                    to running any program in the container.  One common
+                    use for this script is to source an appropriate
+                    daqsetup.bash into the shell that
+                    runs programs in the container.
+
+mount pointsEach conatainer definition has a possibly empty list of
+                    mount points.  A mount point is a host file or directory
+                    and where it should appear inthe containerized environment.
+                    The term for these in singularity's documentation are
+                    *bindpoints*.
+
+The singularity configuration provides a set of default
+                    mount points that meet most needs, however some mount points
+                    depend on the container.  For example a containerized
+                    environment for Debian 10 will probably need a directory tree
+                    of the NSCL software compiled for that software while
+                    one for Debian 8 will need a different directory tree.
+
+Containers can be created, removed, listed, tested for, activated,
+            and deactivated.  A program can be run in an activated container.
+
+Here's an example of a typical container creation we might have
+            at the FRIB.  We want a container that will run the image
+            /user/opt/buster.img and, for each program
+            run in it will have the environment variables set up for
+            NSCLDAQ-12.0.   This will require an  initialization script (to
+            set up those variables) and the following code:
+
+<a name="AEN13044"></a>**Example 51-4. Creating a container definition for buster**
+
+```
+#---------------- Contents of ~/daq12.0.sh   --------------- 
+#!/bin/bash
+                                      
+. /usr/opt/daq/12.0/daqsetup.bash
+#------------------------------------------------------------
+#------------------------ contents of mkcontainr.tcl -----------
+
+lappend auto_path $env(DAQTCLLIBS)  
+
+package require sqlite3             
+package require containers
+
+sqlite3 db myconfig.db              
+
+   
+container::add db buster /usr/opt/buster.img ~/daq12.0.sh \
+    [list [list /usr/opt/opt-buster /usr/opt]]
+    
+db close                         
+            
+```
+
+Let's pick this apart.
+
+[[c12947#ex.mgr.mkcont.init]]                    The contents of this initialization file will be pulled
+                    into the datbase and run prior to each program run in
+                    an activated container.
+                Note, as we shall see later, the path used for
+                    daqsetup.bash, is therefore where this
+                    file will appear in the activated  container.
+
+[[c12947#ex.mgr.mkcont.auto_path]]                    As we've seen, this is one way to pull the libraries in
+                    NSCLDAQ into the Tcl library package search path.  This
+                    line assumes that prior to running this program
+                    daqsetup.bash for NSCLDAQ 12.0 or
+                    later has been sourced.
+                [[c12947#ex.mgr.mkcont.requires]]                    Pulls in the packages we need. We need the
+                    sqlite3 package because we're going to have
+                    to create a command connected to our configuration database.
+                    We need the containers package because
+                    that's the package we'll be exercising.
+                [[c12947#ex.mgr.mkcont.opendb]]                    Creates a new command **db** which is connected
+                    to the SQLite3 database file myconfig.db.
+                    This file should have been made with
+                    [[r20127]]
+[[c12947#ex.mgr.mkcont.add]]                    This command adds the container definition to the database
+                    connected to **db**.  The remaining parameters
+                    are the name, image, initialization script and bindings.
+                The binding we create will make the host directory tree
+                    /usr/opt/opt-buster visible in the
+                    activated containers as /usr/opt.
+
+This matches our FRIB convention of storing built NSCLDAQ
+                    software for a specific container type in
+                    /usr/opt/opt-containertype which, for
+                    proper use should appear at
+                    /usr/opt.
+
+[[c12947#ex.mgr.mkcont.closedb]]                    Closes the SQLite3 connection to myconfig.cb.
+                    This also undefined the command **db**
+
+Defining a container does nothing more than that.  To use the containerized
+            environment it defines, you must activate the container and subsequently
+            run programs in that container.  You can then shutdown a container
+            by deactivating it.  The example below makes a ringbuffer in the
+            system spdaq99 named fox.
+            We override the default ring buffer data size and create a 16Mbyte
+            ringbuffers.
+
+<a name="AEN13087"></a>**Example 51-5. Using containers To Make a RingBuffer.**
+
+```
+lappend auto_path $env(DAQTCLLIBS)  
+
+package require sqlite3             
+package require containers
+
+sqlite3 db myconfig.db
+
+set containerFd [container::activate db buster spdaq99]  
+
+set programFd   [container::run buster spdaq99 \        
+     {$DAQBIN/ringbuffer create fox --datasize=16m}]
+puts [gets $programFd]                                  
+close $programFd
+
+container::deactivate spdaq99 buseter               
+close $containerfd                                  
+
+            
+```
+
+[[c12947#ex.usecont.activate]]                    This command creates a persistent instance of the container
+                    named buster on the host
+                    spdaq99.  Before running a program
+                    in a container it must be activated in the host(s) in which
+                    we want to use it.
+                The variable `programFd` is a file descriptor
+                    that receives output and error from the SSH command used
+                    to activate the container.
+
+[[c12947#ex.usecont.run]]                    Runs the the NSCLDAQ program **ringbuffer**
+                    to create a ringbuffer with the data size set to
+                    16m, or 16 Megabytes.  A few things
+                    to note: First we quoted the command in {}'s so that Tcl
+                    would not interpret $DAQBIN as an attempt
+                    to substitute for the *Tcl* variable
+                    `DAQBIN`. Second because in our container
+                    definition, we've arranged for daqsetup.bash
+                    to be run the environment variable `DAQBIN`
+                    is defined.  Finally, because the container package writes a
+                    script to run the program, the string $DAQBIN
+                    will get properly substituted.
+                [[c12947#ex.usecont.relay]]                    The **ringbuffer** command is transitory,
+                    therefore we can capture its output simply in this way.
+                    For a more long-lived program we might need to use fileevents
+                    and the event loop to capture the output/error messages over
+                    time.
+                Having captured and output the ringbuffer output/error
+                    messages, we close the file descriptor.
+
+[[c12947#ex.usecont.deactivate]]                    Done with the container, we deactivate it.
+                [[c12947#ex.usecont.closecfd]]                    In this simple example, we don't care about any output/error
+                    messages from the container activation.  In fact, monitoring
+                    the output from container activations is a bit complex,
+                    and beyond the scope of this documentation.  The source
+                    code for the programs package includes
+                    code that does that.
+
+Note that the package's ideas about which containers are active
+            depend on internal data rather than any system information.  Therefore
+            If you activate a container in one program and then run
+            a program in it in another, you may fail.
+
+Note also that activating a container and running programs in it,
+            depends on being able to run the **ssh** command.
+            It is therefore important that your
+            ~/.ssh/authorized_keys file has a public key
+            for your ssh identity.  See the results of google searches for
+            SSH without password for information about how
+            to set this up.
+
+## <a name="sec.manager.programs"></a>51.1.2. The programs package
+
+The programs package provides support for
+            making and manipulating program definitions, for running and killing
+            programs in hosts (either in or without containers), and for
+            capturing program output.  The package, if needed, activates containers
+            using the containers package we just described
+            to run programs within a containerized environment.
+
+Reference material on the programs
+            package can be found at:
+            [[r106761]]
+
+A program is defined by the following mandatory data:
+
+
+
+idAn integer that is unique across all programs.
+
+nameThis name is used to identify the program primarily to
+                     people.  The name must be unique
+                     among all programs.
+
+pathThe filesystem path to an executable entity. Executable
+                     entities can be binary program sor they can be scripts.
+
+If the program runs containerized the executable entity
+                     must be locatable within the containerized environment.
+                     This means that if the path to the script is incomplete,
+                     the PATH variable in the container
+                     must be able to locate the program.  Alternatively,
+                     if the path to the program is complete, but the image of the
+                     filesystem within the container is different that in the host,
+                     the path within the container must be used.
+
+typeThe type of the program.  Programs can be
+                     Transitory, which means it is expected
+                     they will exit.  There are also two types of persistent
+                     programs (programs that are not expected to exit):
+                     Critical programs are required for
+                     the data acquisition system to function properly.  If a
+                     Critical program exits, the DAQ
+                     manager forces the DAQ system to shutdown.
+                     Persistent programs are not expected to
+                     exit but, if they do, data taking can continue.
+
+hostThe DNS name of the host in which the program will be run.
+                     You should specify exactly the name of the host in which to
+                     run the program and not use localhost.
+
+Several optional bits of data can be associated with a program and
+            define the environment in which the program runs.  Not all of these
+            items are used at this implementation of the system.
+
+
+
+containerThe name of a container in which the program will
+                     run.  This container must be defined in the
+                     containers package.
+
+initscriptAn initialization script run prior to running the program.
+                     This is not yet used.  The contents of this script are
+                     pulled into the database.  Thus changes to the
+                     initialization script (once it's implemented) will
+                     not bee seen until the program is re-defined.
+
+By not used, I mean that the GUI systems to edit program
+                     definitions don't provide a mechanism for providing this
+                     script.  At program activation time, any initialization
+                     script provided is used.
+
+Since the contents of the script are sucked into the
+                     database, it's important to provide the path to the
+                     script at the time the program is defined.
+
+serviceNot currently used.  If the program provides a REST service,
+                     its name should be provided here.
+
+environmentA list of environment name, value pairs which will be
+                     put into the program's environment before it is started.
+
+For example, when a Tcl script is the program, you
+                     may need to supply a TCLLIBPATH=$DAQTCLLIBS
+                     environment definition
+
+directoryThe working directory in which the program will be started.
+                     If not provided, you should make no assumptions about
+                     the working directory the program will be run in.
+
+These bits of optional data are used to construct the
+            command used to run the program.
+
+
+
+optionsThese are the program options and optionally values
+                     needed by those options.  For example, for a Readout,
+                     an option might
+                     be `--ring` with a value like
+                     `fox`.  It is legal for options not to have
+                     a value (for example `--oneshot`).
+
+Options are considered to be unordered.
+
+parametersParameters are placed on the command line following
+                     all options.  They are considered to be a list of ordered
+                     values.  An example of program parameters might be
+                     the name of the host in which the manager is running.
+
+Note that since many of these items are used to construct a
+            script to run the command environment substitutions are supported
+            e.g. if daqsetup has been run in the context in which the program
+            was run $DAQBIN can be used to specify the
+            path to an NSCLDAQ program.
+
+Let's look at some of the operations you can perform on
+            programs.  We're going to assume that there's a container defined
+            named buster whose initialization script
+            runs daqsetup.bash.
+
+**Adding a Program. **
+               To add a program running VMUSBReadoutin
+               spdaq99, for example we might do the following:
+
+<a name="AEN13228"></a>**Example 51-6. Adding a New Program Definition**
+
+```
+lappend auto_path $env(DAQTCLLIBS)    
+package require sqlite3               
+package require programs
+
+sqlite3 db myconfig.db                
+
+program::add db readcrate1 \$DAQBIN/VMUSBReadout Critical spdaq99 \
+     [dict create                                                  \
+        container buster                                           \
+        options [list {--daqconfig ~/spdaq99/daqconfig.tcl}        \ 
+           {--ctlconfig /dev/null} {--ring=crate1} {--sourceid 99} \
+           {--initscript ~/spdaq99/startrest.tcl}                   \
+        ]                                                          \
+        environment {TCLLIBPATH $DAQTCLLIBS}                       \
+        service     ReadoutREST                                    \
+     ]
+
+db close
+
+
+            
+```
+
+[[c12947#ex.addpgm.autopath]]                  Adds the NSCLDAQ Tcl library path to the
+                  `auto_path` so that the
+                  programs package can be found.
+                [[c12947#ex.addpgm.requires]]                  Pulls in the packages this simple example needs.
+                  The sqlite3 package is needed to
+                  create a connection to the configuration database.
+                  The programs package is needed
+                  to add a program definition.
+                [[c12947#ex.addpgm.open]]                  Almost all of the programs package procs require
+                  an sqlite3 database connection parameter to tell them
+                  which database to operate on.  This line opens a
+                  database creating the command ensemble
+                  **db**.  
+                Note that while this command
+                  will create a database if does not exist, the resulting
+                  database will not have any table definitions.
+                  To create an experiment configuration database
+                  file, you should instead use the NSCLDAQ
+                  [[r20127]]
+                  command.
+
+[[c12947#ex.addpgm.add]]                  There's a lot going on in this command so let's take it a
+                  bit at a time.  The **program::add** command
+                  creates a new program definition.  The first parameter it takes
+                  is an SQLite3 datbase connection.  This connection must
+                  connect to a database that was created with
+                  [[r20127]]
+The next two parameters are the name and program path
+                  respectively.  The name must be unique over all
+                  programs or else an error will be thrown.  The
+                  program path must be valid within the environment
+                  in which the program will be run.  Note the use of the
+                  backslash character to prevent variable substitution in
+                  specifying that the **VMUSBReadout**
+                  command lives in the NSCDAQ binaries directory.
+
+The program type is Critical since
+                  it is a readout and likely the experiment cannot run
+                  without it.
+
+The program will run in the host spdaq99
+
+The optional data are specified as a dict.  The
+                  key of the dict specifies the data provided and the
+                  value the data itself.  The container
+                  key specifies the program will be started containerized
+                  and will run in the buster container.
+
+The options key specifies a list of
+                  option/value pairs passed to the program when it is run.
+                  Each option is a one or two element sublist containing,
+                  inorder, the
+                  option name and value.  If an option does not require a name,
+                  it must be specified with a single element sublist.
+                  The option/value pairs in this example should be familiar
+                  to users of **VMUSBReadout**, with the
+                  possible exception of `--initscript` which
+                  supplies a TCL script sourced by the program's Tcl interpreter
+                  to start the REST server component.
+
+The environment key provides environment
+                  variables.  In this case we ensure that the DAQ Tcl libraries
+                  are in the library search path.  This will be needed by
+                  ~/spdaq99/startrest.tcl.
+
+While not yet used, we set the servicename used by the
+                  REST interface so that when this is used by the system,
+                  we don't need any changes.
+
+The contents of the ~/spdaq99/startrest.tcl
+            script are simple:
+
+<a name="AEN13272"></a>**Example 51-7. Initialization Script to start Readout REST servers**
+
+```
+package require ReadoutREST
+close stdin
+            
+```
+
+**Listing Program Definitions. **
+               There are two entries for getting program definitions
+               **getdef** returns a dict that describes
+               a program definition when given a database handle and the
+               name of a program.  **listDefinitions**
+               returns a list of those dicts, one for each program definition.
+
+The example below lists the name of each program, where it
+            runs and the image it runs.  See
+            [[r106761]]
+            for a full description of the dict used to describe program definitions.
+
+<a name="AEN13282"></a>**Example 51-8. Listing Program Definitions**
+
+```
+lappend auto_path $env(DAQTCLLIBS)
+package require sqlite3
+pacakge require programs
+
+sqlite3 db myconfig.db
+
+set inf [program::listDefinitions db]
+foreach p $inf {
+   set name [dict get $p name]
+   set host [dict get $p host]
+   set path [dict get $p path]
+   puts "$name runs $path in $host"
+}
+            
+```
+
+This example should be relatively self explanatory
+            **listDefinitions** only requires a database
+            command ensemble connected to a properly formatted database.
+
+**Running a Program. **
+               Once a program has been defined it can be run.   When you
+               run a program, if it has a container specified, the package
+               will first activate the container.  Regardless it will
+               write a script to run the program.  The program itself,
+               is run over an ssh pipe and the file descriptor for that
+               pipe's output and stderr  is returned to the caller.
+
+**program::run** establishes an output
+            handler for the pipe.  Optionally the caller can supply
+            an output handler as well.  Regardless, it's important,
+            for those output handlers, that at some point an event loop
+            is entered to allow those file handlers to be dispatched.
+
+In the example below, we run two programs:  readcrate1
+            and unimportant.  We'll catch and output the
+            output/error of readcrate1 and let the default handler take care
+            of unimportant.
+
+When readcrate1 exits (detected by an eof on the pipe), we'll
+            exit as well.
+
+<a name="AEN13296"></a>**Example 51-9. Starting Programs in the programs Package**
+
+```
+lappend auto_path $env(DAQTCLLIBS)
+package require sqlite3
+package require programs
+
+sqlite3 db myconfig.db
+
+set done 0
+proc ReadCrate1OutputHandler {name fd} {                
+   if {![eof $fd]} {
+      puts "$name: [gets $fd]"
+   } else {
+      incr ::done
+   }
+}
+
+program::run db readcrate1 ReadCrateOutputHandler      
+set fd [program::run db unimportant]
+
+vwait done                                             
+
+if {[program::isActive unimportant]} {
+   program::kill db unimportant                       
+   catch [close $fd]
+}
+
+db close
+            
+```
+
+[[c12947#program.run.handler]]                  This will be the output handler for the readcrate1
+                  program.   This will be called with two parameters.  The
+                  first is the name of the program, the second is the file descriptor
+                  connected to the pipe.
+               If the file descriptor has not been closed by the program,
+                  a line is read and output preceded by the name of the program.
+                  If an end file is detected, we increment the `done`
+                  variable.  More about this later.
+
+Note that we don't close the file descriptor.  The program
+                  API wraps our output handler in its own output handler.
+                  That output handler wrapper will take care of closing the
+                  file descriptor.
+
+[[c12947#program.run.run]]                  These two lines run the two programs.  readcrate1
+                  is given an output handler while unimportant
+                  just gets the output handler wrapper (which throws away
+                  any output).  We capture the file descriptor of
+                  unimportant because, as we'll see later
+                  we may need to close it.
+                [[c12947#program.run.evloop]]                  Enters the event loop until the `done`
+                  global variable is modified.  As we've seen, this will
+                  be modified when readcrate1 exits
+                  (or at least closes its output and error pipe).
+                  Entering the event loop allows Tcl to dispatch the output
+                  handlers attached to file descriptors
+                  (see the Tcl documentation of **fileevent**).
+                [[c12947#program.run.kill]]                  The **isActive** command determines if a
+                  program is still active.  If unimportant
+                  is still running we ask the package to kill it and
+                  then close the file descriptor open on its pipe.
+                It's a good idea to wrap **close** file
+                  file descriptors open on pipelines  in a
+                  **catch**.  This is because anything that
+                  looks like a failure of the process connected to the pipe
+                  will result in an error from the **close**
+                  command.  This includes not only a non zero exit status
+                  but any output on the program's stderr as well.
+
+A note about program::kill.  This operates
+            by locating the program image in the remote system and using
+            ssh to issue a **kill** command.  Sadly, there are
+            cases where this is unsufficient and I don't know how to help that.
+            Specifically, if the image is a script that runs a program,
+            even though the script gets killed, the program my continue to run.
+
+## <a name="sec.manager.sequence"></a>51.1.3. The **sequence** package
+
+The sequence package provides support for
+            two concepts within the manager:
+
+
+
+1. The manager implements a state machine.  While there is
+                     a default state machine loaded into the manager it is
+                     possible to define any state machine as long as its initial
+                     state is called SHUTDOWN and
+                     any state can transition to SHUTDOWN
+2. The manager associates sequences to transitions into
+                     a specific state.  A sequence is a list of programs
+                     (see previous section) that are run to properly transition
+                     to that state.
+
+Reference information on the sequence package is at
+            [[r107034]]
+
+The remainder of this section will describe:
+
+
+
+- What a state machine is, and the default state machine
+                    that's implemented when a configuration database is
+                    created.  This is described in
+                    [[c12947#sec.sequence.statemachine]]
+- Parts of the sequence package that
+                    can be used to create other state machines than the
+                    default state machine.  Note that in most cases it is not
+                    necessary to create a custom state machine.
+                    This is described in
+                    [[c12947#sec.sequence.stateapi]]
+- [[c12947#sec.sequence.seqapi]]
+                    sequences and the API section of the sequence
+                    package that manage sequences.
+- [[c12947#sec.sequence.transition]]
+                    describes transitions and the parts of the API that manage them.
+- [[c12947#sec.sequence.misc]]
+                    describes miscellaneous parts of the API that don't neatly fit into
+                    any of these categories.
+
+### <a name="sec.sequence.statemachine"></a>51.1.3.1. State Machines, and the Default State Machine
+
+This section describes, in a general way, what a state machine
+               is and the default state machine that is loaded into the
+               database by
+               [[r20127]].
+
+A state machine is a system that can live in any of a set of named
+               *states*.  State machines define, as well,
+               the legal transitions to successor states given the system is in
+               a specific state.
+
+State machines have at most two special states.  The
+               *initial state* defines the state
+               the system is in when it is initially instantiated.
+               A system may also have a
+               *final state*.  The final state is one
+               that has no legal successors.  If a state machine
+               enters the final state it has completed execution.
+
+The table below describes the default state machine
+               as the set of state names and their legal successor states.
+               The initial state is also described.
+
+<a name="AEN13374"></a>**Table 51-1. Default Manager State Machine**
+
+| State | Successors |
+| --- | --- |
+| SHUTDOWN (initial) | BOOT, SHUTDOWN |
+| BOOT | SHUTDOWN, HWINIT, BEGIN |
+| HWINIT | SHUTDOWN, BEGIN |
+| BEGIN | SHUTDOWN, END |
+| END | SHUTDOWN, HWINIT, BEGIN |
+
+This state machine has no final state.
+
+### <a name="sec.sequence.stateapi"></a>51.1.3.2. The State machine API
+
+The state machine API allows you to configure an arbitrary
+               state machine.  The requirement that the manager has
+               for statemachines is simply that there's an initial state
+               named SHUTDOWN and that this state is directly
+               reachable from any other state.  Note that various other GUI's
+               such as [[r20642]]
+               have additional requirements.
+
+The three procs that support modifying the state machine are
+               **newState** which creates a new state.
+               **newTransition** which defines a new transition
+               and **rmvState** which removes a state and
+               all transitions to/from it as well as all sequences it triggers.
+               See [[c12947#sec.sequence.seqapi]]
+               for more on sequences and triggers.
+
+In the example below we extend the state machine to support
+               a PAUSED state.  The paused state can be
+               reached from  the existing BEGIN state and
+               can reach BEGIN, END
+               and, of course SHUTDOWN.
+
+<a name="AEN13416"></a>**Example 51-10. Adding a PAUSED State**
+
+```
+lappend auto_path $env(DAQTCLLIBS)
+package require sqlite3
+package require sequence                       
+
+sqlite3 db myconfig.db
+
+sequence::newState db PAUSED                 
+sequence::newTransition db BEGIN PAUSED
+sequence::newTransition db PAUSED END        
+sequence::newTransition db PAUSED BEGIN
+sequence::newTransition db PAUSED SHUTDOWN
+
+db close
+
+               
+```
+
+[[c12947#ex.seq.boilerplate]]                     By now this should be familiar.  Extend the library
+                     search path and require the packages we need before
+                     opening the database.
+                [[c12947#ex.seq.addstate]]                     Adds a new state named `PAUSED`
+                     to the state machine.  At this point there are no
+                     states that can transition into PAUSED
+                     and PAUSED cannot transition to any
+                     successor state.
+                [[c12947#ex.seq.addtransitions]]                     This chunk of code adds the transitions required to make
+                     PAUSED functional.  Each call, in
+                     addition to the database command, requires a
+                     *predecessor* state and a
+                     *successor state*.  These two states
+                     define a transition.  In the first call, for example;
+                     we are saying that PAUSED can be reached
+                     from BEGIN.
+
+Using the **rmvState** operation it's possible
+               to make a completely new state machine by removing all states in
+               the existing state machine and starting from scrach.
+
+### <a name="sec.sequence.seqapi"></a>51.1.3.3. The Sequence API
+
+States and transitions by themselves do nothing.  The power
+               of this package is the ability to add sequences of actions to
+               transitions into a state.  In this version (NSCLDAQ 12.0), the
+               actions that can be added are simply running programs that have
+               been defined using e.g. the programs
+               API.
+
+A sequence is a series of ordered steps.  Each step runs a program
+               with an optional pre and post delay.  Sequences are
+               *triggered* by the entry into a specific
+               state.  Any number of sequences can be defined and a transition
+               into a state can trigger as many sequences as desired.
+
+Each sequence step runs a program that was defined using
+               the programs API.  Recall that there are
+               three types of programs; Transitory, Persistent and Critical.
+               Transitory programs are expected to exit quickly while Persistent
+               and Critical programs are expected to endure indefinitely.
+
+Therefore, when a Transitory program runs, the step stalls
+               until that program exits.   Persistent and Critical
+               programs, however, are simply started.  If a Critical program
+               exit is detected, the tate machine initiates a transition to the
+               SHUTDOWN state.
+
+Supose we want to start the readout1 and readout2 the event builder
+               (eventbuilder) and data sources for readout1 and readout2 (feed1 and
+               feed2)
+               on a transition to BOOT.  These programs have already
+               been defined in the database.  The following  code snippet
+               performs this task:
+
+<a name="AEN13449"></a>**Example 51-11. Defining A Boot Sequence**
+
+```
+lappend auto_path $env(DAQTCLLIBS)
+package require sequence
+package require sqlite3
+
+sqlite3 db myconfig.db
+
+sequence::add db InitiateDataFlow BOOT  
+
+::sequence::addStep db InitiateDataFlow readout1
+::sequence::addStep db InitiateDataFlow readout2    
+::sequence::addStep db InitiateDataFlow eventbuilder 0 2 
+::sequence::addStep db InitiateDataFlow feeder1
+::sequence::addStep db InitiateDataFlow feeder2
+
+db close
+               
+```
+
+[[c12947#ex.seq.makeseq]]                  This creates a new sequence named
+                  InitiateDataFlow and
+                  triggers it on transitions to the BOOT
+                  state.  Note that at present, the database and software only
+                  support a sequence being triggered on a single state.
+                  That is a sequence cannot be created to trigger both by
+                  transitions to BOOT and
+                  HWINIT.
+                [[c12947#ex.seq.addsteps]]                  This block of code adds the five steps we need to the
+                  sequence.  addStep adds a new step to the
+                  end of a sequence.  Other API elements provide the ability
+                  to edit sequences. 
+                [[c12947#ex.seq.delay]]                     We add a post delay of 2 seconds to the step that runs
+                     the eventbuilder program  as it may
+                     need time to start up and become ready to accept connections
+                     from its feeder programs.
+
+### <a name="sec.sequence.transition"></a>51.1.3.4. The Transition API
+
+Transitions are the act of placing the system in a new state that
+               can be legally reached from the current state.
+               Doing so requires that all sequences triggered on the new
+               state run successfully.
+
+There are several API members that allow you to determine the
+               current state, the legal transtions from that state, to
+               test if a transition is legal and, most importantly, to
+               initiate a transition.
+
+Transitions require scheduling and this requires the event
+               loop.  Thus normally, you initiate a transition and enter
+               the event loop at least until the transition completes.
+
+Note that if a sequence triggered by the transition runs
+               either Persistent or Critical programs, capturing output
+               from those programs is also done via the event loop.
+               Thus users of this package that drive the state machine through
+               transitions must be sure to enter the event loop in
+               a manner that makes the system responsive to events.
+
+The example below tests to see if we are in SHUTDOWN state
+               and, if so, initiates a transition to BOOT the system.
+
+<a name="AEN13475"></a>**Example 51-12. Booting the System.**
+
+```
+lappend auto_path $env(DAQTCLLIBS)
+package require sqlite3
+package require sequence
+
+sqlite3 db myconfig.db
+
+set status ""
+
+proc completion {db manager completionStatus} {   
+   set ::status $completionStatus
+}
+
+if {[::sequence::currentState db] eq "SHUTDOWN"} {  
+    ::sequence::transition db BOOT completion       
+    vwait status                                    
+    puts "Transition to BOOT completed in $status
+} else {
+    puts "Not in SHUTDOWN state."
+}
+db close
+
+               
+```
+
+[[c12947#ex.seq.trans.completion]]                  The sequence package allows you to synchronize with the
+                  completion of transitions via endscripts.  These is
+                  code invoked when a transition finishes, no matter how
+                  it completes.  endscripts are invoked with three
+                  additional command parameters:  The database command,
+                  The name of the command that represents a transition manager
+                  that's shephearding the system through the transition and
+                  the status of the completion (which is one of
+                  OK, ABORTED
+                  or FAILED).
+                See the reference page for more information about the
+                  Transition manager and its public methods.
+
+[[c12947#ex.seq.trans.check]]                     Gets the system's current state. Note that the state
+                     is maintained in the database so it's possible for an
+                     application to exit and for the state to be maintained.
+                     Note that the manager, in practice forces a
+                     SHUTDOWN, if necessary before
+                     exiting.
+                [[c12947#ex.seq.trans.boot]]                     Initiates the shutdown. Note that completion
+                     is specified as the end script for this transition.
+                [[c12947#ex.seq.trans.vwait]]                     The **vwait** command enters the event
+                     loop until the completion proc is
+                     invoked after the transition completed.  That proc sets
+                     the `status` global variable with the status
+                     of the transition which ends the vwait and makes the
+                     completion status available.
+
+### <a name="sec.sequence.misc"></a>51.1.3.5. Miscellaneous API Entries.
+
+Several miscellaneous API interfaces allow you to gain information
+               about the system.   It is possible, for example, for
+               applications to:
+
+
+
+- Get information about the currently active state
+                       transition.
+- Capture the output of specific sequence steps.
+- Send text to the output server so that it is
+                       relayed to all output clients.
+
+Note, again, that transitions and output handling
+               are triggered by the event loop and thaty therefore
+               the program in which these are used must enter the event
+               loop  in a timely manner.
+
+The fragment below will determine which, if any transitionis
+               currently in progress, and attach an output monitor to
+               each step of the sequences that are triggered by that
+               transition.  This makes use of the services of
+               a TransitionManager object that is documented fully in the
+               reference material.
+
+<a name="AEN13512"></a>**Example 51-13. Using Miscellaneous Sequence Facilities**
+
+```
+...
+package require sequence
+package require snit       
+...
+
+set manager [::sequence::getCurrentTransition]   
+if {$manager ne ""} {
+   set db [$manager cget -database]
+   set t  [$manager cget -type]
+   set allSequences [::sequence::listSequences $db]   
+   foreach seq $allSequences {
+      set name [dict get $seq transition_name]
+       if {[dict get $seq transition_name] eq $t} {
+         set steps [::sequence::listSteps $db $name]  
+         foreach step $steps {
+            set aMonitor [MyMonitor %AUTO% \     
+              -database $db -sequence $seq -step $stepno \
+            ]                          
+            set stepno [dict get $step step]
+            ::sequence::addMonitor $db $name $stepno $aMonitor 
+         }
+       }
+   }
+   
+}
+                           
+snit::type MyMonitor {
+   option -step
+   option -database
+   option -sequence
+   constructor args { $self configurelist $args}
+   
+   method onOutput  {db program fd} {  
+      set line [gets $fd]
+      set name [dict get $program name]
+      ::sequence::relayOutput "Step $options(-step); $name: $line" 
+   }
+   method onExit {program fd} {     
+      ::sequence::relayOutput "[dict get $program name] exited!!"
+      ::sequence::addMonitor $options(-database) $options(-sequence) \
+         $options(-step) ""
+      after 0 [mymethod destroy]
+   }
+}
+                  
+... # More code that eventually enters the event loop.
+               
+```
+
+It's important to emphasize that this code is a program
+               fragment not an complete program.   The elipses show where
+               additional code would be needed.
+
+[[c12947#ex.seq.misc.snit]]                     In this example we're going to add an
+                     *output monitor* to steps in t
+                     sequences.  Output monitors are command ensembles (a base
+                     command with subcommand following).  Snit is a package
+                     that supports object oriented program. Snit types
+                     are like classes and an instance of a snit type
+                     is represented by a command ensemble.
+                   We're going to use snit types to define our output
+                     monitors.  There are other options like namespace ensembles,
+                     TclOO and Incremental Tcl (in fact SNIT is a
+                     recursive acronym that stands for
+                     SNIT Is Not Incremental Tcl).
+
+The key point, as we'll see is that in order to
+                     make an output monitor, you need to have
+                     a command ensemble that accepts the two subcommand
+                     **onOutput** and
+                     **onExit**.
+
+[[c12947#ex.seq.misc.getmgr]] **::sequence::getCurrentTransition**
+                     returns a command ensemble that implements what
+                     is called a transition manager for the transition
+                     that's currently running.  If no transition
+                     is actively running, the return value is an
+                     empty string.
+                   [[c12947#ex.seq.misc.lseq]] **::sequence::listSequences**
+                     takes the database connection command and returns
+                     a list of dicts that describe the sequences
+                     that have been defined.  For the sake of this
+                     example, we only care that the transition_name
+                     key in that dict provides the name of the state
+                     whose attempted entry triggers the sequence,
+                     and that name provides the name
+                     of the sequence.
+                   [[c12947#ex.seq.misc.lstep]]                     For every sequence that's triggered by the current
+                     transition manager, we list that sequence's steps
+                     using **::sequence::listSteps**
+[[c12947#ex.seq.misc.monitor]]                     For each setp we create a monitor instance.  That is
+                     a new command ensemble that will monitor output
+                     from the program in that step.  The construction of
+                     the snit type (see below) returns the name of the
+                     command ensemble.  Instantiating a new snit::type
+                     with the %AUTO% keyword gets snit
+                     to create a new command base name that is unique
+                   [[c12947#ex.seq.misc.addmon]]                     This associates the monitor with the step.  Note that the
+                     return value from **::sequence::addMonitor**
+                     is any prior monitor.  
+                   [[c12947#ex.seq.misc.omonitor]]                     This section of code defines a new snit type.  Snit types
+                     are like classes in that the define a template for
+                     producing new command ensembles that are encapsulated
+                     with data.  
+                   Since snit is also used as a megawidget framework.
+                     in addition to encapsulating
+                     **variable**s, a snit type can
+                     define options.  Options are like the options in a
+                     Tk widget.  They can be supplied at construction time or
+                     built in methods **configure**
+                     and **cget** set or query options.
+                     Options appear to method code like an array named
+                     `options` indexed by the option name.
+
+Finally a snit type **method** defines a
+                     subcommand of the instance command ensembles.
+
+[[c12947#ex.seq.misc.onout]]                     When output is available from the program, the sequence API
+                     invokes the output monitor's **onOutput**
+                     subcommand.  It passes the database command, the program
+                     definition dict and the file descriptor open on the output
+                     of the program run in the step being monitored.
+                   [[c12947#seq.misc.orelay]]                     The **::sequence::relayOutput** command
+                     sends its argument to all processes connected to its output
+                     relay server.
+                   [[c12947#ex.seq.misc.onexit]]                     The **onExit** subcommand of the output monitor
+                     command ensemble is invoked if an end file condition is
+                     detected on the file descriptor connected to the step
+                     program's output.  The framework passes the program definition
+                     dict and the file descriptor which, while still open, can no longer be read.
+                     The caller will close that file descriptor
+                   This sample implementation simply informs clients of the
+                     output relay server, removes itself as a monitor (by passing
+                     an empty command to **::sequence::addMonitor**).
+                     Finally it schedules itself for destruction.  This is done
+                     from the event loop to prevent potential awkward problems with
+                     the object being destroyed while one of its method is still
+                     being executed.  While I have successfully done
+                     **$self destroy** in similar situations, it's always
+                     left me fealing uneasy.
+
+## <a name="sec.manager.kvstore"></a>51.1.4. The kvstore package
+
+A key value store can be thought of as an array whose
+            keys are strings.  The manager key value store is string valued.
+            Associated with each key is a string value.  A
+            kvstore package provides the abiliy
+            directly access the key value store in the
+            configuration SQLite3 database file.
+
+Using the API, you can create a new key/value pair.  Your
+            application can read existing keys and modify their values.
+            Finally, you can also remove an existing key/value pair
+            from the store.
+
+The key value store can be used by you  as you wish.  However,
+            note that the readout control packages create and use
+            a pair of keys: run and
+            title to hold the run number and title
+            of the next run.  As the manager evolves it is possible that
+            additional facilities will create and use other standard
+            key/value pairs.
+
+See
+            [[r107445]]
+            for reference information on the key value store API.
+
+The example below shows a few of the features of the
+            kvstore package.  It assumes that
+            the DAQ environment for a version 12.0 or higher NSCLDAQ
+            has been setup or, alternatively that the TCLLIBPATH
+            environment variable includes the TclLibs
+            subdirectory of such a version.
+
+<a name="AEN13587"></a>**Example 51-14. Using the kvstore package**
+
+```
+if {[array names env DAQTCLLIBS] ne ""} {
+   lappend auto_path $env(DAQTCLLIBS)
+}
+package require kvstore        
+package require sqlite3
+
+sqlite3 db myconfig.db
+
+kvstore::create db mykey myvalue  
+
+kvstore::modify db mykey {A new value} 
+
+puts "Contents of kvstore:"
+dict for {key value} [::kvstore::listAll db] {  '
+   puts "$key => $value"
+}
+
+db close
+
+            
+```
+
+[[c12947#ex.kvstore.require]]                  This and the next line import the packages needed
+                  for
+                  this simple example.  kvstore
+                  contains the code needed to access the key value
+                  store and the sqlite3 package
+                  provides access to the Tcl bindings to the
+                  SQLite3 database system needed to access
+                  a database file.
+                [[c12947#ex.kvstore.create]]                  Creates a new key named mykey
+                  with an initial value myvalue.
+                  Not here and in futuure calls to the
+                  kvstore commands, that the
+                  first parameter is always the database command
+                  used to manipulate the desired database file.
+                [[c12947#ex.kvstore.modify]] **kvstore::modify** changes the value
+                  of an existing key.  In this line we change
+                  the value of the key we just created to
+                  A new value.  Note that the values
+                  of keys can be arbitrary strings.  In this case,
+                  we use Tcl's quoting system to create a value that
+                  has embedded white space.
+                [[c12947#ex.kvstore.listall]]                  The **kvstore::listAll** command
+                  returns a dict version of the key value store contents.
+                  Keys in the dict are keys in the kvstore, values are
+                  the values of those keys.  This means that the
+                  **dict for** command will output the
+                  contents of the key value store.
+
+## <a name="sec.manager.auth"></a>51.1.5. The auth package.
+
+While it is not yet used as of NSCLDAQ-12.0, the manager supports
+            an authorization database.  In the future, this will be used
+            to limit the things individual users can request of the manager.
+            Understanding this part of the API and database requires understanding
+            the following basic terms:
+
+
+
+usersUsers represent holders of computer accounts.  Users
+                     band together to collaborate on experiments.
+
+rolesA role is represents a bundle of capabilities.
+                     Usually role names are designed to represent the things
+                     that individual users on an experiment might do.
+                     For example manager might be the
+                     people that can configure the system and start/stop the
+                     DAQ manager.
+
+grant/revokeRoles can be granted and revoked to users.  When
+                     a role has been granted, the user  gains the
+                     bundle of capabilities represented by the role.
+                     For example, if a user is granted the role of
+                     ShiftOperator, they might gain
+                     the ability to start/stop runs.
+
+Full reference material for the authorization package
+            (auth)) is provided in
+            [[r107778]].
+
+The example below adds a new user to the experiment, creates a few
+            roles and grants a few of those roles to the new user.
+
+<a name="AEN13639"></a>**Example 51-15. Program Using the auth Package**
+
+```
+if {[array  names env DAQTCLLIBS] ne ""} {
+   lappend auto_path $env(DAQTCLLIBS)
+}
+package require auth      
+package require sqlite3
+
+sqlite3 db myconfig.db
+
+auth::adduser  db fox    
+
+auth::addrole db manager
+auth::addrole db analyzer 
+auth::addrole db operator
+
+auth::grant fox operator  
+
+puts "People and the roles they have:"
+
+dict for {person roles} [auth::listAll db] {     
+   puts "$person has been granted [join $roles ", "]
+}
+
+db close
+
+            
+```
+
+[[c12947#ex.auth.require]]                  The auth package must be pulled into the
+                  program to use this API.  Note that all commands in that package
+                  are in the namespace ::auth.  
+                [[c12947#ex.auth.adduser]] **auth::adduser** makes a new user known to the
+                  configuration.  The name of the user should be the same as
+                  their account username.
+                [[c12947#ex.auth.addroles]]                  This set of lines uses **auth::addrole** to
+                  add three roles, manager, analyzer
+                  and operator to the authorization database.
+                [[c12947#ex.auth.grantrole]]                  The **auth::grant** command grants a role
+                  to a user.  In this case, the operator
+                  role is granted to the user fox we
+                  created earlier in the program.  Once a role has been granted
+                  to a user, all of the capabilities associated with that role
+                  are available to that user.
+
+## <a name="sec.manager.eventloggers"></a>51.1.6. The eventloggers Package.
+
+The eventloggers package  provides
+            the
+            ability to define and control event loggers.  Event logger
+            definitions in the manager configuration database subsume
+            all of the capabilities of the NSCLDAQ-11
+            **ReadoutShell**'s
+            multilogger and primary event logger.
+
+An arbitrary number
+            of event loggers of *both* types
+            can be defined, enabled, disabled, and marked as critical.
+            If a critical logger fails, a SHUTDOWN
+            state transition is forced.  In this sense, this package
+            is dependent on the sequence package.
+
+As you build the set of event loggers you will use, be careful to
+            consider the bandwidth required to run them.
+
+Event loggers have the following attributes:
+
+
+
+idA unique integer, or id is
+                     assigned to each logger as it is created.  This
+                     id can be used to refer to that logger in the future.
+
+rootTop level directory of the NSCLDAQ installation that
+                     contains the event logger that will be run.
+                     This determines the version of NSCLDAQ from which
+                     the event logger comes.
+
+If the event logger is containerized (see
+                     options below), this  path
+                     must be the correct path inside the running container.
+
+sourceThe URL which defines the ring buffer from
+                     the logger logs data.
+
+hostThe host in which the event logger must run.
+                     It is assumed, that root is
+                     valid in that host and that the host is running
+                     the NSCLDAQ services.
+
+destinationThe top level directory in which the loggers
+                     stores data.  See TYPES OF LOGGERS
+                     below for more information about this.
+
+partialBoolean value. If true, this
+                     logger is a partial logger.  See
+                     TYPES OF LOGGERS below.
+
+criticalBoolean.  If true, the logger
+                     is a critical component of the running DAQ system.
+                     If this logger fails, the manager will therefore
+                     force
+                     a SHUTDOWN transition.
+
+enabledBoolean that, if true, indicates the logger is
+                     enabled.   If not enabled, a logger won't run
+                     to take data during a data taking run.
+                     If enabled it will.
+
+Note that it is legal for critical loggers to be
+                     disabled.
+
+containerTHe name of the container the event logger will run
+                     in.
+
+Destination directories, and data source URI's must be unique.
+
+**TYPES OF LOGGERS. **
+               The event logging subsystem recognizes two types of loggers,
+               *partial* and *complete*.
+               Partial loggers, like loggers in the NSCLDAQ
+               multilogger package just log event files
+               into a directory in a 'soup of files'.  Event files are
+               preceded with the date/time at which the logger started to
+               ensure they are unique.  For partial loggers, the
+               destiniation is simply the
+               directory in which these files are stored.
+
+Full loggers, on the other hand, behave like the primary
+            event logger in the NSCLDAQ **ReadoutShell**.
+            The destination directory is the top level
+            directory of the directory tree managed by the logger and its
+            wrapper. The structure of this tree is shown below.
+            The intent is to provide an experiment view and a per run
+            view.  The experiment view provides access to all event files
+            while the per run view also provides access to
+            associated run metadata stored in the
+            experiment/current subdirectory
+            when the run ended.
+
+<a name="AEN13747"></a>**Figure 51-1. Full logger directory tree**
+
+(destiniation) +  
+
+               +----> experiment+  
+
+               |                +---> current  
+
+               |                +---> run1  
+
+               |                +---> run2  
+
+               ...             ...  
+
+               +----> complete
+
+The example below illustrates some of the simple capabilities
+            of the eventloggers package.  Full
+            reference documentation can be found at
+            [[r107513]]
+
+<a name="AEN13753"></a>**Example 51-16. Sample Eventloggers Program**
+
+```
+if {[array names env DAQTCLLIBS]} {
+   lappend auto_path $env(DAQTCLLIBS)
+}
+
+package require eventloggers
+package require sqlite3     
+
+sqlite3 db myconfig.db
+
+set dest [file normalize ~/stagearea/evlog1] 
+file mkdir $dest
+
+set id [::eventlog::add db /usr/opt/daq/12.0-000 \ 
+  tcp://spdaq99/fox $dest                        \
+  [dict create host evloghost critical 1 enabled 1 container buster] \
+]
+
+set killdest [file normalize ~/stagearea/evlog2]
+
+                    
+
+foreach logger [eventlog::listLoggers db] {     
+    if {[file normalize[dict get $logger destination]] eq $killdest} {
+      eventlog::rm db [dict get $logger id]     
+    }
+}
+
+
+db close
+            
+```
+
+[[c12947#ex.evlog.require]]                  Requires the packages needed to make this program
+                  work.  The eventloggers
+                  package has the code to manage event logging.
+                  Note that all public entries are in the
+                  ::eventlog namespace.
+                [[c12947#ex.evlog.dest]]                  These two lines of code determine the full file system
+                  path of the event area we want to populate
+                  (**file normalize**).
+                  Note that event loggers don't create their destination
+                  directory, so we use **file mkdir**
+                  to create it here as well.
+                [[c12947#ex.evlog.add]] **eventlog::add** adds a new event logger
+                  and returns the id assigned to it.  The
+                  first four parameters are, in order, the database
+                  command, the NSCLDAQ installation root from which the
+                  logger comes, the URI of the data source, and where
+                  the event logger will put its data.
+                The final parameter is a dict whose keys define
+                  overrides for optional configuration values.
+                  We illustrate some of the more common options here:
+
+
+
+hostThe system which will run the event logger.
+
+criticalFlag that indicates whether or not the
+                           logger is critical, we've marked it critical
+
+enabledFlag that indicates whether or not the
+                           logger is enabled.
+
+containerName of a container that was established
+                           via the containers
+                           package.  Note that when supplying this any filesystem
+                           paths provided (in this case the destination
+                           and root), must be valid within the running
+                           container.
+
+[[c12947#ex.evlog.searchdest]]                  The next section of code will search the existing
+                  loggers for one that has a specific destination
+                  (the value of `killdest`), and
+                  destroy it using
+                  **eventlog::rm**
+[[c12947#ex.evlog.list]]                  The **eventlog::listLoggers**
+                  command returns a list of dicts.  Each dict
+                  describes a logger.  The keys we need are
+                  destination whose value is the
+                  logging destination passed when the logger was
+                  defined and id which is the id
+                  that was assigned to the logger.
+                This loop loops over the loggers searching for one
+                  who's normalized destination path is the same as
+                  the path in `killdest`.
+                  When comparing file system paths, it is important
+                  to compare normalized paths as several path designations
+                  can point to the same place.
+
+[[c12947#ex.evlog.rm]] **eventlog::rm** is used to remove
+                  the matching event logger.  Note that while we continue
+                  to iterate over logger definitions, theoretically we
+                  could **break** from the loop after
+                  finding a match because the API prevents you from
+                  specifying two loggers with the same destination.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating ring items | Up | Manager REST client API. |

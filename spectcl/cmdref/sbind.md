@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.sbindcommand"></a>sbind
+
+<a name="AEN240"></a>## Name
+
+sbind -- Store spectrum channels in display share memory
+
+<a name="AEN243"></a>## Synopsis
+
+**sbind -all
+            **
+
+**sbind *spectrum-name1 ?spectrum-name2...?*
+**
+
+**sbind -list *?pattern*
+**
+
+<a name="AEN252"></a>## DESCRIPTION
+
+SpecTcl maintains bulk spectrum storage and abbreviated metadata in
+            a shared memory region.  This allows for high performance data
+            transfer between it and displayer programs. The **sbind**
+            command, short for *spectrum bind* binds spectra
+            into this shared memory region.   It can also provide information
+            about the spectra bound to the shared memory region.
+
+<a name="AEN257"></a>## OPTIONS
+
+
+
+`-all`Binds all known spectra into the shared memory.
+
+`-list`Lists spectrum bindings.
+
+<a name="AEN270"></a>## OUTPUT
+
+Only the `-list` option produces any useful value.
+            The command then produces a list of Tcl Triplets.  Each triplet contains,
+            in order; the spectrum id, the spectrum name and the binding slot number.
+
+<a name="AEN274"></a>## EXAMPLES
+
+<a name="AEN276"></a>**Example 1. Binding all spectra to display memory**
+
+**sbind -all
+                **
+
+<a name="AEN280"></a>**Example 2. Binding a list of spectra to the displayer**
+
+**sbind  raw.00 raw.01 raw.02
+            **
+
+<a name="AEN284"></a>**Example 3. 
+                Listing the bindings of spectra that match a pattern
+            **
+
+**sbind -list raw*
+            **
+
+The output of this might be something like:
+
+<a name="AEN289"></a>```
+{1 raw.00 1} {2 raw.00 2} ... {9 raw.09 9}
+            
+```
+
+<a name="AEN291"></a>## SEE ALSO
+
+
+
+- [[r2473]]
+- [[r2855]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| attach | Up | fit |

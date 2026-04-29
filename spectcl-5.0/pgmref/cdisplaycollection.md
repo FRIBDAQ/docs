@@ -1,0 +1,99 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25366"></a>CDisplayCollection
+
+<a name="AEN25370"></a>## Name
+
+CDisplayCollection -- Maintain a named set of display objects.
+
+<a name="AEN25373"></a>## Synopsis
+
+```
+#include <DisplayCollection.h>
+
+class CDisplayCollection
+{
+
+public:
+    CDisplayCollection();
+    bool displayExists(CDisplay* pDisplay);
+    void addDisplay(CDisplay* pDisplay);
+    void removeDisplay(CDisplay* pDisplay);
+    CDisplay* getCurrentDisplay();
+    void      setCurrentDisplay(CDisplay* pDisplay);
+
+    Iterator begin();
+    Iterator end();
+    size_t size();
+};
+
+
+        
+```
+
+<a name="AEN25375"></a>## DESCRIPTION
+
+Keeps a named set of objects. Normally
+               this is encapsulated in a
+               `CDisplayInterface` object which
+               marries it to a factory used to create new display
+               objects and scheme to associate names with displays.
+
+`CDisplayCollection`
+                objects have a concept of a current
+                displayer.
+
+<a name="AEN25381"></a>## METHODS
+
+
+
+` bool  displayExists(CDisplay*  pDisplay = );`Returns true if the display
+                    pointed to by `pDisplay`
+                    is present in the collection.
+
+` void  addDisplay((CDisplay*  pDisplay = );`Adds the display pointed to by `pDisplay`'
+                    to the collection.  Note that:
+
+
+
+1. The actual display object must remain in scope for the
+                             lifetime of the collection as no copy is made.
+2. Adding a duplicate entry is silently ignored
+                             (that is the collection will still hold only
+                             one copy of the pointer).
+
+` void  removeDisplay(CDisplay*  pDisplay = );`Removes `pDisplay` from the
+                    collection. If the display does not exist
+                    this silently does nothing.  If the display
+                    is current, the state of the system is set so that
+                    there is no current display.
+
+` CDisplay*  getCurrentDisplay();`Returns a pointer to the current display.
+                    If there is no current display,
+                    nullptr is returned.
+
+` void       setCurrentDisplay(CDisplay*  pDisplay = );`Sets the current display to
+                    `pDisplay`.
+                    If `pDisplay` is not in the
+                    collection, it is added.  If pDisplay
+                    is null, a
+                    `std::runtime_error` is thrown.
+
+` Iterator  begin();`Begin iterator.
+
+` Iterator  end();`Returns an end iterator.
+
+` size_t  size();`Returns the number of elements in the collection
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDisplayInterface | Up | CDisplayFactory |

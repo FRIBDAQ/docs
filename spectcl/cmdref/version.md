@@ -1,0 +1,55 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.versioncommand"></a>version
+
+<a name="AEN2939"></a>## Name
+
+version -- Return SpecTcl version
+
+<a name="AEN2942"></a>## Synopsis
+
+**version
+            **
+
+<a name="AEN2945"></a>## DESCRIPTION
+
+This command returns the SpecTcl version.  Scripts and REST clients
+            can us the version number to know which features are available
+            to SpecTcl and which are not.  The version is returned in a string
+            of the form major.minor-editlevel.
+
+
+
+majorThe major part of the version increments when SpecTcl's
+                        development leads to potential user source code
+                        incompatibility.  Users should refer to version
+                        release notes for information about how to port their
+                        code.
+
+minorThe minor version increments when SpecTcl's development
+                        requires user code recompilation but no modifications
+                        to the user source code are required.  This can happen
+                        if classes that are publicly visible have changes made
+                        to their shaps.
+
+editlevelEdit level increments generally reflect fixes to known
+                        defects that require no recompilation or relinking.
+                        Simply using the new shared libraries is sufficient.
+                        While it is possible to take an existing SpecTcl and
+                        redirect where it loads its SpecTcl libraries from,
+                        it is generally more practical to modify the Makefile's
+                        INSTDIR definition and relink the
+                        software.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ungate | Up | swrite |

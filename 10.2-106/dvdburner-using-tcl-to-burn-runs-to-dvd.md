@@ -1,0 +1,75 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.dvdburner"></a>Chapter 19. DvdBurner - Using Tcl to burn runs to DVD
+
+DvdBurner is a Tcl package that allows you to
+        burn NSCL data runs to DVD.  The DvdBurner package breaks the data up
+        among as many DVD's as needed, however it requires that the data
+        from a single run fit completely on a single DVD.
+        The package is completey described in the
+        [[r64299]].
+
+To use
+        DvdBurner
+        you must make the package known to your script.  Doing this involves
+        both making the location of the package known to the Tcl package loader
+        and requiring the package.
+        The following example shows how to do it assuming that you've defined
+        the envirionment varible DAQROOT to point to the directory in which the
+        NSCL DAQ system is installed.  At the NSCL, this directory is usually
+        /usr/opt/daq/someversion where
+        someversion is the version of nscldaq you are using.
+
+<a name="AEN1137"></a>**Example 19-1. Requesting the DvdBurner package**
+
+```
+set libdir [file join $::env(DAQROOT) TclLibs]
+set auto_path [concat $libdir $auto_path]
+
+package require DvdBurner
+        
+```
+
+The example prepends the path to the NSCL DAQ libraries to the
+        `auto_path`
+        that lists the directories searched by the Tcl package loader.
+        Prepending ensures that if there are accidental duplicate package names,
+        we get the one in the NSCL DAQ software.
+
+Typically, the only thing you'll want your script to do is burn a set
+        of runs to DVD, partitioning the data amongst several DVDs as needed.
+        The script below shows how to do write runs 100 through 150 to DVD:
+
+<a name="AEN1143"></a>**Example 19-2. Writing runs to DVD using DvdBurner**
+
+```
+DvdBurner::CreateDvds [list 100 150]
+        
+```
+
+If the second parameter to
+        `DvdBurner::CreateDvds`
+        is omitted, all runs starting with  first parameter are written to DVD.
+        With no parameters, all runs are written to DVD:
+
+<a name="AEN1149"></a>**Example 19-3. Writing all runs to DVD**
+
+```
+DvdBurner::CreateDvds
+        
+```
+
+Writes all runs to DVD.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| daqstart - Starting programs with logging and monitoring | Up | Utilities for burning data to DVD |

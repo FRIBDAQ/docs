@@ -1,0 +1,56 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 52. Access control and security | Next |
+
+
+---
+
+# <a name="AEN10375"></a>52.3. Interactors
+
+Interactors are classes that are concrete classes derived
+            from the abstract base class
+            [[r39460]].
+            They are intended to obtain the authentication credentials from the
+            entity requesting service.  If the interactor is in some way
+            interactive, it may also prompt the user for the elements of the
+            credentials required.
+
+The abstract base class
+            `CInteractor` provides the following
+            member functions as abstract virtual functions that will be
+            implemented differently in each concrete interactor class:
+
+` virtual int Read(Uint_t nBytes, void* pData);`Reads data from the interactor.  The
+            `CAuthenticator`
+            base class provides a convenience method that reads an entire
+            line of text from the requestor.
+
+` virtual int Write(UInt_t nBytes, void* pData);`Writes data to the entity that's behind the interactor.
+
+` virtual int ReadWithPrompt(Uint_t nPromptSize, void* pPrompt, UInt_t nReadSize, void* pReadData);`Prompts for input if the interactor supports prompting and then
+            accepts data from the entitiy.
+
+In addition to
+            [[r39460]], the following
+            concrete interactors have been supplied.
+
+
+
+[[r39639]]This interactor supplies a string that you have gotten by
+                        whatever means you got it.  It can be used when interactors
+                        are not suitable for acquiring the stringified credentials.
+
+[[r39810]]This interactor accepts the credentials via an open file
+                        descriptor.
+
+[[r39946]]This interator uses a pair of other interactors, an output and
+                        an input interactor. Prompting is done on the output interactor and
+                        the credentials read from the input interactor.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Authenticators | Up | Parsing and URIs |

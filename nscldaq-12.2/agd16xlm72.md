@@ -1,0 +1,72 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN105001"></a>AGD16XLM72
+
+<a name="AEN105005"></a>## Name
+
+AGD16XLM72 -- Support XLM72 running 16 channel gate and delay generator firmware.
+
+<a name="AEN105008"></a>## Synopsis
+
+```
+package require gd16xlm72
+
+AGD16XLM72 device-name
+device-name configure option value ?...?
+
+addtcldriver create stack-devname -ensemble device-name
+        
+```
+
+<a name="AEN105015"></a>## DESCRIPTION
+
+This configuration command provides support for the XLM72 general purpose logic module
+            running 16 channel gate and delay generator firmware.  The module was originally written
+            by Daniel Bazin and ported to the VMUSBReadout by Jeromy Tompkins.  This version operates
+            as a translator driver for the **mvlcgenerate** program.
+
+Note that since this operates in an offline translator mode, the firmware file
+            will be loaded and booted every start of data taking.  In the future an
+            mvlc loader program will be written to allow the firmware to be loaded externally
+            to reduce startup time.
+
+Unlike the original module, configuration is done via options that
+            are descsribed in the >OPTIONS section below, rather than explicit
+            method calls.  This, again is because the driver must operate in an off-line mode
+            producing initialization command lists rather than directly interacting with the hardware.
+
+<a name="AEN105022"></a>## OPTIONS
+
+Creating an instance of `AGD16XLM72` produces a command ensemble
+            that inluces the subcommands **configure**, which allows you to provide
+            values for one or more options and **cget** which allows you to retrieve the
+            value of an option.
+
+The valid options are:
+
+
+
+`-base` *vme-address*VME base address of the module.
+
+`-delay` *list-of-delays*The valid Tcl list of the 16 delay values.
+
+`-width` *list-of-widths*The valid Tcl list of the 16 width values.
+
+`-bypass` *bypass-value*The bypass value.
+
+`-insspect` *inspect-value*The inspection value.
+
+`-filename` *path-to-firmware-file*File system path to the gate and delay generator firmware.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ACrdcXLM72 | Up | ALevel3XLM72 |

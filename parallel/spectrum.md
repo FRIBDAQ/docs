@@ -1,0 +1,56 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1864"></a>spectrum
+
+<a name="AEN1868"></a>## Name
+
+spectrum -- Create and manipulate spectrum definitions
+
+<a name="AEN1871"></a>## Synopsis
+
+**spectrum**  [`-new`]  *spectrum-name* *parameters* *axis-speccifications*  [*datatype*]
+
+**spectrum** `-list`  [`-showgate`]  
+                         [  
+                                 [`-byid`]
+                                 [*glob-pattern*]
+                             |   
+                                  `-id`
+*id* 
+                            ]
+
+**spectrum** `-delete`   
+                         [   
+                                  *name*... 
+                             |   
+                                  `-id`
+*id*... 
+                             |  
+                                `-all`
+                            ]
+
+**spectru** `-trace`   
+                         [add | delete]
+                      [script]
+
+<a name="AEN1927"></a>## DESCRIPTION
+
+This command is wrapped in a `CMPITclPackagedCommand` and is
+                    part of the spectrum package family of commands.
+                    The application manipulates spectra via the `SpecTcl` API.
+                    In the MPI_EVENT_SINK_RANK process, this manipulates the spectra
+                    via the histogrammer object while in other processes, only the spectrum dictionary is 
+                    manipulated to retain a consistent view of spectrum definitions across the application.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| version | Up | sread |

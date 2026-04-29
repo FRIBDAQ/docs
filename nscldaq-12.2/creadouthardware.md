@@ -1,0 +1,105 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="mvlc3.readouthardware"></a>CReadoutHardware
+
+<a name="AEN105328"></a>## Name
+
+CReadoutHardware -- Base class for mvlcgenerate compiled code drivers
+
+<a name="AEN105331"></a>## Synopsis
+
+```
+#include <mvlc/CReadoutHardware.h>
+class CReadoutHardware {
+public:
+    CReadoutHardware();
+    virtual ~CReadoutHardware();
+    void setConfiguration(XXUSB::CConfigurableObject* pConfig);
+    XXUSB::CConfigurableObject* getConfiguration() { return m_pConfiguration; }
+    
+    virtual void onAttach(XXUSB::CConfigurableObject& configuration);
+    virtual void Initialize(CVMUSB& controller);
+    virtual void addReadoutList(CVMUSBReadoutList& list);
+    virtual void onEndRun(CVMUSB& controller);
+        
+ };
+
+        
+```
+
+<a name="AEN105333"></a>## DESCRIPTION
+
+Provides the base class which defines the interface
+            that must be implemented by code generators for devices
+            supported by the **mvlcgenerate**.
+
+When writing a subclass to this class, it is important
+            to remember that the generator runs offline.  You have no actual
+            access to the MVLC when it is running.  While some of the objects
+            passed in to methods like `onAttach` look like
+            they are VMUSB based objects, they are not.  They have interfaces
+            like those objects to make porting existing VMUSB drivers less
+            difficult but they are fundmantally different.
+
+<a name="AEN105339"></a>## METHODS
+
+
+
+` void setConfiguration(XXUSB::CConfigurableObject* pConfig);`Provides an external method to set a new module
+                            stored configuration.
+
+` XXUSB::CConfigurableObjectd* getConfiguration();`Returns a pointer to the objects current configuration.
+                            Methods like `Initialize`
+                            will normally use this to obtain the configuration
+                            of the object so that they now how to formulate
+                            initialization operations.
+
+` void OnAttach(XXUSB::CConfigurableObject& config);`Your driver code will normally need to override this
+                            method.  It is called by the larger framework to provide
+                            a configuration object.  Your code should invoke
+                            `setConfiguration` to save the
+                            configuration in the the base class.  Your code should
+                            also define configuration options and their value types
+                            using the methods of `XXUSB::ConfigurableObject`.
+
+` void Initialize(CVMUSB& controller);`This method is called to generate initialization code
+                            that will be executed just before data taking starts.  
+                            `controller` is a version of 
+                            `CVMUSB` that memorizes the operations
+                            performed for later inclusion in to the yaml file
+                            created by **mvlcgenerate**
+
+` void addReadoutList(CVMUSBReadoutList& list);`Called by the framework to generate the list of operations that
+                            will read the supported module in response to an event trigger.
+                            The `list` is a `CVMUSBReadoutList`
+                            like object that memorizes VME operations in a form that can be easily
+                            emitted to the yaml configuration file that **mvlcgenerate**
+                            generates.
+
+` void onEndRun(CVMUSB& controller);`Called by the framework to emit any VME operations that
+                            might be needed to shut down the supported device as data taking
+                            ends.  The `controller` memorizes the operations
+                            emitted by this method in a form that can be easily emitted 
+                            by **mvlcgenerate** to the yaml configuration
+                            file it generates.S
+
+<a name="AEN105411"></a>## SEE ALSO
+
+
+
+- [[r105612]]
+- [[r105818]]
+- [[r105423]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| sis3300 | Up | DeviceCommand |

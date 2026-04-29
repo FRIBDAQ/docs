@@ -1,0 +1,31 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN156"></a>listgates
+
+<a name="AEN160"></a>## Name
+
+listgates -- Create a list of gate names.
+
+<a name="AEN163"></a>## Synopsis
+
+**spectcl.listgates()
+                        **
+
+<a name="AEN166"></a>## DESCRIPTION
+
+This method returns a tuple that contains the list
+                        of all gates defined in SpecTcl.  If no gates have
+                        been defined, the result is an empty tuple.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| listvars | Up | attach |

@@ -1,0 +1,55 @@
+[NSCL Home Page](http://www.nscl.msu.edu/)
+
+
+[MSU Home Page](http://www.msu.edu/)
+
+
+---
+
+
+# CAEN V785
+
+
+---
+
+
+
+
+
+[Using the CAEN V785 in a simple setup](http://docs.nscl.msu.edu/daq/samples/CAEN%20V785/CAEN_V785_1.1.pdf) (PDF)
+
+
+[Sample code for the CAEN V785](http://docs.nscl.msu.edu/daq/samples/CAEN%20V785/CAEN%20V785.zip) (ZIP)
+
+
+[Manual for CAEN V785](http://docs.nscl.msu.edu/daq/samples/CAEN%20V785/V785_rev9.pdf) (PDF)
+
+
+
+
+
+
+
+
+More information is available at the [NSCL docs page](http://docs.nscl.msu.edu/)
+
+
+## Please direct all questions and comments to [daqdocs@nscl.msu.edu](mailto:daqdocs@nscl.msu.edu)
+
+
+---
+
+
+Last updated 1/10/2005
+
+
+ByTim Hoagland
+
+
+---
+
+
+[NSCL Home Page](http://www.nscl.msu.edu/)
+
+
+[MSU Home Page](http://www.msu.edu/)

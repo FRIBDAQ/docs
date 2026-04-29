@@ -1,0 +1,70 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN851"></a>3.10. Binding Spectra to Display Memory (new in 5.5)
+
+The /sbind domain provides access to the
+                **sbind** SpecTcl command.  This there are three
+                subdomains:
+
+## <a name="AEN856"></a>3.10.1. /sbind/all
+
+URLs of the form:
+
+<a name="AEN859"></a>**http://host:port:/sbind/all
+                    **
+
+Bind all spectra to display  memory.  Nothing of value is
+                    returned in the  detail field of the
+                    reply data.
+
+## <a name="AEN864"></a>3.10.2. /sbind/sbind
+
+URL's of the following form:
+
+<a name="AEN867"></a>**http://host:port/sbind/spectrum?spectrum=name1[&spectrum=name2...]
+                    **
+
+Bind all spectra named in all instances of the
+                    spectrum query parameter to display
+                    memory. Nothing of use is returned in the
+                    detail part of the JSON reply data.
+
+## <a name="AEN874"></a>3.10.3. /sbin/list
+
+URL's of the form:
+
+<a name="AEN877"></a>**http://host:port/sbind/list[?pattern=glob]
+                    **
+
+Return information about the bindings of spectra that
+                    match the pattern query parameter interpreted
+                    as a glob spectrum name match string.  If omitted the
+                    pattern matched defaults to *
+                    which matches all spectra.
+
+The detail attribute of the JSON returned
+                    data is an array of objects with the following attributes:
+
+
+
+spectrumidThe id of the bound spectrum.
+
+nameThe name of the bound spectrum.
+
+bindingThe shared memory binding id.
+
+Note that spectra which are not bound but match the
+                    pattern will not appear in the array.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Attaching data sources (New in 5.5) | Up | Accessing the fit command (new in 5.5) |

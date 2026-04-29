@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN70201"></a>CFanoutTransport
+
+<a name="AEN70205"></a>## Name
+
+CFanoutTransport -- Transport to fanout data to several workers.
+
+<a name="AEN70208"></a>## Synopsis
+
+```
+#include <CFanoutTransport.h>
+
+class  CFanoutTransport : public CTransport
+{
+public:
+    virtual void end() = 0;
+};
+
+        
+```
+
+<a name="AEN70210"></a>## DESCRIPTION
+
+Abstract base class for transports that fanout
+            data to several parallel workers.  The only
+            wrinkle this abstract base class adds is a pure virtual
+            `end` method.
+            This is because when there's no more data to send,
+            all clients must be notified of that fact.  That
+            notification is done in a transport dependent manner.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CClientRegistry | Up | CFanoutClientTransport |

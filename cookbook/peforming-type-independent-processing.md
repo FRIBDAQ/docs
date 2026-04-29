@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| The NSCLDAQ cookbook |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.process"></a>Chapter 4. Peforming type independent processing
+
+A real program may want to perform type dependent processing on its ring items.  While the `CRingItem` objects returned from data sources have bodies that can be decoded using the structures defined in DataFormat.h,  each ring item type defined by that header has a corresponding class whose methods will return the bits and pieces the ring items store.  If the format of the underlying ring items evolves over time (as it did moving from nscldaq-10 to nscldaq-11) these classess form a stable interface into the data those items contain.
+
+As usual this chapter is divided into two sections:
+            [[c287#sec.process.background]] which provides expository background information and
+            [[x322]] which annotates the actual code.
+
+The actual code and Makefile are installed in
+            $DAQROOT/share/recipes/process.  The code is divided into a main program which does the I/O and produces the specific subclass objects of
+            `CRingItem` and a class definition and implementation for a processing class.
+            In [[x322]] we'll also describe a few tactics that can be used to adopt this example to your specific needs.
+
+# <a name="sec.process.background"></a>4.1. Background
+
+We're going to divide the code up into a pair of modules.
+                The main module, in process.cpp is
+                essentially the readerings code with
+                a fixed `processRingItemn` implementation.
+
+The `processRingItem` implementation will
+                use the `CRingItemFactory` to figure out
+                which actual ring item type to create.  A giant switch statement
+                will then dispatch the resulting ring item for further processing.
+
+The second module, processor.h and
+                processor.cpp define and implement a ring
+                item processing class;
+                `CRingItemProcessor`.   The class defines and implements
+                methods for handling each of the ring item types.  The
+                `processRingItem` function in
+                process.cpp therefore simply calls the
+                correct method of this class depending on the actual
+                ring item type.
+
+The methods of `CRingItemProcessor` are
+                declared as virtual.  You could, therefore either make this
+                program do what you want (e.g. make Root trees) either by
+                directly modifying this class or by deriving a subclass and
+                instantiating that class in the `main` of
+                `process.cpp`
+
+The 'clean' object oriented way to operate would be to build up
+                a library of `CRingItemProcessor` subclasses
+                and a factory that can instantiate one given a name for that
+                factory.  You could then pass the name of the analyzer you want
+                to run on the command line of your program.
+
+SpecTcl-5.0 (and planned for nscldaq-12) provide  a class called
+                an extensible factory that you could use for that purpose.
+                See, e.g.
+                /usr/opt/spectcl/5.0-011/include/CExtensibleFactory.h
+                which is heavily commented (no docs yet, sorry) and self
+                contained (no library needs to be linked).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The code |  | Annotated Code. |

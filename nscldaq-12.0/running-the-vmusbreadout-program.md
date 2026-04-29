@@ -1,0 +1,229 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 5. VMUSBReadout | Next |
+
+
+---
+
+# <a name="vmusb-running-vmusbreadout"></a>5.5. Running the VMUSBReadout program
+
+With a configuration script defined, it is time to connect the device and
+      start the VMUSBReadout program. First let's connect the device. Though
+      this seems like a task unworthy of mentioning, it has caused significant
+      headache, so the reader would do well to make use of the following wisdom.
+      First of all, the USB 2.0 protocol specifies that the maximum length of
+      cable should be no longer than 5 meters. It has been observed that when
+      using cables near this length, there is the possibility that data becomes
+      corrupt somehow. For that reason, *always use the shortest length
+        of cable possible*. Secondly, not all USB ports are created
+      equal. *Choose to use the ports on the back of your PC rather than the
+      ports on the front.*
+
+Several command options control the way VMUSBReadout operates:
+
+
+
+`-serialno`Specifies the serial number of the VMUSB the program will use.  See
+            `--enumerate` below.  If not provided, the first
+            VMUSB located will be used.  If you only have one VMUSB connected
+            to your system, this is suitable.
+
+`--ring`Specifies the ring buffer in which event data will be put by the
+            program.  By default this is the same as the username you are
+            logged in on.
+
+`--daqconfig`Specifies the filename that contains the data acquisition
+            configuration script.  This defaults to
+            ~/config/daqconfig.tcl
+
+`--ctlconfig`Specifies the filename that contains the slow controls
+            configuration script.  This defaults to
+            ~/config/controlconfig.tcl. Note that this
+            file is required even if it is just an empty file.
+
+`--port`Specifies the port on which the slow controls server listens for
+            connections.  This defaults to 27000.
+
+The value of the `--port` options must either be an
+            integer port number or the special string
+            managed.  If managed is used,
+            the program interacts with the NSCL port manager server to allocate
+            and advertise a port.  The port is advertised under the name
+            VMUSBReadout:*connection*.
+            *connection* specifies the connection to
+            the VM-USB.  If the VM-USB is attached directly either the Serial
+            number string is used or, if the VM-USB serial number was not
+            selected at program startup, the string
+            FirstController is used.
+
+`--enumerate`Requests that the software list the serial numbers of the VMUSB
+            devices currently attached to the system and exit.  Note that the
+            serial 'numbers' are actually strings of the form
+            VMnnnn where *nnnn* is
+            a number.  One of these strings can be handed to the
+            `--serialno ` to select the VMUSB to use.
+
+Sample output:
+
+<a name="AEN1992"></a>```
+/usr/opt/daq/10.1/bin/VMUSBReadout --enumerate
+VM-USB scriptable readout version V5.0
+[0] : VM0134
+            
+```
+
+This output says the system is attached to a single
+            VMUSB whose serial number string is
+            VM0134
+
+`--sourceid`If a `--timestamplib` option is present,
+          events will have a full body header and the integer
+          value of this switch determines the value of the source
+          id.
+
+`--timestamplib`The value of this option is a path to a shared object
+          library.  If present, the library must have a C
+          compatible entry point named `getTimestamp`.
+          If not supplied all events will have abbreviated body
+          headers and no timestamps will be present.
+
+The library is dynamically loaded into the readout
+          program and `getTimestamp` is called
+          for each event.  `getTimestamp`
+          receives a single null pointer parameter, which points
+          to the event and is supposed to return a
+          uint64_t value that is that event's
+          timestamp.
+
+If the library has a further entry named
+          `onBeginRun`, taking no parametesr and
+          having no return value, this funtion is called when the run
+          starts.
+
+For more information about how to generate this library, see 
+          [[x2115]].
+
+`--log`Specifies a log file to which CCUSB will append logging
+                        information.  If this is not specified, no log file
+                        will be produced/appended. See also
+                        `--debug` below.
+
+`--debug`Used in conjunction with `--log` to
+                        specify the verbosity of the log file.  The value of
+                        this option must be an integer with a value of
+                        0, 1 or
+                        2. Larger numbers imply increasing
+                        verbosity.
+
+`--quickstart` *on | off*If the value of this switch is on,
+                      VMUSBReadout will compute an MD5 digest of the
+                      daqconfig file.  If this digest matches the most recent
+                      value, and the controller has not been power cycled,
+                      much of the initialization will be bypasssed.
+
+The assumption is that if daqconfig does not change,
+                      there's no need to reload stacks and initialize hardware.
+                      We just need to start data taking.  This assumption is only
+                      true if the daqconfig file does not depend on other files
+                      that might change.  For example, if daqconfig sources in
+                      a script that might change or reads some file containing
+                      say thresholds used to program modules.
+
+If you are not certain you can use this quickstart
+                      feature then  don't use it. If you are certain, and startup
+                      time is an issue then by all means take a chance.
+
+With the VM-USB connected, start the application at the command line. I
+      will assume that you have properly defined your DAQBIN environment
+      variable by sourcing the daqsetup.bash script provided in the NSCLDAQ
+      installation directory.
+
+```
+spdaqXX> $DAQBIN/VMUSBReadout
+    
+```
+
+Upon startup, the VMUSBReadout will proceed to initialize the modules
+      registered to the slow-controls subsystem. This may take a few seconds but
+      after it is done you should be prompted for input. The prompt is provided
+      by a Tcl
+      interpreter that has been extended to support run-control operations as
+      well as the variables title and run.
+      You can set the title and run like any other Tcl variable using the
+      **set** command. Here is what that looks like when you set
+      the title to the string "My title" and the run number to 4.
+
+```
+% set title "My title"
+% set run 4
+    
+```
+
+There are four run-control commands:
+
+
+
+beginTransitions the VM-USB from interactive mode to autonomous data taking
+            mode. The devices registered to the command
+            stacks are initialized and the stacks are built and loaded into the
+            VM-USB. Also, this transition causes a data format item to be
+            outputted followed immediately by a begin run data item containing
+            information about the run. The begin transition is only allowed when
+            in an inactive, unpaused state.
+
+endTransitions the VM-USB from autonomous data taking mode back to
+            interactive mode and then works through the end of run procedures for
+            each registered readout device. Once the last data is read from the
+            VM-USB memory and all of these end run procedures are complete, an end
+            run data item is emitted. Furthermore, the run
+            variable is incremented. An end transition is disallowed only when the
+            run is not paused or active.
+
+pauseThis is almost identical to the **end** command except
+            that no end of run data item is emitted. Also the
+            run variable is not incremented. A pause data item
+            is emitted. A pause transition is only allowed to occur when the run
+            is active.
+
+resumeSimilar to the **begin** command except that not data
+            format item or begin run item is emitted. Instead, a resume data item
+            is emitted. A resume transition is only allowed when a run is paused.
+
+So to start data taking, you simply enter **begin** at the
+      prompt. After a while, you can end the run by entering
+      **end**.
+
+In addition, there is a command **monvar** that supports inserting the values of
+      Tcl variables in the output stream periodically.  This can be
+      used with the TclServer package, the `--init-script` option
+      and **controlpush** program to insert the values of
+      EPICS variables in the event stream.
+      The **monvar** has the following forms:
+
+
+
+**monvar add** *var-name*Adds `var-name` to the set of variables
+              that will be periodically documented in the event stream.  These
+              variables are documented with a MONITORED_VARIABLES ring item
+              which is one of the CRingTextItem ring items.
+
+`var-name` can also be an array element
+              (e.g. **monvar add tcl_platform(user)**).
+
+It is an error to add a variable that is already being monitored.
+
+**monvar remove** *var-name*Removes the variable or array element `var-name`
+              from the set of variables that are being monitored.
+
+**monvar list** ?*pattern*Lists the set of monitored variables that match the glob
+              `pattern`. If `pattern`
+              is omitted it defaults to * which lists all
+              monitored variables.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Slow-Controls Subsystem | Up | Understanding VMUSBReadout Output |

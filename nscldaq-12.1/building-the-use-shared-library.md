@@ -1,0 +1,320 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 70. Transformer | Next |
+
+
+---
+
+# <a name="AEN15143"></a>70.2. Building the use shared library
+
+This section walks through coding and building the
+            libTestExtender.so that's included with
+            NSCLDAQ as a demonstration.  This code works with Transformer
+            to provide a 16 bit checksum bracketed by flag words for each
+            fragment in the event.  You can see the sample user code in its
+	    entirety at sf.net/projects/nscldaq in the project's source tree
+	    in the file
+	    main/utilities/swtrigger/CTestExtender.cpp.
+
+Let's start with the class definition:
+
+<a name="AEN15149"></a>**Example 70-1. CTestExtender class definition**
+
+```
+class CTestExtender : public CBuiltRingItemExtender::CRingItemExtender
+{
+private:
+   struct Extension {
+      uint16_t  s_header;
+      uint16_t  s_checksum;     
+      uint16_t s_trailer;
+      
+      Extension() {
+         s_header = 0xa5a5;
+        s_checksum = 0;       
+        s_trailer = 0x5a5a;
+      }   
+   };
+
+public:
+   iovec operator()(pRingItem item);  
+   void free(iovec& e);           
+};
+	  
+```
+
+[[x15143#textend.extensiondef]]                This struct represents the data we'll be tacking on the end of
+                each fragment of the event.  It's once more important to note
+                that:
+                
+
+- The program only works on event built data.
+- Our caller will iterate over the fragments in each
+                              event and call us once for *each*
+                              fragment in the event.  Of course there's nothing
+                              to prevent us from not extending all the fragments.
+                              We'll get into how to do that later in the section.
+
+
+[[x15143#textend.init]]                In C++ structs like classes can have constructors.  This
+                constructor just initializes the header and trailer items
+                to alternating bit set/clear patterns and the checkusm to zero.
+                
+            Doing that here avoids cluttering the actual code that uses
+                this extension with initialization code.  It also means
+                that in the event we use this struct in more than one location
+                we won't be repeating initialization code.
+
+[[x15143#textend.functor]]                The function call operator must be implemented by all concrete
+                subclasses of `CBuiltRingItemExtender::CRingItemExtender`.
+                this method is what will be called to provide an extension.
+            The function call operator must return an `iovec`
+                struct.  This structure is defined in the
+                writev(2) manpage.  Fill in the
+                `iov_len` field to be the size of
+                the extension and the `iov_base` pointer
+                to point to your extension.  If you are not providing an extension
+                for a fragment, set  `iov_len` to
+                0.
+
+[[x15143#textend.free]]                The program will collect all extensions and weave them into the
+                output event once the event has been fully processed.  Therefore,
+                the data passed back must have a lifetime that runs over the
+                processing of the entire event, rather than just a single
+                fragment.  This means specifically, you
+                *cannot* have a single instance of the
+                extension struct which you fill in over and over again for
+                each fragment.
+            More usually, you'll dynamically allocate the extensions
+                (e.g. with new).   Once the event is
+                processed, the framework iterates over all extensions it was
+                given for that event, calling `free`
+                passing a reference to an iov that is a copy of the one
+                returned from a call to `operator()`
+                for that fragment.  You should not make any assumptions about
+                the order in which the `iovec`
+                structs are passed to `free`.
+
+The expectation is that you will release any dynamic storage
+                allocated for the extension provided to you.
+
+The implementation section of the code consists of two segments.
+        The first segment implements the class methods of
+        `CTestExtender`.  Having the class defined
+        and implemented is not sufficient, however.  You must also provide
+        a mechanism for the framework to create instances of that class.
+        To do this you must provide a
+        *factory function* the framework can locate
+        after it has loaded your shared library into the program.
+
+Let's look at the implementation of the `CTestExtender`
+        first:
+
+<a name="AEN15193"></a>**Example 70-2. `CTestExtender` implementation**
+
+```
+iovec
+CTestExtender::operator()(pRingItem item)   
+{
+    iovec result;
+    result.iov_len = sizeof(Extension);
+    Extension* p   = new Extension;        
+    result.iov_base= p;
+
+
+    uint16_t* pItem = reinterpret_cast<uint16_t*>(item);
+    for (int i =0; i < item->s_header.s_size/sizeof(uint16_t); i++) { 
+        p->s_checksum+= *pItem++;
+    }
+
+    return result;                                            
+}
+
+
+void
+CTestExtender::free(iovec& extension)                 
+{
+    Extension* pExt = static_cast<Extension*>(extension.iov_base); 
+    delete pExt;                                         
+}
+
+
+            
+        
+```
+
+** 702The `operator()` method implementation.**
+
+[[x15143#text.functor.impl]]                This begins the implementation of the `operator()`
+                method.  Recall that this method recevies a pointer to a
+                 ring item that is an event fragment and is expected to
+                 return a description of the extension it creates for that fragment.
+            The extension is described by an `iovec`
+                structure.  This struct has two fields:
+
+
+
+`iov_base`Should be filled in with a pointer to the
+                                extension.
+
+`iov_len`Should be filled in with the size of the
+                                extension.  If you don't want to add
+                                an extension to this fragment, set
+                                `iov_len` to zero.
+                                In that case, `iov_base`
+                                is ignored.
+
+
+[[x15143#text.functor.impl]]                This chunk of code defines and initializes the
+                function return value `result` to point
+                to a newly created extension (recall the constructor we wrote
+                will initialize that storage), and sets the lengt to be the
+                size of that extension.
+            [[x15143#text.functor.cksum]]                This code computes the checksum into the extension. Recall that
+                our constructor initialized that checksum to zero so we can
+                directly sum the checksum into that cell.  Note the checksum
+                does not include the extension.
+            [[x15143#text.functor.return]]                The `iovec` `result`
+                is returned.  Note that since the extension itself was dynamically
+                created we've satisfied the lifetime requirement of the extension.
+                It will remain in scope until explicitly deleted (see
+                `free` below).
+
+** 703The `free` method implementation.**
+
+[[x15143#text.free.impl]]                This is the implementation of the `free`
+                method.  Recall that this method is obligated to destroy any
+                dynamic storage allocated for a single extension.  The
+                extension to destroy is described by the parameter
+                `extension` wich is a reference to an
+                `iovec`.
+            The `iov_base` pointer points to an
+                extension returned by `operator()`.
+                The `iov_len` holds the length of the
+                extension.
+
+[[x15143#text.free.cast]]                This casts the pointer in `iov_base`
+                to point to one of our `Extension`
+                structs.  If different fragments can get different
+                extensions there are several strategies you can use to
+                allocate free:
+            
+
+- You can always use
+                          `malloc/free` to allocate
+                          storage.  In that case, however, you'll have to manually
+                          initialize the storage as calling a constructor is
+                          value that's added by new/delete.
+- You can use `iov_len` to
+                          differentiate between the types of extension and do a
+                          cast as we've done, depending on the length of the
+                          object you need to delete.
+- You can make put all the extension definitions in a
+                          class/struct hierarchy with an abstract base and
+                          virtual destructors.   If you then cast the
+                          `iov_base` to point at a
+                          base class/struct item, delete
+                          will use the virtual destructor and class hierarchy
+                          information to do the right thing.
+
+Let's look at the factory function.  It's actually dirt simple but there
+        is one subtlety we need to demonstrate.
+
+<a name="AEN15264"></a>**Example 70-3. The factory function**
+
+```
+extern "C" {                       
+    CTestExtender* createExtender() { 
+        return new CTestExtender;     
+    }
+
+}
+        
+```
+
+[[x15143#text.factory.externc]]                An important point is that this function is one that the
+                framework must be able to locate in the shared object. We
+                ensure that in two ways:
+            
+
+- Using a specific name (`createExtender`).
+                          In other extension architectures (e.g. Tcl), the external
+                          entry point is derived from the name of the shared object.
+                          In our case, we only have one shared object to load,
+                          so a fixed, required name is good enough.
+- Using C external bindings.  In C++, function/method
+                          overloading is handled by *mangling*
+                          the actual function name.  Name mangling decorates
+                          the base function name with other information.
+  For
+                          example with g++, `CTestExtender::free`,
+                          becomes
+                           _ZN13CTestExtender4freeER5iovec.
+                          If you squint at this long enough you can see that
+                          the decorations include the class in which this
+                          function is defined and the type of parameter passed to it.
+  This name mangling is compiler dependent and can even by
+                          compiler version dependent.  There's no standard for it.
+                          Therefore the safest thing to do is to turn it off.
+                          The extern "C"  declaration indicates
+                          to the compiler it should use C external bindings for
+                          names in the block it covers.  Thus our factory
+                          function is not mangled.
+
+[[x15143#text.factory.name]]                As describe previously,  the name of our factory
+                function *must* be
+                `createExtender`.  The framework
+                will call it when it needs an instance of our extender class.
+                In practice this is once per worker. 
+            In fact when the parallelization strategy is
+                mpi only worker processes will
+                need extension objects and only one per process is needed.
+                However if the parallelization strategy is
+                threaded each worker thread will need
+                its own extension object.
+
+[[x15143#text.factory.creation]]                The actual implementation is simple. new
+                is used to create a new instance of the object and a pointer to
+                that object is returned to the caller.  Note that in general,
+                the lifetime of the object will be the lifetime of the application.
+                It will not be destroyed.
+            In the rare cases your extenders do need to be cleanly destroyed,
+                there is a mechanism to do that.  You can have a class
+                that contains a vector or list of objects created and whose
+                destructor deletes the created objects.  An instance of that
+                class can be created statically.  The factory function
+                then registers each object it creates prior to returning it.
+                At program termination time, the static object's destructor is
+                called by the C++ run time and it can run through the registry
+                of objects deleteing each of them.
+                In most (all?) cases this is *not necessary*.
+
+Ok, we have code for our extender.  How do we build it into a shared
+        library.    There's no single recipe as the actual compilation and
+        link commands will depend on the needs of the library.  There are only
+        two requirements:
+
+
+
+1. At compile time, the compiler must generate position independent
+                   code.  This is because the actual address at which the library
+                   will be loaded is determined at run time.  To do this use the
+                   `-fPIC` option on on the compilation command line.
+2. At link time, the linker must be told to create a shared object.
+                   This requires that you supply the `-shared` on the
+                   linker command line. You must also use the
+                   `-o` flag to specify the name of the shared object.
+                   If you do not do so, the linker will produce a file named
+                   a.out by default.
+
+Note that the compiler and linker are both generally **g++**
+        or, if MPI has been enabled mpicc for OpenMPI and you'll need
+        to have set environment variables needed for OpenMPI appropriately.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Transformer | Up | SoftwareTrigger |

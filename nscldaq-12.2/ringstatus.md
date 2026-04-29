@@ -1,0 +1,65 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3_ringstatus"></a>RingStatus
+
+<a name="AEN114320"></a>## Name
+
+RingStatus -- Widget that shows ring status.
+
+<a name="AEN114323"></a>## Synopsis
+
+**package require RingStatus
+package require ring
+            **
+
+**RingStatus *path ?options?*
+**
+
+** *path* configure *options...*
+**
+
+** *path* cget *option*
+**
+
+** *path* update [ringbuffer usage *ringname*]
+            **
+
+<a name="AEN114341"></a>## DESCRIPTION
+
+Provides a Tcl megawidget that displays the status of a ringbuffer.
+            The widget shows the name, size and total free space of the ring
+            A table also shows the PIDs of each consumer along with the number of
+            bytes of backlog data for that consumer.
+
+<a name="AEN114344"></a>## OPTIONS
+
+
+
+`-name` *name-string*Configures the name of the ring. This is displayed in the widget.
+
+<a name="AEN114353"></a>## METHODS
+
+
+
+`update` *ring-info-list*Accepts a list of data compatible with the output
+                            of the
+                            [[r106342]]
+                            command.  This data is used to update the ring size, free space and
+                            consumer information table.
+
+<a name="AEN114364"></a>## SEE ALSO
+
+[[r106342]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| FrameSequencer | Up | ScaleControl |

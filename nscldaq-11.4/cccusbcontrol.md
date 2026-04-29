@@ -1,0 +1,56 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ccusb3-CCCUSBControl"></a>CCCUSBControl
+
+<a name="AEN60778"></a>## Name
+
+CCCUSBControl -- A slow-controls driver for receiving and executing remote commands
+
+<a name="AEN60781"></a>## Synopsis
+
+```
+CCCUSBControl : public CControlHardware
+```
+
+<a name="AEN60834"></a>## DESCRIPTION
+
+CCCUSBControl allows arbitrary CAMAC access by a client and is the receiver of 
+           commands executed by the CCCUSBRemote class. The only method implemented
+           with functionality is Set. All of the other methods do nothing. The idea is that a set command
+           will provide a remote procedure call for the CCCUSB::executeList method.
+           The syntax is
+
+```
+           Set name [list hexadecimalized-vmusbreadoutlist read-buffer-requirements]
+         
+```
+
+Where
+
+
+
+- hexadedimalized-vmusbreadoutlist is the contents of a CCCUSBReadoutList converted to a
+                 Tcl list of hexadecimal long words.
+- read-buffer-requirements is the size of the required read buffer for the readout list.
+
+Success will return:  OK hexadecimalized-output-buffer
+           Where hexadecimalized-output-buffer is the reply buffer converted to a hexadecimal representation
+           of each byte as a Tcl list.  Note that if no output data are available, an empty list will
+           be returned.
+
+Note that this function can therefore also provide all single shot operations as those are just
+           lists with one element... however if the run is active each list execution will pause/resume
+           the run so be aware and use with caution.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CControlModule | Up | ccusbcamac |

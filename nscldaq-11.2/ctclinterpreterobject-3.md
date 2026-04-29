@@ -1,0 +1,125 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLInterpreterObject"></a>CTCLInterpreterObject  3
+
+<a name="AEN41939"></a>## Name
+
+CTCLInterpreterObject -- 
+            Base class for objects that are associated with a Tcl Interpreter.
+
+<a name="AEN41942"></a>## Synopsis
+
+```
+#include <CTCLInterpreterObject.h>
+...
+class CTCLInterpreterObject
+{
+public:
+  CTCLInterpreterObject ();
+  CTCLInterpreterObject (CTCLInterpreter* pInterp );
+  CTCLInterpreterObject (const CTCLInterpreterObject& src );
+
+  CTCLInterpreterObject& operator=
+                        (const CTCLInterpreterObject& rhs);
+  int operator== (const CTCLInterpreterObject& rhs) const;
+
+
+  CTCLInterpreter* getInterpreter() const;
+  CTCLInterpreter* Bind (CTCLInterpreter& rBinding);
+  CTCLInterpreter* Bind (CTCLInterpreter* pBinding);
+
+};
+
+
+        
+```
+
+<a name="AEN41944"></a>## DESCRIPTION
+
+`CTCLInterpreterObject`
+            is a base class for any object that requires a CTCLInterpreter
+            (Tcl interpreter) to operate.  Almost  all objects in the Tcl++ library are
+            derived from this base class.
+
+<a name="AEN41949"></a>## METHODS
+
+`CTCLInterpreterObject()`
+
+Constructor for an interpreter object that will be bound to an underlying
+            interpreter at a later time.  See the `Bind` functions
+            for more information about binding interpreters. More normally, if you
+            already have an interpreter you will construct using that interpreter.
+
+`CTCLInterpreterObject`
+                       (CTCLInterpreter* `pInterp`)
+
+Constructs a `CTCLInterpreterObject` given
+            that `pInterp` is an existing
+            interpreter encapsulated in a `CTCLInterpreter`.
+
+`CTCLInterpreterObject`
+                    (const CTCLObject& `src`)
+
+Constructs a new `CTCLInterpreterObject`
+            that is an exact copy of `src`.
+
+`CTCLInterpreterObject`&
+            `operator=`
+                (const CTCLInterpreterObjectd& `rhs`)
+
+Provides a mechanism for assigning a `CTCLInterpreterObject`
+            a copy of the `rhs` `CTCLInterpreterObject`.
+            The return value is just a reference to the left hand side of the assignment.  This
+            permits operator chaining.
+
+int `operator==`(
+                            const CTCLInterpreterObject& rhs)
+
+Compares a `CTCLInterpreterObject` to another
+            (`rhs`).  If the underlying interpreters are the
+            same, the objects are said to be equal and 1 is
+            returned.  If not, 0 is returned.
+
+CTCLInterpreter* `getInterpreter`() const
+
+Returns a pointer to the underlying `CTCLInterpreter`
+            object.  See the `CTCLInterpreter`(3) manpage for
+            more information about the services offered by that class.
+
+CTCLInterpreter* `Bind`(
+                        CTCLInterpreter& `rBinding`
+                                                          )
+
+CTCLInterpeter* `Bind`(
+                        CTCLInterpreter* `pBinding`)
+
+Binds the object to a new interpreter.  Typically this will only be
+            called when the object was constructed without an initial interpreter.
+            This is because most objects really are related to some interpreter and cannot
+            be willy-nilly rebound.  The return value is  a pointer to the
+            `CTCLInterpreter` the object was previously
+            bound to.  This will be NULL if the object was not
+            initially bound.
+
+<a name="AEN42007"></a>## DEFECTS
+
+No `operator!=` was defined.
+
+<a name="AEN42011"></a>## SEE ALSO
+
+CTCLInterpreter, CTCLApplication, CTCLChannel, CTCLCommandPackage,
+        CTCLFileHandler, CTCLList, CTCLObject, CTCLObjectProcessor, CTCLTimer,
+        CTCLVariable
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLInterpreter | Up | CTCLList |

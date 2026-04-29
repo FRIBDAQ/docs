@@ -1,0 +1,379 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN22961"></a>Root tree building
+
+<a name="AEN22965"></a>## Name
+
+Root tree building -- Classes to build root trees.
+
+<a name="AEN22968"></a>## Synopsis
+
+```
+#include <TreeBuilder.h>
+
+class TreeItemBaseClass {
+public:
+    TreeItemBaseClass(const char* name);
+    std::string getName() const;
+    virtual bool isFolder() const = 0;     // True if item is a container.
+};
+
+class TreeFolder : public TreeItemBaseClass
+{
+public:
+    TreeFolder(const char* name);
+    void addItem(TreeItemBaseClass* pItem);
+    const Contents& getContents()    const;
+    Contents::const_iterator begin() const;
+    Contents::const_iterator end()   const;
+    size_t size()                    const;
+    void freeStorage(bool yesno);
+    virtual bool isFolder() const ;
+
+};
+
+class TreeTerminal : public TreeItemBaseClass
+{
+public:
+    TreeTerminal(const char* name, unsigned parameterId);    
+    unsigned id() const;
+    virtual bool isFolder() const;
+    
+};
+
+class ParameterTree : public TreeFolder
+{
+public:
+    typedef struct _ParameterDef {
+        std::string s_name;
+        unsigned    s_id;
+        _ParameterDef(const char* name, unsigned id) :
+            s_name(name), s_id(id) {}
+            
+    } ParameterDef, *pParameterDef;
+    ParameterTree();
+    ParameterTree(const std::vector<ParameterDef>& params);
+    
+    void buildTree(const std::vector<ParameterDef>& params);
+    void clearTree();
+};
+
+
+class ParameterMarshaller
+{
+public:
+    ParameterMarshaller(std::size_t numParameters);    
+    void marshall(CEvent& event);
+    void reset(CEvent& event);
+    Double_t* pointer();
+    unsigned* mapping();
+};
+
+class SpecTclRootTree
+{
+public:
+    SpecTclRootTree(
+        std::string treeName,
+        const std::vector<ParameterTree::ParameterDef>& params
+    );
+    void Fill(CEvent& event);
+};
+
+
+        
+```
+
+<a name="AEN22970"></a>## DESCRIPTION
+
+This set of classes provides support for turning the SpecTcl
+            parameter space into a true hierarchy. This hierarchy can then
+            be mapped onto the branches and leaves of a CERN Root tree.
+
+Subsequent sections of this document will describe each class and its
+            methods.  To orient, however, there are two main sets of
+            classes defined in this header.
+
+The first set capture the
+            parameter hierarchy as a top level folder with contents that
+            can consist recursively of folders and terminal nodes.
+            Each terminal node is a parameter.
+
+The second set of classes provide support for building a
+            ROOT Tree from the folders and terminals of the first set of
+            classes and for marshalling parameters from a SpecTcl
+            `CEvent` object into the flattened array
+            expected by Root.  Note that while Root Trees are dense, SpecTcl
+            `CEvent` objects, in general are
+            sparse.  Unset slots in a `CEvent` object
+            result in corresponding leaves that have the value
+            NaN.  The standard C function
+            `isnan` (C++ `std::isnana`),
+            can determine if a leaf value is a NaN for a specific event.
+
+<a name="AEN22982"></a>## TreeItemBaseClass
+
+The `TreeItemBaseClass` is the root of the
+            folder/terminal class hierarhcy.  It supplies a generic object
+            that can appear in a parameter tree and services that must
+            be provided by all such object.
+
+`TreeItemBaseClass` is an abstract base class.
+
+<a name="AEN22988"></a>### METHODS
+
+
+
+`  TreeItemBaseClass(const  char*  name);`Base class constructor.  All items in the parameter
+                            tree have names.  The name is either the terminal name
+                            of the parameter or it is the name of a folder
+                            containing other `CTreeItemBaseClass`
+                            objects.
+
+The base class holds the object name for all derived
+                            classes.  The constructor parameter `name`
+                            is given to the object.
+
+`  const std::string  getName();`Returns the name of the objecst.  This is the
+                            value of the `name`
+                            parameter passed to the constructor.
+
+` virtual  const = 0 bool  isFolder();`Objects in the tree are either containers of
+                            other objects (folders) or they are terminals
+                            (parameters).  Concrete classes must implement this
+                            method to return true if they
+                            contain other items or false
+                            if not.
+
+<a name="AEN23027"></a>## TreeFolder
+
+The `TreeFolder` class defines a type of object
+            that can hold an unordered set of other objects.  The objects held
+            are pointers to `TreeItemBaseClass` which
+            means `TreeFolder` objects can recursively
+            contain other `TreeFolder` objects.
+
+This allows a hierarchy of folders to be created much like the
+            folder hierarchy of a filesystem (or root file for that matter).
+
+<a name="AEN23035"></a>### METHODS
+
+
+
+`  TreeFolder(const  char*  name);`Tree folders are derived from
+                            `TreeItemBaseClass`.  Thus they
+                            must provide a `name`
+                            to their base class constructor to give themselves
+                            a name.  `name` will be the
+                            name of the folder constructed.
+
+`   void  addItem(TreeItemBaseClass*  pItem);`Adds a new item, `pItem`
+                            to the container.  Note that the order of additions
+                            does not imply an ordering within the container.
+
+Note that `pItem`s are all
+                            assumed to be dynamically allocated (via
+                            new) and ownership of
+                            the objects are transferred to the container
+                            (delete is called for each contained item on
+                            destruction).  This behavior can be modified
+                            by calling `freeStorage`
+                            below.
+
+`  const const Contents&  getContents();`Returns a reference to the container of the
+                            objects the folder has.  Note that the container
+                            is indexed by the names of the objects
+                            added to the container.
+
+`   const Contents::const_iterator  begin();`, `  const Contents::const_iterator  end();`Supports iteration over the container of
+                            `TreeItemBaseClass`
+                            objects managed by this folder object.
+                            Note that `Contents::const_iterator`
+                            objects are pointer-like objects that point to
+                            a `std::pair<std::string, TreeItemBaseClass*>`
+                            objects.  The first element of each pair is the name
+                            of the object.  The second, is a pointer to the object
+                            contained.
+
+`  const size_t  size();`Returns the number of items in the container.
+
+`   void  freeStorage(bool  yesno);`Modifies the ownershp of the items contained
+                            (see `addItem`).
+                            if `yesno` is
+                            true, the object
+                            will destroy all contained items when it is
+                            itself destroyed.  If false,
+                            the object will not destroy those objectds.
+
+` virtual  const bool  isFolder();`Returns true as this
+                            class implements a container.
+
+<a name="AEN23135"></a>### Data Types
+
+The `TreeFolder::Contents`  type
+                defines a name indexed container of
+                `TreeItemBaseClass` pointers.
+                This is implemented currently as:
+                `std::map<std::string, TreeItemBaseClass*>`.
+
+<a name="AEN23141"></a>## TreeTerminal
+
+`TreeTerminal` objects represent terminal
+            nodes of a tree.  For parameter trees in SpecTcl, parameters
+            are represented by the parameter id of the parameter name.
+
+<a name="AEN23145"></a>### METHODS
+
+
+
+`  TreeTerminal(const  char*  name, unsigned  parameterId);`Constructing a terminal requires the parameter
+                            `name` and its
+                            `parameterId`.
+
+`  const unsigned  id();`Returns the id of the parameter supplied when it was
+                            constructed.  For SpecTcl this represents a
+                            slot in a `CEvent` object.
+
+` virtual const  bool  isFolder();`Returns false as terminals are
+                            not containers.
+
+<a name="AEN23185"></a>## ParameterTree
+
+A `ParameterTree` is a hierarchy of parameters.
+            In SpecTcl, hierarchy is implied by . path separators,
+            for example, a parameter named s800.fp.e1up
+            would be the terminal e1up in the folder
+            fp in turn inside the folder s800.
+
+You can imagine, therefore a top level (root) folder with contents.
+            The root folder does not have a name in SpecTcl.
+            `ParameterTree` represents the root level
+            folder and further supplies methods to allow you to
+            build the complete folder/terminal hierarhcy given a flat
+            description of a set of parameters.
+
+<a name="AEN23196"></a>### METHODS
+
+Note that this derives from `TreeFolder`.
+                When the tree is built, the object becomes the top level folder
+                of that tree.
+
+
+
+`  ParameterTree();`, `  ParameterTree(const  std::vector<ParameterDef>&  params);`The second form of the constructor is like the first
+                            form followed by a call to
+                            `buildTree`.  See below.
+                            `params` are the parameters to be
+                            built into the tree.
+
+`   void  buildTree(const  std::vector<ParameterDef>&  params);`Constructs the parameter tree from the
+                            parameter definitions given by
+                            `params`.  The
+                            . character is used
+                            as a path separator when building this tree.
+
+Any previously existing parameter this object
+                            holds is destroyed before building the new tree.
+
+`   void  clearTree();`Clears the tree. Once this is complete, the object
+                            is an empty folder.
+
+<a name="AEN23243"></a>### DATA TYPES
+
+The `ParameterDef` contains
+                the name of a parameter and its parameter id:
+
+```
+typedef struct _ParameterDef {
+    std::string s_name;
+    unsigned    s_id;
+    _ParameterDef(const char* name, unsigned id) :
+        s_name(name), s_id(id) {}
+        
+} ParameterDef, *pParameterDef;                
+            
+```
+
+A constructor is provided so that you can initialize the
+                type without needing to know the order of its members.
+
+<a name="AEN23249"></a>## ParameterMarshaller
+
+Root expects you to marshall all values that need to be put into a tree
+            either into an object that Root's interpreter knows about or into
+            an array of values.   This class is provided to take a
+            `CEvent`
+            object and marshall its set values into an array that has been
+            initialized to NaN.
+
+The
+            `CEvent`'s dope vector is used both to minimize the work required
+            to marshall the data and the work required to reset the array
+            to contain only NaN.
+
+<a name="AEN23257"></a>### METHODS:
+
+
+
+`  ParameterMarshaller(std::size_t numParameters);`The constructor requires `numParameters`
+                            to let it know how large a flat array to reserve.
+                            `numParameters` should
+                            be the number of elements in the tree branch written.
+
+`   void  marshall(CEvent&  event);`Marshall's the parameter values in
+                            `event` into the flat storage
+                            reserved for the tree values.
+
+`   void  reset(CEvent&  event);`Assumed to be called after
+                            `marshall` on the same
+                            `event`.  The dope  vector of
+                            `event` is used to know which values
+                            of the flattened parameter array have been set to
+                            actual values.  Those values are reset to
+                            NaN.
+
+`   Double_t*  pointer();`Returns the pointer to the flattened parameters.
+                            This can be passed in to a
+                            `TTRee::Branch` method
+                            that uses this marshaller.
+
+<a name="AEN23311"></a>## SpecTclRootTree
+
+This class builds a Root tree from a set of SpecTcl parameters and
+            provides a mechanism to fill it from a `CEvent`
+            object.
+
+<a name="AEN23315"></a>### methods
+
+
+
+`  SpecTclRootTree(std::string  treeName, const std::vector<ParameterTree::ParameterDef>&  params);``treeName` is the name
+                            that will be given to the
+                            `TTree` that will be created.
+                            `params` define the parameters
+                            that will put into this tree.
+
+Note that the constructor creates the
+                            `TTree` object.  This means
+                            that at construction time, the current working
+                            "directory" in root must be set to where you want
+                            that tree to be stored.
+
+`   void  Fill(CEvent&  event);`Fills the underlying tree from the parameters in
+                            `event`.  Note that the
+                            underlying marshaller that marshalls parameters into
+                            a flat array has a mapping of parameter numbers to
+                            indices so that the flat array only has to be as
+                            large as the number of parameters in the tree.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEventFilter | Up | RootTreeSink |

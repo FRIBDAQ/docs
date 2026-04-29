@@ -1,0 +1,99 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN50478"></a>CParallelWorker
+
+<a name="AEN50482"></a>## Name
+
+CParallelWorker -- Base class for a worker that receives fanned out data.
+
+<a name="AEN50485"></a>## Synopsis
+
+```
+#include <CParallelWorker.h>
+
+class CParallelWorker : public CProcessingElement
+{
+public:
+    CParallelWorker(CFanoutClientTransport& fanin, CSender& sink);
+    CParallelWorker(
+        CFanoutClientTransport& fanin, CSender& sink,
+        uint64_t clientId
+    );
+    
+    virtual void operator()();
+
+protected:
+    CSender* getSink();
+   
+};
+
+        
+```
+
+<a name="AEN50487"></a>## DESCRIPTION
+
+In most parallel computations there are segments of the computation
+            in which work items fan out to worker processes that operate
+            on work items independently and in full parallel with all other
+            workers.
+
+The NSCLDAQ parallel computing framework provides for transports
+            that do that fanout and transports that are clients of those
+            fanouts.   This class is a base class that encapsulates a
+            receiver that is a fanout client, an arbitrary sender and a
+            main control flow that accepts data and asks the unimplemented
+            `process` method to process it.  Processing
+            continues until an empty (zero sized) work item is received.
+
+The sender is exposed to subclasses so that it is available
+            in `process` as implemented by
+            concrete classes.  The sender receives the zero length
+            work item and is expected to do any shutdown required of the sender.
+
+<a name="AEN50494"></a>## METHODS
+
+
+
+`  CParallelWorker(CFanoutClientTransport&  fanin, CSender&  sink);`This constructor provides only a fanout
+                        client transport and
+                        an arbitrary sender.  The user must configure the
+                        `fanin` transport's clien id
+                        prior to running the worker.
+
+`  CParallelWorker(CFanoutClientTransport&  fanin, CSender&  sink, uint64_t  clientId);`This constructor provides the client id of the fanout
+                        client transport.  The constructor will configure the
+                        `sink` transport with that client
+                        id.
+
+` virtual   void  operator()();`Provides the flow of control for the processor.
+                        Messages are retrieved from the `fanin`
+                        transport and  passed to the abstract
+                        `process` method.
+
+Dynamic storage associated with messages is freed by
+                        the `operator()` and should,
+                        not be freed by the concrete subclass
+                        `process` method.
+
+` protected  CSender*  getSink();`Intended for use by subclasses. This method fetches a
+                        pointer to the sender.
+
+Note that this is still an abstract class as it does not implement
+            the `process` method.  It does, however,
+            provide a typical client flow of control in its
+            `operator()` method.
+            To use this class, you must derive from this and provide a
+            `process` method.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CProcessingElement | Up | CTransport |

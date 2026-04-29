@@ -1,0 +1,210 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.factories"></a>Chapter 3. Factories and the Abstract Factory Pattern
+
+In the last section of the previous chapter, we touched on the role factories
+        play in the formatting library.  We'll look a bit deeper at the subject of
+        abstract factories, factories and and important set of functions
+        that allow you to select an appropriate factory at run time.
+
+We've seen that in the format library:
+
+
+
+- There is a factory base class that establishes the interfaces
+                that version specific factories must implement.  This is an
+                abstract base class called `RingItemFactoryBase`.
+- Each supported format version has a concrete instance of this
+                factory.  Normally these are called
+                `vnn::RingItemFactory`
+                where *nn* is the NSCLDAQ version for which
+                that factory creates items (e.g. `v11::RingItemFactory`
+                makes ring items for NSCLDAQ-11).
+  Each factory implements the base class interface. This means that
+              once you have a pointer or reference to a factory in your possession, you
+              can treat it as a generic `RingItemFactoryBase`
+              object and polymorphism will take care of the rest without your
+              code needing to be aware of the actual factory you are using.
+
+In addition to these concepts, the format factory implements a set of
+        functions that can be used to get a reference to an
+        *appropriate* factory object.  This can be done either
+        by passing a version designator or  passing a `::CDataFormat`
+        object by reference.  In NSCLDAQ-11 and later, these objects contain
+        information about the version of NSCLDAQ that produced them.  In an event
+        file or stream of online events, these indicate the format of the data
+        to follow.
+
+In the next example, we'll produce the same physics event item we've been
+        producing in our earlier examples but we'll select the factory at runtime
+        using a version designator.  In the example, the version designator is
+        hard coded but could be computationally determined (e.g. passed into the
+        program form the command line)
+
+<a name="AEN191"></a>**Example 3-1. Using a Version Designator to Construct a Ring Item Factory:**
+
+```
+#include <NSCLDAQFormatFactorySelector.h>
+#include <RingItemFactoryBase.h>    
+#include <CPhysicsEventItem.h>
+#include <memory>
+..
+
+::RingItemFactoryBase& fact(FormatSelector::selectFactory(FormatSelector::v11)); 
+std::unique_ptr<::CPhysicsEventItem> pItem(fact.makePhysicsEventItem());  
+                                                                  
+pItem->setBodyHeader(someTimestamp, someSourceId); 
+uint16_t* pBody = reinterpret_cast<uint16_t*>(pItem->getBodyCursor); 
+...
+pItem->setBodyCursor(pBody);                   
+pItem->updateSize();                          
+...
+
+        
+```
+
+[[c171#select.headers]]                Includes the headers we need. Note that none of them are
+                version specific.  This is the value aded by using the
+                factory selector defined in
+                NSCLDAQFormatFactorySelector.h.
+                RingItemFactoryBase.h defines the abstract
+                base class that establishes the factory API.
+            [[c171#select.select]]                This call has a lot to unwrap.  Again let's start from the
+                inside and work our way out.  `FormatSelector::selectFactory`
+                is a family of functions that return references to factory objects.
+                This version is parameterized by an explicit version designator
+                FormatSelector::v11 (version 11).
+            The selection functions maintain a memory of the factories they've
+                produced.  If, in a later section of code you ask for a factory
+                for the same version; you'll get a reference to the same factory
+                object.  This implies that the selection subsystem maintains ownership
+                of the factories it produces and your code must not delete factories
+                it receives.
+
+The resulting reference is used to initialize a reference to a
+                `::RingItemFactoryBase` object.  Using a reference
+                maintains the association between virtual functions and the
+                implementations provided by the factory returned from
+                `FormatSelector::selectFactory`.
+                This calling methods on this reference will, actually, call methods on the
+                `v11::RingItemFactory` that
+                `FormatSelector::selectFactory` returned.
+
+[[c171#select.makeitem]]                As before, we use the factory to make a physics event item.
+                The  pointer to the resulting dynamically allocated item
+                initializes a `std::unique_ptr` so that
+                the delete of that object is automatic when th smart pointer like
+                object goes out of scope.
+            [[c171#select.fillbody]]                The remainder of the code in this example is identical
+                to the code used to fill in the physics item bodies of the
+                previous examples in this document.
+
+The key point in this is that the only point in time where
+        we used knowledge of the DAQ version is when we called
+        `FormatSelector::selectFactory`
+        passing in the version format selector.
+
+Beginning with NSCLDAQ-11, prior to the begining of each run and,
+        at the beginning of each event file a data format item is written which
+        indicates the format of the data that follows.  There is a format selector
+        item that can be passed a reference to an encapsulated data format item
+        to provide the correct format factory for that format item.
+
+This does provide a bit of a chicken and egg problem...given a raw ring item,
+        how do you get a data format item.  In the code that follows, we'll start
+        with an undifferentiated `::CRingItem` and try to
+        see if it represents a ring format item.  We'll then use the fact that
+        we're guaranteed that ring format items look the same in all
+        versions of NSCLDAQ that support them.
+
+<a name="AEN223"></a>**Example 3-2. Using ring format items to select a format factory**
+
+```
+#include <NSCLDAQFormatFactorySelector.h>
+#include <RingItemFactoryBase.h> 
+#include <CRingItem.h>
+#include <CRingFormatItem.h>    
+#include <memory>
+#include <DataFormat.h>         
+
+static enum FormatSelector::SupportedVersions defaultVersion(FormatSelector::v10); 
+...
+:RingItemFactoryBase* pFactory(0);
+
+std::unique_ptr<::CRingItem> item(getRingItem());  
+if (item->type() == RING_FORMAT) {                    
+    ::CRingFormatItem* pFormatItem =
+        reinterpret_cast<::CRingFormatItem*>(item.get()); 
+    pFactory = &(FormatSelector::selectFactory(*pFormatItem)); 
+} else {
+    pFactory = &(FormatSelector::selectFactory(defaultVersion)); 
+}
+
+::RingItemFactoryBase& fact(*pFactory);               
+
+...
+
+        
+```
+
+There's a lot to unpack in this fragment of code and some of it is a bit
+        sneaky.  Therefore let's look at this code very carefully.
+
+[[c171#fmt.formatitem]]            We'll need to use the definitions of the
+            `CRingFormatItem` so we include it's header here.
+          [[c171#fmt.dataformat]]                The DataFormat.h file provides
+                format definitions for each of the supported data formats.
+                In this case, we pull in the data format from the abstract
+                directory.  The main thing we want here is the ring item type
+                definitions which, for the most part, are stable across versions.
+            [[c171#fmt.defaultfmt]]                We store the default format type in a variable.  You might imagine
+                that processing in the omitted code could modify this.   Version
+                10 is a reasonable default because there isn't a data format item
+                for that version.
+            [[c171#fmt.getitem]]                This line just uses some function we dreamed out
+                `getRingItem` to return a pointer
+                to a dynamically allocated ring item gotten somehow.
+                We initialize a unique_ptr as usual to ensure destruction.
+            [[c171#fmt.isformat]]                Asks the item we got for its item type.  The type is checked
+                against RING_FORMAT which is defined in
+                DataFormat.h.  This is the type value
+                for items that contain ring item formatting information.
+            [[c171#fmt.cast]]                This line is a bit tricky.  It uses the fact that the specific
+                ring item classes just wrap data containing the raw ring item.
+                It further uses the fact that the format of a data format item
+                is fixed over all versions that support it.  The result is therefore
+                a pointer to the same wrapped object but treated as a
+                data format item that knows how to interrrogate the underlying
+                data to extract the format.
+            [[c171#fmt.selectfromitem]]                This version of `FormatSelector::selectFactory`
+                uses a reference to the format item to obtain and pass back
+                a reference to the factory implied by the data format item.
+                There's a bit of trickiness here as well.  We're passed back
+                a reference and that's, in the end, what we want, but references
+                can only be initialized.  They can't be assigned.
+                Therefore, we accept the factory as a pointer and store it away
+                in a pointer with a scope outside the if bodies.
+            [[c171#fmt.selectdefault]]                If the item was not a format item we just create the factory
+                corresponding to the default format type.
+            [[c171#fmt.makereference]]                When we get to this point in the program, the factory pointer has
+                a non null value.  We initialize the reference `fact`
+                to refer to what our factory pointer points to.   Once all this is done
+                we can continue processing data.
+
+The key take away from this example is that we can produce an appropriate
+        object factory without actually knowing the version of NSCLDAQ that
+        produced the data we're processing; if the streamof data we're processing
+        has a format item (comes from NSCLDAQ-11 or later).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Factories. |  | Reference pages |

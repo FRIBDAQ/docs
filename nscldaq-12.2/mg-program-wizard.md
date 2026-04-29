@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN21461"></a>mg_program_wizard
+
+<a name="AEN21465"></a>## Name
+
+mg_program_wizard -- Wizard to create programs for managed experiments
+
+<a name="AEN21468"></a>## Synopsis
+
+**$DAQBIN/mg_program_wizard *config-file*
+**
+
+<a name="AEN21472"></a>## DESCRIPTION
+
+This program is a wizard that leads users through the process of defining programs
+         that can be run in steps of sequences in the FRIBDAQ managed experiment environment.
+         It takes a single command line parameter, the path to the experiment configuration
+         database file.
+
+This wizard should not be used for readout programs as there's a lot of baggage that
+         needs to go along with defining that.  Use the  wizard described in 
+         [[r21164]] to
+         define readout programs.
+
+Since FRIBDAQ-12.1-003, this is also available from the **mg_config**
+         menu of configuration programs.
+
+The wizard pages should be self-explanatory as  a great deal of descriptive text
+         has been placed on the in addition to the controls needed to specify the program.
+         If you
+         have problems understanding what is required send email to the 
+         helpme at frib dot msu dot edu support address;
+            we will help you and try to improve the wizard.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_logwizard | Up | mg_import |

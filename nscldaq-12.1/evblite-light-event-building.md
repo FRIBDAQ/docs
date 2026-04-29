@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6249"></a>Chapter 10. EVBLite -  light event building
+
+EVBLite is an event builder that can be used in the following circumstances:
+
+
+
+- You have a single data source of ordered fragments.  Examples include
+            single crate XIA systems, and single CoBo GET systems.
+- You don't require a graphical user interface that shows event builder
+            statistics.
+- You have high rates that may stress or saturate the normal NSCLDAQ
+            event builder.
+
+EVBLite was introduced with NSCLDAQ version 12.0.
+
+# <a name="AEN6260"></a>10.1. What is EVBLite
+
+The best way to understand EVBLite is to dissect the normal NSCLDAQ event
+        builder the compare and contrast EVBLite with it.
+
+The NSCLDAQ event builder consists of a unix pipe. The members of that pipe
+        are:
+
+
+
+OrdererAccepts connections from several data sources.  The ordered fragments
+                from these data sources are then output in a totally ordered stream
+                of fragments.  Fragments consist of a header that contains, among
+                other things, the fragment timestamp and the payload, which is just
+                the data from the original data source.
+
+Orderer data sources are TCP/IP clients, usually RingFragmentSource
+                    programs.  These data sources send blocks of fragments to the
+                    Orderer over socket connections.
+
+GlomGlom accepts fragments on stdin created by the Orderer.  Glom's
+                primary function is to glue together physics event fragments
+                that occur within a coincidence interval into events.  Thus it's
+                really glom that is performing the function of event building.
+
+Glom outputs events to its stdout as NSLCDAQ ring items.
+
+stdintoringThis simple program just accepts data on stdin and puts it into
+                an NSCLDAQ ringbuffer.
+
+Since Glom is a filter (stdin to stdout), if the orderer program
+        were replaced by any other program that produces a stream of ordered
+        fragments with the correct event builder headers, it will happily build
+        events from that data stream.  The single data source EVBLite works with
+        therefore simply needs a tagger - a program that takes a stream of ring
+        items from its single data source, prepends the appropriate headers
+        and psses the resulting fragments to stdout.
+
+EVBLite is therefore a linux pipe consisting of::
+
+
+
+ringtostdoutA standard NSCLDAQ program that ouptputs data from a ringbuffer
+                to its stdout.  It is the source of data for EVBLite
+
+evbtaggerAccepts a stream of ring items on its stdin and produces an output
+                stream consisting of those ring items prepended with
+                the appropriate fragment headers.
+
+GlomAs with the full event builder, glom produces a stream of event ring items.
+
+stdintoringAs before stdintoring puts the output from glom into an NSCLDAQ
+                ringbuffer.
+
+EVBLite also provides a Tcl package that can be used to define and start
+        the EVBLite event building pipeline from e.g. ReadoutCallouts.tcl
+        or a sequence step in the program manager.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the Event Builder With The Manager | Up | evbtagger - making event builder fragments from ring items. |

@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN68906"></a>CRingItemTransportFactory
+
+<a name="AEN68910"></a>## Name
+
+CRingItemTransportFactory -- Create and appropriate ring item transport
+
+<a name="AEN68913"></a>## Synopsis
+
+```
+#include <CRingItemTransport.h>
+#include <CRingItemTransportFactory.h>
+
+class CRingItemTransportFactory
+{
+public:
+    static CRingItemTransport* createTransport(
+        const char* uri, CRingBuffer::ClientMode accessMode
+    );
+        
+```
+
+<a name="AEN68915"></a>## DESCRIPTION
+
+Creates the ring item transport appropriate to the
+            URI protocol type (tcp:
+            or file:), and access mode
+            (`CRingBuffer`::producer
+            or `CRingBuffer`::consumer)
+
+The transport is created with
+            new and therefore must be
+            freed with delete when the
+            application no longer needs it.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingItemFileTransport | Up | CZMQTransport |

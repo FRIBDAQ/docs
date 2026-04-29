@@ -1,0 +1,67 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CStateException"></a>CStateException
+
+<a name="AEN42766"></a>## Name
+
+CStateException -- Exception for invalid state transitions.
+
+<a name="AEN42769"></a>## Synopsis
+
+```
+CStateException
+```
+
+<a name="AEN42799"></a>## Description
+
+Many programming problems can be solved by programming a *state machine*.
+                A state machine, or finite state automaton, simply put, is an entity that has a well defined
+                set of states it can live in.  Input stimulii may trigger well defined transitions
+                from one state to another state.  For example the *begin* stimulus
+                can force a run-state machine in the *halted* state to make a transition
+                to the *active* state.
+
+When programming a state machine the programmer must take into account exceptional
+                cases where stimulii that are not allowed for the current state are received or,
+                in some cases, errors in implementing the state machine cause the state machine to
+                enter a state that is not legal.
+
+The `CStateException` provides a class that can be instantiated
+                and then thrown in the event one of these cases occurs.
+
+<a name="AEN42809"></a>## Public member functions
+
+`  CStateException(const char* state, const char* allowedStates, const char* pAction);`Creates a `CStateException` that can be thrown.
+
+
+
+`state`The state attempted.  This can be a state attemped via an illegal
+                                    transition or it could be an illegal state actually entered as a result
+                                    of an error in programming.
+
+`allowedStates`The allowed states at this time.
+
+`pAction`The context in which the error was detected and thrown.
+
+
+` virtual const const char* ReasonText();`As usual, this returns the textual reason for the failure.  This will be a string of
+                    the form:
+                    Invalid object state when: %c relevant erroneous state: %s relevant allowed state: %a
+                    Where %c is the context text supplied at construction time.
+                    %s is the state that caused the error.
+                    %a are the allowed states prior to this error.
+
+` virtual const Int_t ReasonCode();`The error code for this exception type is always -1.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRangeError | Up | CStreamIOError |

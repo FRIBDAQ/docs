@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 61. Access control and security | Next |
+
+
+---
+
+# <a name="AEN15419"></a>61.2. Authenticators
+
+The
+            `CAuthenticator`
+            class is the abstract base class of all authenticators.
+            It provides an interface that all authenticators must meet.
+            In typical operation, an application will select a concrete authenticator,
+            and pair it with a concrete interactor.  The application will then
+            authenticate requestors using this pair of objects.
+            Here's some sample boilerplate code:
+
+<a name="AEN15423"></a>**Example 61-3. Boilerplate DAQ Authorization code **
+
+```
+#include <Authenticator.h>
+#include <Interactor>
+
+...
+    CAutenticator* pAuthenticator =  selectAuthenticator();
+    CInteractor*   pInteractor    =  selectInteractor();
+    if (pAuthenticator->Authenticate(*pInteractor)) {
+        // Authorized to use the service.
+        ...
+     }
+    else {
+     // Not authorized to use the service.
+     ...
+    }
+    // Assuming the interactor an authenticator are dynamically allocated
+    // by the selection functions.
+    
+    delete pAuthenticator;
+    delete pInteractor;
+            
+```
+
+In the example above, the functions not shown,
+            `selectAuthenticator`
+            and
+            `selectInteractor`
+            determine the actual authentication method and authorization policy.
+            The implementation of these functions will vary from application to
+            application.
+
+The complete definitinon of
+            `CAuthenticator` is provided in
+            [[r53742]].
+            The library provides the following concrete authentication classes:
+
+
+
+[[r53854]]The entity must provide a correct password.  Note that the current
+                    set of interactors do not support encrypted interactors.  This can be
+                    extended if required.
+
+[[r54052]]The entity must provide a valid username and password
+                        that is could login to the local unix system.
+
+[[r54273]]Intended for use within a Tcl interpreter.  The entity must
+                        supply some string that is an element of a Tcl list
+                        held in a Tcl variable.
+
+[[r54377]]The entity must supply a string that is one of a set of strings
+                            given to the authenticator.
+
+[[r54529]]Same as `CAccessListCheck` but the
+                        access list is a set of IP addresses.  The entity's
+                        credentials are translated to an IP address and looked up
+                        in the set of allowed items.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Access control and security | Up | Interactors |

@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev | Chapter 3. MPITcl - an enhanced Tcl interpreter | Next |
+
+
+---
+
+# <a name="AEN447"></a>3.3. The mpi::mpi command ensemble.
+
+The MPITcl interpreter adds a command ensemble;
+                **mpi::mpi**.  See the reference material
+                for full information about each subcommand.
+                This has the following subcommands:
+
+
+
+**size**Returns the number of mpitcl program instances
+                            in the program.
+
+**rank**Returns the rank of the program within the
+                            MPI_COMM_WORLD communicator.
+
+**execute**Executes a command in process.  The process is
+                            either specified by rank or
+                            others may be specified to
+                            execute the command in all other processes but the
+                            sender.  all can be specified
+                            to execute the script in all processes including this
+                            one.  No communication is done to execute the
+                            command in this process.
+
+For rank 0 to execute a command sent to it by
+                            another rank, it must be running the notifier and
+                            be in the event loop (e.g. by **vwait**).
+
+**send**Sends data to another process. all
+                            and others can be used here as well
+                            to specify several receivers.
+
+For all program instances to be able to receive
+                            data requires that they have established a data handler
+                            command (see **handle**).  Additionally,
+                            for rank 0 to receive data, it must be running the
+                            notifier and be in the event loop (e.g. via
+                            **vwait**).
+
+**handle**Specifies a script to handle data sent to the process
+                            via **send**.  The sender's rank and
+                            the data are appended to the command prior to execution.
+
+**stopnotifier**The notifier is a thread that runs in the rank 0
+                            process.  It's purpose is to monitor for MPI
+                            messages and queue them as events to the main thread's
+                            interpreter where they can be executed when the
+                            event loop is entered via, for example,
+                            **vwait**.
+
+If compiled code wants to do message exchange it
+                            can be important to stop the notifier thread to
+                            prevent events from being queues that the main
+                            thread will be handling.
+
+This command, which is only legal in rank 0 stops
+                            the notifier thread.  This is done by sending a
+                            message with a special tag.  The probe loop the
+                            notifier is executing, recognizesthis tag, absorbs
+                            the message and exits.
+
+**startnotifier**Starts the notifier if it is stopped.
+                            If the notifier is already running, this has undefined
+                            results.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| How MPI Concepts map to MPITcl | Up | Running MPITcl (NSCL/FRIB specific) |

@@ -1,0 +1,18 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="man-3python"></a># XIII. 3python
+
+**Table of Contents**[[r57479]] -- Python bindings to port manager
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Delay | Up | PortManager |

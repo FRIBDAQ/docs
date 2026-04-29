@@ -1,0 +1,222 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.sreadcommand"></a>sread
+
+<a name="AEN2211"></a>## Name
+
+sread -- Read spectrum from file or pipe.
+
+<a name="AEN2214"></a>## Synopsis
+
+**sread ?`-format` *fmt*?
+      ?`-?no?snapshot`?
+      ?`-?no?replace`?
+      ?`-?no?bind`?  *file*
+**
+
+<a name="AEN2223"></a>## DESCRIPTION
+
+Reads a spectrum either from a file specified by name or a file or
+            pipe opened with the Tcl **open** command.
+
+The next spectrum in the file parameter is read.
+            The `file` parameter can either be a path to a
+            file, or a handle returned from the Tcl open command.
+            If the file is a path, the file is opened, the first spectrum read,
+            and the file is closed.  If the file parameter is a Tcl file
+            handle, the next spectrum at the current position in the file
+            is read, and the file remains open for further I/O.
+
+<a name="AEN2229"></a>## OPTIONS
+
+A bit of history.  Many years ago, there was a histogramming program
+            that ran on the VMS operating system called SMAUG.  It too had
+            spectrum I/O facilities.
+            Although SMAUG no longer exists,
+            SpecTcl's **sread** command,
+            as we will see, has been written to be able to exchange
+            files with SMAUG.  Most users do not know about or use the SMAUG
+            interchange capabilities.  All GUIs I know about only read/write
+            ASCII formatted files.
+
+
+
+`-format` fmtSelects the format the file is in.  SpecTcl supports a
+                        simple ASCII format as well as SMAUG binary format.
+                        `fmt` is a string that describes
+                        which of these formats the file is in.
+
+If `fmt` is ascii
+nsclascii, the file is assumed to
+                        be in SpecTcl's ASCII format.  If `fmt`
+                        is either binary or nsclbinary
+                        the file is assumed to be in SMAUG binary format.
+
+If not provided, the default format is nsclascii
+
+The set of formats is extensible, and documentation how to
+                        add a new format can be found in Programming Guide and 
+                        Programming Reference documents.  Three built in formats
+                        are  supported:
+
+
+
+ascii, nsclasciiProvides a simple ASCII formatted file that consists of a
+                                    descriptive header.  The header is then followed by
+                                    a section containng channel data.
+                                    This format is intended to be easily reverse engineered
+
+Note that this is an acceptable interchange format with
+                                    rustogramer which can both read and write 
+                                    nsclascii files.
+
+binary, nsclbinarySMAUG formatted histograms.  Note that the details of
+                                    SMAUG format are not documented other than in the code.
+                                    binary is not recommended, while it results
+                                    in smaller files than ascii format;
+                                    firstly disk space is cheap, and secondly when written to a
+                                    gzip pipeline, ASCII formatted files compress to smaller files
+                                    than correponsing binary formatted files.
+
+nsclbinary formatted files cannot interchanged
+                                    with rustogramer or, likely, any other existing program (SMAUG the
+                                    program - not the dragon, died many years ago).
+
+jsonThis format provides a description of spectra and
+                                    their contents in JavaScript Object Notation (JSON).
+                                    Since spectra are an array of objects in the
+                                    file and JSON files must be fully read to be parsed,
+                                    it is not possible to read more than the first spectrum
+                                    from a JSON file.
+
+The schema for the objects written is descdribed
+                                    in the header SpectrumFormatterJson.h and will
+                                    be documented further in another document
+                                    at a later time.
+
+Note that when writing spectra, bin numbers and
+                                    corresponding axis coordinates are gotten from
+                                    the underlying Root spectra.
+
+`-?no?snapshot`Defines how the resulting spectrum is treated in SpecTcl
+                        once read in.
+
+If `-snapshot`, the default,
+                        is chosen, the spectrum is read into a
+                        *snapshot* spectrum.  Snapshot
+                        spectra are spectra in every sense of the word, however
+                        they are not connected to the histogramming kernel and
+                        therefore never increment.
+
+If `-nosnapshot` is supplied, once the
+                        spectrum is read in, if the parameters the spectrum
+                        was defined on exist in this intance of SpecTcl,
+                        the spectrum is connected to the histogrammer and
+                        will incrmement as new data arrives.   Note that
+                        only nsclascii (ascii)
+                        and json
+                        spectra have information about which parameters
+                        are in the spectrum and the underlying spectrum type.
+                        Therefore `-nosnapshot` has no effect
+                        for other spectrum formats.
+
+If the SpecTcl is missing a definition for one or more
+                        of the parameters that are needed by the spectrum,
+                        the spectrum reverts to a snapshot spectrum.
+
+`-?no?replace`Determines what **sread** does if
+                        a spectrum with the same name as the one in the file
+                        is already defined.  Note that this is orthogonal
+                        to `-snapshot`.
+
+If `-noreplace` (the default), if this
+                        spectrum already exists a unique, similarly named
+                        spectrum is created so that the existing spectrum is
+                        not overwritten.
+
+If `-replace`, existing spectra are
+                        delted and overwritten with the spectrum from file.
+
+?`-?no?bind`If `-bind` is present (by default it
+                        is), once read in the spectrum is bound into display
+                        shared memory.  If `-nobind` the spectrum
+                        is not bound into display memory.  The spectrum can always
+                        be bound later on using **sbind**.
+
+<a name="AEN2310"></a>## EXAMPLES
+
+<a name="AEN2312"></a>**Example 1. Reading a spectrum in from file**
+
+```
+sread /user/fox/test.asc
+            
+```
+
+Note that file substitutions don't work for **sread**.
+            Since non command line options are provided, the format is
+            nsclascii, a snapshot spectrum will be created,
+            if necessary the spectrum's name will be changed to avoid
+            overwriting an existing spectrum and the resulting spectrum
+            is bound to display memory.
+
+<a name="AEN2318"></a>**Example 2. Reading several spectra from one file**
+
+```
+set file [open ~/test.asc r]
+sread -format ascii $file
+sread -format ascii $file
+sread -format binary $file
+close $file
+            
+```
+
+If **sread** is pointed to a file it can only read
+            one spectrum (the first).  Using a file descriptor to identify
+            the file allows several consecutive **swrite**
+            commands to process consective spectra in the file.  This is true only
+            if the format is such that the entire file does not need to be read
+            to parse the data - specifically this cannot be done with
+            -format json
+
+Note there's no requirement the file not have other data
+            **sread** can be freely mixed with
+            e.g. **read** or **gets**
+            as dictated by the contents of the file.
+
+<a name="AEN2329"></a>**Example 3. Reading from a pipeline:**
+
+```
+set file [open {|zcat ~/test.asc.gz} r]
+sread -format ascii  $file
+sread -format ascii  $file
+sread -format ascii  $file
+close $file
+            
+```
+
+In this case, ~/test.asc.gz is a
+                file that has been compressed with **gzip**.
+                Once a pipe has been formed with the decompressor we
+                can just process spectra from the pipeline as we did
+                for actual files.
+
+<a name="AEN2335"></a>## SEE ALSO
+
+
+
+- [[r2473]]
+- [[r2962]]
+- [[r236]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| pseudo | Up | ringformat |

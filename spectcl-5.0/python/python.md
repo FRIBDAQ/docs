@@ -1,0 +1,98 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN28"></a>python
+
+<a name="AEN32"></a>## Name
+
+python -- Runs python scripts in SpecTcl
+
+<a name="AEN35"></a>## Synopsis
+
+**package require python
+                    **   
+**python source *filename*
+**   
+**python exec *script*
+**
+
+<a name="AEN42"></a>## DESCRIPTION
+
+The **python** command is a Tcl command
+                    ensemble that has two subcommands.
+
+
+
+sourceAccepts a filename and executes the python script
+                                in that file.
+
+execAccepts a python script and executes that script.
+                                Prior to running the script a single variable
+                                substitution pass is run over the script.
+                                This substitution pass is run regardless of the
+                                top level quoting.
+
+<a name="AEN57"></a>## EXAMPLES
+
+<a name="AEN59"></a>**Example 2-1. Running a script file**
+
+**python source myscript.py
+                        **
+
+This example runs a python script that is stored in
+                        myscript.py
+
+<a name="AEN65"></a>**Example 2-2. Running an immediate script**
+
+**python exec {
+print("Hello world from python")
+}
+                        **
+
+This prints the string
+                        Hello world from python
+                        on stdout.  Note that if you are running the
+                        TkCon console, the output
+                        will not come out there but on the terminal that started
+                        SpecTcl.  This is because python is not aware of the
+                        Tcl redirection of its stdout and
+                        stderr file descriptors to that console
+                        window.
+
+<a name="AEN74"></a>**Example 2-3. Tcl variable substitution**
+
+```
+set spectrumName myspectrum
+python exec {
+s = spectcl.spectrum('$spectrumName')
+print(s.name)
+print(s.type)
+print(s.parameters)
+print(s.axes)
+
+}
+                    
+```
+
+Creates a python spectrum object that wraps
+                        the spectrum named by the Tcl variable
+                        `spectrumName` (in this case
+                        myspectrum).
+                        The name, type, parameter list and axis definitions
+                        of the spectrum are printed to stdout.
+
+Note we needed to quote the variable substitution so
+                        that the resulting parameter would be a properly quoted
+                        literal string from python's point of view.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Thepythoncommand. | Up | The pythonspectclpackage |

@@ -1,0 +1,222 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.treevariablecommand"></a>treevariable
+
+<a name="AEN1030"></a>## Name
+
+treevariable -- List and manipulate tree variables
+
+<a name="AEN1033"></a>## Synopsis
+
+**treevariable `-list` **
+**
+
+**treevariable `-set` *name value units *
+**
+
+**treevariable `-check` *name*
+**
+
+**treevariable `-setchanged` *name*
+**
+
+**treevariable `-firetraces` *?pattern?*
+**
+
+<a name="AEN1054"></a>## DESCRIPTION
+
+The Tree parameter package provides for a binding between a set of
+            Tcl variables and elements of a structured data type.
+            Such bound variables are called treevariables Associated with a
+            tree variable is a units specificationon that can be used to
+            document to the user what is expected for the parameter.
+
+Note in the discussion below, that the ordinary Tcl set command can
+            be used to modify the value of a treevariable, as Tcl's core sees
+            them as ordinary variables.
+
+The first command parameter after the treevariable command is an
+            option that defines the desired operation, the nmber and the
+            meaning of the remaining parameters on the command line. The
+            following section describes each valid switch,
+            its parameters and what it does.
+
+<a name="AEN1059"></a>## OPTIONS
+
+
+
+**treevariable `-list` **
+**
+
+Lists the properties of all or some of the treevariables.
+                        The optional
+                        `pattern` parameter allows you to
+                        select which variables are listed (if omitted all
+                        are listed). The pattern is a
+                        *glob pattern* which means that
+                        all of the wildcard specifications you can use to
+                        select Unix filenames are accepted.
+
+The output of this command is a list. Each element of
+                        the list describes a single variable. Each parameter 
+                        is described as a sublist containing the following
+                        elements:
+
+
+
+nameThe name of the variable. This is a period
+                                    separated path to a single variable.
+
+valueThe current value of the variable.
+
+unitsUnits of measure of the variable. This 
+                                    documents the expected units of measure of
+                                    the values given to this parameter.
+
+**treevariable `-set` *name value units *
+**
+
+Modifies both the value and units of a tree variable;
+                        `name`.
+                        The new value of the parameter will be
+                        `value` and
+                        the new units `units`.
+
+**treevariable `-check` *name*
+**
+
+This subcommand returns 0 if the variable's changed
+                        flag is false and 1 if it is true. Each tree variable
+                        has a changed flag that reflects whether or not the
+                        variable's properties have changed. In the case of a
+                        treevariable, the properties of a variable are
+                        considered to be its value and units.
+
+Being able to determine if treevariable properties
+                        have changed allows scripts to know if it is necessary
+                        to save these changes.
+
+**treevariable `-setchanged` *name*
+**
+
+This subcommand allows you to set the variable changed
+                        flag. See
+                        **treevariable `-check`**
+                        for more information about what this means.
+
+**treevariable `-firetraces` *?pattern?*
+**
+
+If there are traces established on the variable
+                        and its value has changed since the last attempt to
+                        fire its traces, the variables that match
+                        `pattern` will
+                        have
+                        `Tcl_UpdateLinkedVar` called on their behalf.
+
+`pattern` is a glob pattern.
+                        If omitted it defaults to * which
+                        operates on all parameters.
+
+Many Tk widgets have a `-variable`
+                        or `-textvariable` that maps
+                        displays the value of a variable in some part of the widget.
+                        These widgets rely on traces to know when to update
+                        their state.
+
+<a name="AEN1135"></a>## EXAMPLES
+
+<a name="AEN1137"></a>**Example 1. Listing all variables:**
+
+```
+treeparam) 10 % treevariable -list
+{vars.unused.00 0 furl/fort} 
+{vars.unused.01 0 furl/fort} 
+{vars.unused.02 0 furl/fort} 
+{vars.unused.03 0 furl/fort} 
+{vars.unused.04 0 furl/fort} 
+{vars.unused.05 0 furl/fort} 
+{vars.unused.06 0 furl/fort} 
+{vars.unused.07 0 furl/fort} 
+{vars.unused.08 0 furl/fort} 
+{vars.unused.09 0 furl/fort} 
+{vars.w1 1 arb/chan} 
+{vars.w2 1 arb/chan}
+
+            
+```
+
+<a name="AEN1143"></a>**Example 2. Using a glob pattern; listing variables thaty start with vars.w**
+
+```
+(treeparam) 12 % treevariable -list vars.w*
+{vars.w1 1 arb/chan} 
+{vars.w2 1 arb/chan} 
+               
+            
+```
+
+<a name="AEN1149"></a>**Example 3. Modifying value and units of a tree variable**
+
+```
+(treeparam) 15 % treevariable -list vars.w1
+{vars.w1 1 arb/chan}
+(treeparam) 16 % treevariable -set vars.w1 0.5 MeV/channel
+(treeparam) 17 % treevariable -list vars.w1
+{vars.w1 0.5 MeV/channel}
+            
+```
+
+If we only wnat to modify the value of a tree variable, without
+            changing the units, we can take advantage of the fact that a tree
+            variable is a wrapper around a Tcl variable of the same name:
+
+<a name="AEN1159"></a>**Example 4. Changing only the value of a tree parameter**
+
+```
+(treeparam) 17 % treevariable -list vars.w1
+{vars.w1 0.5 MeV/channel}
+(treeparam) 18 % set vars.w1 1.3
+1.3
+(treeparam) 19 % treevariable -list vars.w1
+{vars.w1 1.3 MeV/channel}                
+            
+```
+
+Since the tree variable wraps a Tcl variable with the same name,
+            we can use substitution to ensure we only modify the units of
+            a tree variable.  Note that the scope of substitution requires
+            us to quote tha variable name or else Tcl will think the name of the
+            variable stops at the first ..
+
+<a name="AEN1171"></a>**Example 5. Modifying only the units of a tree variable**
+
+```
+(treeparam) 19 % treevariable -list vars.w1
+{vars.w1 1.3 MeV/channel}
+(treeparam) 23 % treevariable -set vars.w1 ${vars.w1} KeV/channel
+(treeparam) 24 % treevariable -list vars.w1
+{vars.w1 1.3 KeV/channel}                
+            
+```
+
+<a name="AEN1180"></a>## SEE ALSO
+
+
+
+- [[r774]]
+- set(3tcl)
+- trace(3tcl)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| treeparameter | Up | filter |

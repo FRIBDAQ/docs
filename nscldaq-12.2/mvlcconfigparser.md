@@ -1,0 +1,61 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="mvlc3.mvlcconfigparser"></a>MVLCCOnfigParser
+
+<a name="AEN106297"></a>## Name
+
+MVLCConfigParser -- Provide MVLC specific `TCLConfigParser` class
+
+<a name="AEN106301"></a>## Synopsis
+
+```
+#include <mvlc/MVLCConfigParser.h>
+class MVLCConfigParser : public TCLConfigParser {
+public:
+    MVLCConfigParser(const std::string& script);
+    virtual void addExtensions();
+
+    static MVLCConfigParser* getInstance();
+};
+
+        
+```
+
+<a name="AEN106303"></a>## DESCRIPTION
+
+This is the specialization of
+            [[r106127]]
+            that defines the Tcl extensions needed to parse the verbs that make up the 
+            configuration file froim the VMUSBReadout.  Once parsed the configuration
+            can be translated into the appropriate yaml file.
+
+<a name="AEN106307"></a>## METHOD
+
+
+
+`  MVLCConfigParser(const std::string& script);`Constructor.  The `script` is the path to the
+                            script configuration file for VMUSBReadout that will be interpreted and,
+                            ultimately, translated
+
+` virtual void addExtensions();`Provides the extensions to the Tcl intepreter that will interpret 
+                            the configuration script needed to do that interpretation.
+
+` static MVLCConfigParser* getInstance();`Just as 
+                            [[r106127]]
+                            is a irregular singleton, so is `MVLCConfigParser`.
+                            This method really just invokes the 
+                            `TCLConfigParser`::`getInstance` casting
+                            to the proper type of pointer returned.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| TCLConfigParser | Up | 3tcl |

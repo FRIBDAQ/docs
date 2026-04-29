@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN260"></a>start
+
+<a name="AEN264"></a>## Name
+
+start -- Start analyzing data.
+
+<a name="AEN267"></a>## Synopsis
+
+**spectcl.start()
+                        **
+
+<a name="AEN270"></a>## DESCRIPTION
+
+Starts taking data from the current event source.
+                        The current event source is determined by the
+                        last call to `spectcl.attach()`,
+                        or the last Tcl **attach** command,
+                        whichever was more recent.
+
+To allow Tcl scripts to be aware of the change in state,
+                        the Tcl global variable `RunState` is
+                        set to 1 as it is for the Tcl **start**
+                        command.
+
+If analysis is active, this method does nothing.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| attach | Up | stop |

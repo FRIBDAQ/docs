@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6146"></a>dbconfig::saveSpectrum
+
+<a name="AEN6150"></a>## Name
+
+dbconfig::saveSpectrum -- Save contents of a spectrum.
+
+<a name="AEN6153"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+set set [dbconfig::saveConfiguration $db save-set]
+
+dbconfig::saveSpectrum $set spectrum-name
+                            
+                        
+```
+
+<a name="AEN6155"></a>## DESCRIPTION
+
+Save the contents of the spectrum
+                            `spectrum-name` into the
+                            saveset `set`.  Note that
+                            any channels already saved for
+                            `spectrum-name` are overwritten.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::restoreConfig | Up | dbconfig::restoreSpectrum |

@@ -1,0 +1,621 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap-sbsrdo"></a>Chapter 65. The SBS Readout framework
+
+This chapter describes a framework for reading out events via the SBS
+        PCI/VME bus bridge interface.  This chapter describes
+
+
+
+- Basic concepts that underlie the framework
+- How to obtain a skeleton application which you can expand
+                      into a real application, and build it.
+- What parts of the skeleton application you will most likely
+                      have to modify to produce a real application.
+
+
+Complete reference information is available in the 3sbsreadout part of
+        this manual.
+
+# <a name="AEN11489"></a>65.1. SBS Readout concepts
+
+The SBS readout is an application framework.  Application frameworks
+            are nice because they already supply the main flow of control.  Your
+            job as an application programmer is to fill in the experiment specific
+            pieces of the framework.
+
+The disadvantage of an application framework is that it can be hard
+            to figure out how to get started without a good orientation.  This
+            section aims to be that orientation.  We will describe the flow
+            of the application and the concepts you'll have to deal with.
+
+Normally you will only need to be concerned with how the framework
+            operates when data taking is active.  When data taking is active,
+            An independent thread loops checking a pair of
+            *triggers*.  These
+            triggers are called the
+            *event trigger* and tthe
+            *scaler triger*.
+            Each trigger has associated with it a set of code to execute.
+            This code is organized hierarchically as *event segments*
+            in the case of the event trigger and *scaler banks*
+            in the case of the scaler trigger.
+
+Triggers and the code that responds to them must be registered with
+            the framework if it is to know about it.  The specific triggers
+            themselves must also be registered.
+
+This section therefore will discuss the following objects:
+
+
+
+- Event segments.
+- Scaler banks
+- Triggers
+- Busys
+
+
+**Event Segments. **
+                An event segment is a logical unit of data acquisitition. There
+                are two useful base classes:
+                `CEventSegment` provides a primitive segment.
+                You extend `CEventSegment` to build a class
+                that actually initializes, reads and clears some digitizer modules.
+                `CCompoundEventSegment` provides a container
+                for other event segments (including other
+                `CCompoundEventSegment` objects).
+                `CCompoundEventSegment` provides the
+                glue that allows you to build an experiment readout from logical
+                chunks.
+
+To use the `CEventSegment` class, you create
+            a derived class and implement the pure virtual methods of 
+            `CEventSegment`.  You can optionally override
+            the virtual methods supplied by `CEvenSegment`
+            (which are implemented to do nothing) if your electronics requires this.
+
+The virtual methods you can implement are:
+
+
+
+void `initialize`()This method is called once as data taking transitions to
+                        the active state (resume or begin).  It is expected to perform
+                        any one-time initialization of the hardware managed by this
+                        event segment.  This includes returning the module to a known
+                        state, reading setup files and applying them to the module,
+                        enabling data taking and so on.
+
+void `clear`()Clears any pending data from the module.  This is called
+                        after `initialize` during startup.
+                        It is also called after each event has been read.
+                        You should implement this if the hardware this segment is reading
+                        requires any post readout attention to be made ready for
+                        the next event.
+
+void `disable`()Called as data taking is being transitioned to an inactive
+                        state (paused or ended).  This is expected to do any
+                        work needed to disable dat taking in the modules managed
+                        by this segment.
+
+size_t `read`(
+                void* `pBuffer`,
+                size_t `maxwords`)Called in response to a trigger. This function is expected
+                        to read the hardware directly into `pBuffer`
+                        which has `maxwords` of 16 bit words
+                        available.  On return, the actual number of 16 bit words read
+                        should be returned.
+
+If your Readout is participating in distributed event
+                            building your `read` method
+                            must provide the event timestamp and, may optionally,
+                            provide the source id associated with the event.
+                            If not provided, the source id is taken from
+                            value of othe `--sourceid` command
+                            line option.
+
+The base class, `CEventSegment`
+                            provides some utilities that can be useful when
+                            reading and event segment.  Refer to
+                            the manpage 
+                            [[r79982]]
+                            for reference material that covers the utilities
+                            described below
+
+One set of utilties allow event segments to prevent
+                            the event from appearing in the data stream.
+                            By callilng `reject` all subsequent
+                            event segments still run but the resulting event is
+                            discarded.  If you know that it is not necessary
+                            for subsequent event segments to run (e.g. to keep
+                            the hardware sane), you can call `rejectImmediatly`.
+                            That function aborts event segment processing when
+                            the current segment returns and discards the data
+                            read to this point.
+
+The `keep` method can be called
+                            to reset the state of the event to prevent it from
+                            being discarded.  This can happen if either the
+                            event segment assumes an event is bad and needs to be
+                            convinced otherwise or if a subsequent event segment
+                            wants to ensure that an `reject`
+                            by a prior event segment is not honored.
+
+Finally, the `setTimestamp`
+                            and `setSourceId` methods
+                            ensure the event has an event header that contains
+                            the timestamp and source id specified to those
+                            methods.  This must be used in an environment
+                            that employs the NSCL event builder in order to
+                            provide events with the information needed by the
+                            ring data source so that the timestamp and source id
+                            can be automatically deduced.
+
+For reference information on this class see:
+            [[r79982]].
+            Closely allied with this is the concept of packets.  Packets are supported
+            via the [[r79581]].
+            The [[r79854]]
+            class extends  `CEventSegment` to provide a base
+            class for event segments that are wrapped in a packet.
+
+Event segments are organized by placing them in `CCompoundEventSegment`
+            objects. `CCompoundEventSegment` is itself an
+            `CEventSegment` and therefore can contain other
+            compounds, which supports a hierarchical organization of the
+            experimental readout.
+
+Ordinarily you will use a `CCompoundEventSegment`
+            by creating an instance of it and inserting other segments into it.
+            Here are the methods that allow you to manipulate the event segments
+            in a compound event segment.
+
+
+
+void `AddEventSegment`(
+                CEventSegment* `pSegment`
+                )Adds an event segment to the end of the ordered collection
+                        of event segments in the list.  Whenever a method like
+                        `initialize` or`read`
+                        is invoked on a compound event segment it will invoke the
+                        corresponding method in the elements it contains in
+                        the order in which they were added.
+
+void `DeleteEventSegment`
+                (
+                    CEventSegment* `pSegment`
+                )If `pSegment` is contained by
+                        the compound, it will be removed from the container.
+                        If not this method does nothing.
+
+CCompoundEventSegment::EventSegmentIterator
+`begin`()Returns an iterator which 'points' to the beginning of the
+                        collection.  Refer to the description below for information
+                        about iterators.
+
+CCompoundEventSegment::EventSegmentIterator
+`end`()Returns an iterator that points just off the end of
+                        the collection.  A typical usage pattern is shown below
+
+<a name="AEN11613"></a>```
+CCompoundEventSegment seg;
+...
+CCompoundEventSegment::EventIterator p = seg.begin();
+while (p != seg.end()) {
+   // Do something with the event segment pointed to by *p
+   
+   p++;
+}
+                                
+```
+
+The CCompoundEventSegment::EventSegmentIterator
+            data typeis a pointer like object within the collection of
+            event segments.  Dereferencing it gives you a pointer to the
+            event segmet at the current location. Increment advances the
+            iterator to the next element of the collection.
+
+For reference information about the `CCompoundEventSegment`
+            class see
+            [[r79301]].
+
+The readout software has a single object from the
+            [[r80303]]
+            class.   This object contains a top level `CCompoundEventSegment`.
+            It also provides a member function `AddEventSegment` that
+            allows you to add an event segment (or compound event segment) to
+            that top level segment.
+
+See the section:
+            [[x11899]]
+            for information about where to add event segments.
+
+**Scaler banks. **
+                The Readout program supports a second trigger that reads out scaler
+                banks.  Scaler banks usually read out a set of counters that
+                describe the rates in various detectors subsystems and other
+                items of interest.   Scaler banks operate in a manner analagous
+                to the event segments we have just described.
+
+The `CScaler` class is intended to read a single
+            scaler module.  `CScalerBank` is a container for
+            other `CScaler` objects including other
+            `CScalerBank` objects.  This pair of classes
+            allows you to build a modular hierarchy of scalers to read in
+            response to the scaler trigger.  The scaler trigger is assumed
+            to come at a much lower rate than the event trigger and therefore can
+            tolerate alonger deadtime.
+
+`CScaler` is an abstract base class.  You use
+            it by extending it by supplying code for the pure virtual methods,
+            and overriding the other virtual methods you need to override.
+            The virtual methods that are fair game to be overidden are:
+
+
+
+void `initialize`()Invoked once as the readout program begins taking data.
+                        This happens after a begin and after a resume.
+                        The code you supply here is supposed to prepare modules
+                        for data taking.  The base class implementation does nothing
+
+void `clear`()Invoked once as data taking becomes active (begin or resume),
+                        and after the scaler is read.  If something must be done
+                        to clear  a scaler after it has been read write this method
+                        and put that code here.  Note that many scalers have a destructive
+                        read method and that should be used by preference as it ensures
+                        that scaler counts will not be lost (those accepted between
+                        read and clear).
+
+void `disable`()Called as data taking is halted (due to an end or pause).
+                        If a module requires special handling to disable it
+                        implement this method.
+
+std::vector<uint32_t>
+`read`Reads the scaler(s) managed by this class.  The
+                        scalers are returned as an STL vector of 32 bit
+                        unsigned values.
+
+The `CScalerBank` class is a parallel to the
+            `CCompoundEventSegment`.  It is a
+            `CScaler` that contains other
+            `CScaler` objects, including
+            `CCompoundEventSegment` objects.
+
+The following methods allow you to manipulate the container
+            in a `CScalerBank` object:
+
+
+
+void `AddScalerModule`(
+                    CScaler* `pScaler`
+                )Adds a scaler module to the end of the ordered container
+                        of scaler modules that is managed by this object. The
+                        virtual functions that make this module look like a
+                        `CScaler` iterate through the
+                        set of scaler objects in the container in the order in
+                        which they were added and invoke the corresponding
+                        function in those objects.
+
+void `DeleteScaler`(
+                CScaler* `pScaler`
+                )If the scaler pointed to by `pScaler`
+                        is in the container (shallow inclusion), it is removed
+                        from the container.  Note that the object is not destroyed.
+                        IF `pScaler` is not in the collection
+                        this function does nothing.
+
+CScalerBank::ScalerIterator
+`begin`()Returns an iterator that 'points' to the first item in
+                        the container.  Dereferencing a
+                        CScalerBank::ScalerIterator will
+                        result in a CScaler*.  Incrementing the
+                        iterator will make it 'point' to the next object in the
+                        container.
+
+CScalerBank::ScalerIterator
+`end`()Returns an iterator that points just off the end of the
+                        collection.  A typical use for this is:
+
+<a name="AEN11703"></a>```
+CScalerBank bank;
+...
+CScalerBank::ScalerIterator p = bank.begin();
+while (p != bank.end()) {
+    CScaler* pScaler = *p;
+    
+    // do something with the scaler.
+    
+    p++;            // Next scaler.
+}
+                                
+```
+
+For reference information see
+            [[r80770]]
+
+As with event segments, the `CExperiment`
+            encapsulate as `ScalerBank` that is the
+            top level of the scaler readout hierarchy.
+            `CExperiment` exports methods that
+            allow you to add and remove scaler modules (including scaler banks)
+            to this top level scaler bank.  See
+            [[x11899]]
+            for iformation about how to use these.
+
+**Triggers. **
+                We have seen how to build the list of stuff the readout program
+                will read.  *Triggers* determine when the
+                top level event segment and scaler bank are read.  In order to
+                make Readout to do anything with these you must supply appropriate
+                trigger objects and register them with the `CExperiment`
+                object.  This registration is described in
+                [[x11899]]
+                below.
+
+All triggers are subclasses of `CEventTrigger`.
+            Several of the commonly used triggers have been defined for you.  You
+            can also build custom triggers by extending `CEventTrigger`
+            or any of the prebuilt classes that are close to what you want.
+
+You write a trigger class by overriding the virtual methods in
+            `CEventTrigger` supplying code that is
+            appropriate to your needs.  You must define and implement
+            `operator()` which is a pure virtual
+            method of `CEventTrigger`.
+
+The virtual member functions in the `CEventTrigger`
+            class are:
+
+
+
+void `setup`()Called when data taking becomes active (begin or resume).
+                        This should perform any initialization of the trigger
+                        hardware or software.
+
+void `teardown`()Called as data taking halts (end or pause).  Any code
+                        required to make the trigger hardware or software
+                        insenstive to additional triggers should be supplied here.
+
+bool `operator()`()This is periodically called and should return
+                        true if the trigger actions should
+                        be peformed.
+
+The following trigger classes are in the Readout library and can be
+            used simplly by instantiatig and registering them.
+
+
+
+`CCAENV262Trigger`Triggers using the CAEN V262 module.
+
+`CNullTrigger`Trigger that never fires.
+
+`CTimedTrigger`Trigger that fires periodically
+
+`CV977Trigger`Trigger that uses the CAEN V977 module.
+
+**Busys. **
+                During the time in which Readout is responding to a trigger it
+                is unable to accept a new trigger.  During this time it is often
+                important to veto external electronics until the system is able to
+                accept the next trigger.  This is the function of *Busy*
+                objects.
+
+Busy objects are members of classes that are derived from
+            `CBusy` which has the following pure virtual
+            members:
+
+
+
+void `GoBusy`This is called when due to software reasons the computer will
+                    be unable to accept a trigger.  For example, as the run ends.
+                    It is important to note that the actual event by event busy should
+                    be generated by hardware and then only cleared by software.
+
+void `GoClear`Called when the software is able to accept the next
+                        trigger.
+
+The readout framework provides
+            [[r79052]],
+            and
+            [[r81158]] as
+            prebuilt busy classes.  This, and any busy class you create must be
+            registered to be used.  The example below shows the creation and
+            registration of a `CV977Busy` object to
+            manage the busy.  The physicsal module is in VME crate 0 and has a base
+            address of 0x00444400.
+
+<a name="AEN11794"></a>```
+#include <CV977Busy.h>
+...
+void
+Skeleton::SetupReadout(CExperiment* pExperiment)
+{
+   ...
+   pExperiment->EstablishBusy(new CV977Busy(0x444400));
+   ...
+}
+                
+```
+
+There are cases where you will want to directly emit ring items
+                from your readout segment.  Imagine, for example, you have a
+                block trigger.   That is a trigger that produces
+                several events.  While you can build your trigger so that it will
+                immediately re-trigger, it may be more efficient to emit the
+                ring items associated with the trigger directly.
+
+The keys to the example below are that:
+
+
+
+- The Ring buffer (`CRingBuffer` object)
+                      to which data are emitted is held by the
+                      `CExperiment` object which has a method
+                      for getting a pointer back to the ring buffer.
+- The `CPhysicsEventItem` class allows
+                      you to create physics event items.
+- `CRingItem` is the base class
+                      for `CPhysicsEventItem` and it
+                      has methods that allow you to fill a ring item and
+                      submit it to a ring buffer.
+
+The example is in two parts. The first part shows how to
+                construct an event segment so that it has the ring buffer
+                which it can hold as member data.  The second part shows
+                how to use that to emit an event from data taken in a buffer
+                that is internal to your event segment.
+
+<a name="AEN11811"></a>**Example 65-1. Passing the ring buffer to the construction of an Event segment.**
+
+```
+void
+Skeleton::setupReadout(CExperiment* pExperiment)
+{
+    CReadoutMain::SetupReadout(pExperiment);
+    
+    pExperiment->EstablishTrigger(new CMyTrigger());       
+    pExperiment->EstablishBusy(new CMyBusy());
+    
+    CRingBuffer* pRing = pExperiment->getRing();         
+    pExperiment->AddEventSegment(new MySegment(pExperiment, pRing)); 
+}
+                
+```
+
+[[c11478#specialring-normal-stuff]]                        This is part of the usual stuff that's needed in
+                        `setupReadout`, the triggter and
+                        busy systems you use are created and registered.  How you do
+                        this will, of course, vary depending on what the constructors
+                        for those classes require in your application.
+                    [[c11478#specialring-getring]]                        This line obtains a pointer to the ring buffer into
+                        which data will be written by this program.
+                    [[c11478#specialring-getring]]                        When you create the event segment, you pass in the ring
+                        buffer pointer and a pointer to the experiment
+                        object.  The experiment object, among other things,
+                        allows you to obtain the data source id which you
+                        will need when creating ring items.
+
+Lets now look at a code fragment from the event read
+                method in the event segment.  We are going to assume
+                that the event segment has read several events
+                into a buffer called `buffer` and
+                that you have a few methods that help you to deconstruct
+                the buffer, specifically:
+
+
+
+- `eventCount` which returns the number
+                      of events in the buffer.
+- `eventPtr` which returns a pointer to
+                      the first unprocessed event
+- `eventSize` which returns the number
+                      of bytes in the event.
+- `timestamp` Given an event returns its timestamp.
+- `nextEvent` which informs the
+                          event unpacker that you are done with the current.
+
+It's important to note that you don't have to do it this way.
+                These assumptions are made just to make it easier to present
+                the code that actually is responsible for creating ring item
+                events.
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | When you take over creating events, and produce more than
+                    one event ring item per trigger, the trigger count items
+                    will reflect the number of triggers rather than the number
+                    of events produced.  SpecTcl's event analysis fraction will
+                    therefore be incorrect. |
+
+<a name="AEN11847"></a>**Example 65-2. Creating Events**
+
+```
+...
+unsigned nEvents = eventCount();                           
+while(nEvents) {
+    void*    pEvent = eventPtr();
+    uint64_t tstamp = timestamp(pEvent);                    
+    size_t   nBytes = eventSize(pEvent); 
+    
+    CPhysicsEventItem event(
+        timestamp, m_pExperiment->getSourceId(), 0         
+    );  
+    void* pCursor = event.getBodyCursor();                        
+    memcpy(pCursor, pEvent, nBytes);
+    
+    pCursor = reinterpret_cast<void*>(
+        reinterpret_cast<uint8_t>(pCursor) + nBytes  
+    );
+    event.setBodyCursor(pCursor);
+    event.commitToRing(*m_pRing);                          
+    
+    nextEvent();                                           
+    nEvent--;
+}
+...
+                
+```
+
+[[c11478#specialring_getevtcount]]                        To set up for the loop that emits ring items we first
+                        fetch the number of events that have been read.
+                    [[c11478#specialring_geteventinfo]]                        This section of code gets the informatino about the event
+                        that we need to create the ring item; a pointer to the  event data,
+                        the timestamp and the number of bytes of event data to put in the
+                        event.  There is an implicit assumption in this code that,
+                        in keeping with the normal formatting of
+                        NSCLDAQ events, the data pointed to by
+                        `pEvent` has a leading
+                        word count.  If this is not the case
+                        then code can be added to this example that computes
+                        and inserts that data from the `nBytes`
+                        variable.
+                    [[c11478#specialring_makeitem]]                        This line creates a ring item.  The form of this
+                        constructor creates a skeletal physics event
+                        ring item with a body header.  Note that
+                        our assumption is that when our event
+                        segment was constructed with the experiment object
+                        pointer as a construction parameter, that pointer
+                        was stored in the member variable.
+                        `m_pExperiment`.  That is then
+                        used to obtain the event source id from that object.
+                    [[c11478#specialring_fillitem]]                        The `getBodyCursor` method
+                        of the `CPhysicsEventItem` class
+                        provides a pointer to the body of the ring item
+                        (first byte following the body header).  The following
+                        `memcpy` call fill in the body with the
+                        event data.
+                    [[c11478#specialring_updatecursor]]                        This line computes a pointer to the first unused byte
+                        of data following the data we just inserted in the ring
+                        item.  This is then passed back to the ring item
+                        so that it can compute the actual size of the ring item.
+                        If you are filling in a ring item in multiple bits of
+                        independent code, `getBodyCursor`
+                        can also be used by the next section of code to know where
+                        to put its data.
+                    [[c11478#specialring_commit]]                        Puts the ring item into the ring buffer.  We've assumed
+                         the ring item pointer passed to the constructor
+                         was saved in the `m_pRing`
+                         member variable.  Note that `commitToRing`
+                         takes a ring buffer reference, not a pointer.
+                    [[c11478#specialring_bookkeeping]]                        This bit of book keeping prepares for the next pass through
+                        the loop.
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | If you build your own ring itesm, the read function should
+                    indicate that it has not read any data to its caller so that
+                    no ring item will be created by that level of the code. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EZBuilder | Up | Obtaining and building the skeleton application |

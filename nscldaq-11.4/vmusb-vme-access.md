@@ -1,0 +1,225 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN79394"></a>VMUSB VME access
+
+<a name="AEN79398"></a>## Name
+
+VMUSB, VMERemote, enumerateVMUSB -- Provide Tcl VME access via VMUSB or control server
+
+<a name="AEN79403"></a>## Synopsis
+
+```
+package require vmelocal ?1.0?
+
+set deviceInfo [enumerateVMUSB]
+set vmusb      [VMUSB name options...]
+
+package require vmeremote ?1.0?
+set vmusb      [VMUSBRemote name options...]
+
+$vmusb operation ...
+        
+```
+
+<a name="AEN79405"></a>## DESCRIPTION
+
+These two packages provide access to simple VME operations via the
+            VM-USB.  In addition to the `enumerateVMUSB`
+            proc, which provides information about the VM-USB controllers attached
+            to the system, the two classes `VMUSB` and
+            `VMUSBRemote` provide two highly compatible
+            classes that allow you to perform operations both directly to a
+            VM-USB and remotely via a slow control server running in a
+            VMUSBReadout program.
+
+This package therefore allows you to write slow controls GUIs that
+          can work both without a VMUSBReadout program and with one that does
+          not necessarily have a suitable slow controls driver installed.s
+
+Before we continue with the discussion of the OPTIONS and METHODS
+          each class provides a bit on the `enumerateVMUSB`
+          proc.  This proc returns a list of controller information for each
+          powered up VMUSB controller attached to the local system.
+
+The elements of the list are two element sublists.  The first element
+          of each list is the serial number of a VMUSB.  The second element
+          of the list is the device handle needed to instantiate
+          a `VMUSB` object connected directly to that
+          VMUSB.
+
+<a name="AEN79416"></a>## OPTIONS
+
+The classes provided by these packages have options that must be
+         set at construction time. In addition, there are 
+         options shared between the two classes that can affect runtime
+         behavior.
+
+The `VMUSB` class only requires a
+        `-device` option at construction time.
+        The value of this option (which once set is readonly) is the
+        device handle used to connect to the selected VM-USB device.
+        Note that if `enumerateVMUSB` is used
+        to list the VMUSB devices this will be the second element of a sublist
+        that describes one of the devices.
+
+Connection with `VMUSBRemote` is a bit of a trickier
+        concept and can be dynamically managed.  The options needed to
+        specify the actual connection are
+
+
+
+`-host`The system (IP or DNS name) on which the VMUSBReadout
+                  program managing the VMUSB for us is located.  If not
+                  specified, this defaults to localhost
+
+`-port`The TCP/IP port on which the VMUSBReadout's slow control
+                  server is listening for connections (specified by its own
+                  --port command line option).  This defaults to
+                  27000 which is the default used by
+                  VMUSBReadout.
+
+`-module`The name of the module defined by the control configuration
+                  file for the VMUSBReadout program as a vmusb module.
+                  See the Module command for more information.  The definition
+                  of one of these is mandatory.s
+
+In addition to these class specific construction/connection time
+        options both classes share the following options that are used
+        at run-time by applications once connected to a VMUSB or
+        slow controls server:
+
+
+
+`-amod`The value of this specifies the address modifier used
+                  to access the VME bus.  The VME bus is divided into a number
+                  of orthogonal address spaces that are specified by the number
+                  of bits of address used and the privilege mode of the
+                  program attempting access.
+
+Most modules don't enforce privilege restrictions.  The
+                  address modifiers allowed here are therefore simplified to
+                  only specify the width of the address bus.  Valid values are:
+
+
+
+a32The target module accepts all 32 bits of address.
+                          This address space is commonly called
+                          *extended* address space.
+                          User mode access is used.
+
+a24The target module only accepts 24 bits of
+                          address.  This is commonly called
+                          *standard* address space because
+                          initial versions of the VME bus standard did not
+                          support 32 bit addressing.
+
+a16The target module only accepts 16 bits of address.
+                          This is commonly called *short IO*
+                          space; because it's intended for use by very simple
+                          peripherals that don't have a need for more than
+                          256 bytes of addresssing (the standard only requires a
+                          short IO Module to actually decode the top 8 bits of the
+                          16 bit address as a module select).
+
+`-persist`This option has no affect on `VMUSB` object,
+                  but is supplied for compatibility to allow scripts that can
+                  use either.  Used with a `VMERemote` object,
+                  it is a boolean that
+                  describes the strategy for managing the TCP/IP connection
+                  with the remote control server.
+
+If `-persist` is a Tcl false value (the default),
+                  each operation connects to and then disconnects from the
+                  server.  This provides maximum reliability (VMUSBReadout
+                  can be restarted between operations without the application
+                  being aware of that).  It also is very inefficiebnt.
+
+If `-persist` is a Tcl true value,
+                  the first operation connects to the server and the connection
+                  is maintained until an operation is done with the
+                  `-persist` set to false again.  This mode is
+                  efficient but not tolerant of exist in the VMUSBreadout.
+
+One approach to the use of `-persist` that
+                  can make sense is a hybrid approach.  When many operations
+                  need to be done in a short time; first set `-persist`
+                  to true, perform all but the last of those, set `-persist`
+                  to false and then perform the last operation in the sequence.
+                  This has the effect of maintaining the connection for the
+                  entire sequence of operations and then dropping it after the
+                  last operation.  This achieves a good compromise between
+                  fault tolerance and performance.
+
+<a name="AEN79486"></a>## METHODS
+
+Both classes have the same methods and parameter signatures.  The idea
+        is that the only difference between running a direct connection to the
+        VMUSB and one handled by a VMUSBReadout is which type of object you
+        instantiate.
+
+
+
+$object readFirmwareID
+              Returns the contents of the firmware ID register.
+
+$object vmeRead32 address
+              Reads the 32 bit at the VME address defined by
+                  `address`.  The address modifier
+                  used for the operation is determined by the value of the
+                  `-amod` option.
+
+You must know that the target module is capable of 32 bit
+                  transfers to use this method.
+
+$object vmeRead16 address
+              Reads the 16 bit value at the VME address defined by
+                  `address`. The address modifier used
+                  for the operation is determined by the value of the
+                  `-amod` option.
+
+You must know the module is capable of performing 16 bit
+                  transfers to successfully use this method.
+
+$object vmeRead8 addressReads the 8 bit value at the VME address defined by
+                  `address`.  The address modifier
+                  used for the operation is determined by the
+                  `-amod` option.
+
+You must know the module is capable of performing 16 bit
+                  transfers to successfully use this methods.
+
+$object vmeWrite32 address data
+              Writes the 32 bit `data` parameter to the
+                  `address`.  The address modifier is
+                  selected by the `-amod` options.  It is
+                  your script's responsibility to know that the module
+                  can accept a 32 bit write operation at this address.
+
+$object vmeWrite16 address data
+              Writes the 16 bit `data` parameter to the
+                  `address`.  The address modifier is
+                  selected by the `-amod` options.  It is
+                  your script's responsibility to know that the module
+                  can accept a 16 bit write operation at this address.
+
+$object vmeWrite8 address data
+              Writes the 8 bit `data` parameter to the
+                  `address`.  The address modifier is
+                  selected by the `-amod` options.  It is
+                  your script's responsibility to know that the module
+                  can accept a 8 bit write operation at this address.
+
+<a name="AEN79542"></a>## EXAMPLES
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| V6533Driver | Up | controlscript |

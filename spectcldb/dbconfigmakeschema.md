@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6036"></a>dbconfig::makeSchema
+
+<a name="AEN6040"></a>## Name
+
+dbconfig::makeSchema --
+
+<a name="AEN6043"></a>## Synopsis
+
+```
+package require dbconfig
+
+dbconfig::makeSchema database-file
+                        
+```
+
+<a name="AEN6045"></a>## DESCRIPTION
+
+If `database-file` does not
+                            exist it is created as an sqlite3 database file.
+                            The database schema described in this section is
+                            then created in the database file.
+
+If `database-file` alread existed:
+
+
+
+- If it is not an sqlite3 database an error is
+                                    thrown.
+- If it is an sqlite3 database, the schema
+                                    required to make the file suitable for a
+                                    configuration database file is layered on top of
+                                    any existing schema. Note that if any or all of
+                                    the schema already exists no harm is done as tables
+                                    and indices are created using
+                                    CREATE xxxx IF NOT EXISTS....
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Tcl bindings to the C++ API | Up | dbconfig::connect |

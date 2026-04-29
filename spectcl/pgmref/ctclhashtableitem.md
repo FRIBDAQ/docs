@@ -1,0 +1,139 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLHashTableItem"></a>CTCLHashTableItem
+
+<a name="AEN5967"></a>## Name
+
+CTCLHashTableItem -- 
+            Encapsulation of an entry in a Tcl Hash table as encapsulated
+            in `CTCLHashTable`
+
+<a name="AEN5971"></a>## Synopsis
+
+```
+#include <TCLHashTableItem.h>
+...
+
+template <class T>              // T Must have copy ctor & Assignment defined.
+class CTCLHashTableItem
+{
+  CTCLHashTableItem (T am_Item );
+  CTCLHashTableItem (const CTCLHashTableItem& aCTCLHashTableItem );
+  virtual ~CTCLHashTableItem ( );
+
+  CTCLHashTableItem operator= (const CTCLHashTableItem& aCTCLHashTableItem);
+   int operator== (const CTCLHashTableItem& aCTCLHashTableItem);
+  T getItem() const;
+  T* operator-> ();
+}
+        
+```
+
+<a name="AEN5973"></a>## 
+
+Provides an object oriented interface to elements of a hash table.
+            See CTCLHashTable(3), and the first REFERENCE below for more information
+            about hash tables.
+
+Note that this is a templated class.  The template parameter is
+            the type of the item to be stored in the hash table.  Suppose,
+            for example, we have a bunch of named calibration parameters
+            (floating point) that are stored in a hash table.  A calibration
+            The following code creates the calibration table, and inserts an
+            element named george in it with the initial value of 0.0:
+
+```
+        CTCLHashTable<float>  calibrationTable;
+        CTCLHashTableItem<float> entry(0.0);
+        calibrationTable.Enter(std::string("george"), entry);
+            
+```
+
+<a name="AEN5978"></a>## METHODS
+
+
+
+```
+CTCLHashTableItem
+```
+
+
+Constructs a `CTCLHashTableItem` either from the underlying
+            type (`Item`) or from an existing `CTCLHashTableItem`
+            (`hashItem`).
+
+
+
+```
+operator=
+```
+
+
+`operator=` allows you to assign the value of one
+            `CTCLHashTableItem` to another.  The underlying
+            templated type must be capable of assignment.
+
+`operator==` allows you to compare two
+            `CTCLHashTableItem`s to each other.  The underlying
+            templated type must be capable of equality comparison.
+
+
+
+```
+getItem
+```
+
+
+Returns the value of the item wrapped by the `CTCLHashTableItem`
+            The underlying type must be capable of copy construction.
+
+
+
+```
+operator->
+```
+
+
+Returns the address of the contents of the `CTCLHashTableItem`.
+            This is most useful if `T` is a structure or class as it can be
+            used to dereference member (data or functions) of the structure or class.
+            For example:
+
+```
+                struct complex {
+                                 double real;
+                                 double imaginary;
+                                 complex(double r, double i) :
+                                    real(r), imaginary(i) {}
+                                } complex;
+                CTCLHashTableItem<complex> v(1.0, 2.0);
+                double real = v->real;             // real = 1.0
+                double imag = v->imaginary;        // imag = 2.0
+            
+```
+
+<a name="AEN6023"></a>## SEE ALSO
+
+CTCLHashTable(3),
+CTCLHashTableIterator(3)
+
+<a name="AEN6026"></a>## REFERENCES
+
+
+
+```
+Algorithms + Data Structures = Programs
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLHashTable | Up | CTCLHashTableIterator |

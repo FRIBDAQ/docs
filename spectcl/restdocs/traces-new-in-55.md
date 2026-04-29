@@ -1,0 +1,127 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1876"></a>3.31. Traces (New in 5.5).
+
+Traces are a mechanism to allow SpecTcl scripts to be informed
+                of changes to the parameter, spectrum and gate dictionaries.
+                As SpecTcl's analysis configuration is dynamic there are use cases,
+                which will not be described here, for actively informing a script of
+                changes in these objects.
+
+Tracing is problematic for REST interfaces.  Specifically, the
+                REST models is that the client makes a request, and the server
+                fulfils it.  Fully implementation of tracing would require the
+                server to initiate an operation in the client, rather than the
+                other way around.
+
+What *can* be done and what the SpecTcl
+                REST server does do, is establish its own traces for all things
+                that are tracable in the SpecTcl command extensions.
+                Actual traces can be buffered for clients which then can poll for
+                them and use the results of those polls client-side.
+
+All of this requires that:
+
+
+
+1. A client expresses an interest in traces and the
+                         server provides a token that associates that interest with
+                         its internal data structures (trace buffers).
+2. Periodically, the client can poll the server to get the
+                         traces that fired since the last polls.
+3. The client expresses that it is no longer interested in
+                         traces causing the server to remove any trace buffers
+                         and other data associated with that client.
+
+It is possible that a client exits without shutting down its
+                interest in traces.  Therefore, when interest is established,
+                the client must specify a retention period for data in the trace
+                buffer.  As new traces are fired, any old data are removed from
+                the trace buffer associated with a client.  This prevents the
+                storage required by zombie clients from growing without bounds.
+
+URL's of the form:
+
+<a name="AEN1892"></a>**http://host:port/spectcl/trace/establish?retention=*seconds*
+**
+
+Inform the REST server that the client will be interested in
+                trace data.  The `retention` query parameters
+                is the minimum number of seconds the server should retain trace
+                data on behalf of that specific client.  On success,
+                the detail attribute of the response is an
+                integer token that should be used in future calls involving the
+                trace subsystem.
+
+Once the application no longer requires trace information, or
+                as it is cleaning up for exit, a request to URLs of the form:
+
+<a name="AEN1900"></a>**http://host:port/spectcl/trace/done?token=*token-value*
+**
+
+Query parameter `token` should have, as its
+                value, the token returned from the
+                spectcl/trace/establish operation that expressed
+                interest in traces.
+
+To poll a trace, use URLs of the form:
+
+<a name="AEN1908"></a>**http://host:port/spectcl/trace/fetch/token=*token-value*
+**
+
+The detail attribute of the returned JSON will
+                 be an object.  Each attribute represents a trace type and
+                 each of those attributes will, in turn have a value that is an
+                 array.
+
+
+
+parameterThe value of this attribute is an array.
+                        Each element of the array describes a parameter trace.
+                        Each element
+                        is the Tcl list that contains the operation that fired the trace
+                        (add or delete)
+                        followed by the trace parameters that SpecTcl provides
+                        **parameter -trace** handlers (the nane
+                        of the parameter that was added or deleted).
+
+gateThe value of this attribute is an array.
+                        Each array element describes a gate trace.
+                        The array elements
+                        are a Tcl list where the first element of the list is the
+                        gate trace operation add,
+                        delete or change
+                        that describes the operation that fired the trace and
+                        the remainder are the parameters that are passed to the
+                        local trace handler.
+
+spectrumThe value of this attribute is an array.  Each element
+                        of the array describes a spectrum trace.  The elements
+                        are Tcl lists.  The first element of that list is the
+                        operation, add or delete
+                        that fired the trace while the remainder are trace parameter(s)
+                        passed to the trace handler by SpecTcl
+
+bindingThe value of this attribute is an array. Each element
+                        of the array describes a change in shared memory
+                        binding status and is, itself, a three element array.
+                        The elements of the array are, in order either the
+                        text add or remove
+                        indicating if the remaining elements describe a spectrum
+                        being added or removed from shared memory, the name of the
+                        affected spectrum and the Xamine id, or binding slot,
+                        that was allocated to the spectrum or from which the
+                        spectrum was removed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Excuting arbitrary commands in SpecTcl (new in 5.5) | Up | Querying display memory mirrors. |

@@ -1,0 +1,91 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_stateedit"></a>mg_stateedit
+
+<a name="AEN18112"></a>## Name
+
+mg_stateedit -- Edit DAQ Manager state machine
+
+<a name="AEN18115"></a>## Synopsis
+
+**$DAQBIN/mg_stateedit *configuration-file*
+**
+
+<a name="AEN18119"></a>## DESCRIPTION
+
+**mg_stateedit** provides a graphical editor for the
+            DAQ manager state machine.   When invoking the command a single
+            command line parameters is required, the path of the configuration
+            database file.
+
+A state machine consists of a set of
+            defined states and their legal successor states.
+            The process of the state machine changing state from
+            one state to another is called a *transition*.
+            In the DAQ manager, these transitions can trigger the execution of
+            sequences, which must succeed for the transition to succeed.
+
+Before describing the interface, some terminology.  The states
+            the state machine can transition to from any givnen state
+            are called *Successor States*.  The states
+            from which a state can transition to are called
+            *Precursor States*.
+            The process of defining a state machine is that of defining the
+            states and, for each state defining its successor states.  In some
+            cases, it's also convenient to define a state's precursor states.
+            The **mg_stateedit** command allows for both.
+
+The window resented by **mg_stateedit** is primarily
+            composed of three list boxes.  The center list box lists the defined
+            states selecting (single clicking) a state in the States list box
+            populates the left listbox with that state's precursor states and
+            the right list box with that state's successor states.
+
+Below each list box is a - button. Clicking that
+            button when a state is selected in any list box removes that state
+            from that listbox:
+
+
+
+- Clicking that button below the middle listbox removes that state's
+                    definitions (cleaning up all transitions to that state from
+                    precursor states and all transitions to successor states as well).
+- Clicking that button below the left listbox removes that state
+                    from the precursor states of the selected state in the middle
+                    listbox. This removes the allowed transition from the precursor
+                    state to the selected state.
+- Similarly, clicking that button below the right list box removes
+                    that state from the successor states of the selected state in
+                    the middle listbox.  This removes the allowed transition from
+                    the selected state to that successor state.
+
+Below the - buttons below each listbox are
+            text entry widgets and a + button.
+
+
+
+- To add a new state, type a unique state name  in the middle
+                    entry and click its + button.
+- To add a new precursor state  to the selected state,
+                    type the name of an existing state in the left listbox and
+                    click its + button.  The state
+                    must be defined or an error will be displayed.
+- To add a new successor state to the selected state,
+                    type the name of an existing state in the right listbox
+                    and click its + button.  Once more the
+                    state must already be defined or an error will be displayed.
+
+Note that all changes change the underlying database immediately.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_cfgprogram | Up | mg_seqedit |

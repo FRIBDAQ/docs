@@ -1,0 +1,45 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN22848"></a>ddasSort
+
+<a name="AEN22852"></a>## Name
+
+ddasSort -- Sort data obtained using `DDASReadout`.
+
+<a name="AEN22855"></a>## Synopsis
+
+**	$DAQBIN/ddasSort [options....]       
+      **
+
+<a name="AEN22859"></a>## DESCRIPTION
+
+Normally you will not need to run this program directly. Instead, specifying $DAQBIN/ddasReadout (rather than $DAQBIN/DDASReadout) as the data source will run both the DDASReadout and associated ddasSort programs.
+
+Since NSCLDAQ 11.4, DDASReadout does not internally sort data from the DDAS modules. Deferring the sort to another process substantially improves performance by allowing that sort to run in parallel with the readout itself.
+
+ddasSort is that down stream sorter. It takes data from a ringbuffer into which DDASReadout puts unsorted raw DDAS hits and outputs time-ordered data to another ringbuffer.
+
+<a name="AEN22871"></a>## Program options
+
+All options listed below are required by ddasSort.
+
+
+
+`--source`=*URI*Specifies the URI of the ringbuffer into which a DDASReadout reads module data.
+
+`--sink`=*ringname*Specifies the name of the ringbuffer into which the sorter will emit sorted hits. The format of these hits will be identical to that of the 11.3 DDASReadout program prior to splitting off this sort function to ddasSort.
+
+`--window`=*sort-window-in-seconds (default=10.0)*The number of seconds in the sort window (floating-point). Data older than the size of the sort window are emitted in sorted order. The sort window ensures that data arrives from all modules prior to being emitted to avoid out-of-order data.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ddasReadout | Up | ringdiagnostics |

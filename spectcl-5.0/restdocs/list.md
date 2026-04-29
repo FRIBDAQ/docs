@@ -1,0 +1,234 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN456"></a>3.5. list
+
+List the definitions of gates whose names match a pattern
+                with glob wildcards.  The pattern
+                parameter provides the pattern.  If pattern
+                is not specified, it defaults to *
+                which matches all gate names.
+
+The detail field of the reply is
+                an array of objects.  Each objects describes a
+                gate who's name matches the pattern.
+                The actual shape of the objects can vary quite a bit depending
+                on the gate type.
+
+All gate types have the following attributes in their objects:
+
+
+
+nameName of the gate.
+
+typeGate type code.
+
+The remaining attributes depend on the value of
+                the type attribute.
+
+## <a name="AEN479"></a>3.5.1. Compound gates (+ * -)
+
+Compound gates are gates that are formed from other
+                    gates.  The gates a compound gate is formed from are
+                    called *component gates*.
+                    The + gate is true
+                    when any of the components is true.  +
+                    means Or.
+                    The * get by contrast is an
+                    And gate; it reuires all of its
+                    component gates to be true.  Finally the
+                    -, or Not
+                    gate has only a single component gate and is true
+                    when that gate is false (logical complement).
+
+The remaining attribute of a compound gate is
+                    called gates and consists of
+                    an array of gate name strings.
+
+## <a name="AEN493"></a>3.5.2. Slice (s)
+
+Slice gates check a single parameter against
+                    a low and high limit and are true for events
+                    when the parameter is inside the limits.
+                    The parameters attribute
+                    is an array that contains the name of the single parameter.
+                    The plural and array are used so that we can have some
+                    uniformity for gates that depend on parameters.
+
+The low and
+                    high attributes are the low
+                    and high limits of the slice.
+
+Below is the JSON that might be returned for a slice gate
+                    named cut:
+
+<a name="AEN503"></a>```
+{
+    "status" : "OK",
+    "detail" : [{
+        "name"       : "cut",
+        "type"       : "s",
+        "parameters" : ["event.raw.00"],
+        "low"        : 29.710001,
+        "high"       : 52.480003
+    }]
+}                        
+                    
+```
+
+Note that even though only one gate has matched
+                    detail is an array.  Similarl
+                    note that parameters is an array.
+
+## <a name="AEN508"></a>3.5.3. Gamma slice (gs)
+
+A gamma slice gate is much like a slice gate.  Gamma slice gates,
+                    however have several parameters and are true whenever one of those
+                    parameters is in the gate.  When used as gates they are very much
+                    like an or of a bunch of identical slice gates, one on each parameter.
+                    Their value, however, is when used as folds in a gamma spectrum.
+
+The format of this gate is identical to that of a slice gate, however
+                    there really is more than one parameter in the
+                    parameters array for example:
+
+<a name="AEN514"></a>```
+{
+    "status" : "OK",
+    "detail" : [{
+        "name"       : "gs",
+        "type"       : "gs",
+        "parameters" : ["event.raw.00","event.raw.01","event.raw.02","event.raw.03"],
+        "low"        : 194.369995,
+        "high"       : 368.279999
+    }]
+}                        
+                    
+```
+
+## <a name="AEN516"></a>3.5.4. Simple 2-d gates (b c)
+
+Simple 2-d gates are *band*
+                    and *contour* gates.  These gates
+                    are defined on two parameters and have an array of points
+                    that define an area in the two dimensional space defined
+                    by those parameters.
+
+The parameters field contains the name
+                    of the x followed by the name of the y parameter.
+                    The the points attribute contains an array
+                    of objects that contain x and y
+                    attributes:
+
+<a name="AEN527"></a>```
+{
+    "status" : "OK",
+    "detail" : [{
+        "name"       : "c",
+        "type"       : "c",
+        "parameters" : ["event.raw.00","event.raw.01"],
+        "points"     : [{
+            "x" : 182.821289,
+            "y" : 280.725586
+        },{
+            "x" : 512.499023,
+            "y" : 180.823242
+        },{
+            "x" : 675.339844,
+            "y" : 340.666992
+        },{
+            "x" : 665.349609,
+            "y" : 514.497070
+        }]
+    }]
+}                        
+                    
+```
+
+The name of this gate is c and it is
+                    a contour (type = "c").  If this were a
+                    band, the type would be "b".  The only
+                    difference between a band an a contour is what the points mean.
+                    In a contour, the points define a closed figure and the gate is
+                    true when the x/y parameters are both present and inside the figure.
+                    For a band, the gate is true when both x/y parameters are present
+                    and the point is below the figure defined by the points.
+
+Contours have an implied last point that is the same as the first point.
+                    That is the last point in the contour connects to the first point to
+                    close the contour.
+
+## <a name="AEN534"></a>3.5.5. Gamma bands and contours (gb gc
+
+These gates are like bands and contours however they have more than
+                    two parameters.  All combinations are tried against the gate and if
+                    any are true the gate is true.  Once more these are more valuable
+                    when used to define a fold.
+
+The JSON is pretty much the same as for bands and contours, however
+                    there will can be more than two parameters:
+
+<a name="AEN540"></a>```
+{
+    "status" : "OK",
+    "detail" : [{
+        "name"       : "gammacont",
+        "type"       : "gc",
+        "parameters" : ["event.raw.00","event.raw.01","event.raw.02","event.raw.03","event.raw.04"],
+        "points"     : [{
+            "x" : 122.879997,
+            "y" : 409.600006
+        },{
+            "x" : 440.320007,
+            "y" : 204.800003
+        },{
+            "x" : 860.159973,
+            "y" : 450.559998
+        },{
+            "x" : 696.320007,
+            "y" : 665.599976
+        }]
+    }]
+}
+                    
+```
+
+## <a name="AEN542"></a>3.5.6. Bit mask gates (em am nm)
+
+These gates are defined on a single parameter that is assumed
+                    to contain integer.  The em (equal mask)
+                    is true when the parameter is equal to the mask.
+                    The am (and mask) is true when the
+                    parameter, bit-wised anded with the mask is equal to th emask
+                    (all the bits set in the mask are set in the parameter).
+                    The nm is true if the parameter bit-wise anded
+                    with the bit-wise complemnt of the mask is equal to the mask.
+
+In addition to the parameters
+                    attribute the description contains value
+                    which is the value of the mask:
+
+<a name="AEN552"></a>```
+  {
+    "status" : "OK",
+    "detail" : [{
+        "name"       : "mask",
+        "type"       : "em",
+        "parameters" : ["event.raw.00"],
+        "value"      : 0X1234
+    }]
+}                      
+                    
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| gate requests | Up | delete |

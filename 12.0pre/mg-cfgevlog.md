@@ -1,0 +1,164 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_cfgevlog"></a>mg_cfgEvlog
+
+<a name="AEN16657"></a>## Name
+
+mg_cfgEvlog -- Configure DAQ manager event logging.
+
+<a name="AEN16660"></a>## Synopsis
+
+**$DAQBIN/mg_cfgEvlog *configuration-file*
+**
+
+<a name="AEN16664"></a>## DESCRIPTION
+
+The **mg_cfgEvlog** command provides a utility that
+            supports configuring the event loggers defined in a
+            DAQ manager configuration database.
+
+Before we begin describing how to use **mg_cfgEvlog**,
+            It's important to define some terms:
+
+**Enabled Logger**An enabled logger will log data to its destination if logging is
+                globally enabled in the logger.
+
+**Critical Logger**A critical logger is one who's failure will shutdown the data
+                acquisition system.
+
+**Partial Logger**Partial loggers do no directory management and, therefore,
+                simplly log timestamped run files in the destination directory.
+                These operate identicall to loggers run in the
+                ReadoutGUI multilogger package.
+
+**Full Logger**These are loggers that are not partial loggers.  See
+                COMPLETE LOGGERS below for more information.
+
+The event log editor GUI consists of a table of current event
+            log definitions, a definition section below the table and two
+            action buttons Save and Cancel
+            Changes are not immediately saved to the database.  WHen you are
+            satisfied with the definitions you see in the eventlog list,
+            click Save to save those definitions oe
+            Cancel if you don't want this work saved.
+            Cancdel will simply reload the table with the
+            event log definitions in the database.
+
+Items in the list of loggers have a context menu that can be posted by
+            right clicking them.
+            The context menu has the following commands:
+
+
+
+NewResets the event log editor form to its defaults.  The
+                    action button in the form will be labeled Create
+                    indicating that clicking it creates a new event logger definition.
+
+EditLoads the definition into the definition form and relabels its
+                    action button Modify indiciating that
+                    clicking it will modify the definition being edited.
+
+DeleteDeletes the definition under the pointer.
+
+The Eventlog editor form contains the following elements:
+
+
+
+DAQRootThe NSCLDAQ installation directory root. This is loaded with the
+                    directory root for the DAQ version from which the editor
+                    was run.  It can be edited if there are special needs but,
+                    in general, should not be earlier than 12.0-pre3.
+
+SourceShould be edited to be the URI of the ring buffer that will
+                    be logged to disk.
+
+Dest.Should be edited or browsed to the directory in which
+                    data will be logged.  For partial loggers all data will
+                    be logged into this directory.  For Complete loggers,
+                    this is the top level of the directory tree maintained by
+                    the logger.  See COMPLETE LOGGERS.
+
+Note that if the event logger is containerized, this path must
+                    be a valid path within the active container.
+
+Host:Should be edited to the DNS name of the computer in which the
+                    event logger will run.
+
+ContainerPulldown menu that allows you to select a container in which
+                    the event logger runs.  Note that if this is empty, the logger
+                    will run native.
+
+PartialIf checked, the logger will be a partial logger otherwise
+                    it will be complete.
+
+CriticalIf checked the logger is a critical component of the DAQ system
+                    and unexpected exits will SHUTDOWN the
+                    intire system.
+
+EnabledIf checked the logger is enabled.  If not it will not record
+                    data even if the global recording is enabled.
+
+Finally the edit form has an action button that is labeled
+            Modify if clicking it will replace the definition
+            that you initially loaded into the form using the Edit
+             context menu or Create if it will create a
+             new definition.
+
+<a name="AEN16762"></a>## COMPLETE LOGGERS
+
+A complete logger produces the same directory tree as the ReadoutGui's
+        primary event log.  The destination specified for the logger is the
+        top of a directory tree that looks like this:
+
+<a name="AEN16765"></a>```
+destination +
+            +----> experiment+
+            |                +---> current
+            |                +---> run1
+            |                +---> run2
+          ...             ...
+            +----> complete
+    
+        
+```
+
+The experiment subdirectory has run subdirectories for each recorded run
+        and one for the run currently being recorded.  While event recording is
+        in progress, the current subdirectory has links to the event file segments
+        in the associated run.
+
+When event recording for a run is complete, several actions are taken:
+
+
+
+- The link(s) to the event file(s) are moved to the complete
+                directory.
+- All other files inthe current directory are copied into the
+                run directory recursively.  Furthermore, links are derefrenced rather than
+                copied.
+- Permissions are set on the run directory and its contents to
+                ensure that accidental deletion of the files it contains are
+                harder.
+
+The way to think of all of this is that the complete directory
+        offers a view of the entire experiment.  All event files are accessible
+        by following the links in that directory.
+
+The experiment/current directory provides a view of the run in progress.
+        Its links and metadata describe the run in progress and data taken for it.
+
+The experiment/run* directories provide per run views where each event file
+        is packaged with metadata associated with that run.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_seqedit | Up | mg_kvedit |

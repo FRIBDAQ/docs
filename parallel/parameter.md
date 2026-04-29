@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1534"></a>parameter
+
+<a name="AEN1538"></a>## Name
+
+parameter -- Manipulate parametes.
+
+<a name="AEN1541"></a>## Synopsis
+
+|  |  |
+| --- | --- |
+|  | WARNING |
+|  | It is better to use thetreeparametercommand than theparameter.  Future SpecTcl versions may deprecate
+                        or even eliminate theparametercommand. |
+
+**parameter**  [`-new`]  *name* *id*  [*metdata*]  
+**parameter** `-list`  [`-byid`]  
+                             [*glob-pattern* | `-id` *id*]
+
+**parameter** `-delete`   
+                         [*name* | `-id` *id*]
+
+<a name="AEN1581"></a>## DESCRIPTION
+
+Manipulates the parameter dictionary.  The parameter dictionary is maintained in 
+                    all ranks.  Therefore this command is encapsulated in a 
+                    `CMPITclPackagedCommandAll`.
+                    All operations work in all ranks.  Since the histogramer maintains a reference
+                    to the parameter dictionary singleton it is able to see all of the parameters 
+                    that are defined.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mirror | Up | pman |

@@ -1,0 +1,24 @@
+|  |  |  |
+| --- | --- | --- |
+| VMUSBSpecTcl |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN211"></a>Chapter 5. Reference information
+
+This section provides reference information.  It is also used to
+            generate manpages for the SpecTcl installation.  The man pages
+            are installed in $SpecTclHome/share/man
+            where `SpecTclHome` is the top level of the
+            SpecTcl 3.3 installation tree. You can view these man pages by
+            adding the `-M $SpecTclHome/share/man` option to the
+            **man** command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running VMUSBSpecTcl |  | VMUSB SpecTcl metadata |

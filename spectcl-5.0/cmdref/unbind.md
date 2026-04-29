@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.unbindcommand"></a>unbind
+
+<a name="AEN2797"></a>## Name
+
+unbind -- Move spectrum storage out of shared display memory
+
+<a name="AEN2800"></a>## Synopsis
+
+**unbind *name ?name...?*
+**
+
+**unbind `-id` *id1 ?id2...?*
+**
+
+**unbind `-all`
+**
+
+**unbind `` *xid1 ?xid2...?*
+**
+
+<a name="AEN2815"></a>## DESCRIPTION
+
+Removes the bulk storage of one or more spectra from the
+            Display shared memory.   Using **sbind**
+            and **unbind** you can have SpecTcl work
+            with a much larger spectrum storage than the shared memory
+            supports; manually swapping spectra in an out of shared memory.
+
+There are three ways you can refer to spectra:
+
+
+
+- The name of the
+                      spectrum is a text string that you defined when you created the
+                      spectrum.
+- The id of a spectrum is a integer that was assigned to the
+                      spectrum by SpecTcl when you created it.
+- The xid (originally Xamine Id) is a number that indicates
+                      the slot in the spectrum directory that was assigned to
+                      a spectrum that is already bound to the display shared
+                      memory region.
+
+In the synopsis above, the first form of the command allows you to
+            remove one or more spectra from display shared memory.  Spectra
+            are identified by their names.  This command form does not require
+            any command options.
+
+Using the `-id` option, you can remove one or more
+            spectra from the shared memory region by specifying the SpecTcl
+            ids.
+
+Using the `-all` option you can remove all spectra
+            from the shared memory.  This option takes no additional parameters.
+
+Finally, the `-xid` allows you to specify the spectra
+            to be removed from display shared memory by their xid numbers.
+
+Note that **unbind** has no deleterious effects on the
+            spectrum or its contents.  Storage is allocated outside of shared
+            memory for the spectrum contents and the current contents are
+            copied to that storage.  Furthermore, the spectrum continues
+            to increment as before.  I simply cannot be displayed from display
+            shared memory.  A sufficiently sophisticated displayer
+            *could* access the spectrum contents via the
+            SpecTcl REST plugin at lower performance, however.
+
+<a name="AEN2838"></a>## SEE ALSO
+
+
+
+- [[r2411]]
+- [[r230]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| spectrum | Up | ungate |

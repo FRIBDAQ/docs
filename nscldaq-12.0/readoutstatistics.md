@@ -1,0 +1,40 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.readoutstatistics"></a>ReadoutStatistics
+
+<a name="AEN96817"></a>## Name
+
+ReadoutStatistics -- Display readout statistics (VIEW)
+
+<a name="AEN96820"></a>## Synopsis
+
+```
+package require ReadoutRESTUI
+
+ReadoutStatistics name ?optname value...?
+name configure option value ?...?
+
+        
+```
+
+<a name="AEN96822"></a>## DESCRIPTION
+
+Provides a widget that displays Readout trigger/transfer statistics.
+            The widget accepts a single configuration option:
+            `-data` which is a statistics dict such as what might
+            be returned from the `getStatistics`
+            method of
+            [[r96692]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ReadoutRESTClient | Up | ReadoutParameters |

@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-psd"></a>psd
+
+<a name="AEN54051"></a>## Name
+
+psd -- XLM with Wash-U pulse shape discrmination firmware
+
+<a name="AEN54054"></a>## Synopsis
+
+**psd create *name ?options?*
+**
+
+**psd config *name ?options?*
+**
+
+**psd cget *name*
+**
+
+<a name="AEN54064"></a>## DESCRIPTION
+
+Creates and configures an XLM-XXV module that runs the
+                Washington University PSD firmware to interface with the
+                WASH-U motherboards.  This driver was contributed by Jon Elson
+                of Washington University in St. Louis.
+
+<a name="AEN54067"></a>## OPTIONS
+
+
+
+`-base` *base-address*Configures the XLM base address for the module.
+
+`-firmware` *filename*This option is accepted without error but ignored.
+                            This is because the firmware is normally loaded
+                            and configured via
+                            the CHIP control program available from Wash-U.
+                            Note tha the CHIP control program requires that the
+                            VMUSBReadout program be running.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| hinp | Up | hira |

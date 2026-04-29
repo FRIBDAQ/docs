@@ -1,0 +1,150 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4291"></a>CRingTextItem (v10)
+
+<a name="AEN4295"></a>## Name
+
+CRingTextItem -- Encapsulate a set of textual strings
+
+<a name="AEN4298"></a>## Synopsis
+
+```
+#include <v10/CRingTextItem>
+
+
+namespace v10 {
+class CRingTextItem : public ::CRingTextItem
+
+public:
+  // Constructors and other canonicals:
+
+  CRingTextItem(uint16_t type,
+		std::vector<std::string> theStrings);
+  CRingTextItem(uint16_t type,
+		std::vector<std::string> theStrings,
+		uint32_t                 offsetTime,
+		time_t                   timestamp, uint32_t divisor=1) ;
+  
+  virtual std::vector<std::string>  getStrings() const;
+
+  virtual void     setTimeOffset(uint32_t offset);
+  virtual uint32_t getTimeOffset() const;
+  virtual float    computeElapsedTime() const;
+  virtual uint32_t getTimeDivisor() const;
+
+  virtual void     setTimestamp(time_t stamp);
+  virtual time_t   getTimestamp() const;
+  virtual uint32_t getOriginalSourceId() const;
+
+  virtual void* getBodyHeader() const;
+  virtual void setBodyHeader(
+        uint64_t timestamp, uint32_t sid, uint32_t barrierType= 0
+  );
+  virtual std::string typeName() const;
+  virtual std::string toString() const;
+  
+};
+
+}                        // v10 namespace
+
+                
+```
+
+<a name="AEN4300"></a>## DESCRIPTION
+
+There are two types of text ring items:
+
+
+
+- v10::PACKET_TYPES, which, in the
+                             SBS readout system document the types of packets
+                             that may be seen in the event data.  A packet is defined
+                             like a ring item - a size and type with a payload.
+                             Packets exist to make decoding simpler and modular.
+- v10::MONITORED_VARIABLES, which
+                            provide the values of Tcl variables in the main
+                            readout program's intermpreter.  These are normally used
+                            to feed external information into the event stream.
+                            In the past this has included EPICS data, however with
+                            the tightening of the EPICS control system security in FRIB it's
+                            unlikely this is possible in the future.
+  One might, however push other information, e.g. detector
+                              bias supply settings.
+
+As with all version 10 ring items, body headers are  not supported
+                    and neither are offset time divisors.
+
+<a name="AEN4312"></a>## METHODS
+
+
+
+`   CRingTextItem((uint16_t  type, std::vector<std::string>  theStrings);`In this constructor, `theStrings`
+                            is used to compute the required item size.  The
+                            strings are set into the item's string pool
+                            as null terminated strings and the string count
+                            is set to theStrings.size().
+                            The offset, original source id, and clock time are
+                            initialized as in the previous constructor.
+
+`  CRingTextItem(uint16_t  type, std::vector<std::string>  theStrings, uint32_t   offsetTime, time_t  timestamp, uint32_t  divisor = 1);`Fully parameterized constructor.  This constructor
+                            adds `offsetTime` to set the
+                            time  offset in the run at which the item was emitted,
+                            `timestamp` which allows the
+                            clock time the item was emitted to be expclicitly
+                            specified.  Note that the `divisor`
+                            parameter is provided for compatibility with other
+                            formats but is ignored since version 10 items do not
+                            support sub second run offset times.
+
+`  const virtual std::vector<std::string>  getStrings();`Returns a vector that contains the text strings in the
+                            object's payload.
+
+` virtual void      setTimeOffset(uint32_t  offset);`Set the offset into the run at which this object was
+                            emitted.  Note that since v10 does not support sub
+                            second run offsets (does not have divisors), the
+                            units of `offset` must be seconds.
+
+` const virtual uint32_t  getTimeOffset();`Returns the raw time offset. Note that calling
+                            `computeElapsedTime`
+                            is the perferred method to call to get the run time
+                            offset in seconds.
+
+` const virtual float computeElapsedTime();`Return the elapsed time in the run at which this
+                            item was emitted, in seconds.
+
+` const virtual uint32_t  getTimeDivisor();`Returns 1 since version 10
+                            does not support divisors.
+
+` virtual void  setTimestamp(time_t  stamp);`Sets the clock time at which the item was emitted.
+
+` const virtual time_t    getTimestamp();`Returns the clock time associated with the item.
+
+`  const virtual uint32_t  getOriginalSourceId();`Since version 10 supports neither body headers nor
+                            original source ids, this method always returns
+                            0
+
+` const virtual void*  getBodyHeader();`Returns nullptr since version 10
+                            does not support body headers.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sid, uint32_t  barrierType = 0);`Does nothing because version 10 does not support
+                            body headers.
+
+` const  virtual std::string  typeName();`Returns a string that identifies the item type.  This
+                            will be one of Packet types or
+                            Monitored Variables
+
+` const virtual std::string  toString();`Returns a string that describes the contents of
+                            the item in human readable form.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingStateChangeItem (v10) | Up | NSCLDAQ version 11 format |

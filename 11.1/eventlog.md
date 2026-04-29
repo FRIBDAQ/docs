@@ -1,0 +1,113 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.eventlog"></a>eventlog
+
+<a name="AEN12659"></a>## Name
+
+eventlog -- Record Event Data to Disk.
+
+<a name="AEN12662"></a>## Synopsis
+
+**eventlog [options...]
+	**
+
+<a name="AEN12666"></a>## DESCRIPTION
+
+Records event data verbatim from ring buffers to disk files.
+        The program monitors the source ring buffer for a begin run item.
+        At that point it opens an event file for that run and begins to record
+        data from the ring.
+
+Runs are recorded in files in the target directory.
+        Event files are named
+        run-runnumber-segment.evt where
+        runnumber is the run number of the run
+        taken from the begin run item, segment is a file
+        segment numbered from zero.
+
+Runs are segmented in file that are no larger than a segment size.
+        This is done to avoid creating files that are too large for a file system
+        to handle or too large for NFS to accurately serve.
+
+An option allows the program to be started by a controlling program
+        for a single run (e.g. by the readout GUI).
+
+Options have sensible defaults.  See OPTIONS below.
+
+<a name="AEN12676"></a>## OPTIONS
+
+
+
+`--checksum`If present, an SHA512 checksum is computed over the data in each run
+	     and output to a file named run-nnnn.sha512 in the
+	     same directory as the event file.  The checksum should match the value
+	     that would be produced by the command:
+	     **sha512sum run-nnnn*.evt**
+
+`--number-of-sources`=*n*Indicates to the logger the number of end of run items it should
+                    expect to see prior to closing the run.  Once the first end of
+                    run is seen, if there is ever a long time without getting any
+                    data from the ring source, the logger will complain about a
+                    timeout and close the run anyway.
+
+Once `n` end of run items are seen in a
+                    single run, the run file is closed.  As you might expect,
+                    `n` must be an integer with a value
+                    that is greater than zero.
+
+`--source`=*ringuri*Defines the event source as a Ring buffer Uniform Resource
+                    Identifier (URI).  The URI can be for a local or a remote
+                    ring buffer.  By default the ring:
+                    tcp://localhost/*username*
+                    where *username* is the username
+                    of the account running the program.
+
+`--path`=*dir*Provides the path to the directory in which the program will
+                    write its event files. By default, this is
+                    current working directory at the time eventlog
+                    is started.
+
+eventlog ensures that the path is
+                    a directory and is writable.
+
+`--segmentsize`=*size-spec*Specifies the size of the files segments created.
+                    `size-spec` can be any of an integer number
+                    of bytes or an integer followed by one of the suffixes:
+                    g, m, k
+                    that multiply the integer by a gigabyte, a megabyte and a kilobyte
+                    repsectively.
+
+The default value is a 1900m, which should
+                    be suitable for most operating environments.
+
+`--oneshot`When present, the program only records a single run, then
+                    exits.  The program will also create the
+                    .started file in the target directory
+                    when it's ready to record data, and the
+                    .exited file when it's about to exit.
+
+`--run` *number*When present, the `number` unconditionally sets
+	      the run number for the run.  This requires the `--oneshot`
+	      switch to be present and eventlog will exit with an error if that is not
+	      the case.  This switch is intended to be used with a set of event sources
+	      that either don't have the concept of a run number or, alternatively,
+	      cannot synchronize their run numbers.  The NSCLDAQ-11 readoutGui will
+	      use this switch to force the run number of event files created to match the
+	      run number in  the ReadoutGUI run number entry.
+
+`--combine-runs`When present, the normal checks in `--one-shot` mode
+	      that would make the event logger exit if run numbers are observed to change
+	      or if there are too many begin runs, are not made.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dumper | Up | ccusbloader |

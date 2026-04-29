@@ -1,0 +1,59 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN846"></a>TclPump.h
+
+<a name="AEN850"></a>## Name
+
+TclPump.h -- Utility definitions in TclPump.h
+
+<a name="AEN854"></a>## Synopsis
+
+```
+ 
+#include <config.h>
+
+#ifndef MPI_TCL_TAG
+#define MPI_TCL_TAG  1    // Tcl commands have this tag
+#endif
+
+...
+
+bool isMpiApp();
+int  myRank();
+
+...
+                   
+```
+
+<a name="AEN856"></a>## DESCRIPTON
+
+While the primary purpose of this header is to define the interfaces for the
+                        Tcl command pump, Several useful MPI query functions are defined here:
+
+
+
+MPI_TCL_TAGDefines the tag used to send messages to the Tcl command pump.
+
+<a name="AEN867"></a>`bool isMpiApp(void);`
+
+This function returns true if the process is
+                                runn ing  in the MPI environment.  Otherwise it will return 
+                                false
+
+<a name="AEN878"></a>`int myRank(void);`
+
+If `isMpiApp` would return true,
+                                this function will return the proccess's wold communicator rank.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Globals.h | Up | Command jackets (3tcl) |

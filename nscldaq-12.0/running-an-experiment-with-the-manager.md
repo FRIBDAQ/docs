@@ -1,0 +1,403 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 4. NSCLDAQ Manager subsystem (new in 12.0) | Next |
+
+
+---
+
+# <a name="sec.mgr.running"></a>4.3. Running an Experiment With The Manager
+
+This section will describe how to run an experiment with the manager.
+      Subsequent sections:
+      [[x1399]] and
+      [[x1661]]
+      will describe how to configure Readout programs and the event builder for
+      use within the manager framework.
+
+This section will describe the set of user interfaces that are available
+      for use to shift operators while running the experiment.  Note that the
+      client/server nature of the manager and these interfaces means that you
+      can instantiate any number of these in the set of physical locations that
+      are convenient.  You can also exit any of these user interfaces without
+      affecting the run state.  For example, you can start a run in one location,
+      kill off the run control panel, bring it up in another location and see
+      that the run is continuing to acquire data, and then end the run from that
+      second panel.
+
+All control panels we describe display state information.  Since the
+      state information is gotten via polling, it will be consistent from
+      panel to panel.
+
+The remainder of this section will describe the following contro panel:
+
+
+
+- [[x1216#sec.mgr.startstop]]
+              will describe how to start and stop the DAQ manager which is at the
+              heart of this subsystem.
+- [[x1216#sec.mgr.output]]
+              describes a control panel that monitors the output of all programs
+              run by the manager.
+- [[x1216#sec.mgr.runcontrol]]
+              describes the control panel you can use to control runs.
+- [[x1216#sec.mgr.eventbuilderstats]]
+              provides the statistics of a single event builder.
+
+Note that these control panels communicate with the manager and make use
+        of the REST server interfaces in the Readout programs and the event builder
+        to gather statistics information.  The
+        sections
+        [[x1399]]
+        and [[x1661]]
+        will describe how to run these under the manager so that they have this
+        REST server interface enabled, as well as what to put in state transition
+        sequences to run these programs under the manager.
+
+## <a name="sec.mgr.startstop"></a>4.3.1. Starting and Stopping the Manager
+
+Before any of the utilities described in the remaining sections can be
+          used the experiment manager server must have been started.  Furhtermore,
+          at the end of the experiment the manager should be shutdown to cleanup
+          all of the programs it is managing in remote systems.  This
+          section describes the utilities that perform these two tasks.
+
+The program
+          [[r18805]]
+          starts the manager in the system in which you are running.  This program
+          only requires a single command line parameter; the configuration database
+          file path.
+
+The manager is fully a  background process and will continue to run,
+          barring failures, until you explicitly stop it.  To communicate with it,
+          in general, you'll need to know the DNS hostname of the system
+           in which you started it and the name of the user that started it.
+           In general experiments will be run by a collection of users. Before
+           starting, agree on which of those will start the manager.
+
+There's really nothing to stop anybody with access to the configuration
+          file from starting the manager.   As long as everybody knows who started
+           the current instance of the manager and uses that username when
+           interacting with it.
+
+Shutting down the server, like most operations, requires knowing the
+          host the server is running in and the user that started the server.
+          The
+          [[r18821]]
+          utility shuts down a DAQ manager server.  Note that this utility will,
+          if necessary force a SHUTDOWN transition which,
+          if the sequence(s) attached to that transition are properly written
+          will stop all of the programs run by the system.
+
+If you shutdown the server when data taking is in progress,
+          it's likely that you're going to have some cleanup work to do with
+          the event loggers and the data they're writing as they won't see
+          proper end of run records.
+
+## <a name="sec.mgr.output"></a>4.3.2. The Output Monitor
+
+The DAQ manager server routinely runs program as it executes state transition
+          sequences.  Some of these programs are transient an others persistent
+          (critical programs are a subset of persistent programs).
+
+When it
+          runs a program, the DAQ manager arranges for the stdout and stderr
+          output file descriptors to be directed at pipes that it can read.
+          In addition to its REST server the manager provides a
+          service named DAQManager-outputMonitor.
+          The manager relays all output it receives from all programs that
+          are currently running to clients of this service.  The data
+          sent there are exactly the data recieved from programs.
+
+The **mg_monitorOutput** program, described in
+          [[r18435]]
+          provides a simple monitor of the output/error streams relayed by the
+          manager.
+
+If the manager exits, or otherwise drops its connection to
+            **mg_monitorOutput**, the program attempts to retry
+            for some period of time and, if not successful, allows the user
+            to retry once they are sure the manager is up and running or to exit
+            if they are certain it won't be up in a reasonable time.
+
+The user interface consists of a menubar with a
+            Settings menu. Below the menubar is a large
+            text widget with a vertical scroll bar.  Output are appended to the
+            end of the text in this text widget, as they are received from the
+            manager.  A limited history of output is maintained and the scrollbar
+            can be used to examine older output.  Below the output display
+            is a status line that indicates whether or not the program is
+            connected to the manager.
+
+The Settings menu provides commands that
+            allow you to modify the settings of the output menu as well
+            as the connection retry settings.  Let's look at the menu
+            choices in this menu.
+
+
+
+Settings->OutputSettings...Provides a dialog that allows you to set the characterisics
+                    of the output window.  The dialog provides a spinbox
+                    that allows you to set the number of lines that are retained.
+                    The checkbox labeled Show debugging otuput
+                    is not used and is ignored a this time.
+
+Set the history to the desired number of lines and then click
+                    Ok to make the change or
+                    Cancel to remove the dialog\
+                    without making any changes.
+
+Settings->Connection Settings...This brings up a dialog that describes what the program will
+                    do when it loses connection with the manager.
+                    If the connection is lost the program will attempt to
+                    restablish its connection for a specified number of
+                    *retries* at a specified
+                    *retry interval*.
+                    Once the retry count is exceeded, the program will prompt
+                    for what to do next.
+
+The menu selection pops up a dialog that allows you to
+                    set both of these parameters.
+                    The Retries before giving up spin box
+                    sets the number of retries.  The
+                    Time in secs between retries spin box
+                    allows you to set the retry  interval  in seconds.
+
+To accept the new paramters click OK
+                    to reject them, click Cancel.
+
+## <a name="sec.mgr.runcontrol"></a>4.3.3. The Run Control Panel
+
+The run control panel application, **mg_RunControl**
+          provides a control panel that can manage state transitions, run
+          metadata, event logging and can monitor trigger statistics from
+          compatible readout programs.
+
+Full reference information for this program is in
+          [[r18485]]
+          Note that unlike many of the manager control panels, in additionto
+          needing the host on which the manager is running and the name of the
+          user running it, this control panel must also be given the list of
+          programs that run Readout REST interfaces.  This is used to maintain
+          a status display of those programs as well as trigger statistics
+          for each readout.
+
+The user interface is divided into roughly three sections.
+            The top section provides the capability to monitor and modify run
+            metadata.  This metadata inlcudes the current and next title as well
+            as the current and next run.
+
+The middle section provides controls and status information
+            to control state transitions in the manager and to monitor
+            the aggregate state of the Readout programs.  This consists of
+            three blocks of controls.  The left block supports booting and
+            shutting down the experiment as well as monitoring the manager state.
+
+All state information is polled from the appropriate data source,
+            therefore, if more than one control panel is run, all will show
+            consistent state information regardless of which of thos panels
+            changed system state.  For example if the user running one control panel
+            changes the title, all other control panels will reflect that change
+            after their next poll for status.  Status polling is approximately once
+            per second.
+
+The middle block provides run control when the system is booted.
+            It  always allows the system to be shutdown.  If the system can
+            start a run a Begin button is present to do that.
+            If the system is actively taking data an End
+            button allows data taking to be halted.  A booted/idle system
+            can also request that readout programs, that support this,
+            re-initialize their hardware via the Initialize
+            button.
+
+The State shown in this section is an aggregate
+            state from all specified readouts.  If all Readouts report the same
+            state, this state is reflected here.  If Readouts show differing states,
+            the text inconsistent is displayed.  This can
+            happen normally during state transitions as the Readouts asynchronously
+            change state.
+
+Finally at the right hand side of the run controls section a
+            checkbox labeled Recording, when checked informs
+            the manager that eventloggers should be started when the run starts,
+            recording data for that run.
+
+The bottom section of the user interface show the status of all of the
+            readout programs described on the command line.  Note that if you miss
+            one, it will still participate in run transitions if sequences are
+            appropriately defined, as it is the sequences executed by the manager
+            that are actually responsible for starting data taking in readout programs.
+
+The bottom section is a tabbed notebook. A single tab labeled
+            summary provides a table of all of the readout
+            programs specified on the command line.  Columns of the table provide
+            the name of the program, the host  in which it runs, whether or not
+            the program is responding to REST requests and the whether or not
+            the manager thinks the program is running.
+
+Once the Readout programs start and become responsive to REST requests
+            for the first time, additional tabs are created for them.  Each additional
+            tab provides trigger statistics for one of the Readout programs.  The
+            labels on these tabs will be of the form *name@host*
+            where *name* is the program name and
+            *host* is the host in which it runs.
+
+The statistics tabs will dynamically show the number of triggers,
+            accepted triggers, and approximate bytes of data generated (event body
+            sizes).  Both cumulative statistics (across all runs), and Statistics
+            for the current run will be shown.  These statistics will update
+            approximately every second.
+
+## <a name="sec.mgr.eventbuilderstats"></a>4.3.4. Event Builder Statistics Panel.
+
+When you use the manager with the event builder, it too will have
+          a REST interface.  [[x1661]]
+          describes how to set this up.  The **EVBMonitor** command
+          provides a status panel that  dynamically displays the status and
+          statistics for an event builder.  You can point any number of these
+          status panels at an event builder.  At this point in time,
+          each status panel can only display the status from one event builder.
+
+[[r18522]]
+          provides reference information that describes the **EVBMonitor**
+          program.  The remainder of this section will describe what it displays.
+
+Let's look at the user interface provided by the event builder monitor.
+            The UI is divided into roughly three sections.  The top section is
+            a tabbed notebook.  Each tab selects a different set of statistics
+            exported by the event builder (more properly the orderer).
+            The bottom left is a table listing the connected data sources.
+            To the right of that is a status block.
+
+The tabbed notebook has the following tabs:
+
+
+
+Input StatsThis page shows the input statistics of the event builder
+                    and contains three counters.  The oldest timestamp
+                    queued at any time.  The newest timestamp seen and the
+                    number of queued fragments.  Note that when the number
+                    of queued fragments drops to zero, the system does not
+                    clear the Oldest timestamp counter.
+
+Queue StatsProvides a table of the queue statistics.  Each line
+                    represents the statistics of a single input queue.
+                    The Id of the queue is the source id
+                    associated with the event fragments that will be routed
+                    to that queue.
+
+The Depth, Oldest
+                    and Bytes are respectively, the number
+                    of fragments queued in that queue, the timestamp of the
+                    oldest fragment in the queue (fragment at the front of the
+                    queue), and the number of bytes in the queue.
+
+Finally the Dequeued and Queued
+                    columns are the number of data bytes that have been dequeued
+                    from the queue and queued to the queue respectively.  If the
+                    depth is 0, these two items should be equal.
+                    In no case should Dequeued be greater than
+                    Queued.
+
+Barrier StatsThis tab shows the top level barrier statistics.  Ideally,
+                    when used with NSCLDAQ, all barriers will be complete and
+                    homogeneous.  The complete barrier statistics are the first
+                    row and contain, from left to right, the number of compete
+                    barriers, the number of homogeneous barriers and the
+                    number of heterogeneous barriers.  A heterogeneous barrier
+                    is one where all queues received a barrier fragment within
+                    the required barrier timeout, but there was more than one
+                    barrier type.
+
+The second line provides the same information but for incomplete barriers.
+                    An incomplete barrier is one where not all queues received
+                    barrier fragments within the barrier timeout from the first
+                    barrier received.
+
+Complete BarriersDrills down into more details about the complete barriers
+                    seen.  Note that a complete barrier *could*
+                    be heterogenous.  The statistics in this page help to
+                    untangle that case.
+
+The display is a tree view.  There are two top level
+                    elements of the tree; By Type that,
+                    when expanded shows the number of each type of barrier
+                    fragment that participated in a complete barrier, and
+                    By Source which provides information
+                    about the barriers received from each source.
+
+The By Source top level, when expanded,
+                    has another level for each data source id. When expanded,
+                    that provides a list of the number of barriers of each
+                    type that were contributed to complete barriers from that
+                    source.
+
+Incomplete BarriersThis tab provides information about barriers that were
+                    incomplete.  A barrier synchronization is incomplete if barrier
+                    fragments were not received on all queues within the barrier
+                    timeout of the first barrier fragment making its way to the
+                    front of a queue.
+
+This page is a tree view with two top levels.
+                    The By # Missing when expanded,
+                    shows the a count of the number of times a specific number
+                    of fragments is missing.  For example, if a single data
+                    source did not contribute a barrier once in the only incomplete
+                    barrier seen, a subelement labeled 1 (one missing
+                    fragment) will be added and the Count
+                    column for it will display 1 (one time).
+
+By Source id will have sub-entries for
+                    each data source that failed barrier syncrhonization. THe
+                    Count column will be the number of times
+                    that source id did not make the barrier timeout.  In
+                    the previous example, suppose the missing data source was
+                    id 5.  This event will add a sub-entry labled 5 (the
+                    id of the data source that missed the timeout) and
+                    with a count of 1 (Missed it once).
+
+Note that if a data source is slow getting its barriers in,
+                    you'll see pairs of incomplete barriers, one for when all but
+                    the slow source was present, and one for when the slow source
+                    finally contributed its barrier fragment.
+
+Data LateProvides the number of data late cases.  This increments
+                    every time a fragment arrives but fragments with a later
+                    timestamp have already been emitted. This display
+                    is a table whose top line is the total number of times this
+                    was detected and whose subsequent lines are the number of times
+                    this was detected in fragments from specific data sources.  The
+                    right most column shows the worst timestamp difference.
+
+Out Of OrderSummarizes the out of order timestamps.  An out of order
+                    event is logged when a data source queue emits a fragment that
+                    is older than the most recently emitted fragment.  This is
+                    often coupled with a data late event.
+
+The top row summarizes all data lates over all sources.  The
+                    subsequent lines show data sources with non-zero data late
+                    events.  The Count column is the number
+                    of data late events seen. The Last Good TS
+                    column show the timestamp of the fragment dequeued prior to
+                    the one that was out of order and Offending TS
+                    shows the timestamp from the fragment that was determined
+                    to be out of order.
+
+The connection list at the bottom left is a table of the
+            connected data sources.  Each line provides the IP address in which the
+            source is running, the connection description string of the source,
+            the state of the source and the idle status.
+
+Finally, the status display shows if the Event builder has
+            asserted flow control and if the UI is successfully updating.
+            If the Event builder is not responding to update requests,
+            a read Update failed will be displayed until
+            updates work again.  This is normal if, for example, the data acquisition
+            system is shutdown.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Managed Objects and Configuration | Up | Running Readout Software With the Manager |

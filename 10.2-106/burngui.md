@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.burngui"></a>burngui
+
+<a name="AEN10708"></a>## Name
+
+burngui -- Graphical front end to dvdburn
+
+<a name="AEN10711"></a>## Synopsis
+
+**burngui	
+	**
+
+<a name="AEN10714"></a>## DESCRIPTION
+
+This is a graphical user interface that runs the
+        [[r10677]] program.
+        This program should be reasonably easy to use.
+        If not complain and more complete documentation will be written.
+
+<a name="AEN10718"></a>## Dependencies.
+
+See
+        [[r64299]] package.  All restrictions
+        apply.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dvdburn | Up | ScalerDisplay |

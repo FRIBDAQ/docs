@@ -1,0 +1,102 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage_readoutshell"></a>ReadoutShell
+
+<a name="AEN12242"></a>## Name
+
+ReadoutShell -- Shell wrapper for readout programs.
+
+<a name="AEN12245"></a>## Synopsis
+
+**$DAQROOT/bin/ReadoutShell
+          **
+
+<a name="AEN12248"></a>## DESCRIPTION
+
+Provides a graphical use interface wrapper around readout programs.
+            This command takes no parameters or options.  It does maintain
+            a memory of the most recent configuration for its internal components
+            as well as providing a scheme for extensions to add to this configuration.
+            See FILES for more information about the configuration.
+
+<a name="AEN12251"></a>## ENVIRONMENT
+
+
+
+EVENTLOGGEROverrides the default event logger program with
+                            its value.
+
+EVENTLOGGER_RINGOverrides the event logger ringbuffer URI.
+
+EVENTLOGGER_NSRCSFLAGS_SUPPORTEDIf true then `--number-of-sources`
+                            will be used with the eventlog program.
+
+EVENTLOGGER_UNCONTROLLED_SOURCE_COUNTIf provided contains an additional source count for
+                            use when computing the value of
+                            `--number-of-sources`
+
+EVENTLOGGER_USE_GUI_RUNNUMIf true the `--run` option will be
+                            used to override run numbers in begin run records or,
+                            alternatively provide run numbers where none are
+                            avaialble.
+
+
+
+EVENTSThe value of this environment variable overrides
+                            the Stage area default
+
+EXPDIRThe value of this environment variable overrides
+                            the Experiment metadata default value.
+
+<a name="AEN12293"></a>## FILES
+
+
+
+~/stageareaA symbolic link to the work area used by the ReadoutShell
+                            to maintain its directory structure.
+
+~/stagearea/currentDirectory containing the
+                            event file currently being recorded.
+
+~/stagearea/completeDirectory containing symbolic links to all
+                            event files that have been completely acquired.
+
+~/stagerea/experiment/run*Directories containing event files and metadata
+                            for all completely acquired runs.  The wild-carded
+                            part of the directory string is the run number, e.g.
+                            ~/stagerea/experiment/run1234
+                            contains the event file and metadata for run
+                            number 1234.
+
+~/stagearea/experiment/currentDirectory containing the metadata for the current run.
+                            The data in this directory will be copied into the
+                            run directory at the end of the run.
+
+~/stagearea/.settings.tclFile from which saved settings are restored
+                            and into which saved settings are written.
+                            This file is just a bunch of Tcl
+                            **set** commands that are
+                            read/written by
+                            the
+                            [[r55991]]
+                            via its singleton implementation.
+
+ReadoutCallouts.tclFile that contains extensions to the ReadoutShell.
+                            This file is searched for in order in:
+                            ~,
+                            !/stagearea/experiment/currnet
+                            and the current worknig directory.  The first found
+                            file and only the first of these is loaded.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| stdintoring | Up | ReadoutGUIOutputClient |

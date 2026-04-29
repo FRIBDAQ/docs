@@ -1,0 +1,52 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1945"></a>3.32. Querying display memory mirrors.
+
+Starting with SpecTcl 5.10, SpecTcl can, in conjunction with remote
+            clients, maintain one or more mirrors of its display memory in remote
+            systems.  This allows displayers to be run in those remote systems.
+            The set of mirrors can be  queried in order to avoid producing
+            duplicate mirrors in the a single remote system.
+
+URLs of the form:
+
+<a name="AEN1949"></a>**http://host:port/spectcl/mirror[?pattern=*host-pattern*]            
+               **
+
+Returns as the detail section of the response an array of mirrors.
+            If the optional `pattern` is supplied, this
+            list is limited to those whose hosts match `host-pattern`.
+            `host-pattern` can have glob wildcard
+            characters.
+
+The detail of the response is an array of objects.  Each object
+            has the following attributes:
+
+
+
+hostIdentifies a host to which mirroring is being done.
+
+shmkeyProvides the SYS-V shared memory key identifying the
+                    mirror in that host.
+
+If the optional `pattern` parameter is provided,
+            only hosts which match the pattern (Glob wild cards allowed)
+            are listed.
+
+The assumption is that a remote mirror client will first query
+            SpecTcl's current mirrors via the REST server to determine if
+            there is an existing mirror.  If there is the client can map
+            tothat memory directly.   If not it can set up a new mirror.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Traces (New in 5.5). | Up | Waveform requests (new in 7.0-003) |

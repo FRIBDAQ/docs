@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN114079"></a>ppid
+
+<a name="AEN114083"></a>## Name
+
+ppid -- Get parent process id.
+
+<a name="AEN114086"></a>## Synopsis
+
+```
+            package require Wait                    
+                 
+            set parent [ppid]            
+                 
+        
+```
+
+<a name="AEN114092"></a>## DESCRIPTION
+
+Returns the parent process for the process.  Normally if the parent
+            has exited this will be 1, the pid of the
+            init process.  See the oprhan
+            packagre for a useful application of this command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Pipe | Up | Orphan |

@@ -1,0 +1,139 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3609"></a>CRingPhysicsEventCountItem (v10)
+
+<a name="AEN3613"></a>## Name
+
+CRingPhysicsEventCountItem (v10) -- Encapsulate trigger count ring item.
+
+<a name="AEN3616"></a>## Synopsis
+
+```
+#include <v10/RingPhysicsEventCountItem.h>
+
+namespace v10 {
+
+class CRingPhysicsEventCountItem : public ::CRingPhysicsEventCountItem
+{
+public:
+  CRingPhysicsEventCountItem();
+  CRingPhysicsEventCountItem(uint64_t count,
+			     uint32_t timeOffset);
+  CRingPhysicsEventCountItem(uint64_t count, 
+			     uint32_t timeoffset, 
+			     time_t stamp);
+  
+  virtual uint32_t getTimeOffset() const;
+  virtual void     setTimeOffset(uint32_t offset);
+  virtual float    computeElapsedTime() const;
+  virtual uint32_t getTimeDivisor() const;
+  
+
+  virtual time_t   getTimestamp() const;
+  virtual void     setTimestamp(time_t stamp);
+
+  virtual uint64_t getEventCount() const;
+  virtual void     setEventCount(uint64_t count);
+
+  virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+  virtual void* getBodyHeader() const; 
+
+  virtual std::string typeName() const;	// Textual type of item.
+  virtual std::string toString() const; // Provide string dump of the item.
+
+};
+
+}
+                
+```
+
+<a name="AEN3618"></a>## DESCRIPTION
+
+NSCLDAQ uses event count items to encapsulate the
+                    number of triggers that have been processed to date in a run.
+                    This can be used by sampling on-line analysis programs to
+                    determine the fraction of data actually analyzed.
+                    Specifically, the number of items processed by the analysis program
+                    divided by the number of triggers is the fraction of data.
+
+Note that the glom stage of the event builder emits event
+                    count items that treat each built event as a trigger.
+                    Those items have a body header that provides the source id
+                    the event builder has been told to emit.
+
+<a name="AEN3622"></a>## METHODS
+
+
+
+`  CRingPhysicsEventCountItem();`Constructs an event count item with a count of zero,
+                            run time offset of zero and timestamp of the time
+                            the constructor was invoked.
+
+`  CRingPhysicsEventCountItem(uint64_t  count, uint32_t  timeOffset);`Creates an event count item where the trigger
+                            count is initialized to `count`.
+                            The run offset is given by `timeOffset`.
+                            Version 10 does not have the concept of a timestamp
+                            divisor. Therefore, `timeOffset`
+                            must be in units of seconds.
+
+`  CRingPhysicsEventCountItem(uint64_t  count, uint32_t  timeoffset, time_t  stamp);`Full construction of a physics event count item
+                            with a prototypical body header.  The additional
+                            parameter from the previous constructor are
+                            `stamp`, which provides
+                            the clock time at which the item was constructed.
+
+In comparing this constructor with those from
+                            other versions, note that v10 does not support
+                            body headers.
+
+` const virtual uint32_t  getTimeOffset();`Returns the raw time offset into the run at which
+                            this item was created.  Note that
+                            `computeElapsedTime` is the
+                            preferred method to get the elapsed run time.
+
+` virtual void      setTimeOffset(uint32_t  offset);`Sets the object's raw run time offset.  This
+                            offset is uncorrected by the offset divisor.
+
+` const virtual float     computeElapsedTime();`Computes the elapsed time in the run at which this
+                            was emitted from the raw offset and the divisor.
+                            Units are seconds.
+
+` const virtual uint32_t  getTimeDivisor();`Returns the number of ticks in a second in the
+                            elapsed time raw value.  For version 10, this will
+                            always return 1
+
+`  virtual time_t    getTimestamp();`Return the clock time associated with the item.
+
+` virtual void      setTimestamp(time_t  stamp);`Sets the clock time associated with the item.
+
+` const virtual uint64_t  getEventCount();`Return the number of triggers documented by this
+                            item.
+
+` virtual void      setEventCount(uint64_t  count);`sets the item's trigger count.
+
+` const virtual std::string  typeName();`Returns a string indicating the type of ring item
+                            this object is:  Trigger count
+
+` const virtual std::string  toString();`Return  a string that describes the contents of the
+                            item.  This is used by, e.g. **dumper**
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType  = 0);`This is a no-op for version 10 as that format
+                            does not suport body headers.
+
+` const virtual void*  getBodyHeader();`Returns 
+                            nullptr as version 10 does not
+                            support body headers.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingFragmentItem (version 10) | Up | CRingScalerItem (v10) |

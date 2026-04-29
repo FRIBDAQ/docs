@@ -1,0 +1,193 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2258"></a>CRingStateChangeItem (abstract)
+
+<a name="AEN2262"></a>## Name
+
+CRingStateChangeItem (abstract) -- Encapsulate run state change items.
+
+<a name="AEN2265"></a>## Synopsis
+
+```
+#include <CRingStateChangeItem.h>
+
+class CRingStateChangeItem : public CRingItem
+{
+
+
+public:
+  CRingStateChangeItem(uint16_t reason = BEGIN_RUN);
+  CRingStateChangeItem(uint16_t reason,
+		       uint32_t runNumber,
+		       uint32_t timeOffset,
+		       time_t   timestamp,
+		       std::string title) ;
+  
+
+  virtual void setRunNumber(uint32_t run);
+  virtual uint32_t getRunNumber() const;
+
+  virtual void setElapsedTime(uint32_t offset);
+  virtual uint32_t getElapsedTime() const;
+  virtual uint32_t getTimeDivisor() const;
+  virtual float    computeElapsedTime() const;
+
+  virtual void setTitle(std::string title) ;
+  virtual std::string getTitle() const;
+
+  virtual void setTimestamp(time_t stamp);
+  virtual time_t getTimestamp() const;
+  virtual uint32_t getOriginalSourceId() const;
+
+  virtual void* getBodyHeader() const;
+  virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+  virtual std::string typeName() const;
+  virtual std::string toString() const;
+
+};
+
+                
+```
+
+<a name="AEN2267"></a>## DESCRIPTION
+
+When the data acquisition system changes state, in a way that
+                    can affect data taking, readers produce a state change item
+                    so that this information can be documented in the data flow
+                    and recorded to disk in the associated event file.
+
+Thd `CRingStateChange` item encapsulates
+                    such ring items.  Note that as of NSCLDAQ version 12, there
+                    are four possible state change items, BEGIN_RUN,
+                    PAUSE_RUN, RESUME_RUN
+                    and END_RUN.  Note that not all readers
+                    support pausing a run and the paused state will likely be
+                    deprecated and phased out.
+
+The definitions for these ring items types are in the
+                    DataFormat.h header for the appropriate
+                    data format or the abstract version of this file.  These
+                    defintions should be considered stable.
+
+<a name="AEN2278"></a>## METHODS
+
+
+
+`  CRingStateChangeItem(uint16_t  reason  = BEGIN_RUN);`Creates a state change item for the specified state
+                            change type.  The offset time is set to zero, which is
+                            appropriate for a begin run, the clock time stamp is
+                            set to the current time.  The run number is also set
+                            to zero.  The title is set to an empty string.
+                            Other version specific initialization may occur.
+
+If the format supports body headers and they are optionsal,
+                            this construction will create an item without a body
+                            header.
+
+`   CRingStateChangeItem(uint16_t  reason, uint32_t  runNumber, uint32_t timeOffset , time_t    timestamp, std::string  title);`Full construction of a state change item.  The
+                            `reason` is the type of state change
+                            item as listed in DESCRIPTION.
+                            `runNumber` us the number of the
+                            run undergoing the transition.  `timeOffset`
+                            is the offset into the run at which the transition occured.
+                            This should always be 0 for
+                            BEGIN_RUN transitions.
+
+`timestamp` is the clock time
+                            at which the transition occured.   This is the output
+                            of the unix `time` function.
+
+Finally, `title` is the run's title.
+                            This should be the same string for all transitions
+                            within a run.   Note that there is a maximum
+                            length to titles defined in
+                            DataFormat.h with the symble
+                            TITLE_MAXSIZE. Title strings longer
+                            than that should be silently truncated by the
+                            version's implementation.
+
+` virtual void  setRunNumber(uint32_t  run);`Modifies the item's run number.   This is most often
+                            used when the minimal constructor is used to
+                            create the item.  In that case, various methods
+                            are used to fill in actual values of the fields.
+
+` const virtual uint32_t  getRunNumber();`Return the run number from the state change ring item
+                            encapsulated in the object.
+
+` virtual void  setElapsedTime(uint32_t  offset);`Sets the raw time offset of the state change item.
+                            The offset says when in the timespan of the run
+                            the state change occured.  It is zero at the beginning
+                            of the run.  No attempt is made to synchronize this time
+                            offset between several data sources.
+
+` const virtual uint32_t  getElapsedTime();`Returns the raw time offset stored in the event.  This
+                            is the time offset in to the run at which the state change
+                            occured. Note that the time divisor (see below) represents
+                            the numbver of ticks in the offset in a second.
+
+It's usually preferrable to get the offset in seconds
+                            using `computeElapedTime`.
+
+` const virtual uint32_t  getTimeDivisor();`Returns the time divisor.  This value represents the
+                            number of ticks of time offset in a second.
+                            Note that at present, all constructors initialize
+                            this to 1 and there is no mechanism
+                            to modify the divisor.  Later releases may provide
+                            such a mechanism.
+
+` const virtual float  computeElapsedTime();`Computes the time offset stored in the item in
+                            seconds.  This is the preferred method to get the
+                            time offset in the presence of the capability
+                            for divisors that are greater than 1.
+
+` virtual void  setTitle(std::string  title);`Sets the title of the run for the state transition
+                            item.  The state transition items that belong to the
+                            same run should have the same title.  Note that
+                            there is a maximum title length and implementations
+                            should silently truncate any title longer than that.
+
+` const virtual std::string  getTitle();`Returns the value of the title string for the
+                            transition object.
+
+` virtual void  setTimestamp(time_t  stamp);`Sets a clock times associted with the item.
+
+` const virtual time_t  getTimestamp();`Return the clock time associated with the
+                            item.
+
+` const virtual uint32_t  getOriginalSourceId();`Returns the original source id of the item.
+
+` const virtual void*  getBodyHeader();`Returns a pointer to the object's body header.
+                            If the object has no body header
+                            nullptr is returned.  The
+                            actual format of the body header
+                            *may* vary from version to version.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType  = 0);`IF the version supports it, either add or modify an
+                            existing body header in the object.  If the version
+                            does not support body headers, the method should do
+                            nothing.
+
+` const virtual std::string  typeName();`Returns a string that identifies the type of the object.
+                            Note that the type is a fine grained concept.
+                            For examle, if the type is
+                            BEGIN_RUN,
+                            this method returns Begin Run.
+
+` const virtual std::string toString();`Returns a string that describes the contents of the
+                            item.  This is used by e.g.
+                            **dumper** to emit formatted
+                            ring items.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingScalerItem (abstract) | Up | CRingTextItem (abstract) |

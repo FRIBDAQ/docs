@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cunknownfragment"></a>CUnknownFragment
+
+<a name="AEN27408"></a>## Name
+
+CUnknownFragment -- Event fragment likley not containing a ring item
+
+<a name="AEN27411"></a>## Synopsis
+
+```
+#include <CUnknownFragment.h>
+        
+```
+
+```
+ class CRingFragment : public CRingItem {
+}
+```
+
+```
+  CUnknownFragment(uint64_t timestamp, uint32_t sourceid, uint32_t barrier, uint32_t size, void* pPayload);
+```
+
+<a name="AEN27479"></a>## DESCRIPTION
+
+This class is a thin wrapper that derived from
+            [[r27079]].
+                There are only two differences between that class and this:
+
+
+
+1. The ring item type is set to EVB_UNKNOWN_PAYLOAD
+2. The `typeName` method returns the string:
+                       Fragment with unknown payload
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingFragmentItem | Up | CDataFormatItem |

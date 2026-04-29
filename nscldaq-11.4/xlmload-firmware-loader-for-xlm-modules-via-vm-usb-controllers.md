@@ -1,0 +1,29 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN7863"></a>Chapter 29. xlmload firmware loader for XLM modules via VM-USB controllers.
+
+NSCL makes extensive use of both JTEC XLM-72 and XLM-72V boards.
+        These boards are VME boards with an FGPA and a large number of input/output
+        pins.  The program xmload supports loading these modules
+        either over a direct connection to the VMUSB or via a properly configured
+        VMUSBReadout slow controls server.  See
+        [[r14312]]
+        for information about how to use this program.
+
+Note that module support for specific firmware in XLM's in the VMUSBReadout
+        usually supports loading firmware into the associated physical module.
+        This program allows you to use XLM firmware that does not need
+        to be touched by the VMUSBReadout program.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VM/CCUSB Firmware loaders | Up | Sequencing runs |

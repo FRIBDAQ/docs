@@ -1,0 +1,23 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="app.commands"></a>Appendix B. SpecTcl commands in the mpiSpecTcl environment
+
+This appendix will document how each SpecTcl command executes in mpiSpecTcl.  The operation
+            of a command not only depends on which class wrapped it but which resources are visible in each
+            process.  For example, **gate** uses services provicded by
+            `CHistogrammer` in the Event SInk Pipeline process, while, in all other processes,
+            it simply manipulates a gate dictionary that provides access to all of the gate definitions
+            via the `SpecTcl` API singleton.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CMPITclPackagedCommand |  | applygate |

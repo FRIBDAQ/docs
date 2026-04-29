@@ -1,0 +1,204 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3194"></a>CTreeParameterArray
+
+<a name="AEN3198"></a>## Name
+
+CTreeParameterArray -- Arrays of tree parameters
+
+<a name="AEN3201"></a>## Synopsis
+
+```
+CTreeParameterArray
+```
+
+<a name="AEN3204"></a>## DESCRIPTION
+
+The `CTreeParameterArray` provides
+                    support for creating arrays of tree parameters.
+                    `CTreeParameterArray` objects can
+                    be treated like arrays programmatically but, in parameter
+                    space, create a subtree of parameters.
+
+By convention, parameters managed by the tree parameters
+                    occupy a hierarcy.  The name of a parameter is a
+                    dot (.) separated string.  Each
+                    dot represents a path separator.  Thus the name
+                    top.raw.adc.01 represents the
+                    parameter 01 that has the parent
+                    adc which in turn has the parent
+                    raw which in turn is parented by
+                    top.
+
+Tree parameter array objects create a subtree below
+                    a parent name.  The names of the subtree are indices into
+                    the tree parameter array.  In the example above, the
+                    parent name might have been top.raw.adc
+                    and the index 01.  To facilitate
+                    sorting, in parameter name space, indices are zero filled
+                    to the left to accomodate the number of digits needed by
+                    the largest index.
+
+Tree parameter indices are not constrained to start from
+                    zero but can start from any integer value (including
+                    negative integers).
+
+The main method a `CTreeParameter`
+                    has, is of course, the index operator
+                    (`operator[]`).  If the
+                    index provided to it is out of range a
+                    `CTreeException` is thrown,
+                    otherwise, this method returns a reference to the
+                    indexed tree parameter in the array.
+
+<a name="AEN3224"></a>## METHODS
+
+Construction and initialization methods;  Like
+                    the `CTreeParameter` class,
+                    `CTreeParameterArray`
+                    supports either one step or two step construction.
+                    Two step construction is supported via a
+                    default constructor and a set of
+                    `Initialize` methods
+                    that provide the actual properties of the object.
+
+
+
+`  CTreeParameterArray();`Default constructor.  This is used with
+                                two step construction.  After constructing
+                                the array, one of the
+                                `Initialize` methods
+                                below needs to be called to define the
+                                characteristics of the array.
+
+`  CTreeParameterArray( std::string  baseName,  UInt_t  resolution,  UInt_t  numElements,  Int_t  baseIndex);`Constructs and defines a tree parameter
+                                array.  `baseName`
+                                is used to derive the names of the parameters
+                                in the array (see DESCRIPTION
+                                above).  `numElements`
+                                and `baseIndex`
+                                define the number of array elements and the
+                                base index for the array.
+                                Array indices are in the range
+                                [`baseName`, `baseName`+`numElements`).
+
+`resolution` describes
+                                the suggested number of channels and the
+                                range of values a spectrum axis on these
+                                parameters should have as a number of bits
+                                occupied by the parameter.  This form
+                                of the constructor is best used for raw
+                                digitizer values.
+
+All tree parameters in the array
+                                will be constructed with the same
+                                `resolution`, it is
+                                unusual, but possible to retrieve individual
+                                elements of the array and reconfigure them.
+
+`  CTreeParameterArray( std::string  baseName,  UInt_t  resolution,  double  lowLimit,  double  highOrWidth,  std::string  units,  bool  widthOrHighGiven,  UInt_t  elements,  Int_t  firstIndex);``The additional`
+                                parameters define the limits of the
+                                parameter.  `lowLimit`
+                                is the recommended low limit of axes
+                                that are defined on these parameters.
+                                The meaning of
+                                `highOrWidth` depends
+                                 on the value of the flag
+                                 `widthOrHighGiven`.
+
+If `widthOrHighGiven`
+                                is true,
+                                `highOrWidth` defines
+                                the suggested high limit of axes on these
+                                parameters.  If false,
+                                the paramete represents the width of each
+                                channel in parameter coordinates.  It, along
+                                with `resolution`
+                                (which define the number of channels)
+                                are used to compute the high limit recommended
+                                for spectrum axes on these parameters.
+
+`  CTreeParameterArray( std::string baseName ,  UInt_t  elements,  Int_t  baseIndex);`This constructor does not supply any metadata
+                                for the tree parameters it creates.
+                                If metadata are desired, they can be supplied
+                                later either by a call ot the appropriate
+                                `Initialize`
+                                method or by iterating through the array
+                                setting metadata for each element.
+
+`  CTreeParameterArray( std::string  baseName,  std::string  units,  UInt_t  elements,  Int_t  firstIndex);`The `units` parameter
+                                defines the units of measure for the tree
+                                parameters in the array.
+
+`  CTreeParameterArray( std::string  baseName,  double  low,  double  high,  std::string  units,  UInt_t  elements,  Int_t  firstIndex);`Provides the suggested 
+                                `low` and
+                                `high` limits on axes
+                                defined on these parameters.
+
+`  CTreeParameterArray( std::string  baseName,  UInt_t  channels,  double  low,  double  high,  std::string  units,  UInt_t  elements,  Int_t  firstIndex);`In this case `channels`
+                                specifies the suggested number of bins
+                                on an axis on this parameter where
+                                the axis will run between
+                                `low` and `high`.
+
+`   void  Initialize( std::string  baseName,  UInt_t  resolution,  UInt_t  elements,  Int_t  baseIndex);`, `   void  Initialize( std::string  baseName,  UInt_t  resolution,  double  lowLimit,  double  widthOrHeight,  std::string  units,  bool  widthOrHeightGiven,  UInt_t  elements,  Int_t  firstIndex);`, `   void  Initialize( std::string  baseName,  UInt_t  elements,  Int_t  firstIndex);`, `   void  Initialize( std::string  baseName,  std::string  units,  UInt_t  elements,  Int_t  firstIndex);`, `   void  Initialize( std::string  baseName,  double  lowLimit,  double  highLimit,  std::string  units,  UInt_t  elements,  Int_t  firstIndex);`, `   void  Initialize( std::string  baseName,  UInt_t  channels,  double  lowLimit,  double  highLimit,  std::string  units,  UInt_t  elements,  Int_t  firstIndex);`These methods are called as the second
+                                step in a two step construction.  The
+                                meaning of their parameters is the same
+                                as the constructors with corresponding
+                                parameters.  See the documentation
+                                of the constructors above for more
+                                information.
+
+The remainder of the methods, besides
+                    `operator[]` are miscellaneous.
+
+
+
+`   CTreeParameter&  operator[]( Int_t  nIndex);`Returns a reference to the tree parameter
+                                in the array indexed by
+                                `nIndex`.
+                                A `CTreeException`
+                                is thrown if the index is out of range.
+
+Since a reference is returned the tree
+                                parameter can be modified as well as set
+                                or inspected.
+
+`   void  Reset();`Invokes the `Reset`
+                                method on each element of the array.
+
+`   std::vector<CTreeParameter*>::iterator  begin();`, `   std::vector<CTreeParameter*>::iterator  end();`Supports iteration of the
+                                `std::vector` used to
+                                maintain the tree parameters in the object.
+                                `begin` returns
+                                an iterator that can be used as if it were
+                                a pointer to `CTreeParameter*`
+                                pointer that points to the first element
+                                of the vector.  This will be the tree
+                                parameter with the lowest index.
+
+Incrementing the iterator points to the item with
+                                the next index in the container.  Incrementing
+                                the iterator when it points to the last
+                                tree parameter results in a value that is
+                                equal to that returned from
+                                `end`.
+
+`   UInt_t  size();`Retrurns the number of tree parameters in the
+                                array.
+
+`   Int_t  lowIndex();`Returns the smallest allowed index into the
+                                tree parameter array.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTreeParameter | Up | CTreeVariable |

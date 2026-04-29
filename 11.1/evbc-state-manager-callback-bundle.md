@@ -1,0 +1,71 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 58. Event builder Readout Callouts | Next |
+
+
+---
+
+# <a name="AEN10693"></a>58.3. EVBC state manager callback bundle.
+
+This provides the simplest way to incorporate the event builder into
+            your experiment.  While the 3evb manpage provides reference information,
+            a short example is provided below for using this mechanism with an
+            event builder for which building is enabled, with a time tolerance of
+            10 clock ticks, and output ring named fox and
+            Two ring data sources from rings fox1 and
+            fox2.
+
+<a name="AEN10699"></a>**Example 58-1. Using the EVBC state manager callback bundle**
+
+```
+package require evbcallouts                   
+
+
+proc OnStart {} {                            
+
+    EVBC::useEventBuilder                    
+
+    EVBC::configure -gui 1 -destring foxy -glombuild 1 -glomdt 10 
+}
+proc startEVBSources {} {                    
+    EVBC::startRingSource tcp://localhost/fox1 stampextractor.so 1 {Source 1} 
+    EVBC::startRingSource tcp://localhost/fox2 stampextractor.so 2 {Source 2}
+}
+            
+```
+
+[[x10693#evbbundle.require]]                    Incorporates the package code into your script.  This makes
+                    all three APIs visible and accessible from your script.
+                [[x10693#evbbundle.onstart]]                    The `OnStart` is called from the
+                    ReadoutGUI when it makes a transition to the
+                    Halted state from
+                    NotReady.  The registration and configuration
+                    code are done at that time to ensure that the ReadoutGUI's
+                    GUI has been fully built before building the event builder's
+                    GUI so that it can be properly placed at the bottom of the
+                    user interface.
+                [[x10693#evbbundle.register]]                    Informs the state manager that you will be using the
+                    event builder.  This call registers the event builder with
+                    the state manager which calls the event builder bundle's
+                    initializatiuon entry.
+                [[x10693#evbbundle.configure]]                    Configures the event builder to enable its user interface,
+                    place the output of the last stage of the building pipeline
+                    in the local ring named foxy,
+                    enable event building by the glom stage of the pipeline with
+                    a time tolerance of 10 clock ticks.
+                [[x10693#evbbundle.startsources]]                    When the event builder is started, if you define a proc named
+                    `startEVBSources`, the bundle will call that
+                    proc when the event builder has been started.  The purpose of
+                    that proc is to set up event sources to transmit data to the
+                    event builder.
+                [[x10693#evbbundle.startringsource]]                    This line and the next set up a pair of event sources using
+                    the convenience function `EVBC::startRingSource`
+                    to start a ring data source.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EZBuilder | Up | The SBS Readout framework |

@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_monitorOutput"></a>mg_monitorOutput
+
+<a name="AEN19593"></a>## Name
+
+mg_monitorOutput -- Monitor the Output from Managed Programs.
+
+<a name="AEN19596"></a>## Synopsis
+
+**$DAQBIN/mg_monitorOutput *host user*
+**
+
+<a name="AEN19600"></a>## DESCRIPTION
+
+The **mg_monitorOutput** program provides a display
+            of the output that comes from programs run under that DAQ manager.
+            THe parameters *host* and
+            *user* are, respectively, the host on
+            which the manager is running and the user that started the manager.
+            These two parameters allow the program to locate the service advertised
+            by the manager.
+
+If the manager exits, or otherwise drops its connection to
+            **mg_monitorOutput**, the program attempts to retry
+            for some period of time and, if not successful, allows the user
+            to retry once they are sure the manager is up and running or to exit
+            if they are certain it won't be up in a reasonable time.
+
+The user interface consists of a menubar with a
+            Settings menu. Below the menubar is a large
+            text widget with a vertical scroll bar.  Output are appended to the
+            end of the text in this text widget, as they are received from the
+            manager.  A limited history of output is maintained and the scrollbar
+            can be used to examine older output.  Below the output display
+            is a status line that indicates whether or not the program is
+            connected to the manager.
+
+The Settings menu provides commands that
+            allow you to modify the settings of the output menu as well
+            as the connection retry settings.  Let's look at the menu
+            choices in this menu.
+
+
+
+Settings->OutputSettings...Provides a dialog that allows you to set the characterisics
+                    of the output window.  The dialog provides a spinbox
+                    that allows you to set the number of lines that are retained.
+                    The checkbox labeled Show debugging otuput
+                    is not used and is ignored a this time.
+
+Set the history to the desired number of lines and then click
+                    Ok to make the change or
+                    Cancel to remove the dialog\
+                    without making any changes.
+
+Settings->Connection Settings...This brings up a dialog that describes what the program will
+                    do when it loses connection with the manager.
+                    If the connection is lost the program will attempt to
+                    restablish its connection for a specified number of
+                    *retries* at a specified
+                    *retry interval*.
+                    Once the retry count is exceeded, the program will prompt
+                    for what to do next.
+
+The menu selection pops up a dialog that allows you to
+                    set both of these parameters.
+                    The Retries before giving up spin box
+                    sets the number of retries.  The
+                    Time in secs between retries spin box
+                    allows you to set the retry  interval  in seconds.
+
+To accept the new paramters click OK
+                    to reject them, click Cancel.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_authedit | Up | rdo_RunControl |

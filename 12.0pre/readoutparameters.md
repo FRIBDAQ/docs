@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.readoutparameters"></a>ReadoutParameters
+
+<a name="AEN88882"></a>## Name
+
+ReadoutParameters -- Display/Set Readout Parametesrs (VIEW)
+
+<a name="AEN88885"></a>## Synopsis
+
+```
+package require ReadoutRESTUI
+
+ReadoutParameters name ?option value ...?
+name configure option value ?.,..?
+        
+```
+
+<a name="AEN88887"></a>## DESCRIPTION
+
+Provides a vew class that lets users see the current run
+            parameters and set values for the next one.  This consists of
+            readonly displays of a title and run number as well as a pair of
+            controls that allow the entry of new run number and title.
+
+The interface to the object is totally handled by configuration
+            options and the callouts they may specify:
+
+
+
+`-title`Specifies/gets the value of the current title.
+
+`-run`Specifies/gets the value of the current run number.
+
+`-nextrun`Specify/retrieve the value of the next run number spinbox.
+
+`-nexttitle`Specify/retrieve the vale of the next title text entry.
+
+`-titlecommand`Specifies a script that is invoked when the title
+                    changes.  The new title is passed as a parameter to the
+                    script.
+
+`-runcommand`Specifies a script that is invoked when the run number
+                     is changed.   The new run number is passed as a parameter
+                     to the script.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ReadoutStatistics | Up | ReadoutState |

@@ -1,0 +1,59 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction and motivation.
+
+The first stage of any data analysis is to unpack raw event files into
+								a representation that is used internally by that analysis framework.
+								In SpecTcl, for example, this unpacking typically fills in structs of
+								treeparamteers.   For Root, root trees are built and filled.
+
+Without a lot of careful forethought and planning, this has often
+								resulted in experimenters writing completely different unpacking
+								software for Root and SpecTcl.  The result is not only extra work but
+								a maintenance problem as event structures evolve.
+
+genx is a system that allows you to specify the structure of your
+								unpacked data in a way that it can be converted into the data structures
+								and executable code needed to support a framework independent unpacker
+								that works regardless of the data analysis environment.
+
+genx provides
+								a data structure compiler that operates in two stages.
+								In the first stage, your data structure is compiled into an internal
+								representation.  The second, target specific stage, translates that
+								internal representation into headers and C++ executable code that supports
+								a specific analysis framework.  At this time two backends are suported,
+								SpecTcl and CERN/Root.
+
+This documentation is divided into two parts:
+
+
+
+- [[p31]] is a user guide.
+  													For most people, this is the only part you need to read.  It
+  													describes how to write data structure declaration files, how to
+  													compile those files for specific targets and how to write an
+  													a single unpacker for the files.
+  Reference information is also given in this part for the data structure
+  													definition  language and the **genx** compiler
+  													command.
+- [[p759]] provides sufficient
+  													internals information to allow program maintainers to extend the
+  													set of backend target code generators.  This part describes the
+  													strategy of compilation, the internal representation. It walks through
+  													how a target generator was created and finally describes what you
+  													need to do to extend the set of values the **genx**
+  													command's `--target` understands.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| genx - system for framework independent analysis. |  | User manual |

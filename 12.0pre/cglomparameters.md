@@ -1,0 +1,121 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cglomparameters"></a>CGlomParameters
+
+<a name="AEN27760"></a>## Name
+
+CGlomParameters -- Reports event building parameters.
+
+<a name="AEN27763"></a>## Synopsis
+
+```
+#include <CGlomParameters.h>
+            
+```
+
+```
+ class CGlomParameters  : public CRingItem  {
+}
+```
+
+```
+  CGlomParameters(uint64_t interval, bool isBuilding, uint32_t tsPolicy);
+```
+
+<a name="AEN27847"></a>## DESCRIPTION
+
+glom is a stage in the event builder pipeline
+            that actually glues event fragments in close temporal proximity
+            together into events.  It is important for consumers of data to know
+            the parameters that glom uses to know
+            how it should operate.  Therefore glom emits
+            a ring item of typeEVB_GLOM_INFO describing this information.
+            The `CGlomParameters` class provides a C++
+            class the wraps this ring item.
+
+See METHODS for detailed information about how to use this class.
+
+<a name="AEN27856"></a>## METHODS
+
+
+
+`  CGlomParameters(uint64_t interval, bool isBuilding, CGlomParameters::TimestampPolicy timestampPolicyconst );`Constructs the ring item. object.  The contents of
+                        the ring item are goverend by `isBuilding`
+                        which should be true if glom is running in builder mode,
+                        and `interval`, which is only
+                        meaningful in build mode and represents the event
+                        coincidence interval in timestamp ticks.  That is
+                        given and event fragment a time t, All fragments
+                        up until t+interval will be
+                        glommed into a single event at which point glom
+                        will start again with the next event found.
+
+glom can also run in
+                        non-building mode.  That mode means that each
+                        fragment results in its own output event.
+
+The `timestampPolicy` argument sets the
+                        timestamp policy used by this version of glom and
+                        can be one of CGlomParameters::first,
+                        CGlomParametesr::last or
+                        CGlomParameters::average
+
+` virtual ~CGlomParameters();`Destructor
+
+`  CGlomParameters(const CGlomParameters& rhs);`Copy constructor of a glom object.   Constructs a new object
+                        that is an exact duplicate of `rhs`.
+
+`  CGlomParameters(const CRingItem& rhs)          throws std::bad_cast;`Creates a `CRingItem` that is a
+                        duplicate of the arbitrary ring item `rhs`.
+                        If `rhs` is not in fact a
+                        `CGLomParameters` object a
+                        `std::bad_cast` exception will
+                        be thron.
+
+` CGlomParameters& operator=(const CGlomParameters& rhs);`Assignment operator.  The object on the left hand
+                        side of an assignment becomes an exact duplicate of
+                        `rhs` (the right hand side object).
+
+` const int operator==(const CGlomParameters& rhs);`Compares the object on the left hand side of the
+                        == operator to `rhs`.
+                        A nonzero value is returned if the two objects can be
+                        said to be equal.
+
+` const int operator!=(const CGlomParameters& rhs);`Returns nonzero if `operator==` would
+                        return zero.
+
+` const uint64_t coincidenceTicks();`Returns the number of ticks that define a coincidence
+                        interval for building an event.  This only has meaning
+                        if `isBuilding` returns
+                        true
+
+` const bool isBuilding();`Returns true if
+                        glom was in event building
+                        mode false otherwise.  The
+                        value returned from `coincidenceTicks`
+                        is only meaningful if this method returns
+                        true.
+
+` const CGlomParametrs::TimestampPolicy timestampPolicy();`Returns the timestamp policy field.  This will
+                        See the documentation of the constructor for information
+                        about the possible values this can have.
+
+` virtual const std::string typeName();`Returns a string version of the ring item type
+                        associated with this item.  This is:
+                        Glom Parameters.
+
+` virtual const std::string toString();`Returns a human readable string representation
+                        of the object.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDataFormatItem | Up | CAbnormaEndItem |

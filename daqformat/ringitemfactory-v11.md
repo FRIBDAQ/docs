@@ -1,0 +1,486 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN4523"></a>RingItemFactory (v11)
+
+<a name="AEN4527"></a>## Name
+
+RingItemFactory (v11) -- Create ring items in version 11 format.
+
+<a name="AEN4530"></a>## Synopsis
+
+```
+#include <v11/RingItemFactory.h>
+
+namespace v11 {
+    
+
+class RingItemFactory : public ::RingItemFactoryBase
+{
+public:
+    virtual ::CRingItem* makeRingItem(uint16_t type, size_t maxBody) ;
+    virtual ::CRingItem* makeRingItem(uint16_t type, uint64_t timestamp, uint32_t sourceId,
+            size_t maxBody, uint32_t barrierType = 0 ) ;
+    virtual ::CRingItem* makeRingItem(const ::CRingItem& rhs) ;
+    virtual ::CRingItem* makeRingItem(const ::RingItem* pRawRing) ;
+
+
+    virtual ::CRingItem* getRingItem(CRingBuffer& ringbuf) ;
+    virtual ::CRingItem* getRingItem(int fd) ;
+    virtual ::CRingItem* getRingItem(std::istream& in) ;
+
+    virtual std::ostream& putRingItem(const ::CRingItem* pItem, std::ostream& out) ;
+    virtual void putRingItem(const ::CRingItem* pItem, int fd) ;
+    virtual void putRingItem(const ::CRingItem* pItem, CRingBuffer& ringbuf) ;
+
+    virtual ::CAbnormalEndItem* makeAbnormalEndItem() ;
+    virtual ::CAbnormalEndItem* makeAbnormalEndItem(const ::CRingItem& rhs) ;
+
+    virtual ::CDataFormatItem* makeDataFormatItem() ;
+    virtual ::CDataFormatItem* makeDataFormatItem(const ::CRingItem& rhs) ;
+
+    virtual ::CGlomParameters* makeGlomParameters(
+        uint64_t interval, bool isBuilding, uint16_t policy
+    )  ;
+    virtual ::CGlomParameters* makeGlomParameters(const ::CRingItem& rhs) ;
+
+    virtual ::CPhysicsEventItem* makePhysicsEventItem(size_t maxBody) ;
+    virtual ::CPhysicsEventItem* makePhysicsEventItem(
+        uint64_t timestamp, uint32_t source, uint32_t barrier, size_t maxBody
+    ) ;
+    virtual ::CPhysicsEventItem* makePhysicsEventItem(const ::CRingItem& rhs) ;
+
+    virtual ::CRingFragmentItem* makeRingFragmentItem(
+        uint64_t timestamp, uint32_t source, uint32_t payloadSize,
+        const void* payload, uint32_t barrier=0
+    ) ;
+    virtual ::CRingFragmentItem* makeRingFragmentItem(const ::CRingItem& rhs) ;
+
+
+    virtual ::CRingPhysicsEventCountItem* makePhysicsEventCountItem(
+        uint64_t count, uint32_t timeoffset, time_t stamp,
+    int divisor=1
+    ) ;
+    virtual ::CRingPhysicsEventCountItem* makePhysicsEventCountItem(const ::CRingItem& rhs) ;
+
+    virtual ::CRingScalerItem* makeScalerItem(size_t numScalers) ;
+    virtual ::CRingScalerItem* makeScalerItem(
+        uint32_t startTime,
+        uint32_t stopTime,
+        time_t   timestamp,
+        std::vector<uint32_t> scalers,
+        bool                  isIncremental = true,
+        uint32_t              sid = 0,
+        uint32_t              timeOffsetDivisor = 1
+    ) ;
+    virtual ::CRingScalerItem* makeScalerItem(const ::CRingItem& rhs) ;
+
+    virtual ::CRingTextItem* makeTextItem(
+        uint16_t type,
+                std::vector<std::string> theStrings
+    ) ;
+    virtual ::CRingTextItem* makeTextItem(
+        uint16_t type,
+        std::vector<std::string> theStrings,
+        uint32_t                 offsetTime,
+        time_t                   timestamp, uint32_t divisor=1
+    ) ;
+    virtual ::CRingTextItem* makeTextItem(const ::CRingItem& rhs) ;
+
+    virtual ::CUnknownFragment* makeUnknownFragment(
+        uint64_t timestamp, uint32_t sourceid, uint32_t barrier,
+        uint32_t size, void* pPayload
+    ) ;
+    virtual ::CUnknownFragment* makeUnknownFragment(const ::CRingItem& rhs) ;
+
+    virtual ::CRingStateChangeItem* makeStateChangeItem(
+        uint32_t itemType, uint32_t runNumber,
+        uint32_t timeOffset,
+        time_t   timestamp,
+        std::string title
+    ) ;
+    virtual ::CRingStateChangeItem* makeStateChangeItem(const ::CRingItem& rhs) ;   
+};
+}
+
+                
+```
+
+<a name="AEN4532"></a>## DESCRIPTION
+
+This class provides classes that can create ring items
+                    in the the version 11 NSCLDAQ format.  The return values
+                    are dynamically allocated pointers and therefore the
+                    caller owns the objects and must delete them when
+                    no longer used.
+
+Good practice would be to use these pointers to initialize
+                    one of the C++ standard library smart pointer objects
+                    (e.g. `std::unique_ptr` or
+                    `std::shared_ptr`).  Doing that
+                    will help prevent memory leaks in your program.
+
+<a name="AEN4538"></a>## METHODS
+
+
+
+` ::CRingItem*  makeRingItem(uint16_t  type, size_t  maxBody);`Creates a new ring item that is undifferentiated,
+                            that is it implements no type specific methods.
+                            `type` is put in the ring item
+                            header's type field.  Storage capacity sufficient for
+                            a body of up to `maxBody`
+                            bytes of data are reserved though you'll need to
+                            communicate the size of the item (normally via
+                            the object's `setBodyCursor`
+                            and `updateSize` methods) to
+                            actually fill in the header's size field.
+
+The returned value is a pointer to a
+                            `v11::CRingItem` object
+                            (cast to `::CRingItem`).
+                            The caller is responsible for deleting the object
+                            when it is no longer needed (e.g. by initializing a smart
+                            pointer object with it).
+
+` ::CRingItem*  makeRingItem(uint16_t  type, uint64_t  timestamp, uint32_t  sourceId, size_t  maxBody, uint32_t  barrierType = 0);`Creates an undifferentiateded ring item that is parameterized
+                            for a body header.  The ring item will be created
+                            with a body header whose fields will come
+                            from the `timestamp`,
+                            `sourceId` and
+                            optional `barrierType`
+                            arguments.  `barrierType`
+                            defaults to 0 which means no
+                            barrier is triggered.
+
+For a user to add a body header extension, prior to
+                            any actual body data being added, requires
+                            that they first use `getBodyHeader`
+                            to get a pointer to the body, then
+                            `getBodyCursor` to obtain
+                            a pointer past the end of the body cursor add
+                            the data and then adust the size field of the
+                            body header.
+
+For example, suppose the application is to
+                            add a body header extension that will contain
+                            the experiment number which is stored in the
+                            constant EXPERIMENT_NUMBER:
+
+<a name="AEN4593"></a>**Example 4-1. Adding a body header extension**
+
+```
+std::uinque_ptr<::CRingItem> p(factory.makeRingItem(...)) // make ring item with body header.
+
+v11::pBodyHeader pH = reinterpret_cast<v11::pBodyHeader>(p->getBodyHeader());
+uint32_t* pCursor = reinterpret_cast<uint32_t*>(p->getBodyCursor);
+*pCursor = EXPERIMENT_NUMBER;
+pH->s_size += sizeof(uint32_t);
+p->setBodyCursor(pCursor);      // For whomever is filling the item body.
+
+                            
+```
+
+` ::CRingItem*  makeRingItem(const ::CRingItem&  rhs);`Makes a ring item by copying the contents of another
+                            ring item.  Note that the results are not well defined
+                            if the `rhs` item comes from
+                            a different ring item format than this factory
+                            (e.g. is a version 12 ring item).
+
+In practice this is not a problem unless you are writing
+                            a format converter.
+
+` ::CRingItem*  makeRingItem(const RingItem*  pRawRing);`Wraps a raw ring item in a `v11::CRingItem`
+                            object and returns a pointer to that object.
+
+` virtual CRingItem*  getRingItem(CRingBuffer& ringbuf);`Reads a ring item from the ringbuffer
+                            `ringbuf` and wraps it in a new
+                            v11::CRingItem.
+
+`ringbuf` must be attached to
+                            the ring buffer in consumer mode.
+
+` virtual CRingItem*  getRingItem(int  fd);`Reads a ring item from the entity open on the linux
+                            file descriptor `fd` and wraps it
+                            into a new v11::CRingItem.
+
+` virtual CRingItem*  getRingItem(std::istream&  in);`Reads a ring item from the C++ `istream`
+                            referenced by `in` and wraps it in a
+                            `v11::CRingItem`.
+
+` virtual std::ostream&  putRingItem(const CRingItem*  pItem, std::ostream&  out);`Puts the wrapped ring item pointed to by `pItem`
+                            in the `std::ostream` referenced by `out`.
+                            The raw binary of the ring item is output which allows it to be read in using
+                             `getRingItem` at some later date.
+
+The `out` stream must be open
+                            for write and in binary mode.  Note any actual ring item
+                            type can be used for the `pItem`
+                            since they all ultimately descend from
+                            `::CRingItem`.
+
+The method, like most C++ stream I/O methods, returns
+                            a reference to `out` following the
+                            put.
+
+` virtual void  putRingItem(const ::CRingItem*  pItem, int  fd);`Writes the ring item pointed to by
+                            `pItem` to the file descriptor
+                            `fd`
+
+` virtual void  putRingItem(const ::CRingItem*  pItem, CRingBuffer& ringbuf);`Writes the ring item pointed to by
+                            `pItem` to the ringbuffer
+                            referenced by `ringbuf`.
+                            `ringbuf` must be attached
+                            to the ring buffer in producer mode.
+
+`  virtual ::CAbnormalEndItem*  makeAbnormalEndItem();`Creates a new abnormal end run item.  Abnormal
+                            end run items flag event data taking that has
+                            ended without a proper end run request/indication.
+
+` virtual ::CAbnormalEndItem*  makeAbnormalEndItem(const CRingItem& rhs);`If `rhs` references
+                            an abnormal end item, this will create a new copy
+                            of that item with the specific type, a pointer
+                            to `v11::CAbnormalEndItem`.
+                            If, however the type of
+                            `rhs` is not
+                            v11::ABNORMAL_ENDRUN
+                            and the size of the ring item is not
+                            sizeof(v11::AbnormalEndItem, a
+                            `std::bad_cast`
+                            exception is thrown.
+
+` virtual ::CDataFormatItem*  makeDataFormatItem();`Creates  a new data format item.
+
+` virtual ::CDataFormatItem*  makeDataFormatItem(const CRingItem& rhs);`If `rhs`
+                            references a data format item, this method will
+                            produce a duplicate item and return a pointer to it.
+
+` virtual ::CGlomParameters*  makeGlomParameters(uint64_t  interval, bool  isBuilding, uint16_t  policy);`Produces a pointer to a
+                            `v11::CGlomParameters`.
+                            This data type is used to encapsulate a informational
+                            ring item emitted by the event builder's glom stage.
+                            The ring item contains the coincidence interval:
+                            `interval`,
+                            The `policy` for assigning
+                            timestamps to output events and a flag,
+                            `isBuilding` which is true
+                            if glom is actually building events and false if it
+                            is just emitting single fragment events.
+
+` ::CGlomParameters* makeGlomParameters(const ::CRingItem&  rhs);`If `rhs` is a v11
+                               glom parameters ring item, duplicates it as
+                               a `v11::CGlomParameters`
+                               item and returns a  pointer to this item.
+
+` virtual ::CPhysicsEventItem*  makePhysicsEventItem(size_t  maxBody);`Creates and returns a pointer to a physics event item
+                            (`v11::CPhysicsEventItem`). The
+                            capacity of the item will be sufficient for the item
+                            to have a body of `maxBody`.
+
+`  virtual ::CPhysicsEventItem*  makePhysicsEventItem(uint64_t  timestamp, uint32_t  source, uint32_t  barrier, size_t  maxBody);`Makes a physics event with a body header filled in
+                            from the additional parameters.
+                            The body header timestamp is filled in from
+                            `timestamp`,
+                            the source id from `source`
+                            and the barrier type from `barrier`.
+
+`  virtual ::CPhysicsEventItem*  makePhysicsEventItem(const ::CRingItem& rhs);`Given an undifferentiated ring item that
+                            encapsulates a physics event item in `rhs`,
+                            constructs an actual `v11::CPhysicsEventItem`
+                            returning a pointer to the constructed item.
+                            If the type of the item is not v11::PHYSICS_EVENT
+                            a `std::bad_cast` exception is thrown.
+
+Note that if the item is from a different version of
+                            NSCLDAQ, the behavior of the resulting item
+                            is not welll defined.  Consider for example, if
+                            `rhs` is v10 ring item,
+                            That item has no word indicating it has no body
+                            header and therefore, the
+                            `v11::CPhysicsEventItem`
+                            class will misinterpret the shape of the underlying
+                             ring item.
+
+` virtual ::CRingFragmentItem*  makeRingFragmentItem(uint64_t  timestamp, uint32_t  source, uint32_t  payloadSize, const void*  payload, uint32_t  barrier = 0);`Returns a ring fragment item with the timestamp,
+                            source id and barrier as described by the
+                            `timestamp`,
+                            `source`, and
+                            `barrier` parameters.
+                            The payload size and contents are as in
+                            `payloadSize` and
+                            `payload`.
+
+` virtual ::CRingFragmentItem*  makeRingFragmentItem(const ::CRingItem&  rhs);`If `rhs` is a ring fragment item returns a fragment
+                            item that is functionally equivalent to `rhs`.
+                            If `rhs` is not a fragment item,
+                            throws a `std::bad_cast`
+                            exception.
+
+` virtual ::CRingPhysicsEventCountItem*  makePhysicsEventCountItem(uint64_t count, uint32_t  timeoffset, time_t  stamp, int  divisor = 1);`Makes a physics event count item in version 11 format.
+                            `count` must be the number
+                            of triggers handled by the readout system at
+                            `timeoffset` into the run.
+                            `divisor` is the number of
+                            ticks of `timeoffset` in one second.
+
+`stamp` is the clock time at which
+                            the item is being created (should be during the run not
+                            during analysis).  It can be generated by a call
+                            to the unix `time` service.
+
+` virtual ::CRingPhysicsEventCountItem*  makePhysicsEventCountItem(const ::CRingItem&  rhs);`If `rhs` is an undifferentiated
+                            ring item that wraps a physics event count item,
+                            this method creates a new
+                            `v11::CRingPhysicsEventCountItem`
+                            that contains the same information as
+                            `rhs`.
+
+Note that if
+                            `rhs` is not a
+                            v11::PHYSICS_EVENT_COUNT ring
+                            item, a `std::bad_cast`
+                            exception is thrown.   The behavior of this
+                            generator method is not well defined if the
+                            ring item comes from another version of NSCLDAQ.
+
+` virtual ::CRingScalerItem*  makeScalerItem(size_t  numScalers);`Create a scaler item for V12 that has storage reserved
+                            for `numScalers` scalers.
+                            The interval start and end time must be set
+                            at a later time. The scaler storage is initialized
+                            to zero and the clock time stamp is initialized to the
+                            time this method is called.
+
+` virtual ::CRingScalerItem*  makeScalerItem(uint32_t  startTime, uint32_t  stopTime, time_t timestamp, std::vector<uint32_t>  scalers, bool   isIncremental  = true, uint32_t   sid  = 0, uint32_t timeOffsetDivisor = 1);`Creates a version 12  scaler item that is fully
+                            populated.  `startTime` and
+                            `stopTime` along with
+                            `timeOffsetDivisor` describe
+                            the time interval relative to the start of the run
+                            over which the scaler counted.
+                            `timeOffsetdivisor` specifies
+                            the number of ticks in `startTime`
+                            and `stopTime` in one second.
+                            If omitted, it defaults to 1
+                            meaning that those parameters are in units of seconds.
+
+`scalers` is a vector of
+                             scaler values.  THe actual meaning of these values
+                             depends on the state of  the
+                             `isIncremental` flag.
+                             If `isIncremental` is
+                             true, the scalers represent
+                             additional counts over the counting interval.
+                             If false, the scalers
+                             represent cummulative counts since the beginning
+                             of the run.
+
+The item is created with a body header
+                            that has a special timestamp that requests the event
+                            builder assign a timestamp from the last timestamped
+                            item.  The source id is `sid`
+                            and barrier type `0`.
+
+` virtual ::CRingScalerItem*  makeScalerItem(const CRingItem&  rhs);`If `rhs` is a scaler item
+                            a new `v11::CRingScalerItem` is
+                            made from the data in `rhs`.
+                            If `rhs` is not of type
+                            v11::PERIODIC_SCALERS
+                            a `std::bad_cast` exception
+                            is thrown.
+
+` virtual CRingTextItem*  makeTextItem(uint16_t  type, std::vector<std::string>  theStrings);`Creates an item that contains text strings.
+                            `type` is the ring item
+                            type and must be one of v11::PACKET_TYPES
+                            or v11::MONITORED_VARIABLES.
+                            The strings themselves are taken from the vector
+                            `theStrings`.
+
+The clock time is filled in from the time at which this
+                            method is called and the run time offset is
+                            initialized to 0
+
+` virtual CRingTextItem*  makeTextItem(uint16_t  type, std::vector<std::string>  theStrings, uint32_t    offsetTime, time_t   timestamp, uint32_t  divisor = 1);`Same as the previous methods however the additional
+                            parameters serve to initialize other bits otf the
+                            ring item: `offsetTime`  and
+                            `divisor` describe the offset into
+                            the run at which the item was emitted.  The
+                            `divisor` parameter provides
+                            the number of `offsetTime` ticks
+                             in a second.  If omitted it defaults to
+                             1 which means that
+                             `offsetTime` is in units of
+                             seconds.
+
+` virtual CRingTextItem*  makeTextItem(const CRingItem&  rhs);`Given an undifferentiated ring item; `rhs`
+                            that encpasulates a valid text item creats a new
+                            `v11::CRingTextItem` from the
+                            data in `rhs`.  If the item is not
+                             a valid v12 text item,
+                             a `std::bad_cast`
+                             exception is thrown.
+
+` virtual CUnknownFragment*  makeUnknownFragment(uint64_t  timestamp, uint32_t  sourceid, uint32_t  barrier, uint32_t  size, void*  pPayload);`Generates and returns a pointer to a
+                            `v11::CUnknownFragment`
+                            object.   The parameters provided are used to
+                            initialize the object data:
+                            `timestamp`, `sourceid`
+                            and `barrier` provide the
+                            header information.
+                            `size` is the number of bytes
+                            of payload pointed to by `pPayload`
+                            that will be copied into the body of the item.
+
+Note that `CUnknownFragment`
+                            objects are `CRingFragmentItem`
+                            objects with a type of v11::EVB_UNKNOWN_PAYLOAD
+
+` virtual CUnknownFragment*  makeUnknownFragment(const CRingItem& rhs);`If `rhs` is an unknown fragment,
+                            produces a copy of it and wraps that in a
+                            `v11::CUnknownFragment`
+                            object returing a pointer to the resulting object.
+
+` virtual CRingStateChangeItem*  makeStateChangeItem(uint32_t  itemType, uint32_t  runNumber, uint32_t  timeOffset, time_t  timestamp, std::string  title);`Creates a new run state change item formatted for
+                            version 12.  The `itemType`
+                            defines the new run state and must be one of
+                            v11::BEGIN_RUN,
+                            v11::PAUSE_RUN,
+                            v11::RESUME_RUN,
+                            or v11::END_RUN.  If it is none of those,
+                            a `std::bad_cast` exception is
+                            thrown.
+
+The remaining parameters define parameters of the run:
+                            `runNumber` is the unique number
+                            of the run.  `timeOffset` is
+                            the offset into the run at which the state change
+                            occurerd.  The units of this parameter must be seconds
+
+Note that
+                            all state change items associated with the same
+                            run should have the same title and run number.
+                            This is not enforced.  The `timeOffset`
+                            for a v11::BEGIN_RUN item should
+                            always be 0, but this too is not
+                            enforced.  Finally, the `timestamp`
+                            parameter can be the output of a call to the
+                            unix `time` function.
+
+` virtual CRingStateChangeItem*  makeStateChangeItem(const CRingItem&  rhs);`If `rhs` is an undifferentiated
+                            ring item that encapsualtes a valid v11 run state
+                            transition ring object, a new
+                            `v11::CRingStateChangeItem`
+                            is created encapsulating the same information.
+                            If `rhs` is not a valid
+                            v10 run state transition item,
+                            a `std::bad_cast` exception
+                            is thrown.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| NSCLDAQ version 11 format | Up | CRingItem (v11) |

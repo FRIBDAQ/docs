@@ -1,0 +1,30 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.lg_ls"></a>lg_ls
+
+<a name="AEN20719"></a>## Name
+
+lg_ls -- Show current logbook.
+
+<a name="AEN20722"></a>## Synopsis
+
+**lg_ls
+         **
+
+<a name="AEN20725"></a>## DESCRIPTION
+
+Lists the name of the current selected logbook database file to
+            stdout or else indicates that none has been selected.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| lg_current | Up | lg_addperson |

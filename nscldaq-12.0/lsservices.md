@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN23872"></a>lsservices
+
+<a name="AEN23876"></a>## Name
+
+lsservices -- List advertised services
+
+<a name="AEN23879"></a>## Synopsis
+
+**$DAQBIN/lsservices [host [user-pattern]]
+         **
+
+<a name="AEN23884"></a>## DESCRIPTION
+
+Lists the services that are advertised by a port manager.
+            The parameters are all optional.
+
+
+
+`host`If supplied specifies the host who's port manager
+                    we want to query.  If not suplied, this parameter
+                    defaults to localhost.
+
+`user-pattern`If supplied specifies a glob pattern the services
+                    to be listed must successfully match in order for the
+                    service to be included in the list.
+
+If not supplied, defaults to *
+                    which matches all users.
+
+<a name="AEN23900"></a>## EXAMPLES
+
+<a name="AEN23902"></a>```
+$DAQBIN/lsservices
+        
+```
+
+This lists all services in the local system.
+
+<a name="AEN23905"></a>```
+$DAQBIN/lsservices spdaq.frib.msu.edu
+        
+```
+
+This lists all services advertised by the port manager in
+        the host spdaq.frib.msu.edu if it  is
+        reachable.
+
+<a name="AEN23909"></a>```
+$DAQBIN/lsservices localhost charlie
+        
+```
+
+Only lists the services advertised in the local host that
+        were allocated by the username charlie
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DaqPortManager | Up | tclserver |

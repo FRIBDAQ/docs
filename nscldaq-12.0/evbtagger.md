@@ -1,0 +1,58 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN20114"></a>evbtagger
+
+<a name="AEN20118"></a>## Name
+
+evbtagger -- Filter to add fragment headers
+
+<a name="AEN20121"></a>## Synopsis
+
+**$DAQBIN/evbtagger *options*
+**
+
+<a name="AEN20125"></a>## DESCRIPTION
+
+This filter accepts a stream of NSCLDAQ ring itemss on stdin and emits a stream of Orderer
+            fragments suitable for input to glom on its standard output.  The operation of this program
+            is fully controlled by program options.
+
+<a name="AEN20128"></a>## OPTIONS
+
+Eac option has a short, single letter, form and a longer form.
+
+
+
+`-h, --help`Print help and exit
+
+`-V, --version`Print version and exit
+
+`-s, --buffersize`=INTSize of internal item buffer in KBytes.  If not specified, this optional parameter
+                  defaults to 1024 (1 Megabyte).  The input buffer must be large enough to accomodate
+                  at least one largest, complete, ring item.
+
+Larger values, up to the size of the pipe buffer can improve performance at the cost
+                  of longer latencies in the pipeline itself.
+
+`-r, --resetts`This option is a toggle and defaults to true.   When true, each time a
+                  BEGIN_RUN item is seen the memory of the last timestamp is set to 0.
+                  The last timestamp is used as the timestamp in items with no body header or items with
+                  the special timestamp value of 0xffff ffff ffff ffff.
+
+`-i, --sourceid=INT`Source ID for items with no body header.  Just as the last timestamp value is used to tag
+                  items with no body header (other than Physics items which must have a body header),
+                  this value is used to tag the source id of items without body headers.
+                  Normally this shoulid be set to the source id of the rest of the event stream.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RingSourceMgr | Up | ringFragmentSource |

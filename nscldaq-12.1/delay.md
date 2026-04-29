@@ -1,0 +1,54 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-delay"></a>delay
+
+<a name="AEN98465"></a>## Name
+
+delay -- Insert a stack delay.
+
+<a name="AEN98468"></a>## Synopsis
+
+**delay create *name ?options...?*
+**
+
+**delay config *name option value ...*
+**
+
+**delay cget *name*
+**
+
+<a name="AEN98478"></a>## DESCRIPTION
+
+This command creates a wait point in a stack.
+
+<a name="AEN98481"></a>## OPTIONS
+
+
+
+**-value** *value*Defines the duration of delay in units of 200 ns.
+
+Defaults to 0
+
+<a name="AEN98491"></a>## EXAMPLES
+
+<a name="AEN98493"></a>**Example 1. A simple delay example**
+
+```
+delay create delay0 -value 4 
+         
+```
+
+Defines an 800 ns delay.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| watch | Up | CBDCamacBranch |

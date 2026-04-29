@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN19583"></a>timecheck
+
+<a name="AEN19587"></a>## Name
+
+timecheck -- Check for out of order timestamps in event files
+
+<a name="AEN19590"></a>## Synopsis
+
+**$DAQBIN/timecheck *uri* **
+
+<a name="AEN19594"></a>## DESCRIPTION
+
+Reports out of order timestamps in an event file.  The event
+            file must have timestamps in the body header of its events.
+            Note that only ring items of type PHYSICS_EVENT
+            are checked.
+
+`uri` is a URI that points to the source
+            of data.  This can be a file or
+            tcp URI.  It can also be the special value
+            - which allows the program to accept data
+            on its standard input.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| offlinereglom | Up | evttclsh |

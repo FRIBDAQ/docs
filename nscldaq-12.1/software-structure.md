@@ -1,0 +1,214 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 80. Support for CAEN Nextgen DPP-PHA digitizers | Next |
+
+
+---
+
+# <a name="app.internals"></a>80.4. Software structure
+
+This documentation of the software internals separates into two
+            mostly independent chunks.  Support for Readout and support for
+            SpecTcl.
+
+In all cases a layered approach was taken.  This provides a realtively
+            easy to use system which may not perform at the fastest possible speed,
+            but can later be optimized either by using the lower layers of software
+            directly or by transparently optimizing some of the lower layers for
+            the upper layers.
+
+## <a name="AEN18087"></a>80.4.1. Readout Software
+
+The software described in this section is in
+                libCaenVx2750.a
+
+The CAEN support for the VXxxxx digitizers with DPP-PHA firmware
+                is supplied as ilbraries that are installed either on the host
+                system or in the container image.  This support consists of two
+                libraries.  The first communicates with the digitizer and the
+                second provides a filesystem like image of the digitizer parameter
+                space.
+
+On problem with the CAEN library support is that since parameters
+                are file system path-like names and values are strings, errors
+                can only be detected at run-time.  Two classes have been layered on
+                top of the bas CAEN support, in the caen_nscldaq
+                namespace:
+
+
+
+`Dig2Device`Provides basic communication support.  This class establishes
+                        communication with boards and provides separated access
+                        to the chunks of the digitizer filesystem that provide
+                        parameters for different levels of acces.
+
+For example, there are methods that write/read digitizer
+                        level parameters, and methods that write/read channel level
+                        parameters.  Similarly some methods control the LVDS I/Os
+                        on the front panel, while others provide support to configure
+                        the module for readout and to read individual events from
+                        the module.
+
+`VX2750Pha`This provides enumerated contants and methods which
+                        provide access to teach of the parameters in the digitizer.
+                        Note that since this is derived from `Dig2Device`,
+                        should CAEN introduce additional parameters, they can be
+                        directly accessed via the methds of that class until
+                        appropriate methods are added to
+                        `VX2750Pha`.
+
+There are a large number of parameters that can/must be
+                configured to get the digitizer to do what you want it to do.
+                The configuration for a single module is captured in a
+                `VX2750PHAConfiguration` object.
+                This object is agnostic about how it is configured.
+                Support for creating and manipulating configurations using the
+                Tcl scripting language is provided by
+                `VX2750TclConfig`.
+
+Initially I wanted to be able to configure the modules using
+                the same XML file produced by the COMPASS program and there
+                is initial, untested code in `VX2750XMLConfig`
+                to do that.  However the XML definition is not described anywhere and
+                there are specific, important parameters I don't understand how
+                to extract from that file.  The specification for the XML file is
+                internal to the COMPASS group and, at least for the prior generation
+                of digitizers, has changed from version to version leaving a
+                full implementation of `VX27850XMLConfig`
+                vulnerable to COMPASS updates.
+
+The Readout framework chosen requires a custom trigger and
+                readout code.  The trigge tells the framework when it is appropriate
+                to invoke the readout code.  The framework takes care of packaging the
+                data read into ringitems an putting them into ringbufers where they
+                can serve as input to the event builder.
+
+The classes at this level of the code are:
+
+
+
+`VX2750EventSegment`Knows how to read data when it is available in a single
+                        module.  This uses a configuration object to initialize the
+                        modules.
+
+`CAENVX2750PhaTrigger`Knows how to determine if a single module has
+                        data.
+
+Since, in general, a system consists of several modules,
+                The following classes are containers which support multi-module
+                setups.
+
+
+
+`VX2750MultiTrigger`Contains several indivdual module trigger objects.  In a single
+                         poll, makes available thet set of readable modules.
+
+`VX2750MultiModuleEventSegment`Contains several individual module event segments and
+                        creates a multi trigger from them.  When called, it will
+                        invoke the read methods of all of the event segments in
+                        each module that has data.
+
+This latter is done in a way the the event in each module
+                        is treated as a single ring item.  The Readout framework
+                        has a mechanism for a reader to specify that, upon providing
+                        data it can read more data without the need to poll the trigger.
+                        This mechanism is used by
+                        `VX2750MultiModuleEventSegment`.
+
+## <a name="AEN18141"></a>80.4.2. SpecTcl Support
+
+SpecTcl support requires, at a minimum, some user code that can
+                unpack raw data (in this case from the event builder) into
+                a set of parameters.  These parameters are then fed to SpecTcl's
+                histograming engine which, using spectrum definitions gates and
+                gates applied to spectra maintains histograms.  The classes described
+                in this section are in libCaenVxUnpackers.
+
+Histograms can be dynamically created as can gates snd the application
+                of those gates to conditionalize spectrum increments.
+
+SpecTcl accomplishes this mapping of raw event data to parameters
+                via a programmatic scheme called the *Data Analysis Pipeline*.
+                As the name implies the pipeline is made up of stages.  Each stage
+                of the pipeline has access, not only to the raw event data, but the
+                parameters that have been been produced by prior stages of the pipeline.
+
+While the DPP-PHA firmware has relatively few parameters that can
+                be unpacked directly from its data (time and pulse height), depending
+                on the items selected for readout, it can produce data that may be
+                useful to other stage of the pipeline.  F
+
+For example, you can select to read the waveforms that were inputs
+                to the DPP-PHA algorithm as well as some of the intermediate data.
+                Computations could be done on these traces or a spectrum could be
+                set-aside to be used to display waveforms on demand.
+
+The SpecTcl support provides software that knows how to unpack
+                an event fragment or *hit* from a digitizer.
+                It also provides framing software that is cognizant of event boundaries
+                and calls appropriate unpacking software for each module throughout the
+                hits the event builder has determined constitute an event.
+
+The relavent classes are:
+
+
+
+`VX2750ModuleUnpacker`Given a pointer to raw hit data unpacks the data from
+                        the hit.  This class produces four  parameters for each
+                        channel that's hit:  The nanosecond time, the raw time
+                        the fine timestamp and the energy.
+
+In addition to these parameters, internal data is maintained
+                        for all other information the digitizer can produce.
+                        *Getter* methods allow access
+                        to these data.  You can imagine that in creating one or more
+                        module unpackers, you might store pointers or references
+                        to them in downstream elements of the analysis pipeline where
+                        additional information could be extracted.
+
+`VX2750EventProcessor`An event processor which, given a pointer to the body of
+                        an event fragment invokes an unpacker to unpack data from
+                        that hit.
+
+`VX2750EventBuiltEventProcessor`This event processor holds a collection of
+                            `VX2750EventProcessor` objects.
+                            It accepts the body of an event from the event builder
+                            and iterates over the fragments.  For each fragment,
+                            the fragment's source id is used to select a
+                            `VX2750EventProcessor` to use
+                            to unpack the data in that fragment.
+
+THe source id, in the readout scheme represents a module.
+                        It is possible for an event to have more thano n e hit from
+                        a module...in which case the module's unpacker is called
+                        more than once per event.  Presumably this fill in data from
+                        several channels in the module.
+
+## <a name="AEN18174"></a>80.4.3. To Do:
+
+If possible, with a bit of close cooperation from the CAEN
+                Compass team, I'd like to revisit the possibility of configuring
+                the system from a COMPASS XML file.
+
+Initializing a module takes too much time (my opinion).  This is
+                done at the beginning of each run. I can see two improvements
+                in this process:
+
+
+
+1. Do a full initialization only on start up and scoreboard
+                         changes to the configuration, only programming those at the
+                         beginning of a run.
+2. Support multichannel settings.   The CAEN parameter
+                         'filesystem' provides a method to set several channel
+                         level parameters to same value in a single transaction.
+                         Supporting this *could* reduce the
+                         number of device transactions needed for a full initialization.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Configuring SpecTcl | Up | Software Triggering NEW IN 11.4 |

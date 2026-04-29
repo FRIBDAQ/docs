@@ -1,0 +1,49 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.ceventtrigger"></a>CEventTrigger
+
+<a name="AEN72678"></a>## Name
+
+CEventTrigger -- Abstract base class for triggers.
+
+<a name="AEN72681"></a>## Synopsis
+
+```
+#include <CEventTrigger>
+         
+```
+
+```
+CEventTrigger
+```
+
+<a name="AEN72702"></a>## Description
+
+Event triggers are responsible for kicking off event and scaler
+            readouts.  `CEventTrigger` is an
+            abstract base class
+            on which event triggers must be built.
+
+<a name="AEN72706"></a>## Public member functions
+
+` virtual void setup();`Inititialize the trigger hardware.  By default this is a no-op.
+
+` virtual void teardown();`Disable the trigger hardware.  By default this is a no-op.
+
+` virtual = 0 bool operator()();`Check for a trigger.  Return true
+            if there is a trigger false otherwise.
+            This must be implemented by concrete classes as it is pure virtual
+            in this class.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEventSegment | Up | CExperiment |

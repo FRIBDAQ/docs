@@ -1,0 +1,46 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_dlatestats"></a>EVB::dlatestats
+
+<a name="AEN15562"></a>## Name
+
+EVB::dlatestats -- Get the late fragment statistics.
+
+<a name="AEN15565"></a>## Synopsis
+
+**EVB::dlatestats
+          **
+
+<a name="AEN15568"></a>## DESCRIPTION
+
+Returns statistics about data late fragments.  A fragment is late if,
+            due to the event ordering accumulation window, it must be emitted
+            out of order.  Specifically, if the timestamp of a fragment is earlier
+            than the the timestamp of the fragment most recently sent to the
+            output stage, the fragment is late.
+
+The command takes no additional command parameters and returns
+            a list consisting of the following elements:
+
+
+
+- The number of fragments that have been received late.
+- The worst time difference between a late fragment and
+                          the most recently output fragment.
+- A list for each data source that contains
+  - The source id
+  - The number of late fragments from that source
+  - The worst case time difference from that source
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::outputStats | Up | EVB::onDataLate |

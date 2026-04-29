@@ -1,0 +1,24 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+<a name="AEN25567"></a># VI. Callback based analysis framework.
+
+<a name="AEN25569"></a>SpecTcl Version 5.10-008 introduces a replacement for the callback
+   analysis framework that is capable of working with data from NSCLDAQ 7/8,
+   NSCLDAQ-10, NSCLDAQ-11.  This framework is described in the programming
+   guide.  This chapter provides reference information for the classes that
+   make up the framework.
+
+**Table of Contents**[[r25571]] -- Event processor for callback analysis.[[r25649]] -- Base class for callout objects[[r25751]] -- Base class for callout analyzers.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDisplayFactory |  | CAnalysisEventProcessor |

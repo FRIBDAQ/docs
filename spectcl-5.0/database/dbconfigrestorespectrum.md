@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6161"></a>dbconfig::restoreSpectrum
+
+<a name="AEN6165"></a>## Name
+
+dbconfig::restoreSpectrum -- Restore spectrum contents from save set.
+
+<a name="AEN6168"></a>## Synopsis
+
+```
+package require dbconfig
+ set db [dbconfig::connect file-name]
+ set set [dbconfig::openSaveSet $db set-name]
+ 
+ dbconfig::restorSpectrum $set spectrum-name
+                        
+```
+
+<a name="AEN6170"></a>## DESCRIPTION
+
+Retores the contents of spectrum
+                            `spectrum-name` from the
+                            save set with the handle stored in `set`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::saveSpectrum | Up | dbconfig::saveAllSpectrumContents |

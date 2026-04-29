@@ -1,0 +1,31 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_revivesocket"></a>EVB::reviveSocket
+
+<a name="AEN23700"></a>## Name
+
+EVB::reviveSocket -- Revive all dead data sources associated with a socket
+
+<a name="AEN23703"></a>## Synopsis
+
+**EVB::reviveSocket *sock-name*
+**
+
+<a name="AEN23707"></a>## DESCRIPTION
+
+All data sources associated with a socket that were marked as dead
+            are marked as alive.  `sock-name` is the
+            Tcl socket channel name to operate on.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::deadsource | Up | EVB::flush |

@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.daqstart"></a>Chapter 18. daqstart - Starting programs with logging and monitoring
+
+When running a critical component of a system, it is important to
+        know if that component exits.  Furthermore, if the exit is unintended,
+        maintaining a log of the output and error streams for that component
+        can aid in failure analysis.
+
+The daqstart component provides the ability
+        to run an arbitrary executable (or script), capturing the error and or
+        output to a timestamped log and informing you if the executable or script
+        exits.
+        The
+        [[r7798]]
+        reference page describes the detailed use of the
+        daqstart program.
+
+Output monitoring by
+        daqstart
+        uses the concept of
+        *sinks*.
+        While the current implementation only supports file sinks, future implementations
+        may provide other types of sinks such as pipes or interfaces to the
+        unix system log facility, or even database logs.
+
+Output sinks are specified using the form:
+        type:destination
+        where type defines the sink type (e.g. file),
+        and the destination is sink type specific
+        (e.g. for a file sink the destination is the
+        name of the file that will be the sink).
+
+Now a simple example:
+
+<a name="AEN1122"></a>**Example 18-1. Logging errors and informing on exit**
+
+```
+daqstart --error=file:/user/fox/logs/critical.log --notify \
+                   mycriticalprogram --anoption=avalue argument
+        
+```
+
+The logfile will be
+        /user/fox/logs/critical.log.  If that file
+        exists new data will be appended to the log.  Once a command argument that
+        is not recognized by the
+        daqstart
+        program appears on the command line, the remainder of the line is considered
+        to be the application that will be logged.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| BufferToRing | Up | DvdBurner - Using Tcl to burn runs to DVD |

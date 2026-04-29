@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN7367"></a>Chapter 17. 
+    ULM Trigger GUI
+
+A firmware for the LeCroy 2367 Universal Logic Module written by Daniel
+    Bazin turns the device into a trigger processing unit commonly referred to
+    as the S800 ULM Trigger Box. This device has numerous configurable
+    parameters that can be used to determine how and when a live trigger is
+    formed from a set of triggers. NSCLDAQ provides support for configuring and
+    reading out this device and also a mechanism for controlling it remotely as
+    a slow-controlled device. The latter mechanism is a GUI called the
+    ULMTriggerGUI and will be the subject of this documentation. The
+    ULMTriggerGUI is heavily geared towards its use in the S800 and has many
+    controls specifically labeled as corresponding to the S800. The aim of this
+    documentation is not to detail all of the various features for use, but
+    rather how to set up and launch an instance of the program as well as
+    explain a bit about the saving and restoring state to and from files.
+
+# <a name="AEN7370"></a>17.1. Configuring CCUSBReadout for Remote Communication
+
+The ULMTriggerGUI makes use of the ccusbcamac TCL package to send remote
+      NAF commands to a CCUSBReadout slow-controls server. The first step to
+      use the ULMTriggerGUI is to ensure that the CCUSBReadout is configured to
+      receive remote CCUSB requests. The only thing that is required is that a
+      slow controls module of type "ccusb" be loaded. To do that you need to
+      add the following line to your CCUSBReadout's ctlconfig.tcl script.
+
+```
+Module create ccusb remoteHandler
+    
+```
+
+Depending on the version of NSCLDAQ that you are using, this may or may
+      not be necessary because in recent versions the remote handler is
+      preloaded into the CCUSBReadout program. However, it is simplest to just
+      add the single line above.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Saved File | Up | Launching the ULMTriggerGUI |

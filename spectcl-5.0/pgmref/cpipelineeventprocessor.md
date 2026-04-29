@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN23927"></a>CPipelineEventProcessor
+
+<a name="AEN23931"></a>## Name
+
+CPipelineEventProcessor -- Encapsulate an event processing pipeline as a processor.
+
+<a name="AEN23934"></a>## Synopsis
+
+```
+#include <CPipelineEventProcessor.h>
+
+class CPipelineEventProcessor : public CEventProcessor
+{
+public:
+    CPipelineEventProcessor(CTclAnalyzer::EventProcessingPipeline* pipe);
+    virtual ~CPipelineEventProcessor();
+
+public:
+  virtual Bool_t operator()(const Address_t pEvent,
+                            CEvent& rEvent,
+                            CAnalyzer& rAnalyzer,
+                            CBufferDecoder& rDecoder); // Physics Event.
+
+  // Functions:
+  virtual Bool_t OnAttach(CAnalyzer& rAnalyzer); // Called on registration.
+  virtual Bool_t OnDetach(CAnalyzer& rAnalyzer);
+  virtual Bool_t OnBegin(CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder); // Begin Run.
+  virtual Bool_t OnEnd(CAnalyzer& rAnalyzer,
+                       CBufferDecoder& rBuffer); // End Run.
+  virtual Bool_t OnPause(CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder); // Pause Run.
+  virtual Bool_t OnResume(CAnalyzer& rAnalyzer,
+                          CBufferDecoder& rDecoder); // Resume Run.
+  virtual Bool_t OnOther(UInt_t nType,
+                         CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder); // Unrecognized buftype.
+
+  virtual Bool_t OnEventSourceOpen(std::string name);
+  virtual Bool_t OnEventSourceEOF();
+  virtual Bool_t OnInitialize();
+
+};
+
+        
+```
+
+<a name="AEN23936"></a>## DESCRIPTION
+
+Sometimes it's convenient to encapsulate an entire event processing
+            pipeline in an event processor of its own.  For example, the
+            `CEventBuilderEventProcessor` only allows
+            an event processor to be registered to handle data from a source id.
+            If your analysis of that raw data is a pipeline, you can use
+            this class to encapsulate that pipeline and the register
+            a `CPipelineEventProcessor` to handle
+            the source id.
+
+This class implements all Event processor methods.  When constructed,
+            it's passed a pointer to a
+            `CTclAnalyzer::EventProcessingPipeline`.  For each
+            method, the pipeline is iterated over and the corresponding method
+            called for each element.  If a pipeline element indicates failure,
+            iteration is aborted and the failure is propagated to the caller.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CPipelineManager | Up | SpecTcl Displays |

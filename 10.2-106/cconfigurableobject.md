@@ -1,0 +1,514 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-CConfigurableObject"></a>CConfigurableObject
+
+<a name="AEN59468"></a>## Name
+
+CConfigurableObject -- Configuration database
+
+<a name="AEN59471"></a>## Synopsis
+
+```
+CConfigurableObject
+```
+
+<a name="AEN59895"></a>## DESCRIPTION
+
+Each VM-USB device driver object contains an instance of
+                a `CConfigurableObject`.  The driver
+                defines its configuration parameters within that object and
+                the object is transparently hooked into the driver command's
+                config and cget methods so that the driver code does not have
+                to worry about handling those commands.
+
+`CConfigurableObject` provides mechanisms
+                for not only defining and retrieving configuration parameters, but
+                for enforcing constraints on those parameters.  Constraint checking
+                can include not only checking the type of a parameter but
+                checking for completely arbitrary constraints on the values
+                of the confgiguration parameter.
+
+Constraint checking is accomplished by associating a validity
+                checking function with each parameter.  A set of pre-defined
+                validity checking functions, implemented as static class methods
+                mean that for most cases you don't need to define your own
+                constraint checkers.
+
+Another side enforcing strong parameter typing and constraints is
+                a set of parameter getters that transparently convert the
+                string representation of a parameter to a form that is meaningful
+                to the driver.
+
+As a simple example, consider a threshold value that must be
+                an integer in the range of [0..4095].
+                This can be easily defined as a configuration parameter that
+                uses the predefined `isInteger`
+                constraint checker passed an appropriate limit checking
+                structure.  When retrieving the paramter, since the **config**
+                subcommand has already perfromed type and range checking, the
+                driver can simply use `getIntegerParameter`
+                to retrieve the parameter value without worrying about
+                having any illegal values for the parameter.
+
+<a name="AEN59908"></a>## METHODS
+
+This section describes the bulk of the methods provided by
+                `CConfigurableObject`.  The sections
+                UTILITY METHODS and BUILT IN TYPE CHECKERS provide information
+                about utility methods provided to objects and the built in
+                constraint checking methods respetively.
+
+
+
+`  CConfigurableObject(std::string name);`Basic constructor for a configurable object.
+                            Each configuratino has a `name`
+                            under which it is registered with the device configuration
+                            database.
+
+` const std::string getName();`Returns the name of the configuable object.
+
+` std::string cget(std::string name);`All configuration values are stored as strings.
+                                This method returns the configuration value of
+                                the configuration parameter named `name`.
+
+Note  that other methods exist that convert the
+                                string ot a more natural type given for
+                                parameters with specific semantics.
+
+` ConfigurationArray cget();`Returns a `ConfigurationArray`
+                                that contains the entire device configuration.
+                                For information about the shape of a
+                                `CConfigurationArray`  see
+                                the TYPES section below.
+
+` int getIntegerParameter(std::string name);`Returns the value of the configuration parameter
+                                `name` converted to a
+                                signed integer.  Care should be taken when
+                                using this with a parameter that is not validated
+                                vai `isIntegerParameter`.
+                                If the underlying string is not a valid integer,
+                                this method will throw a std::string
+                                exception.
+
+` unsigned int getUnsignedParameter(std::string name);`Same as `getIntegerParameter`
+                                however the conversion is to an unsigned integer.
+                                If your driver requires a
+                                `-base` option, you should use
+                                this method to retrieve that rather than
+                                `getIntegerParameter`
+                                to avoid overflow.
+
+` bool getBoolParameter(std::string name);`Returns the value of `name`
+                                converted to a boolean.  Boolean parameters
+                                should use `isBool`
+                                as their constraint checkers.
+
+In order to make boolean parameters more natural.
+                                The following set of strings is acceepted as
+                                true
+{"true", "yes", "1", "on", "enabled"}
+                                and false strings are in the
+                                set:
+                                {"false", "no", "0", "off", "disabled"}.
+
+If the string value is not in one of those
+                                two sets, a std::string
+                                exception is thrown.
+
+` double getFloatParameter(std::string name);`Returns the parameter `name`
+                                converted to a floating point value.  `name`
+                                should be associated with the
+                                `isFloat` constraint checker.
+                                If, however it is not, an std::string
+                                exception is thrown if the value does not have
+                                a floating point representation.
+
+` std::vector<int> getIntegerList(std::string name);`This member function parses the value of
+                                parameter `name` as a Tcl
+                                list of integers and returns those integers
+                                as a std::vector<int>.
+                                This is most often used when a configuration
+                                parameter is used to represent per channel
+                                values for a digitizer.
+
+Normally you will use this to process values
+                                of parameters that use the `isList`
+                                constraint checker with `isInteger`
+                                specifies as a per element constraint chedker.
+
+As with all parameter value getting methods, if
+                                the value does not parse correctly (is not a
+                                Tcl list or a list element is not an integer),
+                                a std::string exception is thrown.
+
+` void addParameter(std::string name, typeChecker checker, void* arg, std::string defaultValue = std::string("")));`
+` void clearConfiguration();`Adds a new parameter to the configurable object.
+                                This parameter will be reported in
+                                **cget** subcommands and
+                                can be modified in **config**
+                                subcomands.
+
+The `name` parameter is
+                                the name fo the new parameter. By convention,
+                                the first character of a configuration option
+                                is a hyphen (-), although
+                                the configurable object makes no such restriction.
+
+`defaultValue` specifies
+                                the initial value given to this variable.
+                                Careful thought about initial/default values
+                                allows users to minimize the number of
+                                configuration options they actually need to set.
+
+`checker` and
+                                `arg` specify the constraint
+                                checking that is performed on a parameter when
+                                the configuration script attempts to modify it.
+                                `checker` is a function that
+                                is expected to check the proposed new value for
+                                validity.  `arg` is a
+                                parameter that is passed, without interpretation,
+                                to the checker.  See TYPE CHECKERS below for
+                                more information about constraint checking.
+
+` void configure(std::string name, std::string value);`Provides a new proposed `value`
+                                to the configuration parameter `name`.
+                                This method does not bypass constraint checks.
+                                If the constraint check on the parameter fails,
+                                a std::string error message exception
+                                is thrown.
+
+` void addIntegerParameter(std::string name, int defaultVal);`This is a convenience method that adds a new
+                                parameter,
+                                `name`,
+                                to the configuration database.
+                                The `isInteger`
+                                constraint checker is associated with
+                                the parameter, however no range limits are
+                                specified.
+
+The `defaultVal` is
+                                used as the initial value of the parameter>
+
+` void addIntegerParameter(std::string name, int low, int  high, int defaultVal = 0);`Same as the previous method, however
+                                `low` and `high`
+                                constrain the range of the integer value.
+                                If you require an asymmetric range you have two choices.
+                                Use `addParameter` and
+                                fill in the parameter struct for `isInteger`
+                                appropriately, or use one of
+                                INT_MAX, INT_MIN, UINT_MAX
+                                for the appropriate limit.  These values
+                                are defined in <limits.h>.
+
+` void  addBooleanParameter(std::string name, bool defaultVal = true);`Adds a parameter `name`
+                                whose value checked via
+                                `isBool` to ensure
+                                it is always a boolean value.
+                                `defaultVal` is the
+                                initial value given to the parameter.
+
+` void  addEnumParameter(std::string name, const char** pValues, std::string defaultValue = std::string("")));`Adds a parameter `name`
+                                whose type checker ensures that valid values
+                                are constrained to be in the list of
+                                strings in `pValues`.
+                                The initial value of the parameter is
+                                `defautltValue`
+
+`pValues` is a null
+                                terminated array of pointers to the legal strings.
+                                These can be declared as shown below:
+
+<a name="AEN60164"></a>```
+static const char* validEnums[] = {
+"one", "two", "three", NULL
+};
+                                
+```
+
+` void addBoolListParameter(std::string name, unsigned size, bool defaultVal = true);`Adds a parameter `name` to
+                                the configuration whose legal values are
+                                lists of boolean parameters.  The list
+                                is a fixed `size`.
+                                The `defaultVal`
+                                is the value that each element of the list is
+                                initialized to.
+
+` void addBoolListParameter(std::string name, unsigned minLength, unsigned maxLength, bool defaultVal = true, int defaultSize = -1);`Same as the previous method, however
+                                the length of the list can vary between a
+                                minimum length (`minLength`)
+                                and a maximum length (`maxLength`).
+
+` void addIntListParameter(std::string name, unsigned size, int defaultVal = 0);`Adds a parameter `name`
+                                that is checked to ensure it consists of a
+                                list of integer values.  The size of the list
+                                is fixed at `size`.
+                                The initial value of all elements of the list
+                                is set to `defaultValue`.
+
+` void addIntListParameter(std::string name, unsigned minlength, unsigned maxLength, int defaultVal = 0, int defaultSize = -1);`Same as the previous function however
+                                the length of the list can vary between
+                                `minlength` and
+                                `maxLength` and the
+                                list has an initial value of `defaultSize`
+
+` void addStringListParameter(std::string name, unsigned size, std::string defaultVal = "");`Adds a parameter `name` that
+                                is a list of `size`   strings. Initially
+                                each element of the list will have the value
+                                `defautlVal`
+
+` void addStringListParameter(std::string name, unsigned minLength, unsigned maxLength, std::string defaultVal = "", int defaultLength = -1);`Same as the previous method however the
+                                length of the list can provide to a
+                                **config** subcommand can be
+                                between `minLength`
+                                and `maxLength`. The initial
+                                length will be `defaultLength`  .
+
+<a name="AEN60307"></a>## UTILITY METHODS
+
+This section provides some simple
+              utility methods.
+
+
+
+` static isEnumParameter makeEnumSet(const char** values);`Produces a data structure used
+                          by the enumerated parameter checker
+                          `isEnum`
+                          decribing the legal options.
+                          `values`
+                          is an array of pointers to
+                          acceptable strings.  The last pointer
+                          must be a NULL value.
+
+` static bool >strToBool(std::string value);`Converts a string to its
+                              boolean representation or
+                              throws a std::string
+                              exception if the string does
+                              not map to a bool.
+
+<a name="AEN60337"></a>## TYPE CHECKERS
+
+A type checker is a function that can be passed to
+                `addParameter` to check constraints on
+                the value of a parameter. See below in BUILT IN TYPE CHECKERS
+                for information about the constraint checkers that are
+                available for drop in use.
+
+A type checker `myTypeChecker`
+                function has the following signature:
+
+<a name="AEN60343"></a>```
+bool myTypeChecker(std::string name, std::string value, void* arg)
+                
+```
+
+`name` is the name of the configuration
+                parameter that is being checked.
+
+`value` is the proposed new string value
+                for the parameter.
+
+`arg` is the
+                `arg` parameter in the
+                `addParameter` method.  While not always
+                the case, this parameter usually is a pointer to some struct
+                or object that further refines the constraint checking required.
+                For example, for the `isInteger` pre-packaged
+                checker, this parameter is a pointer to a struct that defines
+                whichi limits should be checked and what those limit values
+                are, where appropriate.
+
+Type checkers are supposed to return true
+                if the constraints they are checking match,
+                false otherwise.
+
+<a name="AEN60357"></a>## BUILT IN TYPE CHECKERS.
+
+A built in set of type checkers allows you to define the vast
+                majority of parameters without any need to write your own
+                type checking function.
+
+In the descriptions below, `arg`
+                always refers to the `arg` parameter
+                of the `addParameter` method. It will
+                be referred to as the *additional data*
+                parameter and described in the documentation for each
+                checker.
+
+Note that all type checkers descdibed allow you to pass a
+                NULL for the `args`
+                parameter which means that the value of the
+                parameter does not undergo any of the processing that is
+                implied by the data normally pointed to by `arg`.
+
+
+
+` static bool isInteger(std::string name, std::string value, void* arg);`Checks that the proposed new value is a valid integer.
+                        Optionally, depending on the `arg`
+                        struct this function can also ensure that the
+                        converted integer value of the new value meets
+                        range constraints.
+
+`arg` actually points to a
+                        Limits which provides optional flags
+                        and values to determine if a lower and/or an upper limit
+                        should be checked and the limit values as well.
+                        Limits is described fully in TYPES
+                        below.
+
+` static bool  isBool(std::string name, std::string value, void* arg);`Type checker that determines if the proposed new value
+                        has a valid conversion to a  boolean.
+                        The `args` parameter is not used by
+                        this checker.
+
+` static bool  isEnum(std::string name, std::string value, void* arg);`Ensures that the proposed new `value`
+                        is an element of a set of allowed strings.  `args`
+                        is actually a pointer to a std::set<std::string>
+                        where the elements of that set are the allowed values of the
+                        parameter.
+
+` static bool  isFloat(std::string name, std::string value, void* arg);`Requires that the proposed new parameter
+                        `value` is a valid floating point
+                        and optionally that it satisfies lower and/or upper
+                        limit constraints.  The `arg`
+                        parameter actually points to a
+                        FloatingLimits struct.
+                        See TYPES below for a description of that struct.
+
+` static bool isList(std::string name, std::string  value, void* arg);`This type checker requires that the proposed new
+                        `value` is a valid Tcl list.
+                        The `arg` parameter points to a
+                        isListParameter.  This is described in
+                        TYPES below.  The struct allows you to constrain the list
+                        size as well as to provide an additional type checker
+                        that is applied to each element of the list.
+
+` static bool isBoolList(std::string name, std::string value, void* arg);`This is a simplified version of the previous function
+                        that ensures that each element of the list
+                        `value`is a
+                        valid boolean.  The `arg`
+                        parameter points to a ListSizeConstraint
+                        which, as described in TYPES below, allows you to
+                        place constraints on the length of the list.
+
+` static bool isIntList(std::string name, std::string value, void* arg);`A specialized version of `isList`
+                        that checks that all elements of a list parameter
+                        are unbounded integers.  `arg`
+                        is actually a pointer to a ListSizeConstraint
+                        that allows you to place constraints of the size of the
+                        list.
+
+` static bool isStringList(std::string name, std::string value, void* arg);`Checks only that a parameter is a valid Tcl List
+                        constrained by the sizes specified by the
+                        ListSizeConstraint pointed to by
+                        `arg`
+
+<a name="AEN60530"></a>## TYPES
+
+This section describes the data types that are exported
+                 by the `CConfigurableObject`.
+                 To a large extent, these are parameters to
+                 constraint/type checkers described in the previous
+                 secition.
+
+
+
+typedef std::vector<std::pair<std::string, std::string> >
+                          ConfigurationArray;This type is returned from `getConfiguration`
+                          It consists of an std::vector.  Each element
+                          of the vector is a std::pair.   The
+                          first element of the pair is a configuration parameter
+                          name.  The second element of that pair is the
+                          parameter value.
+
+structlimitProvides a struct that describes a single optional
+                            limit. `s_checkMe` is a boolean
+                            which is true if the
+                            limit should be checked and
+                            `s_value` is the limit value.
+
+The Constructor `limit`
+                            comes in two flavors.  Without a parameter it
+                            initializes the struct so that `s_checkme`
+                            is false.  With an integer parameter it initializes
+                            `s_checkme` to true
+                            and sets the limit value to the parameter value.
+
+typedef std::pair<limit, limit>   LimitsDefines a set of integer limits.  The first item in
+                            the pair is the lower limit, the second item,
+                            the upper limit.
+
+typedef std::set<std::string> isEnumParameterA set of strings that constrain the legal values
+                            of an enumerated parameter.
+                            The `makeEnumSet` is a
+                            conveniencde method that builds one of these
+                            from a null terminated array of const char*
+
+struct ListSizeConstraintDefines a constraint on the size of a list
+                            parameter.  `s_atLeast`
+                            is the smallest length the list can have,
+                            `s_atMost` the longest length.
+                            These values are inclusive so if you specify
+                            `s_atLeast` = `s_atMost`,
+                            the list will have a fixed length.
+
+struct isListParameterDefines a fully constrained list.  The list size
+                            is constrained by the `s_allowedSize`
+                            field which is a ListSizeConstraint.
+                            The contents of the list are constrainded by the
+                            `s_checker` field which is
+                            a TypeCheckinfo data item.
+
+The `s_checker` is an
+                            std::pair whose first elemnent
+                            is a pointer to a typeChecker function and
+                            whose second element is the user parameter
+                            that is normally passed in to allow the type checker
+                            to further constrain values.
+
+Several constructors are supplied to help build
+                            this structure:
+
+<a name="AEN60588"></a>```
+  isListParameter(limit atLeast, limit atMost, TypeCheckInfo checker);
+```
+
+
+                            Allows you to specify the size limits and
+                            TypeCheckInfo pair used to
+                            initialize all of the fields.
+                        
+
+<a name="AEN60603"></a>```
+  isListParameter(ListSizeConstraint limits, TypeCheckInfo checker);
+```
+
+
+                            Provides a constructor you an use if  you already
+                            have built up a ListSizeConstraint
+                            that descsribes the constraints on the list size.
+                        A default constructor is also provided that doe
+                            *no* initialization of the
+                            struct.
+
+struct flimitThis is analagous to the
+                            limit described above, however
+                            the `s_value` field is
+                            a float rather than an
+                            int
+
+typedef ?std::pair<flimit, flimit> `FloatingLimits`;Defines a pair of floating point limits that constrain
+                            the value of a float parameter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CVMUSBRemote | Up | cvmusb |

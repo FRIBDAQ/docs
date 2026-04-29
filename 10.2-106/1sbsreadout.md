@@ -1,0 +1,18 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="AEN10940"></a># VI. 1sbsReadout
+
+**Table of Contents**[[r10942]] -- Start an event readout program.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ScalerDisplay | Up | Readout |

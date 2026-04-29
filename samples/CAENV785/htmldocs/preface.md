@@ -1,0 +1,45 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN21"></a>Preface
+
+This paper's purpose is to guide the reader in setting up and reading out
+data from a CAEN V785 peak sensing ADC. It covers the electronics
+that will be needed and how to set them up.
+It will show how to modify the production readout  (V8.1), and SpecTcl (V3.1) software
+skeletons to readout and histogram data from the adc.
+Testing for the code is also covered to
+a limited extent.
+
+This paper assumes that you are
+
+
+
+- Somewhat familiar with Linux.
+- Have a basic familiarity with the C++ programming language
+- Familiar with using an oscilloscope
+
+
+Final versions of the software are available for download at:
+[http://docs.nscl.msu.edu/daq/samples/CAENV785/CAENV785.zip](http://docs.nscl.msu.edu/daq/samples/CAENV785/CAENV785.zip)
+
+Every effort has been made to ensure the accuracy of this document.  As authors
+    we take very seriously reports of mistakes, omissions, and unclear documentation.
+    If you come across a part of the document you think is wrong, needs expansion, or
+    is not clearly worded, please report this to `<fox@nscl.msu.edu>`.
+    We will correct this problem as soon as possible and, if you like, credit you
+    publicly in the document for finding and helping us fix this issue.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |  | The electronics |

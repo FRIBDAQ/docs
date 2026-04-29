@@ -1,0 +1,64 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN998"></a>CMPITclPackagedCommandAll
+
+<a name="AEN1002"></a>## Name
+
+CMPITclPackagedCommandAll -- Wrap a packaged command that will execute in all processes
+
+<a name="AEN1005"></a>## Synopsis
+
+```
+#include <MPITclPackagedCommandAll.h>
+
+class CMPITclPackagedCommandAll : public CTCLPackagedObjectProcessor {
+
+public:
+    CMPITclPackagedCommandAll(
+        CTCLInterpreter& interp, const char* command, CTCLPackagedObjectProcessor* pActual
+    );
+    int operator()(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
+
+};
+                    
+```
+
+<a name="AEN1007"></a>## DESCRIPTION
+
+SpecTcl/TclPlus support grouping a set of commands into a package.
+                        A package of commands are a set of commands that shared some common
+                        services that are provided by a `CTCLCommandPackage`
+                        derived object.
+
+Since packaged commands live one layer further down the class hierarchy
+                        from `CTCLObjectProcessor` it is necessary
+                        to provide a separate wrapper for these commands.
+
+`CMPITclPackagtedCommandAll` executes the 
+                        wrapped packaged command in all ranks of the MPI SpecTcl.
+
+
+
+**METHODS**
+
+`  CMPITclPackagedCommandAll(CTCLInterpreter&  interp, const char*  command, CTCLPackagedObjectProcessor* pActual);`Constructs a packaged object procsssor that wraps `pActual`
+                                and registers it to run on the `interp` interpreter to execute 
+                                the `command` command.
+
+` int operator()(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);`Called by `interp` when the `command`
+                                used to construct this object is invoked in that interpreter.  Causes all
+                                processes to run the encapsulated command.  `objv` are the
+                                command words.  objv[0] is the command name.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CMPITclCommand | Up | CMPITclPackagedCommand |

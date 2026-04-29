@@ -1,0 +1,85 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.FrameSequencer"></a>FrameSequencer
+
+<a name="AEN109257"></a>## Name
+
+FrameSequencer -- Manages a sequence of widgets (like a wizard e.g.).
+
+<a name="AEN109260"></a>## Synopsis
+
+**FrameSequencer *path*
+**
+
+** *path* staticAdd *name fr parent ?onviewscript?*
+**
+
+** *path* dynamicAdd *name fr ?onviewscript?*
+**
+
+** *path* select *name*
+**
+
+** *path* getTree
+            **
+
+<a name="AEN109279"></a>## DESCRIPTION
+
+This megawidget builds on the `FrameManager`
+            megawidget to build a chain of widgets through which the user can
+            step either forwards or backwards.
+
+<a name="AEN109283"></a>## METHODS
+
+
+
+** *path* staticAdd *name fr parent ?onviewscript?*
+**
+
+Adds a new widget to the sequence after a named existing widget.
+                  `name` is the name of the new widget,
+                  `fr` is the widget to be added.
+
+`parent` is the name of the widget
+                  that will be prior to this new widget in the sequence.
+                  `onviewscript`, if provided is a script
+                  that is invoked when this new widget becomes visible.
+
+** *path* dynamicAdd *name fr ?onviewscript?*
+**
+
+Adds a new widget `fr` named
+                  `name`.  The widget is added after the
+                  currently displayed frame (hence dynamic).  When the frame is
+                  becoming visible, the `onviewscript`,
+                  if provided, is invoked.
+
+** *path* select *name*
+**
+
+Makes the widget associated with the `name`
+                  visible.
+
+** *path* getTree
+            **
+
+Returns the data structure that describes the widgets managed
+                  by this object.  The result is a dict.  Keys in the dict
+                  are the names of managed widgets.  Contents of each key are
+                  themselves dicts with the keys;
+                  back - containing the name of the prior
+                  widget and next containing the name of the
+                  next widget in the sequence.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| FrameManager | Up | RingStatus |

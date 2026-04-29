@@ -1,0 +1,60 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_config"></a>mg_config
+
+<a name="AEN16453"></a>## Name
+
+mg_config -- Launcher for all manager configuration editors.
+
+<a name="AEN16456"></a>## Synopsis
+
+**$DAQBIN/mg_config *configuration-file*
+**
+
+<a name="AEN16460"></a>## DESCRIPTION
+
+Launches program that can, in turn, launch the configuration
+            GUI tools for the NSCLDAQ manager subsystem.  The user interface
+            consists primarily of a listbox. Double clicking an entry in the
+            list launches the corresponding configuration utility:
+
+
+
+- Users and Roles  launches the
+                    configuration editor for the authorization subsystem.
+- Containers  launches the configuration
+                    editor for container definitions
+- Programs launches the program configuration
+                    editor.
+- Event logging  launches the event log editor.
+                    Event loggers are a special type of program given their
+                    need to be transient but potentially critical.
+- State Machine launches a state machine editor.
+                    In most applications you will not need this editor, as the
+                    database is pre-populated with the state machine appropriate
+                    for NSCLDAQ.
+- Sequence Definition  launches the sequence
+                    editor that provides the capability to create sequences
+                    that are triggered by state transitions and the steps performed
+                    by those sequences.
+- Key Value store  launches an editor that
+                    allows you to create and delete keys in the key value store
+                    as well as to modify the values of existing keys.  Be very
+                    careful when deleting keys as steps in sequences may depend
+                    on the values of some of those keys.  For example the
+                    run and title keys
+                    are typically used to set the run number and title for
+                    Readout programs that are NSCLDAQ compatible.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_mkconfig | Up | mg_cfgcontainers |

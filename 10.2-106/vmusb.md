@@ -1,0 +1,181 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3_vmusb"></a>vmusb
+
+<a name="AEN53235"></a>## Name
+
+vmusb -- Control VM-USB resources and read internal scalers
+
+<a name="AEN53238"></a>## Synopsis
+
+**vmusb create name ?options?
+                **
+
+**vmusb config name ?options?
+                **
+
+**vmusb cget name
+                **
+
+<a name="AEN53245"></a>## DESCRIPTION
+
+The **vmusb** command can be used in the
+                daqconfig configuration file to control
+                the internal reasources of the VM-USB as well as to enable
+                the readout of its pair of scalers.  The VM-USB provides two outputs
+                named O1 and O2 as well as a pair of gate and delay generators
+                (DGGA and DGGB), and scalers A and B. Four LEDs round out the
+                resources controlled by this command.
+
+In order to use a vmusb module to configure the controller, you
+                must include it in a stack, even if you are not using reading the
+                scalers in the VM-USB.  This is because it is the inclusion of
+                a module in a stack that causes its initialization methods to
+                be invoked, and it is there that teh vmusb module configures
+                its resources.
+
+More information about the VM-USB and its resources can be found
+                in sections 3.4.4 through 3.4.8 and section 1 of the VM-USB manual.
+
+The configuration options are described in the OPTIONS section
+                below.
+
+<a name="AEN53253"></a>## OPTIONS
+
+
+
+`-nimo1`Determines, along with the options
+                            `-inverto1` and
+                            `-latcho1` the behavior of NIM
+                            output O1.  This can be any of the following values:
+                            busy, trigger, busrequest, eventdatatobuvffer,
+                            dgga, endevent or usbtrigger.
+
+`-inverto1`Inverts the sense of the O1 nim output.
+
+`-latcho1`Latches the O1 asserted when the condition that asserts
+                            it is met.
+
+`-nimo2`Along with the options
+                            `-inverto2` and
+                            `-latcho2`, controls when the NIM
+                            O2 output is asserted.  This can be any of:
+                            usbtrigger, vmecommand, vmeas,
+                            eventdataobuffer, dgga, dggb, or
+                            endevent.
+
+`-inverto2`Inverts the sense of the NIM O2 output.
+
+`-latcho2`Latches the state of the O2 NIM output when the
+                            condition that would assert it is met.
+
+`-topyellow`Together with `-inverttopyellow`
+                            and `-latchtopyellow` determines
+                            when the top Yellow LED of the VM-USB is lit.
+                            This can be any of the following values:
+                            ofifonotempty, infifonotempy, scaler
+                            infifofull, berr, vmebr, or
+                            vmebg.
+
+`-inverttopyellow`Inverts the sense of the top yellow LED.
+
+`-latchtopyellow`Latches the top yellow LED in the on state when the
+                            condition is met that would light it.
+
+`-red`Together with the `-invertred` and
+                            `-latchred` options controls the
+                            when the red LED on the VM-USB front panel is lit.
+                            This can be one of the following value:
+                            trigger, nimi1, nimi2, busy, dtack, berr, vmebr
+                            or vmebg.
+
+`-invertred`Inverts the state of the red LED.
+
+`-latchred`Latches the red led on when the condition to light
+                            it has been met.
+
+`-green`Together with the `-invertgreen`
+                            and `-latchgreen`, determines when
+                            the green LED is lit.  This can be one of the following
+                            values:
+                            acquire, stacknotempty, eventready,
+                            trigger, dtack, berr, vmebr or
+                            vmebg.
+
+`-invertgreen`Inverts the condition that lights the green LED.
+
+`-latchgreen`If true, the green LED is latched in the on state
+                            once the condition that would light it is met.
+
+`-bottomyellow`Together with `-invertbottomyellow`
+                            and `-latchbottomyellow` determines
+                            when the bottom yellow LED is lit.  The value of this
+                            option can be any of the following values:
+                            notslot1, usbtrigger, usbreset, berr, dtack, vmebr
+                            or vmebg.
+
+`-invertbottomyellow`Inverts the condition that lights the bottom yellow
+                            LED.
+
+`-latchbottomyellow`Latches the bottom yellow LED in the lit state
+                            once the condition is met to light it.
+
+`-redscalers`If this is true the two scalers A and B will
+                            be read by the stack in which the vmusb is
+                            module is put.  The A scaler is read first followed
+                            by the B scaler.  See `-scalera`
+                            and `-scalerb` below which define
+                            when each scaler increments.
+
+`-incremental`This option is ignored unless `-readscalers`
+                            is true.  If `-incremental` is true,
+                            scalers are cleared after they are read.
+                            Note that since the VM-USB has no mechanism to
+                            atomically read and clear scalers, counts can be lost
+                            between the read and clear.
+
+`-scalera`Determines the condition that increments scaler A.
+                            This can be one of the following values:
+                            dgga, nimi1, nimi2 or event.
+
+`-scalerb`Determines the condition that increments scaler B.
+                            This can be one of the following values:
+                            carry,, nimi1, nimi2 or
+                            event.
+                            The carry value means that
+                            scaler B is incremented when scaler A overflows.
+                            This allows both scalers to be combined into a single
+                            64 bit scaler that is incremented by the condition
+                            defined in the `-scalera` option.
+
+`-dgga`Sets the source if the start for DGGA this can be one of:
+		      off, nimi1, nimi2 ,trigger, endofevent, usbtrigger,
+		      or pulser
+		      and default to pulser
+
+`-dggb`Sets the source if the start for DGGB this can be one of:
+		      off, nimi1, nimi2, trigger, endofevent, usbtrigger,
+		      or pulser
+		      and default to pulser
+
+`-widtha`, `-widthb`Sets the width of the the A/B dgg output.  This defaults to 
+		  1 which is the minimum width (see the VMUSB manual for the units
+		  of this value.
+
+`-delaya`, `-delayb`Sets the delay of the A/B dgg output.  This defaults to 0.
+		  The delay value is a 32 bit integer that is spread out across the
+		  VM-USB delay and coarse delay registers. 
+		  See the VM-USB manual for more information.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| caenchain | Up | sis330x |

@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2688"></a>CUnknownFragment (abstract)
+
+<a name="AEN2692"></a>## Name
+
+CUnknownFragment (abstract) --
+
+<a name="AEN2695"></a>## Synopsis
+
+```
+#include <CUnknownFragment.h>
+
+class CUnknownFragment : public CRingFragmentItem
+{
+    
+public:
+    CUnknownFragment(uint64_t timestamp, uint32_t sourceid, uint32_t barrier,
+                     uint32_t size, void* pPayload);
+
+    std::string typeName() const;
+    
+};
+                
+```
+
+<a name="AEN2697"></a>## DESCRIPTION
+
+This is identical to `CRingFragmentItem`
+                       however the payload is known not to be a ring item.
+                       The type is EVB_UNKNOWN_PAYLOAD
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingTextItem (abstract) | Up | NSCLDAQ version 10 format |

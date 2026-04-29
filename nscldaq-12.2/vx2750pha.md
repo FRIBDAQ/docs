@@ -1,0 +1,2222 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN64270"></a>VX2750Pha
+
+<a name="AEN64274"></a>## Name
+
+VX2750Pha -- Provide compile time checked API to CAEN Nextgen digitizers DPP-PHA
+
+<a name="AEN64277"></a>## Synopsis
+
+```
+#include <VX2750Pha.h>
+
+namespace caen_nscldaq {
+
+class VX2750Pha : public Dig2Device
+{
+public:
+    VX2750Pha(const char* hostOrPid, bool isUsb = false);
+    
+    
+    std::string  getCupVersion() const;     // Get the CUP version
+    std::string  getFpgaFWVersion() const;  // Get the firmware Version
+    FwType       getFirmwareType() const;   // Get the type of the firmware.
+    std::string  getModelCode() const;
+    std::string  getPiggyBackCode() const;
+    std::string  getModelName() const;
+    FormFactor   getFormFactor() const;
+    int          getFamilyCode() const;
+    std::string  getSerialNumber() const;
+    int          getMotherboardRev() const;
+    int          getPiggybackRev() const;
+    std::string  getLicense() const;
+    bool         isLicensed() const;
+    int          remainingUnlicensedTime() const;
+    int          channelCount() const;
+    int          bitsOfResolution() const;
+    int          sampleRate() const;
+    int          inputRange() const;
+    bool         isDifferentialInput() const;
+    int          inputImpedance() const;
+    int          ipAddress() const;
+    int          netMask() const;
+    int          gateway() const;
+    ClockSource  getClockSource() const;
+    void         setClockSource(ClockSource) const;
+    bool         isClockOutOnP0() const;
+    void         setClockOutOnP0(bool state) const;
+    bool         isClockOutOnFP() const;
+    void         setClockOutOnFP(bool state) const;
+    std::vector<StartSource>  getStartSource() const;
+    void         setStartSource(const std::vector<StartSource>& src) const;
+    std::vector<GlobalTriggerSource> getGlobalTriggerSource() const;
+    void         setGlobalTriggerSource(const std::vector<GlobalTriggerSource>& sources) const;
+    std::vector<WaveTriggerSource> getWaveTriggerSource(unsigned ch) const;
+    void         setWaveTriggerSource(unsigned ch, const std::vector<WaveTriggerSource>& src) const;
+    std::vector<EventTriggerSource> getEventTriggerSource(unsigned ch) const;
+    void         setEventTriggerSource(unsigned ch, const std::vector<EventTriggerSource>& src) const;
+    
+    std::uint64_t getChannelTriggerMask(unsigned ch) const;
+    void          setChannelTriggerMask(unsigned ch, std::uint64_t mask) const;
+    TraceRecordMode getTraceRecordMode(unsigned ch) const;
+    void           setTraceRecordMode(unsigned ch, TraceRecordMode mode) const;
+    TRGOUTMode    getTRGOUTMode() const;
+    void          setTRGOUTMode(TRGOUTMode mode) const;
+    GPIOMode      getGPIOMode() const;
+    void          setGPIOMode(GPIOMode mode) const;
+    BusyInSource   getBusyInputSource() const;
+    void          setBusyInputSource(BusyInSource src) const;
+    SyncOutMode   getSyncOutMode() const;
+    void          setSyncOutMode(SyncOutMode mode) const;
+    VetoSource    getBoardVetoSource() const;
+    void          setBoardVetoSource(VetoSource src) const;
+    std::uint64_t   getBoardVetoWidth() const;
+    void          setBoardVetoWidth(std::uint64_t ns) const;
+    VetoPolarity  getBoardVetoPolarity() const;
+    void          setBoardVetoPolarity(VetoPolarity pol) const;
+    ChannelVetoSource getChannelVetoSource(unsigned chan) const;
+    void          setChannelVetoSource(unsigned chan, ChannelVetoSource src) const;
+    std::uint32_t getChannelVetoWidth(unsigned chan) const;
+    void          setChannelVetoWidth(unsigned chan, std::uint32_t ns) const;
+    std::uint32_t getRunDelay() const;
+    void          setRunDelay(std::uint32_t ns) const;
+    bool          isAutoDisarmEnabled() const;
+    void          setAutoDisarmEnabled(bool state) const;
+    std::uint32_t      getLEDStatus() const;
+    std::uint32_t      getAcquisitionStatus() const;
+    std::uint32_t      getMaxRawDataSize() const;
+    double        getVolatileClockDelay() const;
+    void          setVolatileClockDelay(double value) const;
+    double        getPermanentClockDelay() const;
+    void          setPermanentClockDelay(double value) const;
+    WaveDataSource getWaveDataSource(unsigned chan) const;
+    void          setWaveDataSource(unsigned chan, WaveDataSource source) const;
+    std::uint32_t getRecordSamples(unsigned chan) const;
+    void          setRecordSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t getRecordNs(unsigned chan) const;
+    void          setRecordNs(unsigned chan, std::uint32_t ns) const;
+    WaveResolution getWaveResolution(unsigned chan) const;
+    void          setWaveResolution(unsigned chan, WaveResolution resolution) const;
+    AnalogProbe   getAnalogProbe(unsigned chan, unsigned probeNum) const;
+    void          setAnalogProbe(unsigned chan, unsigned probeNum, AnalogProbe probe) const;
+    DigitalProbe  getDigitalProbe(unsigned chan, unsigned probeNum) const;
+    void          setDigitalProbe(
+        unsigned chan, unsigned probeNum, DigitalProbe probe
+    ) const;
+    std::uint32_t getPreTriggerSamples(unsigned chan) const;
+    void          setPreTriggerSamples(unsigned chan, std::uint32_t nsamples) const;
+    std::uint32_t getPreTriggerNs(unsigned chan) const;
+    void          setPreTriggerNs(unsigned chan, std::uint32_t ns) const;
+    std::uint64_t getTestPulsePeriod() const;
+    void          setTestPulsePeriod(std::uint64_t ns) const;
+    std::uint64_t getTestPulseWidth() const;
+    void          setTestPulseWidth(std::uint64_t ns) const;
+    std::uint32_t getTestPulseLowLevel() const;
+    void          setTestPulseLowLevel(std::uint32_t counts) const;
+    std::uint32_t getTestPulseHighLevel() const;
+    void          setTestPulseHighLevel(std::uint32_t counts) const;
+    IOLevel       getIOLevel() const;
+    void          setIOLevel(IOLevel level) const;
+    double        getAirInTemp() const;
+    double        getAirOutTemp() const;
+    double        getCoreTemp() const;
+    double        getFirstADCTemp() const;         
+    double        getLastADCTemp() const;
+    double        getHottestADCTemp() const;
+    double        getADCTemp(unsigned chip) const;
+    double        getDCDCConverterTemp() const;
+    double        getDCDCConverterInputVoltage() const;
+    double        getDCDCConverterOutputVoltage() const;
+    double        getDCDCConverterAmps() const;
+    double        getDCDCConverterHz() const;
+    double        getDCDCConverterDutyCycle() const;
+    std::uint32_t getFanSpeed(unsigned fan) const;
+    std::uint32_t getErrorFlagMask() const;
+    void          setErrorFlagMask(std::uint32_t mask) const;
+    std::uint32_t getErrorFlagDataMask() const;
+    void          setErrorFlagDataMask(std::uint32_t mask) const;
+    std::uint32_t getErrorFlags() const;
+    bool          isBoardReady() const;
+    IndividualTriggerLogic getITLAMainLogic() const;
+    IndividualTriggerLogic getITLBMainLogic() const;
+    void          setITLAMainLogic(IndividualTriggerLogic sel) const;
+    void          setITLBMainLogic(IndividualTriggerLogic sel) const;
+    unsigned      getITLAMajorityLevel() const;
+    unsigned      getITLBMajorityLevel() const;
+    void          setITLAMajorityLevel(unsigned level) const;
+    void          setITLBMajorityLevel(unsigned level) const;
+    PairTriggerLogic getITLAPairLogic() const;
+    PairTriggerLogic getITLBPairLogic() const;
+    void         setITLAPairLogic(PairTriggerLogic sel) const;
+    void         setITLBPairLogic(PairTriggerLogic sel) const;
+    bool          isITLAInverted() const;
+    bool          isITLBInverted() const;
+    void          setITLAInverted(bool invert) const;
+    void          setITLBInverted(bool invert) const;
+    ITLConnect    getITLConnect(unsigned ch) const;
+    void          setITLConnect(unsigned ch, ITLConnect selection) const;
+    
+    std::uint64_t getITLAMask() const;
+    std::uint64_t getITLBMask() const;
+    void          setITLAMask(std::uint64_t mask) const;
+    void          setITLBMask(std::uint64_t mask) const;
+    
+    std::uint32_t getITLAGateWidth() const;
+    std::uint32_t getITLBGateWidth() const;
+    void          setITLAGateWidth(std::uint32_t ns) const;
+    void          setITLBGateWidth(std::uint32_t ns) const;
+    
+    LVDSMode      getLVDSMode(unsigned quartet) const;
+    void          setLVDSMode(unsigned quartet, LVDSMode mode) const;
+    LVDSDirection getLVDSDirection(unsigned quartet) const;
+    void          setLVDSDirection(unsigned quartet, LVDSDirection direction) const;
+    std::uint16_t getLVDSIOReg() const;
+    void          setLVDSIOReg(std::uint16_t mask) const;
+    std::uint64_t getLVDSTriggerMask(unsigned inputNum) const;
+    void          setLVDSTriggerMask(unsigned inputNum, std::uint64_t mask) const;  
+    void setDACOutMode(DACOutputMode mode) const;
+    DACOutputMode getDACOutMode() const;
+    std::uint16_t getDACOutValue() const;
+    void          setDACOutValue(std::uint16_t value) const;
+    unsigned      getDACChannel() const;
+    void          setDACChannel(unsigned chan) const;
+    double        getVGAGain(unsigned group) const;
+    void          setVGAGain(unsigned group, double value) const;
+    bool          isOffsetCalibrationEnabled() const;
+    void          enableOffsetCalibration(bool enable) const;
+    bool          isChannelEnabled(unsigned chan) const;
+    void          enableChannel(unsigned chan, bool enable) const;
+    int           getSelfTriggerRate(unsigned chan) const;
+    std::uint32_t getChannelStatus(unsigned chan) const;
+    double        getDCOffset(unsigned chan) const;
+    void          setDCOffset(unsigned chan, double pct) const;
+    double        getGainFactor(unsigned chan) const;
+    std::uint32_t getTriggerThreshold(unsigned chan) const;
+    void          setTriggerThreshold(unsigned chan, std::uint32_t threshold) const;
+    Polarity      getPulsePolarity(unsigned chan) const;
+    void          setPulsePolarity(unsigned chan, Polarity pol) const;
+    std::uint16_t getEnergySkimLowDiscriminator(unsigned chan) const;
+    void          setEnergySkimLowDiscriminator(unsigned chan, std::uint16_t value) const;
+    std::uint16_t getEnergySkimHighDiscriminator(unsigned chan) const;
+    void          setEnergySkimHighDiscriminator(unsigned chan, std::uint16_t value) const;
+    EventSelection getEventSelector(unsigned chan) const;
+    void           setEventSelector(unsigned chan, EventSelection sel) const;
+    EventSelection getWaveformSelector(unsigned chan) const;
+    void           setWaveformSelector(unsigned chan, EventSelection sel) const;
+    CoincidenceMask getCoincidenceMask(unsigned chan) const;
+    void           setCoincidenceMask(unsigned chan, CoincidenceMask sel) const;
+    CoincidenceMask getAntiCoincidenceMask(unsigned chan) const;
+    void           setAntiCoincidenceMask(unsigned chan, CoincidenceMask sel) const;
+    std::uint32_t  getCoincidenceSamples(unsigned chan) const;
+    void           setCoincidenceSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t  getCoincidenceNs(unsigned chan) const;
+    void           setCoincidenceNs(unsigned chan, std::uint32_t ns) const;
+    std::uint32_t  getTimeFilterRiseTime(unsigned chan) const;
+    std::uint32_t  getTimeFilterRiseSamples(unsigned chan) const;
+    void           setTimeFilterRiseTime(unsigned chan, std::uint32_t ns) const;
+    void           setTimeFilterRiseSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t  getTimeFilterRetriggerGuardTime(unsigned chan) const;
+    std::uint32_t  getTimeFilterRetriggerGuardSamples(unsigned chan) const;
+    void           setTimeFilterRetriggerGuardTime(unsigned chan, std::uint32_t ns) const;
+    void           setTimeFilterRetriggerGuardSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t  getEnergyFilterRiseTime(unsigned chan) const;
+    std::uint32_t  getEnergyFilterRiseSamples(unsigned chan) const;
+    void           setEnergyFilterRiseTime(unsigned chan, std::uint32_t ns) const;
+    void           setEnergyFilterRiseSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t  getEnergyFilterFlatTopTime(unsigned chan) const;
+    std::uint32_t  getEnergyFilterFlatTopSamples(unsigned chan) const;
+    void           setEnergyFilterFlatTopTime(unsigned chan, std::uint32_t ns) const;
+    void           setEnergyFilterFlatTopSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t  getEnergyFilterPeakingPosition(unsigned chan) const;
+    void           setEnergyFilterPeakingPosition(unsigned chan, std::uint32_t pct) const;
+    EnergyPeakingAverage getEnergyFilterPeakingAverage(unsigned chan) const;
+    void          setEnergyFilterPeakingAverage(unsigned chan, EnergyPeakingAverage sel) const;
+    std::uint32_t getEnergyFilterPoleZeroTime(unsigned chan) const;
+    std::uint32_t getEnergyFilterPoleZeroSamples(unsigned chan) const;
+    void          setEnergyFilterPoleZeroTime(unsigned chan, std::uint32_t ns) const;
+    void          setEnergyFilterPoleZeroSamples(unsigned chan, std::uint32_t samples) const;
+    double        getEnergyFilterFineGain(unsigned chan) const;
+    void          setEnergyFilterFineGain(unsigned chan, double gain) const;
+    bool          isEnergyFilterFLimitationEnabled(unsigned chan) const;
+    void          enableEnergyFilterFLimitation(unsigned chan, bool enable) const;
+    EnergyFilterBaselineAverage getEnergyFilterBaselineAverage(unsigned chan) const;
+    void          setEnergyFilterBaselineAverage(unsigned chan, EnergyFilterBaselineAverage sel) const;
+    std::uint32_t getEnergyFilterBaselineGuardTime(unsigned chan) const;
+    std::uint32_t getEnergyFilterBaselineGuardSamples(unsigned chan) const;
+    void          setEnergyFilterBaselineGuardTime(unsigned chan, std::uint32_t ns) const;
+    void          setEnergyFilterBaselineGuardSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint32_t getEnergyFilterPileupGuardTime(unsigned chan) const;
+    std::uint32_t getEnergyFilterPileupGuardSamples(unsigned chan) const;
+    void          setEnergyFilterPileupGuardTime(unsigned chan, std::uint32_t ns) const;
+    void          setEnergyFilterPileupGuardSamples(unsigned chan, std::uint32_t samples) const;
+    std::uint8_t  getEnergyBits(unsigned chan) const;
+    std::uint64_t getRealtime(unsigned chan) const;
+    std::uint64_t getDeadtime(unsigned chan) const;
+    void          Reset();
+    void          Clear();
+    void          Arm();
+    void          Disarm();
+    void          Start();
+    void          Stop();
+    void          Trigger();
+    void          ReloadCalibration();
+    Endpoint      getEndpoint();
+    void          selectEndpoint(Endpoint selection);
+    
+    void   initializeRawEndpoint();         
+    size_t readRawEndpoint(void* pBuffer);
+    void setDefaultFormat();
+    void enableRawTimestamp(bool enable);
+    void enableFineTimestamp(bool enable);
+    void enableFlags(bool enable);
+    void enableDownsampling(bool enable);
+    void enableAnalogProbes(bool probe1, bool probe2);
+    void enableDigitalProbes(bool probe1, bool probe2, bool probe3, bool probe4);
+    void enableSampleSize(bool enable);
+    void enableRawEventSize(bool enable);
+    
+    void initializeDPPPHAReadout();
+    void readDPPPHAEndpoint(DecodedEvent& event);
+    
+    void initDecodedBuffer(DecodedEvent& event);
+    void setupDecodedBuffer(DecodedEvent& event);
+    void freeDecodedBuffer(DecodedEvent& event);
+    
+    
+   };
+}
+                    
+```
+
+<a name="AEN64279"></a>## DESCRIPTION
+
+This class provides a generic API, with parameter values
+                        validated at compile time, to CAEN nextgen digitizers
+                        running DPP-PHA mode.  Caller error risk is mitigated
+                        several ways:
+
+
+
+- Enums and symbolic constants are used to avoid
+                                sending bad textual parameters to the digitizer.
+                                Maps are used to translate betweenthe parameter
+                                and the strings and back.  Extensive unit tests
+                                have validated these maps with the digitizer
+                                hardware itself.
+- The generation of JSON to specify the data format
+                                request has been hidden behind a struct that
+                                describes the desired items.
+- The set of pointers and what they point to have
+                                been abstracted from the read data method in order
+                                providing a read into a data structure that has a
+                                fixed layout but might be missing some items
+                                depending on the requests.
+- Command strings are hidden behind individual
+                                 methods for each command understood by the
+                                 digitizer.
+
+Note that this class is derived from
+                        `caen_nscldaq::Dig2Device`
+                        which means that any of the methods of that
+                        class can be called directly if the services of this
+                        class fall short of the application needs.
+
+<a name="AEN64293"></a>## METHODS CONSTRUCTORS AND DATA TYPES
+
+The data structures exported by this class are described
+                        by the first method that uses them rather than
+                        providing a separate data structures section to this
+                        manpage.
+
+
+
+`  VX2750Pha(const char*  hostOrPid, bool  isUsb  = false);`See the constructor of
+                                `caen_nscldaq::Dig2Device`
+                                for the meaning of theses parameters, which
+                                describe how to form a connection with the
+                                digitizer.
+
+` const std::string   getCupVersion();`Return the version string of the CUP firmware
+                                file running in the digitizer.  This is of
+                                the form yyyymmddnn where nn
+                                is a sequence number starting from 00 in case
+                                more than one firmware file was
+                                rolled in that day.
+
+` const std::string   getFpgaFWVersion();`Returns a string that identifies the firmware
+                                loaded in the FPGA of the digitizer.  The
+                                format of this string is not documented.
+
+` const FwType        getFirmwareType();`Returns the type of firmware currently running
+                                in the digitizer.   The firmware type is returned
+                                as an enumerated type
+                                caen_nscldaq::VX2750Pha::FWType which
+                                can have the values:
+
+
+
+- caen_nscldaq::VX2750Pha::DPP_PHA  - pulse height
+                                        anaysis firmware.
+- caen_nscldaq::VX2750Pha::DPP_ZLE  - wave forms in
+                                        run length encoding compression format.
+- caen_nscldaq::VX2750Pha::DPP_PSD - Pulse shape discrimination
+                                        firmware.
+- caen_nscldaq::VX2750Pha::DPP_DAW  - Dynamic acquisition
+                                        window wave form capture firmware.
+- caen_nscldaq::VX2750Pha::DPP_OPEN  - User written
+                                        firmware (Open FPGA).
+- caen_nscldaq::VX2750Pha::Scope  - Raw waveform
+                                        capture (Oscilloscope mode).
+
+` std::string   getModelCode();`Returns the model code string e.g.
+                                WV2740XAAAAA.
+
+` const std::string   getPiggyBackCode();`Returns the CAEN daugherboard type string e.g.
+                                WA40BXAAAAAA
+
+` const std::string   getModelName();`Return the digitizer model string e.g.
+                                V2740
+
+` const FormFactor    getFormFactor();`Returns a
+                                caen_nscldaq::VX2750Pha::FormFactor
+                                enumerated value that represents the device
+                                formfactor.  This can have values
+
+
+
+- caen_nscldaq::VX2750Pha::VME
+                                        VME module
+- caen_nscldaq::VX2750Pha::VME64X
+                                        VME module compatible with the VME64X standard.
+- caen_nscldaq::VX2750Pha::DT
+                                        Desktop format.
+
+` const int   getFamilyCode();`Returns the digitizer family code.  This is an
+                                interger that is the family order number
+                                 e.g. a vx2740 will return
+                                 2740 for this function.
+
+` const std::string   getSerialNumber()();`Return the digitizer's serial number string.
+                                Note that at present, serial numbers are
+                                integers, but the API documents this as returning
+                                a string so a string is what we return.
+
+` const int    getMotherboardRev();`Return the motherboard revision level.  This is
+                                the revision level of the circuit board.
+
+` const int    getPiggybackRev();`Return the revision of the daughter board's
+                                printed circuit board.
+
+` const std::string   getLicense();`Return the product unlock code for the firmware
+                                being run.   This is instance specific.
+
+` const bool          isLicensed();`Returns true if the firmware
+                                product is unlocked.   false
+                                if the product firmware is running in trial (time-bomb)
+                                mode.
+
+` const int    remainingUnlicensedTime();`If `isLicensed`
+                                returned false, this is the
+                                number of seconds remaining before the digitizer
+                                goes catatonic (trial mode expiry).  Once that
+                                happens, the digitizer must be rebooted (e.g.
+                                power cycled).
+
+` const int    channelCount();`Returns the number of channels the digitizer has.
+
+` const int    bitsOfResolution();`Returns the number of bits of ADC resolution.
+                                This  is the number of bits in the FADC not
+                                the resolution of e.g. the extracted pulse height.
+
+` const int    sampleRate();`Returns the FADC sampling rate in MHz.
+
+` const int    inputRange();`Returns the input range in VPP.
+
+` const bool   isDifferentialInput();`Returns true if the input
+                                is differential and false
+                                if single ended.
+
+` const int    inputImpedance();`Returns the module input impedance in Ohms.
+
+` const int    ipAddress();`Return the IP address of the module in
+                              host byte order.
+
+` const int    netMask();`Return the netmask for the module's NIC in
+                                host byte order.
+
+` const int    gateway();`Return the gateway address for the module in
+                                host byte order.
+
+` const ClockSource   getClockSource();`Return the clock source selected.  This is an
+                                enumerated type:
+                                caen_nscldaq::VX2750Pha::ClockSource
+                                which can have the values:
+
+
+
+- caen_nscldaq::VX2750Pha::Internal
+                                            Internal 62.5MHz oscillator.
+- caen_nscldaq::VX2750Pha::FrontPanel
+                                            Front panel CLK IN.
+- caen_nscldaq::VX2750Pha::Clock_P0
+                                            P0 VME backplane connnector (not implemented)
+- caen_nscldaq::VX2750Pha::Link Regenerated from
+                                            the Ethernet (not implemented) (WR?).
+- caen_nscldaq::VX2750Pha::DIPSelected
+                                            Clock source selected by DIP switches
+                                            on the circuit board (not implemented).
+
+
+` void    setClockSource(ClockSource  src);`Selects the clock source.  Values are described in
+                                `getClockSource`.
+                                Note that using an unimplemented value will
+                                result in an error (exception) being thrown.
+
+` const bool   isClockOutOnP0();`Return true
+                                if the clock has been enabled to
+                                be output on the P0 VME connector.
+                                false if not.
+
+` void   setClockOutOnP0(bool  state);`If `state` is
+                                true the clock will be
+                                enabled to be output on the P0 connector.
+                                Otherwise, not.
+
+` const bool   isClockOutOnFP();`Returne true if the
+                                clock is enabled to be output on the CLK OUT
+                                front panel connector (for the clock
+                                daisy chain).
+
+` void   setClockOutOnFP(bool  state);`If `state` is
+                                true, the module clock source
+                                will be echoed to the CLK OUT front panel
+                                connector.  This is the most common way to
+                                run the modules synchronized with a common
+                                clock/timestamp.
+
+` const std::vector<StartSource>  getStartSource();`The module may have several start sources enabled.
+                                The start source is what actually determines
+                                both, when the module starts taking data, and the
+                                timestamp zero of the clock.  Getting the
+                                start source right is an essential part of running
+                                serveral modules with a synchronized time stamp.
+
+Several start sources may be selected
+                                (see `setStartSource` below).
+                                The return value is a vector whose members
+                                include all selected start sources.
+                                The members of the vector are of enumerated type:
+                                caen_nscldaq::VX2750Pha::StartSource
+                                Which can have any of the values:
+                                caen_nscldaq::VX2750Pha::Start_EncodedClockIn,
+                                caen_nscldaq::VX2750Pha::SIN_Level,
+                                caen_nscldaq::VX2750Pha::SIN_Edge,
+                                caen_nscldaq::VX2750Pha::SWCommand,
+                                caen_nscldaq::VX2750Pha::Start_LVDS,
+                                or caen_nscldaq::VX2750Pha::Start_P0.
+
+One way to get synchronized operation is to
+                                    program all but the master module to start
+                                    on SIN_Edget, program
+                                    the master module to start on SWCommand,
+                                    program the GPIO to be GPIO_Run
+                                    for all modules and make a daisy chain of GPIO -> SIN
+                                    from the master down the chain of modules.
+                                    In this way, whent he master is given the software
+                                    start, it's run will propagate as the SIN to all
+                                    modules in the chain.
+
+` const void   setStartSource(const std::vector<StartSource>&  src);`Progams the module's start sources.  See
+                                `getStartSource`.
+                                `src` references a vector
+                                that contains all of the desired start sources
+                                for the module.
+
+` const std::vector<GlobalTriggerSource> getGlobalTriggerSource();`The module can have several global trigger sources.
+                                This method returns a vector whose members
+                                are the selected global trigger sources.
+                                See `setGlobalTriggerSource`.
+
+Each element of the returned vector is of type
+                                caen_nscldaq::VX2750Pha::GlobalTriggerSource.
+                                This is an enumerated type that can be one of:
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_TriggerIn,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_P0,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_Software,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_LVDS,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_InternalA,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_InternalB
+caen_nscldaq::VX2750Pha::GlobalTrigger_InternalAandB,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_InternalAorB,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_EncodedClkIn,
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_GPIO,
+                                or
+                                caen_nscldaq::VX2750Pha::GlobalTrigger_TestPulse.
+
+` const void   setGlobalTriggerSource(const std::vector<GlobalTriggerSource>&  sources);`The board can accept several global trigger sources,
+                                see `getGlobalGriggerSource`.
+                                This method selects the global trigger sources
+                                the board recognizes.  The `sources`
+                                parameter references a vector whose elements are the
+                                set of desired global trigger sources.
+
+` std::vector<WaveTriggerSource> getWaveTriggerSource(unsigned  ch);`The wave trigger source for a channel determines
+                                when a channel will produce not only timestamp
+                                and energy information but make availalbe (should
+                                the readout select it), the waveform.  As with
+                                the global trigger, several wave trigger sources
+                                can be selected.  The return value is a vector
+                                that contains all of the wave trigger sources
+                                selected for channel `ch.`
+
+Elements of the vector are of the enumerated
+                                type:
+                                caen_nscldaq::VX2750Pha::WaveTriggerSource
+                                which can have any of the following values:
+                                caen_nscldaq::VX2750Pha::WaveTrigger_InternalA,
+                                caen_nscldaq::VX2750Pha::WaveTrigger_InternalB,
+                                caen_nscldaq::VX2750Pha::WaveTrigger_GlobalTriggerSource,
+                                caen_nscldaq::VX2750Pha::WaveTrigger_TRGIN,
+                                caen_nscldaq::VX2750Pha::ExternalInhibit,
+                                caen_nscldaq::VX2750Pha::ADCUnderSaturation,
+                                caen_nscldaq::VX2750Pha::ADCOverSaturation,
+                                caen_nscldaq::VX2750Pha::WaveTrigger_Software,
+                                caen_nscldaq::VX2750Pha::WaveTrigger_ChannelSelfTrigger,
+                                caen_nscldaq::VX2750Pha::WaveTrigger_AnyChannelSelfTrigger,
+                                or
+                                caen_nscldaq::VX2750Pha::WaveTrigger_Disabled.
+
+` const void   setWaveTriggerSource(unsigned  ch, const std::vector<WaveTriggerSource>&  src);`Sets the desired wave trigger sources for
+                                channel `ch` to the
+                                sources in the vector
+                                `src`.  See
+                                `getWaveTriggerSource`
+                                for a description of the
+                                caen_nscldaq:VX2750Pha::WaveTriggerSource
+                                data type.
+
+` const std::vector<EventTriggerSource>  getEventTriggerSource(unsigned  ch);`The event trigger source for a channel determines when
+                                the digitizer sends only the energy and timing
+                                information for an event.  Several  event
+                                trigger sources can be specified.
+                                The elements of the returned value are the
+                                selected event trigger sources.
+
+The elements of the returned value are of the
+                                enumerated type:
+                                caen_nscldaq::VX2750Pha::EventTriggerSource
+                                and can have the following values:
+                                caen_nscldaq::VX2750Pha::EventTrigger_InternalA,
+                                caen_nscldaq::VX2750Pha::EventTrigger_InternalB,
+                                caen_nscldaq::VX2750Pha::EventTrigger_GlobalTriggerSource,
+                                caen_nscldaq::VX2750Pha::EventTrigger_TRGIN,
+                                caen_nscldaq::VX2750Pha::EventTrigger_Software,
+                                caen_nscldaq::VX2750Pha::EventTrigger_ChannelSelfTrigger,
+                                caen_nscldaq::VX2750Pha::EventTrigger_AnyChannelSelfTrigger,
+                                or
+                                caen_nscldaq::VX2750Pha::EventTrigger_Disabled.
+
+` const void   setEventTriggerSource(unsigned  ch, const std::vector<EventTriggerSource>&  src);`Sets the event trigger sources for channel
+                                `ch` to be the sources that
+                                are elements of `src`.
+                                See `getEventTriggerSource`
+                                for information about the
+                                caen_nscldaq::VX2750Pha::EventTriggerSource
+                                data type and the values it can have.
+
+` const std::uint64_t  getChannelTriggerMask(unsigned  ch);`Returns the channel trigger mask for
+                                channel number `ch`.
+
+` const  void  setChannelTriggerMask(unsigned  ch, , std::uint64_t  mask);`Sets the channel trigger mask for
+                                channel `ch` to be
+                                `mask`
+
+` const TraceRecordMode  getTraceRecordMode(unsigned  ch);`Returns when a channel;
+                                `ch` will make traces available
+                                to the host (which must then request it in the
+                                event format). Values returned are
+                                caen_nscldaq::VX2750Pha::TraceRecordMode
+                                enumerated types which ave the possible values:
+                                caen_nscldaq::VX2750Pha::Always
+                                and caen_nscldaq::VX2750Pha::OnRequest.
+
+` const void   setTraceRecordMode(unsigned  ch, TraceRecordMode  mode);`Sets the trace recording mode for channel
+                                `ch` to
+                                `mode`.
+                                See `getTraceRecordMode`
+                                for a description of the `mode`
+                                parameter values.
+
+` const TRGOUTMode    getTRGOUTMode getTRGOUTMode();`Return the signal that has been selected to be
+                                output on the TRGOUT NIM output.  The value
+                                returned is of the enumerated type
+                                caen_nscldaq::VX2750Pha::TRGOUTMode
+                                which can have the following values:
+
+
+
+- caen_nscldaq::VX2750Pha::TriggerOut_TRGIN
+                                        The front panel TRGIN is propagated to TRGOUT.
+- caen_nscldaq::VX2750Pha::TriggerOut_P0
+                                        the P0 trigger is propagated to the TRGOUT.
+                                        This is not (yet) implemented in the hardware/firmware.
+- caen_nscldaq::VX2750Pha::TriggerOut_Software
+                                        Software triggers are propagated as pulses to the TRGOUT
+- caen_nscldaq::VX2750Pha::TriggerOut_LVDS
+                                        Trigger inputs from the LVDS pins
+                                        are propagated to TRGOUT.
+- caen_nscldaq::VX2750Pha::TriggerOut_InternalA
+                                        the output of trigger logic block A is
+                                        propagated to TRGOUT.
+- caen_nscldaq::VX2750Pha::TriggerOut_InternalB
+                                        the output of trigger block B is propagated to
+                                        TRGOUT
+- caen_nscldaq::VX2750Pha::TriggerOut_InternalAandInternalB
+                                        outputs the boolean and of the outputs of the
+                                        internal trigger logic blocks A and B.
+- caen_nscldaq::VX2750Pha::TriggerOut_InternalAorInternalB
+                                        outputs the boolean or of the outputs of the internal
+                                        trigger logic blocks A and B.
+- caen_nscldaq::VX2750Pha::TriggerOut_EncodedClockIn
+                                       The CLK-In is proppagated to TRGOUT.  Can be used
+                                       to extend the clock daisy chain to NIM.
+- caen_nscldaq::VX2750Pha::TriggerOut_Run
+                                       True when the digitizer is running.  This output is
+                                       timed prior to applying the Run delay time.
+- caen_nscldaq::VX2750Pha::TriggerOut_ReferenceClock
+                                       Monitors the internal 62.5MHz internal clock.
+- caen_nscldaq::VX2750Pha::TriggerOut_TestPulse
+                                       monitors test pulse timing.
+- caen_nscldaq::VX2750Pha::TriggerOut_Busy
+                                      monitors the digitizer's busy.
+- caen_nscldaq::VX2750Pha::TriggerOut_Zero
+                                       Constantly deasserted.
+- caen_nscldaq::VX2750Pha::TriggerOut_One
+                                       Constantly asserted.
+- caen_nscldaq::VX2750Pha::TriggerOut_SynchIn
+                                       reflects the Synch in signal.
+- caen_nscldaq::VX2750Pha::TriggerOut_SIN
+                                       Reflects the SIN input.
+- caen_nscldaq::VX2750Pha::TriggerOut_GPIO
+                                       Reflects the GPIO as an input.
+- caen_nscldaq::VX2750Pha::AcceptedTrigger
+                                       Indicates a trigger was accepted.
+- caen_nscldaq::VX2750Pha::TriggerClock
+                                       Reflects the clock which determines the
+                                       resolution of trigger timing.
+
+` const void   setTRGOUTMode(TRGOUTMode  mode);`Selects the functionality of the
+                                TRGOUT NIM output.
+                                See `getTRGOUTMode` for
+                                a description of the possible values you can
+                                supply for `mode`.
+
+` const GPIOMode  getGPIOMode();`Returns the functionality selected for the
+                                GPIO connector if it is aNIM output.  The returned value is
+                                a caen_nscldaq::VX2750Pha::GPIOMode
+                                enumerated value which can be one of:
+
+
+
+- caen_nscldaq::VX2750Pha::GPIOMode_Disabled,
+                                        The GPIO is not used.
+- caen_nscldaq::VX2750Pha::GPIOMode_TriggerIn
+                                        The GPIO is an output that reflects the TRGIN
+                                        signal.
+- caen_nscldaq::VX2750Pha::GPIOMode_P0
+                                        The GPIO is an output that reflects the
+                                        backplane P0 trigger (not yet implemented I believe).
+- caen_nscldaq::VX2750Pha::GPIOMode_SIN
+                                        Propagates the value of the SIN NIM input
+                                        as an output.
+- caen_nscldaq::VX2750Pha::GPIOMode_LVDS
+                                        Propagates the LVDS trigger inputs if they
+                                        are selected as such.
+- caen_nscldaq::VX2750Pha::GPIOMode_InternalA
+                                        reflects the output of internal trigger logic
+                                        block A
+- caen_nscldaq::VX2750Pha::GPIOMode_InternalB
+                                        reflects the output of internal trigger logic
+                                        block B
+- caen_nscldaq::VX2750Pha::GPIOMode_InternalAandInternalB
+                                         reflects the boolean and of the outputs of the
+                                         two internal trigger logic blocks.
+- caen_nscldaq::VX2750Pha::GPIOMode_InternalAorInternalB
+                                        reflects the boolean or of the output sof the
+                                        two internal triger logic blocks.
+- caen_nscldaq::VX2750Pha::GPIOMode_EncodedClockIn
+                                        Propagates the CLK-IN (Not yet implemented).
+- caen_nscldaq::VX2750Pha::GPIOMode_SoftwareTrigger
+                                        Pulses when the board is given a software trigger
+                                        command.
+- caen_nscldaq::VX2750Pha::GPIOMode_Run
+                                        Reflects the digitizer Run state.
+- caen_nscldaq::VX2750Pha::GPIOMode_RefernceClock
+                                        Reflects the internal 62.5Mhz oscillator.
+- caen_nscldaq::VX2750Pha::GPIOMode_TestPulse
+                                        reflects the test pulser timing.
+- caen_nscldaq::VX2750Pha::GPIOMode_Busy
+                                        Reflects the board busy state.
+- caen_nscldaq::VX2750Pha::GPIOMode_Zero
+                                        constantly deasserted.
+- caen_nscldaq::VX2750Pha::GPIOMode_One
+                                        constantly asserted.
+
+` void   setGPIOMode(GPIOMode  mode);`Selects the functionality of the
+                                GPIO if used as an output.  The values for the
+                                `mode` parameter are
+                                described above in the documentation of
+                                `getGPIOMode`.
+
+` const BusyInSource    getBusyInputSource();`In a lock-step trigger system, all boards may need
+                                to run with a common busy in order to prevent
+                                some boards from triggering while others are busy.
+                                This method returns the source of the external busy
+                                for the board.
+
+The result is a
+                                caen_nscldaq::VX2750Pha::BusyInSource
+                                enumerated type which can have the values:
+
+
+
+- caen_nscldaq::VX2750Pha::BusyIn_SIN
+                                        The SIN NIM input forces the board busy.
+- caen_nscldaq::VX2750Pha::BusyIn_GPIO
+                                        The NIM GPIO connector is programmed as an
+                                        input and it can force the board busy.
+- caen_nscldaq::VX2750Pha::BusyIn_LVDS
+                                        LVDS inputs can be used as a busy.
+- caen_nscldaq::VX2750Pha::BusyIn_Disabled
+                                        The board has no external busy source.
+
+` const void  setBusyInputSource(BusyInSource  src);`Sets the board external busy source.
+                                See the documentation for
+                                `getBusyInputSource`
+                                for possible values of the `src`
+                                parameter.
+
+` const SyncOutMode  getSyncOutMode();`Returns the selection for the signal source of
+                                the SYNC OUT NIM output.  The Possible values are
+                                an enumerated type: caen_nscldaq::VX2750Pha::SyncOut
+                                which can have the one of the values:
+                                caen_nscldaq::VX2750Pha::SyncOut_Disabled,
+                                caen_nscldaq::VX2750Pha::SyncOut_SynchIn,
+                                caen_nscldaq::VX2750Pha::SyncOut_TestPulse,
+                                caen_nscldaq::VX2750Pha::InternalClock
+                                or
+                                caen_nscldaq::VX2750Pha::SyncOut_Run.
+
+` const void   setSyncOutMode(SyncOutMode  mode);`Sets the source of the SYNC OUT NIM output.
+                                Valid values for `mode`
+                                have been listed above in the description
+                                for `getSyncOutMode`.
+
+` const VetoSource     getBoardVetoSource();`Return the source of the board level trigger veto.
+                                The value retunred is of type
+                                caen_nscldaq::VX2750Pha::VetoSource
+                                which is an enumerated type with the following
+                                allowed values:
+                                caen_nscldaq::VX2750Pha::Veto_SIN,
+                                caen_nscldaq::VX2750Pha::Veto_LVDS,
+                                caen_nscldaq::VX2750Pha::Veto_GPIO,
+                                caen_nscldaq::VX2750Pha::Veto_P0,
+                                caen_nscldaq::VX2750Pha::Veto_EncodedClock,
+                                or caen_nscldaq::VX2750Pha::Veto_Disabled
+
+` const void    setBoardVetoSource(VetoSource  src);`Select the board veto source.  The legal values for
+                                `src` are listed in the
+                                documentation for
+                                `getBoardVetoSource`.
+
+` const std::uint64_t  getBoardVetoWidth();`Returnth width of the number of ns the board level
+                                veto is stretched after the veto condition is removed.
+
+` const void    setBoardVetoWidth(std::uint64_t  ns);`Sets the number of nanoseconds the board veto
+                                is stretched after the veto condition is removed to
+                                `ns`.
+
+` const VetoPolarity   getBoardVetoPolarity();`Returns the polarity of the board level veto.
+                                If the value is caen_nscldaq::VX2750Pha::ActiveHigh,
+                                the veto serves as an inhibit of the trigger.
+                                If the value is caen_nscldaq::VX2750Pha::ActiveLow,
+                                the veto serves as a gate for the board level trigger.
+
+` void   setBoardVetoPolarity(VetoPolarity  pol);`Sets the polarity of the board veto source
+                                to `pol`. Possible values
+                                 are described in `getBoardVetoPolarity`
+                                 above.
+
+` const ChannelVetoSource  getChannelVetoSource(unsigned chan);`In addition to a board level veto/gate, each channel
+                                has a veto/gate.  This method returns the source
+                                for the veto for channel `chan`.
+                                The type is caen_nscldaq::VX2750Pha::ChannelVetoSource
+                                which is an enumerated type with the following possible
+                                values:
+                                caen_nscldaq::VX2750Pha::BoardVeto,
+                                caen_nscldaq::VX2750Pha::OverSaturation,
+                                caen_nscldaq::VX2750Pha::Undersaturation,
+                                or caen_nscldaq::VX2750Pha::ChanVeto_Disabled.
+
+` const void setChannelVetoSource(unsigned chan, ChannelVetoSource src);`Sets the veto source for channel
+                                    `chan` to be
+                                    `src`.  Valid values
+                                    for `src` are described
+                                    in the documentaiton for
+                                    `getChannelVeotSource`
+                                    above.
+
+` const std::uint32_t  getChannelVetoWidth(unsigned chan);`Each channel veto can be stretched a number of
+                                nanoseconds beyond when the veto condition ends.
+                                This method returns the stretch in nanoseconds of
+                                the veto from channel `chan`.
+
+` const void   setChannelVetoWidth(unsigned  chan, std::uint32_t  ns);`Sets the stretch for the veto for channel
+                                `chan` to
+                                `ns` nanoseconds.
+
+` const std::uint32_t  getRunDelay();`When the start of run is controlled by a RUN
+                                signal that is propagated in daisy chain between
+                                the boards (for instance
+                                through the ClkIn-ClkOut or SIN-GPIO sync chain),
+                                it is necessary to compensate for the propagation
+                                delay in order for the
+                                boards to start exactly at the same time,
+                                since it is the start which zeroes the boards
+                                timestamp clock.
+                                The Run Delay parameter delays the start of the run
+                                given number of nanoseconds with respect to the
+                                rising edge of the RUN signal
+
+This method returns the run delay parameter in
+                                nanoseconds.
+
+` const void   setRunDelay(std::uint32_t  ns);`Sets the run start delay to
+                                `ns` nanoseconds.
+
+` const bool   isAutoDisarmEnabled();`If external signals are used to start/stop
+                                acquisition, it may be necessary to disable
+                                restart until the software is ready.
+                                Auto disarm mode disarms the digitizer when the
+                                run stops making it insensitive to subsequent
+                                starts until re-armed.  This method
+                                retuns true if auto-disarm
+                                was enabled.
+
+` const void   setAutoDisarmEnabled(bool  state);`Sets the state of the digitizer auto-disam.
+                                If `state` is true,
+                                auto disarm is enabled.
+
+` const std::unit32_t getLEDStatus();`Returns the state of the front panel LEDs.
+                                The bits in the returned mask have
+                                symbolic definition of the form:
+                                caen_nscldaq::VX2750Pha::LEDFP_xxxxx:
+                                LEDFP_JESD_Y_PASS = 1,
+                                LEDFP_JESD_H_PASS = 2,
+                                LEDFP_DDR4_0_PASS = 4,
+                                LEDFP_DDR4_1_PASS = 8,
+                                LEDFP_DDR4_2_PASS = 0x10,
+                                LEDFP_FAIL = 0x20,
+                                LEDFP_NIM = 0x40,
+                                LEDFP_TTL = 0x80,
+                                LEDFP_DTLOSS = 0x100,
+                                LEDFP_DTRDY  = 0x200,
+                                LEDFP_TRG = 0x400,
+                                LEDFP_RUN = 0x800,
+                                 LEDFP_PLL_LOCK  = 0x1000,
+                                 LEDFP_CLKOUT = 0x2000,
+                                 LEDFP_CLKIN     = 0x4000,
+                                 LEDFP_USB       = 0x8000,
+                                 LEDFP_SFP_SD    = 0x10000,
+                                 LEDFP_SFP_ACT   = 0x20000,
+                                 and LEDFP_ACT  = 0x40000
+
+` const std::uint32_t  getAcquisitionStatus();`Returns a 32 bit mask that contains acquisition
+                                status bits.  The header defines several
+                                caen_nscldaq::VX2750Pha::ACQ_xxxx
+                                symbolic constants for the bits:
+                                ACQ_ARMED = 1,
+                                ACQ_RUN = 2,
+                                ACQ_RUN_MW = 4,
+                                ACQ_JESD_CLK_VALID = 8,
+                                ACQ_BUSY = 0x10,
+                                ACQ_PRETRIGGER_READY = 0x20,
+                                and ACQ_LICENSE_FAIL = 0x40.
+
+` const std::uint32_t  getMaxRawDataSize();`This should be called after the raw endoint
+                                data format has been described.  It will return
+                                the size of the data buffer that should be
+                                declared to receive data from the raw endpoint.
+
+` const  double         getVolatileClockDelay();`Retrieves the current clock edge delay in picoseconds.
+                                This delay compensates for the phases drift in the
+                                clock daisy chain as the clock propagates from module
+                                to module.
+
+Note that there are two clock delay parameters.  The
+                                volatile clock delay is delay currently in effect.
+                                It may differ from the permanent clock delay which
+                                is what is programmed in at board power up. One
+                                normally plays with the volatile clock delay until
+                                the clock phases are aligned on all boards and
+                                then, finally, sets the good value to be the
+                                new permanent clock delay so that the power up value
+                                of the clock delay is correct.
+
+` const void   setVolatileClockDelay(double  value);`Sets the volatile clock delay parameter to
+                                `value` picoseconds.
+
+` const double         getPermanentClockDelay();`Returns the clock delay that was programmed
+                                in at power up.  Units are picoseconds.
+
+` const void   setPermanentClockDelay(double  value);`Programs the power up (permanent) clock delay
+                                to `value` picoseconds.
+
+` const WaveDataSource  getWaveDataSource(unsigned  chan);`While normally the data into the DPP-PHA
+                                firmware is directly the digitized inputs to the
+                                 ADC, it is possible to program the digitizing
+                                 circuitry to use different data sources for
+                                 each channel.  This method
+                                 returns the DPP-PHA waveform input to channel
+                                 `chan`.
+
+The resturn value is one of the values
+                                of the enumerated type
+                                caen_nscldaq::VX2750Pha::WaveDataSource
+                                which can have one of the following values:
+                                caen_nscldaq::VX2750Pha::ADC_DATA,
+                                caen_nscldaq::VX2750Pha::ADC_TEST_TOGGLE,
+                                caen_nscldaq::VX2750Pha::ADC_TEST_RAMP,
+                                 caen_nscldaq::VX2750Pha::ADC_SIN,
+                                 caen_nscldaq::VX2750Pha::WaveSource_IPE,
+                                 caen_nscldaq::VX2750Pha::WaveSource_Ramp,
+                                 caen_nscldaq::VX2750Pha::SquareWave,
+                                 and
+                                 caen_nscldaq::VX2750Pha::WaveDataSource::ADC_TEST_PRBS
+
+` const void   setWaveDataSource(unsigned  chan, WaveDataSource  source);`Selects the data source for the DPP-PHA firmware
+                                for channel `chan`
+                                to be `source`.  The
+                                `getWaveDataSource`
+                                method describes the valid values for
+                                `source`.
+
+` const std::uint32_t  getRecordSamples(unsigned  chan);`Return the number of waveform samples that will be
+                                recorded on a trigger for channel `chan`.  This includes the samples
+                                prior to the trigger.
+
+` const void   setRecordSamples(unsigned  chan, std::uint32_t  samples);`Sets the totaln number of samples that will be
+                                recorded for channel `chan`
+                                to `samples`.
+
+` const std::uint32_t  getRecordNs(unsigned  chan);`Same as `getRecordSamples`,
+                                but the number of samples is converted to nanoseconds.
+
+` const  void  setRecordNs(unsigned  chan, std::uint32_t  ns);`Same as `setRecordSamples`
+                                but `ns` is the number of
+                                desired nanoseconds of waveform to record.
+                                This is converted to the nearest number of
+                                samples. Note that this means that calling this
+                                method and then
+                                calling `getRecordNs`
+                                may give slightly different value than the set value.
+
+` const WaveResolution  getWaveResolution(unsigned  chan);`Returns the waveform resolution selected for channel
+                                `chan`.  The returned value
+                                is one of the valid values of the
+                                caen_nscldaq::VX2750Pha::WaveResolution
+                                enumerated data type.  The numbers in the symbols
+                                represent the resolution in nanoseconds.
+                                caen_nscldaq::VX2750Pha::Res8,
+                                caen_nscldaq::VX2750Pha::Res16,
+                                caen_nscldaq::VX2750Pha::Res32,
+                                or
+                                caen_nscldaq::VX2750Pha::Res64.
+
+` const void setWaveResolution(unsigned chan, WaveResolution resolution);`Set the waveform resolution for channel
+                                `chan` to the
+                                resolution indicated by the value of
+                                `resolution`.
+
+` const AnalogProbe   getAnalogProbe(unsigned  chan, unsigned probeNum );`In addition to the results of the DPP-PHA
+                                analysis of the captured waveform, an event can
+                                include zero, one or two
+                                *analog probes*.  This is
+                                waveform data that is included in the event.
+
+`getAnalogProbe`
+                                interrogates analog probe number
+                                `probeNum` for
+                                channel `chan`.
+                                The result is a value from the enumerated type
+                                caen_nscldaq::VX2750Pha::AnalogProbe:
+                                caen_nscldaq::VX2750Pha::ADCInput,
+                                caen_nscldaq::VX2750Pha::TimeFilter,
+                                caen_nscldaq::VX2750Pha::EnergyFilter,
+                                caen_nscldaq::VX2750Pha::EnergyFilterBaseline,
+                                caen_nscldaq::VX2750Pha::EnergyFilterMinusBaseline.
+
+` const void setAnalogProbe(unsigned chan, unsigned probeNum, AnalogProbe probe);`Sets analog probe number `probeNum`
+                                for channel `chan` to the
+                                probe selected by `probe`.
+                                See `getAnalogProbe` for
+                                a description of the
+                                caen_nscldaq::VX2750Pha::AnalogProbe
+                                data type.
+
+` const DigitalProbe   getDigitalProbe(unsigned chan , unsigned  probeNum);`Each event from a channel trigger can include
+                                up to 4 digital probes. A digital probe is just
+                                a set of boolean values aligned in time with
+                                input waveform values. Samples from a digital probe
+                                are represented by a single byte that contains
+                                either 0 or 1.
+
+This method returns the digital probe selected as
+                                probe number `probenum`
+                                for channel `chan`.
+                                The result is a member of the enumerated type:
+                                caen_nscldaq::VX2750Pha::DigitalProbe:
+                                caen_nscldaq::VX2750Pha::DProbe_Trigger,
+                                caen_nscldaq::VX2750Pha::TimeFilterArmed,
+                                caen_nscldaq::VX2750Pha::ReTriggerGuard,
+                                caen_nscldaq::VX2750Pha::EnergyFilterBaselineFreeze,
+                                caen_nscldaq::VX2750Pha::EnergyFilterPeaking,
+                                caen_nscldaq::VX2750Pha::EnergyFilterPeakReady,
+                                caen_nscldaq::VX2750Pha::EnergyFilterPileupGuard,
+                                caen_nscldaq::VX2750Pha::EventPileup,
+                                caen_nscldaq::VX2750Pha::ADCSaturation,
+                                caen_nscldaq::VX2750Pha::ADCSaturationProtection
+caen_nscldaq::VX2750Pha::PostSaturationEvent,
+                                caen_nscldaq::VX2750Pha::EnergyFilterSaturation,
+                                or caen_nscldaq::VX2750Pha::AcquisitionInhibit
+
+` const void setDigitalProbe(unsined chan, unsigned probenum , DigitalProbe probe);`Selects which digital probe, `probe`,
+                                will be used as probe number
+                                `probeNum` for channel number
+                                `chan`.
+
+` const std::uint32_t  getPreTriggerSamples(unsigned  chan);`Returns the number of samples that will be collected
+                                prior to the trigger
+                                from channel `chan` and submitted to the DPP-PHA
+                                firmware.
+
+` const void   setPreTriggerSamples(unsigned  chan, std::uint32_t  nsamples);`Sets the number of samples that will be collected
+                                prior to the trigger of channel `chan`
+                                to `nsamples`.
+
+` const std::uint32_t  getPreTriggerNs(unsigned  chan);`Same as `getPreTriggerSamples`,
+                                but the number of samples is converted to
+                                nanosecond units.
+
+` const void   setPreTriggerNs(unsigned  chan, std::uint32_t  ns);`Same as `setPreTriggerSamples`
+                                but `ns` are converted from
+                                nanosecond to the nearest number of samples.
+                                Note that the actual number of nanoseconds
+                                pretrigger will can be gotten using
+                                `getPreTriggerNs`.
+
+` const std::uint64_t  getTestPulsePeriod();`Return the period of the test pulser in nanoseconds.
+
+` const void   setTestPulsePeriod(std::uint64_t  ns);`Set the test pulser period to `ns`
+                                nanoseconds.
+
+` const std::uint64_t  getTestPulseWidth();`Returns the test pulser pulse width in
+                                nanoseconds.
+
+` const  void  setTestPulseWidth(std::uint64_t  ns);`Set the test pulse pulse width to
+                                `ns` nanoseconds.
+
+` const std::uint32_t  getTestPulseLowLevel();`Returns the low level of the test pulser in
+                                FADC units (0-65535).
+
+` const void    setTestPulseLowLevel(std::uint32_t  counts);`Set the test pulser low level to
+                                `counts` FDAC units.
+
+` const std::uint32_t  getTestPulseHighLevel();`Returns the high level of the test pulser in
+                                FADC units (0-65535).
+
+` const void    setTestPulseHighLevel(std::uint32_t  counts);`Set the test pulser high level to
+                                `counts` FDAC units.
+
+` const IOLevel   getIOLevel();`Return the NIM connector signalling levels.
+                                The return value is of the enumerated type
+                                caen_nscldaq::VX2750Pha::IOLevel
+                                and can be one of
+                                caen_nscldaq::VX2750Pha::TTL
+                                or
+                                caen_nscldaq::VX2750Pha::NIM.
+
+` const void   setIOLevel(IOLevel  level);`Sets the I/O signalling level of the front panel
+                                NIM connectors.  See
+                                `getIOLevel` for legal
+                                values of `level`.
+
+` const double getAirInTemp();`Returns the temperature in C at the board air intake.
+
+` const double  getAirOutTemp();`Returns the temperature in C at the board outflow.
+
+` const double getCoreTemp();`Returns the temperature at the FPGA core.
+
+` const double getFirstADCTemp();`Returns the temperature of the first ADC along
+                                the airflow
+
+` const double getLastADCTemp();`Returns the temperature of the last ADC along the
+                                airflow.
+
+` const double getHottestADCTemp();`Returns the temperature of the hottest ADC.
+
+` const double getADCTemp(unsigned chip);`Returns the temperature at the specified ADC ship.
+                                `chip` is in the inclusive
+                                range 0-7.
+
+` const double getDCDCConverterTemp();`Returns the temperature at the DC-DC converter.
+
+` const  double  getDCDCConverterInputVoltage();`Return the input voltage (in volts) to the
+                                board's DC-DC converter.
+
+` const double   getDCDCConverterOutputVoltage();`Return the DC-DC converter output voltage in volts.
+
+` const double  getDCDCConverterAmps();`Returns the current output of the DC-DC converter in
+                                amps.
+
+` const double   getDCDCConverterHz();`Return the DC-DC converter frequency in Hz.
+
+` const  double getDCDCConverterDutyCycle();`Returns the DC-DC converter duty factor in percentage.
+
+` std::uint32_t  getFanSpeed(unsigned  fan);`Returns the speed, in RPM of fan number
+                                `fan`.  Ther are two fans,
+                                0, and 1.
+
+` const std::uint32_t  getErrorFlagMask();`Return the value of the mask which, when ORd
+                                with the actual error conditions determines the
+                                error flag LEDs that are lit on the front panel.
+                                The bits for this mask are defined symbolically
+                                as:
+
+caen_nscldaq::VX2750Pha::ERR_power_fail,
+                               caen_nscldaq::ERR_board_init_fault,
+                               caen_nscldaq::ERR_si5341_unlock ,
+                               caen_nscldaq::ERR_si5395_unlock,
+                               caen_nscldaq::ERR_LMK04832_unlock,
+                               caen_nscldaq::ERR_jesd_unlock,
+                               caen_nscldaq::ERR_ddr_pl_bank0_calib_fail,
+                               caen_nscldaq::ERR_ddr_pl_bank1_calib_fail,
+                               caen_nscldaq::ERR_ddr_ps_calib_fail,
+                               caen_nscldaq::ERR_fpga_config_fail,
+                               caen_nscldaq::ERR_bic_error,
+                               caen_nscldaq::ERR_adc_overtemp,
+                               caen_nscldaq::ERR_air_overtemp,
+                               caen_nscldaq::ERR_fpga_overtemp,
+                                caen_nscldaq::ERR_dcdc_overtemp,
+                                caen_nscldaq::ERR_clkin_miss,
+                                caen_nscldaq::ERR_adc_shutdown,
+
+` const void setErrorFlagMask(std::uint32_t mask);`Set the value of the error flag mask.  See
+                                `getErrorFlagMask` for
+                                the symbolic bit definitions.
+
+` const std::uint32_t  getErrorFlagDataMask();`Fetches the value of the error flag data mask.
+                                This serves the same purpose as the error flag mask,
+                                except that it determines, along with the actual
+                                error flags, the value of the error bits in the
+                                data.
+
+` const void   setErrorFlagDataMask(std::uint32_t  mask);`Sets the value of the error flag data mask.
+
+` const std::uint32_t  getErrorFlags();`Returns the actual value of the bits that define
+                                error conditions within the module.
+
+` const bool   isBoardReady();`Returns true
+                                if the board has no error flags set.
+
+` const IndividualTriggerLogic  getITLAMainLogic();`The module has two trigger logic blocks. ITLA
+                                and ITLB.  This retrieves the trigger setting
+                                for ITLA.  The reusult is a memboer if the enumerated
+                                type caen_nscldaq:VX2750Pha::IndividualTriggerLogic
+                                which can have the values:
+                                caen_nscldaq:VX2750Pha::ITL_OR,
+                                caen_nscldaq:VX2750Pha::ITL_AND,
+                                or caen_nscldaq:VX2750Pha::ITL_Majority.
+
+` const IndividualTriggerLogic  getITLAMainLogic();`Returns the trigger setting for ITLB.
+
+` const void   setITLAMainLogic(IndividualTriggerLogic  sel);`Selects the trigger setting of ITLA to
+                                `sel`
+
+` const void   setITLBMainLogic(IndividualTriggerLogic  sel);`Selects the trigger setting of ITLB to
+                                `sel`
+
+` const  unsigned   getITLAMajorityLevel();`Returns the majority level setting of the ITLA
+                                block.  This only has meaning if ITLA has been
+                                set to caen_nscldaq:VX2750Pha::ITL_Majority
+
+` const  unsigned   getITLBMajorityLevel();`Returns the majority level setting of the ITLB
+                                block.  This only has meaning if ITLB has been
+                                set to caen_nscldaq:VX2750Pha::ITL_Majority
+
+` const void   setITLAMajorityLevel(unsigned  level);`Sets the majority level for ITLA.  This only has
+                                meaning if ITLA has been set to
+                                caen_nscldaq:VX2750Pha::ITL_Majority.
+
+` const void   setITLBMajorityLevel(unsigned  level);`Sets the majority level for ITLB.  This only has
+                                meaning if ITLB has been set to
+                                caen_nscldaq:VX2750Pha::ITL_Majority.
+
+` const PairTriggerLogic  getITLAPairLogic();`Adjacent pairs of channel trigger inputs to the
+                                ITLA/ITLB logic blocks can be grouped together
+                                via a logical function.  This method returns
+                                the pair logic setting of the channel trigger
+                                inputs to ITLA.  Valid values come from the
+                                caen_nscldaq:VX2750Pha::PairTriggerLogic
+                                enumerated type:
+                                caen_nscldaq:VX2750Pha::PTL_AND,
+                                the two inputs for the adjacent channels both
+                                reflect the boolean and of the channels themselves.
+                                caen_nscldaq:VX2750Pha::PTL_OR,
+                                if either input is triggered, both inputs to the
+                                logic block trigger.
+                                caen_nscldaq:VX2750Pha::NONE.
+                                THe individual channel triggers in the pair
+                                are passed un-modifed to the logic block.
+
+` const PairTriggerLogic  getITLBPairLogic();`Same as `getITLAPairLogic`
+                                but for ITLB.
+
+` void   setITLAPairLogic(PairTriggerLogic  sel);`Programs the channel par logic for ITLA to
+                                `sel`
+
+` void   setITLBPairLogic(PairTriggerLogic  sel);`Programs the channel par logic for ITLB to
+                                `sel`
+
+` const bool  isITLAInverted();`Returns true if the sense of
+                                the ITLA output is inverted, that is asserted when
+                                there is no trigger condition.
+
+` const bool  isITLBInverted();`Returns true if the sense of
+                                the ITLB output is inverted, that is asserted when
+                                there is no trigger condition.
+
+` const void setITLAInverted(bool  invert);`If `invert` is
+                                    true then the ITLA output
+                                    will be inverted.
+
+` const void setITLBInverted(bool  invert);`If `invert` is
+                                    true then the ITLB output
+                                    will be inverted.
+
+` const  ITLConnect     getITLConnect(unsigned  ch);`The internal trigger logic blocks have channel by
+                                channel inputs.   This determines how a channel is
+                                connected to those logic blocks.
+                                `chan`.  Results are
+                                from the enumerated type:
+                                caen_nscldaq::VX2750Pha::ITLConnect
+                                and can have one of the values:
+                                caen_nscldaq::VX2750Pha::ITL_Disabled,
+                                caen_nscldaq::VX2750Pha::ITL_ITLA,
+                                caen_nscldaq::VX2750Pha::ITL_ITLB.
+
+` const void    setITLConnect(unsigned  ch, ITLConnect  selection);`Sets the ITL connection for channel
+                                `ch` to
+                                `selection`.
+                                For more, see the description of
+                                `getITLConnect`.
+
+` const std::uint64_t  getITLAMask();`Rather than using the ITLConnect methods, it is
+                                possible to set masks for ITLA and ITLB
+                                that determine which channels participate in each
+                                trigger logic block.  Use of the trigger ITLMasks
+                                or ITLConnections are mutually exclusive.  Use only one.
+
+This method returns the 64 bit channel mask for ITLA
+
+` const std::uint64_t  getITLBMask();`Returns the channel input mask for ITLB.
+
+` void    setITLAMask(std::uint64_t  mask);`Sets the 64 bit channel input mask for ITLA.
+
+` void    setITLBMask(std::uint64_t  mask);`Sets the 64 bit channel input mask for ITLB.
+
+` const std::uint32_t  getITLAGateWidth();`The optput of the ITL logic blocks can be stretched.
+                                This returns the length of the ITLA output in
+                                nanoseconds.  Note that the granularity of this
+                                gate width is 8ns units.
+
+` const std::uint32_t  getITLBGateWidth();`The optput of the ITL logic blocks can be stretched.
+                                This returns the length of the ITLB output in
+                                nanoseconds.  Note that the granularity of this
+                                gate width is 8ns units.
+
+` void   setITLAGateWidth(std::uint32_t  ns);`Sets the ITLA gate width to `ns`
+                                nanoseconds.  Note that the actual gate width granularity is
+                                8ns units.
+
+` void   setITLBGateWidth(std::uint32_t  ns);`Sets the ITLB gate width to `ns`
+                                nanoseconds.  Note that the actual gate width granularity is
+                                8ns units.
+
+` const LVDSMode  getLVDSMode(unsigned  quartet);`The module has 16 LVDS general purpose I/O pins.
+                                The use of these can be programmed in four pin units
+                                (or quartets).  This returns the functionality selected
+                                for quarted `quartet`.
+
+Valid values are from the enumerated type
+                                caen_nscldaq::VX2750Pha::LVDSMode
+                                which can have any of the following values:
+                                caen_nscldaq::VX2750Pha::SelfTriggers
+caen_nscldaq::VX2750Pha::Sync,
+                                or
+                                caen_nscldaq::VX2750Pha::IORegister.
+
+When used in SelfTriggers mode,
+                                see `setLVDSTriggerMask`.
+
+` void   setLVDSMode(unsigned  quartet, LVDSMode  mode);`Sets the mode of the four LVDS pins selected by
+                                `quartet` to
+                                `mode`.
+                                See `getLVDSMode` for more.
+
+` const LVDSDirection  getLVDSDirection(unsigned  quartet);`Returns the directionality if the `quartet`
+                                of pins. This can be one of:
+                                caen_nscldaq::VX2750Pha::Input
+                                or
+                                caen_nscldaq::VX2750Pha::Output
+
+` const void           setLVDSDirection(unsigned  quartet, LVDSDirection  direction);`Sets the directionality of LVDS
+                                `quartet` to `direction`.
+
+` const std::uint16_t  getLVDSIOReg();`Returns the I/O register bits of the LVDS.
+                                Note that the only meaningful bits are those for
+                                quartets in which the LVDS pins have been set to be
+                                caen_nscldaq::VX2750Pha::IORegister.
+
+` const void   setLVDSIOReg(std::uint16_t  mask);`Sets the I/O register for the LVDS. This
+                                only has meaning for bits in quartets that have
+                                been set to
+                                caen_nscldaq::VX2750Pha::IORegister
+                                and the direction
+                                caen_nscldaq::VX2750Pha::Output
+
+` const std::uint64_t  getLVDSTriggerMask(unsigned  inputNum);`Pins in quartets programmed as
+                                caen_nscldaq::VX2750Pha::SelfTriggers,
+                                have associated with them a trigger mask.
+                                The pin will show the boolean or of all triggers for all
+                                channels in that trigger mask.
+
+This returns the tigger mask for pin number
+                                `inputNum`.  Note that these
+                                pins are outputs and you can think of
+                                `inputNum` representing
+                                inputs to the register that drives those pins.
+
+` const void   setLVDSTriggerMask(unsigned  inputNum, std::uint64_t  mask);`Sets the trigger mask for pin number
+                                `inputNum` to
+                                `mask`.  This is only
+                                meaningful if the quartet `inputNum`
+                                is a member of is  programmed to be self triggers
+                                and is an output.
+
+` const void  setDACOutMode(DACOutputMode mode);`The board as a DAC with an output on the front
+                                panel.  This method selects the input to the DAC.
+                                `mode` is of the enumerated type
+                                caen_nscldaq::VX2750Pha::DACOutputMode
+                                which can be one of the following values:
+                                caen_nscldaq::VX2750Pha::Static
+caen_nscldaq::VX2750Pha::DACOut_IPE
+caen_nscldaq::VX2750Pha::DACOut_ChInput
+caen_nscldaq::VX2750Pha::MemOccupancy
+caen_nscldaq::VX2750Pha::ChSum
+caen_nscldaq::VX2750Pha::OverThrSum
+caen_nscldaq::VX2750Pha::DACOut_Ramp
+caen_nscldaq::VX2750Pha::Sine5MHz
+caen_nscldaq::VX2750Pha::Square
+
+` const DACOutputMode  getDACOutMode();`Returns the selected DAC output mode.
+
+` const std::uint16_t  getDACOutValue();`If the DAC output mode is
+                                Static returns the value
+                                set as the input to the DAC
+
+` const void   setDACOutValue(std::uint16_t  value);`Sets the value of the input to the DAC when it is
+                                set in Static mode.
+
+` const unsigned   getDACChannel();`Returns the channel selected when the DAC mode
+                                is DACOut_ChInput
+
+` const void    setDACChannel(unsigned  chan);`Sets the channel to be monitored by the DAC
+                                when the mode is DACOUt_ChInput.
+
+` const double         getVGAGain(unsigned  group);`The 2745 digitizers have a
+                                set of variable gain amplifiers.  Each amplifier
+                                applies its gain to a gropu of 16 channels.  The
+                                gain values are floating point numbers in the range
+                                0-40.0.  This method returns the gain set
+                                for a `group` of channels.
+
+` const void    setVGAGain(unsigned  group, double  value);`Sets the gain of the variable gain amplifier
+                                for the `group` of 16 channels
+                                to `value`.
+
+` const bool   isOffsetCalibrationEnabled();`The input DCoffset that determines the position
+                                of the signal baseline (zero volt) is controlled
+                                by individual channel DACs.
+                                Due to the tolerance of the components, there is
+                                some spread in the offset setting that is
+                                compensated by the offset
+                                calibration. This is normally enabled and
+                                automatically applied in the firmware of the
+                                board. The calibration can be
+                                disabled;   This method returns
+                                true if that is the case.
+
+` const void   enableOffsetCalibration(bool  enable);`If `enable` is
+                                true, disables the DC offset
+                                calibration.  Otherwise this calibration is enabled.
+                                The most normal reason to do this is to determine
+                                a new calibration fucnction as is done at the
+                                factory.
+
+` const bool    isChannelEnabled(unsigned  chan);`Returns true if channel number
+                                `chan` is enabled.
+
+` const void   enableChannel(unsigned  chan, bool  enable);`Sets the enable state of channel number
+                                `chan`.  If
+                                `enable` is
+                                true the channel is enabled.
+                                if not it is disabled.
+
+` const int    getSelfTriggerRate(unsigned  chan);`Returns the self trigger rate of channel
+                                `chan` in Hz.
+
+` const std::uint32_t  getChannelStatus(unsigned  chan);`Returns the channel status mask.  Bits in this mask
+                                are defined symbolically by the
+                                caen_nscldaq::VX2750Pha::CHST_xxxx
+                                sybmols in the VX2750Pha.h
+                                header file.
+
+` const double  getDCOffset(unsigned  chan);`Returns the DC offset applied to the input of
+                                channel number `chan`.  The
+                                offset value is returned in percentae of full-scale.
+                                The granularity is that of a 16 bit DAC.
+                                Note that if the offset calibration is enabled
+                                (normal), it is applied to linearize the DAC.
+
+` const void   setDCOffset(unsigned  chan, double  pct);`Sets the DC offset for channel number
+                                `chan` to
+                                `pct` of full scale.
+                                If the DC offset calibration is enabled, it is
+                                applied to linearize the DAC output that applies the
+                                DC Offset.  The granularity of the `pct`
+                                parameter is that of a 16 bit ADC.
+
+` const double  getGainFactor(unsigned  chan);`Read the gain calibration value for the ADC associated
+                                with channel `chan`.
+                                This value is stored in internal flash memory
+                                and is determined at factory setup time.
+
+` const std::uint32_t  getTriggerThreshold(unsigned  chan);`Returns the trigger threshold for channel
+                                `chan`.  Note that this is
+                                applied to bipolar signal that is the output of
+                                the fast triangular filter.  The actual threshold
+                                arms the trigger which then
+                                actually fires on the zero crossing
+                                of the triangular filter output.
+
+` const void   setTriggerThreshold(unsigned  chan, std::uint32_t  threshold);`Sets the self trigger threshold for channel number
+                                `chan` to
+                                `threshold`.
+
+` const Polarity       getPulsePolarity(unsigned  chan);`Returns the pulse polarity selecte for input
+                                `chan`.  The polarity is
+                                relative to the zero determined by the DC offset.
+
+The value returned is an element of the
+                                enumerated type
+                                caen_nscldaq::VX2750Pha::Polarity
+                                and can be one of
+                                caen_nscldaq::VX2750Pha::Positive
+                                or
+                                caen_nscldaq::VX2750Pha::Negative.
+
+` const void   setPulsePolarity(unsigned  chan, Polarity pol);`selects the signal input polarity of the signal
+                                for channel `chan` to be
+                                `pol`.  See
+                                `getPulsePolarity` for
+                                legal values for `pol`.
+
+` const std::uint16_t  getEnergySkimLowDiscriminator(unsigned  chan);`The digitizer allows a cut to be set on the
+                                computed energy of pulses - a software gate.
+                                If the computed energy of a pulse  in channel
+                                `chan` is less than the value
+                                returned by this method, it will not be transferred
+                                if the energy skim is enabled.
+
+` const void   setEnergySkimLowDiscriminator(unsigned  chan,  std::uint16_t  value);`Sets the low threshold of the energy selection window
+                                for channel `chan` to
+                                `value`.
+
+` const std::uint16_t  getEnergySkimHighDiscriminator(unsigned  chan);`Returns the high value of the energy acceptance
+                                window defined by the energy skim discriminator
+                                for channel `chan`.  Note
+                                again, that the energy cut is only enabled if the
+                                event selector
+                                (see `setEventSelector` and
+                                `setWaveSelector` below)
+                                is set to only accept events that fall in the energy
+                                skim
+                                window.
+
+` void   setEnergySkimHighDiscriminator(unsigned  chan, std::uint16_t  value);`Sets the high value of the energy acceptance
+                                window on channel `chan` to
+                                `value`.
+
+` const EventSelection  getEventSelector(unsigned  chan);`Returns the value of the event selector.  This
+                                determine which triggers actually transfer
+                                data back to the host.  Valid values
+                                are members of the
+                                caen_nscldaq::VX2750Pha::EventSelection
+                                enumerated type which are:
+                                caen_nscldaq::VX2750Pha::All,
+                                caen_nscldaq::VX2750Pha::Pileup,
+                                or
+                                caen_nscldaq::VX2750Pha::EnergySkim.
+
+` const void   setEventSelector(unsigned  chan, EventSelection  sel);`Sets the event selection criteria for
+                                input number `chan` to
+                                `sel`.
+
+` const EventSelection  getWaveformSelector(unsigned  chan);`Returns the event selection criteria for
+                                waveforms for channel `chan`.
+                                Presumably if an event is selected
+                                but does not meet the wave form selection
+                                criteria its energy and timing information will
+                                be returned but not it waveform.
+
+` void   setWaveformSelector(unsigned  chan, EventSelection  sel);`Sets the waveform selection criteria
+                                for channel `chan` to
+                                `sel`.
+
+` const CoincidenceMask  getCoincidenceMask(unsigned  chan);`Returns the coincidence mask that generates
+                                triggers on channel `chan`.
+                                This value is from the enumerated type
+                                caen_nscldaq::VX2750Pha::CoincidenceMask
+                                and can have any of the following values:
+                                caen_nscldaq::VX2750Pha::Coincidence_Disabled,
+                                caen_nscldaq::VX2750Pha::Ch64Trigger,
+                                caen_nscldaq::VX2750Pha::Coincidence_TRGIN,
+                                caen_nscldaq::VX2750Pha::Coincidence_GlobalTriggerSource,
+                                caen_nscldaq::VX2750Pha::Coincidence_ILA or
+                                caen_nscldaq::VX2750Pha::Coincidence_ILB
+
+` const void   setCoincidenceMask(unsigned  chan, CoincidenceMask  sel);`Sets the coincidence mask for channel
+                                `chan ` to
+                                `sel`
+
+` CoincidenceMask  getAntiCoincidenceMask(unsigned  chan);`Returns the selection for the anit-coincidence mask
+                                for channel `chan`
+
+` const void  setAntiCoincidenceMask(unsigned  chan, CoincidenceMask  sel);`Sets the anti-coincidencde mask for
+                                channel `chan` to be
+                                `sel`.
+
+` const std::uint32_t   getCoincidenceSamples(unsigned  chan);`Returns the coincidencde window for channel
+                                `chan` in samples.
+
+` const void   setCoincidenceSamples(unsigned  chan, std::uint32_t  samples);`Sets the coincidence window for channel nmber
+                                `chan` to
+                                `samples` digitizer
+                                samples.
+
+` const std::uint32_t   getCoincidenceNs(unsigned  chan);`Same as `GetCoincidenceSamples`,
+                                but the units are nanoseconds.
+
+` const void   setCoincidenceNs(unsigned  chan, std::uint32_t  ns);`Same as
+                                `setCoincidenceSamples`
+                                but the units of `ns` are
+                                nanoseconds.
+
+` const std::uint32_t   getTimeFilterRiseTime(unsigned chan);`Returns channel `chan`'s timing
+                                filter rise time in units of nanoseconds.
+                                The timing filter operates on the incoming waveform
+                                to determine the trigger and trigger timing.
+
+` const std::uint32_t   getTimeFilterRiseSamples(unsigned chan);`Returns channel `chan`'s timing
+                                filter rise time in units of FADC samples.
+
+` const void   setTimeFilterRiseTime(unsigned  chan, std::uint32_t  ns);`Sets the timing filter rise time for channel
+                                `chan` to
+                                `ns` nanoseconds.
+
+` const void   setTimeFilterRiseSamples(unsigned  chan, std::uint32_t samples);`Sets the timing filter rise time for channel
+                                `chan` to
+                                `samples` FADC samples.
+
+` const std::uint32_t   getTimeFilterRetriggerGuardTime(unsigned  chan);`If the time filter oscillates around the zero crossing,
+                                it is possible to have false pile up triggers.  The
+                                retrigger guard time sets a time window over which
+                                addition zero crossings in the time filter will not
+                                be considered as triggers.
+
+This method returns the retrigger guard time in
+                                units of nanoseconds for channel `chan`.
+
+` const std::uint32_t   getTimeFilterRetriggerGuardSamples(unsigned  chan);`This method returns the retrigger guard time in
+                                units of FADC samples for channel `chan`.
+
+` const void   setTimeFilterRetriggerGuardTime(unsigned  chan, std::uint32_t  ns);`Sets the retrigger guard time for channel
+                                `chan` to
+                                `ns` nanoseconds.
+
+` const void   setTimeFilterRetriggerGuardSamples(unsigned  chan, std::uint32_t  samples);`Sets the retrigger guard time for channel
+                                `chan` to
+                                `samples` FADC samples.
+
+` const std::uint32_t  getEnergyFilterRiseTime(unsigned  chan);`Returns the value set for the energy (trapezoidal)
+                                filter rise time for channel
+                                `chan` in nanoseconds.
+
+` const std::uint32_t  getEnergyFilterRiseSamples(unsigned  chan);`Returns the value set for the energy (trapezoidal)
+                                filter rise time for channel
+                                `chan` in FADC samples.
+
+` const void   setEnergyFilterRiseTime(unsigned  chan, std::uint32_t  ns);`Sets the rise time of the trapezoidal energy filter
+                                for channel `chan` to
+                                `ns` nanoseconds.
+
+` const void   setEnergyFilterRiseSamples(unsigned  chan, std::uint32_t  samples);`Sets the rise time of the trapezoidal energy filter
+                                for channel `chan` to
+                                `samples` FADC samples.
+
+` const std::uint32_t   getEnergyFilterFlatTopTime(unsigned  chan);`Returns the energy filter (trapezoidal) flattop time setting
+                                for channel `chan`
+                                in nanosecond units.
+
+` const std::uint32_t   getEnergyFilterFlatTopSamples(unsigned  chan);`Returns the energy filter (trapezoidal) flattop time setting
+                                for channel `chan`
+                                in FADC samples.
+
+` void   setEnergyFilterFlatTopTime(unsigned  chan, std::uint32_t  ns);`Sets the energy filter flattop time for channel
+                                `chan` to
+                                `ns` nanoseconds.
+
+` void   setEnergyFilterFlatTopSamples(unsigned  chan, std::uint32_t  samples);`Sets the energy filter flattop time for channel
+                                `chan` to
+                                `samples` FADC samples.
+
+` std::uint32_t   getEnergyFilterPeakingPosition(unsigned  chan);`Retuns the peaking position for the energy filter
+                                of channel `chan`.  The
+                                value is in percentage of the flat top
+
+` void   setEnergyFilterPeakingPosition(unsigned  chan, std::uint32_t  pct);`Sets the energy filter peaking position for channel
+                                `chan` to
+                                `pct` percent of the flattop.
+
+` const EnergyPeakingAverage  getEnergyFilterPeakingAverage(unsigned  chan);`Returns the number of samples averaged over to determine
+                                the energy for channel `chan`.
+                                Note that the returned value is a member
+                                of the enumerated type
+                                caen_nscldaq::VX2750Pha::EnergyPeakingAverage
+                                which has the following values:
+                                caen_nscldaq::VX2750Pha::Average1,
+                                caen_nscldaq::VX2750Pha::Average4,
+                                caen_nscldaq::VX2750Pha::EPeakAvg_Average16
+caen_nscldaq::VX2750Pha::EPeakAvg_Avcerage64.
+
+` const void   setEnergyFilterPeakingAverage(unsigned  chan, EnergyPeakingAverage  sel);`Sets the energy peaking average for channel
+                                `chan` to the value
+                                indicated by `sel`.
+                                See `getEnergyFilterPeakingAverage`
+                                for information about the values the
+                                `sel` parameter can take.
+
+` const std::uint32_t  getEnergyFilterPoleZeroTime(unsigned  chan);`Return the energy filter pole 0 compensation
+                                value in nanoseconds for channel `chan`
+
+` const std::uint32_t  getEnergyFilterPoleZeroSamples(unsigned  chan);`Return the energy filter pole 0 compensation
+                                value in FADC samples
+                                for channel `chan`
+
+` const void   setEnergyFilterPoleZeroTime(unsigned  chan, td::uint32_t  ns);`Set the energy filter pole zero compensation for
+                                channel `chan` to
+                                `ns` nanoseconds.
+
+` const void   setEnergyFilterPoleZeroSamples(unsigned  chan, td::uint32_t  samles);`Set the energy filter pole zero compensation for
+                                channel `chan` to
+                                `samples` FADC samples.
+
+` const double  getEnergyFilterFineGain(unsigned  chan);`Return the fine gain parameter set on channel
+                                `chan`.  Note that this is
+                                a digital multiplier of the final computed
+                                energy for a given pulse.
+
+` const void   setEnergyFilterFineGain(unsigned  chan, double  gain);`Sets the fine (digital) gain for channel
+                                `chan` to be the multiplier4
+                                `gain`.
+
+` const bool   isEnergyFilterFLimitationEnabled(unsigned  chan);`Returns true if the
+                                low frequency energy filter for channel
+                                `chan` is enabled.
+
+` const void   enableEnergyFilterFLimitation(unsigned  chan, bool  enable);`If `enable` is
+                                true, enables low frequency
+                                filtering for channel `chan`.
+
+` const EnergyFilterBaselineAverage  getEnergyFilterBaselineAverage(unsigned  chan);`Returns the number of samples that are averaged
+                                to compute the signal baseline.  The returned value
+                                will be one of the values in the enumerated type:
+                                caen_nscldaq::VX2750Pha::EnergyFilterBaselineAverage.
+                                This can take one of the following values:
+                                caen_nscldaq::VX2750Pha::Fixed,
+                                caen_nscldaq::VX2750Pha::EFilterBlineAvg_Average16,
+                                caen_nscldaq::VX2750Pha::EFilterBlineAvg_Average64,
+                                caen_nscldaq::VX2750Pha::Average256,
+                                caen_nscldaq::VX2750Pha::Average1024,
+                                caen_nscldaq::VX2750Pha::Average4K,
+                                caen_nscldaq::VX2750Pha::Average16K
+
+` const void   setEnergyFilterBaselineAverage(unsigned  chan, EnergyFilterBaselineAverage  sel);`Sets the number of sample averaged to determine the
+                                running baseline for channel `chan`
+                                to be the number of samples indicted by
+                                `sel`.
+
+` const std::uint32_t  getEnergyFilterBaselineGuardTime(unsigned  chan);`Reads the number of nanoseconds the baseline computation
+                                will be frozen after the end of the trapezoid
+                                for channel `chan`.  This
+                                guard time prevents artifical bumps in the baseline
+                                that would otherwise occur if the baseline computation
+                                resumed overlapping the signal tail.
+
+` const std::uint32_t  getEnergyFilterBaselineGuardSamples(unsigned  chan);`Reads the number of FADC samples the baseline computation
+                                will be frozen after the end of the trapezoid
+                                for channel `chan`.
+
+` const oid    setEnergyFilterBaselineGuardTime(unsigned  chan, std::uint32_t  ns);`Sets the baseline guard time for channel
+                                `chan` to
+                                `ns` nanoseconds.
+
+` const void    setEnergyFilterBaselineGuardSamples(unsigned  chan, std::uint32_t  samples);`Sets the baseline guard time for channel
+                                `chan` to
+                                `samples` FADC samples.
+
+` const std::uint32_t  getEnergyFilterPileupGuardTime(unsigned  chan);`Returns the energy filter pileup guard for channel
+                                `chan` in nanosecond units.
+                                The pileup guard defines the time required in addition to the
+                                rise time and flattop time the trapezoidal filter requires
+                                additional triggers within this time are considered pileup
+                                events.
+
+` const std::uint32_t  getEnergyFilterPileupGuardSamples(unsigned  chan);`Returns the energy filter pileup time
+                                for channel `chan` in digitizer
+                                samples
+
+` const void   setEnergyFilterPileupGuardTime(unsigned  chan, std::uint32_t  ns);`Sets the energy filter pileup time for channel
+                                `chan` to
+                                `ns` nanoseconds.
+                                The actual pileup guard duration my be slightly
+                                different betcause the granluarity of the setting
+                                is determined by the FADC sampling frequency.
+
+` const void   setEnergyFilterPileupGuardSamples(unsigned  chan, std::uint32_t  samples);`Sets the energy filter pileup time for channel
+                                `chan` to
+                                `samples` FADC samples.
+
+` const std::uint8_t   getEnergyBits(unsigned  chan);`Return the number of bits of energy value for channel
+                                `chan`.
+
+` const std::uint64_t  getRealtime(unsigned  chan);`returns the Real time measured by the FPGA.
+                                Note that the value is in units of 524288ns.  That
+                                is a value of 3 represents a bit more than 1.5 seconds.
+
+` const std::uint64_t  getDeadtime(unsigned  chan);`Return the deadtime for channel
+                                `chan`.  As with the realtime
+                                the units are 524288ns.
+
+` void  Reset();`Sends a Reset command to the digitizer.
+
+` void    Clear();`Sends the digitizer a clear command.
+
+` void Arm();`Arms the digitizer so that the start from  one of the
+                                start sources will start data taking.
+
+` void Disarm();`Disarms the digitizer. so that start sources are
+                                ignored and the digitizer will remain in the stopped
+                                state.
+
+` void Start();`Sends a start command to the digitizer.  This is
+                                only effective if the digitizer is armed and
+                                a software start is one of the start sources.
+
+` void stop();`Sends a stop command to the digitizer.
+
+` void Trigger();`Sends a software trigger to the digitizer. This is
+                                only effective if the digitizser is running and the
+                                software trigger is a trigger source.
+
+` void ReloadCalibration();`Delete calibration file and reload it from flash
+                                or, if invalid, use default calibration.
+
+` Endpoint  getEndpoint();`Returns the current digitizer endpoint as a value
+                                from the enumerated type
+                                caen_nscldaq:VX2750Pha::Endpoint
+                                which has the following legal values:
+                                caen_nscldaq:VX2750Pha::Raw
+                                or
+                                caen_nscldaq:VX2750Pha::PHA.
+
+` void   selectEndpoint(Endpoint selection);`Sets the current end point from which data will
+                                be read. Note that once selected, the endpoint data format
+                                must be programmed.  The data from the raw endpoint is
+                                relatively fixed and is programmed
+                                by calling `initializeRawEndpoint`.
+
+The data from the PHA endpoint is very flexible
+                                and, rather than burdening the programer with the
+                                JSON required to set that up, we provide several methods
+                                that will be described below to enable or disable
+                                various elements.
+
+` void initializeRawEndpoint();`As described above, this should be called after the
+                                first time the raw endpoint is selected.
+                                It provides the JSON that describes what the
+                                raw end point should return on a read.
+
+` void ReadRawEndpoing(void* pBuffer);`Reads data from the raw endpoint to the
+                                memory pointed to by `pBuffer`.
+                                The size required for this read can be gotten by
+                                calling `getMaxRawDataSize`
+                                once `initializeRawEndpoint`
+                                has been called.
+
+`initializeRawEndpoint`
+                                initializes the format so that you can expect the data
+                                to begin wth a size_t containing the number
+                                of bytes of subsequent data.  The format of the
+                                data are described by 4.2.1
+                                of the
+                                FELib PHA Parameters User Manual.
+
+` void setDefaultFormat();`Returns the format flags for the DPP endpoint to
+                                their default values.  The default is to read the channel number,
+                                the timestamp calibrated to nanoseconds (used in event building),
+                                and the energy. See the methods below for other
+                                optional values that are available and how to
+                                enable/disable them.
+
+Once the format flags have been appropriately set,
+                                `initialzeDPPPHAReadout`
+                                should be called to send the appropriate JSON
+                                to the board to describe the desired data format.
+
+` void enableRawTimestamp(bool enable);`If `enable` is true,
+                                the raw timestamp is also included in the event
+                                otherwise it is not.  Note that the raw timestamp
+                                units are module dependent.
+
+Once the format flags have been appropriately set,
+                                `initialzeDPPPHAReadout`
+                                should be called to send the appropriate JSON
+                                to the board to describe the desired data format.
+
+` void enableFineTimestamp(bool enable);`If `enable` is
+                                true, then
+                                the fine timestamp from the module fast filters
+                                will be returned in the event. If
+                                false, that information is
+                                omitted.
+
+` void enableFlags(bool enable);`If `enable` is
+                                true status and error flags
+                                will be included with the event.  Otherwise,
+                                they wll be omitted.
+
+` void enableDownSampling(bool enable);`If `enable` is
+                                true, the downsamping
+                                value will be included in the event.  Otherwise
+                                it will be omitted.
+
+` void enableAnalogProbes(bool probe1, bool probe2);`If `probe1` is enabled,
+                                analog probe 1 data is included in the event.
+                                If `probe2` is enabled
+                                the analog probe 2 data is included in the event.
+
+` void enableDigitalProbes(bool probe1, bool probe2, bool probe3, bool probe4);`The `probe`n parameters control
+                                the presence or absence of the associated digital
+                                probe in the event.
+
+` void enableSampleSize(bool enable);`Controls the presence or absence of the number of
+                                samples of acquired data in the event.  Note that since
+                                each channel can have a different sampling window,
+                                if you enable probes it's probably a good idea
+                                to enable this as well so you know how  much
+                                data is actually acquired by the probes.
+
+` void enableRawEventSize(bool enable);`Controls the presence or absence of the size of a
+                                raw event in the event.   This value is relatively
+                                useless for the DPP-PHA endpoint.
+
+` void initializeDPPPHAReadout();`Taking the format flags that have been set/cleared,
+                                this method generates the appropriate format
+                                description JSON and sends it to the board to
+                                determine the data returned by the DPP-PHA endpoint.
+
+` void  readDPPPHAEndpoint(DecodedEvent& event);`Reads an event from the digitizer blocking until
+                                one is available.  Note that
+                                `Dig2Device`  provides
+                                the `hasData` method to
+                                test for the presence of data, if it is unacceptable
+                                for the application to block indefinitely.
+
+The event data is read ito a
+                                caen_nscldaq::VX2750Pha::DecodedEvent
+                                struct.  The fields that are actually filled in depend
+                                on the items enabled at the time the
+                                `initializeDPPPhaReadout`
+                                call was made.
+
+DecodedEvent may, depending on the
+                                enabled data, have dynamically allocated fields.
+                                The methods `initDecodedBuffer`,
+                                `setupDecodedBuffer` and
+                                `freeDecodedBuffer`
+                                should be used to initialize and maintain
+                                instances of DecodedEvent.
+                                See below.
+
+<a name="AEN67730"></a>### Managing DPP-PHA decoded event buffers
+
+Three methods are provided to manage the storage
+                            for a DecodedEvent.
+                            `initDecodedBuffer`,
+                            `setupDecodedBuffer`,
+                            and `freeDecodedBuffer`.
+
+Upon defining a DecodedEvent instance,
+                            the first thing you shold do is call
+                            `initDecodedBuffer` to
+                            initialize the pointers in that buffer to the
+                            deallocated values.  Once the event structure has been
+                            deinfed and `initializeDPPPHAReadou`
+                            called, use `setupDecodedBuffer`
+                            to allocate any dynamic data needed for the event.
+                            If the shape of the event is subsequently changed
+                            (through another call to e.g. `initializeDPPPHAReadou`),
+                            but you want to continue using the same decoded event,
+                            call `freeDecodedBuffer`
+                            to release dynamic memory followed by
+                            `setupDecodedBuffer` to
+                            make new appropriate allocations.
+
+The signatures of these methods are shown below:
+
+
+
+` void  initDecodedBuffer(DecodedEvent& event);`Initialize the contents of a DecodedEvent
+                                    prior to the initial call to
+                                    `setupDecodedBuffer`.
+                                    Among other things all pointers in the
+                                    `event` are set to
+                                    nullptr so that
+                                    `delete` calls
+                                    will behave appropriately.
+
+` void  setupDecodedBuffer(DecodedEvent& event);`Taking into account the format flag information
+                                    that has been established, allocates appropriate
+                                    dynamic memory for the `event`.
+                                    This can mean allocating space for the analog and/or
+                                    digital probes that have been enabled.
+
+` void  freeDecodedBuffer(DecodedEvent& event);`Dyanimcally allocated data in `event`
+                                    is freed and pointers to those data are set to
+                                    nullptr in preparation for
+                                    the next call to `setupDecodedBuffer`
+                                    for this `event`.
+
+<a name="AEN67787"></a>## The DecodedEvent struct
+
+When acquiring data, events are read using a
+                        DecodedEvent struct.  This struct has fields
+                        which may or may not be set and storage that may or may not
+                        be allocated depending on the formatting flags that were
+                        set prior to the call to
+                        `initializeDPPPHAReadout`.
+
+This section describes the fields of this struct and when
+                        to expect them to contain valid data.
+
+
+
+std::uint8_t`s_channel`This field is always filled in and contains the
+                                channel number (0-63) for this event.
+                                Note that events from the digitizer are data
+                                from individual channel triggers and must be
+                                assembled into physically meaningful events using
+                                e.g. the NSCLDAQ Event builder.
+
+std::uint64_t`s_nsTimestamp`This field is always filled in and contains the
+                                timestamp for the event converted to a nanosecond value.
+                                Note that in NSCLDAQ, this field is used to set the
+                                event fragment timestamp for event building so that
+                                the event builder shouild work properly across
+                                a heterogeneous set of digitizers.
+
+std::uint64_t`s_rawTimestamp`This field is only filled in if
+                                `enableRawTimestamp` is
+                                called with true prior to
+                                initializing the DPP-PHA readout format.
+                                It contains the digitizer timestamp in
+                                digitizer timing units.
+
+std::uint16_t`s_fineTimestamp`Only filled in if
+                                `enableFineTimestamp` is
+                                called with true prior to
+                                initializing the DPP-PHA readout format.
+                                This contains the fine timestamp from the fast filter
+                                zero crossing interpolation.
+
+std::uint16_t`s_energy`This field is always filled in.  It contains
+                                the energy reconstructed from the DPP-PHA
+                                algorithm.
+
+std::uint16_t`s_lowPriorityFlags`Filled in only if `enableFlags`
+                                is called with true.
+                                Contains the low priority status flags from the
+                                digitizer.
+
+std::uint16_t`s_highPriorityFlags`Filled in only if `enableFlags`
+                                is called with true.
+                                Contains the high priority status flags from the
+                                digitizer.
+
+std::uint8_t`s_timeDownSampling`Filled in only if `enableDownsampling`
+                                is called with true contains
+                                the code describing the digitizer downsampling.
+
+std::uint32_t*`s_pAnalogProbe1`This field is only not nullptr
+                                if analog probe 1 has been enabled by
+                                calling `enableAnalogProbes`.
+                                It points to a buffer for the data from the analog
+                                probe.  Each sample is a std::uint32_t.
+
+The pointer should *never*
+                                be modified.
+
+std::uint8_t`s_analogProbe1Type`This field is only filled in
+                                if analog probe 1 has been enabled by
+                                calling `enableAnalogProbes`.
+
+In that case it contains a code that describes
+                                which data analog probe 1 represents.
+
+std::uint32_t*`s_pAnalogProbe2`This field is only not nullptr
+                                if analog probe 2 has been enabled by
+                                calling `enableAnalogProbes`.
+                                It points to a buffer for the data from the analog
+                                probe.  Each sample is a std::uint32_t.
+
+The pointer should *never*
+                                be modified.
+
+std::uint8_t`s_analogProbe2Type`This field is only filled in
+                                if analog probe 2 has been enabled by
+                                calling `enableAnalogProbes`.
+
+In that case it contains a code that describes
+                                which data analog probe 2 represents.
+
+std::uint8_t*`s_pDigitalProbe1`Only not nullptr if
+                                `enableDigitalProbes` has been
+                                used to enable digital probe 1.  In that case,
+                                this is a pointer to where the digital probe 1
+                                samples will be stored.  Digital probes require
+                                one byte per sample an are either 0 or 1 for
+                                deasserted and asserted respectively.
+
+std::uint8_t`s_digitalProbe1Type`Only filled in if `enableDigitalProbes` has been
+                                used to enable digital probe 1.  In that case,
+                                this is a code that describes what digital probe
+                                1 represents.
+
+std::uint8_t*`s_pDigitalProbe2`Only not nullptr if
+                                `enableDigitalProbes` has been
+                                used to enable digital probe 2.  In that case,
+                                this is a pointer to where the digital probe 2
+                                samples will be stored.  Digital probes require
+                                one byte per sample an are either 0 or 1 for
+                                deasserted and asserted respectively.
+
+std::uint8_t`s_digitalProbe2Type`Only filled in if `enableDigitalProbes` has been
+                                used to enable digital probe 2.  In that case,
+                                this is a code that describes what digital probe
+                                2 represents.
+
+std::uint8_t*`s_pDigitalProbe3`Only not nullptr if
+                                `enableDigitalProbes` has been
+                                used to enable digital probe 3.  In that case,
+                                this is a pointer to where the digital probe 1
+                                samples will be stored.  Digital probes require
+                                one byte per sample an are either 0 or 1 for
+                                deasserted and asserted respectively.
+
+std::uint8_t`s_digitalProbe3Type`Only filled in if `enableDigitalProbes` has been
+                                used to enable digital probe 3.  In that case,
+                                this is a code that describes what digital probe
+                                3 represents.
+
+std::uint8_t*`s_pDigitalProbe4`Only not nullptr if
+                                `enableDigitalProbes` has been
+                                used to enable digital probe 4.  In that case,
+                                this is a pointer to where the digital probe 4
+                                samples will be stored.  Digital probes require
+                                one byte per sample an are either 0 or 1 for
+                                deasserted and asserted respectively.
+
+std::uint8_t`s_digitalProbe4Type`Only filled in if `enableDigitalProbes` has been
+                                used to enable digital probe 4.  In that case,
+                                this is a code that describes what digital probe
+                                4 represents.
+
+size_t`s_samples`Only filled in if `enableSampleSize`
+                                has enabled it.  In that case, this will hold the
+                                number of samples present in the analog and digital
+                                probes.  Otherwise, `initDecodedBuffer`
+                                will initialize this field to zero.
+
+size_t`s_eventSize`This is only filled in if `enableRawEventSize`
+                                is used to enable it.  In that case it will be filled
+                                in with the relatively useless size of the raw event.
+                                The size of the raw event is the number of bytes that
+                                would have been used to hold the event had it been
+                                read over the raw endpoint.
+
+<a name="AEN67965"></a>## EXPORTED DATA
+
+The class exports several maps to allow string values
+                        to be mapped to enumerated values.  These are intended
+                        to be used by
+                        `VX2750PHAConfiguration` but
+                        can be used for other application software.
+
+These data structures are all of types like
+                        std::map<std::string, some-enumerated-type>
+                        which allow you to look up an enumerated type which
+                        corresponds to a string value.
+                        These are also named things like
+                        stringToenumeraged-type.  For example
+                        stringToClockSource maps string names
+                        of clock sources to the caen_nscldaq::VX2750Pha::ClockSource
+                        enumerated types.
+
+If you must use these, see their initializations in the
+                        file VX2750Pha.cpp.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Dig2Device | Up | VX2750PHAModuleConfiguration |

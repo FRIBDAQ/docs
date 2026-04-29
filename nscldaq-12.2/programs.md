@@ -1,0 +1,322 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.programs"></a>programs
+
+<a name="AEN106765"></a>## Name
+
+programs -- API For the DAQ Manager Program Database
+
+<a name="AEN106768"></a>## Synopsis
+
+```
+package require programs
+
+program::exists db name
+program::add    db name path type host options
+program::replace db oldname newname path type host options
+program::remove db name
+set def [program::getdef db name]
+set defs [program::listDefinitions db]
+if {[program::isActive name]} {...}
+set namesAndHosts [::program::activeContainers]
+set names [::program::activePrograms]
+set fd [::program::run db name ?outputHandler?]
+::program::kill db name
+
+
+      
+```
+
+<a name="AEN106770"></a>## DESCRIPTION
+
+This package provides access to the program definition part of
+           the experiment database.  It also provides procs that allow
+           programs to be run and stopped.  See
+           EXPORTED ENTRY POINTS below for details.
+
+A program is defined by the following mandatory data:
+
+
+
+idAn integer that is unique across all programs.
+
+nameThis name is used to identify the program primarily to
+                    people.  The name must be unique
+                    among all programs.
+
+pathThe filesystem path to an executable entity. Executable
+                    entities can be binary program sor they can be scripts.
+
+If the program runs containerized the executable entity
+                    must be locatable within the containerized environment.
+                    This means that if the path to the script is incomplete,
+                    the PATH variable in the container
+                    must be able to locate the program.  Alternatively,
+                    if the path to the program is complete, but the image of the
+                    filesystem within the container is different that in the host,
+                    the path within the container must be used.
+
+typeThe type of the program.  Programs can be
+                    Transitory, which means it is expected
+                    they will exit.  There are also two types of persistent
+                    programs (programs that are not expected to exit):
+                    Critical programs are required for
+                    the data acquisition system to function properly.  If a
+                    Critical program exits, the DAQ
+                    manager forces the DAQ system to shutdown.
+                    Persistent programs are not expected to
+                    exit but, if they do, data taking can continue.
+
+hostThe DNS name of the host in which the program will be run.
+                    You should specify exactly the name of the host in which to
+                    run the program and not use localhost.
+
+Several optional bits of data can be associated with a program and
+           define the environment in which the program runs.  Not all of these
+           items are used at this implementation of the system.
+
+
+
+containerThe name of a container in which the program will
+                    run.  This container must be defined in the
+                    containers package.
+
+initscriptAn initialization script run prior to running the program.
+                    This is not yet used.  The contents of this script are
+                    pulled into the database.  Thus changes to the
+                    initialization script (once it's implemented) will
+                    not bee seen until the program is re-defined.
+
+By not used, I mean that the GUI systems to edit program
+                    definitions don't provide a mechanism for providing this
+                    script.  At program activation time, any initialization
+                    script provided is used.
+
+Since the contents of the script are sucked into the
+                    database, it's important to provide the path to the
+                    script at the time the program is defined.
+
+serviceNot currently used.  If the program provides a REST service,
+                    its name should be provided here.
+
+environmentA list of environment name, value pairs which will be
+                    put into the program's environment before it is started.
+
+For example, when a Tcl script is the program, you
+                    may need to supply a TCLLIBPATH=$DAQTCLLIBS
+                    environment definition
+
+directoryThe working directory in which the program will be started.
+                    If not provided, you should make no assumptions about
+                    the working directory the program will be run in.
+
+These bits of optional data are used to construct the
+           command used to run the program.
+
+
+
+optionsThese are the program options and optionally values
+                    needed by those options.  For example, for a Readout,
+                    an option might
+                    be `--ring` with a value like
+                    `fox`.  It is legal for options not to have
+                    a value (for example `--oneshot`).
+
+Options are considered to be unordered.
+
+parametersParameters are placed on the command line following
+                    all options.  They are considered to be a list of ordered
+                    values.  An example of program parameters might be
+                    the name of the host in which the manager is running.
+
+<a name="AEN106856"></a>## EXPORTED ENTRY POINTS
+
+All of the exported entries are in the
+         ::program namespace.  If you are browsing the
+         source code of the package. Note that any proc name beginning with
+         a _ is internal and not gauranteed to be stable
+         over time.
+
+
+
+**program::exists** *db name*Determines if the named program; `name`
+                  has been defined in the database whose SQLite3 connection
+                  is `db`
+
+**program::add** *db name path type host ?options?*Adds a new program definition in the SQLite3 experiment
+                  configuration database pointed to by `db`
+
+`name` is the name that will be given
+                  to the new program.  The name must be unique across all
+                  program definitions in the database.  If a program with
+                  that name already exists, an error will be thrown.
+
+`path` is the path to the thing
+                  (executable program or script) that will be run when
+                  `name` is run.  Note that if the
+                  program is containerized, this path must be correct within
+                  the container rather than the host system.
+
+`type` is the program type.  This is
+                  one of Transitory, Critical
+                  or Persistent.  Transitory programs
+                  are expected to exit, normally relatively quickly.  Critical programs
+                  are required for the DAQ system to run.  If a critical
+                  program exits, the manager shuts down the DAQ system.
+                  Persistent programs are also intended to not exit, however
+                  the DAQ system can continue to run without them.
+
+`host` is the DNS name of the system
+                  in which the program will be run.
+
+The `options` optional parameter is
+                  provided to supply additional  information describing
+                  the environment and manner in which the program
+                  will be run.  It consists of a dict that whose keys
+                  are parameter names and values for those parameters.
+
+None of the keys are mandatory.  The keys are:
+
+
+
+containerIf supplied, this must be the name of a container
+                           that is already defined via the
+                           [[r106592]]
+                           package.    If supplied, the program, when run,
+                           will be run in the container environment specified
+                           by that container definition.
+
+initscriptInitialization script.  This should be the path to
+                           a valid shell script in the context in which the
+                           **program::add** command is run.
+                           The contents of this file, at the time
+                           **program::add** is called will
+                           be stored in the database and, when the program
+                           is run, will be run prior to executing the program.
+
+serviceThis is not yet used.  If your program publishes
+                           a service with the NSCLDAQ port manager, the
+                           name of this service should be placed here.
+
+optionsThe value of this key is a list of program command
+                           line options.  If an option is a two element list,
+                           the first is considered to be the option name and
+                           the second a value associated with the option.
+
+name value pairs become command line options
+                           of the form name=value.
+
+The order in which options are specified is not
+                        considered to be important, however, they are written
+                        on the command line in the same order as provided here.
+
+parametersThe value of this is a list of values that will
+                           be provided as program command line parameters in the
+                           order in which they are given here.
+
+environmentThe value of this is a list of name value pairs
+                           that will become environment variables available
+                           to the program.
+
+directorySets a current working directory for the program.
+                           Note if the program is containerized, this must
+                           be expressed in terms of the containerized file
+                           system.  If this is not specified, no assumptions
+                           should be made about the working directory
+                           in which the program is run.
+
+Note that when the program is run, a script is generated to run
+                  the program.  As such, any shell substitutions can be
+                  specified for any of the values used to start a program.
+
+**program::replace *db oldname newname path type host ?options?* **Replaces the program named `oldname`
+                    with the program named `newname`
+                    that is defined by the remaining parameters.  These
+                    parameters have the same meaning as in
+                    **program::add** above.
+
+The new program definition retains the primary key of the
+                    root record of the old program.  This means that all references
+                    to the program are retained throughout the database.
+
+**program::remove** *db name*Removes the program named `name` from
+                  the database whose connection command is `db`.
+
+>**program::getdef** *db name*Returns a dict that describes the program
+                  `name` in the database
+                  `db`.  The dict will have the
+                  following keys and values:
+
+
+
+idA unique integer that identifies the program.
+                           In database terminology, this is the primary key of
+                           the root record of the program definition.
+
+nameName of the program
+
+pathPath to the program or script that will be run.
+
+typeType of the program  in text form. This will
+                           be one of Transitory,
+                           Persistent or
+                           Critical.
+
+type_idInteger value that's related to the
+                           type.   In fact the
+                           legal types are in a database table, and this value
+                           is the primary key for the type described in
+                           type.
+
+hostThe DNS name of the host in which the program
+                           will be run.
+
+directoryPresent only if a working directory was specified for the
+                            program.  The value will be the value of that
+                            directory.
+
+container_name, container_idIf present, the program is to be run containerized.
+                           The container_name value
+                           is the name of the container in which to run
+                           the program. The container_id
+                           value is the primary key of the container's root
+                           record.
+
+initscriptIf an initialization script was specified, this
+                           will be the contents of that script file at the
+                           time the program was defined with
+                           **program::add**
+
+serviceIf present a service name was provided and
+                           the value is the name provided.
+
+optionsList of two element lists where the first
+                           element of each sublist is a program option name
+                           and the second element its value.  If the option
+                           has no value, the second element is an empty string.
+
+parametersList of parameters that will be added to the
+                           program command line.  These are considered
+                           to be ordered.  That is they are added to the
+                           command line after the options and in the same
+                           order as this list.
+
+environmentA list of two item sublists that define additions
+                           to the environment variables that will be added
+                           to the environment prior to running the program.
+                           The first element of each sublist is the name of
+                           an environment variable and the second is the
+                           value of that variable.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| containers | Up | sequence |

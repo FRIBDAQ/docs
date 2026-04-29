@@ -1,0 +1,56 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN109"></a>listparams
+
+<a name="AEN113"></a>## Name
+
+listparams -- Creates a listing of defined parameters.
+
+<a name="AEN116"></a>## Synopsis
+
+**spectcl.listparams()                            
+                        **
+
+<a name="AEN119"></a>## DESCRIPTION
+
+This method returns a tuple containing the names of
+                        all SpecTcl commands.
+
+<a name="AEN122"></a>## EXAMPLES
+
+<a name="AEN124"></a>**Example 3-1. Listing all parameters to tkcon**
+
+```
+python exec {
+params = spectcl.listparams()
+for p in params:
+    script = 'puts "{}"'.format(p)
+    spectcl.tcl(script)
+}
+                        
+```
+
+This example gets a tuple containing the names of
+                            all defined parameters.  The for loop then
+                            generates a Tcl script to output each parameter
+                            name in the tuple to tkcon taking advantage of the
+                            fact that Tcl's stdout is tkcon.  The scripts
+                            are then executed to output the names of the parameters
+                            to the console.
+
+Note that if the user's SpecTclRC.tcl
+                            does not start TkCon, this will output to the
+                            terminal from which SpecTcl started.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| tcl | Up | listspectra |

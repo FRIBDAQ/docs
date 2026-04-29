@@ -1,0 +1,152 @@
+|  |  |  |
+| --- | --- | --- |
+| Rootxamine - Attaching CERN Root to SpecTcl's Spectrum Shared Memory |
+| Prev | Chapter 2. Running rootxamine | Next |
+
+
+---
+
+# <a name="AEN87"></a>2.2. How to run xamineroot
+
+Given a SpecTcl that's running, either locally, or remotely,
+          that has set up the service ports as described in the
+          previous section, you can run the program xamineroot
+          to bring up a root interpreter that will maintain a set of
+          histogram objects that wrap the histograms that have been
+          bound the the SpecTcl shared display memory.
+
+Note that if SpecTcl is running remotely, if necessary a
+          mirror of its shared memory will be created transparently
+          in the system in which you run **xamineroot**.
+          The mirroring subsystem is smart enough to only create a single
+          mirror for each SpecTcl shared memory source in any remote system.
+          This means that if there's already a mirror for the
+          SpecTcl you specify, your **xamineroot**
+          will simply map to the shared memory of that mirror rather than
+          set up a new mirror.
+
+**xamineroot** accepts all of the Root
+          command line options and parameters and adds the following
+          additional options:
+
+
+
+`--host`The value of this option is the host in which the
+                    SpecTcl you want **xamineroot** to
+                    attach to.  This is an optional parameter. If
+                    omitted it defaults to localhost
+                    which specifies a SpecTcl running in the same
+                    system as **xamineroot**.
+
+`--rest`The value of this option specifies either the
+                    number of the port on which SpecTcl's REST
+                    server is listening on or, if the port manager was
+                    used to allocate a port, the service name advertised
+                    by the port manager for that  port.
+
+`--rest` is optional and, if not
+                    supplied, defaults to 8080.
+                    In general you should not allow this to default.
+
+`--mirror`The value of this option specifies either the
+                    number of the port SpecTcl's mirror server is listenin
+                    on or, if the port manager was used to allocated a port,
+                    the service name advertised by the port manager for that
+                    port.
+
+`--rest` is optional and, if not supplied,
+                    defaults to 8081.  In general
+                    you should not allow this to default.
+
+`--user`This option is only important if either the
+                    value of `--rest` or
+                    `--mirror` are service names
+                    advertised by the port manager.  In that case,
+                    the value of this option is the username of the account
+                    that advertised that service.
+
+If not suppled, **rootxamine** will
+                    determine the username under which it's running
+                    and use that to resolve service names to port
+                    numbers if needed.
+
+Here are some sample invocations of **rootxamine**
+            they assume at some point you've defined the
+            environment variable SPECBIN to
+            point to the bin subdirectory of
+            the SpecTcl installation you're using
+            (version 5.10-006 or higher).
+
+<a name="AEN133"></a>**Example 2-3. Invoking xamineroot**
+
+```
+$SPECBIN/rootxamine                             
+$SPECBIN/rootxamine --rest=9000 --mirror=9100   
+$SPECBIN/rootxamine --host=somehost.frib.msu.edu \ 
+    -rest=SpecTcl_REST --mirror=SpecTcl_MIRROR
+$SPECBIN/rootxamine --host=somehost.frib.msu.edu \ 
+    -rest=SpecTcl_REST --mirror=SpecTcl_MIRROR --user=someuser
+            
+```
+
+[[x87#invoke.bare]]                    This invocation uses all the default connection values:
+                    SpecTcl is assumed to run in the same host as us,
+                    the REST port is
+                    assumed to be 8080 and the mirror port is assumed to be
+                    8081. Since the default values are all numeric ports, the
+                    user default value is irrelevant.
+                [[x87#invoke.numericports]]                    This invocation explicitly specifies numeric ports
+                    for the REST server (9000) and the
+                    mirror server (9100). By default,
+                    SpecTcl is assumed to be running in the same host
+                    as **rootxamine**.
+                    The default value of `--user` is
+                    irrelevant because numeric ports don't require
+                    resolving service names via the port manager.
+                Note that this form also *does*
+                    allow `--host` to be specified and
+                    be remote in which case SpecTcl must be running in
+                    that host and supplying the services on the ports
+                    specified by `--rest` and
+                    `--mirror`
+
+[[x87#invoke.remote1]]                    Specifies that SpecTcl is running in the host
+                    somehost.frib.msu.edu.  This
+                     could be the local host or remote.
+                    somehost.frib.msu.edu is,
+                    evidently running the NSCLDAQ port manager as
+                    the `--mirror` and
+                    `--rest` values are service names
+                    not port numbers.  **rootxamine**
+                    will resolve these services qualifying their names
+                    with the name of the user running
+                    **rootxamine** since no
+                    explicity `--user` option
+                    was specified.
+                Note that there's nothing to stop you from specifying
+                    a remote host and numeric port numbers.  Note as well
+                    that the logic used to determine a host is local,
+                    in pretty much all cases will figure that out correctly
+                    and not setup up a mirror if that's not necessary.
+
+[[x87#invoke.remote2]]                    Same as the previous example but the service names
+                    are resolved for the user someuser
+                    which may or may not be the user running
+                    **rootxamine**.  This user must be a valid
+                    user in the host somehost.frib.ms.edu.
+
+Note that regardless of how **rootxamine**
+            negotiates attachment with SpecTcl's shared memory (local or
+            mirrored), the mapping that's done is
+            *readonly*.  Therefore operations that modify
+            contents of the spectra will segfault **rootxamine**.
+            The REST interface can do most things you might want to do
+            that modify SpecTcl spectra.  Check out the documentation of
+            the REST server and client packages if you have those special needs.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running rootxamine | Up | rootxamine's update and consequences for your scripts. |

@@ -1,0 +1,106 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN37376"></a>USBException
+
+<a name="AEN37380"></a>## Name
+
+USBException -- Report errors from libUSB1
+
+<a name="AEN37383"></a>## Synopsis
+
+```
+g++ yourstuff -L$DAQLIB -Wl-rpath=$DAQLIB -llibUSB1 \
+   `pkg-config libusb-1.0 --libs` `pkg-config libusb-1.0 --cflags`         
+      
+```
+
+```
+
+#include <USB.h>
+class USBException : public std::exception
+{
+public:
+    USBException(int code, const std::string& msg)  noexcept;
+    USBException(const USBException& rhs) noexcept;
+    USBException& operator=(const USBException& rhs) noexcept;
+    
+    virtual const char* what() const noexcept;
+    
+};         
+      
+```
+
+<a name="AEN37386"></a>## DESCRIPTION
+
+This class is intended to be used to signal
+            errors by the USB library.  The `code`
+            parmaeter for the constructor is a lower lever library
+            error code and is used to create the final error
+            message produced by the `what`
+            method.
+
+<a name="AEN37391"></a>## EXAMPLES
+
+Catching the detailed exception:
+
+<a name="AEN37394"></a>```
+#include <USB.h>
+#include <iostream>
+#include <stdlib.h>
+...
+{
+...
+   try {
+       // Some libUSB1 calls in this block:
+   }
+   catch (USBException& e) {
+       std::cerr << "An error occured during a USB call: \n";
+       std::cerr << e.what() << std::endl;
+       exit(EXIT_FAILURE);
+   }
+   ...
+}
+         
+```
+
+If all you want to do is kill the program on any exception
+         you don't need to catch the detailed exception take advantage
+         of the fact that
+         `USBException` is derived from
+         `std::exception` and be sure to
+         catch `std::exception` by
+         reference so the proper `what`
+         method is executed e.g.:
+
+<a name="AEN37401"></a>```
+#include <stdexcept>
+#include <iostream>
+#include <stdlib.h>
+...
+{
+...
+   try {
+       // Some libUSB1 calls in this block:
+   }
+   catch (std::exception& e) {
+       std::cerr << "An error occured: \n";
+       std::cerr << e.what() << std::endl;
+       exit(EXIT_FAILURE);
+   }
+   ...
+}
+         
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| LIBUSB1 INTRO | Up | USB |

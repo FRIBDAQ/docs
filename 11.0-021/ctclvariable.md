@@ -1,0 +1,248 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLVariable"></a>CTCLVariable
+
+<a name="AEN39046"></a>## Name
+
+CTCLVariable -- 
+            Encapsulate Tcl interpreter variables.
+
+<a name="AEN39049"></a>## Synopsis
+
+```
+#include <TCLVariable.h>
+
+class CTCLVariable  : public CTCLInterpreterObject
+{
+public:
+  CTCLVariable (std::string am_sVariable,  Bool_t am_fTracing  );
+  CTCLVariable (CTCLInterpreter* pInterp,
+                std::string am_sVariable,  Bool_t am_fTracing  );
+  CTCLVariable (const CTCLVariable& aCTCLVariable );
+
+  CTCLVariable& operator= (const CTCLVariable& aCTCLVariable);
+  int operator== (const CTCLVariable& aCTCLVariable) const;
+
+  std::string getVariableName() const;
+  Bool_t IsTracing() const;
+
+  void setVariableName (const std::string am_sVariable);
+  virtual   char*  operator() (char* pName,
+                               char* pSubscript,
+                               int Flags)  ;
+
+   static  char* TraceRelay (ClientData pObject, Tcl_Interp* pInterpreter,
+                             tclConstCharPtr  pName,
+                             tclConstCharPtr pIndex,
+                             int flags)  ;
+
+  const char* Set (const char* pValue, int flags=TCL_LEAVE_ERR_MSG |
+                                                 TCL_GLOBAL_ONLY)  ;
+  const char* Set (const char* pSubscript, char* pValue,
+                   int flags=TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY)  ;
+  const char* Get (int flags=TCL_LEAVE_ERR_MSG | TCL_GLOBAL_ONLY,
+                   char* pIndex=0)  ;
+  int Link (void* pVariable, int Type)  ;
+  void Unlink ()  ;
+  int Trace (int flags=TCL_TRACE_READS | TCL_TRACE_WRITES | TCL_TRACE_UNSETS,
+             char* pIndex = (char*)kpNULL)  ;
+
+  void UnTrace ()  ;
+
+};
+
+```
+
+<a name="AEN39051"></a>## DESCRIPTION
+
+`CTCLVariable` allows an existing or new Tcl interpreter
+            variable to be encapsulated so that it can be accessed, traced or linked
+            in C++ code.
+
+<a name="AEN39055"></a>## METHODS
+
+
+
+```
+CTCLVariable
+```
+
+
+In the first two cases, `sName` is the name of the variable
+            that will be wrapped by this object.  The variable name can contain namespace
+            qualifications as well as indices.  If `fTracing` is true,
+            the object is set to record that it is tracing the variable.  Normally
+            this parameter should be allowed to default to kfFALSE,
+            and the trace member functions used to set explicit traces.
+            For the final form of the constructor (copy constructor),
+            `aCTCLVariable` is a `CTCLVariable` that
+            will be copied into this object.
+
+In the first form of the constructor, one must later call the
+            `Bind` function (see CTCLInterpreterObject), to bind
+            the variable to a specific interpreter prior to accessing it.
+
+
+
+```
+operator=
+```
+
+
+Assigns the `rhs` object to this one.  A reference to the
+            left hand side of the assignment is returned.  The semantics of assignment are
+            not that the variable values are assigned, but that the left side of the
+            assignment becomes a functional equivalent of `rhs`,
+            that is it stands for the same object and has the same traces (if any) set.
+            Thus, if `rhs` wraps the interpreter variable `a`
+            and the object on the left side wraps interpreter variable `b`
+            after the assignment executes, the left side object will be wrapping
+            `a`.
+            A reference to the object on the left hand side of the assignment is returned.
+
+
+
+```
+operator==
+```
+
+
+Compares this object for functional equality with `rhs`.
+            Functional equality is defined as the two objects referring to the same
+            variable, in the same interpreter, and having traces set on the same
+            operations.
+
+
+
+```
+getVariableName
+```
+
+
+Returns the name of the Tcl variable that is wrapped by this object.
+
+
+
+```
+Trace
+```
+
+
+This set of functions supports variable tracing.  In Tcl, a trace is a function
+            that is called when some event of interest occurs on a varialbe.  The possible
+            events are read, write, and unset.  To effectively use variable tracing, you
+            must create a subclass of `CTCLVariable`, override its
+            `operator()` member to handle the trace and call
+            `Trace` to initiate tracing.
+
+The `Trace` member initiates tracing on the variable.
+            `flags` describes when the trace should fire.
+            See the manpage for `Tcl_TraceVar` for information about
+            the legal flag values.
+
+`Untrace` cancels all traces on the variable represented by
+            this object.
+
+`IsTracing` returns kfTRUE if tracing
+            is being performed on the variable.
+
+When a trace fires, the `operator()` member will be called.
+            This is why you must override the `CTCLVariable` base
+            class to do anything useful with a trace.  The parameters to the
+            call are; `pName` is the name of the variable that
+            has been traced. `pSubscript` is the array subscript in the
+            event the trace fires on an array or element of an array, and is
+            NULL otherwise.  `Flag` describes
+            why the trace fired.  Again, see the `Tcl_TraceVar`
+            manpage for more information.
+            Note that for write traces, the variable has already been set.  Modifying
+            the value of the traced variable within a trace function will not fire any
+            additional traces.
+            The `operator()` function must return a NULL
+            pointer if the trace is successful.  It must return a pointer to an error message
+            if the trace is not successful.  An example of an unsuccessful trace might be
+            a write trace that ensures that only particular values are assigned to the
+            variable.
+
+
+
+```
+Set
+```
+
+
+Sets the value of the variable to the string pointed to by `pValue`
+            The second form of this assumes that the `CTCLVariable`
+            represents an array and the `pSubscript` parameter
+            specifies the subscript of the array that is being set.  The `flags`
+            parameter is fully documented in the Tcl manpage for Tcl_SetVar
+
+
+
+```
+Get
+```
+
+
+Retrieves the current value of a variable.  If the `pIndex`
+            parameter is supplied, the variable wrapped by `CTCLVariable`
+            is assumed to be an array and `pIndex` points to the subscript of the
+            element to retrieve.  The `flags` parameter is fully
+            documented in the Tcl_GetVar manpage.  The return value of the function is
+            a null terminated character string that is the current value of the variable.
+            If the variable does not exist, then a NULL is returned.
+
+
+
+```
+Link
+```
+
+
+`Link` and `Unlink` support variable
+            linking.  Variable linking is when a Tcl variable is made to track the value
+            of a C/C++ variable or C++ member variable of an object.
+            `Link` establishes the link.  `pVariable`
+            points to the C or C++ variable or member variable to link to this
+            `CTCLVariable`.  The `Type`
+            parameter is one of following values:
+            TCL_LINK_INT,
+            TCL_LINK_DOUBLE,
+            TCL_LINK_BOOLEAN,
+            TCL_LINK_WIDE_INT, or
+            TCL_LINK_STRING indicating the type of the variable
+            to which `pVariable` points.  For all but
+            TCL_LINK_STRING, `pVariable` points
+            to a variable of the type indicated, and that variable will be linked.
+            for TCL_LINK_STRING, `pVariable` points
+            to a char* which should be initialized to point to NULL.
+            The Tcl interpreter will use `Tcl_Alloc` and `Tcl_Free`
+            to maintain a dynamically allocated string pointed to by that pointer which
+            reflects the value of the variable.  If the C/C++ program modifies this string,
+            it must `Tcl_Free` the prior value and `Tcl_Alloc`
+            a new value with the new variable value.
+
+<a name="AEN39229"></a>## DEFECTS
+
+No `operator!=` has been defined.
+
+There is no protection against multiple links... the most recent link
+            for an underlying Tcl variable is the one effective.
+
+<a name="AEN39234"></a>## SEE ALSO
+
+CTCLInterpreter(3), CTCLInterpreterObject(3),
+        Tcl_GetVar(3tcl), Tcl_LinkVar(3tcl), Tcl_SetVar(3tcl), Tcl_TraceVar(3tcl)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLObjectProcessor | Up | CTCLProcessor |

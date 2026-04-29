@@ -1,0 +1,131 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN7816"></a>mvlc
+
+<a name="AEN7820"></a>## Name
+
+Memorizer for VME operations -- Provide substitute for VMUSB controller object
+
+<a name="AEN7823"></a>## Synopsis
+
+```
+mvlc subcommand ...
+                    
+```
+
+<a name="AEN7825"></a>## DESCRIPTION
+
+The VMUSBReadout software we are trying to model this translator after, passed
+                        a command ensemble to the `Initialize` and 
+                        `onEndRun` subcommands of Tcl driver instances as
+                        a parameter.  The **mvlc** command ensemble is passed to 
+                        driver instances generating code for **mvlcgenerate**
+
+The subcommands (methods) of this command ensemble are modeled closely after those
+                        of the VMUSB instance command ensemble passed to those methods of Tcl driver instances
+                        running in the VMUSBReadout.  The usual difference applies; the **mvlc**
+                        only memorizes operations because we are not actually connected to any hardware.
+                        This means that read operations are not supported.
+
+Note that while the command name is **mvlc** that command should not be used
+                        directly, instead, substitute the parameter to the method that it is given to.
+                        e.g.:
+
+<a name="AEN7836"></a>```
+...
+    method Initialize controller {
+        ...
+        # not mvlc vmeWrite32 $someaddress $CVMUSBReadoutList::a32UserData $somedata
+        $controller vmewwrite32 $somaddress $CVMUBSReadoutList::a32UserData $somedata
+    }
+                    
+```
+
+This allows drivers to be written that will work either as VMUSBReadout or
+                        as mvlcgenerate drivers.
+
+<a name="AEN7839"></a>## SUBCOMMANDS/METHODS
+
+In Tcl object oriented programming/extensions, normally models classes as commands
+                        that can generate command ensembles (contruct objects).   The subcommands of the
+                        generated ensemble are the object's methods.  The **mvlc**
+                        can be though of as just such an object.  It has the following
+                        subcommands/methods:
+
+
+
+**mvlc vmeWrite32 *address amod data***Memorizes  a 32 bit write of `data`
+                                to the VME address specified by `address`
+                                in the address space specified by the address modifier `amod`
+
+**mvlc vmewrite16 *addresss amod data***Same as above but the write is a 16 bit write.
+
+**mvlc delay *howlong***Memorizes a delay.  Drivers that were doing e.g. **after** 
+                                commands to 
+                                perform delays in initialization cannot productively do that in mvlcgenerate
+                                as the operations saved will be spooled into the hardware at a later time.
+                                This operations memorizes a delay of `howlong` in
+                                200ns units.  Note that the VMSUBReadout controller does not have this
+                                capability.   Drivers often use the **after** to delay instead.
+
+To maintain compatibility, the code can be contionalized on the existence
+                                of the MVLC_TRANSLATOR  environment variable that 
+                                **mvlcgenerator**
+                                sets for the configuration file.  For example, suppose we need to delay for 1msec:
+
+<a name="AEN7871"></a>```
+method Initialize controller { 
+...
+    if {[array names ::env MVLC_TRANSLATOR] eq ""} {
+        after 1;                       # VMUSBReadout
+    }   else {
+        $controller delay 5000;     # generator - 1ms in 200ns units
+    }
+...
+                                
+```
+
+**mvlc loopUntil32 *address amod mask value***Sometimes you need to wait for something to happen in the device.  In
+                                VMUSBReadout, this is simply executing reads and looking at the result.
+                                Again, sincde we are just memorizing operations, this cannot be done
+                                in the translator.  The **loopUntil32** operation,
+                                does a 32 bit read at the selected *address* in the
+                                address space selected by *amod*.  The
+                                value read is then bitwise anded with `mask`  if the
+                                resulting value is not equal to `value` the
+                                read is repeated until it is.  Use with care as incorrect values for mask and
+                                value can result in a stalled operation.
+
+Suppose we reset the device and a 32 bit register sets the top bit
+                                when the device has finished the reset; this can be accomplished as follows
+                                portably between VMUSBReadout and **mvlcgenerate**:
+
+<a name="AEN7886"></a>```
+method Initialize controller {
+    $self reset $controller;       # Reset the device:
+    if {[array names ::env MVLC_TRANSLATOR] eq ""} {;   # VMUSB
+        while {([$controller vmeRead32 $resetreg $CVMUSBReadoutList::a32UserData] & 0x80000000) != 0x80000000} {
+
+        }
+    } else {;                       # mvlcgenerate
+        $controller loopUntil32 $resetreg $CVMUSBReadoutList::a32UserData 0x80000000 0x80000000
+    }
+}
+                                
+```
+
+**mvlc loopUntil16 *address amod mask value***Same as **loopUntil32** but the read is a 16 bit operation.  Naturally,
+                                this means the mask and value must also be 16 bit values.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Address modifier Tcl variables | Up | mvlclist |

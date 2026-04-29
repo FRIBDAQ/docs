@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ccusb3-ccontrolmodule"></a>CControlModule
+
+<a name="AEN55177"></a>## Name
+
+CControlModule -- Configuration and wrapper for CControlHardware
+
+<a name="AEN55180"></a>## Synopsis
+
+```
+CControlModule : public CConfigurableObject
+```
+
+<a name="AEN55236"></a>## DESCRIPTION
+
+`CControlModule` objects serve a dual purpose.
+            On the one hand, the methods supplied by them wrap the
+            driver objects (
+            [[r54933]]
+            derived objects).
+            On the other hand, by inheriting from
+            [[r52499]], this object
+            provides a configuration database for those driver object.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CControlHardware | Up | CCCUSBControl |

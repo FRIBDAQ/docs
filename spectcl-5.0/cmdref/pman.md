@@ -1,0 +1,193 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3102"></a>pman
+
+<a name="AEN3106"></a>## Name
+
+pman -- V5.1+ Manipulate the SpecTcl Analysis Pipeline
+
+<a name="AEN3109"></a>## Synopsis
+
+**pman mk *pipeline-name*
+**
+
+**pman ls ?pattern?             
+            **
+
+**pman current
+            **
+
+**pman ls-all ?pattern?
+            **
+
+**pman ls-evp ?pattern?
+            **
+
+**pman use  *pipeline-name*
+**
+
+**pman add *pipeline-name processor-name*
+**
+
+**pman rm *pipeline-name processor-name*
+**
+
+**pman clear *pipeline-name*
+**
+
+**pman clone *existing-pipe new-pipe*
+**
+
+<a name="AEN3136"></a>## DESCRIPTION
+
+The **pman** command ensemble is fully functional
+            and available starting with SpecTcl 5.1.  Along with the
+            `CPipelineManager` class, it supports
+            fully dynamic event processing pipelines within SpecTcl.
+
+Once you have registered a set of event processors, you can use the
+            **pman** command to create pipelines of these processors
+            and dynamically select which of theses is actively operating.
+
+The **pman** command is a command ensemble.  This
+            means it has a mandatory first command parameter which is a subcommand
+            that describes which pipeline management function you wish it
+            to perform.
+
+Note that only the pipeline manager can be used to register
+            event processors, however SpecTcl plugins can be created
+            that define, instantiate and register event processors when
+            loaded.
+
+<a name="AEN3146"></a>## SUBCOMMANDS
+
+
+
+**pman mk *pipeline-name*
+**
+
+Creates a new event processing pipeline named
+                        `pipeline-name`.  It is an error
+                        to try to create a pipeline with the name of an existing
+                        pipeline.
+
+**pman ls ?pattern?             
+            **
+
+Lists the names of the pipeline that match the optional
+                        glob pattern. If `pattern`
+                        is omitted, it defaults to * which
+                        matches all names.
+
+The return value of the command is a proper Tcl list
+                        whose elements are the names of the pipelines.
+
+**pman current
+            **
+
+Describes the current event procsssing pipeline.
+                        The result of this command is a two element Tcl
+                        list.  The first element of the list is the
+                        name of the current pipeline.  The second element
+                        is a list whose elements are the names of the
+                        event processors in the pipeline.  Note that
+                        the names of the event processors are given in the
+                        order in which they are in the pipeline.
+
+**pman ls-all ?pattern?
+            **
+
+Lists all the information about event processing
+                        pipelines that have been defined that match the optional
+                        `pattern`. If
+                        `pattern` is not provided,
+                        it defaults to * which matches all
+                        pipeline names.
+
+The result of this command is a list with one element
+                        per pipeline.  Each element is a two element sublist.
+                        The first element of that sublist is the name of a pipeline.
+                        The second element is, itself, a list that contains the names
+                        of the event processors in that pipeline in the order
+                        in which they occur.
+
+**pman ls-evp ?pattern?
+                        **
+
+Lists the names of the registered event processors
+                        that match the optional glob `pattern`.
+                        If `pattern` is omitted, it defaults to
+                        * which matches all names.
+
+**pman use  *pipeline-name*
+**
+
+Tells SpecTcl to use the pipeline named
+                        `pipeline-name` as the current
+                        event processing pipeline.  Beginning with the next
+                        event processed, the event processors in
+                        `pipeline-name` will be used to
+                        process events into parameters.
+
+It is an error for `pipeline-name`
+                        not to exist.
+
+**pman add *pipeline-name processor-name*
+**
+
+Adds an the event processor
+                        `processor-name` to the end
+                        of the event processing pipeline
+                        `pipeline-name`.
+                        An error is thrown if the
+                        `pipeline-name` is not an
+                        event processing pipeline or
+                        `processor-name` is not a
+                        registered event processing pipeline.
+
+**pman rm *pipeline-name processor-name*
+**
+
+Removes the event processor
+                        `processor-name` from the
+                        pipelnie `pipeline-name`.
+                        If `pipeline-name` is not the  name
+                        of a pipeline the command will throw an error.
+                        If `processor-name` is not the
+                        name of an event processor in `pipeline-name`,
+                        the command will also throw an error.
+
+**pman clear *pipeline-name*
+**
+
+Removes all event processors from the event processing
+                        pipeline named `pipeline-name`.
+                        If `pipeline-name` does not exist,
+                        the command throws an error.
+
+**pman clone *existing-pipe new-pipe*
+**
+
+Creates an exact duplicate of the event processing
+                        pipeline `existing-pipe` and names
+                        it `new-pipe`.
+                        `new-pipe` will be a pipeline with
+                        exactly the same list of event processors.
+
+If `existing-pipe` is not an
+                        event pipeline an error is thrown.  If
+                        `new-pipe` is already defined,
+                        an error is thrown.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| roottree | Up | evbunpack |

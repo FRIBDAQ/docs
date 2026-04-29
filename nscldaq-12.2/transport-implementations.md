@@ -1,0 +1,122 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 70. Parallel programming framework | Next |
+
+
+---
+
+# <a name="AEN16027"></a>70.2. Transport implementations
+
+At present both ZeroMQ messaging with threaded parallelism
+            and OpenMPI distributed are fully supported.  If you have
+            other messaging frameworks and paradigms you'd like to have
+            supported let us know.
+
+## <a name="AEN16030"></a>70.2.1. Details of ZMQ transport implementation
+
+The goal here is not to get into the nitty gritty of ZMQ
+                socket types used in the various transports, but to describe
+                facilities available to assist you in setting up ZMQ based
+                parallel programs.
+
+One facility the library provides is a factory that provides
+                you with transport factories for the specific communication
+                system you are using.   The factory knows how to create
+                transports for communication patterns implemented on top of
+                a specific transport library.
+
+The `CCommunicatorFactoryMaker`
+                singleton class represents this factory of factories.  The
+                code fragment below shows how to get a communication
+                factory for ZMQ communications:
+
+<a name="AEN16036"></a>```
+#include <CCommunicatorFactoryMaker.h>
+#include <CCommunicatorFactory.h>
+..
+..
+CCommunicatorFactory* pZmqFactory = CCommunicatorFactoryMaker::getInstance()->
+    create("ZeroMQ CommunicationSystem");
+if (!pZmqFactory) {
+    std::cerr << "ZEROMQ factory not in the factory of factories\n";
+    exit(-1);
+}
+....
+
+                
+```
+
+One problem that needed solving to provide a generic
+                communicator factory was how to identify communication endpoints.
+                For example a raw TCP/IP socket uses a host/port pair to
+                identify an end point, ZMQ uses an URI to identify end endpoint
+                and so on.
+
+Communicator factories use unsigned integers to identify
+                endpoints.  While this maps directly to e.g. MPI ranks,
+                there must be a mechanism for the ZMQ factory to map these
+                identifiers onto URIs.
+
+This is done by you, providing one or more zmq service map files.
+                A zmq service map file is a text file.  Lines beginning with
+                # are ignored as are lines that consist
+                only of whitespace.  Leading and trailing whitespace are also
+                ignored.
+
+Mapping lines, consist of two fields. The first is an integer
+                transport id and the second is the ZMQ URI that will be used
+                when that transport endpoint is selected. For example;
+
+<a name="AEN16043"></a>1 tcp://somenode.in.my.network:1234
+
+Maps the transport identifier 1 to  a TCP
+                transport with an endpoing of port number 1234
+                whose server is in a
+                system named somenode.in.my.network.
+
+We therefore need to know, additionally, which transports are
+                servers and which are clients.
+
+
+
+- Fanout transports are servers and their clients are not.
+- Fan in sinks are servers fanin sources are not.
+- One-to-One sources are servers, clients are not.
+
+The transport id/URI map is built up by reading all files found in
+
+
+
+- $HOME/.zmqservices
+- ./zmqservices
+- The file pointed to by the environment variable
+                          ZMQ_SERVICES.
+
+See the reference information for more about the transport
+                types these factories can create.
+
+## <a name="AEN16069"></a>70.2.2. MPI implementation of the framework
+
+Using the common base classes, derived classes that do
+                MPI messaging have been built to provide the same
+                communications pattern.  In this case, the endpoint IDs
+                are simply MPI ranks.
+
+While we compile against OpenMPI, any MPI implementation
+                should work.   Note that usually MPI programs must be run
+                using a helper program.  For exmaple in OpenMPI you must
+                use **mpirun** to start an mpi application.
+
+It is possible to write programs that can, at run-time
+                select the appropriate communication framework.
+                Several NSCLDAQ utilities have been written in this way and
+                you can study their initialization source code to get an
+                idea of how to accomplish that.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Parallel programming framework | Up | Compiling and linking parallel programs |

@@ -1,0 +1,206 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.pseudocommand"></a>pseudo
+
+<a name="AEN2088"></a>## Name
+
+pseudo -- Create, listm, delete pseudo parameters.
+
+<a name="AEN2091"></a>## Synopsis
+
+**pseudo *name parameters body*
+**
+
+**pseudo `-list` *?pattern?*
+**
+
+**pseudo `-delete` *name1 ?name2...?*
+**
+
+<a name="AEN2103"></a>## DESCRIPTION
+
+The pseudo command allows you to create, list and delete
+            dynamically computed pseudo parameters.  The pseudo parameters
+            created by this command use Tcl scripts to compute their values.
+            As such, they are good for experimentation but, in production
+            environments, probably they should be migrated into compiled
+            event processors for performance sake.
+
+Using the pseudo command you can:
+
+
+
+- Define a computation which will produce a parameter value
+                      as a function of existing parameters and Tcl variables.
+- List the set of pseudo parameters and their definitions
+                      sorted by pseudo parameter name.
+- Delete a set of previously defined pseudo parameters.
+
+Pseudo parameters are parameters which are computed online as a
+            function of existing parameters in the event (pseudo or raw).
+            As Tcl scripts are used to compute pseudos in the main interpreter,
+            the pseudo body has
+            access to all Tcl variables and procs any other script has.
+
+An understanding of how pseudo parameters are implemented may be
+            useful for pseudo writers.   The pseudo definition is converted into
+            a procedure as follows:
+
+<a name="AEN2116"></a>```
+proc name_Procedure parameters body                
+            
+```
+
+For each event, a call to this procedure is built with the
+            appropriate parameters provided from the event.  The return value
+            of the procedure is placed in the parameter corresponding to the
+            pseudo.  The procedure is saved as compiled byte code so that it can
+            be efficiently called again and again.
+
+<a name="AEN2119"></a>## COMMAND FORMATS
+
+
+
+**pseudo *name parameters body*
+**
+
+Creates a new pseudo parameter.  The `name`
+                        must be the name of an existing parameter (or tree parameter).
+                        `parameters` are a list of parameters
+                        that are required to compute the pseudo.
+                        `body` is a Tcl proc body
+                        that returns the value of a pseudo.
+
+The body is turned into a proc as described above.
+                        The proc is given formal parameters that are the names
+                        of the parameters you name when defining the pseudo.
+                        It is also given validity parameters for each
+                        dependent parameter (see EXAMPLES)).
+
+For each event, the generated proc is called with actual
+                        parameters from the event and validity flags
+                        set in accordance with the presence or absence of
+                        each parameter in the event.
+
+Note that pseudo parameters are evaluated after all
+                        stages of the event processing pipeline have run.
+                        Psuedo paramters can depend on other pseudos as long
+                        as the depenent psuedos are defined first chronologically.
+
+**            pseudo `-list` *?pattern?*
+**
+
+Lists psuedo parameter definitions that match
+                        the optional `pattern`.  If
+                        `pattern` is not provided,
+                        it defaults to * which matches
+                        all pseudos.
+
+The command result is a Tcl list whose elements each
+                        descdribe one psuedo parameter.  The descriptions
+                        are themselves Tcl lists containing in order:
+
+
+
+1. The pseudo parameter name
+2. The pseudo parameter's dependent parameters
+3. The body that computes the result.
+
+**            pseudo `-delete` *name1 ?name2...?*
+**
+
+Delets the pseudo parameters `name1`...
+
+|  |  |
+| --- | --- |
+|  | Computation failures |
+|  | Note that if a pseudo parameter throws a Tcl error when computing
+                its result, it is disabled.  An error message is output to the
+                terminal running SpecTcl.  If you don't see your pseudo, check
+                for that. |
+
+<a name="AEN2167"></a>## EXAMPLES
+
+<a name="AEN2169"></a>**Example 1. Defining a simple psuedo**
+
+```
+parameter sum 1234
+pseudo sum { par1 par2 } {
+   if {$par1isValid && $par2isValid} {
+      return [expr $par1 + $par2]
+   } else {
+       return -1
+   }
+}
+            
+```
+
+par1 and par2 are the names
+             of the parameters the pseudo depends on.  They result in formal
+             parameters with the same name and par1isValid
+             and par2isValid parameters that are flags which
+             are true if par1 and par2
+             have been assigned values respectively.
+
+Using tree parameters brings up some nasty substitution issues
+            you must be aware of.  If you write something like
+            $raw.00, Tcl will attempt to substitute a
+            variable named  `raw` and then append to that
+            substitution .00.  You must use quoting to extend
+            the scope of the name being substituted.
+
+The next example is identical to the previous one but we use
+            parameter names par.01 and par.02 to illustrate the quoting points
+            described above:
+
+<a name="AEN2184"></a>**Example 2. Pseudo illustrating quoting:**
+
+```
+parameter sum 1234 11  
+pseudo sum { par.01 par.02 } {
+   if {${par.01isValid} && ${par.02isValid}} {
+      return [expr ${par.01} + ${par.02}]
+   } else {
+       return -1
+   }
+}
+            
+```
+
+Note how {}'s are used to indicate the $ should apply to the entire
+            name instead of just the part prior to the period.
+
+<a name="AEN2188"></a>**Example 3. listing pseudos**
+
+```
+% pseudo -list sum
+{sum {par.01 par.02} {if {${par.01isValid} && ${par.02isValid}} {
+      return [expr ${par.01} + ${par.02}]
+   } else {
+       return -1
+   }
+}}
+
+            
+```
+
+<a name="AEN2194"></a>## SEE ALSO
+
+
+
+- [[r1868]]
+- [[r780]]
+- [[r2473]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| parameter | Up | sread |

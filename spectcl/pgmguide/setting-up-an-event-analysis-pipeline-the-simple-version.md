@@ -1,0 +1,217 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 3. The SpecTcl event processing pipeline. | Next |
+
+
+---
+
+# <a name="AEN601"></a>3.2. Setting up an event analysis pipeline (the simple version)
+
+Once an event processor, such as the one created in the previous
+            section has been written, in order to use it we must:
+
+
+
+- Compile and link our event processor into our tailored SpecTcl.
+- Add the event processor to the event processing pipeline
+                      as SpecTcl initializes.
+
+**Building code into SpecTcl. **
+                The skeleton software in the SpecTcl Skel
+                subdirectory includes a template Makefile.  In order
+                The Makefile is intended to be easily modified to add new
+                modules, complilation and link switches to the build.
+
+Changing the Makefile is simplified by providing several
+            Makefile variables:
+
+
+
+USERCXXFLAGSThe text on this line is added to all C++ compilations.
+                        Use this to add compiler flags and options you need
+                        for your compilations.
+
+USERCCFLAGSSame as USERCXXFLAGS but used in
+                        C compilations.  The Makefile predefines this as the
+                        value of USERCXXFLAGS which in most
+                        cases is correct.
+
+USERLDFLAGSThe text on this line is added to the final link of
+                        SpecTcl libraries to object modules.  Use this variable
+                        to add loader flags and options you need for your
+                        tailored SpecTcl.
+
+OBJECTSA space separated list of object modules that have
+                        to be built.  The Makefile and Make establish
+                        default rules to build C and C++ modules.  If you
+                        have other special needs, you can certainly add your
+                        own explicit build rules.
+
+Usually you can just put the names of your source
+                        modules with the .cxx, cpp, or .c changed to .o
+                        and make will figure things out.
+
+In the sample event file processor from the previous section,
+            our `OnOther` implementation required
+            components of NSCLDAQ. This requirement allows us
+            to show how these variables are used. We need to
+
+
+
+- Establish the version of NSCLDAQ we intend to use compile
+                      and link to.
+- Add compilation flags so that the NSCLDAQ headers we need
+                      can be found.
+- Add link flags so that the NSCLDAQ libraries we need are also
+                      linked into SpecTcl
+- Add our Event processor to the set of objects SpecTcl must
+                      build and link to its library and framework files.
+
+Let's have a look at the first lines of the SpecTcl Makefile
+            appropriately modified.  Comments have been edited out
+            for brevity.
+
+<a name="AEN650"></a>**Example 3-10. SpecTcl Makefile modifications**
+
+```
+include $(INSTDIR)/etc/SpecTcl_Makefile.include      
+
+NSCLDAQDIR=/usr/opt/daq/11.2                         
+
+USERCXXFLAGS=-I$(NSCLDAQDIR)/include                 
+USERCCFLAGS=$(USERCXXFLAGS)
+
+USERLDFLAGS=-L$(NSCLDAQDIR)/lib -ldataformat -Wl,-rpath=$(NSCLDAQDIR)/lib        
+
+OBJECTS=MySpecTclApp.o MyEventProcessor.o            
+
+...
+            
+```
+
+[[x601#makefile.include]]                    This include is part of the standard Makefile.  It pulls in
+                    definitions of the set of SpecTcl libraries needed as well
+                    as default compilation rules for common source to object
+                    transformatinos.
+                [[x601#makefile.daqversion]]                    I added this line.  It allows me to change which version of
+                    NSCLDAQ simply by changing this line. 
+                [[x601#makefile.cxxflags]]                    Adds compilation flags to search the NSCLDAQ's
+                    include directory for header files.
+                    By making this definition relative to NSCLDAQDIR,
+                    the DAQ top level directory is only specified in one place
+                    making it simpler to change.  This is an example of the
+                    DRY principle (Don't Repeat Yourself) of software
+                    engineering.  If you find you've written the same code
+                    or definition twice, consider reorganizing (refactoring)
+                    so that you eliminate this duplication.
+                [[x601#makefile.ldflags]]                    We define this symbol to ensure that the NSCLDAQ libraries we
+                    need are located and linked into our executable.  The
+                    -Wl,-rpath directive ensures that at
+                    run time, the run time loader searches the NSCLDAQ
+                    lib directory for shared libraries.
+                [[x601#makefile.objects]]                    We add MyEventProcessor.o to the list of
+                    objects.  The framework initialization file
+                    MySpecTclApp.o should always be present
+                    (or its equivalent).  This addition ensures that our event
+                    processor module will be compiled and linked into the tailored
+                    SpecTcl we are building.
+
+**Static event processing pipeline management. **
+                If we made SpecTcl afterr modifying the Makefile as described
+                above, our event processor would still not be run.  SpecTcl
+                requires explicity management of the event processing pipeline.
+                This management can be static, establishing the pipeline at
+                initialization, or dynamic, modifying the pipeline during
+                SpecTcl's run.
+
+In this section, we'll use static event processing pipeline management
+            to tell SpecTcl to run our event processor.  To do this, we must
+            modify the framework file that came from the skeleton,
+            MySpecTclApp.cpp.  This class is a
+            specialization of a class that provides SpecTcl with application
+            specific initialization strategy callouts.
+
+As SpecTcl starts it invokes methods in this class at specific times
+            and for specific purposes.  `CreateAnalysisPipeline`
+            is invoked when it's time to establish the initial analysis pipeline.
+            For most cases, the initial analysis pipeline is all you need.
+            It is possible, however to modify the pipeline in flight.
+
+The base class for `CMySpecTclApp`, provides
+            services.  One of those service methods,
+            `RegisterEventProcessor` appends an instance
+            of an event processor to the end of the analysis pipeline.
+
+Therfore, to create a SpecTcl that has an event processing pipeline
+            with only our event processor, we need to:
+
+
+
+- Add an #include directive to include
+                      our event processor's header to
+                      MySpecTclApp.cpp
+- Edit `CreateAnalysisPipeline`
+                      in MySpecTclApp.cpp so that
+                      only our event processor is registered.
+
+At the top of MySpecTclApp.cpp
+
+<a name="AEN697"></a>```
+#include <config.h>
+#include "MySpecTclApp.h"
+#include "EventProcessor.h"
+#include "TCLAnalyzer.h"
+#include <Event.h>
+#include <TreeParameter.h>
+#include "MyEventProcessor.h"                 // <- add this line.
+            
+```
+
+Note that MySpecTclApp.cpp is an example
+            and includes a sample event processing pipeline setup that must be
+            removed.
+            Make the body of `CreateAnalysisPipeline`
+            look like this:
+
+<a name="AEN702"></a>**Example 3-11. Creating a static event processing pipeline**
+
+```
+
+void
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+  RegisterEventProcessor(*(new MyEventProcessor), "Raw-unpacker");
+
+}
+            
+```
+
+The `RegisterEventProcessor` method is
+            described completely in the programmer reference.   It takes
+            a mandatory prameter and and optional one.
+
+The first parameter is a reference to the event processor object
+            that should be appended to the the pipeline of processors.  The
+            lifetime of the object must be the time it is in the analysis pipeline.
+            Unless you are doing dynamic pipeline managemenet, this is the
+            run time of the program.
+
+The second parameter is optional.  It is a character string name
+            that is associated with the processor.  If an uncaught exception
+            is thrown by an event processor, the exception is reported along
+            with the name of the event processor that threw it.  If no
+            name is provided one is selected for the processor.  Providing
+            a name makes it a bit easier to determine the source of an
+            exception.
+
+Once these changes have been made, SpecTcl can be compiled and
+            the resulting tailored SpecTcl will have an event processing pipeline
+            that consists of only our event processor.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The SpecTcl event processing pipeline. | Up | Playing back filter data |

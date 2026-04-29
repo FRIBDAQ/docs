@@ -1,0 +1,180 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.evbmonitor"></a>EVBMonitor
+
+<a name="AEN20683"></a>## Name
+
+EVBMonitor -- Monitor Event Builder Statistics via REST Interface.
+
+<a name="AEN20686"></a>## Synopsis
+
+**$DAQBIN/EVBMonitor *host user [service]*
+**
+
+<a name="AEN20691"></a>## DESCRIPTION
+
+The **EVBMonitor** command provides statistics monitoring
+            for an event builder when it's run with its REST interface plugin
+            enabled.  This is normally the case when an event builder is run under
+            the control of the DAQ manager subsystem.  When this is true, the
+            event builder does not have access to a controlling desktop and
+            therefore cannot display its normal statistics user interface.
+
+The command line parameter *host*
+            is the system in which *the event builder is running*.
+            Depending on the programs that encapsulate the event builder in the
+            manager's sequences, this may not be the same as the host in which
+            the manager itself runs.  *user* is the
+            user running the manager as all programs run by the manager will be
+             run under that user's account.  Finally the optional
+             *service* parameter provides the service
+             name of the REST interface advertised by the event builder if it is
+             not the default service (ORDERER_REST).  This
+             may be needed if there are several event builders and more than one of
+             them runs in a single host.
+
+Let's look at the user interface provided by the event builder monitor.
+            The UI is divided into roughly three sections.  The top section is
+            a tabbed notebook.  Each tab selects a different set of statistics
+            exported by the event builder (more properly the orderer).
+            The bottom left is a table listing the connected data sources.
+            To the right of that is a status block.
+
+The tabbed notebook has the following tabs:
+
+
+
+Input StatsThis page shows the input statistics of the event builder
+                    and contains three counters.  The oldest timestamp
+                    queued at any time.  The newest timestamp seen and the
+                    number of queued fragments.  Note that when the number
+                    of queued fragments drops to zero, the system does not
+                    clear the Oldest timestamp counter.
+
+Queue StatsProvides a table of the queue statistics.  Each line
+                    represents the statistics of a single input queue.
+                    The Id of the queue is the source id
+                    associated with the event fragments that will be routed
+                    to that queue.
+
+The Depth, Oldest
+                    and Bytes are respectively, the number
+                    of fragments queued in that queue, the timestamp of the
+                    oldest fragment in the queue (fragment at the front of the
+                    queue), and the number of bytes in the queue.
+
+Finally the Dequeued and Queued
+                    columns are the number of data bytes that have been dequeued
+                    from the queue and queued to the queue respectively.  If the
+                    depth is 0, these two items should be equal.
+                    In no case should Dequeued be greater than
+                    Queued.
+
+Barrier StatsThis tab shows the top level barrier statistics.  Ideally,
+                    when used with NSCLDAQ, all barriers will be complete and
+                    homogeneous.  The complete barrier statistics are the first
+                    row and contain, from left to right, the number of compete
+                    barriers, the number of homogeneous barriers and the
+                    number of heterogeneous barriers.  A heterogeneous barrier
+                    is one where all queues received a barrier fragment within
+                    the required barrier timeout, but there was more than one
+                    barrier type.
+
+The second line provides the same information but for incomplete barriers.
+                    An incomplete barrier is one where not all queues received
+                    barrier fragments within the barrier timeout from the first
+                    barrier received.
+
+Complete BarriersDrills down into more details about the complete barriers
+                    seen.  Note that a complete barrier *could*
+                    be heterogenous.  The statistics in this page help to
+                    untangle that case.
+
+The display is a tree view.  There are two top level
+                    elements of the tree; By Type that,
+                    when expanded shows the number of each type of barrier
+                    fragment that participated in a complete barrier, and
+                    By Source which provides information
+                    about the barriers received from each source.
+
+The By Source top level, when expanded,
+                    has another level for each data source id. When expanded,
+                    that provides a list of the number of barriers of each
+                    type that were contributed to complete barriers from that
+                    source.
+
+Incomplete BarriersThis tab provides information about barriers that were
+                    incomplete.  A barrier synchronization is incomplete if barrier
+                    fragments were not received on all queues within the barrier
+                    timeout of the first barrier fragment making its way to the
+                    front of a queue.
+
+This page is a tree view with two top levels.
+                    The By # Missing when expanded,
+                    shows the a count of the number of times a specific number
+                    of fragments is missing.  For example, if a single data
+                    source did not contribute a barrier once in the only incomplete
+                    barrier seen, a subelement labeled 1 (one missing
+                    fragment) will be added and the Count
+                    column for it will display 1 (one time).
+
+By Source id will have sub-entries for
+                    each data source that failed barrier syncrhonization. THe
+                    Count column will be the number of times
+                    that source id did not make the barrier timeout.  In
+                    the previous example, suppose the missing data source was
+                    id 5.  This event will add a sub-entry labled 5 (the
+                    id of the data source that missed the timeout) and
+                    with a count of 1 (Missed it once).
+
+Note that if a data source is slow getting its barriers in,
+                    you'll see pairs of incomplete barriers, one for when all but
+                    the slow source was present, and one for when the slow source
+                    finally contributed its barrier fragment.
+
+Data LateProvides the number of data late cases.  This increments
+                    every time a fragment arrives but fragments with a later
+                    timestamp have already been emitted. This display
+                    is a table whose top line is the total number of times this
+                    was detected and whose subsequent lines are the number of times
+                    this was detected in fragments from specific data sources.  The
+                    right most column shows the worst timestamp difference.
+
+Out Of OrderSummarizes the out of order timestamps.  An out of order
+                    event is logged when a data source queue emits a fragment that
+                    is older than the most recently emitted fragment.  This is
+                    often coupled with a data late event.
+
+The top row summarizes all data lates over all sources.  The
+                    subsequent lines show data sources with non-zero data late
+                    events.  The Count column is the number
+                    of data late events seen. The Last Good TS
+                    column show the timestamp of the fragment dequeued prior to
+                    the one that was out of order and Offending TS
+                    shows the timestamp from the fragment that was determined
+                    to be out of order.
+
+The connection list at the bottom left is a table of the
+            connected data sources.  Each line provides the IP address in which the
+            source is running, the connection description string of the source,
+            the state of the source and the idle status.
+
+Finally, the status display shows if the Event builder has
+            asserted flow control and if the UI is successfully updating.
+            If the Event builder is not responding to update requests,
+            a read Update failed will be displayed until
+            updates work again.  This is normal if, for example, the data acquisition
+            system is shutdown.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| rdo_RunControl | Up | mg_startloggers |

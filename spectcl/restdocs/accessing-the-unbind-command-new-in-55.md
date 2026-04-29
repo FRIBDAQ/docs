@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1539"></a>3.23. Accessing the unbind command (new in 5.5)
+
+Three URLs allow you to access the capabilities of the
+                SpecTcl **unbind**
+                command:
+
+<a name="AEN1543"></a>**http://host:port/spectcl/unbind/byname?name=name1[&name=name2...]                
+                   **
+
+Unbinds the spectra named by the repeated occurences of the
+                name query parameter.
+
+<a name="AEN1549"></a>**http://host:port/unbind/byid?id=id1[&id=id2...]
+                   **
+
+Unbinds the spectra whose ids are designated by repeated occurences
+                of the id query parameter.
+
+<a name="AEN1555"></a>**http://host:port/unbind/all
+                   **
+
+Unbinds all spectra from the display memory.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Access the ringformat command (new in 5.5) | Up | Accessing the ungate command (new in 5.5) |

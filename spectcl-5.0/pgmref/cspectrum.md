@@ -1,0 +1,1757 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13409"></a>CSpectrum
+
+<a name="AEN13413"></a>## Name
+
+CSpectrum -- Classes implementing SpecTcl spectra
+
+<a name="AEN13416"></a>## Synopsis
+
+```
+#include <Spectrum.h>
+
+class CSpectrum  : public CNamedItem        
+{
+public:
+  typedef std::vector<CAxis>  Axes;
+  typedef Axes::iterator  AxisIterator;
+  typedef struct SpectrumDefinition;
+public:
+
+
+  CSpectrum (const std::string& rName,  UInt_t nId, Axes  Maps,
+	     CGateContainer* pGate = pDefaultGate); 
+  CSpectrum(const std::string& rName, UInt_t nId,
+	    CGateContainer*  pGate = pDefaultGate);
+
+public:
+  const Address_t getStorage() const;
+  Bool_t getOwnStorage() const;
+  const CGateContainer* getGate() const;
+  Axes getAxisMaps() const;
+  Int_t getAxisMapCount() const;
+  std::string getTextDescription() const;
+  virtual SpectrumType_t getSpectrumType() = 0;
+              
+protected:  
+  void setStorage (Address_t am_pStorage);
+  void setOwnStorage (Bool_t am_fOwnStorage);
+  void setStorageType(DataType_t dt) ;
+  void AddAxis(UInt_t nChannels, Float_t fLow,
+	       Float_t fHigh, const std::string& Units = std::string(""));
+  bool checkRange(int channel, int nChans, int axis);
+  
+
+public:
+  void operator() (const CEvent& rEvent);
+  CGateContainer* ApplyGate(CGateContainer* pNewGate);
+  CGateContainer* Ungate();	// Sets the spectrum gate to a CTrueGate
+  Bool_t UsesParameter (const CParameter& rParameter) const;
+  DataType_t StorageType () const;
+
+  Float_t  ParameterToAxis(UInt_t nAxis, Float_t fParameterValue);
+  Float_t AxisToParameter(UInt_t nAxis, UInt_t  nAxisValue);
+  Float_t  MappedToAxis(UInt_t nAxis, Float_t fParameterValue);
+  Float_t AxisToMapped(UInt_t nAxis, UInt_t nAxisValue);
+
+  void createStatArrays(unsigned nAxes);
+  void clearStatArrays();
+  void logOverflow(unsigned axis, unsigned increment = 1);
+  void logUnderflow(unsigned axis, unsigned increment = 1);
+  std::vector<unsigned> getUnderflows() const;
+  std::vector<unsigned> getOverflows() const;
+
+  virtual   Bool_t UsesParameter(UInt_t nId) const   = 0;
+  virtual   ULong_t operator[] (const UInt_t* pIndices) const  = 0;
+  virtual   void set(const UInt_t* pIndices, ULong_t nValue)= 0;
+  virtual   void GetParameterIds(std::vector<UInt_t>& rvIds) = 0;
+  virtual   void GetResolutions(std::vector<UInt_t>&  rvResolutions) = 0;
+  virtual   void Increment(const CEvent& rEvent) = 0;
+
+  virtual   Size_t Dimension (UInt_t nDimension) const;
+  virtual   UInt_t Dimensionality () const;
+  virtual   Float_t GetLow(UInt_t nDimension) const;
+  virtual   Float_t GetHigh(UInt_t nDimension) const;
+  virtual   std::string  GetUnits(UInt_t nDimension) const;
+
+  virtual   void Copy(void* pStorage) const;
+  virtual   void Clear ()  ;
+  virtual   Size_t StorageNeeded () const;
+  virtual   void ReplaceStorage (Address_t pNewLoc, 
+				 Bool_t fTransferOwnership=kfTRUE)  ;
+  virtual   Bool_t CheckGate(const CEvent& rEvent);
+  virtual   SpectrumDefinition& GetDefinition() ;
+
+  virtual   Bool_t needParameter() const;
+  void setTextDescription(std::string d) ;
+
+
+};
+
+
+
+#include <BitSpectrumL.h>       // BitSpectrumW.h for word spectra.
+
+class CBitSpectrumL  : public CSpectrum  // CBitSpectrumW for word spectra.
+{
+public:
+  CBitSpectrumL(const std::string& rName, UInt_t nId,
+		const CParameter& rParameter,
+		UInt_t nChannels);
+  CBitSpectrumL(const std::string& rName, UInt_t nId,
+		const CParameter& rParameter,
+		UInt_t nLow,
+		UInt_t nHigh);	
+
+public:
+  UInt_t getChannels() const;
+  UInt_t getParameter() const;
+  virtual SpectrumType_t getSpectrumType();
+
+public:                 
+  virtual   void Increment (const CEvent& rEvent);
+};
+
+
+
+#include <CGammaSpectrum.h>
+class CGammaSpectrum : public CSpectrum
+{
+public:
+  CGammaSpectrum(const std::string& rName, UInt_t nId,  CSpectrum::Axes Maps,
+		 std::vector<CParameter>& Parameters,
+		 CGateContainer* pGate = pDefaultGate);
+  CGammaSpectrum(const std::string& rName, UInt_t nId,  CSpectrum::Axes Maps,
+		 std::vector<CParameter>& xParameters,
+		 std::vector<CParameter>& yParameters,
+		 CGateContainer* pGate = pDefaultGate);
+  CGammaSpectrum(const std::string& rName, UInt_t nId, 
+		 std::vector<CParameter>& Parameters,
+		 CGateContainer* pGate = pDefaultGate);
+  CGammaSpectrum(const std::string& rName, UInt_t nId,
+		 std::vector<CParameter>& xParameters,
+		 std::vector<CParameter>& yParameters,
+		 CGateContainer* pGate = pDefaultGate);
+  virtual ~CGammaSpectrum();
+
+
+protected:                   
+  void setStorage (Address_t am_pStorage);
+  void setOwnStorage (Bool_t am_fOwnStorage);
+  void setStorageType(DataType_t dt) ;
+  void AddAxis(UInt_t nChannels, Float_t fLow,
+	       Float_t fHigh, const std::string& Units = std::string(""));
+  bool checkRange(int channel, int nChans, int axis);
+  static Int_t Randomize(Float_t channel);
+
+  void ReleaseStorage();
+};
+
+
+
+#include <BitSpectrumL.h>       // BitSpectrumW.h for word spectra.
+
+class CBitSpectrumL  : public CSpectrum  // CBitSpectrumW for word spectra.
+{
+public:
+  CBitSpectrumL(const std::string& rName, UInt_t nId,
+		const CParameter& rParameter,
+		UInt_t nChannels);
+  CBitSpectrumL(const std::string& rName, UInt_t nId,
+		const CParameter& rParameter,
+		UInt_t nLow,
+		UInt_t nHigh);	
+
+public:
+  UInt_t getChannels() const;
+  UInt_t getParameter() const;
+  virtual SpectrumType_t getSpectrumType();
+
+public:                 
+  virtual   void Increment (const CEvent& rEvent);
+};
+
+
+
+#include <CGammaSpectrum.h>
+class CGammaSpectrum : public CSpectrum
+{
+public:
+  CGammaSpectrum(const std::string& rName, UInt_t nId,  CSpectrum::Axes Maps,
+		 std::vector<CParameter>& Parameters,
+		 CGateContainer* pGate = pDefaultGate);
+  CGammaSpectrum(const std::string& rName, UInt_t nId,  CSpectrum::Axes Maps,
+		 std::vector<CParameter>& xParameters,
+		 std::vector<CParameter>& yParameters,
+		 CGateContainer* pGate = pDefaultGate);
+  CGammaSpectrum(const std::string& rName, UInt_t nId, 
+		 std::vector<CParameter>& Parameters,
+		 CGateContainer* pGate = pDefaultGate);
+  CGammaSpectrum(const std::string& rName, UInt_t nId,
+		 std::vector<CParameter>& xParameters,
+		 std::vector<CParameter>& yParameters,
+		 CGateContainer* pGate = pDefaultGate);
+  virtual ~CGammaSpectrum();
+
+public:
+
+>>>>>>> Mere with master - this also catches changes to the filter.
+  virtual void Increment(const CEvent& rEvent);
+  virtual void Increment(std::vector< std::pair<UInt_t, Float_t> > & rParameters) =0;
+  virtual void Increment(std::vector< std::pair<UInt_t, Float_t> >& xParameters,
+			 std::vector< std::pair<UInt_t, Float_t> >& yParameters) = 0;
+  Bool_t       haveFold();
+  void         Fold(CGateContainer* pGate);
+  CFold*       getFold();
+  virtual void GetParameterIds(std::vector<UInt_t>& rvIds);
+  
+  UInt_t getnParams() const;
+  UInt_t getParameterId (UInt_t n) const;
+ 
+protected:
+  void CreateParameterList(std::vector< std::pair<UInt_t, Float_t> >& outList, 
+			   const CEvent& rEvent);
+  void CreateYParameterList(std::vector< std::pair<UInt_t, Float_t> >& outList,
+			    const CEvent& rEvent);
+  void CreateParameterVector(std::vector<CParameter>& Parameters);
+  void CreateYParameterVector(std::vector<CParameter>& Parameters);
+
+  
+};
+
+
+
+#include <Gamma1DL.h>             // Also Gamma1DW.h
+
+class CGamma1DL : public CGammaSpectrum // Also CGamma1DW
+{
+ public:
+  CGamma1DL(const std::string& rName, UInt_t nId,
+	    std::vector<CParameter>& rrParameters,
+	    UInt_t nScale);	
+
+  CGamma1DL(const std::string& rName, UInt_t nId,
+	    std::vector<CParameter>& rrParameters,
+	    UInt_t nChannels,
+	    Float_t fLow, Float_t fHigh); 
+
+ virtual SpectrumType_t getSpectrumType();
+
+
+  virtual ULong_t operator[] (const UInt_t* pIndices) const;
+  virtual void set (const UInt_t* pIndices, ULong_t nValue);
+  
+  virtual void Increment(std::vector<std::pair<UInt_t, Float_t> >& rParameters);
+  virtual void Increment(std::vector<std::pair<UInt_t, Float_t> >& xParameters,
+			 std::vector<std::pair<UInt_t, Float_t> >& yParameters);
+
+
+  virtual void GetResolutions(std::vector<UInt_t>& rvResolutions);
+
+protected:
+  static Axes MakeAxesVector(std::vector<CParameter> Params,
+			      UInt_t             nChannels,
+			      Float_t fLow, Float_t fHigh);
+  void   CreateStorage();
+};
+
+
+#include <Gamma2DL.h>   // Also 2DW and 2DB versions.
+
+class CGamma2DL : public CGammaSpectrum
+{
+public:
+  CGamma2DL(const std::string& rName, UInt_t nId,
+	       std::vector<CParameter>& rParameters,
+	       UInt_t nXScale, UInt_t nYScale);
+  CGamma2DL(const std::string& rName, UInt_t nId,
+	    std::vector<CParameter>& rParameters,
+	    UInt_t nXScale, UInt_t nYScale,
+	    Float_t xLow, Float_t xHigh,
+	    Float_t yLow, Float_t yHigh);
+
+public:
+  UInt_t getXScale();
+  UInt_t getYScale();
+  virtual SpectrumType_t getSpectrumType();
+  virtual void GetResolutions(std::vector<UInt_t>&  rvResolutions);
+
+  virtual void Increment(std::vector<std::pair<UInt_t, Float_t> >& rParameters);
+  virtual void Increment(std::vector<std::pair<UInt_t, Float_t> >& xParameters,
+			 std::vector<std::pair<UInt_t, Float_t> >& yParameters);
+};
+
+#include <Gamma2DD.h>
+template<class T>
+class CGamma2DD : public CGammaSpectrum
+{
+public:
+  CGamma2DD(const std::string& rName, UInt_t nId,
+	     std::vector<CParameter>&  xParameters,
+	     std::vector<CParameter>&  yParameters,
+	     UInt_t xChannels, UInt_t yChannels);
+  
+  CGamma2DD(const std::string& rName, UInt_t nId,
+	     std::vector<CParameter>& xParameters,
+	     std::vector<CParameter>& yParameters,
+	     UInt_t nXChannels, UInt_t nYChannels,
+	     Float_t xLow, Float_t xHigh,
+	     Float_t yLow, Float_t yHigh);
+  virtual SpectrumType_t getSpectrumType();
+  virtual void Increment(std::vector<std::pair<UInt_t, Float_t> >& rParameters);
+  virtual void Increment(std::vector<std::pair<UInt_t, Float_t> >& rXParameters,
+			 std::vector<std::pair<UInt_t, Float_t> >& rYParameters);
+
+
+
+};
+
+
+typedef CGamma2DD<UInt_t>  CGamma2DDL;
+typedef CGamma2DD<UShort_t> CGamma2DDW;
+typedef CGamma2DD<UChar_t>  CGamma2DDB;
+
+
+#include <CGammaSummarySpectrum.h>
+
+template <class T>
+class CGammaSummarySpectrum : public CSpectrum
+{
+public:
+  CGammaSummarySpectrum(const std::string name, 
+			UInt_t nId,
+			UInt_t               nYChannels,
+			std::vector<std::vector<CParameter> >* pParameters);
+  CGammaSummarySpectrum(const std::string name, UInt_t nId,
+			std::vector<std::vector<CParameter> >* pParameters,
+			UInt_t               nYChannels,
+			Float_t              fYLow,
+			Float_t              fYHigh);
+
+
+  virtual   void Increment (const CEvent& rEvent)  ;
+  virtual SpectrumType_t getSpectrumType();
+};
+
+typedef CGammaSummarySpectrum<UInt_t>   CGammaSummarySpectrumL;
+typedef CGammaSummarySpectrum<UShort_t> CGammaSummarySpectrumW;
+typedef CGammaSummarySpectrum<UChar_t>  CGammaSummarySpectrumB;
+
+
+#include <Spectrum1DL.h>   // also have Spectrum1DW.h
+
+class CSpectrum1DL  : public CSpectrum   // Spectrum1DW.h -> CSpectrum1DW
+{
+public:
+  CSpectrum1DL(const std::string&   rName, 
+	       UInt_t               nId,
+	       const CParameter&    rParameter,
+	       UInt_t               nChannels);
+
+  CSpectrum1DL(const std::string&   rName,
+	       UInt_t               nId,
+	       const   CParameter&  rParameter,
+	       UInt_t               nChannels,
+	       Float_t              fLow, 
+	       Float_t              fHigh);
+
+
+  UInt_t getParameter();
+  virtual SpectrumType_t getSpectrumType();
+  virtual   void Increment (const CEvent& rE);
+};
+
+#include <Spectrum2DL.h> // 2DW and 2DB are also available.
+
+class CSpectrum2DL  : public CSpectrum
+{
+
+public:
+  CSpectrum2DL(const std::string& rName, UInt_t nId,
+	       const CParameter& rXParameter,
+	       const CParameter& rYParameter,
+	       UInt_t nXScale, UInt_t nYScale);
+
+  CSpectrum2DL(const std::string& rName, UInt_t nId,
+	       const CParameter& rXParameter,
+	       const CParameter& rYParameter,
+	       UInt_t nXChannels, Float_t fxLow, Float_t fxHigh,
+	       UInt_t nYChannels, Float_t fyLow, Float_t fyHigh);
+  UInt_t getXParameter();
+  UInt_t getYParameter();
+  virtual SpectrumType_t getSpectrumType() ;
+  virtual   void Increment (const CEvent& rEvent)  ;
+
+ 
+};
+
+#include <SpectrumS.h>
+
+class CSpectrumS  : public CSpectrum
+{
+public:
+
+  CSpectrumS(const std::string&         rName, 
+	       UInt_t                   nId,
+	       const CParameter&        rParameters,
+	       const CParameter&        nChannel,
+	       UInt_t                    nChannels);
+
+  CSpectrumS(const std::string&         rName,
+	       UInt_t                   nId,
+	       const CParameter&        rParameters,
+ 	       const CParameter&        nChannel,
+	       UInt_t                   nChannels,
+	       Float_t                  fLow, 
+	       Float_t                  fHigh);
+
+  void ShiftDataUp (int64_t nShift);
+  void ShiftDataDown(int64_t nShift);
+
+  virtual SpectrumType_t getSpectrumType();
+  virtual   void Increment (const CEvent& rE);
+};
+
+#include <SummarySpectrumL.h> //W and B versions also.
+
+class CSummarySpectrumL  : public CSpectrum
+{
+public:
+  CSummarySpectrumL(const std::string& rName, UInt_t nId,
+		    std::vector<CParameter> rrParameters,
+		    UInt_t nYScale); 
+  CSummarySpectrumL(const std::string& rName, UInt_t nId,
+		    std::vector<CParameter> rrParameters,
+		    UInt_t nYScale,
+		    Float_t fYLow,
+		    Float_t fYHigh); 
+  UInt_t getnParams() const ;
+  UInt_t getParameterId(UInt_t n) const;
+  virtual SpectrumType_t getSpectrumType();
+  virtual   void Increment (const CEvent& rEvent)  ;
+  
+};
+
+        
+```
+
+<a name="AEN13430"></a>## DESCRIPTION
+
+`CSpectrum` is the base class for all spectrum
+            classes.  SpecTcl has a rich set of spectra.  While there are
+            many spectrum types often,  in practice, they are only differentiated
+            by how they are constructed and how they increment spectra.
+
+The Spectra classes are amongst the oldest in SpecTcl.  There is
+            certainly room for refactoring in the future.  There is also
+            call for using templated types at some point (at the time
+            these classes were written C++ Templates were not always
+            reliably implemented by compilers).
+
+The remaining sections in this manpage provide information
+            about the classes that provide base support as well as provide
+            concrete implementations of specific spectrum types.
+
+<a name="AEN13436"></a>## CSpectrum METHODS
+
+The remaining sections in this manpage provide information
+            about the classes that provide base support as well as provide
+            concrete implementations of specific spectrum types.
+
+<a name="AEN13439"></a>## CSpectrum METHODS
+
+
+
+`  CSpectrum(const  std::string&  rName, UInt_t  nId, Axes   Maps, CGateContainer*  pGate =  pDefaultGate);`This constructor is used when construction time
+                        provides sufficient information to provide
+                        the axis definitions without computation.
+
+`rName` and
+                        `nId` provide the name and
+                        Id of the new spectrum.  `Maps`
+                        is a vector of axis definitions.
+
+pGate is the gate to be applied to the spectrum.
+                        `pDefault` gate points to a
+                        gate container for the default gate which is a
+                        True gate.
+
+`  CSpectrum(const  std::string&  rName,  UInt_t  nId, CGateContainer*   pGate  =  pDefaultGate);`Constructor to use when a set of axes easily be
+                        pre-built.  The protected method
+                        `addAxis` can be used to
+                        add axis definitions one-by-one to the spectrum.
+                        The remaining parameters have the same meaning
+                        as for the previousl constructor.
+
+` const  const Address_t  getStorage();`Returns a pointer to the storage associated with the
+                        histogram.  Note that this SpecTcl can maintain
+                        spectra which are purely local or it can locate
+                        spectra in a shared memory region so that local
+                        display programs can access bulk spectrum storage
+                        quickly.
+
+Closely associated with this pointer, therefore,
+                        is the concept of storage ownership.  The spectrum
+                        storage is said to be owned by the spectrum
+                        object if, on destruction it the storage can be
+                        released via the delete operator.
+                        If storage is not owned by the spectrum, it must
+                        not be deleted on destruction.
+
+`   const ool_t  getOwnStorage();`Spectrum storage may have been dynamically allocated
+                        by the spectrum object, or may belong to some other
+                        object.  This method returns
+                        kfTRUE if the spectrum storage
+                        has been allocated by this object.
+
+One case when this may return kfFALSE
+                        is a spectrum that has been bound into displayer shared
+                        memory when the storage is owned by the object that
+                        manages the shared memory region.
+
+Storage that is owned by this object may be
+                        deleted if appropriate.  Storage
+                        not owned is released to the custody/management of
+                        the owner (e.g. for Display shared memory the space
+                        is released for re-use by other spectra).
+
+` const  const CGateContainer*  getGate();`Returns the pointer to the
+                        `CGateContainer` object that
+                        holds the gate applied to this spectrum.  Gate
+                        containers are named, pointer like objects that
+                        contain a SpecTcl gate.   They provide another level
+                        of indirection that allows gates to be replaced
+                        without requiring that clients of those gates
+                        be notified.
+
+The rule is that the gate dictionary contains gate
+                        containers that, once created, are never destroyed
+                        while gate clients will contain pointers to those
+                        gate containers which, in turn provide a fixed
+                        point of reference for the gate regardless of what
+                        might happen to change the gate later.
+
+`  const Axes  getAxisMaps();`
+`  const Int_t  getAxisMapCount();``getAxisMaps`
+                        returns the vector of
+                        `CAxis` objects associated
+                        with this spectrum.   Each axis object defines
+                        how raw parameter values are mapped to
+                        bins on a channel.
+
+In general, element 0 of this vector describes the
+                        X axis while, if the spectrum is 2-d element 1
+                        describes the Y axis.
+                        An exception to this are summary spectra which only have
+                        an axis definition for the Y axis as the X axis is
+                        defined by the number of parameters summarized.
+
+`getAxisMapCount` returns the
+                        number of elements in the axis map vector.
+                        it is equivalent to aspec.getAxisMaps().size()
+
+`  const std::string  getTextDescription();`This method is an optimization that caters to large
+                        analysis cases.  Perfomance analysis showed that the
+                        **spectrum -list** command required
+                        a significant amount of time to build spectrum
+                        descriptions for analysis cases with large (1000's)
+                        numbers of spectra.
+
+The `CSpectrum` class therefore
+                        has an attribute in to which the
+                        spectrum description string can be written when the
+                        spectrum is created (e.g. by
+                        **spectrum -new**).  This
+                        method returns the value stored in that attribute.
+
+This method provides the capability for SpecTcl
+                        to cache the Tcl description of a spectrum
+                        normally produced by **spectrum -list**.
+                        This was added because when there are a large number
+                        of spectra, computing the spectrum definition string
+                        can be very time consuming.  Therefore, SpecTcl's
+                        **spectrum** command now computes
+                        this string on spectrum creation.
+
+The SpecTcl **spectrum -list** command
+                        uses this cached spectrum description string.  If, however,
+                        the string is empty, it computes the description string
+                        ab intio, caches that string in the spectrum to satisfy
+                        future requests and uses the computed string when
+                        producing its returned value.
+
+` virtual  = 0 SpectrumType_t  getSpectrumType();`This pure virtual method must be implemented by concrete
+                        spectrum type classes.  It is expected to return the
+                        actual spectrum type.  Note that if new
+                        spectrum types are implemented
+                        histotypes.h must be updated
+                        to extend the SpectrumType_t enumerated
+                        data type.
+
+`  void  operator()(const  CEvent&  rEvent);`Process the implications of an event;
+                        `rEvent` for this spectrum.
+                        While this method is virtual, the base class implementation
+                        is normally sufficient.  The base class implemebntaton
+                        checks the gate applied to this spectrum and, if satisfied,
+                        invokes the `Increment` method for
+                        this spectrum.
+
+Normally only the `Increment`
+                        method needs to be implemented for spectrum event
+                        processing to work properly.
+
+Note that there is no gaurantee that this method
+                        will be invoked for all events.   SpecTcl's histogramming
+                        subsystem and the dope arrays in `CEvent`
+                        collaborate to minimize the number of histograms
+                        that must be invoked for each event.
+
+`   CGateContainer*  ApplyGate(CGateContainer*  pNewGate);`Applies a new gate specified by
+                        the gate container `pNewGate` to the
+                        spectrum.  The previously applied gate container is
+                        returned.  From now on `pNewGate` is
+                        checked by `operator()` and must
+                        be satisfied for that method to call
+                        `Increment`.
+
+`   CGateContainer*  Ungate();`Ungates the spectrum and returs the pointer to the
+                        previously applied gate container.  Note that spectra
+                        are never actually ungated. This method applies
+                        a predefined gate container that points to a
+                        true gate ensuring that
+                        `operator()` will always
+                        invoke `increment` when
+                        called.
+
+`  const Bool_t  UsesParameter (const  CParameter&  rParameter);`If the spectrum uses 
+                        `rParameter`, this method returns
+                        kFTRUE, otherwise it returns
+                        kfFALSE.
+
+Note the difference between uses and required.
+                        For example, a summary spectrum has no required parameters
+                        but uses all of the parametersa in its definition.
+
+`  const DataType_t  StorageType ();`Returns the type of channel the spectrum contains.
+                        See the definition of
+                        DataType_t in
+                        histottypes.h for the possible
+                        values this method can return.
+
+`   Float_t   ParameterToAxis(UInt_t  nAxis,  Float_t  fParameterValue);`Given a raw parameter value `fParameterValue`,
+                        converts it to a bin number on the spectrum axis
+                        indexed by `nAxis`.  The resulting
+                        bin number is returned.
+
+`   Float_t  AxisToParameter(UInt_t  nAxis, UInt_t   nAxisValue);`Inverse transformation from `ParameterToAxis`.
+
+`  const void  createStatArrays(unsigned  nAxes);`With Root integration, `createStatArrays`
+                        is obsolete, but provided for compatibility sake.
+                        Prior to version 5.0, SpecTcl maintained over/underflow
+                        statistics in separate arrays called statistics arrays,
+                        one element per axis.  With Root integration, SpecTcl
+                        histograms encapsulate a `TH1`
+                        or `TH2` derived root class.
+                        Those types of spectra maintain over/underflow
+                        statistics in additional channels of the spectrum.
+
+`   void  clearStatArrays();`Clears overflow and underflow statistics for the spectrum.
+                        With Root integration, this method is somewhat misnamed.
+                        In 5.0 and later, SpecTcl spectra are wrappers around
+                        `TH1` or `TH2`
+                        subclasses.  These maintain over/underflow counts
+                        in addtional spetrum channels.
+
+`   void  logOverflow(unsigned  axis,, unsigned  increment  = 1);`
+`   void  logUnderflow(unsigned  increment  = 1);`These two methods are completely obsolete and are
+                        only present for compatibility sake.  With
+                        5.0's root integration, all SpecTcl histograms
+                        are wrappers around root
+                        `TH1` and
+                        `TH2` objects.  The
+                        `Fill` method of these
+                        objects maintains over/underflow statistics in addional
+                        channels of the spectrum.
+
+`  const std::vector<unsigned>  getUnderflows();`
+`   const std::vector<unsigned>  getOverflows();`Returns the over/underlflow counters for the
+                        histogram.
+
+The return value is a vector.  The vector has one element
+                        for 1-d spectra and two elements for 2-d spectra.
+
+5.0 integrates with Root.  Underflows and
+                        overflows are stored in extra channels of the
+                        histogram.
+
+For 1-d spectra, these methods are trivial.  Underflows
+                        are stored in channel 0 and overflows are stored
+                        in channel n+1 (n the number of
+                        bins on the X axis).
+
+For 2-d spectra, summing must be done.  For example,
+                        X underflows are the sum of all channels with coordinates
+                        [0, i] where i is in the range [1, n], n the number of
+                        channels in the spectrum.  Similarly, Y underflows are
+                        summed over all X with Y = 0.
+
+`   Float_t  AxisToParameter(UInt_t  nAxis, UInt_t   nAxisValue);`Inverse transformation from `ParameterToAxis`.
+
+`   void  createStatArrays(unsigned  nAxes);`With Root integration, `createStatArrays`
+                        is obsolete, but provided for compatibility sake.
+                        Prior to version 5.0, SpecTcl maintained over/underflow
+                        statistics in separate arrays called statistics arrays,
+                        one element per axis.  With Root integration, SpecTcl
+                        histograms encapsulate a `TH1`
+                        or `TH2` derived root class.
+                        Those types of spectra maintain over/underflow
+                        statistics in additional channels of the spectrum.
+
+`   void  clearStatArrays();`Clears overflow and underflow statistics for the spectrum.
+                        With Root integration, this method is somewhat misnamed.
+                        In 5.0 and later, SpecTcl spectra are wrappers around
+                        `TH1` or `TH2`
+                        subclasses.  These maintain over/underflow counts
+                        in addtional spetrum channels.
+
+`   void  logOverflow(unsigned  axis,, unsigned  increment  = 1);`
+`   void  logUnderflow(unsigned  axis,, unsigned  increment  = 1);`These two methods are completely obsolete and are
+                        only present for compatibility sake.  With
+                        5.0's root integration, all SpecTcl histograms
+                        are wrappers around root
+                        `TH1` and
+                        `TH2` objects.  The
+                        `Fill` method of these
+                        objects maintains over/underflow statistics in addional
+                        channels of the spectrum.
+
+`  const std::vector<unsigned>  getUnderflows();`
+`   const std::vector<unsigned>  getOverflows();`Returns the over/underlflow counters for the
+                        histogram.
+
+The return value is a vector.  The vector has one element
+                        for 1-d spectra and two elements for 2-d spectra.
+
+5.0 integrates with Root.  Underflows and
+                        overflows are stored in extra channels of the
+                        histogram.
+
+For 1-d spectra, these methods are trivial.  Underflows
+                        are stored in channel 0 and overflows are stored
+                        in channel n+1 (n the number of
+                        bins on the X axis).
+
+For 2-d spectra, summing must be done.  For example,
+                        X underflows are the sum of all channels with coordinates
+                        [0, i] where i is in the range [1, n], n the number of
+                        channels in the spectrum.  Similarly, Y underflows are
+                        summed over all X with Y = 0.
+
+` virtual    const   = 0 Bool_t  UsesParameter(UInt_t  nId);`This pure virtual method must be implemented by
+                        concrete spectrum classes. `nId`
+                        is a parameter id.  The method returns
+                        kfTRUE if the parameter specified
+                        by that id is used by the spectrum.  Otherwise, it
+                        returns kfFALSE.
+
+` virtual     const  = 0 ULong_t  operator[] (const  UInt_t*  pIndices);`This pure virtual method must be implemented bvy any concrete.
+                        spectrum class.  `pIndices` points
+                        to one (1-d spectra) or two (2-d spectra) axis bin
+                        numbers. The method returns the contents of the
+                        bin at that coordinate.  An exception such as
+                        `std::range_error` is thrown
+                        if one or more of the indices is out of range.
+
+Note that with Root integration, Spectra aer
+                        wrappers around `TH1` or
+                        `TH2` derived objects.  These
+                        methods may be used to index the over/underflow
+                        channels of these objects as well as the regular
+                        channels.
+
+`  virtual    = 0 void  set(const  UInt_t*  pIndices, ULong_t  nValue);`This pure virtual member allows you to store a
+                        `nValue` at the axis bin indices
+                        selected by `pIndices`.
+                        As with `operator[]`,
+                        `pInidices` points to a one or
+                        two element array containing the X axis bin number and,
+                        if the spectrum is 2d the Y axis bin number to modify.
+
+` virtual  =0 void  GetParameterIds(std::vector<UInt_t>&  rvIds);``rvIds` will be given the set of
+                        parameter ids used by the spectrum.  The concreate class
+                        should implement this method so that on return
+                        `rvIds` *only*
+                        contains the parameter ids.
+
+` virtual    = 0 void  GetResolutions(std::vector<UInt_t>&   rvResolutions);`On return from this method call,
+                        `rvResolutions` will be a vector
+                        containing the number of channels in each axis of the
+                        spectrum.  Element 0 of `rvResolutions`
+                        will be the number of channels on the X axis and,
+                        if the spectrum is 2-d, element 1 will be the number
+                        of channels on the y axis.
+
+Note that summary spectra are an exception in that
+                        they only have a settable Y axis.   Calling this method
+                        on summary spectra will return a single element vector
+                        containing the number of channels on the
+                        *Y* axis.
+
+` virtual    =0 void  Increment(const  CEvent&  rEvent);`Given an event which can be assumed to satisfy the
+                        spectrum's gate, this method should increment the
+                        channel(s) appropriate to the contents of the event.
+
+` virtual   const  UInt_t  Dimensionality ();`Returns the spectrum dimensionality.  This the number
+                        of axes that have controllable resolutions.  Note that
+                        summary spectra, while they are 2-d spectra only have a
+                        Y axis with a controllable resolution.  Summary spectra
+                        will therefore return 1
+
+` virtual    const Size_t  Dimension (UInt_t  nDimension);`Returns the number of channels in dimension
+                        `nDimension`.  As usual,
+                        with the exception of summary spectra,
+                        0 specifies the X dimension
+                        while 1 specifies the y.
+
+` virtual    const Float_t  GetLow(UInt_t  nDimension);`Returns the axis low limit for the axis number
+                        `nDimension`.
+
+` virtual    const Float_t  GetHigh(UInt_t  nDimension);`Returns the high limit of the axis selected by
+                        `nDimension`
+
+` virtual    const std::string   GetUnits(UInt_t  nDimension);`Returns the units of measure of the axis selected by
+                        `nDimension`.  This will
+                        will be an empty string if no axis units were
+                        specified.
+
+` virtual    const void  Copy(void*  pStorage);`Since SpecTcl can relocate spectra in an out of
+                        shared memory this method is provided to support that
+                        relocation.
+                        `Copy` copies the contents of this
+                        spectrum into storage pointed to by
+                        `pStorage`.  It is the responsibility
+                        of the caller to ensure that this points to sufficient
+                        storage.
+
+Note that `StorageNeeded`
+                        can be used not only to determine how much storage
+                        is required but to allow this method to be correctly
+                        implemented in the base class.
+
+` virtual     void  Clear ();`Clears the spectrum.  This also clears the
+                        over/underflow counters.  For most spectra,
+                        the base class implementation is sufficient.
+
+` virtual    const Size_t  StorageNeeded();`Returns the number of bytes of storage required
+                        for this spectrum.
+
+` virtual     void  ReplaceStorage(Address_t  pNewLoc, Bool_t  fTransferOwnership = kfTRUE);`Replaces the storage associated with the spectrum
+                        with `pNewLoc`. If there's already
+                        storage associated with the spectrum, its contents are
+                        copied into `pNewLoc` using the
+                        `Copy` method.
+                        If the storage is owned by the spectrum,
+                        `ReleaseStorage` is called to
+                        free it.  Finally, the value of
+                        the storage storage ownership flag is
+                        set to the value of
+                        `fTransferOwnership`.
+
+` virtual     Bool_t  CheckGate(const  CEvent&  rEvent);`Returns kfTRUE if the event
+                        `rEvent` satisfies the gate
+                        that is currently applied to thsi spectrum.
+                        If not, returns kfFALSE.
+
+` virtual     SpectrumDefinition&  GetDefinition();`Returns a struct that describes the spectrum.
+                        See TYPES below for
+                        more information about the fields in the
+                        SpectrumDefinition data type.
+
+` virtual   const  Bool_t  needParameter();`This is used by SpecTcl's histogramming object to organize
+                        spectra.  Some spectra require the existence of at least
+                        one specific parameter (e.g. 1-d or 2-d spectra).  These
+                        spectra are placed in lists organized by the id of the
+                        first parameter needed.
+
+Other spectra can't make the statement that some specific
+                        parameter is required for them to be incremented
+                        (e.g. Summary spectra and all types of gamma spectra).
+                        These are placed in a list and must have their
+                        `operator()` called for every event.
+
+This method returns kfTRUE if this spectrum
+                        has a parameter that is required for the spectrum
+                        to be incremented.  If not, kfFALSE is
+                        returned.
+
+`   void  setTextDescription(std::string  d);`Computing spectrum definition strings can be costly and
+                        adds up rapidly for analysis cases with several hundreds
+                        or even thousands of spectra.  This method allows a
+                        description string to be cached with the spectrum so that it
+                        can be fetched with `getTextDescription`.
+                        `d` will be the new cached spectrum
+                        description string.
+
+SpecTcl makes use of this description caching to vastly
+                        improve the performance of **spectrum -list**.
+
+` protected  void  setStorage (Address_t  am_pStorage);`This simply sets the private member data holding the
+                        pointer to the spectrum storage with
+                        `am_pStorage`.
+                        `ReplaceStorage` is preferred
+                        as it takes care of copying current spectrum data and,
+                        if appropriate, deleting prior storage.
+                        This method is provided if a concrete spectrum class
+                        has specific, special storage management requirements.
+
+` protected  void  setOwnStorage (Bool_t  am_fOwnStorage);`Sets the storage ownership flag to
+                        `am_fOwnStorage`.
+
+` protected  void  setStorageType(DataType_t  dt);`Intended for use by specific, concrete constructors.
+                        This method sets the spectrum data type element to
+                        `dt`.
+
+` protected  void  AddAxis(UInt_t  nChannels, Float_t  fLow, Float_t  fHigh, const  std::string&  Units = std::string(""));`This method is intended for use by constructors that
+                        must incrementally add axis definitions to a spectrum.
+                        This method adds a single axis definition for
+                        an axis with `nChannels` bins,
+                        that represent parameter values in the range
+                        [`fLow`, `fHigh`).
+
+If supplied, `Units` is saved
+                        as the units of measure for the axis.
+
+` protected  bool  checkRange(int  channel, int  nChans, int  axis);`This method is obsolete.  It checks that a avlue
+                        `channel` is in the range
+                        [0, `nChans`).
+                        If so, the method returns true.  If
+                        not either `logUnderflow`
+                        or `logOverflow` is called
+                        as appropriate and false
+                        is returned.
+
+THe method is obsolete because with SpecTcl 5.0
+                        root integration, the spectrum classes are wrappers
+                        around
+                        `TH1` and
+                        `TH2` derived objects.  Those
+                        objects maintain overflows and underflows via calls to
+                        `Fill`
+
+` protected  void  ReleaseStorage();`Frees storage associated with the spectrum.
+                        This should only be called if the
+                        spectrum owns its storage.
+
+<a name="AEN14244"></a>## TYPES
+
+
+
+AxesSpectra have a vector of `CAxis`
+                        objects.  Each object defines an axis and, more importantly,
+                        the mapping function between raw parameters and bins
+                        on that axis.
+
+See `CAxis` for more information
+                        about this class.
+
+AxisIteratorDefines an iterator into the collection of axes
+                        a spectrum maintains.
+
+SpectrumDefinitionsSpectra require a uniform description.  The
+                        SpectrumDefinition struct
+                        provides that type.  It has the following
+                        members:
+
+
+
+std::string `sName`Contains the name of the spectrum.
+
+UInt_t `nId`The id of the spectrum.  This is a  positive
+                                    integer that no longer has much m eaning in
+                                    SpecTcl.
+
+SpectrumType_t `eType`This is an enumerated value that contains
+                                    the spectrum type.  Valid values are
+                                    ke1D, ke12D, keBitmask, keSummary,
+                                    keG1D, keG2d, keUnknown, keStrip, keG2DD, keGSummary.
+
+As each specific spectrum class is introduced,
+                                    its type is given as well.
+
+DataType_t `eDataType`An enumerated value containing the data
+                                    type for the spectrum channels.  This is
+                                    one of
+                                    keByte, keWord, keLong, keFloat, keDouble,
+                                    keUnknown_dt.  With reasonably
+                                    obvious meanings.
+
+std::vector<UInt_t>  ` vParameters`A vector containing the parameter ids of the
+                                    parameters on the x axis the spectrum.  Note
+                                    that for 1D spectra ther only is an X axis
+                                    hence the lack of a qualifier on the name.
+
+std::vector<UInt_t> `vyParameters`Ids of the parameters on the Y axis.  For 1D
+                                    spectra this will be an empty vector.
+
+std::vector<UInt_t>`nChannels`Vector containing the number of channels on
+                                    various spectrum axes.  Element 0
+                                    is the number of parameters on the X axis.
+                                    If the spectrum is a 2-D spectrum,
+                                    element 1 will be the number of channels
+                                    on the Y axis.
+
+std::vector<Float_t> `fLows`Vector of axis low limits.  For each
+                                    element in `nChannels`,
+                                    a corresponding element in this vector
+                                    provides the low limit of the axis in
+                                    real world coordinates.
+
+std::vector<Float_t> `fHighs`Similar to `fLows`
+                                    but provides the real world coordinates of
+                                    axis high limits.
+
+<a name="AEN14323"></a>## Bitmask spectra
+
+Bit mask spectra are defined on a single parameter.  They assume
+            the parameter is actually an integer and increment a channel for
+            each bit set in the parameter (as an integer).  Two types of
+            bit mask spectra are defined;
+
+
+
+- `CBitSpectrumL`, defined in
+                          BitSpectrumL.h, defines a spectrum
+                          whose channels are all longwords (32 bits wide)
+- `CBitSpectrunmW`, defined in
+                          BitSpectrumW.h, defines a spectrum
+                          whose channels are all 16 bits wide.
+
+
+This section will only document the methods of significance that either
+            have special implementation or have not been documented for
+            `CSpectrum`
+
+
+
+`  CBitSpectrumL(const  std::string&  rName,  UInt_t  nId, const  CParameter&  rParameter, UInt_t  nChannels);`In this constructor, `rName` is
+                        the name of the spectrum being created and
+                        `nId` its id.
+                        `rParameter` defines the parameter
+                        that is used to increment the spectrum.
+                        `nChannels `.
+
+The spectrum will increment for hte bottom
+                        `nChannels` bits in
+                        `rParameter`.  It, therefore has
+                        an X axis with a range [0, `nChannels`)
+
+`  CBitSpectrumL(const  std::string&  rName, UInt_t  nId, const  CParameter&  rParameter, UInt_t nLow, UInt_t  nHigh);`This constructor creates a bit mask spectra that increments
+                        for bit numbers in the range of
+                        [`nLow`, `nHigh`).
+
+`  const UInt_t  getChannels();`Returns the number of channels in the spectrum.
+                        This will also be the number of bits in the range
+                        of bits the spectrum displays.
+
+`  const UInt_t  getParameter();`Returns the id of the parameter the spectrum is
+                        defined on.  This will be the id of the
+                        `rParameter` parameter passsed to
+                        the constructor.
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns the value keBitMask
+                        indicating this is a bit mask spectrum.
+
+` virtual     void  Increment (const  CEvent&  rEvent);`If the parameter the spectrum was constructed on was
+                        assigned a value in `rEvent`,
+                        it is converted to a 32 bit integer.
+                        For every bit that is set in that spectrum within the
+                        range of bits the X axis covers, the appropriate
+                        channel is incremented.
+
+Note that normally this is called from within
+                        `CSpectrum`::`operator()`
+                        if the gate applied on this spectrum is satisfied.
+
+<a name="AEN14442"></a>## Gamma spectrum base class (`CGammaSpectrum` methods
+
+Gamma spectra are multiply incremented spectra.  The
+            `CGammaSpectrum` class is a base class for
+            several types of gamma spectra.  One feature gamma spectra have that is
+            unique is the ability to have a gate applied as a
+            *fold*.  Folds are a mechanism for untangling
+            sequential decays.
+
+If a gamma spectrum has a fold applied, that fold must be defined
+            only on parameters present in the gamma spectrum.  In that case,
+            the spectrum is incremented only for parameters that do not fall
+            in the fold as long as at least one set of parameters do fall in the
+            fold.
+
+One way to look at this:  Suppose you have several peaks in this
+            spectrum, one of which you've identified as a peak of interest.
+            if you set a gamma gate on that peak and apply it as a fold, the
+            only remaining peaks will be those that came in coincidence with the
+            peak you set the fold on.  Those peaks typically represent parts of
+            a sequential decay that included the peak you set the fold on.
+
+
+
+`  CGammaSpectrum(const  std::string&  rName, UInt_t  nId,  CSpectrum::Axes  Maps, std::vector<CParameter>&  Parameters, CGateContainer*  pGate  = pDefaultGate);`This constructor creates a new gamma spetrum
+                        base class given the spectrum name
+                        (`rName`) and id
+                        (`id`).
+                        Axis definitions are supplied by a vector of
+                        `CAxis`; `Maps`.
+
+The gamma spectrum will be incremented from the parameters
+                        in `Parameters`.  What this means
+                        depends on the specific type of gamma spectrum being
+                        created by the subclass.
+
+Finally `pGate` points to the gate container
+                        of the gate initially applied to the spectrum.
+                        This defaults to `pDefaultGate` which
+                        points to a container for a true gate.
+
+Note that this constructor is used when there's no
+                        distinction between X and Y parameters such as in
+                        gamma 1d or ordinary gamma 2d spectra.
+
+`  CGammaSpectrum(const  std::string& rName,  UInt_t  nId,  CSpectrum::Axes  Maps, std::vector<CParameter>&  xParameters, std::vector<CParameter>&  yParameters, CGateContainer*  pGate = pDefaultGate);`This constructor should be used by subclasses
+                        that differentiate between parameters on the X and Y
+                        axis.  For example, the Gamma Deluxe spectrum.
+
+The only difference between this and the previous
+                        constructor is that parameters are specified
+                        by `xParameters` - the parameters
+                        on the X axis and `yParameters` -
+                        the parameters on the Y axis.
+
+`  CGammaSpectrum(const  std::string&  rName, UInt_t  nId, std::vector<CParameter>& Parameters, CGateContainer* pGate = pDefaultGate);`, `  CGammaSpectrum(const  std::string& rName,  UInt_t  nId, std::vector<CParameter>&  xParameters, std::vector<CParameter>&  yParameters, CGateContainer*  pGate = pDefaultGate);`These constructors are used when the axis definitions
+                        will be computed and added via `AddAxis`
+                        as during the constructor body.
+
+` virtual   void  Increment(const  CEvent& rEvent CEvent& rEvent);`Gamma spectrum increments are mediated by the fold applied
+                        on them.  Gamma spectra always have a fold although
+                        the fold may be a default one.
+
+This method invokes the fold given the list of parameters
+                        and the event, for ordinary gamma spectra, or the
+                        x and y parameters and the event for gamma deluxe
+                        spectra.  The fold, in turn will determine which of the
+                        `Increment` methods below and
+                        how to invoke it.  Those methods will perform the
+                        final increment.
+
+` virtual  =0 void  Increment(std::vector< std::pair<UInt_t, Float_t> > &  rParameters);`This pure virtual method must be implemented in
+                        concrete derived classes.  It performs the appropriate
+                        increments of the spectrum given a vector of
+                        pairs.  The first element of each pair is a parameter
+                        number and the second the value of that parameter.
+                        Note that The fold that calls this may have
+                        removed some of the parameter/values present in the
+                        event due to the impact of the fold.
+
+This increment is used by ordinary gamma spectra that
+                        don't have a concept of X and Y parameters.
+
+` virtual   void  Increment(std::vector< std::pair<UInt_t, Float_t> >&  xParameters, std::vector<std::pair<UInt_t, Float_t> >&  yParameters);`This pure virtual method must be implemented in concrete
+                        derived classes.  It performs appropriate increments
+                        for gamma spectra that differentiate between X and
+                        Y parameters (Gamma Deluxe).  It will be called by
+                        the spetrum's fold after it has reduced the parameters
+                        to the appropriate set after the application of the
+                        fold.
+
+`   Bool_t  haveFold();`Returns true if the spectrum has a named fold. Note that
+                        the default fold, a fold wrapped around a True gate,
+                        has no name.  Only folds wrapped around gamma gates
+                        have names, the name of the wrapped gate.
+
+What this method actually tells you is whether or not
+                        the spectrum has a fold that can influence how
+                        spectra are incremented.
+
+`   void   Fold(CGateContainer*  pGate);`Wraps the gate container (and hence the gate it contains)
+                        pointed to by `pGate` into a
+                        `CFold` object and applies the
+                        resulting fold to the spectrum.  The fold can,
+                        if it is a gamma gate, dictate how the spectrum
+                        is incremented by reducing the set of parameters
+                        used to increrment the spectrum.
+
+`   CFold*  getFold();`Returns a pointer to the  fold applied to the
+                        spectrum.
+
+` virtual   void  GetParameterIds(std::vector<UInt_t>&  rvIds);`The set of parameter ids used by this spectrum are
+                        appended to `rvIds`.  Note this
+                        vector is not cleared by the method.
+
+For spectra that care about X/Y parameters, the
+                        X parameters are added first followed by the Y
+                        parameters.
+
+` protected  void  CreateParameterList(std::vector< std::pair<UInt_t, Float_t> >&  outList, const  CEvent&  rEvent);`Given the event
+                        `rEvent`, creates a vector of parameter
+                        number/value pairs for all parameters the spectrum is
+                        defined on that have been assigned values in
+                        `rEvent`.  Note that if the
+                        spectrum cares about X/Y parameters, this will represent
+                        the X parameters only.
+
+` protected  void  CreateYParameterList(std::vector< std::pair<UInt_t, Float_t> >&  outList, const  CEvent&  rEvent);`For spectra that care about which parameters are X
+                        and Y, produces what `CreateParameterList`
+                        does for the Y parameters.  For those spectra,
+                        `CreateParameterList` only
+                        produces a list of X parameters.
+
+` protected  void  CreateParameterVector(std::vector<CParameter>&  Parameters);`
+` protected  void  CreateYParameterVector(std::vector<CParameter>&  Parameters);`Creates vectors of parameter definitions into
+                        `Parameters`.  If the
+                        Spectrum does not care about X,Y parameters,
+                        `CreateParameterVector`
+                        creates a vector with all of the parameters.
+                        If the spectrum does care about X/Y parameters,
+                        the method produces only the X parameters
+                        and `CreateYParameterVector`
+                        produces the definitions of the Y parameters.
+
+<a name="AEN14705"></a>## Methods for simple 1-D Gamma spectra
+
+Gamma spectra are intended to provide a way to look at data from
+            several gain matched, identical gamma-ray detectors.
+            Gamma spectra are multiply incremented an have folds which can
+            be used to untangle sequential decays that occur within one
+            event trigger.
+
+1-D gamma spectra take a set of parameters and, simplistically,
+            increment for each parameter present in the event.  Folds will
+            reduce the set of parameters the spectrum increments for on an
+            event by event basis.
+
+Two types of classes have been defined for gamma 1d spectra;
+            `CGamma1DL` has longword (32 bit) channels
+            while `CGamma1DW` has word (16 bit)
+            channels.
+
+
+
+`  CGamma1DL(const  std::string&  rName, UInt_t  nId, std::vector<CParameter>&  rrParameters, UInt_t  nScale);`, `  CGamma1DL(const  std::string&  rName, UInt_t  nId, std::vector<CParameter>&  rrParameters,, UInt_t  nChannels, Float_t  fLow, Float_t  fHigh);`Constructs a 1d Gamma Spectrum.  For the two constructors,
+                        `rName` and
+                        `nId` are the name and
+                        id of the spectrum respecdtively.
+                        `rrParameters` is a vector containing
+                        the descriptions of the parameters on which the spectrum
+                        is defined.
+
+In the first form, `nScales` is
+                        the number of channels in the spectrum.  The X axis of the
+                        spectrum, in this case is the range
+                        [0, `nScale`).
+
+In the second form, the number of channels is given
+                        by `nChannels` and
+                        the axis range in parameter coordinates is
+                        [`fLow`,`fHigh`)
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns the value keG1D.
+
+`   virtual   void  Increment(std::vector<std::pair<UInt_t, Float_t> >&  rParameters);`Increments appropriate channels of the spectrum
+                        given the vector of parameter ids and pairs.  For
+                        this simple 1D Gamma spectrum, this just means
+                        incrementing for all values that are in axis range.
+
+` virtual   void  Increment(std::vector<std::pair<UInt_t, Float_t> >&  xParameters,, std::vector<std::pair<UInt_t, Float_t> >&  yParameters);`This method is not appropriate for gamma 1d spectra
+                        as there's no differentiation between X and Y parameters
+                        in this type of spectrum.  Invokingh this wil therefore
+                        throw a `CException` whose
+                        reason text explains that you're trying to increment
+                        a gamma 1d spectrum with the gamma 2d deluxe increment
+                        method.
+
+<a name="AEN14805"></a>## Gamma 2D L/W/B spectrum methods
+
+The Gamma 2D spectra come in longword (32 bit channels),
+            word (16 bit channels) and byte versinos (8 bit channels).
+            The classes are called
+            `CGamm2DL`, `CGamma2DW`,
+            and `CGamma2DB` respectively.  As all have
+            the same set of methods with the same semantics, only
+            `CGamma2DL`'s methods will be described.
+
+`CGamma2DL` spectra, while they are 2d don't
+            differentiate between X and Y axes.  Instead, the spectrum is
+            incremented for every ordered pair of parmaeters that fit into
+            the spectrum.  See `Increment` below for
+            the increment pseudo code.
+
+
+
+`  CGamma2DL(const  std::string&  rName, UInt_t  nId, std::vector<CParameter>&  rParameters, UInt_t  nXScale, UInt_t  nYScale);`, `  CGamma2DL(const  std::string&  rName,  UInt_t  nId, std::vector<CParameter>&  rParameters, UInt_t  nXScale, UInt_t  nYScale, Float_t  xLow, Float_t  xHigh, Float_t  yLow, Float_t  yHigh);`These constructors differ only in how the X/Y axes
+                        are specified.  Both of them require
+                        a spectrum name (`rName`),
+                        id (`nId`).  Both require
+                        a vector of parameters that will be used to increment
+                        the spectrum and evaluate it's associated fold
+                        (`rParameters`).
+
+The first constructor specifies the axes only with bin
+                        counts, `nXScale ` and
+                        `nYscale`.  The
+                        X axis runs the range
+                        [0, `nXScale`)
+                        and the Y axis has the range
+                        [0, `nYScale`)
+
+The second constructor provides full mappings
+                        for both the X and Y axes.  In addition to
+                        `nXScale` and `nYScale`,
+                        which specify the number of bins on the X and Y axi
+                        respectively, both axis ranges are specified.
+                        The X axis range is
+                        [`xLow`, `xHigh`).
+                        The  axis range is
+                        [`yLow`, `yHigh`).
+
+` virtual   SpectrumType_t  getSpectrumType();`Retrns keG2D - Gamma 2d spectrum.
+
+` virtual   void  Increment(std::vector<std::pair<UInt_t, Float_t> >&  rParameters);`This method should be called to increment the spectrum.
+                        `rParameters` is a vector
+                        of parameter ids and their associated values.  The
+                        spectrum's fold may have reduced the set of parameters
+                        from the set in the event for this spectrum.
+
+The Gamma 2d spectrum does not know about separate
+                        X and Y parameters but increments for all ordered pairs
+                        of parameters in the spectrum following psuedo code like:
+
+```
+for i in 0 - rParameters.size() -1 
+   for j in i +1 - rParameters.size()
+      xparam  = RawToXaxis(rParameters[i].second)
+      yparam  = RawToYaxis(rParameters[j].second)
+      if xparam and yparam fall in X and Y axes respectively
+        increment spectrum at xparam,yparam
+      end if
+    end for
+end for
+                    
+```
+
+` virtual   void  Increment(std::vector<std::pair<UInt_t, Float_t> >&  xParameters, std::vector<std::pair<UInt_t, Float_t> >&  yParameters);`This increment operation is not valid for this spectrum
+                        type as it does not distinguish between X and Y parameters.
+                        If it is called in error it will throw a
+                        `CException` with the reason text
+                        "Gamma 2d Deluxe increment called on CGamma2DL"
+
+<a name="AEN14931"></a>## Gamma "Deluxe" spectra
+
+The Gamma Deluxe (2GDD)) spectrum is intended to provide particle gamma
+            coincidence spectrum.  The 2GDD family of spectra have a
+            distinct set of X and Y parameters, unlike the simple Gamma 2D
+            spectra.  2GDD spectra are incremented over every pair of X/Y
+            parameters.   Psuedo code will be shown for this in the
+            documentation for the `Increment` method.
+
+When code for the 2GDD spectra was written, C++ templates were quite a
+            bit more stable.  As such this spectrum is implemented as a template
+            class with the channel type as the template parameter.  Note that
+            with Root integration (not shown), a second template parameter,
+            the type of Root histogram used for the spectrum
+            was added (not shown in this documentation).
+
+A set of typedefs define
+            `CGamma2DDL`, a spectrum with longword (32 bit) channels,
+            `CGamma2DDW`, a spectrum with word (16 bit) channels
+            and
+            `CGamma2DDB`, a spectrum with byte (8 bit) channels.
+
+
+
+`  CGamma2DD(const  std::string&  rName,  UInt_t  nId, std::vector<CParameter>& xParameters, std::vector<CParameter>&   yParameters, UInt_t  xChannels,  UInt_t  yChannels);`, `  CGamma2DD(const  std::string&  rName,  UInt_t  nId, std::vector<CParameter>& xParameters, std::vector<CParameter>&   yParameters, UInt_t  xChannels,  UInt_t  yChannels, Float_t  xLow,  Float_t  xHigh, Float_t  yLow, Float_t  yHigh);`Constructors for G2DD spectra.  Both constructors
+                        provide parameters to identify the spectrum.
+                        `rName` is the spectrum's name
+                        and `nID` its identifier.
+                        Both provide a pair of vector parameters;
+                        `xParameters` and
+                        `yParameters` which
+                        provide parameters for the X and Y axes respectively.
+                        Both also provide a pair of parameters;
+                        `xChannels` and
+                        `yChannels` to provide the
+                        number of bins on the X and Y axes respectively.
+
+The first of the constructors does not provide
+                        for a mapping between raw parameters and axis values/bins.
+                        The X axis has the range
+                        [0, `xChannels`).
+                        The Y axis has the range
+                        [0, `yChannels`)
+
+The second of the constructors provides for the ability
+                        to specify parameter coordinate ranges for each axis
+                        as well as the binning.   The X axis in this case has the
+                        range
+                        [`xLow`, `xHigh`)
+                        with `xChannels` bins.
+                        Similarly, the Y axis has the range
+                        [`yLow`, `yHigh`)
+                        with `yChannels` bins.
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns keG2DD.
+
+` virtual   void  Increment(std::vector<std::pair<UInt_t, Float_t> >&  rParameters);`This, axis blind method is not appropriate for
+                        incrementing the Gamma Deluxe family of spectra.
+                        If invoked, it will throw a
+                        `CException` with the
+                        reason text
+                        Attempted a 'non-deluxe' increment of a gamma deluxe spectrum
+
+` virtual   void  Increment(std::vector<std::pair<UInt_t, Float_t> >&  rXParameters, std::vector<std::pair<UInt_t, Float_t> >&  rYParameters);`This is the appropriate increment method for
+                        G2DD spectra.  `rXParameters` is
+                        a vector of parameter ids and their values for the X
+                        axis.  Similarly
+                        `rYParameters` is a vector
+                        for the Y axis.
+
+The evaluation of the spectrum's fold can reduce the
+                        set of parameters passed to the increment.
+                        Psuedo code below shows how these parameters increment
+                        the spectrum.
+
+```
+for i in [0, rXParameters.size())
+   for j in [0, rYParameters.size()]
+       x = RawToXaxis(rXParameters[i].second)
+       y = RawToYaxis(rYParameters[j].second)
+       if x and y are in the axis ranges
+          increment spectrum at (x,y)
+        endif
+    end for
+end for
+       
+
+                    
+```
+
+<a name="AEN15064"></a>## Gamma Summary Spectra
+
+`CGammaSummary` spectrum is a templated class.
+            Template parameters include the data type of the channel. After
+            Root integration, an additional template parameter that is the
+            type of Root histogram wrapped by this class was added.
+            For convenience, the header defines typedefs for
+            `CGammaSummarySpectrumL` - 32 bit channels,
+            `CGammaSummarySpectrumW` - 16 bit channels and
+            `CGammaSummarySpectrumB` - 8 bit channels.
+
+Gamma summary spectra are a great deal like ordinary summary spectra,
+            except that rather than each X channel representing a single parameter
+            it is a gamma spectrum on set of parameters.  This is reflected in its
+            constructors as you will see.
+
+While gamma summary spectra have a gate applied to them, the don't have
+            folds.
+
+
+
+`  CGammaSummarySpectrum(const std::string  name, UInt_t  nId, UInt_t  nYChannels, std::vector<std::vector<CParameter> >*  pParameters);`, `  CGammaSummarySpectrum(const std::string  name, UInt_t nId, std::vector<std::vector<CParameter> >*  pParameters, UInt_t  nYChannels, Float_t  fYLow, Float_t  fYHigh);`As usual there are a pair of constructors.  The
+                        first of these provides for an one to one mapping
+                        between parameter values and Y axis channels.  The second
+                        allows for arbitary mappings.
+
+For the most part, parameterrs are the same as for
+                        other gamma spectra.  The `pParameters`
+                        paramameter points, however to a vector of vectors.
+                        The outer vector indexes the X axis channels while the
+                        inner vector contains the parameters that contribute
+                        to the gamma spectrum that is on the Y axis for each
+                        of those channels.   The
+                        `Increment` method documentation
+                        provides pseudo code for the increment logic.
+
+` virtual   SpectrumType_t  getSpectrumType();`returns the value keGSummary
+                      indicating this spectrum is a gamma summary spectrum.
+
+` virtual     void  Increment(const  CEvent&  rEvent);`Increments the appropriate channels in the spectrum
+                        given the event `rEvent`.
+                        The object has a member `m_Parameters`
+                        that is a vector of vectors of parameter ids.
+                        This is used to drive the increment.  Here's pseudo
+                        code for the increment operation.
+
+```
+for i in [0, m_Parameters.size()]
+    for all m_Parameters[i] py where rEvent[py].isValid()
+        y = rawToYAxis(rEvent[py]);
+        increment channel (i,y)
+    end for
+end for
+                    
+```
+
+<a name="AEN15144"></a>## Simple One dimensional spectra
+
+The simple one dimensional spectrum classes are:
+            `CSpectrum1DL` - 32 bit channels and
+            `CSpectrum1DW` - 16 bit channels.
+            These spectra take a single parameter and will perform at most
+            one increment per event.
+
+
+
+`  CSpectrum1DL(const  std::string&    rName,  UInt_t  nId, const  CParameter&  rParameter, UInt_t  nChannels);`, `  CSpectrum1DL(const  std::string&    rName, UInt_t  nId, const    CParameter&   rParameter, UInt_t  nChannels, Float_t   fLow, Float_t fHigh);`These two constructors differ only in how the
+                        X axis of the spectrum is described.  For both of them,
+                        `rName` and
+                        `nId` are the name and id of the
+                        spectrum being created.
+                        `rParameter` references the
+                        description of the parameter that will be used to
+                        increment the spectrum. and
+                        `nChannels` is the number of
+                        bins on the X axis.
+
+In the first form of the constructor, the mapping from
+                        raw parameter to bin is one-to-one.  That is the
+                        X axis is assumed to cover the range
+                        [0, `nChannels`).
+
+In the second form of the constructor, the additional
+                        parameters; `fLow` and
+                        `fHigh` specify the range of the
+                        X axis.  The X axis range is considered to be
+                        [`fLow`, `fHigh`)
+
+`   UInt_t  getParameter();`Returns the id of the parameter that will be used
+                        to increment the spectrum.
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns ke1D.
+
+` virtual     void  Increment(const  CEvent&  rE);`Performs the appropriate increment for the event
+                        `rE`. At most only one increment
+                        can be performed.  Pseudo code for the increment
+                        (assuming the gate has been satisfied) is
+
+```
+UInt_t id = getParameter();
+if (rE[id].isValid())
+   x = rawToXaxis(rE[id])
+   increment channel x if in range
+end if
+                    
+```
+
+<a name="AEN15242"></a>## Simple two dimensional spectra
+
+Two dimensional spectra are defined on a pair of parameters
+            called the X and Y parameters.  A two dimensional spectrum
+            increments a channel in a two dimensional grid of channels indexed
+            by a mapping of the values of the X and Y parameterss.
+            The two dimensional spectrum classes are
+            `CSpectrum2DL` - 32 bit channels,
+            `CSpectrum2DW` - 16 bit channels and
+            `CSpectrum2DB` - 8 bit channels.
+
+As usual, psuedo code for the increment (assuming the spectrum's gate
+            has been satisfied) is presented in the documentation of the
+            `Increment method`.
+
+
+
+`  CSpectrum2DL(const  std::string&  rName, UInt_t  nId`, const  CParameter&  rXParameter, const  CParameter&  rYParameter, UInt_t nXScale, UInt_t  nYScale);`, `  CSpectrum2DL(const  std::string&  rName, UInt_t  nId, const  CParameter&  rXParameter, const  CParameter&  rYParameter, UInt_t  nXChannels, Float_t  fxLow, , Float_t  fxHigh, UInt_t  nYChannels, Float_t  fyLow, Float_t  fyHigh);`The two constructors, like the constructors for most
+                        spectrum types differ only in how the axes of the spectrum
+                        are specified.
+
+The first constructor specifies
+                        the X axis as covering the range
+                        [0, `nXChannels`)
+                        with `nXChannels` bins.
+                        The Y axis is similarly specified as covering the range
+                        [0, `nYChannels`)
+                        with `nYChannels` bins.
+
+The second constructor, provides for arbitrary limits and
+                        binning.  `nXChannels` and
+                        `nYChannels` specify the number of
+                        bins on the X and Y axes respectively  as before. The range
+                        of the X axis is, however specified a
+                        [`fxLow`, `fxHigh`).
+                        The range for the Y axis is similarly
+                        [`fyLow`, `fyHigh`).
+
+The remainder of the constructor parameters are common
+                        to both forms of the constructor.
+                        `rName` and `nId`
+                        identify the spectrum.
+                        `rXParameter` and
+                        `rYParameter` are the definition
+                        objects for the X and Y axis parameters respectively.
+
+`   UInt_t  getXParameter();`Returns the parameter id of the X axis parameter.
+
+`   UInt_t  getYParameter();`Returns the parameter id of the Y axis parameter.
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns ke2D.
+
+` virtual     void  Increment(const  CEvent&  rEvent);`Increments the spectrum as appropriate given the
+                        event `rEvent`.
+                        `Increment` does not
+                        check the gate.  `operator()`
+                        is assumed to already have done that.
+
+Pseudo code for the increment is:
+
+```
+xid  = getXParameter();
+yid  = getYParameter();
+if rEvent[xid].isValid() and rEvent[yid].isValid()
+    x = rawToXaxis(rEvent[xid])
+    y = rawToYAxis(rEvent[yid])
+    increment spectrum at channel (x,y)
+end if
+                    
+```
+
+<a name="AEN15384"></a>## Strip chart spectrum
+
+Strip chart spectra are 1-d spectra that are intended to
+            represent the time evolution of some parameter.  They are
+            defined on two parameters. The value of one of them is called the
+            parameter while the value of the other is called the channel.
+
+The increment logic will be given in psuedo code when we describe
+            the `Increment method`. The basic idea, however
+            is that the channel selects a bin in the spectrum into which the
+            parameter is summed.  If the channel value of an event is outside
+            the range of the spectrum, the spectrum is shifted to accommodate it.
+            Thus, if you think of the channel parameter as related to time, the
+            spectrum does implement a strip chart of the parameter.
+
+Note, however that shifts in either direction are supported.
+
+
+
+`  CSpectrumS(const  std::string& rName, UInt_t nId, const  CParameter& rParameters, const  CParameter& nChannel, UInt_t nChannels);`, `  CSpectrumS(const  std::string& rName, UInt_t   nId, const  CParameter&  rParameters, const  CParameter& nChannel, UInt_t   nChannels, Float_t  fLow, Float_t fHigh);`These tow constructors again differ only in the
+                        initial axis specification.  In the first form,
+                        the spectrum has `nChannels`
+                        channels and the channel width corresponds to
+                        one unit of width in the raw parameter space.
+
+In the second form of the constructor,
+                        the initial range of the spectrum
+                        is
+                        [`fLow`, `fHigh`).
+                        The width of a channel is
+                        (fHigh - fLow)/nChannels.
+
+For both constructor forms,
+                        `rName` and
+                        `nId` identify the spectrum.
+                        `rParameters` is the spectrum's
+                        parameter value.  This parameter is on the Y axis of the
+                        strip chart.  `nChannel` is the
+                        spectrum's channel parameter.
+
+`   void  ShiftDataUp(int64_t  nShift);`This method is normally used by
+                        `Increment` for events where
+                        the channel parameter is to the left of the origin of
+                        the X axis.  Data are shifted upwards
+                        (to the right) and zero filled
+                        on the left.  `nShift` is the
+                        number of channels to shift the data.
+
+`   void  ShiftDataDown(int64_t  nShift);`Same as `shiftDataUp` but the channels
+                        are shifted to the left in the spectrum.
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns keStrip
+
+` virtual     void  Increment(const  CEvent&  rE);`Increments the spectrum as per the contents of the
+                        event `rE`.  The Psuedo code is:
+
+```
+nc = getChannelParameter()
+np = getParameter()
+if (rEvent[nc].isValid() and rEvent[np].isValid())
+    channel = rawToX(rEvent[nc])
+    if (channel > last channel)
+        shift spectrum down
+    else if (channel < 0)
+        shift spectrum up
+    endif
+    channel = rawToX(rEvent[nc])
+    increment spectrum at channel by rEvent[np]
+end if
+                    
+```
+
+<a name="AEN15506"></a>## Summary Spectra
+
+Summary spectra are intended to allow you to look at a large number
+            of parameters simultaneously.  An obvious use case is to look at all
+            of the detectors in a detector array.   Summary spectra are two
+            dimensional spectra but actually, each Y strip is a one channel wide
+            spectrum of a single parameter.
+
+The increment logic, as usual, is shown in pseudo code for the
+            `Increment` method.
+
+
+
+`  CSummarySpectrumL(const  std::string&  rName, UInt_t  nId, std::vector<CParameter>  rrParameters, UInt_t  nYScale);`, `  CSummarySpectrumL(const  std::string&  rName, UInt_t  nId, std::vector<CParameter>  rrParameters, UInt_t  nYScale, Float_t  fYLow, Float_t  fYHigh);`The two forms of the constructor differ in how they
+                        create the range and binning of the Y axis.
+                        In the first form; there are
+                        `nYScale ` bins on an axis that spans
+                        the interval
+                        [0, `nYScale`).
+                        In the second form; there are again
+                        `nYScale` channels, but the axis spans the
+                        interval
+                        [`fYLow`, `fYHigh`).
+
+The remaining parameters are semantically the same for
+                        both constructors.  `rName`
+                        and `nId` identify the spectrum.
+                        `rrParameters` provide the
+                        parameters that are histogrammed in the summary.
+                        The index of each element of the vector indicates which
+                        X channel that parameter's spectrum occupies.
+
+`   const UInt_t  getnParams();`Returns the number of parameters on the X axis.
+                        This is also the number of channels on the X axis.
+
+`  const UInt_t  getParameterId(UInt_t  n);`Returns the parameter id for channel
+                        `n`.
+
+` virtual   SpectrumType_t  getSpectrumType();`Returns keSummary.
+
+` virtual     void  Increment(const  CEvent&  rEvent);`Given an event `rEvent` increments
+                        the appropriate channels of the spectrum.  The psuedo
+                        code for this method looks a bit like this, assuming
+                        there's a vector m_parameters that has the parameter
+                        ids of the parameters used to construct the spectrum:
+
+```
+xchan = 0
+for each parameter id in m_parameters as id
+    if rEvent[id].isValid()
+        value = rawToYAxis(rEvent[id])
+        Increment channel (xchan, value)
+    endif
+    xchan = xchan + 1
+end for
+                    
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEvent | Up | CFold |

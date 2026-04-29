@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cscaler"></a>CScaler
+
+<a name="AEN66657"></a>## Name
+
+CScaler -- Base class for scaler readout classes
+
+<a name="AEN66660"></a>## Synopsis
+
+```
+#include <CScaler.h>
+         
+```
+
+```
+  virtual void initialize();
+```
+
+<a name="AEN66692"></a>## Description
+
+`CScaler` is an abstract base class for
+            objects that read out scaler hardware.  Concrete classes have to be
+            made by deriving from this class.
+
+<a name="AEN66696"></a>## Public member functions
+
+` virtual void initialize();`Called by the framework to initialize the scaler hardware
+                prior to starting data taking.
+
+` virtual void clear();`Called by the framework to clear scaler hardware both prior to
+                starting data taking and after reading a scaler event.
+
+` virtual void disable();`Called by the framework to disable the scaler hardware
+                prior to terminating data taking.
+
+` virtual = 0 std::vector<uint32_t> read();`Called by the framework to read this module's scaler(s).  The
+                return value is a std::vector consisting of the
+                data read from the hardware
+
+` virtual const bool isComposite();`Should return false if the scaler is not a
+                container for other scalers (see e.g.
+                [[r66027]]).
+                Should return false if the scaler is a container
+                and implements the interface defined by
+                [[r66027]].
+
+<a name="AEN66735"></a>## SEE ALSO
+
+[[r66027]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RunState | Up | 5daq |

@@ -1,0 +1,328 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev | Chapter 2. Creating a Readout program from scratch | Next |
+
+
+---
+
+# <a name="AEN495"></a>2.4. Tying the pieces together
+
+Now that we have an event segment and a scaler module,
+                we must tie this all together into a readout program by
+                registering the appropriate objects with the readout framework.
+                In this section we will:
+
+
+
+- Show how to select and specify the event trigger.
+- Show how to create and register a documented packet
+                          from a few `CCAENEventSegment` objects
+                          to respond to the event trigger.
+- Show how to create and register several
+                          `CSIS3820Scaler` objects, organize
+                          them as a scaler bank and register them to be read when
+                          the scaler trigger fires.  In the process we will also
+                          point out how to modify the scaler trigger.
+
+All of these operations involve editing the
+                Skeleton.cpp file that was distributed
+                as part of the skeleton.
+
+## <a name="AEN509"></a>2.4.1. Specifying the event trigger.
+
+In this section we'll look at how to specify the
+                    event trigger for the readout framework.
+                    Really we need to specify two things.  How to
+                    know when an event should be read, and how to indicate
+                    to the electronics when the event readout is complete.
+
+Each readout must specify an object that is a
+                    `CEventTrigger` as the trigger object.
+                    This object is repeatedly asked if an event is ready to be read.
+                    Each readout may optionally specify an object that is a
+                    `CBusy` object. The readout framework
+                    interacts with that object (if specified) to determine
+                    how to indicate to the electronics that additional triggers
+                    can be responded to.
+
+While you can write your own event trigger and busy classes,
+                    the framework comes with support for the
+                    CAEN V262 and CAEN V977 as trigger/busy electronics in the form
+                    of Busy and trigger classes.  See the reference information
+                    for more about those. For now, we will set up our readout
+                    to trigger and report busy-ness via the CAEN V262 module.
+
+<a name="AEN516"></a>**Example 2-16. Sepcifying the trigger/busy**
+
+```
+#include <config.h>
+#include "Skeleton.h"
+#include <CExperiment.h>
+#include <TCLInterpreter.h>
+#include <CTimedTrigger.h>
+
+#include "CCAENEventSegment.h"
+
+
+#include "CSIS3820Scaler.h"
+
+#include <CCAENV262Trigger.h>  
+#include <CCAENV262Busy.h>
+
+...
+void
+Skeleton::SetupReadout(CExperiment* pExperiment)
+{
+...
+  pExperiment->EstablishTrigger(new CCAENV262Trigger(0x444400, 0) ); 
+  pExperiment->EstablishBusy(new CCAENV262Busy(0x444400, 0));        
+  
+...
+}
+
+
+                    
+```
+
+[[x495#CV262_Includes]]                            This header and the next define the
+                            `CV262Trigger` and
+                            `CV262Busy` classes which we will
+                            be using as trigger and busy classes respectively.
+                        [[x495#CV262_trigger]]                            This line of code creates a new
+                            `CV262Trigger` object
+                            for a module with base address of 0x444400
+                            in VME crate 0.  This is the traditional location of this
+                            module in the NSCL DAQ. The all to the
+                            `EstablishTrigger` method
+                            of the `CExperiment` object
+                            makes this trigger module the experiment event
+                            trigger.
+                        [[x495#CV262_busy]]                            Similarly, this line creates a
+                            `CV262Busy` object at the same
+                            VME base address and establishes it as the module
+                            that will handle and maintain the program's
+                            busy state.
+
+## <a name="AEN536"></a>2.4.2. Specifying what is read out by an event trigger
+
+The `Skeleton::SetupReadout` method of
+                    the skeleton is also where event segment should be registered.
+                    You can imagine the `CExperiment` as a
+                    `CCompoundEventSegment` in the sense that
+                    it implements the `AddEventSegment` method.
+                    This method allows you to specify the set of event segments
+                    you want to respond to the event trigger.
+
+`CExperiment` and
+                    `CCompoundEventSegment` invoke corresopnding
+                    methods of the event segments added to them in the order
+                    in which they were registered.  This allows you to control
+                    the exact sequence in which event segments put their data
+                    into the output event.
+
+The sample code fragments below:
+
+
+
+1. Build a compound event segment from several
+                                   `CCAENEventSegment` objects
+2. Wraps the compound event segment into a
+                                   `CEventPacket` and
+                                   adds it to the readout.
+3. Wraps a single `CCAENEventSegment`
+                                   object in a `CEventPacket`
+                                   and adds that to the readout as well.
+
+
+<a name="AEN558"></a>**Example 2-17. Adding event segments to the experiment**
+
+```
+...
+#include "CCAENEventSegment.h"
+#include <CCompoundEventSegment.h>   
+#include <CEventPacket.h>
+...
+void
+Skeleton::SetupReadout(CExperiment* pExperiment)
+{
+...
+   CCAENEventSegment* pTdc0 = new CCAENEventSegment(0x10000000, 0);
+   CCAENEventSegment* pTdc1 = new CCAENEventSegment(0x11000000, 1);
+   CCAENEventSegment* pTdc2 = new CCAENEventSegment(0x12000000, 2); 
+   CCAENEventSegment* pTdc3 = new CCAENEventSegment(0x13000000, 3);
+   CCAENEventSegment* pTdc4 = new CCAENEventSegment(0x14000000, 4);
+   CCAENEventSegment* pTdc5 = new CCAENEventSegment(0x15000000, 5);
+   
+   CCompountEventSegment* pCompound = new CCompoundEventSegment;   
+   pCompound->AddEventSegment(pTdc0);
+   pCompound->.AddEventSegment(pTdc1);
+   pCompound->AddEventSegment(pTdc2);
+   pCompound->AddEventSegment(pTdc3);
+   pCompound->AddEventSegment(pTdc4);
+   
+   pExperiment->AddEventSegment(new CEventPacket(*pCompound,    
+                                                  0xff01, "Compound",
+                                                  "Sample compound event segment",
+                                                  "V1.0"));
+   pExperiment->AddEventSegment(new CEventPacket(*pTdc5,        
+                                                0xff02, "Simple",
+                                                "Sample simple event segment",
+                                                "V1.0"));
+..
+}
+...
+                    
+```
+
+[[x495#EVSRegsiter_headers]]                            These headers must be included to get the class
+                            definitions we need for our readout definitions.
+                            The CCAENEventSegment.h header
+                            is assumed to hold the class definitions for the
+                            `CCAENEventSegment` we developed
+                            earlier in the chapter.
+                        [[x495#EVSRegister_simplesegs]]                            Creates the event segments that manage the individual
+                            TDC modules.  Each module is given a unique
+                            virtual slot number and base address.
+                        [[x495#EVSRegister_MakeCompound]]                            Creates a compound event segment that contains
+                            the first 5 TDC events egments (`pTdc0`
+                            through `pTdc4`).
+                        [[x495#EVSRegister_Registercompound]]                            Wraps the compound event segment in a packet whose
+                            id will be 0xff01 and whose short name is
+                            Compound. The event segment is
+                            added as the first segment to be read by the
+                            readout framework in response to a trigger.
+                        [[x495#EVSRegister_RegisterSimple]]                            Wraps `pTdc5` in a packet
+                            whose id will be 0xff02 and
+                            whose short name will be Simple.
+                            This event packet is added as the second segment to
+                            be read in response to a trigger.
+
+To conclude this section, let's look at how the software
+                    responds to an event trigger.
+
+When the trigger fires,
+                    The Readout framework will first invoke the `read`
+                    method of Compound event packet.
+                    The event packet will save space for the packet size and
+                    insert the header.  It will then call the
+                    `read`
+                    method of its event segment, `pCompound`.
+                    `pCompound` in turn will invoke the
+                    `read` method of each of the event
+                    segments it wraps in the order in which they were added:
+                    `pTdc0`, `pTdc1`,...
+                    `pTdc4`.
+                    Once all events egments are read, the compound event segment
+                    will compute and fill in the size field of the header.
+
+The readout framework will next invoke the
+                    `read` method of the
+                    Simple event segment.
+                    This will perform in the same way as Compound
+                    except that it will directly call the `read`
+                    method of `pTdc`.
+
+Once the event has been read out, the same algorithm will be
+                    applied, however the `clear` method
+                    will be invoked.
+
+## <a name="AEN604"></a>2.4.3. Specifying the scaler readout
+
+Specifying the scaler readout is very similar to specifying
+                    the event trigger response.  This is done in the
+                    method `Skeleton::SetupScalers`.
+
+At present, this method sets up a timed trigger as the
+                    scaler readout trigger.   The default code sets the
+                    scaler readout trigger period to 2 seconds.
+
+You must add code to this method to define the response
+                    to the scaler trigger.  If you don't want a timed trigger,
+                    you can substitite some other trigger object if you have
+                    some special application need.
+
+In the example below, several SIS3820 scalers are
+                    combined to form a scaler bank.  That scaler bank is registered,
+                    and then a single SIS3820 module is registered.
+
+<a name="AEN612"></a>**Example 2-18. Setting up scaler readout**
+
+```
+...
+#include "CSIS3820Scaler.h>"      
+#include <CScalerBank>"
+...
+void
+Skeleton::SetupScalers(CExperiment* pExperiment) 
+{
+  CReadoutMain::SetupScalers(pExperiment); 
+
+ 
+
+  timespec t;
+  t.tv_sec  = 2;
+  t.tv_nsec = 0;
+  CTimedTrigger* pTrigger = new CTimedTrigger(t);
+  pExperiment->setScalerTrigger(pTrigger);
+
+
+    
+    
+    CSIS3820Scaler* pScaler0 = new CSIS3820Scaler(0x80000000);
+    CSIS3820Scaler* pScaler1 = new CSIS3820Scaler(0x80010000);
+    CSIS3820Scaler* pScaler2 = new CSIS3820Scaler(0x80020000);
+    CSIS3820Scaler* pScaler3 = new CSIS3820Scaler(0x80030000);
+    CSIS3820Scaler* pScaler4 = new CSIS3820Scaler(0x80040000);
+    CSIS3820Scaler* pScaler5 = new CSIS3820Scaler(0x80050000);
+    
+    
+    CScalerBank* pBank = new CScalerBank;
+    pBank->AddScalerModule(pScaler0);
+    pBank->AddScalerModule(pScaler1);
+    pBank->AddScalerModule(pScaler2);
+    pBank->AddScalerModule(pScaler3);
+    pBank->AddScalerModule(pScaler4);
+    
+    
+    
+    
+    pExperiment->AddScalerModule(pBank);
+    pExperiment->AddScalerModule(pScaler5);
+
+
+}
+...
+
+                    
+```
+
+[[x495#ScalerRegister_headers]]                            Includes the headers we will need in the code
+                            that follows.  The assumption is that the
+                            `CSIS3820Scaler` class header
+                            is named CSIS3820Scaler.h.
+                        [[x495#ScalerRegister_trigger]]                            This code sets up a timed trigger for scalers.
+                            The line that reads t.tv_sec  = 2;
+                            sets the readout period to 2 seconds.
+                            Since the scaler timestamp resolution is whole seconds,
+                            you shoule leave the `tv_nsec`
+                            field set to zero.
+                        [[x495#SclerRegister_individualModules]]                            This code creates 6 `CSIS3820Scaler`
+                            objects and assigns their addresses to
+                            `pScaler0` ... `pScaler5`.
+                        [[x495#ScalerRegister_createbank]]                            Adds the scalers `pScaler0` through
+                            `pScaler4` to the scaler bank.  The
+                            order in which they are added determines the order
+                            in which they will be read.
+                        [[x495#ScalerRegister_Register]]                            The scaler bank and remaining scaler module
+                            are added to the set of scalers the readout will
+                            read/clear when the scaler trigger fires.
+                            Once more these are read in the order in which they
+                            were registered.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating scaler banks and scaler modules | Up | Editing and using the Makefile |

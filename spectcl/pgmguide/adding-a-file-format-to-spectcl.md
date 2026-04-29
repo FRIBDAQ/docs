@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 7. Extending SpecTcl spectrum file formats | Next |
+
+
+---
+
+# <a name="AEN1873"></a>7.2. Adding a file format to SpecTcl
+
+Adding a format is conceptually simple. You must
+
+
+
+- Write  a `CSpectrumFormatter`
+                      derived class.
+- Add an instance of your formatter to the
+                      `CSpectrumFormatterFactory`,
+                      associating it with a formatter name string.
+
+The key methods you must implement in your formatter class are:
+
+<a name="AEN1884"></a>```
+ virtual   CSpectrum* Read (std::istream& rStream, 
+			    ParameterDictionary& rDict);
+ virtual   void Write (std::ostream& rStream, CSpectrum& rSpectrum,
+		       ParameterDictionary& rDict);
+            
+```
+
+`Read` is expected to read a spectrum
+            from the input stream `rStream` and
+            return a dynamically allocated spectrum.  
+            `rDict` is the parameter dictionary,
+            which can be used to take any metadata supplied by the
+            file about parameters and spectrum types to know how to
+            construct the spectrum.
+
+Similarly, `Write` takes a
+            `CSpectrum` object and is expected to
+            serialize it to an output stream `rStream`.
+            `rDict` is the parameter dictionary and
+            can be used by the method to generate any metadata needed to
+            describe the spectrum.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extending SpecTcl spectrum file formats | Up | Adding a CSV file format to spectrum read/write |

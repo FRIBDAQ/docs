@@ -1,0 +1,122 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl DDAS Unpackers Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN565"></a>DAQ::DDAS::DDASUnpacker
+
+<a name="AEN569"></a>## Name
+
+DAQ::DDAS::DDASUnpacker -- Event processor for  a sequence of DDSAS hits.
+
+<a name="AEN572"></a>## Synopsis
+
+```
+#include <DDASUnpacker.h>
+
+namespace DAQ {
+  namespace DDAS {
+
+    class CDDASUnpacker : public  CEventProcessor
+    {
+      public:
+        CDDASUnpacker(CParameterMapper& rParameterMapper);
+        void setParameterMapper(CParameterMapper& pParameterMapper);
+        CParameterMapper& getParameterMapper() const;
+
+        virtual Bool_t operator()(const Address_t pEvent,
+            CEvent&         rEvent,
+            CAnalyzer&      rAnalyzer,
+            CBufferDecoder& rDecoder);
+
+    };
+
+  }
+} 
+
+            
+```
+
+<a name="AEN574"></a>## DESCRIPTION
+
+This unpacker unpacks a sequence of raw DDAS hits into
+                SpecTcl parameters.  It operates by first creating a vector
+                of `DAQ::DDAS::DDASHit` objects.
+                That vector is than handed off to a 
+                `CParameterMapper` object which is
+                supposed to make a mapping between the data from each hit
+                to SpecTcl raw parameters.
+
+This class should not be used to unpack data that has
+                been formatted by the NSCL event builder.  See the
+                `DAQ::DDAS::DDASBuiltUnpacker` for
+                an unpacker that can do that.
+
+Note that this event processor could be registered to handle
+                data from a source id for the Event builder Event Processsor.
+
+<a name="AEN582"></a>## METHODS
+
+
+
+`  CDDASUnpacker(CParameterMapper&  rParameterMapper);`Constructs the object.  The `rParameterMapper`
+                            is a reference to an object that is from a class
+                            derived from
+                            `DAQ::DDAS::CParameterMapper` that
+                            is responsible for taking data from each decoded hit
+                            and turning it into a set of SpecTcl parameters.
+
+Since this is a reference and the object is not
+                            copy constructed (there's no requirement that it be
+                            copy constructable), it is important that the
+                            actual object passed remains in scope for the
+                            lifetime of the unpacker object.
+
+`   void  setParameterMapper(CParameterMapper& rParameterMapper);`Allows you to replace the parameter mapping
+                            object on the fly.
+                            `rParameterMapper` refers
+                            to a new parameter mapping object that will
+                            replace the current one.
+
+`  const CParameterMapper&  getParameterMapper() ();`Returns a reference to the current parameter mapping
+                            object.  One use case for this is managing dynamic
+                            parameter mappers for example:
+
+<a name="AEN620"></a>```
+...
+CMyMapper1* mapper = new CMyMapper1;  // Derived from CParameterMapper.
+...
+DAQ:DDAS::DDASUnpacker unpacker(*mapper); // Initial mapper.
+
+.... // in some other part of the program where the mapper pointer is out of scope:
+
+CParameterMapper* pOldMapper = &(unpacker.getParameterMapper());
+CMyMapper2* newMapper = new CMyMapper2;
+unpacker.setParameterMapper(*newMapper);
+delete oldpMapper;
+...
+
+                            
+```
+
+`  virtual   Bool_t  operator()(const  Address_t  pEvent, CEvent& rEvent, CAnalyzer& rAnalyzer, CBufferDecoder& rDecoder);`This is the normal event processing method of
+                            event processors. It's handed the raw data
+                            from an event (`pEvent`),
+                            it expects `pEvent`  to point
+                            to a sequence of raw DDAS hits from the DDASReadout
+                            or DDASReadout_extcl program and decodes these
+                            hits into a vector of
+                            `DAQ::DDAS::DDASHit` objects
+                            which are then passed to its
+                            parameter mapper object to be loaded into SpecTcl
+                            parameters.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DAQ::DDAS::DDASHit | Up | DAQ::DDAS::CDDASBuiltUnpacker |

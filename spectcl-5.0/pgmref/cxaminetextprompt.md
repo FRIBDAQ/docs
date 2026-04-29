@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25034"></a>CXamineTextPrompt
+
+<a name="AEN25038"></a>## Name
+
+CXamineTextPrompt -- Prompt for a text string
+
+<a name="AEN25041"></a>## Synopsis
+
+```
+#include <XamineTextPrompt.h>
+
+class CXamineTextPrompt  : public CXamineButtonPrompt        
+{
+  
+public:
+
+			//Constructor with arguments
+
+  CXamineTextPrompt (const std::string& rPrompt);
+  CXamineTextPrompt(const char* pPrompt) ;
+  virtual   void FormatPrompterBlock (ButtonDescription& rButton) const  ;
+ 
+};
+
+
+        
+```
+
+<a name="AEN25043"></a>## DESCRIPTION
+
+Encapsulates a string prompter.  When a button requesting
+            a string prompter is clicked, the prompt string is
+            treated as prompting text for free form string input.
+            When the string is accepted, it is passed to the client in
+            the button event message.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamineConfirmPrompt | Up | CXamineSpectrumPrompt |

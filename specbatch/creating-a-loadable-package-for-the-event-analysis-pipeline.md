@@ -1,0 +1,308 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev | Chapter 2. Serial batch SpectTcl | Next |
+
+
+---
+
+# <a name="AEN230"></a>2.4. Creating a loadable package for the event analysis pipeline
+
+In the previous section, wwe learned how to start batch SpecTcl
+                analyzing data.  If you've worked with SpecTcl in any depth, however
+                you should be wondering how to setup the event analysis pipeline.
+                In this section we'll describe how to do that.
+
+As a pre-requisite, you'll need to have the sources to the
+                event processors you use available.  They  can stay where
+                they normally live in your normal SpecTcl build tree.
+
+What we're going to do is create a compiled Tcl loadable
+                package that you can incorporate in to the Tcl interpreter
+                that's already incorporated the spectcl
+                package.
+
+Here's the procedure we'll describes:
+
+
+
+1. Get the batch SpecTcl loadable package skeleton
+                           from the SpecTcl distribution.
+2. Modify the package initialization code in the
+                           skeleton to instantiate event processors and
+                           setup the analysis pipeline.  This process
+                           should be familiar to SpecTcl programmers though the
+                           skeleton is much simpler.
+3. Modify the Makefile in the skeleton to include
+                           the sources needed (e.g. event processors and
+                           supporting code).
+4. Build the loadable object.
+
+We'll also show how to incorporate your loadable package into
+                tcl and to check that the pipeline you thought you set up is
+                the pipeline you actually set up.
+
+To start with, obtain the batch SpecTcl skeleton. This consists
+                of the files in the BatchSkel directory of the Skeleton
+                installation tree. Put these files in an empty directory.
+                For example;  Suppose SpecTcl is installed in
+                /usr/opt/spectcl/5.2-000,
+
+<a name="AEN249"></a>**Example 2-5. Obtaining the batch SpecTcl skeleton**
+
+```
+mkdir batch
+cd batch
+cp /usr/opt/spectcl/5.2-000/BatchSkel/* .
+                
+```
+
+The skeleton consists of several files; Makefile
+                and Skeleton.cpp are the files you
+                will need to edit.  CPipelineMaker.{h,cpp}
+                are base class files that we need but should not edit.
+
+In editing Skeleton.cpp, you need to
+                consider three things:
+
+
+
+- The actual event processing pipeline you are going
+                          to create.  Note that unlike SpecTcl, all pipeline
+                          elements (event processors) must have names.  Futhrmore
+                          to take advantage of regular SpecTcl's 5.1 capability
+                          for dynamically built event processingn pipelines you
+                          should get in the habit of providing an event processor
+                          name when registering
+- The Name and version of the package you are creating
+- The name of the shared object the Makefile will create.
+
+To setup the event processing pipeline you'll need to
+                provide #include directives to pull in
+                the headers for your event processors.  Don't specify absolute
+                paths, take care of that in the Makefile.
+
+Here's an example
+
+<a name="AEN268"></a>**Example 2-6. Including event processor headers**
+
+```
+                    ...
+//  Here you should include your headers for your event processors.
+
+#include <CAENUnpack.h>
+                    ...
+                
+```
+
+The command shown is in the skeleton to indicate where to
+                put these #include directives.
+
+Next, locate the class `MyPiplineMaker`,
+                Create and register the event processor(s) you need
+                 in the order you want them called.  For example
+
+<a name="AEN275"></a>**Example 2-7. Registering your event processing pipeline**
+
+```
+                    ...
+class MyPipelineMaker : public CPipelineMaker
+{
+public:
+    void operator()() {
+        // Here instantiate and use RegisterEventProcessor to
+        // setup the event processing pipeline.
+
+      RegisterEventProcessor(*(new CAENUnpack), "CAEN");
+
+    }
+};
+            ...
+
+                
+```
+
+You can register event processors for inclusion in dynamic
+                pipelines.  See the SpecTcl programming and programming
+                reference manuals for a description of that process.
+
+The name and version of the Tcl package are defined in
+                the static file level variables
+                `PKG_NAME` and `VERSION`
+                respectively:
+
+<a name="AEN282"></a>**Example 2-8. Setting the package name and version**
+
+```
+                    ...
+// This file will create a Tcl loadable package, those have versions and
+// names... set the version and name here:  Below are sample names.
+// If you keep this you'll load your package by
+//
+//   lappend auto_path $directory_that_has_what_this_builds
+//   package require MyPipeline
+
+static const char* VERSION="1.0";
+static const char* PKG_NAME="MyPipeline";
+                    ...
+                
+```
+
+You don't need to modify these usually but you can if you prefer.
+                The Skeleton sets the version to 1.0 and the package name to
+                MyPipeline.
+
+The Skeleton Makefile, by default,
+                creates the library libMyPipelineMaker.so.
+                If you change the name of the library, you need to change the
+                name of the package initialization function.  The initialization
+                function must have C language bindings and must have name
+                that is derived as follows: Starting with the library filename,
+                remove the lib and .so
+                In what remains capitalize the first letter and make all other
+                letters lower case, append _Init. So if you
+                have a library named libBatchPipeline.so the
+                initialization function will be Batchpipline_Init.
+
+Below shows the initialization function signature in
+                the Skeleton.cpp
+
+<a name="AEN297"></a>**Example 2-9. Initialization entry point**
+
+```
+                    ...
+/**
+ * This entry is called when the package is loaded.
+ *  The name of this entry is derived from the shared library name as follows:
+ *  -  Remove the leading lib kill the trailing .so
+ *  -  Set the first letter to uppercase and all others to lower case.
+ *  -  Append _Init.
+ *
+ *  So, for example, if the library is named libMyPipelineMaker.so
+ *  this entry must be called Mypiplinemaker_Init
+ *  If you chose a different library name, you must adjust the function
+ *  name below.
+ */
+extern "C" {                              // Tcl n eeds C bindings.
+    int Mypipelinemaker_Init(Tcl_Interp* pRawInterpreter)
+    {
+                    ...
+                
+```
+
+Unless you want to define additional Tcl commands you normally
+                don't have to modify the Skeleton's initialization
+                function.
+
+Now let's look at the Makefile.  As with standard SpecTcl's
+                skeleton Makefile, you  should not need to modify  much more
+                than the top pieces of the file.
+
+Let's look at that file:
+
+<a name="AEN303"></a>**Example 2-10. Batch SpecTcl Makefile**
+
+```
+#  Makefile that you can use to build pipeline maker packages.
+#
+#
+#   What this will produce is a shared library
+#   and a Tcl package index file that allows you to load
+#   the shared library via packgae require
+#   assuming the the library and its pkg_Index.tcl
+#   file are in auto_path.
+#
+
+INSTDIR=/usr/opt/spectcl/5.2-000        
+INCDIR=/usr/opt/spectcl/5.2-000/include
+
+# Add any directories in which sources might live here
+# Use this rather than copying your event processors
+# into this directory e.g.
+
+VPATH=.                               
+
+#  Add the sources you need built here.
+
+SOURCES=Skeleton.cpp                 
+
+#
+#  Add any compilation flags you need here:
+#
+MYCXXFLAGS=                       
+
+#
+#  Add any link flags you need here:
+#
+
+MYLDFLAGS=                      
+
+##
+#  Name of the .so we're buiding note the init
+#  function has to track this;  the name here
+#  is the one in the skeleton
+
+MYPACKAGELIB=libMyPipelineMaker.so   
+
+#  If specific objects have dependencies, put them here
+#  No need to put in the compilation rule.
+#  e.g.
+#    Skeleton.o: Skeleton.cpp MyUnpacker.h       
+
+                
+```
+
+[[x230#make.version]]                        These two lines of the file specify the SpecTcl version
+                        you are using.  They are used to compute compilation
+                        and link switches that are defined in the chunk of the
+                        file you don't need to edit.  If you switch to another
+                        version of SpecTcl, simplly change the version numbers
+                         in the paths here to reflect the new SpecTcl version
+                         you are using.
+                    [[x230#make.srcdirs]]                        It's tempting to copy event processor source files
+                        from your standard SpecTcl to here.  Don't do it. If you
+                        do I pretty much gaurantee that at some point you'll
+                        forget to copy a changed file in one direction or the other.
+                        The VPATH Makefile variable
+                        describes to Make the directories in which to search for
+                        dependencies.  Just add the directory(ies) in which your
+                        event processor sources are located to the definition
+                        of VPATH.  Path elemnts are either
+                        space or : separated.
+                    [[x230#make.sources]]                        Provide the names of the sources you want compiled
+                        into your shared object.  Note that you don't need to
+                        specify paths of these sources if they  live in directories
+                        that are specified in VPATH.  For example,
+                        if VPATH=. .. use
+                        SOURCES=Skeleton.cpp MyEvprocessor.cpp
+*NOT*
+SOURCES=Skeleton.cpp ../MyEveprocessor.cpp.
+                    Note as well that in this line, unlike the Makefile for
+                        SpecTcl, you're specifying the sources (.cpp) not objects (.o).
+
+[[x230#make.cxxflags]]                        Specify any compilation flags you need to build code here.
+                        For example if an event processor and its header live in
+                        .., you'll need e.g.
+                        MYCXXFLAGS=-I..
+[[x230#cxxldflags]]                        Specify the ld flags you need.  For example, if your event
+                        processors are in  a library named
+                        libMyEventProcessors.a that's
+                        located in .., you might have:
+                        MYLDFLAGS=-L.. -lMyEventProcessors
+Note that Tcl rquires lodable packages to be self contained.
+                        By that I mean that once loaded, along with the
+                        shared objects it was linked to, there can be no
+                        undefined symbols.  If there are, tcl will segfault
+                        when you try to load the object.  You may also see errors
+                        in the last stage of the Makefile when the
+                        pkgIndex.tcl file is created.
+
+Once you've edited everything, use **make**
+                to build the shared object and package index.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| How Batch SpeTcl analyzes data | Up | A simple analysis script. |

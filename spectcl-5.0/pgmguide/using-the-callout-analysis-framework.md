@@ -1,0 +1,405 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev | Chapter 3. The SpecTcl event processing pipeline. | Next |
+
+
+---
+
+# <a name="AEN752"></a>3.4. "Using the callout analysis framework
+
+This section describes a framework for analysis that does a lot of
+            the nitty gritty decoding work for you, passing pre-digested data
+            to callback methods of classes you write.  This software was
+            introduced in SpecTcl 5.10-008 and, at this time can handle data
+            from all versions of NSCLDAQ up through 11.4.
+
+Note that this software may not be suitable for use with event built
+            data since it is blind to body headers when used with NSCLDAQ-11.
+
+For detailed reference information, see `CAnalysisEventProcessor`
+            and `CAnalysisBase` in the programming
+            reference manual.
+
+## <a name="AEN759"></a>3.4.1. The Struture of the callout analysis software
+
+The callout
+                analysis software consists of an event processor that decodes
+                what it can from items that are not event data.  Each item decoded
+                then calls a method in an analysis object that is passed into
+                the event processor at creation time.
+
+The code fragment below gives a more concrete example of what
+                I mean.  It would be placed in your MySpecTclApp.cpp
+                file:
+
+<a name="AEN764"></a>**Example 3-13. Idea of the callback analysis framework**
+
+```
+#include <CAnalysisEventProcessor.h>   
+#include <CAnalysisBase.h>             
+
+...
+class MyCallbackClass : public CAnalysisBase  
+{
+...
+};
+...
+void CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+    ...
+    auto callbacks = new MyCallbackClass;    
+    auto processor = new CAnalysisEventProcessor(callbacks); 
+    RegisterEventProcessor(*processor, "callback-processor");  
+    ...
+    
+}
+                
+```
+
+Lets' go through this code fragment step-by-step.
+
+[[x752#cba.eventprocessorheader]]                        This #include pulls in the class definition for
+                        `CAnalysisEventProcessor`. This defines
+                        the event processor class that runs the callback framework.
+                        Note that while this example only shows a single instantiation
+                        of this event processor, there's nothing to stop you from defining
+                        several callback classes and instantiating one event processor
+                        for each of them.
+                    [[x752#cba.analysisbaseheader]]                        Instantiates the base class,
+                        `CAnalysisBase`,
+                        from which all callback
+                        classes must be built.  Callback classes contain the
+                        code that actually analyzes the data that
+                        `CAnalysiysEventProcessor` pulls out of
+                        each ring item.
+                    [[x752#cba.usercallbackfragment]]                        In order to use the framework, you'll normally have to
+                        define a class that implements the callbacks for the
+                        type of data you want to look at.  This means
+                        deriving a class from the `CAnalysis`
+                        base class.  This class could (and should) be defined
+                        in header files and external program modules.  Here we
+                        should it in MySpecTclApp.cpp
+                        to simplify the example.
+                    [[x752#cba.instantiatecb]]                        In `CreateAnalysisPipeline`,
+                        you'll create a callback object....
+                    [[x752#cba.instantiateevp]]                        ...Then you'll create an analysis event processor
+                        providing your callback object as a construtor parameter.
+                    [[x752#cba.registerevp]]                        Finally, you'll register the event processor in the
+                        analysis pipeline at the appropriate position and, when data
+                        are analyzed the implemented methods of your callback object
+                        will be called by the event processor it's attached to.
+
+To conclude this section, lets' look at the callback methods you can
+                implement, their parameterization and the sorts of error conditions
+                you can signal from your callbacks.  Note that the base class,
+                `CAnalysisBase` implements all of these
+                callback methods to do nothing.   You therefore only need
+                to provide methods that you need.
+
+State change items document the start, stop, pause and resumption
+                of a run.  when encountered, the event processor will decode them
+                and call the `onStateChange` method.
+                The signature of this method is:
+
+<a name="AEN797"></a>**Example 3-14. onStateChange method signature**
+
+```
+ virtual void onStateChange(
+        StateChangeType type, int runNumber, time_t absoluteTime, float runTime,
+        std::string title, void* clientData
+);
+
+
+                
+```
+
+
+
+CAnalysisBase::StateChangeType `type`Is defined in the `CAnalysisBase`
+                        class and has one of the values
+                        Begin, End,
+                        Pause or Resume
+                        indicating the type of state change that took place.
+
+int `runNumber`Is the run number of the run whose state is changing.
+
+time_t `absoluteTime`Is the linux time of day at which the state change
+                        was logged.
+
+float `runTime`Is the number of seconds into the run at which the
+                        statechange occured.
+
+std::string `title`Is the title of the run that underwent the state change.
+
+void* `clientData`Is additional data that is passed by the event processor.
+                        This actually points to a
+                        `CAnalysisEventProcessor::ClientData`
+                        struct which contais the members `s_pUserData`,
+                        that contains optional user data passed to tyhe analysis event processor
+                        when it was constructed and `s_pCaller`
+                        which is a pointer to the `AnalysisEventProcessor`
+                        calling the callback.
+
+When a scaler item is encountered, the event processor calls
+                `onScalers` which has the following
+                signature:
+
+<a name="AEN848"></a>**Example 3-15. onScalers callback signagure**
+
+```
+virtual void onScalers(
+        time_t absoluteTime, float startOffset, float endOffset,
+        std::vector<unsigned> scalers, bool incremental, void* clientData
+);                    
+                
+```
+
+The parameters have the following meaning.
+
+
+
+time_t `absoluteTime`The absolute time at which the data were generated.
+                        The various Unix time functions can be used to manipulate
+                        this value.
+
+float `startOffset`Number of seconds into the run at which this counting interval
+                        started.
+
+float `endOffset`Number of seconds into the run at which this counting interval
+                        ended.
+
+std::vector<unsigned> `scalers`The scalers extracted from the item.
+
+bool `incremental`Flag that, if true, indicates the scalers are incremental
+                        rather than cumulative.  Most NSCLDAQ systems use incremental
+                        scalers to reducd the chances of having to deal with
+                        scaler overflows.
+
+void* `clientData`Additional data.  See `onStateChange`
+                        for more about what this points to.
+
+Some item types contain lists of string data.  These data types
+                have an enumerated type in `CAnalysisBase`
+                that describes the types of items that are string lists;
+                PacketTypes in the sbs readout, the documented
+                data packet types, MonitoredVariables the set
+                of Tcl variables being monitored. RunVariables
+                the set of variables that are readonly during a run.
+
+When a stringlist item type is encountered, `onStringLists`
+                is invoked.  It has the following method signature.
+
+<a name="AEN897"></a>**Example 3-16. The onStringLists method signature**
+
+```
+virtual void onStringLists(
+        StringListType type, time_t absoluteTime, float runTime,
+        std::vector<std::string> strings, void* clientData
+);
+
+                
+```
+
+Where:
+
+
+
+CAnalysisBase::StringListType `type`The type of the item.  See above.
+
+time_t `absoluteTime`The wall clock time and date at which the entry was made.
+                        The Unix time manipulation functions can be used with this
+                        type.
+
+float `runTime`Number of seconds into the run at which this
+                        item was created.
+
+std::vector<std::string> `strings`The strings in the item.
+
+void* `clientData`Additional data.  See the description of
+                        `onStateChange` for a descrption
+                        of this parameter.
+
+onEvent is called when a physics event is encountered.  The signature
+                of that method is:
+
+<a name="AEN934"></a>**Example 3-17. onEvent method signature**
+
+```
+virtual unsigned onEvent(void* pEvent, void* clientData)                    
+                
+```
+
+`pEvent` is the pointer to the event as it
+                was passed to the event processor's `operator()`.
+                `clientData` is additional data described in
+                `onStateChange`.
+
+The base class `CAnalysisBase` provides
+                two exception types that can be thrown and are handled by the
+                event processor.  These are derived from `std::runtime_error`
+                and, are constructed with a reference to a `std::string`
+                message.
+
+If `CAnalysisBase::NonFatalException` is thrown,
+                the event processing pipeline is aborted with the message provided
+                displayed on stderr.  Processing continues with the next item.
+                As the name implies, if `CAnalysisBase::FatalException`
+                is throw, the message is displayed to stderr and SpecTcl exits.
+
+## <a name="AEN949"></a>3.4.2. Using the callout analysis software to maintain scaler information
+
+A pre-packaged call-out class for the callout analysis framework
+                is provided in SpecTcl 5.10-008 and later.  This framework
+                maintains a set of SpecTcl Tcl interpreter variables that
+                reflect scaler values for the run being analyzed.  It was
+                initially developed for a group that wanted to integrate the
+                scaler display program with SpecTcl.
+
+This section describes:
+
+
+
+- How to set up your SpecTcl to use this scaler
+                        callout class.
+- The Tcl variables maintained by the scaler callout processor
+- The limitations of the scaler callout processor.
+
+The procedure for using the scaler callout
+                class is identical to the procedure for using any other
+                callout
+                analysis class.  Below we show code fragments in
+                MySpecTclApp that show how to do this:
+
+<a name="AEN962"></a>**Example 3-18. Using the Scaler callback analysis class**
+
+```
+#include <CAnalysisEventProcessor.h>
+#include <CScalerProcessor.h>        
+#include <SpecTcl.h>                 
+...
+void CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+    ...
+    auto pApi = SpecTcl::getInstance();     
+    auto pInterp  = pApi->getInterpreter();
+    auto pScalerProcessor = new ScalerProcessor(*pInterp);  
+    auto processor = new CAnalyayisEventProcessor(pScalerProcessor); 
+    RegisterEventProcessor(*processor, "Scaler-analyzer");  
+    
+    ...
+}
+
+                
+```
+
+While this exacmpe is relatively simple, let's go through
+                it step-by-step.
+
+[[x752#sccb.scalerprocessorhdr]]                        The CScalerProcessor.h
+                        header defines `ScalerProcessor`
+                        which is the callout
+                        processor that we want to use with the callout
+                        event processor.
+                    [[x752#sccb.apihdr]]                        In order to maintain Tcl variables, the
+                        `ScalerProcessor` will need
+                        the SpecTcl interpreter.  This can be gotten
+                        via the SpecTcl API.  Therefore we include
+                        the API's header here.
+                    [[x752#sccb.getinterp]]                        This line and the next obtain a pointer to the
+                        SpecTcl API singleton and use it to get a pointer
+                        to the SpecTcl interpreter.
+                    [[x752#sccb.instantiate1]]                        As we did in our generic example, we instantiate
+                        our callout
+                        processor (`ScalerProcessor`
+                        is derived from `CAnalysisBase`
+                        so it can be used directly).
+                    [[x752#sccb.instantiate2]]                        As in our generic example, we instantiate
+                        the event processor passing it a pointer to our
+                        callout
+                        processor.
+                    [[x752#sccb.register]]                        Finally the event processor is registered
+                        in the SpecTcl data analysis pipeline.
+
+When the Scaler callout
+                processor has been registered as shown in the previous
+                example, when analyzing data, the following
+                Tcl global variables will be maintained. Furtheremore,
+                A set of Tcl **proc**s must be defined
+                and will be called at specific points in analysis.
+
+
+
+**Tcl variables maintained**
+
+`RunNumber`State transition items will extract the run
+                        number and store it in this variable.
+
+`ElapsedRunTime`When processing items that provide the
+                            elapsed run time, this variable is updated
+                            with the number of seconds into the run
+                            specified by that time.  Note that this
+                            is a floating point value as NSCLDAQ-11
+                            provides support for sub-second precision.
+
+`RunTitle`The titles in state transition items are extracted
+                        and stored in this variable.
+
+`ScalerRunState`State transition items update the value of this
+                        variable to reflect the state of the run.  This
+                        variable will have a value that is one of
+                        Active, Halted, Paused.
+
+I would expect that Paused
+                        will be the case for only a very short time in
+                        properly ended runs  as it's item should be
+                        immediately followed by a resume item which
+                        would switch the value back to Active
+
+`ScalerDeltaTime`Processing of scaler items will compute the length of time
+                        over which the scalers counted to produce that
+                        item.  This will be stored (in seconds) in
+                        this variable.
+
+`Scaler_Increments(i)`When a scaler item is processed, this variable
+                        will be updated with the counts in scaler
+                        i stored in that item.
+
+`Scaler_Totals(i)`These variabls are zeroed on begin run
+                        transitions and store running sums of
+                        the scaler values over all scaler items seen
+                        so far.
+
+The scaler callout
+                processor expects several Tcl procs to be defined and
+                calls them without any parameters at specific points
+                in processing.  All procs are called after the Tcl
+                variables updated by item processing has been completed.
+                There is no requirement these procs do anything but they
+                *must* be defined.
+                These procs are:
+
+
+
+**Tcl procs called.**
+
+**BeginRun**Called when a begin run state change item
+                        has been processed.
+
+**EndRun**Called when an end run state change item has been
+                        processed.
+
+**PauseRun**Called when a pause run state change item has been
+                        processed.
+
+**ResumeRun**Called when a resume run state change item has been
+                        processed.
+
+**Update**Called when a scaler item has been processed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Playing back filter data | Up | The SpecTcl API |

@@ -1,0 +1,57 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN7802"></a>Address modifier Tcl variables
+
+<a name="AEN7806"></a>## Name
+
+Address modifier Tcl variables -- Provide symbolic values for VME address modifiers.
+
+<a name="AEN7809"></a>## Synopsis
+
+```
+CVMUSBReadoutList::a32UserData  
+CVMUSBReadoutList::a32UserProgram  
+CVMUSBReadoutList::a32UserBlock 
+
+CVMUSBReadoutList::a32PrivData 
+CVMUSBReadoutList::a32PrivProgram
+CVMUSBReadoutList::a32PrivBlock
+
+CVMUSBReadoutList::a16User 
+CVMUSBReadoutList::a16Priv
+
+CVMUSBReadoutList::a24UserData
+CVMUSBReadoutList::a24UserProgram
+CVMUSBReadoutList::a24UserBlock
+
+CVMUSBReadoutList::a24PrivData
+CVMUSBReadoutList::a24PrivProgram 
+CVMUSBReadoutList::a24PrivBlock 
+                    
+```
+
+<a name="AEN7811"></a>## DESCRIPTION
+
+The Tcl drivers upport code provides pre-defined Tcl variables in the
+                        CVMUSBReadoutList top level namespace.  These
+                        variables contain the values of VME address mofifiers.  Using them
+                        both make Tcl driver code more readable and mean that the programmer
+                        does not need to know the values of the VME bua address modifiers.
+
+The meaning of these variables should be evident from their names.  We will,
+                        therefore, not describe them further in this  document.  Note, however that if you are
+                        performing a block transfer, you must use the appropriate block transfer address modifier
+                        to force the controller to use BLT transfer cycles.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Tcl Drivers | Up | mvlc |

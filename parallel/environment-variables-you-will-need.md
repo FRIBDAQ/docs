@@ -1,0 +1,28 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Chapter 1. Quick Start | Next |
+
+
+---
+
+# <a name="AEN48"></a>1.3. Environment variables you will need
+
+In [[x34#ex.version]], if the compilation commands
+                have directory paths on them you will probably need to tell OpenMPI where to find its
+                runtime.  This is done by setting the environment variable OPAL_PREFIX
+                to the top level of the OpenMPI installation.  In the example, this is
+                /usr/opt/mpi/openmpi-4.0.1.  For example:
+
+<a name="AEN54"></a>```
+OPAL_PREFIX=/usr/opt/mpi/openmpi-4.0.1
+export OPAL_PREFIX
+                    
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Checking for support of MPI parallelism. | Up | Running mpiSpecTcl in parallel mode |

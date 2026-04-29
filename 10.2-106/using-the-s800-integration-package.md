@@ -1,0 +1,71 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 39. S800 ReadoutCallouts | Next |
+
+
+---
+
+# <a name="AEN2888"></a>39.3. Using the S800 integration package
+
+To use the S800 integration package you must
+
+
+
+- Include the NSCLDAQ 10.1 or later TclLibs
+                  directory in your Tcl package load path (`auto_path`).
+- Use **package require s800** to load
+                  the s800 package.
+- Initialize the package and invoke its commands
+                  from the appropriate parts of your ReadoutCallouts.tcl
+                  script (creating a new one  if needed).  The
+                  [[r7076]] describes ReadoutCallouts.tcl
+                  scripts more fully.
+
+The following is a minimal example:
+
+<a name="AEN2905"></a>**Example 39-1. A ReadoutCallouts.tcl for the s800**
+
+```
+lappend auto_path /usr/opt/daq/10.1/TclLibs 
+package require s800
+
+s800::Initialize spdaq48                   
+proc OnBegin run {
+    s800::OnBegin                          
+}
+proc OnEnd run {
+    s800::OnEnd                            
+}
+
+            
+```
+
+[[x2888#s800_autopath]]                    This line adds the Tcl library directory for
+                    nscldaq 10.1 (as installed at the NSCL) to the
+                    Tcl package search path.  The next line loads the
+                    s800 package and its commands.
+                [[x2888#s800_init]]                    Initializes the S800 package.  In this case,
+                    spdaq48 is the host on which
+                    the S800 readout program must already be running.
+                    One side effect of this is to form a connection with the
+                    S800 readout program and set its GUI into slave mode.
+                [[x2888#s800_onbegin]]                    The `OnBegin` proc in
+                    ReadoutCallouts.tcl is ivoked
+                    as the run is beginning.  The
+                    `s800::Onbegin` function
+                    sets up, if needed, the necessary bits and pieces
+                    of software needed to get data from the S800 event builder
+                    and insert it into the ring (by default named
+                    s800).  It then requests the the
+                    s800 Readout program start taking data.
+                [[x2888#s800_onend]]                    Similarly, the call to `s800::OnEnd`
+                    asks the S800 readout software to end the run as a result
+                    of a click on the End button.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Scope of the integration problem. | Up | The NSCL Exception class library |

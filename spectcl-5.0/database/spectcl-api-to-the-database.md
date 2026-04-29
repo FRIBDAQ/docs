@@ -1,0 +1,315 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1158"></a>Chapter 6. SpecTcl API to the database.
+
+The SpecTcl API to the database knows about the SpecTcl commands that
+        can list objects get their properties and uses them to simplify
+        interactions with the database.  It is a pure Tcl package
+        that is written to live on top of the SpecTclDB
+        package that serves as a Tcl binding to the database C++ API.
+
+The package, named dbconfig is available in the TclLibs directory tree of
+        the SpecTcl installation.  Therefore, adding that directory
+        to the package search path, as described in the previous chapter is
+        sufficient to be able to do a
+        package require dbconfig to bring the package
+        code into the script.
+
+For the most part, the dbconfig package
+        is intended to be used as a basis for implementing  SpecTcl GUI's
+        that manipulate the database.  Note that one has already been written,
+        give it a try first to see if it's sufficient.  Naturally if you have
+        suggestions for improvement, send them off to us and we'll consider
+        them for future releases.
+
+The reference material in the appendix will describe each
+        proc of the package fully.  Here we'll just take a quick tour
+        of the package. Note that all procs in the package are in the
+        dbconfig database.
+
+Two procs, dbconfig::makeSchema and
+        dbconifg::connect support the
+        creation of and connection to databases.  Here's a script
+        fragment that shows how to create and connect to a new
+        database:
+
+<a name="AEN1172"></a>**Example 6-1. dbconfig - creating and connecting to a database**
+
+```
+proc newdb {fname} {
+dbconfig::makeSchema $fname
+return [dbconfig::connect $fname]
+}
+        
+```
+
+The return value from `newdb` is a handle
+        that must be used for other call to database related operations.
+        In fact this is a database instance command from the
+        Tcl bindings to the C++ API. When you are done using it you should
+        distroy by invoking it's **destroy**
+        subcommand.
+
+The dbconfig package things in terms of
+        configurations. A configuration is the set of parameters,
+        spectra, gates, gate applications and tree variables
+        currently defined in SpecTcl.  It provides several
+        procs that deal with configurations:
+
+
+
+proc dbconfig::openSaveSet {dbcmd name}This proc opens an existing save set and returns its
+                save set instance command.
+
+proc dbconfig::saveConfig {db name {spectra 0}}Saves the analysis configuration into the database
+                whoese handle is `db`. The saveset used
+                will be `name` and must
+                not yet exist.  If `spectra`
+                is provided and is non-zero, spectrum contents for all spectra
+                will get saved into the database.
+
+The proc returns a handle to the saveset
+                (actually the saveset instance command). This
+                value must be passed to save set related operations.
+                When you are done with that handle, invoke it's
+                **destroy** subcommand to destroy the
+                command and relase resources associated with it.
+
+proc dbconfig:listConfigs cmdReturns a Tcl list describing all of the savesets in the
+                database.  THe list contains dicts that have
+                the keys id primary key
+                of the saveset, name saveset name,
+                timestamp the time the saveset
+                was created.  This can be turned into a readable value
+                via **clock format**.
+
+proc dbconfig::restoreConfig {cmd savename {restoreSpectra 0}}Restores the parameter, spectrum, gate, gate applications and
+                tree variable s associated with a saveset.
+                `cmd` is the database instance command
+                gotten from **dbconfig::connect**.
+                The `savename` parameter is the name of an
+                existing save set in to which the processing parameters of SpecTcl
+                are stored.   Finally, `retstoreSpectra`,
+                if supplied and nonzero restores any saved specrum contents.
+
+proc dbconfig::saveSpectrum {sname specname}Saves a single spectrum to the save set designated by the saveset
+                handle (instance command) `sname`
+                The spectrum `specname` is saved.
+                The save set must already exist and the spectrum definition
+                must be saved in that save set.
+
+Normally this is used when a configuration has been
+                saved and only *then* are data analyzed.
+                After data analysis is complete an appropriate set of spectra
+                can then be saved into the same saveset to document the
+                results of the analysis.
+
+proc dbconfig::restoreSpectrum {sname specname}Restores a single spectrum; `specname`
+                from the saveset associated with the handle/instance command
+                `sname`.
+
+proc dbconfig::saveAllSpectrumContents {sname}Saves the contents of all spectra into the saveset
+                given by the handle/instance command
+                `sname`. The saveset must
+                already have the spectra definitions stored.
+                This is normally used at some point after a call to
+                `dbconfig::saveConfig`.
+
+proc dbconfig::restoreAllSpectrumContents {sname}Restores all spectra with saved contents stored in the savest
+                designated by the handle/saveset instance command
+                `sname`.
+
+proc dbconfig::listSavedSpectra {sname}Returns a list of the names of spectra that have
+                channels stored in the save set designated by the
+                handle/save set instance command
+                `sname`.
+
+The pkgconfig does not provide the ability
+        to store or playback event data directly, several procs
+        *do* provide the ability to get information
+        about the runs stored in a save set and the ability to
+        get scaler data *is* provided.
+
+Let's take a quick tour through those procs.
+
+
+
+proc dbconfig::listRuns {cmd}Returns a list of dicts that describe all of the
+                runs in the database whose connection is indicated
+                by `cmd`.  Note:
+                Database, not saveset, handle/instance command, not
+                name.
+
+Each dict in the, possibly empty, result list is
+                a dict with the following key/value pairs:
+
+
+
+configContains the name of the configuration
+                        (save set) that contains this run.
+
+numberThe run number of the run.
+
+titleThe title string associated with the run.
+
+start_timeThe time at which the run started. This is a timestamp
+                        that can be can be turned into a human readable
+                        string via **clock format**
+
+stop_timeThe time at which the run stopped as a
+                        timestamp suitable to be used with
+                        **clock format**
+
+proc dbconfig::hasRun {saveset}Returns a boolean that is true if the
+                saveset indicated by the `saveset`
+                handle/instance command has associated event data.
+                If not, returns false.
+
+proc dbconfig::getRunInfo {saveset}If the saveset indicated by the handle/instance command
+                `saveset` has saved event data,
+                this will return a list of dicts, just like
+                `dbconfig::hasRun` does, but confined
+                only for the runs in the save set.
+
+proc dbconfig::getScalers {saveset run}Returns the scaler data associated with the
+                run number `run` in the saveset
+                indicated by the handle/instance command
+                `saveset`.  The result is a list
+                of dicts.  Each dict corresponds to a scaler readout.
+
+The dicts have the following key/values:
+
+
+
+startTime into the run at which the scalers
+                        started counting for this readout.
+
+stopTime into the run at which the scaler counting
+                        for this readout ended.
+
+divisorThe value to divide start
+                        and stop by to get seconds
+                        into the run.  This allows for subsecond
+                        accuracy in those values.
+
+timestampThe timestamp associated with the
+                        scaler readout.  This is suitable for input
+                        to **clock format**.
+
+sourceidThe id of the data source that contributed these data.
+
+channelsA list of the channel values that have been
+                        readout.
+
+In addition to the dbconfig package,
+        a command ensemble in the SpecTclDB package is used by
+        the SpecTcl to manage event recording to the database and event playback
+        from a database.
+
+The base command for this command ensemble is
+        **daqdb**.  This command ensemble is not
+        separable from SpecTcl.  It is intended to support the needs
+        of graphical user interfaces that control the recording of
+        and playback of data within SpecTcl.  Again, have a look
+        at the SpecTcl user interface that is available before
+        you start writing your own.
+
+The remainder of this chapter is a brief guided tour of the
+        the subcommands of this command ensemble.
+
+
+
+**open***file-name*Access the database `file-name`.
+                If the event processor and event sink needed to record
+                data are not yet set up, they are set up.  Note that
+                they are setup in the disabled state. It is necessary
+                to enable event recording before that can take
+                place.
+
+**enable**Enables event recording beginning with the next run.  The
+                next run is defined as SpecTcl receiving a begin run item
+                on its data source, that is the event recording
+                event processor's `OnBegin`
+                method is called.
+
+Note that when event recording starts:
+
+
+
+- A new saveset is created with a name derived from
+                            the run number.
+- The analysis state is saved to the new saveset.
+- Events and scaler readouts will be stored in this
+                            new save set.
+
+When `OnEnd` is called,
+                    the run description is given its end time.
+                    At that time, the contents of any
+                    spectra in the auto save are written to the saveset.
+                    See below.
+                    This
+                    does not disable event recording. Each run
+                    will repeat this sequence.
+
+This implies that SpecTcl, using this package will not
+                 let you save more than one run per saveset, and that an single run
+                 can only be saved once per database.
+
+**disable**Disbables evfent recording instantly.  If data are
+                actively being recorded, any active run will not have an
+                end time.  This does not prevent the data from
+                being played back.
+
+**close**Closes the database and tears down the recording
+                event processor and event sink.
+
+**autosave** *spectrum-list*The event recording subsystem allows you to provide a list of
+                spectrum names whose contents will be saved when an
+                end run is encountered while writing event data.
+                This list is called the *autosave list*.
+
+The `spectrum-list` parameter to this
+                command is a list of the names of spectra.  The autossave list
+                is set to this list.  Any spectra on this autosave list prior to
+                to this command are no longer on the autosave list.
+
+**listruns**Returns a list of dicts.  Each dict describes a
+                run that is recorded in the event file.  The dicts
+                 have the following key/value pairs:
+
+
+
+numberThe number of the run.
+
+configThe name of the save set containing that run.
+
+titleThe title string associated with the run.
+
+start_timeThe time at which the run started.  This
+                        value can be formatted for humans via
+                        **clock format**
+
+end_timeThe time at wich the run ended.  This value
+                        can be formatted with
+                        **clock format**
+
+**play** *run-number*Begins playback of the run `run-number`.
+                While playback is in progress, the event loop is
+                periodically flushed, which keeps the user interface alive.
+                Note that playback and recording cannot be done simultaneously due
+                to the way in which recording data locks the database.
+
+**stop**Stops any ongoing playback.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Tcl bindings to the C++ API |  | The SpecTcl database GUI. |

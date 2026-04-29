@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cesbcnaf"></a>cesbcnaf
+
+<a name="AEN10172"></a>## Name
+
+cesbcnaf -- CAMAC operation via a CES CAMAC interface
+
+<a name="AEN10175"></a>## Synopsis
+
+**cesbcnaf *b c n a f* [d]
+    **
+
+<a name="AEN10180"></a>## DESCRIPTION
+
+Performs the indicated CAMAC operation. The operation is defined by the
+        `b, c, n, a, f`
+        parameters that provide the CAMAC branch, crate, slot, subaddress and
+        function code respectively.
+        The optional `d` parameter provides the data for
+        write operations (it is actually required for CAMAC write operations).
+
+The command writes the data,
+        `Q` and `X` responses to stdout.
+
+<a name="AEN10188"></a>## SEE ALSO
+
+[[r10193]],
+        [[r10218]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| cratelocator | Up | wienerbcnaf |

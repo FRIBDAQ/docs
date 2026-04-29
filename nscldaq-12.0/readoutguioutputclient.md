@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="rdogui3_readoutguioutputclient"></a>ReadoutGUIOutputClient
+
+<a name="AEN77918"></a>## Name
+
+ReadoutGUIOutputClient -- Readout gui output monitor client.
+
+<a name="AEN77921"></a>## Synopsis
+
+**ReadoutGUIOutputClient *name ?options?*
+**
+
+** *name method params*
+**
+
+<a name="AEN77928"></a>## DESCRIPTION
+
+`ReadoutGUIOutputClient` provides a packaged
+                client for the output  monitor for applications that use the event
+                loop.  Note that Tcl/Tk applications by default use the event loop.
+                When a client object is constructed, it creates a new command ensemble
+                whose sub commands are the method names of the object.  The command
+                name can either be specified or a unique one can be assigned by
+                specifying the special object name %AUTO%.
+                Regardless the constructor returns the name of the command as its
+                result.  Thus e.g.:
+
+<a name="AEN77933"></a>```
+set outputMonitor [ReadoutGUIOutputClient %AUTO%]
+$outputMonitor configure -host spdaq123.nscl.msu.edu
+                
+```
+
+is a pretty common pattern.
+
+<a name="AEN77936"></a>## OPTIONS
+
+`ReadoutGUIOutputClient` objects include
+                the **configure** and **cget**
+                commands that manipulate and query configuration options of the
+                object.  Normally one configures the object and then invokes
+                the **connect** method to start processing
+                data.  See METHODS for more about **connect**.
+
+
+
+`-host`Specifies the name or IP address of the host that
+                            is running the server.  The default value, if not
+                            explicitly configured is localhost
+                            which corresponds to the system running the application.
+
+`-user`Specifies the user that is running the server application.
+                            If not configured, the default value is the current
+                            logged in user; $::tcl_platform(user).
+
+**-outputcmd**The value of this option is a script that is executed
+                            whenever something was output to the server's output
+                            window.  The text that was output is passed as an
+                            additional argument to the script.
+
+`-closecmd`The value of this option is a script that is executed
+                            when the object loses connection with the command server.
+
+<a name="AEN77967"></a>## METHODS
+
+There is only one method `connect`
+                    it has no additional parameters and should be invoked once
+                    the object is configured.  `connect`
+                    attempts to make the connection with the server and
+                    sets up the fileevents to invoke the `-outputcmd`
+                    and `-closecmd` scripts at appropriate times.
+
+Failures result in an error signal.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| StatusArea | Up | multilogger |

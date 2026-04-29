@@ -1,0 +1,210 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13308"></a>CEvent
+
+<a name="AEN13312"></a>## Name
+
+CEvent -- Destination for decoded event data.
+
+<a name="AEN13315"></a>## Synopsis
+
+```
+#include <Event.h>
+
+typedef DFloat_t ParamType;
+typedef std::vector<DopedValidValue<ParamType> > CParameterVector;
+typedef DopedValidValue<ParamType>                     CParameterValue;
+typedef CParameterVector::iterator                           CEventIterator;
+
+class CEvent {
+ public:
+  CEvent();
+  virtual ~CEvent() ;
+  CEvent(UInt_t nInitialSize);
+  CEvent(const CEvent& aEvent);
+
+  CEvent& operator=(const CEvent& aEvent);
+  int operator==(const CEvent& aEvent);
+  int operator!=(const CEvent& anEvent);
+  
+  CParameterValue& operator[](UInt_t nParam);
+
+  CEventIterator begin();
+  CEventIterator end();
+  UInt_t size() const;
+  void clear();
+
+  DopeVector& getDopeVector();
+
+
+};
+        
+```
+
+<a name="AEN13317"></a>## DESCRIPTION
+
+`CEvent` objects are the base level object
+            produced by the application of the event processing pipeline to
+            a raw event.  The object looks very  much like a vector except
+            that it expands as needed to allow the largest index to fit.
+
+The elements of a `CEvent` object are valid
+            values.  Valid values know when they've been assigned to.  Event
+            serial numbers are used to allow clearing the assignment status
+            of the event in O(1) time.
+
+The first time a parameter has been assigned, its index is
+            added to a `Dope Vector`.  The purpose of the
+            dope vector is to improve histogramming efficiency.
+            Where the spectrum type allowed, the histogrammer organizes
+            histogrammers in lists of histograms that require a specific parameter
+            id.  All such histograms for which this is not possible (e.g. summary
+            spectra) make up a separate list.
+
+This organization means that rather than iterating over all
+            defined histograms, the histogrammer can use the dope vector
+            contents to restrict iteration to the set of histograms that
+            require parameters that have been given values, and those
+            histograms for which a required parameter does not exist.
+            When events are sparse (typically) and many histograms have
+            been defined, this provides a significant performance
+            improvement.
+
+SpecTcl further recycles events after clearing them.  Over the long run,
+            this means that events will no longer require costly expansion but
+            will reach equilbrium lengths long enough to hold the highest parameter
+            id.
+
+<a name="AEN13327"></a>## METHODS
+
+This class suppports assignment, copy  construction, and
+            comparison for both equality and inequality.  Those
+            methods are not documented in this section
+
+
+
+`  CEvent();`Constructs an event with an initial sizeof
+                        0 elements.
+
+`  CEvent(UInt_t nInitialSize);`Creates a `CEvent` object with
+                        an initial allocation of `nInitialSize`
+                        parameters that don't have a valid value. Since
+                        `CEvent` objects are recycled
+                        from event to event, this constructor is not
+                        actually much of an optimization over time.
+
+`   CParameterValue&  operator[](UInt_t  nParam);`Returns a reference to the element at index
+                        `nParam` in the event.  If
+                        the event is not yet big enough to provide that element,
+                        it is expanded with unset (not valid) elements until
+                        it is.
+
+The fact that a reference is returned allows this
+                        to occur as an lvalue or rvalue.  If used as an
+                        rvalue, an exception is thrown if the value has not
+                        yet been assigned a value.  The exception is of
+                        type std::string and is the value
+                        "Attempted getValue of unset ValidValue object".
+
+`   CEventIterator  begin();`
+`   CEventIterator end();`Provides support for iteration over the parameters in a
+		    `CEvent` in the STL sense of the word.
+
+`begin`
+                        returns an iterator to the first element in
+                        the `CEvent`.  This is a pointer
+                        like object to index 0.  It is
+                        possible, for an empty `CEvent`,
+                        this value is the same as that returned by
+                        `end`.
+
+`end`
+                        Returns an end of iteration iterator.  Note that
+                        this is an end of iteration iterator at the time of
+                        execution and could be invalidated.  Consider the
+                        following code fragments where e is a
+                        `CEvent`.
+
+```
+CEventIterator p = e.begin();
+CEventIterator end = e.end();
+while (p != end) {
+
+...
+    p++;
+}
+                    
+```
+
+The loop above is potentially  not going to cover the
+                        entire event as the body could do an assignment to
+                        `e` that could extend the event,
+                        in which case the assigned element would not be included
+                        in the iteration.
+
+```
+for (auto p = e.begin(); p != e.end(); p++) {
+...
+}
+                    
+```
+
+This loop will always cover the array as the end iterator
+                        is re-evaluated after each pass through the loop ensuring
+                        that any additions to the event are accommodated.
+
+`  const UInt_t  size();`The `begin` and
+                        `end` methods provide iteration
+                        over the full event vector at its current size.
+                        Iteration is supported in the same sense as it is
+                        for C++ standard library iterators.
+                        `size` returns the number
+                        of elements currently in the vector.
+
+`   void  clear();`Sets all values in the event to invalid (not assigned).
+                        This is done by SpecTcl after an event filled in by the
+                        event processing pipeline has been passed though the
+                        elements of the event sink pipeline.
+
+This also clears the dope vector of the event.
+
+`   DopeVector&  getDopeVector();`Returns a reference to the current dope vector for
+                        this event.
+
+<a name="AEN13431"></a>## DATA TYPES
+
+Several data types are defined oustide of the
+        `CEvent` class by its header:
+
+
+
+ParamTypeDefines the data type that is used for parameters
+                        in the event object.  At this time ths is a double
+                        precision real value.
+
+CParameterVectorAt any time, this is the data type that holds
+                        the parameter values.  Currently this is a
+                        `std::Vector<DopedValidValue<Paramtype> >`.
+
+That is a valid value vector that has an associated dope vector.
+
+CParameterValueThis is a doped valid value of type ParamType.
+                        Doped value values have an associated dope vector and
+                        an id.  When first assigned after being constructed or
+                        reset they append their id to the dope vector.
+
+CEventIterator Iterator through the `CParameterVector`
+                        in a `CEvent` object.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CParameter | Up | CSpectrum |

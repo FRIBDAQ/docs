@@ -1,0 +1,23 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 7. Non stack VMUSB Readout framwork$DAQBIN/VMUSBnostackReadout | Next |
+
+
+---
+
+# <a name="AEN5217"></a>7.3. Supported Scaler modules
+
+As described above, scler modules don't have configuration options.  The form of a
+            scaler configuration file definition is
+
+<a name="AEN5220"></a>scaler-type unique-name  base-address
+
+The only scaler supported is the SIS 3820 latching scaler.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| v977 | Up | ReadoutGUI & ReadoutShell |

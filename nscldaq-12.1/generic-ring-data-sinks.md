@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 49. Data Format Support Software | Next |
+
+
+---
+
+# <a name="AEN11825"></a>49.4. Generic ring data sinks
+
+Data sinks are places to store data.  A program that stores data
+            will also generally want to work regardless of whether or not it is
+            storing data in a file or a ring buffer (of course ring buffer data
+            sinks must be local to the host that is running the program).
+
+The data format library provides a hierarchy of classes to support
+            this that are derived from the abstract base class
+            `CDataSink`:
+            `CFileDataSink` allows you to put ring items
+            and arbitraty data into a file.  `CRingDataSink`
+            similarly alows you to put data in a ringbuffer.
+
+The `CDataSinkFactory` class allows you to produce
+            ring or file data sinks depening on the form of the URI that is passed
+            to the factory creation method.
+
+For reference information on the data sink classes see:
+            [[r35191]],
+            [[r35424]],
+            [[r35282]].
+            For reference information on the factory class see:
+            [[r35525]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Incorporating the headers and libraries into your applications. | Up | Creating ring items |

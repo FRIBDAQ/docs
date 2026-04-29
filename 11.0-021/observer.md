@@ -1,0 +1,175 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_observer"></a>Observer
+
+<a name="AEN14453"></a>## Name
+
+Observer -- Support the Observer pattern
+
+<a name="AEN14456"></a>## Synopsis
+
+**package require Observer
+                **
+
+**Observer *name*
+**
+
+** *$name* addObserver  *script*
+**
+
+** *$name* removeObserver *script*
+**
+
+** *$name* invoke *?args?*
+**
+
+<a name="AEN14474"></a>## DESCRIPTION
+
+This package provides an implementation of the observer pattern
+            described in
+            [http://en.wikipedia.org/wiki/Observer_pattern](http://en.wikipedia.org/wiki/Observer_pattern).
+
+The observer pattern provides a mechanism for decoupling action
+            from stimulus.  The idea is that an object using the observer
+            pattern will maintain an ordered list of observer objects which.
+            When the appropriate stimulus occurs, these objects are invoked in
+            order.
+
+A trivial use case is statistics matinenance.  Statistics objects
+             can be registered as an Observer which increments appropriate counters
+             when invoked.  Observers can also be used to implement a chain of
+             responsibility.
+
+See EXAMPLES below for ideas of how to incorporate observers into
+                snit class like objects (**snit::type** e.g.).
+
+<a name="AEN14482"></a>## METHODS
+
+
+
+**         Observer *name*
+**
+
+Create a new observer object named `name`
+                        If the name is the special word
+                        %AUTO%, a unique object name is assigned.
+                        This constructor also returns the object name so constructs
+                        like
+
+<a name="AEN14494"></a>```
+set observer [Observer %AUTO%]
+                            
+```
+
+
+                        are pretty normal.
+                    ** *$name* addObserver  *script*
+**
+
+Adds an observer `script` to the end
+                        of the list of observer scripts maintained by the
+                        object `name`.  If the observer's
+                        **invoke** method is called, this script
+                        will be invoked.
+
+Several scripts can be registered to observe the event.
+                        Scripts are called in the order in which they were
+                        registered.
+
+** *$name* removeObserver *script*
+**
+
+Removes `script` from the observer
+                        list for the observer `name`.
+                        It is an error to remove a script that is not registered
+                        as an observer.
+
+** *$name* invoke *?args?*
+**
+
+Invokes the observers that have been registered on
+                        `name`.  The observers are invoked
+                         in the order in which they were registered.  If additional
+                         command line parameters,
+                         `args`, are supplied, they are
+                         passed to each observer script.
+
+<a name="AEN14528"></a>## EXAMPLES
+
+<a name="AEN14530"></a>**Example 1. Supporting an observer in a snit type or widget**
+
+Snit's delegation capability allows you to integrate
+                    observers into snit class like objects (e.g.
+                    **snit::widget**s) in a very natural way.
+                    This example shows how to implement a single observer within
+                    a **snit::type**
+
+```
+snit::type ObservedType {
+    component observers
+    delegate addObserver to observers
+    delegate removeObserver to observers
+    ...
+    constructor args {
+     ...
+        install observers using Observer %AUTO%
+     ...
+    }
+}
+                
+```
+
+This example installs an `Observer`
+                object and exposes its **addObserver**
+                and **removeObserver** methods as
+                methods of `observedType`.
+                That is the function of delegation in snit.
+
+<a name="AEN14541"></a>**Example 2. Supporting multiple observers in a snit type or widget**
+
+In some cases you may want to build an object that supports
+                    more than one set of observers.  Suppose, for exmample
+                    you want to build a snit::widget that consists of two buttons
+                    and you want to support a list of scripts to be invoked when
+                    each button is clicked.  Naturally the set of scripts will
+                    differ between the buttons.
+
+This example shows how to install two observers.  In this
+                    case the *as* form of the
+                    **delegate** command is used to
+                    provide methods to add scripts to each observer.
+
+```
+snit::type MultipleObservers {
+    component observer1
+    component observer2
+    
+    delegate addObserver    to observer1 as addSomeTypeOfObserver
+    delegate removeObserver to observer1 as removeSomeTypeOfObserver
+    
+    delegate addObserver    to observer2 as addSomeOtherObserver
+    delegate removeObserver to observer2 as removeSomeOtherObserver
+    
+    ...
+    constructor args {
+        ...
+        install observer1 using Observer %AUTO%
+        install observer2 using Obserer %AUTO%
+        ...
+    }
+}
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EventBuilder | Up | EvbOrderer |

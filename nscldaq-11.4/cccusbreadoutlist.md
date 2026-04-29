@@ -1,0 +1,293 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ccusb3-cccusbreadoutlist"></a>cccusbreadoutlist
+
+<a name="AEN60032"></a>## Name
+
+cccusbreadoutlist -- Tcl wrapping of `CCCUSBReadoutList`
+
+<a name="AEN60036"></a>## Synopsis
+
+**::cccusbreadoutlist::CCCUSBReadoutList *name*
+**
+
+**::cccusbreadoutlist::CCCUSBReadoutList -args
+                **
+
+**::cccusbreadoutlist::CCCUSBReadoutList *?name?* -this *ptr*
+**
+
+** *object* -delete              
+                **
+
+** *object* get
+                **
+
+** *object*  size
+                **
+
+** *object*  clear
+                **
+
+** *object* addWrite16 *n a f d *
+**
+
+** *object*  addWrite24 *n a f d *
+**
+
+** *object* addRead16 *n a f ?lamwait?*
+**
+
+** *object*  addRead24 *n a f ?lamwait*
+**
+
+** *object* addControl *n a f*
+**
+
+** *object* addQStop *n a f max ?lamwait?*
+**
+
+** *object* addQStop24 *n a f max ?lamwait? *
+**
+
+** *object*  addQScan *n a f max ?lamwait?*
+**
+
+** *object* addRepeat *n a f count ?lamwait?*
+**
+
+** *object* addMarker *value*
+**
+
+<a name="AEN60098"></a>## DESCRIPTION
+
+This Tcl package is a SWIG wrapper around the
+                `CCCUSBReadoutList` C++ package.
+                The purpose of this class is to construct list of CC-USB
+                operations which can either be executed immediately or
+                loaded for execution in response to an event or scaler trigger
+                in data taking mode.
+
+This extension is an object oriented package.  Users construct
+                lists, they stock them with commands, execute or load them and
+                then destroy the list.
+
+<a name="AEN60103"></a>## COMMAND DETAILS
+
+
+
+**::cccusbreadoutlist::CCCUSBReadoutList
+                        *name***Constructs a new readout list giving it the object
+                            name/id `name`. The command
+                            returns a wrapped pointer to the underlying
+                            `CCCUSBReadoutList` object.
+
+**::cccusbreadoutlist::CCCUSBReadoutList -args
+                        **Creates a new readout list allowing SWIG to choose
+                            the name of the command bound to it.  The
+                            return value of the command is the object command e.g.:
+
+<a name="AEN60119"></a>```
+...
+set l [cccusbreadoutlist::CCCUSBReadoutList -args]
+$l addWrite16 $n $a $f $d
+...
+                            
+```
+
+**::cccusbreadoutlist::CCCUSBReadoutList
+                        *?name?* -this *ptr*
+**Wraps a SWIG object id for a readout list in a new
+                            object.  If the optional `name`
+                            parameter is supplied it specifies the object command
+                            name, otherwise the object pointer will be the
+                            name of the object command.
+
+***object* -delete**Destroys a CCCUSBReadoutList SWIG object.
+                            `object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object* get**Returns an object id for a
+                            std::vector<uint16_t> that
+                            contains the values of the list.  The elements
+                            of this vector can gotten by using
+                            **ccccusb::uint16_vector get**
+                            See [[r59283]] for more
+                            information about that command.
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object* size**Returns the number of 16 bit words currently in the list
+                            `object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object* clear**Clears the list making it emtpy.
+                            `object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object*
+                        addWrite16 *n a f d ***Adds a 16 bit CAMAC write of `d`
+                            to a list.
+                            `n` and `                            a` determine the module and subaddress
+                            targeted by this opertion.  `f`
+                            specifies the function code which must be in the range
+                            [16..23]
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object*
+                        addWrite24 *n a f d ***Same as **addWrite16** but adds a
+                            16 bit write to the list.
+
+***object*
+                        addRead16 *n a f ?lamwait?***Adds a 16 bit read to the list.  The CAMAC read is
+                            specified by `n` (slot),
+                            `a` (subaddress) and
+                            `f` (function code). Valid read
+                            function codes must be in the range
+                            [0..7].
+                            If the optional `lamwait`
+                            parameter is present and true (nonzero)
+                            it specifies that the CC-USB
+                            should stall until either the module's slot signals
+                            a LAM or the LAM times out.  This should not be true
+                            for lists that are executed in immediate mode, but only
+                            for lists that execute in data acquisition mode.
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object*
+                        addRead24 *n a f ?lamwait*
+**Same as **addRead16** above, however
+                            24 bits of data and the Q, X will be transferred as
+                            shown in section 4.6 of the CC-USB manual. Note that
+                            the CCUSB Readout Framework will remove those bits
+                            from data in the Scaler stack as it is assumed that
+                            all of those transfers are 24 bits and that the
+                            scaler stack will eventually be passed off to
+                            scaler display programs that won't know the
+                            Q/X bits are present.
+
+***object*
+                        addControl *n a f*
+**Adds a CAMAC non data transfer (control) operation
+                            to the list.  `n` and
+                            `a` identify the module
+                            slot and subaddress targeted by the operation and
+                            `f` is the CAMAC function
+                            code to be performed.  `f`
+                            by CAMAC standard must be in the ranges
+                            [8..15], [24..31].
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object*
+                        addQStop *n a f max ?lamwait?*
+**Adds a Q-stop operation to the list.  Q-Stop operations
+                            are block transfers that perform the Same operation
+                            at the same target until a transfer count
+                            is exhausted or an operation does not result in a
+                            Q response from the module.
+
+`n`, and `a`
+                            identify the slot and subaddress to which the
+                            function code `f` is addressed.
+                            The assumption is that the operation is a
+                            read, that is `f` is in the
+                            range [0..7].  `max`
+                            is the maximum number of transfers allowed.
+                            If the optional `lamwait` parameter
+                            is true (default is false), the CC-USB will wait for
+                            the module to signal a LAM (or LAM timeout) prior to
+                            performing the operation.
+                            `lamwait` should not be set to
+                            true on lists performed in via **executeList**.
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object*
+                        addQStop24 *n a f max ?lamwait? *
+**Same as **addQStop** above but the
+                            data transfers are 24 bits wide rather than 16 bits
+                            wide.
+
+***object*
+                        addQScan *n a f max ?lamwait?*
+**Same as **addQStop** however the
+                            operation is a Q-Scan.  In a Q-Scan, after each
+                            operation the subaddress is incremented.
+                            If the subaddress would be 16
+                            the slot is incremented and the subaddress
+                            reset to zero.
+
+If there is no Q response, the sub address is
+                            reset to zero and the slot incremented.  The
+                            transfer terminates if either `max`
+                            operations have taken place or if a transfer
+                            results in a false X response (indicating the
+                            scan advanced to an empty slot).
+
+***object*
+                        addRepeat *n a f count ?lamwait?*
+**This is the same as **addQStop**
+                            however `count` operations
+                            are unconditionally performed.
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+***object*
+                        addMarker *value*
+**Writes the 16 bit literal 
+                            `value` to the output
+                            buffer.  For immediate operations this is the
+                            buffer of data returned by the **executeList**
+                            operation.  For data acquisition lists, this is the
+                            event buffer.
+
+`object` is the command name of
+                            a SWIG CCCUSBReadoutList object that has been gotten
+                            from one of the forms of
+                            **cccusbreadoutlist::CCCUSBReadoutList**
+
+<a name="AEN60289"></a>## SEE ALSO
+
+[[r59283]]
+[[r54247]]
+[[r57496]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| cccusb | Up | CModuleFactory |

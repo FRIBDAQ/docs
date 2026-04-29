@@ -1,0 +1,104 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLServer"></a>CTCLServer
+
+<a name="AEN57233"></a>## Name
+
+CTCLServer -- Listener for a Tcl server.
+
+<a name="AEN57236"></a>## Synopsis
+
+```
+#include <CTCLServer.h>
+         
+```
+
+```
+  CTCLServer(CTCLInterpreter* pInterp, int port);
+```
+
+<a name="AEN57283"></a>## Description
+
+Tcl servers allow a Tcp/Ip client to connect to a tcl application
+            and poke commands at it.  While this is a very powerful communications
+            mechanism, it should be used very cautiously as it can also be quite
+            dangerous (imagine a client pushing a command like
+            **exec /bin/bash -c rm -rf ~** for example).
+
+`CTCLServer` is a class that provides the listener
+            portion of the server.  The application that uses this must execute
+            a Tcl event loop in a timely fashion.
+            `CTCLServer` processes connections and creates,
+            where appropriate `CTCLTcpServerInstance` objects
+            that handle communication with clients.
+            The server object maintains a directory of server instances so that when
+            asked to shutdown it can shutdown all server instances as well.
+
+The class provides strategy pattern hooks to support arbitrary
+            authorization models, as well as the production of any subclass
+            of `CTCLTcpServerInstance` to process
+            the commands.
+
+<a name="AEN57293"></a>## Public member functions
+
+`  CTCLServer(CTCLInterpreter* pInterp, int port);`Constructs and activates a server object. Activation means that
+                the Tcl event loop can dispatch events for client connections
+                to the object for processing.
+                `pInterp` is the interpreter this server
+                is supposed to be servicing.  In the standard scheme, this is
+                the interpreter to which commands will be dispatched.
+                `port` is the Tcp/IP port on which the
+                server will listen for connections.
+
+` void instanceExit(CTCLTcpServerInstance* pInstance);`The server maintains a directory of server instances.  When server
+                instances exit they must call this function in the server listener
+                passing a pointer to themselves (`this`) as a
+                parameter.  This function locates the instance in the
+                directory, removes it from the directory and
+                *deletes that object*.
+
+Having called this, the server instance should return
+                immediately as its object context has become invalid.
+                If the server listener object is asked to shutdown, it will
+                also call `instanceExit` on all
+                instances to shut them down as well.
+
+` void shutdown();`Stops listening for connections on the server port and
+                shuts down all instances by invoking
+                `instanceExit` on them.
+
+` protected virtual bool allowConnection(Tcl_Channel connection, std::string hostname);`Called at connection time to determine if the connection should
+                be allowed.  `connection` is the
+                Tcl_Channel that is open on the client.
+                overrides of this are perfectly free to do any sort of
+                communication back and fort with the client to determine
+                its elligibility to connect.
+
+`hostname` is the name of the host
+                that is connecting.  This allows a host based authentication
+                scheme to be developed.
+
+The function must return true to accept the
+                connection and false to deny it.
+
+` protected virtual CTCLTcpServerInstance* createInstance(Tcl_Channel connection, std::string hostname);`Called to create a client instance.  The client instance is responsible
+                for interacting with the client to do whatever communication is needed.
+                By making this virtual, any type descended from
+                `CTCLTcpServerInstance` can be created.
+
+`connection` is the Tcl_Channel
+                open on the client.
+                `hostname` is the host that is connecting.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLStdioCommander | Up | CTCLTcpServerInstance |

@@ -1,0 +1,33 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1993"></a>swrite
+
+<a name="AEN1997"></a>## Name
+
+swrite -- Write spectra to file
+
+<a name="AEN2000"></a>## Synopsis
+
+**swrite** `-format` *format-name* *file-name* *spectrum*...
+
+<a name="AEN2010"></a>## DESCRIPTION
+
+This command is a member of the spectrum package 
+                    (`CSpectrumPackage`) and is, wrapped in a 
+                    `CMPITclPackagedCommand`. 
+                    The package ensures that writes are only done on 
+                    MPI_EVENT_SINK_RANK where the spectrum
+                    channels are.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| stop | Up | treeparameter |

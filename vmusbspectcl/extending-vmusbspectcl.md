@@ -1,0 +1,232 @@
+|  |  |  |
+| --- | --- | --- |
+| VMUSBSpecTcl |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN60"></a>Chapter 3. Extending VMUSBSpecTcl
+
+In this chapter we will learn how to extend VMUSBSpecTcl by adding
+            event processors that produce computed parameters from existing
+            raw parameters prepared for us by the VMUSBSpecTcl raw event processor.
+            The specific learning objectives are:
+
+
+
+- Learn how to get a copy of the VMUSBSpecTcl skeleton.
+- Learn how to locate and reference parameters by name using the
+                      Spectcl API.
+- Learn how to create a Tree parameter proxy for a named
+                      parameter.
+- Learn how to integrate our changes with the skelton.
+
+**Copying the VMUSBSpecTcl skeleton. **
+                The VMUSBSpecTcl skeleton is located in
+                $SpecTclHome/VMUSBSkel where
+                $SpecTclHome is the top level directory
+                of your SpecTcl installation.  For version 3.3 at the
+                NSCL, this is /usr/opt/spectcl/3.3/VMUSBSkel.
+                [[1]](#FTN.AEN78)
+
+If The following sequence of commands creates an empty directory
+            and copies the skeleton files into it from
+            /usr/opt/spectcl/3.3/VMUSBSkel:
+
+<a name="AEN82"></a>**Example 3-1. Copying the skeleton files**
+
+```
+mkdir myspectcl
+cp /usr/opt/spectcl/3.3/VMUSBSkel/* myspectcl
+            
+```
+
+The resulting myspectcl directory contains
+            all the files needed to build a new copy of
+            VMUSBSpecTcl and a Makefile that actually
+            does that.   Since this is just a tailored SpecTcl, you can
+            add event processors in the normal way, by writing an
+            event processor and registering an instance of it as an event
+            processor in `CreateAnalysisPipeline`.
+
+**Using the SpecTcl API to locate parameters by name. **
+            If you are writing event processors that create computed parameters,
+             you will quickly run into the need to located parameters by name.
+
+Specifically, you need to determine if a parameter has been defined by
+            the VMUSB unpackers and you need to fetch its value if it has been.
+            You may also wish to locate your own parameters by name so that you
+            give them values for an event.
+
+The example below shows
+            an event processor method that looks up two parameters and stores
+            their parameter ids in member data of the object. The parameter id
+            is the parameter's index into the `rEvent` pseudo array
+            passed to the event processor's `operator()`
+            method.
+
+<a name="AEN96"></a>**Example 3-2. Using the SpecTcl API to locate parameters**
+
+In the code below, we assume that
+            `m_param1, m_param2` and
+            `m_initialized` are two integer variables
+            and a bool respectively.  We also assume that
+            `m_initialized` is set to false
+            when our event processor is constructed.
+
+```
+#include <SpecTcl.h>
+#include <Parameter.h>
+#include <string>
+...
+
+//do the actual lookup:
+
+void CMyUnpacker::lookupVariables()
+{
+    if (!m_initialized) {
+        SpecTcl *pApi = SpecTcl::getInstance();  
+        
+        CParameter* p1 = pApi->findParameter("param1"); 
+        if (!p1) {
+            throw std::string("Could not find param1"); 
+        }
+        m_param1 = p1->getNumber();            
+        
+        CParameter* p2 = pApi->findParameter("param2"); 
+        if (!p2) {
+            throw std::string("Could not find param2");
+        }
+        m_param2 = p2->getNumber();
+        
+        m_initialized = true;
+    }
+}
+        
+```
+
+[[c60#apilookup-instantiate]]                Creates an instance of the SpecTcl API object.  This object
+                contains data and methods that make up the SpecTcl API.
+            [[c60#apilookup-p1]] `findParameter` locates the parameter
+                object (CParameter) that is associated with a parameter
+                given its name. A pointer to the parameter object is returned
+                if the parameter is found.  If the parameter does not exist,
+                NULL is returned.
+            [[c60#apilookup-error]]                In this example, if the named parameter is not found,
+                a std::string exception is thrown. You
+                must either arrange for the exception to be caught or rely on
+                some SpecTcl last chance exception handler.   If this is called
+                from an event processor's `operator()`
+                method, the event processing framework will report the message
+                and abort further processing of the event.
+            [[c60#apilookup-getid]]                The `getNumber` method of a parameter object
+                returns the id of the parameter.  The id of the parameter is
+                a unique number that identifies the parameter.  It is als the
+                index into the `rEvent` array passed to the
+                `operator()` method of an event processor
+                class.
+            [[c60#apilookup-p2]]               Similarly, the code looks up the parameter id of the parameter
+               param2 by locating its `CParameter`
+               object and asking it to return the parameter id via
+                `getNumber`.
+
+Once this code has executed it sets the `m_initialized`
+        member data to true so that it only executes once.
+        Since parameter definitions tend to change only by recompiling SpecTcl,
+        this method is quite safe and has no time impact on event processing.
+
+If you are used to using Tree parameters, you can  make use of the
+        fact that tree parameter and treeparamter array objects can bind themselves
+        to their parameters and then be treated as if they were the parameters
+        themselves.
+
+The next example assumes you have the same parameters, param1
+        and param2 but that instead of declaring integer
+        members you have declared `CTreeParameter` members
+        named `m_param1` and `m_param2`.
+        Our example will not show how to associate limits, default-binning and
+        units with the parameter, however different overloads of the
+        `Initialize` method can do that if you need that.
+
+<a name="AEN143"></a>**Example 3-3. Binding Tree Parameters to existing parameters**
+
+```
+#include <TreeParameter.h>
+...
+void CMyUnpacker::lookupVariables()
+{
+    if (!m_initialized) {
+        m_param1.Initialize("param1");         
+        m_param1.Bind();                       
+        
+        m_param2.Initialize("param2");         
+        m_param2.Bind();
+        m_initialized = true;    
+    }
+    
+}
+        
+```
+
+[[c60#tree_init1]]                A tree parameter declared as
+                ```
+CTreeParameter
+```
+
+
+                e.g. is said to be uninitialized. Minimally, this parameter
+                must be initialized with the Spectcl parameter name it
+                will be used for and bound to that parameter.
+            This line initializes the tree parameter so that it will
+                be bound to the parameter param1.
+
+[[c60#tree_bind1]]                Binds the parameter.  This looks up the parameter and
+                stores the parameter id within the tree parameter object so that
+                SpecTcl can know which rEvent
+                element the tree parameter
+                represents, and make that association prior to processing each
+                event.
+            [[c60#tree_2]]                The procedure for initializing and binding `m_param2`
+                is identical to that of `m_param2`
+
+**Integrating changes with SpecTcl. **
+            The key to VMUSBSpecTcl integration is that it's just SpecTcl.
+            Edit the Makefile and add your event processor files to the
+            definition of the  OBJECTS macro just like you
+            would for any other SpecTcl and use **make**
+            to build your SpecTcl.
+
+If you want to keep your objects separate from the standard
+            VMUSBSpecTcl objects you could also do a two levels scheme like
+            the one shown below.
+
+<a name="AEN170"></a>```
+            
+USEROBJECTS=MyEventProcessor.o
+            
+OBJECTS=MySpecTclApp.o ParamMapCommand.o CCUSBUnpacker.o \
+        CCCUSBPacket.o CPh7xxUnpacker.o CFixedSizedUnpacker.o \
+        CC1205Unpacker.o $(USEROBJECTS)
+   
+        
+```
+
+In this scheme you add your objects to a new macro
+        USEROBJECTS which is invoked at the end of
+        OBJECTS.
+
+### Notes
+
+|  |  |
+| --- | --- |
+| [1] | VMUSB support first appears in version
+                    3.3-009.  Be sure your SpecTcl version is at least this
+                    high before looking. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VMUSBSpecTcl  configuration |  | Running VMUSBSpecTcl |

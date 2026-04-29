@@ -1,0 +1,105 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.rdo_RunControl"></a>rdo_RunControl
+
+<a name="AEN16945"></a>## Name
+
+rdo_RunControl -- DAQ Manager Run Control Panel.
+
+<a name="AEN16948"></a>## Synopsis
+
+**$DAQBIN/rdo_RunControl *host user readout-program-name...*
+**
+
+<a name="AEN16952"></a>## DESCRIPTION
+
+Provides a DAQ Manager run control panel.  The program parameter,
+            *host* is the host in which the DAQ manager
+            is running.  *user* is the user name
+            of the user that started the manager.  In addition to these, a
+            sequence of
+            *readout-program-name* parameters must
+            be provided which are the names of the programs that are readouts
+            which implement the ReadoutREST protocol.  If there are non
+            standard (e.g. Non NSCLDAQ) Readout programs which don't have
+            a ReadoutREST controlling front end, these should be omitted
+            from the list.
+
+The user interface is divided into roughly three sections.
+            The top section provides the capability to monitor and modify run
+            metadata.  This metadata inlcudes the current and next title as well
+            as the current and next run.
+
+The middle section provides controls and status information
+            to control state transitions in the manager and to monitor
+            the aggregate state of the Readout programs.  This consists of
+            three blocks of controls.  The left block supports booting and
+            shutting down the experiment as well as monitoring the manager state.
+
+All state information is polled from the appropriate data source,
+            therefore, if more than one control panel is run, all will show
+            consistent state information regardless of which of thos panels
+            changed system state.  For example if the user running one control panel
+            changes the title, all other control panels will reflect that change
+            after their next poll for status.  Status polling is approximately once
+            per second.
+
+The middle block provides run control when the system is booted.
+            It  always allows the system to be shutdown.  If the system can
+            start a run a Begin button is present to do that.
+            If the system is actively taking data an End
+            button allows data taking to be halted.  A booted/idle system
+            can also request that readout programs, that support this,
+            re-initialize their hardware via the Initialize
+            button.
+
+The State shown in this section is an aggregate
+            state from all specified readouts.  If all Readouts report the same
+            state, this state is reflected here.  If Readouts show differing states,
+            the text inconsistent is displayed.  This can
+            happen normally during state transitions as the Readouts asynchronously
+            change state.
+
+Finally at the right hand side of the run controls section a
+            checkbox labeled Recording, when checked informs
+            the manager that eventloggers should be started when the run starts,
+            recording data for that run.
+
+The bottom section of the user interface show the status of all of the
+            readout programs described on the command line.  Note that if you miss
+            one, it will still participate in run transitions if sequences are
+            appropriately defined, as it is the sequences executed by the manager
+            that are actually responsible for starting data taking in readout programs.
+
+The bottom section is a tabbed notebook. A single tab labeled
+            summary provides a table of all of the readout
+            programs specified on the command line.  Columns of the table provide
+            the name of the program, the host  in which it runs, whether or not
+            the program is responding to REST requests and the whether or not
+            the manager thinks the program is running.
+
+Once the Readout programs start and become responsive to REST requests
+            for the first time, additional tabs are created for them.  Each additional
+            tab provides trigger statistics for one of the Readout programs.  The
+            labels on these tabs will be of the form *name@host*
+            where *name* is the program name and
+            *host* is the host in which it runs.
+
+The statistics tabs will dynamically show the number of triggers,
+            accepted triggers, and approximate bytes of data generated (event body
+            sizes).  Both cumulative statistics (across all runs), and Statistics
+            for the current run will be shown.  These statistics will update
+            approximately every second.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_monitorOutput | Up | EVBMonitor |

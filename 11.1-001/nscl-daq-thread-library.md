@@ -1,0 +1,284 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chapter.threads"></a>Chapter 49. NSCL DAQ Thread Library
+
+The NSCL DAQ thread library supplies object oriented threading support.
+        This chapter describes:
+
+
+
+- The thread and synchronization model supported by the library
+- What you need to do to incorporate the library into your
+                      application code.
+- A summary of the classes in the library and links to the
+                      reference material for each of them.
+
+
+# <a name="AEN9501"></a>49.1. The thread and synchronization model
+
+The NSCL Daq software models each thread as an object from a
+            class that is derived from the
+            `Thread` base class.  This class provides
+            functions that allow a thread to be created, started, exited,
+            joined to and detached.
+
+The body of a thread is provided by you when you create your concrete
+            `Thread`
+            subclass.  The thread body is just your implementation of the
+            `virtual run` method.
+            Threads exit by returning from the
+            `run`
+            method.
+
+Given a running thread, the
+            `join`
+            thread allows the caller to block until the thread represented
+            by the object exits.
+            `join`ing is a necessary part of thread
+            cleanup, unless the thread invokes its own
+            `detach` member.
+
+In the following example, a thread is designed that will block itself
+            for a second, print a message and exit.  Code is shown that
+            creates the thread, starts it, joins it an deletes it.  Note that
+            deleting a running thread object is a bad idea and has undefined
+            consequences.
+
+<a name="AEN9514"></a>**Example 49-1. The life of a thread**
+
+```
+        ...
+class MyThread : public Thread {      
+public:
+    virtual void run();
+};
+void
+MyThread::run()                      
+{
+    sleep(1);
+    std::cerr << "My thread " << getId() << " is exiting\n";
+    return;
+};
+   ...
+   
+MyThread* aThread = new MyThread;   
+aThread->start();                     
+
+   ...
+   
+aThread->join();                    
+delete aTrhead;                     
+ 
+    ...
+
+            
+```
+
+[[c9491#chapter.thread.mythread]]                    By making
+                    `MyThread` a subclass of
+                    `Thread`,
+                    objects from class
+                    `MyThread`
+                    can be started as independent threads of execution
+                [[c9491#chapter.thread.run]]                    The
+                    `run`
+                    member of a thread is an abstract method.  Your thread classes
+                    must supply the behavior for this member.  When the
+                    thread is started, the
+                    `run`
+                    method gains control in the context of the new thread.
+                [[c9491#chapter.thread.creation]]                    Creating a thread is simple.  Just create an object that
+                    is of the thread class type.
+                [[c9491#chapter.thread.start]]                    Starting a thread is equally simple, Just call the
+                    thread's
+                    `start`
+                    method.  That starts the thread with an entry point that
+                    eventually calls the
+                    `run`
+                    method.
+                [[c9491#chapter.thread.join]]                    It's not safe to destroy a thread that is executing.
+                    Calling a thread's
+                    `join`
+                    method blocks the caller's thread until the thread exits.
+                    Note that it is not safe for a thread to call its own
+                    `join`
+                    method since that will block the thread forever.
+                [[c9491#chapter.thread.destroy]]                    Once a thread has exited, the object that ran it can be
+                    destroyed.  That effectively destroys the thread.
+                    If the state of the exiting thread allows, it is possible
+                    to start the thread again after it has exited.
+
+Non trivial threaded software will almost always need some means
+            for threads to synchronize against one another.  Consider the following
+            trivial, but wrong, example:
+
+<a name="AEN9546"></a>**Example 49-2. Why synchonization is needed**
+
+```
+int someCounter = 0;
+
+class MyThread : public Thread
+{
+    virtual void run() {
+        for (int i=0; i < 10000; i++) {
+            someCounter++;
+        }
+};
+
+...
+MyThread* th1 = new MyThread;
+MyThread* th2 = new MyThread;
+th1->start();
+th2->start();
+th1->join();
+th2->join();
+delete th1;
+delete th2;
+std::cerr << "someCounter = " << someCounter << std::endl;
+...
+
+
+            
+```
+
+In this program, two threads increment the variable someCounter
+            in parallel 10,000 times each.  You might expect the output of this
+            program to always be 20000.  Most of the time, it probably will be.
+            Sometimes it will be something less than 20000.
+
+Consider what
+
+```
+someCounter++;
+            
+```
+
+
+            actually does.  The value of 
+            `someCounter`
+            is fetched to a processor register,
+            the register is incremented and finally, the
+            register is stored back into
+            `someCounter`.
+        Suppose thread `th1`
+            fetches `someCounter`, and increments the register
+            but before it has a chance to store the incremented value back into
+            `someCounter`
+`th2` executes, fetches
+            `someCounter` (the old value), increments the
+            register and stores the value back.
+            Now `th1` gets scheduled, and stores its value back.
+
+This sequence of steps results in a lost increment.  It is possible
+            to construct sequences of execution, that result in a final value
+            of `someCounter` holding any value from
+            10000 through 20000 depending on how access to
+            `someCounter` is interleaved.
+
+One way to fix this is to ensure that the increment of
+            `someCounter` is
+            *atomic* with respect to the increment.
+            The NSCLDAQ threading library provides a synchonization primitive
+            called a
+            `SyncGuard` that can be used to implement
+            the Monitor construct first developed by Per Brinch Hansen
+            (see
+            [Wikipedia's Monitor (synchronization)](http://en.wikipedia.org/wiki/Monitor_%28synchronization%29) page.
+
+Let's rewrite the previous example so that the increment is atomic
+            with respect to the scheduler.   To do this we will isolate the
+            counter in a class/object of its own so that it is not possible to
+            use it incorrectly
+
+<a name="AEN9570"></a>**Example 49-3. Using `SyncGuard` to implement a monitor**
+
+```
+class ThreadedCounter {
+private:
+    Synchronizeable  m_guard;      
+    int              m_counter;
+public:
+    void increment();
+    int  get() const;
+};
+void
+ThreadedCounter::increment()
+{
+    sync_begin(m_guard);          
+    m_counter++;
+    sync_end();                  
+}
+int
+ThreadedCounter::get() const
+{
+    return m_counter;
+}
+
+ThreadedCounter someCounter;
+class MyThread : public Thread
+{
+    virtual void run() {
+        for (int i=0; i < 10000; i++) {
+            someCounter.increment();     
+        }
+};
+
+...
+MyThread* th1 = new MyThread;
+MyThread* th2 = new MyThread;
+th1->start();
+th2->start();
+th1->join();
+th2->join();
+delete th1;
+delete th2;
+std::cerr << "someCounter = " << someCounter.get() << std::endl;
+...
+
+            
+```
+
+[[c9491#chapter.thread.synchronizable]]                    This member is the synchronization element.  We will see
+                    it used in the
+                    `increment`
+                    member.
+                [[c9491#chapter.thread.enter]]                    The
+                    `sync_begin()`
+                    enters the monitor.  Only one thread at a time is allowed
+                    to execute the code between a
+                    `sync_begin`
+                    and a
+                    `sync_end` for the same synchronizing
+                    object.
+                [[c9491#chapter.thread.leave]]                    This call leaves the monitor.  The effect of the
+                    monitor is to make the increment atomic with respect to the
+                    scheduler.
+                [[c9491#chapter.thread.monitoredincr]]                    By using the
+                    `increment`
+                    function, the counter is incremented atomically.
+
+In some cases the thread starting a thread needs to know that
+            the thread has initialized completely prior to proceeding with its
+            own execution.  The `CSynchronizedThread`
+            class allows you to build that sort of control flow.
+            The `CSynchronizedThread`'s `run`
+            method blocks the caller until the thread has run its `init`
+            method.  Once the creating thread has been released to run,
+            the thread runs the `oeprator()` method which is
+            supposed to perform the main thread logic.
+
+See the [[r35169]]
+            for reference information on this class.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Data conversion | Up | Incorporating the library into an application. |

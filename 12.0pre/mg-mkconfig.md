@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_mkconfig"></a>mg_mkconfig
+
+<a name="AEN16430"></a>## Name
+
+mg_mkconfig -- Create NSCLDAQ Manager ConfigurationDatabase
+
+<a name="AEN16433"></a>## Synopsis
+
+**$DAQBIN/mg_mkconfig *config-file*
+**
+
+<a name="AEN16437"></a>## DESCRIPTION
+
+Creates an NSCLDAQ manager configuration database file into the named
+            config-file.  The command creates all of the
+            tables, indices and other schema elements required by the manager
+            as well stocking initial values into the database tables.
+
+It is safe to run the command on an existing database and, if the
+            schema change, that is the recommended way to convert an older
+            database file to more recent version.
+
+Iit is also safe to run the command on an existing database file that
+            does not have a conflicting schema providing support to extend configuration
+            databases to contain experiment metadata the manager is blind to.
+
+<a name="AEN16443"></a>## EXAMPLES
+
+<a name="AEN16445"></a>```
+$DAQBIN/mg_mkconfig e2022-config.db
+        
+```
+
+Creates a manager configuration database file into
+        e2022-config.db in the current workingdirectory.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| compatibilitybuffer | Up | mg_config |

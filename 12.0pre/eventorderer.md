@@ -1,0 +1,212 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq5-evbprotocol"></a>eventorderer
+
+<a name="AEN99463"></a>## Name
+
+eventorderer -- Event orderer protocol
+
+<a name="AEN99466"></a>## Synopsis
+
+```
+#include <fragment.h>
+#include <CEventOrderClient.h>
+
+static const unsigned EVB_MAX_DESCRIPTION=80;      // Description string size.
+
+namespace EVB {
+  typedef struct _ClientMessageHeader {
+    uint32_t  s_bodySize;          // # bytes of message body.
+    uint32_t  s_msgType;           // Type of message.
+  } ClientMessageHeader, *pClientMessageHeader;
+  
+  // Message type codes (bit encoded for the hell of it)
+  
+  static const uint32_t CONNECT   =1;
+  static const uint32_t FRAGMENTS =2;
+  static const uint32_t DISCONNECT=4;
+
+  typedef struct _ConnectBody {
+    char     s_description[EVB_MAX_DESCRIPTION];  // Description string.
+    uint32_t s_nSids;                             // Number of sids on this link.
+    uint32_t s_sids[0];                           // actually s_nSids follow.
+  } ConnectBody, *pConnectBody;
+
+  
+}
+    
+```
+
+<a name="AEN99468"></a>## DESCRIPTION
+
+The NSCL event builder consists of a two stage pipeline. The first stage
+        accepts a set of event fragments from an arbitrary number of event sources
+        and produces output that is a total ordering of the event fragments
+        with respect to the value of a timestamp associated with each fragment.
+        The synchronization of the source of this timstamp is beyond the scope of the
+        event builder software as that normally must be done by the experimental
+        hardware.
+
+The event orderer stage operates as a TCP/IP server.  Data sources
+        follow a well defined protocol to connect with the server, send data
+        and, eventually, disconnect from the server.
+
+The server never initiates an interaction with the clients.  Only
+        clients initiate interactions through *messages*.
+
+Messages consist of a header followed by an optional body.  The
+        Beginning with NSCLDAQ-12, all headers are pure binary. Thus the
+        event builder in NSCLDAQ-12 and later
+        cannot accept data from fragment sources
+        written for earlier versions of NSCLDAQ.
+        Each messages is described fully in the next section: MESSAGES
+
+The event orderer uses the NSCL port manager to advertise its
+        presence.  The service name used is, by default, "ORDERER"
+
+<a name="AEN99476"></a>## MESSAGES
+
+Each subsection describes a specific message.  Messages consist of a header
+        and an optional body.  The message type determines if there is a body.
+        Each segment consist of a 32 bit little endian size followed by its
+        contents.
+
+Headers are described  in the synopsis by the struct
+      `EVB::ClientMessageHeader`.
+
+The server replies to the client are fully textual.  Each reply is a
+        single line of text.  The server replies are success and error replies:
+
+
+
+OKSuccessful completion of the request.
+
+ERROR {text}The request failed.  The *text*
+                    following the ERROR return is an
+                    English string that gives the reason for the failure.
+
+See ERROR STRINGS below for the various failur reasons
+                    that have been anticipated.
+
+The message headers have the following fields:
+
+
+
+uint32_t `s_bodySize`Number of bytes of the body.  This can be zero if the message has
+                no body.
+
+uint32_t `s_msgType`The message type.  This is one of:
+
+
+
+EVB::CONNECTMessage is sent just after the client connects to the
+                        server.  The body describes the connection and the
+                        set of source ids to expect from the client.
+
+EVB::FRAGMENTSThe body contains fragment data
+
+EVB::DISCONNECTThe client is about to disconnect.  This message has no
+                        body.
+
+
+<a name="AEN99526"></a>### EVB::CONNECT
+
+Must be sent by the client immediately following a connection.
+            The body is a `EVB::ConnectBody` which descsribes
+            the connection and the source ids to expect from this connection.
+            The fields of `EVB::ConnectBody` are:
+
+
+
+char `s_description[EVB_MAX_DESCRIPTION]`Contains the connection description string.  Any unused bytes
+                  should be zero filled.  The description must be at most
+                  EVB_MAX_DESCRIPTION-1 bytes long to
+                  allow a zero termination.
+
+uint32_t `s_nSids`Number of source ids the client will send.
+
+uint32_t `s_sids[0]`This array will actually be `s_nSids`
+                  long and will contain the actual source ids the client
+                  can send.  These are used to pre-allocate fragment queues.
+
+This message causes a transition from the CONNECTING to the
+            CONNECTED state.
+
+<a name="AEN99553"></a>### EVB::DISCONNECT
+
+Indicates an orderly, alarm free, disconnect of the client from
+            the event builder.  If the client simply closes the socket, the
+            connection loss is considered abnormal, and alarms may be raised.
+            Therefore clients should properly disconnect rather than just
+            letting sockets close on exit e.g.
+
+The body of the DISCONNECT message is empty.
+            Note that the actual sequence the API software imposes is:
+
+
+
+1. Send the DISCONNECT message.
+2. Receive the OK message back from the server
+3. Both close the socket.  The server closes the socket as
+                       soon as the OK message has been sent.  The client closes
+                       the socket as soon as the server reply message has been
+                       sent (note that in the future if the server can send
+                       an ERROR, the client will still close after recieving
+                       that reply).
+
+<a name="AEN99564"></a>### EVB::FRAGMENTS
+
+A EVB::FRAGMENTS type indicates the body is an
+            array of
+            fragments from the data source.  Each fragment can be thought of
+            as a header followed immediately by its payload.  The payload
+            itself is the event fragment.  The header describes the payload
+            and is a EVB::FragmentHeader
+            Note that the size of the body is still the first 32 bits in the
+            entire body.  It is followed immediately by the first header.
+
+Fragment headers have the following fields:
+
+
+
+` uint64_t s_timestamp;`The timestamp of the event fragment.
+
+` uint32_t s_sourceId;`The unique source id of the fragment.  The sourceId is
+                        used to determine into which fragment queue the fragment
+                        is put.  At this time it is required that data from
+                        each source id come in monotonic time order.
+
+` uint32_t s_size;`The number of bytes in the payload that follows this
+                        struct.
+
+` uint32_t s_barrier;`The barrier type code.
+
+<a name="AEN99599"></a>## CONNECTION STATE
+
+Connections have well defined states.  The connection state changes
+        due to a well defined set of events.   If the state machine is violated,
+        the server will disconnect from the client immediately without reporting
+        an error.
+
+<a name="AEN99602"></a>## ERROR STRINGS
+
+
+
+Expected CONNECTProtocol required a CONNECT message but something else was received.
+
+Empty BodyProtocol required a non-empty body but an empty body was received.
+
+Unexpected header: xxxA header was received of a type not expected.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Event Builder REST | Up | 5tcl |

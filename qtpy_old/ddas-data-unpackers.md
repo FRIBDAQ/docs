@@ -1,0 +1,87 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl DDAS Unpackers Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.unpackers"></a>Chapter 3. DDAS Data unpackers.
+
+DDAS data are broken up into *hits*. A hit is the
+        data from a single channel of DDAS.  You can think of the DDAS
+        readout software as delivering a stream of these hits.
+        The SpecTcl DDAS software provides two event processors that can be
+        used with SpecTcl.  These are:
+
+
+
+- `DAQ::DDAS::CParameterUnpacker` which processes
+                  raw DDAS hits.  These are the units of data that come from
+                  a single DDAS channel. In the absence of an event builder to
+                  glue hits within some coincidence time intervale, events from
+                  DDAS look like events containing single hits.
+  In general you will not want to use this unless you are
+                  taking singles data.
+- `DAQ::DDAS::CDDASBuiltUnpacker` processes
+                  the output of the NSCLDAQ event builder.  Hits that satisfy
+                  the event builder's coincidence window are treated as a
+                  single event.
+
+Both of these unpackers rely on you to provide a mapping between hits
+        and SpecTcl parameters.  This mapping is performed by supplying an object
+        from a class derived from `DAQ::DDAS::CParameterMapper`.
+
+The derived class must implement the method:
+
+` virtual void mapToParameters(std::vector<DAQ::DDAS::DDASHit>& hits, CEvent& rEvent);`This method is expected to unpack the elements of the
+        `hits` vector into parameters in
+        `rEvent`.  Naturally `CTreeParameter`
+        objects can be used instead to manage this unpacking.
+
+The constructors for the two unpackers are shown below along with
+        a simple example that sets up the event built unpacker within
+        MySpecTclApp.cpp
+
+
+
+`  CDDASUnpacker(CParameterMapper& rParameterMapper);`Constructs the unpacker for non-event built data.
+                    `rParamterMapper` is a reference
+                    to a parameter mapper object as described above.
+
+`   CDDASBuiltUnpacker(const std::set<uint32_t>&  validSourceIds, CParameterMapper& rParameterMapper);`This is the constructor for the event built data unpacker.
+                    This unpacker is more usual.  `validSourceIds`
+                    are a set containint the source ids that are expected from
+                    fragments in the event built data.
+                    `rParameterMapper` again is a reference
+                    to a parameter packer.
+
+Note that the `CDDASBuiltUnpacker`
+                    class will only process event fragments whose source ids
+                    are in the set `validSourceIds`,
+                    ignoring all fragments from other sources.  This allows
+                    for mixed mode data, where some source ids are not
+                    acquired using DDAS.
+
+Assume that `MyParameterMapper` is a class
+        that's implemented to unpack its from DDAS for our experiment.
+        The `MySpecTclApp::CreateAnalysisPipeline`
+        method body might look like this:
+
+<a name="AEN174"></a>```
+MyParameterMapper mapper;
+std::set<uint32_t>  ddasIds = {1, 2, 3};   // Allowed DDAS source ids (crates).
+...
+MySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+    RegisterEventProcessor(*(new DAQ::DDAS::CDDASBuiltUnpacker(ddasIds, mapper)));
+}
+        
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The DDASHit class. |  | CFileDrivenParameterMapper |

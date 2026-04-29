@@ -1,0 +1,594 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  |  |
+
+
+---
+
+# <a name="ref.spectrumcommand"></a>spectrum
+
+<a name="AEN2418"></a>## Name
+
+spectrum -- Create, list, delete, and trace changes to spectrum definitions.
+
+<a name="AEN2421"></a>## Synopsis
+
+**spectrum ?`-new`? *name type parameter-list axis-speclist ?datatype?*
+**
+
+**spectrum `-list` ?`-byid`? ?`-showgate` *?pattern?*
+**
+
+**spectrum `-list` `-id` ?`-showgate`? *id*
+**
+
+**spectrum `-delete` *name* *?name...?*
+**
+
+**spectrum `-delete` `-id` *id1 ?id2...?*
+**
+
+**spectrum `-delete` `-all`
+**
+
+**spectrum `-trace`**  [add *?script?* | delete *?script?*]
+
+<a name="AEN2460"></a>## DESCRIPTION
+
+SpecTcl maintains a dictionary of spectra. The size of the
+            parameter dictionary and the total amount of spectrum storage is
+            limited only by the program's virtual memory.  Spectrum bulk
+            storage can be placed into a shared memory region whose size
+            is set by the Tcl variable `DisplayMegabytes` and
+            further limited by system parameters settings (shmmax).
+
+SpecTcl's dictionary maintains objects that hold metadata for
+            all of the defined spectra.  The metadata for each spectrum include:
+
+
+
+nameThe name you give a spectrum when you create it.
+
+idA small integer assigned by SpecTcl to each spectrum.
+                        This is generally not useful.  It is also not the same
+                        as the binding Id produced when you bind a
+                        spectrum's bulk storage into shared memory,.
+
+typeThe type of the spectrum.  Internally this is the
+                        type of object that is representing the spectrum.
+                        Externally this is a short (one or two character) string.
+                        More on spectrum types when we look at creating spectra
+                        in FORMS OF THE COMMAND below.
+
+parametersThe parameters the spectrum depends on.  The number
+                        and organization of these depends very much on the
+                        spectrum type and again we'll say more on this in
+                        FORMS OF THE COMMAND below.
+
+axesOne or two axis descriptions.  The number of
+                        axis descriptions also depends on the spectrum type.
+
+channel typeThe data type for each channel (byte, word or longword).
+                        In the past when systems were heavily memory limited,
+                        it was important to make large 2-d spectra word or even
+                        byte arrays.  This is normally no longer necessary.
+
+applied gateAll spectra have gates applied to them. When they are
+                        created spectra have a True gate applied.
+                        The **apply** command changes which gate is
+                        applied to a spectrum.
+
+Spectra only increment if their gates are satisfied and
+                        the event has defined a sufficient set of parameters.
+
+<a name="AEN2507"></a>## FORMS OF THE COMMAND
+
+This section look as the forms of the **spectrum**
+            command.  We look specifically at:
+
+
+
+- Spectrum creation.
+- Listing spectra
+- Deleting spectra
+- Estabilishing trace scripts
+
+<a name="AEN2520"></a>### Spectrum creation
+
+Create spectra using commands of the form:
+
+**spectrum ?`-new`? *name type parameter-list axis-speclist ?datatype?*
+**
+
+`name` is the name of the new spectrum.
+                This name must be unique over all spectra.  If you attempt to
+                redefine an existing spectrum the command will result in an error.
+
+`type` is the spectrum type. Spectcl
+                supports a rich set of spectrum types.  See
+                Spectrum Types below for information about
+                spectrum types and what needs to be supplied to create them.
+
+`parameter-list` is a Tcl list that, in
+                a spectrum type dependent way lists the parameters the spectrum
+                depends on.
+
+`axis-speclist` is a list of axis
+                specifications. Each axis specification is a triplet containing,
+                in order, the low and high limits ands the number of bins on that
+                axis.   The number of axis specifications is determined by
+                the spectrum type as well.
+
+The optional `datatype` parameter
+                 determines the data type of each channel.  It can be
+                 byte for eight bit channels,
+                 word for 16 bit channels and
+                 long for 32 bit channels.
+
+<a name="AEN2541"></a>#### Spectrum Types
+
+SpecTcl provides a rich set of spectrum types.  The
+                    type of a spectrum determines when and how the spectrum
+                    is incremented as well as how to specify its parameter and
+                    axis lists when creating the spectrum.
+
+In this section well look at each spectrum type,
+                    the number and organization of parameters expected, and the
+                    number of axis specifications required.
+
+
+
+1 - one dimensional spectrumThis spectrum requires a single parameter. The
+                                values of that parameter are the X axis of the
+                                spectrum.  For each even that satisfies the
+                                applied gate *and* defines
+                                the spectrum's parameter, the axis specification
+                                is used to compute a spectrum channel which,
+                                if it is in the range of the axis, is incremented.
+
+A list containing a single axis specification
+                                is required.  Recall that an axis specification
+                                is a three element list consisting of
+                                axis low and high limits and bin count.
+
+See EXAMPLES for concrete examples of spectrum
+                                definitions.
+
+2 - two dimensional spectrum.This spectrum requires a list of two parameters.
+                                The first parameter in the list is the x parameter.
+                                The second the y.  A list of two axis specifications,
+                                the first for the X the second for the y are
+                                required.
+
+For each event that satisfies the gate and defines
+                                both parameters, The X axis specification and X
+                                parameter value are used to compute an x channel.
+                                The Y axis specification and Y parameter value
+                                are used to compute a y channel.  If both
+                                the x and y channels are within the spectrum bounds,
+                                the channel selected by x, y is incremented.
+
+g1 - 1 dimensional gamma spectrumActually more useful than that.  This spectrum
+                                requires an arbitrary list of X axis parameters.  It
+                                also requires a single X axis axis specification.
+
+For each event in which the spectrum's applied gate
+                                is satisfied, and for which at least one of the
+                                parameters is defined by the event, the spectrum
+                                can be incremented.  Each defined parameter in
+                                the parameter list computes an x axis bin and,
+                                if that bin is in range it is incremented.
+
+Note that this means the spectrum can be
+                                incremented several times for each event.
+
+The increment logic can drastically change
+                                if the spectrum has a fold applied.   In this
+                                case, if the fold is satisfied by one or more
+                                parameters, the increments are only performed for
+                                parameters that do not satisfy the fold.
+
+g2 - 2 dimensional gamma spectrumThis spectrum requires an arbitrary list of
+                                at least two parameters.  It also requires two
+                                axis specification.  g2
+                                spectra can be incremented more than once
+                                per event.
+
+For each event that satisfies the applied gate
+                                and defines at least two of the spectrum's parameters
+                                the spectrum can be incremented.   Each pair of
+                                parameters is used as an x/y pair and an increment
+                                is done for that pair as if the spectrum were
+                                an ordinary 2-d spectrum.  For example, suppose
+                                that there are three parameters, p1, p2, p3 all
+                                of which are defined in an event.
+                                Increments will occur for (p1,p2), (p1,p3) and
+                                (p2, p3)
+
+As with g1 spectra folds
+                                have an effect on the increment logic as well.
+                                Increments only occur for parameter pairs that
+                                are not involved in satisfying the fold.
+
+s - summary spectrumA summary spectrum is useful to visualize
+                                the health and gain matching of several
+                                identical detectors in a system.  It has an
+                                arbitrary number of parameters and a single
+                                (y) axis specification.  Each parameter is
+                                assigned a sequential position on the X axis.
+                                For example, if the parameter list is,
+                                in order, p1, p2, p3; p1 is assigned X=0, p2: X=1,
+                                p3: x=2.
+
+For each event that satsifies the applied gate and
+                                defines at least on of the parameters, the spectrum
+                                will be incremented once for  each defined parameter.
+                                For each defined parameter, the value of the
+                                parameter is used, along with the axis specification,
+                                to compute a y bin.  The channel incremented has
+                                an X coordinate determined by the x assigned to the
+                                parameter and a Y coordinate determined by the
+                                channel value.
+
+A summary spectrum is therefore, effectively
+                                a bunch of 1-d spectra where each 1-d spectrum is
+                                vertically displayed along a single X channel.
+
+b bitmask spectrum.A single parameter and a single axis
+                                specification are needed.  The parameter is
+                                assumed to be fundamentally an integer.
+                                The axis specification defines how bits in that
+                                spectrum map to channels on the spectrum's
+                                X axis.   Suppose, for example, the axis
+                                specification is {0 15 16}.  Bits 0-15 are in the
+                                range of the axis
+                                (bits are numbered from least to most significant).
+                                Each of those 16 bits gets its own channel.
+
+For each event that satisfies the applied gate
+                                and defines the spectrum's parameter an increment
+                                can take place for each set bit in the parameter.
+                                The channel for each set bit is incremnted.
+                                Suppose, for example, using the axis specification
+                                {0 15 16}, the hexadecimal representation of the
+                                paramters is 0x10055.  The following channels
+                                will be incremented 0, 2, 4, 6.  This is because
+                                0x55 has is binary: 0101 0101
+                                Note that
+                                since the 0x10000 is out of range of the axis
+                                (it's bit 16) it
+                                does not result in an increment.
+
+S - Strip chart spectrumThis requires two parametrs.  The first is an
+                                X axis parameter, the second is a value parameter.
+                                Only one axis specification (for the X axis) is
+                                required and this is an initial condition.
+                                While the spectrum is intended cases where the X
+                                axis parameter monotonically varies, this is not
+                                required.
+
+For each event that satisfies the gate and
+                                has defined both parameters, the X parameter is
+                                converted into an X axis bin.  If the bin is not
+                                in the spectrum, the channels are shifted appropriately
+                                so that it is (think of a strip chart scrolling).
+                                The integer valued  value parameter is then added
+                                to that channel.
+
+Consider one application.  Suppose the
+                                X parameter is run time in say minutes and the
+                                Y parameter is the number of counts in some
+                                scaler.  The scaler rate strip chart can then
+                                be plotted using one of these spectra.
+
+m2 2-d sum spectrumRequires an event number of parameters.  Each
+                                pair of parameters is an X/Y pair.  Requires
+                                two axis specifications, one for X and one for Y.
+
+If the gate is satisfied for the spectrum, the
+                                parameter pairs are iterated over.  For each
+                                X/Y pair that is defined in the event, bins are
+                                computed and, if possible a channel is incremented.
+                                The result is a spectrum that would be the sum
+                                of 2-d spectra on the individual parameter pairs.
+
+gd - gamma deluxe.Requires two parameter lists.  The first parameter
+                                list is the set of X parameters.  The second
+                                parameter list the set of Y parameters.  The spectrum
+                                needs both X and Y axis specifications.
+
+If the spectrum's gate is satisifed and the
+                                event has at least one X and one Y parameter
+                                defined, the spectrum can be incremented.  All
+                                pairs of X/Y parameters can cause increments.
+                                Suppose the X parameters are x1, x2, x3 and all
+                                are present.  Suppose the Y parameters are
+                                y1, y2, y3 and only y1 and y3 are present.  Increments
+                                can occur for (x1,y1) (x1,y3), (x2, y1), (x2, y3),
+                                (x3, y1), (x3, y3).
+
+As with any gamma spectrum folds can be applied
+                                in which case increments only occurs for parameter
+                                pairs where one or both parameters don't satisfy the fold.
+
+gsGamma summary spectrum.  This works just
+                                like a summary spectrum, however each x channel
+                                has a list of parameters and the vertical strip
+                                of that channel is a g1 spectrum of the
+                                parameters for that X channel.
+
+<a name="AEN2615"></a>### Listing spectra
+
+The command forms that list spectra are:
+
+**spectrum `-list` ?`-byid`? ?`-showgate` *?pattern?*
+**
+
+**spectrum `-list` `-id` ?`-showgate`? *id*
+**
+
+The only difference between these two command forms is how the
+                spectrum/spectra to be listed are selected.  In the first form,
+                the more usual form, the spectra listed are filtered by
+                an optional
+                glob `pattern` that the names of listed
+                spectra must match.  If `pattern` is not
+                provided, it defaults to * which matches
+                everything
+
+If `-id` is used, there must be an
+                `id` parameter that specifies the numeric
+                id of the one spectrum to be listed.
+
+Both forms of the command have an `-showgate` which
+                adds an element to the description of each spectrum that
+                is the name of the applied gate.  All spectra have an applied gate.
+                Spectra are created with the special true gate named
+                -TRUE- applied to them.
+
+If spectra are selected by name, the default ordering of the
+                output is by spectrum name.  If `-byid` is used,
+                the spectra will be ordered by increasing spectrum id.
+
+The output is a list, where each spectrum is represented by a
+                sublist containing in order: The Spectrum id, spectrum name,
+                spectrum type, parameter list (a properly formatted sub-sublist)
+                axis-definition list (a properly formatted sublist) and data type.
+                As described above, if the `-showgate` is
+                specified, an additional  list element, the applied gate name
+                is appended.
+
+<a name="AEN2644"></a>### Deleting spectra
+
+The forms of the **spectrum** command for deleting
+                spectra are:
+
+**    spectrum `-delete` *name* *?name...?*
+**
+
+**    spectrum `-delete` `-id` *id1 ?id2...?*
+**
+
+Deletes one or more spectra.  The difference between the two forms
+                is how the spectra are specified.  If
+                `-id` is not specified the remaining
+                paramters are the names of spectra to delete.  If
+                `-id` is used, they are spectrum ids.0
+
+<a name="AEN2661"></a>### Estabilishing trace scripts
+
+The command for establishing spectrum traces has the following
+                form:
+
+**spectrum `-trace`**  [add *?script?* | delete *?script?*]
+
+First a bit about spectrum traces and what they can be used for.
+                Traces allow Tcl scripts to take actions when changes are made
+                to the SpecTcl spectrum dictionary.  There are two types
+                of traces: *add* trace scripts are run when
+                a spectrum is added to the spectrum dictionary.
+                *delete* traces scripts are run
+                when a spectrum is removed from the spectrum dictionary.
+
+Trace scripts may, themselves, affect the spectrum dictionary.
+                Therefore tracing is disabled while a trace script is
+                executing.  Note that all tracing is disabled.  By this I mean
+                that suppose an add trace deletes a spectrum.  That won't fire
+                the delete trace.
+
+The command specifies as the first parameter after
+                `-trace` which trace is affected by this
+                command.  Regardless of whether or not a new trace is
+                provided, the command returns the previous trace or an empty
+                string if no trace is established.
+
+`script`, if provided replaces any existing
+                trace.  Note that since only one trace is established at any time,
+                you should memorize the prior script and run it
+                from your trace script unless you know
+                exactly what you're doing.  If the `script`
+                is empty, the trace is disabled.
+
+Trace scripts are invoked with the affected spectrum appended
+                to the script.
+
+<a name="AEN2682"></a>## EXAMPLES
+
+<a name="AEN2684"></a>**Example 1. Creating a 1-d spectrum**
+
+```
+(sample) 49 % spectrum ex1 1 raw.00 {{0 1023 1024}}
+ex1
+             
+```
+
+<a name="AEN2690"></a>**Example 2. Creating a 2-d spectrum**
+
+```
+(sample) 50 % spectrum ex2 2 {raw.00 raw.01} {{0 1023 1024} {0 1023 1024}}
+ex2
+            
+```
+
+<a name="AEN2696"></a>**Example 3. Creating a g1 spectrum**
+
+```
+(sample) 51 % spectrum exg1 g1 {raw.00 raw.01 raw.02 raw.03 raw.04} {{0 1023 1024}}
+exg1
+            
+```
+
+<a name="AEN2702"></a>**Example 4. Creating a g2 spectrum**
+
+```
+(sample) 52 % spectrum exg2 g2 {raw.00 raw.01 raw.02 raw.03 raw.04} \
+                                {{0 1023 1024} {0 1023 1024}}
+exg2
+            
+```
+
+<a name="AEN2708"></a>**Example 5. Creating a summary spectrum**
+
+```
+(sample) 53 % spectrum exs s {raw.00 raw.01 raw.02 raw.03 raw.04} {{0 1023 1024}}
+exs
+            
+```
+
+<a name="AEN2714"></a>**Example 6. Creating a bitmask spectrum**
+
+```
+(sample) 54 % spectrum exb b {raw.00} {{0 9 10}}
+exb	
+            
+```
+
+<a name="AEN2720"></a>**Example 7. Making a strip chart spectrum**
+
+```
+(sample) 55 % spectrum exS S {raw.00 raw.01} {{0 1023 1024}}
+exS
+            
+```
+
+<a name="AEN2726"></a>**Example 8. Creating an m2 (multiple 2d spectrum)**
+
+```
+(sample) 57 % spectrum exm2 m2 {raw.00 raw.01 raw.02 raw.03 raw.04 raw.05} \
+            {{0 1023 1024} {0 1023 1024}}
+exm2
+            
+```
+
+<a name="AEN2732"></a>**Example 9. Creating a gd (gamma deluxe) spectrum**
+
+```
+(sample) 59 % spectrum exgd gd    \
+        {{raw.00 raw.01 raw.03} {raw.04 raw.05 raw.06}} \
+        {{0 1023 1024} {0 1023 1024}}
+exgd
+            
+```
+
+<a name="AEN2738"></a>**Example 10. Creating a gs (gamma summary) spectrum**
+
+```
+% spectrum exgs gs {{raw.00 raw.01} {raw.02 raw.03 raw.04} {raw.05 raw.06} } \
+                 {{0 1023 1024}}
+exgs
+            
+```
+
+<a name="AEN2744"></a>**Example 11. Listing all spectra**
+
+```
+% spectrum -list
+{0 raw.00 1 {raw.00} {{0.000000 1023.000000 1024}} long}
+{1 raw.01 1 {raw.01} {{0.000000 1023.000000 1024}} long}
+{2 raw.02 1 {raw.02} {{0.000000 1023.000000 1024}} long}
+{3 raw.03 1 {raw.03} {{0.000000 1023.000000 1024}} long}
+{4 raw.04 1 {raw.04} {{0.000000 1023.000000 1024}} long}
+{5 raw.05 1 {raw.05} {{0.000000 1023.000000 1024}} long}
+{6 raw.06 1 {raw.06} {{0.000000 1023.000000 1024}} long}
+{7 raw.07 1 {raw.07} {{0.000000 1023.000000 1024}} long}
+{8 raw.08 1 {raw.08} {{0.000000 1023.000000 1024}} long}
+{9 raw.09 1 {raw.09} {{0.000000 1023.000000 1024}} long}
+{10 twod 2 {raw.00 raw.01} {{0.000000 1023.000000 1024} {0.000000 1023.000000 1024}} long}
+
+            
+```
+
+<a name="AEN2750"></a>**Example 12. Listing only spectra with matching names**
+
+```
+% spectrum -list t*
+{10 twod 2 {raw.00 raw.01} {{0.000000 1023.000000 1024} {0.000000 1023.000000 1024}} long}
+
+            
+```
+
+<a name="AEN2756"></a>**Example 13. Deleting a spectrum**
+
+```
+spectrum -delete raw.05	
+            
+```
+
+<a name="AEN2760"></a>**Example 14. Spectrum traces:**
+
+```
+# Prior add/delete traces:
+
+set oldAdd ""
+set oldDel ""
+
+proc spectrumadd name {
+    puts "Adding spectrum $name"
+    if {$::oldAdd ne ""}  {
+        uplevel #0 $oldAdd $name
+    }
+}
+
+proc spectrumdel name {
+    puts "Deleting spectrum $name"
+    if {$::oldDel ne ""} {
+        uplevfel #0 $oldDel $name
+    }
+}
+
+set oldAdd [spectrum -trace add spectrumadd]
+set oldDel [spectrum -trace delete spectrumdel]
+
+            
+```
+
+```
+(sample) 50 % spectrum summary s {raw.00 raw.01 raw.02 raw.03 raw.04} {{0 1023 1024}}
+Adding spectrum summary
+summary
+
+(sample) 51 % spectrum -delete raw.01
+Deleting spectrum raw.01
+            
+```
+
+<a name="AEN2769"></a>## SEE ALSO
+
+
+
+- [[r18]]
+- [[r459]]
+- [[r1422]]
+- [[r1862]]
+- [[r774]]
+- [[r230]]
+- [[r518]]
+- [[r2325]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| shmemsize | Up |  |

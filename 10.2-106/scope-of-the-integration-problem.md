@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 39. S800 ReadoutCallouts | Next |
+
+
+---
+
+# <a name="AEN2872"></a>39.2. Scope of the integration problem.
+
+The following issues must be dealt with to run the s800 from
+            the NSCLDAQ Readout GUI and accept data from it in the
+            *normal* way.
+
+
+
+- The Readout GUI must be given a dummy readout program
+                      since the s800 is not built to be run from the GUI.
+- The Readout GUI must relay operations to the S800's
+                   readout program over TCP/IP.
+- Data must be taken from the S800 event builder, turned into
+                      ring items and put in a ring.
+
+With the exception of the first of these items, a readout callouts
+            package can supply the needed operations.  The need for a readout program
+            is satisfied by a program installed in NSCLDAQ since version 10.1
+            called dummyrdo.    It does not really matter
+             where this program runs as all it does is take any commands sent to
+             its stdin and throw them away.
+
+The remainder of the interfacing is performed by a Tcl package
+            that can be included and integrated with a ReadoutCallouts.tcl
+            script.
+            This is described completely in the [[r62206]].  The next section provides
+            an example that shows how to use this package.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| S800 ReadoutCallouts | Up | Using the S800 integration package |

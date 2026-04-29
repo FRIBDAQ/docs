@@ -1,0 +1,118 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25473"></a>CDisplayFactory
+
+<a name="AEN25477"></a>## Name
+
+CDisplayFactory -- Associate display creators with display type names
+
+<a name="AEN25480"></a>## Synopsis
+
+```
+#include <DisplayFactory>
+
+class CDisplayFactory
+{
+
+public:
+    CDisplay* create(const std::string& type);
+    CDisplayCreator* getCreator(const std::string& type);
+    bool addCreator(const std::string& type, CDisplayCreator& rCreator);
+    CDisplayCreator* removeCreator(const std::string& type);
+
+};
+
+        
+```
+
+<a name="AEN25482"></a>## DESCRIPTION
+
+The `CDisplayFactory` class is resonsible
+            for associating `CDisplayCreator` objects
+            with strings (display types).  Upon being presented with a
+            string `CDisplayCreator::create` searches
+            its inventory of creators for a match and then delegates the
+            creation of a displayer to the matching creator object.
+
+Methods are also provided to maintain the contents of the
+            cretor inventory.
+
+<a name="AEN25489"></a>## Creators
+
+Key to the opertion of `CDisplayFactory`
+            is a hierarchy of display creator classes.  Instances of
+            these classes are registered with the factory and associated with
+            an arbitrary display type string.
+
+The base class of these creators, `CDisplayCreator`
+            is defined below.
+
+<a name="AEN25495"></a>```
+ class CDisplayCreator {
+ public:
+    virtual CDisplay* create() = 0;
+};               
+            
+```
+
+Concrete classes need only implement the
+            `create` method to return a pointer to
+            a new instance of the display type they create.  By
+            convention these are dynamically allocated instances and
+            must be destroyed by the factory client when no longer needed.
+            Each distince call to `create`
+            should produce a new, unique `CDisplay`
+            object
+
+<a name="AEN25501"></a>## METHODS
+
+The `CDisplayFactory` class
+            implements the following methods:
+
+
+
+` CDisplay*  create(const std::string&  type = );`Locates the creator that matches the `type`
+                    string and requests that it return a pointer to the
+                    corresponding displayer object.  In general the
+                    pointer returned is to a dynamically created object
+                    that must be deleted when the client no longer
+                    needs it.
+
+If there is no matching creator, or if the creation fails,
+                    nullptr is returned.
+
+` CDisplayCreator*  getCreator(const std::string& type = );`Returns a pointer ot the creator that
+                    corresponds to the `type`
+                    string.  If there is no matching
+                    creator a nullptr is returned.
+
+` bool  addCreator(const std::string& type = ,  CDisplayCreator& rCreator = );`Adds a new creator, `rCreator`
+                    to the factory and associates it with the type
+                    string `type`.  In general the
+                    creator object is dynamically allocated, however,
+                    there's no actual requirement that it be.
+
+On successful addition, the method returns
+                    true if there is already
+                    a creator with the same `type`
+                    name, false is returned instead.
+
+` CDisplayCreator*  removeCreator(const std::string& type = );`Removes the creator object associated with the
+                    `type` string.  The return
+                    value is a pointer to the object, which is no longer
+                    in the inventory of creators known by the factory.
+                    If there is no matching creator,
+                    nullptr is returned instead.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CDisplayCollection | Up | Callback based analysis framework. |

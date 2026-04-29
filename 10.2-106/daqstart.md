@@ -1,0 +1,108 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.daqstart"></a>daqstart
+
+<a name="AEN7802"></a>## Name
+
+daqstart -- Monitor essential programs
+
+<a name="AEN7805"></a>## Synopsis
+
+**daqstart `options...` *command *
+**
+
+<a name="AEN7810"></a>## DESCRIPTION
+
+This  utility facilitates the collection of logging/debugging information from
+       programs that were not originally intended to produce logs.  daqstart  runs  a
+       target  program.   Stdout  and stderr of the target program are initialized as
+       pipes that are monitored by the daqstart program.  Output on each pipe is
+       collected a line at a time and relayed to daqstarts stdout or stderr as
+       appropriate.  If a logging sink has been attached to  the  standard  file,  lines  are
+       timestamped and logged to that sink as well.  This utility is also very useful
+       for programs that are run from desktop shortcuts under window managers such as
+       e.g. kde.
+
+On  target  program  exit,  if  an error sink is specified, an exit message is
+       logged to the error sink.  The exit message contains  such  information  about
+       why  the  program  exited as UNIX can provide (exit status and signal), and is
+       also timestamped.
+
+If the `--notify`
+        option is specified, the exit message is also  sent  to  daqstart's
+        stderr.  Additionally,  if the DISPLAY environment variable is defined
+       and the PopUp program is executable in the current path, it is invoked to  pop
+       up an Xwindows dialog with similar information.
+
+<a name="AEN7816"></a>## OPTIONS
+
+Each option has a short and a long form.  Short form options are preceded
+        by  a single -.  Long options are preceeded by
+        --.  If a value is required, it should be butted up against
+        short options or separated from long options by an =.  For
+        example: `-osomesink` and `--output=somesink`
+        are equivalent.
+
+
+
+`-h --help`Display short help and exit.
+
+` -V --version`Print program version number and exit
+
+`-eSink --error=Sink`Specify  a  logging  sink  for the program's standard error output.  If
+              specified, lines sent by the program to stderr are timestamped and teed
+              to  this  sink  as  well.  See
+              [[r7798#daqstartSINKSPECS]]
+                for more information
+                about specifying sinks.
+
+`-oSink --output=Sink`Specify a logging sink for the program's standard  output  output.   If
+              specified, lines sent by the program to stdout are timestamped and teed
+              to this sink as well.  See
+              [[r7798#daqstartSINKSPECS]]
+              for  more  information
+              about specifying sinks.
+
+`-n --notify`Enables  exit  notification for the command.  If specified, the user is
+              notified of command exit.  Commend exit is always logged to  the  error
+              sink.   `--notify`
+                      causes  an message to be sent to stderr that includes
+              the command name, the exit status and, if exit was due to  an  uncaught
+              signal, the signal that caused the process to exit.  If the environment
+              variable `DISPLAY`
+              is defined and the program PopUp
+              is in the path, it is
+              run to produce an X11 pop up message as well.
+
+<a name="daqstartSINKSPECS"></a>## SINK SPECIFICATIONS
+
+A sink is specified by a string containing two fields separated by a colon:
+       *sinktype:sinkname*
+       The left field is the sink type, while the right field is  a
+       sink  name interpreted within the sink type.  For example, the sink specification:
+       file:/user/fox/output.log
+       specifies the sink is a  file,  and  that  the
+       file is /user/fox/output.log.
+
+Sink types that are currently supporteed include:
+
+
+
+fileA file.  The sink name is the name of the file.
+
+If  all this seems like a bit much to specify a file, recall that this is
+       version 1.0 of the program and future versions will probably support  other  sink
+       types.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dumper | Up | eventlog |

@@ -1,0 +1,72 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 41. Event builder client API | Next |
+
+
+---
+
+# <a name="AEN8847"></a>41.6. The Event orderer/event builder API
+
+The event builder itself is a loadable Tcl package rather than
+            a program.  This allows experiment designers to:
+
+
+
+- Provide application dependent user interfaces on top of
+                      and around those provided by the event builder.
+- Tailor the operation of the event builder to meet application
+                      specific requirements.
+
+
+## <a name="AEN8855"></a>41.6.1. Starting the event builder/orderer
+
+The example below is a Tcl script fragment that shows
+                how to start the event builder. The code assumes that the
+                environment variable DAQROOT has been set to the
+                top installation directory of the NSCLDAQ being used
+                (version 10.2 or later).
+
+<a name="AEN8858"></a>**Example 41-3. Starting the event builder**
+
+```
+lappend auto_path [file join $::env(DAQROOT) TclLibs]   
+package require EventBuilder        
+
+EVB::Start    ?name?                      
+                
+```
+
+[[x8847#evb_start_ap]]                        Adds the Tcl Library directory of the NSCLDAQ to the
+                        list of directories searched for packages.  This could
+                        also have been done by defining the
+                        TCLLIBS environment variable.
+                        TCLLIBS is a space separated list
+                        of directories trees that will be added to
+                        `auto_path` when
+                        tclsh or
+                        wish starts.
+                    [[x8847#evb_start_require]]                        Loads the event builder Tcl package. This package defines
+                        the ::EVB:: namespace.  The event
+                        builder API lives in this namespace to prevent name
+                        conflicts with your application variables and procs.
+                    [[x8847#evb_start_start]]                        Starts the event builder.  The event builder will use
+                        the DAQ Port manager to allocate a Tcp/IP server
+                        port as well as to advertise itself to potential
+                        clients.  The optional `name`
+                        parameter specifies the event builder name. Note that
+                        if you provide a duplicate name,the script will attempt
+                        to pop up a Tk dialog prompting you to continue or not.
+                    When this proc has returned, the event builder is listening
+                        for connections on that port and the client library will
+                        be able to find the event builder.
+
+This proc must be called prior to any other
+                        procs in the EVB:: namespace.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Sending data to the event builder. | Up | Callbacks |

@@ -1,0 +1,855 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 5. CCUSBReadout | Next |
+
+
+---
+
+# <a name="AEN2897"></a>5.7. Writing C++ slow controls device drivers
+
+The slow controls system can make use of the Tcl **load**
+            or **package require** commands to dynamically
+            load compiled code in shared object modules.  This section provides a
+            step by step tutorial that describes how to write, build and
+            incorporate compiled slow controls drivers.
+
+It is also possible to write slow controls drivers in Tcl and
+            [[x3324]]
+            describes how to do this.
+
+To build a slow controls driver you should
+
+
+
+1. Obtain the sample driver and Makefile from the skeleton
+                   directories.
+2. Modify the sample driver and Makefile to meet your needs
+3. Optionally make a pkgIndex.tcl package
+                   file to make the resulting shared library into a
+                   Tcl loadable package.
+
+## <a name="AEN2913"></a>5.7.1. Obtaining the sample driver and its Makefile
+
+The skeleton driver is in the ccusbdriver/example
+                directory of the installation directory tree.  If, you have an
+                environment variable DAQROOT defined,
+                the following sequence of command makes a directory and copies
+                the files into it:
+
+<a name="AEN2918"></a>**Example 5-9. Obtaining the sample CCUSB slow controls driver**
+
+```
+mkdir mydriver
+cp $DAQROOT/ccusbdriver/example * mydriver
+                
+```
+
+The driver example contains the following files:
+
+
+
+sampleDriver.cppThe source code for the sample driver itself.
+
+MakefileA Makefile that can build a shared library out of the
+                        driver.  The Makefile will also build a pkgIndex.tcl
+                        file that, when put on the package search path alog with
+                        the driver shared library, allows the driver to be loaded
+                        with the **package require** command.
+
+Note that both the sample driver and its makefile will need to
+                be modified to be of any use to you.
+
+## <a name="AEN2936"></a>5.7.2. Modifying the sample driver and Makefile.
+
+This section will go step by step through the sample device
+                driver sourc code.   The intent is to describe the classes and
+                functions it contains, as well as the class methods and expections
+                for those methods.
+
+It is assumed that you are familiar with the
+                [[r49645]] and
+                [[r52894]]
+                classes.
+
+Before proceeding to a description of the sample driver it is
+                important to know how driver instances (**Module**s)
+                come into existence.  The **Module** makes use
+                of an extensible driver factory.  A set of creator objects
+                that know how to create an instance of a driver for a specific
+                driver type.
+
+Thus the sampled driver contains the following code:
+
+
+
+- The driver code (a class definition and implementation).
+- A creator (class definition and implementation) the
+                          extensible factory can use to creaste instances of our
+                          driver.
+- Initialization code that registers the driver as a
+                          package with the interpreter and registers the
+                          creator with the extensible factory so that the
+                          **Module** command can create
+                          instances of our driver.
+
+Our driver will be a fairly abstract 'device' so that you can
+                play with it without the need for any specific hardware.
+                The driver will define several configuration options and
+                these options can be set and gotten by slow control
+                clients.
+
+### <a name="AEN2955"></a>5.7.2.1. Driver Code
+
+This section breaks down the code in the driver and annotates it.
+                    As usual, the first part of the source file is a set of includes:
+
+<a name="AEN2958"></a>**Example 5-10. Headers for the CCUSB sample slow controls driver**
+
+```
+
+#include <tcl.h>                      
+#include <CModuleFactory.h>           
+#include <CModuleCreator.h>           
+#include <CControlHardware.h>         
+#include <CControlModule.h>           
+#include <string>
+
+                    
+```
+
+[[x2897#ccusb-slowdriver-includes-tcl.h]]                            Since our driver will get loaded via the Tcl
+                            **load** or **package require**
+                            commands, we will need to interact a bit with the
+                            Tcl interpreter that runs the slow control server.
+                            This header includes the public Tcl definitions.
+                        [[x2897#ccusb-slowdriver-includes-CModuleFactory.h]]                            The `CModuleFactory` class is
+                            a singleton object that is the extensible module
+                            factory that was described above.  We need to know
+                            about it because we will need to register a
+                            creator object with it and associate that creator
+                            with a module type.
+                        See:
+                                [[r55693]]
+                            for a reference page on the `CModuleFactory`
+                            extensible factory class.
+
+[[x2897#ccusb-slowdriver-includes-CModuleCreator.h]]                            This header defines the base class for all module
+                            creators registered with the `CModuleFactory`.
+                            Since we need to define a creator for our driver,
+                            we need the base class definition so that we can derive
+                            our own creator. (see
+                            [[r55800]]
+                            )
+                        [[x2897#ccusb-slowdriver-includes-CControlHardware.h]]                            Drivers are classes that are derived from
+                            the `CControlHardware` base class.
+                            The base class defines the methods each driver must
+                            implement as abstract methods.  This header makes
+                            the definition of that base class available.
+                            (see
+                            [[r55853]]
+[[x2897#ccusb-slowdriver-includes-CControlModule.h]]                            The makeup of a `CControlHardware`
+                            derived class is very similar to that of a `                            CReadoutHardware` derived class.  The driver
+                            provides the code needed to interface with the device.
+                            A `CControlModule` contains the
+                            configurable aspects of the device as well as providing
+                            Tcl parsing mechanisms for the module related commands.
+                            Finally the `CControlModule` provides
+                            the wrapper that translates client requests into
+                            driver requests.
+                        The `CControlModule` also, if
+                            necessary interfaces with the readout thread to bracket
+                            driver calls with run pause/resume operations so that
+                            single shot operations can be performed by the driver
+                            in the middle of a run (the CCUSB cannot perform single
+                            shot operations when the device is in data taking
+                            mode).
+
+CControModule.h defines the
+                            `CControlModule` class. Reference
+                            documentation of that class is in
+                            [[r56083]].
+
+The remainder of this section is subdivided into sections
+                    that describe  the driver class and its implementation,
+                    the creator class and its implementation, the intialization
+                    code.
+
+#### <a name="AEN2998"></a>5.7.2.1.1. The driver class and its implementation
+
+Let's start by looking at the class definition for the
+                        driver itself.  First we'll give a brief overview of the
+                        methods the driver must define.  Then we will look at
+                        the implementation of each method with an eye towards
+                        what the method is expected to do.
+
+<a name="AEN3001"></a>**Example 5-11. CCUSB Slow control driver class definition **
+
+```
+class SampleDriver : public CControlHardware           
+{
+private:
+  CControlModule* m_pConfig;                           
+public:
+  SampleDriver(std::string name);
+  virtual ~SampleDriver ();
+
+  // Forbidden methods
+
+private:                                              
+  SampleDriver(const SampleDriver& rhs);
+  SampleDriver& operator=(const SampleDriver& rhs);
+  int operator==(const SampleDriver& rhs);	    
+  int operator!=(const SampleDriver& rhs);	    
+
+
+public:
+  virtual void onAttach(CControlModule& configuration); 
+  virtual void Initialize(CCCUSB& camac);	            
+  virtual std::string Update(CCCUSB& camac);            
+  virtual std::string Set(CCCUSB& camac,                
+			  std::string parameter, 
+			  std::string value);              
+  virtual std::string Get(CCCUSB& camac,                
+			  std::string parameter);          
+  virtual void clone(const CControlHardware& rhs);	    
+
+};
+                        
+```
+
+Note that all the methods that are labeled as
+                        virtual are pure vitual in the base
+                        class.  This means that actual, concrete, device drivers
+                        must implement them.  If one of these methods does not
+                        make much sense for your driver, you can implement it
+                        as a method that does nothing, but you must implement
+                        all virtual methods.
+
+[[x2897#ccusb-slowdriver-def-subclass]]                                As we mentioned earlier, all slow controls device
+                                drivers are derived from the
+                                `CControlHardware` class.
+                                In writing your own driver you must choose
+                                your own classname and substitute all
+                                instances of SampleDriver
+                                with the name you choose.
+                            [[x2897#ccusb-slowdriver-def-m_pConfig]]                                Each driver class has associated with it a
+                                `CControlModule` object.
+                                This object, among other things, contains the database
+                                of configurable parameters and their current
+                                values.  Most drivers will have member
+                                data to allow them to continue to use this
+                                object to define and fetch their configuration.
+                            For the sample driver. `m_pConfig`
+                                will contain a pointer to that object.  The
+                                object is associated with the driver instance
+                                by a call to `OnAttach`
+                                which is described below.
+
+[[x2897#ccusb-slowdriver-def-noimplementation]]                                If not defined, the methods in this section will
+                                get a default implementation from the compiler.
+                                For CCUSBReadout, these operations don't make sense
+                                and, in some circumstances, can be hard to implement
+                                properly.
+                            By declaring them to be private
+                                no external client of the class can call them.
+                                By not implementing them, internal, accidental
+                                requirements will fail as well.
+                                [[1]](#FTN.footnote-smprivate)
+
+[[x2897#ccusb-slowdriver-def-onattach]]                                The `OnAttach` method is
+                                when the framework associates a
+                                `CControlModule` with the
+                                driver class.  Normally this method will
+                                define configuration parameters and save a
+                                pointer to the `CControlModule`
+                                object so that the configuration parameters
+                                can be fetched.
+                            If real CAMAC hardware is involved, a slow control
+                                driver will at least need a slot
+                                configuration parameter so it knows how to address
+                                the device.
+
+[[x2897#ccusb-slowdriver-def-initialize]]                                Some devices require a one-time initialization
+                                to place them into a known state.  This method is
+                                called at a suitable time for drivers to provide that
+                                initialization.
+                            [[x2897#ccusb-slowdriver-def-update]]                                Some devices have write only registers and can
+                                get in a state where the only knowledge of the
+                                internal state of the device is a shadow state
+                                maintained by the driver.  This method is
+                                used by clients to force the device to match
+                                that internal memorized state.
+                            [[x2897#ccusb-slowdriver-def-set]]                                This method is called when a client wants to set
+                                a parameter controlled by this driver instance.
+                                Normally this means changing a register or set of
+                                registers inside the physical device.
+                            [[x2897#ccusb-slowdriver-def-get]]                                This method is called when a client wants to read
+                                a parameter controlled by this driver instance.
+                                Normally this means reading a register or set of
+                                registers from the hardware.
+                            [[x2897#ccusb-slowdriver-def-clone]] `clone` is intended to
+                                implement virtual copy construction.  At this
+                                time that facility is not yet used and it is
+                                not likely it will be used in the future.
+
+Let's look at the implementation of each of the methods
+                        of the class with an eye to the expectations placed on
+                        each method by the framework and to what a real driver
+                        might have to do to meet those expectations.
+
+**Construction and destruction. **
+                            See
+                            [[x2897#ccusb-slowdriver-impl-condestruct]]
+                            for the actual implementation of these methods in the
+                            sample driver.
+
+<a name="ccusb-slowdriver-impl-condestruct"></a>**Example 5-12. 
+                            The constructor and destructor
+                        **
+
+```
+
+SampleDriver::SampleDriver(std::string name) :
+  CControlHardware(name),             
+  m_pConfig(0)                        
+{
+  
+}
+SampleDriver::~SampleDriver()
+{}                                   
+
+                        
+```
+
+[[x2897#ccusb-slowdriver-impl-constr-baseinit]]                                The constructor must initialize the base
+                                class to ensure that the framework knows this
+                                object by its name.  The `name`
+                                parameter passed to the constructor and relayed
+                                to the base class constructor is the name given
+                                to the instance in the **Module create**
+                                command that resulted in creating this instance.
+                            [[x2897#ccusb-slowdriver-impl-constr-configinit]]                                The `m_pConfig` member variable
+                                will be used to hold a pointer to the
+                                driver instance's configuration object.
+                                In order to ensure that calls to this object
+                                fail with a bus-error if made prior to this
+                                attachment, the pointer is initialized to zero.
+                            [[x2897#ccusb-slowdriver-impl-destruct]]                                If the driver needs to create any dynamic data
+                                it would use this destructor to perform an
+                                orderly free of that data.  Since our driver
+                                is too simple to need dynamically allocated
+                                data, this method does nothing.
+
+**OnAttach. **
+                            This method is when the framework attaches a
+                            `CControlModule` to our instance.
+                            The `CControlModule`, among
+                            other things is derived from a
+                            `CConfigurableObject` and
+                            therefore maintains our configuration data.
+
+Usually `OnAttach` saves a pointer
+                        to the `CControlModule` and defines
+                        configuration parameters and their constraints.
+                        Our driver is no exception.  A normal driver will need to
+                        at least define a slot parameter so
+                        that the driver instance knows how to address the module
+                        it is controlling.
+
+<a name="AEN3082"></a>**Example 5-13. CCUSB Slow controls driver `OnAttach`**
+
+```
+void
+SampleDriver::onAttach(CControlModule& configuration) 
+{
+  m_pConfig = &configuration;                         
+  m_pConfig->addIntegerParameter("anint");                
+  m_pConfig->addIntListParameter("test", 16);             
+  m_pConfig->addBooleanParameter("abool");                
+}
+                        
+```
+
+[[x2897#ccusb-slowdriver-impl-attach-params]]                                Sincethe point of the call to `                                OnAttach` is to provide the
+                                `CControlModule` to the
+                                driver, a reference is passed to the
+                                driver (the `configuration`
+                                parameter).
+                            [[x2897#ccusb-slowdriver-impl-attach-save]]                                Since drivers, in general, define configuration
+                                parameters maintained by `configuration`,
+                                a pointer to the configuration is saved in
+                                `m_pConfig`.  This allows the
+                                values of configuration parameters to be
+                                accessed.
+                            [[x2897#ccusb-slowdriver-impl-attach-anint]] `OnAttach` is the method
+                                that should be used to create configuration
+                                parameters.  This line adds an integer
+                                parameter that is named anint
+[[x2897#ccusb-slowdriver-impl-attach-intlist]]                                Similarly this line adds a parameter that
+                                consists of a list of 16 integers named
+                                test to the configuration
+                                parameters.
+                            [[x2897#ccusb-slowdriver-impl-attach-abool]]                                This line creates a boolean parameter named
+                                abool
+
+**The `Initialize` method. **
+                            Normally this method is used to place the
+                            hardware controlled by a driver instance into
+                            a known initial state.
+
+Since we have no hardware we don't need to do this:
+
+<a name="AEN3116"></a>**Example 5-14. CCUSB Slow controls driver initialize method**
+
+```
+void
+SampleDriver::Initialize(CCCUSB& camac)
+{
+}
+                        
+```
+
+The only remark I want to make here is that the
+                        parameter `camac` allows the
+                        method to perform single short CAMAC operations.
+                        It also allows the method to execute immediate lists
+                        that were built up in a
+                        `CCCUSBReadoutList` object.
+
+**The Update method. **
+                            The `Update` method is normally
+                            used by clients of devices that have state that is partially
+                            or entirely write only.
+                            Such drivers often maintain a 'shadow' state that
+                            attempts to maintain a knowledge of the hidden internal
+                            state of the device itself.
+
+The implementation of `Update` is:
+
+<a name="AEN3128"></a>**Example 5-15. CCUSB Slow controls driver Update**
+
+```
+std::string
+SampleDriver::Update(CCCUSB& camac)
+{
+    return "OK";
+}
+                        
+```
+
+I want to clarify:
+
+
+
+1. The `camac` parameter allows
+                                   this method to perform CAMAC operations. The
+                                   method can build immediate lists using
+                                   the `CCCUSBReadoutList`
+                                   and execute them with the `camac`
+                                   parameter as well.
+2. The return value of the method should either be
+                                   the string OK which is passed
+                                   back to the client and indicates the initialization
+                                   was successful or
+                                   ERROR  which should be followed
+                                   by an error message that is human readable, indicating
+                                   the initialization failed.  The client usually
+                                   strips off the ERROR part and
+                                   displays the remainder.
+   A sample error return might be:
+                                   ERROR No X response, be sure the slot parameter is correct
+3. Driver code can be assured that there is no active run
+                                   when this method is called.
+
+**The Set method. **
+                            The `Set` method is eventually called
+                            to satisfy client **Set** requests that
+                            are directed at this module name.  Normal drivers
+                            will take the parameter name and value and use them
+                            to set some device state.
+
+Our driver instance uses its configuration parameters
+                        as the settable parameters rather than hardware.
+                        Note that when called the `Set`
+                        method can be assured that data taking is not active.
+                        If there is an active run, the framework pauses it
+                        before calling `Set` and
+                        resumes it when that method returns.
+
+Therefore the implemntation is:
+
+<a name="AEN3156"></a>**Example 5-16. CCUSB Slow controls driver Set method**
+
+```
+std::string
+SampleDriver::Set(CCCUSB& camac, std::string parameter, std::string value)
+{
+  try {
+    m_pConfig->configure(parameter, value);   
+  }
+  catch(std::string msg) {
+    std::string error = "ERROR ";             
+    error += msg;
+
+    return error;
+  }
+  return "OK";                                 
+}
+                        
+```
+
+[[x2897#cccusb-slowdriver-impl-set-configure]]                                Our driver uses the configuration database
+                                as its 'device state'.  Instead of this
+                                line, a real driver would use the
+                                `parameter` argument to
+                                select a bit of device state and set that
+                                device state to what is desired by the
+                                `value` parameter.
+                            Normally this will involve CAMAC operations that
+                                can be done via the `camac`
+                                object.  Immediate lists can also be performed
+                                using a `CCCUSBReadoutList`
+                                to build the list and the `camac`
+                                object to execute them.
+
+[[x2897#cccusb-slowdriver-impl-set-error]]                                The string result of the method is used to report
+                                both success and failure back to the client.
+                                Srings that start with
+                                ERROR  are error returns and
+                                the remainder of the string is a human readable
+                                error message the client usually displays.
+                            One example of an error return is:
+                                ERROR There is no parameter 'junk'.
+
+In the sample driver, errors in the
+                                `configure`
+                                method are reported by thrown strings.  These
+                                exceptions are caught and the actual value of
+                                the string is appended to the leading
+                                ERROR word.  In practice you
+                                will need to decide how to detect and communiate
+                                errors between different sections of your driver.
+
+[[x2897#cccusb-slowdriver-impl-set-ok]]                                On success, the `Set`
+                                method is supposed to return
+                                OK.
+
+**CCUSB Slow controls Get method. **
+                            The `Get` method is eventually
+                            called by the framework when a client requests an
+                            item of device state.  As with other methods that
+                            have a `camac` object as a
+                            parameter, if necessary, an active run is paused
+                            prior to the all and resumed after the method
+                            returns.
+
+Our device uses its configuration parameters to simulate
+                        a device state.  In a normal driver the driver would
+                        interact with the hardware to return the desired state.
+
+Here's our driver's `Get`
+                        implementation:
+
+<a name="AEN3191"></a>**Example 5-17. CCUSB slow controls Get method**
+
+```
+std::string
+SampleDriver::Get(CCCUSB& camac, std::string parameter)
+{
+  try {
+    return m_pConfig->cget(parameter);    
+  } catch(std::string msg) {
+    std::string error = "ERROR - ";       
+    error += msg;
+    return error;
+  }
+  
+}
+                        
+```
+
+[[x2897#ccusb-slowdriver-impl-get-cget]]                                Since our device uses its configuration parameters
+                                as its 'device state', we just perform a
+                                call to `cget` on our
+                                configuration object.   This fetches the
+                                configuration parameter named `parameter`
+                                and returns its value.
+                            On successful return the method is supposed to
+                                return the stringified value of the device parameter
+                                specified by its `parameter`
+                                argument.  In a normal driver, the
+                                `camac` object would be used
+                                to interact with some physical device to
+                                fetch the requested device state.
+
+[[x2897#ccusb-slowdriver-impl-get-error]]                                The `cget` method throws
+                                a string exception on error.  The framework and
+                                client expect a string beginning with
+                                ERROR -  if the
+                                `Get` method fails.
+                                As usual, the tail of this string should be a
+                                human readable error message.
+                            The sample driver simply appends the string
+                                exception value to the initial ERROR - 
+                                to generate the return string.  An example of
+                                an error string might also be:
+                                ERROR - Parameter junk does not exist
+
+**The clone method. **
+                            The `clone` method is a
+                            placeholder for future funtionality. It is intended
+                            to support virtual copy construction if that is needed.
+                            It is very likely this functionality will never be needed
+                            and driver implementers can simply provide an empy
+                            implementation of this method (that's what the sample
+                            driver does).
+
+<a name="AEN3216"></a>**Example 5-18. CCUSB Slow controls clone method**
+
+```
+void
+SampleDriver::clone(const CControlHardware& rhs)
+{
+}
+                        
+```
+
+If you do try to take on a real implementation of
+                        `clone` you will need to
+                        set your internal state to be the same as the
+                        object `rhs`, remember that
+                        internal state includes the internal state of
+                        superclasses.
+
+The `rhs` is an object that is
+                        guaranteed to be the type as your driver.
+
+#### <a name="AEN3224"></a>5.7.2.1.2. The creator class and its implementation
+
+The creator class is normally a very simple class.  It
+                        has only two requirements:
+
+
+
+- It must be derived from `CModuleCreator`
+- It must provide a functor method (`operator()`)
+                              that creates a named instance of the driver object.
+
+Here is the entire creator for our driver:
+
+<a name="AEN3235"></a>**Example 5-19. Module creator for the CCUSB Sample slow controls driver**
+
+```
+class SampleCreator : public CModuleCreator {     
+public:
+  CControlHardware* operator()(std::string name);
+};
+
+CControlHardware*
+SampleCreator::operator()(std::string name)
+{
+  return new SampleDriver(name);                
+}
+                        
+```
+
+[[x2897#ccusb-slowdriver-creatordef-derive]]                                The `SampleCreator` class is
+                                derived from `CModuleCreator`
+                                and therefore meets the first requirement of
+                                creators.
+                            [[x2897#ccusb-slowdriver-creatordef-functor]]                                This method creates drivers instances and fulfils
+                                the second requirement of creators.
+
+#### <a name="AEN3247"></a>5.7.2.1.3. Driver initialization
+
+Drive initialization is normally relatively simple:
+
+
+
+- If you decide to make your driver an actual Tcl
+                              package that can be loaded by the
+                              **package require** command, the
+                              package must be registered with the
+                              Tcl interpreter via a call to
+                              `Tcl_PkgProvide`
+- An instance of the creator must be registered
+                              with the module factory.
+
+In addition, since at load time the Tcl interpreter
+                        computes the name of the initialization function from
+                        the name of the shared library or package, the
+                        initialization function must:
+
+
+
+- Conform to the naming conventions specified in
+                              the documentation of the
+                              [Tcl Load Command](http://www.tcl.tk/man/tcl8.5/TclCmd/load.htm).
+- Have a C binding via the extern "C"
+                              construct so that C++ does not decorate the function
+                              name with the function signature.
+
+<a name="AEN3265"></a>**Example 5-20. CCUSB Slow control driver initialization function**
+
+```
+extern "C" {                                 
+int
+Sampledriver_Init(Tcl_Interp* pInterp)       
+{
+  int status;
+  
+  status = Tcl_PkgProvide(pInterp, "Sampledriver", "1.0");    
+  if (status != TCL_OK) {                   
+    return status;
+  }
+  
+  CModuleFactory* pFact = CModuleFactory::instance(); 
+  pFact->addCreator("sample", new SampleCreator);     
+  
+  return TCL_OK;
+}
+}
+                        
+```
+
+[[x2897#ccusb-slowdriver-init-externc]]                                This line and the closing brace at the end of
+                                the example ensures that the function defined
+                                inside this block are not decorated.  Normally
+                                C++ mangles (decorates) the names of functions
+                                and methods to encode the types of parameters
+                                and return types in the function name.
+                                This is how overloading is implemented.
+                            Functions that are declared as
+                                extern "C" are intended to
+                                be called from C or other languages where this
+                                decoration is not done.  This construction
+                                therefore disables that decoration.
+
+[[x2897#ccusb-slowdriver-init-name]]                                Since the driver will be encapsulated in a package
+                                named Sampledriver, the initializer
+                                must be named `Sampledriver_Init`.
+                                Note that the slow controls interpreter is not a
+                                safe interpreter so the
+                                `Sampledriver_SafeInit` function
+                                does not need to be implemented.
+                            [[x2897#ccusb-slowdriver-init-provide]]                                This sectrion of code uses the
+                                `Tcl_PkgProvide` function
+                                to provide the package Sampledriver
+                                with a version of 1.0 to the
+                                interpreter.
+                            [[x2897#ccusb-slowdriver-init-factinstance]]                                The module creator factory (`CModuleFactory`)
+                                is a singleton object and the call to
+                                `CModuleFactory::instance`
+                                returns a pointer to the singleton.  If this icall fails,
+                                the failure status is returned from this function.
+                            [[x2897#ccusb-slowdriver-init-factadd]]                                This line instantiates a creator for the sample
+                                driver and registers it with the module factory.
+                                This registration allows the **Module create**
+                                command to create instances of our driver.
+
+### <a name="AEN3295"></a>5.7.2.2. The Makefile and typical modifications.
+
+The Makefile has been written to be easily modified.
+                    In many cases you just need to adjust the values of some
+                    Makefile variables to get your driver built.
+
+The Makefile has targets to build both the shared library
+                    that contains your driver code, and a
+                    pkgIndex.tcl file that tells Tcl
+                    how to load your package.
+
+The example below is the Makefile as it is distributed.
+
+<a name="AEN3301"></a>**Example 5-21. CCUSB Slow controls driver Skeleton Makefile**
+
+```
+INSTDIR=/usr/opt/nscldaq/11.0                     
+
+HEADER_DIR=$(INSTDIR)/ccusbdriver/includes
+LIB_DIR=$(INSTDIR)/lib
+
+
+#
+#  Modify the line below to include all of your driver files:
+
+SOURCES=sampleDriver.cpp                        
+
+
+# Modify the lines below to be the name and version of your package
+# in the call to Tcl_PkgProvide
+
+PKGNAME=Sampledriver                          
+PKGVER=1.0
+
+#
+# Modify the line below to be the name of the desired
+# shared library:
+
+SONAME=sampleDriver.so                     
+
+# Don't touch these, use USERCXXFLAGS and USERLDFLAGS
+
+CXXFLAGS=-I/usr/include/tcl8.5 -I/usr/include/tcl8.5
+LDFLAGS= -L/usr/lib -ltcl8.5 -ldl  -lpthread -lieee -lm
+
+# Add your flag defs here:
+
+USERCXXFLAGS=                             
+USERLDFLAGS=
+
+
+# Make the package index file if possible
+
+pkgIndex.tcl: $(SONAME)
+	echo "package ifneeded $(PKGNAME) $(PKGVER) [list load [file join \$$dir $(SONAME)]]" > pkgIndex.tcl
+
+
+# linux specific!
+
+$(SONAME):	$(SOURCES)
+	$(CXX) -o$(SONAME) -I$(HEADER_DIR) -L$(LIB_DIR) $(CXXFLAGS) $(USERCXXFLAGS) -shared -fPIC \
+	$(SOURCES) \
+	$(USERLDFLAGS) $(LDFLAGS) -Wl,"-rpath=$(LIB_DIR)"
+                    
+```
+
+[[x2897#ccusb-slowdriver-makefile-instdir]]                            This line defines the top level directory of the NSCLDAQ
+                            installation you are building against.  The minium
+                            that supports custom slow control drivers is
+                            11.0.  If you port your code to more recent versions
+                            of nscldaq, or to systems that have NSCLDAQ
+                            installed elsewhere you will need to modify this line.
+                        This line is normally generated by the NSCLDAQ installation
+                            process.
+
+[[x2897#ccusb-slowdriver-makefile-sources]]                            This line should contain a space separated list
+                            of the C/C++ sources that make up your driver.  These
+                            sources will be compiled by the Makefile and bound
+                            into the driver shared library.  If you neeed to continue
+                            on multiple lines, use a  \  at the
+                            end of a line to indicate there is more.
+                        [[x2897#ccusb-slowdriver-makefile-pkginfo]]                            The part of the Makefile that generates the
+                            pgkIndex.tcl package index
+                            file needs to know the name and version of your
+                            package (as registered in the intialization function
+                            via the call to `Tcl_Pkg_Provide`).
+                        [[x2897#ccusb-slowdriver-makefile-libname]]                            Similarly, the Makefile needs to know the name of
+                            the shared library you will be creating.  This
+                            is used when building the library and the package
+                            index file.
+                        [[x2897#ccusb-slowdriver-makefile-flags]]                            If you have additional compilation or
+                            link flags, supply them here.
+
+### Notes
+
+|  |  |
+| --- | --- |
+| [1] | This idea comes from Scott MeyersEffective C++book |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running CCUSBReadout | Up | Writing Tcl slow controls device drivers |

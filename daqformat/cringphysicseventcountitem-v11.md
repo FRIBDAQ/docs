@@ -1,0 +1,165 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5983"></a>CRingPhysicsEventCountItem (v11)
+
+<a name="AEN5987"></a>## Name
+
+CRingPhysicsEventCountItem (v11) -- Encapsulate trigger count ring item.
+
+<a name="AEN5990"></a>## Synopsis
+
+```
+#include <v11/CRingPhysicsEventCountItem.h>
+
+namespace v11 {
+
+class CRingPhysicsEventCountItem : public ::CRingPhysicsEventCountItem
+{
+
+public:
+  CRingPhysicsEventCountItem();
+  CRingPhysicsEventCountItem(uint64_t count,
+			     uint32_t timeOffset, unsigned divisor);
+  CRingPhysicsEventCountItem(uint64_t count,
+			     uint32_t timeOffset, time_t stamp, unsigned divisor);
+  CRingPhysicsEventCountItem(uint64_t count, 
+			     uint32_t timeoffset, 
+			     time_t stamp, uint64_t timestamp, uint32_t sid, unsigned divisor = 1,
+           uint32_t barrier=0);
+  virtual uint32_t getTimeOffset() const;
+  virtual void     setTimeOffset(uint32_t offset);
+  virtual float    computeElapsedTime() const;
+  virtual uint32_t getTimeDivisor() const;
+
+  virtual time_t   getTimestamp() const;
+  virtual void     setTimestamp(time_t stamp);
+
+  virtual uint64_t getEventCount() const;
+  virtual void     setEventCount(uint64_t count);
+
+  virtual uint32_t getOriginalSourceId() const;
+  
+  virtual void*     getBodyPointer() ;
+  virtual const void* getBodyPointer() const;
+  virtual size_t  getBodySize() const;
+  virtual bool hasBodyHeader() const;
+  virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+  virtual void* getBodyHeader() const; 
+
+
+  virtual std::string typeName() const;	
+  virtual std::string toString() const; 
+
+
+};
+}                                      // v
+                
+```
+
+<a name="AEN5992"></a>## DESCRIPTION
+
+Periodically the NSCLDAQ readout frameworks emit ring items
+                    that document the number of triggers that have resulted in
+                    data.  Similarly, the glom stage of the event builder outputs
+                    ring items that document the number of events it has built.
+                    These are intended to be used by online software that may,
+                    for performance reasons, have to sample data from the
+                    online data flow.
+
+A legitimate question users may ask of such program is
+                    "What fraction of the data has it analyzed this run?"
+                    Trigger count ring items allow this question to be answered,
+                    such programs can simply count the number of physics event
+                    ring items they've processed and, when they see a trigger
+                    count ring item, divide that by the number of triggers.
+
+The `CRingPhysicsEventCountItem`
+                    class provides a class that, when instantiated, can encapsulate
+                    a trigger count ring item.
+
+Note that `CRingPhysicsEventCountItem`
+                    objects may have body headers.
+
+<a name="AEN6000"></a>## METHODS
+
+
+
+`  CRingPhysicsEventCountItem();`Constructs an event count item with a count of zero,
+                            run time offset of zero and timestamp of the time
+                            the constructor was invoked.
+
+`  CRingPhysicsEventCountItem(uint64_t  count, uint32_t  timeOffset, unsigned  divisor);`Creates an event count item where the trigger
+                            count is initialized to `count`.
+                            The run offset is given by `timeOffset`
+                            with `divisor` ticks per second.
+                            The clock time is set to the construction time of
+                            the object.
+
+`  CRingPhysicsEventCountItem(uint64_t  count, uint32_t  timeoffset, time_t  stamp, uint32_t  sid,  unsigned  divisor = 1);`Full construction of a physics event count item
+                            with a prototypical body header.  The additional
+                            parameter from the previous constructor are
+                            `stamp`, which provides
+                            the clock time at which the item was constructed and
+                            `sid` which provides the source
+                            id for the original source id field (if any) of the
+                            item.
+
+The original source id allows analysis programs to
+                            track the originating data source for this item.
+                            Note that the constructor does not produce a
+                            body  header but one can be added with
+                            `setBodyHeader`.
+
+` const virtual uint32_t  getTimeOffset();`Returns the raw time offset into the run at which
+                            this item was created.  Note that
+                            `computeElapsedTime` is the
+                            preferred method to get the elapsed run time.
+
+` virtual void      setTimeOffset(uint32_t  offset);`Sets the object's raw run time offset.  This
+                            offset is uncorrected by the offset divisor.
+
+` const virtual float     computeElapsedTime();`Computes the elapsed time in the run at which this
+                            was emitted from the raw offset and the divisor.
+                            Units are seconds.
+
+` const virtual uint32_t  getTimeDivisor();`Returns the number of ticks in a second in the
+                            elapsed time raw value.
+
+`  virtual time_t    getTimestamp();`Return the clock time associated with the item.
+
+` virtual void      setTimestamp(time_t  stamp);`Sets the clock time associated with the item.
+
+` const virtual uint64_t  getEventCount();`Return the number of triggers documented by this
+                            item.
+
+` virtual void      setEventCount(uint64_t  count);`sets the item's trigger count.
+
+`  const virtual uint32_t  getOriginalSourceId();`Returns the source id of the data source that emitted
+                            this object.
+
+` const virtual std::string  typeName();`Returns a string indicating the type of ring item
+                            this object is:  Trigger count
+
+` const virtual std::string  toString();`Return  a string that describes the contents of the
+                            item.  This is used by, e.g. **dumper**
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType  = 0);`Adds a new body header or modifies the contents of the
+                            existing body header.
+
+` const virtual void*  getBodyHeader();`Returns a pointer to the body header or
+                            nullptr if the object has no
+                            body header.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingFragmentItem (v11) | Up | CRingScalerItem (v11) |

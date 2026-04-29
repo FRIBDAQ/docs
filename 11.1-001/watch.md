@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="vmusb3-watch"></a>watch
+
+<a name="AEN68057"></a>## Name
+
+watch -- Watch variables (slow controls)
+
+<a name="AEN68060"></a>## Synopsis
+
+**watch *name*
+**
+
+<a name="AEN68064"></a>## DESCRIPTION
+
+Informs the slow controls server that a variable or array
+            named `name` should be monitored.  The
+            watched variable are monitored for changes (which are initiated
+            by clients performing **set** commands). Periodically
+            the current values of changed variables are dumped to the event
+            stream as string items of type MONITORED_VARIABLES.
+
+If `name` is an array, all elements
+            of that array are monitored.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Module | Up | delay |

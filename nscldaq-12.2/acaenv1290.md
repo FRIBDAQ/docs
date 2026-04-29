@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN104877"></a>ACAENV1290
+
+<a name="AEN104881"></a>## Name
+
+ACAENV1290 -- Special purpose Tcl CAEN V1290 driver
+
+<a name="AEN104884"></a>## Synopsis
+
+```
+package require ACAENV1290
+ACAENV1290 name
+addtcldriver create stack-name -ensemble name
+        
+```
+
+<a name="AEN104889"></a>## DESCRIPTION
+
+The `ACAENV1290` ITcl class is a specialized Tcl translation
+            driver for the CAEN V1290 TDC.  The synposis above shows how to use it.
+            The driver has no configurable options.  On inintialization it:
+
+
+
+1. Sets the module in trigger matching mode
+2. Sets the matching window width to 1500
+3. Sets the window offset to -1000
+4. Turns off chip parkers.
+5. Disables error markers.
+6. Enables trigger time subraction.
+
+The source code does not contain an Author attribution nor the 
+            purpose however I believe the author was Scott Williams and the 
+            original purpose was the REA3 diagnostics box.  The 
+            **tdc1x90** is a much more flexible driver
+            and is recommended instead of this driver, which is provided
+            for legacy use only.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| XLMTimestamp | Up | ACAENV795 |

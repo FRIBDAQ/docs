@@ -1,0 +1,98 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 6. ReadoutGUI & ReadoutShell | Next |
+
+
+---
+
+# <a name="readoutshell_filestruct"></a>6.3. The event logger and ReadoutShell
+
+The Readout GUI works with the event logger to maintain
+            a directory structure of event files and associated data.
+            You can associate an arbitrary set of files and directory subtrees
+            with each run.  Through heavy use of symbolic links, the
+            Readout GUI provides you with two views of your data.
+
+**Events view. **
+                The events view presents all of the event files in a single
+                directory.  This view allows you to sequentially analyze
+                several runs without needing to move around in the directory
+                hierarchy.
+
+**Runs view. **
+                This view collects all of the data associated with each run
+                into a single directory.
+
+The top of the directory subtree that is managed by Readout Gui is
+            determined by a symbolic link; ~/stagearea.
+            [[1]](#FTN.AEN4020)
+            This must be created by you when you set the account up for data taking
+            and should point to the event area that you were assigned.
+
+When Readout GUI runs the first time it will create the directory
+            structure it need underneath the directory pointed to by
+            ~/stagearea.
+
+The directory tree created looks like this:
+
+<a name="AEN4025"></a>**Figure 6-4. Readout GUI Directory tree**
+
+stagearea +  
+
+          +----> experiment+  
+
+          |                +---> current  
+
+          |                +---> run1  
+
+          |                +---> run2  
+
+          ...             ...  
+
+          +----> complete  
+
+          +----> current
+
+Let's start with the ~/stagearea/current directory.
+            The Readout GUI arranges for the event file set currently being
+            accumulated to be written in this directory.  Event files have the name
+            run-nnnn-ss.evt where nnnn is a
+            zero filled run number (e.g. 0001), and
+            ss is a zero filled event segment.
+
+The event data from each run are segmented into files that are no
+            more than 2GBytes long.  The segments number from 00.  Segmenting
+            runs into file that are no larger than 2Gbytes avoids problems
+            with file size limitations on some types of file systems.
+
+The ~/stagearea/experiment subdirectory tree
+            provides the run view of the data.  Within that directory are
+            subdirectories for each recorded run.  At the end of a run,
+            the Readout GUI moves the event data files from the
+            ~/stagearea/current directory into the
+            associated run directory.  The data in
+            ~stagearea/experiment/current is copied into
+            the run directory as well.  Files or directories pointed to by
+            symoblic links in the experiment/current subtree
+            are copied rather than the links themselves.
+
+Finally, the complete directory provides the
+            events view of the experiment.  At the end of a run, after the
+            event file segments copied to ~stagearea/experiment/runn,
+            a symbolic link to each event file segment is created here.
+
+### Notes
+
+|  |  |
+| --- | --- |
+| [1] | Environment variables can override this link however and are
+                    useful in the event you are using a single account to do
+                    multiple tests for which you want to segregate the data. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Operating the user interface | Up | Customizing the ReadoutShell |

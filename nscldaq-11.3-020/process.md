@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.process"></a>Process
+
+<a name="AEN72817"></a>## Name
+
+Process -- Simplified asynchronous pipeline handling
+
+<a name="AEN72820"></a>## Synopsis
+
+**package require Process            
+                **
+
+**Process *name* | %AUTO% -command *cmd ?options...?*
+**
+
+** *name*  configure *optname value ?...?*
+**
+
+** *name* cget *?option?*
+**
+
+** *name*  getPids
+                **
+
+<a name="AEN72838"></a>## DESCRIPTION
+
+This class makes the creation and monitoring of an
+                asynchronous command pipeline simple in the case when you want
+                the output and, potentially the stderr of the pipeline to go to
+                the scripts stdout.
+
+<a name="AEN72841"></a>## OPTIONS
+
+
+
+`-command`Provides the pipeline command.
+                                    Note that this must be provided at
+                                    construction time and may not be modified
+                                    once supplied.
+
+See the documentation of the tcl
+                                    **exec** command for some of
+                                    the special strings this command string may
+                                    have.
+
+`-oneof`provides a script that is called when
+                                    an end file condition is detected on the
+                                    pipeline's stdout.  This often means the
+                                    pipeline has exited however, it is possible
+                                    that the pipeline simply closed stdout.
+
+<a name="AEN72856"></a>## METHODS
+
+The `getPIDS` method retrieves a list of
+                the process ids that make up the pipeline.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| marker | Up | TclSourceFilter |

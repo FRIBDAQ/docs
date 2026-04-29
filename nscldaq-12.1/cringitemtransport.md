@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN68743"></a>CRingItemTransport
+
+<a name="AEN68747"></a>## Name
+
+CRingItemTransport -- Base class for ring item transports.
+
+<a name="AEN68750"></a>## Synopsis
+
+```
+#include <CRingItemTransport.h>
+class CRingItemTransport : public CTransport
+{
+    
+};
+
+        
+```
+
+<a name="AEN68752"></a>## DESCRIPTION
+
+Placeholder base class for transports that
+            carry ring items
+            around.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CFanoutClientTransport | Up | CRingBufferTransport |

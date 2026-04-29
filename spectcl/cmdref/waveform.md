@@ -1,0 +1,128 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  |  |
+
+
+---
+
+# <a name="AEN3436"></a>waveform
+
+<a name="AEN3440"></a>## Name
+
+waveform -- Create, maniuplate and query waveform objects
+
+<a name="AEN3443"></a>## Synopsis
+
+**waveform ?create? name samples
+            **
+
+**waveform list ?pattern?            
+            **
+
+**waveform get name ...       
+        **
+
+**waveform metadata set wfname mdname value ...
+        **
+
+**waveform metadata get wvname ?name?
+        **
+
+**waveform resize name samples
+        **
+
+<a name="AEN3456"></a>## DESCRIPTION
+
+Waveform objects are a mechanism that allows SpecTcl to create objects that will store
+            waveforms from digitizers on an event by event basis.  Theses waveforms can be gotten,
+            either locally (via script) or remotely (via the ReST interface) and displayed.
+            The user manual and programming reference describe how to fill in waveform objects
+            from within your event processors.  This section describes the **waveform**
+            command that allows you to create, maniupliate and query waveform objects.
+
+Waveform objects themselves constist of storage for a fixed number of samples for each event
+            and metdata.  Metadata allow you to describe the waveform and are not interpreted by
+            SpecTcl.  The metadata associated with a waveform object is just a set of textual key
+            value pairs.  You can use it to, e.g. describe what the signal is, the digitizer it comes from,
+            the sampling frequency, whatever you like.  You need not provide metadata.  It's available
+            purely for your convenience.
+
+The **waveform** is a command ensemble.  In most cases, the next word
+            of the command is a subcommand that describes what the command should actually do.
+
+<a name="AEN3463"></a>### Creating a new waveform object
+
+The **create** subcommand creates a new waveform object.
+                As with most Spectcl commands, the **create** subcommand is optional,
+                unless the name of the waveform conflicts with one of the other subcommands.
+                The **create** operation requires a new, unique waveform object name
+                and the number of samples of waveform data to reserve for it.
+
+The **create** operation's result is the name of the new waveform.
+
+<a name="AEN3471"></a>### Listing the existing waveforms and their properties
+
+The **list** subcommand lists waveforms that match the optional 
+                *pattern* glob pattern.  If no pattern is supplied,
+                * is used which lists all waveforms.
+
+THe **list** subcommand's result is a possibly empty list where each
+                list element describes a waveform with a name that matches the pattern.  The list elements
+                are dicts with the following key/values:
+
+
+
+nameValue is the name of the waveform that matched.
+
+samplesValue is the number of samples in the waveform.
+
+metadataThe value is itself a dict whose keys are the names of the metadata items
+                        and whose values are the metadata associted with that name.   If no metadata
+                        has been associated with the waveform, the dict is empty.
+
+<a name="AEN3495"></a>### Getting waveform contents.
+
+The **get** subcommand gets the current contents of a waveform.
+                The parameters of this command are the names of the waveforms to get.
+                The result is a list, one for each waveform.  Each waveform list contains
+                the name of a waveform followed by the list of its points followed by a number.
+		For serial SpecTcl, this number will be zero.   For MPISpecTcl, this will be an integer
+		that is at least 2 and represents the rank of the worker from wihch the waveform was contributed.
+
+In MPI SpecTcl, because each event processor process has a waveform, a waveform
+                name will  occur more than once.  Each waveform name will occur once for each event
+                processor process.
+
+<a name="AEN3500"></a>### metadata setting and getting
+
+The **metadata** subcommand itself has two subcommands; **set**
+                and **get**.  These set and get the value of metadata associated with
+                a waveform respectively.
+
+The **set** sub-subcommand sets or creates metadata for a waveform.  The 
+                *wfname* parameter is the name of the waveform whose metadata are
+                modified.  This is followed by an arbitrary number of parameter pairs.  The first
+                parameter of each pair is the name of a metadata item and the second its new value.
+                If a metadata name does not yet exist, it is created. If it does exist, it's current value is
+                replaced.
+
+The **get** sub-subcommand gets the value of a single metadata item or
+                the values of all metadata items.  If an additional parameter follows the
+                *wfname* it is the name of a metadata item and the
+                result of the command is the value is a pair consisting of the name of the metadata
+                and its value.  If no additional parameter is provided, its result is the 
+                a dict whose keys are metadata values and whose values are the values of each key.
+
+<a name="AEN3512"></a>## Resizing waveforms
+
+The **resize** subcommand resizes the waveform storage associated with a 
+            waveform.  The first additional parameter  is the name of the waveform to be affected.  The second,
+            the new sample count.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| mirror | Up |  |

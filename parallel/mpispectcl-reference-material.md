@@ -1,0 +1,24 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN773"></a>Appendix A. mpiSpecTcl  reference material
+
+This chapter provides reference pages for things that are vunique to mpiSpecTcl.
+
+# <a name="AEN776"></a>A.1. Utilities (3u)
+
+**Table of Contents**[[r779]] -- Describe MPI specific definitions in Globals.h[[r846]] -- Utility definitions in TclPump.h
+
+This section provides documentation for definitions and utility classes and functions.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mipSpecTcl shutdown |  | Globals.h |

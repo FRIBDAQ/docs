@@ -1,0 +1,97 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.foldcommand"></a>fold
+
+<a name="AEN469"></a>## Name
+
+fold -- Apply a gamma gate as a fold
+
+<a name="AEN472"></a>## Synopsis
+
+**fold -apply *ggate-name spectrum1 ?spectrum2 ...?*
+**
+
+**fold -list *?pattern?*
+**
+
+**fold -remove *spectrum*
+**
+
+<a name="AEN482"></a>## DESCRIPTION
+
+Folds are a simple mechanism to unravel complex gamma spectra into
+            coincident sets of peaks. Whenver a fold is applied to a gamma
+            spectrum, if the gate on that spectrum allows the gamma spetrum to
+            be incremented, the fold controls the way in which the gamma specrum
+            is incremented.
+
+Without a fold, a gamma 1d spectrum is incremented once for each
+            parameter in the spectrum. A gamma 2d spectrum is incremented once
+            for each parameter pair in the spectrum. This provides a means to
+            aggregate all of the gamma ray detectors in an experiment into a
+            single spectrum.
+
+With a fold, each parameter (for a gamma slice) or parameter pair
+            (for a gamma band or contour) is checked against the gate. Whenever
+            a parameter or pair of parameters satisfies the gate, the spectrum
+            is incremented for all other parameters (1D) or parameter pairs
+            (2D) that make up the spectrum. The effect is to remove the peak
+            around which the gate was drawn and leave only the peaks that occur
+            in coincidence with that peak (note that a bump in a 2-d spectrum
+            already represents a gamma-gamma coincidence allowing 4-fold
+            coincidence spectra to be produced by looking for bumps in a 2-d
+            spectrum on which a gamma contour e.g. has been applied).
+
+<a name="AEN487"></a>## OPTIONS
+
+
+
+**fold -apply *ggate-name spectrum1 ?spectrum2 ...?*
+**
+
+Applies the fold `ggate-name`
+                        to the spectra that follow.  `ggate-name`
+                        must be a gamma gate and the spectra named must be
+                        gamma spectra.
+
+Once applied, the gamma spectrum will only be incremented
+                        if the parameter(s) don't satisfy the gate, effectively
+                        removing the region described by the fold but requiring
+                        a coincidence with a gamma in the region described by the
+                        fold.
+
+**fold -list *?pattern?*
+**
+
+Lists the set of spectra with folds that match the
+                        optional pattern. If the pattern is not supplied, it is
+                        taken to be * which matchs all spectra. The result of
+                        the fold -list command is a list of spectra with folds.
+                        Each list element is, itself a two element list
+                        consisting of, in order, the spectrum name and the name
+                        of the gate that is used to produce the folded spectrum.
+
+**fold -remove *spectrum*
+**
+
+Removes any fold that is applied to `spectrum`
+
+<a name="AEN515"></a>## SEE ALSO
+
+
+
+- [[r1428]]
+- [[r18]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| fit | Up | channel |

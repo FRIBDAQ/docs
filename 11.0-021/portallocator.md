@@ -1,0 +1,143 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.portAllocator"></a>portAllocator
+
+<a name="AEN68690"></a>## Name
+
+portAllocator -- Tcl API for the DaqPortManager daemon.
+
+<a name="AEN68693"></a>## Synopsis
+
+**package require portAllocator
+	**
+
+**::portAllocator create name *?-hostname host? ?-port port*
+**
+
+** *::name* listPorts
+        **
+
+** *::name* findServer *service ?user?*
+**
+
+** *::name* allocatePort *application*
+**
+
+** *::name* destroy
+        **
+
+<a name="AEN68713"></a>## DESCRIPTION
+
+The
+        **portAllocator**
+        package provides access to the NSCL TCP/IP port management
+       server.  It can be used by TCP/IP server applications to obtain a server listen
+       port.   The package follows an object oriented model.  The application creates
+       a
+       `portAllocator`
+       object, which stands as a proxy between the application and  a
+       port  manager  server.   Using  this  object the application can allocated and
+       deallocate ports, as well as request port allocation information.
+
+Once your application has finished interacting with a
+       `portAllocator` object, it
+       can  destroy  it.   If the application must hold a connection to the server in
+       order to maintain one or more allocated ports, destruction of  the  requesting
+       object will not result in that connection being closed, ensuring that the port will
+       remain allocated.
+
+<a name="AEN68720"></a>## SUB-COMMANDS
+
+
+
+**::portAllocator create**
+*name ?-hostname host? ?-port port*Creates  a port allocator with the specified name.  The optional
+              `-hostname`
+              option allows you to specify with which host you want the
+              allocator  to communicate.
+              If not supplied, this defaults to localhost.  The
+              optional `-port`
+                switch allows you to specify a port on which to connect.
+              If not specified,the allocator will first attempt to read the port
+              number from the file
+              /var/tmp/daqportmgr/listen.port
+              before  falling  back
+              to port number 30000.
+
+The  command  returns  the fully qualified name of the allocator.  This
+              name can be stored in a variable for later use (see EXAMPLES).
+
+***::name* listPorts**Returns a TCL formatted list that describes the  ports  that  are  
+              currently  allocated  by  the server.  Each element of the list is a three
+              element sublist containing in order, the allocated port,  the  name  of
+              the application holding the port, and the name of the user that is
+              running the application.
+
+***::name* findServer *service ?user?***Finds the port on which a server is listening.
+                    `service` is the name of the service
+                    advertised by the application and `user`
+                    if suppled specifiest the user that is running that service.
+                    If not provided, `user` defaults to that
+                    of the logged in user.
+
+***::name* allocatePort
+                *application***Attempts to allocate a port from the server.  Note  that  the  protocol
+              only  allows  you to allocate ports from a server running on localhost.
+              application is the name of the application under which you  would  like
+              to register port ownership.
+
+***::name* destroy**Destroys  a portAllocator.  If the portAllocator is holding open a
+              connection to the server because the application  has  allocated  a  port,
+              this connection will remain open.
+
+<a name="AEN68762"></a>## EXAMPLES
+
+The  example  below allocates a port from the localhost, and starts listening
+       for connections.
+
+<a name="AEN68765"></a>**Example 1. Allocating a service port in Tcl**
+
+```
+package require portAllocator
+set p [::portAllocator create local]
+set port [$p allocatePort]
+socket -server handleConnections $port
+        
+```
+
+The example below requests that the host somehost.nscl.msu.edu return  a  list
+       of the ports in use.  The port usage is then printed at stdout:
+
+<a name="AEN68769"></a>**Example 2. Listing allocated ports in Tcl**
+
+```
+package require portAllocator
+set p [::portAllocator create remote -hostname somehost.nscl.msu.edu]
+set usage [$p listPorts]
+foreach allocation $usage {
+  set port        [lindex $allocation 0]
+  set application [lindex $allocation 1]
+  set user        [lindex $allocation 2]
+  puts "Port $port allocated to $application run by $user"
+}
+        
+```
+
+<a name="AEN68772"></a>## SEE ALSO
+
+[[r23764]],
+            [[r23919]],
+            [[r15126]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| TclRingBuffer | Up | TclServer |

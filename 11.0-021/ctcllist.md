@@ -1,0 +1,173 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.CTCLList"></a>CTCLList
+
+<a name="AEN38613"></a>## Name
+
+CTCLList -- 
+            Provide access to Tcl List parsing.
+
+<a name="AEN38616"></a>## Synopsis
+
+```
+#include <TCLList.h>
+...
+class CTCLList  : public CTCLInterpreterObject
+{
+
+public:
+  CTCLList (CTCLInterpreter* pInterp);
+  CTCLList (CTCLInterpreter* pInterp, const  char* am_pList  );
+  CTCLList (CTCLInterpreter* pInterp, const std::string& rList);
+  CTCLList (const CTCLList& aCTCLList );
+
+  CTCLList& operator= (const CTCLList& aCTCLList);
+  int operator== (const CTCLList& aCTCLList);
+  int operator!= (const CTCLList& aCTCLList);
+
+  const char* getList() const;
+
+  int Split (StringArray& rElements)  ;
+  int Split (int& argc, char*** argv);
+
+  const char* Merge (const StringArray& rElements)  ;
+  const char* Merge(int argc, char** argv);
+
+};
+
+
+        
+```
+
+<a name="AEN38618"></a>## DESCRIPTION
+
+Tcl Lists are white space separated words.  It is definition of
+            words and quoting issues that makes the parsing of lists less than
+            straightforward.
+
+Fortunately, Tcl provides several list processing functions.  The
+            concept of a list and access to list processing functions are
+            encapsulated in the `CTCLList` class.
+
+<a name="AEN38623"></a>## METHODS
+
+
+
+```
+pInterp
+```
+
+
+These four functions provide various ways to create a `CTCLList`
+            object.  The first constructor creates an empty list.  The next two, create a list
+            that has an initial value given by either the NULL
+            terminated string `pList`, or the std::string
+            object `rList`.
+            The final constructor creates a list that is a duplicate of the list
+            described by the object `rhs`.
+
+
+
+```
+operator=
+```
+
+
+These function provide assignment (`operator=`),
+            equality comparison (`operator==`), and
+            inequality comparison (`operator!=`) with another
+            `CTCLList` object, `rhs`.
+            Assignment is defined as copying the string format of the list.
+            Equality comparison is defined as the both interpreter and strings being equal.
+            Inequality is defined as !operator==.
+
+
+
+```
+getList()
+```
+
+
+`getList` returns an immutable pointer to
+            the string rerpesentation of the list.  Note that the const qualfier
+            on the pointer means that attempts to dereference the pointer which
+            would modify the list result in error messages.  For Example:
+
+```
+        CTCLList aList(pInterp, "some list");
+        const char* pData = aList.getList();
+        *pData = 'S';         // Compiler error!!!!
+            
+```
+
+
+
+
+```
+Split
+```
+
+
+Splits a list up into its component words.   `relements`
+            is a std::vector<std::string> into which the elements will be split.
+            `argc` is a reference to an integer into which the
+            number of elements will be put. `argv` is a pointer to a
+            char** into which will be placed a pointer to dynamically
+            allocated storage containing a list of `argc` pointers
+            to the words in the string.  This storage must be released by the caller
+            with  `Tcl_Free`.
+            For example:
+
+```
+                CTCLList someList(pInterp, someInitialContents);
+                ...
+                int argc;
+                char** argv;
+                someList.Split(argc, &argv);
+                //
+                //  ... do something with the data
+                //
+                ...
+                //
+                // Done with the list elements.
+                //
+                Tcl_Free((char*)argv);
+            
+```
+
+
+
+
+```
+Merge
+```
+
+
+Merges a bunch of words in to a list.  If necessary, quoting is performed to
+            ensure that words that have whitespace or other special characters will be
+            correctly formatted into the list. `rElements` is a
+            std::vector<std::string> of words that will be merged into the
+            string.  `argc` is a count of the number of words,
+            and `argv` is a pointer to an array of pointers to the
+            words stored as NULL terminated strings.
+            The return value is the final string representation of the list after the
+            merge operation has been performed.
+
+<a name="AEN38715"></a>## SEE ALSO
+
+CTCLInterpreter(3),
+CTCLInterpreterObject(3),
+Tcl_Free(3tcl)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CTCLInterpreterObject  3 | Up | CTCLObject |

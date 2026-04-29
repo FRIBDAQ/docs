@@ -1,0 +1,57 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25078"></a>CXaminePointsPrompt
+
+<a name="AEN25082"></a>## Name
+
+CXaminePointsPrompt -- Prompt for points
+
+<a name="AEN25085"></a>## Synopsis
+
+```
+#include <XaminePointsPrompt.h>
+
+class CXaminePointsPrompt  : public CXamineButtonPrompt        
+{
+  
+public:
+
+  CXaminePointsPrompt (const std::string& rPrompt, 
+		       UInt_t nMinPoints = 1,
+		       UInt_t nMaxPoints = GROBJ_MAXPTS);
+  CXaminePointsPrompt(const char* pPrompt,
+		      UInt_t nMinPoints = 1,
+		      UInt_t nMaxPoints = GROBJ_MAXPTS);
+  int getMinPoints() const;
+  int getMaxPoints() const;
+  virtual   void FormatPrompterBlock (ButtonDescription& rButton) const  ;
+ 
+};
+
+        
+```
+
+<a name="AEN25087"></a>## DESCRIPTION
+
+Buttons that have `CXaminePointsPrompt`
+            attached as a prompter will prompt the user to select
+            points from a spectrum prior to posting the button
+            event message.  The spectrum id and the point coordinates
+            are passed back to the client.
+            The `nMinPoints` specifies a minimum
+            number of points that must be selected and
+            `nMaxPoints` a maximum number of
+            points that can be accepted.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamineFilePrompt | Up | CXamineEvent |

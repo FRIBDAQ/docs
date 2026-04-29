@@ -1,0 +1,408 @@
+|  |  |  |
+| --- | --- | --- |
+| genx - system for framework independent analysis. |
+| Prev | Chapter 4. Generated Code | Next |
+
+
+---
+
+# <a name="AEN303"></a>4.2. Code generated for Root
+
+This section describes how code is generated for CERN/Root. At the time
+					this document is being written, this code has been tested with
+					Root version 6.10.02.  I would guess, however the generated code is
+					compatible with just about any version of Root as what it does is very
+					basic.
+
+A detailed knowledge of the generated code isn't necessary, however.
+					If you want to skip this section and go on to the sections that describe
+					how to write and use unpackers and come back to this later, feel free.
+					You can always come back to this section if something about the generated
+					header and C++ file is confusing.
+
+Unlike SpecTcl, Root Trees contain leaves that are arbitrary types.
+					The generated code will treat values as
+					Double_t and arrays as arrays of
+					Double_t.   structs will generate
+					C++ classes with public elements.
+					Let's look at a simple example:
+
+<a name="AEN313"></a>**Example 4-10. Simple struct for Root - Declarations:**
+
+```
+struct Ta  {
+    value a
+    value b low=-1.5 high=1.5 units=cm
+}
+struct Tb {
+    array a[10]
+    array b[20]
+}
+					
+```
+
+This generates the following Header code:
+
+<a name="AEN317"></a>**Example 4-11. Simple struct for Root - Header**
+
+```
+namespace spec {
+
+class Ta : public TObject {
+public:
+   Ta();
+    ~Ta();
+   Ta(const Ta&);
+   Ta& operator=(const Ta& rhs);
+   void Reset();
+
+   Double_t a;
+   Double_t b;
+
+  ClassDef(Ta, 1)
+};
+
+class Tb : public TObject {
+public:
+   Tb();
+    ~Tb();
+   Tb(const Tb&);
+   Tb& operator=(const Tb& rhs);
+   void Reset();
+
+   Double_t a[10];
+   Double_t b[20];
+
+  ClassDef(Tb, 1)
+};
+
+					
+```
+
+Note the two structs have generated two classes with the same name.
+					Each of those classes is derived from `TObject`,
+					the Root ultimate base class and defines the methods root requires
+					for serializing objects into  trees.  The
+					ClassDef directives will allow us to generate code
+					that can also be used in interpreted Root scripts.
+
+An additional `Reset` method is defined.
+
+Finally note that the generate data members are just as described.
+					Single Double_t members for value members
+					and Double_t arrays for arrays.
+
+The C++ file will be written to contain implementations of the required
+					methods for each of these classes:
+
+<a name="AEN330"></a>**Example 4-12. Simple struct for Root - C++ code**
+
+```
+#define IMPLEMENTATION_MODULE
+#include "spec.h"
+
+#include <cmath>
+#include <TTree.h>
+#include <TBranch.h>
+
+// Class method implementations:
+
+// Implementation of methods for class: spec::Ta
+
+ClassImp(spec::Ta);
+
+spec::Ta::Ta() {
+   Reset();
+}
+
+spec::Ta::~Ta() {}
+
+spec::Ta::Ta(const spec::Ta& rhs) {
+   *this = rhs;
+}
+
+spec::Ta& spec::Ta::operator=(const spec::Ta& rhs) {
+   a = rhs.a;
+   b = rhs.b;
+   return *this;
+}
+
+void spec::Ta::Reset() {
+   a= NAN;
+   b= NAN;
+}
+
+// Implementation of methods for class: spec::Tb
+
+ClassImp(spec::Tb);
+
+spec::Tb::Tb() {
+   Reset();
+}
+
+spec::Tb::~Tb() {}
+
+spec::Tb::Tb(const spec::Tb& rhs) {
+   *this = rhs;
+}
+
+spec::Tb& spec::Tb::operator=(const spec::Tb& rhs) {
+   for(int i = 0; i < 10; i++) {
+       a[i] = rhs.a[i];
+   }
+   for(int i = 0; i < 20; i++) {
+       b[i] = rhs.b[i];
+   }
+   return *this;
+}
+
+void spec::Tb::Reset() {
+   for (int i = 0; i < 10; i++) {
+       a[i] = NAN;
+   }
+   for (int i = 0; i < 20; i++) {
+       b[i] = NAN;
+   }
+}
+
+					
+```
+
+The only thing I want to point out about these implementations is that
+					`Reset` initializes all data elements to
+					a *silent NaN*.  These values won't show up in
+					histograms and, if used on the right hand side of computations, the
+					result will also be a NaN (I think).  Note that Root has no concept of
+					parameter metadata so the metadata are ignored by the Root generator.
+
+Since struct declarations can contain other
+					structs as membrers or even arrays of
+					structs, let's look at a more complex example
+
+<a name="AEN340"></a>**Example 4-13. Complex data structure in Root, declaration**
+
+```
+struct Tc {
+    struct Tb a
+    structarray Tb b[10]
+    value c units=megawidgets
+    array d[100]
+        low = 0 high = 4095 bins=4096.65 units=channels;
+}
+					
+```
+
+You can probably guess that this will result in code that looks like:
+
+<a name="AEN344"></a>**Example 4-14. Complex data structure in Root, header**
+
+```
+class Tc : public TObject {
+public:
+   Tc();
+    ~Tc();
+   Tc(const Tc&);
+   Tc& operator=(const Tc& rhs);
+   void Reset();
+
+   Tb a;
+   Tb b[10];
+   Double_t c;
+   Double_t d[100];
+
+  ClassDef(Tc, 1)
+};
+					
+```
+
+and:
+
+<a name="AEN348"></a>**Example 4-15. Complex data structure in Root, C++ **
+
+```
+// Implementation of methods for class: spec::Tc
+
+ClassImp(spec::Tc);
+
+spec::Tc::Tc() {
+   Reset();
+}
+
+spec::Tc::~Tc() {}
+
+spec::Tc::Tc(const spec::Tc& rhs) {
+   *this = rhs;
+}
+
+spec::Tc& spec::Tc::operator=(const spec::Tc& rhs) {
+   a = rhs.a;
+   for(int i = 0; i < 10; i++) {
+       b[i] = rhs.b[i];
+   }
+   c = rhs.c;
+   for(int i = 0; i < 100; i++) {
+       d[i] = rhs.d[i];
+   }
+   return *this;
+}
+
+void spec::Tc::Reset() {
+   a.Reset();
+   for (int i = 0; i < 10; i++) {
+       b[i].Reset();
+   }
+   c= NAN;
+   for (int i = 0; i < 100; i++) {
+       d[i] = NAN;
+   }
+}
+
+					
+```
+
+Instances just declare instances of the underlying types.
+					For example:
+
+<a name="AEN352"></a>**Example 4-16. Instances in Root - declaration file**
+
+```
+value b low=-100.5 high=100 bins=200 units=cm
+value a
+
+array c[20]
+array d[5] units=furlongs
+
+structinstance Ta stuff
+structinstance Tc mystuff
+structarrayinstance Tb morestuff[20]
+					
+```
+
+Contributes the following code to the header:
+
+<a name="AEN356"></a>**Example 4-17. Instances in root - header**
+
+```
+#ifndef IMPLEMENTATION_MODULE
+
+extern    Double_t b;
+extern    Double_t a;
+extern    Double_t c[20];
+extern    Double_t d[5];
+extern    Ta stuff;
+extern    Tc mystuff;
+extern    Tb morestuff[20];
+
+#endif
+
+					
+```
+
+Note again the use of the conditional compilation block to allow the
+					header to be included into the implementation file:
+
+<a name="AEN360"></a>**Example 4-18. Instances in root - C++**
+
+```
+namespace root{
+Double_t b;
+Double_t a;
+Double_t c[20];
+Double_t d[5];
+Ta stuff;
+Tc mystuff;
+Tb morestuff[20];
+}
+					
+```
+
+As with SpecTcl, the API functions `Initialize`,
+					performs one-time initialization.  `SetupEvent`
+					performs pre-event processing initialization (in this case resetting the
+					values of the tree) and   `CommitEvent` which
+					fills generated trees from the data.
+
+Let's start from the `Initialize` method. It generates
+					a `TTree` where each instance is a branch:
+
+<a name="AEN370"></a>**Example 4-19. Initialize for Root:**
+
+```
+namespace spec {
+TTree* pTheTree(0);
+}
+...
+void spec::Initialize() {
+   spec::pTheTree = new TTree("root", "root");
+   spec::pTheTree->Branch("b", &spec::b, "b/D");
+   spec::pTheTree->Branch("a", &spec::a, "a/D");
+   spec::pTheTree->Branch("c", spec::c, "c[20]/D");
+   spec::pTheTree->Branch("d", spec::d, "d[5]/D");
+   spec::pTheTree->Branch("stuff", "spec::Ta", &spec::stuff);
+   spec::pTheTree->Branch("mystuff", "spec::Tc", &spec::mystuff);
+   for (int i = 0; i < 20; i++) {
+       char index[4];
+       sprintf(index, "_%02d", i);
+       std::string branchName = std::string("morestuff") +  index;
+       spec::pTheTree->Branch(
+							   branchName.c_str(), "spec::Tb", &spec::morestuff[i]
+							);
+   }
+}
+
+					
+```
+
+Note that simple instances (value and
+					array) generate branches that contain
+					Double_t while instances of the classes generate object
+					classes.  Instances of arrays of objects generate a branch for each element of the
+					array with branch names that indicate the index.  If you prefer just to
+					be able to index those arrays directly when you read the trees back,
+					simply make a struct that contains
+					the array as an element and instantiate that instead.
+
+`CommitEvent` simply fills the tree:
+
+<a name="AEN379"></a>**Example 4-20. CommitEvent for Root:**
+
+```
+
+void spec::CommitEvent() {
+   pTheTree->Fill();
+}
+
+					
+```
+
+`SetupEvent` just invokes `Reset`
+					for all object instances and sets non objects to NAN:
+
+<a name="AEN385"></a>**Example 4-21. SetupEvent for Root:**
+
+```
+void spec::SetupEvent() {
+   spec::b= NAN;
+   spec::a= NAN;
+   for (int i = 0; i < 20; i++) {
+      spec::c[i]= NAN;
+   }
+   for (int i = 0; i < 5; i++) {
+      spec::d[i]= NAN;
+   }
+   spec::stuff.Reset();
+   spec::mystuff.Reset();
+   for (int i = 0; i < 20; i++) {
+      spec::morestuff[i].Reset();
+   }
+}
+
+					
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Generated Code | Up | Putting this all together for SpecTcl and Root. |

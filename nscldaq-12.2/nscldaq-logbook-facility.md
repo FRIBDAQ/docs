@@ -1,0 +1,294 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN10269"></a>Chapter 25. NSCLDAQ Logbook facility
+
+This chapter will describe a new (as of NSCLDAQ-12.0) NSCLDAQ logbook facility.
+    The logbook facility:
+
+
+
+- Provides for automatic logging of run state transitions as well
+            as documenting the current shift on duty when these happen.
+- The creation of arbitrary rich content notes that can either be
+            associated with a run or independent of a run.
+- Provides open interfaces for extension and export by sophisticated
+           users programming in any of C++, Tcl or Python.
+- Stores its data in a single sqlite3 database file allowing it to be
+            easily transported to collaborators who  may either browse it or
+            use it as a starting point for documenting the flow and progress of
+            experimental analysis.
+
+The remainder of this chapter will provide tutorial material that describes
+      the logbook facility.  Reference material can bge found in the
+      1daq, 3daq, and 5daq
+      sections of the manpages.
+
+The tutorial material is organized as follows:
+
+
+
+- [[c10269#sec.lg_inventory]]
+              Describes the components of the logbook system and how they all
+             fit together.  The discussion will be brief and is intended to
+              help you locate reference material when you're ready for it.
+- [[x10440]]
+             describes the tasks you need to perform to use the NSCL Logbook
+              subsystem in an experiment.
+- [[x10562]]
+              Describes how to use the logbook system in an experiment and beyond.
+- [[x10861]]
+              describes what you need to do to export a logbook to another
+              location and how collaborators can use the logbook utility at their
+              remote facility.
+- [[x10955]]
+              demonstrates how to use the APIs at various levels to write programs
+              to access the database.  This is oriented towards how to build and
+              run these programs rather than a detailed description of the
+              APIs themselves which are deferred to the reference material.
+
+# <a name="sec.lg_inventory"></a>25.1. Components of the NSCL logbook system
+
+In this section we're going to describe what the logbook facility is
+         it components and how they all fit together.
+
+First, what is a logbook and what does it hold?  Put simply, a logbook
+         is an sqlite3 database file.  Sqlite3 is a file based SQL compliant
+         database which provides ACID access without the need for administrative
+         actions to create and serve out the database.  Sqlite3
+         is described in the web pages in
+         [https://www.sqlite.org](https://www.sqlite.org).
+
+At the physical level, a logbook is, therefore, just a single file
+         that contains an Sqlite3 database. The database schema (tables
+         and relations between those tables), provide the database with the
+         ability to store:
+
+
+
+PeoplePeople, are collaborators that work on the experiment.
+                  People may run shifts, participate in the analysis or have
+                  other roles in the experiment.  The reason people are
+                  named and stored in the database is to allow operations
+                  and artefacts stored in the logbook to be attributed to them
+                  either as individuals or groups of individuals.
+
+ShiftsA shift is a named container for people.  Shifts are intended to
+                  capture how experiments are run during data taking.
+                  Run state changes in the experiment, which can be automatically
+                  logged, are attributed to the shift that's on-duty at the time
+                  the transition occurs.
+
+Shifts should be setup at the beginning of an experiment, but
+                  once an experiment starts taking data they should be thought of
+                  as read-only.  If necessary, you can create additional shifts.
+
+RunsA run is a segment of data taking.  Runs have numbers and
+                  titles and state transitions (e.g.they begin and they end).
+                  The logbook facility has the ability to automatically create
+                  runs and log their state transitions.
+
+Run state transitions are logged as having occured during a
+                  shift and the shift is stored along with the transition.
+
+NotesNotes are rich text artifacts that you can enter into the system.
+                  In a paper logbook what we call notes are by fare the most
+                  common entry.  Notes can be associated with a run or
+                  be independent of a run.  Notes have a single author.
+
+Notes are rich text in the sense that they can include
+                  figures/graphics that will be stored in the database and associated
+                  with their note.  When a note is rendered for view, graphics
+                  are rendered inline where they were included.  The
+                  contents of the actual files
+                  containing the graphics are loaded into the database making
+                  the database file all inclusive.
+
+Notes are written using Markdown for formatting.
+                  See [http://markdownguide.org](http://markdownguide.org) for more information
+                  about markdown.
+
+Key Value pairsKey value pairs are just a key that points to a textual value.
+                  One use of them is to document the experiment the database
+                  is a logbook of.
+
+So now we know what a logbook is and what it can contain, let's look at
+         the components of the system.  Logbook system is built in a layered fashion.
+         The rough layering is shown in the line drawing below.
+
+<a name="AEN10335"></a>**Figure 25-1. Logbook component layering.**
+
+```
+            
+            +-------------------+----------------+
+            | ReadoutGUI bundle   cmd utilities  |
+            +-------------------+----------------+
+            |  Python bindings  | Tcl bindings   |
+            +-------------------+----------------+
+            | C++ Logbook API                    |
+            +------------------------------------+
+            | C++ Encapsulation of Sqlite3 API   |
+            +------------------------------------+
+            |  Sqlite3 API                       |
+            +------------------------------------+
+         
+```
+
+Note that NSCLDAQ expects an installation of libsqlite3
+         and its development files to be present.   All other software
+         in the figure above are built and distributed into NSCLDAQ.
+
+In most cases you will only need to interact with the top level of this
+         layer diagram.  If you wish to extend access to the database or provide
+         other mechanisms for data entry, you can do that at any of the layers
+         shown down to and inluding the raw Sqlite API.  We recommend, however
+         you program the data base at the highest level of the diagram that provides
+         you with capabilities you need.
+
+In addition to the software shown above, and the database file, a
+         hidden directory ~/.nscl-logbook is used
+         by the system to pull image files from the database as needed and to
+         generate HTML files used for online browsing of the logbook.  The
+         contents of this directory can be  cleaned up without affecting proper
+         operation of the logbook.  Finally the high level software has the concept
+         of a currently selected logbook.  The path to this logbook file is stored
+         in
+         ~/.nscl-logbook-current.  If you remove this file,
+         You'll need to select the logbook you're operating on using e.g. the
+         $DAQBIN/lg_current command utility.
+
+The ReadoutGUI bundle is a callback bundle for the ReadoutGUI.  When
+          it is incorporated into the user's ReadoutCallouts.tcl
+          file, run transitions will be automatically logged into the currently
+          selected database.
+
+Several command utilities are provided.  Reference material for these
+         are provided in the 1daq man pages.  Here we
+         just gloss over their names what they are and what they do.  All
+         command utilities get installed in $DAQBIN and have names starting
+         with lg_.
+
+
+
+**lg_create**Used to create a new logbook.  When logbooks are created,
+                  the filename of the new logbook must be supplied and information
+                  about the experiment.  The new logbook can optionally be made
+                  current.
+                  See
+                  [[r21640]]
+                  for more information.
+
+**lg_current**Selects the current logbook database file.  This is the
+                  logbook that will be operated on by the remaining
+                  **lg_*** commands and admin level Tcl bindings.
+                  See
+                  [[r21692]]
+                  for more information.
+
+**lg_ls**Outputs the name of the logbook that is current.
+                  See
+                  [[r21718]]
+                  for more information.
+
+**lg_addperson**Makes a new person known to the logbook. People are stored
+                  as salutation, last name and first name.  People are used
+                  as authors and are members of shifts.
+                  See
+                  [[r21731]]
+                  for more information
+
+**lg_lspeople**Lists the people that have been defined to the database.
+                  See
+                  [[r21954]]
+                  for more information
+
+**lg_mkshift**Creates new shifts.  A shift is a collection of people that
+                  are working on a running experiment at the same time.  You
+                  can create as many shifts as you want and compose them any way
+                  you want.  The people that are in shifts must have previously
+                  been added to the log book via **lg_addperson**
+                  See
+                  [[r21770]]
+                  for more information
+
+**lg_mgshift**Provides the capability of managing your shifts.  This
+                  command provides three functions:
+
+
+
+- The ability to create new shifts and assign people to them.
+- The ability to edit existing shifts, adding and removing
+                          people from them.
+- The  ability to list the shifts and their members.
+
+Note that shifts should be set up prior to starting to run the
+                  experiment.  Once a named shift has been on duty and started/stopped
+                  runs, it must not be modified.  This is because run transition
+                  records in the logbook
+                  don't carry along with them references to the people on shift,
+                  but references to the on-duty shift.
+
+Thus if a shift is edited mid-experiment, the documentation
+                  of the on-duty shift associated with a run state transition will
+                  be correct but the members of that shift will reflect the most
+                  recent editing of the shift.  This can attribute a transition
+                  to the wrong set of people, and that's not desirable.
+
+See
+                  [[r21791]]
+                  for more information
+
+**lg_selshift**Selects the on-duty shift.  In order for the logbook callback
+                  bundle to allow run state transitions an on-duty shift must
+                  be selected.  The transition is then attributed to the
+                  members of the on-duty shift.
+
+See
+                  [[r21835]]
+                  for more information
+
+**lg_kvstore**The key-value store (kvstore) is just a set of key/value pairs.
+                  This command allows you, at the level of a command shell, to determine
+                  test for the existence of a key, get the value of a key, set the value
+                  of an existing or new key, or create a new key value pair.
+
+See
+                  [[r21853]]
+                  for more information
+
+**lg_wrnote**Provides a composer for notes.  Notes have an author and optionally
+                  are associated with a run.  Notes are rich text items via
+                  markdown format.   Images can be incorporated into notes
+                  using an image selector or by manually inputting
+                  markdown image links.  Image files for a note are sucked
+                  into the database and retrieved as needed when a note is
+                  rendered.
+
+See
+                  [[r21899]]
+                  for more information
+
+**lg_browse**Provides a visual logbook browser.
+
+See
+                  [[r21915]]
+                  for more information
+
+**lg_print**Allows all or part of a logbook to be rendered in PDF,
+                  presumably for later printing.
+
+See
+                  [[r21928]]
+                  for more information
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Ring piping utilities | Up | Setting up a logbook for use. |

@@ -1,0 +1,64 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN51830"></a>CCommunicatorFactoryMaker
+
+<a name="AEN51834"></a>## Name
+
+CCommunicatorFactoryMaker -- Create communication factories.
+
+<a name="AEN51837"></a>## Synopsis
+
+```
+#include <CCommunicatorFactoryMaker.h>
+
+
+typedef CCreator<CCommunicatorFactory> CommunicatorFactoryCreator;
+typedef CExtensibleFactory<CCommunicatorFactory> CommunicatorFactoryFactory;
+
+class CCommunicatorFactoryMaker : public CommunicatorFactoryFactory
+{
+
+public:
+    static CCommunicatorFactoryMaker* getInstance();
+};
+
+        
+```
+
+<a name="AEN51839"></a>## DESCRIPTION
+
+Provides a factory that produces a communicator
+            factory given a textual description of the
+            communication mechanism.  This factory is a singleton
+            object.  Construction is not possible. You must
+            invoke `getInstance` to
+            obtain a pointer to the singleton factory object.
+
+See the `CExtensibleFactory`(3daq)
+            manual page for information about how to
+            construct a factory and how to register
+            additional factories you might have.
+
+The following factories are registered by the singleton
+            automatically:
+
+
+
+ZeroMQ Communcation systemCreates a
+                        `CZMQCommunicatorFactory`
+                        object.   See
+                        `CZMQCommunicatorFactory`(3daq)
+                        for more information.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CZMQCommunicatorFactory | Up | CMPITransport |

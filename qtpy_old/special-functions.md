@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| CutiePie (QtPy) (version 6.0-dev) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN46"></a>Chapter 4. Special Functions
+
+This submenu contains all the new advanced features that CutiePie offers:
+
+
+
+- Peak finder: for 1D spectra, it automatically scans the histogram and outputs the peak position and the FWHM. The variable parameter in the search is the peak width threshold
+  		  in units of bins. Found peaks can be displayed on the plot and singularly turned off.
+- Peak finder: for 1D spectra, it automatically scans the histogram and outputs the peak position and the FWHM. The variable parameter in the search is the peak width threshold
+  		  in units of bins. Found peaks can be displayed on the plot and singularly turned off.
+  <a name="AEN54"></a>**Figure 4-1. Peak finder popup window.**
+  ![](peakFinder.jpg)
+
+
+
+
+<a name="AEN60"></a>**Figure 4-2. CutiePie GUI main window.**
+
+![](main.jpg)
+
+
+<a name="AEN65"></a>**Figure 4-3. Output popup window.**
+
+![](integrateWin.jpg)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Features |  | How to customize ML algo and fitting functions |

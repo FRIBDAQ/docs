@@ -1,0 +1,94 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 7. ReadoutGUI & ReadoutShell | Next |
+
+
+---
+
+# <a name="AEN5558"></a>7.5. Remote control package
+
+When doing event building, it can be useful to have a ReadoutGUI for
+        each data source and then another ReadoutGUI that controls them all.
+        Doing this allows data sources to be worked on independently when
+        it is not necessary to run all of them together to build events.
+        The remote control packages for the ReadoutGUI support this
+        mode of operation.
+
+If you choose to use this approach you must enable the ReadoutGUIs
+        that will be slaved to the master control panel to:
+
+
+
+- Run a remote control server component that allows the master
+                GUI to tell it what to do.
+- Run a remote console monitor component that allows the master
+                GUI to relay output that goes to the slave output window to
+                the master's output window.
+
+
+This is done by adding the following two lines to the slave
+        GUI's ReadoutCallouts.tcl file:
+
+<a name="AEN5569"></a>```
+package require ReadoutGuiRemoteControl   
+
+RemoteControlClient::initialize ?control-service output-service? 
+        
+```
+
+[[x5558#remote_control_package]]            The remote control software is an optional component.
+            This line incorporates that component into the ReadoutGUI
+          [[x5558#remote_control_initialize]]            An instance of the ReadoutGUIRemoteControl class and OutputClient
+            are instantiated, thus providing the required capabilities for run
+            control and output forwarding.  Furthermore, the
+            **end** proc is renamed to
+            **local_end** and a new **end** proc
+            is created that will propagate an end run request to the master
+            ReadoutGUI. This forwarding of the end run may be important if the
+            enslaved GUI runs a filter in conjunction with the Actions package.
+
+The remote control software advertises two services with the NSCL
+            port manager. the first, by default named  ReadoutGUIRemoteControlService
+            is used by the master (the system controlling the GUI) to send
+            commands to the slave (the system that specifies it can be controlled).
+            The second, by default named ReadoutGUIOutput is used
+            to echo output from the slave to the master.
+
+More than one slave can be started per user in the
+            same system by explicitly specifying the names of these two services
+            to the **RemoteControlClient::initialize** command.
+            In the master, when setting up the remote controlled data source,
+            just override the default values for these service names.
+
+For example:
+
+<a name="AEN5588"></a>```
+package require ReadoutGuiRemoteControl  
+
+RemoteControlClient::initialize control output
+            
+```
+
+Specifies the remote control service wil be advertized as
+            control and the output  relay service
+            advertised as output.
+
+To use a slave UI, you must run a readout shell and add data sources
+        with the RemoteGUI data source provider for each slave you want your master
+        to control.  You will need to know which system is running the slave GUI
+        and under which user name it is running. Furthermore, the system to be
+        enslaved must have already been started (i.e. state = HALTED) in order
+        for the master ReadoutGUI to enslave it.
+
+While a slave can only be controlled by a single master, as of
+        NSCLDAQ-12.0, several slaves can be controlled by a master and several
+        slaves can be run by thesame user in a single node by specifying the
+        adverised service names as described in the text above.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Customizing the ReadoutShell | Up | Event Builder |

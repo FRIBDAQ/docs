@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1363"></a>fit
+
+<a name="AEN1367"></a>## Name
+
+fit -- Operation of fit command in mpiSpecTcl
+
+<a name="AEN1370"></a>## Synopsis
+
+**fit create** *fitname* *spectrum-name* *low-channel* *high-channel* *fit-type*
+
+**fit update** *pattern*
+
+**fit delete** *fit-name*
+
+**fit list** *pattern*
+
+**fit proc** *fit-name*
+
+<a name="AEN1399"></a>## DESCRIPTION
+
+The **fit** is wrapped in a `CMPITclCommand`. 
+                    Other than in the MPI_EVENT_SINK_RANK it will just
+                    return a TCL_OK status with an empty result.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| filter | Up | fold |

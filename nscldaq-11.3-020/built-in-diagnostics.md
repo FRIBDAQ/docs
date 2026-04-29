@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 1. NSCLDAQ In a Nut Shell | Next |
+
+
+---
+
+# <a name="AEN25"></a>1.3. Built-in Diagnostics
+
+With any experiment, it is paramount to understand quickly whether the
+      data in the stream is sensible or not. Because ring buffers lie
+      in between each process in the data pipeline and they support multiple
+      consumers, they act as built-in diagnostic points. A handful of
+      applications are provided by NSCLDAQ to attach to these points for data
+      inspection. The most basic and useful is the [[c7034]] program, which provides a textual
+      dump of each ring item that passes through the ring buffer. It is a very
+      low-level tool that gives insight into the details of the raw data. There
+      are higher level tools though such as the [[c4676]] program. The
+      ScalerDisplay provides a user-configurable graphical display of scaler
+      data with extra tools specific to scaler data.
+
+The fact that ring buffers lie on either side of each process allows the
+      user to understand the effect of the process on the data. You can easily
+      attach sink processes to the desired rings to provide diagnostic
+      information. Other tools like the [[r12006]] program provide
+      statistics for the ring buffers themselves so that you can quickly
+      identify if any processes are introducing flow control or vying for
+      producer status on the same ring buffer.
+
+![](figures/intro-data-flow-diagram-diagnostics.png)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Pipeline Building, Run Control, and DAQ Modularization | Up | Extensibility and Openness |

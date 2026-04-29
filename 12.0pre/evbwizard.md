@@ -1,0 +1,46 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN17851"></a>evbwizard
+
+<a name="AEN17855"></a>## Name
+
+evbwizard -- Set up readout GUI and event builder.
+
+<a name="AEN17858"></a>## Synopsis
+
+```
+$DAQBIN/evbwizard
+                
+```
+
+<a name="AEN17860"></a>## DESCRIPTION
+
+**evbwizard**  is a GUI tool that sets up ReadoutGUI data sources
+and an event builder start script.  The tools is intended to be self documented.
+
+<a name="AEN17864"></a>## FILES
+
+
+
+|  |
+| --- |
+| ReadoutCallouts.tclis written by this tool/
+                  it is a starting point for the experiment'sReadoutCallouts.tclfile.  It initializes
+                  and starts the event builder as well as setting up all data sources. |
+| settings.tclcontains the ReadoutGUI data
+                source definitions.  In most cases this is just copied to~/stagearea/.setttings.tcl. Note that if
+                that file exists, it may be better to append the contents ofsettings.tclto the end of the existing
+                file. |
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ReadoutShell | Up | lg_create |

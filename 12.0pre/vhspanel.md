@@ -1,0 +1,49 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.vhspanel"></a>vhsPanel
+
+<a name="AEN22814"></a>## Name
+
+vhsPanel -- Canned VHS Control panel
+
+<a name="AEN22817"></a>## Synopsis
+
+**vhsPanel *[base]*
+**
+
+<a name="AEN22822"></a>## DESCRIPTION
+
+**vhsPanel** provides a prepackaged  control panel
+        for the VHS module.  The *base* command
+        line parameter selects the base address of the module being
+        controlle/displayed.  *base* is optional and
+        if omitted defaults to 0x4000.
+
+The user interface of the software looks like a tabbed notebook.
+        The front page of the notebook summarizes the status of all of the
+        module's channels.  There are detailed pages for each channel, and for
+        the various status/environmentald displays.
+
+Below the tabbed notebook, a button allows you to attemp to reset
+        interlock conditions.
+
+A menubar includes a File menu which allows you to save
+        and restore module settings.
+
+<a name="AEN22833"></a>## SEE ALSO
+
+[[r92370]]
+[[r92884]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| n568Control | Up | vhqControl |

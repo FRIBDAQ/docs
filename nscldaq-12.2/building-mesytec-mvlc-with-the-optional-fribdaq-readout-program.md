@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 13. mvlcgenerate and using the Mesytec MVLC VME controller | Next |
+
+
+---
+
+# <a name="AEN7340"></a>13.4. BUILDING mesytec-mvlc WITH THE OPTIONAL fribdaq-readout PROGRAM
+
+If you are using a version of FRIB/NSCLDAQ 12.1 or higher, or at the FRIB in the 
+            containerized environment, The /usr/opt/ filesystem for the bookworm
+            container will include at least one version of the mesytec mvlc support software that includes 
+            fribdaq-readout, and you can ignore the remainder of this section.
+
+If you are using a native version of FRIB/NSCLDAQ 11.0 and higher, we encourage you to use a containerized
+            environment so that you can ignore this section.
+
+If you are stubborn, then this section describes how to build the Mesytect-mvlc software so
+            that it includes the fribdaq-readout program and the appropriate headers
+            to allow you to build timestamp extractors.
+
+Until our contribution of fribdaq-readout is merged into a release, you'll need
+            to do the following:
+
+
+
+1. Clone the [https://github.com/flueke/mesytec-mvlc](https://github.com/flueke/mesytec-mvlc)
+                       repository.
+2. Checkout the fribdaq-readout branch. This is necessary as long as the main branch does not include 
+                       the extras/frbdaq directory.
+3. Create a direcory in which you will do the build.
+4. Use **cmake** to generate the Makefiles in the build directory.  You will want
+                       to specify **-DCMAKE_INSTALL_PREFIX=*installation-root***
+                       and **-DNSCLDAQ_ROOT=*install-root-of-nscldaq***
+                       Where *installation-root* is where you want the software installed,
+                       and *install-root-of-nscldaq* is the installation directory for the
+                       verison of FRIB/NSCLDAQ you want to build against.  12.0 or higher is recommended though it 
+                       might work with 11.x as well.
+5. **make** to build the software. If you have a multicore system, you can speed this
+                       up using the `-j` to specify a parallel make.
+6. Optionally run the unit tests: **make test**.
+7. **make install** to install the software where you specified in `-DCMAKE_INSTALL_PREFIX`
+
+If your working directory is a clone of the repository with the appropriate branch checked out,
+            here's an example of how to do all of this.
+
+<a name="AEN7382"></a>**Example 13-3. Building mesytec-mvlc with fribdaq-readout**
+
+```
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr/opt/mesytec-mlc/0.1.0 -DNSCLDAQ_ROOT=/usr/opt/daq/12.1-007
+(bunch of output here)
+make -j12                     # Make for 12 cores.
+(more output here)
+make test                     #optional 
+(more output here)
+make install
+(final bits of output here)
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| RING ITEMS PRODUCED | Up | Extending the generator with loadable C++ generators |

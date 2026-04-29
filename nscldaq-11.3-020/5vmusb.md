@@ -1,0 +1,18 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="man-5vmusb"></a># XVII. 5vmusb
+
+**Table of Contents**[[r76481]] -- VMUSB Slow controls protocol
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| vhqconfig | Up | VMUSB slow controls protocol |

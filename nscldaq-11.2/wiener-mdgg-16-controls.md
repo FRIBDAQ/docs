@@ -1,0 +1,54 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6727"></a>Chapter 14. 
+    Wiener MDGG-16 Controls
+
+# <a name="AEN6729"></a>14.1. Overview
+
+The Wiener MDGG-16 is a multipurpose logic device that accepts 16 ECL/LVDS
+      inputs and produces 4 NIM outputs and 16 ECL/LVDS outputs. It can be
+      configured to perform many different functions, but the main support provided in
+      NSCLDAQ is to utilize it as a software controllable 16-channel OR. There is a
+      slow-controls driver and an associated client controls graphical user interface 
+      (GUI) to configure it.
+
+When used within NSCLDAQ, the MDGG-16 provides 4 
+      independently-configurable 16-channel
+      ORs outputted on the NIM outputs of the device. For each of these outputs, 
+      the user can select
+      which of the 16 inputs will contribute. The MDGG16Control configuration GUI was
+      developed with the aim of providing an intuitive way
+      to generate the definitions of each OR and translate them to the device. 
+      It also provides a mechanism for saving a set of definitions to a
+      file that can later be used in the slow-controls configuration file to
+      reproduce a specific set of configurations during an experiment.
+
+The GUI is not the only way to configure the device. It is possible to 
+      hard code the definitions into the slow-controls configuration file (i.e.
+      ctlconfig.tcl). Doing so requires that 
+      four 16-bit integers be defined to represent the 16-channel bit masks
+      of each OR. If a specific bit is set in a bit mask, the corresponding
+      channel is enabled for contribution to the associated OR output.
+      The first bit (bit 0) of this mask is associated with input 0, the second bit 
+      with input 1, ..., and last bit with input 15. The user assigns mask 
+      definitions to specific OR outputs by using the
+      following naming convention: NIM 
+      output 1 is "OR A",
+      NIM output 2 is "OR B", NIM output 3 is "OR C", and 4
+      is "OR D". The remaining documentation describes how to configure the
+      device within the support structure provided by NSCLDAQ. It should further
+      elucidate the meaning of the bit masks and also demonstrate how these
+      masks are associated to specific OR outputs.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Saving and restoring state | Up | How to use the MDGG16Control GUI |

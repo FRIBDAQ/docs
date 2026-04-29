@@ -1,0 +1,791 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Appendix A. Reference material |  |
+
+
+---
+
+# <a name="AEN6432"></a>A.4. Database schema.
+
+Note.  The database scheme is not considered to be a
+                stable interface in the sense that whle the APIs documented
+                will be maintained and backward compatible with future
+                work, the developers reserve the right to modify
+                the actual database schema.  This documentation allows you
+                to know how to do operations that may not be supported by
+                the APIs but there's no gaurantee anything you do
+                with schema knowledge will work in perpetuity.
+                If the API is missing something you want then by all means
+                let us know and we'll consider adding it or working with you
+                to describe how to meet your need within the current
+                APIs.
+
+Database schema are divided into tables.  Each table
+                usually has a field called its *primary key*.
+                The value of the primary key is a unique identifier for
+                records in the table.  It is normally very quick to look up
+                a record by its primary key.
+
+In a relational databae, such as sqlite3, it is normal
+                for records in one table to refer to records in another table.
+                This reference is expressed by having fields that contain
+                *foreign keys* to the other table.
+                A foreign key is a field whose values are primary keys in
+                another table.
+
+Foreign keys express a belonging/ownership relationship.
+                The ownership, in turn may express a 'has many' or a
+                 'has one' relationship depending on the multiplicity of the
+                 relationship.   This multiplicity is defined by the
+                 logic that populates the database.
+
+This appendix will describe the set of tables
+                defined by a daq database and their relationships.
+
+The top level table is the save_sets
+                table.  It contains one entry for each save set in the
+                database. All other tables are owned either directly or indirectly
+                by a row in the save_set table.
+                The schema of this table is:
+
+<a name="AEN6444"></a>```
+    CREATE TABLE IF NOT EXISTS  save_sets 
+            (id  INTEGER PRIMARY KEY,
+             name TEXT UNIQUE,
+             timestamp INTEGER)
+                
+```
+
+The fields have the following meaning:
+
+
+
+integer `id`The primary key for the row.  Our convention is
+                            that each table's primary key is an integer named
+                            id and is the first field
+                            declared in the table.
+
+text `name`Contains the name of the save-set.  Sqlite3 does
+                            not require us to declare lengths of text items.
+
+integer timestampThe time at which the record was created.
+                            This is a unix timestamp.
+
+The primary purpose of save sets is to store the analysis
+                configuration of SpecTcl.  This consists of parameter/treeparameter
+                definitions, Spectrum definitions, gate definitions,
+                gate applications and tree variables.  At present,
+                pseudo parameter definitions are not stored. If there
+                is a need for that, please contact us as these can be
+                added.
+
+Parameter definitions require a single table:
+                parameter_defs.  This table
+                contains the base SpecTcl parameter definition as well
+                as any optional metadata supplied by a treeparameter that
+                might wrap it.  If a tree parameter is not wrapping
+                the parameter, then the metadata values are NULL.
+
+Here's the table definition for the parameter_defs
+                table:
+
+<a name="AEN6471"></a>```
+    CREATE TABLE IF NOT EXISTS parameter_defs
+            (id      INTEGER PRIMARY KEY,                    
+             save_id INTEGER NOT NULL,  -- foreign key to save_sets.id
+             name    TEXT NOT NULL,
+             number  INTEGER NOT NULL,
+             low     REAL,
+             high    REAL,
+             bins    INTEGER,
+             units   TEXT)
+                
+```
+
+As with all tables, by convention, `id`
+                is the primary key and is an integer.  Here are the
+                definitions for the remaining fields of the table:
+
+
+
+integer `save_id`This is a foreign key that contains the
+                            id of the save_set
+                            to which this parameter definition belongs.
+                            We can say that a parameter definition belongs
+                            to a save set and a save set has many
+                            parameter definitions.
+
+text `name`This field contains the name of the spectcl
+                            parameter.  It is never null as all SpecTcl
+                            parameter must have unique names.  The
+                            field is not marked as unique because different
+                            save sets may have parameter definitions with the
+                            same name.
+
+integer numberThis is the SpecTcl parameter number.
+                            Each parameter in SpecTcl has a unique number
+                            that defines it's slot in `CEvent`
+                            objects containing unpacked event data.
+
+real `low`This field is not null if there is a tree
+                            parameter wrapping of the parameter.  In that
+                            case, the field will contain the tree parameter's
+                            suggested low limit for the parameter.
+
+real `high`As with `low`, is
+                            not null if the parameter is wrapped by a tree
+                            parameter.  In that case, this field contains
+                            the suggested high limit for this parameter.
+
+integer `bins`If the parameter is wrapped with  a tree parameter,
+                            this contains the suggested binning for this
+                            parameter.  Otherwise, this field is null.
+
+text `units`If the parameter is wrapped by a tree parameter,
+                            this field contains the units of measure of that
+                            parameter.  It can be an empty string as well as
+                            NULL.
+
+The next set of tables hold information about spectrum definitions
+                and spectrum contents.  These tables are:
+
+
+
+spectrum_defsThe top level (or *root*) table
+                            for spectrum definitions.  This table has
+                            one entry per spectrum.
+
+axis_defsDepending on the dimensionality of the spectrum,
+                            each record in spectrum_defs
+                            will have one or two records in this table.
+                            Each entry describes a spectrum axis.
+
+spectrum_paramsEach spectrum depends one or more parameters.
+                            Thus spectrum_defs has many
+                            spectrum_params each
+                            describing a parameter the spectrum depends on.
+
+spectrum_contentsIf a spectrum has contents stored, this
+                            table will contain the spectrum contents.
+                            There will be a record in this table for
+                            every non-zero channel in the spectrum.
+
+Note in the special case were an empty spectrum
+                            is being saved, there will be one record for
+                            the spectrum with a channel value of 0.
+
+Let's look at these tables in detail.
+
+spectrum_defs is the top level table
+                for capturing spectrum definitions and contents.  All of
+                the other tables involved in spectrum definitions have
+                foreign keys linking them back to this table.  This
+                table, in turn, has a foreign key that links it back
+                to the save set it belongs to.
+
+The defintion of spectrum_defs is:
+
+<a name="AEN6553"></a>```
+    CREATE TABLE IF NOT EXISTS spectrum_defs
+            (id      INTEGER PRIMARY KEY,
+             save_id INTEGER NOT NULL,     -- Foreign key to save_sets.id
+             name    TEXT NOT NULL,
+             type    TEXT NOT NULL,
+             datatype TEXT NOT NULL
+            )
+                
+```
+
+Besides the `id` which is the
+                usual primary keh and the `save_id`
+                which is the foreign key pointing back to the
+                save_sets table, the following fields
+                are defined:
+
+
+
+text `name`SpecTcl's name for the spectrum.  Each spectrum
+                            in a save set has a unique name. Usually
+                            humans refer to the spectrum using that name.
+                            While SpecTcl assigns an integer number to that
+                            spectrum, that number is actually not used
+                            at all externally or internally and is, therefore,
+                            not stored.
+
+text `type`Each spectrum has a type that determines how
+                            it is incremented by the parameters it depends on.
+                            In SpecTcl, these types are represented by short
+                            textual type codes.  This field contains the
+                            type code for the spectrum.
+
+text`datatype`Histograms storing a spectrum have a data type
+                            that can be one of
+                            byte (uint8_t), word (uint16_t) or
+                            long (uint32_t).  This field captures that
+                            datatype.  By default, given that memory is much
+                            cheaper than when SpecTcl was originally written,
+                            a spectrum's data type is long.  Regardless,
+                            this field explicitly stores the spectrum's
+                            datatype.
+
+Each spectrum has one or two axes (SpecTcl does not support 3d
+                spectra).  These axes are described in the
+                axis_defs table.   When fetching from
+                this table, it's important to order the results by the
+                `id` field.  When this is done,
+                the first (or only) axis for a spectrum is the X axis
+                and the second, if it exists is the Y axis definition.
+
+Here is the definitino of the axis+defs
+                table:
+
+<a name="AEN6583"></a>```
+    CREATE TABLE IF NOT EXISTS axis_defs
+            (
+                id           INTEGER PRIMARY KEY,
+                spectrum_id  INTEGER NOT NULL,  -- FK to spectrum_defs.id
+                low          REAL NOT NULL,
+                high         REAL NOT NULL,
+                bins         INTEGER NOT NULL
+            )
+                
+```
+
+As usual, `id` is the primary
+                key.  It also serves to order axis definitions for a spectrum.
+                `spectrum_id` is a foreign key
+                to the `id` field of the
+                spectrum_defs table.  Its value
+                indicates which spectrum in the spectrum_defs
+                table, a record in this table belongs to.
+
+The remaining fields in this table are:
+
+
+
+real`low`The low limit of the axis.
+
+real`high`The high limit of the axis.  The axis is
+                            considered to run over the interval
+                            [low, high).
+
+integer`bins`Number of bins into which the axis is divided.
+                            Note that in SpecTcl bins are all equal sized.
+
+Spectra are defined on  parameters.  The values of parameters
+                in an event can increment a spectrum depending on that
+                spectrum's type and whether or not parameters needed are
+                present.  The number of parameters a spectrum may have
+                are dependent on may be anywhere from 1 to unbounded depending
+                on the spectrum type (e.g. gamma spectra).
+
+Where parameter
+                ordering is important, ordering the retrieval of parameters
+                from the spectrum_params table
+                recovers that ordering.
+
+The contents of this table consist of the primary key
+                `id`, and two foreign keys:
+                `spectrum_id` which ties the
+                record back to the spectrum it belongs to and
+                `parameter_id` which ties the
+                entry back to the parameter in the
+                parameter_defs table that defines
+                the parameter.
+
+In this way, it is not necessary to actually repeat
+                the parameter definitions.  This point is an important
+                concept in database design. This sort of table is also
+                sometimes called a *join table*
+                because you can use the SQL join operation to marry the
+                spectrum_defs table to the
+                parameter_defs table through this
+                table.
+
+Finlly,
+                If the contents of the spectrum have been saved in a
+                save set there will be several entries in the
+                spectrum_contents table to
+                represent this.  With the exception of the special case
+                of a spectrum with no counts, the table will contain one
+                entry for each  non-zero channel.  If the spectrum is empty,
+                it will contain a single entry for a valid channel in the
+                spectrum containing a value of zero.
+
+The table contains the usual `id`
+                primary key column.  It also has a
+                `spectrum_id` foreign key into the
+                spectrum_defs table that ties each
+                record back to a spectrum definition which, in turn, ties the
+                entry back to a save set.
+
+The remaining fields are:
+
+
+
+integer`xbin`This value is a bin number on the X axis
+                            of the spectrum.  If the spectrum is one-dimensional,
+                            this value is the only coordinate needed
+                            to specify a spectrum bin.
+
+integer`ybin`If the spectrum is two dimensional (for this purpose,
+                            summary spectra are two dimensional),
+                            this value is the y bin coordinate of a channel
+                            in the spectrum.   If the spectrum is
+                            one dimensional, the value  of this field is NULL.
+
+integer`value`This field is the value that was stored in the
+                            channel designated by the
+                            `xbin` and possibly
+                            `ybin` fields.
+
+SpecTcl provides a very rich set of gate types.  For database
+                definition purposes, these actually fall into three categories:
+
+
+
+1. *Parameter/point*; these gates
+                           depend on parameters and points in parameter space.
+2. *Parameter/mask*; these gates
+                           depend on parameters and a bitmask.
+3. *Compound*; these gates depend on
+                           other gates.
+
+There are also the special cases of True and False gates
+                that depend on nothing.
+
+This richness in gate types and dependecies leads to a root
+                gate_defs table and quite a few
+                subordinate tables some of which are used and other not used
+                for any given gate type:
+
+
+
+gate_defsThis is the root table.  Every gate has an
+                            entry in this table.  All subordinate tables
+                            have foreign keys pointing back to this table.
+
+Note that if you fetch gate definitions from this table
+                            ordered by primary key, the API ensures that
+                            you will not encounter a gate definition that
+                            for a compound gate that depends on a gate you
+                            have not already seen previously in the
+                            retrieval.
+
+gate_pointsThis table is used by Parameter/point gates to
+                            store the points that define the region of
+                            interest that makes up the gate.
+
+component_gatesThis table is used by Compound gates to store the
+                            gates a compound gate depends on.
+
+gate_parametersThis table stores the parameters a Parameter/point
+                            or Parameter/mask gate depends on.
+
+gate_masksThis table stores the mask values for
+                            Parameter/mask gates.
+
+Let's starg going over the contents of each of these
+                tables one at a time.  The
+                gate_defs table, as expected,
+                has the `id` primary key
+                and `saveset_id`  foreign key
+                fields, uniquely defining the entry and which save set
+                the gate definition belongs to.
+
+Additionally, each record of this table has the following
+                fields:
+
+
+
+text`name`Each gate has a unique name.  This
+                            field contains that name. While SpecTcl
+                            assigns gates numbers, these numbers are not
+                            used internally or externally and, therefore,
+                            are not stored.
+
+text`type`SpecTcl uses short textual strings to
+                            describe the gate type.  This field
+                            stores that gate type.  The gate type
+                            is going to determine which other tables
+                            have data for this gate.
+
+For Parameter/Points gates, the gate_points
+                table defines a region of interest in parameter space in
+                which the gate is true.  These gates will also have
+                entries in the gate_parameters table.
+                Where point ordering is important (e.g contours and bands),
+                ordering the retrieval by `id`
+                recovers that order.
+
+In addition to the `id` primary
+                key, this table contains a
+                `gate_id` field which is a
+                foreign key into the gate_defs table
+                identifying the gate each point belongs to.
+
+Real `x` and possibly
+                null `y` fields identify the
+                point coordinates.  One dimensional regions of interest
+                (e.g. slices) have null y values.
+
+Compound gates require a list of dependent gates.
+                These are stored in the join table
+                component_gates.  In addition to the
+                `id` primary key and
+                `parent_gate` foreign key back to the
+                gate_defs table indicating the gate
+                each record belongs to, a `child_gate`
+                foreign key back to the gate_defs
+                table points to the dependent gate.
+
+Compound gates need not have ordering, however for some
+                gate types (and, or gates), the ordering could be chosen
+                to improve the efficiency of gate computation if the
+                frequency with which a dependent gate is satisfied is known.
+                This s because these gates do short-circuit evaluation,
+                where possible to avoid checking all dependent gates.
+                Once more retrieving from this table ordered by
+                `id` will recover the original
+                order of dependent gates.
+
+Parameter/point and parameter/mask gates require
+                entrie(s) in the gate_params table.
+                This is a join table with primary key
+                `id` and
+                `parent_gate` pointing to
+                the owning gate in the gate_defs table
+                and `parameter_id` pointing to the
+                parameter in the parameter_defs table.
+
+As usual, retrieving the data from this table ordered by
+                primary key will recover any required ordering of these parameters
+                (for example band aand contour gates require the first
+                parameter be the X parameter and second the Y).
+
+Finally, the gate_masks table stores the
+                mask values for gates Parameter/Mask gate types.
+                This table, in addition to the primary key
+                `id`, and foreign key
+                `parent_gate` that refers
+                back to the gate_defs table
+                has an integer `mask` parameter
+                that contains the mask value.
+
+Defined gates can be applied to a spectrum in SpecTcl.
+                When applied, that gate acts as a condition that is
+                checked, event by event, and must be true for the
+                spectrum to be incremented.  Actually all spectra
+                have gates applied to them. When a spectrum is created
+                it has a True gate applied to it so that it is always
+                incremented.
+
+Gate applications are captured in a join table called,
+                gate_applications in addition to the
+                primary key `id`, this table
+                has two foreign keys:
+                `spectrum_id` that indicates which spectrum
+                is being conditionalized by the gate that is
+                indicated by `gate_id`.
+
+The final analysis cofiguration item we need to describe
+                in the database are tree variables.  These map to Tcl
+                variables and `CTreeVariable` objects
+                that are used to steer computations performed by the
+                user's event analysis pipeline.
+
+Tree variable definitions are captured in the
+                treevariables table:
+
+<a name="AEN6753"></a>```
+    CREATE TABLE IF NOT EXISTS treevariables (
+                id             INTEGER PRIMARY KEY,
+                save_id        INTEGER NOT NULL,
+                name           TEXT NOT NULL,
+                value          DOUBLE NOT NULL,
+                units          TEXT
+            )
+                
+```
+
+In addition to the `id` primary
+                key and `save_id` foreign
+                key into the save_sets table,
+                the following fields are present in this table:
+
+
+
+text`name`Contains the name of the tree variable.  This
+                            is also the name of the Tcl global variable
+                            the tree variable maps to.
+
+double`value`Contains the value of the tree variable.
+
+text`units`Contains the units of measure metadata for
+                            this tree variable.
+
+## <a name="AEN6778"></a>A.4.1. Storing event data
+
+The event data for a single run can also be
+                    stored in a save-set. At present, only
+                    run state transitions, event data and scaler
+                    readouts can be stored.
+
+The SpecTcl code that
+                    can write event data into the database creates
+                    a new save set when the run begins, and saves
+                    the analysis configuration.  It then puts data
+                    into a set of additional tables.
+
+
+
+runsContains the root information for
+                                event and scaler data. All event
+                                like data for the run are linked back
+                                to this table.
+
+eventsStores the parameters for each event
+                                that were produced by the user's event
+                                analysis pipeline.
+
+scaler_readoutsStores information about when a scaler
+                                readout occured and on which source id
+                                it occured.
+
+scaler_channelsStores the data  from each channel
+                                of a scaler ring item
+
+The runs table has the following definition
+
+<a name="AEN6805"></a>```
+            CREATE TABLE IF NOT EXISTS runs (    -- Runs that were saved.
+                id         INTEGER PRIMARY KEY,
+                config_id  INTEGER,              -- Configuration at begin of run.
+                run_number INTEGER UNIQUE NOT NULL,
+                title      TEXT NOT NULL,
+                start_time INTEGER,
+                stop_time  INTEGER              -- End of run time
+            )
+                    
+```
+
+As expected, the `config_id`
+                    is a foreign key into the save_sets
+                    table indicating which save set this run was saved in.
+                    `id` is a primary key which
+                    provides a handle for dependent data to link back to.
+
+In addition to these fields, we store:
+
+
+
+integer`run_number`The run number for the run captured
+                                by this data.
+
+text`title`The title of the run.
+
+integer`start_time`The unix time_t at which the
+                                run begun. In Tcl this can be turned into
+                                a human readable time with
+                                **clock format**, in
+                                C/C++ with `strftime`.
+
+integer`stop_time`The unix time_t at which
+                                the run was ended. Note that if the run
+                                does not have a valid end run item,
+                                this will be NULL
+
+The events table is a bit odd.
+                    A normal database definition for it would look like
+                    this:
+
+<a name="AEN6843"></a>```
+    CREATE TABLE IF NOT EXISTS events (
+        id          INTEGER PRIMARY KEY,
+        run_id      INTEGER NOT NULL,
+        event_number INTEGER_NOT NULL,
+        parameter_id INTEGER NOT NULL,
+        parameter_value REAL NOT NULL
+    )
+                    
+```
+
+Each parameter of each event would have an entry in the
+                    table that would contain its parameter id
+                    (foreign key to the parameter_defs
+                    table), and its value.  In fact this was the first
+                    try to implement this table.  What we found, however,
+                    was that while this table would have made some interesting
+                    queries to support data analysis possible, reconstructing
+                    events from it was not time-efficient.
+
+We therefore wound up settling on this compromise
+                    definition:
+
+<a name="AEN6848"></a>```
+    CREATE TABLE IF NOT EXISTS events (
+                id         INTEGER PRIMARY KEY,
+                run_id     INTEGER NOT NULL,   -- fk to runs(id).
+                event_number INTEGER NOT NULL, -- Event number in the run.
+                parameter_count INTEGER NOT NULL, -- Hints at the event blob size.
+                event_data  BLOB NOT NULL
+            )
+                    
+```
+
+As in the first attempt, in addition to the
+                    primary key `id`,
+                    the `run_id`, a foreign key
+                    tying the event back to the run it belongs to
+                    and the `event_number`,
+                    which represents the trigger number in the run;
+                    we have:
+
+
+
+integer`parameter_count`Contains the number of parameters
+                                that have values in this event.  SpecTcl
+                                provides a `CEvent`
+                                data type that is an array like object
+                                whose values know if they've been assigned
+                                values or not.  This
+                                count represents the count of parameters
+                                that have been assigned values.
+
+Some event processing pipelines initialize
+                                all parameters to some value.
+                                While this avoids having to
+                                check the validity of parameters, it also
+                                throws away a major SpecTcl optimization
+                                at histogramming time.  This is not
+                                recommended practice.
+
+blob`event_data`This contains the actual parameters that
+                                were given values in the event.  So first,
+                                what does *blob* mean?
+                                blob is an acronym for
+                                Binary Large Object.
+                                Blobs allows arbitrary binary data to
+                                occupy a field in the database.
+
+In this case the blob stores a sequence
+                                of `parameter_count`
+DBEvent::blobElement structs. Where
+                                this struct contains the following fields:
+
+
+
+uint32_t
+`s_parameterNumber`The number/id of a parameter
+                                            (foreign key into
+                                            parameter_defs).
+
+double
+`s_parameterValue`The value of that parameter for
+                                            this event.
+
+The SpecTclHeader
+                                CDBEvents.h
+                                contains a definition of the
+                                DBEvent::blobElement
+                                data type.
+
+Scaler data is captured in two tables.
+                    The first, scaler_readouts
+                    contains one record per
+                    PERIODIC_SCALERS
+                    ring item SpecTcl sees.  The second,
+                    scaler_channels contains the
+                    actual values of the scaler contained by that
+                    ring item.
+
+The scaler_readouts table looks like
+                    this:
+
+<a name="AEN6898"></a>```
+            CREATE TABLE IF NOT EXISTS scaler_readouts (
+                id            INTEGER PRIMARY KEY,
+                run_id        INTEGER NOT NULL,      -- fk for runs.
+                source_id     INTEGER NOT NULL,      -- Event builder source.
+                start_offset  INTEGER NOT NULL,
+                stop_offset   INTEGER NOT NULL,
+                divisor       INTEGER NOT NULL,
+                clock_time    INTEGER NOT NULL
+            )                    
+                    
+```
+
+The `id`
+                    field is the primary key
+                    value and `run_id`
+                    is a foreign key into the runs
+                    table that indicates which run this readout belongs to.
+
+The remainder of the fields:
+
+
+
+integer`source_id`This is the source id from the body header
+                                of the ring item. In event built data
+                                it indicates which event source produced
+                                this scaler item.  If the scaler item
+                                does not have a body header, this wil
+                                contain the value 0.
+
+integer`start_offset`Scaler data represents scaler counts over
+                                some interval in the run.  This value
+                                contains the time offset into the run
+                                at which that interval began.  See, however
+                                `divisor` below.
+
+integer`stop_offset`Describes the time offset into the run
+                                at which the counting intervale ended.
+                                Again see the `divisor`
+                                field below.
+
+integer`divisor`In order to allow for sub-second timing in
+                                scaler readout, either for higher precision,
+                                or for cases when readouts must happen more
+                                often than once per second, this field is
+                                supplied.  This field represents the number
+                                of seconds per *tick*
+                                in the start and stop offset fields.
+                                That is, dividing those fields by this value
+                                (in floating point) results in seconds into
+                                the run.
+
+integer`clock_time`The unix time_t
+                                at which this scaler readout happened.
+                                This can be converted to a humann readable
+                                time in Tcl using
+                                **clock format**
+                                and in C/C++ using
+                                `strftime`.
+
+Associated with each scaler channel in the ring item
+                    that resulted in an entry in scaler_readouts
+                    is a record in the scaler_channels
+                    table.  This table has the usual
+                    `id` primary key.
+                    A foreign key pointing it back to an entry in the
+                    scaler_readouts table named
+                    `readout_id` and the following
+                    additional fields:
+
+
+
+integer`channel`The channel number of this entry.
+                                This is the index into the array of scalers
+                                that was readout.
+
+integer`value`The number of counts in that scaler
+                                channel for
+                                the asssociated readout.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home |  |
+| daqdb | Up |  |

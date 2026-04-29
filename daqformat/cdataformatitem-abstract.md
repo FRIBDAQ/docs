@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1332"></a>CDataFormatItem (abstract)
+
+<a name="AEN1336"></a>## Name
+
+CDataFormatItem (abstract) -- Ring item that describes format version
+
+<a name="AEN1339"></a>## Synopsis
+
+```
+#include <CDataFormatItem.h>
+
+class CDataFormatItem : public CRingItem
+{
+public:
+    CDataFormatItem();
+    virtual ~CDataFormatItem();
+
+    CDataFormatItem(const CDataFormatItem& rhs);
+    CDataFormatItem(const CRingItem& rhs) ;
+
+
+    virtual uint16_t getMajor() const;
+    virtual uint16_t getMinor() const;
+
+
+    virtual std::string typeName() const;
+    virtual std::string toString() const;
+
+    virtual void* getBodyHeader() const;
+    virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0);
+
+};
+
+                
+```
+
+<a name="AEN1341"></a>## DESCRIPTION
+
+THe data format ring item was introduced beginning in
+                    NSCLDAQ-11.  It provides information about the version
+                    (and therefore the  format) of NSCLDAQ that
+                    generated the stream of ring items that follow.
+
+<a name="AEN1344"></a>## METHODS
+
+
+
+`  CDataFormatItem();`The constructor fills in the item with the
+                            major and minor vesions that define the data
+                            format.
+
+` const virtual uint16_t  getMajor ();`Returns the major version of the data format.  In
+                            practice, this is sufficient to establish the data
+                            format.
+
+` const virtual uint16_t  getMinor();`Returns the minor version of the data format.  In practice
+                            this is seldom necessary.
+
+` const virtual std::string  typeName();`Return the string:
+                            Ring Item format version
+
+` const virtual std::string  toString();`Returns a human readable string that describes the
+                            contents of the ring item.
+
+` const virtual void*  getBodyHeader();`Returns nullptr since these items
+                            never have a body header.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType  = 0);`No-op since these items don't have body headers.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CAbnormalEndItem (abstract) | Up | CGlomParameters (abstract) |

@@ -1,0 +1,110 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="man1daq.mvlc_xlmload"></a>mvlc_xlmload
+
+<a name="AEN24207"></a>## Name
+
+mvlc_xlmload -- Connect to and MVLC and load firmware for an XLM-72
+
+<a name="AEN24210"></a>## Synopsis
+
+**$DAQBIN/mvlc_xlmload**   [`--base vme-address` | `--slot vme-slot-number`]   [`--hostmvlc-host-ip` | `--usb[enumeration-index]` | `--serialmvlc-serial-number-string`]   `[--signaturesignature-value]` `[--verify-offsetsignature-offset]`   firmware-file-path
+
+<a name="AEN24242"></a>## DESCRIPTION
+
+**mvlc_xlmload** supports loading and booting
+            XLM-72 firmware files over the MVLC interface.  Several 
+            connection modes are provided (see OPTIONS below).
+            The XLM can be selected either by its slot in the VME backplane or
+            by its VME base address.
+
+Several XLM firmwares write a unique signature  value into a known
+            part of the XLM-72 memory space.  **mvlc_xlmload**
+            can optionally verify this signature.
+
+*firmware-file-path* must specify a file system
+            path to a valid XLM firmware file.
+
+<a name="AEN24251"></a>## OPTIONS
+
+The **mvlc_xlmload** options come in three groups:
+
+
+
+1. MVLC Connection options, of which, only one may be selected.
+2. XLM address options, of which only one must be selected.
+3. Signature verification options, of which none or all must
+                       be provided.
+
+<a name="AEN24262"></a>### MVLC Connection options
+
+Exactly one of the options below must be selected.
+
+
+
+`--host` *mvlc-ip*Use this option if the MVLC is on Etherenet, `mvlc-ip`
+                                provides the IP address or DNS name of the device.
+
+`--usb` [*enumeration-index*]Use this option to select an MVLC that is connected to the
+                                host via USB.  If the `enumeration-index` is
+                                not given, the USB is searched for the first MVLC and that module
+                                will be used.  This is recommended if only one MVLC is connected by USB
+                                to the host.  If `enumeration-index` is
+                                provided, the USB enumeration is searched for the
+                                `enumeration-index`'th occurence
+                                of an MVLC and tha module is used.
+
+Since USB enumeration is not predictable, while
+                                using an `enumeration-index`
+                                is supported it is not recommended.  If you have
+                                more than one MVLC we suggset using the 
+                                `--serial`
+
+`--serial` *serial-string*When there's more than one USB connnected MVLC this option is
+                                recommended.  The `serial-string`
+                                specifies the specific MVLC to use by its serial number string.
+                                The serial number string is given on a sticker on the component side
+                                of the MVLC module.
+
+<a name="AEN24293"></a>### XLM addressing/selection
+
+One and only one of the options below must be selected.
+
+
+
+`--base` *vme-address*Specifies the base address of the module to load.
+
+`--slot` *slot-num*Specifies the VME slot number occupied by the module to load.
+                                This is used when the module and backplane include the
+                                CERN backplane extensions (A middle connector between the
+                                two large connectors at the top and bottom of the bus).
+
+<a name="AEN24309"></a>### Firmware verification
+
+Many XLM firmwares, once started, place a signature value
+                in a specified offset from the base of the XLM memory.
+                If this is the case for the firmware you are loading, you may
+                optionally specify that this be checked.  Either both or
+                none of the options in this section must be provided.  If none
+                of the options are specified, signature verification won't be done.
+                If both are they describe how verification should be done and
+                after loading the module and a short delay, the signaure is verified.
+
+
+
+`--signature` *signature-value*Provides the signature value for verification.
+
+`--verify-offset` *signature-offset*Provides the offset to the signature from the XLM base.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mvlcgenerate | Up | ring_monitor |

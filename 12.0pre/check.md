@@ -1,0 +1,41 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_check"></a>check
+
+<a name="AEN70835"></a>## Name
+
+check -- Check Data Source Liveness
+
+<a name="AEN70838"></a>## Synopsis
+
+**proc ::*providerName*::check *sourceId* {
+...
+}
+          **
+
+<a name="AEN70843"></a>## DESCRIPTION
+
+The **check** proc can be called once a data source
+            has been started.  The `sourceId` parameter is
+            the value of the sourceid dict element passed to the
+            [[r70792]]
+            command.
+
+This command should return a boolean true value if the data source
+            identified by `sourceId` is still running or
+            a boolean false value if the data source is no longer running.
+            Boolean values are those accepted by the C function
+            [Tcl_GetBoolean](http://www.tcl.tk/man/tcl8.5/TclLib/GetInt.htm).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| start | Up | stop |

@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.overview"></a>Chapter 2. Overview of how SpecTcl works
+
+The program name, SpecTcl, says a lot about how SpecTcl is built.
+            Spec, stands for Spectra and Tcl for the Tcl/Tk scripting language.
+            SpecTcl implements an extension to that language as its command language.
+            This allows users to not only type simple commands at the program,
+            but to write scripts of commands and, using the Tk toolkit,
+            easily write graphical user interfaces that bolt on top of SpecTcl.
+
+SpecTcl is often compared to Root, although our application domain
+            is intended to be quite different.  SpecTcl concentrates on making
+            it easy to create histograms, define condtions (gates) and
+            apply those conditions to spectra.   That's its focus.  Root
+            is a general purpose anaylis framework of classes.
+
+By confining our problem domain to making histograms, we can
+            simplify the process of tailoring SpecTcl to a specific analysis
+            task.  In Root, for example, you are typically required to write
+            the entire analysis from raw data to desired output products.
+            Since SpecTcl knows that our output products are just histograms,
+            we can relieve of the task of creating and incrementing histograms.
+
+Here's a simplified picture of the flow of data through SpecTcl:
+
+<a name="AEN45"></a>**Figure 2-1. Flow of data through SpecTcl**
+
+![](spectcldataflow.png)
+
+Events packaged in accordance with the format of some dat acquisition
+            system's outer format arrive at a SpecTcl
+            *Buffer Decoder* object.  The buffer decoder
+            is responsible for knowing about the outer format of the data (sometimes
+            called the data envelope). It opens those envelopes and produces
+            events.
+
+A logical pipeline of event processors is given each event.  The
+            event processors in this pipeline are the only bits of software
+            needed to tailor SpecTcl to a specific analysis problem.  Each stage
+            of the pipeline has access to the raw event and the parameters that
+            have been produced by previous stages of the pipeline.
+
+The parameters that have been produced by this
+            *event processing pipeline* are then passed
+            on to the histogrammer.  The histogrammer uses a set dictionaries of
+            parameters, spectra gates and gate applications to, given the parameters
+            of each event, determine how to increment the spectra.
+
+A visualization component of SpecTcl provides a view into the
+            histograms, gates and their applications to the user.
+
+Several important points about SpecTcl:
+
+
+
+- Event processing is done as background processing from
+                      so the user interface, including the command interpreter,
+                      is live during event processing.
+- SpecTcl can accept event data from two types of sources; files
+                      and UNIX pipes.  The unix pipe data source allows SpecTcl
+                      to be attached to online data acquisition systems to do
+                      analysis of live data.
+- Creation of histograms, gates and application of gates to
+                      spectra is totally dynamic and can occure while analysis is
+                      in progress.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | Getting started with SpecTcl |

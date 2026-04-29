@@ -1,0 +1,65 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="CCAMACTrigger"></a>CCAMACTrigger
+
+<a name="AEN42914"></a>## Name
+
+CCAMACTrigger -- Trigger module for the CES CBD 8210 VME CAMAC Parallel Branch Highway Driver
+
+<a name="AEN42917"></a>## Synopsis
+
+```
+#include <CCAMACTrigger.h>
+            
+```
+
+```
+  CCAMACTrigger(unsigned int b);
+```
+
+<a name="AEN42931"></a>## Description
+
+Provides a trigger module based on the INT2 input of the CES CBD 8210
+                VME CAMAC parallel branch highway driver.  The purpose of trigger modules
+                is to determine whether or not the readout software should read data
+                from the experimental hardware.  In the simplest case, the trigger
+                indicates a single event is ready to be read.  In more complex cases
+                involving multibuffered event hardware, the trigger may indicate that on or
+                more events is avaiable in the buffer of the device.
+
+Typically your code will not manipulate trigger objects other than to
+                create them and register them with the appropriate readout framework.
+                The readout framework will then invoke the trigger test function
+                (`operator()`), when appropriate and execute your
+                readout code in response to a trigger condition.
+
+<a name="AEN42936"></a>## Public member functions
+
+
+
+<a name="AEN42941"></a>`CCAMACTrigger(unsigned int b);`
+
+Creates a trigger object whose methods can be used to test for a trigger
+                    in the physical module described by the constructor.  In this case a trigger module
+                    is created in branch `b`.
+
+<a name="AEN42953"></a>`virtual bool  operator()(void);`
+
+Tests for the presence of a trigger condition.
+
+<a name="AEN42961"></a>## DEFECTS AND RESTRICTIONS
+
+The trigger module must live in VME crate 0.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CCAMACStatusModule | Up | CCamac |

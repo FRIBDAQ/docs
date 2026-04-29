@@ -1,0 +1,104 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_utillity_sortedpair"></a>::EVB::utility::sortedPair
+
+<a name="AEN21102"></a>## Name
+
+::EVB::utility::sortedPair -- Key value pair widget
+
+<a name="AEN21105"></a>## Synopsis
+
+**package require EVButilities
+            **
+
+**EVB::utility::sortedPair *window ?options?*
+**
+
+** *$window* configure *options*
+**
+
+** *$window* cget *?option-name*
+**
+
+** *$window*  setItem *key value*
+**
+
+** *$window* clear *?value?*
+**
+
+** *$window* reinit
+                **
+
+** *$window* idlist
+                **
+
+<a name="AEN21133"></a>## DESCRIPTION
+
+This is a utility widget that provides a dynamic scrolling list
+            of label pairs.   The value in the left label in each pair is called the
+            *key*.  The list is maintained sorted by key
+            values.
+
+Use cases for this widget are for a set of counters that are
+            associated with some set of things (in the event fragment sorter
+            e.g. the source id).
+
+<a name="AEN21138"></a>## OPTIONS
+
+
+
+`-title`Supplies a title for the top of the widget.  This title
+                        is text that is intended to show what the widget is for.
+
+`-lefttitle`Provides a title for the left column (the column of
+                        key values).
+
+`-righttitle`Provides the title for the right column (the column of
+                        values associted with the key).
+
+<a name="AEN21156"></a>## METHODS
+
+
+
+** *$window*  setItem *key value*
+**
+
+Defines a
+                        `key`/`value`
+                        pair.  If the key already exists,
+                        the label associated with the key is just modified.  If
+                        the key does not exist, a new pair of labels is
+                        created with the specified key and value.
+
+** *$window* clear *?value?*
+**
+
+Sets all of the value labels to `value`
+                        if that optional paremeter is specified.  If not, all value
+                        labels are set to 0, the key labels are
+                        not affected by this.
+
+** *$window* reinit
+                        **
+
+Reinitializes the widget so that there are no key/value
+                        pairs.
+
+** *$window* idlist
+                        **
+
+Returns a list of the key values present in the
+                        widget.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ::EVB::outputSummary | Up | ::EVB::utility::sortedWidget |

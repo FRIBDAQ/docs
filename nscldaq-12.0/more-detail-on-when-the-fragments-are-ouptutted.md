@@ -1,0 +1,60 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 8. Event Builder | Next |
+
+
+---
+
+# <a name="AEN5640"></a>8.3. More detail on when the fragments are ouptutted
+
+Let's dig a little deeper into the way the event orderer determines when
+      to output data. Knowing this logic will help understand its behavior,
+      which may otherwise seem unexpected in some circumstances. The handling
+      of non-barriers will be addressed first and then barriers second.
+
+For the case of non-barriers, the most basic principle that one should
+      remember about the event builder is that whenever all input queues have
+      data, ordered data can be emitted. Fragments will be outputted until at
+      least one queue does not have data. This is the sensible approach because
+      fragments may simply have not reached the orderer yet.
+
+If one of the data sources does not receive new fragments, the data from
+      active sources will remain in the queue for the duration of the build
+      window. All fragments that have resided in a queue longer than the build
+      window are then are outputted in order of their timestamps. So if a
+      client ceases to commit fragments to the event orderer, the orderer will
+      cease to output data until a time equal to the build window has passed.
+      At that point, the event orderer will resume outputting data. If the
+      stalled client then resumes contributing fragments and those have
+      timestamps that should have been outputted earlier, these fragments are
+      called late. This is a recoverable error condition. The default build
+      window width is 20 seconds. Furthermore, the event orderer will not output data until 2
+      seconds have elapsed since the first fragment was submitted.  This is
+      intended to allow all sources time to submit their first fragment to the
+      orders as it is that action that creates a data source queue.
+
+Barriers are treated differently. Recall that a barrier event implies
+      synchronization between the data sources. Therefore when a barrier is
+      detected in one queue, no more fragments are outputted from that queue until
+      a barrier is found in all other queues. Once the barrier is complete, all
+      barriers are output and then normal operations are resumed. There is an
+      extended time window, four times the build window, during which queues
+      will wait for a barrier to complete before resuming output. If that
+      window passes without establishing a complete barrier, the barrier will
+      be considered incomplete and the barrier fragments seen so far will be
+      flushed, the incomplete barrier is logged and then normal operation
+      resumes. Barrier synchronization is agnostic to the specific type of each
+      barrier.  If there is a barrier in all queues, the synchronization is
+      complete. However, if the type of barriers are different, the barriers
+      statistics presented to the user will report that the barrier was
+      heterogeneous. On the other hand, if all barriers are the same type, the
+      completed barrier will be considered homogeneous. In general, a healthy
+      set of data streams should produce complete, homogeneous barriers.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the event builder | Up | Fragments and Data Format |

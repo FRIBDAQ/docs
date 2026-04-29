@@ -1,0 +1,33 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mgr_startManager"></a>mg_startManager
+
+<a name="AEN19963"></a>## Name
+
+mg_startManager -- Start the DAQ Manager
+
+<a name="AEN19966"></a>## Synopsis
+
+**$DAQBIN/mg_startManager *configuration-database*
+**
+
+<a name="AEN19970"></a>## DESCRIPTION
+
+Starts the experiment manager server with the configuration
+            provided in the database whose path is
+            *configuration-database*.  The
+            manager will continue to run until explicitly stopped with
+            [[r19975]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| rdo_control | Up | mg_shutdown |

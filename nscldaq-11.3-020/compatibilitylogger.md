@@ -1,0 +1,59 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage_compatibilitylogger"></a>compatibilitylogger
+
+<a name="AEN11637"></a>## Name
+
+compatibilitylogger -- Create spectrodaq formatted event log files.
+
+<a name="AEN11640"></a>## Synopsis
+
+**compatibilitylogger [options]
+          **
+
+<a name="AEN11644"></a>## DESCRIPTION
+
+Accepts NSCL Buffers on stdin.  Once the first begin buffer is
+            seen an event file is created.  Buffers are accepted until an
+            end run buffer or an end file on stdin is encountered at which time
+            the once that buffer is written to file, the current run file  is closed.  All buffers are written to the
+            current event file.
+
+If the current event file has exceeeded a threshold that is a bit less
+            than 2Gbytes, the current event file is closed and a new event file
+            is opened as the next segment of the run's event file set.
+            Event files are named in accordance with the ring buffer DAQ event file
+            naming convention:  run-rrrr-ss.evt. Where
+            rrrr is the run number zero filled to four digits
+            (e.g. run 5 is 0005), and ss is the segment number
+            zero filled to two digits.
+
+By default, the program expects its input buffers to be 8192
+            bytes long.  See, however the `--buffersize` option
+            described in the OPTIONS section.
+
+<a name="AEN11654"></a>## OPTIONS
+
+
+
+`--buffersize`=*size-in-bytes*Overrides the default buffer size with its value.
+                        The buffersize must match the actual buffer size of the
+                        stdin stream of buffers or else the program will likely
+                        fail in unpredictable ways.
+
+`--help`Outputs short form help to the console and exits immediately.
+
+`--help`Outputs the version of the program and exits immediately.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| convert10to11 | Up | eventlog-compat |

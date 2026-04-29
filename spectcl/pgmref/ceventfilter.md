@@ -1,0 +1,127 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN23215"></a>CEventFilter
+
+<a name="AEN23219"></a>## Name
+
+CEventFilter -- Abstract base class for event filters.
+
+<a name="AEN23222"></a>## Synopsis
+
+```
+class CEventFilter : public CEventSink {
+protected:
+   Bool_t m_fEnabled;                           
+   std::string              m_sFileName;        
+   std::vector<std::string> m_vParameterNames; 
+   std::vector<UInt_t>      m_vParameterIds;   
+   CFilterOutputStage*      m_pOutput;         
+ public:
+  CEventFilter(std::string& rFileName);
+  std::vector<std::string> getParameterNames() const;
+  std::vector<UInt_t> getParameterIds() const;
+  Bool_t CheckEnabled() const;
+  std::string getFileName() const;
+  CFilterOutputStage* getOutputStream();
+
+  void setParameterNames(const std::vector<std::string>& names);
+  void setOutputStream(CFilterOutputStage* str);
+  
+  void Enable();
+  void Disable();
+  void setFileName(std::string&);
+  void setOutputFormat(CFilterOutputStage* format);
+  std::string outputFormat() const;
+  virtual void operator()(CEventList& rEvents);
+  virtual void operator()(CEvent& rEvent);      
+
+protected:
+   virtual Bool_t CheckCondition(CEvent& rEvent) = 0;
+   static std::string DefaultFilterFilename();   
+   void NamesToIds();                       
+   std::vector<std::string> IdsToNames() 
+
+};
+
+        
+```
+
+<a name="AEN23224"></a>## DESCRIPTION
+
+Filters are objects that, since they are derived from
+            `CEventSink`, can be added to the
+            event sink pipeline.  Filters are expected to operate on
+            decoded events.  They have:
+
+
+
+- A file to which output data are written
+- A list of parameters that will be output.
+- A condition that determines which events are written
+- A formatting object that determines how the events
+                      are written to the output file.
+
+Thus filters create subsets of the raw input data. The output
+            of filters both subset the events (writing only those events that
+            satisfy their condition), and the parameters (writing only the
+            specified parameters).
+
+Filters can speed up subsequent event processing both by reducing
+            the volume of data produced and by writing data in a format much
+            easier to decode than the original raw event data.  People using
+            filters have reported over an order of magnitude improvement in
+            the processing of e.g. XDR formatted filtered data over raw data,
+            even when no selection has been performed.
+
+<a name="AEN23239"></a>## METHODS
+
+
+
+`  CEventFilter(std::string&  rFileName);`Constructor.  `rFilename` references
+                        the name of the file that filtered data will be written
+                        into.  The file is not opened by the constructor.
+
+);
+  std::vector<std::string> getParameterNames() const;
+  std::vector<UInt_t> getParameterIds() const;
+  Bool_t CheckEnabled() const;
+  std::string getFileName() const;
+  CFilterOutputStage* getOutputStream();
+
+  void setParameterNames(const std::vector<std::string>& names);
+  void setOutputStream(CFilterOutputStage* str);
+  
+  void Enable();
+  void Disable();
+  void setFileName(std::string&);
+  void setOutputFormat(CFilterOutputStage* format);
+  std::string outputFormat() const;
+  virtual void operator()(CEventList& rEvents);
+  virtual void operator()(CEvent& rEvent);      
+
+protected:
+   virtual Bool_t CheckCondition(CEvent& rEvent) = 0;
+   static std::string DefaultFilterFilename();   
+   void NamesToIds();                       
+   std::vector<std::string> IdsToNames()
+
+<a name="AEN23253"></a>## Data Available to subclasses
+
+Bool_t m_fEnabled;                           
+   std::string              m_sFileName;        
+   std::vector<std::string> m_vParameterNames; 
+   std::vector<UInt_t>      m_vParameterIds;   
+   CFilterOutputStage*      m_pOutput;
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CEventSink | Up | Root tree building |

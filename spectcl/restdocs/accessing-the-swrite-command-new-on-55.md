@@ -1,0 +1,38 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1569"></a>3.25. Accessing the swrite command (new on 5.5)
+
+The **swrite** REST interface can be used
+                to write spectrum files on request from clients.
+
+<a name="AEN1573"></a>**http://host:port/spectcl/swrite?file=filename?spectrum=spec1[&spectrum=spec2...&format=fmtname]
+                   **
+
+The query parameters are as follows:
+
+
+
+file (mandatory)Path to the file to write.  Remember this file is written
+                        by SpecTcl and therefore the file path must not only be
+                        as SpecTcl would see it but a file writable by
+                        SpecTcl.
+
+spectrum (mandatory, can be multiple)Each occurence of this query parameter names a spectrum
+                        to be written to file. At least one spectrum must be
+                        specified.
+
+format (optional)Specifies the output fie format.  Note that by
+                        default, this is ascii.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the ungate command (new in 5.5) | Up | Controlling data anlaysis (new in 5.5) |

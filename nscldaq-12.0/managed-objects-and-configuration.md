@@ -1,0 +1,707 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 4. NSCLDAQ Manager subsystem (new in 12.0) | Next |
+
+
+---
+
+# <a name="sec.mgr.config"></a>4.2. Managed Objects and Configuration
+
+This section describes the objects the manager understands and the
+      tools available to configure the manager.
+
+The remainder of this section describes:
+
+
+
+- How to create an initial, empty configuration database file.
+- Singularity container definitions and how to add them to the
+              configuration database.
+- Program definitions and how to add and edit them in the configuration
+              database.
+- Sequences, how to add them and specify their triggers as well as
+              how to configure the steps in a sequence.
+- Event loggers, the types of event loggers supported and how to
+              add them to the experiment configuration.
+- The key value store and how to add/modify values to it.
+- User and roles and how to configure them.
+
+## <a name="AEN806"></a>4.2.1. Creating a New Configuration Database.
+
+The manager relies on an SQLite3 database file for its configuration.
+          SQLite3 database files contain, in addition to data, schema definitions
+          that describe the structure of the database and relationships between
+          database tables.  Furthermore, Some tables are populated with an initial
+          set of values.
+
+The
+          [[r17970]]
+          command creates manager configuration database files with the correct
+          schema and an initial set of data.
+
+The **mk_config** command can be run on an existing
+          database.  It will not ovewrite existing data.   In the event future
+          manager configuration databases use a different schema, this program
+          will also support converting an existing database to one acceptable
+          to the newer NSCLDAQ version.
+
+## <a name="AEN813"></a>4.2.2. Singularity Containers and the Manager
+
+At the FRIB there are conflicts between wanting to keep systems up to
+          date while maintaining a stable environment on which the DAQ system
+          can run.   We're helped by the fact that we have kept kernel mode
+          code to a bare minimum.  This makes NSCLDAQ, for the most part,
+          dependent only on the user mode libraries and utilities.
+
+Singularity containers provide a convenient technology that encapsulates
+          the user mode run-time of a version of Linux in a single file (a
+          container image) and the ability to swap out the chunks of the native
+          file system that contain user mode libraries and utilities with the
+          environment captured by the container image.
+
+The DAQ manager can launch applications either in a native environment
+          or in a containerized environment chosen by the user.  In practice,
+          the NSCLDAQ team has provided suitable container images and has also
+          made these container images and associated /usr/opt
+          directory tree tarballs available at [https://sf.net](https://sf.net)
+          in the nscldaq project.
+
+Note that regardless of whether or not the application is launched
+          native or containerized, an SSH Pipe is used to launch the application.
+          You must therefore set up your ~/.ssh/authorized_keys
+          file to allow SSH to connect to the hosts you are running programs in
+          without the need to specify a passowrd interactively.  At the
+          FRIB, all DAQ systems share common home directory trees so this  is
+          fairly simple.  The process well documented on the web if you search
+          for e.g. ssh without password.  Since the
+          web is volatile we will not provide specific links here.
+
+The **$DAQBIN/mg_cfgcontainers** utility allows you to
+          define and name containers and the bindings they have with the
+          native filesystem.  You can also launch this program by double clicking
+          Containers from the list of configuration utilities
+          displayed by **$DAQBIN/mg_config**.  Both of these
+          programs require a single argument, the path of the configuration database
+          file.
+          For reference information about these programs see:
+          [[r18031]]
+          and
+          [[r17993]].
+
+The top level window of this program is a list of container names on the
+            left side and a list of filesystem bindings on the right. Clicking
+            a container name populates the bindings list box with the bindings
+            for the seleted container.
+
+Clicking the Init Script.. button displays the
+            initialization script for the container.  The initialization script is
+            a script that is run prior to running every program in the container.
+            It allows you to perform common environment setup operations (e.g.
+            sourcing the correct daqconfig.bash file).
+            The *contents* of the configuration file are
+            stored in the database so that the initialization script is stable
+            under edits to the original file.
+
+The New... and Edit...
+            bring up a dialog that allows you to define a container.  The
+            only difference between the two buttons is that Edit...
+            pre-populates the dialog with the definition of the selected container.
+            You can use this dialog to set the container image file, add/remove
+            bindings, set the container name, and pull in the contents of
+            an initialization script.
+
+When the Ok button is clicked, the definition
+             is saved.  If Cancel is clicked, the
+             definition is discarded.
+
+When the dialog is brought up with
+             Edit... Cancel retains
+             the old definition.  Furthermore if Ok is clicked
+             but you change the name of the container, a new container defintion
+             is created using that name.  This allows you to create a new
+             container definition beginning with the definition of an existing
+             container as a starting point.
+
+When the dialog is brought up with the New...,
+            Cancel makes no changes to the database,
+            Ok saves the new container definition.
+            Take care not to duplicate the name of an existing container.
+
+Note that the Ok button directly modifies
+            the database.  This is why there is no Save
+            button on the main window.
+
+## <a name="AEN852"></a>4.2.3. Program Definitions
+
+Programs are the entities that make up the bulk of the persistent
+          part of an NSCLDAQ experiment.  Programs can be run *bare*
+          or *containerized*.   A program consists of
+          the following elements:
+
+
+
+NameA unique name that identifies the program.  This name is referred
+                  to when inserting the program into the steps of a sequence
+                  (don't worry too much about what that means until you've
+                  read about sequences).
+
+Program FileThis is the thing that's actually run.  Note that if the
+                  program is run containerized, this file path must be expressed
+                  in the filesystem seen from within the container, not the
+                  host filesystem.  Furthermore, a consequence of this is that
+                  only files visible within the container can successfully launch.
+
+HostThe name of a system in which the program will be run.
+
+ContainerIf non-empty, this is the name of a container in which the
+                  program will be run.  The manager will take care of launching
+                  that container in the required host when the program is run,
+                  and then arrange for the program to be run inside that containerized
+                  environment.
+
+Working DirectoryThe working directory in which the program runs. Once more,
+                  if the program is containerized, this must be expressed in terms
+                  of the filesystem as it's seen within the container.
+
+TypeThere are three program types:
+                  Transitory programs are launched, and
+                  are expected to exit, having performed their task.  An example
+                  of a transitory program might be programs that set the run number
+                  for a Readout program as part of a sequence that's triggered
+                  on a BEGIN transition.
+
+Persistent programs are programs that are
+                  intended to run continuously but won't make data taking fail
+                  if they exit.  For example, while a persistent SpecTcl is not
+                  expected to fail, an error in the user specific code may cause
+                  it to fail.  However halting data taking is not required if
+                  that happens.
+
+Critical programs are persistent programs that
+                are essential
+                to data taking.  For example a Readout program.  If a critical
+                program exits, the manager forces the system to SHUTDOWN
+                until corrective action can be taken.
+
+OptionsThese are  program options that are supplied to the program
+                  on the command line.  These normally have values (but are
+                  not required to have them).  For example an NSCLDAQ Readout
+                  program may require the `--ring` option to specify
+                  the name of the ringbuffer into which it will put its data.
+
+Any number of program options can be specified.
+
+ParametersThese are just command line parameters.  For example, the
+                  program that can feed a Readout the run number needs to know
+                  the host and user running the manager and the name of the Readout
+                  program.  These are fed as command line parameters.
+
+EnvironmentThese are environment variables the program may require.
+                  Note that for containerized programs, consider definiting these
+                   in the container's initialization file if they are common
+                   across many programs.
+
+The **mg_cfgprogram** utility allows you to create new
+          program definitions and edit existing ones.  There is no support for
+          deleting a program definitions, but unused program definitions are
+          harmless.
+          Reference information about **mg_cfgprogram** is
+          available at
+          [[r18069]]
+
+The main window of this editor is a table listing the programs that are
+            currently defined.  The program name, program file, host and container
+            of all defined programs are shown in this table.  If the Container
+            column is empty for a program it is run natively in the specified host.
+            Note, as you might expect, for containerized applications, the
+            program file is the path to the program as it appears in the container
+            file system.  Not the host filesystem.
+
+CLicking the New.. button or double clicking
+            on a program in the table, brings up an editor window.  The only
+            difference between the two methods to bring up this window are that
+            double clicking a program will load that program into the editor
+            window.
+
+For the most part the editor window is straightforward, the Name
+            of the program must be a unique name.  The program file
+            Browse... button allows you to browse for
+            the program file.  This browses in the filesystem in effect at the
+            time the editor is being run.  If, for example, you are running the
+            editor natively but the program will be containerized,
+            you may need to modify the final path selected by hand to match
+            what the container sees.  The Container Browse...
+            buttons allows you to select from the list of defined containers in
+            which the program can run.
+
+A Type radio button group allows you to specify
+            the program type.
+
+The Program Options listbox shows the options
+            that are defined for the program.  To add a new option,
+            enter the option namme (e.g. --ring) and
+            option value (e.g. fox) in the Name and Value
+            entry text boxes and click the New button.
+            To remove an option  click it in the list, this also supports
+            editing the option as the name/value pair are loaded into the
+            corresponding entries where they can be edited and recreated.
+            This bit of mechanics is the same for all of the editor elements
+            described below.
+
+Similarly, the Program Parameters listbox
+            shows parameters that are passed to the program.  You can think of
+            parameters as options with no value.  However, the program parameters
+            are passed to the program *after* the program's
+            options.   Create a new parameter by entering its value and clicking
+            the New button below it.  Delete or edit
+            by clicking it in the list.  Note that often parameters are positional
+            and you must take care of that when editing.
+
+The Program Environment define environment
+            variables that will be defined when the program executes.
+            Editing these is identical to editing Program Options:
+
+Clicking OK saves the definition in the database
+            and refreshes the list of programs in the main window.
+            Clicking Cancel closes the editor window
+            without making any changes
+
+## <a name="AEN930"></a>4.2.4. State Machine, Sequences, Sequence Triggers, and Steps
+
+The NSCLDAQ manager implements a state machine.  That is the manager is
+          always in a well defined state or transitioning to another state that
+          is reachable in the *state diagram* defined in its
+          configuration databases.    A default state diagram is initially loaded
+          into the configuration database when it is created and, while it can
+          be edited it's normally a reasonable state diagram for NSCLDAQ.
+
+The configuration data base can specify that *sequences*
+          are associated with state transitions.  A sequence is an ordered list
+          of programs that are run to perform the tasks needed by the
+          transition. Sequences run one at a time, in the order they were
+          defined.  We'll describe the tool for editing sequences later in this
+          section.
+
+A sequence consists of steps.  Each step specifies a program (defined
+           in the configuration database), and optional pre and post delays.
+           Steps are started in the order specified in the sequence definition.
+           If a step runs a transient program, the sequence will wait until that
+           program exits before performing the next step.  This allows ordering
+           to be ensured for sequential operations.
+
+Although normally you do not need to modify the states and allowed
+          transitions loaded into the manager, the program
+          **mg_stateedit**
+          (Reference pages in
+          [[r18108]])
+          provides the ability to define an arbitrary state machine.
+          In this implementation, however, there are a few constraints you must
+          observe when modifying the states and their allowed transitions:
+
+
+
+1. A SHUTDOWN  state must be defined.  It will
+                   be the initial system state.
+2. To support failure actions, all states you define must be allowed
+                   to transition to the SHUTDOWN state.
+3. If you intend to use the Run control control panel, you must
+                   define a state named BEGIN and it must
+                   represent a state where data taking is active.  You must also
+                   define a state named END and it must represent
+                   a state in which the system is up and running but data taking
+                   is not active.  You also *should* define a state
+                   named HWINIT and that should represent a state
+                   in which any one time initialization of the data taking hardware
+                   has completed.
+
+Before describing the **mg_stateedit** user
+            interface; some terminology.  The states
+            the state machine can transition to from any givnen state
+            are called *Successor States*.  The states
+            from which a state can transition to are called
+            *Precursor States*.
+            The process of defining a state machine is that of defining the
+            states and, for each state defining its successor states.  In some
+            cases, it's also convenient to define a state's precursor states.
+            The **mg_stateedit** command allows for both.
+
+The window resented by **mg_stateedit** is primarily
+            composed of three list boxes.  The center list box lists the defined
+            states selecting (single clicking) a state in the States list box
+            populates the left listbox with that state's precursor states and
+            the right list box with that state's successor states.
+
+Below each list box is a - button. Clicking that
+            button when a state is selected in any list box removes that state
+            from that listbox:
+
+
+
+- Clicking that button below the middle listbox removes that state's
+                    definitions (cleaning up all transitions to that state from
+                    precursor states and all transitions to successor states as well).
+- Clicking that button below the left listbox removes that state
+                    from the precursor states of the selected state in the middle
+                    listbox. This removes the allowed transition from the precursor
+                    state to the selected state.
+- Similarly, clicking that button below the right list box removes
+                    that state from the successor states of the selected state in
+                    the middle listbox.  This removes the allowed transition from
+                    the selected state to that successor state.
+
+Below the - buttons below each listbox are
+            text entry widgets and a + button.
+
+
+
+- To add a new state, type a unique state name  in the middle
+                    entry and click its + button.
+- To add a new precursor state  to the selected state,
+                    type the name of an existing state in the left listbox and
+                    click its + button.  The state
+                    must be defined or an error will be displayed.
+- To add a new successor state to the selected state,
+                    type the name of an existing state in the right listbox
+                    and click its + button.  Once more the
+                    state must already be defined or an error will be displayed.
+
+Note that all changes change the underlying database immediately.
+
+The state transitions of the manager trigger the execution of
+            sequences that are associated with the successor state being
+            transitioned to.  These sequences can be defined and edited using
+            the sequence editor **mg_seqedit**.  Reference
+            material for that program is located in
+            [[r18154]].
+
+Sequences are bound to or *triggered by* states.
+            When a transition is performed into
+            a state, the sequences triggered by those states are run.  The
+            sequences are run one at a time in the order in which they were defined.
+
+The GUI for **mg_seqedit** consists of a listbox
+            that displays the sequences that have been defined.  An entry and
+            drop down list provide the ability to define new sequences.
+
+To create a new sequence, ype in a new unique sequence name in the
+            text entry box, and select its trigger state
+            from the drop down. Clicking Add adds the
+            new sequence to the list of defined sequences.
+
+Sequences are edited by double-clicking them in the listbox.  This
+            is also how a new sequence is assigned steps.  Double clicking
+            a sequence pops up the sequence step editor window.
+
+Each step has a step number, which determines its order in the sequence.
+            The step numbers are floating point numbers ensuring new steps can
+            always be inserted between existing steps. Steps also have a program
+            that is run and optional delays before and after the step
+
+To add a new step, select the program from the pulldown menu
+            near the bottom of the window, optionally set non zero pre and post
+            delay values and click Add  by default
+            new steps are added at the end.  If a step is selected (single click it),
+            when a new step is added, the step is inserteed above that step.
+
+A context menu is brought up by right clicking any step.  The menu
+            allows yout to delete the step, move it up in the order or move it
+            down.
+
+At the very bottom of the page are three action buttons:
+
+
+
+SaveSaves the updated (or new) sequence steps.
+
+Delete...Prompts for confirmation and then deletes the sequence
+                    if you confirm.
+
+CancelMakes no changes.  The existing sequence is unmodified and
+                    the new sequence is not saved.
+
+## <a name="AEN1014"></a>4.2.5. Event Logging and the Manager
+
+Under the ReadoutGUI, experiments have a primary event logger and,
+          by using the multilogger package, a set of simple loggers that
+          just logged event data into a directory.  The primary logger
+          Managed a directory tree that provided both run and experiment views
+          of the data as well as the capability of associating arbitrary metadata
+          with each run, in the form of a user selected set of files and
+          directory sub-trees.
+
+At the heart of all of this was a common utility called
+          **eventlog** which just writes event data from
+          a ring to a file.  Event logging in the manager allows you to
+          define an arbitrary set of *complete* and
+          *partial* loggers.  The best way to think
+          of these are that complete loggers maintain the same directory tree
+          as the ReadoutGUI's primary event logger while partial loggers
+          are like the loggers managed by the multilogger package.
+
+While you can create any number of either type  of event logger,
+          it's important to consider the complete bandwidth requirements of doing
+          so throughout the system.  While using several event loggers provide
+          valuable offline debugging information during production running the
+          best throughput is obtained by only using a single event logger.
+          Thus the event log subsystem allows loggers to be disabled at any time.
+
+Another important point of the manager's event log facility is that
+          loggers can also be marked as *critical*. Critical
+          loggers are considered to be necessary if the experiment is to work.
+          If a critical logger exits during data taking for any reason, the
+          manager will force a state transition to SHUTDOWN.
+
+The **mg_cfgEvlog** utility allows you to create, edit
+          and delete event log definitions.  Reference material for this
+          utility is at
+          [[r18197]]
+
+The event log editor GUI consists of a table of current event
+            log definitions, a definition section below the table and two
+            action buttons Save and Cancel
+            Changes are not immediately saved to the database.  WHen you are
+            satisfied with the definitions you see in the eventlog list,
+            click Save to save those definitions oe
+            Cancel if you don't want this work saved.
+            Cancdel will simply reload the table with the
+            event log definitions in the database.
+
+Items in the list of loggers have a context menu that can be posted by
+            right clicking them.
+            The context menu has the following commands:
+
+
+
+NewResets the event log editor form to its defaults.  The
+                    action button in the form will be labeled Create
+                    indicating that clicking it creates a new event logger definition.
+
+EditLoads the definition into the definition form and relabels its
+                    action button Modify indiciating that
+                    clicking it will modify the definition being edited.
+
+DeleteDeletes the definition under the pointer.
+
+The Eventlog editor form contains the following elements:
+
+
+
+DAQRootThe NSCLDAQ installation directory root. This is loaded with the
+                    directory root for the DAQ version from which the editor
+                    was run.  It can be edited if there are special needs but,
+                    in general, should not be earlier than 12.0-pre3.
+
+SourceShould be edited to be the URI of the ring buffer that will
+                    be logged to disk.
+
+Dest.Should be edited or browsed to the directory in which
+                    data will be logged.  For partial loggers all data will
+                    be logged into this directory.  For Complete loggers,
+                    this is the top level of the directory tree maintained by
+                    the logger.  See COMPLETE LOGGERS.
+
+Note that if the event logger is containerized, this path must
+                    be a valid path within the active container.
+
+Host:Should be edited to the DNS name of the computer in which the
+                    event logger will run.
+
+ContainerPulldown menu that allows you to select a container in which
+                    the event logger runs.  Note that if this is empty, the logger
+                    will run native.
+
+PartialIf checked, the logger will be a partial logger otherwise
+                    it will be complete.
+
+CriticalIf checked the logger is a critical component of the DAQ system
+                    and unexpected exits will SHUTDOWN the
+                    intire system.
+
+EnabledIf checked the logger is enabled.  If not it will not record
+                    data even if the global recording is enabled.
+
+Finally the edit form has an action button that is labeled
+            Modify if clicking it will replace the definition
+            that you initially loaded into the form using the Edit
+             context menu or Create if it will create a
+             new definition.
+
+## <a name="AEN1101"></a>4.2.6. The Key Value Store
+
+The manager configuration database file provides a key value store.
+          You can think of this as an associative array of strings indexed by other strings.
+          At present, there are two predefined keys.  You may create others as
+          needed by your experiment:
+
+
+
+titleThis is used to set run titles in compatible
+                  Readout programs.  It contains the desired title for the
+                  next run.
+
+runIs used to set the run number in compatible Readout programs.
+                  It contains the desired run number for the next run.
+
+The **mg_kvedit** command allows you to create, new keys,
+          modify the values of existing keys and delete keys.  Be careful not
+          to delete the keys described above.  Reference documentation for
+          **mg_kvedit** is available at
+          [[r18323]]
+
+The editor provides a window that, at the top, contains a table
+          of key/value pairs.  At the bottom is an editing region that provides
+          entries for a key and a value. Selecting (by clicking) a key value
+          pair in the table loads the key and its value into the editor fields where
+          either or both may be modified.
+
+Clicking the Update button updates the table.
+          If the key is an existing  key its value will be modified.  If it is
+          a new key, a new key/value pair will be created.
+
+Clicking on the Delete button removes a key
+          and its value from the table.
+
+Note that none of the edits described above affect the database.
+          The Save button writes all changes to the
+          database key value table.
+
+## <a name="AEN1126"></a>4.2.7. User and Roles
+
+Note with NSCLDAQ-12.0, usrs and roles are not enforced by the manager.
+          In later versions of the software, as we gain experience in its use,
+          we will define a set of roles each with limited capabilities within the
+          system.  The users in an experiment will be assigned roles and the
+          interactions they can successfully perform will depend on the set of roles
+          they hold.
+
+The experiment configuration database does, however, already provide
+          schema and configuration tools for defining the set of users for an
+          experiment, the roles the system understands and granting and revoking
+          roles to/from those users.  The program that supports configuring users
+          and roles is **mg_authedit**.
+          Reference information for **mg_authedit** can be found in
+          [[r18358]]
+
+The important concepts to understand when configuring the authentication
+          system are:
+
+
+
+AuthenticationAuthentication is the act of logging into the system.  It requires
+                  that you provide a valid user name and some secret information
+                  that only you know (usually a password).  Two factor authentication
+                  requires that you also provide some information that is time varying
+                  and usually maintained by some third party.
+
+Authentication, establishes your identity to the computer system.
+                  Nothing more.  Normally your identity is in the form of some
+                  username and the associated groups that username belongs to.
+
+AuthorizationAuthorization allows access to some set of resources to a
+                  authenticated user.  For example, file system permissions
+                  allow and disallow specific users or groups of users types
+                  of access to files or groups of files (directory permissions).
+
+UserA user is an identity that can be authenticated. NSCLDAQ
+                  users are simply computer system users.
+
+RoleA role can be granted (or revoked) to a user of the
+                  NSCLDAQ manager and will, when  implemented, authorize the user
+                  the ability to perform specific types of operations in the experiment.
+                  When a user has been granted a role, they are said to
+                  *hold* that role.
+
+For example,
+                  We may have a "Shift operator" role which allows holder to
+                  start and stop runs or to set the run title or run number.
+                  The fact that we have not actually figured out the appropriate
+                  set of roles is why we also have not yet implemented
+                  role basd permissions in the manager as of NSCLDAQ-12.0
+
+The user interface of **mg_authedit** consists of
+            the following sections:
+
+
+
+- At the top is a tree view.  The top level items are users
+                    that have been defined to the expermiment.  Second level
+                    items (accessed by left clicking on the wedge icon to the left
+                    of a user's name) are the roles held by that user.
+- Below the treeview is a section that allows you to add new users.
+                    This is a frame with the lable Add user
+- Below the Add user  frame is a frame of
+                    widgets that allows you to add and delete roles.  This frame
+                    is labelled Add role.
+- At the bottom  of the user interface is a button labeled
+                    Save.   All changes to the users and
+                    roles and the roles granted to specific users are held within
+                    the user interface until the Save button
+                    is clicked.
+  To exit without saving updated roles and users, simply
+                  delete the window (on most window managers this means clicking)
+                  an X at the right top of the window banner.
+
+The treeview supports context menus both on user and roles they've
+            been granted.
+            Right clicking on a user brings up a context menu with the
+            following commands:
+
+
+
+Remove user...Prompts for confirmation and, if given, removes the user
+                    and, of course.  This operation cleans up  properly, that is
+                    first the user's roles are revoked and then the user
+                    him/herself is removed from the list of authorized users.
+
+Grant Roles...Pops up a list box populated with all of the roles the
+                    user does *not* have.  The list box
+                    supports multiple selection.  Select the rols you want to
+                    grant and click the Ok button.
+                    The Cancel button makes no changes
+                    to the granted roles.
+
+Revoke role(s)...Pops up a list box populated with the roles that have been
+                    granted to the user.  Multiple selections are allowed.
+                    Select the role(s) you wish to revoke from the user and
+                    click Ok to revoke them.  The
+                    Cancel button makes no changes
+                    to the granted roles.
+
+The context menu for a role can be accessed by right clicking on the
+            role.  It contains the following menu commands.
+
+
+
+RevokeRevokes that role, and that role only, from the associated
+                    user.
+
+Grant role(s)...As with the user context menu, allows you to grant additional
+                    roles to the user that holds this role.
+
+The Add user frame allows you to add users to the
+            list of authorized users. Simply type the username of the new
+            authorized user and click the Add button
+            to the right of the text entry.  If the user you type in is already
+            in the authorized list, an error dialog will pop up to inform you
+            of that.
+
+The Add role frame allows you to add and delete
+            roles.  To add a role, simply type the new role name and click the
+            add button. As with adding users,
+            an error message will pop up if you type in an existing role name.
+
+To delete a role, simply click the Delete...
+            button.  A list box will pop up populated with the names of all of the
+            roles that have been defined.   Select thew role(s) to remove and click
+            Ok to remove them.  Roles will be revoked from
+            all that hold them before being deleted so no dangling role references
+            will remain.  Clicking the Cancel button
+            makes no changes.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| NSCLDAQ Manager subsystem (new in 12.0) | Up | Running an Experiment With The Manager |

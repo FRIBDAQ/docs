@@ -1,0 +1,270 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL Ring buffer DAQ tutorial |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1889"></a>Appendix A. Format of Ring bufffer DAQ event files
+
+This information is provided for people who want to write
+            programs to analyze event files written by the RingDaq.
+            This appendix consists mostly of an annotated version of
+            DataFormat.h in the include
+            directory of a RingDaq installation.
+
+RingDaq event files consist of a stream of *items*
+            Each item has a header that consists of a 32 bit byte count
+            (not word count), and a 32 bit type code for the item.
+            Immediately following the header is the item payload.
+            The type code must have the most significant 16 bits set to
+            0 this allows you to determine the endian-ness
+            of the data by looking at which word of the type code is non-zero.
+
+The count (which may have to be byte swapped if the type code
+            indicates the byte order of the generating system is different than
+            analyzing system), is self inclusive.  Items can therefore be easily
+            skipped.
+
+32767 Types are reserved for use by the RingDaq software while
+            the remaining 32767 types can bge used by user applications with
+            special needs.
+
+DataTypes.h defines the type fields as follows:
+
+<a name="AEN1901"></a>**Example A-1. Item type codes**
+
+```
+// state change item type codes:
+
+static const uint32_t BEGIN_RUN(1);
+static const uint32_t END_RUN(2);
+static const uint32_t PAUSE_RUN(3);
+static const uint32_t RESUME_RUN(4);
+
+// Documentation item type codes:
+
+static const uint32_t PACKET_TYPES(10);
+static const uint32_t MONITORED_VARIABLES(11);
+
+// Scaler data:
+
+static const uint32_t INCREMENTAL_SCALERS(20);
+
+// Physics events:
+
+static const uint32_t PHYSICS_EVENT(30);
+static const uint32_t PHYSICS_EVENT_COUNT(31);
+
+// User defined item codes
+
+static const uint32_t FIRST_USER_ITEM_CODE(32768); /* 0x8000 */
+            
+```
+
+The payload structure descriptions will provide further information
+            about the meaning of each of these type codes.
+
+The structs below provide definitions used by RingDaq for both the
+            item headers and a generic item:
+
+```
+typedef struct _RingItemHeader {
+  uint32_t     s_size;
+  uint32_t     s_type;
+} RingItemHeader, *pRingItemHeader;
+
+
+typedef struct _RingItem {
+  RingItemHeader s_header;
+  uint8_t        s_body[1];
+} RingItem, *pRingItem;
+
+        
+```
+
+
+
+`s_size`Is the size of the ring item in bytes
+
+`s_type`Is the item type as described above.
+
+`s_header`Is the header of the item
+
+`s_body`Is a placeholder for the item payload.
+
+Normally if you get a RingItem or pRingItem
+            you will cast it to one of the specific ring item types described
+            below.  Doing that will provide a detailed break out of the payload.
+
+Run state changes are documented by inserting state change items that have the
+            structure shown below.  These have types that are one of
+            BEGIN_RUN, END_RUN,
+            PAUSE_RUN or RESUME_RUN.
+            If you receive a pointer to an item of this sort and cast it to a
+            pStateChangeItem, you'll be able to acces the payload fields.
+
+```
+typedef struct _StateChangeItem {
+  RingItemHeader  s_header;
+  uint32_t        s_runNumber;
+  uint32_t        s_timeOffset;
+  time_t          s_Timestamp;
+  char            s_title[TITLE_MAXSIZE+1];
+} StateChangeItem, *pStateChangeItem;
+        
+```
+
+
+
+`s_runNumber`Is the run number of the run that is undergoing
+                    a state transition.
+
+`s_timeOffset`Is the number of seconds into the run the transition occured.
+                    For a begin run, this is by definition 0.
+
+`s_Timestamp`Is the absolute time at which the run started.
+                    This is expressed in the unix time format as the number of
+                    seconds since midnight January 1, 1970 GMT.
+
+`s_title`A null terminated string containing a run title.
+                   You should not assume this array has any specific values after
+                   the first null.
+
+RingDaq periodically reads scaler data.  These result in ring items
+            of type INCREMENTAL_SCALARS.  The shape of this
+            ring item is shown below:
+
+```
+typedef struct _ScalerItem {
+  RingItemHeader  s_header;
+  uint32_t        s_intervalStartOffset;
+  uint32_t        s_intervalEndOffset;
+  time_t          s_timestamp;
+  uint32_t        s_scalerCount;
+  uint32_t        s_scalers[1];
+} ScalerItem, *pScalerItem;
+        
+```
+
+
+
+`s_intervalStartOffset`The number of seconds into the run at which the
+                    interval over which the scalers were accumulated started.
+
+`s_intervalEndOffset`The number of seconds into the run at which the
+                    scaler counting interval ended (when the scalers were
+                    read and cleared).
+
+`s_timestamp`The Unix timestamp at which the scalers
+                        were read.
+
+`s_scalerCount`The number of scalers actually read.  Scalers
+                    are assumed to be uint32_t devices.
+
+`s_scalers`Placeholder for an array of `s_scalerCount`
+                    32 bit unsigned scaler values.
+
+Two item types have a payload which is just an array of null
+            terminated strings.  The contents of these strings depends
+            on the actual item type.  These ares stored in `TextItem`
+            items.  The meaning and contents of each string depends on the item type.
+
+
+
+PACKET_TYPESThis item contains strings that describe the set of
+                    `CDocumentedPackets` that occur within a run.
+                    Each string is a colon separated set of fields containing in order
+                    the packet id, short packet name, packet description, packet
+                    version and the date/time at which the packet was instantiated.
+
+MONITORED_VARIABLESThis item contains monitored variable values.   A monitored
+                    variable is a Tcl variable whose value is periodically
+                    written to the event file.  The value of one of these variables
+                    might change either because the readout software changed it or,
+                    more commonly because the server component of the readout framework
+                    was enabled and a client poked a new value to the variable
+                    (e.g. as in EPICS monitoring).
+
+Each string consists of a Tcl script fragment that, if executed
+                    in an interpreter will set that specified variable to its
+                    value at the time the item was emitted.  For example
+                    **set something something-else**.
+
+Strings are null terminated.
+
+The complete format of the `TextItem`
+            ring item is:
+
+```
+typedef struct _TextItem {
+  RingItemHeader s_header;
+  uint32_t       s_timeOffset;
+  time_t         s_timestamp;
+  uint32_t       s_stringCount;
+  char           s_strings[1];
+} TextItem, *pTextItem;
+        
+```
+
+
+
+`s_timeOffset`Number of seconds into the run at which this item was emitted
+
+`s_timestamp`Unix timestamp for the absolute time at which this item was
+                    emitted.
+
+`s_stringCount`The number of strings that are in the payload.
+
+`s_strings`Placeholder for the `s_stringCount`
+                    null terminated fields.
+
+Each trigger produces a PHYSICS_EVENT item.
+            The format of the event is assumed to be completely up to the
+            readout framework (it is envisioned that in the future there
+            will be other readout frameworks available).  The
+            `PhysicsEventItem`, therefore is identical
+            in shape to the `RingItem`:
+
+```
+typedef struct _PhysicsEventItem {
+  RingItemHeader s_header;
+  uint16_t       s_body[1];
+} PhysicsEventItem, *pPhysicsEventItem;
+        
+```
+
+From time to time a `PhysicsEventCount` item is
+            emitted.  This item allows the data rate to be easily computed
+            (accepted triggers/sec).  It also allows sampling consumers such as
+            SpecTcl to compute the fraction of the data they have analyzed.
+            These items are of type PHYSICS_EVENT_COUNT and
+            have the following shape:
+
+```
+typedef struct __PhysicsEventCountItem {
+  RingItemHeader s_header;
+  uint32_t       s_timeOffset;
+  time_t         s_timestamp;
+  uint64_t       s_eventCount;  /* Maybe 4Gevents is too small ;-) */
+} PhysicsEventCountItem, *pPhysicsEventCountItem;
+
+        
+```
+
+
+
+`s_timeOffset`Seconds into the run at which this item was emitted.
+
+`s_timestamp`Unix timestamp for the absolute time at which this
+                    item was emitted.
+
+`s_eventCount`Number of triggers accepted so far in the run.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Attaching to a ring buffer data source |  | User written triggers |

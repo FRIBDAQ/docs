@@ -1,0 +1,51 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1585"></a>pman
+
+<a name="AEN1589"></a>## Name
+
+pman -- Manipulate data analysis piplines
+
+<a name="AEN1592"></a>## Synopsis
+
+**pman**   mk   *pipe-name*
+
+**pman**   ls  [ choice='opt'>glob-pattern]
+
+**pman**   current
+
+**pman**   ls-all  [*glob-pattern*]
+
+**pman**   ls-evp  [*glob-pattern*]
+
+**pman**   use   *pipe-name*
+
+**pman**   add   *pipename* *evpname*
+
+**pman**   rm   *pipe-name* *evp-name*
+
+**pman**   clear   *pipe-name*
+
+**pman**   clone   *existing-pipe* *new-pipe*
+
+**pmain**   rmevp   *evp-name*
+
+<a name="AEN1651"></a>## DESCRIPTION
+
+Manipulate SpecTcl's dynamic event processing pipeilne.
+                    This command is wrappwed with  a `CMPITclCommandAll`.
+                    It manipulates the analyzer and, as such, in ranks that have no analyzers,
+                    it returns a status of TCL_OK and no result.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| parameter | Up | project |

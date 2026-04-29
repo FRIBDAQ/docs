@@ -1,0 +1,124 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1337"></a>3.19. Accessing the SpecTcl parameter command (new in 5.4)
+
+The /spectcl/parameter domain of URLS actuall
+                gives access (mostly) to the SpecTcl **treeparameter**
+                command.  The set of URLs described in this section provide
+                access to the raw **parameter** command. Note that
+                while this command is not much used, it is part of the
+                SpecTcl command set and therefore a comprehensive REST interface
+                must support it.
+
+URL's of the form
+
+<a name="AEN1344"></a>**http://host:port/spectcl/rawparameter/new?name=pname&number=id[&resolution=bits&low=l&high=hi&units=units]
+                **
+
+Provide support for creating a new parameter definition.  A
+                parameter definition makes a correspondence between a name and
+                a slot in the `CEvent` pseudo array that
+                the SpecTcl event processing pipeline fills in.  Additional
+                metadata can be provided for documentation purposes.
+                As such there are required parameters and optional parameters
+                and some optional parameters are coupled, in the sense that
+                they require other optional parameters to be present as well.
+
+The query parameters mean:
+
+
+
+name (required)Name of the parameter.  This name must be unique.
+
+number (required)The parameter id.  This value must also be unique.
+                        It specifies the slot in the `CEvent`
+                        object in which that parameter will be placed by the
+                        event processing pipeline.
+
+units (optional)Units of measure of the parameter (metadata). This
+                        value is not interpreted by SpecTcl but is associated
+                        with the parameter definition.
+
+resolution (optional)Provides the number of bits of resolution the
+                        parameter has.  This is most useful for
+                        paramters that come from the hardware.  SpecTcl
+                        does not interpret this value.
+
+low (optional but...)Assumed low limit of the parameter values.  This also
+                        requires resolution,
+                        high and units
+                        be present.  This value is not interpreted by SpecTcl
+
+high (optional but...THe assumed high limit of parameter values.  This
+                        also requries resolution,
+                        low and units be present.
+                        This value is not interpreted by SpecTcl.
+
+Once created, a parameter may be deleted using URLs of the following
+                form:
+
+<a name="AEN1390"></a>**http://host:port/spectcl/rawparameter/delete?name=pname
+                **
+
+**http://host:port/spectcl/rawparameter/delete?id=pid
+                **
+
+As you can see there are two alternative forms. The first form
+                uses the name to specify the name of the
+                parameter to delete while the second form, uses the
+                id to specify the parameter id
+                (`CEvent` slot) of the parameter to
+                delete.
+
+Finally, the parameters and their attrubutes can be listed
+                using one of the two URL forms below:
+
+<a name="AEN1400"></a>**http://host:port/spectcl/rawparameter/list?pattern=glob-pattern
+                **
+
+**http://host:port/spectcl/rawparameter/list?id=pid
+                   **
+
+The first form lists the parameter sthat match the
+                glob-pattern provided to the
+                pattern query parameter while the
+                second form provides only the parameter with the
+                parameter id given by the id
+                query parameter.
+
+The detail attribute of the returned JSON
+                contains an array of objects. Each object describes one parameter.
+                Some of the attributes of these objects are present in all
+                elements but the presence or absence of others depends on how
+                the parameter was defined.  The attributes are:
+
+
+
+name (always present)Name of the parameter being described.
+
+id (always present)Id (`CEvent` slot) of the parameter.
+
+resolution (optional)Only present if the resolution of the parameter was
+                        specified, this is that resolution.
+
+low (optional)Only present if the parameter low limit was specified,
+                        this is that low limit.
+
+high (optional)Ony present if the parameter high limit was specified,
+                        this is that high limit.
+
+units (optional)Only present if the parameter units of measure were
+                        specified.  The units of measure string.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the integrate command (new in 5.5) | Up | Accessing the pseudo command (new in 5.5) |

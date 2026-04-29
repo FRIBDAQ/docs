@@ -1,0 +1,100 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1_xlmload"></a>xlmload
+
+<a name="AEN19233"></a>## Name
+
+xlmload -- Load firmware into XLM modules.
+
+<a name="AEN19236"></a>## Synopsis
+
+**xlmload**  [`--base base-address | ``--slot slot-num`]  
+ [`--serial serial-string `  | 
+            `--host hostname` `--module sc-modulename`
+             [`--port port-no`]
+        ]  
+***firmware-file***
+
+<a name="AEN19259"></a>## DESCRIPTION
+
+Loads and boots and XLM FPGA module either by a directly
+            connected VM-USB or via a VMUSBReadout slow control server.
+
+<a name="AEN19262"></a>## OPTIONS
+
+The options come in sets of mutually exclusive groups.  This is
+            because there are two ways  to specify the XLM being loaded
+            (by slot or base address), and there are two ways to specify
+            the VMUSB to load, by serial number for direct connection and
+            by host, port and module for loads done via a VMUSBReadout's
+            vmusb slow control module.
+
+<a name="AEN19265"></a>### Options that specify the XLM to load.
+
+There are two potential options you can use.  They are
+                mutually exclusive:
+
+
+
+`--slot slot-num`For XLM's which support geographical addressing,
+                            this is the slot containing the VMUSB.  The base
+                            address of the module is then computed from this
+                            slot number.
+
+`--base base-address`Specifies the actual base address of the XLM.
+                            For modules which support geographical addressing
+                            this is slot << 27, where
+                            << is a bitwise left shift
+                            operator.  See also the `--slot`
+                            option above.
+
+<a name="AEN19284"></a>### Options that specify how to connect to the VMUSB
+
+xlmload is capable of loading XLM modules either via a direct
+                connection to a VMUSB or over the slow control server of
+                a VMUSBReadout instance.  If the latter is used, a
+                vmusb module must be defined in the
+                control configuration file.
+
+If no connection options are specified, a local connection
+                to the first enumerated VMUSB in the local system is used.
+                If there are several VMUSB controllers attached to the same
+                system, the `--serial` option can be used to
+                specify the serial number string of the desired module.
+                This string can be found on a sticker on the component side
+                of the VMUSB module.  It is of the form
+                VMnnn where nnn is a
+                number.  The entire string must be supplied e.g.
+                VM123.
+
+If the XLM will be loaded via a slow control server,
+                the following options specify the slow control server and
+                the VMUSB module defined in that server.
+
+
+
+`--host host`Specifies the host in which the VMUSBReadout
+                            is running.  This can be either a DNS name
+                            or  a dotted IP address.
+
+`--port port-num`Specifies the port on which the VMUSBReadout program
+                            is listening for slow control connections.  This
+                            defaults to 27000 which is the
+                            default for the slow controls server.
+
+`--module modname`Specifies the name of the slow controls module
+                            that provides VMUSB access via the slow controls
+                            server in the control configuration file.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| eventlog | Up | ccusbloader |

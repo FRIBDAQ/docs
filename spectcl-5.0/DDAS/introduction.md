@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl DDAS Unpackers Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction>
+
+SpecTcl's libDDASUnpacker.so library provides
+        several tools that allow you to manage data from the NSCL XIA/DDAS
+        data aquisition system.  This book will help you understand how to use
+        those tools.  Note that there is additional documentation available
+        amongst the DDASDocuments.
+
+Topics we will cover in this manual include:
+
+
+
+[[c40]]Which will describe the `DAQ::DDAS::DDASHit`
+                    class.  This class encapsulates the data from a single
+                    channel of a DDAS event (or hit).
+
+[[c111]]Will describe the two unpackers provided by SpecTcl for
+                    DDAS data and when to use each one of them.  Attention
+                    will be given to what you need to add to this code to
+                    map DDAS hits to parameters in a SpecTcl event.
+
+[[c176]]Describes two file driven parameter mapping classes you can use
+                    with the unpackers in the previous chapter to avoid having
+                    to recompile SpecTcl has you modify your mappings.
+
+[[c257]]Will provide reference information for the classes described
+                    in the first set of chapters of this guide.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl DDAS Unpackers Guide. |  | The DDASHit class. |

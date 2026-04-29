@@ -1,0 +1,45 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Quick Start
+
+This chapter is intended to get you up and running with VMUSBSpecTcl and 
+            custom configured SpecTcl's that don't extend the SpecTcl command set.
+            I'll describe:
+
+
+
+- What mpiSpecTcl is.
+- How to know if your version of SpecTcl supports MPI Parallelism
+- Environment variables you will need to set to run MPI mpiSpecTcl
+- How to run mpiSpecTcl with parallel event processing pipelines
+- Debugging mpiSpecTcl tailored code.
+
+# <a name="AEN27"></a>1.1. What is mpiSpecTcl
+
+mpiSpecTcl can be used with SpecTcl version 7.0 or later.  It supports
+                scalable performance by parallelizing the event processing pipeline.
+                When you run mpiSpecTcl, events from the data source are distributed
+                between one or more *worker processes*. Each of these
+                processes passes events through its copy of the event processing pipeline and
+                sends the parameters it produces to another process running the event sink
+                pipline (histogramer).
+
+Since in many nuclear science experminents, each event can be analyzed independently 
+                of all other events, running more than one worker process will scale up the rate at which
+                events can be processed until data transfer limits this scaling.
+
+For a more detailed description of how mpiSpecTcl works, see:
+                [[c362]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mpiSpecTcl. |  | Checking for support of MPI parallelism. |

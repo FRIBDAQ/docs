@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6057"></a>dbconfig::connect
+
+<a name="AEN6061"></a>## Name
+
+dbconfig::connect -- Connect to a database
+
+<a name="AEN6064"></a>## Synopsis
+
+```
+package require dbconfig
+
+set handle [dbconfig::connect file-name]
+                        
+```
+
+<a name="AEN6066"></a>## DESCRIPTION
+
+Form a connection to an existing database
+                            in the file:
+                            `file-name`.  The return
+                            value is a handle that will be used in other
+                            databsae calls.  Note that the handle is actually
+                            a database instance command (see reference material on
+                            the Tcl bindings to the database API).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::makeSchema | Up | dbconfig::openSaveSet |

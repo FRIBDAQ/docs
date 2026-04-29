@@ -1,0 +1,138 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN43"></a>Chapter 2. The Ring Buffer
+
+# <a name="AEN45"></a>2.1. Overview
+
+A ring buffer is a fundamental component of the system NSCLDAQ uses to
+        pass data from one process to another. It is basically just a piece of
+        memory that is accessible to multiple processes. Access is however
+        controlled in such a way that only one process can contribute data to it
+        while many processes can read from it. There is only allowed to be a
+        single producer per ring buffer while there may be any number of
+        consumers.
+
+Ring buffers are local to a specific computer but are accessible
+        over the network. Each ring buffer is identified by a user-defined name
+        and the hostname of the computer it is located on. When processes want to
+        attach to a ring to either produce or consume its data, they must specify
+        the name of the ring via a universal resource identifier (URI). The URI
+        specifies the protocol (proto://), the hostname
+        (host), and the name of the ring
+        (name) as a single string:
+        proto://host/name. Ring buffers can be accessed by
+        using either the ring:// or tcp:// protocols (they are identical). When a
+        user attaches to a ring on another computer, a service running in the
+        background called RingMaster sets up the connection
+        that will stream the data across the network for you. In this way, the
+        nework is basically transparent.
+
+Sometimes it is useful to know what ring buffers exist. You can
+        determine this using the **ringbuffer status**
+        command. Doing so might produce the following ouput:
+
+```
+spdaqxx> ringbuffer status
++-----+------------+-------+-------------+--------+---------+---------+------+-------------+
+|Name |data-size(k)|free(k)|max_consumers|producer|maxget(k)|minget(k)|client|clientdata(k)|
++-----+------------+-------+-------------+--------+---------+---------+------+-------------+
+|0400x|8194        |8194   |100          |26550   |0        |0        |-     |-            |
+|-    |-           |-      |-            |-       |-        |-        |26552 |0            |
+|test |8194        |8194   |100          |-1      |0        |0        |-     |-            |
++-----+------------+-------+-------------+--------+---------+---------+------+-------------+
+    
+```
+
+The leftmost column of the table specifies the name of the ring
+      buffers on the system. Only rows with names other than "-" are
+      actually ring buffers. Here you see there are two rings whose
+      names are 0400x and test. The middle row that has a name entry of
+      "-" is actually a row containing information for a client or
+      consumer process attached to the 0400x ring buffer. The number in
+      the client column is the pid of the consumer process. The producer column
+      of the 0400x and test rows specify the pid of process except that it
+      is for the producer process. You can see that the 0400x
+      ring has a producer process with pid 26550, whereas the test ring
+      has no producer process (pid=-1). Note also that the test
+      ring buffer also does not have any consuming processes.
+
+By default, when listing rings on the same system you will only see the
+      rings your account owns.  See the manpage
+      [[r12110]]
+      for information about how to filter rings listed in the table.
+
+You can create a new ring buffer whose name is "myring" by typing:
+
+```
+spdaqxx> ringbuffer create myring
+spdaqxx> ringbuffer status
++------+------------+-------+-------------+--------+---------+---------+------+-------------+
+|Name  |data-size(k)|free(k)|max_consumers|producer|maxget(k)|minget(k)|client|clientdata(k)|
++------+------------+-------+-------------+--------+---------+---------+------+-------------+
+|0400x |8194        |8194   |100          |26550   |0        |0        |-     |-            |
+|-     |-           |-      |-            |-       |-        |-        |26552 |0            |
+|myring|8194        |8194   |100          |-1      |0        |0        |-     |-            |
+|test  |8194        |8194   |100          |-1      |0        |0        |-     |-            |
++------+------------+-------+-------------+--------+---------+---------+------+-------------+
+    
+```
+
+You can clearly see that this create a brand new ring buffer on
+      the system. Likewise, you can also delete ringbuffers. In general
+      it is best to only delete them when there are no consuming
+      processes. For illustration, I will delete the ring I just
+      created.
+
+```
+spdaqxx> ringbuffer delete myring
+spdaqxx> ringbuffer status
++-----+------------+-------+-------------+--------+---------+---------+------+-------------+
+|Name |data-size(k)|free(k)|max_consumers|producer|maxget(k)|minget(k)|client|clientdata(k)|
++-----+------------+-------+-------------+--------+---------+---------+------+-------------+
+|0400x|8194        |8194   |100          |26550   |0        |0        |-     |-            |
+|-    |-           |-      |-            |-       |-        |-        |26552 |0            |
+|test |8194        |8194   |100          |-1      |0        |0        |-     |-            |
++-----+------------+-------+-------------+--------+---------+---------+------+-------------+
+    
+```
+
+The only other thing that is worth mentioning is that ring buffers
+      can be reset to an initial state. This process is called
+      formatting the ring buffer. It is done very analogously to the
+      creation and deletion commands.
+
+```
+spdaqxx> ringbuffer format myring
+    
+```
+
+You may wonder why this is useful. Well, it is typically only
+      useful if the producing process for the ring buffer exits badly.
+      As you can see, each ring buffer keeps track of the processes that
+      are are attached to it. Usually when one of these processes
+      terminates, the ring buffer updates its records. However, if one
+      of these processes exits uncleanly (e.g. segmentation fault), the
+      ring may not properly get notified causing it to think that the
+      now nonexistent process is still attached to it. For consumer
+      processes, this is not the end of the world. However, if the
+      process was a producer, the ring buffer will not allow a new
+      producer process to attach to it. In this case, the ring buffer is
+      just fooled and needs to be reset using the ringbuffer format.
+
+Complete reference documentation of the
+      **ringbuffer** 
+      can be found in the
+      [[r12110]] reference pages
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extensibility and Openness | Up | Data Transfer and Flow Control |

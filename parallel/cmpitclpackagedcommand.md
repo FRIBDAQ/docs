@@ -1,0 +1,53 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1052"></a>CMPITclPackagedCommand
+
+<a name="AEN1056"></a>## Name
+
+CMPITclPackagedCommand -- Jacket packagted commands to run in all but he root.
+
+<a name="AEN1059"></a>## Synopsis
+
+```
+#include <MPITclPackagedCommand.h>
+class CMPITclPackagedCommand : public CTCLPackagedObjectProcessor 
+{
+public:
+    CMPITclPackagedCommand(CTCLInterpreter& interp, const char* command, CTCLPackagedObjectProcessor* pActual);
+ rotected:
+    virtual int operator()(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);
+};
+                
+```
+
+<a name="AEN1061"></a>## DESCRIPTION
+
+Similar to `CMPITclCommand`, `CTMPITclPackagedCommand`
+                    wraps a packaged command that will be executed in all processes other than the root process.
+
+
+
+**METHODS**
+
+`  CTCLPackagedObjectProcessor(CTCLInterpreter& interp, const char* command, CTCLPackagedObjectProcessor* pActual);`Wraps the command processor `pActual` so that when
+                            `command` is invoked in the `interp`
+                            interpreter, it will be invoked in all but the root process.
+
+` int operator()(CTCLInterpreter& interp, std::vector<CTCLObject>& objv);`Called in when the command registered is invoked in `interp`
+                            If this is the root process, all other processe will be asked to execute this
+                            command.  If th is is a non-root process, the encapsulated command processor
+                            is asked to execute the command whose words are `objv`.
+                            Note that objv[0] is the command name that dispatched this command.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CMPITclPackagedCommandAll | Up | SpecTcl commands in the mpiSpecTcl environment |

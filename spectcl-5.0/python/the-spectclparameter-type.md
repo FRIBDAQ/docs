@@ -1,0 +1,26 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev | Chapter 3. The pythonspectclpackage | Next |
+
+
+---
+
+# <a name="AEN294"></a>3.2. The spectcl.parameter type
+
+**Table of Contents**[[r298]] -- Wrap SpecTcl parameter/treeparameters
+
+The `spectcl.parameter` data type
+                is a wrapping of both SpecTcl parameters and treeparameters
+                that wrap it.  It allows you to bind to an existing
+                tree parameter and to create new tree parameters that may
+                bind to exising parameters or even create new parameters
+                (although doing this after your analysis pipeline is setup is
+                probably not that useful).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The pythonspectclpackage | Up | parameter |

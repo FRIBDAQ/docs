@@ -1,0 +1,19 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+<a name="AEN8199"></a># III. 1epics
+
+**Table of Contents**[[r8201]] -- Write a set of channels to file[[r8257]] -- 
+            Push epics data into a Tcl Server (e.g. production readout).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| tkdumper | Up | chanlog |

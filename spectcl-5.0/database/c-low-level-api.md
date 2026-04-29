@@ -1,0 +1,307 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN65"></a>Chapter 3. C++ Low level API
+
+This section provides an overview of the C++ classes that make up the
+            database API.  Before we start, the API philosophy is that you
+            will write once, never modify but restore several times.
+            As such you'll see that there are no methods supporting
+            either removing entities saved in the database or, with the exception
+            of saved spectrum contents, modifying existing stored objects.
+            This is a design choice and not an oversight.
+
+The API consists of several classes all living in the SpecTclDB
+            namespace:
+
+
+
+`CDatabase`Represents database files.  Methods in this file allow you
+                    to create a properly initialized database file, connect
+                    to the file, create and get information about the save set
+                    objects in the file.
+
+`SaveSet`This class represents save set objects.  Given a database
+                    object, one can create savesets in that data base and
+                    load them.  Given a save set object, one can create
+                    and manipulate any of the objects in the save set.
+
+`DBParameter`These represent parameter definitions within a save set.
+                    This class can create and lookup parameter definitions
+                    give a saveset.
+
+`DBSpectrum`Represents spectrum objects within a save set.
+
+`DBGate`Represents a gate object in a saveset.
+
+`DBApplication`Represents the application of a gate to a spectrum.
+
+DBTreeVariableRepresents a tree variable saved in a save set.
+
+The Top level classes, `CDatabase` and
+            `SaveSet` are written so that normally,
+            you will not have to create or manually lookup the other
+            individual objects.
+
+# <a name="AEN108"></a>3.1. `SpecTclDB::CDatabase`
+
+This section will introduce the `CDatabase`
+                class through a set of simple examples.  These examples
+                include code fragments that:
+
+
+
+1. Create and attach a database.
+2. Create and lookup a save set.
+3. List the savesets that are already known to a database.
+
+These examples and a sample Makefile built along the lines
+                described below are installed in the
+                share/dbexamples directory of SpecTcl's installation
+                directory tree.
+
+If you intend to do serious programming with this class library,
+                you should study the reference material in the appendix.
+
+Before we can write any code, we need to be able to link
+                compile and link our programs to this library. This requires
+                a set of compilation and link flags.  In both cases below, in order
+                to factor out the distribution directory for SpecTcl, we'll assume
+                that the environment variable SPECTCLHOME is defined to be the
+                top level directory of the SpecTcl installation  you are using.
+                Note that environment variables are imported to Makefiles as
+                Makefile variables (e.g. $(SPECTCLHOME) is the environment variable
+                SPECTCLHOME).  SpecTcl depends on Root so we're also going to
+                assume that ROOTSYS is defined and points to the directory
+                from wich SpecTcl was linked with root.  As of version 5.3-007,
+                the $SPECTCLHOME/VERSION file will tell you the value used for
+                ROOTSYS.
+
+**Compilation flags: **
+                    Compilation flags must ensure that the SpecTcl Headers
+
+
+
+-I$SPECTCLHOME/includeMakes the SpecTcl installation's include file
+                                directory searchable for #include
+                                directives in your source code.
+
+**Link flags. **
+
+
+
+-L$SPECTCLHOME/libMakes the SpecTcl installation's library directory
+                                searchable for libraries on the link line.
+
+-Wl,-rpath=$SPECTCLHOME/libAdds the SpecTcl library directory to the search
+                                path used by the run time loader to locate shared
+                                libraries needed by your program.
+
+-Wl,-rpath=$ROOTSYS/libAdds root's library directory to the shared object
+                                load search path.
+
+-lSpecTclDbPulls in the SpecTcl database API.
+
+-lTclGrammerAppPulls in the SpecTcl main library.
+
+-lSqlite3ppPulls in a C++ encapsulation of sqlite3.
+
+-lsqlite3Pulls in the Sqlite3 API.
+
+A final note.  If root was not built with internal -rpath's
+                turned on the sample program in this manual (and even
+                SpecTcl itself) may fail with an error like
+
+./makedb: error while loading shared libraries: libvdt.so:
+                cannot open shared object file: No such file or directory
+            
+                If that is the case then set up the full Root environment
+                by $ROOTSYS/bin/thisroot.sh
+
+Let's look at the simplest example.  A complete program
+                that creates an empty database. The program takes a
+                databsae filename on the command line as a single argument.
+
+<a name="AEN177"></a>**Example 3-1. Createing an empty database (makedb.cpp)**
+
+```
+#include <SpecTclDatabase.h>               
+#include <iostream>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  if (argc != 2) {
+    std::cerr << "Usage: makedb db-filenme\n";
+    exit(EXIT_FAILURE);
+  }
+
+  SpecTclDB::CDatabase::create(argv[1]);          
+
+  exit(EXIT_SUCCESS);
+}
+
+                
+```
+
+[[c65#makedb.includes]]                        Including this header brings the class definition of
+                        `SpecTclDB::CDatabase` into our
+                        program.
+                    [[c65#makedb.create]]                        This line creates a new empty database. The
+                        static method `create` in
+                        `SpecTclDB::CDatabase` takes
+                        a null terminated (C) string and creates a new database
+                        in that file.
+                    It is not harmful to call this on a database file that
+                        has already been initialized with the SpecTcl database
+                        schema as the SQL used is of the form
+                        CREATE ... IF NOT EXISTS.
+
+Using this method on an existing database file used for
+                        another purpose will add the schema needed to
+                        also use that file as a SpecTcl database; as long
+                        as there are no collisions in table and index names.
+
+Using this method on a file that is not an sqlite database
+                        will result in an error message indicating the file is
+                        not a database file.
+
+Let's look at another simple full program.  This
+                program will open an existing  database and create a saveset
+                named a saveset in the database.
+                The program will also demonstrate very simple error detection.
+
+<a name="AEN196"></a>**Example 3-2. Creating savesets in a database (makesaveset.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>                
+#include <iostream>
+#include <stdexcept>
+#include <stdlib.h>
+
+
+int main(int argc, char** argv)
+{
+  if (argc != 2) {
+    std::cerr << "Usage: makesaveset database-name\n";
+    exit(EXIT_FAILURE);
+  }
+  try {
+    SpecTclDB::CDatabase db(argv[1]);     
+
+    SpecTclDB::SaveSet* pSaveset = db.createSaveSet("a saveset"); 
+    delete pSaveset;
+  }
+  catch (std::exception& e) {
+    std::cerr << "Error: " << e.what() << std::endl; 
+    exit(EXIT_FAILURE);
+  }
+  exit(EXIT_SUCCESS);
+
+}
+
+                
+```
+
+[[c65#makesvset.savesetheader]]                    We'll be using a method from the
+                    `SpecTclDB::SaveSet` class. This
+                    #include pulls the definition of that
+                    class and its methods into our program.
+                [[c65#makesvset.opendb]]                    In the previous example, we saw that the static
+                    `create` method for the
+                    `SpecTclDB::CDatabase` class
+                    created and initialized a database file.  The
+                    `SpecTclDB::CDatabase` class constructor
+                    creates a database object that is connected to an already
+                    created database file.
+                [[c65#makesvset.makeset]]                    This line asks the database object to create a new saveset.
+                    On success, a pointer to the saveset object that encapsulates
+                    the saveset in the database is created. Note that savesets
+                    must have unique names.  Try running this program on
+                    the same database twice.
+                [[c65#makesvset.errors]]                        The database API reports errors by throwing exceptions that
+                        are derived from `std::exception`.
+                        Errors, therefore are handled by this catch block. Any
+                        meaningful message held by the exception object is
+                        reported here.
+                    If you do try the experiment of runing this program
+                        on a saveset twice, this code will tell you the
+                        saveset already exists.
+
+As an excersise, modify this program to accepts, as a second
+                parameter, the name of the save set to create.  In the
+                next, and last example in this section,
+                we'll list the names of all of the savesets
+                in a database.
+
+<a name="AEN220"></a>**Example 3-3. Listing savesets (lssaveset.cpp)**
+
+```
+#include <SpecTclDatabase.h>
+#include <SaveSet.h>
+#include <iostream>
+#include <stdexcept>
+#include <stdlib.h>
+
+
+int main(int argc, char** argv)
+{
+  if (argc != 2) {
+    std::cerr << "Usage: lssaveset db-filename\n";
+    exit(EXIT_FAILURE);
+  }
+  SpecTclDB::CDatabase db(argv[1]);
+  auto savesets = db.getAllSaveSets();                 
+  std::cout << " Save sets in " << argv[1] << std::endl; 
+  for (int i =0; i < savesets.size(); i++) {
+    std::cout << savesets[i]->getInfo().s_name << std::endl; 
+    delete savesets[i];                                  
+  }
+}
+
+                
+```
+
+[[c65#lssvset.getall]]                        The `getAllSaveSets` of
+                        `SpecTclDB::CDatabase` returns
+                        an indexable collection of pointers to the save set
+                        objects that encapsulate all of the savesets in the
+                        database.
+                    A look at the header will tell you that `savesets`
+                        is actually a
+                        `std::vector<SpecTclDB::SaveSet*>`.
+                        We could have used that type declaration.  There are
+                        a couple of reasons we didn't. One sensible the other lazy.
+                        By letting the compiler figure out the actual type
+                        for `savesets`, the implementation of
+                        `getAllSaveSets` could change and,
+                        as long as the type returned suported
+                        `size` and
+                        `operator[]`, our code would
+                        not need to change.  Second, this saved us a bunch of
+                        typing in the code, at the cost of this paragraph
+                        of explanation.
+
+[[c65#lssvset.name]]                        Saveset objects have a
+                        `getInfo` method.  This method
+                        returns a const reference to a struct that contains
+                        information cached from the database about the saveset.
+                        The `s_name` field of this
+                        struct contains a printable name (actually a
+                        `std::string`).
+                    [[c65#lssaveset.del]]                        Since `getAllSaveSets` dynamically
+                        creates the save set objects it returns, these must be
+                        delete-d as they are no longer needed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| What you can do with the SpecTcl Sqlite database package. |  | The SpecTclDB::SaveSet class. |

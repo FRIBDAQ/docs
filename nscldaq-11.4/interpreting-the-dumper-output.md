@@ -1,0 +1,122 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 12. Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register | Next |
+
+
+---
+
+# <a name="AEN7179"></a>12.6. Interpreting the dumper output
+
+When the run started, the **dumper** program should
+              have dumped the data contained in the first ten ring items. Each
+              chunk of data is separated from the next by a row of dashes. The
+              first ring item specified the data format; the second, some
+              information about the transition to actively taking data; the
+              third, documentation about the packet we defined; and the forth, event
+              statistics information. This is effectively what those look like.
+
+```
+              -----------------------------------------------------------
+Ring items formatted for: 11.0
+-----------------------------------------------------------
+Fri Feb 20 13:56:08 2015 : Run State change : Begin Run at 0 seconds into the run
+Body Header:
+Timestamp:    18446744073709551615
+SourceID:     0
+Barrier Type: 1
+Title     : Set New Title
+Run Number: 0
+-----------------------------------------------------------
+Fri Feb 20 13:56:08 2015 : Documentation item Packet typesBody Header:
+Timestamp:    18446744073709551615
+SourceID:     0
+Barrier Type: 0
+0 seconds in to the run
+My Packet:0xff00:Sample documented packet:1.0:Fri Feb 20 13:56:04 2015
+
+-----------------------------------------------------------
+No body header
+Fri Feb 20 13:56:08 2015 : 0 Triggers accepted as of 0 seconds into the run
+ Average accepted trigger rate: -nan events/second
+              
+            
+```
+
+The remainder of the output should have been event data that was
+              filled in by the MyEventSegment::read() method. Each of these
+              starts off indicating the size of the event body. They are all 22
+              bytes long. The next four lines specify the information contained
+              in the body header, and then the body data is the list of
+              16-bit-wide, hexadecimal numbers that follow. The first two of
+              these words specify the inclusive size of the entire body in units of
+              16-bit words; it was added by the Readout framework for us. Here is a
+              sample of the first dumped event.
+
+```
+              -----------------------------------------------------------
+Event 22 bytes long
+Body Header:
+Timestamp:    0
+SourceID:     0
+Barrier Type: 0
+000b 0000 0009 0000 ff00 5200 0100 5001
+4e2a 5400 0000
+              
+            
+```
+
+You can see that the body header contains correct information. We
+              derived the timestamp from the event count and this is the first
+              event, so it should be zero.  You should see that the subsequent
+              events have timestamps that increment by one from one event to the
+              next. The source id is 0, because that is the default value and we
+              didn't specify an alternative. Finally, the barrier type is 0,
+              which is correct for all physics events.
+
+The first 32-bits of the body form the inclusive size. Here that number 
+              is 0x0000000b or 11. That makes good sense because we can
+              count 11 16-bit words in the body that was dumped.
+
+The remainder of the body is the packet we defined in our
+              MyEventSegment::read() function. The structure of the documented
+              packet is a 32-bit inclusive size, 16-bit type, and then generic
+              data filled in by the V785. By looking at the manual for the V785, we learn that 
+              it adds a series of 32-bit words. So to help understand the
+              data in our packet, I will rewrite it in a clearer way by
+              reordering and grouping these 16-bit chunks. The packet has the
+              form:
+
+<a name="AEN7191"></a>**Example 12-3. The Packet Data **
+
+```
+00000009 
+ff00     
+52000100 
+50014e2a 
+54000000 
+              
+```
+
+[[x7179#docpkt_size]]                  The 32-bit inclusive size is just 9 16-bit words.
+                [[x7179#docpkt_id]]                  The 16-bit packet type is the number 0xff00 that we defined.
+                [[x7179#docpkt_bufstart]]                  This is the 32-bit buffer header produced by the V785. It
+                  encodes the following information: slot=10, pieces of data in
+                  buffer = 1.
+                [[x7179#docpkt_data]]                  The only piece of the data in the buffer produced by the V785.
+                  This says that the value was 0xe2a or 3626 and that it
+                  corresponds to channel 1 of of the module in slot 10.
+                [[x7179#docpkt_end]]                  The final 32-bit word is the end of block marker for the V785.
+                  The lower 24-bits form the event count and it specifies it is
+                  for the card in slot 10. Because this is the first event, the
+                  event count is 0.
+
+The makes complete sense and this we can now rest assured that our
+            system is set up correctly.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running the Readout Program | Up | device-support |

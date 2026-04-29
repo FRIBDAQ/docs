@@ -1,0 +1,48 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6101"></a>dbconfig::listConfigs
+
+<a name="AEN6105"></a>## Name
+
+dbconfig::listConfigs -- Obtain information about save sets
+
+<a name="AEN6108"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+
+set result [dbconfig::listConfigs $db]
+                        
+```
+
+<a name="AEN6110"></a>## DESCRIPTION
+
+Returns a list of dicts that describe the
+                            save sets in the database
+                            connected to `db`.
+                            The dicts contain the following key/value pairs:
+
+
+
+idPrimary key of the save set in the
+                                    save set root table.
+
+nameName of the save set.
+
+timestampTime at which the save set was created.
+                                    This can be formatted with
+                                    **clock format**.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::saveConfig | Up | dbconfig::restoreConfig |

@@ -1,0 +1,85 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN23815"></a>ddasReadout
+
+<a name="AEN23819"></a>## Name
+
+ddasReadout -- Run DDASReadout and an associated sorter.
+
+<a name="AEN23823"></a>## Synopsis
+
+**$DAQBIN/ddasReadout *option...***
+
+<a name="AEN23827"></a>## DESCRIPTION
+
+As of NSCLDAQ 11.4, the DDAS readout framework has been broken into a pair of programs: DDASReadout, which reads blocks of (possibly) out-of-order data from the XIA digitizer modules and ddasSort, which accepts those data and sorts them by timestamp. This was done to maximize performance:
+
+
+
+1. DDASReadout and ddasSort take advantage of pipeline parallelism to do the sorting in parallel with digitizer readout.
+2. If necessary, the ddasSort process can be run on a different node than DDASReadout, making more processing power available.
+
+A driver, that looks to the ReadoutGUI like an SSHPipe data source, allows you to treat this pair of programs as if it were a single unified program.
+
+The program is called ddasReadout (note the lower case 'ddas'). This manpage describes the ddasReadout program.
+
+<a name="AEN23846"></a>## Options
+
+Note that some program options are mandatory. Those will be pointed out as they are documented. Note as well that options are prefixed with a single - rather than a double --.
+
+
+
+`-readouthost` *dns-name* (required)This required determines which system the DDASReadout program will be run in. This must be a system that is connected to a DDAS crate and has its PLX drivers loaded.
+
+`-readoutring` *ringname (default=tcp://localhost/$USER)*Specifies the name of the ring buffer into which DDASReadout reads data in the host where that program runs (see `-readouthost`). This is passed to the DDASReadout program as its `--ring` option. Note that while a default value exists for this option, it is almost certainly unsuitable for any real application and this option is required in practice.
+
+`-sorthost` *name* (required)This is a required option which provides the DNS name of the host in which the ddasSort will be run.
+
+`-sortring` *ringname* (required)This is a required option that provides the name of the ring into which ddasSort puts the sorted hit ring items. If the ringbuffer does not yet exist, it will be created. This is a ring name not a URI, just a string specifying the output ringbuffer name.
+
+`-cratedir` *path* (required)A required option which sets DDASReadout's current working directory set to a directory that contains its configuration files. When DDASReadout is run, this will be its working directory.
+
+`-sourceid` *value (default=0)*If present this value is relayed to DDASReadout as the value of its `--sourceid` option. This determines the sourceid used to tag ring items from the readout program. The ddasSort program will tag ring items with the same source id as that observed by the ring items it processes.
+
+`-fifothreshold` *words (default=20480)*Setd the FIFO threshold used by DDASReadout for the data source (crate). The FIFO threshold is in units of 32-bit words. All modules in a crate will have their data read out whenever any module FIFO contians more than fifothreshold words.
+
+`-buffersize` *bytes (default=16384)*Size in bytes of the event buffer that will be used by DDASReadout to hold events prior to constructing ring items. The buffer must be larger than the size of a single event read frm the module. If you are reading large events (e.g. with long traces) you may need to increase the event buffer size if you get messages like "channel event too big for readout".
+
+`-infinity` *enb (default=off)*Controls whether the infinity clock is used or not (on/off). If the infinity clock is enabled, run timers are not cleared at the beginning of a new run (timestamps _do not_ reset to 0) and the clock phases for 250 MSPS and 500 MSPS Pixie modules will not be reinitialized upon run start.
+
+`-clockmultiplier` *ns-per-tick (default=1)*External timestamp calibration value in nanoseconds per clock tick.
+
+`-scalerseconds` *seconds (default=16)*Readout interval for scaler data in seconds. Note that this may be rate-limiting if the data rate is large and the scaler readout interval is small.
+
+`-window` *seconds (default=10.0)*Describes how old events must be before they are emitted (in seconds) from the ddasSort sliding window. If you change this value be sure to ensure the event builder sees no late or out-of-order fragments from this data source.
+
+`-fastboot` *enb (default=off)*Controls whether to perform a settings-only boot or not (on/off). The default behavior is to perform a full boot, in which the signal-processing FPGA and DSP are re-booted. This can be a time-consuming process for a full crate of modules. If `-fastboot` is enabled, the DSP settings are loaded onto the modules without (re-)booting the onboard chips.
+
+`-port` *integer*This becomes the `--port` option of the DDASReadout program. If Tcl server functionality is needed, this is the port on which that server will be listening for connections. If not specified, this option is not provided to the DDASReadout program which will have its Tcl server functionality disabled.
+
+`-init-script` *path*If provided, this is passed to the DDASReadout program as its `--init-script` option. The value should be a path to a Tcl script that will be run as the readout program starts.
+
+`-log` *path*If provided, the value of this option will be passed to DDASREADOUT as its `--log` option. This specifies the path into which the readout program logs interesting information. If the file does not exist it is created. The path prefix must be a directory that's writable by the user.
+
+`-debug` *log-level (default=0)*If provided, passes the debug level to the DDASReadout program. This parameter is an integer in the range 0-2 inclusive and determines the sort of information written to the log file. The higher the number, the more verbose the logging.
+
+<a name="AEN23978"></a>## Using the ddasReadout driver
+
+ddasReadout is intended to be used as a data source in the ReadoutShell GUI. It does not actually matter much where the ddasReadout program is run as it will be running the actual readout and sort programs where you tell it to using its command line options.
+
+Use the Data Source Add... menu to specify the data source. ddasReadout is intended to be used as an SSHPipe data source. It will relay commands sent to it to the actual readout program. It will relay output and error messages to the its own stdout which is captured by the SSHPipe driver and relayed to a tab for the data source on the ReadoutShell GUI.
+
+When setting up the event builder be sure to point the data source at the ddasSort output ring (e.g. in ReadoutCallouts.tcl). That's where the individual timestamped hits will be placed. The DDASReadout ring gets ring items that consist of blocks of unsorted hits and its output will not be correctly handled by the event builder.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DDASReadout | Up | ddasSort |

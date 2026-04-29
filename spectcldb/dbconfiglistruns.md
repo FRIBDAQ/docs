@@ -1,0 +1,62 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6201"></a>dbconfig::listRuns
+
+<a name="AEN6205"></a>## Name
+
+dbconfig::listRuns -- List information about saved runs.
+
+<a name="AEN6208"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+
+set info [dbconfig::listRuns $db]
+                        
+```
+
+<a name="AEN6210"></a>## DESCRIPTION
+
+Returns information about all of the
+                            runs in the database whose instance command
+                            is stored in `db`.
+                            The result is a list of dicts.
+                            Each dict has the following key/value
+                            pairs:
+
+
+
+configName of the save set that contains the run.
+
+numberRun number.
+
+titleRun title string
+
+start_timeRun start time.  To turn this into
+                                    a human readable string, pass it to
+                                    **clock format**.
+
+stop_time (optional)The run stop time, if there is
+                                    information about when the run ended.
+                                    This may be absent either because the run was not
+                                    completely recorded or becausse the
+                                    run was improperly ended and therefore
+                                    did not have end of run information.
+                                    This value, if present, can be turned
+                                    into a human readable string by
+                                    passing it to
+                                    **clock format**
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::restoreAllSpectrumContents | Up | dbconfig::hasRun |

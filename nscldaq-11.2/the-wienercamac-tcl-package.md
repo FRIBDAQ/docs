@@ -1,0 +1,98 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="intro.wienercamac"></a>Chapter 47. The Wienercamac Tcl package
+
+This chapter describes the wienercamac Tcl
+        loadable package.  wienercamac allows Tcl scripts
+        to perform CAMAC operations on CAMAC crates that are connected to A VME
+        crate via a Wiener VC32/CC32 board set. This board set is a single crate
+        CAMAC controller solution.  In order to provide compatibility with
+        the camac package, each crate is considered to be
+        a CAMAC Branch that has a single crate installed.
+
+The remainder of this chapter describes:
+
+
+
+- How to incorporate this package in your scripts.
+- How to use the package itself, with some notes about how to
+                      physically set up the VC32 module and how to manage branch and crate
+                      addressing.
+
+
+Reference material is available at
+        [[r76386]].
+
+# <a name="AEN9259"></a>47.1. Incorporating wienercamac in your scripts.
+
+Incorporating wienercamac in your scripts is a
+            two step process:
+
+
+
+1. The NSCLDAQ Tcl package repository must be added to the
+                           Tcl interpreter's package search path.
+2. The wienercamac package must be loaded into the interpreter
+                           via an explicit **package require** command.
+
+
+There are two ways to manipulate the Tcl interpreter package load
+            search path.  The environment variable `TCLLIBPATH`
+            is a space separated set of additionall directories to search for packages.
+            The Tcl global variable `auto_path` is one of the
+            several Tcl variables that control the package search path.
+
+From now on we will assume that the environment variable
+            `DAQROOT` has been defined to point to the
+            top level of the NSCLDAQ installation directory tree.
+            A bash shell script fragment that shows how to append the
+            NSCLDAQ Tcl package repository to the `TCLLIBPATH`
+            environment variable is shown below:
+
+<a name="AEN9275"></a>```
+export TCLLIBPATH="$TCLLIBPATH $DAQROOT/TclLibs"
+                
+```
+
+Similarly the code to add the NSCLDAQ Tcl package repository to
+                to the `auto_path` interpreter global is shown
+                below:
+
+<a name="AEN9279"></a>```
+global env
+global auto_path
+lappend auto_path [file join $env(DAQROOT) TclLibs]
+
+                    
+```
+
+Once the NSCLDAQ Tcl package repository has been added to the
+                repository search path, an explicit **package require**
+                as shown below must be issued prior to using the package commands:
+
+<a name="AEN9283"></a>```
+package require wienercamac
+                    
+```
+
+The commands defined by wienercamac are
+                defined in the ::wienercamac:: namespace.
+                The examples in the next section will use fully qualified command
+                names (e.g. **::wienercamac::cdreg 1 1**).  It is
+                also possible to import the commands from that namespace
+                using the **namespace import** command.
+                If you are also using the camac package this is
+                not advisable as both packages share many of the same command names.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| An overview of the use of thecamacpackage | Up | Using wienercamac |

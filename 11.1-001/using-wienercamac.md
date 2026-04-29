@@ -1,0 +1,76 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 47. The Wienercamac Tcl package | Next |
+
+
+---
+
+# <a name="AEN9268"></a>47.2. Using wienercamac
+
+The Wiener CC32 module addressing is controlled by jumpers on that
+            module's circuit board.  We have chosen and addressing standard that
+            allows for up to 8 Wiener VC32/CC32 modules in a VME crate.  Each of these
+            modules is a CAMAC branch that has a single crate installed, crate 0.
+
+The jumpers JA13 through JA23 define the base address for the module.
+            Eachj jumper represents an address bit.  If the jumper is in, the
+            corresponding address bit is 0. If out, 1.  The table below
+            shows the address conventions we use for these modules:
+
+<a name="AEN9272"></a>**Table 47-1. Wiener CC32 addressing convention**
+
+| Branch | ja23 | ja22 | ja21 | ja20 | ja19 | ja18 | ja17 | ja16 | ja15 | ja14 | ja13 | base addreess |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | out | in | in | in | in | in | in | in | in | in | in | 0x800000 |
+| 1 | out | in | in | in | in | in | in | out | in | in | in | 0x810000 |
+| 2 | out | in | in | in | in | in | out | in | in | in | in | 0x820000 |
+| 3 | out | in | in | in | in | in | out | out | in | in | in | 0x830000 |
+| 4 | out | in | in | in | in | in | out | in | in | in | in | 0x840000 |
+| 5 | out | in | in | in | in | in | out | in | out | in | in | 0x850000 |
+| 6 | out | in | in | in | in | in | out | out | in | in | in | 0x860000 |
+| 7 | out | in | in | in | in | in | out | out | out | in | in | 0x870000 |
+
+The commands in the package are loosely based on a subset of the
+            ESONE CAMAC function standard (IEEE 785).  In that standard, the unit
+            of address is a single CAMAC module.  The **cdreg**
+            produces a handle to a module which is then used in subsequent
+            commands that operate on that module.  Extensions to the standard
+            include commands that allow you to get the graded lam register values,
+            sense and control the inhibit and determine if the crate is online.
+
+While the ESONE block transfer functions are supported, connecting
+            a LAM to a script is not.  The example below enables the LAM on a module
+            in Slot 15 of the first controler in VME crate 0.
+
+<a name="AEN9406"></a>**Example 47-1. Enabling a module Lam with wienercamac**
+
+```
+
+# Load the package.
+
+lappend auto_path [file join $env(DAQROOT) TclLibs]
+package require wienercamac
+
+#  Initialize the crate and uninhibit it
+
+wienercamac::C 0 0
+wienercamac::Z 0 0
+wienercamac::Inhibit 0 0 false
+
+# Make the module handle:
+
+set module [wienercamac::cdreg 0 0 15]
+
+# F26 at any subaddress normally enables LAM:
+
+wienercamac::cssa $module 26 0
+                
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Wienercamac Tcl package | Up | Integer byte order conversion library |

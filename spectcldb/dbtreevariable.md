@@ -1,0 +1,183 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN3961"></a>DBTreeVariable
+
+<a name="AEN3965"></a>## Name
+
+DBTreeVaroab;e -- Ecapsulate tree variable definitions.
+
+<a name="AEN3968"></a>## Synopsis
+
+```
+#include <DBTreeVariable.h>
+
+namespace SpecTclDB {
+    
+class DBTreeVariable {
+public:
+    struct Info {
+        int         s_id;
+        int         s_saveset;
+        std::string s_name;
+        double      s_value;
+        std::string s_units;
+        
+    };
+public:
+    static bool exists(CSqlite& conn, int saveid, const char* name);
+    static DBTreeVariable* create(
+        CSqlite& conn, int saveid, const char* name, double value,
+        const char* units=""
+    );
+    static std::vector<DBTreeVariable*> list(CSqlite& conn, int saveid);
+
+public:
+    DBTreeVariable(CSqlite& connection, int saveid, const char* varname);
+public:
+    const Info& getInfo() const;
+    std::string getName() const;
+    double      getValue() const;
+    std::string getUnits() const;
+    
+    
+   
+
+};
+}                              // namespace SpecTclDB
+
+                    
+```
+
+<a name="AEN3970"></a>## DESCRIPTION
+
+Event processor computatations in SpecTcl
+                        sometimes require tuning or steering parameters.
+                        These may need to be modified at run-time.  For
+                        example; an energy calibration will need to have the
+                        coefficients of whatever polynomial is used to
+                        approximate the transformation from raw paramter
+                        value to energy. These values are often not known
+                        before looking at raw spectra with known peaks.
+
+Tree Variables are variables that can be set at run-time
+                        from the SpecTcl GUI or command prompt, and accessed
+                        from C++ code as if they were simply C++ double
+                        precision floating point variables.  The
+                        `SpecTclDB::DBTreeVariable`
+                        encapsulates the data associated with tree variable
+                        definitions in database save-sets.
+
+<a name="AEN3975"></a>## METHODS
+
+
+
+` static bool  exists(CSqlite&  conn = , int  saveid = , const char*  name = );`Returns true if a tree variable
+                                called `name` has
+                                been defined in the save set with the primary
+                                key of `saveid` in
+                                the database connected with
+                                `conn`.  If no such
+                                tree variable exists, false
+                                is returned instead.
+
+` static DBTreeVariable*  create(CSqlite&  conn = , int  saveid = , const char*  nam = , double  value = , const char*  units = "");`Creates a new treevariable definition.
+                                In addition to having a name
+                                (`name`) and
+                                value (`value`),
+                                tree variables have an associated units of measure
+                                (`units`). By convention,
+                                if a tree variable is unit-less, the
+                                `units` should be an empty
+                                string.
+
+The `saveid` parameter is the
+                                primary key of the saveset the variabl
+                                will be defined in.  The database is
+                                `conn`
+
+The return value is a pointer to a
+                                `SpecTGclDB::DBTreeVariable`.
+                                This object encapsulates the variable definition.
+                                The object pointed to is dynamically
+                                create so when the program no longer needs it
+                                it it should be deleted.
+
+` static std::vector<DBTreeVariable*>  list(CSqlite&  conn = , int  saveid = );`Lists the tree variable definitions that
+                                are stored in the save set with primary key
+                                `saveid` in te database
+                                connecte via `conn`.
+                                The list is returned as a vector of pointers
+                                to dynamically created
+                                `SpecTclDB::DBTreeVariable`
+                                that must be deleted when the program
+                                no longer needs them.
+
+`  DBTreeVariable(CSqlite&  connectioN = , int  saveid = , const char*  varname = );`Looks up the tree variable definition
+                                named `varname`
+                                in the saveset with the primery key
+                                `saveid` in the
+                                database open on `connection`.
+                                Information about the tree variable is wrapped
+                                in the `SpecTclDB::DBTreeVariable`
+                                object being constructe..
+
+` const const Info&  getInfo();`Tree variable objects wrapped cached information
+                                about the variable they wrap in a
+                                SpecTclDB::DBTreeVarible::Info
+                                struct.  This method returns a const reference
+                                to that structure allowing free access to this
+                                data.  Note that this struct is described
+                                in the DATA TYPES section
+                                below.
+
+` const std::string  getName();`Returns the name of the tree variable wrapped
+                                by this object.
+
+` const double getValue();`Returns the current value of the variable wrapped
+                                by the this tree variable object.
+
+` const std::string  getUnits();`Returns the units string of the tree variable
+                                wrapped by this object.  Note that by convention,
+                                unitless values simply have an empty units string.
+                                The units string is only provided for human
+                                consumption.
+
+<a name="AEN4116"></a>## DATA TYPES
+
+As with all database objects in this library,
+                        the `SpecTclDB::DBTreeVariable`
+                        class provides an Info type defined
+                        internally. A const reference to this attribute can
+                        be retrieved using the `getInfo`
+                        method.  The attribute caches information about the
+                        treevariable wrapped by the object and contains
+                        the following fields:
+
+
+
+int`s_id`The primary key of the tree variable in the
+                                top level database table for tree variables.
+
+int`s_saveset`The primary key of the save set that contains
+                                this tree variable definition in the top
+                                level table for save sets.
+
+std::string `s_name`The name of the tree variable.
+
+double`s_value`The saved value of the tree variable.
+
+std::string `s_units`The units string of the tree variable at the time
+                                it was saved to the database.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DBApplication | Up | Object oriented Sqlite3 wrapper |

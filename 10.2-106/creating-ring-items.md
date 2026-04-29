@@ -1,0 +1,50 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 38. Format of Event Data In Ring Buffers | Next |
+
+
+---
+
+# <a name="AEN2825"></a>38.4. Creating ring items
+
+There are some cases where the librarires provided to create
+            ring items are not well suited for the job. Specifically, sometimes
+            you'd like to create ring items to be emitted on stdout.
+
+A simple set of functions that can be called by either C or C++
+            programs allows you to format ring items that can be dealt with
+            however you might wish.
+
+The functions provided are prototyped in DataFormat.h.
+            The functions are also part of libdataformat.so.
+
+The reference section provides full documentation.  All functions
+            return a pointer to storage allocated with `malloc(3)`
+            that contains the ring item.  It is the caller's responsibility
+            to invoke `free(3)` to release this storage.
+            The
+            function names you will need are:
+
+
+
+`formatEventItem`Formats the data read from a physics trigger into a
+                            ring item.
+
+`formatTriggerCountItem`Formats a trigger count item.
+
+`formatScalerItem`Creates an incremental scaler ring item.
+
+`formatTextItem`Formats a text string item.  Text string items are
+                            items whose payload contains, among other things,
+                            a set of null terminated strings.
+
+`formatStateChange`Creates a state change ring item.  State change
+                            ring items indicate that the run state has changed.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Incorporating the headers and libraries into your applications. | Up | S800 ReadoutCallouts |

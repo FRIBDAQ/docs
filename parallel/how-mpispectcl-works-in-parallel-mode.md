@@ -1,0 +1,107 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.howitworks"></a>Chapter 3. How mpiSpecTcl works in parallel mode.
+
+This chapter describes how MPI SpecTcl works.  Knowledge of the theory of operation can help
+            to sort out errors you can encounter at run-time that might appear, at first glance, to be mysterious.
+            (for example segfaulting when accessing the histogrammer object in workers).
+
+The chapter will be rather long and is organized as follows:
+
+
+
+- A high level description of the MPI process environment and messaging is provided
+- The process roles used by mpiSpecTcl are described.
+- The concept of *MPI Pumps* are introduced in a general sense. You will see several 
+                  MPI Pumps described in more detail in other sections.
+- SpecTcl initialization as an MPI application is described for each role.
+- The MPI command wrappers are described along with the Tcl command pump and the MPI Pumps 
+                  related to objects within SpecTcl that must be communicated between processes.
+- The scheme used to pass events to worker processes are described, and their associated MPI Pumps.
+- The scheme used to pass the results of the event processing pipelines running in the workers to  to the event sink pipeline
+                  process is described along with the associated pump.
+- SpecTcl shutdown is described and specifically how we ensure that the MPI Pump threads get
+                  terminated.
+
+SpecTcl source code is availble online at github in the project
+            [http://github.com/FRIBDAQ/SpecTcl](http://github.com/FRIBDAQ/SpecTcl)
+            From time to time there may be references to where bits and pieces of code. If you are
+            interested in looking at that code; you can find it there.  The file paths in code references
+            will all be relative to the main directory so mpi/TclPump.cpp,
+            for example the docbook sourcde for this manual would be referred to as
+            docs/docbook/mpiSpecTcl.xml and can be found in the repository at
+            main/docs/docbook/mpiSpecTcl.xml.  This omission is done just for brevity.
+
+# <a name="AEN390"></a>3.1. The MPI Process environment
+
+This chapter will introduce the MPI process environment and the communcations
+                tools we use.  We'll start with a brief description of what it is that miprun (or mpiexec 
+                in MPICH) does, what a communicator is and how mpiSpecTcl uses communicators and the 
+                message passing support in MPI.
+
+First of all, MPI is an acronym for *Message Passing Interface*.
+                Originally MPI was intended to provde a scheme for writing *data parallel*
+                programs.  An MPI application consists of the same program that is run in several
+                processes.  MPI then provides mechanisms to pass messages between processe both
+                via directed communication and multicast communication.
+
+MPI implementations (the two most common are OpenMPI and MPICH), must provide a mechanism
+                to start MPI applications.  In OpenMPI this is the **mpirun** command and
+                in MPICH, the similar command is called **mpiexec**.  In the general sense, these
+                commands provide options that describe the number of desired processes and, optionally, how to 
+                bind those processors to processing resources (e.g. nodes in a cluster).  In running mpiSpecTcl,
+                typically, all processes run in the same node allowing for high speed, low latency
+                communication (in MPI internal communications are often implemented via shared memory mailboxes).
+
+MPI allows splitting the processes in an application into process groups that may 
+                intercommunication.  It does so via communicators.  When an MPI application starts, it has
+                a single *world communicator*.  At any point, that  communicator can be 
+                split into communicators that may contain a subset of the application or the entire application partitioned
+                in some way.
+
+Within a communicator, processes are identified by their *rank*.  The
+                rank is an integer value.  Processes in the world communicator are assigned their ranks by
+                mpirun/mpiexec.   Processes in other communicators can be assigned their ranks at the time
+                that communicator is split off from its parent communicator; which might be the world communicator,
+                or a communicator split off from the world communicator etc.
+
+Within a communicator, one can send messages from one processs to another.  The sender
+                uses `MPI_Send` specifying the communicator and  rank within the communicator
+                 of the desired receiver. The
+                receiver, at some point must receive the message using `MPI_Recv`.
+                The receiver can either specify the sender or accept a message from any rank (including another thread
+                its own process).  Messages are also associated with an integer tag by `MPI_Send`
+                and the receiver can either select specific tagged messages or accept messages with any tag.
+                Message payloads are strongly typed and the receiver must know what to expect from the sender.
+
+Messages can also be broadcast from a known sender to all processes in a communicator. This is simplified
+                as a communicator itself can be split into process groups using *colors* and broadcasts
+                are really amongst processes with the same color.  We don't use colors in mpiSpecTcl.  To broadcast
+                a message to a communicator, all processes in the communictoar invokd `MPI_Bcast` 
+                specifyin the communicator and the sender rank within the communicator.   All processes executing
+                `MPI_Bcast` block until the sending process invokes `MPI_Bcast`
+                at which point the message it sent is available to all recdeivers.  Broadcast messages are not
+                tagged, unlike those sent with `MPI_Send` but  are strongly typed and all
+                participants in a broadcast must know the message type to receive it properly.
+
+As we have seen, messages are strongly typed.  They are arrays of a type known to MPI.  MPI has
+                built in  data types for primitive types like integer, doubles and so on.  In addition, the type
+                system of MPI allows user defined types to be registered and used.  Naturally, all processes which
+                send or receive messages of a specific user defined type, must have made that type known to 
+                the MPI run-time.
+
+If you want to learn more about MPI, the OpenMPI man pages are at [https://docs.open-mpi.org/en/v5.0.x/man-openmpi/man3/index.html](https://docs.open-mpi.org/en/v5.0.x/man-openmpi/man3/index.html).
+                Tutorials on MPI are available at [https://mpitutorial.com/tutorials/](https://mpitutorial.com/tutorials/).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Wrapping old argc, argv commands. |  | mpiSpecTcl process roles |

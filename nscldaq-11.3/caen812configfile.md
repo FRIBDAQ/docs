@@ -1,0 +1,172 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.caenv812config"></a>caen812configfile
+
+<a name="AEN81762"></a>## Name
+
+caen812configfile -- Format of configuration files for CAENV 812 software.
+
+<a name="AEN81765"></a>## Synopsis
+
+
+
+Variables:
+
+- Name
+- ModuleBase
+- Crate
+- Thresholds(i)
+- WidthLow
+- WidthHigh
+- DeadTimeLow
+- DeadTimeHIgh
+- Majority
+- mask_arr(i)
+
+<a name="AEN81791"></a>## DESCRIPTION
+
+This manpage describes the format of the configuration files used by
+       packaged CAEN V812 contant fraction
+       discriminator  control  software.   The purpose of a configuration file
+       is to describe how to connect to
+       and identify a module and optionally, to provide
+        a set of values to load into the module.
+
+CFD configuration files are Tcl scripts.  Refer to the Tcl man pages for
+       more information about the syntax  of Tcl scripts, or get a book like:
+       *Practical Programming in Tcl and Tk*
+       by K.B. Welch, K. Jones and
+       J. Hobbs.
+       The Tcl configuration files set a bunch of variables.  Each variable
+       controls some aspect  of
+       the configuration.  See the sections below for information about each
+       type of variable.
+
+<a name="AEN81796"></a>## CONFIGURATION AND IDENTIFICATION VARIABLES
+
+These  variables  describe  the device in such a way that the software
+       can connect to it and control it.
+       These variables also provide an identification of the module.
+
+
+
+NameThis variable is required.  It contains a human readable
+                    name for the module that is by the software to identify the module.
+
+ModuleBaseThis variable is required.  It contains the base address
+                    of the module
+
+CrateThis  variable is optional.   If provided it supplies the
+                    number of the VME crate that the module
+                    is plugged into.  If not supplied, this defaults to 0 which
+                    is sufficient  for  most  single  VME
+                    crate systems.
+
+<a name="AEN81815"></a>## DEVICE SETTINGS VARIABLES
+
+Device  settings  allow  a configuration file to specify the
+            settings of the device.  All of these variables are optional.
+            If a variable is not present, the default is to not modify the
+            corresponding device
+            control parameter.
+
+
+
+Thresholds(i)The  Tresholds  variable is an array with indices in the
+                        range 0 through 15 inclusive.  Each element of the
+                        array corresponds to the threshold of a channel of the
+                        discriminator.  Element 0  for
+                        channel  0  and  so  on.  Threshold values must be in
+                        the range -1 through -255 inclusive.  These
+                        represent the threshold in mV.
+
+WidthLowSpecifies the width value of the low bank of channels
+                        (channels 0-7).   The  width  value  is  an
+                        arbitrary  number  in the range 0..255 inclusive and is
+                        not linearly related to a physical width.
+                        See the CAEN V812 manual for more information about this.
+
+WidthHighSpecifies the width value of the high bank of channels
+                        (channels 8-15).
+
+DeadTimeLowSpecifies the deadtime value of the low bank of channels.
+                        The deadtime  is  an  arbitrary  value
+                        between 0 and 255 inclusive and is not linearly related
+                        to a physical deadtime.
+
+DeadTimeHighSpecifies the deadtime value of the high bank of channels.
+
+MajoritySpecifies the majority logic threshold.
+
+mask_arr(i)Specifies  the  enables  mask.  This array has element
+                        indices that run from 0..through 15 inclu-
+                        sive.   Each element of the array is non-zero to enable
+                        the corresponding  channel  and  zero  to
+                        disable it.
+
+<a name="AEN81854"></a>## EXAMPLE
+
+<a name="AEN81856"></a>**Example 1. Sample configuration file**
+
+```
+              # CFD configuration file written Fri Dec 05 12:23:05 EST 2003
+              set Name "NSCL_CFD"
+              set ModuleBase 0xc20000
+              set Crate      0
+              set Thresholds(0) -20
+              set Thresholds(1) -20
+              set Thresholds(2) -20
+              set Thresholds(3) -20
+              set Thresholds(4) -20
+              set Thresholds(5) -255
+              set Thresholds(6) -255
+              set Thresholds(7) -255
+              set Thresholds(8) -20
+              set Thresholds(9) -20
+              set Thresholds(10) -20
+              set Thresholds(11) -20
+              set Thresholds(12) -255
+              set Thresholds(13) -255
+              set Thresholds(14) -255
+              set Thresholds(15) -255
+              set WidthLow  128
+              set WidthHigh 158
+              set DeadTimeLow  200
+              set DeadTimeHigh 200
+              set Majority  2
+              set mask_arr(0) 1
+              set mask_arr(1) 1
+              set mask_arr(2) 1
+              set mask_arr(3) 1
+              set mask_arr(4) 1
+              set mask_arr(5) 1
+              set mask_arr(6) 1
+              set mask_arr(7) 1
+              set mask_arr(8) 1
+              set mask_arr(9) 1
+              set mask_arr(10) 1
+              set mask_arr(11) 1
+              set mask_arr(12) 1
+              set mask_arr(13) 1
+              set mask_arr(14) 1
+              set mask_arr(15) 1
+        
+```
+
+<a name="AEN81859"></a>## SEE ALSO
+
+[[r16792]],
+            [[r16822]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| 5tcl | Up | n568configfile |

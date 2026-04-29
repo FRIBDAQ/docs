@@ -1,0 +1,138 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5828"></a>CRingFragmentItem (v11)
+
+<a name="AEN5832"></a>## Name
+
+CRingFragmentItem (v11) -- Encapsulate an event builder fragment.
+
+<a name="AEN5835"></a>## Synopsis
+
+```
+#include <v11/CRingFragmentItem.h>
+
+namespace v11 {
+
+class CRingFragmentItem : public ::CRingFragmentItem
+{
+public:
+  CRingFragmentItem(uint64_t timestamp, 
+		    uint32_t source, 
+		    uint32_t payloadSize, 
+		    const void* pBody,
+		    uint32_t barrier=0);
+
+  virtual uint64_t     timestamp() const;
+  virtual uint32_t     source() const;
+  virtual size_t       payloadSize() const;
+  virtual void*        payloadPointer();
+  virtual uint32_t     barrierType() const;
+  virtual const void*  getBodyPointer() const;
+  virtual void* getBodyPointer();
+  virtual void setBodyHeader(uint64_t timestamp, uint32_t sourceId,
+                         uint32_t barrierType = 0) ;
+  virtual void* getBodyHeader() const;
+  virtual bool hasBodyHeader() const;
+  virtual std::string typeName() const;
+  virtual std::string toString() const;
+
+};
+}
+                
+```
+
+<a name="AEN5837"></a>## DESCRIPTION
+
+The full NSCLDAQ event builder is broken into two major
+                    section.  The *orderer* takes
+                    event fragments from an arbitrary number of sources and
+                    emits them in a totally time ordered stream.  The
+                    *glom* program then glues together
+                    those physics fragments that occur within a user supplied trigger
+                    interval into events.
+
+For diagnostic purposes a seldom used program *teering*
+                    can be fit between the orderer and glom.  teering takes the stream
+                    of fragments the orderer produces, outputs them to glom and
+                    also wraps them in ring items (the stream of event fragments
+                    are not ring items) and places those into a ringbuffer
+                    where they can be used for diagnostics of the orderer
+                    itself.
+
+The ring items created are called event builder fragment
+                    items and have the type v11::EVB_FRAGMENT.
+                    The `v11::CRingFragmentItem` can encapsulate
+                    these items when the fragment payoad is a ring item.
+                    This is a rarely, if ever, used class/object.
+
+<a name="AEN5847"></a>## METHODS
+
+
+
+`  CRingFragmentItem(uint64_t  timestamp, uint32_t  source, uint32_t  payloadSize, const void*  pBody, uint32_t  barrier = 0);`Constructs the item.  The `timestamp`,
+                            `sourcde` and optional
+                            `barrier` parameters fill in
+                            the body header.  The default value of 0
+                            for the `barrier` represents a
+                            non-barrier event.
+
+The payload of the fragment is `payloadSize`
+                            bytes taken from the data pointed to by `pBody`.
+
+For this item, type, `pBody`
+                            is expected to point to an event builder fragment
+                            that contains a ring item  Note that it is possible,
+                            though it has not yet been done, for the orderer
+                            to operate on Non-NSCLDAQ data (non ring items),
+                            see `CUnknonwnFragment`.
+
+` const virtual uint64_t      timestamp();`Returns the timestamp from the item's body header.
+                            Note that by definition, fragment items have
+                            a body header.
+
+`  const virtual uint32_t      source();`Returns the source id from the item's body header.
+
+` const virtual size_t   payloadSize();`Returns the size of the payload. Note that it is
+                            acceptable, and normal for this to be computed by the
+                            implementation from the ring item size and the body
+                            header size
+
+` virtual void*         payloadPointer();`Returns a pointer to the payload data.  The pointer
+                            allows the data to be edited as well as simply
+                            inspected.
+
+` virtual uint32_t      barrierType();`Returns the item's body header barrier type field.
+
+` const virtual std::string  typeName();`Returns a string that describes the type of the
+                            ring item: Event fragment
+
+` const virtual std::string  toString();`Returns a string representation of the  contents of
+                            the ring item. This is used e.g. by
+                            **dumper**
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sourceId, uint32_t  barrierType  = 0);`Modifies the contents of the item's body header
+                            (this type always has  a body header).
+
+` const virtual void*  getBodyHeader();`Returns a pointer to the object's body header.
+                            Note that the actual shape of the body header
+                            depends on the actual data format version.  
+                            The v11/DataFormat.h header
+                            describes the body header to expect from v11
+                            data in its definition of the
+                            v12::BodyHeader type.
+
+` const virtual bool  hasBodyHeader();`Returns true as this type of ring item
+                            always has a body header.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CPhysicsEventItem (v11) | Up | CRingPhysicsEventCountItem (v11) |

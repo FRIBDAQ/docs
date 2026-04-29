@@ -1,0 +1,61 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch_event_builder"></a>Chapter 9. Event Builder
+
+# <a name="AEN6103"></a>9.1. Introduction
+
+The NSCLDAQ event orderer program is a server that orders data items,
+      a.k.a. fragments, submitted to it from an arbitrary number of clients,
+      and outputs a single, ordered, merged stream on stdout. It deals with all
+      fragments submitted to it generically, because all fragments wrap a
+      payload with a consistent set of information contained in a header. The
+      fragment header contains a timestamp, source ID, payload size, and
+      barrier type. These pieces of information provide all of the necessary
+      information for the event order to order its data and so that the event
+      orderer can be used with any payload format.
+
+The pieces of information in the fragment header are used by the event
+      orderer for different purposes and those will be covered briefly here.
+      The timestamp is a 64-bit unsigned integer value that the fragments are
+      ordered by. It typically represents a time value but could equally be an
+      event number. The source ID is used to specify which internal queue  each
+      set of committed fragments will be buffered in. It is not essential, but
+      usually each client will submit their fragments to separate queues. The
+      event fragments for each source ID must be time ordered.
+
+The payload size is the size of the data item  the fragment header
+      describes. Its value is in units of bytes. The final piece of data, the
+      barrier type, is an integer that specifies whether the fragment is to be
+      used for synchronization. It can take any integer value but is treated by
+      the orderer as a boolean. If it is zero, the fragment has no special
+      meaning, but if it is nonzero, it indicates that a barrier
+      synchronization is requested. Further details will be provided regarding
+      the synchronization scheme later.  Normally this is used to indicate some
+      event which performs gross synchronization between the data sources
+      (begin run, end run etc).
+
+The client programs that submit data to the server are built using the
+      [[c15514]]. In general, though, it is not necessary to implement a
+      client when using the ring buffer system, because the client for ring
+      items has already been provided as the [[x15780]] program. This
+      program simply reads ring items from a ring buffer, prepends fragment
+      headers to them, and then submits them to the server.
+
+The ordered fragments are output whenever the server is able to
+      unambiguously determine that its output stream will be ordered or when
+      one client has not submitted data for a user-definable amount of time,
+      the build window. The queues are processed for output
+      whenever new input is received and every second.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Remote control package | Up | Using the event builder |

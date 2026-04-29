@@ -1,0 +1,39 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1222"></a>clear
+
+<a name="AEN1226"></a>## Name
+
+clear -- MPI SpecTcl clear command
+
+<a name="AEN1229"></a>## Synopsis
+
+**clear** `-all`  [`-stats`] [`-channels`]
+
+**clear**  [`-stats`] [`-channels`]  *spectrum-name*...
+
+**clear** `-id`  [`-stats`] [`-channels`]  *spectrum-id*...
+
+<a name="AEN1256"></a>## DESCRIPTION
+
+The **clear** command which clears the contents of spectra, 
+                     is wrapped in a `CMPITclPackagedCommandK`.
+                    While, for simplicity, it executes everywhere, only the spectra defined in the
+                    MPI_EVENT_SINK_RANK process will actually have counts.  All other
+                    proceses do define spectra which can be found by  the `SpecTcl`
+                    API *but* they are not only internal (never bound to shared memory) but 
+                    also, only the event sink pipeline running in MPI_EVENT_SINK_RANK
+                    will ever increment those spectra.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| channel | Up | evbunpack |

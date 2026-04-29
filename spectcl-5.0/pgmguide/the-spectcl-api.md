@@ -1,0 +1,190 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.spectclapi"></a>Chapter 4. The SpecTcl API
+
+The `SpecTcl` class provides an application programming
+        interface (API) to SpecTcl's internals.  If you use it rather than poking
+        about directly in SpecTcl's data structures, we can promise you your
+        program will be immune from internal re-organizations of SpecTcl's
+        parameter, spectrum and gate dictionaries.
+        `SpecTcl` also provides access to the event analysis
+        pipeline, the event sing pipeline
+        (described in [[c1223]]),
+        filters and several other objects.
+
+In this chapter we'll take a brief tour of the `SpecTcl`
+        class facilities and provide examples of its use.  Full reference information
+        is provided in the programmer reference manual.
+
+The `SpecTcl` class impleements the
+        *singleton pattern*.
+        Wikipedia provides a nice page on the singleton pattern
+        [Wikipedia provides a nice page on the singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern).  Check it out.
+
+What you mostly need to know about singletons is that the class is written
+        in a way to ensure that only one instance of the class is ever created.
+        The mechanics of this are to:
+
+
+
+- Make the constructor private so that you cannot ever use it
+                  to create an instance.
+- Provide a method (`getInstance`) that
+                  returns a pointer to the single instance of the class, creating
+                  it if needed.
+
+This means that to use the `SpecTcl` class, rather
+        than constructing an object you'll have code like:
+
+<a name="AEN773"></a>```
+            ...
+SpecTcl& api = *(SpecTcl::getInstance());
+            ...
+        
+```
+
+To obtain the singleton instance of the API class.  Once gotten, you
+        can then invoke methods on that API object just like any other object.
+
+In the remainder of this chapter we'll look at the families of methods
+        provided by the `SpecTcl` class:
+
+
+
+[[c752#sec.api.parameters]]The API provides methods to inspect and maniuplate the
+                    SpecTcl parameter dictionary.  These parametrs are the
+                    low level parameter definitions, not tree parameters.
+
+In  most cases, since tree parameters with the same name
+                    map to the same low level parameter, an API for the tree
+                    parameters are not needed.
+
+[[x867]]The API provides methods that allow you to query and
+                    manipulate the SpecTcl spectrum dictionary.    These
+                    methods include methods that can create spectra of any
+                    type.
+
+[[x990]]The API provides methods that allow you to query, define
+                    and apply gates.
+
+[[x1105]]The API provides methods to query and manipulate the event
+                    processing pipeline.
+
+[[x1176]]The API provides methods to query and manipulate the event sink
+                    pipeline.  This part of the API includes methods to
+                    create and manipulate filters.  Filters are a special case of
+                    event sink pipeline elements, as is the histogrammer.
+
+[[x1194]]The API provides methods to gain access to several important
+                    SpecTcl objects.  Probably the most important of these is
+                    the main Tcl interpreter.
+
+# <a name="sec.api.parameters"></a>4.1. The API and the parameter dictionary
+
+The SpecTcl parameter dictionary maintains the set of low level
+            parameters.  Each parameter's definition is contained by an
+            instance of the class `CParameter`.
+
+A family of `AddParameter` methods provides
+            mechanisms for defining parameters.  Each of those methods has
+            parameters that map on to the parameters of the
+            **parameter** command.
+
+All parameters have at least a name and an ID.  The id
+            of a parameter is the slot in the `CEvent`
+            array like object the parameter.  The name of the parameter is
+            what you use to refer to it by in interactions with SpecTcl.
+
+Depending on how they were defined, parameters may have additional
+            properties.  The function shown below uses the API to list the names
+            and id's of all defined parameters to stdout.
+
+<a name="AEN820"></a>**Example 4-1. Using the API to access parameter definitions**
+
+```
+#include <SpecTcl.h>
+#include <Histogrammer.h>                     
+#include <Parameter.h>                        
+#include <iostream>
+
+void listParameter()
+{
+  SpecTcl& api = *(SpecTcl::getInstance());    
+
+  for (auto p = api.BeginParameters(); p != api.EndParameters(); p++) {  
+    std::string name  = p->first;                   
+    CParameter* param = &p->second;             
+    std::cout << "Parameter " << name
+              << " id = " << param->getNumber() << std::endl;  
+  }
+}             
+            
+```
+
+[[c752#api.params.inchist]]                    The `CHistogrammer` class is a repository for
+                    the dictionaries SpecTcl maintains.  it also defines their
+                    structures and iterators.  Therefore wwe need to include
+                    its definition in our program.
+                More on iterators in a bit.
+
+[[c752#api.params.incparams]]                    The parameter dictionary contains `CParameter`
+                    objects indexed by parameter name.  We're gong to need to know
+                    the methods and shape of this class, therefore we
+                    include its header here.
+                [[c752#api.params.getapi]]                    We've already discussed this bit of code earlier.  This
+                    code gets a reference to the singleton API object.
+                [[c752#api.params.iteration]]                    A lot is going on in this line.  The
+                    `SpecTcl::BeginParameters` and
+                    `SpecTcl::EndParameters` methods
+                    return *iterators* into the parameter
+                    dictionary.  Iterators are a generalization of pointers for
+                    any ordered container.  The main thing to know about
+                    them for this example is that they can be dereferenced to
+                    give something in the container and they can be incremented
+                    to get you to the next contained object.
+                Dictionaries in SpecTcl consist of pairs.  The first element
+                    of each pair is the name of the object in the dictionary.
+                    The second element is the object itself.
+
+The auto keywords as used here, is a
+                    part of the C++ 2011 standard.  It can be used instead of
+                    a specific type when the compiler should be able to
+                    infer a type from the expression.  In this case,
+                    since `SpecTcl::BeginParameters()`
+                    returns a `ParameterDictionaryIterator`,
+                    the compiler can infer that this should be the type of
+                    `p`.
+
+To use this type inferenece you need to add
+                    -std=c++11 indicating that Gnu C++
+                    should compile to the 2011 standard.
+
+[[c752#api.params.iterefirst]]                    The contents of a parameter dictionary are
+                    std::pair<std::string, CParameter>.
+                    Pairs have two members `first`
+                    is the first item in the pair.
+                    `second` is the second item
+                    in the pair.
+                This pulls the parameter name out of the pair.
+
+[[c752#api.params.itersecond]]                    The second element of the pair in a parameter dictionary
+                    is `CParameter` object.  This saves
+                    the address of the parameter object of the dictionary
+                    entry.
+                [[c752#api.params.getnumber]]                    The `getNumber` method of a
+                    `CParameter` comes from its base class
+                    (`CNamedItem`).  It returns the number
+                    used as the Id of the parameter.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Playing back filter data |  | The API and the spectrum dictionary |

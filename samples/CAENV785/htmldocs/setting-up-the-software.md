@@ -1,0 +1,616 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN136"></a>Chapter 2. Setting up the software
+
+The software modifications needed to make the above setup work can be
+divided into three tasks:
+
+
+
+1. Telling the software what electronics we are
+                   using.
+2. Telling the software how to respond to event triggers.
+3. Telling the software how to analyze the data acquired.
+
+
+# <a name="AEN146"></a>2.1. Readout software
+
+In order to tell the software about our electronics we are going to develop a
+C++ class for our module. That class will be a derived class but we don't
+need to concern ourselves with the details of the parent class. Like all of the
+software tailoring we need to do, most of the details are hidden and we need
+only to fill in a few holes.
+
+The following commands will make a new directory and copy the skeleton
+files to it:
+
+```
+mkdir -p ~/experiment/readout
+cd ~/experiment/readout
+cp /usr/opt/daq/pReadoutSkeleton/* .
+
+```
+
+
+## <a name="AEN151"></a>2.1.1. Modifying the Readout Skeleton
+
+Now that we have obtained a copy of the Skeleton file we can began to think
+about the modifications we need to make. We need to tell the software what
+kind of module we are using, how to initialize it, how to clear it, and how
+to read it. We will do this by creating a class called by `MyEventSegment`.
+In order to follow good coding practice and to make our code as versatile
+as possible we will write our class in two separate files, a header file and an
+implementation file. Start by creating a file called MyEventSement.h.
+It should look like this:
+
+<a name="AEN156"></a>**Example 2-1. Header for `MyEventSegment`**
+
+```
+
+
+/*
+This is the header file to define the MyEventSegment class, which 
+is derived from CEventSegment.  This class can be used to read 
+out any number of CAEN modules covered by the CAENcard class. 
+Those cards include the V785, V775, and  V792.
+
+Tim Hoagland
+11/3/04
+s04.thoagland@wittenberg.edu
+
+*/
+
+
+#ifndef __MYEVENTSEGMENT_H                // 
+#define __MTEVENTSEGMENT_H
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;                      // 
+#endif
+#include <spectrodaq.h>
+#include <CEventSegment.h>
+#include <CDocumentedPacket.h>
+#include <CAENcard.h>
+#define CAENTIMEOUT 50
+
+
+// Declares a class derived from CEventSegment
+class MyEventSegment : public CEventSegment   // 
+{
+private:
+  CDocumentedPacket m_MyPacket;	             // 
+  CAENcard* module;                          // 
+public:
+  MyEventSegment(short slot,unsigned short Id); // 
+              // Defines packet info
+  ~MyEventSegment();		                // 
+
+  virtual void Initialize();                    // 
+             // One time Module setup
+
+  virtual void Clear();                         // 
+             // Resets data buffer
+
+  virtual unsigned int MaxSize();               // 
+
+  virtual DAQWordBufferPtr& Read(DAQWordBufferPtr& rBuf);  // (11)
+             // Reads data buffer
+};
+#endif
+
+
+```
+
+
+The header defines the class, its internal data and the services it
+    exports to the readout framework.
+    Refer to the circled numbers in the listing above when reading the following
+    explanation.
+
+[[c136#protect]]            Each header should protect itself against being included more
+            than once per compilation unit.
+            This #ifndef directive and the subsequente #define
+            do this.  The first time the header is included,
+            `__MYEVENTSEGMENT_H` is  not defined, and the
+            #ifndef is true.  This causes `__MYEVENTSEGMENT_H`
+            to be defined, which prevents subsequent inclusions from doing anything.
+                                    [[c136#namespace]]            Newer compilers define many of the standard classes, functions and constants
+            inside of the `std::` namespace. The
+            spectrodaq.h header refers to these without explicitly
+            qualifying them with the namespace.  If the `std::`
+            namespace exists, this directive asks the compiler to search it for
+            unqualified names (e.g cin could be resolved by std::cin).
+            [[c136#eventsegderived]]            The class we are defining `MyEventSegment`
+            implements the services of a base class called `CEventSegment`.
+            Anything that reads out a chunk of the experiment is an event segment and must
+            be derived from the `CEventSegment` base class.
+                                            [[c136#docpacket]]                By convention, events are segmented in to *packets*.
+                A packet is a leading word count, followed by an word that identifies
+                the contents of the packet followed by the packet body.  Packet identifiers
+                are maintained by Daniel Bazin, and the set of packet identifiers that
+                have been currently assigned are described at:
+                [http://groups.nscl.msu.edu/userinfo/daq/nscltags.html](http://groups.nscl.msu.edu/userinfo/daq/nscltags.html)
+                If you are creating a detector system that will need its own
+                tag contact `<bazin@nscl.msu.edu>` to get one assigned.
+                The `m_MyPacket` is member data for the class. It
+                is a `CDocumentedPacket`. Documented packets
+                do the book-keeping associated with maintaining the packet structure
+                as well as documenting their presence in documentation records written
+                at the beginning of the run.
+            [[c136#hardwareobject]]                The support software for the CAEN V685 ADC is itself a class:
+                `CAENcard`.  We will create an object of this
+                class in order to access the module.  This pointer will
+                be used to access the object and hence the module.[[c136#mysegconstructor]]                This line declares the *constructor* for
+                `MyEventSegment`.  A constructor is a function
+                that is called to initialize the data of an object when the object
+                is being created (constructed).[[c136#mysegdestructor]]                This line declares the *destructor* for
+                `MyEventSegment`. A destructor is a function
+                that is called when an object of a class is being destroyed.
+                Since we will be dynamically creating the
+                `CAENcard` pointed to by `module`,
+                we must declare and implement a destructor to destroy that object
+                when objects of `MyEventSegment` are destroyed.
+                                            [[c136#myseginit]]                The `Initialize` member function is called
+                whenever the run is about to become active.  If hardware or software
+                requires initialization, it can be done here.  This function will be
+                called both when a run is begun as well as when a run is resumed.
+                                      [[c136#mysegclear]]                The `Clear` member function is called when it is
+                appropriate to clear any data that may have been latched into the
+                digitizers.  This occurs at the beginning of a run and after each
+                event is read out.
+                                       [[c136#mysegobsoletemaxsize]]                The `MaxSize` member function
+                is obsolete but must be defined
+                and implemented for compatiblity with older software.  In the
+                past this returned the maximum number of words the event segment
+                would add to the event.  Now it is never called.
+                                                 [[c136#mysegread]]                The `Read` member function is called in response
+                to a trigger.  This member must read the part of the event that is
+                managed by this event segment.
+
+
+We will also create an implementation file: MyEventSegment.cpp.
+This file will implement the member functions that were defined by
+MyEventSegment.h above.
+The contents of this file are shown below:
+
+<a name="AEN223"></a>**Example 2-2. Implementation of `CMyEventSegment`**
+
+```
+/*
+    This software is Copyright by the Board of Trustees of Michigan
+    State University (c) Copyright 2005.
+
+    You may use this software under the terms of the GNU public license
+    (GPL).  The terms of this license are described at:
+
+     http://www.gnu.org/licenses/gpl.txt
+
+     Author:
+             Ron Fox
+	     NSCL
+	     Michigan State University
+	     East Lansing, MI 48824-1321
+   */
+
+
+/*
+
+This is the implementation file for the MyEventSegment
+class.  This class defines funtions that can be used to 
+readout any module covered in the CAENcard class.  These
+include the V785, V775, and V792
+
+
+Tim Hoagland
+11/3/04
+s04.thoagland@wittenberg.edu
+
+
+*/
+
+
+
+#include <config.h>
+#ifdef HAVE_STD_NAMESPACE                     // 
+using namespace std;
+#endif
+
+#include "MyEventSegment.h"                   // 
+
+static char* pPacketVersion = "1.0";          // 
+// Packet version -should be changed whenever major changes are made
+// to the packet structure.
+
+
+//constructor set Packet details
+MyEventSegment::MyEventSegment(short slot, unsigned short Id):    
+  m_MyPacket(Id, 
+	     string("My Packet"), 
+	     string("Sample documented packet"),
+	     string(pPacketVersion))       // 
+{
+  module = new CAENcard(slot);	           // 
+
+}
+// Destructor:
+MyEventSegment::~MyEventSegment()
+{
+  delete module;                          // 
+}
+
+
+// Is called right after the module is created.  All one time Setup
+// should be done now.
+void MyEventSegment::Initialize()
+{
+  module->reset();                       // 
+  Clear();
+
+}
+
+
+// Is called after reading data buffer
+void MyEventSegment::Clear()
+{
+  module->clearData();          // Clear data buffer 
+}
+
+unsigned int MyEventSegment::MaxSize()
+{
+  return 0;
+}
+
+
+//Is called to readout data on module
+DAQWordBufferPtr& MyEventSegment::Read(DAQWordBufferPtr& rBuf)
+{
+  for(int i=0;i<CAENTIMEOUT;i++)        // 
+                  // Loop waits for data to become ready
+    {
+      if(module->dataPresent())      
+                 // If data is ready stop looping
+	{
+	  break;
+	}
+    }
+  if(module->dataPresent())           
+                // Tests again that data is ready
+    {
+      rBuf = m_MyPacket.Begin(rBuf);     // 
+               // Opens a new Packet
+
+      module->readEvent(rBuf);           // (11)
+               // Reads data into the Packet
+
+      rBuf= m_MyPacket.End(rBuf);       // (12)
+               // Closes the open Packet
+    }
+  return rBuf;                          // (13)
+}
+
+
+```
+
+
+
+
+[[c136#boilerplate]]        The lines beginning with the include of config.h
+        aneending with the #endif near here are boilerplate that is required
+        for all implementation (.cpp) files for Readout skeletons at version 8.0 and
+        later.[[c136#myheader]]        In order to get access to the class definition, we must include the header
+        that we wrote that defines the class[[c136#packetversion]]        Recall that we will be putting our event segment into a packet.  The packet
+        will be managed by a documented packet (`CDocumentedPacket`)
+        object.  This packet can document the revision level, or version of the
+        structure of its body.  The string `pPacketVersion`
+        will document the revision level of the packet body for our packet.[[c136#packetinit]]        This code in the constructor is called an *initializer*.
+        Initializers are basically constructor calls that are used to construct
+        base classes and data members of an object under construction.
+        The `Id` constructor parameter is used as the id of the
+        `m_MyPacket` `CDocumentedPacket`.
+        The three strings that follow are, respectively, a packet name, a packet
+        description and the packet body revision level.  These items are put in the
+        documentation entry for the packet that is created by the packet at the
+        beginning of the run.[[c136#cardcreate]]        The constructor body creates a new `CAENcard` object,
+        assigning a pointer to it to the member variable `module`.
+        The constructor's `slot` is used as the geographical address
+        of the module.[[c136#destroy]]        The destructor body destroys the `CAENcard` object
+        created by the constructor.  If this is not done here, then everytime
+        we destroy an `MyEventSegment` class, we will
+        "lead" some memory.[[c136#moduleInit]]        This code initializes the CAEN V785 module by resetting it to the
+        default data taking settings, and then invoking our `Clear`
+        member function to clear any data that may be latched.
+                                          [[c136#cleardata]]        This code clears any data that is latched in the module
+                                  [[c136#waitready]]        The CAEN V785 requires about 6�s to convert once it is given a gate.
+        It is possible for the software to start executing the `Read`
+        member function before conversion is complete.  This loop repeatedly invokes
+        `dataPresent` for the module.  This function returns
+        true when the module has buffered conversions.
+        At that time, control breaks out of the loop.[[c136#openpacket]]        This call to the `Begin` member of our documented packet
+        indicates that we are starting to read data into the body of the packet.
+        The code reserves space for the word count, and writes the packet id.
+        The return value is a "pointer" to the body of the packet.
+                                   [[c136#readdata]]        Data are read from the ADC into the packet.[[c136#closepacket]]        The size of the packet is written to the space reserved for it. The packet
+        is closed, and a "pointer" is returned to the next free word in the
+        buffer.
+                                    [[c136#returnpointer]]        a "pointer" to the next free spot in the buffer is returned to the
+        caller.
+
+
+The numbers below refer to the circled numbers in the example above.
+
+## <a name="AEN286"></a>2.1.2. Integrating your event segment with Readout
+
+Once you have created one or more event segments, you must register
+            them with the Readout software.  Whenever the Readout software must
+            so something to its event segments, it calls the appropriate member function
+            in each event segment that has been registered, in the order in which
+            it has been registered.
+
+Edit Skeleton.cpp.  Towards the top of that file,
+            after all the other #include statements, add:
+
+```
+#include "MyEventSegment.h"
+            
+```
+
+
+            This is necessary because we will be creating an object of class
+            `MyEventSegment`.
+        Next, locate the function `CMyExperiment::SetupReadout`
+            Modify it to create an instance of `MyEventSegment`
+            and to register that instance as in the italicized code below
+
+```
+void
+CMyExperiment::SetupReadout(CExperiment& rExperiment)
+{
+   CReadoutMain::SetupReadout(rExperiment);
+
+   rExperiment.AddEventSegment(new MyEventSegment(10, 0xff00));
+}
+            
+```
+
+
+            This code creates a new event segment for a CAEN V785 in slot 10, which will
+            be read out into a packet with ID 0xff00.
+
+## <a name="AEN298"></a>2.1.3. Making your Readout Executable
+
+Now that you have an event segment written, created an instance of it
+            and registered it with the Readout, you must build an executable Readout
+            program.
+
+To build the program, you must edit the Makefile supplied with the
+            skeleton code so that it knows about your additional program files.
+            Locate the line that reads:
+
+```
+Objects=Skeleton.o
+            
+```
+
+
+            Modify it so that it reads:
+            ```
+Objects=Skeleton.o  MyEventSegment.o
+            
+```
+
+
+            Save this edit, exit the editor and type:
+            ```
+make
+            
+```
+
+
+            This will attempt to compile your readout software into an executable
+            program called Readout.  If the **make**
+            command fails, fix the compilation errors indicated by it and retry until you
+            get an error free compilation.
+
+## <a name="AEN307"></a>2.1.4. Testing the Readout Software
+
+The Reaedout program must run on a system that is physically connected
+            to the VME crate containing your digitizers.  Note that the
+            ReadoutShell tool can be used to
+            wrap your program with a Graphical user interface (GUI), and
+            run it on the requested remote system.  While debugging your software
+            we do not recommend this.  It's better just to run the software from the
+            command line, or under control of the gdb
+            symbolic debugger (see **man gdb** for more information
+            about this extremely powerful debugging tool).
+
+In this section we'll show how to use the command line to
+
+
+
+- Start up a very simple low level event dumping program.
+- Start your Readout program, start a run, stop a run and exit.
+- Interpret the event dumps created while the run is active
+
+
+There are two buffer dumping programs that are now available
+            to support the NSCL Data acquisition system.  Unfortunately,
+            both are called bufdump and can only be distinguished by where
+            they are installed.
+
+
+
+/usr/opt/daq/current/bufdumpDumps the front segments of buffers in real-time.
+                        This is the program we will use for our initial testing.
+
+/usr/opt/utilities/current/bin/bufdumpProvides formatted dumps of complete buffers.  Each buffer
+                        must be individually requested from the data taking system,
+                        or an offline file.
+                        This program has extensive online and offline help and may
+                        be very useful and powerful to detect and debug problems with
+                        more complex event structures than our example, but is overkill
+                        for this application.  A web based manual for this program
+                        is available at [http://docs.nscl.msu.edu/daq/bufdump/](http://docs.nscl.msu.edu/daq/bufdump/).
+                        A PDF printable manual is available at
+                        [http://docs.nscl.msu.edu/daq/bufdump/manual.pdf](http://docs.nscl.msu.edu/daq/bufdump/manual.pdf).
+                        The program's help menu also has very complete documentation.
+
+
+To start the simple buffer dump program, therefore, log on to the
+            system connected to the VME crate in which your CAEN V785 has been installed
+            and type:
+
+```
+spdaqxx> /usr/opt/daq/current/bin/bufdump
+            
+```
+
+
+            Output similar to the following should be printed:
+            ```
+                bufdump version 2.0 (C) Copyright 2002 Michigan State University all rights reserved
+bufdump comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions; See http://www.gnu.org/licenses/gpl.txt
+for details
+bufdump was written by:
+
+Ron Fox
+Eric Kasten
+Added Sink Id 2
+
+                
+            
+```
+
+
+            This output indicates that bufdump
+            has successfully connected to the online system of the local
+            computer.
+        To start the readout software, form another terminal session to the
+            computer that is connected to your VME crate, set the default directory
+            to where you built your software and start the Readout program.
+
+```
+spdaqxx> cd ~/experiment/readout
+spdaqxx> ./Readout
+            
+```
+
+
+            When Readout starts, it should output a message like:
+            ```
+pReadout version 1.0 (C) Copyright 2002 Michigan State University all rights reserved
+pReadout comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions; See http://www.gnu.org/licenses/gpl.txt
+for details
+pReadout was written by:
+
+Ron Fox
+%
+
+            
+```
+
+
+The Readout program you have built runs an extended Tcl interpreter.
+            Tcl is a scripting language that is widely used throughout the NSCL
+            as an extension language.  It provides a common base language for
+            *programming* applications.  Each program in
+            turn extends this language with a set of commands that allow you to
+            control the application itself.
+
+The commands we will be working with are:
+
+
+
+**begin**Begins a run.  From the point of view of your code, your
+                        the `Initialize` and `Clear`
+                        member functions of your event segment will be called. The
+                        Readout framework will respond to each trigger by calling
+                        the `Read` member function of your
+                        event segment.
+
+**end**Ends a run.  The readout framework stops responding to triggers.
+
+
+Tell the readout program to start a run:
+
+```
+% begin
+            
+```
+
+
+The >bufdump
+            terminal session should now start spewing stuff at you.
+            If the trigger rate is high, you may need to stop the run to be able to
+            read the buffers.  To do this type:
+            **end** to the Readout program.
+
+When the
+            run starts, bufdump dumps the headers of several non-event buffers.  As each
+            event buffer is filled with data collected by the `Read`
+            member function in your event segment, bufdump will
+            dump the buffer header and the first event in the buffer.  This might look a bit
+            like this:
+
+```
+                ----------------------- Event (first Event) ----------------
+Header:
+300 1 -27712 0 1859 0 4 0 0 0 5 258 772 258 0 0
+Event:
+71(10) words of data
+47 46 ff00 4200 2000 4000 404f 4010
+4055 4001 4066 4011 404c 4002 4059 4012
+4059 4003 4058 4013 404d 4004 405d 4014
+405e 4005 4048 4015 4058 4006 4076 4016
+4065 4007 4bcc 4017 4050 4008 4068 4018
+406b 4009 4057 4019 405a 400a 4067 401a
+406a 400b 404e 401b 405a 400c 406c 401c
+4066 400d 405a 401d 404f 400e 406e 401e
+405a 400f 4055 401f 404c 4404 5824
+                
+            
+```
+
+
+Focus on the section below the word Event:.
+            This is a hexadecimal representation of the data in the first event of the buffer.
+           The event that we made starts with 47, this is the total number of
+           words (in hex) that exist in the event. The size of the event is filled in by the
+           Readout framework.
+           The next word is the number of
+           words in our packet (in hex). This word is filled in by our documented packet.
+           The third word is the packet id in this case
+           0xff00 This word is also filled in  by our documented packet object.
+           The remainder of the event is the data from the ADC hardware. The
+           next two words are the ADC header; if you break these down into binary
+           representation the first five bits will be the slot where the V785 is located. If
+           the packet ID and slot number are both correct then you are ready to move
+           on to modifying the SpecTcl Skeleton.
+
+Complete documentation of the data read from the ADC hardware is given by
+           the CAEN V785 manual.  This manual can be found online at CAEN website:
+           [http://www.caen.it/](http://www.caen.it/)
+
+Exit the Readout program by typing the following to the Readout
+            program:
+
+```
+% end
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The electronics |  | SpecTcl Histogramming Software |

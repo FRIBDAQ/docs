@@ -1,0 +1,218 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev | Chapter 3. Getting started with SpecTcl | Next |
+
+
+---
+
+# <a name="AEN392"></a>3.3. Defining and applying gates
+
+Recall that gates are conditions that can be applied to
+                spectra.  When applied to a spectrum, that spectrum only increments
+                for events that make the applied gate true.  This section will
+                describe how to create, list and apply gates.  Note that unlike
+                spectra, gates are mutable.   Defining a gate with the name
+                of an existing gate is not an error but changes the definition
+                of the existing gate.
+
+SpecTcl has two classes of gates.  Simple gates are those that
+                are directly set on parameters (such as slices, contours or bands).
+                Compound gates represent boolean operations perfromed on one or
+                more other gates.  Compound gates allow you to define
+                very complex conditions on spectra.
+
+The **gate** command allows you to create and modify
+                gates.  The **apply** command allows you to
+                apply a gate to one or more spectra, as well as to list the
+                gate applications.
+
+|  |  |
+| --- | --- |
+|  | NOTE |
+|  | Both the Xamine and Spectra visualizers allow you to
+                    graphically create gates.   It is important to note that gates
+                    are notdefinedon spectra but on
+                    parameters.  The axes of the spectra on which a gate is
+                    drawn determines the set of parameters on which it is
+                    applied. |
+
+SpecTcl supports a very rich set of gate types.  In this
+                section we're only going to look at using the command line
+                to create slices, contours, and several types of compound gates.
+
+The form of the gate command that creates a new gate or modifies
+                an existing gate is:
+
+<a name="AEN405"></a>```
+gate name type description
+                
+```
+
+The `name` parameter is the name of a new
+                gate or the name of a gate whose definition will be modified.
+                `type` is the type of the gate (it is possible
+                to change the type of an existing gate).
+                `description` is a descsription of the gate.
+                The gate description is a Tcl list whose contents depend on the
+                type of gate being created.   As usual, see the reference information
+                for more information about gate types and their description lists.
+
+**Slice gates. **
+                    Slice gates or cuts represent a region of interest in a
+                    single parameter.  Both Xamine and Spectra allow you to
+                    graphically define slices.
+
+
+
+- The gate type for a slice is s. The
+                          description is a two element Tcl list.  The first
+                          elemment is the name of the parameter on which the
+                          slice is set.  The second element is a two element
+                          list that contains the lower and upper limits of the
+                          gate.
+- The gate is true for any event where that parameter is
+                          defined and lies between the gate limits inclusive.
+
+<a name="AEN421"></a>**Example 3-1. Creating a slice gate from the command line**
+
+```
+gate gdr s {energy {100 350}}
+                
+```
+
+**Contour Gates. **
+                    Contour gates represent two dimensional areas of interest.
+                    A contour gate is set on two parameters, an X and Y
+                    parameter and is true for all events that define both
+                    parameters and for which the parameters fall inside the
+                    contour.
+
+Note that insidedness is well defined even for unusual
+                contours (e.g. multi-lobed contours or contours that wind).
+                A point is inside a contour if a line drawn in any direction
+                from the point crosses an odd number of boundaries.  It is
+                outside if a line drawn in any direction crosses an even number
+                of boundaries (0 is considered even).
+
+
+
+- c is the type code for a contour.
+- The description is  three element Tcl list.  The
+                          first element is the name of the X parameter.  The
+                          second element is the name of the Y parameter.  The
+                          third element is, itself a list.
+  Elements of the third element are themselves two
+                          element lists that represent the coordinates of the
+                          vertices of the contour.
+
+<a name="AEN436"></a>**Example 3-2. Creating a contour gate**
+
+```
+gate alphas c {X TOF {{10 10 } {200 10} {200 200} {10 200}}}}
+                
+```
+
+**Compound gates. **
+                    Compound gates should be thought of as boolean operations performed
+                    on previously defined gates.  Note that one or more of the
+                    previously defined gates can be compound gates as well.
+                    This nesting allows you to build up arbitrarily complex
+                    logical conditions.
+
+The description of a compound gate is simply the list of gates
+                that make up the compound gate.
+                These gates are called *member gates*.
+                The following compound
+                gate types are the most common.  See the reference material
+                for a complete list of gate types and their representations.
+
+
+
+- - not gateNot gates only operate on a single gate.  The
+                            resulting gate inverts the sense of the member gate.
+                            That is the not gate is true only if the member gate
+                            is false.
+
+* - and gateThe resulting gate is true only if
+                            *all* member gates
+                             are true.  This represents the boolean and
+                             of the gates.
+
++ - or gateThe resulting gate is true if *any*
+                            of the member gates is true.  This represents the
+                            boolean or of the gates.
+
+<a name="AEN462"></a>**Example 3-3. Sample compound gates**
+
+```
+gate real - background
+gate anyAlpha + {alpha1 alpha2 alpha3 alpha4}
+gate 30MeVAlpha * {alpha 30Mev}
+                
+```
+
+**listing gates. **
+                    As with the **parameter** command,
+                    the **gate** command can be given a
+                    `-list` option.  When this is done, the
+                    command lists all or some of the gates that are currently defined.
+
+The form of this command is:
+
+<a name="AEN472"></a>```
+-list
+```
+
+The optional pattern specifies a gate name pattern that must
+                be matched to list the gate.   The pattern can contain all of
+                the wild card characters that are used in Unix shell filename
+                patterns (glob pattern).
+
+The returned value from the command is a Tcl list whose elements
+                describe a gate.  The gate descriptions are themselves
+                Tcl lists that contain the following elements:
+
+
+
+- name the name of the gate.
+- id a numeric id for the gate.  This
+                          is relatively useless for users.  The name of the
+                          gate is used to refer to the gate within SpecTcl.
+- type  The gate type character.
+- description  The gate description.
+                          The contents of this Tcl list depend on the gate type
+                          but is the same as the description used to create the
+                          gate.
+
+There is also a **gate** `-delete`
+                form of the command.  This accepts a list of gates that are
+                "deleted".  In order to provide uniform, predictable behavior
+                in compound gates that depend on gates that are deleted, gates
+                are not actually deleted but replaced with a
+                false gate.  A false gate is never true.
+
+**Applying gates. **
+                    Gates are only useful when applied to one or more spectra.
+                    A spectrum will only increment if sufficient parameters exist
+                    for the spectrum and the gate applied to it is true for
+                    that event.
+
+The **apply** command applies gates to
+                spectra.  It looks like this:
+
+<a name="AEN500"></a>**apply *gatename spec1 ?spec2 ...?*
+**
+
+Where `gatename` is the name of a gate and
+                the remaining parameters are names of spectra the gate will be
+                applied to.  If a spectrum already has a gate applied,
+                this replaces that gate.  A spectrum can only have one gate at
+                a time applied to it.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Creating/listing spectra | Up | Tailoring a new SpecTcl skeleton |

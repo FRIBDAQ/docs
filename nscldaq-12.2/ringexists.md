@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN106551"></a>ringExists
+
+<a name="AEN106555"></a>## Name
+
+ringExists -- Determine if a ringbuffer exists
+
+<a name="AEN106558"></a>## Synopsis
+
+```
+package require ringutils
+if {[ringExists name ?host?=localhost]} {
+    # Ring exists.
+} else {
+    # Ring does not exist.
+}
+        
+```
+
+<a name="AEN106560"></a>## DESCRIPTION>
+
+Returns a boolean true if the ringbuffer `name` exists in the
+            host `host`  The `host` is optional
+            and defaults to localhost if omitted.  If `name`
+            does not exist a boolean false is returned.
+
+If `host` does not exist or is not running a functinoning
+            ring master daemon, this proc will throw an error.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| getRingUsage | Up | waitForRing |

@@ -1,0 +1,338 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1_scalerdisplay11"></a>ScalerDisplay
+	<a name="manpage.scalerdisplay"></a>
+
+<a name="AEN20266"></a>## Name
+
+ScalerDisplay -- Display counts and rates in scalers.
+
+<a name="AEN20269"></a>## Synopsis
+
+**$DAQBIN/ScalerDisplay *definition-file*
+**
+
+Configuration file commands:
+
+**channel *?option...? name channel?.sourceid?*
+**
+
+**page *tabname page-title*
+**
+
+**display_single *tabname scaler-name*
+**
+
+**display_ratio *tabname numerator-scaler denominator-scaler*
+**
+
+**blank *tabname*
+**
+
+**stripparam *name*
+**
+
+**stripratio *numerator denominator*
+**
+
+**stripconfig *option ?...?*
+**
+
+<a name="AEN20298"></a>## DESCRIPTION
+
+The scaler display program displays scaler counts and rates
+            during active data taking runs.   The environment variable
+            SCALER_RING (See ENVIRONMENT VARIABLSE below)
+            specifies the rings from which data will be taken.  A configuration file
+            determines what is displayed and how.
+
+The configuration file is described in the section CONFIGURATION FILE
+            below.  The path to the configuration file is the one command line parameter that is both
+            required and accepted by the scaler display program.
+
+The command synopsis assumes you have sourced the daqsetup.bash file
+            into your shell.
+
+<a name="AEN20307"></a>## CONFIGURATION FILE
+
+The configuration file is a Tcl script with a few command extensions.  The extensions
+            provide the ability to associate a name with a scaler channel, and describe how and if that
+            channel should be displayed.
+
+The display is organized into two sections.  A tabbed notebook at the top of the user interface
+            provides several *pages*.  Each page is a table containing scaler names, rates, totals and,
+            if appropriate, ratios of rates and totals for a pair of scalers.
+            The lower section is an optional stripchart that shows the time evolution of counting rates
+            in a scaler or the ratio of a pair of scaler rates.
+
+<a name="AEN20312"></a>### channel
+
+The **channel** command associates a name with a scaler channel from
+                a data source.  The name is then used both to display the channel and to refer to
+                it in other configuration file commands.  The form of this command is:
+
+**channel *?option...? name channel?.sourceid?*
+**
+
+
+
+*option...*Are options that control how the channel is treated.
+                            Legal options are:
+
+
+
+`-incremental` *bool*A boolean value which, if true, means that the
+                                        scaler channel is incremental (cleared after each read).
+                                        If false, the scaler counts are cumulative over the entire run.
+
+`-width` *nbits*The value is an integer that specifies the width of the scaler
+                                        channel in bits.  All bits in positions higher than this value
+                                        will be ignored.  This is primarily used with some CAMAC
+                                        scalers read out through some interfaces that put additional
+                                        bits in positions above bit 23.
+
+`-lowlim` *rate*Specifies a low rate limit for the scaler.  If the count
+                                        rate for this scaler drops below the specfied *rate*,
+                                        the channel will show in a low rate alarmed status, if alarms are
+                                        enabled via the checkbutton on the scaler display screen.
+
+`-hilim` *rate*Specifies a high rate limit for this scaler.
+
+nameIs the name that will be given to the channel.
+
+channelIs the index into the data source's scaler array in which
+                            the counts for this scaler live.
+
+sourceidIf supplied this specifies the source id from which the data
+                            comes.  If not specified, the source id defaults no source id
+                            which is what you get when the data has no body header.
+
+<a name="AEN20364"></a>### page
+
+The **page** command defines a new scaler display table page.
+                It has the form:
+
+**page *tabname page-title*
+**
+
+
+
+*tabname*Is the text on the tab of the tabbed notebook in which the page is displayed.
+                            This is also the name used to refer to this page in other
+                            commands in the configuration file.
+
+<a name="AEN20377"></a>### display_single
+
+The **display_single** command appends a line to a page.
+                The line displays the rates and total counts for a single scaler.
+                The syntax of this command is:
+
+**display_single *tabname scaler-name*
+**
+
+
+
+*tabname*Is the name of the tab that has the page the line will be added to.  Lines
+                            are added to the bottom of the page.
+
+*scaler-name*The name of the scaler channel (as defined by  a
+                            **channel** command) that will be displayed
+                            on that line.
+
+<a name="AEN20396"></a>### display_ratio
+
+The display ratio command adds a line to a page that displays two
+                scalers.  In additon the ratio of the rates and totals are displayed.
+                The line is added to the end of the page.
+                The syntax of this command is:
+
+**display_ratio *tabname numerator-scaler denominator-scaler*
+**
+
+
+
+*tabname*Is the label on the tab that is displaying the page
+                            to which this line will be added.
+
+*numerator-scaler*Is the name of the scaler that will be the numerator of the
+                            ratios.
+
+*denominator-scaler*Is the name of the scaler that will be the denominator of the ratios.
+
+<a name="AEN20418"></a>### blank
+
+Appends a blank line to the specified tab.  The syntax of this command is:
+
+**        
+blank *tabname*
+**
+
+<a name="AEN20424"></a>### stripparam
+
+If no other strip chart traces have been defined, this enables the strip chart.
+                The command also enables the plot of a single trace of the rate of the
+                specified parameter on the strip chart.  The syntax of this command is:
+
+**stripparam *name*
+**
+
+<a name="AEN20430"></a>### stripratio
+
+If no other strip chart traces have been defined, this enables the strip chart.
+                The command enables the plot of a trace that is the ratio of the numerator scaler
+                to the denominator scaler.   The scalers are specified by the name they were given in
+                their **channel** commands.
+                The form of this command is:
+
+**stripratio *numerator denominator*
+**
+
+<a name="AEN20437"></a>### stripconfig
+
+Sets configuration options for the strip chart.  Naturally this is only meaningful
+                if at least one trace is defined via the **stripparam** or
+                **stripratio** commands above.
+
+The syntax of this command is:
+
+**stripconfig *option ?...?*
+**
+
+The available options are:
+
+
+
+`-timeaxis` *seconds*Number of seconds on the time axis.  Note that since the
+                            plot is allowed to choose axis labels that are 'natural' you may
+                            get slightly something a bit different, for example a value of
+                            1198 will almost certainly be modified to
+                            1200.
+
+<a name="AEN20456"></a>## EXTENSION POINTS AND API
+
+There are a number of ways to extend the scaler display.
+
+First the scaler configuration file is just a Tcl script with commands
+            added to the interpreter to support defining channels, pages and their
+            contents and strip chart channels.  Thus you could add additional
+            functionality via that script.
+
+Second the scaler display program provides for callbacks to
+            user code that is either part of the configuration file
+            or incorporated by the configuration file. A minimal API
+            also allows extensions of that sort to gain information
+            needed for other processing.
+
+Third, variable values can affect the operation and visual
+	    display of the program.
+
+<a name="AEN20462"></a>### Callbacks
+
+There are three callback points defined by the scaler display program.
+                If a user configuration file defines an appropriately named
+                **proc** it will be called:
+
+
+
+**UserBeginRun**As the namei implies, this proc, if defined,
+                            will be invoked when the scaler program processes
+                            begin run ring items.
+
+**UserEndRun**Similarly this proc, if defined, is called when
+                            the scaler program processes an end of run.
+
+**UserUpdate**Called, if defined, when a scaler ring item is
+                            processed.
+
+<a name="AEN20482"></a>### API
+
+A very simple and minimal API provides access to data and objects
+                that make up the scaler program.  These are all simple Tcl procs.
+
+
+
+**getStartTime**Returns the start time **[clock seconds]**
+                            at which the most recent run started.
+
+**getElapsedTime**Return the run elapsed time in seconds.
+
+getTitleReturns the title of the most recently started run.
+
+getRunNumberReturns the run number of the most recently started run.
+
+getStateReturns the state of the run.  This is one of
+                            Active or Inactive
+                            depending on whether or not the run is in progress.
+                            Note that paused runs will appear as Active
+
+**getScalerNames**Returns a Tcl list that contains the name of all
+                            scaler channels defined.
+
+**getRate** *name*Returns the counting rate of the channel
+                            *name*
+                            as of its most recent update.
+
+**getTotal** *name*Returns the total number of counts accumulated in the
+                            scaler *name* as of its most
+                            recent update.
+
+<a name="AEN20531"></a>### VARIABLES
+
+The following variables affect the visual display of the program:
+
+
+
+`::scalerconfig::normalColor`Background color for channels that are not in the
+			    alarmed state.  This can be expressed either as
+			    a known named color or as an rgb intensity. The default
+			    value is white.  Note that this and
+			    all alarm color definitions must be defined prior to
+			    the page definition in which they apply.
+
+`::scalerconfig::lowAlarmColor`Background color for channels that are alarming
+			    due to a count rate below the `-lowlim`
+			    value.  The default value is green.
+			    Note that changing the background color of the
+			    alarmed channel does not, at this time, affect the
+			    tab color for pages containing the channel.
+
+`::scalerconfig::highAlarmColor`Background color for channels that are alarming
+			    due to a count rate above the `hilimi`
+			    value.  The default avale is red.
+			    Note that changing the background color of the
+			    alarmed channel does not, at this time, affect the
+			    tab color for pages containing the channel.
+
+`::scalerconfig::lowAlarmTabColor`The color for tabs on pages that are displaying
+                channels that are in low rate alarm.  The
+                default color is green.
+
+`::scalerconfig::highAlarmTabColor`Color for tabs on pages that are displaying channels that
+                are in high rate alarm.  THe default color is red.
+
+`::scalerconfig::bothAlarmTabColor`Color for tabs on pages that are displaying channels
+                that are both in high and low rate alarm. The default
+                color is amber.
+
+::outputFileDirectoryThis defaults to the current working directory and is
+					the directory in which end run files will be created.
+					Specifically the human and machine readable files and the
+					postscript dump of any strip chart.
+
+<a name="AEN20574"></a>## ENVIRONMENT VARIABLES
+
+SCALER_RING is a space separated list of the
+            ring URIs from which the program will acquire data.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ringFragmentSource | Up | dumper |

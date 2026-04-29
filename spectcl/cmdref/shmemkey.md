@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.memorykeycommand"></a>shmemkey
+
+<a name="AEN2449"></a>## Name
+
+shmemkey -- Get shared memory key.
+
+<a name="AEN2452"></a>## Synopsis
+
+**shmemkey
+            **
+
+<a name="AEN2455"></a>## DESCRIPTION
+
+Bulk spectrum data are stored in a SYS-V shared memory region.
+            These memory regions are identified by a 32 bit key.  This
+            key is usually expressed as a four character string.  This
+            command returns that string.
+
+The use case for this command is to allow the REST plugin to tell
+            a local client how to map the bulk spectrum shared memory so that
+            it can get higher data transfer than REST request/response would
+            allow.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| scontents | Up | shmemsize |

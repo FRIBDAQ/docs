@@ -1,0 +1,252 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.n568configfile"></a>n568configfile
+
+<a name="AEN66968"></a>## Name
+
+n568configfile -- N568 shaper configuration file
+
+<a name="AEN66971"></a>## Synopsis
+
+
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| name | nodeid | polezero(i) | shapetime(i) |
+| crate | offset | outpolarity(i) | coarsegain(i) |
+| base | finegain(i) | outconfig(i) |  |
+
+<a name="AEN66984"></a>## DESCRIPTION
+
+The
+        [[r10293]] and
+        [[r10311]]
+        programs rely on cofiguration files.  A configuration  file,  known
+        as  an  N568 configuration file, contains two sets of information.
+        Information about the addressing and
+        identification of the module and information about the module settings.
+
+When initially connecting to the device, the software uses the
+        identification  and  connection  information.  When loading settings
+        files, only the settings information is meaningful.  It is thus
+        possible to
+        use a settings file saved by module A to load the settings
+        for module B.
+
+N568 configuration files are Tcl scripts that just set a bunch of
+        variables and array elements.  Each  variable or array element is an
+        identification parameter or a single parameter setting.
+
+<a name="AEN66991"></a>## IDENTIFICATION PARAMETERS
+
+Identification  parameters  provide both human and machine readable
+            identification for a shaper.  Humans
+            need to be able to refer to a module by a name that has something
+            to do with its function in an  experiment.    Machines  need to
+            know how to form a connection to the module in order to be able to
+            control it
+            or monitor it.
+
+The identification parameters are represented by scalar Tcl
+            variables in the  N568  configuration  file.
+            Machine  readable configuration must specify how to access
+            the CAENnet controller to which the module is
+            connected as well as the node number of the module on that
+            CAENnet:
+
+
+
+`name`A human readable name for the module.  This is for
+                        documentation purposes only.
+
+`crate`The number of the VME crate in which the CAENNet
+                        controller to which the module is  connected  is
+                        installed.
+
+`base`The VME base address of the CAENNet controller to which
+                        the module is connected.
+
+`nodeid`The  node  number  of  the  module  on the CAENnet.
+                        This is the two digit number between
+                        0 and
+                        99
+                        inclusive on the front panel of the module.
+
+<a name="AEN67018"></a>## SETTINGS PARAMETERS
+
+With the exception of the common offset, the N568 has a group of
+            settings for each of its  16  channels.
+            The  common  offset is specified by a scalar Tcl variable, while the
+            channel specific settings are specified
+            by Tcl arrays with numeric indices in the range
+            0 through
+            15
+            respectively, corresponding to the 16 channels of the module.
+
+
+
+`offset`Specifies the commoon ofset in mV.
+
+`finegain(i)`Specifies the fine gain in arbitrary units from
+                        0 through
+                        255 inclusive.
+
+`polezero(i)`Specifies  the  magnitude  of  the  pole  0  correction for
+                        the channel in arbitrary units from
+                        0
+                        through 255 inclusive.
+
+`outpolarity(i)`Specifies the output polarity.
+                        0 means positive and
+                        1 negative.
+
+`outconfig(i)`Specifies the output configuration.
+                        0 means direct, while
+                        1 means inverted.
+
+`shapetime(i)`Specifies the shaping time.  This is specified in
+                        microseconds and can be any  of  the  following
+                        values:
+                        0.1, 1.0, 3.0 or 6.0.
+
+`coarsegain(i)`Specifies  the  coarse gain of the amplifier.  This can be
+                        any of the following:
+                        1 2 4 8 16 32 64 128
+
+<a name="AEN67070"></a>## EXAMPLE
+
+<a name="AEN67072"></a>**Example 1. Sample configuration file**
+
+```
+# N568b configuration file written by n568Control.tcl Wed Nov 09 09:14:10 EST 2005
+set name    seeshaper
+set crate   0
+set base    0x100000
+set nodeid  1
+set offset 1.00
+set finegain(0) 128
+set polezero(0) 119
+set outpolarity(0) 1
+set outconfig(0) 0
+set shapetime(0) 1.0
+set coarsegain(0) 2.0
+set finegain(1) 128
+set polezero(1) 128
+set outpolarity(1) 0
+set outconfig(1) 0
+set shapetime(1) 1.0
+set coarsegain(1) 2.0
+set finegain(2) 128
+set polezero(2) 128
+set outpolarity(2) 1
+set outconfig(2) 0
+set shapetime(2) 1.0
+set coarsegain(2) 2.0
+set finegain(3) 128
+set polezero(3) 128
+set outpolarity(3) 0
+set outconfig(3) 0
+set shapetime(3) 1.0
+set coarsegain(3) 2.0
+set finegain(4) 128
+set polezero(4) 119
+set outpolarity(4) 1
+set outconfig(4) 1
+set shapetime(4) 1.0
+set coarsegain(4) 2.0
+set finegain(5) 128
+set polezero(5) 128
+set outpolarity(5) 0
+set outconfig(5) 0
+set shapetime(5) 1.0
+set coarsegain(5) 2.0
+set finegain(6) 128
+set polezero(6) 128
+set outpolarity(6) 1
+set outconfig(6) 0
+set shapetime(6) 1.0
+set coarsegain(6) 2.0
+set finegain(7) 128
+set polezero(7) 128
+set outpolarity(7) 1
+set outconfig(7) 0
+set shapetime(7) 1.0
+set coarsegain(7) 2.0
+set finegain(8) 128
+set polezero(8) 128
+set outpolarity(8) 1
+set outconfig(8) 0
+set shapetime(8) 1.0
+set coarsegain(8) 2.0
+set finegain(9) 128
+set polezero(9) 128
+set outpolarity(9) 1
+set outconfig(9) 0
+set shapetime(9) 1.0
+set coarsegain(9) 2.0
+set finegain(10) 128
+set polezero(10) 128
+set outpolarity(10) 1
+set outconfig(10) 0
+set shapetime(10) 1.0
+set coarsegain(10) 2.0
+set finegain(11) 128
+set polezero(11) 128
+set outpolarity(11) 1
+set outconfig(11) 0
+set shapetime(11) 1.0
+set coarsegain(11) 2.0
+set finegain(12) 128
+set polezero(12) 128
+set outpolarity(12) 1
+set outconfig(12) 0
+set shapetime(12) 1.0
+set coarsegain(12) 2.0
+set finegain(13) 128
+set polezero(13) 128
+set outpolarity(13) 1
+set outconfig(13) 0
+set shapetime(13) 1.0
+set coarsegain(13) 2.0
+set outpolarity(12) 1
+set outconfig(12) 0
+set shapetime(12) 1.0
+set coarsegain(12) 2.0
+set finegain(13) 128
+set polezero(13) 128
+set outpolarity(13) 1
+set outconfig(13) 0
+set shapetime(13) 1.0
+set coarsegain(13) 2.0
+set finegain(14) 128
+set polezero(14) 128
+set outpolarity(14) 1
+set outconfig(14) 0
+set shapetime(14) 1.0
+set coarsegain(14) 2.0
+set finegain(15) 128
+set polezero(15) 128
+set outpolarity(15) 1
+set outconfig(15) 0
+set shapetime(15) 1.0
+set coarsegain(15) 2.0
+            
+```
+
+<a name="AEN67075"></a>## SEE ALSO
+
+[[r10293]],
+            [[r10311]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| caen812configfile | Up | vhqconfig |

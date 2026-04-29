@@ -1,0 +1,68 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 43. Event builder client API | Next |
+
+
+---
+
+# <a name="evb-connecting"></a>43.3. Connecting to the event builder.
+
+The code below shows how to connect to the event builder as
+                a client:
+
+<a name="AEN9268"></a>**Example 43-1. 
+                    Connecting to the event builder as a data source.
+                **
+
+```
+    #include <CEventOrderClient>                     
+    ...
+    std::string eventBuilderHost;                          
+    ...
+    unsigned int evbPort;                                  
+    try {
+        evbPort = CEventOrderClient::Lookup(eventBuilderHost);
+    }
+    catch (CErrnoException& e) {                      
+    ...
+    }
+    
+    CEventOrderClient evb(eventBuilderHost, evbPort);    
+    try {
+        evb.Connect();                                   
+    }
+    catch (CErrnoException& e) {                     
+    ...
+    }
+                
+```
+
+[[x9265#evbc-connect-include]]                        As previously described, this #include
+                        is required to define the client class.
+                    [[x9265#evbc-connect-hostname]]                        To connect to the event builder you will need to know
+                        the host on which it was started.  For the sake of this
+                        example, assume thie variable will be filled in later on
+                        with the correct hostname.
+                    [[x9265#evbc-connect-getport]]                        This segment of code looks up the TCP/IP port
+                        on which the event builder is listening for connections.
+                        The event builder
+                        obtains a service port via the NSCLDAQ Port manager.
+                        The port manager, in turn, advertises the event buuilder service.
+                    [[x9265#evbc-connect-lookuperr]]                        If the port cannot be looked up an exception is thrown.
+                        Normally you would fill in some error reporting code here.
+                    [[x9265#evbc-connect-create]]                        The connection to the event builder will be encapsulated
+                        in a `CEventOrderClient` therefore
+                        one of these is created.  Note that this does
+                        *not* connect to the event builder.
+                    [[x9265#evbc-connect-connect]]                        The `Connect` method actually attempts
+                        to perform the connection to the event builder.
+                    [[x9265#evbc-connect-connecterr]]                        As with `Lookup` an exception is
+                        thrown if the connection could not be established.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Incorporating the event builder client library | Up | Disconnecting from the event builder. |

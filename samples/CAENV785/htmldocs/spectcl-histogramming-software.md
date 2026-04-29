@@ -1,0 +1,852 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev | Chapter 2. Setting up the software | Next |
+
+
+---
+
+# <a name="AEN387"></a>2.2. SpecTcl Histogramming Software
+
+The procedure for setting up SpecTcl parallels
+        that of settting up the Readout software:
+
+
+
+- Copy the skeleton for SpecTcl into
+                      an empty directory
+- Modify this skeleton to unpack the raw events
+                      SpecTcl gets from the
+                      online system or from eventfiles into a set of parameters.
+- Modify the Makefile to incorporate your changes into a tailored
+                      SpecTcl, and compile the tailored
+                      SpecTcl
+- Test your SpecTcl on event data acquired by your
+                      Readout software.
+
+
+## <a name="AEN408"></a>2.2.1. How to copy the SpecTcl skeleton
+
+At the NSCL, current versions of the SpecTcl skeleton are
+            located in the directory /usr/opt/spectcl/current/Skel.
+            The following commands will create a new directory and obtain a copy the
+            SpecTcl skeleton, called MySpecTclApp:
+
+```
+mkdir -p ˜/experiment/spectcl
+cd ˜/experiment/spectcl
+cp /usr/opt/spectcl/current/Skel/* .
+            
+```
+
+## <a name="AEN415"></a>2.2.2. How to modify the skeleton to unpack events.
+
+SpecTcl relies on a logical pipeline of
+            *event processors* to unpack data from the raw
+            event into parameters.  Each event processor has access to the raw event,
+            and an output array-like object.  This provides each event processor with
+            access to the raw event and any data unpacked by event processors that are
+            ahead of it in the pipeline.
+
+Daniel Bazin has written an extension to SpecTcl
+            called TreeParam.  This extension superimposes
+            structure on top of the array-like output object which makes access to the
+            event array much more natural.  Beginning with SpecTcl
+            version 3.0, the TreeParam extension has become a
+            supported part of SpecTcl.
+
+Dr. Bazin's TreeParam software also includes a very nice front end Graphical
+            User Interface (GUI) for SpecTcl that makes the
+            creation and manipulation of spectra, gates and other SpecTcl
+            object much more user-friendly than raw SpecTcl.
+            This GUI was also incorporated into the base SpecTcl program
+            beginning with version 3.0, it has been extensively modified for version 3.1.
+
+In order to unpack data from our event segment, we need to write an
+            event processor that:
+
+
+
+- Declares the appropriate tree parameter members.
+- Locates a packet with our packet id (0xff00).
+- Unpacks the data in that packet into the appropriate treeparameter members.
+
+
+Our event processor `MyEventProcessor` is defined in the
+            file MyEventProcessor.h, and implemented in
+            MyEventProcessor.cpp.
+            The header looks like this:
+
+<a name="AEN443"></a>**Example 2-3. MyEventProcessor.h - header for the event processor.**
+
+```
+#ifndef __MYEVENTPROCESSOR_H
+#define __MYEVENTPROCESSOR_H
+
+#include <EventProcessor.h>                      // 
+#include <TranslatorPointer.h>	                 //  
+#include <histotypes.h>                          // 
+
+
+// Forward class definitions:
+
+class CTreeParameterArray;
+class CAnalyzer;		                 // 
+class CBufferDecoder;
+class CEvent;
+
+
+
+
+class MyEventProcessor : public CEventProcessor // 
+{
+private:
+  CTreeParameterArray&  m_rawData;              // 
+  int                   m_nId;                  // 
+  int                   m_nSlot;                // 
+public:
+  MyEventProcessor(int         ourId, 
+		   int         ourSlot,	        // 
+		   const char* baseParameterName);
+  ~MyEventProcessor();		                   // 
+
+  virtual Bool_t operator()(const Address_t pEvent,
+			    CEvent&         rEvent,   // (11)
+			    CAnalyzer&      rAnalyzer,
+			    CBufferDecoder& rDecoder);
+
+private:
+  void unpackPacket(TranslatorPointer<UShort_t> p);  // (12)
+  
+};
+
+#endif
+
+                
+```
+
+
+The numbers in the discussion below refer to the numbers in the example above.
+
+[[x387#epbaseclassinclude]]                    All event processors must be derived from the base class
+                    `CEventProcessor`.  To do this requires
+                    that we include the header for that class.
+                    [[x387#epxlatorpointerinclude]]                    The `TranslatorPointer` class creates pointer-like
+                    objects that will do any byte order transformations required between the system
+                    that created the event files and the system running SpecTcl.
+                    This class is a template class, therefore it is necessary to include the header
+                    for it as one of the parameters to a member function of ours is a
+                    `TranslatorPointer`<UShort_t>.
+                                                             [[x387#histotypesinclude]]                        The histotypes.h header defines types that
+                        insulate SpecTcl from differences in the data
+                        types in each system.  We use these extensively in the header and therefore
+                        must include the header here.
+                    [[x387#epforwards]]                        Where the compiler does not need to know the internal definitions of a class
+                        in a header it is a good idea to create *forward references*
+                        to those classes.  This can be done when all objects of a class are pointers or
+                        references.  Doing this decreases the likelyhood that we wind up with a
+                        system that has circular include references.
+                    [[x387#epforwards]]                        As previously mentioned, our event processor class must be derived from
+                        a `CEventProcessor`. This class definition does that.
+                    [[x387#treearraymember]]                        The TreeParameter package provides both individual parameters
+                        (`CTreeParameter`), and arrays of parameters,
+                        (`CTreeParameterArray`).  In this application we will
+                        create a `CTreeParameterArray` that will have one
+                        element for each channel of the CAEN V785.  This data member will be a
+                        *reference* to that array.  A reference in C++ is
+                        a variable that operates like a pointer with the notation of something that is
+                        not a pointer.  For example, if I have a pointer p to a structure containing
+                        an element b, I would access that element using the notation:
+                        p->b.  If I have a reference r to the same structure,
+                        I would access element b using the notation
+                        r.b.
+                    [[x387#epidmember]]                    The `m_nId` member variable will be used to hold the
+                    id of the packet our event processor is supposed to decode.
+                    [[x387#epslotmember]]                    The `m_nSlot` member variable will be used to hold
+                    the geographical address of the CAEN V785 we are unpacking.  This
+                    member is used as a *sanity check*.  Sanity checks
+                    double check that the code you write is operating the way you think it should.
+                    In this case, if the packet that matches our id does not contain data that
+                    is from the ADC with the correct geographical address, we know that something
+                    has gone seriously wrong.  It is a good practice to employ sanity checks whenever
+                    you can think of one.
+                    [[x387#epconstructor]]                    The constructor is called to initialize the members of an object of class
+                    `MyEventProcessor`.  It's parameters are as follows:
+                    
+
+`ourId`Provides the packet id that this object will
+                                        locate and unpack.  By parameterizing this, our class
+                                        can unpack more than one packet id as long as the packet
+                                        body is data from a single CAEN V785 ADC
+
+`ourSlot`Provides the slot number of the ADC we expect to see
+                                        in the packet of type `ourId`. This
+                                        enables us to perform the sanity check we described earlier.
+
+`baseParameterName``CTreeParameter` objects have a parameter name,
+                                    this parameter name becomes the SpecTcl
+                                    parameter name.  In the case of `CTreeParameterArray`
+                                    objects, the parameter name becomes a base name and actual parameters
+                                    have a period and an element number appended to this basename.
+                                    For example, a ten parameter array with the base name
+                                    `george` might create
+                                    SpecTcl parameters
+                                    `george.00, george.01 ... george.09`.
+                                    The `baseParameterName` will be used to
+                                    set the `CTreeParameterArray` base name.
+
+
+[[x387#epdestructor]]                    A destructor is necessary when classes use dynamcially allocated data, in order
+                    to prevent memory leaks when an object is destroyed.
+                    [[x387#epfunccall]] `operator()` allows objects of a class to be treated as
+                    functions that can be called.  Objects of this sort behave as functions that
+                    can retain state between calls.  The function call operator of a
+                    `CEventProcessor` is a virtual function which means
+                    that the appropriate function for pointer to an object derived from
+                    `CEventProcessor` will be selected at run time from the
+                    actual class of the object the pointer points to (in this case a
+                    `MyEventProcessor`.   The function call operator for
+                    classes derived from `CEventProcessor` is expected to
+                    process the raw event, and already unpacked data producing new unpacked data.
+                    The event processor should return a kfTRUE
+                    if it succeeded well enough that the event pipeline can continue to run or
+                    kfFALSE if
+                    SpecTcl should abort the event pipeline and
+                    not histogram the event.
+                    [[x387#unpackUtil]]                    When we implement the `operator()` function, we will have it
+                    hunt through the body of the raw event for a packet that matches the
+                    id stored in `m_nId` member variable.  When we find that packet,
+                    we'll want to unpack it into our `m_rawData` tree parameter array.
+                    To make the code simpler to understand, we plan to break off the actual unpacking
+                    of the packet into a *utility function* called
+                    `unpackPacket`.
+
+
+The next step is to actually implement the class.  The implementation of this
+            class is shown in the next listing.
+
+<a name="AEN543"></a>**Example 2-4. Implementation of the `MyEventProcessor` class**
+
+```
+#include <config.h>
+#include "MyEventProcessor.h"            // 
+#include <TreeParameter.h>
+#include <Analyzer.h>                    // 
+#include <BufferDecoder.h>
+#include <Event.h>
+
+#include <iostream>
+
+#include <TCLAnalyzer.h>                  // 
+
+#ifdef HAVE_STD_NAMESPACE
+using namespace std;
+#endif
+static const ULong_t CAEN_DATUM_TYPE(0x07000000);  
+static const ULong_t CAEN_HEADER(0x02000000);      
+static const ULong_t CAEN_DATA(0);
+static const ULong_t CAEN_TRAILER(0x04000000);
+static const ULong_t CAEN_INVALID(0x06000000);
+
+static const ULong_t CAEN_GEOMASK(0xf8000000);
+static const ULong_t CAEN_GEOSHIFT(27);
+static const ULong_t CAEN_COUNTMASK(0x3f00);   // 
+static const ULong_t CAEN_COUNTSHIFT(8);
+
+static const ULong_t CAEN_CHANNELMASK(0x3f0000);
+static const ULong_t CAEN_CHANNELSHIFT(16);
+static const ULong_t CAEN_DATAMASK(0xfff);
+
+
+static inline ULong_t getLong(TranslatorPointer<UShort_t>& p)  // 
+{
+  ULong_t high   = p[0];
+  ULong_t low    = p[1];                  
+  return (high << 16) | low;	          
+}
+
+MyEventProcessor::MyEventProcessor(int ourId,
+				   int ourSlot,
+				   const char* baseParameterName) :
+  m_rawData(*(new CTreeParameterArray(string(baseParameterName),
+				      4096, 0.0, 4095.0, string("channels"),
+				      32, 0))),    // 
+  m_nId(ourId),
+  m_nSlot(ourSlot)
+{
+}
+
+
+
+MyEventProcessor::~MyEventProcessor()
+{
+  delete &m_rawData;		// 
+}
+
+Bool_t
+MyEventProcessor::operator()(const Address_t pEvent,
+			     CEvent&         rEvent,
+			     CAnalyzer&      rAnalyzer,
+			     CBufferDecoder& rDecoder)
+{
+  TranslatorPointer<UShort_t> p(*(rDecoder.getBufferTranslator()),
+				pEvent);                    
+  UShort_t                    nWords = *p++;           // 
+  CTclAnalyzer&               rAna((CTclAnalyzer&)rAnalyzer);
+  rAna.SetEventSize(nWords*sizeof(UShort_t));
+  nWords--;			// Remaining words after word count.
+
+  while (nWords) {
+    UShort_t nPacketWords = *p;                       // 
+    UShort_t nId          = p[1];
+    if (nId == m_nId) {                               // 
+      try {                                           // (11)
+	unpackPacket(p);                              // (12) 
+      }
+      catch(string msg) {
+	cerr << "Error Unpacking packet " << hex << nId << dec 
+	     << " " << msg << endl;
+	return kfFALSE;                               // (13)
+      }
+      catch(...) {
+	cerr << "Some sort of exception caught unpacking packet " << hex << nId
+	     << dec << endl;
+	return kfFALSE;
+      }
+    }
+    p      += nPacketWords;                           // (14)
+    nWords -= nPacketWords;
+  }
+  return kfTRUE;		                     // (15) 
+}
+
+void
+MyEventProcessor::unpackPacket(TranslatorPointer<UShort_t> pEvent)
+{
+  pEvent += 2;			                    // (16)
+
+  ULong_t header      = getLong(pEvent);
+  if ((header & CAEN_DATUM_TYPE) != CAEN_HEADER) {   // (17)
+    throw string("Did not find V785 header when expected");
+  }
+  if (((header & CAEN_GEOMASK) >> CAEN_GEOSHIFT) != m_nSlot) {
+    throw string("Mismatch on slot");
+  }
+
+  Long_t nChannelCount = (header & CAEN_COUNTMASK) >> CAEN_COUNTSHIFT;
+
+  pEvent += 2;                                       // (18)
+  for (ULong_t i =0; i < nChannelCount; i++) {       // (19)
+    ULong_t channelData = getLong(pEvent);
+    int     channel     = (channelData & CAEN_CHANNELMASK) >> CAEN_CHANNELSHIFT;
+    int     data        = (channelData & CAEN_DATAMASK);
+    m_rawData[channel] = data;
+
+    pEvent += 2;
+  }
+  
+  Long_t trailer = getLong(pEvent);
+  trailer       &= CAEN_DATUM_TYPE;
+  if ((trailer != CAEN_TRAILER) ) { // (20)
+    throw string("Did not find V785 trailer when expected");
+  }
+  
+}
+
+
+                
+```
+
+
+The numbers in the annotations below refer to the numbered elements of the
+            listing above.
+
+[[x387#epinclude]]                    Since this compilation unit implements the `MyEventProcessor`
+                    class, it is necessary for the file to have access to the header for that class.
+                    [[x387#epforwardincludes]]                    The header for `MyEventProcessor` declared several classes
+                    to be forward defined.  Since these classes will be manipulated in the
+                    implementation module, the headers for these classes must now be
+                    #include-ed.[[x387#tclanalyzerinclude]]                    The `CAnalyzer` reference that will be passed in to the
+                    `operator()` member function is really a reference to
+                    a `CTclAnalyzer`.  Since we will be calling member functions
+                    of `CTclAnalyzer` directly, we must include the
+                    header of that class as well[[x387#constants]]                    This section of code defines sevaral constants that help us unpack data longwords
+                    from the CAEN V785 ADC.  See the hardware manual for that module for a detailed
+                    description of the format of the buffer produced by this module.  Whenever possible
+                    avoid *magic numbers* in code in favor of symbolic constants
+                    as shown in the listing. Symbolic constants make the code easier to understand for
+                    the next person and for you if you have to look at it a long time later.
+                    The constants are:
+                    
+
+`CAEN_DATUM_TYPE`This is a mask of of the bits that make up the field in the
+                                V785 data that describes what each longword is.
+
+`CAEN_HEADER`If the bits selected by the `CAEN_DATUM_TYPE`
+                                are equal to `CAEN_HEADER` the longword is an
+                                ADC header word.
+                                Thus you can check for *header-ness* with code
+                                like:
+
+```
+if ((data & CAEN_DATUM_TYPE) == CAEN_HEADER) { ...
+                                
+```
+
+
+`CAEN_DATA``CAEN_DATA` selects ADC data longwords in a mannger
+                                analagous to the way that `CAEN_HEADER`
+                                selects header words.  If the bits of a longwords of V785 data
+                                are anded with `CAEN_DATUM_TYPE`, and the result
+                                is `CAEN_DATA` the longword contains conversion data.
+
+`CAEN_TRAILER`If a longword of CAEN V785 data, anded with the
+                                `CAEN_DATUM_TYPE` mask is
+                                `CAEN_TRAILER`, the longword is an ADC trailer and
+                                indicates the end of an event from the module.
+
+`CAEN_GEOMASK` and `CAEN_GEOSHIFT`These two values can be used to extract the *Geographical
+                                Address* field from data returned by the CAEN V785 ADC.
+                                The Geographical Address is what we have been loosely calling the
+                                slot of the ADC.  The following code snippet is a recipe for getting
+                                the geographical address from any of the longwords that the module
+                                returns:
+
+```
+unsigned long slotNumber = (data & CAEN_GEOMASK) >> CAEN_GEOSHIFT;
+                                
+```
+
+
+`CAEN_COUNTMASK` and `CAEN_COUNTSHIFT`These two values can be used to return the number of channels present in
+                                an event from the CAEN V785 adc.  The number of channels present in the
+                                event is available in the header word for the ADC data.  Given a header
+                                word, this information can be extracted as follows:
+
+```
+unsigned long channelCount = (header & CAEN_COUNTMASK) >> CAEN_COUNTSHIFT;
+                                
+```
+
+
+`CAEN_CHANNELMASK` and `CAEN_CHANNELSHIFT`These two values are used to extract the channel number of a conversion
+                                from a conversion word (type `CAEN_DATA`).  The code
+                                below shows how to do this:
+
+```
+unsigned long channelNumber = (datum & CAEN_CHANNELMASK) >> CAEN_CHANNELSHIFT;
+                                
+```
+
+
+`CAEN_DATAMASK``CAEN_DATAMASK` can be used to extract the
+                                conversion value from an adc conversion longword (longword with type
+                                `CAEN_DATA`).  For example:
+
+```
+unsigned long conversion = datum & CAEN_DATAMASK;
+                                
+```
+
+
+[[x387#getLong]]                    The *inline* function `getLong`
+                    returns a longword of data pointed to by a
+                    `TranslatorPointer`<UShort_t>.
+                    The longword is assumed to be big endian by word, that is the first word
+                    contains the high order bytes.  The bytes within each word are appropriately
+                    managed by the `TranslatorPointer` object.
+                    Inline functions are preferred to #define macros in C++.  The usually have the
+                    same execution efficiency without some of the strange argument substitution problems
+                    that a #define macro may have.
+                    [[x387#epinitializers]]                    The main task of the constructor is to initialize data elements.  In C++
+                    where possible, this should be done with initializers, rather than with
+                    code in the body of the constructor.  Note, however, that regardless of the order
+                    of initializers in your constructor, they are executed in the order in which the
+                    members *are declared in the class definition*.
+                    The only initializer worth explaining in this code is the one for the
+                    `CTreeParameterArray&` member data `m_rawData`.
+                    This constructor dynamically allocates a new object and points the reference at it.
+                    The parameters of the constructor are in turn the base name of the array,
+                    The preferred number of bins for spectra created on this parameter,
+                    the low and high limits of the range of values this parameter can have,
+                    the units of measure of the parameter, the number of elements in the
+                    array and the index of the base element of the array (it is possible to give
+                    a `CTreeParameterArray` any integer base index desired.
+                    [[x387#epboilerplate]]                    This section of code should appear in essentially all event processor
+                    `operator()` functions.  `p` is an object
+                    that acts very much like a UShort_t*.  However it transparently does
+                    any byte order swapping required between the binary representations of the
+                    system that created the buffer and the system that is runing
+                    SpecTcl. This "pointer" is then used to extract the
+                    size of the body of the event from the buffer.  One of the responsibilities of
+                    at least one event processor is to report the size of the event in bytes to the
+                    SpecTcl framework.  The `CAnalyzer`
+                    object reference `rAnalyzer` is actually a reference to an
+                    object of type `CTclAnalyzer`.  This object has a member
+                    function called `SetEventSize` which allows you to inform
+                    the framework of the event size.  Since any event processor can and in many cases
+                    should be written to run with little or no knowledge of other event processors
+                    in the pipeline, by convention we have every event processor informing the
+                    framework of theevent size in this way.
+                    [[x387#packetHeader]]                    This code extracts the packet size and id of each packet encountered in the
+                    while loop.  The size is used to skip to the next packet in the
+                    event.[[x387#packetSearch]]                    This if checks for packets that match the id we've been told
+                    to unpack (`m_nId`).
+                                                 [[x387#tryCatch]]                    A try .. catch block in C++ executes code in the body of the
+                    try block.  If the code raises an exception, a matching exception
+                    handling catch block is searched for at this an higher call levels.
+                    If found that catch block's code is executed.  If not found,
+                    the program aborts.  This block allows us to catch errors from the
+                    `unpackEvent` function and turn them into pipeline aborts.
+                                             [[x387#invokeUnpack]]                    If the event we are unpacking contains the packet our processor has been
+                    told to match, `unpackPacket` is called to
+                    unpack the body of our packet into `m_rawData`.
+                                                 [[x387#handleError]]                    If `unpackPacket` fails a sanity test it will throw
+                    a string exception.  This catch block will then execute,
+                    printing out an appropriate error message to `stderr`
+                    and returning kfFALSE which will cause the remainder
+                    of the event processing pipeline to be aborted, and the event to be thrown out
+                    by the histogrammer.  We have also supplied a *catch all*
+                    catch block (catch (...)).  If an unexpected exception is thrown
+                    from member functions called by `unpackPacket` (for example
+                    `TranslatorPointer` members), this will report them
+                    as well.
+                    [[x387#nextPacket]]                    The packet size is used to point `p` to the next packet in the
+                    event, until we run out of packets.
+                                               [[x387#aOk]]                    Returns kfTRUE indicating that SpecTcl
+                    can continue parameter generation with the next element of the event processing
+                    pipeline or commit the event to the histogramming subsystem if this was the
+                    last event processor.[[x387#toBody]]                    This code in `MyEventProcessor`::`unpackPacket`
+                    adjusts the `TranslatorPointer` `pEvent`
+                    to point to the body of the packet.  This should be the first word of data
+                    read from the ADC itself.  For the CAEN V785, this should be a longword
+                    of header information.
+                                           [[x387#headerSanity]]                    Two sanity checks are performed on the header.  First the type of the longword
+                    is analyzed and an exception is thrown if the longword is not a header longword.
+                    Second, the geographical address of the V785 is extracted and a string exception
+                    is thrown if the header is not the header for the geographical address of the
+                    module we've been told to expect (`m_nSlot`).  If these
+                    sanity checks pass, the number of channels of event data read by the module
+                    for the event are extracted from the header and stored in `nChannelCount`.
+                                                 [[x387#toData]]                    Once it's clear that the header is really a header for the correct module,
+                    we adjust `pEvent` to point to the next longwors which should
+                    be the first of `nChannelCount` longwords containing
+                    conversion information.[[x387#decodeBody]]                    This loop decodes the `nChannelCount` longwords of data.
+                    The channel number and conversion values are extracted, and stored in the
+                    appropriate element of the `m_rawData` `CTreeParameterArray`.
+                    A useful exercise for the reader would be to add an appropriate sanity check for
+                    this section of code.  One useful check would be to ensure that the data words
+                    really are data words, that is that their type is CAEN_DATA.
+                                               [[x387#trailerSanity]]                    Ensures that the longword following the last channel data longword is a V785
+                    trailer longword.
+
+
+Once we have written our event processor, we need to create an instance of it and
+            add it to the event processing pipeline.  This is done by modifying the
+            MySpecTclApp.cpp file.   Edit this file and locate the section
+            of code where header files are #include-ded.  Add the italicized line as shown.
+
+```
+#include <config.h>
+#include "MySpecTclApp.h"
+#include "EventProcessor.h"
+#include "TCLAnalyzer.h"
+#include <Event.h>
+#include <TreeParameter.h>
+#include "MyEventProcessor.h"
+            
+```
+
+
+            This makes the definition of the event processor we created known to this module.
+        Locate the code that creates the analysis pipeline.  In the unmodified
+            MySpecTclApp.cpp file this will look like:
+
+```
+void
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+
+#ifdef WITHF77UNPACKER
+  RegisterEventProcessor(legacyunpacker);
+#endif
+
+    RegisterEventProcessor(Stage1, "Raw");
+    RegisterEventProcessor(Stage2, "Computed");
+}
+            
+```
+
+
+            Rewrite this section of code so that it looks like this:
+            ```
+void
+CMySpecTclApp::CreateAnalysisPipeline(CAnalyzer& rAnalyzer)
+{
+  RegisterEventProcessor(*(new MyEventProcessor(0xff00, 10,
+						"mydetectors.caenv785")));
+}
+            
+```
+
+
+            This creates a new event processor that will look for Id 0xff00,
+            expect it to contain data from geographical address 10, and unpack this
+            data into the tree parameter array with a base name of mydetectors.caenv785.
+
+## <a name="AEN735"></a>2.2.3. Building the tailored SpecTcl
+
+To build our the SpecTcl we have tailored for
+            our events, we need to modify the Makefile to make it
+            aware of our event processor, so that it will compile and link it into our
+            SpecTcl.
+
+Edit Makefile.  Locate the line that reads:
+
+```
+ OBJECTS=MySpecTclApp.o
+        
+```
+
+
+        Modify it to read as follows:
+        ```
+OBJECTS=MySpecTclApp.o MyEventProcessor.o
+        
+```
+
+
+        Now type:
+        ```
+make
+        
+```
+
+
+        to build the program.  This should result in an executable file called
+        SpecTcl.
+
+## <a name="AEN749"></a>2.2.4. Setting up SpecTcl Spectra
+
+Run the version of SpecTcl you created.
+            Four windows should pop up:
+
+
+
+XamineIs a window that allows you to  view and interact with the
+                        spectra that SpecTcl is histogramming.
+
+TkConThis is a command console that is modified from the work of
+                        Jeffrey Hobbs currently at ActiveState.  You can type arbitrary
+                        Tcl/Tk and SpecTcl commands at this console. This software
+                        was released into the open source world under the BSD license.
+
+SpecTclIs a button bar that is built on top of the Tk top level widget.
+                        Untailored, it has two buttons, *Clear Spectra*
+                        clears the counts in all spectra.  *Exit*
+                        exits SpecTcl.
+
+guiIs a tree browser based interface that allows you to
+                                manipulate SpecTcl's primary objects,
+                                Spectra, Parameters, Gates, and Variables.  The idea for this sort
+                                of interface is Daniel Bazin's, this interface, however does not bear
+                                any common code nor resemblence to his original work.
+
+
+We will interact with the gui window to create an initial set of 1-d spectra, one for
+            each channel of the adc.   First lets look at the figure below.
+
+<a name="AEN777"></a>**Figure 2-1. The GUI window as it first appears.**
+
+![](initialgui.gif)
+
+
+            This shows a screenshot of the GUI just after it starts. Each top level folder contains
+            or will contains the set of objects named by the folder.  The Spectra folder will contain
+            spectra.  Folders that have a + to the left of them already contain objects.
+            Since we did not delete the example tree parameters and variables in
+            MySpecTclApp.cpp TreeVariable objects already exist.
+            Parameters have been defined, both by our event processor and by the samples in the
+            oritinal MySpecTclApp.cpp
+Click on the + to the left of the Parameters folder.  You should see two subfolders.
+            named `event` and `mydetectors`.  The first of these
+            contains parameters that were created by the examples in MySpecTclApp.cpp.
+            The second contains parameters we created in our event processor.  Recall that our basename
+            was mydetectors.caenv785, the gui creates a new folder level for each period in a name.
+            Double clicking on mydetectors opens it revealing the caenv785 subfolder we expect.
+            This subfolder contains all the elements of the `CTreeParameterArray`
+            that was created when we constructed our event processor.  Double clicking on the
+            caenv785 subfolder gives the following:
+
+<a name="AEN793"></a>**Figure 2-2. The Gui with folders open to show parameter array elements**
+
+![](openfoldersgui.gif)
+
+
+            You can use the scrollbar at the right of the window to scroll up and down
+            the through the list of parameters.  You can also resize the window to make more
+            parameters show simultaneously.
+        We will now use the Spectra folder *context menu* to create
+            an array of spectra, one for each of the parameters in the array
+            mydetectors.caenv785.   Every folder has a context menu, as do most objects.
+            A context menu is a menu that pops up under the mouse when you hold downt the right
+            mouse button.  Context menu entries are selected by moving the mouse pointer over one of
+            the menu entries and releasing the right mouse button.
+
+Select the New... context menu entry from the Spectra context menu.
+            This brings up a new window shown in the figure below:
+
+<a name="AEN805"></a>**Figure 2-3. The Spectrum creation dialog box**
+
+![](spectrumcreation.gif)
+
+
+This dialog has several controls.  The button labelled Spectrum Type
+            accesses a pull down menu of spectrum type choices.  The entry next to the label
+            Spectrum Name: provides a space to type in the name of the spectrum.
+            The Array? checkbutton is an idea from the original Tree Parameter
+            Gui by Dr. Bazin.  This button allows you to simultaneously create 1-d spectra for
+            each element of a parameter array, by providing a definition for a spectrum for a single
+            element.  We'll use this.
+
+Type mydetectors.caenv785 in the Spectrum Name: entry.
+            Check the Array? checkbutton. Pull down the
+            Spectrum Type menu and select 1-d.  The spectrum creation
+            dialog modifies itself to be a 1-d spectrum editor:
+
+<a name="AEN822"></a>**Figure 2-4. 1-d Spectrum editor.**
+
+![](editor1d.gif)
+
+
+The left half of this editor is just the SpecTcl object
+            browser restricted to display only the set of objects that are relevant to constructing
+            spectra, the parameters and the gates.  A parameter is required, a gate is optional.
+            Open the Parameters folder to display the mydetectors.caenv785 parameter array.
+            The double click on any parameter from that array, say mydetectors.canv785.00.
+            This parameter definition is loaded into the right side of the window.  You can
+            type modifications to the range and binning of the histogram.  For now, we'll accept
+            the defaults.   Create the spectrum by clicking the Ok button
+            at the bottom of the 1-d spectrum editor.
+
+Note that in the main gui window, there is now a + to the left of the
+            Spectra top level folder indicating that spectra have been defined.
+            Open this folder to reveal the spectra we just made:
+
+<a name="AEN835"></a>**Figure 2-5. Created Spectra.**
+
+![](spectramade.gif)
+
+
+While this is not hard to do, it is annoying to have to do this each time we
+            start SpecTcl.  We will therefore save the current set of definitions in a
+            definition file.  On the GUI click the
+            File->Save
+            Menu entry. A file choice dialog will pop up.  Type myspectra in its
+            File name: entry and click Save....
+            From now on, whenever you start SpecTcl, you can load these definitions, by clicking the
+            File->Restore...
+            menu entry and selecting the
+            myspectra.tcl file.
+
+Next we'll want to setup Xamine so that we can actually see the spectra we
+            create.  The Xamine window looks like this:
+
+<a name="AEN855"></a>**Figure 2-6. Initial Xamine Window**
+
+![](blankXamine.gif)
+
+
+The top part of the Xamine window has a menubar.  The large central section has
+            can be subdivided into panes.  One (or more in the case of compatible 1-d) spectrum
+            can be loaded into each pane.  Below the spectrum display area is a status bar.
+            The status bar will display information about the mouse pointer when it is located in
+            a pane that has been loaded with a spectrum.  Below the status bar, a set of commonly
+            used functions are organized into several groups of buttons.
+
+We will now:
+
+
+
+- Subdivide the spectrum display area into an array of panes, four rows down, by
+                      eight columns across.
+- Load the 32 1-d spectra we have just created into the panes.
+- Save the resulting configuration file as a *window definition file*
+                      so that it can be loaded again next time SpecTcl is run.
+
+
+Locate the button in the left most box of buttons at the bottom of the screen
+            labeled Geometry and click on it.  This brings up the following
+            dialog box:
+
+<a name="AEN877"></a>**Figure 2-7. The Pane Geometry dialog**
+
+![](geometryDialog.gif)
+
+
+Click the 4 button in the left column labeled Rows.
+            Click the 8 button in the right column labeled Columns.
+            Click the Ok button at the bottom of he dialog.  The dialog will
+            disappear and the central part of the Xamine window will be subdivided as you requested.
+            Notice how the upper left pane of the set of panes you just created appears
+            pushed in?  This pane is said to be *selected*.  Many of
+            the operations in the Xamine window operate on the selected pane.  A single mouse click
+            in a pane selects it.  A double mouse click zooms the pane to fill the entire window.
+            A double mouse click on the expanded pane unzooms the pane.
+
+Lets load the spectrum mydetectors.caenv785.00 into the upper left pane.  Click on the upper
+            left pane to select it.  Click the Display button.  This brings up
+            the spectrum choice dialog shown below:
+
+<a name="AEN895"></a>**Figure 2-8. Spectrum Choice dialog**
+
+![](spectrumChoiceDialog.gif)
+
+
+The Xamine title for a spectrum includes additional information about the spectrum.  The
+            leftmost part of the title, however is the spectrum name.  Double click the top most
+            entry [1] MYDETECTORS.CAENV785.00 : 1 [0, 4095 : 4096] {MYDETECTORS.CAENV785.00}.
+            The spectrum chooser dialog disappears and the spectrum you selected is loaded into
+            the upper left pane, which remains selected.  Double click it to zoom, double click again
+            to unzoom.
+
+You could repeat this action 31 more times to load each pane with the desired spectrum.
+            That would be painful.  Loading a set of panes is a common enough activity that
+            Xamine includes built in support for it.   Click the second pane from the top left to
+            select it.  Click the Display + button.  This brings up another
+            Spectrum Chooser dialog. Single click on the second spectrum
+            MYDETECTORS.CAENV785.01 : 1 ....  Hit the enter key.  Note that:
+
+
+
+- The dialog remains visible.
+- The selected pane is loaded with the spectrum you selected.
+- The selection advances to the next pane.
+
+
+            You can finish loading the panes by hitting the down arrow key to select the next
+            spectrum and hitting enter.  Repeat as needed to fill all the panes.  When all panes
+            are full, click the Cancel button to dismiss the dialog.
+        Now click on the
+            Window->Write Configuration...
+            menu selection.  This will bring up a file selection dialog box.  In the entry box
+            labelled Filename:, append the text: MyWindows
+            and click Ok.  This creates a new file MyWindows.win
+            that can be used to reload the window configuration you have just created.  Window definition
+            files, as these files are called, can be loaded using the
+            Window->Read Configuration... menu selection.
+
+Exit SpecTcl this is done either by clicking the Exit
+            command on the button strip labeled SpecTcl,
+            or by typing exit in the console window  tkcon.
+            Note that the File->Exit
+            menu entry on the SpecTcl gui only exits the gui, leaving
+            SpecTcl up and running.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Setting up the software | Up | Testing and Running the Software. |

@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN105066"></a>ALevel3XLM72
+
+<a name="AEN105070"></a>## Name
+
+ALevel3XLM72 -- Support the MoNA/Sweeper level 3 trigger XLM7s fpga
+
+<a name="AEN105073"></a>## Synopsis
+
+```
+package require ALevel3XLM72Readout
+ALevel3XLM72 create device-name
+device-name configure -filename firmware-path
+
+addtcldriver create stack-name  -ensemble device-name
+        
+```
+
+<a name="AEN105080"></a>## DESCRIPTION
+
+This module supports the MoNA-LISA third level trigger module.  It provides 
+            both triger information and the timestamp for the event.  I believe the original
+            module was written by Danial Bazin and was later ported to the VMUSBReadout system
+            by Jeromy Tomkins.  This documents the mvlcgenerate code generator module.
+
+The driver instances accepts the configuration  options; `-filename` whose value
+            is the path to the firmware file and `-base` whose value is the 
+            module base address.  As with all XLM modules at this point,
+            the firmware is loaded whenever data taking starts.  This will be eliminated
+            in the future when an external mvlc firmware loader program is written.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| AGD16XLM72 | Up | AMesytecMADC32 |

@@ -1,0 +1,104 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN807"></a>CDBEventPlayer
+
+<a name="AEN811"></a>## Name
+
+CDBEventPlayer -- Supports playing back events from a database.
+
+<a name="AEN814"></a>## Synopsis
+
+```
+CDBEventPlayer
+```
+
+<a name="AEN837"></a>## DESCRIPTION
+
+This class provides an environment neutral method to
+                playback event data in a database file.
+                The playback is modeled like an iterator.
+                The user must have an sqlite3 handle open on the
+                database file and know the number of a run for which
+                there is event data.
+
+<a name="AEN840"></a>## METHODS
+
+
+
+`  CDBEventPlayer(sqlite3* pDatabase, int  run);`Constructs the object.
+                            `pDatabase` is
+                            an sqlite3 handle open on a database that
+                            contains the DAQ database schema. See
+                            Appendix A if you're not sure what this means.
+                            `run` is the number of a
+                            run that will be played back through this object.
+
+If the database is not a valid DAQ
+                            database, an
+                            `std::logic_error`
+                            will be called due to failures in sqlite3
+                            API calls.  If the run does not have
+                            event data, `std::invalid_argument`
+                            is thrown.  It is the caller's
+                            responsibility to close the sqlite3
+                            database when no longer needed.
+
+`  const   Event& next();`Returns the next event from the run.  This should
+                            be called repeatedly until the container
+                            referenced by the return value is empty.
+                            See Data structures below
+                            for a definition of the Event
+                            data type.
+
+`  const std::string  getTitle();`Returns the run title.  This is fetched and
+                            ready to retrieve as soon as the object
+                            is successfully constructed.
+
+<a name="AEN882"></a>## Data structures
+
+The `next` iterator
+                returns a reference to an
+                DBEvent::Event data type.
+                This is a
+                `std::vector<DBEvent::blobElement>`
+                structs.  Each element of the struct has the following
+                fields:
+
+
+
+uint32_t `s_parameterNumber`Contains a parameter number.  This is
+                            is the number of the parameter in the configuration
+                            definition that contains this run.
+                            By "number of the parameter" I mean the
+                            number field of the
+                            an entry in the
+                            parameter_defs table
+                            of the database whose
+                            save_id matches
+                            that of the run. See Appendix A
+                            for more about the schema.
+
+double `s_parameterValue`Contains the value of that parameter.
+
+Note that an empty vector indicates there are no more
+                events in the run.
+
+<a name="AEN905"></a>## LIMITATIONS and Bugs
+
+
+
+1. An event that has no parameters set in it
+                           looks identical to an end of run indication.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| C++ API to the database | Up | CDBEventWriter |

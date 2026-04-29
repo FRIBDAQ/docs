@@ -1,0 +1,111 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cringtextitem"></a>CRingTextItem
+
+<a name="AEN20220"></a>## Name
+
+CRingTextItem -- Encapsulate ring items that are lists of text strings.
+
+<a name="AEN20223"></a>## Synopsis
+
+```
+#include <CRingTextItem>
+         
+```
+
+```
+CRingTextItem
+```
+
+<a name="AEN20356"></a>## Description
+
+Text string items contain lists of null terminated documentation strings.
+            These are stored in ring buffers in structures of the type:
+            TextItem.  These items have a type code of
+            PACKET_TYPES or
+            MONITORED_VARIABLES.  These items are used to
+            document the set of packets you can expect to see in
+            a PHYSICS_EVENT and provide the value of monitored
+            process variables respectively.
+
+<a name="AEN20363"></a>## Public member functions
+
+`  CRingTextItem(uint16_t type, std::vector<std::string> theStrings);`Constructs a ring text item of the type specified by
+            `type`.  The text strings will be filled in with
+            the values of the individual strings in `theStrings`.
+
+The run offset time will be initialized to zero, and the
+            absolute timestamp to the construction time of the object.
+
+`  CRingTextItem(uint16_t type, std::vector<std::string> theStrings, uint32_t offsetTime, time_t timestamp);`Constructs a text item in a fully specified way.
+            In addition to `type` and `theStrings`
+            providing the item type and the strings for the item respectively,
+            `offsetTime`, and `timestamp`
+            provide the run time offset and absolute timestamp values respectively.
+
+`  CRingTextItem(uint16_t type, uint64_t eventTimestamp, uint32_t source, uint32_t  barrier, std::vector<std::string> theStrings, uint32_t  offsetTime, time_t  timestamp, int offsetDivisor = 1);`Constructs a text item with  a full body header. The contents of the
+            header are determined by the values of `eventTimestamp`
+`source` and `barrier`.
+            The `offsetDivisor` parameter is optional and
+            defaults to 1.  It represents the granularity of the `offsetTime`
+            in seconds.  To get the actual time into the run in seconds compute:
+            (float)offsetTime/offsetDivisor.
+
+`  CRingTextItem(const CRingItem& rhs)          throws std::bad_cast;`Constructs a text item from a reference to an existing ring item;
+            `rhs`.
+            If the ring item is not of an appropriate type for a text item,
+            a std::bad_cast exception is thrown.
+
+`  CRingTextItem(const CRingTextItem& rhs);`Constructs a functional copy of of an existing text ring item;
+            `rhs`.
+
+` CRingTextItem& operator=(const CRingTextItem& rhs);`Provides for assignment between ring text items.  When done, the object
+            that is acted on will be a functional copy of the
+            `rhs`  object.
+
+` const int operator==(const CRingTextItem& rhs);`Provides for comparison for functional equivalence between two
+            ring text items.  The item is compared with
+            `rhs`.
+            The comparison returns non zero if there is functioal equivalence.
+
+` const int operator!=(const CRingTextItem& rhs);`Returns the logical inverse  of
+            `operator==`.
+
+` const std::vector<std::string> getStrings();`Returns the strings in the string list as a vector of strings.
+
+` void setTimeOffset(uint32_t offset);`Sets the time offset at which the item was created to
+            `offset`.
+
+` const uint32_t getTimeOffset();`Returns the most recently set time offset for the item.
+
+` void setTimestamp(time_t stamp);`Sets an absolute timestamp for the item.
+
+` const time_t getTimestamp();`Returns the item's absolute timestamp.
+
+` virtual const std::string typeName();`Returns a text string that describes the item type. For example if
+            the ring item type is PACKET_TYPES the string
+            Packet types: is returned.
+
+` virtual const std::string toString();`Returns a string that is a human readable dump of the
+            ring item.  This incluces a list of the strings in the item.
+
+<a name="AEN20526"></a>## Exceptions
+
+Construction from a list item can throw a
+            std::bad_cast exception if the underlying
+            ring item is not either a
+            PACKET_TYPES or
+            MONITORED_VARIABLES item.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingStateChangeItem | Up | CPhysicsEventItem |

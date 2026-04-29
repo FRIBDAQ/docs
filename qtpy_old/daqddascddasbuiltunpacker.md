@@ -1,0 +1,108 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl DDAS Unpackers Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN647"></a>DAQ::DDAS::CDDASBuiltUnpacker
+
+<a name="AEN651"></a>## Name
+
+DAQ::DDAS::CDDASBuiltUnpacker -- Unpack ddas hits from event built data.
+
+<a name="AEN654"></a>## Synopsis
+
+```
+                
+#inlcude <DDASBuiltUnpacker.h>
+namespace DAQ {
+  namespace DDAS {    class CDDASBuiltUnpacker : public  CEventProcessor
+    {
+
+      public:
+        CDDASBuiltUnpacker(const std::set<uint32_t>& validSourceIds, 
+                          CParameterMapper& rParameterMapper);
+        void setValidSourceIds(const std::set<uint32_t>& validSourceIds);
+
+        std::set<uint32_t> getValidSourceIds() const;
+
+        void setParameterMapper(CParameterMapper& rParameterMapper);
+        CParameterMapper& getParameterMapper() const;
+
+        virtual Bool_t operator()(const Address_t pEvent,
+            CEvent&         rEvent,
+            CAnalyzer&      rAnalyzer,
+            CBufferDecoder& rDecoder);
+    };
+
+  } // end DDAS namespace
+} // end DAQ namespace
+
+            
+```
+
+<a name="AEN656"></a>## DESCRIPTION
+
+Instances of this class process event built data containing
+                XIA DDAS sources.  Data from sources known not to contain
+                DDAS data are ignored.
+
+For the most part, other than the input data, this class
+                operates in the same manner as
+                `DAQ::DDAS::DDASUnpacker`,
+
+<a name="AEN661"></a>## METHODS
+
+
+
+`  CDDASBuiltUnpacker(const  std::set<uint32_t>&  validSourceIds, CParameterMapper&  rParameterMapper);``validSourceIds` represents the
+                            set of event fragment source ids that are assumed
+                            to contain DDAS data.  Fragments with source ids
+                            not in `validSourceIds` are
+                            not processsed by this event processor.  Presumably
+                            another event processor works on those.
+
+The `rParameterMapper`
+                            is a reference to an object that is from a class
+                            derived from
+                            `DAQ::DDAS::CParameterMapper` that
+                            is responsible for taking data from each decoded hit
+                            and turning it into a set of SpecTcl parameters.
+
+Since this is a reference and the object is not
+                            copy constructed (there's no requirement that it be
+                            copy constructable), it is important that the
+                            actual object passed remains in scope for the
+                            lifetime of the unpacker object.
+
+`   void  setValidSourceIds(const  std::set<uint32_t>&  validSourceIds);`Replaces the set of source ids that will be processed
+                            with a new set.  With a statically composed
+                            DAQ you should probably never need to call this.
+
+`  const std::set<uint32_t>  getValidSourceIds();`Returns the current set of valid source ids. These
+                            are the data sources who's fragments will
+                            *not* be ignored by this
+                            event processor.
+
+`   void  setParameterMapper(CParameterMapper&  rParameterMapper);`Provdes a new parameter mapper object.
+
+`  const CParameterMapper&  getParameterMapper();`Returns a reference to the current parameter mapping
+                            object for this object.  See
+                            `DAQ::DDAS::DDASUpnacker::getParameterMapper`
+                            for a sample use of this method.
+
+` virtual   Bool_t  operator()(const const Address_t pEvent, CEvent& rEvent, CAnalyzer& rAnalyzer, CBufferDecoder&  rDecoder);`This is the method called to process raw events
+                            pointed to by `pEvent`. The
+                            crate, slot and channel numbers of all raw hits are
+                            marshalled into a vector of
+                            `DAQ::DDAS::DDASHit` objects
+                            which is then passed to the parameter mapping object.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| DAQ::DDAS::DDASUnpacker | Up | CFileDrivenParameterMapper |

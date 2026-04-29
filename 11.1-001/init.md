@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="provider3_init"></a>init
+
+<a name="AEN57221"></a>## Name
+
+init -- On-demand initialize procedure
+
+<a name="AEN57224"></a>## Synopsis
+
+**proc ::*providerName*::init *sourceId* {
+...
+}
+          **
+
+<a name="AEN57229"></a>## DESCRIPTION
+
+Initiates an on-demand initialization procedure for data source `sourceId`.
+             The `sourceId` is the value of the
+             sourceid key in the dict passed to the
+             provider's
+             [[r57001]]
+             proc was called to start the data source.
+             The initialization is only possible when in the Halted state.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| end | Up | capabilities |

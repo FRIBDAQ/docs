@@ -1,0 +1,399 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN5003"></a>CSqliteWhere
+
+<a name="AEN5007"></a>## Name
+
+CSqliteWhere, CBinaryRelationFilter, CRelationToNumbverFilter, CRelationToStringFilter, CRelationBetweenFieldsFilter, CCompoundFilter, CAndFilter, COrFilter, CInFilter -- Classes to build up WHERE clauses.
+
+<a name="AEN5018"></a>## Synopsis
+
+```
+#include <CSqliteWhere.h>
+
+class CBinaryRelationFilter : public CQueryFilter
+{
+public:
+    typedef enum _binaryOp {
+        equal, notEqual, gt, lt, ge, le    
+    } binaryOp;                       // Allowed relational ops.
+public:
+    CBinaryRelationFilter(std::string field, binaryOp op);
+    virtual std::string rhs() = 0;
+    virtual std::string toString();
+};
+
+class CRelationToNumberFilter : public CBinaryRelationFilter
+{
+public:
+    CRelationToNumberFilter(
+        std::string field, CBinaryRelationFilter::binaryOp op, double value
+    );
+    virtual std::string rhs();
+};
+
+class CRelationToStringFilter : public CBinaryRelationFilter
+{
+public:
+    CRelationToStringFilter(
+        std::string field, CBinaryRelationFilter::binaryOp op, std::string value
+    );
+    virtual std::string rhs();
+};
+
+class CRelationBetweenFieldsFilter : public CBinaryRelationFilter
+{
+public:
+    CRelationBetweenFieldsFilter(
+        std::string field, CBinaryRelationFilter::binaryOp op, std::string f2
+    );
+    std::string rhs();
+};
+
+/**
+ *  @class CCompoundFilter
+ *     This type of filter provides a base class for e.g. AND and OR which
+ *     are filter clauses that operate on a set of sub-clauses.
+ */
+class CCompoundFilter : public CQueryFilter
+{
+
+public:
+    CCompoundFilter(std::string joinString);
+    CCompoundFilter(std::string joinString, std::vector<CQueryFilter*>& subFilters);
+    
+    void addClause(CQueryFilter& clause);
+    std::vector<CQueryFilter*>::iterator begin();
+    std::vector<CQueryFilter*>::iterator end();
+    size_t                              size();
+    bool isLast(std::vector<CQueryFilter*>::iterator& p);    
+    virtual std::string toString();
+};
+
+class CAndFilter : public CCompoundFilter
+{
+public:
+    CAndFilter() : CCompoundFilter("AND") {}
+    CAndFilter(std::vector<CQueryFilter*>& clauses) :
+        CCompoundFilter("AND", clauses) {}
+};
+
+class COrFilter : public CCompoundFilter
+{
+public:
+    COrFilter() : CCompoundFilter("OR") {}
+    COrFilter(std::vector<CQueryFilter*>& clauses) :
+        CCompoundFilter("OR", clauses) {}    
+};
+
+class CInFilter : public CQueryFilter
+{
+
+public:
+    CInFilter(std::string field);
+    CInFilter(std::string field, const std::vector<double>& values);
+    CInFilter(std::string field, const std::vector<std::string>& values);
+    CInFilter(std::string field, const std::vector<int>& values);
+    virtual ~CInFilter();
+    
+    void addItem(double value);
+    void addItem(std::string value);
+    void addItem(int value);
+    
+    virtual std::string toString();
+    
+};
+
+                    
+```
+
+<a name="AEN5020"></a>## DESCRIPTION
+
+The SQL WHERE clause can
+                        allows for incredibly complex conditions to be
+                        represented.  While there is nothing to stop
+                        you from using string manipulation to build up
+                        this clause, these classes are provided to
+                        optionally simplify the construction of syntactically
+                        correct WHERE clauses.
+
+Normally you use these classes to express
+                        the condition or conditions you want to
+                        represent and then obtain the string representation
+                        of those clauses with a call to the object's
+                        `toString` method.
+
+Using these classes with query parameters
+                        can be a bit challenging.  The recommendation I would
+                        make is to provide named formal parameters and,
+                        after you have built the statement and
+                        are binding parameters, use
+                        `CSqliteStatement::bindIndex`
+                        to translate from these named parameters to
+                        the parameter number needed by the bind methods.
+
+Note that unless you use formal parameters,
+                        no input sanitation is done.  This can fall into
+                        the "Bobby Tables" pitfall of SQL injection attacks.
+
+<a name="AEN5030"></a>## BINARY RELATION FILTERS
+
+These are a family of filters with an
+                        abstract base class named
+                        `CBinaryRelationFilter`.
+                        The class family captures relationships between a
+                        field and a constant (or parameter).
+                        Since SQL syntax varies somewhat depending on
+                        depending on the right hand side of the
+                        relationship (e.g. strings require quotation).
+
+The base class constructor looks like this:
+
+`  CBinaryRelationFilter(std::string field  = , CBinaryRelationFilter::binaryOp  op = );``field` is the name of a database
+                        field, and will be the left hand side of
+                        the relationship.  `op`
+                        is an enumerated type that specifies the
+                        relationship between the field and the right
+                        hand side.  The right hand side is specified
+                        by the specific subclass you choose to use.
+
+Valid values for `op`
+                        are:
+
+
+
+CBinaryRelationFilter::equalThe operation will test for equality
+
+CBinaryRelationFilter::notEqualThe operation will test for inequality
+
+CBinaryRelationFilter::gt, CBinaryRelationFilter::geThe operation will test for LHS greater than or
+                                greater than or equal to right hand side
+                                respectively.
+
+CBinaryRelationFilter::lt, CBinaryRelationFilter::leThe operation will test for less than or less
+                                than or equal
+                                to respectively.
+
+As indicated, the real meaning of
+                        `CBinaryRelationshipFilter`
+                        objects comes from the specific subclass
+                        instantiated. Options and the constructors for
+                        them are:
+
+
+
+`  CRelationToNumberFilter(std::string field  = , CBinaryRelationFilter::binaryOp op  = , double value  = );`This class is suitable to use for numeric
+                                comparisons. Note that while the
+                                `value` compared with the
+                                `field` is
+                                a double, this will work
+                                perfectly well for integer fields as
+                                well.
+
+`  CRelationToStringFilter(std::string  field = , CBinaryRelationFilter::binaryOp  op = , std::string  value = );`This class is suitable for use to compare
+                                a simple string with a field.
+                                Note that `value`
+                                is simply enclosed with single quotes
+                                (' characters).  No
+                                attempt is made to escape any embedded
+                                single quotes.  The caller must have
+                                prepended those with a backslash
+                                (e.g. \') if
+                                they are present in the string.
+
+This class cannot be used with
+                                a formal parameter as quoting one
+                                is not valid.
+
+`  CRelationBetweenFieldsFilter(std::string  field = ,  CBinaryRelationFilter::binaryOp  op = , std::string  f2 = );`Originally intended to check a relationship
+                                between two fields
+                                (`field` and
+                                `f2`).  The
+                                `f2` parameter
+                                value will be made the RHS of the
+                                relation, whithout any quoting.
+
+The lack of quoting makes it possible
+                                to use this to express a relationship
+                                with a value to be supplied by binding to
+                                a formal parameter. Simple provide a
+                                named parameter string for the
+                                `f2` value,
+                                 for example :myparameter.
+
+<a name="AEN5144"></a>## Compound Filters and their methods
+
+A compound filter binds two or more relationships
+                        with a boolean logical operator (e.g.
+                        AND).   The base class
+                        `CCompoundFilter` provides
+                        a  framework for doing this.  Derived classes
+                        provide convenient classes for the typical
+                        boolean relationships.
+
+The final string will be of the form
+                                                    (term1) joinstring (term2) ...
+
+Note that the terms in the relationship can
+                        be handed in en-mass or built up incrementally or
+                        a combination of the two (initial en-mass group with additional
+                        terms added). The subclasses of
+                        `CCompoundFilter`
+                        specialize by providing specific constructors.
+                        These will be taken up after the description
+                        of the base class constructors and methods.
+
+
+
+`  CCompoundFilter(std::string  joinString = );`Base class constructor sets the string
+                                used to join the terms of the relationship.
+                                If you use this constructor, you  must
+                                use `addClause`
+                                to build up the terms in the relationship.
+
+`  CCompoundFilter(std::string  joinString = , std::vector<CQueryFilter*>&  subFilters = );`This constructor provides the join string
+                                as well as an initial set of terms.
+                                Clients can still call
+                                `addClause`
+                                to add additional terms to the
+                                relationship.  The final string.
+
+` void  addClause(CQueryFilter& clause = );`Adds a clause to the list of clauses
+                                that will be joined by the join string.
+
+` std::vector<CQueryFilter*>::iterator  begin();`Provides iterator support to the underlying collection
+                                of terms. This returns the begin of
+                                iteration pseudo pointer.
+
+` std::vector<CQueryFilter*>::iterator  end();`Provides iterator support.  Equality
+                                comparison with the return value of this
+                                method indicates you've bounced off the
+                                end of the term collection.
+
+` size_t size();`Returns the number of terms in the collection.
+
+` bool  isLast((std::vector<CQueryFilter*>::iterator&  p = );`Takes an iterator to the
+                                collection of terms `p` and
+                                returns true if
+                                there are no terms after the one
+                                "pointed to" by `p`.
+
+` virtual std::string  toString();`Returns the stringified version of this
+                                query filter.  The result will be
+                                of the form                                     (term1) joinstring (term2) ...
+
+Now let's look at the subclases that make
+                        `CCompoundFilter`
+                        genuinely useful.
+
+
+
+`   CAndFilter();`Constructs a `CCompoundFilter`
+                                object with a join string of
+                                AND.  Terms to this
+                                must be added via `addClause`
+
+`   CAndFilter(std::vector<CQueryFilter*>& clauses = );`Creates a `CCompoundFilter`
+                                with a join string of
+                                AND and an initial
+                                set of clauses `clauses`.
+                                The application may still call
+                                `addClause` to
+                                add additional clauses to the relationship.
+
+`  COrFilter();`Constructs an empty
+                                `CCompoundFilter`
+                                that has a join string of
+                                OR.  The appliciton
+                                will need to call
+                                `addCaluse` to
+                                build up the clauses that are joined.
+
+`  COrFilter(std::vector<CQueryFilter*>& clauses = );`Constructs a `CCompoundFilter`
+                                object with a join string of
+                                OR and an initial
+                                set of `clauses`.
+                                Additional clauses can be subsequently
+                                appended to this initial set using
+                                `addClause`.
+
+<a name="AEN5289"></a>## CInFilter
+
+SQL provides for a condition that checks for
+                        set membership; the IN clause.
+                        The form of the in clause is
+                                                    field IN (item1, item2...)
+                        
+                        If the field is equal
+                        to any of the elements in parentheses, the
+                        IN test is true.
+                        The `CInFilter` provides
+                        the ability to build up the set of items the
+                        IN clause checks for.
+                        Note that the items in parenthesis can legally be
+                        of heterogenous types, although I cannot see
+                        a use case for that given that a field has only a single
+                        type.
+
+Let's look at the constructors and methods
+                        for `CInFilter`.
+
+
+
+`  CInFilter(std::string  field = );`Constructs an `CInFilter`
+                                with no items in its match set.  The
+                                `field` will be the
+                                LHS of the IN
+                                expression and will be placed in the
+                                clause as supplied.
+
+`  CInFilter(std::string  field = , const std::vector<double>&  values = );`The `CInFilter` is
+                                created with an initial set of
+                                double `values`
+                                in the matching set.
+
+`  CInFilter(std::string  field = , const std::vector<std::string>&  values = );`The `CInFilter` is
+                                created with an initial set of
+                                std::string `values`
+                                in the matching set. Each item in `values`
+                                will be surrounded with single quotes
+                                (').  No effort wil be made
+                                to escape quotes that are internal to the
+                                strings.
+
+`  CInFilter(std::string  field = , const std::vector<int>&  values = );`The `CInFilter` is
+                                created with an initial set of
+                                int `values`
+                                in the matching set.
+
+` void  addItem(double  value = );`Appends an additional double
+`value` to the matching list.
+
+` void  addItem(int  value = );`Appends an additional int
+`value` to the matching list.
+
+` void  addItem(std::string  value = );`Appends an additional std::string
+`value` to the matching list.
+                                The `value` will be
+                                surrounded by single quotes when it is
+                                put into the IN
+                                list.  No effort is made to escape
+                                quotes that are embedded in the string.
+
+` virtual std::string  toString();`Generates and returns the filter
+                                clause.  The result will be a string
+                                of the form
+                                                                field IN (val1, val2...)
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSqliteTransaction/CSqliteSavePoint | Up | Tcl bindings to the C++ API |

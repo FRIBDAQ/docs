@@ -1,0 +1,319 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 46. DAQ Manager APIs | Next |
+
+
+---
+
+# <a name="sec.manager.guiapi"></a>46.3. Manager User Interface API
+
+This section descsribes support for building user interfaces that interact
+         with the Manager.  While these are intended to interact through the REST
+         interface, in fact the architecture is, in many cases quite a bit more
+         general.
+
+Before digging into the user interface support classes in subsections to
+         this section, it's important to say something about the Model View
+         Controller (MVC) architecture on which most of these GUI classes are based.
+
+MVC provides a generlized patter for building software that requires user
+         interaction. In MVC, applications consist of three interacting objects:
+
+
+
+*View*A view object provides presentation and interaction controls.
+                  It specifies what the user sees, given data, and how the user
+                  can attempt to interact with that data.
+
+For the purposes of the following discussion, our view objects
+                  are represented by snit megawidgets.
+
+*Model*Model objects provide access to the data.   This access can be
+                  read-only or read-write depending on the application.
+
+For the purposes of the following discussion, our model objects
+                  are represented by REST, interface objects or database APIs.
+
+*Controller*Controller objects mediate between the view and the
+                  application's model.  It is controllers that get data from the
+                  models and load them into the view for presentation.
+                  Controllers also respond to events detected by the view and,
+                  interact with the model either to get more or different data
+                  to present or to request the model to modify data it managers.
+
+In the following discussion, the controllers are implemented
+                  as **snit::type** instances.
+
+## <a name="AEN12464"></a>46.3.1. Eventlog database configuration MVC
+
+**Model. **
+               The evlogeditmodel provides a model,
+               in the form of the **snit::type**
+`evlogEditModel` that supports obtaining and
+               modifiying the event log configuration.
+
+The model is instantiated with the `-database` option
+            set to be a data base configuration file.  This is the underlying database
+            the model abstracts through the following methods:
+
+
+
+`listContainers`Returns a list of the names of all the containers
+                     defined in the database.
+
+`listEventLogs`Returns a list of the dicts defining the current set of
+                     event loggers.  This is a thin wrapper around
+                     **::eventlog::listLoggers**
+
+`updateEventLogs` `newLoggerDefs`Removes existing event log definitions and replaces
+                     them with those in the `newLoggerDefs`
+                     list of dicts.  The dicst in `newLoggerDefs`
+                     have the same form as those returned from
+                     `listEventLogs`.  Note, however that the
+                     id key, if provided is ignored and
+                     the underlying API will assign its own ids.
+
+**View. **
+               The package evlogEditViews provides several
+               view like **snit::widgetadaptors** (using
+               **ttk::frame** as hulls).  These views are:
+
+
+
+`evlogEditLogger`Which provides a view of a single logger and the capability
+                     to modify its definition.
+
+`evlogListView`Provides an overview presentation of a  list of event loggers
+                     with the ability to choose from the list.
+
+`evlogEditorView`Provides a fully featured editor view class that allows
+                     users to select from an logger in a
+                     `evlogListView` and then use
+                     `evlogEditLogger` to modify its
+                     definition.
+
+`evlogEditLogger`
+            can be loaded with the definition of a single event log and
+            provides the ability to edit it. It has the following options and
+            methods:
+
+
+
+`-containers`The list of container names that p;opulate the drop down
+                     from which a container can be selected.
+
+`-savelabel`The label of the button that saves the definition. This
+                     can be customized to allow it to read e.g.
+                     Create when creating a new editor or
+                     Update or Save
+                     when editing an existing one.
+
+`-command`Script to be executed when the button is clicked. Note
+                     that this is normally the hook the controller uses to
+                     respond to saved event loggers.
+
+`load` `logger`Loads the `logger` eventlog definition
+                     dict into the view. `logger` is
+                     a dict with the same key/value pair definitions an
+                     element of the list returned from
+                     **eventlog::listLoggers**.
+
+`get`Returns the contents of the editor as a logger definition
+                     dict with the keys:
+                     daqroot, ring, host, partial, destination
+                     critical, enabled and container.
+
+`selectContainer` `name`Sets the container selection dropdown to `name`.
+                     This is normaly done after a `load`
+                     call, after the `-containers` option has
+                     been configured to set the default container name to be the
+                     container the loaded event logger is using.
+
+The `evlogListView` view provides a table of
+            event log editor definitions.  It allows the client to set up a context
+            menu activated via a right click and handlers for that menu.
+            Instances of `evlogListView` have the following
+            options and methods:
+
+
+
+`-data`The value of this option is the data that comes from
+                     **::eventlog::listLoggers**, or some
+                     identically formatted list of dicts.
+
+`-contextmenu`A list of text strings.  These text strings will be the
+                     entries in the context menu activated by right clicking over
+                     a definition line in the table.
+
+`-command`Command invoked when a context menu entry is seleted.
+                     The script is passed the text of the menu entry and the
+                     definition of the item the menu was selected on.
+
+This provides the hook for controllers or other clients
+                     to actually process context menu selections.
+
+`highlight` `def`Given a logger definition dict,
+                     `def`, highlight that entry in the
+                     table in reverse video.
+
+`unhighlight` `def`Given a logger definition dict
+                     `def`, remove any highlight from that
+                     entry that might have been added by
+                     `highlight`.
+
+`unhighlightall`Removes the highlighting from all entries that are currently
+                     highlighted as a result of applying
+                     `highlight` to them.
+
+The `evlogEditorView` provides an integrated editor
+            view.  It builds on the `evlogListView`,
+            providing context menu definitions that support editing via the
+            `evlogEditLogger` view.
+            `evlogEditorView` does not export any public methods
+            but does export the following  configuration options:
+
+
+
+`-data`Suplies/fetches the list of logger definitions in the form
+                     **eventlog::listLoggers** produces.
+
+`-containers`List of containers to provide to the
+                     `evlogEditLogger` instance created
+                     to edit a logger.
+
+`-savecommand`Script that will be called when the Save
+                     button is clicked.
+
+`-cancelcommand`Command executed when the Cancel
+                     button is clicked.
+
+**Controller. **
+               Mediates between a `evlogEditorView` or
+               compatible (via duck typing) view object and a
+               `evlogEditModel` or compatible mode object.
+               The controller supports only two options:
+               `-model` configures the model object and
+               `-view` configures the view object.
+
+## <a name="AEN12645"></a>46.3.2. Output Monitor MVC.
+
+This subsystem uses the pre-existing `OutputWindow`
+            view object which will not be documented here, other than to say that
+            it provides a scrolling window into which read-only text can be
+            placed.   The result of this MVC triad is to provide a user interface
+            into which output from programs relayed by the manager to clients
+            can be presented to users.
+
+**ManagerOutputModel (Model). **
+               Instances of this class provide the data from the manager.
+               Specifically, what's provided are lines of text that have been
+               output by programs under the control oft the manager.
+               Some features of this modela re:
+
+
+
+- Since data are provided in an event driven mannner, the
+                    class provides for a callback script to receive notification
+                    of the arrival of new output.
+- The class manages connection failures by retrying connections
+                    when they are lost.
+- The class provides for a callback script  to be invoked when
+                    the connection retry limits are reached (possibly indicating
+                    that the manager has permenently exited).
+- The class provides for a callback script to be notified when
+                    connection status has changed.  This allows for the client
+                    application to indicate to the user the current connection
+                    status.
+
+Note that to immplement these features requirs that the client
+            application be event loop driven.
+
+The `ManagerOutputModel` provides several
+            configuration options:
+
+
+
+`-host`The value of this option is the host the manager is running in.
+                     This option can only be set at construction time.
+
+`-service`This option is the service the manager is advertising
+                     for the output relay service.  This defaults to
+                     DAQManager-outputMonitor which
+                     is the default name of this service.
+
+This option can only be specified at constrution time.
+
+`-user`The user that started the DAQ manager this object will
+                     connect to. This defaults to the current user which may
+                     not be correct.  This option can only be specified at
+                     construction time.
+
+`-output`The script to be invoked when program output has been
+                     relayed to the model. This script will receive the
+                     object instance command and output received in that order
+                     as parameters.
+
+`-connected`Script to be invoked when a connection has been made to the
+                     manager's output relay service.   This script will receive
+                     the object instance command as a parameter.
+
+`-disconnected`Script to be invoked when the connection to the server has
+                     been lost.  This script will receive the object instance
+                     command as a parameter.
+
+`-connectionretries`The number of times the object will try to reconnect if
+                     the connection is lost or cannot be made.  This
+                     defaults to 100
+
+`-cnnnectioninterval`Number of seconds between connection retries.  This
+                     defaults to 1.
+
+`-connectionabandoned`Script that's invoked if the connection retry count
+                     was exceeded.  The object instance command is passed
+                     as a parameter.
+
+Only one public method is provided `connect`
+            which starts attempting connections.  If the object is already
+            connected it is disconnected.  If the object is attempting to connect
+            but not yet succeeded, this resets the connection retry count.
+
+Note that `connect` is invoked by the
+            constructor and therefore is typically not needed unless
+            the `-connectionabandoned` script is invoked and the
+            application wants to start another cycle of connection requests./
+
+**ManagerOutputController (controller). **
+               Instances of this class bind togehter a
+               `ManagerOutputModel` with a
+               `OutputWindow` or compatible object(s).
+               Instances of the class latch onto the model's
+               `-output` option script and relay data received
+               to the `OutputWindow`.
+
+Two options configure instances:
+
+
+
+`-model`The value of this option is the model object instance
+                     command.  If there is previously an object configured as
+                     the model, the `-output` option of that
+                     model is configured to be an empty script.
+
+Supplying a `-model` object
+                     configures that object's `-output`
+                     option to be handled by this controller.
+
+`-view`The value of this object is the view object instance
+                     command to which output will be sent via it's
+                     `log` method.  When output
+                     is received and a view is configured,
+                     it is logged using the output
+                     log level.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Manager REST client API. | Up | Event builder client API |

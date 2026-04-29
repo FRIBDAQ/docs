@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN1752"></a>sbind
+
+<a name="AEN1756"></a>## Name
+
+sbind -- Bind spectra into the shared display memory
+
+<a name="AEN1759"></a>## Synopsis
+
+**sbind**  [`-new`]  *spectrum-name*...
+
+**sbind** `-list`  [*spectrum-name*...]
+
+**sbind** `-trace` *tcl-script-stem*
+
+**sbind** `-untrace` *tcl-script-stem*
+
+<a name="AEN1784"></a>## DESCRIPTION
+
+**sbind** is part of the spectrum package and therefore
+                    wwrapped in a  `CMPITclPackagedCommand`.
+                    In all but the MPI_EVENT_SINK_RANK, this returns
+                    TCL_OK and does nolt set the result.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ringformat | Up | shmemkey |

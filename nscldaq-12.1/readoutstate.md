@@ -1,0 +1,65 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="tcl3.readoutstate"></a>ReadoutState
+
+<a name="AEN103441"></a>## Name
+
+ReadoutState -- Show Readout State and Request Transitions (VIEW)
+
+<a name="AEN103444"></a>## Synopsis
+
+```
+package require ReadoutRESTUI
+
+ReadoutState name ?option value ...?
+name configure option value ?...?
+
+        
+```
+
+<a name="AEN103446"></a>## DESCRIPTION
+
+Provides a view that allows users to see and attempt to modify
+            the state of a Readout program.  The view consists of a label
+            that shows a programmable state value, and three pushbuttons.  One
+            pushbutton has a variable function lable that depends on the
+            value of the state display.  The other two can request hardware
+            initialization and Readout program shutdown.
+
+Two options determine what the user sees and what action is
+            performed as a result of clicking a button:
+
+
+
+`-state`Provides the Readout's current state to the view.  Valid
+                    values are the text strings:
+                    idle, active,
+                    paused and
+                    inconsistent.  The value of this
+                    determines the label and state of the
+                    variable purpose button.
+
+Legal values are, for the most part, self explanatory.
+                    The inconsistent value allows for
+                    a case when the view is displaying data from several
+                    Readout programs and the states of those programs is
+                    momentarily not consistent.
+
+`-command`Provides a script that is invoked when any
+                    button is clicked.  THe script gets a value passed to it
+                    that indicates what the button wanted done.  This value is one of
+                    begin, end,
+                    init or shutdown.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ReadoutParameters | Up | ReadoutUI |

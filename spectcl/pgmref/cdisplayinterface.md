@@ -1,0 +1,132 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25540"></a>CDisplayInterface
+
+<a name="AEN25544"></a>## Name
+
+CDisplayInterface -- Manages displayers
+
+<a name="AEN25547"></a>## Synopsis
+
+```
+#include <DisplayInterface.h>
+
+class CDisplayInterface
+{
+public:
+    enum Result { DISPLAY_EXISTS, NO_CREATOR, SUCCESS };
+
+
+public:
+    CDisplayInterface();
+    
+    Result createDisplay(const std::string& name, const std::string& type);
+    CDisplay* getDisplay(const std::string& name);
+    CDisplay* getCurrentDisplay();
+    bool      setCurrentDisplay(const std::string& name);
+    const CDisplayCollection& getCollection() const;
+    CDisplayFactory& getFactory() ;
+
+};
+        
+```
+
+<a name="AEN25549"></a>## DESCRIPTION
+
+SpecTcl maintains a `CDisplayInterface`
+               object.  This object understands all of the display types
+               and how, via a `CDisplayFactory`
+               it encapsulates, to create instances.  In addition,
+               the interface has the concept of a
+               *current display*.  This is an instance
+               of a `CDisplay` that is SpecTcl's current
+               display engine.
+
+This class is closely allies with `SpecTclDisplayManager`
+                which is derived from it (see SpecTclDisplayManager.h),
+                and, when instantiated, stocks the display factory with
+                an appropriate set of creator objects so that all of the
+                 known display types can be instantiated.
+
+Adding another display is really  a matter of adding a
+                new `CDisplay` descendent to implement
+                the interface between that displayer and SpecTcl,
+                write a creator for that displayer and either by
+                modifying SpecTclDisplayManager.cpp
+                if you are an internals programmer or adding the
+                desired display type to the factory if this is
+                a user written displayer.
+
+<a name="AEN25562"></a>## METHODS
+
+
+
+` Result  createDisplay(const std::string&  name = , const std::string&  type = );`Creates a display of type `type`,
+                    assigns it the name `name`
+                    and remembers it so that it can be later selected,
+                    or set ast the current display.
+
+The factory is consulted for a creator for the display
+                    type `type`.  The creator is then used
+                    to create the displayer which is registered within
+                    this object.
+
+CDisplayInterface::Result  is an enumerated type
+                    that returns the status of this method. Returned values
+                    are one of
+
+
+
+CDisplayInterface::DISPLAY_EXISTSIf a display named `name`
+                            has already been created, regardless of its
+                            type.
+
+CDisplayInterface::NO_CREATORIf the factor does not know how to create
+                            a displayer of type `type`.
+
+CDisplayInterface::SUCCESSIf all went well.
+
+` CDisplay*  getDisplay(const std::string&  name = );`Looks up the named display that was created/registered
+                    via `createDisplay`.
+                    If there is no matching display object,
+                    nullptr is returned.
+
+` CDisplay*  getCurrentDisplay();`Returns a pointer to the current display
+                    or nullptr if no current display
+                    as been established.
+
+` bool       setCurrentDisplay(const std::string&  name = );`Sets the current display to be the display
+                    named by `name`.  This
+                    display must have already been created via
+                    `createDisplay`.
+                    Note that `name`
+                    refers to the display *name*
+                    not type.
+
+If no display with the requested name has been
+                    created, the method returns
+                    false, other wise it returns
+                    true.
+
+` const const CDisplayCollection&  getCollection();`Returns a reference to the display collection.
+                    This is the container that has the set of
+                    created display.  It will be described later.
+
+` CDisplayFactory&  getFactory();`Returns a modifiable reference to the
+                    display factory.  This allows additional
+                    display creators to be registered by
+                    purely user level code, supporting user
+                    written displayers.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CButtonEvent | Up | CDisplayCollection |

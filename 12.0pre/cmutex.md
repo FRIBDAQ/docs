@@ -1,0 +1,137 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cmutex"></a>CMutex
+
+<a name="AEN47466"></a>## Name
+
+CMutex -- C++ encapsulation of pthread mutexes.
+
+<a name="AEN47469"></a>## Synopsis
+
+```
+CMutexAttr
+```
+
+<a name="AEN47538"></a>## DESCRIPTION
+
+The pthreads threading library provides several synchorization primitives.
+            The simplest is a Mutual Exclusion (Mutex) primitive.  A mutex can
+            be used as a guard for critical regions of code (critical regions
+            of code are sections of code that are shared between threads but which
+            can only safely be executed by one thread at a time). Or for guards
+            of data structure arguments that are not inherently thread-atomic.
+
+A mutex can be *locked* by one thread at a time,
+            if a thread attempts to lock a mutex it will block until the
+            mutex is unlocked.  A locked mutex can be unlocked only by the
+            thread that has it locked.
+
+Linux mutexes come in a three flavors; PTHREAD_MUTEX_FAST_NP
+            which have very little error checking associated with them and
+            once locked may not be locked again the same thread PTHREAD_MUTEX_RECURSIVE_NP
+            which can be thought of as a counting mutex (the same thread can lock
+            the mutex several times, and to actually unlock the mutex it must
+            be unlocked as many times as it was locked).  PTHREAD_MUTEX_ERRORCHECK_NP
+            mutexes have extensive error checking at the cost of performance.
+            The NP in these symbols imply that these types are not POSIX standard.
+
+Mutexes may also have sharing attributes.  A shared mutex
+                can live in a shared memory section that is in the address
+                space of several processes and can synchrnoize between processes
+                that have access to the Mutex, while an unshared mutex can
+                only synchronize threads within the same process.
+
+<a name="AEN47548"></a>## METHODS
+
+
+
+`  CMutex();`Constructs a mutex with default attributes.
+
+`  CMutex(pthread_mutexattr_t&  attributes);`Constructs a mutex with the attributes defined by the
+                        raw pthread `attributes` parameter.
+
+`  CMutex(CMutexAttr&  attributes);`Constructs a mutex with the attributes defined by the
+                        `CMutexAttr` encapsualted
+                        `attributes`.  See
+                        PUBLIC VARIABLES, TYPES and CONSTANTS
+                        below for more information about `CMutexAttr`
+                        objects.
+
+`   void  lock();`Locks the mutex.  If the mutex is currently locked
+                        by another thread, the calling thread is placed at the
+                        back of the mutex wait queue and blocked until it is its
+                        turn to obtain the lock.
+
+If the thread is already locked by the calling thread,
+                        and the mutex is a recursive mutex, the lock count is
+                        incremented and the method returns immediately.  If,
+                        in this case, the mutex is not a recursive mutex, the
+                        method behavior is not defined.
+
+`   bool  trylock();`Attempts to lock the mutex.  If successful,
+                        the method returns true and the
+                        thread holds the mutex lock.   If the mutex is already
+                        locked by another thread, returns false
+                        but does not block.
+
+See `lock` for behavior if the
+                        mutex is already locked by the calling thread.
+
+`   void  unlock();`Unlocks the mutex.  To call this, the thread must hold
+                        the lock.
+
+If the mutex is not recursive and there
+                        is are threads blocked on the mutex, the one blocked
+                        longest ago is atomically granted the mutex and scheduled
+                        to run.  Note that scheduling the process to run does not
+                        mean the thread immediately runs.
+
+If the mutex is recursive, the lock count is decremented
+                        and, if zero, the mutex is released by the thread.
+                        If the mutex is released, and there are thread blocked on
+                        the mutex, the one blocked
+                        longest ago is atomically granted the mutex and scheduled
+                        to run.
+
+<a name="AEN47618"></a>## PUBLIC VARIABLES, TYPES and CONSTANTS
+
+Mutex attributes can be set at construction time.  This is done
+            either by configuring a raw pthread_mutexattr_t and
+            configuring it via the normal pthread functions, or by creating a
+            `CMutexAttr` object and using its methods to
+            configuring it.
+            `CMutex` has constructors that accept references
+            to either object and use those references to set the attributes of the
+            pthread mutex it wraps.
+
+Below are methods defined `CMutexAttr` objects.
+
+
+
+`    void  setShared();`Sets the attribute such that a created mutex can be shared
+                         between processes.
+
+`   void  setUnshared();`Sets the attributes such that a created mutex must be
+                    process private.
+
+`   bool  isShareable();`Returns true if the attributes would create
+                    a shareable mutex.
+
+`   void  setType(int  type);`Sets the mutex `type` see
+                    DESCRIPTION above for legal values
+                    for the `type` parameter.
+
+`   int   getType();`Returns the current type for the attribute block.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SyncGuard | Up | CriticalSection |

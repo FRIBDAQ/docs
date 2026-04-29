@@ -1,0 +1,173 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 72. Software Triggering NEW IN 11.4 | Next |
+
+
+---
+
+# <a name="AEN12790"></a>72.2. The SoftwareTrigger and EventFilter programs
+
+The software trigger subsystem consists of two stages.
+            The first stage classifies physics events in accordance with
+            user supplied criteria.  The second stage accepts or rejects
+            events based on the criteria supplied.
+
+The previous section described how to create code to perform the
+            required classification and how to prepare it for use by the classification
+            stage.  This section will describe what the
+            SoftwareTrigger programs actually
+            do and how to use them.
+
+The 1daq reference section provides a detailed
+            description of the command line options these programs acceapt.
+
+## <a name="AEN12797"></a>72.2.1. SoftwareTrigger - classifying events
+
+SoftwareTrigger is the classification
+                stage of the software filter process.  It accepts data from
+                some source (Ring buffer or file), and outputs classified
+                events to some sink (again ring buffer or file).
+
+SoftwareTrigger can be thought of
+                as a processing pipeline with a fanout-fanin stage.  A data
+                source thread reads ring items from the data source. Clumps of
+                ring items are fanned out to worker threads that classify
+                events in a clump in parallel.
+
+The worker threads pass each physics ring item to the user
+                written classification object which returns a
+                uint32_t classification.  This classification
+                is put in the event as an extension to the body header.
+                NSCLDAQ code and SpecTcl-5.1-010 and later understand that
+                the body header can be extended and transparently handle
+                events with this extension.
+
+Classified clumps of data then fan in to the next stage of the
+                processing pipeline.  Since the workers will finish working
+                on clumps in a non-deterministic order, the next stage of the
+                pipeline re-sorts the events by timestamp.
+                The output of this sort phase goes to a final data sink stage
+                which writes the data to the data sink.
+
+To run the SoftwareTrigger application,
+                you minimally must specify the data source, the data sink and
+                classifier shared object library.  In addition you should also
+                specify the *clump size* and the
+                *number of classification workers*.
+
+A large clump size results in communication efficiencies between
+                the thread at the expense of a larger virtual memory footprint.
+                Increasing the number of worker threads provides better performance
+                up until you saturate all of the cores on the system or
+                hit an I/O limit.
+
+Refer to the manpage for SoftwareTrigger
+                in the 1daq section for the full set
+                of program options.  The one you need to get started are:
+
+
+
+`--source`=*URI*Provides the URI of the data source.  This can be
+                            a file or tcp
+                            URI.  In the case of a
+                            tcp data source the host can be
+                            remote.
+
+`--sink`=*URI*Provides the URI of the data sink.  This can
+                            be a file or
+                            tcp.  tcp
+                            URIs must, however have the local host as the
+                            host as NSCLDAQ only allows local producers for
+                            ringbuffers.
+
+`--workers`=*n*Integer that specifes the number of workers to run.
+                            This determines the maximum parallelism for the
+                            classification stage of the pipeline.  There's no
+                            point is specifying more cores than you have.
+                            I recommend exploring performance a a function of
+                            this parameter prior to the experiment so you can select
+                            an optimal value for this flag.
+
+`--clump-size`=*n*Specifies the number of events that will be passed
+                            to a worker for each work item.  Up to a point,
+                            big numbers tend to be better but again, do some
+                            performance measurements prior to the experiment to
+                            optimize this value.
+
+`--classifier`=*shared-lib-path*Provides the path to the shared library you created
+                            containing an implementation of your classifier and
+                            the factory function that creates classifier instances.
+
+Note that you can attach software to the output sink if it's a
+                ring buffer to ensure the classifier is working as expected.
+
+Here's a fragment of code that shows how to obtain
+                the classification of an event from inside a SpecTcl
+                event processor.
+
+<a name="AEN12853"></a>```
+#include <DataFormat.h>
+#include <CRingBufferDecoder.h>
+#include <CRingFormatHelper.h$gt;
+
+struct ExtendedBodyHeader {
+    BodyHeader s_bodyHeader;
+    uint32_t   s_classification;
+};
+
+Bool_t
+MyEventProcessor::operator()(
+    const Address_t pEvent, CEvent& rEvent, CAnalyzer& rAnalyzer,
+	CBufferDecoder& rDecoder
+)
+{
+    ...
+    CRingBufferDecoder& decoder(dynamic_cast<CRingBufferDecoderamp;>(rDecoder));
+    CRingFormatHelper*  pHelper = decoder.getCurrentFormatHelper();
+    if (pHelper->hasBodyHeader()) {
+        pBodyHeader pB = static_cast<pBodyHeader>(pHelper->getCodyHeaderPointer());
+        if ((pB->s_size - sizeof(BodyHeader)) < sizeof(uint32_t)) {
+            ExtendedBodyHeader* pE = reinterpret_cast<ExtendedBodyHeader*>(pB);
+            uint32_t classification = pE->s_classification;
+            
+            // Do whatever you want with classification.
+            ...
+            
+        } else {
+            // There's a body header but there's no extension.
+        }
+    } else {
+        // No body header so no classification!!!
+    }
+    ...
+}
+
+                
+```
+
+## <a name="AEN12855"></a>72.2.2. EventFilter - accepting events based on classification
+
+EventFilter is the second part of
+                software triggering.  EventFilter
+                examines the classifications added by
+                SoftwareTrigger and and accepts
+                or rejects physics events based on criteria you can set.
+
+Acceptance criteria are set by defining a mask and a value.
+                A physics item is accepted if
+                (classification & mask) == value.
+
+A debugging feature of the EventFilter
+                allows you to not only keep the accepted events but to directc
+                the rejected events to a second ringbuffer.
+
+See the 1daq reference section for
+                information about how to run
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Software Triggering NEW IN 11.4 | Up | Reference Pages |

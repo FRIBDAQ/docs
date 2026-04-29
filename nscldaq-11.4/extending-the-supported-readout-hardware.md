@@ -1,0 +1,785 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 4. VMUSBReadout | Next |
+
+
+---
+
+# <a name="vmusb-develop-rdohdwr"></a>4.8. Extending the Supported Readout Hardware
+
+It is quite conceivable that the device support provided by
+      VMUSBReadout does not include a piece of
+      hardware in your front-end electronics. There are many reasons this may be
+      the case, but it is does not prevent you from using
+      VMUSBReadout. The application supports a
+      plug-in architecture that allows a user to define support via C++ or Tcl
+      code. In the following, these two will be explained in much more detail.
+
+## <a name="AEN1208"></a>4.8.1. Writing C++ device support software
+
+This section describes how to write C++ software support for new data
+        taking devices and how to integrate that support into the system.  Device
+        support modules are built into shared images.  Tcl provides the
+        **load** command which loads a shared object into an
+        application and invokes an initialization function.  This provicdes a
+        plugin scheme that the framework leverages to support externally written
+        device drivers.
+
+A device driver therefore consists of a C++ program that provides
+        a new device class and an initialization function that associates
+        this class with a Tcl command in the interpreter that reads the
+        configuration file.  Since each time the configuration file is read,
+        a new interpreter is used, this also means that the current version
+        of the device driver shared image is loaded at the start of each
+        run.
+
+The device driver support package is supplied as a driver development
+        kit that consists of a template driver and a Makefile.  These are two
+        files in the vmusbdriver directory of the
+        NSCLDAQ installation.  The example below shows how to create
+        a new directory and prepare it for driver development.  In the example
+        we are assuming that the environment variable DAQROOT
+        points to the top level of the installation directory.
+
+<a name="AEN1216"></a>**Example 4-6. Obtaning the VM-USB device driver development kit**
+
+```
+mkdir mydriver
+cd mydriver
+cp $DAQROOT/vmusbdriver/drivertemplate.cpp .
+cp $DAQROOT/vmusbdriver/Makefile .
+            
+```
+
+The template driver is a complete example that builds a
+            marker driver which inserts  constant word into the event.
+            You can do a **make** to build the driver if you like.
+            The template driver then defines a command **changeme**
+            for the configuration file interpreter and a configuration parameter
+            `-value` which allows you to set the value of the
+            markrer.
+
+The script fragment below shows how to load the driver, create and
+            configure a module instance using it. The fragment assumes that the
+            driver shared object libtemplatedriver.so
+            is in the same directory as the DAQ configuration script but that
+            that directory my not be the current working directory when
+            the configuration script is sourced.
+
+<a name="AEN1225"></a>**Example 4-7. Using a user written VMUSB driver**
+
+```
+set here [file nativename [file dirname [info script]]]
+load [file join $here libtemplatedriver.so]
+changeme cdreate testing -value -0x1234
+            
+```
+
+The work done by the **set here...** command builds
+            the full path to the directory the driver is in.  This is necessary
+            beause the **load** command normally only uses directories
+            that are in the dynamic loader search path to look for shared objects.
+            Note finally that once the driver is loaded, it registers the
+            **changeme** command with the interpreter and that
+            this command operates exactly like any other driver command.
+
+The next sections will examine the driver elements in detail. Before
+            doing that, let's take a broad brush overview look at the driver
+            template.
+
+The template consists of two sections.  The first section is the
+            definition and implementation of a class which derives from
+            `CReadoutHardware` the base class for
+            all DAQ device support.  The methods of this class define
+            configuration parameters, initialize the module as the run
+            is starting and provides the appropriate commands to the
+            VME list that is being generated for the stack this module
+            is an element of.  Finally virtual duplication
+            (`clone`) is also defined.
+
+The second section  is an initialization
+            function that the Tcl **load** command automatically
+            locates and calls.  This function creates an instance of the
+            driver which is cloned for each device instance the user creates.
+            It also associates a Tcl command with the device driver so that
+            the DAQ configuration script can create and manipulate new instances.
+
+While the driver template is heavily commmented, and modification
+            points indicated, the next few sectinos are a guided tour
+            of the driver in detail, pointing out what needs to be modified
+            to make the driver work with a specific device.
+
+### <a name="AEN1239"></a>4.8.1.1. The driver `onAttach` method
+
+Each driver instance has a configuration database attached to it
+                when it is created.  The configuration database holds configuration
+                parameter definitions and their current values.  The framework
+                takes care of managing the values for you, however you must
+                define the set of configuration parameters supported by your
+                driver.
+
+The template driver's code is (comments removed for brevity:
+
+<a name="AEN1244"></a>```
+void
+CTemplateDriver::onAttach(CReadoutModule& configuration)
+{
+  m_pConfiguration = &configuration;     
+
+  m_pConfiguration->addIntegerParameter("-base");  
+  m_pConfiguration->addIntegerParameter("-id", 0, 0xffff, 0); 
+
+
+}
+                
+```
+
+In the discussion below, the numbers refer to the same numbers
+                in the example above.
+
+[[x1203#vmusb-dtemplate-saveconfig]]                        The method is passed a reference to its instance
+                        configuration database.  This will be used here,
+                        to establish configuration parameters, in the
+                        `Initialize` method to know
+                        how to set up the module and  in
+                        `addReadoutList` to know
+                        how to read the module.
+                    This line saves a pointer to the configuration
+                        database for this instance in member data where it
+                        can be accessed in those other methods.
+
+[[x1203#vmusb-dtemplate-baseparam]]                        Most if not all VME modules must be addressed relative
+                        to some base address that is set via jumpers or switches
+                        on the module itself.  Therefore the template driver
+                        provides a definition for a `-base`
+                        option to hold this value.  The specific version of
+                        `addIntegerParameter` used
+                        only requires that the value passed to `-base`
+                        be a valid integer.  No constraint on the range is
+                        imposed.
+                    [[x1203#vmusb-dtemplate-idparam]]                        Since the template driver inserts a marker
+                        the `id` parameter is defined
+                        to provide the value of the marker.  The VM-USB
+                        only supports 16 bit markers, therefore the
+                        version of `addIntegerParameter`
+                        constrains the range of values to be in the range
+                        [0..0xffff].
+                    If a constraint is specified, and a daq configuration
+                        script violates it, the configuration file interpreter
+                        outputs an error message and refuses to start the run.
+                        Using constraints allows error checking to be done
+                        by the configuration subsystem without intervention
+                        by user code.
+
+Constraint checking comes from the
+                        `CConfigurableObject` class.
+                        See [[r73761]]
+                        for pre-defined constraints.  That manpage also shows
+                        you how to create your own constraints if the pre-defined
+                        ones don't work for you.
+
+### <a name="AEN1270"></a>4.8.1.2. The driver `Initialize` method
+
+When a run is starting, each stack invokes the
+                `Initialize` method for each element in
+                its `-modules` list.  Each driver is supposed
+                to query its configuration and do any initialization demanded
+                by the configuration.  For example the **adc**
+                command queries the set of pedestal values and programs them
+                into its module (using the `-base` of course)
+                at this time.
+
+The `Initialize` method is passed a
+                reference to a `CVMUSB` object.  Methods
+                on that object allow you to perform single or block VME
+                operations.  You can also create and stock a
+                `CVMUSBReadoutList` with several VME
+                operations and ask the controller to execute that list in
+                immediate mode.
+
+See [[r69617]] and
+                [[r71619]] for reference
+                information about those two classes.
+
+The template driver is a marker and does not perform any
+                VME operations.  Since, however your driver will most likely
+                need the `-base` parameter value, it shows
+                how to obtain that from the configuration database:
+
+<a name="AEN1287"></a>**Example 4-8. The template driver `Initialize` method**
+
+```
+void
+CTemplateDriver::Initialize(CVMUSB& controller)
+{
+
+  uint32_t base = m_pConfiguration->getUnsignedParameter("-base");
+
+
+}
+                
+```
+
+The configuration database stores all parameter values as
+                strings after validating them however it also provides a rich
+                set of member function to convert the string to some other
+                format.  Since the `-base` parameter can take values
+                greater than 0x80000000 it must be converted
+                and treated as an unsigned integer.
+                `getUnsignedParameter` converts the
+                value of the configuration parameter given to an unsigned integer.
+
+### <a name="AEN1295"></a>4.8.1.3. The driver `addReadoutList` method
+
+The `addReadoutList` method is called
+                by stacks containing a driver instance when the stack is
+                building its list of VME operations to download into the VM-USB.
+                `addReadoutList` is passed a
+                `CVMUSBReadoutList` object and is expected
+                to add entries to that object.
+
+The template ddriver fetches the `-base`
+                and `-id` option values and adds a marker
+                instruction to the stack with the value of the
+                `-id` option.
+
+<a name="AEN1306"></a>**Example 4-9. Template Driver `addReadoutList` method**
+
+```
+void
+CTemplateDriver::addReadoutList(CVMUSBReadoutList& list)
+{
+
+  uint32_t base  = m_pConfiguration->getUnsignedParameter("-base"); 
+  int      id    = m_pConfiguration->getIntegerParameter("-id"); 
+
+  list.addMarker(id);                                            
+}
+
+                
+```
+
+[[x1203#vmusb-dtemplate-getid]]                        The `-id` option is an integer
+                        in the range [0 .. 0xffff].
+                        This line
+                        fetches its current value from the configuration
+                        database.
+                    [[x1203#vmusb-dtemplate-addmarker]]                        This line adds a marker instruction to the
+                        stack.  The value of the marker to be
+                        inserted in the event is the value of the
+                        `-id` configuration parameter.
+
+### <a name="AEN1320"></a>4.8.1.4. Driver initialization `xxxx_init`
+
+The driver will build to a shared object of the name
+                libxxxx.so where you will choose
+                xxxx when you edit the driver Makefile.
+                When the **load** command loads this library,
+                it will look for a function named
+                `Xxxx_Init` (note the capitalization).
+                and call it with a pointer to the running Tcl Interptreter.
+
+You must make sure the initialization entry point name is
+                correct for the driver name.  For exmample:
+                libmyvmedriver.so requires an initialization
+                function entry point of
+                `Myvmedriver_Init`.
+
+Let's pick apart the template driver's implementation of its
+                initialization function.
+
+<a name="AEN1332"></a>**Example 4-10. 
+                    The VMUSB driver `Xxxx_Init`
+                    function.
+                **
+
+```
+extern "C" {                                     
+  int Templatedriver_Init(Tcl_Interp* pInterp)   
+  {
+
+    Tcl_PkgProvide(pInterp, "Templatedriver", "1.0"); 
+
+    CUserCommand::addDriver("changeme", new CTemplateDriver); 
+
+    return TCL_OK;     
+    
+  }
+}                      
+                
+```
+
+[[x1203#vmusb-dtemplate-ccall]]                        The Tcl **load** command will be
+                        looking for a specific function name to call
+                        to initialize the library it just loaded.
+                        C++ *decorates* or
+                        *mangles* function names adding
+                        information about the return type and the
+                        type of parameters expected by the function.
+                        This is how it implements function/operator overloading.
+                    Using the extern "C" block shown
+                        tells the GNU C++ compiler to use C
+                        language call methods which disable this function
+                        name mangling.  Without this, the **load**
+                        command would not find the initialization function.
+
+[[x1203#vmusb-dtemplate-initname]]                        As described above, the initialization function
+                        name must be precisely chosen to match both the
+                        library and the package name (see below).
+                        The function name used here must be modified to
+                        match your changes to the  Makefile.  The
+                        initialization function here is correct for
+                        the package TemplateDriver
+                        and the library file
+                        libtemplatedriver.so.
+                    [[x1203#vmusb-dtemplate-package]]                        This line also allows you to use the
+                        Tcl **package require** command to
+                        load the driver if you have created a
+                        pkgIndex.tcl file using e.g.
+                        **pkg_mkIndex** and added the diretory
+                        the driver lives in to the Tcl package load path
+                        (`auto_path`) or the
+                        `TCLLIBPATH` environment variable.
+                    The package name must match the part of the
+                        function name prior to _Init, as it
+                        is used to located the name of the package initialzation
+                        function by **package require**
+
+[[x1203#vmusb-dtemplate-adddriver]]                        This line associates the tcl command
+                        **changeme** with the
+                        driver by creating a *prototype*
+                        instance of the driver object that will be cloned
+                        to produce driver instances.  Normally you would change
+                        the name of the command to be a meaningful command
+                        name for your driver.
+                    This is part of an implementation of the
+                        *prototype pattern*. For more
+                        about the prototype pattern see e.g.
+                        [http://en.wikipedia.org/wiki/Prototype_pattern](http://en.wikipedia.org/wiki/Prototype_pattern)
+
+[[x1203#vmusb-dtemplate-initsuccess]]                        The **load** or
+                        **package require** command expects
+                        the initialization function to return
+                        TCL_OK on success or
+                        TCL_ERROR if  it is not able
+                        to successfully initialize. This line indicates
+                        a successful installation/initialization of the library.
+                    [[x1203#vmusb-dtemplate-endccall]]                        Ends the extern "C" {  block.
+
+## <a name="AEN1382"></a>4.8.2. Writing device support software in Tcl
+
+The **addtcldriver** command allows you to
+            add a Tcl command ensemble as a module which can then be
+            added to the `-modules` list of modules read out
+            by a stack.  In Tcl a *command ensemble* is
+            a command that has subcommands.  The **addtcldriver**
+            command registers  the base command of a command ensemble
+            as a module.  In turn, the command ensemble is required to provide
+            at least two subcommands; **Initialize** and
+            **addReadoutList** which perform functions
+            analagous to methods with the same name in a C++ driver.
+
+Possibly the simplest way to build command ensembles that can be
+            re-used to support more than one module is to use a
+            Tcl object oriented extension.  When you do this, a driver
+            is a class and instances of those classes are modules.  Almost all
+            Tcl object oriented extensions make objects (class instances) command
+            ensembles where the base name is the object names and methods of the
+            class are  subcommands.
+
+Driver modules will also need to access the VM-USB during
+            initialization and create lists of VME operations in their
+            `addReadoutList` method.  This
+            is accomplished by wrappgin the `CVMUSB`
+            and `CVMUSBReadoutList` classes using the
+            *Simplified Wrapper and Interface Generator* or
+            SWIG.  SWIG wrappers are provided as loadable Tcl modules in the
+            lib directory of the NSCLDAQ software
+            installation.
+
+This chapter will look at two trivial drivers that put a
+            marker in the buffer and, at initialization time, turn on the
+            bottom yellow LED.  One of these drivers is written using
+            *Incr-Tcl* (itcl) the other using
+            *Snit Is Not Incr Tcl* (snit).
+            While trivial these examples illustrate most of the
+            key concepts you need to understand when writing device support
+            software in Tcl.
+
+Finally, a configuration file fragment is shown that illustrates
+            loading and using these two drivers.
+
+### <a name="AEN1402"></a>4.8.2.1. An Incr-Tcl (itcl) driver
+
+The example below is a complete itcl driver class.  When the run
+                is initialized, it lights to bottom yellow LED of the VM-USB.
+                For each event it inserts a programmable marker (literal)
+                value in the event.
+
+<a name="AEN1405"></a>**Example 4-11. Itcl VM-USB device driver**
+
+```
+lappend auto_path /usr/opt/daq/10.1/lib   
+package require Itcl                      
+package require cvmusb                    
+package require cvmusbreadoutlist         
+
+itcl::class marker-itcl {                 
+    public variable value 0               
+
+    constructor args {                    
+        eval configure $args
+    }
+
+    public method Initialize driverPtr { 
+
+        cvmusb::CVMUSB c -this $driverPtr;  
+
+        set leds [c readLEDSource]          
+
+        set leds [expr {$leds &  0xffff}]
+        set leds [expr {$leds | 0x110000}]
+
+        c writeLEDSource $leds             (11)
+
+    }
+    
+    public method addReadoutList list {   (12)
+
+        cvmusbreadoutlist::CVMUSBReadoutList l -this $list; (13)
+
+        l addMarker $value                 (14)
+
+    }
+}
+                
+```
+
+[[x1203#vmusb-itcldrv-auto-path]]                        In order to locate the SWIG wrappers of the
+                        `CVMUSB` and
+                        `CVMUSBReadoutList`, the Tcl
+                        variable `auto_path` must be extended
+                        to include the lib subdirectory
+                        of the NSCLDAQ installation directory.  In this case,
+                        NSCLDAQ is installed in /usr/opt/daq/10.1.
+                        You will need to check your installation and use
+                        the appropriate value here.
+                    [[x1203#vmusb-itcldrv-itclpkg]]                        This loads the Incr-Tcl extension.  Incr-Tcl provides
+                        object oriented constructs for Tcl.
+                    [[x1203#vmusb-itcldrv-cvmusbpkg]]                        The cvmusb package is the
+                        SWIG wrapping of the `CVMUSB`
+                        C++ class.
+                    [[x1203#vmusb-itcldrv-cvmusbrlistpkg]]                        The cvmusbreadoutlist package
+                        is the SWIG wrapping of the
+                        `CVMUSBReadoutList` C++ class.
+                    [[x1203#vmusb-itcldrv-class]]                        This command creates an Incr-Tcl class.  A class itself
+                        is a command ensemble whose main purpose is to create
+                        instances (objects) of the class, which are also command
+                        ensembles whose subcommands are the *method*s
+                        of the class.  The class name `marker-itcl`
+                        is used to generate instances of the class.
+                    As with all object oriented languages, classes wrap
+                        behavior and data into a single package.
+
+[[x1203#vmusb-itcldrv-option]]                        C++ device support modules provide a set of
+                        configuration options.  We want our driver to do that
+                        as well.  In Incr-Tcl, instance variables that are
+                        declared as public can be set
+                        both at object construction time, and via an object's
+                        built in **configure** method.
+                    This makes Incr-Tcl objects very much like Tk widgets.
+                        The example below shows how you can set the
+                        `value`
+                        variable at both construction and configuration time:
+
+<a name="AEN1451"></a>```
+marker-itcl obj -value 0x1234;  # Set value to 0x1234 at construction time.
+obj configure -value 0x4321;    # use configure to modify value.
+                            
+```
+
+
+[[x1203#vmusb-itcldrv-constructor]]                        Constructor methods are analagous to C++ constructors.
+                        They are called when a class instance is created.
+                        the **eval configure $args** takes
+                        the arguments passed to the construtor and uses them
+                        to configure public variables.
+                    This constructor does nothing except allow the use
+                        of configuration option settings when an object
+                        is constructed.
+
+[[x1203#vmusb-itcldrv-initialize]] `Initialize` implements
+                        device initialization that is done at the start of the
+                        run.  The `driverPtr` is a SWIG
+                        *pointer* that represents the address
+                        of the `CVMUSB` object normally
+                        passed to C++ `Initialize`
+                        driver methods.
+                    [[x1203#vmusb-itcldrv-wrapvmusb]]                        This linexcomp contructs a SWIG wrapping of a
+                        `CVMUSB` object.  The
+                        `-this` option tells SWIG to build its
+                        wrapping around an existing SWIG pointer.  The
+                        end result of this line is that the object named
+                        c is created that talks to the
+                        same VM-USB as the object normally passed in to a
+                        C++ device support class/object.
+                    [[x1203#vmusb-itcldrv-vmusbreadled]]                        Invokes the `readLEDSource`
+                        method of the `CVMUSB` object.
+                        This reads the current value of the VM-USB LED source
+                        register.  The arithmetic that follows modifies the
+                        bottom Yellow LED selector to use the inverse of the
+                        Not Slot one state as the
+                        source of the LED.
+                    [[x1203#vmusb-itcldrv-vmusbwriteled]]                        Writes the new value back to the LED register.
+                        Using the inverse of the Not Slot one
+                        source ensures that as long as the VM-USB is being
+                        used as a slot 1 controller, it will have its
+                        bottom yellow LED lit.
+                    [[x1203#vmusb-itcldrv-addrdolist]]                        The `addReadoutList` method
+                        is intended to provide a list of VME operations that
+                        are executed in response to each event trigger.
+                        The `list` is a SWIG pointer to the
+                        `CVMUSBReadoutList` normally passed
+                        to a C++ driver's `addReadoutList`
+                        method.
+                    The first command in this method wraps the
+                        list in a SWIG object named l
+                        so that it can be used from within Tcl to manipulate
+                        the list.
+
+[[x1203#vmusb-itcldrv-addmarker]]                        Adds a marker to the list.  A marker is a literal value.
+                        The value of the marker comes from the
+                        `value` object instance variable.
+                        As previously discussed, since this is a public variable
+                        it is hooked to the `-value` configuration
+                        option for the object.
+
+In general you will need to look at the reference information
+                on the SWIG wrappers for
+                [[r75304]]
+[[r76059]]
+
+### <a name="AEN1493"></a>4.8.2.2. A Snit Is Not Incr Tcl (snit) driver
+
+Snit is a pure Tcl object oriented extension to Tcl. In this
+                section we will look at an annotated sample Snit Tcl driver.
+                The sample driver will just turn on the VM-USB's bottom yellow
+                LED at initialization time and inserts a configurable marker into
+                each event in response to a trigger.
+
+While this driver is realtively trivial, it illustrates many
+                of the key points you will need to understand to write Tcl
+                drivers in snit.  If you have looked at the Incr-Tcl driver
+                in the previous section there will be very little that is new
+                here other than Snit syntactical differences from Incr-Tcl.
+
+<a name="AEN1497"></a>**Example 4-12. A Snit VM-USB driver.**
+
+```
+lappend auto_path /usr/opt/daq/10.1/lib   
+
+package require snit                      
+
+package require cvmusb                   
+package require cvmusbreadoutlist        
+
+snit::type marker-snit {                 
+    option -value 0;                     
+
+    constructor args {                   
+        $self configurelist $args        
+    }
+
+    method Initialize driverPtr {       
+
+        cvmusb::CVMUSB v -this $driverPtr; 
+
+        set leds [v readLEDSource]     
+        
+        set leds [expr {$leds & 0xf0ffffff}]; 
+        set leds [expr {$leds | 0x08000000}]; 
+
+        v writeLEDSource $leds         (11)
+    }
+
+    method addReadoutList list {       (12)
+        cvmusbreadoutlist::CVMUSBReadoutList l  -this $list; (13)
+
+        l addMarker $options(-value)   (14)
+
+    }
+}
+                   
+                
+```
+
+[[x1203#vmusb-snit-apath]]                        In order to load the packages that wrap the
+                        `CVMUSB` and
+                        `CVMUSBReadoutList` you must
+                        add the directory in which they are installed to the
+                        `auto_path` variable.  This is the
+                        lib directory below the top
+                        level of your NSCLDAQ installation.  You may need
+                        to change the directory in the example script to match
+                        your installation.
+                    [[x1203#vmusb-snit-snitpkg]]                        This line loads the
+                        snit package.  Snit provides definitions
+                        of the commands that make up the Snit is Not
+                        Incr Tcl package.
+                    [[x1203#vmusb-snit-cvmusbpkg]]                        Loads the cvmusb package.  This package
+                        provides the Tcl wrapping of the
+                        `CVMUSB` class.
+                    [[x1203#vmusb-snit-cvmusbreadoutlist]]                        Loads the cvmusbreadoutlist package.
+                        This package provides the Tcl wrapping of the
+                        `CVMUSBReadoutList`.
+                    [[x1203#vmusb-snit-type]]                        Snit allows you to create three types of
+                        'classes', types, widgets,and widgetadaptors.  The latter
+                        two have to do with creating widgets in snit's Tk
+                        megawidget framework.  The first, the type,
+                        is the most suited class type for a VMUSB driver.
+                    This line creates a new snit::type named
+                        marker-snit. Each instance of this
+                        class can be registered as a module allowing it to be
+                        included in a stack.
+
+[[x1203#vmusb-snit-option]]                        Snit objects all have a built in
+                        **configure**  sub-command much like the
+                        one that Tk objects have.  The snit
+                        **option** defines an option that is a
+                        target for the **configure** sub-command.
+                        Snit options are stord in an array accessible to all
+                        methods named `options` the indices
+                        of this array are the option names, the values of the
+                        array are the values of the options.
+                    The purpose of the `-value` option
+                        is to hold the value of the marker that will be inserted
+                        by this driver into each event.
+
+[[x1203#vmusb-snit-constructor]] **constructor** methods are called
+                        by snit when an object of a specified type is
+                        created.  The body of this constructor invokes the
+                        **configurelist** built in
+                        sub-command (`self` is like the
+                        C++ `this` pointer).
+                    The call to **configurelist** processes
+                        the parameters to the constructor as a set of option/value
+                        pairs.  This allows objects to be constructed and
+                        configured in a single step (again like
+                        Tk widgets).
+
+[[x1203#vmusb-snit-init]]                        The `Initialize` method
+                        of an object is called by the readout framework
+                        when a run is being started.  It is expected to
+                        interact with the hardware to initialize the
+                        device it manages in accordance with its configuration.
+                    The `driverPtr` is a
+                        *SWIG Pointer*.  Swig pointers
+                        are text strings that provide a strongly typed pointer
+                        to a C++ object.
+
+[[x1203#vmusb-snit-wrapcvmusb]]                        This line creates a new SWIG object that wraps the
+                        C++ object represented by `driverPtr`.
+                        The resulting object is called `v`
+[[x1203#vmusb-snit-readleds]]                        This invokes the `readLEDSource`
+                        method on the SWIG object `v`.
+                        That method reads the current value of the
+                        LED Source register, a register internal to the VM-USB
+                        that controls what makes the front panel LED's light.
+                    The arithmetic that follows sets the field responsible
+                        for controlling the bottom yellow LED such that it
+                        will light on the inverse of the case when the VM-USB
+                        is not a slot one controller.  This means that if the
+                        VM-USB is in slot one, it will have the bottom
+                        yellow LED lit.
+
+[[x1203#vmusb-snit-writelds]]                        Once the new value of the LED source register is
+                        computed this line writes then ew value back into the
+                        LED source register.
+                    [[x1203#vmusb-snit-addreadoutlist]]                        This method is normally called as a run is starting.
+                        `list` is a SWIG pointer to a
+                        `CVMUSBReadoutList`. The method is
+                        expected to add the entries to that list it needs to
+                        execute for each event trigger.
+                    [[x1203#vmusb-snit-wrapreadoutlist]]                        Wraps the `list` parameter in a
+                        SWIG object named `l` in a mannner
+                        analagous to what was done in `Initialize`
+[[x1203#vmusb-snit-addmarker]]                        Adds a markter to the list of VM-USB operations that
+                        will be performed in response to an event trigger.
+                        The value of the marker word (options(-value))
+                        is the value of the `-value` configuration
+                        option.
+
+In general you will need to look at the reference information
+                on the SWIG wrappers for
+                [[r75304]]
+[[r76059]]
+
+### <a name="AEN1585"></a>4.8.2.3. Using a Tcl driver in a DAQ configuration script
+
+This section assumes you are using a driver that has a
+                generator of driver instances.  The object oriented examples
+                meet those criteria.
+                To use a Tcl driver in a DAQ configuration file you must:
+
+
+
+1. Incorporate the driver in the daqconfig file source code.
+2. Create and configure an instance of the driver for
+                           the device(s) it manages in your physical configuration
+3. Use the **addtcldriver** command to
+                           turn each driver instance into a module.
+4. As with any module, incorporate it into a
+                           stack's `-modules` list.
+
+Consider the drivers we described in the previous section.
+                Suppose the source code for those driver files,
+                tcldriver-itcl.tcl and
+                tcldriver-snit.tcl are located in the same
+                directory as the DAQ configuration file.  The following
+                configuration file fragment creates an instance of each
+                and adds them to a stack containing other natively coded
+                modules that is triggered on the NIM 1 input.
+
+<a name="AEN1602"></a>**Example 4-13. USing a Tcl VM-USB driver.**
+
+```
+source tcldriver-snit.tcl;                   # load a snit tcl driver.
+marker-snit create snitmarker -value 0x5a5a; # Create an instance..
+addtcldriver snitmarker;                     # Add it to the list of known modules.
+
+
+source tcldriver-itcl.tcl;                   # load an incrtcl driver.
+marker-itcl itclmarker -value 0xa5a5         # crate/configure an instance.
+addtcldriver itclmarker                      # register it.
+
+...
+stack config event -modules [list test test2 test snitmarker itclmarker]
+
+                
+```
+
+In the exmample above, the Tcl modules are *highlighted*
+                in the **stack** configuration command.
+
+**Other approaches to packaging. **
+                    If you rdriver is intended for re-use across several setups
+                    and even users, the method described above is not maintainable.
+                    In that case, it is better to stoere the driver sources in
+                    some central location, add **package provide**
+                    commands to each driver files and use
+                    **pkg_mkIndex** command to build a package
+                    index file.
+
+If this is done, and the directory added to the
+                Tcl search path, you could then use
+                **package require** to load the driver file.
+                Storing driver code centrally allows you to ensure that
+                experiments are using up-to-date versions of your software.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Developing a Timestamp Extractor Library | Up | Extending the slow controls subsystem |

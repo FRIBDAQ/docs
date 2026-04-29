@@ -1,0 +1,292 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 10. Simple V775 readout | Next |
+
+
+---
+
+# <a name="AEN6243"></a>10.8. The full SpecTcl program.
+
+This section gives full listings for the event processor
+            headers and implementations.  We also provide a full
+            listing of the
+            SpecTclRC.tcl and
+            spectra.tcl script
+            we wrote to define raw parameter spectra.
+
+We don't providea full listing of the modified
+            MySpecTclApp.cpp file. You
+            can find that in the .zip archive for this setup,
+            however.
+
+<a name="AEN6250"></a>**Example 10-25. RawUnpacker.h**
+
+```
+#ifndef _RAWUNPACKER_H
+#define _RAWUNPACKER_H
+#include <config.h>
+#include <EventProcessor.h>
+
+class CTreeParameterArray;
+
+class CRawUnpacker : public CEventProcessor
+{
+public:
+  CRawUnpacker();
+  virtual ~CRawUnpacker();
+  virtual Bool_t operator()(const Address_t pEvent,
+                            CEvent&         rEvent,
+                            CAnalyzer&      rAnalyzer,
+                            CBufferDecoder& rDecoder);
+private:
+  CTreeParameterArray& m_times;
+};
+
+
+#endif
+
+            
+```
+
+<a name="AEN6253"></a>**Example 10-26. RawUnpacker.cpp**
+
+```
+#include "RawUnpacker.h"
+#include <TreeParameter.h>
+#include <TranslatorPointer.h>
+#include <BufferDecoder.h>
+#include <TCLAnalyzer.h>
+#include <assert.h>
+
+#include <stdint.h>
+
+static const uint32_t TYPE_MASK (0x07000000);
+static const uint32_t TYPE_HDR  (0x02000000);
+static const uint32_t TYPE_DATA (0x00000000);
+static const uint32_t TYPE_TRAIL(0x04000000);
+
+static const unsigned HDR_COUNT_SHIFT(8);
+static const uint32_t HDR_COUNT_MASK (0x00003f00);
+static const unsigned GEO_SHIFT(27);
+static const uint32_t GEO_MASK(0xf8000000);
+
+static const unsigned DATA_CHANSHIFT(16);
+static const uint32_t DATA_CHANMASK(0x001f0000);
+static const uint32_t DATA_CONVMASK(0x00000fff);
+
+
+static inline uint32_t getLong(TranslatorPointer<uint16_t>& p)
+{
+  uint32_t l = *p++ << 16;
+  l         |= *p++;
+
+  return l;
+}
+
+
+CRawUnpacker::CRawUnpacker() :
+  m_times(*(new CTreeParameterArray("t", 4096, 0.0, 4095.0, "channels", 32, 0)))
+{}
+
+CRawUnpacker::~CRawUnpacker()
+{
+  delete &m_times;
+}
+
+
+Bool_t CRawUnpacker::operator()(const Address_t pEvent,
+                                CEvent& rEvent,
+                                CAnalyzer& rAnalyzer,
+                                CBufferDecoder& rDecoder)
+{
+  TranslatorPointer<uint16_t>p(*rDecoder.getBufferTranslator(), pEvent);
+  CTclAnalyzer& a(dynamic_cast<CTclAnalyzer&>(rAnalyzer));
+
+  TranslatorPointer<uint32_t> p32 = p;
+  uint32_t  size = *p32++;
+  p = p32;
+  a.SetEventSize(size*sizeof(uint16_t));
+
+  uint32_t header = getLong(p);
+  assert((header & TYPE_MASK) == TYPE_HDR);
+  assert(((header & GEO_MASK) >> GEO_SHIFT) == 0xa);
+  int nchans = (header & HDR_COUNT_MASK) >> HDR_COUNT_SHIFT;
+
+  for (int i =0; i < nchans; i++) {
+    uint32_t datum = getLong(p);
+    assert((datum & TYPE_MASK) == TYPE_DATA);
+    int channel = (datum & DATA_CHANMASK) >> DATA_CHANSHIFT;
+    uint16_t conversion = datum & DATA_CONVMASK;
+
+    m_times[channel] = conversion;
+
+  }
+
+  uint32_t trailer = getLong(p);
+  assert((trailer & TYPE_MASK) == TYPE_TRAIL);
+
+  return kfTRUE;
+}
+
+            
+```
+
+<a name="AEN6256"></a>**Example 10-27. spectra.tcl**
+
+```
+for {set i 0} {$i < 32} {incr i} {
+    set name [format t.%02d $i]
+    spectrum $name 1 $name {{0 4095 4096}}
+}                
+            
+```
+
+<a name="AEN6259"></a>**Example 10-28. SpecTclRC.tcl**
+
+```
+lappend auto_path $SpecTclHome/TclLibs
+package require splash
+package require img::jpeg
+
+
+
+set splash [splash::new -text 1 -imgfile $splashImage -progress 6 -hidemain 0]
+splash::progress $splash {Loading button bar} 0
+
+puts -nonewline "Loading SpecTcl gui..."
+source $SpecTclHome/Script/gui.tcl
+puts  "Done."
+
+splash::progress $splash {Loading state I/O scripts} 1
+
+puts -nonewline "Loading state I/O scripts..."
+source $SpecTclHome/Script/fileall.tcl
+puts "Done."
+
+splash::progress $splash {Loading formatted listing scripts} 1
+
+puts -nonewline "Loading formatted listing scripts..."
+source $SpecTclHome/Script/listall.tcl
+puts "Done."
+
+splash::progress $splash {Loading gate copy scripts} 1
+
+puts -nonewline "Loading gate copy script procs..."
+source $SpecTclHome/Script/CopyGates.tcl
+puts "Done."
+
+splash::progress $splash {Loading tkcon console} 1
+
+if {$tcl_platform(os) != "Windows NT"} {
+        puts -nonewline "Loading TKCon console..."
+        source $SpecTclHome/Script/tkcon.tcl
+        puts "Done."
+}
+
+
+set here [file dirname [info script]]
+source $here/spectra.tcl
+sbind -all
+
+splash::progress $splash {Loading SpecTcl Tree Gui} 1
+
+puts -nonewline "Starting treeparamgui..."
+source $SpecTclHome/Script/SpecTclGui.tcl
+puts " Done"
+
+
+splash::progress $splash {SpecTcl ready for use} 1
+
+splash::config $splash -delay 2000
+
+            
+```
+
+<a name="AEN6262"></a>**Example 10-29. Tdiff.h**
+
+```
+#ifndef _TDIF_H
+#define _TDIF_H
+
+#include <config.h>
+#include <EventProcessor.h>
+
+class CTreeParameterArray;
+
+class CTdiff : public CEventProcessor
+{
+public:
+  CTdiff();
+  virtual ~CTdiff();
+
+ virtual Bool_t operator()(const Address_t pEvent,
+                            CEvent&         rEvent,
+                            CAnalyzer&      rAnalyzer,
+                            CBufferDecoder& rDecoder);
+private:
+ CTreeParameterArray& m_times;
+ CTreeParameterArray* m_diffs[32];
+};
+
+#endif
+
+            
+```
+
+<a name="AEN6265"></a>**Example 10-30. Tdiff.cpp**
+
+```
+
+#include "Tdiff.h"
+#include <TreeParameter.h>
+#include <BufferDecoder.h>
+#include <TCLAnalyzer.h>
+#include <stdio.h>
+
+CTdiff::CTdiff() :
+  m_times(*(new CTreeParameterArray("t", 8192, -4095, 4095, "channels", 32, 0)))
+{
+  char baseName[100];
+  for (int i =0; i < 32; i++) {
+    sprintf(baseName, "tdiff.%02d", i);
+    m_diffs[i] =
+      new  CTreeParameterArray(baseName, 8192, -4095, 4095, "channels", 32, 0);
+  }
+}
+
+CTdiff::~CTdiff()
+{
+  for (int i =0; i < 32; i++) {
+    delete m_diffs[i];
+  }
+}
+
+
+Bool_t CTdiff::operator()(const Address_t pEvent,
+                         CEvent& rEvent,
+                         CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder)
+{
+  for (int i = 0; i < 32; i++) {
+    if (m_times[i].isValid()) {
+      for (int j = 0; j < 32; j++) {
+        if (m_times[j].isValid()) {
+          (*m_diffs[i])[j] = m_times[i] - m_times[j];
+        }
+      }
+    }
+  }
+
+  return kfTRUE;
+}
+
+            
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The full readout program. | Up | Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register |

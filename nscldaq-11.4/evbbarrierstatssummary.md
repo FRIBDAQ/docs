@@ -1,0 +1,47 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="evb1_barrierstats_Summary"></a>EVB::BarrierStats::Summary
+
+<a name="AEN16047"></a>## Name
+
+EVB::BarrierStats::Summary -- UI element to summarize barrier statistics.
+
+<a name="AEN16050"></a>## Synopsis
+
+**EVB::BarrierStats::Summary *window ?options?*
+**
+
+<a name="AEN16054"></a>## DESCRIPTION
+
+Provides a user interface element that can be used to display a
+            summary of the set of barrier statistics that have been seen by
+            the event orderer.
+
+<a name="AEN16057"></a>## OPTIONS
+
+
+
+`-completecount`Provides the number of complete barriers that have been
+                        processed.  A  barrier is complete if it has contributions
+                        from all event sources within the timeout.
+
+`-incompletecount`Proivdes the number of barriers that havwe been processed
+                        that are missing contributions from at least one
+                        event source.
+
+`-heterogenouscount`Provides the number of barriers that are heterogenous
+                        (complete or not).  A heterogenous barrier is one that has
+                        fragments with more than one distinct barrier type.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EVB::BarrierStats::queueBarriers | Up | EVB::CallbackManager |

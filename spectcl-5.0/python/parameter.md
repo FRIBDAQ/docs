@@ -1,0 +1,145 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN298"></a>parameter
+
+<a name="AEN302"></a>## Name
+
+parameter -- Wrap SpecTcl parameter/treeparameters
+
+<a name="AEN305"></a>## Synopsis
+
+```
+
+existing = spectcl.treeparameter(name)
+new      = spetcl.treeparameter(name, low, high, bins, units)
+
+existing.name()
+existing.getbins()
+existing.getlow()
+existing.gethigh()
+existing.getunits()
+existing.check()
+
+existing.reset()
+existing.markchanged()
+
+existing.setbins(newbins)
+existing.setlow(newlow)
+existing.sethigh(newhigh)
+existing.setunits(newunits)
+
+                    
+```
+
+<a name="AEN307"></a>## DESCRIPTION
+
+SpecTcl has raw parameters which can be wrapped by
+                        tree parameters.  Tree parameters add metadata to the
+                        raw parameters that:
+
+
+
+- Recommend spectrum axis limits and binnint
+- Document parameter units of measure.
+
+
+If you attempt to construct a parameter object supplying
+                        only the parameter name, that parameter must exist
+                        and have a tree parameter wrapping it.  The object
+                        is then constructed bound to the existing tree parameter.
+                        If these conditions are not satisified, construction
+                        will raise a LookupError exception
+
+If, on the other hand you supply, in order the name,
+                        bins, low, and high limits and unit string; A new
+                        tree parameter will be created with those values.
+                        The tree parameter will be created with the parameters
+                        provided.  If the name refers to an existing SpecTcl raw
+                        parameter, the tree parameter will be bound to that
+                        raw parameter.  If not a free parameter slot number
+                        will be created and bound to that parameter name.
+                        (This can be useful for setting up parameters in a SpecTcl
+                        with dynamic event processing pipelines).
+
+Note that SpecTcl tree parameters provide a mapping
+                        from name to a common attribute block which includes
+                        metadata and a mapping to the raw SpecTcl parameter.
+                        This means that if you create a new tree parameter but
+                        the name you use already exists, your metadata will
+                        override the metadata for all other tree parameters with
+                        that name.  This is one way to redefine all treeparameter
+                        metadata for an existing parameter in one call.
+
+<a name="AEN318"></a>## METHODS
+
+The type provides several methods.  Note that in the future
+                        some of these methods may be supplemented by getter/setters,
+                        making it look like you are directly accessing the logical
+                        attributes of the tree parameter object.
+
+
+
+`name`Returns the name of the parameter.
+
+getbinsReturns the integer number of recommended
+                                    bins for a spectrum axis that is defined
+                                    on this parameter.
+
+getlowReturns the floating point recommended low
+                                    limit for an axis that is defined on this
+                                    parameter.
+
+gethighReturns the floating piont recommended high
+                                     limit for an axis that is defined on this
+                                     parameter.
+
+getunitsReturns a string containing the units of
+                                    measure for the parameter.  This can be
+                                    an empty string, for example, if the
+                                    parameter is unit-less.
+
+checkReturns true if the tree parameter has been
+                                    modified since its definition or the last
+                                    `reset` call otherwise
+                                    returns false.
+                                    The use case for this is to determine
+                                    which tree parameter definitions must be
+                                    written to file to minimally save the
+                                    program state.
+
+resetResets the modification flag that's returned
+                                    by `check`.
+                                    Returns None.
+
+markchangedSets the modification flag that's
+                                    returned by `chaeck`.
+                                    Returns None.
+
+`    def setbins(integer newbins) :`Sets a new value for the number of bins
+                                    recommended on a spectrum axis defined on this
+                                    tree parameter.  Returns self to support method
+                                    chaining.
+
+`    def setlow(float newlow) :`Sets the new value for the recommended low
+                                    limit on axes defined on this parameter.
+                                    Returns self to support method chaining.
+
+`    def sethigh(float newhigh) :`Sets the new value for the recommended high
+                                    limit on axes defined by this parameter.
+                                    Returns self to support method chaining.
+
+`    def setunits(string newunits) :`Sets the new units of measure for a parameter.
+                                    Returns self to support parameter chaining
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The spectcl.parameter type | Up | The spectcl.spectrum type |

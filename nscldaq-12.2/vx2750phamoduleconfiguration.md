@@ -1,0 +1,1237 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN67976"></a>VX2750PHAModuleConfiguration
+
+<a name="AEN67980"></a>## Name
+
+VX2750PHAModuleConfiguration -- Encapsulate module configuration for CAEN Nextgen digitizers
+
+<a name="AEN67983"></a>## Synopsis
+
+```
+#include <VX2750PHAModuleConfiguration.h>
+namespace caen_nscldaq {
+class VX2750PHAModuleConfiguration : public ::XXUSB::CConfigurableObject
+{
+public:
+    VX2750PHAModuleConfiguration(const char* name);
+    VX2750PHAModuleConfiguration(const VX2750PHAModuleConfiguration& rhs);
+    virtual ~VX2750PHAModuleConfiguration();
+    
+    VX2750PHAModuleConfiguration& operator=(const VX2750PHAModuleConfiguration& rhs);
+    int operator==(const VX2750PHAModuleConfiguration& rhs);
+    int operator!=(const VX2750PHAModuleConfiguration& rhs);
+    
+    void configureModule(VX2750Pha& module);
+    
+    // Key methods inherited from XXUSB::CConfigurableObject:
+    
+    std::string getName() const;
+	void setName(const char* pName)
+    std::string cget(std::string name) ;
+    ConfigurationArray cget();
+    void configure(std::string name, std::string value);
+    
+};
+
+
+}
+
+                    
+```
+
+<a name="AEN67985"></a>## DESCRIPTION
+
+In NSCLDAQ's xxUSB controller support configurations
+                        are a set of name value pairs which are then programmed
+                        into the controller.  This seemed a good building block for
+                        to capture the configuration of the next generation CAEN
+                        digitizer modules.  `VX2750PHAConfiguration`
+                        is therefore a specialization of the `XXUSB::CConfigurableObject`
+                        class which provides keywords and value validation for the
+                        configuration of those modules running the DPP-PHA firmware.
+
+The configuration base class provides the mechanics needed
+                        to define new configuration parameter names and validity checks
+                        on the values they are assigned.
+
+Primarily, two types of values are supported. Scalars
+                        and lists.  Since the xxUSBReadout software was based on a
+                        Tcl configuration language, list syntax is identical to Tcl
+                        list syntax.  Strong validation ensures that illegal values
+                        are caught at configuration time.
+
+The configuration class is divorced from any method
+                        of actually providing the configuration.  THe configuration
+                        can be provided by a configuration module.   We provide
+                        a configuration module that can read Tcl configuration files,
+                        one could conceive of other sources for a non-volatile configuration
+                        such as a database, XML files or even simple CSV files.
+
+In the following sections we will describe the methods
+                        supported by the `VX2750PHAconfiguration`
+                        and those inherited from `XXUSB::CConfigurableObject`
+                        that are relevant to clients of this class.
+                        We will then describe the configuration parameters and validations
+                        applied to them.
+
+<a name="AEN67996"></a>## METHODS
+
+Methods support both configuring the parmaeters defined
+                        by the class as well as retrieving boththe bulk configuration
+                        and specific configuration parameter values.  Finally,
+                        a method has been added that, when provided a
+                        `VX2750Pha` module will
+                        configure that module in accordance with the values
+                        for the configuration parameters encapsulated by the
+                        instance.
+
+Here are the key methods:
+
+
+
+`  VX2750PHAModuleConfiguration(const char*  name);`Constructs a configuration instance. Each configuration
+                                has a name.  The use of that name is entirely up to
+                                the software hat uses this class.  For example,
+                                the Tcl configuration data source uses the name as
+                                a module identifier that must be unique.
+                                This class, however only stores the name and
+                                allows retrieval and modification.
+
+` void  configureModule(VX2750Pha&  module);`Configures the digitizer represented by
+                                `module` in accordance
+                                with the parameter values encapsulated in the
+                                configuration.
+
+` const std::string  getName();`Returns the name of the configuration.
+
+` void  setName(const char*  pName);`Changes the configuration's name to `pName`.
+                                One use case for this is to have a configuration
+                                that serves as a template that is cloned as a starting
+                                point for other configurations.  After the clone,
+                                this method can be used to set the correct final
+                                name of the configuration.
+
+` std::string  cget(std::string  name);`Returns the string representation of the parameter
+                                `name`.  Note that the
+                                `XXUSB::CConfigurableObject`
+                                has a wealth of parameter fetching methods that
+                                fetch different representations.  Internally,
+                                however all parameter values are stored as strings.
+
+In the event that `name`
+                                is not the name of a parameter in the configuration,
+                                a `std::string` exception
+                                is thrown.
+
+` ConfigurationArray  cget();`Return the entire configuration.
+                                The type CConfigurationArrary is, in
+                                fact an alias for
+                                std::vector<std::pair<std::string, std::string> >
+                                where the first element o each pair is the name of a configuration
+                                parameter and the second element its value.
+
+` void  configure(std::string  name, std::string  value);`Attempts to configure the parameter named
+                                `name` with the new value
+                                `value`
+
+In the event that `name`
+                                does not exist, or `value`
+                                fails validation for the parameter,
+                                `std::string` exceptions are
+
+<a name="AEN68086"></a>## CONFIGURATION PARAMETERS
+
+Configuration parameters are divided into several categories.
+                        In the code, each of the categories has a private method
+                        that defines the parameters and their validations and a private
+                        method that configures the digitizer with those parameters.
+
+A note about boolean parameters.  Several true and false
+                        values are supported. Legal boolean true values are:
+
+
+
+- true
+- yes
+- 1
+- on
+- enabled
+
+
+Legal boolean false values are:
+
+
+
+- false
+- no
+- 0
+- off
+- disabled
+
+
+Choose the boolean value that maximizes the readability
+                        of your code.
+
+The subsetions below will describe the parameters
+                        in each category.  Note that, with the exception
+                        of the readout options,
+                        each parameter maps directly
+                        to a parameter in the PHA digitizer parameter set.
+
+<a name="AEN68125"></a>### Readout Options
+
+These parameters determine how the module's
+                            DPP-PHA endpoint is set up for readout.  See the
+                            description of the corresponding methods in the
+                            `VX270Pha` class.  The
+                            default readout is as for that class.
+
+
+
+readrawtimes *bool*If this options is configured true, the
+                                    raw timestamp will be read in addition to the
+                                    timetsamp in nanoseconds.
+
+readfinetimestamps *bool*If this optionis configured true, the
+                                    interpolated zero crossing
+                                    time of the fast trigger filter is returned.
+
+readflags *bool*If configured true, the low and high priority
+                                    bitmask status flags are read.
+
+readtimedownsampling *bool*If configured true, the time downsampling code
+                                    is included in events.
+
+readanalogprobes *bool*2*The value of this configuration parameter is
+                                    a well formed Tcl list that contains two
+                                    booleans.  The first boolean, when true,
+                                    enables the inclusion of data from analog probe 1
+                                    in the event, the second, analog probe 2.
+
+readdigitalprobes *bool*4*The value of this configuratin parameter is a
+                                    well formed list of four booleans.  Each controls
+                                    the inclusion of data from one of the digital probes
+                                    in data in the event.
+
+readsamplecount *bool*If true, this configuration parameter enables
+                                    the number of samples acquired to be included
+                                    in the event.
+
+readeventsize *bool*If true, this configuration parameter enables
+                                    the inclusion of the raw event size in the
+                                    DPP-PHA event.
+
+<a name="AEN68178"></a>### Clock parameters
+
+The parameters in this section control the source 
+                            and disposition of the module clock.
+
+
+
+clocksource *enum*Configures the clock source for the module.
+                                    The enumerated configuration value can
+                                    be any of:
+
+
+
+- Internal - the clock source is the module's
+                                            internal clock.
+- FPClkIn - the clock source is the
+                                            module's front panel CLKIN daisychain
+                                            input.
+
+There is a hint
+                                    in the parameter documentation that in the future, three other
+                                    parameters will be supported:
+                                    P0ClkIn (backplane P0
+                                    connector), Link (white rabbit?),
+                                    and DIPswitchSel (switch selectable).
+                                    These options are currently commented out in the
+                                    code as configuring them will result in
+                                    an error from the module.
+
+outputfpclock *bool*If enabled, the clock selected from the module
+                                    will be echoed on the CLKOUT front panel
+                                    clock daisychain connector.
+
+An additional configuration parameter:
+                            outputp0clock that takes
+                             a boolean parameter is commented out as it is
+                             not (yet?) supported by the module and configuring
+                             it will cause the module to report an error.
+
+<a name="AEN68205"></a>### Trigger options
+
+Define the module and channel triggers.  Note that
+                            channel trigger options are aggregated into single
+                            options with 64 entry lists.
+
+
+
+startsource *list-of-enums*Determines, after the digitizer is armed what
+                                    can start acquisition.  The configuration value
+                                    is a list of things that can start acquisition.
+                                    The actual start is the first of the items in the
+                                    list to  occur.  For example if the list is
+                                    SINedge LVDS, then when
+                                    the digitizer is armed either an edge on the
+                                    SIN input or the LVDS inputs can start the digitizer.
+                                    Whichever occurs first in time will actually
+                                    cause the start.
+
+Needless to say, if sychronized starts are required
+                                    (remember it's the start the clears the timestamp),
+                                    one or more of the hardware start options should be used.
+
+The enumerations have the following value:
+
+
+
+- EncodedClkIn,
+                                            the clock in on the clock daisy chain
+                                            starts the digitizer.
+- SINlevel the digitizer
+                                            run as long as the SIN input is asserted. Note that
+                                            this allows for multiple starts.
+- SINedge  the digitizer
+                                            starts on the first edge that asserts SIN.
+- SWcmd the digitizer
+                                            can be started witha software start.
+- LVDS  The digitizer
+                                            can be started by LVDS inputs if appropriately configured.
+- P0, while this can
+                                            be configured, it is not actually supported
+                                            (I think).  If configured, the digitizer
+                                            can be started by the start input on the P0
+                                            backplane connector.
+
+gbltriggersrc *list-of-enums*Describes the list of allowed global trigger sources.
+                                    The configuration parameter is a list of enumerated
+                                    values.  The list specifies the contributers
+                                    to the module global trigger.  THe final global
+                                    trigger is the or of the conditions specified.
+
+The configuration value is a properly formed
+                                    list.  Items in that list must be one of:
+
+
+
+- TrgIn  the TRGIN
+                                            front panel connector.
+- P0 (probably not supported) A trigger
+                                            input on the P0 backplane connector.
+- SwTrg  software
+                                            trigger command.
+- LVDS  LVDS input
+                                            properly configured.
+- ITLA the output
+                                            of the internal trigger logic block A
+- ITLB  output of
+                                            the inbternal logic trigger block B
+- ITLA_AND_ITLB
+                                            The boolean and of the two trigger logic
+                                            blocks.
+- ITLA_OR_ITLB the
+                                             boolean or of the two trigger logic
+                                             blocks.
+- EncodedClkIn
+                                            the CLKIN daisy chain signal.
+- the properly
+                                            configured GPIO front panel input.
+- TestPulse
+                                            the initiation of the test pulser.
+
+wavetriggersrc *enumerated-list*64*Determines when wave form acquisition is triggered.
+                                    The configuration parameter is a 64 element list
+                                    with one element per channel.  The list elements,
+                                    are themselves lists of enumerated values, the
+                                    OR of which defines the waveform trigger for
+                                    the associated channel.
+
+Lists are in Tcl format and {}
+                                    can be used or 
+                                    **[list item1 item2...]** to
+                                    create the nested list as a Tcl interpreter is
+                                    created and used to process the list.
+
+The inner list elements can have the following
+                                    values:
+
+
+
+- ITLA logic block A
+- ITLB  logic block B
+- GlobalTriggerSource,
+                                            the global trigger source defined above.
+- TRGIN  the TRGIN
+                                            front panel input.
+- SWTrg  a software
+                                            trigger command.
+- ExternalInhibit
+                                            the front panel inhibit input.
+- ADCUnderSaturation
+                                            ADC input drops below the accepted
+                                            voltage ranage.
+- ADCOverSaturation
+                                            ADC input is above the accepted voltage
+                                            range.
+- ChSelfTrigger
+                                            the channels fast filter zero crossing.
+- Ch64Trigger any
+                                            of the channel self triggers described
+                                            by the value of that channel's
+                                            channeltriggermasks
+                                            mask.
+- Disabled  waveform
+                                            acquisition for the channel is disabled
+                                            in the sense that it cannot be triggered.
+
+eventtriggersrc *enumerated-list*64*As with wavetriggesrc but
+                                    specifies, for each channel the even trigger.
+                                    The values  in each channel trigger list
+                                    can be taken from the following list:
+
+
+
+- ITLA logic block A
+- ITLB  logic block B
+- GlobalTriggerSource,
+                                            the global trigger source defined above.
+- TRGIN  the TRGIN
+                                            front panel input.
+- SWTrg  a software
+                                            trigger command.
+- ChSelfTrigger
+                                            the channels fast filter zero crossing.
+- Ch64Trigger any
+                                            of the channel self triggers described
+                                            by the value of that channel's
+                                            channeltriggermasks
+                                            mask.
+- Disabled  waveform
+                                            acquisition for the channel is disabled
+                                            in the sense that it cannot be triggered.
+
+channeltriggermasks* list-of-ints*64*Provides a list of 64 bit trigger masks
+                                    for each channel.  When a channel trigger
+                                    (event or wave) is set to include
+                                    Ch64Trigger, the bits
+                                    in this mask determine which of those triggers
+                                    are actually able to trigger this channel.
+
+Note that the mask values can be expresssed
+                                    as hex constants e.g.
+                                    0xa5a5a5a5a5a5a5a5 which
+                                     allows every other channel to provide a trigger.
+
+savetraces *Always | OnRequest*Determines when traces can be saved to the event.
+
+triggeroutmode *enum*Determines which signal is output on the
+                                    TRGOUT front panel LEMO connector.
+                                    This can be one  of:
+
+
+
+- TRGIN  The
+                                                TRGIN lemo input
+                                                signal is echoed oin TRGOUT
+- P0  unimplemented
+                                                The backplane P0 connector's
+                                                trigger in is echoed to
+                                                TRGOUT
+- SwTrigger
+                                                Pulses when a software trigger is given.
+- LVDS If LVDS
+                                                 inputs are programmed to be triggers,
+                                                 the LVDS trigger is reflected here.
+- ITLA reflects the
+                                                ouptput of the Internal A trigger
+                                                logic block.
+- ITLB reflects the
+                                                ouptput of the Internal B trigger
+                                                logic block.
+- ITLA_AND_ITLB The
+                                                boolean and of the ITLA and ITLB
+                                                ouptputs
+- ITLA_OR_ITLB
+                                                 the boolean or of the ITLA and
+                                                 ITLB outputs.
+- EncodedClkIn
+                                                 CLKIN input.  This is not yet implemented
+                                                 on the board.
+- Run  echoes the
+                                                board run state.
+- RefClk outputs
+                                                the onboard 62.5MHz reference
+                                                clock.
+- TestPulse
+                                                trigger of the test pulse pulser.
+- Busy  reflects the
+                                                board busy state.
+- Fixed0 the output
+                                                is deasserted.
+- Fixed1 the output
+                                                is asserted.
+- SyncIn  reflects
+                                                the SyncIn input.
+- SIN  reflects the
+                                                SIN input.
+- GPIO  reflects
+                                                the GPIO when programmed as an
+                                                input.
+- AcceptTrg
+                                                pulses when a trigger has been
+                                                validated and accepted.
+- TrgClk
+                                                echoes the internal trigger clock
+                                                train.
+
+
+gpiomode *enum*Defines the functionality and direction of the
+                                    GPIO LEMO connector.  This can be one of the
+                                    following values:
+
+
+
+- Disabled  the
+                                                connector is unused.
+- TrgIn
+                                                The connector is an input and used
+                                                for the external trigger.
+- P0 The connector
+                                                is an output and reflects the
+                                                P0 backplane trigger input.
+- SIN The connector
+                                                is an output and reflects the
+                                                SIN input
+- LVDS
+                                                The connector is an output. If an
+                                                LVDS quartet is programmed as a trigger
+                                                input, reflects this trigger.
+- ITLA  The connector
+                                                is an output and reflects the output
+                                                of the ITLA block.
+- ITLB  The connector
+                                                is an output and reflects the output
+                                                of the ITLB block.
+- ITLA_AND_ITLB  The connector
+                                                is an output and reflects the boolean
+                                                and of the two internal trigger logic
+                                                blocks.
+- ITLA_OR_ITLB  The connector
+                                                is an output and reflects the boolean OR
+                                                of the two internal logic trigger
+                                                blocks.
+- EncodedClkIn
+                                                 CLKIN input.  This is not yet implemented
+                                                 on the board.
+- Run  echoes the
+                                                board run state.
+- RefClk outputs
+                                                the onboard 62.5MHz reference
+                                                clock.
+- SwTrg The
+                                                connector is an output and
+                                                pulses when a software trigger
+                                                is given.
+- TestPulse
+                                                trigger of the test pulse pulser.
+- Busy  reflects the
+                                                board busy state.
+- Fixed0 the output
+                                                is deasserted.
+- Fixed1 the output
+                                                is asserted.
+
+
+busyinsrc *enum*Defines a source for a busy input.  When this
+                                    source is asserted, the board will not accept
+                                    triggers.  This allows conditions to be established
+                                    for a global busy.
+                                    The value can be one of
+
+
+
+- Disabled
+                                                There is no buy input source.
+- SIN The SIN
+                                                LEMO provides the global busy.
+- GPIO The GPIO
+                                                when programmed as an input provides
+                                                the busy in.
+- LVDS any LVDS
+                                                quartet programmed as a TRGIN
+                                                provides the global busy.
+
+
+syncoutmode* enum*Determines what it output on the SYNCOUT
+                                    front panel LEMO connector.   This can be
+                                    one of the following:
+
+
+
+- Disabled
+                                                 The ouptput is disabled.
+- SyncIn
+                                                 The output echoes the
+                                                 SyncIn input.
+- TestPulse
+                                                the output reflects the test pulser
+                                                trigger.
+- IntClk
+                                                The output reflects the board's
+                                                internal 62.5MHz clock.
+- Run
+                                                The output reflects the board's
+                                                run state.
+
+
+boardvetosrc *enum*Determines the signal that will start the
+                                    board's trigger veto.  See also
+                                    boardvetowidth.
+                                    The value of this parameter must be one of the
+                                    following:
+
+
+
+- SIN
+                                                The SIN input is used as the veto.
+- LVDS
+                                                Any LVDS quartet programmed as a TRGIN
+                                                can be the veto.
+- GPIO the GPIO
+                                                when programmed as an input
+                                                can bet he veto.
+- P0  The backplane
+                                                P0 signal can a be a trigger
+                                                (documentation does not specify
+                                                which backplane signal. I don't
+                                                believe boads with a P0 connector
+                                                have been implemented yet in any event.
+- EncodedClkIn
+                                                The CLKIN is used note that this is
+                                                not yet implemented.
+- Disabled there is no
+                                                board veto source.
+
+
+boardvetowidth *integer*The veto width in nanoseconds.  See
+                                    boardvetosrc above as well.
+
+boardvetopolarity *ActiveHigh | ActiveLow*Determines the interpretation of the board
+                                    veto.  If ActiveHigh
+                                    is used the veto is actually a veto.  If
+                                    ActiveLow is used, the
+                                    veto is actually a gate.
+
+chanvetosources *enum-list*List of 64 channel veto sources.  The veto
+                                    for each channel can be independently chosen
+                                    from amongst:
+
+
+
+BoardVetoThe Board veto output is used.
+
+ADCOverSaturationVeto when the ADC has inputs above its
+                                            high limit
+
+ADCUnderSaturationVeto when the ADC has inputs below
+                                            its low limit.
+
+DisabledThere is no per channel veto.
+
+chanvetowidth*int-list*Each channel veto has a gate generator which
+                                    sets the width of the veto pulse. The width
+                                    is specified in nanoseconds and can be between
+                                    0 and 524280.   There is text in the manual that
+                                    may imply this only is used when the veto
+                                    source is one of the ADC saturation conditions.
+
+rundelay *int*The run delay is used when the RUN signal is
+                                    electronic rather than software.  Since it is
+                                    the RUN start that actually clears the timestamp,
+                                    This can be used to compensate for different
+                                    delays in the start from board to board.
+                                    For example if the SIN-GPIO are used to create
+                                    a start daisy chain the last module in the
+                                    board would have a run delay of 0 while the
+                                    previous boards would have increasing delays
+                                    as you go towards the source of the daisy chain.
+
+Units are nanoseconds and can be in the range of
+                                    0-524280
+
+autodisarm *bool*When true, when the run stops, the module is
+                                    disarmed.  This prevents additional start
+                                    conditions from starting the module again
+                                    (and is the normal case).  An example of
+                                    when it might be useful to not automatically
+                                    disarm the module would be in a pulsed beam
+                                    environment when the module could be configured
+                                    only to run during the beam on condition but
+                                    by making the run condition the beam on
+                                    condition.
+
+volclkoutdelay *int*Delays the clock output relative to the input.
+                                    The delay is specified in units of picoseconds
+                                    and is in the range -18888 to 18888.
+                                    This can be used to align the clocks seen
+                                    by all boards.  For example in a system where
+                                    clocks are distributed from a clock master module
+                                    along the CLKIN/CLIKOUT daisy chain, one would
+                                    set this value to 0 at the end module and have
+                                    increasing delays up the daisy chain towards the
+                                    master to compensate for the differences in
+                                    signal propagation delay along the daisy chain.
+
+Note that the board has a volatile clock delay,
+                                    which is written directly to the registers
+                                    of the clock PLL.  The module also has
+                                    a permclkoutdelay that is
+                                    stored in non-volatile memory and
+                                    written to the PLL at power up.  Since this is
+                                    overwritten by the volclkoutdelay
+                                    parameter that parameter need not be set.
+
+<a name="AEN68635"></a>### Inspection Options
+
+The module supports two analog and four digital
+                            probes.   These can be returned with the event.
+                            In addition to providing access to the raw waveforms,
+                            in case the user wants to do their own digital signal
+                            processing, several diagnostic probes can be selected
+                            to troubleshoot module setup.
+
+This section of parameters controls the selection
+                            of these probes.  Furthermore the source of data
+                            presented to the FADCs can be controlled for testing
+                            purposes.
+
+
+
+wavesource *enum-list*The source of data digitized by the flash
+                                    ADC can be selected independently for each channel.
+                                    Normally ADC-DATA will be
+                                    selected but for testing without a source of
+                                    input data other options are available.
+
+Each element of thel ist determines the source
+                                    of data for that channel. Values can be taken
+                                    from the following list.
+
+
+
+ADC_DATAThe ADC input is digitized.
+
+ADC_TEST_TOGGLEThe ADC toggles between full scale and
+                                            0.
+
+ADC_TEST_RAMPThe ADC is givena ramp signal
+
+ADC_TEST_SINThe ADC is given a sinusoidal input.
+
+IPENot implemented
+
+RampThe ADC is given data from a ramp generator
+
+SquareWaveThe ADC is given an internal test pulser
+                                            square wave.
+
+ADC_TEST_PRBSNot documented in the manual.
+
+recordsamples *int-list*Number of samples each FADCs will record for each channel.
+
+waveresolutions *enum-list*The wave-form resolution.  This determines
+                                    the signal decimation.   Each channel's
+                                    decimation can be set independently and the
+                                    resolution must be chose from the following
+                                    list:
+
+
+
+Res8Decimation is such that each sample is
+                                            an 8ns bucket.
+
+Res16Decimation is such that each sample is
+                                            an 16ns bucket.
+
+Res32Decimation is such that each sample is
+                                            an 32ns bucket.
+
+Res64Decimation is such that each sample is
+                                            an 64ns bucket.
+
+analogprobe1|2 *enum-list*Each channel has two analog probes.  They can
+                                    be set with the analogprobe1
+                                    and analogprobe2 configuration
+                                    paramters.  Thyese
+                                    configuration parameters take a 64 element list
+                                    of enums that define the analog probes for that
+                                    channel.
+
+The values of each element of the list must
+                                    be one of:
+
+
+
+ADCInputThe raw input to the FADC for that
+                                            channel
+
+TimeFilterThe input waveform after it has
+                                            passsed through the timing filter.
+
+EnergyFilterThe input waveform after it has passed
+                                            through the energy (trapezoidal) filter.
+
+EnergyFilterBaselineThe
+                                            running baseline computed by the energy filter.
+
+EnergyFilterMinusBaselineThe baseline subtracted energy filtered
+                                            waveform.
+
+digitalprobe1-4 *enum-list*Each channel can have four digital probes
+                                    defined.  A digital probe produces "waveforms"
+                                    that have values 1 or 0 depending on the state
+                                    of some boolean condition in the digital
+                                    signal processing.
+
+The digital probes for each channel are
+                                    defined using the configuration paramters
+                                    digitalprobe1,
+                                    digitalprobe2,
+                                    digitalprobe3,
+                                    and digitalprobe4.
+                                    The values of these configuration parameters
+                                    are 64 element lists.  Each element of the list
+                                    selects the associated digital probe for that
+                                    channel.
+
+The values must be selected from the following
+                                    list:
+
+
+
+Trigger1 when triggers occur.
+
+TimeFilterArmedTrue when the timing filter is armed.
+
+ReTriggerGuardTrue when in the retrigger guard
+                                            interval.
+
+EnergyFilterBaselineFreezeTrue when the energy filter has frozen
+                                            the baseline due to a pulse.
+
+EnergyFilterPeakingEnergy filter peaking probe.
+
+EnergyFilterPeakReadyTrue when the energy filter has determined
+                                            a peak value.
+
+EnergyFilterPileUpGuardTrue when the energy filter pileup
+                                            guard is active.
+
+EventPileupTrue when an event pileup has been
+                                            detected.
+
+ADCSaturationTrue when the ADC is in saturation.
+
+ADCSaturationProtectionTrue when the ADC is in saturation
+                                            detection mode.
+
+pretriggersamples *int-list*A list of 64 integers that determine
+                                            the number of samples acquired prior
+                                            to the trigger for each channel.
+                                            The valid range is 4-4000.
+
+<a name="AEN68825"></a>### Service Options
+
+Service options mostly set the characteristics
+                            of the test pulser, however a few miscellaneous
+                            options are lumped by CAEN into this catgory.
+
+
+
+testpulseperiod *int*Sets the period of the test pulser in nanoseconds
+                                    the valid range is 0-34359738360 granularity
+                                    is 8ns
+
+testpulsewidth *int*Sets the width of the test pulser pulse in
+                                    ns.  The valid range is 0-34359738360 granularity
+                                    is 8ns.
+
+testpulselowlevel *int*Sets the pulse low level in 16 bit DAC units.
+                                    Valid values are 0-65535
+
+testpulsehighlevel *int*Sets the test pulser high level  in DAC units.
+                                    Valid values are 0-65535.
+
+iolevel *NIM|TTL*Sets the signalling levels of the LEMO I/Os.
+
+errorflagmask *int*Bitmask ored with the actual module error sources
+                                    to determine the state of the LEDS on the module
+                                    front panel.
+
+errorflagdatamask *int*Bitmask ored with the actual module error sources
+                                    to determine the state of the error bits in the
+                                    data returned by the module.
+
+<a name="AEN68871"></a>### Internal Trigger Logic blocks
+
+The module contains two independent trigger logic blocks
+                            called Internal Trigger Logic A and Internal Trigger
+                            Logic B (ITLA and ITLB).  These are highly configurable
+                            logic blocks.  See figure 1 of section 2.5 of the
+                            FELib PHA Parameters User Manual for a block diagram
+                            and detailed description
+                            of these two logic blocks.
+
+This section provides descriptions of the configuration
+                            parameters that define how ITLA and ITLB operator.
+                            Note that for each ITLA parameter there is a corresponding
+                            ITLB parameter.   Therfore the list below descibes
+                            configuration parameters as itlxwhatever and the
+                            x should be understood to be either
+                            a or b.
+
+For example the parameter itlxlogic
+                            describes both the itlalogic
+                            and itlblogic configuration
+                            parameters.
+
+
+
+itlxlogic *enum*Determines the basic nature of the ITLx logic.
+                                    This can be one of
+                                    OR, AND
+                                    or Majority.
+
+itlxmajoritylevel *int*If Majority was selected for the
+                                    corresponding itlxlogic, this
+                                    specifies the majority level.  Legal values
+                                    are 1 through 63
+
+itlxpairlogic *enum*The channel trigger inputs to the logic blocks
+                                    are paired (channel 0 with 1 and so on). A
+                                    logic function can be applied to the
+                                    pairs prior to their inputs being applied
+                                    to the logic block.
+
+The pair logic operates such that if a logic
+                                    function is enabled, both channel inputs
+                                    look the same going into the trigger block and,
+                                    therefore, the majorigy level is a majority of
+                                    pairs.
+
+Valid values for the pair logic are:
+                                    AND, OR
+NONE where NONE
+                                    means that the channel trigger is fed directly
+                                    into the logic block rather than paired.
+
+itlxpolarity *Direct |Inverted*Determines if the logic block output reflects
+                                     a true condition (Direct)
+                                     or a false condition (Inverted).
+
+itlxmask *int*Ones in this bitmask determine which channels
+                                    participate in the logic block.
+
+itlxgatewidth *int*Determines how long the logic block remains
+                                    assserterd in nanoseconds.  This can be
+                                    a value from 0 through 5248280.  Note that the
+                                    granularity is 8ns steps.
+
+<a name="AEN68932"></a>### LVDS I/O options
+
+The module has 16 LVDS I/O pins on a ribbon connector
+                            at the bottom left of the module.  The function and
+                            directionality of these pins can be programmed in
+                            four pin sets called *quartets*.
+                            As such most configuration parameters for the LVDS
+                            configuration have values that are four element lists.
+
+
+
+lvdsmode *4 element enum list*Defines the function of each quartet of LVDS
+                                    I/O pins.  Elements of the list mst be one of
+
+
+
+SelfTriggersThe pins in the quartet must be programmed
+                                            as ouputs and the refelct the channel self triggers.
+                                            See, however lvdstrgmask.
+
+SyncThe pins of the quartet are
+                                            assigned to syncrhonization functions.
+                                            Pin0 of the quartet reflects the
+                                            Run state.
+                                            Pin1, the Trigger
+                                            Pin 2 the BUsy
+                                            and Pin 3 theVeto.
+
+IORegisterThe pins are an input or output register
+                                            depending on the direction seleced for
+                                            the quartet.
+
+The configuration has o way to set/get
+                                            the I/O register value, however
+                                            user code can make use of the configuration
+                                            to set quartet(s) to IORegister
+                                            and then, divorced from configuration,
+                                            read/write the configuration.
+
+lvdsdirection *(Input | Output ) *4*In modes, like e.g. IORegister, defines
+                                    whether the pins of a quartet are inputs or outputs.
+                                    Note that there are LEDS ont he front panel for each
+                                    quartet that reflect the selection.
+
+lvdstrgmask *list of 16 integers*When the mode is
+                                    SelfTrigger, the triggers from the
+                                    64 channels are bitwise anded with a pin's associated
+                                    trigger mask before being presented to the pin.
+
+<a name="AEN68980"></a>### DAC Configuration and Options
+
+The module has a LEMO connector labeled
+                            DAC Output on its front panel.
+                            As the label suggests this is connected to the output
+                            of a DAC.  The DAC Can be prorammed to have several
+                            functions:
+
+
+
+dacoutmode *enum*Defines where the input to the DAC comes from,
+                                    that is what the analog signal the DAC
+                                    presents on the front panel means.  Legal
+                                    values are:
+
+
+
+StaticThe value is a static level determined
+                                            by the dacoutputlevel
+                                            configuration parameter.
+
+IPEUnimplemented at present.
+
+ChInputThe input to the channel
+                                            defined by the dacoutchannel
+                                            configuration parameter.
+
+MemOccupancyNot yet implemented.  Intended to show
+                                            the amount of unread memory occupied
+                                            by data.
+
+ChSumThe analog sum of all channel inputs.
+
+OverThrSumThe DAC output is pproprotional to thee
+                                            number of channels that are currently above
+                                            their self trigger thresholds.
+
+RampDAC output is a sawtooth driven by a
+                                            14 bit counter.
+
+Sin5MHzOutput is a 5MHz sine.
+
+SquareSquare wave output with a period
+                                            determined by the test pulse period
+                                            and width set by the test pulse width
+                                            with amplitude defined by the
+                                            test pulse low and high levels.
+
+dacoutputlevel *int*The value fed to the DAC when it is in
+                                    Static mode.
+
+dacoutchannel *int*The channel who's input is reflected at the
+                                    DAC output if ChInput
+                                    mode is selected.
+
+<a name="AEN69053"></a>### Input Signal Conditioning Parameters
+
+This section defines parameters that control how
+                            the input signals are handled.  These are parameters
+                            that are prior to digitization in the signal
+                            processing pipeline.
+
+
+
+vgagain *integer list (4 elements)*This parameter is only used if the module is
+                                    of the 2745 family.  Each set of 16 channels
+                                    in those modules has a variable gain amplifier in
+                                    common.   The values in the list set the gains
+                                    for each of the four VGAs.   Values can be
+                                    between 0 andf 40.
+
+offsetcalibrationenable *bool*THe DC offset (see dcoffsets)
+                                    are not necessarily linear.  A calibration is
+                                    normally applied to linearize the settings.
+                                    This parameter can disable that calibration.
+                                    Normally this value should be
+                                    true, which is the default
+                                    and only set to false
+                                    if determining the calibration.
+
+channelenables *list of bools (64)*A boolean for each channel determines if that channel
+                                    is enabled.  Note that the default is to enable
+                                    all channels.
+
+dcoffsets *list of floats (64)*The DC offset for each channel.  This DC offset
+                                    is superimposed with the input singal prior
+                                    to digitization.  The values of the list are
+                                    floating point percentages of full scale.
+
+triggerthresholds *list of integers (64)*For each channel the digital threshold
+                                    (13 bit number)  that determines the self trigger.
+                                    This trigger threshold is evaluated by the
+                                    time filter to determine a self-trigger and the
+                                    trigger time.
+
+inputpolarities *Positive|Negative list of 64*List of input polarities, one per channel.  If
+                                    the value is Positive,
+                                    the pulse is assumed to peak upwards from
+                                    its baseline.  If Negative,
+                                    the puls peaks downward fromt he baseline.
+
+<a name="AEN69098"></a>### Event Selection Options
+
+The module has an extensive set of event selection
+                            options:
+
+
+
+energyskimlow *int list (64)*The module provides for the ability to set a
+                                    low level cut on the value from the DPP-PHA
+                                    algorithm.  This sets the value of the cutoff
+                                    for each channel.
+
+Energy cuts are referred to as
+                                    *energy skims*.
+
+energyskimhigh*int list (64)*Sets the high level cutoff from the energy
+                                    cut for each channel when it is used.
+
+eventselector *enum-list (64)*Sets the event selection criteria.  If an
+                                    event fails this criterion it is not
+                                    transmitted by the board to the host.
+                                    This setting is channel by channel and can be
+                                    any of
+                                    All,
+                                    Pileup or
+                                    EnergySkim
+
+coincidencemask *list of enums (64)*Determines the coincidence condition that can
+                                    generate a trigger on each channel.  The
+                                    value of each element of the list must be
+                                    one of:
+
+
+
+DisabledCoincidence trigering is disabled.
+
+Ch64TriggerAny of the other channel triggers can
+                                            generate a coincidence trigger.
+
+TRGINThe TRGIN front panel input can
+                                            generate a coincidence trigger.
+
+GlobalTriggerSourceThe selected global trigger can generate a
+                                            coincidence trigger.
+
+ITLAThe ITLA logic block can generate a
+                                            coincidence trigger.
+
+ITLBThe ITLB logic block can generate a
+                                            coincidence trigger.
+
+anticoincidencemask *enum list (64)*Defines the anti-concidence trigger for each
+                                    channel note that the values for each element of
+                                    the list come from the same values as for
+                                    coincidencemask.
+
+coincidencelength> *list of 64 ints*Nanoseconds for which the coincidence/anti-coincidence
+                                    window is open.
+
+<a name="AEN69175"></a>### DPP-PHA parameters
+
+Samples from the module's FADC chip are read by on-board
+                            FPGAs which apply two digital filters to them.
+                            The first fileter, the *time filter*
+                            is used to determine trigger timing.
+                            The second trigger, the *energy filter*
+                            is used to determine the peak height of the
+                            signal.
+
+The parameters described in this section configure
+                            these two filters on a channel-by-channel basis.
+                            In general, time filter parameters have names like
+                            tfxxxxx while energy filter
+                            parameters have names like efxxxxxx.
+
+While the API supports setting these parameters in both
+                            samples and nanoseconds, the configuration must choose
+                            one as the underlying software does not understand
+                            linked parameters.
+
+
+
+tfrisetime *integer list (64)*The timing filter rise time in samples for each
+                                    channel.
+
+tfretriggerguard *integer list (64)*The retrigger guard time in samples for each
+                                    channel.  This is the time window in which
+                                    additional derivative zero-crossings will be
+                                    ignored.  It helps guard against fake pile-ups
+                                    from e.g. signal ringing on the trailing pulse
+                                    edge.
+
+efrisetime *integer list (64)*The energy filter rise time in samples for
+                                    each channel.  If one thinks of the
+                                    trapezoidal filter as a digital shaping
+                                    amplifier, the rise time is
+                                    shaping-time*2/2.5.
+
+efflattoptime *integer list (64)*For each channel, specifies the flat-top time
+                                    of the trapezoidal filter in samples.
+
+efpeakingpos *integer list (64)*Specifies the peaking position i8n percentag of flat top
+                                    for each channel.
+
+efpeakingavg *enum list (64)*For each channel specicifies the number
+                                     of samples averaged in the flattop to get the
+                                     energy value. Legal values are
+                                     1, 4, 16 or 64
+
+efpoloe0 *integer list (64)*The pole zero compensation value for each trigger
+                                     in units of samples.
+
+effinegain *float list (64)*For each channel sets the digital gain
+                                    of the energy.
+
+eflflimitation *bool list (64)*For each channel allows the enable/disable
+                                    of a low frequency filter.
+
+efbaselineavg *enum list (64)*For each channel sets the number of samples
+                                    over which the running average that produces
+                                    the baseline value is performed.
+                                    Legal values are:
+                                    0, 16, 64, 256, 1024, 4096,
+                                    or 16384
+
+efbaselineguardt *integer list (64)*For each channel sets and additional baseline
+                                    freeze time past the end of the trapezoid
+                                    in nanoseconds.
+
+efpileupguard *integer list (64)*For each channel extends the pileup detection
+                                    by a number of nanoseconds beyond the end of
+                                    the trapezoid.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| VX2750Pha | Up | VX2750TclConfig |

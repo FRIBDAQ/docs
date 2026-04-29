@@ -1,0 +1,41 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN91"></a>tcl
+
+<a name="AEN95"></a>## Name
+
+tcl -- Run a Tcl script from Python.
+
+<a name="AEN98"></a>## Synopsis
+
+**package require python
+                    **   
+**spectcl.tcl(*tcl-script*)
+                    **
+
+<a name="AEN103"></a>## DESCRIPTION
+
+This command runs a Tcl script in the SpecTcl interpreter.
+                        If you find that the spectcl package is missing some feature,
+                        as a last resort, you can use this command to gain access
+                        to that feature in SpecTcl.
+
+You can also use this command to gain access to the
+                        Tk user interface SpecTcl is running and, with a bit of
+                        thought arrange for python scripts to execute in response
+                        to user interface actions. (Hint
+                        `-command` [list python exec [list python-script])
+                        might get you started there.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The pythonspectclpackage | Up | listparams |

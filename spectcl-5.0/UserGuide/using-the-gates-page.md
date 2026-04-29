@@ -1,0 +1,61 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev | Chapter 7. Using the 'standard' SpecTcl GUI | Next |
+
+
+---
+
+# <a name="sec.gatespage"></a>7.5. Using the Gates page
+
+The gates page allows you to view, create, modify and delete
+                gates.  To create or modify gates, you must know something about
+                the SpecTcl **gate**  command.  If you do not,
+                the GateCreate...
+                gate editor might be a better option.  Here's a screen shot
+                of the Gates page:
+
+<a name="AEN2566"></a>**Figure 7-25. The Gates page**
+
+![](gatepage.png)
+
+The bottom part of the page works identically to the Spectra page.
+                You can list spectra, you can sort by any column in either direction.
+                Double clicking on a gate loads its definition into the top part
+                of the page.  Filters and Update Gate List
+                work in exactly the same way.
+
+Get definition/modification is a bit tricky though there is some
+                help:
+
+
+
+- The left entry is the gate name.  Either load it from
+                          the list of existing gates (to modify) or type in the
+                          name of a new gate.
+- The drop down menu button at the right allows you to
+                          select the type of gate you are creating.
+- The entry to the right should contain the gate desciption
+                          as it would appear on the **gate**
+                          command but not surrounded by {}s.
+                          For example to create a slice on parameter raw.01 from
+                          123 to 456 that would read:
+                          raw.01 {123 456} *not*
+  {raw.01 {123 456}}.
+- If  you are building a compound gate, the
+                          Gate Select drop down menu inserts
+                          the name of the gate you choose from the menu at the
+                          insertion point of the definition entry.
+- Clear Definition clears the right
+                          entry field (the gate definition text).
+- The Create/Replace button creates
+                          a new gate or replaces an existing gate if the gate name
+                          matches an existing gate.  If you are replacing an existing
+                          gate, no confirmation prompt is displayed, however.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the variables page | Up | Using the folders tab. |

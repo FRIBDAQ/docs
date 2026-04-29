@@ -1,0 +1,29 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.evttclsh"></a>evttclsh
+
+<a name="AEN14700"></a>## Name
+
+evttclsh -- Tcl interpreter that always runs an event loop
+
+<a name="AEN14703"></a>## Synopsis
+
+**evttclsh
+	**
+
+<a name="AEN14706"></a>## DESCRIPTION
+
+A tclsh that is always running the event loop.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| timecheck | Up | ddasSort |

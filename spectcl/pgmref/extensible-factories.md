@@ -1,0 +1,178 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN8531"></a>Extensible Factories
+
+<a name="AEN8535"></a>## Name
+
+CCreator<T>, CExtensibleFactory<T> -- Create factories that don't have hard-coded creationals.
+
+<a name="AEN8539"></a>## Synopsis
+
+```
+#include <CCreator.h>
+#include <ExtensibleFactory.h>
+
+template <class T>
+class CCreator
+{
+public:
+  virtual T* operator()() = 0;
+  virtual std::string describe() const = 0;
+};
+
+
+template <class T>
+class CExtensibleFactory
+{
+
+public:
+  void addCreator(std::string type,
+                  CCreator<T>* pCreator);
+  T* create(std::string type);
+  std::vector<std::string> getDescriptions();
+
+};
+                
+```
+
+<a name="AEN8541"></a>## DESCRIPTION
+
+Suppose you have a class hierarchy whose base class is
+                    `T`. In some cases it makes sense
+                    to have factory that, given some criterion, knows which
+                    specific subclass of `T` to create.
+                    You can easily envision some if/then/else or switch based
+                    creational method in a factory that can perform that
+                    sort of operation for you.
+
+Suppose further, that you write some of the `T`
+                    class definitions/implementations but other people write other
+                    subclasses.  This would make the if/then/else or switch
+                    maintenance a nightmare.
+
+The extensible factory pattern and implementation in SpecTcl is
+                    a solution to this problem.  An extensible factory requires
+                    that for each subclass of `T` you can
+                    instantiate you have a creator class.  The creator class's
+                    job is pretty simple. It just returns a `T*`
+                    which points to a dynamically allocated object of the
+                    actual class it purports to create.
+
+Creator objects are then registered with the factory and
+                    associated with a string.   The Factory's creation method then
+                    accepts as input a string and returns either a
+                    `T*` 
+                    if creator has been registered that matches the string
+                    or a nullptr if there's no matching registered
+                    creator.
+
+SpecTcl itself uses this pattern fairly extensively and, in some
+                    cases, uses the class described in this manual page
+                    to implement that pattern.  The class is tempated so that
+                    it can be used, without modification wherever appropriate.
+
+<a name="AEN8555"></a>## The `CCreator<T>` class
+
+As the description says, to use an extensible factory, you need
+                    to define a set of subclasses from a base class `T`
+                    (`T` may well be an abstract base class).
+                    Objects of this subclass are what the factory generates.
+
+You also need to write a subclass of `CCreator<T>`.
+                    The methods you need to implement are:
+
+
+
+` virtual   T* operator()();`This must just reaturn a pointer to a dynamically
+                                allocated object from the class that this creator
+                                creates.  Suppose `base` is the
+                                base class of the hierarchy we're putting under
+                                control of the factory and we're writing a
+                                creator for `derived` which is
+                                derived from `base`.
+                                `operator()` might look like:
+
+<a name="AEN8578"></a>```
+template <class T>
+T* MyCreator<base>::operator() { return new derived;}
+                                
+```
+
+Naturally doing a bit of typedeffery can remove
+                                the need to expose all that template notation.
+                                For a concrete example, see AttachCommand.h
+                                where an extensible factory is used to allow the
+                                set of buffer decoders that are supported by
+                                the **attach** command's
+                                `-format` option values.
+
+` virtual  const std::string describe();`This method is intended to return a description
+                                of the type of object the creator creates.  This is
+                                used in SpecTcl commands that use an extensible
+                                factory to be able to describe the available
+                                values and meanings for extensible command options.
+                                Have a look at the code in
+                                AttachCommand.cpp to see this
+                                in action
+
+You can look at this code at:
+                                [https://sourceforge.net/p/nsclspectcl/Git/ci/master/tree/main/Core/AttachCommand.cpp](https://sourceforge.net/p/nsclspectcl/Git/ci/master/tree/main/Core/AttachCommand.cpp).
+                                See how the `Usage` method
+                                gets the descsription from the
+                                factory of decoders and uses them to document
+                                valid values for the available format types that
+                                can be supplied to the `-format`
+                                option.
+
+<a name="AEN8599"></a>## The `CExtensibleFactory<T>` template class methods.
+
+
+
+`   void addCreator(std::string type, CCreator<T>* pCreator);`This method registers a new creator
+                                `pCreator` with the factory
+                                and associates it with the typename `type`.
+                                The caller is responsible for storage management in
+                                the event that `pCreator`
+                                is dynamically created.
+
+If `typre` already has a
+                                creator, this method silently replaces the
+                                previous creator and, once more, the clients of the
+                                factory are responsible for any object destruction
+                                required in that case.
+
+Note that at present the only way to see if a 
+                                `type`
+                                is defined is to attempt to make an object of of
+                                that `type` and see if
+                                that attempt is successful.
+
+`   T* create(std::string type);`If a creator has been registered with a matching
+                                `type` name, it is asked to
+                                create a new object of a class that is derived
+                                (directly or indirectl) from `T`.
+                                In that case a pointer to that object is returned.
+                                If no matching `type` has
+                                been registered, a nullptr is
+                                returned instead.
+
+The object returned is intended to have been
+                                dynamically allocated, though that's not a requirement
+                                of the factory (nothing to stop the creators from
+                                returning pointers to singleton objects e.g.).
+                                If the object was dynamically created, storage
+                                management (deletion) is then the responsibility
+                                of the caller.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Core SpecTcl classes | Up | CEventProcessor |

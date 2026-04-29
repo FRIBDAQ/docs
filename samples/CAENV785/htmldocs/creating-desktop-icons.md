@@ -1,0 +1,43 @@
+|  |  |  |
+| --- | --- | --- |
+| Using NCSL DAQ Software to Readout a
+                CAEN V785 Peak-Sensing ADC |
+| Prev | Chapter 4. More information | Next |
+
+
+---
+
+# <a name="AEN1169"></a>4.3. Creating desktop icons
+
+This section is specific to the KDE desktop manager.  If you have chosen to use
+            a different desktop manager for your experiment, you will need to figure out how
+            to establish desktop shortcuts on your own.
+
+**Creating a desktop shortcut on KDE**
+
+1. Login to a Linux desktop in the DAQ network.  This could be an spdaq system
+                   or it could be a  data-U system.  Login using the user name and password for the
+                   account under which you will want the shortcut defined.
+2. Right click on any empty chunk of desktop.  This will bring up a
+                   *context menu*.
+   1. Select the
+                              Create New->File->Link to Application...
+3. A dialog will pop up that allows you to create a new desktop short cut:
+   1. In the General tab, enter the name of the
+                              short cut (this will label the short cut on the desktop), and click
+                              the button that's labeled with a blue gear to select an icon image for the
+                              shortcut.
+   2. In the Application tab, enter the
+                              Click the Browse... button next to the
+                              entry labeled Command:, browse the filesystem
+                              and select the filename for the script you want attached to the shortcut,
+                              for example, ~/bin/startreadout, the most recent script we created.
+4. There should now be a new shortcut on the desktop.  Click it once to test that it
+                       works correctly.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the Readout GUIReadoutShell | Up | Complete program listings. |

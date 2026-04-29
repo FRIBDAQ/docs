@@ -1,0 +1,86 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1_frag2ring"></a>frag2ring
+
+<a name="AEN13113"></a>## Name
+
+frag2ring -- Filter flattened fragments to ring items.
+
+<a name="AEN13116"></a>## Synopsis
+
+**frag2ring [*< input-file*]
+    [*> output-file*]
+          **
+
+<a name="AEN13123"></a>## DESCRIPTION
+
+Filter that takes as input a stream of flattened event
+                fragments and produces as output a set of EVB_FRAGMENT
+                ring items.  This is intended to be in the middle of a pipeline
+                that begins with the event orderer part of the event builder and
+                ends with an instance of **stdintoring**.
+                Used in that way it allows event fragments to be observed
+                by monitoring programs prior to being sent to the event builder
+                via a pipeline that begins with **ringtostdout**
+                piped into **eventbuilder**.
+
+See INPUT FORMAT for more information about the shape
+                of a flattened event segment, the required input.
+                See [[r22906]]
+                and the structure of EventBuilderFragment ring
+                item.
+
+As a filter, the input stream comes from stdin
+                and the output is directed to stdout.
+                As previously mentioned, this allows the program to be used
+                as an element of a unix pipeline of commands.
+
+<a name="AEN13136"></a>## INPUT FORMAT
+
+The input format recognized by this program is a
+                *flattened fragment*.  This consists of
+                a fragment header followed immediately by the fragment payload.
+
+The fragment header is defined by the data type
+                EVB::FragmentHeader described in
+                fragment.h.
+                It looks like this:
+
+<a name="AEN13143"></a>```
+  uint64_t s_timestamp;
+```
+
+Where the fields in this struture have the following meaning:
+
+
+
+` uint64_t s_timestamp;`The timestamp that indicates the creation time of
+                            the fragment.
+
+` uint32_t s_sourceId;`The id of the source of the data.
+
+` uint32_t s_size;`The number of bytes of payload data.  In a flattened
+                                fragment the payload of the fragment immediately
+                                follows this struct.
+
+` uint32_t s_barrier;`If non-zero the fragment is an element of a
+                                barrier.  Barrier fragments are  divisions in the
+                                ordering process so that all elements of a
+                                barrier received prior to timeout will be emitted
+                                consecutively.  A barrier event is supposed to
+                                provide contributions from all data sources.
+                                Examples of barrier fragments are end of run
+                                indications.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| evbwizard | Up | ScalerDisplay |

@@ -1,0 +1,138 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.cringtextitem"></a>CRingTextItem
+
+<a name="AEN31618"></a>## Name
+
+CRingTextItem -- Encapsulate ring items that are lists of text strings.
+
+<a name="AEN31621"></a>## Synopsis
+
+```
+#include <CRingTextItem>
+         
+```
+
+```
+CRingTextItem
+```
+
+<a name="AEN31769"></a>## Description
+
+Text string items contain lists of null terminated documentation strings.
+            These are stored in ring buffers in structures of the type:
+            TextItem.  These items have a type code of
+            PACKET_TYPES or
+            MONITORED_VARIABLES.  These items are used to
+            document the set of packets you can expect to see in
+            a PHYSICS_EVENT and provide the value of monitored
+            process variables respectively.
+
+<a name="AEN31776"></a>## Public member functions
+
+`  CRingTextItem(uint16_t type, std::vector<std::string> theStrings);`Constructs a ring text item of the type specified by
+            `type`.  The text strings will be filled in with
+            the values of the individual strings in `theStrings`.
+
+The run offset time will be initialized to zero, and the
+            absolute timestamp to the construction time of the object.
+
+`  CRingTextItem(uint16_t type, std::vector<std::string> theStrings, uint32_t offsetTime, time_t timestamp);`Constructs a text item in a fully specified way.
+            In addition to `type` and `theStrings`
+            providing the item type and the strings for the item respectively,
+            `offsetTime`, and `timestamp`
+            provide the run time offset and absolute timestamp values respectively.
+
+`  CRingTextItem(uint16_t type, uint64_t eventTimestamp, uint32_t source, uint32_t  barrier, std::vector<std::string> theStrings, uint32_t  offsetTime, time_t  timestamp, int offsetDivisor = 1);`Constructs a text item with  a full body header. The contents of the
+            header are determined by the values of `eventTimestamp`
+`source` and `barrier`.
+            The `offsetDivisor` parameter is optional and
+            defaults to 1.  It represents the granularity of the `offsetTime`
+            in seconds.  To get the actual time into the run in seconds compute:
+            (float)offsetTime/offsetDivisor.
+
+`  CRingTextItem(const CRingItem& rhs)          throws std::bad_cast;`Constructs a text item from a reference to an existing ring item;
+            `rhs`.
+            If the ring item is not of an appropriate type for a text item,
+            a std::bad_cast exception is thrown.
+
+`  CRingTextItem(const CRingTextItem& rhs);`Constructs a functional copy of of an existing text ring item;
+            `rhs`.
+
+` CRingTextItem& operator=(const CRingTextItem& rhs);`Provides for assignment between ring text items.  When done, the object
+            that is acted on will be a functional copy of the
+            `rhs`  object.
+
+` const int operator==(const CRingTextItem& rhs);`Provides for comparison for functional equivalence between two
+            ring text items.  The item is compared with
+            `rhs`.
+            The comparison returns non zero if there is functional equivalence.
+
+` const int operator!=(const CRingTextItem& rhs);`Returns the logical inverse  of
+            `operator==`.
+
+` const std::vector<std::string> getStrings();`Returns the strings in the string list as a vector of strings.
+
+` void setTimeOffset(uint32_t offset);`Sets the time offset at which the item was created to
+            `offset`.
+
+` const uint32_t getTimeOffset();`Returns the most recently set time offset for the item.
+
+` const float computeElapsedTime();`Since NSCLDAQ-V11.0, elapsed run time is represented in
+          arbitrary ticks.  A time divisor is then provided which,
+          in a floating point division of an elapsed run time
+          produces the elapsed time in seconds.
+
+The convenience method `computeElapsedTime`
+          peforms that computation and returns the elapsed run time
+          in seconds.
+
+` const uint32_t getTimeDivisor();`Returns the timing divisor that is used to convert
+          elapsed run times to seconds.
+
+` void setTimestamp(time_t stamp);`Sets an absolute timestamp for the item.
+
+` const time_t getTimestamp();`Returns the item's absolute timestamp.
+
+` uint32_t getOriginalSourceId();`This method was added in NSCLDAQ-12.0.  In environments that use
+          the NSCLDAQ event builder, each event source is identified
+          with a unique source id.  An event builder, itself,
+          can be used as a data source in a multi-level event builder.
+          This means that event builders can rewrite the body headers
+          of items they otherwise emit unmodified.
+
+Since the original source id is a unique identification
+          of where the data in this ring item comes from, beginning
+          with NSCLDAQ-12.0, the
+          source id supplied at constrution time is also stored
+          in the ring item body itself.  This method returns
+          *that* source id and should be used
+          to identify the source of this data.
+
+` virtual const std::string typeName();`Returns a text string that describes the item type. For example if
+            the ring item type is PACKET_TYPES the string
+            Packet types: is returned.
+
+` virtual const std::string toString();`Returns a string that is a human readable dump of the
+            ring item.  This incluces a list of the strings in the item.
+
+<a name="AEN31960"></a>## Exceptions
+
+Construction from a ring item can throw a
+            std::bad_cast exception if the underlying
+            ring item is not either a
+            PACKET_TYPES or
+            MONITORED_VARIABLES item.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingStateChangeItem | Up | CPhysicsEventItem |

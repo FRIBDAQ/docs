@@ -1,0 +1,188 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN15380"></a>FullEventEditor
+
+<a name="AEN15384"></a>## Name
+
+FullEventEditor -- Edit the entire body of an event built event.
+
+<a name="AEN15387"></a>## Synopsis
+
+**$DAQBIN/FullEventEditor `option...`
+**
+
+<a name="AEN15391"></a>## DESCRIPTION
+
+This program allows users to edit the complete body of an event built
+            event as a single unit.  User code can extend, replace or use any
+            of the data following the uint32_t byte count
+            for the event at the first 32 bits of the event body.  The framework
+            will touch up the event's ring item header as well as that byte count.
+            User code is responsible for updating internal sizes such as
+
+
+
+- Fragment header sizes.
+- Fragment ring item header size field.s
+- Fragment body header size fields.
+
+OPTIONS describes the program options while
+            User editor code describes how to write the user
+            editing code that modifies each event.  The code can run with
+            workers editing blocks of events in parallel using either threaded
+            or MPI parallelism.  The output event stream is re-sored in time-stamp
+            order so that output events are in the same order as the un-edited
+            input events.
+
+<a name="AEN15405"></a>## OPTIONS
+
+
+
+`--source` = *>URI*Specifies the source of data.  The data source must be
+                        event built data where the ring items and the fragments
+                        of the events have body headers.
+
+The URI can be either a file or ring URI.  Ring buffers
+                        can be remote if the system running the distributer
+                        task is runnning NSCLDAQ.
+
+`--sink`=*URI*Specifies where output data are written. This can be
+                        a file or ring URI.  If a ring URI, the host must
+                        evaluate to the local host and the system actually
+                        doing the writing must run NSCLDAQ.  Note that knowing
+                        which this is for MPI Parallelism can be difficult.
+
+`--workers`=*integer*Specifies the number of parallel workers that will operate
+                        on the data.  Each worker gets clumps of events whose
+                        as determined by `--clump-size` and works
+                        on clumps in parallel to all other workers.
+
+`--clump-size`=*integer*Specifies the number of events in each work item that
+                        a worker gets per work item request.
+
+`--paralle-strategy`=*thread  | mpi*Specifies how the program will parallelize.  Note that if
+                        mpi is chosen the program must
+                        be run with **mpirun** and that program's
+                        `-np` value will determine the actual
+                        number of workers that will be used (np - 3 workers will
+                        be used).
+
+`--editorlib`=*libpath*Specifies the path to a shared object library that
+                        contains the code to edit events and a factory
+                        function to produce editor objects.
+
+For more information, see User editor code
+                        below.
+
+<a name="AEN15451"></a>## User editor code.
+
+The FullEventEditor program depends on
+            application specific user code to actually edit the event.  This code
+            can modify all data following the size field of the event.   The
+            size field, while accessible, will be automatically updated by
+            FullEventEditor to reflect the size of the
+            modified event body. Furthermore, the size field of the event's ring
+            item header will be updated as well to reflect the updated event size.
+            Note, however that it is the responsibility of the user editing
+            code to update any size fields at the fragment level.  These are at
+            least:
+
+
+
+1. The fragment header size field for modified fragments.
+2. The fragment ring item size field for modified fragments.
+3. The sizes of any fragment body headers that are extended.
+
+Note that the bodies of fragments may also have sizes that require
+            modification.  This is application specific and won't be
+            covered here.
+
+The user event editing code is supplied to the
+            FullEventEditor as a shared object
+            library.  The library must contain an extern "C"
+            entry point named: `createFullEventEditor`.
+            That entry is a function that takes no parameters and returns a new
+            instance of an object from a class derived from
+            `CFullEventEditor::Editor`.   That object
+            will be used by a worker to edit events.
+
+It is important that each call to
+            `createFullEventEditor` return a new object.
+            Only in this way is thread-safety maintained in threaded parallelism.
+            The objects created will live for the program's lifetime.
+
+Let's examine the definition of the
+            `CFullEventEditor::Editor` class.  It is defined
+            in the CFullEventEditor.h header and
+            has the following, pure virtual,  methods:
+
+
+
+` virtual   std::vector<SegmentDescriptor>  operator()((void*  pBody);`This method is called once for each event in the
+                        work units the worker processes.  The application's
+                        parallelism ensures this is called once for every event
+                        in *some* instance of the user's code.
+
+`pBody` is a pointer to the body
+                        of the event.  For the event built data this
+                        application is intended to edit, this consists of a
+                        uint32_t containing the self-inclusive
+                        byte count of the body.  While the remainder of the body
+                        can be freely edited, once this method returns, the
+                        application will modify this field to represent the
+                        number of bytes in the modified event body (self-inclusive).
+
+The method returns a vector of
+                        SegmentDescriptor structs.  Once we've
+                        finished documenting this class we'll turn our attention
+                        to that struct.
+
+` virtual   void  free(iovec&  desc);`Elements of the return vector may be describe
+                        either dynamic or or static storage.  When the
+                        event description is no longer needed, this method is
+                        called for each descriptor that's marked its
+                        storage as dynamic.  This method is expected to
+                        free that storage.
+
+When editing an event, the new event will most likely consist largely
+            of the original event with some supplemental data added.  Rather than
+            requiring that your code create a new event laid out in memory. The
+            application asks you to describe the new event in terms of blocks of
+            memory that it will gather into a new event.  This description
+            is the return value from `operator()`.
+
+`operator()` returns a vector of
+            SegmentDescriptor structs.  Each of those, in turn,
+            describes a block of the event and consist of the following
+            fields:
+
+
+
+iovec `s_description`Describes the memory extent of the block.  iovec
+                        is a struct defined in the header
+                        sys/uio.h.   It's fields are
+                        `iov_len`, the length of the
+                        block being described and
+                        `iov_base` a pointer to the
+                        block being described.
+
+bool `s_dynamic`This should be true if your
+                        code needs `free` to be called
+                        when the memory described by
+                        `s_description` is no longer
+                        needed.  You can us this to free any dynamically
+                        allocated memory that was used to create this
+                        block.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| EventEditor | Up | SoftwareTrigger |

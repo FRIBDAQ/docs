@@ -1,0 +1,49 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 48. Integer byte order conversion library | Next |
+
+
+---
+
+# <a name="AEN9432"></a>48.3. Data conversion
+
+Data conversion functions are provided to convert both from
+            the foreign system to the host, and from the host to the foreign
+            system.  Before we look at these functions, some definitions:
+
+
+
+*host*The system that is running our program.
+
+*foreign system*The system that produced the data we are trying to process.
+                    This could be the same system as the host or a different system.
+                    This could have the same or different native byte ordering
+                    than the host.
+
+Functions are provided that allow you to convert shorts and longs
+            in either direction.  These functions are described more completely
+            in the
+            [[r34638]].
+            Briefly however:
+
+
+
+`ftohl`Converts a longword (32 bit integer) from foreign
+                            to host format.
+
+`ftohw`Converts a short (16 bit word) from foreign to host
+                            format.
+
+`htofl`Converts a longword (32 bit integer)
+                            from host to foreign system format.
+
+`htofs`Converts a short (16 bit integer)
+                            from host to foreign system format.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Byte order signatures and conversion blocks | Up | NSCL DAQ Thread Library |

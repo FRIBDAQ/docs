@@ -1,0 +1,71 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN1443"></a>3.20. Accessing the pseudo command (new in 5.5)
+
+The **pseudo** command in SpecTcl provides the
+            ability to create a new parameter from existing parameters.
+            The new parameter is computed using a script that is passed to the
+            **pseudo** command when the parameter is generated.
+            See the documentation of the **pseudo** command in
+            the SpecTcl command reference.
+
+Three URLs provide access to all aspects of the
+            **pseudo** command:
+
+<a name="AEN1451"></a>**http://host:port/spectcl/pseudo/create?pseudo=pname&body=script&parameter=param1[&parameter=param2...]         
+               **
+
+The new pseudo parameter is given the name in the pseudo
+            query parameter.  This parameter must have already been defined.
+            parameter defines the parameters the pseudo depends on.
+            The body query parameter defines the
+            Tcl script that will compute the pseudo parameter. Again see
+            the SpecTcl command reference for **pseudo** for
+            information about the parameters that are passed to this script.
+
+The properties of any pseudo parameters can be gotten via
+            URLs of the form:
+
+<a name="AEN1461"></a>**http://host:port/spectcl/pseudo/list[pattern=glob-pattern]
+               **
+
+The return value detail attribute is a
+            JSON array where each element is a JSON object that describes
+            one pseudo parameter.  Note that if the optional
+            pattern query parameter is provided it is
+            a string with glob wild card characters, and only those pseudos
+            whose names match that pattern will be listed in th array.
+
+Each object in the array has the following attributes:
+
+
+
+nameName of the pseudo parameter.
+
+parametersArray of strings that are the names of the parameters
+                    the pseudo depends on.
+
+computationThe script that defines the computation that takes the
+                    parameters and from the creates the pseudo.
+
+Finally pseudo parameters can be deleted using this URL
+
+<a name="AEN1486"></a>**http://host:port/spectcl/pseudo/delete?name=pseudo-name
+               **
+
+The name query parameter describes the
+            name of the pseudo to delete. Note that the underlying parameter
+            remains defined.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Accessing the SpecTcl parameter command (new in 5.4) | Up | Access to the sread command (new in 5.5) |

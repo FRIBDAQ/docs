@@ -1,0 +1,35 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN2198"></a>ungate
+
+<a name="AEN2202"></a>## Name
+
+ungate -- Remove gate conditions from spectra
+
+<a name="AEN2205"></a>## Synopsis
+
+**ungate** *spectrum-name*...
+
+<a name="AEN2210"></a>## DESCRIPTION
+
+This command is part of the gate package of commands 
+                    `CGatePackage`.  It is encapsulated in a 
+                    `CMPITclPackagedCommand`.  The ungating of individual
+                    spectra is done via the `SpecTcl` API which, if a histogrammer
+                    object exists, as it does in MPI_EVENT_SINK_RANK 
+                    asks the histogramer to remove the gate so that all of the other histogrammer
+                    book keeping will be done.  In all other clasess, the spectrum  is located in
+                    the local spectrum dictionary and asked to ungate itself.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| unbind | Up | The MPI Tcl package |

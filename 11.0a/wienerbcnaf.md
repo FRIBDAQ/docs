@@ -1,0 +1,42 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.wienerbcnaf"></a>wienerbcnaf
+
+<a name="AEN15458"></a>## Name
+
+wienerbcnaf -- CAMAC operation via a Wiener VC32/CC32 board set
+
+<a name="AEN15461"></a>## Synopsis
+
+**wienercamac *b c n a f* [d]
+    **
+
+<a name="AEN15466"></a>## DESCRIPTION
+
+Performs the indicated CAMAC operation. The operation is defined by the
+        `b, c, n, a, f`
+        parameters that provide the CAMAC branch, crate, slot, subaddress and
+        function code respectively.
+        The optional `d` parameter provides the data for
+        write operations (it is actually required for CAMAC write operations).
+
+The command writes the data,
+        `Q` and `X` responses to stdout.
+
+<a name="AEN15474"></a>## SEE ALSO
+
+[[r15429]],
+        [[r15479]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| cesbcnaf | Up | bcnaf |

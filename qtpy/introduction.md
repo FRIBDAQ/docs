@@ -1,0 +1,32 @@
+|  |  |  |
+| --- | --- | --- |
+| CutiePie (QtPy) (version 5.13-000) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This manual describes a new alternative to the Xamine histogram visualizer. It based on Python bindings for C++ and adopts common Python libraries for basic and
+	  more advanced numerical algorithms. The GUI is written on PyQt5. Among the new features, the ability to implement new Machine Learning (ML) algorithms for clustering
+	  and functions to fit spectra.
+
+This document is organized as follows:
+
+
+
+- Description of CutiePie design.
+- Analysis features.
+- How to customize and add your own ML algorithms and fitting functions.
+
+CutiePie is a histogram visualizer linked to the SpecTcl TreeGui. It accesses the shared memory location and imports spectum and gate definitions. The communication between CutiePie and SpecTcl
+	  is bidirectional. Creation of gates in CutiePie are mirrored in SpecTcl and viceversa. On the other hands, CutiePie extends some functionalities and provides hooks to Python-based analysis tools
+	  (i.e. Jupiter notebook).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CutiePie (QtPy) (version 5.13-000) |  | A brief design description. |

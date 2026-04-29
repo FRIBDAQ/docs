@@ -1,0 +1,65 @@
+|  |  |  |
+| --- | --- | --- |
+| mpiSpecTcl. |
+| Prev | Chapter 1. Quick Start | Next |
+
+
+---
+
+# <a name="AEN80"></a>1.5. Debugging mpiSpecTcl
+
+It is a sad fact of life that you will need to find errors in your software.
+                In a parallel process, print statements can be confusing as they may step on 
+                top of each other.   There are a couple of tricks you can use.
+
+If you just run your SpecTcl (not mpirun it), it will run fully serially.  You can
+                use output and even gdb to ferret out the bugs.  If your event processing pipeline
+                truly has no historical knowledge of prior events, finding and fixing the bugs with
+                SpecTcl run serially, should, normally, be sufficient.
+
+If your event processing
+                pipeline requires knowledge of prior events, you will, most likely
+                need to run mpiSpecTcl either serially or with `n 3`. 3 processes
+                ensures that there is one worker process which, therefore gets all events.  This worker process
+                runs in pipeline parallelism with the SpecTcl code that takes the parameters unpacked from events and
+                histograms them so you might get some modest speed-up.
+
+A second technique you can use is to use **mpirun** in a way that binds a 
+                separate terminal window (e.g. xterm) so that the output from each process is separated
+                from all other processes.  You can also use this technique to run gdb in all processes.
+
+The example below shows two invocations of **mpirun**  THe first one
+                just runs SpecTcl with a separate **xterm** window for each process.
+                The second command does the same thing but runs  each of the SpecTcl processes under the 
+                control of **gdb**
+
+<a name="AEN92"></a>**Example 1-3. Xterm per process and gdb per process**
+
+```
+$OPAL_PREFIX/bin/mpirun -n 5 xterm -e SpecTcl      #Each process has a terminal
+$OPAL_PREFIX/bin/mpirun -n 5 xterm -e gdb SpecTcl  #Each process under gdb in its terminal
+                
+```
+
+The point is that the `-e` to the **xterm** commande
+                means that the remainder of the command should be run inside the xterm.  In the first case,
+                that's just SpecTcl, in the second that's gdb being told to control SpecTcl.
+
+Under **mpirun** using the technique above to run the processes under the
+                control of gdb, in general you'll want to know which processes are workers and set breakpoints in 
+                one or more of them.   You can do this for open MPI via the gdb command 
+                **show environment OMPI_COMM_WORLD_RANK**. For MPICH, 
+                **show environment PMI_RANK** should be used instead.
+                The value of this environment variabl can be thought of as a process number or 
+                *rank* used to
+                identify the function of a given process.  Workers have a rank of 2 or higher.
+                Rank 0 is the base process which runs the interactive Tcl interpreter and distributes
+                events to workers.  Rank 1 is the event sink pipeline (histogramer) and also starts any
+                displayer (e.g. Xamine or CutiePie).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running mpiSpecTcl in parallel mode | Up | Porting custom commands |

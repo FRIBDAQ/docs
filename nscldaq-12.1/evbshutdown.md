@@ -1,0 +1,44 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.EVBShutdown"></a>EVBShutdown
+
+<a name="AEN21056"></a>## Name
+
+EVBShutdown -- Stop Orderer Started with EVBRest
+
+<a name="AEN21059"></a>## Synopsis
+
+**$DAQBIN/EVBShutdown *host user* [*delay*[*service*]] 
+           **
+
+<a name="AEN21067"></a>## DESCRIPTION
+
+Requests that an event orderer started via
+            [[r21076]]
+            exit.  *host* and
+            *user* are the only required parameters.
+            They are the host the orderer is running in and the user that is
+            running it.  The optional *delay*
+            parameter will be implemented in the future to provide a settable
+            shutdown delay.  Currently a fixed delay of 2 seconds is used.
+            The optionals *service* parameter allows
+             you to specify a service name for the REST server different than
+             the default.
+
+Note that since all elements of the event builder pipeline after
+            Orderer have reads always active, the resulting end of file on
+            the pipes will shutdown the remainder of the pipeline as well.
+            This is normally what is desired.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| frag2ring | Up | EVBRest |

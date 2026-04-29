@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN25046"></a>CXamineSpectrumPrompt
+
+<a name="AEN25050"></a>## Name
+
+CXamineSpectrumPrompt -- Prompt for a spectrum
+
+<a name="AEN25053"></a>## Synopsis
+
+```
+#include <XamineSpectrumPrompt.h>
+#include <clientops.h>
+
+class CXamineSpectrumPrompt  : public CXamineButtonPrompt        
+{
+  
+public:
+
+  CXamineSpectrumPrompt (const std::string& rPrompt,
+			 DialogSpectrumType_t am_eSpectrumType = keAny);
+  CXamineSpectrumPrompt(const char* pPrompt,
+			DialogSpectrumType_t eSpectrumType = keAny);
+            
+  int getSpectrumType() const;
+  
+  virtual   void FormatPrompterBlock (ButtonDescription& rButton) const  ;
+ 
+};
+
+        
+```
+
+<a name="AEN25055"></a>## DESCRIPTION
+
+`CXamineSpectrumPrompt` when
+            attached to a button, prompts the user to select a
+            spectrum from a spectrum chooser dialog prior to
+            sending the button event message.  The selected
+            spectrum is sent in the message.
+
+The DialogSpectrumType_t is defined in
+            histotypes.h.  It provides
+            for the list of spectra in the chooser to be filtered
+            by types.  The default keAny
+            does no filtering.
+
+Note that `getSpectrumType`
+            actuall returns a DialogSpectrumType_t and
+            may at some later version be modified to do exactly that.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CXamineTextPrompt | Up | CXamineFilePrompt |

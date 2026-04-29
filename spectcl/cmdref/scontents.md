@@ -1,0 +1,95 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.scontentscommand"></a>scontents
+
+<a name="AEN2388"></a>## Name
+
+scontents -- Obtain spectrum bulk contents
+
+<a name="AEN2391"></a>## Synopsis
+
+**scontents ?`-json`? *spectrum-name*
+**
+
+<a name="AEN2396"></a>## DESCRIPTION
+
+The **channel** command gives easy access to individual
+            channels of a spectrum.  This command provides access to the
+            contents of an entire spectrum.  The initial use case for this
+            was to provide spectra to clients of the SpecTcl REST plugin.
+            Clearly another use caser would be to provide a mechanism to
+            export spectra in file formats not supported by SpecTcl's
+            **swrite** command.
+
+The `-json` selects a result that is in
+            JavaScript Object Notation (JSON).  If that's omitted a Tcl
+            friendly representation is used.  Note that metadata about the
+            spectrum (the spectrum definition) is not returned.  You would
+            have to couple this command with the appropriate
+            **spectrm -list** command to get that.
+
+<a name="AEN2404"></a>## Output format
+
+Depending on the use of the `-json` option, the
+            command produces data either in a Tcl friendly way or as a
+            JavaScript Object Notation (JSON) object.
+
+<a name="AEN2408"></a>### Tcl friendly output
+
+Output is zero suppressed.  It consists of a list of lists.
+                Each list element contains the coordinates of a non-zero
+                channel followed by the value at that channel.
+
+For 1-d spectra each nonzero channel is represented by a
+                two element list.  The list contains the channel number
+                followed by the channel value.
+
+For 2-d spectra the output is similar.  Each channel
+                is represented by a three element list.  The list contains
+                the x and y channel number that define a channel in the 2-d
+                spectrum followed by the value at that channel.  Again, only
+                non-zero channels will appear in the output list.
+
+<a name="AEN2413"></a>### JSON output
+
+JSON output format is web friendly.  REST interfaces (including
+                the SpecTcl REST plugin), often return responses as JSON
+                objects.  The output from **scontents `-json`**,
+                is a JSON array.
+
+Each array element represents a non-zero channel.  For 1-d
+                spectra, each element of the array is an object that contains
+                the attributes:
+
+
+
+xThe channel number of a non zero channel in the
+                            spectrum.
+
+vThe value of that channel.
+
+For 2-d spectra again, the result is an array of objects.
+                In addition to the attributes described for 1-d output, a
+                channel object has a y object, the y coordinate
+                of the non-zero channel.
+
+<a name="AEN2432"></a>## SEE ALSO
+
+
+
+- [[r524]]
+- [[r2473]]
+- [[r2962]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| ringformat | Up | shmemkey |

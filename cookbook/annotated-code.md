@@ -1,0 +1,654 @@
+|  |  |  |
+| --- | --- | --- |
+| The NSCLDAQ cookbook |
+| Prev | Chapter 4. Peforming type independent processing | Next |
+
+
+---
+
+# <a name="sec.process.code"></a>4.2. Annotated Code.
+
+In this section we're going to look at the code that
+                implements this program.  This section is divided into subsections.
+
+
+
+- [[x322#sec.process.main]]
+                          describes the main program.
+- [[x322#sec.process.class]]
+                          describes the code defining and implementing the
+                          `CRingItemProcessor` class.
+
+## <a name="sec.process.main"></a>4.2.1. The process.cpp file
+
+Let's start by lookcing at the changes we needed to make
+                    in the heading part of the main relative to
+                    the ring reader example:
+
+<a name="AEN337"></a>```
+#include <CDataSource.h>             
+#include <CDataSourceFactory.h>      
+#include <CRingItem.h>               
+#include <DataFormat.h>              
+#include <Exception.h>               
+
+#include <CRingItemFactory.h>           
+#include <CRingScalerItem.h>          
+#include <CRingStateChangeItem.h>     
+#include <CRingTextItem.h>            
+#include <CPhysicsEventItem.h>           
+#include <CRingPhysicsEventCountItem.h> 
+#include <CDataFormatItem.h>          
+#include <CGlomParameters.h>          
+#include <CDataFormatItem.h>          
+
+#include "processor.h"                         
+
+#include <iostream>
+#include <cstdlib>
+#include <memory>
+#include <vector>
+#include <cstdint>
+
+static void                                  
+processRingItem(CRingItemProcessor& procesor, CRingItem& item); 
+                    
+```
+
+[[x322#process.rifactheader]]                            This header defines the ring item factory class.
+                            We'll see it in use when we look at the
+                            implementation of the
+                            `processRingItem`
+                            static function.
+                        [[x322#process.ringitemheaders]]                            This set of headers, from
+                            CRingScalerItem.h trough
+                            CDataFormatItem.h define
+                            the specialized subclasses of
+                            `CRingItem`.  We'll see them
+                            used in `processRingItem` below.
+                        [[x322#process.processorprototype]]                            We now pass a `CRingItemProcessor`
+                            object by reference to the
+                            `processRingItem` function.
+                            The pass by reference allows the polymorphism of
+                            a hypothetical class hierarchy based on a
+                            `CRingItemProcessor` base
+                            class to function.
+
+The next change in the main program is just to
+                    instantiate a `CRingItemProcessor` and
+                    to pass it to the `processRingItem`
+                    function:
+
+<a name="AEN361"></a>```
+...
+    CRingItem*  pItem;
+    CRingItemProcessor processor;             
+
+    while ((pItem = pDataSource->getItem() )) {
+        std::unique_ptr<CRingItem> item(pItem);    
+        processRingItem(processor, *item);  
+    }
+...                        
+                    
+```
+
+[[x322#process.ripinstantiate]]                            This instantiates the
+                            `CRingItemProcessor` that does
+                            the real work of analysis.  In  production program,
+                            you might pass a processor name as a command parameter
+                            and then use a factory class/method to produce an
+                            object from the appropriate sub-class
+                            of `CRingItemProcessor`.
+
+The biggest change is in the implementatino of
+                    `processRingItem`:
+
+<a name="AEN372"></a>```
+static void
+processRingItem(CRingItemProcessor& processor, CRingItem& item)
+{
+    // Create a dynamic ring item that can be dynamic cast to a specific one:
+
+    CRingItem* castableItem =                                
+        CRingItemFactory::createRingItem(item);
+    std::unique_ptr<CRingItem> autoDeletedItem(castableItem); 
+
+    // Depending on the ring item type dynamic_cast the ring item to the
+    // appropriate final class and invoke the correct handler.
+    // the default case just invokes the unknown item type handler.
+
+    switch (castableItem->type()) {                   
+        case PERIODIC_SCALERS:                           
+            {
+                CRingScalerItem& scaler(             
+                    dynamic_cast<CRingScalerItem&>(*castableItem)
+                );
+                processor.processScalerItem(scaler);     
+                break;
+            }
+        case BEGIN_RUN:              // All of these are state changes:
+        case END_RUN:
+        case PAUSE_RUN:
+        case RESUME_RUN:
+            {
+                CRingStateChangeItem& statechange(dynamic_cast<CRingStateChangeItem&>(*castableItem));
+                processor.processStateChangeItem(statechange);
+                break;
+            }
+        case PACKET_TYPES:                   // Both are textual item types
+        case MONITORED_VARIABLES:
+            {
+                CRingTextItem& text(dynamic_cast<CRingTextItem&>(*castableItem));
+                processor.processTextItem(text);
+                break;
+            }
+        case PHYSICS_EVENT:
+            {
+                CPhysicsEventItem& event(dynamic_cast<CPhysicsEventItem&>(*castableItem));
+                processor.processEvent(event);
+                break;
+            }
+        case PHYSICS_EVENT_COUNT:
+            {
+                CRingPhysicsEventCountItem&
+                    eventcount(dynamic_cast<CRingPhysicsEventCountItem&>(*castableItem));
+                processor.processEventCount(eventcount);
+                break;
+            }
+        case RING_FORMAT:
+            {
+                CDataFormatItem& format(dynamic_cast<CDataFormatItem&>(*castableItem));
+                processor.processFormat(format);
+                break;
+            }
+        case EVB_GLOM_INFO:
+            {
+                CGlomParameters& glomparams(dynamic_cast<CGlomParameters&>(*castableItem));
+                processor.processGlomParams(glomparams);
+                break;
+            }
+        default:                             
+            {
+                processor.processUnknownItemType(item);
+                break;
+            }
+    }
+}
+
+                    
+```
+
+While this function is rather long, much of the processing
+                    has the same flavor.  We will therefore only show detailed
+                    processing for scaler items.
+
+[[x322#process.usefactory]]                            This line shows the use of the ring item factory to
+                            take an undifferentiated ring item and to
+                            construct from it a new ring item that is appropriately
+                            specialized.  As C++ is not a dynamically typed
+                            language, the resulting object is returned to the
+                            user as a `CRingItem*`.
+                            In cases in the switch statement, we shall see
+                            type safe *up-casts* done
+                            once the actual item type is known.
+                        [[x322#processfactitemsautofree]]                            Once again, we see the use of the
+                            `std::unique_ptr` to ensure
+                            the dynamically allocated object returned by the
+                            factory is destroyed regardless how the
+                            `processRingItem` function
+                            exits.
+                        [[x322#process.typedependent]]                            This switch statement is used to perform
+                            processing that is dependent on the actual type of
+                            the ring item.  We'll look in detail at the
+                            way in which PERIODIC_SCALER
+                            items are handled, though the processing of all
+                            item types is pretty much the same.
+                        [[x322#process.periodicscaler]]                            This case label indicates we're processing periodic
+                             scaler ring items.
+                        [[x322#process.scalerdyncast]]                            Now that we know the actual ring item type, we can
+                            do a dynamic cast of the dereferenced pointer construct
+                            a reference to a `CRingScalerItem`
+                            object because we now know that this is the type of
+                            object our `castableItem` actually
+                            points at.
+                        Using a dynamic cast rathe rthan the alternative
+                            ensures that type checking is done by the cast at
+                            run-time to ensure this is a legal type conversion.
+                            If the underlying type is not actually a
+                            `CRingScalerItem` object of from
+                            a class that is a subclass of that class, the dynamic
+                            cast would throw an exception (`std::bad_cast`).
+
+[[x322#process.processscaler]]                            The appropriate method of the processor class
+                            is called to do type dependent processing.  Our work
+                            so-far allowed us to pass in a reference to a
+                            periodic scaler item.
+                        [[x322#process.unrecognized]]                            This code handles ring item types that are not known
+                            at the time the program was written.  This code
+                            can be reached if the set of ring item types is extended
+                            either by future NSCLDAQ versions or by users
+                            emitting ring items with types greater than or equal to
+                            FIRST_USER_ITEM_CODE.
+
+## <a name="sec.process.class"></a>4.2.2. The `CRingITemProcessor` class
+
+Let's look at the `CRingProcessor` class.
+                    First the header, as it does point to an interesting program
+                    design philosophy.  processor.h contains:
+
+<a name="AEN414"></a>```
+#ifndef PROCESSOR_H                    
+#define PROCESSOR_H
+
+class CRingScalerItem;
+class CRingStateChangeItem;
+class CRingTextItem;
+class CPhysicsEventItem;              
+class CRingPhysicsEventCountItem;
+class CDataFormatItem;
+class CGlomParameters;
+class CRingItem;
+
+class CRingItemProcessor
+{
+public:
+    virtual void processScalerItem(CRingScalerItem& item);
+    virtual void processStateChangeItem(CRingStateChangeItem& item);
+    virtual void processTextItem(CRingTextItem& item);
+    virtual void processEvent(CPhysicsEventItem& item);   
+    virtual void processEventCount(CRingPhysicsEventCountItem& item);
+    virtual void processFormat(CDataFormatItem& item);
+    virtual void processGlomParams(CGlomParameters& item);
+    virtual void processUnknownItemType(CRingItem& item);
+};
+
+
+
+#endif
+                    
+```
+
+[[x322#process.header.guard]]                            The C++ compiler will throw errors if any of a number
+                            of entities (e.g. class definitions) appears more than
+                            once in a compilation unit.  This #ifdef
+                            block ensures that this cannot happen, no matter how
+                            many headers may include this file.  
+                        This pattern is called an *include guard*.
+                            Using include guards is good programming practice.
+                            If you do use them, choose a convention for the
+                            name of the preprocessor symbol you will be defining
+                            as collisions with include guard names can be
+                            incredibly hard to sort out.
+
+The include guard name shown is the convention followed
+                            in NSCLDAQ itself as well as several other open source
+                            projects.
+
+[[x322#process.header.forward]]                            This pattern is a second example of good programming
+                            practice.  Wherever possible, declare classes or
+                            structs to be defined elsewhere rather than just
+                            including their headers.  This is especially true
+                            in header files.
+                        This is a good practice because:
+
+
+
+1. Headers are often included in more than one
+                                       place and the recompilation of headers included
+                                       in headers and so on, can slow down
+                                       compilation times.
+2. More importantly, including headers can
+                                       lead to circular dependencies.  That is
+                                       file A includes B which includes A that
+                                       can be tough for the compiler to untangle.
+   The rule I follow is that if the compiler
+                                       does not need to know the shape of a class
+                                       or other entity, or its methods, I usd a forward
+                                       definition rather than an
+                                       #include.
+
+[[x322#process.header.processors]]                            THese definitions define the methods that
+                            are called by the cases in the big switch
+                            in `processRingItem`.
+
+Now lets look at the implementation file
+                    processor.cpp.
+                    Here's the head of that file:
+
+<a name="AEN441"></a>```
+#include "processor.h"                           
+
+
+#include <CRingItem.h>
+#include <CRingScalerItem.h>
+#include <CRingTextItem.h>
+#include <CRingStateChangeItem.h>        
+#include <CPhysicsEventItem.h>
+#include <CRingPhysicsEventCountItem.h>
+#include <CDataFormatItem.h>
+#include <CGlomParameters.h>
+
+
+#include <iostream>
+#include <map>
+#include <string>
+
+#include <ctime>
+
+                                             
+static std::map<CGlomParameters::TimestampPolicy, std::string> glomPolicyMap = {
+    {CGlomParameters::first, "first"},
+    {CGlomParameters::last, "last"},
+    {CGlomParameters::average, "average"}
+};
+                    
+```
+
+[[x322#processor.includehdr]]                            In general, if I implement a class, I include the
+                            class definition header first.  This allows me
+                            (well the compiler actually) to determine if the
+                            class header is complete and independent of other
+                            headers.  If I have errors in the class header
+                            include, rather than first including other headers 
+                            (that other class clients may not know about),
+                            I just fix the header to ensure it's complete and
+                            stands by itself.
+                        [[x322#processor.concreteheaders]]                            Recall that I did not include the concrete subclass
+                            headers for `CRingItem` in the
+                            class definition header.  I do need to include them here
+                            as I'm going to be invoking method functions on each of them.
+                        If I was just going to pass these objects by reference
+                            or pointers to methods or functions implemented in a
+                            separate file I probably would not include the definitions
+                            in this file as it would not be necessary.
+
+[[x322#processor.glomtspolicymap]]                            This map provides a lookup table between the symbolic
+                            Glom timestamp policies and their textual names.
+                            We'll use this when processing glom parameter
+                            ring items.
+
+Let's look at the implementations of the type dependent
+                    processing methods one by one.  For the most part,
+                    just exploit the methods available to the subclass
+                    ring item types to output some partial or complete dump
+                    of the items.
+
+<a name="AEN456"></a>**Example 4-1. 
+                        `CRingItemProcessor`::`processScalerItem`
+**
+
+```
+                void
+CRingItemProcessor::processScalerItem(CRingScalerItem& item)
+{
+    time_t ts = item.getTimestamp();                   
+    std::cout << "Scaler item recorded "
+        << ctime(&ts) << std::endl;    
+    for (int i = 0; i < item.getScalerCount(); i++) { 
+        std::cout << "Channel " << i << " had "
+            << item.getScaler(i) << " counts\n";
+    }
+}
+        
+                    
+```
+
+[[x322#process.scalertsget]] `getTimestamp`, where
+                            defined, gets the unix timestamp at which a ring
+                            item was created.  Don't confuse this with
+                            `getEventTimestamp` defined
+                            in the `CRingItem` base class
+                            which returns the high precision event timestamp
+                            used in event building.
+                        [[x322#process.scalertformat]] `ctime` is defined in the
+                            ctime header and produces a
+                            formatted string representation of the
+                            pointer to a time_t it is passed.
+                        [[x322#process.dumpscalers]] `getScalerCount` returns
+                            the number of scaler vlues in the item.  This
+                            controls the loop which uses
+                            `getScaler` to
+                            get the specified scaler value.
+
+<a name="AEN479"></a>**Example 4-2. 
+                        `CRingItemProcessor`::`processStateChangeItem`
+**
+
+```
+void
+CRingItemProcessor::processStateChangeItem(CRingStateChangeItem& item)
+{
+    time_t tm = item.getTimestamp();
+    std::cout << item.typeName()      
+        << " item recorded for run "
+        << item.getRunNumber() << std::endl; 
+    std::cout << "Title: "
+        << item.getTitle() << std::endl;     
+    std::cout << "Occured at: " << std::ctime(&tm)
+        << " " << item.getElapsedTime()      
+        << " sec. into the run\n";
+}
+
+                    
+```
+
+State change items indicate a change in the run state.  These
+                    differ only in the ring item type.
+
+[[x322#process.rstypename]]                            The `CRingItem` class has
+                            a method that return s a text string that describes
+                            the item type.   We use this to indicate which
+                            transition this record reflects.
+                        [[x322#process.rsrrunnum]]                            All state change items have a run number.  The
+                            `getRunNumber` method
+                            for `CRingStateChangeItem` returns
+                            that run number.
+                        [[x322#process.rstitle]]                            Similarly, all state change items have a title
+                            an `getTitle` returns
+                            that as a `std::string`.
+                        [[x322#process.rseltime]]                            All state change items also record how deep into
+                            the run they occured.
+                            `getElapsedTime` returns
+                            this value in seconds.  Naturally,
+                            BEGIN_RUN items have an
+                            elapsed time of 0.
+
+<a name="AEN506"></a>**Example 4-3. 
+                    `CRingItemProcessor`::`processTextItem`
+**
+
+```
+void
+CRingItemProcessor::processTextItem(CRingTextItem& item)
+{
+    time_t tm = item.getTimestamp();
+    std::cout << item.typeName() << " item recorded at "
+        << std::ctime(&tm) << " " << item.getTimeOffset()
+        << " seconds into the run\n";
+    std::cout << "Here are the recorded strings: \n";
+
+    std::vector<std::string> strings = item.getStrings(); 
+    for (int i =0; i < strings.size(); i++) {
+        std::cout << i << ": '" << strings[i] << "'\n";
+    }
+}
+
+                    
+```
+
+`CRingTextItem` objects contain
+                    a sequence of null terminated strings.  These are used to
+                    document aspects of the generating program.  For example,
+                    if you use documented packages in the SBS readout
+                    framework, you will get a string for each of those
+                    packets in a PACKET_TYPES item.
+
+Similarly, if you create some run variables that are externally
+                    modified via a readout framework's TclServer component, these
+                    variables and their values
+                    will be periodically logged in a
+                    MONITORED_VARIABLES item.
+                    Note that each variable will be logged in a string that
+                    could be sourced into a Tcl interpreter to re-define that
+                    variable.
+
+Regardles of the type of ring item,
+                    `getStrings` returns a
+                    `std::vector<std::string>`
+                    that contains the strings in the item.
+
+<a name="AEN519"></a>**Example 4-4. 
+                        `CRingItemProcessor`::`processEvent`
+**
+
+```
+void
+CRingItemProcessor::processEvent(CPhysicsEventItem& item)
+{
+    std::cout << "Event:\n";
+    std::cout << item.toString() << std::endl;
+}
+
+                        
+```
+
+All items have a `toString`
+                    method that is polymorphic in the base calss
+                    `CRingItem`.  This is used
+                    by dumper and now by us to create a textual dump of the
+                    event.
+
+Typically this is where you'd put the real work of unpacking
+                    the physics event and doing something useful with it, like
+                    making a root tree.
+
+<a name="AEN528"></a>**Example 4-5. 
+                        `CRingItemProcessor`::`processEventCount`
+**
+
+```
+void
+CRingItemProcessor::processEventCount(CRingPhysicsEventCountItem& item)
+{
+    time_t tm = item.getTimestamp();
+    std::cout << "Event count item";
+    if (item.hasBodyHeader()) {
+        std::cout << " from source id: " << item.getSourceId();
+    }
+    std::cout << std::endl;
+    std::cout << "Emitted at: " << std::ctime(&tm) << " "
+        << item.getTimeOffset() << " seconds into the run \n";
+    std::cout << item.getEventCount() << " events since lastone\n";
+}                            
+                        
+```
+
+`CRingPhysicEventCountItem` objects
+                    are periodically emitted by readout frameworks during an active
+                    run.  They provide information about the number of triggers
+                    processed since the last such item, or the beginning of the
+                    run for the first one.
+
+The intent is that these items can provide an idea of the
+                    trigger rate as well as information about how many items
+                    were skipped when the consumer is sampling physics items.
+                    Well that's the idea anyway.  This all becomes a bit more
+                    complicated with event built data, and even more complicated
+                    with multilevel event building.
+
+<a name="AEN536"></a>**Example 4-6. 
+                        `CRingItemProcessor`::`processFormat`
+**
+
+```
+void
+CRingItemProcessor::processFormat(CDataFormatItem& item)
+{
+    std::cout << " Data format is for: "
+        << item.getMajor() << "." << item.getMinor() << std::endl;
+}
+
+                        
+```
+
+Since NSCLDAQ-11.0, data producers have started to emit
+                    data format records so that software (and humans) know
+                    how to handle data files as the formats evolve.
+                    The format record contains only a major and minor format
+                    version.  These match the version of NSCLDAQ in which the
+                    data format was introduced.
+
+`getMajor` returns the major version number
+                    and `getMinor` returns the minor version.
+
+<a name="AEN545"></a>**Example 4-7. `CRingItemProcessor`::`processGlomParams`**
+
+```
+void
+CRingItemProcessor::processGlomParams(CGlomParameters& item)
+{
+    std::cout << "Event built data.  Glom is: ";
+    if (item.isBuilding()) {             
+        std::cout << "building with coincidece interval: "
+            << item.coincidenceTicks()  
+            << std::endl;
+        std::cout << "Timestamp policy: "
+            << glomPolicyMap[item.timestampPolicy()] 
+            << std::endl;
+    } else {
+        std::cout << "operating in passthrough (non-building) mode\n";
+    }
+}
+
+                    
+```
+
+When experiments use the event builder, the last stage
+                    of the event builder, glom, emits a glom parameters item.
+                    This item describes how glom was told to function.
+
+Glom can glue fragments together into events, given a
+                    coincidence interval (in timestamp units), or it can
+                    operate in non-building, passthrough mode, where the
+                    fragments are just passed on through to the output.
+
+[[x322#process.glombuilding]]                            The method `isBuilding`
+                            returns boolean true if glom has been asked to glue
+                            fragments togehter.  If not, none of the other
+                            glom parameters are relevant.
+                        [[x322#process.glomticks]]                            In build mode, `coincidenceTicks`
+                            returns the number of timestamp ticks in the
+                            event building coincidence window.  If not building,
+                            the return value from this method is meaningless.
+                        [[x322#process.glompolicy]]                            In build mode, Glom assigns a timestamp to the
+                            output event based on the timestamp policy its been
+                            handed when it starts.  The return value from
+                            `timestampPolicy` is an
+                            enumerated value that describes this policy.  This
+                            is used as a key to lookup the textual version of
+                            that policy.
+
+<a name="AEN565"></a>**Example 4-8. 
+                        `CRingItemProcessor`::`processUnknownItemType`
+**
+
+```
+void
+CRingItemProcessor::processUnknownItemType(CRingItem& item)
+{
+    std::cout << item.toString() << std::endl;
+}
+
+                    
+```
+
+If we have receiged a ring item type that we don't know
+                    about, we just use the `toString`
+                    method to dump it to stdout.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Peforming type independent processing | Up | Processing Event Built data |

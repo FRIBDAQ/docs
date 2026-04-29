@@ -1,0 +1,100 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="CCAMACStatusModule"></a>CCAMACStatusModule
+
+<a name="AEN41366"></a>## Name
+
+CCAMACStatusModule -- Provide computer busy status support for the BiRA CAMAC
+                NIM out module.
+
+<a name="AEN41369"></a>## Synopsis
+
+```
+#include <CCAMACStatusModule.h>
+            
+```
+
+```
+  CCAMACStatusModule(unsigned int b, unsigned int c, unsigned int n);
+```
+
+<a name="AEN41397"></a>## Description
+
+When an event trigger is sent to the computer, a hardware busy latch
+                must also be set.  This latch will indicate that the computer is not
+                ready to accept another trigger.  When the computer is done responding to the
+                trigger, it must send a software generated signal to clear that latch.
+                The Software modules in charge of that are called *Status Modules*.
+
+`CCAMACStatusModule` can be hooked into the readout frameworks
+                to provide various software generated signals to external modules.
+
+<a name="AEN41403"></a>## Public member functions
+
+
+
+<a name="AEN41408"></a>`CCAMACStatusModule(unsigned int b, unsigned int c, unsigned int n);`
+
+Creates a new `CCAMACStatusModule` object that can be
+                            used to manipulate a BiRA NIM out as a status module.  Note that usually
+                            you will register this with one of the frameworks and let it control the
+                            object rather than directly making calls.
+
+The Status module signals the following conditions>
+
+
+
+Module clearsOutput to allow modules with front panel clears
+                                            to be simultaneously cleared at the end of an event.
+                                            Outputs 1-8 are used to signal this.
+
+Computer clearOutput indicating the computer is ready to accept an
+                                            event trigger. Use this to clear the busy latch.
+
+Computer going soft busyThis indicates the computer is about to go busy
+                                            for software reasons.  You may or this with your
+                                            *live master trigger* to set
+                                            the computer busy latch.   Do not use this as the sole
+                                            input to set your busy latch.  This is not output each event,
+                                            as the computer can't get around to reacting to a trigger
+                                            much faster than 3 microseconds after the trigger.
+
+
+<a name="AEN41441"></a>`virtual void  GoBusy(void);`
+
+Pulses the computer going busy output.  This is usually used to indicate
+                            a soft busy condition such as pausin,  or ending runs.
+                            When the status module is hooked into the frameworks, you should not
+                            count on this being pulsed for each event. You should use an external
+                            latch to set the computer busy for events as there's no appreciable
+                            latency associated with it.  In most cases it is actually quite safe
+                            to ignore this output as the next event will force your external busy
+                            latch to be busy.
+
+<a name="AEN41451"></a>`virtual void  GoClear(void);`
+
+Pulses the end of computer busy output.  This should be used to clear
+                            any external computer busy latch.  When the object is hooked into
+                            the frameowrk this is output whenever the computer
+                            becomes able to accept an event trigger.  This can be at the end of an event
+                            readout, when runs begin, when runs resume.
+
+<a name="AEN41461"></a>`virtual void  ModuleClear(void);`
+
+Pulses the module clears outputs. Those can be used to simultaneously
+                            hardware clear several modules, rather than taking the time to individually
+                            software clear them.  When the object is registered into the framework
+                            these output are pusled just prior to calling `GoClear`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CCAMACScalerLRS4434 | Up | CCAMACTrigger |

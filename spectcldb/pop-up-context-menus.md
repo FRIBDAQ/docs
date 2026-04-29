@@ -1,0 +1,80 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev | Chapter 7. The SpecTcl database GUI. | Next |
+
+
+---
+
+# <a name="AEN1521"></a>7.2. Pop Up context menus
+
+Each of the object types in the GUI has a context menu that can
+            be popped up by right clicking that object. This
+            section describes those menuse and what their commands do.
+
+**Configurtion context menu. **
+                This context menu is activated by right clicking
+                on a saveset or the configuration saved in that saveset.
+                It makes the following commands available:
+
+
+
+Save...Requests a new save set name, creates that save set
+                            and saves the current analysis
+                            configuration in that saveset.
+
+Save Spectrum...Requests a spectrum name and saves that
+                            spectrum's contents in the currently selected save set.
+                            Note that activating the context menu
+                            makes the configuration the mouse is over
+                            the current configuration.
+
+LoadLoads the configuration into SpecTcl.
+                            This restores the parameter, tree parameter,
+                            spectrum and gate definitions as well as the
+                            gate applications and tree variable definitions and
+                            values into SpecTcl.
+
+
+                If you post this menu by mistake, the escape keyboard key
+                will unpost it.
+
+**Spectrum context menu. **
+                This context menu is activated when you right click
+                a spectrum object in a save set.  It has the following commands:
+
+
+
+ResaveThe current contents of the spectrum indicated are
+                            saved into the current save set.  Prior contents are
+                            cleared first.
+
+Save Spectrum...Prompts for a spectrum whose contents will be
+                            saved in the currently selected save set.
+
+LoadLoads the contents of the selected spectrum
+                            into the same spectrum in SpecTcl.
+
+**Run context menu. **
+                This menu supports event playback:
+
+
+
+Play...After prompting for confirmation warning of the
+                            consequences of playing back data:
+                            Turn off any active recording. Prompts to
+                            ask if the user wants to restore the
+                            analysis configuration prior to playback,
+                            Asks as well if you want to clear all spectra
+                            prior to playback.
+
+On confirmation, initiates playback.
+
+StopDisables any playback in progress.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The SpecTcl database GUI. | Up | Reference material |

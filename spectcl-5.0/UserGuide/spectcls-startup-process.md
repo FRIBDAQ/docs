@@ -1,0 +1,165 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl User guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="chap.startup"></a>Chapter 5. SpecTcl's startup process
+
+As SpecTcl starts it uses several scripts to both steer its startup
+            and to setup any Tcl commands and user interfaces desired by the
+            user.   This chapter describes scripts that you can use to
+            modify how SpecTcl starts and what it looks like once it has started.
+
+SpecTcl relies on two script families during initialization and startup.
+            Each script family is a script with a specific name.  The script is
+            searched for in a specific set of directories and *all*
+            matching scripts are sourced.
+
+The directories searched are in order:
+
+
+
+$SpecTclHome/etcThe etc subdirectory of the
+                        SpecTcl installation directory.  Scripts here
+                        are intended to be maintained by the installer andshould be
+                        used to set system defaults and provide services that
+                        are common to all users of SpecTcl system wide.
+
+The user's home directoryScripts here should be used to provide definitions
+                        and services common to all projects the user works on.
+
+Working directoryScripts here should be usd to provide definitions and
+                        services specific to the analysis that is run from
+                        that directory.
+
+SpecTcl starts in two major phases; initialization and setup.  The
+            initialization family of scripts is called
+            SpecTclInit.tcl.  These scripts are invoked
+            very early in SpecTcl's startup and ares used to define
+            values that provide limits, hints and steering variables for
+            SpecTcl's initialization and startup.
+
+The variables that can be set in this file are:
+
+
+
+`DisplayType`SpecTcl 5.0 and later support two visualization programs,
+                        the original Xamine and the Root
+                        based Spectra.  This variable
+                        selects the visualizer that will be used:
+                        spectra will start the Root based
+                        Spectra
+                        displayer while xamine will start the
+                        traditional Xamine displayer.  Finally none
+                        will not start any display program.
+
+`DisplayMegabytes`The number of megabytes of display memory that will
+                        be allocated to the shared memory region that holds
+                        bulk spectrum data.  If this value results in a shared
+                        memory region larger than one supported by the configuration
+                        of Linux, you will get an invalid parameter message.
+
+On linux, the maximum size a shared memory region
+                        can have is configured by setting the
+                        kernel.shmmax configuration parameter.
+                        This can be done at boot time using the
+                        sysctl.conf mechanisms.
+                        If you administer your own linux system see
+                        the manpage for sysctl.conf
+
+`ParameterCount`The `CEvent` array like object
+                        that is passed to event processors is given an initial
+                        size set by this value.   The object will expand as needed
+                        to allow the parameter with the highest index to fit.
+                        Internally, SpecTcl recycles old `CEvent`
+                        objects so the initial value is not that important anymore.
+
+`EventListSize`SpecTcl will let event processors unpack several events
+                        before submitting them in a batch to the histogramming
+                        classes.   This is intended to improve, somewhat the
+                        cache hit rate.  This value determines the maximum
+                        number of events SpeTcl will allow the event processor
+                        pipeline to process before submitting them all to the
+                        histogrammer.
+
+`TKConsoleHistory`If your SpecTcl starts the TkCon command console,
+                        this variable sets the number of commands TkCon
+                        will retain in its command history.
+
+`TkConConsoleBufferSize`If your SpecTcl starts the TkCon command console,
+                        this variable sets the number of byes of scrollback
+                        buffer that will be maintained.
+
+`HTTPDPort` *Since 5.2-004*If this is set it must be an integer at least 1024.
+                        When set, SpecTdl will start its REST server listening
+                        on the specified port.  If not set, the REST-like server will
+                        be started on port 8080 if the Spectra displayer is selected.
+
+The SpecTcl REST server supports remote access to
+                        parameter, gate, and spectrum definitions as well as
+                        spectrum contents.
+
+Once SpecTcl is fully initialized, it sources the
+            SpecTclRC.tcl family of scripts.  This set of
+            scripts can be used to define application specific commands, variables,
+            parameters spectra as well as to provide a graphical user interface
+            to make interacting with SpecTcl easier.  The skeleton
+            comes with a SpecTclRC.tcl.  Feel free to use
+            this as a starting point or to discard it.
+
+The skeleton SpecTclRC.tcl does the following:
+
+
+
+1. Sets up a splash image that shows approximately how
+                       far along the setup process the script has progressed.
+                       The default splash image is the SpecTcl logo.  The splash
+                       image can be changed by setting `splashImage`
+                       in the SpecTclInit.tcl file.
+2. Starts the base SpecTcl GUI which that lives in Tk's main
+                       to level GUI.  This is just a bar of buttons.  This button
+                       bar starts with buttons that clear all spectra and exit
+                       SpecTcl.  You can pack additional buttons in the top level
+                       widget or create your own top level widget GUI.
+3. Provides some low level scripts that support writing Tcl
+                       scripts that can be sourced into restore spectrum and gate
+                       definitions for later runs of SpecTcl.  These are
+                       described in the command reference guide.
+4. Provides some low level scripts that support listing parameters,
+                       spectra, gates and their applications in a more human
+                       readable form.  Recall that SpecTcl's native parameters
+                       produce output that's designed for processing by Tcl
+                       scripts.  Note that the **More** proc is
+                       also provided which can paginate the output of these
+                       scripts.
+   These scripts are also documented in the command
+                       reference guide.
+5. Provides scripts that can copy simple cuts, contours
+                       and bands to a different parameter set.   This
+                       allows you to create a single gate that can then be copied
+                       over and over again.
+   These scripts are documented in the command reference guide.
+6. Starts the TkCon console.   TkCon has sophisticated command
+                       editing capabilities.   The tclsh/wish interpreter run on
+                       SpecTcl's stdin is not nearly as nice in that regard.
+                       Note that if you don't need a console (you can do everything
+                       you want in your GUI) you don't need to start this.
+   TkCon was written by Jeff Hobbs currently at ActiveState.
+                       It has been modified for use with SpecTcl and is incorporated
+                       under the rather loose terms of its Bourbon Ware
+                       license.  The terms of that license were satisified at
+                       the 13'th Tcl conference in Naperville,  in 2006.
+7. Starts the SpecTcl default GUI.  If you have another GUI
+                       you prefer by all means substitute it.  The SpecTcl default
+                       GUI is described in this document at:
+                       [[c2006]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using event filters |  | Scripting with SpecTcl |

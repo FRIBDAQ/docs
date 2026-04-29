@@ -1,0 +1,63 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_kvedit"></a>mg_kvedit
+
+<a name="AEN19481"></a>## Name
+
+mg_kvedit -- Edit the DAQ Manager Key/Value Store
+
+<a name="AEN19484"></a>## Synopsis
+
+**$DAQBIN/mg_kvedit *configuration-file*
+**
+
+<a name="AEN19488"></a>## DESCRIPTION
+
+**mg_kvedit** provies a graphical editor for
+            the contents of the key value store.  In the command invokation,
+            *configuration-file* is the manager
+            database configuration file.
+
+The key value store associates arbitrary keys with arbitrary values.
+            It can be used by applications to store metadata required by their
+            applications.  It is also used by standard components of the
+            managed DAQ system.  These components define the following keys:
+
+
+
+titleThis is used to set run titles in compatible
+                  Readout programs.  It contains the desired title for the
+                  next run.
+
+runIs used to set the run number in compatible Readout programs.
+                  It contains the desired run number for the next run.
+
+The editor provides a window that, at the top, contains a table
+          of key/value pairs.  At the bottom is an editing region that provides
+          entries for a key and a value. Selecting (by clicking) a key value
+          pair in the table loads the key and its value into the editor fields where
+          either or both may be modified.
+
+Clicking the Update button updates the table.
+          If the key is an existing  key its value will be modified.  If it is
+          a new key, a new key/value pair will be created.
+
+Clicking on the Delete button removes a key
+          and its value from the table.
+
+Note that none of the edits described above affect the database.
+          The Save button writes all changes to the
+          database key value table.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_cfgEvlog | Up | mg_authedit |

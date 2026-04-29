@@ -1,0 +1,417 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 3. NSCLDAQ Data Format : The Ring Item | Next |
+
+
+---
+
+# <a name="AEN314"></a>3.3. The Ring Item Types
+
+As was mentioned in the previous section, there are a number of different
+      ring item types that identify the data encapsulated by the items with
+      specific event records. There are althogether 12 predefined ring item
+      types. If these do not satisfy the needs of an experimenter, user's can
+      also implement their own type. The predefined types will suit most
+      needs and I have yet to come across a situation that demanded a new type.
+      The 12 predefined type are as follows:
+
+<a name="AEN317"></a>**Table 3-5. Ring Item Types**
+
+| Name | Value |
+| --- | --- |
+| BEGIN_RUN | 1 |
+| END_RUN | 2 |
+| PAUSE_RUN | 3 |
+| RESUME_RUN | 4 |
+| ABNORMAL_ENDRUN | 4 |
+| PACKET_TYPES | 10 |
+| MONITORED_VARIABLES | 11 |
+| RING_FORMAT | 12 |
+| PERIODIC_SCALERS | 20 |
+| PHYSICS_EVENT | 30 |
+| PHYSICS_EVENT_COUNT | 31 |
+| EVB_FRAGMENT | 40 |
+| EVB_UNKNOWN_PAYLOAD | 41 |
+| EVB_GLOM_INFO | 42 |
+| FIRST_USER_ITEM_CODE | 32768 |
+
+In more detail, the meanings of each of these ring items is described
+      below.
+
+
+
+`BEGIN_RUN`The item describes the beginning of a data taking run.
+
+`END_RUN`The item descdribes the end of a data taking run.
+
+`PAUSE_RUN`The item describes a temporary pause in data taking.  This item must
+            be followed immediately by either a `RESUME_RUN`
+            item, or an `END_RUN` item.
+
+`RESUME_RUN`This item describes the resumption of data taking after a temporary
+            pause.  Barring user defined types that may follow a
+            `PAUSE_RUN`, this item will always follow a
+            `PAUSE_RUN` item.
+
+`PACKET_TYPES`NSCL DAQ readout frameworks can package chunks of a physics event
+            into packets.  Packets have essentially the same format as ring
+            buffer items.  The frameworks also support documenting the packet
+            types that can occur in a data taking run.  This item supplies that
+            documentation to interested consumers.
+
+`MONITORED_VARIABLES`Some readout frameworks support the creation of variables that can
+            monitor external conditions such as EPICS channels.  This item
+            contains information about the latest state of a monitored variable.
+
+`PERIODIC_SCALERS`NSCL DAQ readout frameworks support the periodic readout of
+            counters.  These counters are called *scalers*
+            by the experimental community and are used to monitor the rates of
+            trigger components, detector systems, or system live-time.  Data
+            from these are put in `INCREMENTAL_SCALERS` items.
+
+`RING_FORMAT`Describes the format level of the ring item.  This is described in
+            terms of the earliest NSCLDAQ major and minor versions that can
+            transparently handle this data.  Readout frameworks output this item
+            at the beginning of each run, prior to the begin run item.
+
+`PHYSICS_EVENT`The purpose of NSCL DAQ readout frameworks, is to respond to event
+            triggers and read out digitizer hardware that has captured the data
+            from a nucleus-nucleus collision.  These data are placed in
+            `PHYSICS_EVENT` items.
+
+`PHYSICS_EVENT_COUNT`Periodically emitted to tell clients how many
+            `PHYSICS_EVENT` items have been inserted in the
+            ring.  This is can be used to determine sampling efficiency for
+            analysis consumers, as well as to compute event rates.
+
+`EVB_FRAGMENT`An event fragment from the ordering phase of the event builder.
+            Fragments of this type are believed to contain ring items as their
+            payloads.
+
+`EVB_UNKNOWN_PAYLOAD`Same as `EVB_FRAGMENT` however it's pretty certain
+            the payload of these items are not ring items.
+
+`EVB_GLOM_INFO`Emitted by the glom component of the
+            event builder to describe the parameters it has been started with.
+
+One of these ring items is emitted one as glom is started.
+
+These item types break down in to four distinct categories of
+      item which will be described in the remaining subsections of this
+      section.
+
+## <a name="AEN449"></a>3.3.1. State Change Items
+
+State change items are those with types `BEGIN_RUN`,
+        `END_RUN`, `PAUSE_RUN`, and
+        `RESUME_RUN`.  As the type names imply, these signal
+        state transitions in data taking.
+
+State change items have the type
+        `StateChangeItem`.  This item has the following
+        fields:
+
+<a name="AEN458"></a>**Table 3-6. Predefined State Change Body Layout**
+
+| Description | Size (bytes) |
+| --- | --- |
+| Run number | 4 |
+| Time offset | 4 |
+| Timestamp (Unix) | 4 |
+| Offset divisor | 4 |
+| Title | 80 |
+
+The meaning of each element is described below:
+
+
+
+Run numberIs the number of the run for which this state transition is being
+              documented.  Typically, run numbers are unique, for recorded runs,
+              as the run number is encoded into the name of the run's event
+              file.
+
+Time offsetIs the number of seconds the run has been active prior to this
+              state transition.  Clearly if the type of the item is
+              `BEGIN_RUN` this will be zero.  For the NSCLDAQ
+              frameworks, the time offset only counts seconds during which the
+              run was active (time during which the run was paused are not
+              counted).
+
+Timestamp (Unix)Is the absolute time at which the transition occured. This is
+              represented in seconds since the Unix epoch of 00:00:00
+                UTC, January 1, 1970.  Once translated into the host's
+              byte order, it can be passed to any of the time formatting
+              functions (e.g. `asctime`).
+
+Offset divisorThis is used for fractional timing.
+
+TitleHolds the run title. Run titles are restricted in size to
+              80 ASCII characters.
+
+## <a name="AEN506"></a>3.3.2. Text Items
+
+Text items contain a list of null-terminated strings.  They are
+        usually used to provide metadata for the run.  At present, two types of
+        text list items are defined.  `PACKET_TYPES` and
+        `MONITORED_VARIABLES`.
+
+String list items fall into the category of text items.  The predefined
+        body structure of these types of items is as follows:
+
+<a name="AEN512"></a>**Table 3-7. Predefined Text Item Body Layout**
+
+| Description | Size (bytes) |
+| --- | --- |
+| Time offset | 4 |
+| Timestamp (Unix) | 4 |
+| String count | 4 |
+| Offset divisor | 4 |
+| Null-terminated strings | >=0 |
+
+These each are explained in more detail:
+
+
+
+Time offsetThe number of seconds of data taking that have gone on in this run
+              prior to the generation of this item.  This time offset does not
+              count time in the paused state.
+
+Timestamp (Unix)Is the absolute time at which the item was created. This is
+              represented in seconds since the Unix epoch of 00:00:00
+                UTC, January 1, 1970.  Once translated into the host's
+              byte order, it can be passed to any of the time formatting
+              functions (e.g.  `asctime`).
+
+String countNumber of null-terminated strings in the item.
+
+Null-terminated stringsAn array of characters large enough to hold all the strings.  Each
+              string is a null-terminated set of characters immediately followed
+              by the next string.
+
+The actual null-terminated strings may also have a predefined structure.
+        Ring items of type `PACKET_TYPES` document the packets
+        you might expect to find in a run's `PHYSICS_EVENT`
+        items.  Creating instances of the
+        `CDocumentedPacket` object automatically generates
+        these.  Each packet is documented with a single string.  The string
+        consists of five colon separated fields.  These fields contain, in
+        order:
+
+
+
+1. The Name the packet.
+2. The id of the packet given as a hex string e.g.
+                 "0x1234"
+3. A desription of the packet.
+4. A version string for the packet.  Presumably this
+                 will change if the packet with this type ever
+                 changes 'shape'.
+5. The date and time at which the
+                 `CDocumentedPacket` object
+                 creating this entry was created.
+
+
+On the other hand, ring items of type
+        `MONITORED_VARIABLES` contain a snapshot of the values
+        of process variables that have been declared by the readout software.
+        Each variable takes up one string and is formatted like a Tcl
+        **set** command that, if executed, would define that
+        variable to the value it had when the item was created.
+
+## <a name="AEN574"></a>3.3.3. Scaler Items
+
+NSCLDAQ readout frameworks support the periodic reading of scaler data.
+        These data are encapsulated as ring items of type PERIODIC_SCALERS.
+        The body of these items have the following predefined memory layout:
+
+<a name="AEN577"></a>**Table 3-8. Predefined Scaler Item Body Layout**
+
+| Description | Size (bytes) |
+| --- | --- |
+| Interval start offset | 4 |
+| Interval end offset | 4 |
+| Timestamp (Unix) | 4 |
+| Interval divisor | 4 |
+| Scaler count | 4 |
+| Incremental? | 4 |
+| Scaler values | >=0 |
+
+The details of each entry are explained next.
+
+
+
+Interval start offsetThe number of seconds of active data taking prior the start of the
+              time period represented by the counts in this scaler item.
+
+Interval end offsetThe number of seconds of active data taking prior to the end of
+              the time period represented by the counts in this scaler item.
+
+Timestamp (Unix)Is the absolute time of the end of the scaler counting period.
+              This is represented in seconds since the Unix epoch of
+              00:00:00 UTC, January 1, 1970.  Once translated
+              into the host's byte order, it can be passed to any of the time
+              formatting functions (e.g. `asctime`).
+
+Scaler countThe number of scalers in the item.
+
+Incremental?A boolean value labeling the scaler data as having been cleared
+              after reading. Scalers that are cleared after each read are
+              incremental whereas scalers that are only read without clearing
+              are non-incremental.
+
+Scaler valuesThe array of scaler counts. Each scaler value is treated as a
+              32-bit integer.
+
+## <a name="AEN634"></a>3.3.4. Event Data Items
+
+These items are of type `PHYSICS_EVENT`.  They contain
+        the data read from the hardware.  Depending on the readout framework,
+        this can be the response to one trigger or to a block of triggers. It is
+        up to the analysis software to know which is which.
+
+There is no predefined structure to the body of this type of ring item,
+        though some of the NSCLDAQ provided programs produce a define format.
+        The various formats are described in the remainder of this section.
+
+### <a name="AEN639"></a>3.3.4.1. VMUSBReadout and CCUSBReadout
+
+The first 16-bit word of the body in these is the event header as
+          produced by the xx-USB device. The least significant 12-bits of this
+          word defines the number of 16-bits words to follow in the body. The
+          remainder of of the body consists of the raw data format produced by
+          the executed event stack.
+
+### <a name="AEN642"></a>3.3.4.2. SBS Readout Framework
+
+The first 32-bit word of the body produced by the SBS Readout Framework
+         is an inclusive count of the 16-bit words in the body.  The remainder
+         of the body has the structure defined by the user's event segment code.
+         If the user had more than one event segment, the resulting data from
+         each segment will be present in the order the segments were registered
+         in the source code.
+
+### <a name="AEN645"></a>3.3.4.3. Event built Data
+
+The body of PHYSICS_EVENT item produced by the event builder begins
+          with a 32-bit integer that specifies the total number of bytes in the
+          body. The number is inclusive and includes itself. The remainder of
+          the body consists of at least one fragment and will contain as many as
+          correlated together. Each fragment specifies its total size in bytes
+          so that the user can determine how many fragment are present merely by
+          traversing the body and keeping tabs on how many bytes have been
+          traversed.
+
+## <a name="AEN648"></a>3.3.5. Event count items
+
+These items are of type PHYSICS_EVENT_COUNT and contain statistics
+        concerning how many ring items of type PHYSICS_EVENT have been produced.
+        They are useful for programs that sample the data stream and need to
+        know where they are in the stream.
+
+These have a predefined body layout:
+
+<a name="AEN652"></a>**Table 3-9. Predefined Physics Event Count Body Layout**
+
+| Description | Size (bytes) |
+| --- | --- |
+| Time offset | 4 |
+| Offset divisor | 4 |
+| Timestamp (Unix) | 4 |
+| Event count | 8 |
+
+In more detail, these elements are:
+
+
+
+Time offsetThe number of seconds int the active run when the ring item was
+              created.
+
+Offset divisorNumber intended to deal with the case that the time offset is not
+              an integer.
+
+Timestamp (Unix)Is the absolute time of the end of the scaler counting period.
+              This is represented in seconds since the Unix epoch of
+              00:00:00 UTC, January 1, 1970.  Once translated
+              into the host's byte order, it can be passed to any of the time
+              formatting functions (e.g. `asctime`).
+
+Event countTotal number of event that have been contributed to this ring for
+              this run.
+
+## <a name="AEN692"></a>3.3.6. Data format
+
+Data format items always provide two pieces of information. The major
+        version and the minor version of NSCLDAQ that was used to produce the
+        data in the stream. This is intended to label the format of the data and
+        is the very first ring item produced by any Readout program. It is
+        useful to understand that the data format item will NEVER have a body
+        header. The predefined body layout is:
+
+<a name="AEN695"></a>**Table 3-10. Predefined Data Format Body Layout**
+
+| Description | Size (bytes) |
+| --- | --- |
+| Major version | 2 |
+| Minor version | 2 |
+
+## <a name="AEN709"></a>3.3.7. Event Builder Fragment
+
+Event builder fragments are ring items of type EVB_FRAGMENT and
+        EVB_UNKNOWN_PAYLOAD. The structure of these is identical and the
+        differences are only semantic. It is important not to confuse these with the
+        fragments that stuff the body of event built physics items. Those
+        fragments are not ring items. You can consider these the equivalent
+        entities promoted to ring item status. In fact, the same basic
+        information is present between the two. The information that lives in
+        the fragment header (timestamp, source id, and barrier type) is found
+        in the body header. The body header is mandatory in these and must
+        always be present. Furthermore, the body of a these ring items is left
+        undefined. In this way, the format is the same as a PHYSICS_EVENT item
+        except that the body header is mandatory. The body of an EVB_FRAGMENT
+        is expected to be a complete ring item, whereas, the body of an
+        EVB_UNKNOWN_PAYLOAD is completely undefined.
+
+## <a name="AEN712"></a>3.3.8. Event Builder Parameter
+
+The event builder in 11.0 produces a data item that indicates to the
+        user what sort of operating parameters it was using. Those data items
+        have a type of EVB_GLOM_INFO. They are useful for
+        understanding the built event data independently from a note jotted into
+        a logbook somewhere (or not jotted down anywhere). There is NEVER a body
+        header on these as they are purely informational and have no association
+        with a physical event. The predefined body layout is as follows:
+
+<a name="AEN715"></a>**Table 3-11. Predefined Glom Information Body Layout**
+
+| Description | Size (bytes) |
+| --- | --- |
+| Coincident ticks | 8 |
+| Is Building? | 2 |
+| Timestamp policy | 2 |
+
+The elements in this are explained in more detail:
+
+
+
+Coincident ticksSpecifies the correlation parameter in units of clock ticks. Note
+              that this provides no information about what the true time this
+              corresponds to is. That information is left to the experimenter.
+
+Is Building?A boolean value that indicates whether the event builder's
+              correlation stage (a.k.a. glom) is output correlated data.
+
+Timestamp policyIt is possible that multiple stages of event building will occur
+              during an experiment. In that scenario, the built data from one
+              event builder will be correlated to other data. The built data
+              must therefore be labeled with a timestamp of its own. The policy
+              determines whether the event timestamp is labeled with the
+              earliest, average, or latest timestamp of the fragments in that
+              correlated together.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The Body Header | Up | VMUSBReadout |

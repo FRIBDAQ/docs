@@ -1,0 +1,79 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Guide. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN13"></a>Chapter 1. Introduction
+
+This book is intended to cover several topics people programming
+        within the SpecTcl histogramming framework might need.  The intended audience
+        are those who might be tailoring SpecTcl to analyze the data from a
+        specific experiment from the NSCLDAQ as well as those who may want to
+        go further.  This guide is intended to be used in conjunction with the
+        programming reference manual which provides detailed class reference
+        information for the key classes.
+
+Topics we are going to consider in this manual include:
+
+
+
+[[c68]]Which covers the processing model used by SpecTcl.  This will
+                    be covered in a bit greater detail than in the user guide.
+                    Understanding this model, and where to attach your code
+                    to it can be important to following the path of least resistance
+                    in accomplishing your programming goals.
+
+[[c89]]The event processing pipeline is the set of objects that
+                    transform raw events into parameters that SpecTcl processes.
+                    We'll take a look at this and describe how to write event
+                    process pipeline elements as well as how to prepare SpecTcl
+                    to anlyze filtered data.  Along the way the SpecTclAPI object
+                    will be introduced.  It provides stable interfaces to several
+                    important subsystems of SpecTcl
+
+[[c1534]]The event sink pipeline takes over where the event
+                    processing pipeline leaves off.  It performs all processing
+                    on the unpacked event.  The built in processing includes
+                    Histograming and processing any filters that are active.
+                    You can, however, hook your own code to the event sink
+                    pipeline.
+
+[[c1617]]SpecTcl uses the Tcl scripting language as its base command
+                    language.  There are cases where adding a compiled command
+                    to SpecTcl is useful.  This chapter introduces the
+                    Tcl++ C++ wrapping of the Tcl interpreter and how to use
+                    it to add commands and interface with other interpreter
+                    elements.
+
+[[c1831]]The SpecTcl **sread** and **swrite**
+                    commands write spectra to file.  They have a
+                    `-format` option that determines the format
+                    in which spectra are written.    This chapter describes
+                    how to add spectrum formats to the **swrite**
+                    and **sread** commands.
+
+[[c2075]]The format of files written by SpecTcl filters is extensible.
+                    In this chapter we'll show how to extend the set of formats
+                    available.
+
+[[c2377]]The SpecTcl fitting subsystem allows you to add additional
+                    fit types.  In this chapter we'll show how to add a new
+                    fit-type to SpecTcl.
+
+[[c2819]]SpecTcl is data acquisition system neutral.  This chapter
+                    will explore how this is managed and describe how to extend
+                    SpecTcl so that it can handle data from another data acquisition
+                    system.
+
+[[c4354]]Describes new features for SpecTcl 5.1 which allow you to
+                    dynamically alter the event processing pipeline.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| SpecTcl Programming Guide. |  | The SpecTcl processing model. |

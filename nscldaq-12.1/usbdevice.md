@@ -1,0 +1,361 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN36114"></a>USBDevice
+
+<a name="AEN36118"></a>## Name
+
+USBDevice -- I/O object for a USB device
+
+<a name="AEN36121"></a>## Synopsis
+
+```
+         g++ yourstuff -L$DAQLIB -Wl-rpath=$DAQLIB -llibUSB1 \
+   `pkg-config libusb-1.0 --libs` `pkg-config libusb-1.0 --cflags`         
+      
+```
+
+```
+
+#include <USBDevice.h>
+
+class USBDevice
+{
+public:
+    USBDevice(libusb_device_handle* pHandle);
+    virtual ~USBDevice();            // Closes.
+    
+public:    
+    libusb_device_handle* getHandle();
+    void claim(int interface);
+    void release(int interface);
+    std::string getSerial();
+    
+    int getConfig();
+    void setConfig(int config);
+    
+    void clearHalt(unsigned char endpoint);
+    void reset();
+    
+    int controlTransfer(
+        uint8_t reqType, uint8_t request, uint16_t wValue, uint16_t windex,
+        unsigned char* pData, uint16_t wLength, unsigned int msTimeout
+    );
+    int bulkTransfer(
+        unsigned char endpoint, unsigned char* pData, int dLength,
+        int& transferred, unsigned msTimeout
+    );
+    int interrupt(
+        unsigned char endpoint, unsigned char* pData, int dLength,
+        int& transferred, unsigned int msTimeout
+    );
+    
+
+};
+
+      
+```
+
+<a name="AEN36124"></a>## DESCRIPTION
+
+This class encapsulates a connection to a USB device.
+            connections allow you to query the device for information
+            it stores locally (for example the serial string).
+            You can also perform I/O to or from a device through
+            this object.
+
+Normally you obtain a pointer to a
+            `USBDevice` object by
+            selecting an appropriate `USBDeviceInfo`
+            object from the enumeration produced by a
+            `USB` object. To close the
+            device, simply destroy the object.  If you
+            are working with code that directly uses
+            libusb-1.0, you can also construct a
+            `USBDevice` from a
+            libusb_device_handle pointer.
+
+The structure of a USB device can be potentially
+            complex.  Fortunately it normally isn't but it's
+            necessary to understand the structure of a worst
+            case device to know how to use the simplest devices.
+
+USB devices have a hierarchy of internal objects.
+            At the top level of the device is a
+            *configuration*.  To perform
+            I/O on a device you must have selected which configuration
+            you intend to use. The normal purpose of configurations
+            is to distinguish between low and high power modes
+            of the device.
+
+Within a configuration there can be one or more
+            *interfaces*.  Each inteface
+            performs a logical set of operations.  For example,
+            in a human interface devices like a wireless keyboard/mouse
+            combination, you might have one interface that represents
+            the keyboard and a second that represents the mouse.
+
+Each interface then has at least one endpoint.  Endpoints
+            are unidirectional things to which data can be sent
+            or received.  By unidirectional I mean that data
+            can be either written or read to or from a single
+            endpoint but not both.  The top bit in an endpoint
+            number is set for readonly devices and clear for
+            write-only devices.  It is therefore common for
+            there to be at least two end points for an interface.
+            One to which data are written and another from which they are
+            read.
+
+I/O must specify the full path through this hierarchy.
+            This is done by:
+
+
+
+1. Selecting a configuration with
+                     `setConfig`
+2. Claiming an interface within the configuration
+                     with `claim`. Claiming
+                     an interface provides exclusive access to that
+                     interface.  If you attempt to claim an interface
+                     that is already claimed, an error will be thrown.
+3. Each transfer operation then specifies either
+                     explicitly or implicitly (in the case of
+                     control transfers) the endpoint to which
+                     or from which it operates.  As stated previously,
+                     the end point number implies the transfer direction.
+
+Three types of USB I/O are suported:
+
+
+
+- Control transfers which are intended for
+                    endpoint/device configuration.
+- Bulk transfers, which are intended for sequential
+                    data transfer.
+- interrupt transfers which is a transfer that's
+                    scheduled to happen at regular intervals and
+                    have minimal latency.
+
+libusb-1.0 supports synchronous data transfers, where the
+            application blocks until the transfer either completes or
+            times out, and asynchronous transfers, where the transfer
+            is scheduled and the application in informed by
+            a function callback (in an indeterminate thread)
+            when the operation finally completes.
+
+The libUSB1 library does not expose the asynchronous
+            transfer capabilities of the library directly.
+
+<a name="AEN36158"></a>## METHODS
+
+
+
+`  USBDevice(libusb_device_handle*  pHandle);`Unless you are mixing calls to libUSB1 with
+                  direct libusb-1.0 calls, you normally don't
+                  directly construct a
+                  `USBDevice` object. Instead,
+                  the `open` method for a
+                  `USBDeviceInfo` object
+                  returns a pointer to one that it dynamically
+                  constructs.
+
+The parameter, `pHandle`
+                  is a libusb_device_handle pointer that would have
+                  been returned from
+                  e.g. libusb_open.
+
+If you explicitly construct this, note that
+                  destruction will invoke libusb_close on the
+                  handle passed to he constructor.
+
+` libusb_device_handle*  getHandle();`Returns the device handle wrapped by this
+                  `USBDevice` object.
+                  Note that if you need to use this, it might be
+                  better to request additional methods be added
+                  to this class.
+
+` void  claim(int  interface);`Claims the requested interface within the
+                  currently selected configuration.
+                  If another library stream has already claimed this
+                  interface, a `USBException`
+                  will be thrown.
+
+` void  release(int  interface);`Releases a claimed interface. Normally, this is
+                  done to claim a different interface within the
+                  configuration or to select a different configuration
+                  altogether.  Note that destruction
+                  of the object implies releasing interface
+                  claims.
+
+` std::string  getSerial();`Returns the serial number string from the device.
+                  The serial number string is supposed to uniquely identify
+                  the physical device within a manufacturerer/model
+                  pair.  Note this is  a string not a number.  For example,
+                  the form of a VMUSB serial number is
+                  VM%03d  where %03d is a
+                  zero filled three digit number.
+
+` int  getConfig();`Get the current configuration number.
+                  Recall that a configuration is a collection of
+                  interfaces, each interface is a collection'
+                  of endpoints dedicated to a specific device
+                  purpose.
+
+` void  setConfig(int  config);`Selects the configuration to be manipulated by
+                  this object. Note that the normal order of things
+                  is to select a configuration, claim  an interface
+                  in the configuration, and finally do transfers
+                  to endpoints in the claimed interface.
+
+` void  clearHalt(unsigned char  endpoint);`Clears any halt condition present in the endpoint
+                  described by `endpoint`.
+                  Note that the configuration must have been selecteda
+                  and an interface claimed to unambiguously
+                  select an endpoint.
+
+` void  reset();`Performs a hard reset on the entire device.
+                  This reset normally causes the device to be renumerated
+                  which, in turn invalidates this object. What you normally
+                  need to do is perform the reset, destroy the object,
+                  re-locate the device via enumeration, vendor/product
+                  matching and, if necessary serial number matching,
+                  and finally, open/use an `USBDevice`
+                  object.
+
+` int controlTransfer(uint8_t  reqType, uint8_t  request, uint16_t  wValue, uint16_t  windex, unsigned char*  pData, uint16_t  wLength, unsigned int  msTimeout);`Control transfers always are sent/received from
+                  endpoint 0x00/0x80.  Control transfers consist of
+                  a setup packet which is then followed by data,
+                  either in or out relative to the host. The
+                  request type in the setup packet has bits that
+                  determine the direction of data transfer. Examples
+                  of data transfer and direction might be setting or
+                  getting the 'speed' of a mouse like device.
+                  For more about control transfers, see e.g.
+                  [https://www.beyondlogic.org/usbnutshell/usb4.shtml](https://www.beyondlogic.org/usbnutshell/usb4.shtml)
+
+The setup packet in a control transfer is
+                  determined by the three  parameters,
+                  `reqType`, which specifies
+                  the request type, `request`
+                  which specifies the request field of the
+                  setup packet, `wValue`
+                  which specifies the value field of the setup packet
+                  and finally, `windex`
+                  which specifies the setup packet's index field.
+
+The data transfer direction is determined by the
+                  direction bits in `reqType`.
+                  `pData`
+                  points to a buffer from/to which data are transferrd.
+                  `wLength` is the number
+                  of bytes to transfer (out) or the size of the
+                  buffer (in) in to which data can be transferred.
+                  Finally `msTimeout` is the
+                  maximum number of milliseconds the operation
+                  will block before a timeout is declared.
+
+The return value is the number of bytes actually
+                  transferred in the data part of the transfer
+                  or, if negative, LIBUSB_ERROR_TIMEOUT
+                  if the transfer timed out.  Other error conditions
+                  are signalled by throwing a
+                  `USBException` object.
+
+` int  bulkTransfer(unsigned char  endpoint, unsigned char*  pData, int  dLength, int&  transferred, unsigned  msTimeout);`Performs a bulk data transfer.  This is the
+                  main mechanism used to transfer data to/from
+                  a device.  THe size of a bulk transfer is
+                  limited (other than by memory and the number
+                  of bits of size field).   If necessary,
+                  bulk transfer requests are broken down int
+                  more than one USB packet.
+                  See [https://www.beyondlogic.org/usbnutshell/usb4.shtml](https://www.beyondlogic.org/usbnutshell/usb4.shtml)
+                  for more about bulk transfers.
+
+The direction of a bulk transfer is determined by
+                  by the top bit of the `endpoint`
+                  parameter (which specifies the endpoint to/from
+                  which the transfer occurs).  If the top bit
+                  is set (endpoints 0x80 - 0xff), the operation is
+                  a read.  If clear (endpoints 0x00-0x7f), the
+                  operation is a write.
+
+The transfer is specified by
+                  `pData`, which contains
+                  data to write or will receive data read,
+                  `dLength` which is either
+                  the lengt of the write to attempt, or the number
+                  of bytes of available data in `pData`
+                  for read operations, `transferred`,
+                  receives the actual number of bytes transferred.
+
+`msTimeout` determines the
+                  maximum number of milliseconds `bulkTransfer`
+                  will block waiting for the transfer to complete.
+                  Note that partial transfers are possible and must
+                  be detected, in the case of a timeout be
+                  checking the number of bytes transferred against
+                  the desired number of bytes.
+
+The return value is either 0, indicating a success
+                  or LIBUSB_ERROR_TIMEOUT if
+                  the timeout was signalled. All other errors are
+                  signalled by throwing a `USBException`
+                  object.
+
+` int  interrupt(unsigned char endpoint, unsigned char*  pData, int dLength, int&  transferred, unsigned int  msTimeout);`Interrupt transfers are queued by the device
+                  or the host to be later picked up via polling.
+                  For interrupt data sent to the device, the
+                  transfer is retried at the appropriate polling
+                  interval (specified by the endpoint's descriptor)
+                  if the device has no free buffer space.
+                  For interrupt data from the device; the device
+                  holds this data until the host issues an interrupt
+                  read request.  This is done via the
+                  `interrupt` method.
+
+`endpoint` specifies the
+                  endpoint which, as you might recall, in turn,
+                  specifies the transfer direction.
+                  Data transferred are specified by
+                  `pData`, which either
+                  contains the data to write or space to receive
+                  interrupt data from the device,
+                  `dLength` specifies the
+                  buffer size (number of bytes to write or bytes
+                  available to receive read data). Finally,
+                  `transferred` receives the
+                  number of bytes atually transferred and
+                  `msTimeout` specifies the
+                  number of milliseconds to block before
+                  timingout.
+
+A word about timeouts.  The timeout on a read
+                  interrupt operation should be relatively short.
+                  It's quite possible the device has no interrupt
+                  data and a long timeout will decrease overall
+                  application latency. The timeout specified on the
+                  write, by contrast, should be rather long to allow
+                  the device to get around to having sufficient
+                  buffer space to accomodate the write.
+
+The return value is 0 on success, or,
+                  LIBUSB_ERROR_TIMEOUT if
+                   a timeout occured. If the operation timed out,
+                   it may be necessary to re-issue the request
+                   to complete the data transfer; check the value
+                   of `transferred`.
+                   All other errors are signalled via a
+                   `USBException`
+                   exception.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| USBDeviceInfo | Up | XXUSBUtil |

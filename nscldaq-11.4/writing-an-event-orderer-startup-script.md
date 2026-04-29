@@ -1,0 +1,133 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 66. Event orderer and its user interface | Next |
+
+
+---
+
+# <a name="AEN11391"></a>66.3. Writing an event orderer startup script
+
+This section provides skeletal information that should guide you
+            in writing your own event orderer startup script.  If you actually
+            decide to take that plunge you'll want to look at the reference
+            material in *1evb*.  You'll also want to look at
+            the next section which provides a broad brush overview of the
+            user interface elements provided with the software.
+
+The best way to get an feel for what you need to do is to look
+            at the standard startup script as of the time this document was written:
+
+<a name="AEN11396"></a>**Example 66-1. The standard startup script explained**
+
+```
+#!/bin/bash
+# Start Tclsh \                             
+exec tclsh8.5 ${0} ${@}
+
+
+lappend auto_path [file join /usr/opt/daq/10.2 TclLibs] 
+
+package require EventBuilder
+package require EVB::connectionList      
+package require EVB::GUI
+
+
+                                
+
+if {$argc > 0} {
+    EVB::Start [lindex $argv 0]
+} else {
+    EVB::Start
+}
+
+
+
+
+
+EVB::createGui .test
+pack .test                             
+
+EVB::maintainGUI .test                 
+
+            
+```
+
+[[x11391#orderstart_tclstart]]                    This is a standard Tcl trick to start up the Tcl interpreter.
+                    Note that the actual version of Tcl to start is determined
+                    by the NSCLDAQ installer and is normally the highest version
+                    installed in a 'standard location'.  This magic incantation
+                    gets around issues that can occur if Tcl is not enabled as a
+                    system shell.
+                If you have the Tcl documentation installed on your system
+                    do a **man tclsh** and read the section
+                    SCRIPT FILES.  Note that the example
+                    in that section is for the sh shell
+                    rather than bash and that acounts for
+                    the minor syntactical differences.
+
+[[x11391#orderstart_pkgpath]]                    The NSCLDAQ auto configuration/installer modifies this
+                    line as well.  The purpose of the line is to add the
+                    NSCLDAQ Tcl package library directory tree to the set
+                    of paths that are searched for packages by the
+                    **package require** command.
+                This is done because the event builder/event orderer
+                    software is basically a set of Tcl packages.
+
+[[x11391#orderstart_pkgloads]]                    This set of lines loads the packages that make up the
+                    event builder/orderer and its user interface:
+                
+
+EventBuilderProvides a set of procedures in the
+                                EVB:: namespace that
+                                support setting up and controlling the
+                                event builder/orderer.
+
+EVB::connectionListThis package provides code that implements
+                               a list of the clients connected to the server
+                               component of the event orderer.
+
+EVB::GUIThe user standard user interface components.
+
+[[x11391#orderstart_start]]                    Does everything needed to start the event orderer package.
+                    Note that the first command parameter, if present is passed
+                    as an optional parameter to the 
+                    **EVB::Start** as the name of the event
+                    builder. 
+                    Once started you have a pair of choices:
+                
+
+- Enter the event loop via a **vwait**
+                              command.  The event builder is event driven and
+                              entering the event loop ensures events a delivered
+                              to the correct components.
+- Load Tk directly or indirectly
+                              as that installs an event loop in the application.
+
+[[x11391#orderstart_makegui]]                    The command EVB::createGui .test creates
+                    the event orderer's default user interface/monitoring
+                    interface.  .test is the name of the
+                    uppermost window of the user interface.  If you are doing
+                    a custom script, you could incorporate this in with your
+                    user interface by e.g. creating a frame and specifying the
+                    name of a window that would live inside of the frame.
+                The **pack** command makes the standard user
+                    interface visible inside its parent window (in this case the
+                    initial top level window .).
+
+[[x11391#orderstart_maintain]]                    Starts an **after** rescheduling procedure
+                    that fetches statistics from the orderer and updates
+                    the appropriate chunks of the user interface.
+
+In general the part that is mutable is going to be what, if any
+            hooks you make use of after starting the event orderer and
+            how you handle the user interface an its maintenance.
+            Refer to the reference section for more information about the
+            hooks that area available and how to make use of them.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Using the standard event orderer startup script | Up | Event orderer packages |

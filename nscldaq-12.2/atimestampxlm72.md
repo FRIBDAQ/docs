@@ -1,0 +1,37 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN105164"></a>ATimeStampXLM72
+
+<a name="AEN105168"></a>## Name
+
+ATimeStampXLM72 -- Use XLM72 with timestamp firmware
+
+<a name="AEN105171"></a>## Synopsis
+
+```
+package require ATimeStampXLM72
+ATimeStampXLM72 dev-name
+dev-name configure -base vme-base-address
+
+addtcldriver stack-name -ensemble dev-name
+        
+```
+
+<a name="AEN105178"></a>## DESCRIPTION
+
+This Tcl driver reads two words of timestamp data for each event.
+            The only configuration option it accepts is `-base` which
+            sets the base address of the module.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| APpacXLM72 | Up | sis3300 |

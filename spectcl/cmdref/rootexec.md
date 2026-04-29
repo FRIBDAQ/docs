@@ -1,0 +1,60 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Command Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ref.rootexec"></a>rootexec
+
+<a name="AEN3101"></a>## Name
+
+rootexec (experimental 5.0) -- Execute a root macro file.
+
+<a name="AEN3104"></a>## Synopsis
+
+**rootexec *filename*
+**
+
+<a name="AEN3108"></a>## DESCRIPTION
+
+SpecTcl 5.0 introduces an experimental integration with CERN's Root
+            data analysis framework.  This command passes the
+            *filename* parameter to the root interpreter
+            for execution.
+
+This command is only supported if the rootinterface
+            package is loaded in to SpecTcl.  This can be done by
+            adding the following lines to your
+            SpecTclRC.tcl script
+
+<a name="AEN3115"></a>```
+load $SpecTclHome/lib/libRootInterface.so
+package require rootinterface
+            
+```
+
+<a name="AEN3117"></a>## EXAMPLE
+
+Suppose we have a file named Browser.C that contains the C++ code:
+
+<a name="AEN3120"></a>```
+void Browser() {
+    new TBrowser;
+}
+            
+```
+
+The command
+            **rootexec Browser.C** will bring up a Root Browser
+            window.  Note that all SpecTcl spectra now are histogrammed using
+            Root histogram objects and will appear in the
+            root/ROOT memory folder of the browser.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| start | Up | roottree |

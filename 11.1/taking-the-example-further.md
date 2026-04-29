@@ -1,0 +1,45 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 10. Simple V775 readout | Next |
+
+
+---
+
+# <a name="AEN6158"></a>10.6. Taking the example further.
+
+There are several directions in which you can take this example further:
+
+
+
+- If you have a set of CAEN 32 bit digitizers (V785, V775,
+                      V792, V862)
+                      modules you can modify the Readout and SpecTcl to read
+                      all of them.  In that case you can use an external
+                      trigger module such as the CAEN V262 or CAEN V977,
+                      or install a cable across the ECL control bus and
+                      use the global data ready of one of the modules for
+                      a trigger.
+  When the ECL control bus is bussed in this way,
+                      each module's global data ready is the OR
+                      of the data ready of the modules.
+- You can setup a busy circuit to block triggers
+                      when one or more modules is busy.  In the
+                      existing, single module setup, the TDC can be
+                      used in multi-event mode.  With multiple modules,
+                      you'll either need to know how to build events
+                      from the trigger numbers in the trailers of the
+                      individual modules, write a timestamp extractor
+                      for the event builder that turns the readout into
+                      an event source per module or set up an
+                      external busy system that latches on the gate
+                      and is reset by the computer when readout is
+                      complete (effectively turning off the multi
+                      event buffers for the modules).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Running the system. | Up | The full readout program. |

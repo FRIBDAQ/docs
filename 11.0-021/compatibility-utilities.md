@@ -1,0 +1,92 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="compatibilty"></a>Chapter 30. Compatibility utilities
+
+The event format of the ring buffer data acquisition system is fundamentally
+        different from that of earlier NSCL data acquisition systems.  In order
+        to ease the transition to the ring buffer system, several utilities'
+        are provided that allow user software written for use with spectrodaq
+        to operate unmodified.
+
+The key utitity is compatibilitybuffer.
+        This is a unix filter.  compatibilitybuffer
+        accepts a stream of ring items on its standard input and produces
+        a stream of spectrodaq style nscl data buffers on its output.
+        A trivial application of this program allows you to convert a ring
+        event file to a spectrodaq event file as shown below:
+
+<a name="compatibilitybuffer-ex1"></a>**Example 30-1. Converting a ring buffer event file with compatibilitybuffer**
+
+```
+$DAQROOT/bin/compatibilitybuffer <run-1234-00.evt >run-1234-4096.evt
+        
+```
+
+Other utilities and pipeline creating scripts allow you to directly
+        write spectrodaq style event files when running your experiment,
+        as well providing an SpecTcl pipeline data source that accepts ring items
+        and provides spectrodaq style buffers to SpecTcl.
+
+This section provides a brief tour of the compatibility utilities.
+        See the 1compatibility reference section for
+        detailed descriptions of each utility.
+
+# <a name="AEN7377"></a>30.1. Format conversion with compatibilitybuffer
+
+Compatibility utilities were build with a toolkit approach in mind.
+            This allows you to build unix pipelines that compose these utilities
+            to easily build actual applications.
+
+The core tool in the compatibility toolbox is compatibilitybuffer
+            which takes a stream of ring buffer items and transforms it into a
+            string of spectrodaq style data buffers.  You can specify the size of
+            the output buffer using the `--buffersize` option.
+            For example if, in the example
+            [[c7364#compatibilitybuffer-ex1]],
+            we wanted to write data with a 16384 byte buffersize we would instead write:
+
+<a name="AEN7385"></a>**Example 30-2. Converting ring buffer data to a 8Kword (16Kbyte) old style event file**
+
+```
+$DAQROOT/bin/compatibilitybuffer --buffersize=16384 <run-1234-00.evt >run-1234-4096.evt 
+            
+```
+
+There is not a perfecdt match between ring buffer data and
+            spectrodq buffered data. This is because:
+
+
+
+1. Sizes in ring buffer items are always 32 bits wide while buffer
+                   sizes and event lengths in the spectrodaq buffered data are only
+                   16 bits wide.
+2. Sampled clients in ring buffer data count event triggers and
+                   can determine the sampling fraction by looking at the ratio of
+                   triggers seen to triggers emitted as documented by the
+                   PHYSICS_EVENT_COUNT ring items it sees.
+                   In spectrodaq bufffered data, each buffer has a sequence number
+                   and the sampled fraction is approximated by counting event buffers
+                   and taking the ratio of the event buffers seen to the last
+                   sequence number seen.
+
+Due to these differences; PHYSICS_EVENT items must
+            be shorter than 64Kwords of data.  Similarly you cannot choose
+            a `--buffersize` larger than 131070.
+
+Sequence numbers are computed from the sampling fraction seen by
+            compatibilitybuffer.  If not all events are
+            seen, you will see sequence number skips that will allow consumers
+            of the output data to approximate the sampling fraction.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Theringselectorapplication | Up | Writing event files withcompatibilitylogger |

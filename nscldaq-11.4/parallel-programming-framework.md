@@ -1,0 +1,154 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN10958"></a>Chapter 61. Parallel programming framework
+
+There are many types of parallel programming.  One classic model
+        for parallel programming is that of
+        *Communicating Sequential Processes* (CSP).
+        CSP models a parallel program as a set of sequential, or serial programs
+        that talk to each other.
+
+Within CSP two main models exist;
+
+
+
+- Threaded - when parallelism is confined to a single
+                      shared memory multi-core system, where all communication
+                      is internal to that system.
+- Distributed - when the application is spread out over some
+                      networked set of nodes.  Normally these nodes are
+                      interconnected via a high performance low latency
+                      *network fabric*.
+  Linux, Beowulf clusters are a pretty popular platform
+                      on which to build distributed parallel programs.
+
+
+NSCLDAQ provides a high level library that insulates your program
+        from the detailed mechanisms of specific message passing libraries.
+        Programs written that only communicate via message passing can be
+        easily rehosted from a threaded implementation to a distributed
+        implementation, changing only initialization code.
+
+In this chapter we'll describe:
+
+
+
+- The concepts and classes behind the library.
+- The implementation state of the library including the set of
+                  communication systems that are implemented by the library at this
+                  time and a roadmap describing planned future developments.
+                  Pointers will be given to man page starting points for each
+                  implemented communication scheme.
+- How to compile and link programs using this library.
+- Describe a program that uses the library,
+                  Transformer that allows you
+                  to append arbitrary data to fragments of data from an event
+                  builder.
+- Describe two other programs that provide powerful
+                  abilities to edit event data.
+
+# <a name="AEN10984"></a>61.1. Concepts and classes
+
+Parallel programs build on top of this library consists of
+            objects that communicate via messagse passing.  To limit the
+            amount of data copying required, messages can, not only be
+            a single block of data but can be a block list that's gathered
+            by the library into a single message.
+
+The assumption is that a program consists of some source of data
+            and that processing these data involve parcelling out work units
+            to parallel processing objects. which then fan their
+            results back in to processing objects that gather the  data.
+
+Thus the programming model has you stringing together a
+            pipeline (each element of the pipeline runs in parallel) where
+            stages of those pipelines may include stages that run multiple
+            processors that operate in parallel on data streaming through the
+            pipeline.
+
+The following classes, therefore, model several types of
+            processing elements that can appear in these data/processing flows:
+
+
+
+`CDataSourceElement`These elements are intended to connect the
+                        program to concrete sources of data.  In NSCLDAQ
+                        these sources can be ring items, files or some
+                        other communicating processor (internal or external).
+
+These elements are normally at the start of the
+                        processing pipeline.
+
+`CDataSinkElement`These elements are intended to connect the program
+                        to some concrete sink of data.  In NSCLDAQ, sinks can
+                        be ring buffers, files or other communicating processors.
+
+`CParallelWorker`A generic parallel worker.  This is normally used
+                        to encapsulate code that runs in the data parallel
+                        segments of the computation.  Normally this
+                        encapsulation
+
+From these classes you can see that the computation normally takes
+            the form of a pipeline where data comes from a
+            `CDataSourceElement` runs through
+            several `CParallelWorker` elements
+            and then in the end data is emitted from the program via
+            a `CDataSinkElement`
+
+Having these classes is all well and good, but how do they communicate
+            with each other?  Following the pipeline model, each element
+            of the computation gets its data from
+            a `CReceiver` and sends the results of its
+            computation to the next stage of the pipeline
+            via a `CSender`.
+
+`CReceiver` and
+            `CSender` objects encapsulate another
+            class derived from
+            `CTransport`.  Transport classes are
+            actual do the messaging required by the receiver and sender objects.
+            In doing so, the contain code specific to the type communication
+            library being used (e.g. MPI or ZeroMQ), and they also encapsulate
+            a specific communication pattern.
+
+Some base classes for transports are:
+
+
+
+`CTransport`The abstract base class for all transports.  This class
+                        provides the interfaces used by sender and receiver
+                        objects to request actual communication.
+
+`CFanoutTransport`Abstract base class for transports that fan-out work items
+                        to data parallel sections of the program.  In addition
+                        to the data transfer interfaces, this class
+                        provides interfaces to inform the members of the
+                        fanout that there is no more data available.
+
+`CFanoutClientTransport`Abstract base class for transports that
+                        get data from a fanout transport.  The model provided
+                        requires that each client provide a unique integer
+                        client identifier.  This class encapsulates interfaces
+                        for both setting the id and communicating the id to the
+                        other end of the transport.
+
+Thuse the computation can be made up of processing elements that
+            get and send data without actually knowing how that's done.  Program
+            initialization can select actual transports and bind them into
+            processing elements.  If necessary, program initialization can also
+            allocate processors to computing resources.
+            This allows a computation to be rehosted without the actual
+            computing elements being aware of the process.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Exception classes | Up | Transport implementations |

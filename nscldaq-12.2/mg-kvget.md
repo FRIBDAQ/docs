@@ -1,0 +1,55 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq1.mg_kvget"></a>mg_kvget
+
+<a name="AEN21001"></a>## Name
+
+mg_kvget -- Get the value of a manager KV store key.
+
+<a name="AEN21004"></a>## Synopsis
+
+**$DAQBIN/mg_kvget *host user key*
+**
+
+<a name="AEN21008"></a>## DESCRIPTION
+
+The manager key value store is a set of definable keys and associated
+            values.  **mg_kvget** returns the value of a
+            specific key by interacting with a manager server.  Some keys
+            (e.g. title) have specific meaning.  If it helps
+            your experiment, however, you are welcome to define your own keys
+            and use either this or the REST API to obtain the values of those
+            keys at run-time.
+
+The *host* and *user*
+            parameters select the server by host and the user that started it
+            while *key* selects the key to obtain.
+
+On success, the value of the key is output to stdout
+
+<a name="AEN21019"></a>## EXAMPLES
+
+The exmample below outputs the value of the title key from the server
+        running in daqcompute1 by the user fox
+        when the value of that key is Some new title.
+
+<a name="AEN21025"></a>**Example 1. Getting the Title Key From the KVSTORE**
+
+```
+$DAQBIN/mg_kvget daqcompute1 fox title
+Some new title
+        
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| mg_shutdown | Up | mg_container_wizard |

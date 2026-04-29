@@ -1,0 +1,31 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Python package |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN130"></a>listspectra
+
+<a name="AEN134"></a>## Name
+
+listspectra -- Create a list of defined spectrum names.
+
+<a name="AEN137"></a>## Synopsis
+
+**spectcl.listspectra()
+                        **
+
+<a name="AEN140"></a>## DESCRIPTION
+
+This method creates a tuple that contains the list of
+                        all defined spectra.  If no spectra are defined, the
+                        method returns an empty tuple.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| listparams | Up | listvars |

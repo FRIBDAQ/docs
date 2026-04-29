@@ -1,0 +1,84 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl REST plugin |
+| Prev | Chapter 3. REST requests supported. | Next |
+
+
+---
+
+# <a name="AEN779"></a>3.9. Attaching data sources (New in 5.5)
+
+The SpecTcl **attach** command can be
+                accessed using the /spectcl/attach URL
+                domain.
+
+<a name="AEN784"></a>**http://host:port/spectcl/attach/attach?type=srctype&source=src[&size=bsize&format=fmt]
+                **
+
+Attaches a new data source to SpecTcl.  Query parameters are:
+
+
+
+typeThe type of data source. Currently this is
+                        one of file to read data from a
+                        file or pipe to read data from a
+                        program on the other end of a pipe.
+
+sourceThe source string expected by the
+                        **attach** command for the specified
+                        source type.  For file data sources,
+                        this is just the path to the file to read. Note that
+                        since SpecTcl's directory is not known it's recommended
+                        the full path be provided.  For pipe
+                        data sources this is the full command string.
+
+sizeOptional query parameter that, if supplied, sets the
+                        blocking factor for reads from the data source.
+                        This defaults to 8192
+
+formatOptional query parameter that, if supplied, sets
+                        the data format.  Acceptable values are:
+
+
+
+ringThe data are ring items, see, however
+                                the /spectcl/ringformat
+                                domain to select the version of ring items.
+                                This is the default value
+
+nsclData are fixed length
+                                8192 byte buffers from NSCLDAQ
+                                before version 10.0
+
+jumboData are fixed length buffers longer than
+                                128K bytes from NSCLDAQ prior to version 10.0.
+                                This was used for some MoNA experiments
+                                that took trace data and therefore needed
+                                longer buffers.  The difference is an extension
+                                to the 16 bit used blocksize (in 16 bit words) that
+                                supports these sizes.
+
+filterThe data are XDR filter data. Note that
+                                SpecTcl must have been configured to
+                                analyze filter data.
+
+Note that attaching does not imply starting data analysis.
+                That requires using the /spectcl/start
+                request.
+
+<a name="AEN840"></a>** http://host:port/spectcl/attach/list                   
+                **
+
+The detail part of the JSON returned
+                is the of the form SourceType: string
+                where SourceType: is either File
+                or Pipe and the string is the data source string,
+                that is the filename for File: and the
+                command on the other end of the Pipe:.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Gate Applications. | Up | Binding Spectra to Display Memory (new in 5.5) |

@@ -1,0 +1,188 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCLDAQ Unified Format Library |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN9103"></a>CRingTextItem (V12)
+
+<a name="AEN9107"></a>## Name
+
+CRingTextItem (V12) -- Encapsulate text list ring items.
+
+<a name="AEN9110"></a>## Synopsis
+
+```
+     #include <v12/CRingTextItem.h>
+     
+     
+     
+     namespace v12 {
+     
+     class CRingTextItem : public ::CRingTextItem
+     {
+     
+     public:
+       // Constructors and other canonicals:
+     
+       CRingTextItem(uint16_t type, size_t maxsize);
+       CRingTextItem(uint16_t type,
+             std::vector<std::string> theStrings);
+       CRingTextItem(uint16_t type,
+             std::vector<std::string> theStrings,
+             uint32_t                 offsetTime,
+             time_t                   timestamp, uint32_t divisor=1) ;
+       CRingTextItem(
+         uint16_t type, uint64_t eventTimestamp, uint32_t source, uint32_t barrier,
+         std::vector<std::string> theStrings, uint32_t offsetTime, time_t timestamp,
+         int offsetDivisor = 1
+       );
+       
+       virtual std::vector<std::string>  getStrings() const;
+     
+       virtual void     setTimeOffset(uint32_t offset);
+       virtual uint32_t getTimeOffset() const;
+       virtual float    computeElapsedTime() const;
+       virtual uint32_t getTimeDivisor() const;
+     
+       virtual void     setTimestamp(time_t stamp);
+       virtual time_t   getTimestamp() const;
+       virtual uint32_t getOriginalSourceId() const;
+       
+       virtual std::string typeName() const;
+       virtual std::string toString() const;
+       
+       virtual size_t getBodySize()    const;
+       virtual const void*  getBodyPointer() const;
+       virtual void* getBodyPointer();
+       virtual bool hasBodyHeader() const;
+       virtual void* getBodyHeader() const;
+       virtual void setBodyHeader(
+             uint64_t timestamp, uint32_t sid, uint32_t barrierType= 0
+       );
+       
+       uint64_t getEventTimestamp() const;
+       uint32_t getSourceId() const;
+       uint32_t getBarrierType() const;
+     
+     
+     };
+     
+     } 
+     
+                 
+```
+
+<a name="AEN9112"></a>## DESCRIPTION
+
+Some ring item types contain a collection of text strings.
+                        These are items of type
+                        v12::PACKET_TYPES
+                        and v12::MONITORED_VARIABLES.
+                        The strings are stored as a counted list of null terminated
+                        character string.  The encoding of these strings is application
+                        dependent.  Note, however that the
+                        >v12::MONITORED_VARIABLES produced by
+                        existing readout frameworks encod the strings in
+                        UTF-8.
+
+Beginning with v12, these ring items also have gained
+                         an original source id field.  This allows the generator
+                         of the data to be determined in spite of the fact
+                         that the body header is overwritten by the event builder.
+
+<a name="AEN9119"></a>## METHODS
+
+
+
+`  CRingTextItem(uint16_t  type, size_t  maxsize);`Constructor.  `type` is the item
+                                 type and `maxsize` sets a
+                                 limit on the ring item size.  Note that if you
+                                 already know the set of strings to put in the item,
+                                 it's better to use a constructor that takes them
+                                  as a parameter as then the actual maximum size
+                                  can be computed.
+
+The string count for the item is initialized to zero.
+                                 The run offset is also initialized to zero as is the
+                                 original source id.  The clock time is initialized to the
+                                 current time.
+
+If you use this  constructor you will need to know
+                                 the structure of the underlying ring item to set the
+                                 item's strings.  In almost all cases, the constructors
+                                 that support passing string vectors as parameters
+                                 are preferrable.
+
+`   CRingTextItem((uint16_t  type, std::vector<std::string>  theStrings);`In this constructor, `theStrings`
+                                 is used to compute the required item size.  The
+                                 strings are set into the item's string pool
+                                 as null terminated strings and the string count
+                                 is set to theStrings.size().
+                                 The offset, original source id, and clock time are
+                                 initialized as in the previous constructor.
+
+`  CRingTextItem(uint16_t  type, std::vector<std::string>  theStrings, uint32_t   offsetTime, time_t  timestamp, uint32_t  divisor = 1);`Fully parameterized constructor.  This constructor
+                                 adds `offsetTime` to set the
+                                 time  offset in the run at which the item was emitted,
+                                 `timestamp` which allows the
+                                 clock time the item was emitted to be expclicitly
+                                 specified and `divisor`
+                                 (optional, defaults to 1) which indicates the number
+                                 of ticks of `offsetTime` in
+                                 a second.
+
+`  const virtual std::vector<std::string>  getStrings();`Returns a vector that contains the text strings in the
+                                 object's payload.
+
+` virtual void      setTimeOffset(uint32_t  offset);`Set the offset into the run at which this object was
+                                 emitted.  Note that this, together with the time divisor
+                                 determine the number of seconds into the run the
+                                 object was emitted.
+
+` const virtual uint32_t  getTimeOffset();`Returns the raw time offset. Note that calling
+                                 `computeElapsedTime`
+                                 is the perferred method to call to get the run time
+                                 offset in seconds.
+
+` const virtual float computeElapsedTime();`Return the elapsed time in the run at which this
+                                 item was emitted, in seconds.
+
+` const virtual uint32_t  getTimeDivisor();`Return the number of offset ticks per second.
+
+` virtual void  setTimestamp(time_t  stamp);`Sets the clock time at which the item was emitted.
+
+` const virtual time_t    getTimestamp();`Returns the clock time associated with the item.
+
+`  const virtual uint32_t  getOriginalSourceId();`return the item's original source id. Note that
+                                 version 11 data does not have an original source id
+                                 field.  If the object has a body header, the source id
+                                 from the body header is returned, if not,
+                                 0 is returned.
+
+` const virtual void*  getBodyHeader();`If the item has a body header, this returns a pointer
+                                 to it.  Otherwise, nullptr
+                                 is returned.  Note that the structure of the body
+                                 header depends on the format version.
+
+` virtual void  setBodyHeader(uint64_t  timestamp, uint32_t  sid, uint32_t  barrierType = 0);`If the item has a body header it is modified as indicated
+                                 by the parameters.  IF not, one is created and filled in
+                                 as indicated by the parameters.  If the data format
+                                 does not support body headers, this method should
+                                 be a no-op.
+
+` const  virtual std::string  typeName();`Returns a string that identifies the item type.  This
+                                 will be one of Packet types or
+                                 Monitored Variables
+
+` const virtual std::string  toString();`Returns a string that describes the contents of
+                                 the item in human readable form.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CRingStateChangeItem (v12) | Up | CUnknonwFragment (v12) |

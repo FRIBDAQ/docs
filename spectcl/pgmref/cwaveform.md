@@ -1,0 +1,115 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN19433"></a>CWaveform
+
+<a name="AEN19437"></a>## Name
+
+CWaveform -- Container for waveforms
+
+<a name="AEN19440"></a>## Synopsis
+
+```
+#include <CWaveForm.h>
+
+class CWaveform : public CNamedItem {
+public:
+    typedef std::map<std::string, std::string> Metadata_t;
+    typedef std::vector<uint16_t>  WaveForm_t;
+public:
+
+    CWaveform(const char* name, size_t nSamples);
+    virtual ~CWaveform();
+public:
+    void setMetadata(const char* name, const char* value);
+    std::string getMetadata(const char* name) const;
+    const Metadata_t& getMetadata() const;
+
+    void update(const uint16_t* data);    // Update the waveform.
+    const WaveForm_t& trace() const;
+    void resize(unsigned nSample);        // Change # of samples.
+    size_t size() const;
+
+
+private:
+    static unsigned getid();
+};
+        
+```
+
+<a name="AEN19442"></a>## DESCRIPTION
+
+The `CWaveform` class provides a container object for 
+            waveforms in SpectTcl.  Normally, waveforms are made known to SpecTcl
+            by creating them and then using the `SpecTcl::addWaveform`
+            API element to add them to the waveform dictionary (see
+            [[r19570]]).
+
+The SpecTcl **waveform** can also be used to create waveforms and insert them
+            into the dictionary.  Event processors can then locate waveforms and fill them as they desire.
+
+Optionally, waveform objects  can have arbitrary metadata associated with them. These
+            metadata are simply name/value pairs.
+
+<a name="AEN19451"></a>## METHODS
+
+
+
+`  CWaveform(const char* name, size_t nSamples);`Constructs a new waveform.  Waveforms have names and size. The
+                            `name` is the new waveform's name and
+                            it will have `nSamples` samples worth of 
+                            uint16_t storage.
+
+` void setMetadata(const char* name, const char* value);`Creates or updates waveform metadata.  The name of the  metadata item
+                            to create/modify is `name` its new value will be
+                            `value`.  If `name` does not yet
+                            exist as metadata, a new metadata item is created otherwise the existing 
+                            metadata item's value is updated.
+
+` const std::string getMetadta(const char* name);`Returns the value of the metadata `name`.
+                            If `name` does not specify exisiting metadata,
+                            a `CNoSuchObjectException` is thrown .
+
+` const Metadta_t& getMetadata();`Returns a reference to the metadata.  See DATA TYPES for
+                            a description of the return type.  The reference returned is const allowing
+                            only const methods to be invoked on it.
+
+` void update(const uint16_t* data);`The waveform pointed to by `data` is loaded into the
+                            waveform object's waveform storage.  `size`() 
+                            uint16_t items will be copied from `data`
+                            so at least that much storage must be available.
+
+` const const WaveForm_t& trace();`Returns a const reference to the trace data that has been stored in the waveform.
+                            If `update` has never been called on this object, the trace
+                            Only const methods can be called on the returned reference.
+
+` void resize(unsigned newsize);`Resizes the waveform storage to `newsize`
+uint16_t elements.  The resized waveform is initialized
+                    to all zeroes.
+
+` const size_t size();`Returns the number of samples the waveform has.
+
+<a name="AEN19553"></a>## DATA TYPES
+
+The class defines the following types:
+
+
+
+Metadata_tThis is defined as std::map<std::string, std::string>;
+                        a map of keys that are the names of metadata items and their string values.
+
+WaveForm_tWaveforms are held in vectors.  `update` is used to
+                    load a new waveform and `trace` to get a const reference
+                    to the waveform.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CFilterOutputStage | Up | CWaveformDictionary |

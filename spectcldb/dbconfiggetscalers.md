@@ -1,0 +1,65 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Sqlite3 interfaces |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN6269"></a>dbconfig::getScalers
+
+<a name="AEN6273"></a>## Name
+
+dbconfig::getScalers -- Return scaler information from a run.
+
+<a name="AEN6276"></a>## Synopsis
+
+```
+package require dbconfig
+set db [dbconfig::connect file-name]
+set set [dbconfig::openSaveSet $db set-name]
+
+set info [dbconfig::getScalers $set run-number]
+                        
+```
+
+<a name="AEN6278"></a>## DESCRIPTION
+
+Returns a list of scaler readout information
+                            for run `run-number`
+                            in the save set whose instance command is
+                            stored in `set`.
+                            Each element of the list is a dict that
+                            contains the following key/value pairs:
+
+
+
+sourceidThe data source id that performed this readout.
+
+startThe offset into the run at which scalers
+                                    began accumulating for this readout.
+
+stopThe offset into the run at which the counting
+                                    interval represented by this entry ended.
+
+divisorDoing a floating point divide of
+                                    start or
+                                    stop by the
+                                    divisor value
+                                    results in seconds.  This allows
+                                    for subsection precision.
+
+timestampThe absolute time at which the readout
+                                    was performed.  This can be turned into
+                                    a human readable string via
+                                    **clock format**
+
+channelsList of integer counts read from the
+                                    scalers for this readout entry.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| dbconfig::getRunInfo | Up | daqdb |

@@ -1,0 +1,699 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 10. Simple V775 readout | Next |
+
+
+---
+
+# <a name="AEN5363"></a>10.3. Creating the Readout program
+
+The readout program interacts with your electronics
+            to read data from your detector system.  In response to a
+            *trigger*, it will execute code you write
+            or incorporate to read an event.
+
+We are going to use the
+            SBS readout framework.  This framwork requires that the
+            computer you use to read events is attached to your VME
+            crate with an SBS interface card pair connected with an
+            optical fibre cable.
+
+Creating the reaout program requires that you:
+
+
+
+- Copy the SBS readout skeleton to an empty directory where
+                  you can work on the software
+- Create and register an event segment that initializes
+                  andreads the
+                  V775.
+- Create and register a trigger object that uses the
+                  V775 data ready status to trigger readout.
+- Build and test your tailored readout program.
+
+## <a name="AEN5378"></a>10.3.1. Obtaining the Readout Skeleton
+
+The readout skeleton is part of NSCLDAQ.  For this example
+                we are going to use the most recent version of NSCLDAQ-11.0
+                We are going to set up environment variables for that
+                version of NSCLDAQ, make a directory called readout in our
+                current working directory and copy the SBS skeleton into
+                that directory:
+
+<a name="AEN5381"></a>```
+. /usr/opt/daq/11.0/daqsetup                 # Define env variables
+mkdir readout                                # make an empty directory.
+cd readout                                  
+cp $DAQROOT/skeletons/sbs/* .                # Copy the skeleton.
+                
+```
+
+The Readout skeleton is a template that can be modified
+                to build a functional readout program. In the next
+                two section, we'll do just that.
+
+## <a name="AEN5384"></a>10.3.2. Writing the Event segment
+
+The Readout program responds to triggers (we'll get to
+                triggers in the next section) by executing one or more
+                event segments to read data from the hardware into an
+                event buffer.  You can register as many event segments as you
+                want.  Event segments allow you to organize the readout of
+                your experiment into logical chunks.  Often event segments
+                will readout one of several detector subsystems that make
+                up your experiment.
+
+Event segments are C++ classes that are derived from the
+                base class `CEventSegment`.  The base
+                class defines the interface between your event segment
+                and the SBS readout framework. The base class provides
+                reasonable default implementations for most of these
+                interfaces so you only need to implement the interfaces
+                your event segment needs.
+
+We are going to implement:
+
+
+
+- initialize - To set up the V775 for readout.
+- read - to read an event.
+
+See $DAQROOT/include/sbsreadout/CEventSegment.h
+                and the online reference for `CEventSegment`
+                in [http://docs.nscl.msu.edu/daq](http://docs.nscl.msu.edu/daq) for more information about
+                the interface this class defines.
+
+Here is a header that describes the class we are going to write:
+
+<a name="AEN5400"></a>**Example 10-1. V775 Event Segment (V775EventSegment.h).**
+
+```
+#ifndef _V775EVENTSEGMENT_H                            
+#define _V775EVENTSEGMENT_H
+
+#include <CEventSegment.h>                       
+
+class CAENcard;                                        
+
+
+
+class CV775EventSegment : public CEventSegment        
+{
+private:
+  CAENcard&   m_module;                          
+
+public:
+  CV775EventSegment(CAENcard& module);           
+public:
+  virtual void initialize();                         
+  virtual size_t read(void* pBuffer, size_t maxwords);
+};
+
+
+#endif
+                  
+                
+```
+
+[[x5363#v775_rdoh_protect]]                        Since it is normally a compiler error to define the same
+                        entities twice (classes for example) users of your code
+                        will thank you for enclosing your headers in a
+                        *multiple inclusion protection #ifdef*.
+                    This #ifdef and the
+                        #define that follows it ensures that
+                        even if the header is included more than once the
+                        code within the body of the #ifderf
+                        is only seen once by the compiler.
+
+[[x5363#v775_rdoh_baseinclude]]                        this header is declaring a new class
+                        `CV775EventSegmenty` that
+                        is derived from the `CEventSegment`
+                        base class.  To do this properly the compiler needs to know
+                        the shape of the `CEventSegment` base
+                        class.  This class is defined in the
+                        CEventSegment.h header
+                        #included in this line.
+                    [[x5363#v775_rdoh_caencard_forward]]                        The `CAENcard` class provides
+                        support for the CAEN V775/V785/V792/V862 digitizer
+                        cards.   Our class will hold a reference to one of
+                        these cards.  Since a reference is like a pointer,
+                        the compiler does not need to know the full
+                        shape of the class at this time so we can make do
+                        with declaring the `CAENcard`
+                        class as a forward definition.
+                    It's worth asking when to do this as opposed to
+                        actually #includeing the CAENcard.h
+                        header.  My approach has always been to include only when
+                        necessary.  This reduces the chances of a circular
+                        #include dependency in headers
+                        and reduces the work the compiler needs to do
+                        at any time.
+
+[[x5363#v775_rdoh_classdef]]                        We declare the `CV775EventSegment`.
+                        This class is a subclass derived fromt he
+                        `CEventSegment` base class.
+                        This is important as it lets the Readout framework
+                        treat all event segments in a uniform manner letting
+                        the system sort out at runtime if a pointer to an
+                        `CEventSegment` is really
+                        a pointer to a `CV775EventSegment`.
+                    [[x5363#v775_rdoh_module_member]]                        We will construct our event segment by passing it a
+                        reference to the `CAENcard` object
+                        that is bound to our TDC.  Doing this requires that we
+                        hold a reference to that `CAENcard`
+                        object.  That reference is declared as object
+                        data by this line.
+                    [[x5363#v775_rdoh_interfaces]]                        These lines declare the methods in the base class we
+                        will be overriding and implementing in this class.
+
+Let's look at the implementation.  We're going to look at the
+                following sections of the implementation file
+
+
+
+- File heading #include directives etc.
+- `Constructor`
+- `initialize`
+- `read`
+
+<a name="AEN5458"></a>**Example 10-2. v775 Event Segment (V775EventSegment.cpp) - file heading**
+
+```
+#include "V775EventSegment.h"                  
+#include <CAENcard.h>                    
+#include <iostream>
+#include <stdint.h>
+
+
+static const unsigned  TDC_RANGE = 0x1e;       
+static const unsigned  MAX_WORDS =
+        34*sizeof(uint32_t)/sizeof(uint16_t);  
+                
+```
+
+[[x5363#v775_impl_heading_declaration]]                        Class implementation files need access to the declaration
+                        of the class.  This #include incorporates
+                        that declaration.
+                    [[x5363#v775_impl_heading_card]]                        This module will be invoking methods of the
+                        `CAENcard` class so we need
+                        to provide the shape of that class to the compiler.
+                        This line incorporates the declaration of
+                        `CAENcard` into this
+                        compilation unit.
+                    [[x5363#v775_impl_heading_range]]                        The V775 has a variable full scale time.  The value
+                        chosen, when programmed into the module
+                        will result in a 1200nsec full scale value.
+                    [[x5363#v775_impl_heading_maxwords]]                        This is the maximum number of 16 bit words the
+                        TDC can deliver for an event.  The module can
+                        deliver 32 channels, at a 32 bit word per channel
+                        and a header and trailer each 32 bit word long.
+
+<a name="AEN5477"></a>**Example 10-3. 
+                    v775 Event Segment (V775EventSegment.cpp) - Constructor
+                **
+
+```
+CV775EventSegment::CV775EventSegment(CAENcard& module) :
+  m_module(module)
+{}
+
+                
+```
+
+The constructor only has to initialize the reference to the
+                `CAENcard` object that is
+                controlling our TDC.
+
+<a name="AEN5482"></a>**Example 10-4. 
+                    v775 Event Segment (V775EventSegment.cpp) - Initialization
+                **
+
+```
+void
+CV775EventSegment::initialize()
+{
+  try {                                     
+    m_module.commonStart();                 
+    m_module.setRange(TDC_RANGE);           
+    m_module.clearData();
+  }
+  catch (std::string msg) {                 
+    std::cerr << "Unable to initialize TDC (V775)\n";
+    std::cerr << msg <<std::endl;
+    throw;
+  }
+}
+                
+```
+
+[[x5363#v775_impl_init_try]]                        Most methods of the `CAENcard`
+                        class report errors by throwing exceptions.  Placing
+                        the entire initialization inside a
+                        try block allows a coarse grain
+                        identification and handling of the error.
+                    [[x5363#v775_impl_init_startstopmode]]                        The V775 can be either a common start or common stop
+                        TDC.  This  method asks the module to run in common
+                        start mode.  In that mode the GATE
+                        input is the start and the individual channel inputs are
+                        the stops.
+                    In common stop mode, the individual channels are starts and
+                        the GATE input is the common
+                        stop for all channels.
+
+[[x5363#v775_impl_init_range]]                        Sets the time range of the TDC.  See the manual for
+                        the meaning of this value (section 4.34
+                        Full Scale Range Register).
+                    [[x5363#v775_impl_init_fail]]                        If the initialization failed at any point, control will
+                        be transferred to this block.  An error message is
+                        output to stderr and the error is rethrown
+                        to be dealt with by our caller. The SBS framework will
+                        abort the start of the run if an exception is detected.
+
+<a name="AEN5505"></a>**Example 10-5. 
+                    v775 Event Segment (V775EventSegment.cpp) - reading data
+                **
+
+```
+size_t
+CV775EventSegment::read(void* pBuffer, size_t maxWords)      
+{
+  if (MAX_WORDS <= maxWords) {                            
+    size_t n = m_module.readEvent(pBuffer);                      
+    m_module.clearData();
+    return n/sizeof(uint16_t);
+  } else {
+    throw std::string(
+        "CV775EventSegment::read - maxWords won't hold my worst case event" 
+    );
+  }
+}
+
+                
+```
+
+[[x5363#v775_impl_read_signature]]                        The `read` method is called
+                        in response to a trigger.  The `pBuffer`
+                        parameter points to storage into which the event segment
+                        should store the data it contributes to the event.
+                        `maxWords` tells `read`
+                        how many 16 bit words of data are remaining in that
+                        buffer.  The method is expected to return the number of
+                        16 bit words of data itactually read.
+                    [[x5363#v775_impl_read_sizecheck]]                        The device is only read if there is sufficient room in the
+                        event buffer.
+                        In our simple example,
+                        `maxWords` will always be
+                        much greater than MAX_WORDS.
+                        This checking is, however good practice as this event
+                        segment could appear in conjunction with other event segments
+                        that might exhaust the buffer before we are even
+                        called.
+                    [[x5363#v775_impl_read_read]]                        This block of code reads the digiitzer data into the
+                        event buffer and clears it, preparing for the next event.
+                        The `readEvent` method returns the
+                        number of bytes read, so this must be scaled down to the
+                        number of words prior to returning to the caller.
+                    [[x5363#v775_impl_throw]]                        If there is not sufficient room in the buffer, an
+                        exception is thrown.  Note that the methods
+                        in block of code that read the event may also throw
+                        an exception.
+
+## <a name="AEN5528"></a>10.3.3. Writing the trigger
+
+The event segment read methods are called in response to a trigger.
+                But what is a trigger?  In the SBS readout framework a trigger
+                is anything we say it is.  We supply, or use a trigger object
+                that tells the readout framework when to do the readout.
+
+Usually there is a hardware trigger that is some combination
+                of external hardware and a trigger object that monitors that
+                hardware to determine when the trigger occured.  The external
+                trigger hardware then interfaces with the VME crate via either
+                a CAEN V262 I/O register or a CAEN V976 coincidecne register
+                for example.
+
+For our simple setup, the appropriate time to trigger a readout
+                is when the V775 has data available.  The
+                `CAENcard` class has a method
+                `dataPresent` that can report
+                this condition.  We will use that method as the basis for our
+                trigger class.
+
+In SBS Readout, trigger classes
+                are derived from the `CEventTrigger` base
+                class.  As with the `CEventSegment` class,
+                this class provides a set of defined interfaces between the
+                readout framework and objects that can test for trigger
+                conditions.
+
+While there are initialization and tear down methods, our
+                initialization is done by the event segment, so we only need
+                to check for the trigger condition.
+
+Here's the header for our trigger class `MyTrigger`:
+
+<a name="AEN5541"></a>**Example 10-6. V775 data ready trigger header (MyTrigger.h)**
+
+```
+#ifndef _MYTRIGGER_H
+#define _MYTRIGGER_H
+
+#include <CEventTrigger.h>
+
+class CAENcard;
+
+class MyTrigger : public CEventTrigger
+{
+private:
+  CAENcard& m_module;
+public:
+
+  virtual bool operator()();
+};
+
+                
+```
+
+If you understood how we wrote the event segment this should be clear.
+                The only new wrinkle is the use of `operator()`.
+                This is the function call operator.  When defined, it allows
+                objects of a class to be dalled as if they were functions.
+                Objects of this sort, functions that have state are often called
+                *functors*.
+
+The implementation is also simple:
+
+<a name="AEN5548"></a>**Example 10-7. V775 data ready trigger implementation (MyTrigger.cpp)**
+
+```
+#include "MyTrigger.h"
+#include <CAENcard.h>
+
+
+MyTrigger::MyTrigger(CAENcard& module) :
+  m_module(module)
+{}
+
+bool
+MyTrigger::operator()() {
+  return m_module.dataPresent();
+}
+                    
+                
+```
+
+The constructor saves a reference to the module and the function
+                call operator returns the state of that module's
+                data present.  If an object of this class is established
+                as a trigger, it will trigger a readout whenever thte module
+                has data.
+
+## <a name="AEN5552"></a>10.3.4. Hooking everything together.
+
+In the last two sections we've written our event segment and
+                trigger classes.  In order to use them
+
+
+
+- We must add an instance of our event segment to the Readout
+                      framework's top level event segment.
+- We must declare an instance of our trigger as the event
+                      trigger.
+
+These are done by editing the Skeleton.cpp
+                file that you copied into your work directory for Readout.
+
+At the top you will need to #include the
+                headers for your new classes:
+
+<a name="AEN5564"></a>```
+#include <config.h>
+#include <Skeleton.h>
+#include <CExperiment.h>
+#include <TCLInterpreter.h>
+#include <CTimedTrigger.h>
+
+#include <CAENcard.h>              // Add this line.
+#include "V775EventSegment.h"            // Add this line
+#include "MyTrigger.h"                   // Add this line.
+                    
+                
+```
+
+The Skeleton.cpp method
+                `SetupReadout` is where
+                we will make the remainder of the changes.
+                We're going  have to:
+
+
+
+- Create a long lived `CAENcard`
+                      object to communicate with our V775.
+- Create and register a `MyTrigger`
+                      object to act as the event trigger, that uses the
+                      card we created.
+- Create and register a `V775EventSegment`
+                      to readout the V775 card we created.
+
+Here's what the `SetupReadout` method looks
+                like when we're done modifying it:
+
+<a name="AEN5581"></a>```
+static const uint32_t V775Base=0x11110000;                  
+
+void
+Skeleton::SetupReadout(CExperiment* pExperiment)                 
+{
+  CReadoutMain::SetupReadout(pExperiment);
+
+  CAENcard* pModule = new CAENcard(10, 0, false, V775Base);     
+  
+  pExperiment->EstablishTrigger(new MyTrigger(*pModule));       
+
+  pExperiment->AddEventSegment(new CV775EventSegment(*pModule)); 
+
+
+}
+                    
+                
+```
+
+[[x5363#v775_skel_base]]                        Here we define a constant; `V775Base`
+                        to be the base address of the TDC module.  See
+                        [[x5363#v775ss_sec_addressing]]
+                        below
+                        for more about addessing VME modules.
+                    [[x5363#v775_skel_card]]                        The constructor for both the `MyTrigger`
+                        and `CV775EventSegment`
+                        classes require a reference to a
+                        `CAENcard` object.
+                        This object must live for the lifetime of the program.
+                        Therefore it is dynamically created here.  Had we simply
+                        declared a
+                        CAENcard module(10,0,false,V775Base),
+                        that would have been destroyed when the function exitd.
+                    Please see:
+                        [[x5363#v775ss_sec_addressing]]
+                        below for guidance on how to specify this module.
+                        How you parameterize this constructor depends on a
+                        few things that I cannot predict.
+
+[[x5363#v775_skel_trigger]]                        The `EstablishTrigger` method of
+                        the `CExperiment` class is
+                        how you register the experiment's trigger.
+                        In this case we create and register an instance of our
+                        `MyTrigger` trigger class.
+                    The readout framework can only have a single trigger
+                        registered.  There is, however, nothing to stop you
+                        from building a trigger class that incorporates and
+                        does some logicn on more than one trigger source
+                        to decide if a Readout should be done.
+
+[[x5363#v775_skel_evseg]]                        The `AddEventSegment` method
+                        of `CExperiment` appends an
+                        event segment to the top level event segment.
+                        You can add as many event segments as you need.
+                    The top level event segment is a
+                        `CCompoundEventSegment` which is
+                        simply a container for other event segments that
+                        implements the `CEventSegment`
+                        interface by interating through its members.
+
+### <a name="v775ss_sec_addressing"></a>10.3.4.1. Addressing VME modules
+
+The VME bus appears to the computer like chunk of memory.
+                    Modules plugged into the VME bus have a
+                    *base address* that determines
+                    where in this memory space they live.  In addition
+                    to a base address, the VME bus supports several address
+                    spaces through the use of
+                    *address modifiers* that are
+                    supplied in the address cycle of a transaction.
+
+The CAEN V775 base address can be determined either by
+                    a base address set in rotary switches mounted on the module,
+                    or, if conditions are right, by its position in the backplane.
+                    The latter mechanism is referred to as
+                    *geographical addressing*.
+
+Geograhpical addressing is only possible if both the module
+                    and the VME backplane have a small, middle connector between
+                    the top and bottom VME bus connectors.  This connector implements
+                    the *VME430* VME bus extension
+                    designed at CERN.  Geographical addressing requires it because
+                    the slot number is encoded in pins on that middle
+                    connector, and is used to compute the base address of the module.
+
+When setting up a VME system it is important to ensure that
+                    there are no overlaps in the address ranges of the
+                    modules qualified by the address spaces in which they live.
+                    In our example, we have assumed that we are not using geographical
+                    addressing (it's never mandatory) and that the base address
+                    rotary switches were set to 0x11110000.
+
+Each module provides an identifying field in its data.
+                    This is also called the GEO field.
+                    This is because in a VME430 backplane, V775 modules
+                    that have the third connector will unconditionally
+                    return the slot number for this field.  For systems
+                    that don't implement VME430, this value is programmable.
+
+Thus the first parameter for the `CAENcard`
+                    constructor must be the slot number (for geographical addressing),
+                    or some unique number if geographical addressing is not being used
+                    (in which case it is programmed into the module's GEO)
+                    register.
+
+## <a name="AEN5629"></a>10.3.5. Building and testing your Readout
+
+When you copied the skeleton, you also copied in a starting point
+                for a Makefile for your project. In this section we're going to
+                modify that Makefile so that a build of your Readout program
+                will compile your trigger and event segments and link them
+                into the Readout.
+
+The Makefile defines a symbol OBJECTS that
+                is the list of objects that need to be built.  It also
+                defines rules for building C and C++ source files
+                to an objet file in a way that allows access to
+                the headers and libraries of NSCLDAQ.  In many cases you
+                just need to add the desired objects to the
+                definition of OBJECTS:
+
+<a name="AEN5635"></a>```
+...
+#
+#  This is a list of the objects that go into making the application
+#  Make, in most cases will figure out how to build them:
+
+OBJECTS=Skeleton.o V775EventSegment.o MyTrigger.o
+...
+                
+```
+
+Once you have made this modification to the
+                Makefile
+                just issue the **make** commnad
+                to build your Readout program.
+
+We're going to use the NSCLDAQ dumper pgoram
+                to test our readout program. To do this, you
+                may want to have a copy of the V775 manual
+                handy so that you can make sense of the
+                data that is read.
+
+Assuming the electronics is set up as described in the block
+                diagram and the base address of the V775 has been configured as
+                described above, we should be able to take data from this
+                system
+
+First building and running your Readout interactively:
+
+<a name="AEN5643"></a>```
+make
+./Readout
+%
+                
+```
+
+In a second terminal window; setup the NSCLDAQ environment definitions
+                as before and:
+
+<a name="AEN5647"></a>```
+$DAQBIN/dumper
+                
+```
+
+Now in the Readout window start a run let it run for a while and
+                end the run.
+
+<a name="AEN5650"></a>```
+begin
+%  (wait a bit)
+end
+%
+                
+```
+
+Let's look at some dumped events for the case where I had a stop
+                input in to channel 0 of the TDC:
+
+<a name="AEN5655"></a>```
+-----------------------------------------------------------
+Event 16 bytes long
+No body header
+0008 0000 5200 0100 5001 41f3 5400 1555 
+
+-----------------------------------------------------------
+Event 16 bytes long
+No body header
+0008 0000 5200 0100 5001 41f3 5400 1556 
+
+-----------------------------------------------------------
+Event 16 bytes long
+No body header
+0008 0000 5200 0100 5001 41f3 5400 1557 
+
+                
+```
+
+Before we pick this apart, I want to make a comment about
+                word *endianess*.  Endianess, in this context
+                means that when you represent data that are larger than  a byte
+                there is a choice (usually made by the hardware) made to determine
+                if the first bytes represent the low order bits (little endian), or
+                the high order bits (big endian).
+
+While the computers we run NSCLDAQ on (intel chips) are little
+                endian, the VME bus is inherently big endian.  This will be clear
+                as we describe the meaning of the longwords in the data.
+
+The SBS readout framework will prefix the data you read with
+                a self-inclusive count of the number of 16 bit words in the
+                event.  Since this is generated by the SBS readout program running
+                in the intel CPU, this 32 bit item is in little endian order
+                (first the 0x0008 which are the low order bits then
+                0x0000 the high order bits).   According to these data, the event
+                8 16 bit words in length.
+
+The remainder of the data are as described in the V775 manual.
+                The VME bus is inherently big endian, so the data
+                have the high order bits first:
+
+
+
+1. 0x52000100 is a header for virtual slot
+                       10 which has a single channel worth of data.
+2. 0x500141f3 is data for channel number 0
+                       with the value 0x1f3 and the valid
+                       data bit set.
+3. 0x54001557 is a trailer word for event number
+                       0x1557 since the event count was zeroed (a the start of the run).
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Setting up the Electronics. | Up | Creating the tailored SpecTcl |

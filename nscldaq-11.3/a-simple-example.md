@@ -1,0 +1,86 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 45. The ccusbcamac tcl package | Next |
+
+
+---
+
+# <a name="AEN9660"></a>45.2. A simple example
+
+Consider the following setup. A LeCroy 4434 32-channel latching scaler
+     resides in slot 15 of a CAMAC crate controlled by a CC-USB device.  The
+     CCUSBReadout's slow-controls server is to listen for connections on the
+     default port (27000) on localhost with a ccusb module loaded with the name
+     *myccusb*.
+
+## <a name="AEN9664"></a>45.2.1. Configuring the ctlconfig.tcl
+
+A prerequisite for communicating with the CC-USB through the slow
+        controls server is that the a module of type "ccusb" has been loaded. A
+        very simple ctlconfig.tcl is shown below that accomplishes only this.
+
+```
+        # ctlconfig.tcl
+
+        # load a ccusb module into the slow-controls server named "myccusb"
+        Module create ccusb myccusb
+      
+```
+
+|  |  |
+| --- | --- |
+|  | If you do not load the ccusb module into the slow-controls server, theccusbcamacpackage will not necessarily fail in an
+          obvious manner. The connection will be made with the slow-controls
+          server without complaint but the commands sent from theccusbcamacprocs will fail to do anything. |
+
+Run the CCUSBReadout program. If you want to be 100% sure that the slow
+        controls server will listen on port 27000, you can specify the
+        command-line switch --port to be 27000. In most cases, this is not
+        necessary because it defaults to that value.
+
+## <a name="AEN9673"></a>45.2.2. The script that runs ccusbcamac commands
+
+Below is an example of the script that the user will need to write 
+        that will connect to the server and issue commands to the scaler module
+        living in slot 15. Make sure that the TCLLIBPATH includes the
+        $DAQROOT/TclLibs directory, where DAQROOT is the top-level directory of
+        the NSCLDAQ installation being used.
+
+```
+        # Load the ccusbcamac package
+        package require ccusbcamac
+
+        # map the b and c to the connection information 
+        ccusbcamac::cdconn 0 1 localhost 27000 myccusb 
+
+        # ensure that the slow-controls server is listening for connections
+        # stop if it isn't because no further calls to ccusbcamac procs will ever
+        # succeed.
+        if {![ccusbcamac::isOnline 0 1]} {
+          exit
+        }
+
+        # create a device registry for LeCroy 4434 living in slot 15 of 
+        # crate referenced as (b,c)=(0,1)
+        set reg [ ccusbcamac::cdreg 0 1 15]
+
+        # use Q-stop to read all 12 channels and demand that it doesn't
+        # perform more than 12 iterations. 
+        set data [::ccusbcamac::qstop $reg 0 0 12]
+
+        # print the resulting output to stdout
+        foreach datum $data {
+          puts "$datum"
+        }
+      
+```
+
+The user will then run the script as a separate process.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| The ccusbcamac tcl package | Up | SBS VME Module level device support software |

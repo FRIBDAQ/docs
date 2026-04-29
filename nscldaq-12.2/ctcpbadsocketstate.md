@@ -1,0 +1,67 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="daq3.ctcpbadsocketstate"></a>CTCPBadSocketState
+
+<a name="AEN57390"></a>## Name
+
+CTCPBadSocketState -- class description
+
+<a name="AEN57393"></a>## Synopsis
+
+```
+CTCPBadSocketState
+```
+
+<a name="AEN57429"></a>## DESCRIPTION
+
+This class is an exception that will be thrown if
+        a method from a
+        [[r56522]]
+        object is called when the object is in a state that makes that
+        method illegal.  For example, attempting to transfer data on a
+        socket in the CSocket::Listening state will
+        trigger this exception.
+
+<a name="AEN57434"></a>## METHODS
+
+
+
+`  CTCPBadSocketState( CSocket::State  badState
+                        ,  std::vector<CSocket::State> okStates, const  char*  pDoing);`Constructs a new object.
+                    `badState` is the state
+                    the objexct is in when the operation that threw this
+                    exception was invoked.  `okStates`
+                    is a vector containing all states for which the requested
+                    operation would have been legal.
+                    Finally, `pDoing` is a pointer to a string
+                    that describes what the object was doing when it threw the
+                    exception.  Normally `CSocket` will
+                    provide the method name here.
+
+`  const CSocket::State  getBadState();`Returns the value of the `badState`
+                    parameter passed in at construction time.  This represents
+                    the state of the `CSocket` at the
+                    time the exception was thrown.
+
+`  const std::vector<CSocket::State> getValidStates();`Returns the list of states for which this operation
+                    would have been legal.
+
+` virtual  const  const char*  ReasonText();`Returns a pointer to text that describes the
+                    reason the exception was thrown.
+
+<a name="AEN57491"></a>## SEE ALSO
+
+[[r56522]]
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| CSocket | Up | CTCPConnectionFailed |

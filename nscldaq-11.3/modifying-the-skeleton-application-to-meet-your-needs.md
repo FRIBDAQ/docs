@@ -1,0 +1,95 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev | Chapter 65. The SBS Readout framework | Next |
+
+
+---
+
+# <a name="sbsrdo.sec.skeleton"></a>65.3. Modifying the skeleton application to meet your needs
+
+The skeleton provides several member functions that are called
+            in a specific order.  You should fill some or all of these member
+            function in with actual code to set up the framwork to do what
+            you want it to do.
+
+If you add additional source files, you should modify the
+            Makefile as well so that they are incorporated
+            into the build.  The simplest way to do this is to add them to the
+            definition of the OBJECTSmacro in the
+            Makefile.
+
+Let's look at the member functions in Skeleton.cpp
+            that you may have to fill in.  These are listed in order of likelyhood
+            you'll need or want to add code to them.  Note that all of these members
+            invoke the base class member functions they override. This ensures that
+            important functionality provided by those members is provided.
+
+
+
+void `SetupReadout`(
+                    CExperiment* `pExperiment`
+                )Fill in code here to setup the event by event reaout
+                        part of the framework.  Specific work you must do is:
+
+
+
+- Create and register an event trigger.
+- Create event segments and glue them together
+                                      into a coherent event segment hierarchy.
+- Register the top end event segment hierarchy
+                                      elements in the experiment's top level event
+                                      segment so that they will be invoked
+                                      at appropriate times.
+
+
+void `SetupScalers` (
+                    CExperiment* `pExperiment`
+                )Fill in code here to set up the scaler readout.
+                        This involves:
+
+
+
+- Create and register a scaler trigger.  The
+                                  Skeleton provides sample code for registering
+                                  a timed trigger.
+- Create your scalers and glue them together
+                                  into a coherent scaler readout hierarchy via
+                                  scaler banks.
+- Register the top elements of the scaler readout
+                                  hierarchy with `pExperiment`'s
+                                  top level scaler bank so that your elements will
+                                  be invoked at the proper times.
+
+void `addCommands` (
+                    CTCLInterpreter* `pInterp`
+                )If you want to add application specific commands to the
+                        framework, add them here.  This is usually done by
+                        writing subclasses derived from `CTCLObjectProcessor`,
+                        and creating an instance for each of these classes.
+                        The comments prior to this method describe what you need
+                        to do if you have existing procedural commands you want
+                        to register.
+
+void `SetupRunVariables` (
+                    CTCLInterpreter* `pInterp`
+                )If you want to setup some pre-existing run variables, but
+                        don't want to use a script to do this, you can define
+                        them here.  The simplest way to define a runvar is to
+                        create the appropriate **runvar** command
+                        string and pass it to `pInterp`->`Eval`.
+
+void `SetupStateVariables` (
+                CTCLInterpreter* `pInterp`
+                )If you want to set up some pre-existing state variables, but
+                        don't want to use a script to do this, you can define
+                        them here.  The simplest way to define a statevar is to
+                        create the appropriate **statevar** command
+                        string and passi to `pInterp`->`Eval`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Obtaining and building the skeleton application | Up | Readout commands |

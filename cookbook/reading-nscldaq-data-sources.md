@@ -1,0 +1,52 @@
+|  |  |  |
+| --- | --- | --- |
+| The NSCLDAQ cookbook |
+| Prev |  | Next |
+
+
+---
+
+# <a name="ch.readrings"></a>Chapter 2. Reading NSCLDAQ data sources
+
+This chapter presents a program that reads NSCLDAQ ring items from a data source.  The full source code for the program is in $DAQROOT/share/recipies/readrings a
+            Makefile is included.   [[c35#sec.readbackground]]
+            provides some background.  If you just want to dive into the source code, by all means, just skip ahead to [[x78]] where the code is presented and deescribed.
+
+# <a name="sec.readbackground"></a>2.1. Background
+
+This program introduces severa class families that are used throughout the NSCLDAQ software.  The `CRingItem` class is the
+                base class for objects that are data items created by the data acquisition system.
+
+Since we're reading ring items from a data source, the classes that are important to that process are:
+
+
+
+`CDataSource`The base class for sources of data in the NSCLDAQ.  These are objects that provide a source of data.  This class is an abstract base class.
+
+`CFileDataSource`Is a concrete data source that provides data from a file.
+
+`CRingDataSource`Is a concrete data source that provides data from a ring buffer.  Note that the ringbufer could be a local ringbuffer or a remote ring buffer.  If necessary, the class will setup the proxy ring and feeder processes needed to transfer data
+                            from a remote ringbuffer to the proxy ringbuffer in  the local host.
+
+CDataSourceFactoryIn the NSCLDAQ, data sources are described via
+                            *Uniform Resource Identifiers* (URIs).  File data sources have URIs that look like file:///path/to/the/file.  Ring buffer URIs on the other hand, look like
+                            tcp://hostname/ringbuffername.
+
+The `CDataSourceFactory` class accepts an NSCLDAQ data source URI and returns a pointer to the appropriate type of
+                            `CDataSource`.
+
+Once your program is finished using a data source, it should be
+                            deleted.  In the case of a ring data source, the destruction of that object also disconnects as a consumer of the ringbuffer.
+
+So we have a mechanism to get something from an NSCLDAQ file or ring buffer:  Use the data source factory to create a data source.  But what do we get from data sources?
+                Data sources return pointers to `CRingItem` objects.
+                `CRingItem` is the base class of a hierarchy of classes that exist for each of the supported ring item classes.  in
+                [[c287]]   we'll  look in greater detail at this
+                class hierarchy and how to use it.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Introduction |  | The code |

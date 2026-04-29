@@ -1,0 +1,69 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN7047"></a>Chapter 13. mvlcgenerate and using the Mesytec MVLC VME controller
+
+The Mesytec MVLC is an intelligent VME crate controller.  Like the VMUSB, it is capable of autonomously
+        executing a stack (list) of operations in response to a trigger. What distinguishes the MVLC from the VMUSB,
+        is:
+
+
+
+- The ability to perform complex trigger decisions to trigger stack execution.
+- Additional stack operations that allow more complex VME operations to be performed in stacks.
+- An Ethernet interface in *addition* to the USB interface provided by the VMUSB.
+
+
+While Mesytec does not provide sufficient documentation for fully homegrown support of the MVLC, the 
+        software support in their github repository 
+        ([http://github.com/flueke/mesytec-mvlc](http://github.com/flueke/mesytec-mvlc)) for the 
+        user mode does provide a skeleton for a readout program.   We have forked that repository, and created a
+        modified version of that readout program and contributed it back to Mesytec.
+
+The framework we adapted requires a static  configuration file which is read *once*
+        when the program starts.  This configuration file desribes trigger conditions, initialization operations and
+        stacks to execute in response to triggers.
+
+At the FRIB in the bookworm and later containers, the driver software, along with our readout program,
+        is installed in /usr/opt/mesytec-mvlc/*version*.  Where
+        *version* is a version number such as 0.1.0.  Within that directory 
+        tree, the readout program is in bin/fribdaq-readout.
+
+Coupled with this program, FRIB/NSCLDAQ 12.2, and later, provides a program 
+        $DAQBIN/mvlcgenerate, which can translate many VMUSBReadout daqconfig.tcl configuration
+        files into the configuration files expected by fribdaq-readout
+
+So, to summarize,  to use the Mesytec MVLC with FRIB/NSCLDAQ you will need:
+
+
+
+1. An installed version of the Mesytec MVLC driver software buit with support for
+                       FRIB/NSCLDAQ readout (more about how to get that from scratch later in this chapter).
+2. A VMUSB daqconfig.tcl with devices supported by the
+                       mvlcgenerate program.
+3. Version 12.2 of FRIB/NSCLDAQ or higher, which provides the mvlcgenerate
+                       program.
+
+
+# <a name="AEN7082"></a>13.1. Preparing your experiment to use the MVLC.
+
+Use [[r24101]] to translate a daqconfig.tcl
+            written for the VMUSB. This may require small modifications, however those modifications can be made in a way
+            that the resulting configuraion file can be used with both the MVLC and the VMUSB controllers.
+
+Run fribdaq-readout specifying the configuration file that mvlcgenerate
+            created.     See [[r7094]] to see how to use
+            this program.  Note that while this program is not yet supported by the ReadoutShell GUI, or managed expermiment,
+            support for both is planned.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Examples (Beginning 11.2-009). | Up | Reference manual forfribdaq-readout |

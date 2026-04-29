@@ -1,0 +1,352 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN10928"></a>CAnalyzer
+
+<a name="AEN10932"></a>## Name
+
+CAnalyzer -- Analyzer base class and classic analyzer
+
+<a name="AEN10935"></a>## Synopsis
+
+```
+#include <Analyzer.h>
+
+class CAnalyzer
+{
+public:
+  virtual void OnBuffer(UInt_t nBytes, Address_t pData);
+  virtual void OnStateChange(UInt_t nType, CBufferDecoder& rDecoder);
+  virtual void OnPhysics(CBufferDecoder& rDecoder);
+  virtual void OnScaler(CBufferDecoder& rDecoder);
+  virtual void OnOther(UInt_t nType, CBufferDecoder& rDecoder);
+  virtual void OnEndFile();
+  virtual void OnInitialize();
+
+  CEventList& getEventList();
+  CBufferDecoder* getDecoder() ;
+  CEventSink* getSink() ;
+
+  CBufferDecoder* AttachDecoder(CBufferDecoder& rDecoder);
+  CBufferDecoder* DetachDecoder();
+  CEventSink*     AttachSink(CEventSink& rSink);
+  CEventSink*     DetachSink();
+  void            entityNotDone();
+
+  
+protected:
+  virtual UInt_t OnEvent(Address_t pRawData, CEvent& anEvent);
+
+  void           AbortEvent();
+
+  void CopyEventList(const CEventList& rhs);
+  void CopyEventPool(const CEventList& rhs);
+  void DetachAll();
+  CEvent* CreateEvent();
+  void ReturnEvent(CEvent* pEvent);
+  void ClearEventList();
+};
+        
+```
+
+<a name="AEN10937"></a>## DESCRIPTION
+
+This class is currently used as the base class for the
+            `CTclAnalyzer` class used as the analyzer
+            in modern SpecTcl.  In the original SpecTcl version, this
+            *was*
+            the analyzer.
+
+<a name="AEN10942"></a>## PUBLIC METHODS
+
+The public interfaces to `CAnalyzer`
+            come in groups.  The first group defines the interface to the
+            analyzer used when handling data from an event source.  New analyzers
+            (such as `CTclAnalyzer`) can be built
+            by deriving a new class from these and overriding the
+            desired methods.
+
+The second group of methods are public utilities.  These
+            provide methods that are related to the configuration of the
+            analyzer.  External entities may also call them but they
+            are not, strictly speaking, behavioral methods.
+
+Let's look at the set of virtual public  methods that implement
+            the behavior of the analyzer first.  Note that
+
+
+
+` virtual   void  OnBuffer( UInt_t  nBytes,  Address_t  pData);`This method is invoked by the event input subsystem
+                        when a block of data is available on the data source.
+                        It will typically pass the block to the
+                        buffer decoder.  The buffer decoder will locate
+                        items within the block and make appropriate calls
+                        back to the analyzer to analyze those items.
+
+`nBytes` are the number
+                        of bytes of data in the block pointed to by
+                        `pData`.
+
+Typically derived classes don't need to override this
+                        method or at least can call it as part of their
+                        override.
+
+` virtual   void  OnStateChange( UInt_t  nType,  CBufferDecoder&  rDecoder);`Called by the buffer decoder when a state change item
+                        has been detected in the data block it was passed
+                        by `OnBuffer`.  State change
+                        items indicate that a run has changed state.
+
+`nType` is the item type from
+                        bufftypes.h.  It should normally
+                        be one of the following values.
+
+
+
+BEGRUNBFThe state change indicates the beginning
+                                    of a new run.
+
+ENDRUNBFThe state change indicates the end of the
+                                    active run
+
+PAUSEBFThe state change indicates a pause in data taking.
+                                    Note that it is perfectly legal for this to be
+                                    immediately followed by an end of run.
+
+RESUMEBFThe state change indicates a paused run
+                                    is being resumed.
+
+`rDecoder`, on the other hand
+                        refers to the buffer decoder that is calling this method.
+                        This is provided because the buffer decoder may have
+                        stashed items from the run state method that can be
+                        retrieved via some of its methods.
+
+` virtual   void  OnPhysics( CBufferDecoder&  rDecoder);`Called when one or more physics events is received.
+                        `rDecoder` is a reference to the
+                        decoder that called us.
+
+Looking at this method you might rightfully wonder
+                        where the data is hiding.  The answer is that
+                        the decoder; `rDecoder`
+                        has methods that can be used to get several pieces of
+                        information:
+
+
+
+- The number of physics events being made available.
+- The number of bytes of data required to store
+                                  these events.
+- A pointer to the first of those events.
+
+Note that the buffer decoder is not responsible for
+                        telling you where the boundaries between events are.
+                        That's the responsibility of the event processor.
+                        Pushing that responsibility off to the event processor
+                        allows for the possibility that the DAQ system might
+                        be able to produce *superevents*, that
+                        is events that actually contain more than one single
+                        SpecTcl event.
+
+The base class method calls the
+                        `OnEvent` method for each
+                        event in the run of events.
+
+` virtual   void  OnScaler( CBufferDecoder&  rDecoder);`Called if the buffer decoder locates a scaler event.
+                        In this case, the buffer decoder is supposed to supply
+                        the number of scalers and a pointer to the body of the
+                        scaler item.  The shape of a scaler item varies depending
+                        on the data acquisition system that created it.
+                        This implies that specialized user software is required
+                        to process scalers.
+
+If old versions of SpecTcl were used, the analysis of
+                        scaler data would have required subclassing
+                        `CAnalyzer` with a class that
+                        understood the specific scaler format and replacing
+                        the standard analyzer with an instance of this subclass.
+                        With current versions of SpecTcl, the understanding of
+                        scaler data is handled by the event processor.
+
+` virtual   void  OnOther( UInt_t  nType,  CBufferDecoder&  rDecoder);`Called when the decoder finds items in a buffer that
+                        don't fit into the catagories handled by the other
+                        types.  `nType` should be an
+                        item type from buftypes.h.
+                        for example STATEVARBF for an item
+                        containing state variables. `rDecoder`,
+                        once more, is a reference to the decoder object.
+
+` virtual   void  OnEndFile();`Called when by the input handlers when an end file has
+                        been detected on the event source.    At present this
+                        invokes the decoder's `OnEnd`
+                        giving it a chance to flush out any unprocessed items.
+                        Unprocessed items can result from data sources that don't
+                        produce fixed size blocks of data (e.g. NSCLDAQ-10.x and later).
+
+` virtual   void  OnInitialize();`Called after SpecTcl is fully initialized and
+                        is about to start processing commands.
+
+Now let's look at the methods that are not functional in  nature.
+
+
+
+`   CEventList&  getEventList();`SpecTcl's event processing builds lists of
+                        `CEvent` objects produced
+                        by the `OnPhysics` method.
+                        When the event list has been sufficiently filled,
+                        the event sink is called to, among other things
+                        histogram the event.
+
+This method returns a reference to the list of events
+                        that have not yet been processed.
+
+`   CBufferDecoder*  getDecoder();`Returns a pointer to the analyzer's current buffer
+                        decoder.
+
+`   CEventSink*  getSink();`Returns a pointer to the event sink.  When this
+                        analyzer is used (usually not), this should
+                        return the histogrammer object. This analyzer does
+                        not pipeline the event sink, holding filters as
+                        a separate set of objects (another reason to use
+                        `CTCLAnalyzer`.
+
+`   CBufferDecoder*  AttachDecoder( CBufferDecoder&  rDecoder);`Attach a new buffer decoder to the analyzer.
+                        If there is already a buffer decoder its
+                        `OnDetach` method is invoked.
+                        `rDecoder`'s
+                        `OnAttach` is invoked.
+
+The return value is a pointer to the previous buffer
+                        decoder (NULL if there is none).  It is the
+                        responsibility of the caller to delete
+                        this decoder if it was dynamically allocated.
+
+`   CBufferDecoder*  DetachDecoder();`Detaches the current buffer decoder from the
+                        analyzer.  The current buffer decoder, if any
+                        will have its `OnDetach`
+                        method invoked.  A pointer to that decoder
+                        will be returned.
+
+If there was no current buffer decoder, a null pointer
+                        is returned.  If the buffer decoder returned was
+                        dynamically allocated its up to the caller to
+                        delete it.
+
+`   CEventSink*      AttachSink( CEventSink&  rSink);`Replaces the current event sink (normall the histogrammer)
+                        with `rSink`.  If there's a
+                        prior event sink its `OnDetach`
+                        is called.  `rSink`'s
+                        `OnAttach` method is called.
+
+A pointer to the previous event sink is returned.
+                        If there is none, a null pointer is returned.
+                        If the previous event sink was dynamically created the
+                        caller must delete it.
+
+Since most SpecTcls use a `CTCLAnalyzer`,
+                        which supports a pipeline of event sinks, there's
+                        not a reason to call this in a modern SpecTcl.
+
+`   CEventSink*      DetachSink();`Detaches the current event sink from the analyzer.
+
+`   void  entityNotDone();`This can be called from an event processor handling
+                        physics events.  When that event processor returns,
+                        the pointer will advance through the buffer, but
+                        the remaining entity count won't be decremented.
+
+The intent of this method is to provide support for
+                        *superevent*.  A superevent
+                        is an entity that appears to the buffer decoder like
+                        a single event, but actually contains several
+                        events.
+
+This has been used for high performance singles experiments,
+                        when muli-event ADC's are used.   In those experiments,
+                        the ADC's were allowed to use VME interrupts to signal
+                        they had some number of events to readout.  The
+                        ADCs were then drained completely for each of these
+                        'triggers'.  The result was an event from the standpoint
+                        of NSCLDAQ which contained several singles events.
+
+<a name="AEN11210"></a>## PROTECTED METHODS
+
+These methods are used by derived classes.  They provide services
+            as well as a behavioral method (`OnEvent`).
+
+
+
+` virtual   UInt_t  OnEvent( Address_t  pRawData,  CEvent&  anEvent);`Called by the anaylzer for each event.
+                        `pRawData` is a pointer to the
+                        event body while `anEvent` is
+                        the `CEvent` 'array' this method
+                        should fill in.  The  method must return the
+                        number of bytes processed.
+
+This version `CAnalyzer` base class
+                        is used by creating a derived class that implements an
+                        appropriate `OnEvent` method and
+                        registering an instance of the derived class as the
+                        analyzer.  Modern SpecTcl's, register a
+                        `CTCLAnalyzer` instance which
+                        implements an `OnEvent` method
+                        that executes an event processing pipeline instead.
+
+`   void   AbortEvent();`Called frrom `OnEvent` to prevent
+                        an  event from being histogrammed.  This can be called
+                        either as a software trigger on the event or, if a
+                        structural problem was detected with the event that makes
+                        the data untrustworthy.
+
+`   void CopyEventList (const  CEventList&  rhs);`The event list are the set of events that have been
+                        unpacked by `OnPhysics` but not yet
+                        passed to the event sink.  This method makes a copy of
+                        the event list into `rhs`.
+
+This is primarily used by the assignment operator and
+                        copy constructor.  In other words, if you find yourself
+                        using this method, you're probably doing something
+                        very odd.
+
+`   void  CopyEventPool( const CEventList&  rhs);`When `CEvent` objects have
+                        been analyzed by the event sink, they are
+                        invalidated and returned to an
+                        *event pool*.  This allows them
+                        to be recycled, removing the overhead of deletion and
+                        re-creation (an event serial is used so that the
+                        invalidation is short constant time as well).
+
+This method copies the contents of the current
+                        event pool to the `rhs`.
+                        This method is used by the assignment operator and
+                        copy constructor.  If you find yourself using this
+                        method for other purposes, you're probably doing something
+                        odd.
+
+`   void  DetachAll();`Detaches both  the event sink and the buffer decoder.
+                        Note that this will leak memory if either of those
+                        objects was dynamically created.
+
+`   CEvent*  CreateEvent();`Provides a new invalidated event. Invalidated, in this
+                        context means any parameters in the array have not
+                        yet been assigned a value.
+
+If there are entries in the event pool, on eis removed
+                        and a pointer to it is returned.  If not, new
+                        is used to create a new event.
+
+`   void  ReturnEvent( CEvent*  pEvent);`Puts the event pointed to by `pEvent`
+                        back into the event pool.  Normally the event is
+                        invalidated first.
+
+`   void  ClearEventList();`All events in the eventl ist are put into the event pool.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Dictionaries | Up | CTclAnalyzer |

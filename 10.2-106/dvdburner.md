@@ -1,0 +1,78 @@
+|  |  |  |
+| --- | --- | --- |
+| NSCL DAQ Software Documentation |
+| Prev |  | Next |
+
+
+---
+
+# <a name="manpage.dvdburner"></a>DvdBurner
+
+<a name="AEN64303"></a>## Name
+
+DvdBurner package -- Burn NSCL Data to DVD
+
+<a name="AEN64306"></a>## Synopsis
+
+**package require DvdBurner
+	**
+
+**DvdBurner::CreateDvds ?range?
+    **
+
+**DvdBurner::BurnDVD iso
+    **
+
+<a name="AEN64313"></a>## DESCRIPTION
+
+The
+        DvdBurner package provides the capability to
+        burn an arbitary ISO image or set of NSCL data acquisition systsem
+        event data and associated data to DVD.
+
+**DvdBurner::CreateDvds ?range?
+    **
+
+creates DVDs from a set of recorded data taking runs.  The data and
+        run meta-data are recorded to DVD.  If necessary, several DVDs are
+        created.  Data are split so that all of the data associated with a run
+        is on a single DVD (not split across more than one DVD.
+        See, however "Dependencies and Restrictions" below.
+
+**DvdBurner::BurnDVD isofile
+    **
+
+Burns the pre-built ISO image in the file `isofile`
+        to DVD.
+
+<a name="AEN64324"></a>## Dependencies and Restrictions
+
+
+
+- growisofs must be isntalled and in
+                  the user's path.
+- The DVD must either be named /dev/cdrom or
+              the environment variable DVDROM must be
+              defined to be the name of the DVD burner to use.
+- The variable DvdBurner::DVD holds the path to the DVD burner
+              device and can be modified at run time any time after the package
+              has been **require**ed.
+- The DVD device must be writable by growisofs.
+- The variable DvdBurner::DVDSize holds the number of megabytes
+              a DVD can hold  It can be modified from its default value of
+              4000 if necessary.
+- The `DvdBurner::CreateDvds` command will fail
+              if there are runs that won't fit on single DVDS.  Errors in the
+              NSCL file structure can also cause failures.
+- The variable `DvdBurner::ISOFSroot` holds the
+              directory in which the run data will be marshalled and the
+              ISO images built.  The initial value is
+              /scratch/$tcl_platform(user)/isos
+              where `tcl_platform(user)` is your username.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| portAllocator | Up | sequencer |

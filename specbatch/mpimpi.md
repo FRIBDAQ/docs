@@ -1,0 +1,165 @@
+|  |  |  |
+| --- | --- | --- |
+| Batch SpecTcl (5.2 and later) |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN749"></a>mpi::mpi
+
+<a name="AEN753"></a>## Name
+
+mpi::mpi -- Command ensemble for MPI under tcl.
+
+<a name="AEN756"></a>## Synopsis
+
+**mpirun -np *nprocesses* /usr/opt/mpitcl/bin/mpitcl *script***
+
+**mpi::mpi *subcommand ...***
+
+<a name="AEN764"></a>## DESCRIPTION
+
+**mpitcl** is an enhanced Tcl interpreter
+                        that provides simple Tcl-ish extensions to support
+                        massively parallel programming with Tcl under the
+                        Message Passing Interface (MPI).
+
+In **mpitcl**, the rank 0 process
+                        runs a Tcl interpreter that takes commands from stdin
+                        just as a normal interpreter does.  All other ranks
+                        run a loop that accepts MPI messages that request
+                        data transfer, or command execution.  Thus the
+                        rank 0 process is the driver of the computation, passing
+                        out work, in the form of commands and data to the other
+                        processes.  Processes other than rank 0, can run scripts
+                        that communicate with other processes  in the same manner,
+                        requesting script execution or data transfer.
+
+A notifier thread in the rank 0 process can be used
+                        to queue MPI communication events to the interpreter
+                        running in the rank 0 process.  These events will be
+                        seen when that interpreter enters the event loop via
+                        e.g. **vwait** or, if the cluster on which
+                        the application runs supports it, by loading the
+                        Tk package.
+
+The extension to the interpreter is a single command
+                        ensemble:  **mpi::mpi**.  This command
+                        is defined in the interpreters that run in all ranks.
+                        This command
+                        has the following subcommands:
+
+
+
+**size**Returns the number of processes in the
+                                    application.  This is legal in all ranks.
+
+**rank**Returns the rank of the process.  More
+                                    precisely this is the rank within the
+                                    MPI_COMM_WORLD predefined
+                                    communicator.
+
+**execute** *rank  script*Executes the `script` in
+                                    the processes designated by `rank`.
+                                    The `rank` parameter can
+                                    either be a numeric rank, or it can be one
+                                    of two special keywords.
+
+If the `rank` is the
+                                    keyword others the
+                                    execution is requested in all other
+                                    processes but not the requesting process.
+                                    If the `rank` is
+                                    the keyword all the
+                                    execution is requested first via MPI messaging
+                                    to all other ranks and then performed directly
+                                    in the requestor's interpreter.
+
+Note that if other processes request execution
+                                    of scripts in the rank 0 process, this will
+                                    be deferred until that process next enteres
+                                    its
+                                    event loop with e.g. **vwait**.
+
+Note that a request like
+                                    **mpi::mpi execute [mpi::mpi rank] ...**
+*will* use MPI message
+                                    passing to request this process execute the script.
+                                    Only in the special all rank
+                                    is script execution performed directly in
+                                    the current process's interpreter.
+
+**send** *rank data*Sends the `data`
+                                    to the process(es) determined by
+                                    `rank`.  Note that
+                                    once more, the special ranks
+                                    others and
+                                    all described above in
+                                    the **execute** subcommand
+                                    are recognized.
+
+In order to receive data, the receiving
+                                    process must have established a data handler
+                                    via the **handle**
+                                    subcommand.  Furthermore, messages sent to
+                                    the rank 0 process require that process
+                                    to enter the event loop (e.g. via **vwait**)
+                                    before they are received.
+
+The data are sent via the the MPI data type
+                                    MPI_CHAR, this is suitable
+                                    for arbitrary Tcl data since everything in
+                                    Tcl has a string representation.
+
+**handle** *script-prefix*Establishes a data receiver handling script.
+                                    When data are received from a process
+                                    (sent via **mpi::mpi send**),
+                                    the rank of the sender and the data are
+                                    **lappend**ed to the
+                                    `script-prefix`
+                                    which is then executed.
+
+The `script-prefix`
+                                    can be a multiword prefix, and normally
+                                    is a **proc** invocation,
+                                    though it need not be.
+
+**stopnotifier**Stops the notifier thread.  This must
+                                    be done prior to application exit as
+                                    otherwise the thread might signal an event
+                                    to an interpreter that no longer exists which
+                                    can cause segfaults.
+
+**stopnotifier** might also
+                                    be used prior to turning over control to a
+                                    command extension that wants complete control
+                                    over communication (e.g compiled code distributing
+                                    data to compiled code).
+
+This subcommand is only legal in the rank 0
+                                    process as other ranks don't run a notifier
+                                    thread.
+
+**startnotifier**Starts the notifier after it has been stoppped.
+                                    This is only legal for rank 0.
+
+Note that **mpirun** wants to see all
+                        processes in the application exit prior to exiting itself.
+                        Therefore the proper way to terminate an mpitcl application
+                        is with the following script fragment.
+
+<a name="AEN850"></a>**Example A-1. Terminating an MPITcl application**
+
+```
+stopnotifier
+mpi::mpi execute all exit
+                        
+```
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| MPITcl | Up | MPITcl binary data. |

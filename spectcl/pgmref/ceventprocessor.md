@@ -1,0 +1,162 @@
+|  |  |  |
+| --- | --- | --- |
+| SpecTcl Programming Reference. |
+| Prev |  | Next |
+
+
+---
+
+# <a name="AEN8643"></a>CEventProcessor
+
+<a name="AEN8647"></a>## Name
+
+CEventProcessor -- Abstract base class convering events to parameters
+
+<a name="AEN8650"></a>## Synopsis
+
+```
+#include <EventProcessor.h>
+
+class CEventProcessor {
+ public:
+  virtual Bool_t operator()(const Address_t pEvent,
+                            CEvent& rEvent,
+                            CAnalyzer& rAnalyzer,
+                            CBufferDecoder& rDecoder); 
+  virtual Bool_t OnAttach(CAnalyzer& rAnalyzer);
+  virtual Bool_t OnBegin(CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder);
+  virtual Bool_t OnEnd(CAnalyzer& rAnalyzer,
+                       CBufferDecoder& rBuffer); 
+  virtual Bool_t OnPause(CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder); 
+  virtual Bool_t OnResume(CAnalyzer& rAnalyzer,
+                          CBufferDecoder& rDecoder);
+  virtual Bool_t OnOther(UInt_t nType,
+                         CAnalyzer& rAnalyzer,
+                         CBufferDecoder& rDecoder);
+
+  virtual Bool_t OnEventSourceOpen(std::string name);
+  virtual Bool_t OnEventSourceEOF();
+  virtual Bool_t OnInitialize();
+};
+
+            
+```
+
+<a name="AEN8652"></a>## DESCRIPTION
+
+`CEventProcessor` Provides the abstract
+                    base class for elements of the event processing pipeline.
+                    Tailoring SpecTcl to analyze a particular dataset involves
+                    writing a set of classes derived from
+                    `CEventProcessor` and registering instances
+                    of those classes in
+                    `MySpecTclApp::``CreateAnalysisPipeline`.
+
+Each element of the pipeline normally contributes elements
+                    to the event array either directly or indirectly through
+                    tree parameters.  These elements, or parameter values, either
+                    come from decoding segments of the raw event, or by performing
+                    computations on existing parameter values.
+
+Event processors that decode sections of the raw event are
+                    often referred to as *unpackers*.
+
+<a name="AEN8662"></a>## METHODS
+
+Note that the methods of `CEventProcessor`
+                    are all virtual methods that have default implementations
+                    that return kfTRUE.  All methods return
+                    a Bool_t.  A return value of kfTRUE
+                    indicates success.  A value of kfFALSE
+                    indicates failure.  A failure return aborts the event processing
+                    pipeline. This means that no more event processors will be called
+                    and, for `operator()` no histogramming
+                    will be done on that event.
+
+A common mistake for implementors of event processors
+                    is to forget to return a value.  This can result in randomly
+                    and silently dropping events as return value will be
+                    not well defined.
+
+
+
+` virtual   Bool_t  operator()(const  Address_t  pEvent, CEvent&  rEvent, CAnalyzer&  rAnalyzer, CBufferDecoder&  rDecoder);`This method is called for each physics event.
+                                `pEvent` points to the raw
+                                event data for this event.  `rEvent` 
+                                is the array like object that stores the parameter values
+                                created by the event processing pipeline for this event.
+
+The `rAnalyzer` and
+                                `rDecoder` parameters are
+                                not often used but reference the analyzer and
+                                buffer decoder objects used to manage event processing
+                                for this event data format.
+
+` virtual   Bool_t  OnAttach(CAnalyzer&  rAnalyzer);`Called when the event processor is registered
+                                with the event processing pipeline.
+                                `rAnalyzer` references
+                                the analyzer that controls the flow of data
+                                analysis through SpecTcl.
+
+` virtual   Bool_t  OnBegin(CAnalyzer&  rAnalyzer, CBufferDecoder&  rDecoder);`Called when a begin run item is detected.
+                                Note that not all data acquisition systems
+                                have begin run items, however all NSCL supported
+                                data acquisition systems do.
+
+`rAnalyzer` and
+                                `rDecoder` refer to the
+                                analyzer and decoder respectively.  The decoder
+                                provides services (the run number and title
+                                which again may not be available in non NSCL supported
+                                data acquisition systems), that may be useful to
+                                event processors that choose to implement this
+                                method.
+
+` virtual   Bool_t  OnEnd(CAnalyzer&  rAnalyzer, CBufferDecoder&  rBuffer);`Called when an end fo run item is encountered.
+                                See `OnBegin` for
+                                more.
+
+` virtual   Bool_t  OnPause(CAnalyzer&  rAnalyzer, CBufferDecoder&  rDecoder);`Like `OnBegin` but invoked
+                                when a  run temporarily pauses.  Note that not all
+                                NSCL Supported data acquisition systems support
+                                pausing an active run.
+
+` virtual   Bool_t  OnResume(CAnalyzer&  rAnalyzer, CBufferDecoder&  rDecoder);`Called when a paused run resumes.
+
+` virtual   Bool_t  OnOther(UInt_t  nType, CAnalyzer&  rAnalyzer, CBufferDecoder&  rDecoder);`Called when an item type that does not neatly fit
+                                into the categories above is encountered.
+                                `nType` is an item type
+                                drawn, where possible, from
+                                buftype.h, and where not,
+                                from the underlying DAQ system that produced the
+                                data.
+
+` virtual   Bool_t  OnEventSourceOpen(std::string  name);`Called when a new event source is opened.
+                                `name` is a data source type
+                                dependent parameter that identifies what the
+                                data source is connected to.
+
+`   virtual   Bool_t  OnEventSourceEOF();`Called when the event source hits the end of data.
+                                For file data sources this means that the  data
+                                in the file has been completely processed.
+                                For Pipe data sources, this means that the
+                                producer end of the pipe has closed the pipe.
+
+` virtual   Bool_t  OnInitialize();`This is called when SpecTcl is initialized.
+                                For event processors registered in
+                                `MySpecTclApp`::`CreateAnalysisPipeline`,
+                                this is sometime after registration when SpecTcl
+                                has been completely intialized.  For those
+                                registered dynamically, later,
+                                `OnInitialize` is called
+                                immediately after
+                                `OnAttach`.
+
+---
+
+|  |  |  |
+| --- | --- | --- |
+| Prev | Home | Next |
+| Extensible Factories | Up | CEventBuilderEventProcessor |
