@@ -11,8 +11,8 @@ do not remove this div, it is closed by doxygen!
 - [User Guides](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pages.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
 
 
  window showing the filter options 
@@ -94,14 +94,14 @@ DDAS data acquisition and online analysis rely on several hardware and software 
 The figure below shows a simple DDAS hardware configuration:
 
 
-![DDAS_Hardware.jpeg](DDAS_Hardware.jpeg)
+![DDAS_Hardware.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/DDAS_Hardware.jpeg)
 A DDAS Hardware configuration
 
 
 The figure below shows a simple DDAS software configuration emphasizing the data flow.
 
 
-![softwarecomponents.jpeg](softwarecomponents.jpeg)
+![softwarecomponents.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/softwarecomponents.jpeg)
 Software components in a single crate system
 
 
@@ -271,7 +271,7 @@ current working directory /scratch/fox/daq/DDAS/main/readout/crate_1
 where the current working directory should confirm that you are in the correct directory for the crate you are working in and the module map should match the crate you are working in as well (in the example shown that you have 7 modules in slots 2-8).
 
 
-![nscope-startup.jpg](nscope-startup.jpg)
+![nscope-startup.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/nscope-startup.jpg)
 nscope start screen
 
 
@@ -301,7 +301,7 @@ Set up your pulser to output pulses that rise quickly but have about a 50μsec f
 When using several DDAS cards it is important to synchronize the digitizer clocks between them. This is done by setting the jumper block JP01 appropriately. The jumper block is just a set of pins located on the board near the backplane connectors. Configure the connections between these pins with jumpers. In case your setup consists of a single module, be sure to configure the jumpers to match the top diagram for PXI clock master.
 
 
-![ss1crate_jumpers.png](ss1crate_jumpers.png)
+![ss1crate_jumpers.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ss1crate_jumpers.png)
 The jumper settings for a single crate system.
 
 
@@ -374,7 +374,7 @@ In order to set the waveform conditioning parameters, you must look at a wavefor
 For the pulser I used, here's a sample picture:
 
 
-![simple_1module_trace.jpeg](simple_1module_trace.jpeg)
+![simple_1module_trace.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_trace.jpeg)
 Raw pulser trace
 
 
@@ -387,14 +387,14 @@ There are two things wrong with this signal:
 Click the `UV_Setup->Analog` `Signal` `Conditioning` menu entry. This brings up a screen that looks like this:
 
 
-![nscope_analogsetup.jpg](nscope_analogsetup.jpg)
+![nscope_analogsetup.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/nscope_analogsetup.jpg)
 The nscope analog signal setup panel
 
 
 Our pulser is plugged into channel 0 which has the `Sign` set to `+` Using the pull down on that channel to set the sign to `-` (be sure to click `Apply` to write the setting into the module) and acquiring another trace gives:
 
 
-![simple_1module_invertedtrace.jpg](simple_1module_invertedtrace.jpg)
+![simple_1module_invertedtrace.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_invertedtrace.jpg)
 Trace after setting sign to -
 
 
@@ -404,7 +404,7 @@ Our trace is still saturating the ADC. We'll next adjust the trace baseline. Do 
 Reading another waveform then gives:
 
 
-![simple_1module_blset.jpg](simple_1module_blset.jpg)
+![simple_1module_blset.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_blset.jpg)
 Trace after setting its baseline.
 
 
@@ -438,7 +438,7 @@ Baseline: 410
 Since we chose a signal with a good rise and fall time initially, we only care about the computed [CFD](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classCFD.md) delay. Click the `UV_Setup->CFD` to bring up the [CFD](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classCFD.md) control panel:
 
 
-![nscope_cfdpanel.jpg](nscope_cfdpanel.jpg)
+![nscope_cfdpanel.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/nscope_cfdpanel.jpg)
 nscope's CFD control panel
 
 
@@ -453,7 +453,7 @@ Apply the settings. Finally enable the [CFD](https://github.com/FRIBDAQ/docs/tre
 Now that the trigger is set up, you can take data and look at the module histograms. Use the menu entry `Expert->Start` `Run` to cause the module to start taking triggers and histogram the energies computed from the waveforms. The `Read` `Histo` button will read and display the channel energy histogram accumulated by the module. For my pulser I got:
 
 
-![simple_1module_histo.jpg](simple_1module_histo.jpg)
+![simple_1module_histo.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_histo.jpg)
 Histogram of a pulser
 
 
@@ -836,4 +836,4 @@ SpecTcl is the lab-supported framework for analyzing data online. The DDAS comes
 ---
 
 
-Generated on Wed Sep 21 2016 11:52:48 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+Generated on Wed Sep 21 2016 11:52:48 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8

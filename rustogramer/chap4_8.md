@@ -123,7 +123,7 @@ Allows you to perform the folowing operations on gates.
 Selecting this brings up the tabbed window of the gate editors:
 
 
-![Gate editors](./images/gate_editors.png)
+![Gate editors](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_editors.png)
 
 
 Use it to create as many gates as you want then dismiss it with the `Ok` button.
@@ -142,7 +142,7 @@ This functionality is the same as that in [the Spectrum menu](https://github.com
 Allows you to delete one or more gates.
 
 
-![Delete gate](./images/delgate-dialog.png)
+![Delete gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/delgate-dialog.png)
 
 
 Simply select the gates you wish to delete from the list in the dialog above and click `Ok`to delete them.

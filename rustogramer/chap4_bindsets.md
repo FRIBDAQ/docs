@@ -153,7 +153,7 @@ Furthermore, the `File->Save...` menu operation saves the bindsets you've define
 The BindSets tab looks like this:
 
 
-![BindSets tab contents](./images/bindsettabs.png)
+![BindSets tab contents](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/bindsettabs.png)
 
 
 At the center of the user interface is a table (which becomes scrollable if needed).  The table lists the bind sets you have defined along with their descriptions.  At any time you
@@ -182,7 +182,7 @@ The buttons are in logical rather than visual order:
 Clicking the `New...` button pops up a dialog that contains the bind set editor:
 
 
-![Bind set editor](./images/bindset-editor.png)
+![Bind set editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/bindset-editor.png)
 
 
 At the top are entries for the bindset name and description. The description can be omitted, though this is not recommended.  The bindset name is mandatory.

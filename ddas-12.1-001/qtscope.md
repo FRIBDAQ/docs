@@ -116,7 +116,7 @@ header
   ```
    Note that QtScope expects to be run on a machine connected to Pixie-16 hardware–at FRIB this is typically an spdaq computer–and from a directory containing the necessary [cfgPixie16.txt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfgpixie16.md) and [modevtlen.txt](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/modevtlen.md) configuration files. Running the `qtscope` executable launches the QtScope GUI. The various elements of the GUI are labeled on the figure below.
 
-![](qtscope_unbooted_wtoolbars.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_unbooted_wtoolbars.png)
 The QtScope GUI state on startup with labeled GUI elements. Note that most GUI elements besides [Boot system], [About] and [Exit] on the system toolbar are disabled.
 
 
@@ -142,7 +142,7 @@ The QtScope GUI state on startup with labeled GUI elements. Note that most GUI e
   ```
    and the **[Boot system]** button will turn green and read **[Booted]**. GUI elements on the various toolbars will also be enabled; these GUI elements are explained in more detail in the subsequent sections.
 
-![](qtscope_booted.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_booted.PNG)
 The QtScope GUI state after a successful system boot. Note that the button previously displaying [Boot system] is now green and reads [Booted]. The GUI elements are enabled upon a successful boot.
 
 
@@ -154,7 +154,7 @@ The QtScope GUI state after a successful system boot. Note that the button previ
 ## The System Toolbar
 
 
-![](system_toolbar_cropped.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/system_toolbar_cropped.png)
 The QtScope system toolbar.
 
 
@@ -179,7 +179,7 @@ The QtScope system toolbar.
 
   Selecting a tab will display that tab's DSP parameters. The DSP parameters which can be configured on each tab are described in more detail in the [Configuring Channel DSP Settings](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp) section.
 
-![](analog_signal.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/analog_signal.PNG)
 The channel DSP popup window displayed when clicking the [Channel DSP] button. The tab controlling the analog signal properties and DC offset on module 0 is selected. If more modules were installed, additional tabs reading ''Mod. 1,'' ''Mod. 2,'' etc. would be present.
 
 
@@ -195,7 +195,7 @@ The channel DSP popup window displayed when clicking the [Channel DSP] button. T
 
   Similar to the channel DSP parameters, the **[Apply]** and **[Load]** buttons will write and read parameters from the modules based on what is set on this window, respectively. The **[Cancel]** button will close the popup.
 
-![](module_dsp.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/module_dsp.PNG)
 The module DSP popup window displayed when clicking the [Module DSP] button.
 
 
@@ -204,7 +204,7 @@ The module DSP popup window displayed when clicking the [Module DSP] button.
 
   The **[Load settings]** and **[Save settings]** buttons allow the user to load a new set of DSP parameters onto the modules and to save DSP parameters to a settings file. Clicking either button will open a file dialog. The file dialog windows are similar for loading and saving module, the save dialog window is shown below. For both the file name can be entered on the ''File name:'' line or an existing file can be selected by using the browser. Existing DSP settings files with the same name will be overwritten.
 
-![](save_dialog.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/save_dialog.PNG)
 The QtScope save dialog window opened when the [Save settings] button is clicked. The [Load settings] button will popup a dialog window which looks and functions similarly.
 
 
@@ -223,7 +223,7 @@ The QtScope save dialog window opened when the [Save settings] button is clicked
 ## The Acquisition Toolbar
 
 
-![](acquisition_toolbar.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/acquisition_toolbar.PNG)
 The QtScope acquisition toolbar.
 
 
@@ -242,13 +242,13 @@ The QtScope acquisition toolbar.
 
   The "Trace acquisition" box buttons allow a user to view ADC trace data on the canvas. When the **[Read trace]** button is clicked, QtScope will attempt to acquire an ADC trace from the channel specified in the "Channel selection" box (or for each channel on the module, if the **[ ] Read all** button is checked). The program will search for what it thinks is a good pulse (a "validated" signal), or reaches a reacquire limit. In the case that no validated trace is found during this process, the last acquired trace will be shown. If the **[ ] Fast acquire** button is checked, QtScope will display ADC traces without the validation requirement. Acquired traces are 8192 60-ns samples long. The 60-ns sampling time is a limitation of the XIA API used to acquire traces for display and cannot be modified by the user. This limitation is not present when trace data is written to disk. The QtScope GUI displaying an acquired trace is shown below.
 
-![](captured_trace.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/captured_trace.PNG)
 QtScope displaying an acquired trace from Mod. 0, Chan. 0 using the [Read trace] button.
 
 
   Simulated filter outputs for an acquired trace displayed on the canvas can be viewed by clicking the **[Analyze trace]** button. Clicking this button will divide the canvas into three sub-canvases, displaying, from top to bottom, the trace, the timing filter and CFD output, and the energy filter output. These outputs can be used to guide the choice of DSP parameters. If no trace is displayed on the canvas and the **[Analyze trace]** button is clicked, QtScope will attempt to acquire a trace to analyze.
 
-![](analyzed_trace.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/analyzed_trace.PNG)
 QtScope displaying a trace and its simulated filter outputs from Mod. 0, Chan. 0 after clicking the [Analyze trace] button.
 
 
@@ -262,13 +262,13 @@ QtScope displaying a trace and its simulated filter outputs from Mod. 0, Chan. 0
   ```
    will be displayed on the terminal. Additionally, QtScope features that cannot be used while a run is active will be disabled. Clicking on a disabled feature will have no effect while the run is active.
 
-![](acquisition_toolbar_runactive.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/acquisition_toolbar_runactive.PNG)
 The acquisition toolbar state while a run is active. Some GUI elements are disabled while a run is active, for example, the buttons to read and analyze ADC traces.
 
 
   To read run data and display a histogram on the canvas, click the **[Read data]** button. The canvas will be updated with the acquired data as shown below.
 
-![](histogram.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/histogram.PNG)
 Energy histogram for a pulser signal connected to a Pixie-16 module. The spectrum was displayed on the canvas using the [Read data] button. Only the region of interest containing the peak is shown.
 
 
@@ -298,7 +298,7 @@ Energy histogram for a pulser signal connected to a Pixie-16 module. The spectru
 ## The Plot Toolbar
 
 
-![](plot_toolbar.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/plot_toolbar.PNG)
 The QtScope plot toolbar.
 
 
@@ -311,13 +311,13 @@ The QtScope plot toolbar.
 
   The "Fit panel" button opens a popup window which allows you to select a fitting function, define fit limits and set guesses for initial parameters. The **[Fit]** button at the bottom of the fit panel window will fit the displayed data using the fit limits and parameters–either supplied by the user or determined by QtScope from the data–and draw the selected function on the canvas using the best-fit parameters. Multiple fits will be superimposed on the canvas. To clear all the fit data and the best-fit parameter values displayed in the "Fit output" text box, click the **[Clear]** button. To close the fit panel window, click **[Cancel]**."
 
-![](fit_panel.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/fit_panel.PNG)
 The QtScope fit panel.
 
 
   Implemented fitting functions can be selected using the combo box at the top of the panel. Displayed below the fitting function is its functional form. The fit limits are taken from the currently displayed axis limits if they are not provided by the user in the "Min x" and "Max x" boxes. The parameters p[0], p[1], etc. shown in the "Fit function" box correspond to the parameters p0, p1, etc. in the "Fit range and parameters" box. If initial parameters are not supplied by the user, QtScope will do its best to guess initial parameters from the displayed data.
 
-![](histogram_with_fit_and_panel.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/histogram_with_fit_and_panel.png)
 (Left) A single-channel energy histogram fit with a Gaussian function. The zoom function of the plot toolbar was used to select a subset of the canvas containing the peak. (Right) The QtScope fit panel displaying fit results in the ''Fit output'' text box. The fit limits and initial parameters were determined by QtScope using the displayed data.
 
 
@@ -333,7 +333,7 @@ The QtScope fit panel.
 
   Signals that are input to the Pixie-16 digitizers are first processed as analog signals prior to digitization. There are three parameters per channel that can be set to control the analog conditioning which are set on this tab. The Pixie-16 digitizers apply a DC offset to the analog signal, amplification, and a possible inversion of the signal.
 
-![](analog_signal.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/analog_signal.PNG)
 The AnalogSignal tab.
 
 
@@ -350,7 +350,7 @@ The AnalogSignal tab.
 - Attention
   For more information about the implementation of digital filters on the Pixie-16 modules, please refer to [the Pixie-16 User's Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf). Note that the filter risetime is referred to as a filter "length" in the User's Manual.
 
-![](trigger_filter.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/trigger_filter.PNG)
 The TriggerFilter tab.
 
 
@@ -361,7 +361,7 @@ The TriggerFilter tab.
 
   This tab provides control over the risetime (integration time) "EnergyRise [us]" and gap "EnergyGap [us]" which define the trapezoidal filter used to determine the energy of a signal pulse. The "Filter range" allows the user to set longer filter lengths by averaging ADC samples prior to the energy filtering logic in the FPGA. For details on the implementation of the energy filter, refer to - ["A Fast Digital Algorithm for Gamma-Ray Spectroscopy With Double-Exponential Decaying Scintillators." H. Tan et al., IEEE Trans. Nucl. Sci. 51(4) (2004) 1541.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1323728&tag=1)
 
-![](energy_filter.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/energy_filter.PNG)
 The EnergyFilter tab.
 
 
@@ -370,7 +370,7 @@ The EnergyFilter tab.
 
   The user can configure the device to use a digital CFD algorithm for determining channel hit timestamps. The CFD algorithm allows timestamps to be acquired with sub-sample resolution if the CFD bit is set on the [CSRA](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra) tab.
 
-![](cfd.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/cfd.PNG)
 The CFD tab.
 
 
@@ -384,7 +384,7 @@ The CFD tab.
 
   The digital filtering algorithm used by the Pixie-16 modules to measure input pulse energy accounts for the fact that signals from radiation detectors decay exponentially back to some baseline value. For exponentially decaying signals, the value of tau set on this tab should equal the decay constant of the exponential tail of the pulse in microseconds.
 
-![](tau.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/tau.PNG)
 The Tau tab.
 
 
@@ -399,7 +399,7 @@ The Tau tab.
 - Note
   Enabling the trace output sets a bit in the channel CSRA register. The value of the trace enable bit is visible on the [CSRA](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra) tab, but can only be set here.
 
-![](trace.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/trace.PNG)
 The Trace tab. Trace output is currently not enabled for this module because the **[ ] Record traces** button is not checked.
 
 
@@ -411,7 +411,7 @@ The Trace tab. Trace output is currently not enabled for this module because the
 - Note
   Some CSRA settings must be set on another tab; for example the signal polarity and gain can be set only on the "AnalogSignal" tab. This is intended to prevent users from unintentionally changing previously set values. CSRA bits set on other tabs will display their status on this page, but the column will be grayed out.
 
-![](csra.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/csra.PNG)
 The CSRA tab. Note that bits in the ''HiG'' column are enabled but the column is grayed out, indicating that the gain setting must be configured elsewhere in the GUI (in this case on the ''AnalogSignal'' tab). Tooltips describing CSRA bit values can be viewed by hovering the mouse over the column headings.
 
 
@@ -448,7 +448,7 @@ The CSRA tab. Note that bits in the ''HiG'' column are enabled but the column is
 
   The Pixie-16 modules measure the channel baseline when no pulse is present and stores a running average of the baseline value which is subtracted from the energy filter output prior to determining the pulse energy. If measured baselines differ from this average by "BaselineCut" they are rejected and not added to the running average. The automatic baseline adjustment routine run when clicking the **[Adjust offsets]** button on the "AnalogSignal" tab will set the baseline value to "Baseline %" of the maximum ADC range as well as automatically determine the value of "BaselineCut." It is generally recommended to keep both of these parameters at their default values.
 
-![](baseline.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/baseline.PNG)
 The Baseline Tab.
 
 
@@ -459,7 +459,7 @@ The Baseline Tab.
 
   The "Coincidence settings" box allows the user to set parameters which determine how to read out grouped channels in coincidence. "Channel coincidence width [us]" defines the coincidence window for the channel grouping in microseconds and the "Minimum multiplicity to trigger" sets the minimum number of fast triggers required in each group [0, 1, ..., n-1] for an n-channel grouping. If the corresponding trigger validation CSRA bits for all channels on this module are checked, the "Channel validation" will display "Enabled" in green text, if all are disabled it will display "Disabled" in red text, and if trigger validation is only enabled for some channel groups on the module the text will show "Custom" in yellow.
 
-![](mult_coincidence.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/mult_coincidence.PNG)
 The MultCoincidence tab.
 
 
@@ -468,13 +468,13 @@ The MultCoincidence tab.
 
   Pixie-16 modules implement two-stage trigger logic to determine whether a particular channel will produce data which can be read out. The first stage of this process will generate a fast trigger on the module. At the second, or validation stage, the internal fast trigger is checked against some set of validation criteria. Validation criteria are configured using the channel CSRA and module CSRB settings and can include, for example, validation of a fast trigger with respect to an external validation trigger, a channel grouping coincidence requirement or an internally generated gate. If the fast trigger is validated, the associated data is accepted to be read out, otherwise it is dropped.
 
-![](timing_control.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/timing_control.PNG)
 The TimingControl tab.
 
 
   To configure the relative timing between the module fast triggers and the validation signal, the "TimingControl" tab provides a set of controllable timing parameters. Clicking the **[Show timing diagram]** button will display the following graphical representation of the timing parameters in a popup window:
 
-![](timing_diagram.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/timing_diagram.png)
 A visual representation of the various timing parameters configurable on this tab. To show this diagram, click the [Show timing diagram] button. The nominal fast trigger point for the hit is given by the dashed vertical line at t = 0.
 
 
@@ -487,7 +487,7 @@ A visual representation of the various timing parameters configurable on this ta
 
   As described in the [QtScope GUI](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_gui) section, clicking the **[Module DSP]** button on the [system toolbar](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_gui_sys) displays a popup window allowing the user to configure module-level parameters.
 
-![](module_dsp.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/module_dsp.PNG)
 The module DSP popup window displayed when clicking the [Module DSP] button.
 
 
@@ -504,7 +504,7 @@ The module DSP popup window displayed when clicking the [Module DSP] button.
   - Multicrate (chassis) – A chassis crate in a multi-crate system. These crates are configured to receive a clock from the director.
   - Custom – Custom CSRB settings. In most cases it is not necessary to configure custom CSRB settings. Please refer to the [Pixie-16 User Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf) for custom applications. Clicking the **[Display CSRB]** button will show a graphical representation of the CSRB bits, similar to [CSRA](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope.md#sec_qtscope_chandsp_csra) tab are displayed:
 
-![](csrb.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/csrb.PNG)
 The CSRB settings for the current crate, shown after clicking the [Display CSRB] button. Each row contains a complete set of CSRB settings for a single module. Tooltips describing CSRB bit values can be viewed by hovering the mouse over the column headings. In order to directly manipulate the CSRB bit values, the ''Custom'' setting must be selected from the configuration list.
 
 
@@ -513,7 +513,7 @@ The CSRB settings for the current crate, shown after clicking the [Display CSRB]
 
   Different trigger operation modes can be set in the "Trigger configuration options" box. This box provides an interface which allows users to configure the TrigConfig0 register on the Pixie-16 module. Only two options are given: the default option, where all channels are self-triggering and a "Custom" option where the TrigConfig0 register is fully user-controlled. The status of the TrigConfig0 register can be viewed by clicking on the **[Display TrigConfig]** button; more information about the configurable options is given in mouse-over tooltips for each setting and in the [Pixie-16 User Manual](https://docs.nscl.msu.edu/daq/newsite/pixie16/Pixie16_UserManual.pdf).
 
-![](tc0.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/tc0.PNG)
 The user interface to the TrigConfig0 register. Each row contains a complete set of TrigConfig0 settings for a single module. Tooltips describing the configurable settings can be viewed by hovering the mouse over the column headings. In order to directly manipulate the TrigConfig0 register, select the ''Custom'' setting from the configuration list.
 
 
@@ -527,4 +527,4 @@ The user interface to the TrigConfig0 register. Each row contains a complete set
 ---
 
 
-Generated by [![doxygen](doxygen.svg)](https://www.doxygen.org/index.html) 1.9.1
+Generated by [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/doxygen.svg)](https://www.doxygen.org/index.html) 1.9.1

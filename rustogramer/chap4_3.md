@@ -112,7 +112,7 @@ Provide site root to javascript
 This tab is only available with SpecTcl.  The Variables GUI looks like this:
 
 
-![Variables tab](./images/variables_tab.png)
+![Variables tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/variables_tab.png)
 
 
 The controls on this tab are similar to those on the [Parameters tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_2.md).   The only differences are:

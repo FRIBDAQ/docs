@@ -11,8 +11,8 @@ do not remove this div, it is closed by doxygen!
 - [User Guides](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pages.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
 
 
 - [Class List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/annotated.md)
@@ -50,7 +50,7 @@ Root finder based on linear interpolation.
 Inheritance diagram for TrAnal::LinearSolver:
 
 
-![](classTrAnal_1_1LinearSolver.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classTrAnal_1_1LinearSolver.png)
 
 
 |  |  |
@@ -97,4 +97,4 @@ The documentation for this class was generated from the following files:- traite
 ---
 
 
-Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2

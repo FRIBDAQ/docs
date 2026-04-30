@@ -11,8 +11,8 @@ do not remove this div, it is closed by doxygen!
 - [User Guides](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pages.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
 
 
  window showing the filter options 
@@ -46,7 +46,7 @@ There are three digitizers in use at the NSCL. They differ primarily in the ADC 
 ## The 100 MSPS Pixie-16
 
 
-![pixie-16-100msps.jpg](pixie-16-100msps.jpg)
+![pixie-16-100msps.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pixie-16-100msps.jpg)
 The 100 MSPS Pixie-16
 
 
@@ -90,7 +90,7 @@ timestamp        = timestamp_100mhz + correction
 ## The 250 MSPS Pixie-16
 
 
-![pixie-16-250msps.jpg](pixie-16-250msps.jpg)
+![pixie-16-250msps.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pixie-16-250msps.jpg)
 The 250 MSPS Pixie-16
 
 
@@ -134,7 +134,7 @@ timestamp        = 2*timestamp_125mhz + correction
 ## The 500 MSPS Pixie-16
 
 
-![pixie-16-500msps.jpg](pixie-16-500msps.jpg)
+![pixie-16-500msps.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pixie-16-500msps.jpg)
 The 500 MSPS Pixie-16
 
 
@@ -183,7 +183,7 @@ The Pixie-16 digitizers offer a few connectors on the front panel that are used 
 The 100 MSPS modules all have two connectors on the front panel. The bottom connector is labeled *3.3 V IO* and consists of 16 conductors that carry information for 12 signals. The connector for a flat cable and the breakout box converts from flat cable to coaxial cables. It "breaks out" the signals into 12 separate cables. It looks like:
 
 
-![100msps_LVTTL_breakout.jpg](100msps_LVTTL_breakout.jpg)
+![100msps_LVTTL_breakout.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/100msps_LVTTL_breakout.jpg)
 The 100 MSPS LVTTL Breakout.
 
 
@@ -216,7 +216,7 @@ All of the digitizers have a ethernet-like connector for a CAT5 cable on the top
 # The Trigger Distribution Board
 
 
-![P16TriggerDistBoard.jpg](P16TriggerDistBoard.jpg)
+![P16TriggerDistBoard.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/P16TriggerDistBoard.jpg)
 The Trigger Distribution Board
 
 
@@ -228,4 +228,4 @@ The trigger distribution board is used to distribute the clock and triggers betw
 ---
 
 
-Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2

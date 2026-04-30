@@ -12,8 +12,8 @@ do not remove this div, it is closed by doxygen!
 - [Namespaces](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/javascript:searchBox.CloseResultsWindow().md)
 
 
 - [Class List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/annotated.md)
@@ -51,7 +51,7 @@ Abstract [AlgoIterator](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/
 Inheritance diagram for TrAnal::AlgoIterator< T >:
 
 
-![](classTrAnal_1_1AlgoIterator.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classTrAnal_1_1AlgoIterator.png)
 
 
 |  |  |
@@ -180,4 +180,4 @@ The documentation for this class was generated from the following file:- traiter
 ---
 
 
-Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8

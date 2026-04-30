@@ -133,7 +133,7 @@ The gui supports the following command options
 
 
 When connected to Rustogramer, the GUI will look like this:
-![Initial GUI view](images/gui_spectra.png)
+![Initial GUI view](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gui_spectra.png)
 
 
 Prior to describing each of the user interface elements let's look at a few features of this image.

@@ -133,7 +133,7 @@ The `Data Source->Online` menu command allows you to get data from an online dat
 WHen you select this option, you will see the following dialog:
 
 
-![Online prompter](./images/online_prompt.png)
+![Online prompter](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/online_prompt.png)
 
 
 In the input edit line labeled `Ring Buffer URL` enter the URL of the ring buffer from which the server's helper should get data.   This is of the form `tcp://`*hostname*`/`*ringname*  where
@@ -166,7 +166,7 @@ Initiates analysis of data from either a raw event file or a parameter file.  No
 You will first be prompted for an event or parameter file.  Once that has been selected, you'll be asked to provide the version of NSCLDAQ the data are in via this prompter:
 
 
-![DAQVersion promter](./images/daqversion_prompt.png)
+![DAQVersion promter](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/daqversion_prompt.png)
 
 
 Once that is selected the server will start analyzing data from that file.
@@ -182,7 +182,7 @@ Pipe data sources allow the server to take data from the stdout of any program. 
 When you select `Data Source->Pipe` you will be greeted with the following dialog:
 
 
-![Pipe data source dialog](./images/pipsrc_dialog.png)
+![Pipe data source dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/pipsrc_dialog.png)
 
 
 The `Program` line edit and its accompanying `Browse...` button allow you to enter the program to use as the pipe data source.

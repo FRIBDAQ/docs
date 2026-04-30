@@ -12,8 +12,8 @@ do not remove this div, it is closed by doxygen!
 - [Namespaces](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/javascript:searchBox.CloseResultsWindow().md)
 
 
  window showing the filter options 
@@ -780,7 +780,7 @@ The simplest way to create spectra is to run your tailored SpecTcl and use its u
 Here's the SpecTcl treeparameter user interface after we start our SpecTcl:
 
 
-![simple_1module_treegui.jpeg](simple_1module_treegui.jpeg)
+![simple_1module_treegui.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/simple_1module_treegui.jpeg)
 The Tree parameter gui
 
 
@@ -804,7 +804,7 @@ You can now attach SpecTcl to the online system using the `Data` `Source->Online
 Start a run. Once data starts making its way out of the event builder, you should be able to see counts in the histograms that have valid inputs. Here's a sample pulser spectrum from my tests:
 
 
-![simple_1module_spectrum.jpg](simple_1module_spectrum.jpg)
+![simple_1module_spectrum.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/simple_1module_spectrum.jpg)
 Pulser spectrum in Xamine
 
  contents 
@@ -813,4 +813,4 @@ Pulser spectrum in Xamine
 ---
 
 
-Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8

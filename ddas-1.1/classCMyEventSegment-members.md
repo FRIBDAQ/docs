@@ -12,8 +12,8 @@ do not remove this div, it is closed by doxygen!
 - [Namespaces](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/namespaces.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/javascript:searchBox.CloseResultsWindow().md)
 
 
 - [Class List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/annotated.md)
@@ -70,4 +70,4 @@ This is the complete list of members for [CMyEventSegment](https://github.com/FR
 ---
 
 
-Generated on Wed Feb 20 2019 06:39:52 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+Generated on Wed Feb 20 2019 06:39:52 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8

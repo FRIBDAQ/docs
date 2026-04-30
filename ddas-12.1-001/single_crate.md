@@ -93,13 +93,13 @@ header
 
   The following figure shows a schematic representation of a DDAS hardware configuration using one crate:
 
-![](hardware_schematic_sc.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/hardware_schematic_sc.png)
 A schematic DDAS hardware configuration. A PXI crate with an SBC used as the data-collection computer and a single Pixie module is connected via the FRIB DAQ network to an analysis computer.
 
 
   The data flow through such a system looks like:
 
-![](dataflow_sc.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/dataflow_sc.png)
 Data flow through a DDAS system running NSCLDAQ 12. Note the separation of module data readout and sorting, which were previously part of a single process. This configuration enables much higher data readout speeds.
 
 
@@ -187,7 +187,7 @@ home-directory
 
   When using several DDAS cards it is important to synchronize the digitizer clocks between them. This is done by setting the jumper block JP01 appropriately. The jumper block is a set of pins located on the board near the backplane connectors, shown on the figure below in the red box. Configure the connections between these pins with jumpers. In case your setup consists of a single module, be sure to configure the jumpers to match the top diagram for the PXI clock master.
 
-![](board_and_jumpers_sc.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/board_and_jumpers_sc.png)
 [Left] A Pixie-16 board with the location of the JP01 jumper block shown in the red box. [Right] Schematic of the jumper settings for distributing the clock across the PXI backplane for a single-crate system. Top: PXI clock master jumper settings (slot 2). Bottom: PXI clock recipient jumper settings (slots 3-14). Figures reprinted from 'Pixie-16 User Manual', Version 3.06, XIA LLC.
 
 
@@ -219,7 +219,7 @@ home-directory
   Once you have a correctly configured working directory, it is time to program the module with appropriate settings for the test signal. The QtScope program is used to view input waveforms and set DSP parameters. QtScope is installed as part of the NSCLDAQ software package and should be run by:1. `source /usr/opt/daq/12.1-xiaapi4/daqsetup.bash`.
   2. `$DAQBIN/qtscope`
 
-![](qtscope_unbooted.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_unbooted.PNG)
 The QtScope GUI state on startup. Note that most GUI elements besides [Boot system], [About], and [Exit] on the system toolbar are disabled.
 
 
@@ -251,7 +251,7 @@ QtScope system configuration complete!
 
   The first thing we must do is setup the ADC for our input signal. First, lets look at a trace. Click the **[Read trace]** button until you see a full waveform trace. Here is an example trace:
 
-![](qtscope_badpol.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_badpol.PNG)
 A raw pulser trace captured by QtScope. The DSP settings have not been properly configured for the test pulse, see the text for details.
 
 
@@ -260,31 +260,31 @@ A raw pulser trace captured by QtScope. The DSP settings have not been properly 
 
   In order to correct these issues we need to configure some channel DSP settings on the module. Clicking on the **[Channel DSP]** button will open a popup menu that looks like:
 
-![](analog_signal_start.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/analog_signal_start.PNG)
 The QtScope analog signal conditioning tab.
 
 
   Our pulser test signal is plugged in to channel 0. Using the combo box in the polarity column, select negative (-) polarity for channel 0. Click the **[Apply]** button at the bottom of the channel DSP window to program the module with the new settings. Our analog signal tab now looks like:
 
-![](analog_signal_goodpol.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/analog_signal_goodpol.PNG)
 The QtScope analog signal conditioning tab with the polarity on channel 0 set correctly for our negative-polarity test signal.
 
 
   If we acquire another trace with these settings, we see:
 
-![](qtscope_tracesat.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_tracesat.PNG)
 A raw pulser trace captured by QtScope. The pulse polarity has been set correctly (the pulse is displayed with positive polarity), but the waveform is still clipped and overflows the ADC.
 
 
   While the signal polarity has been configured correctly, the trace is still clipped, this time at the top of the ADC range. The DC offset must be adjusted such that the digitized signal falls within the voltage range of the ADC. Fortunately, the Pixie modules have a way of determining this offset automatically. Click the **[Channel DSP]** button to again bring up the channel DSP manager popup window. Clicking the **[Adjust offsets]** button on the AnalogSignal tab will prompt the module to automatically determine good DC offset values. By default, the DC offset will be automatically set such that the signal baseline sits at approximately 10% of the full ADC range. Do not forget to click the **[Apply]** button after adjusting the offsets!
 
-![](analog_signal_conditioned.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/analog_signal_conditioned.PNG)
 The QtScope analog signal conditioning tab after automatic adjustment of the DC offset values.
 
 
   Reading another waveform gives the expected signal:
 
-![](qtscope_goodtrace.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/qtscope_goodtrace.PNG)
 A raw pulser trace captured by QtScope with correctly configured polarity and DC offset. The full pulse is within the voltage range of the ADC.
 
 
@@ -295,7 +295,7 @@ A raw pulser trace captured by QtScope with correctly configured polarity and DC
 
   Our test signal has a fixed amplitude and pulse shape and very little noise. Note that in general only some (or none!) of these things may be true. We will use a triangular filter with a risetime of 100 ns and a gap of 0 ns. The triangular filter is simply a special case of a trapezoidal filter with a gap equal to 0. The value of the trigger threshold must be set such that we can trigger on the input test pulse; because we have a fixed-height pulse, there is not much to do here: We set the trigger to have a risetime of 100 ns, gap of 0 ns, and a threshold of 50. Once the settings are applied, note that the channel DSP GUI reports a trigger risetime of 104 ns: the filter parameter values must be an integer number of FPGA clock cycles and are automatically rounded to a valid value if they are not. Because the 250 MSPS modules use a 125 MHz FPGA, the filter lengths must be an integer multiple of 8 ns.
 
-![](trigger_filter_settings.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/trigger_filter_settings.PNG)
 The trigger filter settings for our test pulse. A triangular filter (gap = 0 ns) is used. Note that the risetime and gap of the filter must be integer multiples of the signal-processing FPGA clock cycle which is equal to 10 ns for 100 MSPS and 500 MSPS modules and 8 ns for 250 MSPS modules.
 
 
@@ -314,7 +314,7 @@ Beginning histogram run in Mod. 0
 
   appear in the terminal window you used to launch QtScope. Click the **[Read data]** button a few times to read data into the histogram. If the DSP are set improperly, you might see the following:
 
-![](energy_bad.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/energy_bad.PNG)
 An energy spectrum for our test pulse acquired with bad energy DSP settings. The response is not Gaussian and is much broader than one would expect from a pulser signal.
 
 
@@ -349,13 +349,13 @@ Module 0 channel 15 input 0 output 0 livetime 48.5719 runtime 48.5719
 
   For our test signal, a risetime of 600 ns, gap of 256 ns and tau of 50 μs are reasonable initial guesses based on how we configured the signal from the pulser:
 
-![](energy_settings.png)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/energy_settings.png)
 The EnergyFilter [left] and Tau [right] DSP settings used for our test signal in channel 0.
 
 
   Once applied, a new energy spectrum is acquired:
 
-![](energy_good.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/energy_good.PNG)
 An energy spectrum for our test pulse acquired with good energy DSP settings. Note the Gaussian-like signal shape and improved energy resolution compared to the previous settings.
 
 
@@ -551,7 +551,7 @@ $DAQBIN/ReadoutShell
 
   This command opens the `ReadoutShell` GUI window:
 
-![](ReadoutShell.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/ReadoutShell.PNG)
 The ReadoutShell GUI window. The GUI allows users to configure data sources and run the DAQ from a single interface.
 
 
@@ -560,7 +560,7 @@ The ReadoutShell GUI window. The GUI allows users to configure data sources and 
 
   This should bring up the following window:
 
-![](SSHPipePrompt.PNG)
+![](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/SSHPipePrompt.PNG)
 The SSHPipe data source configuration prompt. The fields in this interface are used to configure the DDAS data sources for our experiment.
 
 
@@ -767,4 +767,4 @@ The module identification word `0x0f1000fa` has the following fields:
 ---
 
 
-Generated by [![doxygen](doxygen.svg)](https://www.doxygen.org/index.html) 1.9.1
+Generated by [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/doxygen.svg)](https://www.doxygen.org/index.html) 1.9.1

@@ -153,7 +153,7 @@ Allows you to create one or more spectra.  The spectrum editor tabbed widget is 
 Allows you to delete one or more spectra.   You can select the spectra to delete using:
 
 
-![Delete selected](./images/delspectra_dialog.png)
+![Delete selected](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/delspectra_dialog.png)
 
 
 Simply select spectra (you can select more than one at a time). And click the `>` button to add it to the editable list box.  When the listbox contains the spectra you want to delete; click `Ok` to delete those spectra.
@@ -171,7 +171,7 @@ You can achieve the same effect in the Spectra tab using the [Delete Button](htt
 Allows you to apply a gate/condition to one or more spectra;
 
 
-![Apply dialog](./images/apply-dialog.png)
+![Apply dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/apply-dialog.png)
 
 
 Select the condition on the left and select however many spectra you want (selections need not be contiguous) on the right and click `Ok` to apply the gate to the selected spectra.

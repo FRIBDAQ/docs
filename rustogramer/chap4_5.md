@@ -150,7 +150,7 @@ SpecTcl only can save tree variable definitions to an Sqlite3 data base file.  T
 Provides the capability to save the contents of one or more spectra to file.  Before being prompted for the output file you'll be prompted for the spectrum and file format as follows:
 
 
-![Spectrum save prompt](./images/save_spectra.png)
+![Spectrum save prompt](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/save_spectra.png)
 
 
 In the top part, select the spectra to save.  The right arrow button adds the spectra selected on the lef to the listbox on the right.  The list box on the right is editable; you can remove and reorder its spectra or just remove them all from the box.
@@ -179,7 +179,7 @@ A more subtle case is if, on a desktop, you are running the GUI natively but rus
 Loads a configuration file from an [SQlite3 databas file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md) into the server.   It is the GUI that interprets the database file contents.   After being prompted for the name a file, parameter definitions will be loaded from that file. You'll be prompted for what to do with duplicate spectrum definitions:
 
 
-![Load dialog](./images/load_dialog.png)
+![Load dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/load_dialog.png)
 
 
 You have the following choices:
@@ -199,7 +199,7 @@ Conditions will unconditionally overwrite existing conditions with the same name
 Reads the contents of a spectrum file.  First you will be presented with the following dialog:
 
 
-![Read spectrum dialog](./images/rdspec_dialog.png)
+![Read spectrum dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/rdspec_dialog.png)
 
 
 This dialog allows you to describe how spectra read from file will be loaded by the server and in what format the file is.

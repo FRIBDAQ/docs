@@ -123,7 +123,7 @@ The spectra tab has three components:
 The button bar contains the controls show below:
 
 
-![Spectrum button bar](./images/spectra_buttonbar.png)
+![Spectrum button bar](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectra_buttonbar.png)
 
 
 The button bar works in conjunction with selected spectra in the spectrum listing
@@ -154,7 +154,7 @@ As we will see in the section that describes the spectrum listing, you can selec
 The Spctrum listing part of the Spectrum Tab looks like this:
 
 
-![Spectrum listing](./images/spectrum_list.png)
+![Spectrum listing](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_list.png)
 
 
 Note that you can stretch the listing horizontally and, if you stretch the entire GUI vertically, all additional space is added to the listing.
@@ -220,7 +220,7 @@ The subsections below will describe each of the spectrum types and their editors
 1-D spectra (SpecTcl type `1`), histogram the values of a single parameter over a range with a specified binning.  The editor looks like this:
 
 
-![1D Spectrum Editor](./images/spectrum-1d.png)
+![1D Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-1d.png)
 
 
 Select the parameter to histogram from the Parmater pull down.  It's a hierarchical menu using the `.` character as a path separator.  When you have selected a parameter, the full name of the parameter will appear below the pull down.  If the parameter has metadata definining the range and suggested binning, that information will initially populate the Axis pulldowns.  The Low, High and Bins pull-downs pre-load with a set of common values but you can also type a value you want in the pulldown.  If you do so, that value is added to the list of values.
@@ -235,7 +235,7 @@ The `Array?` checkbox allows you to create a group of spectra very quickliy.  Su
 2-d spectram (SpecTcl type `2`) are two dimensional heat map spectra that histogram the correlated values of an x and a y parameter.  The editor for these looks like this:
 
 
-![2D Spectrum Editor](./images/spectrum-2d.png)
+![2D Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-2d.png)
 
 
 The mechanics of this editor are very similar to those of the [1D editor](#1-d-spectrum).  Select X and Y axis parameters from the pulldowns associated with each axis, ensure the axis specifications for the X and Y axes are what you want, provide a spectrum name and click `Create/Replace` to create the spectrum or overwrite (after confirmation) an exising spectrum with the same name.
@@ -250,7 +250,7 @@ Summary spectra (SpecTcl type `s`)  are a 2-d spectrum that allow you to look at
 The summary spectrum editor editor looks like this:
 
 
-![Summary Spectrum Editor](./images/spectrum-summary.png)
+![Summary Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-summary.png)
 
 
 Parameter selection involves filling in the `Parameters` box to the right of the parameter chooser dropdown.  If you have selected a parameter you can add it to the list of parameters in the box by clicking the right arrow button.  To remove parameters fromt the list, select them and click the X button.  You can add a related set of parameters to the list box by checking the `array` checkbox before clicking the right arrow button.
@@ -274,7 +274,7 @@ Once the desired list of parameters has been selected, the Y axis defined and a 
 Gamma 1-d spectra (SpecTcl type g1) are multiply incremented 1-d spectra.  The histogram is incremented for all of the values of its parameters.  You can think of it as a sum of the 1D spectra of all of its parameters.  The Gamma-1D spectrum looks exactly like the summary spectrum:
 
 
-![G1D Spectrum Editor](./images/spectrum-summary.png)
+![G1D Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-summary.png)
 
 
 When creating a Gamma 1d spectrum, however, the list of parameters determines the set of parameters that can increment the spectrum for any event.  Note that while in summary spectra the order of the parameters in the list box determines which X axis bin that parameter occupies, for Gamma-1D Spectra, the order is meaningless.
@@ -286,7 +286,7 @@ When creating a Gamma 1d spectrum, however, the list of parameters determines th
 Gamma 2d spectra (SpecTcl type `g2`) are 2-d spectra that increment for all pairs of spectrum parameters present in any events.  The editor for this spectrum type is similar to the summary spectrum editor but has a pair of axes:
 
 
-![G2 editor](images/spectrum-g2.png)
+![G2 editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-g2.png)
 
 
 Normally the X and Y axes have the same definition but neither rustogramer nor SpecTcl require this
@@ -301,7 +301,7 @@ Particle gamma spectra (SpecTcl type gd) allow you to define a set of X and Y pa
 The editor, therefore looks like:
 
 
-![Gamma Deluxe editor](./images/spectrum-gd.png)
+![Gamma Deluxe editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-gd.png)
 
 
 The mechanics of using this editor are the same as using the editor for a
@@ -320,7 +320,7 @@ Suppose, for example, the X parameters are x1, x2 and the y parameters are y1 an
 The editor is identical, however to the [Gamma Deluxe editor](#particle-gamma-spectrum):
 
 
-![2d sum editor](./images/spectrum-gd.png)
+![2d sum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-gd.png)
 
 
 ### [Projection spectra.](#projection-spectra)
@@ -332,7 +332,7 @@ Projection spectra are spectra that are created by initially projecting a suitab
 The editor is a bit odd looking compared with the other ones we've looked at:
 
 
-![Projection spectrum editor](./images/spectrum_proj.png)
+![Projection spectrum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_proj.png)
 
 
 After selecting a name for the spectrum and choosing whether or not the spectrum is a snapshot or not; select a source spectrum in the Spectrum pulldown menu.  Choose if an X or Y projection is desired.
@@ -351,7 +351,7 @@ Typically the X parameter is something that changes monotonically with time and 
 The Strip chart spectrum editor looks like this:
 
 
-![Strip chart editor](./images/spectrum-strip.png)
+![Strip chart editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-strip.png)
 
 
 In addition to the name of the spectrum you need to select a time (X) parameter and a Y parameter.  The values of the Y parmeter that occur within a time bin are summed.   The axis specification is an initial axis range and a fixed binning along that range.  The range may scroll, but the number of bins in the range will be fixed.
@@ -364,7 +364,7 @@ Spectra can also be created on parameters that represent integer bit masks (for 
 The editor for a bitmask spectrum looks like this:
 
 
-![Bit mask spectrum](./images/spectrum_bitmask.png)
+![Bit mask spectrum](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_bitmask.png)
 
 
 In addition to the spectrum name, select a paramter and define the number of bits that are significan (starting from the low order bit).  The spectrum will be incremented for each bit that is set in the parameter within the number of bits desired.
@@ -379,7 +379,7 @@ A gamma summary spectrum is a bit like a summary spectrum, however, each vertica
 As such the editor for Gamma Summary Spectra is a bit complicated:
 
 
-![Gamma Summary editor](./images/spectrum_gsummary.png)
+![Gamma Summary editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_gsummary.png)
 
 
 Let's start by looking at the tabbed set of list-boxes at the right of the editor.  The tabs are labeled numerically with the exception of the right most tab which is labeled `+`.  The numbered tabs represent lists of parameters for the gamma spectrum that's stacked on that bin.   E.g. The tab labled `0` which is the only numbered tab initially available should be filled in with the parameters you want on that bin.   The process of filling in these parameter list boxes should, by now, be familiar.

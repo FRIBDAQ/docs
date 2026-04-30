@@ -125,7 +125,7 @@ Modifying these metadata will modify the axis definitions that the GUI will sugg
 Let's have a look at the `Parameters` tab:
 
 
-![Parameters tab](./images/parameters_tab.png)
+![Parameters tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/parameters_tab.png)
 
 
 The top part of this GUI contains a parameter chooser and a bunch of buttons.  The bottom part, contains

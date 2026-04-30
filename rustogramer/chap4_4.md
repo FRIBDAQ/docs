@@ -118,7 +118,7 @@ With respect to primitive conditions, an important, and often forgotten point is
 Let's look at the Gates tab when the Gui is attached to Spectcl.  SpecTcl defines  a few condition types that rustogramer does not implement.  Therefore not all of the gate editor tabs visible in the picture below will be available if the GUI is used to control rustogramer.
 
 
-![Gate tab](./images/gate_tab.png)
+![Gate tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_tab.png)
 
 
 Key features to note:
@@ -183,7 +183,7 @@ Slice conditions are defined on a single parameter.  Slices have an *acceptance 
 Here's what the slice editor looks like:
 
 
-![Slice editor](./images/gate_slice.png)
+![Slice editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_slice.png)
 
 
 The name entry allows you to provide a name for the condition.
@@ -218,7 +218,7 @@ This definition of *insided-ness* is used by both SpecTcl and Rustogramer.
 Here's what the contour editor looks like:
 
 
-![Contour editor](./images/gate_contour.png)
+![Contour editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_contour.png)
 
 
 - As usual, at the top of the editor, you can type in the contour name.
@@ -241,7 +241,7 @@ These two condition types are defined on an arbitrary number of dependent condit
 Here's what the editor for *And* and *Or* conditions looks like (same editor is used for both types):
 
 
-![Condition editor for And and Or conditions](./images/gate_andor.png)
+![Condition editor for And and Or conditions](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_andor.png)
 
 
 - The name entry at the type, as usual, allows you to enter a name for the condition.
@@ -262,7 +262,7 @@ The dependent condition can be any type of condition.  For example you can const
 The editor for Not conditions is very simple:
 
 
-![Not editor](./images/gate_not.png)
+![Not editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_not.png)
 
 
 Fill in the name of the condition at the top, select the dependent condtion from the Gate: drop-down menu and click `Create/Replace` to create the new condition or to replace any existing condition with the same name.
@@ -277,7 +277,7 @@ Band conditions are similar to [Contour conditions](#contour-condition).  The di
 The band editor looks, and functions exactly like the contour editor:
 
 
-![Band editor](./images/gate_contour.png)
+![Band editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_contour.png)
 
 
 The only differences are:
@@ -296,7 +296,7 @@ Gamma bands and contours are defined on at least two parameters.  The operate li
 Both use the same editor:
 
 
-![Gamma band/contour editor](./images/gate_gamma2.png)
+![Gamma band/contour editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_gamma2.png)
 
 
 As you can see, in addition to the controls present for a contour or band editor, the Gamma band/contour editor provides for an arbitrary list of parameters to be accumulated.
@@ -308,7 +308,7 @@ As you can see, in addition to the controls present for a contour or band editor
 A gamma slice is like the or of several identical slices on different parameters but with the same acceptance region.  Here's the gamma slice editor:
 
 
-![Gamma slice editor](./images/gate_gslice.png)
+![Gamma slice editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_gslice.png)
 
 
 In addition to the name and acceptance regions needed for a slice condition, this editor allows you to accumulate an arbitrary list of parameters on which the slice will be evaluated.  If any parameter is inside the acceptance region the condition evaluates as True.
@@ -328,7 +328,7 @@ Bit mask conditions treat a parameter as an integer set of bits.  When you defin
 All of these bit mask conditions share the same editor:
 
 
-![Bit mask condition editor](./images/gate_mask.png)
+![Bit mask condition editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_mask.png)
 
 
 After choosing a name and parameter for the condition, check the bits that are set in the mask.  As usual the `Create/Replace` button creates the new condition, if necessary replacing any existing condition with the same name.
@@ -346,7 +346,7 @@ When you know  how you will actually gate the spectrum, you can create a conditi
 True and False condition editors only differ in the type of condition initially set on them:
 
 
-![True/False condition editor](./images/gate_tf.png)
+![True/False condition editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_tf.png)
 
 
 Note that if you change your mind about which condition type you are making, simple click the correct radio button.

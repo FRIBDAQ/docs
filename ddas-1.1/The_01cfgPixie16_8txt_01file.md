@@ -12,8 +12,8 @@ do not remove this div, it is closed by doxygen!
 - [Namespaces](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/namespaces.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/javascript:searchBox.CloseResultsWindow().md)
 
 
  window showing the filter options 
@@ -106,4 +106,4 @@ The human-readable notes at the end of each line n the topmost part are allowed 
 ---
 
 
-Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8

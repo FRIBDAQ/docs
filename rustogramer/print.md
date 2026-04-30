@@ -871,7 +871,7 @@ The gui supports the following command options
 
 
 When connected to Rustogramer, the GUI will look like this:
-![Initial GUI view](images/gui_spectra.png)
+![Initial GUI view](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gui_spectra.png)
 
 
 Prior to describing each of the user interface elements let's look at a few features of this image.
@@ -935,7 +935,7 @@ The spectra tab has three components:
 The button bar contains the controls show below:
 
 
-![Spectrum button bar](./images/spectra_buttonbar.png)
+![Spectrum button bar](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectra_buttonbar.png)
 
 
 The button bar works in conjunction with selected spectra in the spectrum listing
@@ -966,7 +966,7 @@ As we will see in the section that describes the spectrum listing, you can selec
 The Spctrum listing part of the Spectrum Tab looks like this:
 
 
-![Spectrum listing](./images/spectrum_list.png)
+![Spectrum listing](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_list.png)
 
 
 Note that you can stretch the listing horizontally and, if you stretch the entire GUI vertically, all additional space is added to the listing.
@@ -1032,7 +1032,7 @@ The subsections below will describe each of the spectrum types and their editors
 1-D spectra (SpecTcl type `1`), histogram the values of a single parameter over a range with a specified binning.  The editor looks like this:
 
 
-![1D Spectrum Editor](./images/spectrum-1d.png)
+![1D Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-1d.png)
 
 
 Select the parameter to histogram from the Parmater pull down.  It's a hierarchical menu using the `.` character as a path separator.  When you have selected a parameter, the full name of the parameter will appear below the pull down.  If the parameter has metadata definining the range and suggested binning, that information will initially populate the Axis pulldowns.  The Low, High and Bins pull-downs pre-load with a set of common values but you can also type a value you want in the pulldown.  If you do so, that value is added to the list of values.
@@ -1047,7 +1047,7 @@ The `Array?` checkbox allows you to create a group of spectra very quickliy.  Su
 2-d spectram (SpecTcl type `2`) are two dimensional heat map spectra that histogram the correlated values of an x and a y parameter.  The editor for these looks like this:
 
 
-![2D Spectrum Editor](./images/spectrum-2d.png)
+![2D Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-2d.png)
 
 
 The mechanics of this editor are very similar to those of the [1D editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#1-d-spectrum).  Select X and Y axis parameters from the pulldowns associated with each axis, ensure the axis specifications for the X and Y axes are what you want, provide a spectrum name and click `Create/Replace` to create the spectrum or overwrite (after confirmation) an exising spectrum with the same name.
@@ -1062,7 +1062,7 @@ Summary spectra (SpecTcl type `s`)  are a 2-d spectrum that allow you to look at
 The summary spectrum editor editor looks like this:
 
 
-![Summary Spectrum Editor](./images/spectrum-summary.png)
+![Summary Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-summary.png)
 
 
 Parameter selection involves filling in the `Parameters` box to the right of the parameter chooser dropdown.  If you have selected a parameter you can add it to the list of parameters in the box by clicking the right arrow button.  To remove parameters fromt the list, select them and click the X button.  You can add a related set of parameters to the list box by checking the `array` checkbox before clicking the right arrow button.
@@ -1086,7 +1086,7 @@ Once the desired list of parameters has been selected, the Y axis defined and a 
 Gamma 1-d spectra (SpecTcl type g1) are multiply incremented 1-d spectra.  The histogram is incremented for all of the values of its parameters.  You can think of it as a sum of the 1D spectra of all of its parameters.  The Gamma-1D spectrum looks exactly like the summary spectrum:
 
 
-![G1D Spectrum Editor](./images/spectrum-summary.png)
+![G1D Spectrum Editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-summary.png)
 
 
 When creating a Gamma 1d spectrum, however, the list of parameters determines the set of parameters that can increment the spectrum for any event.  Note that while in summary spectra the order of the parameters in the list box determines which X axis bin that parameter occupies, for Gamma-1D Spectra, the order is meaningless.
@@ -1098,7 +1098,7 @@ When creating a Gamma 1d spectrum, however, the list of parameters determines th
 Gamma 2d spectra (SpecTcl type `g2`) are 2-d spectra that increment for all pairs of spectrum parameters present in any events.  The editor for this spectrum type is similar to the summary spectrum editor but has a pair of axes:
 
 
-![G2 editor](images/spectrum-g2.png)
+![G2 editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-g2.png)
 
 
 Normally the X and Y axes have the same definition but neither rustogramer nor SpecTcl require this
@@ -1113,7 +1113,7 @@ Particle gamma spectra (SpecTcl type gd) allow you to define a set of X and Y pa
 The editor, therefore looks like:
 
 
-![Gamma Deluxe editor](./images/spectrum-gd.png)
+![Gamma Deluxe editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-gd.png)
 
 
 The mechanics of using this editor are the same as using the editor for a
@@ -1132,7 +1132,7 @@ Suppose, for example, the X parameters are x1, x2 and the y parameters are y1 an
 The editor is identical, however to the [Gamma Deluxe editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md#particle-gamma-spectrum):
 
 
-![2d sum editor](./images/spectrum-gd.png)
+![2d sum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-gd.png)
 
 
 ### [Projection spectra.](#projection-spectra)
@@ -1144,7 +1144,7 @@ Projection spectra are spectra that are created by initially projecting a suitab
 The editor is a bit odd looking compared with the other ones we've looked at:
 
 
-![Projection spectrum editor](./images/spectrum_proj.png)
+![Projection spectrum editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_proj.png)
 
 
 After selecting a name for the spectrum and choosing whether or not the spectrum is a snapshot or not; select a source spectrum in the Spectrum pulldown menu.  Choose if an X or Y projection is desired.
@@ -1163,7 +1163,7 @@ Typically the X parameter is something that changes monotonically with time and 
 The Strip chart spectrum editor looks like this:
 
 
-![Strip chart editor](./images/spectrum-strip.png)
+![Strip chart editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum-strip.png)
 
 
 In addition to the name of the spectrum you need to select a time (X) parameter and a Y parameter.  The values of the Y parmeter that occur within a time bin are summed.   The axis specification is an initial axis range and a fixed binning along that range.  The range may scroll, but the number of bins in the range will be fixed.
@@ -1176,7 +1176,7 @@ Spectra can also be created on parameters that represent integer bit masks (for 
 The editor for a bitmask spectrum looks like this:
 
 
-![Bit mask spectrum](./images/spectrum_bitmask.png)
+![Bit mask spectrum](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_bitmask.png)
 
 
 In addition to the spectrum name, select a paramter and define the number of bits that are significan (starting from the low order bit).  The spectrum will be incremented for each bit that is set in the parameter within the number of bits desired.
@@ -1191,7 +1191,7 @@ A gamma summary spectrum is a bit like a summary spectrum, however, each vertica
 As such the editor for Gamma Summary Spectra is a bit complicated:
 
 
-![Gamma Summary editor](./images/spectrum_gsummary.png)
+![Gamma Summary editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/spectrum_gsummary.png)
 
 
 Let's start by looking at the tabbed set of list-boxes at the right of the editor.  The tabs are labeled numerically with the exception of the right most tab which is labeled `+`.  The numbered tabs represent lists of parameters for the gamma spectrum that's stacked on that bin.   E.g. The tab labled `0` which is the only numbered tab initially available should be filled in with the parameters you want on that bin.   The process of filling in these parameter list boxes should, by now, be familiar.
@@ -1224,7 +1224,7 @@ Modifying these metadata will modify the axis definitions that the GUI will sugg
 Let's have a look at the `Parameters` tab:
 
 
-![Parameters tab](./images/parameters_tab.png)
+![Parameters tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/parameters_tab.png)
 
 
 The top part of this GUI contains a parameter chooser and a bunch of buttons.  The bottom part, contains
@@ -1259,7 +1259,7 @@ The following button operate on the selected rows of the table:
 This tab is only available with SpecTcl.  The Variables GUI looks like this:
 
 
-![Variables tab](./images/variables_tab.png)
+![Variables tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/variables_tab.png)
 
 
 The controls on this tab are similar to those on the [Parameters tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap4_2.md).   The only differences are:
@@ -1297,7 +1297,7 @@ With respect to primitive conditions, an important, and often forgotten point is
 Let's look at the Gates tab when the Gui is attached to Spectcl.  SpecTcl defines  a few condition types that rustogramer does not implement.  Therefore not all of the gate editor tabs visible in the picture below will be available if the GUI is used to control rustogramer.
 
 
-![Gate tab](./images/gate_tab.png)
+![Gate tab](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_tab.png)
 
 
 Key features to note:
@@ -1362,7 +1362,7 @@ Slice conditions are defined on a single parameter.  Slices have an *acceptance 
 Here's what the slice editor looks like:
 
 
-![Slice editor](./images/gate_slice.png)
+![Slice editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_slice.png)
 
 
 The name entry allows you to provide a name for the condition.
@@ -1397,7 +1397,7 @@ This definition of *insided-ness* is used by both SpecTcl and Rustogramer.
 Here's what the contour editor looks like:
 
 
-![Contour editor](./images/gate_contour.png)
+![Contour editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_contour.png)
 
 
 - As usual, at the top of the editor, you can type in the contour name.
@@ -1420,7 +1420,7 @@ These two condition types are defined on an arbitrary number of dependent condit
 Here's what the editor for *And* and *Or* conditions looks like (same editor is used for both types):
 
 
-![Condition editor for And and Or conditions](./images/gate_andor.png)
+![Condition editor for And and Or conditions](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_andor.png)
 
 
 - The name entry at the type, as usual, allows you to enter a name for the condition.
@@ -1441,7 +1441,7 @@ The dependent condition can be any type of condition.  For example you can const
 The editor for Not conditions is very simple:
 
 
-![Not editor](./images/gate_not.png)
+![Not editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_not.png)
 
 
 Fill in the name of the condition at the top, select the dependent condtion from the Gate: drop-down menu and click `Create/Replace` to create the new condition or to replace any existing condition with the same name.
@@ -1456,7 +1456,7 @@ Band conditions are similar to [Contour conditions](https://github.com/FRIBDAQ/d
 The band editor looks, and functions exactly like the contour editor:
 
 
-![Band editor](./images/gate_contour.png)
+![Band editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_contour.png)
 
 
 The only differences are:
@@ -1475,7 +1475,7 @@ Gamma bands and contours are defined on at least two parameters.  The operate li
 Both use the same editor:
 
 
-![Gamma band/contour editor](./images/gate_gamma2.png)
+![Gamma band/contour editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_gamma2.png)
 
 
 As you can see, in addition to the controls present for a contour or band editor, the Gamma band/contour editor provides for an arbitrary list of parameters to be accumulated.
@@ -1487,7 +1487,7 @@ As you can see, in addition to the controls present for a contour or band editor
 A gamma slice is like the or of several identical slices on different parameters but with the same acceptance region.  Here's the gamma slice editor:
 
 
-![Gamma slice editor](./images/gate_gslice.png)
+![Gamma slice editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_gslice.png)
 
 
 In addition to the name and acceptance regions needed for a slice condition, this editor allows you to accumulate an arbitrary list of parameters on which the slice will be evaluated.  If any parameter is inside the acceptance region the condition evaluates as True.
@@ -1507,7 +1507,7 @@ Bit mask conditions treat a parameter as an integer set of bits.  When you defin
 All of these bit mask conditions share the same editor:
 
 
-![Bit mask condition editor](./images/gate_mask.png)
+![Bit mask condition editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_mask.png)
 
 
 After choosing a name and parameter for the condition, check the bits that are set in the mask.  As usual the `Create/Replace` button creates the new condition, if necessary replacing any existing condition with the same name.
@@ -1525,7 +1525,7 @@ When you know  how you will actually gate the spectrum, you can create a conditi
 True and False condition editors only differ in the type of condition initially set on them:
 
 
-![True/False condition editor](./images/gate_tf.png)
+![True/False condition editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_tf.png)
 
 
 Note that if you change your mind about which condition type you are making, simple click the correct radio button.
@@ -1580,7 +1580,7 @@ Furthermore, the `File->Save...` menu operation saves the bindsets you've define
 The BindSets tab looks like this:
 
 
-![BindSets tab contents](./images/bindsettabs.png)
+![BindSets tab contents](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/bindsettabs.png)
 
 
 At the center of the user interface is a table (which becomes scrollable if needed).  The table lists the bind sets you have defined along with their descriptions.  At any time you
@@ -1609,7 +1609,7 @@ The buttons are in logical rather than visual order:
 Clicking the `New...` button pops up a dialog that contains the bind set editor:
 
 
-![Bind set editor](./images/bindset-editor.png)
+![Bind set editor](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/bindset-editor.png)
 
 
 At the top are entries for the bindset name and description. The description can be omitted, though this is not recommended.  The bindset name is mandatory.
@@ -1693,7 +1693,7 @@ SpecTcl only can save tree variable definitions to an Sqlite3 data base file.  T
 Provides the capability to save the contents of one or more spectra to file.  Before being prompted for the output file you'll be prompted for the spectrum and file format as follows:
 
 
-![Spectrum save prompt](./images/save_spectra.png)
+![Spectrum save prompt](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/save_spectra.png)
 
 
 In the top part, select the spectra to save.  The right arrow button adds the spectra selected on the lef to the listbox on the right.  The list box on the right is editable; you can remove and reorder its spectra or just remove them all from the box.
@@ -1722,7 +1722,7 @@ A more subtle case is if, on a desktop, you are running the GUI natively but rus
 Loads a configuration file from an [SQlite3 databas file](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/./chap7_6.md) into the server.   It is the GUI that interprets the database file contents.   After being prompted for the name a file, parameter definitions will be loaded from that file. You'll be prompted for what to do with duplicate spectrum definitions:
 
 
-![Load dialog](./images/load_dialog.png)
+![Load dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/load_dialog.png)
 
 
 You have the following choices:
@@ -1742,7 +1742,7 @@ Conditions will unconditionally overwrite existing conditions with the same name
 Reads the contents of a spectrum file.  First you will be presented with the following dialog:
 
 
-![Read spectrum dialog](./images/rdspec_dialog.png)
+![Read spectrum dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/rdspec_dialog.png)
 
 
 This dialog allows you to describe how spectra read from file will be loaded by the server and in what format the file is.
@@ -1802,7 +1802,7 @@ The `Data Source->Online` menu command allows you to get data from an online dat
 WHen you select this option, you will see the following dialog:
 
 
-![Online prompter](./images/online_prompt.png)
+![Online prompter](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/online_prompt.png)
 
 
 In the input edit line labeled `Ring Buffer URL` enter the URL of the ring buffer from which the server's helper should get data.   This is of the form `tcp://`*hostname*`/`*ringname*  where
@@ -1835,7 +1835,7 @@ Initiates analysis of data from either a raw event file or a parameter file.  No
 You will first be prompted for an event or parameter file.  Once that has been selected, you'll be asked to provide the version of NSCLDAQ the data are in via this prompter:
 
 
-![DAQVersion promter](./images/daqversion_prompt.png)
+![DAQVersion promter](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/daqversion_prompt.png)
 
 
 Once that is selected the server will start analyzing data from that file.
@@ -1851,7 +1851,7 @@ Pipe data sources allow the server to take data from the stdout of any program. 
 When you select `Data Source->Pipe` you will be greeted with the following dialog:
 
 
-![Pipe data source dialog](./images/pipsrc_dialog.png)
+![Pipe data source dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/pipsrc_dialog.png)
 
 
 The `Program` line edit and its accompanying `Browse...` button allow you to enter the program to use as the pipe data source.
@@ -1939,7 +1939,7 @@ The next subsections will look at each of these steps, showing you the Wizard GU
 THe firs step of the filter wizard:
 
 
-![Filter name](./images/fwiizard_name.png)
+![Filter name](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwiizard_name.png)
 
 
 Describes the process of making a filter and presents you with an editable text input in which you can type the filter's name.  Filter names must be unique.
@@ -1954,7 +1954,7 @@ When you are satisfied with your filter name, click the `Next >` button.
 A filter is gated.   Only events that make the filter true are written to the output file.  This allows you to do things like write only events with a specific particle ID for example.  The second stage of the filter wizard prompts you for a filter gate:
 
 
-![Filter gate](./images/fwizard_gate.png)
+![Filter gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwizard_gate.png)
 
 
 Select a gate from the pull down:
@@ -1973,7 +1973,7 @@ When you hvae the desired gate selected, click the `Next >` Button.
 Only a subset of parameters need to be written to filter files.  The next stop provides a parameter chooser/editable list to allow you to choose the parameters you want output:
 
 
-![Filter parameters](./images/fwizard_params.png)
+![Filter parameters](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwizard_params.png)
 
 
 Improvements to this stage of the GUI are planned see Issue [#169](https://github.com/FRIBDAQ/rustogrammer/issues/169) for more information.   When the parameters you want written are all in the editable list box, click the `Next >` button to advance to the last stage of the wizard.
@@ -1985,7 +1985,7 @@ Improvements to this stage of the GUI are planned see Issue [#169](https://githu
 The final step of the filter creation process is to specify where the filtered data will be written and, optionally to enable the filter.
 
 
-![File](./images/fwiizard_file.png)
+![File](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwiizard_file.png)
 
 
 Only enabled filters will actually write data.
@@ -1997,7 +1997,7 @@ Only enabled filters will actually write data.
 This menu entry allows you to enable and disable filters.  It brings up this dialog:
 
 
-![Enable filters](./images/filter_enables.png)
+![Enable filters](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/filter_enables.png)
 
 
 The table has a line per filter.  The left column are filter names and the right columns checkboxes.  Check the boxes for the filters you want enbled then click the `Ok` button to apply your selections.
@@ -2059,7 +2059,7 @@ Allows you to create one or more spectra.  The spectrum editor tabbed widget is 
 Allows you to delete one or more spectra.   You can select the spectra to delete using:
 
 
-![Delete selected](./images/delspectra_dialog.png)
+![Delete selected](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/delspectra_dialog.png)
 
 
 Simply select spectra (you can select more than one at a time). And click the `>` button to add it to the editable list box.  When the listbox contains the spectra you want to delete; click `Ok` to delete those spectra.
@@ -2077,7 +2077,7 @@ You can achieve the same effect in the Spectra tab using the [Delete Button](htt
 Allows you to apply a gate/condition to one or more spectra;
 
 
-![Apply dialog](./images/apply-dialog.png)
+![Apply dialog](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/apply-dialog.png)
 
 
 Select the condition on the left and select however many spectra you want (selections need not be contiguous) on the right and click `Ok` to apply the gate to the selected spectra.
@@ -2102,7 +2102,7 @@ Allows you to perform the folowing operations on gates.
 Selecting this brings up the tabbed window of the gate editors:
 
 
-![Gate editors](./images/gate_editors.png)
+![Gate editors](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/gate_editors.png)
 
 
 Use it to create as many gates as you want then dismiss it with the `Ok` button.
@@ -2121,7 +2121,7 @@ This functionality is the same as that in [the Spectrum menu](https://github.com
 Allows you to delete one or more gates.
 
 
-![Delete gate](./images/delgate-dialog.png)
+![Delete gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/delgate-dialog.png)
 
 
 Simply select the gates you wish to delete from the list in the dialog above and click `Ok`to delete them.

@@ -142,7 +142,7 @@ The next subsections will look at each of these steps, showing you the Wizard GU
 THe firs step of the filter wizard:
 
 
-![Filter name](./images/fwiizard_name.png)
+![Filter name](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwiizard_name.png)
 
 
 Describes the process of making a filter and presents you with an editable text input in which you can type the filter's name.  Filter names must be unique.
@@ -157,7 +157,7 @@ When you are satisfied with your filter name, click the `Next >` button.
 A filter is gated.   Only events that make the filter true are written to the output file.  This allows you to do things like write only events with a specific particle ID for example.  The second stage of the filter wizard prompts you for a filter gate:
 
 
-![Filter gate](./images/fwizard_gate.png)
+![Filter gate](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwizard_gate.png)
 
 
 Select a gate from the pull down:
@@ -176,7 +176,7 @@ When you hvae the desired gate selected, click the `Next >` Button.
 Only a subset of parameters need to be written to filter files.  The next stop provides a parameter chooser/editable list to allow you to choose the parameters you want output:
 
 
-![Filter parameters](./images/fwizard_params.png)
+![Filter parameters](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwizard_params.png)
 
 
 Improvements to this stage of the GUI are planned see Issue [#169](https://github.com/FRIBDAQ/rustogrammer/issues/169) for more information.   When the parameters you want written are all in the editable list box, click the `Next >` button to advance to the last stage of the wizard.
@@ -188,7 +188,7 @@ Improvements to this stage of the GUI are planned see Issue [#169](https://githu
 The final step of the filter creation process is to specify where the filtered data will be written and, optionally to enable the filter.
 
 
-![File](./images/fwiizard_file.png)
+![File](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/fwiizard_file.png)
 
 
 Only enabled filters will actually write data.
@@ -200,7 +200,7 @@ Only enabled filters will actually write data.
 This menu entry allows you to enable and disable filters.  It brings up this dialog:
 
 
-![Enable filters](./images/filter_enables.png)
+![Enable filters](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/images/filter_enables.png)
 
 
 The table has a line per filter.  The left column are filter names and the right columns checkboxes.  Check the boxes for the filters you want enbled then click the `Ok` button to apply your selections.

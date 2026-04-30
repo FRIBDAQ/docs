@@ -12,8 +12,8 @@ do not remove this div, it is closed by doxygen!
 - [Namespaces](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/javascript:searchBox.CloseResultsWindow().md)
 
 
 - [Class List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/annotated.md)
@@ -112,4 +112,4 @@ Here is a list of all documented class members with links to the class documenta
 ---
 
 
-Generated on Tue Mar 31 2020 12:56:44 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+Generated on Tue Mar 31 2020 12:56:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8

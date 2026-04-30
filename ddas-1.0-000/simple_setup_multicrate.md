@@ -11,8 +11,8 @@ do not remove this div, it is closed by doxygen!
 - [User Guides](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/pages.md)
 - [Classes](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/annotated.md)
 - [Files](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/files.md)
-- ![](search/mag_sel.png)
-  [![](search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
+- ![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/mag_sel.png)
+  [![](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/search/close.png)](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/javascript:searchBox.CloseResultsWindow().md)
 
 
  window showing the filter options 
@@ -86,14 +86,14 @@ DDAS data acquisition and online analysis rely on several hardware and software 
 The figure below shows a simple DDAS hardware configuration:
 
 
-![DDAS_Hardware.jpeg](DDAS_Hardware.jpeg)
+![DDAS_Hardware.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/DDAS_Hardware.jpeg)
 A DDAS Hardware configuration
 
 
 The figure below shows a simple DDAS software configuration emphasizing the data flow.
 
 
-![softwarecomponents.jpeg](softwarecomponents.jpeg)
+![softwarecomponents.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/softwarecomponents.jpeg)
 Software components in a single crate system
 
 
@@ -271,7 +271,7 @@ The next step is to configure the jumpers for each module in the system accordin
 - Note
   If you get the configuration wrong and freeze up the computer, you didn't break anything. You just need to reboot everything.
 
-![ssncrate_jumper_settings.png](ssncrate_jumper_settings.png)
+![ssncrate_jumper_settings.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_jumper_settings.png)
 The jumper settings for connecting pins in the JP101 jumper block. In a multi-crate system, the user should only configure Pixie-16 modules to use the upper and lower right and bottom left configurations. (This diagram is an excerpt from the XIA manual).
 
 
@@ -287,11 +287,11 @@ In order to send the clock between the crates, a Pixie-16 trigger distribution b
 There are three groups of connectors on the trigger board. The bottom group consists of two connectors and these are inputs A and B. The topmost group consists of four connectors and these are outputs 0 - 3, in order from top to bottom. The middle of group of connectors are outputs 4-7, once again in order from top to bottom. Each crate in the system must have one of these installed in the rear of the crate, immediately behind the slot 2 position on the front where the crate master resides. The trigger board in the master crate (immediately behind the multicrate master module), will need to connect one of the outputs to its own input A. A second output should then be connected to input A of the other crate. This wiring scheme looks like this:
 
 
-![ssncrate_triggerBoardWiring.png](ssncrate_triggerBoardWiring.png)
+![ssncrate_triggerBoardWiring.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_triggerBoardWiring.png)
 The diagram on the left is the front panel of the trigger board with the outputs and inputs labeled. The diagram on the right is the wiring scheme for a two crate system.
 
 
-![P16TriggerDistBoard.jpg](P16TriggerDistBoard.jpg)
+![P16TriggerDistBoard.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/P16TriggerDistBoard.jpg)
 The Pixie-16 Trigger Distribution Board. The bottom of the board is furthest to the left in the image.
 
 
@@ -463,7 +463,7 @@ We will begin with the analog signal conditioning parameters. Before the input s
 For the pulser I used, here's a sample picture:
 
 
-![simple_1module_trace.jpeg](simple_1module_trace.jpeg)
+![simple_1module_trace.jpeg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_trace.jpeg)
 Raw pulser trace
 
 
@@ -477,14 +477,14 @@ There are two things wrong with this signal:
 Click the `UV_Setup->Analog` `Signal` `Conditioning` menu entry. This brings up a screen that looks like this:
 
 
-![nscope_analogsetup.jpg](nscope_analogsetup.jpg)
+![nscope_analogsetup.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/nscope_analogsetup.jpg)
 The nscope analog signal setup panel
 
 
 Our pulser is plugged into channel 0 which has the `Sign` set to `+` Using the pull down on that channel to set the sign to `-` (be sure to click `Apply` to load the setting into the module) and acquiring another trace gives:
 
 
-![simple_1module_invertedtrace.jpg](simple_1module_invertedtrace.jpg)
+![simple_1module_invertedtrace.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_invertedtrace.jpg)
 Trace after setting sign to -
 
 
@@ -494,7 +494,7 @@ Our trace is still saturating the ADC. We'll next adjust the trace baseline. Do 
 Reading another waveform then gives:
 
 
-![simple_1module_blset.jpg](simple_1module_blset.jpg)
+![simple_1module_blset.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_blset.jpg)
 Trace after setting its baseline.
 
 
@@ -528,7 +528,7 @@ Baseline: 410
 Since we chose a signal with a good rise and fall time initially, we only care about the computed [CFD](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classCFD.md) delay. Click the `UV_Setup->CFD` to bring up the [CFD](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classCFD.md) control panel:
 
 
-![nscope_cfdpanel.jpg](nscope_cfdpanel.jpg)
+![nscope_cfdpanel.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/nscope_cfdpanel.jpg)
 nscope's CFD control panel
 
 
@@ -543,7 +543,7 @@ Apply the settings. Finally enable the [CFD](https://github.com/FRIBDAQ/docs/tre
 Now that the trigger is set up you can take data and look at the module histograms. Use the menu entry `Expert->Start` `Run` this makes the module start taking triggers and histogramming the energy computed from the waveforms. The `Read` `Histo` button will read and display the channel energy histogram accumulated by the module. For my pulser I got:
 
 
-![simple_1module_histo.jpg](simple_1module_histo.jpg)
+![simple_1module_histo.jpg](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_1module_histo.jpg)
 Histogram of a pulser
 
 
@@ -632,7 +632,7 @@ At this point, one of three things should have happened.
    3. Something else is going on. Can you open any applications that produce a GUI? Consider contacting [helpm.nosp@m.e@ns.nosp@m.cl.ms.nosp@m.u.ed.nosp@m.u](#) to help diagnose why you are unable to view a window. If you do, please be as explicit as possible and include either a screenshot or verbatim copy of any error message.
 
 
-![ssncrate_readoutGui_startup.png](ssncrate_readoutGui_startup.png)
+![ssncrate_readoutGui_startup.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_readoutGui_startup.png)
 The ReadoutGUI.
 
 
@@ -645,13 +645,13 @@ The ReadoutGUI is not associated with any Readout programs by default and needs 
 Select Data Source > Add... to add your first data provider. The data provider dialogue will prompt you to choose the type of data provider you are going to use. Select SSHPipe and then press the "Ok" button.
 
 
-![ssncrate_readoutGui_selectProvider.png](ssncrate_readoutGui_selectProvider.png)
+![ssncrate_readoutGui_selectProvider.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_readoutGui_selectProvider.png)
 
 
 The data provider dialogue will prompt you to enter information for your first data source. Enter the path to your Readout program and any command line options that go with it. Press the "Ok" button.
 
 
-![ssncrate_readoutGui_providerInfo.png](ssncrate_readoutGui_providerInfo.png)
+![ssncrate_readoutGui_providerInfo.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_readoutGui_providerInfo.png)
 
 
 For crate 1, I have entered in the following information:
@@ -767,7 +767,7 @@ Source Ring URL" should be tcp://localhost/evb_out. Be sure that the "stagearea
 path" has the correct path to the stagearea you created, the "Use --number-of-sources" is checked and additional sources is set to 0. Finally, ensure the "Compute checksum" button is selected and the "Use GUI Run number" is *NOT* selected.
 
 
-![ssncrate_readoutGui_eventLog.png](ssncrate_readoutGui_eventLog.png)
+![ssncrate_readoutGui_eventLog.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_readoutGui_eventLog.png)
 The data recording configuration dialog. The values in the screenshot are meaningless for this tutorial.
 
 
@@ -900,7 +900,7 @@ Based on this knowledge we can determine that the module that produced this even
 The remaining four 32-bit words are what the module emitted. The structure depends on the configuration of the device and you can read all about it in more detail in the Pixie-16 manual. We will only restrict ourselves to understanding the current configuration, which is to simply compute an energy. The structure of the data packet read from the module for a single event has the following form:
 
 
-![ssncrate_dataStructure_manualSnippet.png](ssncrate_dataStructure_manualSnippet.png)
+![ssncrate_dataStructure_manualSnippet.png](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/ssncrate_dataStructure_manualSnippet.png)
 The structure of a data packet read from a Pixie-16 module (diagram taken from Pixie-16 manual).
 
 
@@ -921,4 +921,4 @@ SpecTcl is the lab-supported framework for analyzing data online. The DDAS comes
 ---
 
 
-Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
