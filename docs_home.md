@@ -143,7 +143,4 @@ Rustogrammer is a new histograming package written in rust and portable
       to Windows.  With the Cutiepie displayer having been ported to windows
       and the availability of a portable PyQt front end that is similar to the
       Tree GUI available in SpecTcl, this package brings analysis power similar
-      to SpecTcl to the desktop.
-
-      See
-      [Rustogrammer Documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/index.md)
+      to SpecTcl to the desktop. See [Rustogrammer Documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/index.md)
