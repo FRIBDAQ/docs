@@ -1,8 +1,5 @@
-The FRIBDAQ (previously known as NSCLDAQ) software described in this documentation is licensed for
-     use by the MSU Board of trustees under the GNU Public Licesne
-
-     see [http://www.gnu.org/licenses/gpl.txt](http://www.gnu.org/licenses/gpl.txt)
-     for terms and conditions
+The FRIBDAQ (previously known as NSCLDAQ) software described in this documentation is licensed for use by the MSU Board of trustees under
+the GNU Public Licesne (see [http://www.gnu.org/licenses/gpl.txt](http://www.gnu.org/licenses/gpl.txt) for terms and conditions
 
 
 Other, open source, software is re-distributed with permission of the
