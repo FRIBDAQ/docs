@@ -1,3 +1,7 @@
+[← Including EPICS data in event files.](https://github.com/FRIBDAQ/docs/tree/main/cookbook/c665.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The code →](https://github.com/FRIBDAQ/docs/tree/main/cookbook/x237.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>The NSCLDAQ cookbook
 
 ### <a name="AEN4"></a>Ron Fox
@@ -34,3 +38,7 @@
 - 4-8. [`CRingItemProcessor`::`processUnknownItemType`](https://github.com/FRIBDAQ/docs/tree/main/cookbook/x322.md#AEN565)
 
 ---
+
+---
+
+[← Including EPICS data in event files.](https://github.com/FRIBDAQ/docs/tree/main/cookbook/c665.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The code →](https://github.com/FRIBDAQ/docs/tree/main/cookbook/x237.md)

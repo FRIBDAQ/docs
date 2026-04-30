@@ -1,3 +1,7 @@
+[← The Parameters Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Gate Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -156,3 +160,7 @@ The values and units in the table can be edited, however the `Set` button must b
 
 
  Custom JS scripts
+
+---
+
+[← The Parameters Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Gate Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md)

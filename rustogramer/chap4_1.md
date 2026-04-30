@@ -1,3 +1,7 @@
+[← Format of data Rustogramer accepts - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Parameters Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_2.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -411,3 +415,7 @@ The remainder of the editor should be familiar by now.  A spectrum name, a Y axi
 
 
  Custom JS scripts
+
+---
+
+[← Format of data Rustogramer accepts - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Parameters Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_2.md)

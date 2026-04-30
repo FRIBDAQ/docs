@@ -1,3 +1,7 @@
+[← Access control and security](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3-020/c9874.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3-020/p10424.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -965,3 +969,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3-020/r76403.md#AEN76421)
 
 ---
+
+---
+
+[← Access control and security](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3-020/c9874.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3-020/p10424.md)

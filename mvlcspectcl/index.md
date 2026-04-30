@@ -1,3 +1,7 @@
+[← header](https://github.com/FRIBDAQ/docs/tree/main/header.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Os class →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/c10055.md)
+
+---
+
 # MVLCSpecTcl
 
 
@@ -60,3 +64,7 @@ files:
 - Makefile - Makefile (you might need to extend) to build
   MVLCSpecTcl.
 - SpecTclInit.tcl, SpecTclRC.tcl - sample initialization scripts.
+
+---
+
+[← header](https://github.com/FRIBDAQ/docs/tree/main/header.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Os class →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/c10055.md)

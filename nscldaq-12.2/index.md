@@ -1,3 +1,7 @@
+[← Mesytec MSCF-16 Controls](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.2/c9995.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [commands →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.2/p10215.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -1407,3 +1411,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.2/r119356.md#AEN119374)
 
 ---
+
+---
+
+[← Mesytec MSCF-16 Controls](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.2/c9995.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [commands →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.2/p10215.md)

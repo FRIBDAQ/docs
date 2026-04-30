@@ -1,3 +1,7 @@
+[← NSCL DDAS: Load an XML File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/Example_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Get information out of XML →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/Example_3.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -37,3 +41,7 @@ Basic XML string parsing. The basic syntax to parse an XML for a char* and check
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Load an XML File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/Example_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Get information out of XML →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/Example_3.md)

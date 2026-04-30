@@ -1,3 +1,7 @@
+[← Chapter 3 - Running Rustogramer - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 5 - Using CutiePie to display histograms - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_5.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -198,3 +202,7 @@ towards the end of that file.
 
 
  Custom JS scripts
+
+---
+
+[← Chapter 3 - Running Rustogramer - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 5 - Using CutiePie to display histograms - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_5.md)

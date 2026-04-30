@@ -1,3 +1,7 @@
+[← NSCL DDAS: DDAS::GslFitParameters Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1GslFitParameters.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::HitExtension Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1HitExtension.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -52,3 +56,7 @@ This is the complete list of members for [DDAS::HitExtension](https://github.com
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DDAS::GslFitParameters Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1GslFitParameters.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::HitExtension Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1HitExtension.md)

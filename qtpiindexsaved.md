@@ -1,3 +1,7 @@
+[← Command jackets (3tcl)](https://github.com/FRIBDAQ/docs/tree/main/parallel/x887.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Gating and summing regions →](https://github.com/FRIBDAQ/docs/tree/main/qtpy/c119.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>CutiePie (QtPy) (version 6.0-dev)
 
 ### <a name="AEN4"></a>Giordano Cerizza
@@ -12,3 +16,7 @@
 - 4. [CutiePie: how to customize ML algo and fitting functions](https://github.com/FRIBDAQ/docs/tree/main/c31.md)
 
 ---
+
+---
+
+[← Command jackets (3tcl)](https://github.com/FRIBDAQ/docs/tree/main/parallel/x887.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Gating and summing regions →](https://github.com/FRIBDAQ/docs/tree/main/qtpy/c119.md)

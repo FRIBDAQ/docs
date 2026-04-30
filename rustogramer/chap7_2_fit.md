@@ -1,3 +1,7 @@
+[← /spectcl/filter requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/fold requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -363,3 +367,7 @@ Suppose we have a linear fit, what you might get back is:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/filter requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/fold requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md)

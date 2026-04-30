@@ -1,3 +1,7 @@
+[← /spectcl/rawparameter requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/ringformat requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ringformat.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -206,3 +210,7 @@ Where a generic response is used, error information usually uses the ***detail**
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/rawparameter requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_rawparameter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/ringformat requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ringformat.md)

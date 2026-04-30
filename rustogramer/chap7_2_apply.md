@@ -1,3 +1,7 @@
+[← /spectcl/analyze requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/attach requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -239,3 +243,7 @@ Here's an error return from SpecTcl attempting to ungate a spectrum `event.raw.0
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/analyze requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/attach requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md)

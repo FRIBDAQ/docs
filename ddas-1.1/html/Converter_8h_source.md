@@ -1,3 +1,7 @@
+[← NSCL DDAS: configuration/Configuration.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/Configuration_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/CrateManager.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/CrateManager_8cpp.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -256,3 +260,7 @@ Base class for all converter objects.
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: configuration/Configuration.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/Configuration_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/CrateManager.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/CrateManager_8cpp.md)

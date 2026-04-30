@@ -1,3 +1,7 @@
+[← The BindSets Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Tcl REST interface - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -233,3 +237,7 @@ the [Data Source Menu](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/cha
 
 
  Custom JS scripts
+
+---
+
+[← The BindSets Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Tcl REST interface - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md)

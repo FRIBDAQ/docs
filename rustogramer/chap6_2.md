@@ -1,3 +1,7 @@
+[← Tcl REST interface - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Command Line Options - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_1.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -283,3 +287,7 @@ if __name__ == '__main__':
 
 
  Custom JS scripts
+
+---
+
+[← Tcl REST interface - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Command Line Options - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_1.md)

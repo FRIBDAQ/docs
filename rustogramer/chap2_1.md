@@ -1,3 +1,7 @@
+[← How to use this book - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap1_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Format of data Rustogramer accepts - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_2.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -496,3 +500,7 @@ Once those definitions are made the remainder of the Makefile is pretty trivial.
 
 
  Custom JS scripts
+
+---
+
+[← How to use this book - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap1_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Format of data Rustogramer accepts - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_2.md)

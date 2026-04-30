@@ -1,3 +1,7 @@
+[← Command Line Options - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/analyze requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -175,3 +179,7 @@ The number of request families is large.   Refer to the sidebar table of content
 
 
  Custom JS scripts
+
+---
+
+[← Command Line Options - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/analyze requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_analyze.md)

@@ -1,3 +1,7 @@
+[← Plotting window](https://github.com/FRIBDAQ/docs/tree/main/qtpy/c89.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Format of Ring bufffer DAQ event files →](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a1882.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>CutiePie (QtPy) (version 5.13-000)
 
 ### <a name="AEN4"></a>Giordano Cerizza
@@ -45,3 +49,7 @@
 - 9-4. [Example of fitting function based on the skeleton.](https://github.com/FRIBDAQ/docs/tree/main/qtpy/c203.md#AEN215)
 
 ---
+
+---
+
+[← Plotting window](https://github.com/FRIBDAQ/docs/tree/main/qtpy/c89.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Format of Ring bufffer DAQ event files →](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a1882.md)

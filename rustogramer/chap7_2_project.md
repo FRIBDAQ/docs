@@ -1,3 +1,7 @@
+[← /spectcl/pman requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/psuedo requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -198,3 +202,7 @@ Failure from Spectcl
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/pman requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/psuedo requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md)

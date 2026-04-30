@@ -1,3 +1,7 @@
+[← SpecTcl's startup process](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/c934.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Some SpecTcl scripting examples. →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/x1269.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl User guide.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -137,3 +141,7 @@
 - 8-3. [Defining ANALYZE_FILTERS](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/c2986.md#AEN3034)
 
 ---
+
+---
+
+[← SpecTcl's startup process](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/c934.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Some SpecTcl scripting examples. →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/x1269.md)

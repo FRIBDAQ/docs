@@ -1,3 +1,7 @@
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/CAEN V812/V812.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/DAQ_help.md)
+
+---
+
 The CAEN V767A is a multi-hit with 64 channels in a single width VME module. The module has several operating modes including common stop, common start, and continuous storage. The resolution of the module is 800ps.
 
 
@@ -5,3 +9,7 @@ Currently the NSCL support of the CAEN V767 is incomplete.  If you a interested 
 
 
 If you decide that you really want or need to use the CAEN V767, please contact the DAQ development group at [daqdocs@nscl.msu.edu](mailto:daqdocs@nscl.msu.edu)
+
+---
+
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/CAEN V812/V812.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/DAQ_help.md)

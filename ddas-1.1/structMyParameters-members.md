@@ -1,3 +1,7 @@
+[← NSCL DDAS: Module_Info Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structModule__Info.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: MyParameters Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structMyParameters.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -48,3 +52,7 @@ This is the complete list of members for [MyParameters](https://github.com/FRIBD
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Module_Info Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structModule__Info.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: MyParameters Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structMyParameters.md)

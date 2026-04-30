@@ -1,3 +1,7 @@
+[← /spectcl/evbunpack requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/filter requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -147,3 +151,7 @@ And then exits normally.  If Rustogramer exits abnormally, it most likely will l
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/evbunpack requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/filter requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_filter.md)

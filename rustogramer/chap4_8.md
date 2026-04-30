@@ -1,3 +1,7 @@
+[← The Spectra Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The BindSets Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -168,3 +172,7 @@ Simply select the gates you wish to delete from the list in the dialog above and
 
 
  Custom JS scripts
+
+---
+
+[← The Spectra Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The BindSets Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_bindsets.md)

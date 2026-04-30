@@ -1,3 +1,7 @@
+[← NSCL DDAS: File List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/files.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Class Members →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/functions.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -155,3 +159,7 @@ header
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: File List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/files.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Class Members →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/functions.md)

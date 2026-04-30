@@ -1,3 +1,7 @@
+[← Chapter 4 - Using the Rustogramer GUI - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 6 - the REST interface - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_6.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -164,3 +168,7 @@ For CutiePie user documentation see [The FRIB documentation page on CutiePie](ht
 
 
  Custom JS scripts
+
+---
+
+[← Chapter 4 - Using the Rustogramer GUI - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 6 - the REST interface - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_6.md)

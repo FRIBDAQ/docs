@@ -1,3 +1,7 @@
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/Fera/Fera.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/Scaler.md)
+
+---
+
 [NSCL Home Page](http://www.nscl.msu.edu/)
 
 
@@ -59,3 +63,7 @@ By Tim Hoagland
 
 
 [MSU Home Page](http://www.msu.edu/)
+
+---
+
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/Fera/Fera.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/Scaler.md)

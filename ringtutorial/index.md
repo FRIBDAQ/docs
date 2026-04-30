@@ -1,3 +1,7 @@
+[← Creating a Readout program from a spectrodaq production readout program](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Porting scaler readout to RingDaq →](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>NSCL Ring buffer DAQ tutorial
 
 ### <a name="AEN4"></a>Ron Fox
@@ -96,3 +100,7 @@
 - C-4. [SpecTcl pipe data source using spectcldaq.server](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2156)
 
 ---
+
+---
+
+[← Creating a Readout program from a spectrodaq production readout program](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/c654.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Porting scaler readout to RingDaq →](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/x1003.md)

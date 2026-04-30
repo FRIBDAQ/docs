@@ -1,3 +1,7 @@
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/download.md)
+
+---
+
 [NSCL Home Page](http://www.nscl.msu.edu/)
 
 
@@ -80,3 +84,7 @@ ByTim Hoagland
 
 
 [MSU Home Page](http://www.msu.edu/)
+
+---
+
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/download.md)

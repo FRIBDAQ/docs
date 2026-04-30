@@ -1,3 +1,7 @@
+[← NSCL DDAS: HardwareRegistry Namespace Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaceHardwareRegistry.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Namespace List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -41,3 +45,7 @@ The [Test](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaceTest
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: HardwareRegistry Namespace Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaceHardwareRegistry.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Namespace List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md)

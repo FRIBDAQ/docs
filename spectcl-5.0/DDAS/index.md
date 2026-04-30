@@ -1,3 +1,7 @@
+[← The DDASHit class.](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/c40.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [DAQ::DDAS::DDASHit →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/r231.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl DDAS Unpackers Guide.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -20,3 +24,7 @@
   - [CCalibratedFileDrivenParameterMapper](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/r811.md) -- Unpack DDAS data to raw and calibrated params
 
 ---
+
+---
+
+[← The DDASHit class.](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/c40.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [DAQ::DDAS::DDASHit →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/r231.md)

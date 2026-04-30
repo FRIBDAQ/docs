@@ -1,3 +1,7 @@
+[← NSCL DDAS: nscope/MaxEvent.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/MaxEvent_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: $title →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/Migration_01Guide_01from_01Unsupported_01DDAS.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -125,3 +129,7 @@ header
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: nscope/MaxEvent.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/MaxEvent_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: $title →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/Migration_01Guide_01from_01Unsupported_01DDAS.md)

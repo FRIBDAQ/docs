@@ -1,3 +1,7 @@
+[← NSCL DDAS: MyParameters Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structMyParameters.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Pixie_Configuration Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structPixie__Configuration.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -45,3 +49,7 @@ This is the complete list of members for [Pixie_Configuration](https://github.co
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: MyParameters Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structMyParameters.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Pixie_Configuration Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structPixie__Configuration.md)

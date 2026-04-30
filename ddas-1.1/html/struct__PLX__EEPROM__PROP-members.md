@@ -1,3 +1,7 @@
+[← NSCL DDAS: _PLX_EEPROM_ENTRY Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__EEPROM__ENTRY.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_EEPROM_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__EEPROM__PROP.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -51,3 +55,7 @@ This is the complete list of members for [_PLX_EEPROM_PROP](https://github.com/F
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: _PLX_EEPROM_ENTRY Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__EEPROM__ENTRY.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_EEPROM_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__EEPROM__PROP.md)

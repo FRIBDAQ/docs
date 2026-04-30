@@ -1,3 +1,7 @@
+[← NSCL DDAS: _PLX_PHYSICAL_MEM Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__PHYSICAL__MEM.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_PORT_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__PORT__PROP.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -55,3 +59,7 @@ This is the complete list of members for [_PLX_PORT_PROP](https://github.com/FRI
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: _PLX_PHYSICAL_MEM Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__PHYSICAL__MEM.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_PORT_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__PORT__PROP.md)

@@ -1,3 +1,7 @@
+[← NSCL DDAS: ddasdumper Directory Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dir_b0ea4e93f319fac9264d2172b1b88ee9.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/tinyxml Directory Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dir_c7ef93510035d8533ef4c9d1c09d2231.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -75,3 +79,7 @@ header
 
 
 Generated on Tue Mar 31 2020 12:56:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: ddasdumper Directory Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dir_b0ea4e93f319fac9264d2172b1b88ee9.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/tinyxml Directory Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dir_c7ef93510035d8533ef4c9d1c09d2231.md)

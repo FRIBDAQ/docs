@@ -1,3 +1,7 @@
+[← NSCL DDAS: tinyxml2::LongFitsIntoSizeTMinusOne< false > Struct Template Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structtinyxml2_1_1LongFitsIntoSizeTMinusOne_3_01false_01_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/tinyxmlutil.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/tinyxmlutil_8cpp.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -5898,3 +5902,7 @@ Get the name of an element (which is the Value() of the node.)
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: tinyxml2::LongFitsIntoSizeTMinusOne< false > Struct Template Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structtinyxml2_1_1LongFitsIntoSizeTMinusOne_3_01false_01_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/tinyxmlutil.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/tinyxmlutil_8cpp.md)

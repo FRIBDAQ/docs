@@ -1,3 +1,7 @@
+[← NSCL DDAS: _PLX_EEPROM_PROP Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/struct__PLX__EEPROM__PROP.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_INTERRUPT Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/struct__PLX__INTERRUPT.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -73,3 +77,7 @@ This is the complete list of members for [_PLX_INTERRUPT](https://github.com/FRI
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: _PLX_EEPROM_PROP Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/struct__PLX__EEPROM__PROP.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_INTERRUPT Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/struct__PLX__INTERRUPT.md)

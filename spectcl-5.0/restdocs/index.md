@@ -1,3 +1,7 @@
+[← REST requests supported.](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/restdocs/c84.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Parameter requests →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/restdocs/x132.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl REST plugin
 
 ### <a name="AEN4"></a>Ron Fox
@@ -45,3 +49,7 @@
 - 2-1. [Incorporating and starting the REST server](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/restdocs/c33.md#AEN62)
 
 ---
+
+---
+
+[← REST requests supported.](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/restdocs/c84.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Parameter requests →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/restdocs/x132.md)

@@ -1,3 +1,7 @@
+[← Chapter 2 - Preparing data for Rustogramer - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 4 - Using the Rustogramer GUI - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_4.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -225,3 +229,7 @@ If `graham` looks up the port `RG_REST` he'll get the port his rustogramer rserv
 
 
  Custom JS scripts
+
+---
+
+[← Chapter 2 - Preparing data for Rustogramer - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 4 - Using the Rustogramer GUI - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_4.md)

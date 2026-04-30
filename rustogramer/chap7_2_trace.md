@@ -1,3 +1,7 @@
+[← /spectcl/swrite requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_swrite.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/treevariable requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -288,3 +292,7 @@ Success in Rustogramer:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/swrite requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_swrite.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/treevariable requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md)

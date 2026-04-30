@@ -1,3 +1,7 @@
+[← NSCL DDAS: _PLX_MODE_PROP Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__MODE__PROP.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_MULTI_HOST_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__MULTI__HOST__PROP.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -54,3 +58,7 @@ This is the complete list of members for [_PLX_MULTI_HOST_PROP](https://github.c
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: _PLX_MODE_PROP Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__MODE__PROP.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_MULTI_HOST_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__PLX__MULTI__HOST__PROP.md)

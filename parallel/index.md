@@ -1,3 +1,7 @@
+[← How mpiSpecTcl works in parallel mode.](https://github.com/FRIBDAQ/docs/tree/main/parallel/c362.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [CMPITclPackagedCommand →](https://github.com/FRIBDAQ/docs/tree/main/parallel/r1052.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>mpiSpecTcl.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -102,3 +106,7 @@
 - D-1. [VMUSB configuration](https://github.com/FRIBDAQ/docs/tree/main/parallel/a2325.md#AEN2352)
 
 ---
+
+---
+
+[← How mpiSpecTcl works in parallel mode.](https://github.com/FRIBDAQ/docs/tree/main/parallel/c362.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [CMPITclPackagedCommand →](https://github.com/FRIBDAQ/docs/tree/main/parallel/r1052.md)

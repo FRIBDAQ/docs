@@ -1,3 +1,7 @@
+[← The File Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Spectra Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -252,3 +256,7 @@ Cluster file processing is not yet implemented in the GUI see [#168](https://git
 
 
  Custom JS scripts
+
+---
+
+[← The File Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Spectra Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_7.md)

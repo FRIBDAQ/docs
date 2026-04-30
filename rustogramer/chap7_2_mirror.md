@@ -1,3 +1,7 @@
+[← /spectcl/integrate requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_integrate.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/parameter requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -177,3 +181,7 @@ The **detail** is an array of structs where each struct describes a mirror regis
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/integrate requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_integrate.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/parameter requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_parameter.md)

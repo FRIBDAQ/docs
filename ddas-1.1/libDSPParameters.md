@@ -1,3 +1,7 @@
+[← NSCL DDAS: Main Page](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: fits/lmfit.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/lmfit_8cpp.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -620,3 +624,7 @@ Note that the units of measure shown *must* be used. You cannot, for example spe
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Main Page](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: fits/lmfit.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/lmfit_8cpp.md)

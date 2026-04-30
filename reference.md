@@ -1,3 +1,7 @@
+[← NSCLintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/newhome.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/spectcl/index.md)
+
+---
+
 # Comprehensive Documentation
 
 
@@ -8,3 +12,7 @@
 
 
 [Data Format Conversion Specification](https://github.com/FRIBDAQ/docs/tree/main/Conversion_Specifications.v2.pdf.md)
+
+---
+
+[← NSCLintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/newhome.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/spectcl/index.md)

@@ -1,3 +1,7 @@
+[← The python spectcl package](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/c81.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [listparams →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r109.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Python package
 
 ### <a name="AEN4"></a>Ron Fox
@@ -38,3 +42,7 @@
 - 3-3. [Reading data from a gzipped event file](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r169.md#AEN254)
 
 ---
+
+---
+
+[← The python spectcl package](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/c81.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [listparams →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r109.md)

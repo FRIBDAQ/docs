@@ -1,3 +1,7 @@
+[← Preface](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/f21.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Using the Readout GUI ReadoutShell →](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/x1122.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>Using NCSL DAQ Software to Readout a
                 CAEN V785 Peak-Sensing ADC
 
@@ -72,3 +76,7 @@
 - 5-11. [SpecTcl Setup file setup.tcl](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/x1221.md#AEN1238)
 
 ---
+
+---
+
+[← Preface](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/f21.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Using the Readout GUI ReadoutShell →](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/x1122.md)

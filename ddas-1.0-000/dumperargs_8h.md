@@ -1,3 +1,7 @@
+[← NSCL DDAS: nscope/displayEdit.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/displayEdit_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: ddasdumper/dumperargs.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/dumperargs_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -325,3 +329,7 @@ Checks that all the required options were specified
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: nscope/displayEdit.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/displayEdit_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: ddasdumper/dumperargs.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/dumperargs_8h_source.md)

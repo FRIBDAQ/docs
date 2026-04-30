@@ -1,3 +1,7 @@
+[← NSCL DDAS: xml/toxml.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/toxml_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: $title →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/traiter.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -214,3 +218,7 @@ This translates the XML crate specification rooted in crate.xml to a setfile nam
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: xml/toxml.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/toxml_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: $title →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/traiter.md)

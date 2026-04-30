@@ -1,3 +1,7 @@
+[← NSCL DDAS: readout/CMyTrigger.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/CMyTrigger_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: configuration/ConfigurationParser.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/ConfigurationParser_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -151,3 +155,7 @@ int operator()(CTCLInterpreter &interp, std::vector< CTCLObject > &objv)
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: readout/CMyTrigger.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/CMyTrigger_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: configuration/ConfigurationParser.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/ConfigurationParser_8h_source.md)

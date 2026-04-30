@@ -1,3 +1,7 @@
+[← NSCL DDAS: bdecayvLaBr3 Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvLaBr3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: bdecayvPidCalibrator Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvPidCalibrator.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -69,3 +73,7 @@ This is the complete list of members for [bdecayvPidCalibrator](https://github.c
 
 
 Generated on Tue Apr 12 2016 14:36:46 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: bdecayvLaBr3 Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvLaBr3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: bdecayvPidCalibrator Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvPidCalibrator.md)

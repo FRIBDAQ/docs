@@ -1,3 +1,7 @@
+[← The Gate Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Filters Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -240,3 +244,7 @@ Pops up the bind set editor with the name and description not populated but the 
 
 
  Custom JS scripts
+
+---
+
+[← The Gate Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Filters Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md)

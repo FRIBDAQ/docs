@@ -1,3 +1,7 @@
+[← The Spectra Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Variables Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_3.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -172,3 +176,7 @@ The following button operate on the selected rows of the table:
 
 
  Custom JS scripts
+
+---
+
+[← The Spectra Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Variables Tab - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_3.md)

@@ -1,3 +1,7 @@
+[← NSCL DDAS: DAQ::DDAS::HardwareRegistry::HardwareSpecification Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::Crate Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1Crate.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -52,3 +56,7 @@ This is the complete list of members for [DDAS::Crate](https://github.com/FRIBDA
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DAQ::DDAS::HardwareRegistry::HardwareSpecification Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDAQ_1_1DDAS_1_1HardwareRegistry_1_1HardwareSpecification.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::Crate Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1Crate.md)

@@ -1,3 +1,7 @@
+[← Library Organization](https://github.com/FRIBDAQ/docs/tree/main/daqformat/c49.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [CAbnormalEndItem (abstract) →](https://github.com/FRIBDAQ/docs/tree/main/daqformat/r1256.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>NSCLDAQ Unified Format Library
 
 ### <a name="AEN4"></a>Ron Fox
@@ -76,3 +80,7 @@
 - 4-1. [Adding a body header extension](https://github.com/FRIBDAQ/docs/tree/main/daqformat/r6920.md#AEN6990)
 
 ---
+
+---
+
+[← Library Organization](https://github.com/FRIBDAQ/docs/tree/main/daqformat/c49.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [CAbnormalEndItem (abstract) →](https://github.com/FRIBDAQ/docs/tree/main/daqformat/r1256.md)

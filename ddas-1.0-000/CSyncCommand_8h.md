@@ -1,3 +1,7 @@
+[← NSCL DDAS: readout/CMyTrigger.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/CMyTrigger_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: readout/CSyncCommand.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/CSyncCommand_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -112,3 +116,7 @@ Header for class that implements the ddas_sync command. #.
 
 
 Generated on Thu Jun 23 2016 16:47:32 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: readout/CMyTrigger.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/CMyTrigger_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: readout/CSyncCommand.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/CSyncCommand_8h_source.md)

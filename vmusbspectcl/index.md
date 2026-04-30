@@ -1,3 +1,7 @@
+[← Extending VMUSBSpecTcl](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/c60.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [VMUSB SpecTcl metadata →](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/r218.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>VMUSBSpecTcl
 
 ### <a name="AEN4"></a>Ron Fox
@@ -23,3 +27,7 @@
 - 3-3. [Binding Tree Parameters to existing parameters](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/c60.md#AEN143)
 
 ---
+
+---
+
+[← Extending VMUSBSpecTcl](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/c60.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [VMUSB SpecTcl metadata →](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/r218.md)

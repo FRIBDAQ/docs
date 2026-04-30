@@ -1,3 +1,7 @@
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/index-2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/modules.md)
+
+---
+
 [NSCL Home Page](http://www.nscl.msu.edu/)
 [MSU Home Page](http://www.msu.edu/)
 ---
@@ -67,3 +71,7 @@ More information is available at the [NSCL docs page](http://docs.nscl.msu.edu/)
 
 [NSCL Home Page](http://www.nscl.msu.edu/)
 [MSU Home Page](http://www.msu.edu/)
+
+---
+
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/index-2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/modules.md)

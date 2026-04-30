@@ -1,3 +1,7 @@
+[← NSCL DDAS: Multi-crate System Setup Tutorial](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_setup_multicrate.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: spectcl/ddaschannel.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/spectcl_2ddaschannel_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -837,3 +841,7 @@ SpecTcl is the lab-supported framework for analyzing data online. The DDAS comes
 
 
 Generated on Wed Sep 21 2016 11:52:48 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Multi-crate System Setup Tutorial](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/simple_setup_multicrate.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: spectcl/ddaschannel.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/spectcl_2ddaschannel_8h_source.md)

@@ -1,3 +1,7 @@
+[← /spectcl/treevariable requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/ungate requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ungate.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -254,3 +258,7 @@ A generic response is returned.
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/treevariable requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_treevariable.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/ungate requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ungate.md)

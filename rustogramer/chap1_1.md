@@ -1,3 +1,7 @@
+[← Appendix I - Installing Rustogramer - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/apppendix_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The FRIB analysis pipeline - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -152,3 +156,7 @@ know How to look at the rustogramer internals.
 
 
  Custom JS scripts
+
+---
+
+[← Appendix I - Installing Rustogramer - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/apppendix_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The FRIB analysis pipeline - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap2_1.md)

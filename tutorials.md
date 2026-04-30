@@ -1,3 +1,7 @@
+[← NSCLintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md)
+
+---
+
 # Readout From Scratch
 
 
@@ -54,3 +58,7 @@ Given a clean experimental account and already existing Readout programs, this
 
 ## [Starting from 8.x](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/index.md)
        ([PDF](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/tutorial.pdf.md))
+
+---
+
+[← NSCLintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/spectcl/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md)

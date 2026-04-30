@@ -1,3 +1,7 @@
+[← /spectcl/ringformat requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ringformat.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/sbind requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -323,3 +327,7 @@ SpecTcl failure is a generic response:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/ringformat requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ringformat.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/sbind requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sbind.md)

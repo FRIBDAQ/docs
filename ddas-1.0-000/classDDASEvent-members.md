@@ -1,3 +1,7 @@
+[← NSCL DDAS: DAQ::DDAS::DDASHitUnpacker Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classDAQ_1_1DDAS_1_1DDASHitUnpacker.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDASEvent Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classDDASEvent.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -56,3 +60,7 @@ This is the complete list of members for [DDASEvent](https://github.com/FRIBDAQ/
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: DAQ::DDAS::DDASHitUnpacker Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classDAQ_1_1DDAS_1_1DDASHitUnpacker.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDASEvent Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classDDASEvent.md)

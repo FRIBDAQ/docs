@@ -1,3 +1,7 @@
+[← Shared memory](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/c9965.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/p10324.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -1026,3 +1030,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/r80696.md#AEN80714)
 
 ---
+
+---
+
+[← Shared memory](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/c9965.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.2/p10324.md)

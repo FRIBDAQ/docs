@@ -1,3 +1,7 @@
+[← NSCL DDAS: bdecayvClockCalibrator Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvClockCalibrator.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: bdecayvCorrelation Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvCorrelation.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -48,3 +52,7 @@ This is the complete list of members for [bdecayvCorrelation](https://github.com
 
 
 Generated on Tue Apr 12 2016 14:36:46 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: bdecayvClockCalibrator Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvClockCalibrator.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: bdecayvCorrelation Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayvCorrelation.md)

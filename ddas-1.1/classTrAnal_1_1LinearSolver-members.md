@@ -1,3 +1,7 @@
+[← NSCL DDAS: TrAnal::InvalidResultException Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classTrAnal_1_1InvalidResultException.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: TrAnal::LinearSolver Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classTrAnal_1_1LinearSolver.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -52,3 +56,7 @@ This is the complete list of members for [TrAnal::LinearSolver](https://github.c
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: TrAnal::InvalidResultException Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classTrAnal_1_1InvalidResultException.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: TrAnal::LinearSolver Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classTrAnal_1_1LinearSolver.md)

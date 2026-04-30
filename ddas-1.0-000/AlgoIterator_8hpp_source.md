@@ -1,3 +1,7 @@
+[← Sample Program(s)](https://github.com/FRIBDAQ/docs/tree/main/daqformat/x9314.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: traiter/test/AmplitudeProcessorTest.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/AmplitudeProcessorTest_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -174,3 +178,7 @@ header
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← Sample Program(s)](https://github.com/FRIBDAQ/docs/tree/main/daqformat/x9314.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: traiter/test/AmplitudeProcessorTest.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/AmplitudeProcessorTest_8h_source.md)

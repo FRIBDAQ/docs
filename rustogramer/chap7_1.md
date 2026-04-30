@@ -1,3 +1,7 @@
+[← Python REST interface - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [REST requests and responses - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -185,3 +189,7 @@ gui --host localhost --port 8000
 
 
  Custom JS scripts
+
+---
+
+[← Python REST interface - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [REST requests and responses - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2.md)

@@ -1,3 +1,7 @@
+[← NSCL DDAS: Detector Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classDetector.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: EnergyFilter Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classEnergyFilter.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -90,3 +94,7 @@ This is the complete list of members for [EnergyFilter](https://github.com/FRIBD
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Detector Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classDetector.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: EnergyFilter Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classEnergyFilter.md)

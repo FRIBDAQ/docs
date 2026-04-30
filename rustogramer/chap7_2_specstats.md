@@ -1,3 +1,7 @@
+[← /spectcl/shmem requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/spectrum requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -212,3 +216,7 @@ Both Rustogramer an SpecTcl 2-d spectrum matches:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/shmem requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_shmem.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/spectrum requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_spectrum.md)

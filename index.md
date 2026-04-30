@@ -1,3 +1,7 @@
+[← FRIBintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/home.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/newhome.md)
+
+---
+
 The FRIBDAQ (previously known as NSCLDAQ) software described in this documentation is licensed for
      use by the MSU Board of trustees under the GNU Public Licesne
 
@@ -169,3 +173,7 @@ Rustogrammer is a new histograming package written in rust and portable
 
       See
       [The comprehensive documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/index.md)
+
+---
+
+[← FRIBintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/home.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/newhome.md)

@@ -1,3 +1,7 @@
+[← The Wienercamac Tcl package](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.4/c9879.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.4/p11084.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -1110,3 +1114,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.4/r86973.md#AEN86991)
 
 ---
+
+---
+
+[← The Wienercamac Tcl package](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.4/c9879.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.4/p11084.md)

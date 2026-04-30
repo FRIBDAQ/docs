@@ -1,3 +1,7 @@
+[← The Gate Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Data Source Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -250,3 +254,7 @@ This is only available if the server is Rustogramer. After prompting if you are 
 
 
  Custom JS scripts
+
+---
+
+[← The Gate Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Data Source Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md)

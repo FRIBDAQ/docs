@@ -1,3 +1,7 @@
+[← NSCL DDAS: DDAS::fit1Info Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structDDAS_1_1fit1Info.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::fit2Info Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structDDAS_1_1fit2Info.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -55,3 +59,7 @@ This is the complete list of members for [DDAS::fit2Info](https://github.com/FRI
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DDAS::fit1Info Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structDDAS_1_1fit1Info.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::fit2Info Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structDDAS_1_1fit2Info.md)

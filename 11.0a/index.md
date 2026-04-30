@@ -1,3 +1,7 @@
+[← C++ encapsulation of a Tcl API subset](https://github.com/FRIBDAQ/docs/tree/main/11.0a/c9992.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/11.0a/p10111.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -991,3 +995,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/11.0a/r74286.md#AEN74294)
 
 ---
+
+---
+
+[← C++ encapsulation of a Tcl API subset](https://github.com/FRIBDAQ/docs/tree/main/11.0a/c9992.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/11.0a/p10111.md)

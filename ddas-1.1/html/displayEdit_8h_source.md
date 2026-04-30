@@ -1,3 +1,7 @@
+[← NSCL DDAS: xiatest Directory Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dir_f830a373a05722d50bbf81be79a4fe3d.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: ddasdumper/dumperargs.h File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dumperargs_8h.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -83,3 +87,7 @@ header
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: xiatest Directory Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dir_f830a373a05722d50bbf81be79a4fe3d.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: ddasdumper/dumperargs.h File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/dumperargs_8h.md)

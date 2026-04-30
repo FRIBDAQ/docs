@@ -1,3 +1,7 @@
+[← NSCL DDAS: Histogram Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classHistogram.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Main Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classMain.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -51,3 +55,7 @@ This is the complete list of members for [Main](https://github.com/FRIBDAQ/docs/
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Histogram Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classHistogram.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Main Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classMain.md)

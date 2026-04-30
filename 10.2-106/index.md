@@ -1,3 +1,7 @@
+[← Preface](https://github.com/FRIBDAQ/docs/tree/main/10.2-106/f4424.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [libraries →](https://github.com/FRIBDAQ/docs/tree/main/10.2-106/p1389.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -832,3 +836,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/10.2-106/r67080.md#AEN67088)
 
 ---
+
+---
+
+[← Preface](https://github.com/FRIBDAQ/docs/tree/main/10.2-106/f4424.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [libraries →](https://github.com/FRIBDAQ/docs/tree/main/10.2-106/p1389.md)

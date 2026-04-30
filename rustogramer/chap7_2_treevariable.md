@@ -1,3 +1,7 @@
+[← /spectcl/trace requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/unbind requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -416,3 +420,7 @@ Failure:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/trace requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/unbind requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ubind.md)

@@ -1,3 +1,7 @@
+[← Chapter 1 - Introduction - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [More information →](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/c1017.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -15673,3 +15677,7 @@ To install from binaries
 
 
  Custom JS scripts
+
+---
+
+[← Chapter 1 - Introduction - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [More information →](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/c1017.md)

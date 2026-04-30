@@ -1,3 +1,7 @@
+[← Networked ring buffer access](https://github.com/FRIBDAQ/docs/tree/main/12.0pre/c9944.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [servers →](https://github.com/FRIBDAQ/docs/tree/main/12.0pre/p10279.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -1141,3 +1145,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/12.0pre/r92327.md#AEN92345)
 
 ---
+
+---
+
+[← Networked ring buffer access](https://github.com/FRIBDAQ/docs/tree/main/12.0pre/c9944.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [servers →](https://github.com/FRIBDAQ/docs/tree/main/12.0pre/p10279.md)

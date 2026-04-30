@@ -1,3 +1,7 @@
+[← The Variables Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The File Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -372,3 +376,7 @@ Note that if you change your mind about which condition type you are making, sim
 
 
  Custom JS scripts
+
+---
+
+[← The Variables Tab - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The File Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_5.md)

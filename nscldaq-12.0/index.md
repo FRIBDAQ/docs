@@ -1,3 +1,7 @@
+[← Sequencing runs](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.0/c9933.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [servers →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.0/p10279.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -1251,3 +1255,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.0/r107814.md#AEN107832)
 
 ---
+
+---
+
+[← Sequencing runs](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.0/c9933.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [servers →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.0/p10279.md)

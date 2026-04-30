@@ -1,6 +1,10 @@
 ---
 ---
 
+[← googleb678751b57866090](https://github.com/FRIBDAQ/docs/tree/main/googleb678751b57866090.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [MVLCSpecTcl →](https://github.com/FRIBDAQ/docs/tree/main/mvlcspectcl/index.md)
+
+---
+
 ---
 
 
@@ -36,3 +40,7 @@
 - [Reference](https://github.com/FRIBDAQ/docs/tree/main/reference.md)
 - [Download](https://github.com/FRIBDAQ/docs/tree/main/download.md)
 - [FAQ](https://github.com/FRIBDAQ/docs/tree/main/faq.md)
+
+---
+
+[← googleb678751b57866090](https://github.com/FRIBDAQ/docs/tree/main/googleb678751b57866090.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [MVLCSpecTcl →](https://github.com/FRIBDAQ/docs/tree/main/mvlcspectcl/index.md)

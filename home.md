@@ -1,3 +1,7 @@
+[← NSCLintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/faq.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [FRIBintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/index.md)
+
+---
+
 ## Contents
 
 - [[Compatibility utilities|10.2-106/c1009]]
@@ -22085,43 +22089,6 @@
 - [[Features|qtpy/c28]]
 - [[Plotting window|qtpy/c89]]
 - [[CutiePie (QtPy) (version 5.13-000)|qtpy/index]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c104]]
-- [[DDAS Data unpackers.|qtpy_old/c111]]
-- [[Gating and summing regions|qtpy_old/c119]]
-- [[How to start CutiePie|qtpy_old/c122]]
-- [[How to start CutiePie|qtpy_old/c127]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c128]]
-- [[Introduction|qtpy_old/c13]]
-- [[Step by step tutorial|qtpy_old/c133]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c165]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c173]]
-- [[CFileDrivenParameterMapper|qtpy_old/c176]]
-- [[A brief design description.|qtpy_old/c25]]
-- [[Reference pages.|qtpy_old/c257]]
-- [[Features|qtpy_old/c28]]
-- [[CutiePie: how to customize ML algo and fitting functions|qtpy_old/c30]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c31]]
-- [[The DDASHit class.|qtpy_old/c40]]
-- [[Special Functions|qtpy_old/c46]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c62]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c64]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c65]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c68]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c70]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c86]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c88]]
-- [[Plotting window|qtpy_old/c89]]
-- [[Gating and summing regions|qtpy_old/c92]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c95]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c98]]
-- [[How to customize ML algo and fitting functions|qtpy_old/c99]]
-- [[CutiePie (QtPy) (version 5.13-000)|qtpy_old/index]]
-- [[DAQ::DDAS::DDASHit|qtpy_old/r262]]
-- [[DAQ::DDAS::DDASUnpacker|qtpy_old/r565]]
-- [[DAQ::DDAS::CDDASBuiltUnpacker|qtpy_old/r647]]
-- [[CFileDrivenParameterMapper|qtpy_old/r754]]
-- [[CCalibratedFileDrivenParameterMapper|qtpy_old/r811]]
-- [[CCalibratedFileDrivenParameterMapper|qtpy_old/x233]]
 - [[Format of Ring bufffer DAQ event files|ringtutorial/a1882]]
 - [[Format of Ring bufffer DAQ event files|ringtutorial/a1889]]
 - [[User written triggers|ringtutorial/a2050]]
@@ -23523,3 +23490,7 @@
 - [[NSCLintra - DAQ Documentation|reference]]
 - [[NSCLintra - DAQ Documentation|spectcl/index]]
 - [[NSCLintra - DAQ Documentation|tutorials]]
+
+---
+
+[← NSCLintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/faq.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [FRIBintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/index.md)

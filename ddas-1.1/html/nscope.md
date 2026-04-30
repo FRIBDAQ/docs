@@ -1,3 +1,7 @@
+[← NSCL DDAS: Namespace List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: User Guides →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/pages.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -712,3 +716,7 @@ then there is a good chance that the clock distribution is not set up properly f
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Namespace List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/namespaces.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: User Guides →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/pages.md)

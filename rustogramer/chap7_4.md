@@ -1,3 +1,7 @@
+[← Tcl REST reference - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Looking at the Rustogramer internals documentation - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_5.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -3284,3 +3288,7 @@ None, after returning a successful result, the server begins an orderly, clean s
 
 
  Custom JS scripts
+
+---
+
+[← Tcl REST reference - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Looking at the Rustogramer internals documentation - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_5.md)

@@ -1,3 +1,7 @@
+[← /spectcl/mirror requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_mirror.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/pman requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -530,3 +534,7 @@ Generic response with the stringified version number in the **detail** field
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/mirror requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_mirror.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/pman requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pman.md)

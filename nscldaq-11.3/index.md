@@ -1,3 +1,7 @@
+[← Integer byte order conversion library](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/c9969.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/p10860.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN1"></a>NSCL DAQ Software Documentation
 
 
@@ -1039,3 +1043,7 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/r81990.md#AEN82008)
 
 ---
+
+---
+
+[← Integer byte order conversion library](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/c9969.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [frameworks →](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-11.3/p10860.md)

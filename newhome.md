@@ -1,3 +1,7 @@
+[← FRIBintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/reference.md)
+
+---
+
 # What is NSCLDAQ?
 
 
@@ -33,3 +37,7 @@ SpecTcl is for analysis what NSCLDAQ is for dataflow. SpecTcl is a C++
 
 
 [## Proceed to User's Guide](https://github.com/FRIBDAQ/docs/tree/main/../spectcl/index.md)
+
+---
+
+[← FRIBintra - DAQ Documentation](https://github.com/FRIBDAQ/docs/tree/main/index.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCLintra - DAQ Documentation →](https://github.com/FRIBDAQ/docs/tree/main/reference.md)

@@ -1,3 +1,7 @@
+[← NSCL DDAS: xml/PixieCrateReader.cpp File Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/PixieCrateReader_8cpp.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/PixieCrateWriter.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/PixieCrateWriter_8cpp.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -219,3 +223,7 @@ PixieCrateReader(unsigned crate, const std::vector< unsigned short > &slots)
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: xml/PixieCrateReader.cpp File Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/PixieCrateReader_8cpp.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: xml/PixieCrateWriter.cpp File Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/PixieCrateWriter_8cpp.md)

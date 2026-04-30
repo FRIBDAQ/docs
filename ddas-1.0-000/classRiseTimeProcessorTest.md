@@ -1,3 +1,7 @@
+[← NSCL DDAS: Member List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classRiseTimeProcessorTest-members.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Member List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classRootConverter-members.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -61,3 +65,7 @@ The documentation for this class was generated from the following files:- traite
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: Member List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classRiseTimeProcessorTest-members.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Member List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classRootConverter-members.md)

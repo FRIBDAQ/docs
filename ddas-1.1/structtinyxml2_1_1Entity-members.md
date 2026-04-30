@@ -1,3 +1,7 @@
+[← NSCL DDAS: gengetopt_args_info Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structgengetopt__args__info.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: tinyxml2::Entity Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structtinyxml2_1_1Entity.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -53,3 +57,7 @@ This is the complete list of members for [tinyxml2::Entity](https://github.com/F
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: gengetopt_args_info Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structgengetopt__args__info.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: tinyxml2::Entity Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structtinyxml2_1_1Entity.md)

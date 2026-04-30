@@ -1,3 +1,7 @@
+[← NSCL DDAS: Class Members - Functions](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/functions_func_s.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Class Members - Functions →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/functions_func_u.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -100,3 +104,7 @@ do not remove this div, it is closed by doxygen!
 
 
 Generated on Tue Mar 31 2020 12:56:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Class Members - Functions](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/functions_func_s.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Class Members - Functions →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/functions_func_u.md)

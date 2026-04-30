@@ -1,3 +1,7 @@
+[← /spectcl/ungate requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ungate.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Tcl REST reference - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -214,3 +218,7 @@ SpecTcl 5.14-001; Note that **program_name** is missing from **detail**
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/ungate requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_ungate.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Tcl REST reference - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_3.md)

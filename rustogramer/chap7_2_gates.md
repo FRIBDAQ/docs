@@ -1,3 +1,7 @@
+[← /spectcl/fold requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/integrate requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_integrate.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -380,3 +384,7 @@ Will be returned.
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/fold requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fold.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/integrate requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_integrate.md)

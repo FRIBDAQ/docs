@@ -1,3 +1,7 @@
+[← Introduction](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/c13.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [attach →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r102.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Command Reference.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -108,3 +112,7 @@
 - 2. [Writing to a file descriptor](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2904.md#AEN2954)
 
 ---
+
+---
+
+[← Introduction](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/c13.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [attach →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r102.md)

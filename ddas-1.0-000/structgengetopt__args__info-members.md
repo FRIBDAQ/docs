@@ -1,3 +1,7 @@
+[← NSCL DDAS: cmdline_parser_params Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structcmdline__parser__params.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: gengetopt_args_info Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structgengetopt__args__info.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -75,3 +79,7 @@ This is the complete list of members for [gengetopt_args_info](https://github.co
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: cmdline_parser_params Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structcmdline__parser__params.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: gengetopt_args_info Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/structgengetopt__args__info.md)

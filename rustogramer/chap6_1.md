@@ -1,3 +1,7 @@
+[← The Filters Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Python REST interface - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -306,3 +310,7 @@ The main point to take awayh from this example is that once you've pulled in the
 
 
  Custom JS scripts
+
+---
+
+[← The Filters Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_filters.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Python REST interface - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap6_2.md)

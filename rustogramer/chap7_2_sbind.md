@@ -1,3 +1,7 @@
+[← /spectcl/rootree requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/script requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_script.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -348,3 +352,7 @@ The spectrum  memory is refreshed every `2` seconds.
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/rootree requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_roottree.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/script requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_script.md)

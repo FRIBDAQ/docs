@@ -1,3 +1,7 @@
+[← Chapter 7 - Reference material - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter7.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 2 - Preparing data for Rustogramer - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_2.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -161,3 +165,7 @@ Other interesting features of Rustogramer:
 
 
  Custom JS scripts
+
+---
+
+[← Chapter 7 - Reference material - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter7.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 2 - Preparing data for Rustogramer - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_2.md)

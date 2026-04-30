@@ -1,3 +1,7 @@
+[← NSCL DDAS: _PLX_DMA_PROP Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__DMA__PROP.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_DRIVER_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__DRIVER__PROP.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -51,3 +55,7 @@ This is the complete list of members for [_PLX_DRIVER_PROP](https://github.com/F
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: _PLX_DMA_PROP Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__DMA__PROP.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: _PLX_DRIVER_PROP Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/struct__PLX__DRIVER__PROP.md)

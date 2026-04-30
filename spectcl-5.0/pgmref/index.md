@@ -1,3 +1,7 @@
+[← Stuff to do](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/c9897.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Tree Parameter, Tree Variable API →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p2375.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Programming Reference.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -163,3 +167,7 @@
 - 1. [evttclsh](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/r6788.md#AEN6889)
 
 ---
+
+---
+
+[← Stuff to do](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/c9897.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Tree Parameter, Tree Variable API →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmref/p2375.md)

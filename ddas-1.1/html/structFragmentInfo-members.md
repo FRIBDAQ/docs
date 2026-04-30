@@ -1,3 +1,7 @@
+[← NSCL DDAS: DescriptionParser::_DSPParameter Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structDescriptionParser_1_1__DSPParameter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: FragmentInfo Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structFragmentInfo.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -52,3 +56,7 @@ This is the complete list of members for [FragmentInfo](https://github.com/FRIBD
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DescriptionParser::_DSPParameter Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structDescriptionParser_1_1__DSPParameter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: FragmentInfo Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structFragmentInfo.md)

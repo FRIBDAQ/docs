@@ -1,3 +1,7 @@
+[← NSCL DDAS: Member List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classtinyxml2_1_1XMLText-members.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Member List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classtinyxml2_1_1XMLUnknown-members.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -314,3 +318,7 @@ The documentation for this class was generated from the following files:- xml/ti
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Member List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classtinyxml2_1_1XMLText-members.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Member List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classtinyxml2_1_1XMLUnknown-members.md)

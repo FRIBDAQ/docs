@@ -1,3 +1,7 @@
+[← Page not found - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/404.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [How to use this book - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap1_1.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -262,3 +266,7 @@ To install from binaries
 
 
  Custom JS scripts
+
+---
+
+[← Page not found - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/404.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [How to use this book - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap1_1.md)

@@ -1,3 +1,7 @@
+[← /spectcl/specstats requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_specstats.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/sread requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sread.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -577,3 +581,7 @@ The response is a generic response.
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/specstats requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_specstats.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/sread requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sread.md)

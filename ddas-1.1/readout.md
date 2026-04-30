@@ -1,3 +1,7 @@
+[← NSCL DDAS: xiaapi/sys/pixie16sys_globals.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/pixie16sys__globals_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [all_0 →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/search/all_0.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -275,3 +279,7 @@ The format out of the DDAS Readout program can be read in more detail at [Event 
 
 
 Generated on Wed Feb 20 2019 06:39:51 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: xiaapi/sys/pixie16sys_globals.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/pixie16sys__globals_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [all_0 →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/search/all_0.md)

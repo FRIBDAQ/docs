@@ -1,3 +1,7 @@
+[← The electronics](https://github.com/FRIBDAQ/docs/tree/main/samples/v785/c51.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Integrating your event segment with Readout →](https://github.com/FRIBDAQ/docs/tree/main/samples/v785/x216.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>Using NSCLDAQ with a CAEN V785 Peak-Sensing ADC and CAEN V262 IO Register
 
 ### <a name="AEN4"></a>Jeromy Tompkins
@@ -36,3 +40,7 @@
 - 6-1. [The Packet Data](https://github.com/FRIBDAQ/docs/tree/main/samples/v785/c316.md#AEN328)
 
 ---
+
+---
+
+[← The electronics](https://github.com/FRIBDAQ/docs/tree/main/samples/v785/c51.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Integrating your event segment with Readout →](https://github.com/FRIBDAQ/docs/tree/main/samples/v785/x216.md)

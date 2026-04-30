@@ -1,3 +1,7 @@
+[← NSCL DDAS: nscope/MultiplicityState.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/MultiplicityState_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: simple_setups/multicrate_src/MyParameters.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/MyParameters_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -198,3 +202,7 @@ Encapsulation of a generic DDAS event.
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: nscope/MultiplicityState.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/MultiplicityState_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: simple_setups/multicrate_src/MyParameters.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/MyParameters_8h_source.md)

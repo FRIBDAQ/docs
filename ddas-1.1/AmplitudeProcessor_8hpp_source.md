@@ -1,3 +1,7 @@
+[← NSCL DDAS: traiter/test/AmplitudeProcessorTest.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/AmplitudeProcessorTest_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: nscope/AnalogSignal.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/AnalogSignal_8h_source.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -333,3 +337,7 @@ std. dev. of trace within baseline search range
 
 
 Generated on Tue Mar 31 2020 13:10:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: traiter/test/AmplitudeProcessorTest.h Source File](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/AmplitudeProcessorTest_8h_source.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: nscope/AnalogSignal.h Source File →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/AnalogSignal_8h_source.md)

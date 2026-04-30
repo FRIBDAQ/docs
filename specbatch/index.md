@@ -1,3 +1,7 @@
+[← MPISpecTcl - Massively parallel SpecTcl.](https://github.com/FRIBDAQ/docs/tree/main/specbatch/c74.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [analysissink →](https://github.com/FRIBDAQ/docs/tree/main/specbatch/r641.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>Batch SpecTcl (5.2 and later)
 
 ### <a name="AEN4"></a>Ron Fox
@@ -63,3 +67,7 @@
 - A-1. [Terminating an MPITcl application](https://github.com/FRIBDAQ/docs/tree/main/specbatch/r749.md#AEN850)
 
 ---
+
+---
+
+[← MPISpecTcl - Massively parallel SpecTcl.](https://github.com/FRIBDAQ/docs/tree/main/specbatch/c74.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [analysissink →](https://github.com/FRIBDAQ/docs/tree/main/specbatch/r641.md)

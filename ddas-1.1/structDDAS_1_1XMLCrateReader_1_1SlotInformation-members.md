@@ -1,3 +1,7 @@
+[← NSCL DDAS: DDAS::VarDescriptor Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1VarDescriptor.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::XMLCrateReader::SlotInformation Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1XMLCrateReader_1_1SlotInformation.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -58,3 +62,7 @@ This is the complete list of members for [DDAS::XMLCrateReader::SlotInformation]
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DDAS::VarDescriptor Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1VarDescriptor.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::XMLCrateReader::SlotInformation Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/structDDAS_1_1XMLCrateReader_1_1SlotInformation.md)

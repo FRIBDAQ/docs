@@ -1,3 +1,7 @@
+[← NSCL DDAS: Class Members](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/functions_l.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Class Members →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/functions_n.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -113,3 +117,7 @@ Here is a list of all documented class members with links to the class documenta
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Class Members](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/functions_l.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Class Members →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/functions_n.md)

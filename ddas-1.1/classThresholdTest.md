@@ -1,3 +1,7 @@
+[← NSCL DDAS: Member List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classThresholdTest-members.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Member List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classTimingParamDialogue-members.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -88,3 +92,7 @@ The documentation for this class was generated from the following files:- traite
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Member List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classThresholdTest-members.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Member List →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classTimingParamDialogue-members.md)

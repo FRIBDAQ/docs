@@ -1,3 +1,7 @@
+[← Tcl++ classes](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/c4456.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [SpecTcl Displays →](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/p24238.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Programming Reference.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -165,3 +169,7 @@
 - 1. [evttclsh](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/r6840.md#AEN6941)
 
 ---
+
+---
+
+[← Tcl++ classes](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/c4456.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [SpecTcl Displays →](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/p24238.md)

@@ -1,3 +1,7 @@
+[← /spectcl/sread requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sread.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/trace requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -201,3 +205,7 @@ One possible SpecTcl failure the underlying `swrite` command failed:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/sread requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_sread.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/trace requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_trace.md)

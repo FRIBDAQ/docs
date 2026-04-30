@@ -1,3 +1,7 @@
+[← NSCL DDAS: DAQ::DDAS::ConfigurationParser Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classDAQ_1_1DDAS_1_1ConfigurationParser.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DAQ::DDAS::DDASFitHit Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classDAQ_1_1DDAS_1_1DDASFitHit.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -112,3 +116,7 @@ This is the complete list of members for [DAQ::DDAS::DDASFitHit](https://github.
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DAQ::DDAS::ConfigurationParser Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classDAQ_1_1DDAS_1_1ConfigurationParser.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DAQ::DDAS::DDASFitHit Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/classDAQ_1_1DDAS_1_1DDASFitHit.md)

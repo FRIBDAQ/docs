@@ -1,3 +1,7 @@
+[← NSCL DDAS: _nullExtension Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__nullExtension.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: cmdline_parser_params Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structcmdline__parser__params.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -50,3 +54,7 @@ This is the complete list of members for [cmdline_parser_params](https://github.
 
 
 Generated on Tue Mar 31 2020 12:56:43 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: _nullExtension Struct Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/struct__nullExtension.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: cmdline_parser_params Struct Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/structcmdline__parser__params.md)

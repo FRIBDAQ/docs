@@ -1,3 +1,7 @@
+[← /spectcl/psuedo requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Response format - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_responses.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -297,3 +301,7 @@ Successful return with one match `event.sum`
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/psuedo requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_pseudo.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Response format - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_responses.md)

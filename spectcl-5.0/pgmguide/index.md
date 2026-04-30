@@ -1,3 +1,7 @@
+[← Xamine's button box](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmguide/c98.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The API and the event processing pipeline →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmguide/x1043.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Programming Guide.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -130,3 +134,7 @@
 - 12-2. [Using the **pman** SpecTcl command](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmguide/x4401.md#AEN4414)
 
 ---
+
+---
+
+[← Xamine's button box](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmguide/c98.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The API and the event processing pipeline →](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmguide/x1043.md)

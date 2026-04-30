@@ -1,3 +1,7 @@
+[← NSCL DDAS: ScopedT Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classScopedT.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Skeleton Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classSkeleton.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -55,3 +59,7 @@ This is the complete list of members for [Skeleton](https://github.com/FRIBDAQ/d
 
 
 Generated on Wed Feb 20 2019 06:39:52 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: ScopedT Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classScopedT.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Skeleton Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classSkeleton.md)

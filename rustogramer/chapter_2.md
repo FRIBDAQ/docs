@@ -1,3 +1,7 @@
+[← Chapter 1 - Introduction - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 3 - Running Rustogramer - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -153,3 +157,7 @@ The FRIB analysis pipeline supports:
 
 
  Custom JS scripts
+
+---
+
+[← Chapter 1 - Introduction - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_1.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 3 - Running Rustogramer - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_3.md)

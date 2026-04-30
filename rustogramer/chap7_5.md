@@ -1,3 +1,7 @@
+[← Python REST reference - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Schema of configuration files - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -149,3 +153,7 @@ Furthermore, this documentation is also installed at:
 
 
  Custom JS scripts
+
+---
+
+[← Python REST reference - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Schema of configuration files - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md)

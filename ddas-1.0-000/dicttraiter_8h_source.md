@@ -1,3 +1,7 @@
+[← NSCL DDAS: Deprecated List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/deprecated.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: nscope/ Directory Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/dir_0ed63cb803befae7f7665a2489cc5124.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -315,3 +319,7 @@ header
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: Deprecated List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/deprecated.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: nscope/ Directory Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/dir_0ed63cb803befae7f7665a2489cc5124.md)

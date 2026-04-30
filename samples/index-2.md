@@ -1,3 +1,7 @@
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/TwoModules/Twomodules.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/index.md)
+
+---
+
 [NSCL Home Page](http://www.nscl.msu.edu/)
 
 
@@ -83,3 +87,7 @@ ByTim Hoagland
 
 
 [MSU Home Page](http://www.msu.edu/)
+
+---
+
+[← Canonical Setups and Intro level DAQ help](https://github.com/FRIBDAQ/docs/tree/main/samples/TwoModules/Twomodules.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Canonical Setups and Intro level DAQ help →](https://github.com/FRIBDAQ/docs/tree/main/samples/index.md)

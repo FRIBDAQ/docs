@@ -1,3 +1,7 @@
+[← NSCL DDAS: G__Sizep2memfuncdicttraiter Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classG____Sizep2memfuncdicttraiter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: G__cpp_setup_initddaschannelDictionary Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classG____cpp__setup__initddaschannelDictionary.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -46,3 +50,7 @@ This is the complete list of members for [G__cpp_setup_initddaschannelDictionary
 
 
 Generated on Mon Aug 1 2016 11:33:25 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: G__Sizep2memfuncdicttraiter Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classG____Sizep2memfuncdicttraiter.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: G__cpp_setup_initddaschannelDictionary Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classG____cpp__setup__initddaschannelDictionary.md)

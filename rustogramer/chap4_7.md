@@ -1,3 +1,7 @@
+[← The Data Source Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Gate Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -197,3 +201,7 @@ Select the condition on the left and select however many spectra you want (selec
 
 
  Custom JS scripts
+
+---
+
+[← The Data Source Menu - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_6.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The Gate Menu - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap4_8.md)

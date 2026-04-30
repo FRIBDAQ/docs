@@ -1,3 +1,7 @@
+[← The SpecTcl event processing pipeline.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The API and the spectrum dictionary →](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Programming Guide.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -135,3 +139,7 @@
 - 13-2. [Scrdipting waveform objects](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4507.md#AEN4514)
 
 ---
+
+---
+
+[← The SpecTcl event processing pipeline.](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/c94.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [The API and the spectrum dictionary →](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x1183.md)

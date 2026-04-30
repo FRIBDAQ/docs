@@ -1,3 +1,7 @@
+[← Tcl bindings to the C++ API](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/c755.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [CDatabase →](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/r1582.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>SpecTcl Sqlite3 interfaces
 
 ### <a name="AEN4"></a>Ron Fox
@@ -71,3 +75,7 @@
 - A-1. [How transactions are usually used](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/r4837.md#AEN4869)
 
 ---
+
+---
+
+[← Tcl bindings to the C++ API](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/c755.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [CDatabase →](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/r1582.md)

@@ -1,3 +1,7 @@
+[← NSCL DDAS: bdecayDssd Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayDssd.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: bdecayLaBr3 Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayLaBr3.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -51,3 +55,7 @@ This is the complete list of members for [bdecayLaBr3](https://github.com/FRIBDA
 
 
 Generated on Tue Apr 12 2016 14:36:46 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: bdecayDssd Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayDssd.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: bdecayLaBr3 Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/classbdecayLaBr3.md)

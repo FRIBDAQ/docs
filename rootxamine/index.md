@@ -1,3 +1,7 @@
+[← Running rootxamine](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/c35.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [How to run xamineroot →](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/x87.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>Rootxamine - Attaching CERN Root to SpecTcl's Spectrum Shared Memory
 
 ### <a name="AEN4"></a>Ron Fox
@@ -18,3 +22,7 @@
 - 2-3. [Invoking xamineroot](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/x87.md#AEN133)
 
 ---
+
+---
+
+[← Running rootxamine](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/c35.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [How to run xamineroot →](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/x87.md)

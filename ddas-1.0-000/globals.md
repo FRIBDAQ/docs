@@ -1,3 +1,7 @@
+[← NSCL DDAS: Class Members](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/functions_~.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: File Members →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/globals_defs.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -79,3 +83,7 @@ Here is a list of all documented file members with links to the documentation:
 
 
 Generated on Mon Aug 1 2016 11:33:26 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/doxygen.png)](http://www.doxygen.org/index.html) 1.8.1.2
+
+---
+
+[← NSCL DDAS: Class Members](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/functions_~.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: File Members →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.0-000/globals_defs.md)

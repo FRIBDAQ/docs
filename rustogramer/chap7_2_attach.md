@@ -1,3 +1,7 @@
+[← /spectcl/apply requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/channel requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -256,3 +260,7 @@ Success:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/apply requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/channel requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_channel.md)

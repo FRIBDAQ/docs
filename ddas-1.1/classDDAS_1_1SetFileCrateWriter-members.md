@@ -1,3 +1,7 @@
+[← NSCL DDAS: DDAS::SetFileCrateReader Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classDDAS_1_1SetFileCrateReader.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::SetFileCrateWriter Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classDDAS_1_1SetFileCrateWriter.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -59,3 +63,7 @@ This is the complete list of members for [DDAS::SetFileCrateWriter](https://gith
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: DDAS::SetFileCrateReader Class Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classDDAS_1_1SetFileCrateReader.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: DDAS::SetFileCrateWriter Class Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/classDDAS_1_1SetFileCrateWriter.md)

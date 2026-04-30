@@ -1,3 +1,7 @@
+[← /spectcl/exit requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_exit.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/fit requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -583,3 +587,7 @@ Failure:
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/exit requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_exit.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/fit requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_fit.md)

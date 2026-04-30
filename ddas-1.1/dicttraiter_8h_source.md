@@ -1,3 +1,7 @@
+[← NSCL DDAS: Deprecated List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/deprecated.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: nscope Directory Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/dir_0ed63cb803befae7f7665a2489cc5124.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -387,3 +391,7 @@ Result of ComputeRiseTime.
 
 
 Generated on Wed Feb 20 2019 06:39:51 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: Deprecated List](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/deprecated.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: nscope Directory Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/dir_0ed63cb803befae7f7665a2489cc5124.md)

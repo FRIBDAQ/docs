@@ -1,3 +1,7 @@
+[← /spectcl/attach requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/evbunpack requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -257,3 +261,7 @@ Failure (no such spectrum):
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/attach requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_attach.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/evbunpack requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_evbunpack.md)

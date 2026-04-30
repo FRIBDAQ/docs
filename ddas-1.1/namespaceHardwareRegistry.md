@@ -1,3 +1,7 @@
+[← NSCL DDAS: dumpsetfile/main.cpp File Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/main_8cpp.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Test Namespace Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/namespaceTest.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -47,3 +51,7 @@ There is also a function to determine the hardware type enumeration value given 
 
 
 Generated on Tue Mar 31 2020 13:10:45 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: dumpsetfile/main.cpp File Reference](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/main_8cpp.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: Test Namespace Reference →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/namespaceTest.md)

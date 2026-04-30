@@ -1,3 +1,7 @@
+[← REST requests and responses - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/apply requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -203,3 +207,7 @@ Generic responses.
 
 
  Custom JS scripts
+
+---
+
+[← REST requests and responses - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [/spectcl/apply requests - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_apply.md)

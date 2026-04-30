@@ -1,3 +1,7 @@
+[← Shared memory Mirror service - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 1 - Introduction - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_1.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -141,3 +145,7 @@ This chapter contains reference material:
 
 
  Custom JS scripts
+
+---
+
+[← Shared memory Mirror service - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Chapter 1 - Introduction - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chapter_1.md)

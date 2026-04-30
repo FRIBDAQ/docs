@@ -1,3 +1,7 @@
+[← Writing a generator](https://github.com/FRIBDAQ/docs/tree/main/genx/c805.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [User manual →](https://github.com/FRIBDAQ/docs/tree/main/genx/p31.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>genx - system for framework independent analysis.
 
 ### <a name="AEN4"></a>Ron Fox
@@ -68,3 +72,7 @@
 - 4-41. [TopLevel/Root/Makefile](https://github.com/FRIBDAQ/docs/tree/main/genx/x388.md#AEN575)
 
 ---
+
+---
+
+[← Writing a generator](https://github.com/FRIBDAQ/docs/tree/main/genx/c805.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [User manual →](https://github.com/FRIBDAQ/docs/tree/main/genx/p31.md)

@@ -1,3 +1,7 @@
+[← Schema of configuration files - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Shared memory Mirror service - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -287,3 +291,7 @@ This was written by Rustogramer.  Had this been written by SpecTcl, the only dif
 
 
  Custom JS scripts
+
+---
+
+[← Schema of configuration files - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_6.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Shared memory Mirror service - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_mirror.md)

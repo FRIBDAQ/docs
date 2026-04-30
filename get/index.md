@@ -1,3 +1,7 @@
+[← GETmePlots: diagnostics GUI for GET electronics](https://github.com/FRIBDAQ/docs/tree/main/get/c829.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [insertstatechange →](https://github.com/FRIBDAQ/docs/tree/main/get/r267.md)
+
+---
+
 <a name="AEN1"></a># <a name="AEN2"></a>NSCL GET interface software
 
 ### <a name="AEN4"></a>Ron Fox
@@ -30,3 +34,7 @@
 - A. [Configurations and GetController](https://github.com/FRIBDAQ/docs/tree/main/get/a838.md)
 
 ---
+
+---
+
+[← GETmePlots: diagnostics GUI for GET electronics](https://github.com/FRIBDAQ/docs/tree/main/get/c829.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [insertstatechange →](https://github.com/FRIBDAQ/docs/tree/main/get/r267.md)

@@ -1,3 +1,7 @@
+[← /spectcl/version requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_version.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Python REST reference - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md)
+
+---
+
 Provide site root to javascript 
 
  Work around some values being stored in localStorage wrapped in quotes 
@@ -3313,3 +3317,7 @@ Note that the proc `updateTraces` above will run for the number of milliseconds 
 
 
  Custom JS scripts
+
+---
+
+[← /spectcl/version requests - Rustogramer User Guide](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_2_version.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [Python REST reference - Rustogramer User Guide →](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/chap7_4.md)

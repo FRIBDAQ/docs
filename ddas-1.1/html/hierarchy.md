@@ -1,3 +1,7 @@
+[← NSCL DDAS: File Members](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/globals_vars.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: NSCL DDAS Software documentation →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/index.md)
+
+---
+
 do not remove this div, it is closed by doxygen! 
 |  |
 | --- |
@@ -302,3 +306,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
 
 
 Generated on Tue Mar 31 2020 12:56:44 for NSCL DDAS by  [![doxygen](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/doxygen.png)](http://www.doxygen.org/index.html) 1.8.8
+
+---
+
+[← NSCL DDAS: File Members](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/globals_vars.md) | [Home](https://github.com/FRIBDAQ/docs/tree/main/Home.md) | [NSCL DDAS: NSCL DDAS Software documentation →](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/html/index.md)
