@@ -20,8 +20,3 @@
   - [CCalibratedFileDrivenParameterMapper](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/DDAS/r811.md) -- Unpack DDAS data to raw and calibrated params
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction> |

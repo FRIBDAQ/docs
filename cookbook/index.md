@@ -34,8 +34,3 @@
 - 4-8. [`CRingItemProcessor`::`processUnknownItemType`](https://github.com/FRIBDAQ/docs/tree/main/cookbook/x322.md#AEN565)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

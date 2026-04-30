@@ -165,8 +165,3 @@
 - 1. [evttclsh](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmref/r6840.md#AEN6941)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

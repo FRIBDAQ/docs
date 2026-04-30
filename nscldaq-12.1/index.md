@@ -1341,8 +1341,3 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/nscldaq-12.1/r114378.md#AEN114396)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | user-guide |

@@ -76,8 +76,3 @@
 - 4-1. [Adding a body header extension](https://github.com/FRIBDAQ/docs/tree/main/daqformat/r6920.md#AEN6990)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

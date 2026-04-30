@@ -71,8 +71,3 @@
 - A-1. [How transactions are usually used](https://github.com/FRIBDAQ/docs/tree/main/spectcldb/r4837.md#AEN4869)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

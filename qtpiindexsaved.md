@@ -12,8 +12,3 @@
 - 4. [CutiePie: how to customize ML algo and fitting functions](https://github.com/FRIBDAQ/docs/tree/main/c31.md)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

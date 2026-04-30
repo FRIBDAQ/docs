@@ -38,8 +38,3 @@
 - 3-3. [Reading data from a gzipped event file](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/python/r169.md#AEN254)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

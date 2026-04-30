@@ -1141,8 +1141,3 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/12.0pre/r92327.md#AEN92345)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | user-guide |

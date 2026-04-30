@@ -23,8 +23,3 @@
 - 3-3. [Binding Tree Parameters to existing parameters](https://github.com/FRIBDAQ/docs/tree/main/vmusbspectcl/c60.md#AEN143)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction and background |

@@ -36,8 +36,3 @@
 - 6-1. [The Packet Data](https://github.com/FRIBDAQ/docs/tree/main/samples/v785/c316.md#AEN328)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | PREFACE |

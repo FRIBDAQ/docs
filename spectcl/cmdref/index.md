@@ -111,8 +111,3 @@
 - 2. [Writing to a file descriptor](https://github.com/FRIBDAQ/docs/tree/main/spectcl/cmdref/r2962.md#AEN3019)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

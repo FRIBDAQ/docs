@@ -832,8 +832,3 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/10.2-106/r67080.md#AEN67088)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | introduction |

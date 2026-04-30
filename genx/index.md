@@ -68,8 +68,3 @@
 - 4-41. [TopLevel/Root/Makefile](https://github.com/FRIBDAQ/docs/tree/main/genx/x388.md#AEN575)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction and motivation. |

@@ -102,8 +102,3 @@
 - D-1. [VMUSB configuration](https://github.com/FRIBDAQ/docs/tree/main/parallel/a2325.md#AEN2352)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Quick Start |

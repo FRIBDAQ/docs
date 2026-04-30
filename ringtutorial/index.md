@@ -96,8 +96,3 @@
 - C-4. [SpecTcl pipe data source using spectcldaq.server](https://github.com/FRIBDAQ/docs/tree/main/ringtutorial/a2109.md#AEN2156)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

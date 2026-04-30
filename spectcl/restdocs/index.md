@@ -84,8 +84,3 @@
 - 2-1. [Incorporating and starting the REST server](https://github.com/FRIBDAQ/docs/tree/main/spectcl/restdocs/c35.md#AEN64)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

@@ -10,8 +10,3 @@
 - 2. [Reading ROOT-formatted DDAS data events](https://github.com/FRIBDAQ/docs/tree/main/ddascook/c24.md)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

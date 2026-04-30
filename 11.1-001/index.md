@@ -1017,8 +1017,3 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/11.1-001/r76758.md#AEN76766)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | user-guide |

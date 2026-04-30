@@ -30,8 +30,3 @@
 - A. [Configurations and GetController](https://github.com/FRIBDAQ/docs/tree/main/get/a838.md)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

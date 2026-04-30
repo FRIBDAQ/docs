@@ -108,8 +108,3 @@
 - 2. [Writing to a file descriptor](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/cmdref/r2904.md#AEN2954)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

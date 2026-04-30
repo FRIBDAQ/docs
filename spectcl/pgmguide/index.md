@@ -135,8 +135,3 @@
 - 13-2. [Scrdipting waveform objects](https://github.com/FRIBDAQ/docs/tree/main/spectcl/pgmguide/x4507.md#AEN4514)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

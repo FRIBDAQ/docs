@@ -137,8 +137,3 @@
 - 8-3. [Defining ANALYZE_FILTERS](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/UserGuide/c2986.md#AEN3034)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

@@ -992,8 +992,3 @@
 - 1. [Sample configuration file](https://github.com/FRIBDAQ/docs/tree/main/11.1/r74425.md#AEN74433)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | user-guide |

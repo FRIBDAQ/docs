@@ -72,8 +72,3 @@
 - 5-11. [SpecTcl Setup file setup.tcl](https://github.com/FRIBDAQ/docs/tree/main/samples/CAENV785/htmldocs/x1221.md#AEN1238)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Preface |

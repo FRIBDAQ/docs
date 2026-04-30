@@ -18,8 +18,3 @@
 - 2-3. [Invoking xamineroot](https://github.com/FRIBDAQ/docs/tree/main/rootxamine/x87.md#AEN133)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

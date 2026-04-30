@@ -63,8 +63,3 @@
 - A-1. [Terminating an MPITcl application](https://github.com/FRIBDAQ/docs/tree/main/specbatch/r749.md#AEN850)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

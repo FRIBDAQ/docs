@@ -36,8 +36,3 @@
 - 8-4. [Example of fitting function based on the skeleton.](https://github.com/FRIBDAQ/docs/tree/main/qtpy_old/c165.md#AEN177)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |

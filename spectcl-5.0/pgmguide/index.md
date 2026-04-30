@@ -130,8 +130,3 @@
 - 12-2. [Using the **pman** SpecTcl command](https://github.com/FRIBDAQ/docs/tree/main/spectcl-5.0/pgmguide/x4401.md#AEN4414)
 
 ---
-
-|  |  |  |
-| --- | --- | --- |
-|  |  | Next |
-|  |  | Introduction |
