@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en-US"
+><HEAD
+><TITLE
+>Ring Buffers and ringmerge</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="NSCL GET interface software"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="How this all works"
+HREF="c157.html"><LINK
+REL="PREVIOUS"
+TITLE="How this all works"
+HREF="c157.html"><LINK
+REL="NEXT"
+TITLE="Other parameters"
+HREF="x218.html"></HEAD
+><BODY
+CLASS="section"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>NSCL GET interface software</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c157.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 3. How this all works</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x218.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="AEN199"
+>3.2. Ring Buffers and ringmerge</A
+></H1
+><P
+>&#13;        Data from the CoBo does not have run start/end delimeter records.
+        It's therefore not reliably possible for the nscldata router (which
+        turns CoBo frames into ring items) to know when to emit NSCLDAQ begin
+        run and end run records.
+    </P
+><P
+>&#13;        <TT
+CLASS="filename"
+>ringmerge</TT
+> is therefore employed to produce a
+        ringbuffer that has properly formatted NSCLDAQ runs.  The idea is that
+        the readout GUI knows when to emit begin and end run items.  It
+        therefore emits these to a state transition ring, while the data router
+        emits PHYSICS_EVENT ring items to a data ring.  The ring merge
+        program glues all of this together into a single output ring.
+    </P
+><P
+>&#13;        This scheme works around the fact that ring buffers can only have one
+        producer.   The ringbuffer parameters of the get parameter dialog
+        therefore mean the following:
+    </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>URI Of Get data ring</DT
+><DD
+><P
+>&#13;                    This specifies the host and name of the ring buffer that
+                    will receive PHYSICS_EVENTS from the GET data router.  The
+                    host part of the URI must be the name of the spdaq as
+                    producers can only produce into local ringbuffers.
+                </P
+></DD
+><DT
+>URI of Begin/End run rings</DT
+><DD
+><P
+>&#13;                    This specifies the host and name of a ringbuffer into which
+                    the Readout GUI will push BEGIN_RUN and END_RUN records.
+                    The host can be remote as the ReadoutGUI can run the
+                    appropriate producer program via ssh in a remote system.
+                </P
+></DD
+><DT
+>Name of final data ring in (localhost)</DT
+><DD
+><P
+>&#13;                    The data source provider runs the ringmerge program
+                    in the host in which it is running.  Therefore, only the
+                    ringbuffer name needs to be provided not a URI.
+                </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c157.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x218.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How this all works</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c157.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Other parameters</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

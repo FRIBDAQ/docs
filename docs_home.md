@@ -103,7 +103,7 @@ The FRIB Analysis Pipeline models analysis of data from experiments
 	 physically meaningful parameters.  It provides parallel tools
 	 for stages of that pipeline.
        Documentation for the current version of this software is available
-	 at [[apipeline/index]]
+	 at [the FRIB Analysis Pipeline](https://github.com/FRIBDAQ/docs/tree/main/apipeline/index.md)
 	 pages.   Installation of versions of this software is available
 	 within the container filesystems from Buster on at
 	  /usr/opt/frib-analysis/.
@@ -121,12 +121,11 @@ The Digital Data Acquisition System (DDAS) is a lab-supported data acquisition
       FRIBDAQ.
 
 
-- [[ddas-12.1-001/index]]
-  Note that this guide is specific to FRIBDAQ 12.0 and later; for legacy DDAS, see the [[ddas-1.1/index]]
-- [[ddasformat-1.1-001/index]]
-- [[ddastoys-6.2-000/index]]
-- [[pixie16/Pixie16_UserManual.pdf]]
-
+- [User Guide](https://github.com/FRIBDAQ/docs/tree/main/ddas-12.1-001/index.md)
+  Note that this guide is specific to FRIBDAQ 12.0 and later; for legacy DDAS, see the [Legacy User's Guide](https://github.com/FRIBDAQ/docs/tree/main/ddas-1.1/index.md)
+- [DDAS Data Format in FRIBDAQ](https://github.com/FRIBDAQ/docs/tree/main/ddasformat-1.1-001/index.md)
+- [DDAS Toys Documentation](https://github.com/FRIBDAQ/docs/tree/main/ddastoys-6.2-000/index.md)
+- [XIA PIXIE16 Hardware Manual](https://github.com/FRIBDAQ/docs/tree/main/pixie16/Pixie16_UserManual.pdf)
 
 # FRIBDAQ Support for GET electronics
 
@@ -137,7 +136,7 @@ The GET (Generalized Electronics for TPCs) is a high density electronics
    GET Micro-TCA crates. See:
 
 
-### [[../get/index]]
+### [FRIBDAQ GET Documentation](https://github.com/FRIBDAQ/docs/tree/main/get/index.md)
 
 
 # Rustogrammer a new histogramer
@@ -150,4 +149,4 @@ Rustogrammer is a new histograming package written in rust and portable
       to SpecTcl to the desktop.
 
       See
-      [[rustogramer/index]]
+      [Rustogrammer Documentation](https://github.com/FRIBDAQ/docs/tree/main/rustogramer/index.md)

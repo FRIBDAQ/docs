@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en-US"
+><HEAD
+><TITLE
+>Other parameters</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="NSCL GET interface software"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="How this all works"
+HREF="c165.html"><LINK
+REL="PREVIOUS"
+TITLE="Ring Buffers and ringmerge"
+HREF="x207.html"><LINK
+REL="NEXT"
+TITLE="So how does all this work anyway?"
+HREF="x248.html"></HEAD
+><BODY
+CLASS="section"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>NSCL GET interface software</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x207.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 3. How this all works</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x248.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="AEN226"
+>3.3. Other parameters</A
+></H1
+><P
+>&#13;        There are two other parameters the data source needs to have set. These
+        arise from the need to couple event fragments from GET with fragments
+        from other data sources (GET or otherwise).  
+    </P
+><P
+>&#13;        Data from each source sent to the event builder must have
+    </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;                A unique source id that identifies which subsystem produced
+                the event.
+            </P
+></LI
+><LI
+><P
+>&#13;                A timestamp that is used to define coincideces for the sake of
+                gluing events togehter into events.
+            </P
+></LI
+></UL
+><P
+>&#13;        Note that depending on whether or not a clock source is provided to the
+        CoBo, the timestamp may or may not be substituted for with the event number.
+    </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+>Timesstamp source</DT
+><DD
+><P
+>&#13;                    Determines what the datarouter puts into the ring item's
+                    timestamp field.  Normally, the default of
+                    <TT
+CLASS="literal"
+>timestamp</TT
+> is correct, however if there
+                    is no external clock source, this can be set to
+                    <TT
+CLASS="literal"
+>trigger_number</TT
+> instead.
+                </P
+></DD
+><DT
+>Soource id:</DT
+><DD
+><P
+>&#13;                    Specifie the desired source id.
+                </P
+></DD
+></DL
+></DIV
+><P
+>&#13;        Note that these parameters have significance for the data router
+        and downstream software involved in event building and untangling data
+        from event built events.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x207.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x248.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Ring Buffers and ringmerge</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c165.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>So how does all this work anyway?</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

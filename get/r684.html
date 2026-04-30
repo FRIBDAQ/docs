@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en-US"
+><HEAD
+><TITLE
+>hitmaker</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="NSCL GET interface software"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Interface components."
+HREF="c264.html"><LINK
+REL="PREVIOUS"
+TITLE="GET Run control (old way)"
+HREF="r632.html"><LINK
+REL="NEXT"
+TITLE="GETmePlots: diagnostics GUI for GET electronics"
+HREF="c745.html"></HEAD
+><BODY
+CLASS="refentry"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>NSCL GET interface software</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="r632.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="c745.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="AEN684"
+></A
+>hitmaker</H1
+><DIV
+CLASS="refnamediv"
+><A
+NAME="AEN688"
+></A
+><H2
+>Name</H2
+>hitmaker&nbsp;--&nbsp;Create hit ring items from raw GET ring items.</DIV
+><DIV
+CLASS="refsynopsisdiv"
+><A
+NAME="AEN691"
+></A
+><H2
+>Synopsis</H2
+><P
+><B
+CLASS="command"
+>hitmaker <TT
+CLASS="replaceable"
+><I
+>inputuri outputuri</I
+></TT
+></B
+> </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN695"
+></A
+><H2
+>DESCRIPTION</H2
+><P
+>&#13;            hitmaker takes a source of raw GET ring items and converts them
+            into a stream of ring items containing hits.  For the output format,
+            see <TT
+CLASS="literal"
+>Output Ring Items</TT
+> below.
+            <CODE
+CLASS="parameter"
+>inputuri</CODE
+> specifies the source of data.  This
+            can be either a <TT
+CLASS="literal"
+>file:</TT
+> or <TT
+CLASS="literal"
+>tcp:</TT
+>
+            URI to accept data from an offline file or online ring buffer
+            respectively.
+            <CODE
+CLASS="parameter"
+>outputuri</CODE
+> specifies where the output
+            ring items will be put. Again <TT
+CLASS="literal"
+>file:</TT
+> or
+            <TT
+CLASS="literal"
+>tcp:</TT
+> URIs can be used, however if a
+            <TT
+CLASS="literal"
+>tcp:</TT
+> URI is specified, the host must be
+            <TT
+CLASS="literal"
+>localhost</TT
+>.
+        </P
+><P
+>&#13;            All non <TT
+CLASS="literal"
+>PHYSICS_EVENT</TT
+> items encounterd on the
+            input are passsed without modification to the output.
+            <TT
+CLASS="literal"
+>PHYSICS_EVENT</TT
+> items retain the same body
+            header as the input item (timestamp and source id), however
+            the output ring item body is a set of hits computed from the traces
+            that are present in the input item.  See
+            <TT
+CLASS="literal"
+>Output Ring Itesm</TT
+> below.
+        </P
+></DIV
+><DIV
+CLASS="refsect1"
+><A
+NAME="AEN711"
+></A
+><H2
+>Output Ring Items</H2
+><P
+>&#13;            The body of output <TT
+CLASS="literal"
+>PHYSICS_EVENT</TT
+> items is a leading
+            <SPAN
+CLASS="type"
+>uint32_t</SPAN
+> followed by a sequence of
+            <SPAN
+CLASS="type"
+>NSCLGET::Hit</SPAN
+> items as defined in
+            <TT
+CLASS="filename"
+>/usr/opt/NSCLGET/include/AnalyzeFrame.h</TT
+>.
+            The leading <SPAN
+CLASS="type"
+>uint32_t</SPAN
+> specifies the number of hits to
+            follow.
+        </P
+><P
+>&#13;           The <CODE
+CLASS="structfield"
+>s_cobo</CODE
+>, <CODE
+CLASS="structfield"
+>s_asad</CODE
+>,
+           <CODE
+CLASS="structfield"
+>s_aget</CODE
+> and <CODE
+CLASS="structfield"
+>s_chan</CODE
+>
+           define which global channel the hit comes from.  The following
+           items in each <SPAN
+CLASS="type"
+>NSCLGET::Hit</SPAN
+> are computed from
+           the raw traces:
+        </P
+><P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><CODE
+CLASS="structfield"
+>s_time</CODE
+></DT
+><DD
+><P
+>&#13;                        The centroid in time of the baseline subtracted
+                        trace.  See below for baseline determination.
+                    </P
+></DD
+><DT
+><CODE
+CLASS="structfield"
+>s_peak</CODE
+></DT
+><DD
+><P
+>&#13;                        The height of the trace peak.  This is found by taking
+                        the sample with the largest value, the sample on each
+                        side of it and performing a Lagrange three point
+                        interpolation.  As such the resolution of this height
+                        <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>should</I
+></SPAN
+> be better than that of the
+                        ADC.  
+                    </P
+><P
+>&#13;                        Note that this computation is performed on a baseline
+                        subtracted waveform.
+                    </P
+></DD
+><DT
+><CODE
+CLASS="structfield"
+>s_integral</CODE
+></DT
+><DD
+><P
+>&#13;                        Integration of the background subtracted waveform.
+                    </P
+></DD
+></DL
+></DIV
+><P
+>&#13;            GET pulses can sit on a considerable baseline.  The computations
+            described above are done on a trace from which the estimated baseline
+            is subtracted.  The baseline is determined by taking the minimum value
+            of the leftmost and rightmost samples in the trace.  This works
+            quite well for unsuppressed data where the full trace is present.
+            It's not so clear this is a good estimator for suppressed data
+            as the idea then is to suppress data that are at or near the
+            baseline.  Nonethelesss, without any outside information that's the
+            best we can do. 
+        </P
+><P
+>&#13;            The assumed baseline should only influence the peak value and the
+            integration.
+        </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="r632.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="c745.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>GET Run control (old way)</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c264.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>GETmePlots: diagnostics GUI for GET electronics</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
